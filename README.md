@@ -1,4 +1,4 @@
-# Flow-Data-Sources
+# Flow Data Sources
 
 This repository contains a Python script that updates daily a list of Flow-related sites, GitHub repositories, and GitHub discussions and converts them into **Markdown** files. The resulting `.md` files are intended for **AI ingestion**, **Retrieval-Augmented Generation (RAG)** pipelines, chatbots, or any other knowledge base platform that benefits from structured text.
 
