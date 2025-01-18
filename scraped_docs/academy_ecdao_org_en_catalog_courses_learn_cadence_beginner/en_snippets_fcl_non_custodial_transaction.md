@@ -1,0 +1,181 @@
+# Source: https://academy.ecdao.org/en/snippets/fcl-non-custodial-transaction
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Emerald Academy
+
+
+[![Emerald DAO Logo](/ea-logo.png)
+Emerald Academy](/en/)
+
+[* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+Connect
+
+
+
+[Snippets](/en/snippets)
+Execute a Transaction w/ FCL (Non-Custodial Wallet)
+
+# Execute a Transaction w/ FCL (Non-Custodial Wallet)
+
+
+Snippet
+
+
+
+javascript
+```
+		
+			// signer.js file
+import { sansPrefix, withPrefix } from '@onflow/fcl';
+import { SHA3 } from 'sha3';
+import elliptic from 'elliptic';
+
+const curve = new elliptic.ec('p256');
+
+const hashMessageHex = (msgHex) => {
+	const sha = new SHA3(256);
+	sha.update(Buffer.from(msgHex, 'hex'));
+	return sha.digest();
+};
+
+const signWithKey = (privateKey, msgHex) => {
+	const key = curve.keyFromPrivate(Buffer.from(privateKey, 'hex'));
+	const sig = key.sign(hashMessageHex(msgHex));
+	const n = 32;
+	const r = sig.r.toArrayLike(Buffer, 'be', n);
+	const s = sig.s.toArrayLike(Buffer, 'be', n);
+	return Buffer.concat([r, s]).toString('hex');
+};
+
+export const signer = async (account) => {
+	// We are hard coding these values here, but you can pass those values from outside as well.
+	// For example, you can create curried function:
+	// const signer = (keyId, accountAdddress, pkey) => (account) => {...}
+	// and then create multiple signers for different key indices
+
+	const keyId = 0;
+	const accountAddress = '0x5593df7d286bcdb8';
+	const pkey = '248f1ea7b4a058c39dcc97d91e6a5d0aa7afbc931428561b6efbc7bd0f5e0875';
+
+	// authorization function need to return an account
+	return {
+		...account, // bunch of defaults in here, we want to overload some of them though
+		tempId: `${accountAddress}-${keyId}`, // tempIds are more of an advanced topic, for 99% of the times where you know the address and keyId you will want it to be a unique string per that address and keyId
+		addr: sansPrefix(accountAddress), // the address of the signatory, currently it needs to be without a prefix right now
+		keyId: Number(keyId), // this is the keyId for the accounts registered key that will be used to sign, make extra sure this is a number and not a string
+
+		// This is where magic happens!
+		signingFunction: async (signable) => {
+			// Singing functions are passed a signable and need to return a composite signature
+			// signable.message is a hex string of what needs to be signed.
+			const signature = await signWithKey(pkey, signable.message);
+			return {
+				addr: withPrefix(accountAddress), // needs to be the same as the account.addr but this time with a prefix, eventually they will both be with a prefix
+				keyId: Number(keyId), // needs to be the same as account.keyId, once again make sure its a number and not a string
+				signature // this needs to be a hex string of the signature, where signable.message is the hex value that needs to be signed
+			};
+		}
+	};
+};
+		 
+	
+```
+
+javascript
+```
+		
+			import { config, mutate } from '@onflow/fcl';
+import { signer } from './signer';
+
+// NOTE: you can have different accounts be responsible
+// for the `payer`, `proposer`, and `authorizations` below.
+//
+// for example, you can combine the FCL Custodial Wallet example
+// which uses `fcl.authz` with the `signer` we've created here
+// to have both a server admin AND frontend user coordinate
+// on the transaction
+
+config({
+	'accessNode.api': 'https://rest-testnet.onflow.org'
+});
+
+async function shiftCounter(x, y) {
+	const txId = await mutate({
+		cadence: `
+    transaction(x: Int, y: Int) {
+      prepare(signer: &Account) {
+
+      }
+
+      execute {
+        // do nothing
+      }
+    }
+    `,
+		args: (arg, t) => [arg(x, t.Int), arg(y, t.Int)],
+		// the person paying for the tx
+		payer: signer,
+		// the person proposing the tx (uses their public key to send the tx)
+		proposer: signer,
+		// the person authorizing the tx (gets put as the `signer` in prepare phase)
+		authorizations: [signer],
+		limit: 999
+	});
+
+	console.log({ txId });
+}
+
+shiftCounter('12', '3');
+		 
+	
+```
+
+
+![User avatar](https://pbs.twimg.com/profile_images/1476344533172510722/5Bka7etN_400x400.jpg)
+
+Author
+
+[Max Starka](https://twitter.com/MaxStalker)
+
+
+[Run Code](https://codesandbox.io/s/fcl-non-custodial-transaction-v1-zjp3pr)
+[Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/snippets/fcl-non-custodial-transaction/readme.md)
+
+
+[![Emerald DAO Logo](/ea-logo.png)
+Emerald Academy](/en/)
+
+Built by Emerald City DAO.  
+[Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
+
+
+##### Pages
+
+[* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+##### Emerald City Tools
+
+[* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+##### 33 Labs Tools
+
+[* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+[Join the community](https://discord.gg/emerald-city-906264258189332541)
+
+
+

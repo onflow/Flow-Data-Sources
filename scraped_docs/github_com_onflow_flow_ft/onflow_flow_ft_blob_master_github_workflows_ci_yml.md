@@ -1,0 +1,33 @@
+# Source: https://github.com/onflow/flow-ft/blob/master/.github/workflows/ci.yml
+
+```
+name: CI
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.22"
+      - uses: actions/cache@v1
+        with:
+          path: ~/go/pkg/mod
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-
+      - name: Install Flow CLI
+        run: sh -ci "$(curl -fsSL https://raw.githubusercontent.com/onflow/flow-cli/master/install.sh)"
+      - name: Flow CLI Version
+        run: flow version
+      - name: Update PATH
+        run: echo "/root/.local/bin" >> $GITHUB_PATH
+      - name: Run tests
+        run: make ci
+
+```
