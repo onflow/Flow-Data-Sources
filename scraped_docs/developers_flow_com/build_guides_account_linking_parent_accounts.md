@@ -261,7 +261,7 @@ removed as a parent of the removed child.
 Note also that it's possible for a child account to remove a parent. This is necessary to give application developers
 and ultimately the owners of these child accounts the ability to revoke secondary access on owned accounts.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking/parent-accounts.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousBuilding Walletless Applications Using Child Accounts](/build/guides/account-linking/child-accounts)[NextAccount Linking With NBA Top Shot](/build/guides/account-linking-with-dapper)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking/parent-accounts.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousBuilding Walletless Applications Using Child Accounts](/build/guides/account-linking/child-accounts)[NextAccount Linking With NBA Top Shot](/build/guides/account-linking-with-dapper)
 ###### Rate this page
 
 😞😐😊
@@ -310,8 +310,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

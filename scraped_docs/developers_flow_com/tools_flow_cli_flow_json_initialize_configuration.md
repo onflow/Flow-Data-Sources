@@ -130,7 +130,7 @@ upon account creation.
 
 Specify the log level. Control how much output you want to see while command execution.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flow.json/initialize-configuration.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousBuild a Complex Transaction](/tools/flow-cli/transactions/decode-transactions)[NextConfiguration](/tools/flow-cli/flow.json/configuration)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flow.json/initialize-configuration.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousBuild a Complex Transaction](/tools/flow-cli/transactions/decode-transactions)[NextConfiguration](/tools/flow-cli/flow.json/configuration)
 ###### Rate this page
 
 😞😐😊
@@ -176,8 +176,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

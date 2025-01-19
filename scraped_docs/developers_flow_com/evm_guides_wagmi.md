@@ -111,7 +111,7 @@ Test it by updating the greeting, signing a transaction in your Metamask then wa
 
 ![Update HelloWorld Greeting](/assets/images/Update-HelloWorld-Greeting-97929700145ed51e0a6226f562fda7c0.gif)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/wagmi.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousRemix](/evm/guides/remix)[NextFoundry](/evm/guides/foundry)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/wagmi.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousRemix](/evm/guides/remix)[NextFoundry](/evm/guides/foundry)
 ###### Rate this page
 
 😞😐😊
@@ -153,8 +153,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

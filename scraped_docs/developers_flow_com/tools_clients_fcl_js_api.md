@@ -354,7 +354,7 @@ The callback sent to `subscribe` will be called with a list of `authn` services.
 
 > 📣 **These methods can be used in browsers and NodeJS.**
 
-These methods allows dapps to interact directly with the Flow blockchain via a set of functions that currently use the [Access Node API](/networks/node-ops/access-onchain-data/access-nodes/accessing-data/access-api).
+These methods allows dapps to interact directly with the Flow blockchain via a set of functions that currently use the [Access Node API](/networks/access-onchain-data).
 
 ---
 
@@ -1507,10 +1507,10 @@ Signature objects are used to represent a signature for a particular message as 
 | `keyId` | number | The index of the key to use during authorization. (Multiple keys on an account is possible). |
 | `signature` | string | a hexidecimal-encoded string representation of the generated signature |
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/api.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousFlow Client Library (FCL)](/tools/clients/fcl-js)[NextSDK Reference](/tools/clients/fcl-js/sdk-guidelines)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/api.md)Last updated on **Jan 18, 2025** by **j pimmel**[PreviousFlow Client Library (FCL)](/tools/clients/fcl-js)[NextSDK Reference](/tools/clients/fcl-js/sdk-guidelines)
 ###### Rate this page
 
-😞😐😊
+   😞😐😊
 
 * [Configuration](#configuration)
   + [Setting Configuration Values](#setting-configuration-values)
@@ -1645,8 +1645,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

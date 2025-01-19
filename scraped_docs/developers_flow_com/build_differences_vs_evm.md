@@ -130,7 +130,7 @@ If you're already familiar with blockchain development, here's a comparison betw
 * [Testing Smart Contracts](https://ethereum.org/en/developers/docs/smart-contracts/testing/)
   + [Cadence testing framework](https://cadence-lang.org/docs/testing-framework) enables native tests in Cadence.
   + [overflow](https://github.com/bjartek/overflow) for testing in Go.
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/differences-vs-evm/index.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousWhy Flow](/build/flow)[NextContract Interaction](/build/getting-started/contract-interaction)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/differences-vs-evm/index.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousWhy Flow](/build/flow)[NextContract Interaction](/build/getting-started/contract-interaction)
 ###### Rate this page
 
 😞😐😊
@@ -172,8 +172,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

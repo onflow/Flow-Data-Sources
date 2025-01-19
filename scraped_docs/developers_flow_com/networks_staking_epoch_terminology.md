@@ -31,6 +31,7 @@ Epoch and Staking Terminology | Flow Developer Portal
   + [Staking Collection Guide](/networks/staking/staking-collection)
   + [Basic Staking Guide (Deprecated)](/networks/staking/staking-guide)
 * [Node Ops](/networks/node-ops)
+* [Accessing Data](/networks/access-onchain-data)
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
@@ -175,7 +176,7 @@ they will not be included in the next epoch and will not receive any rewards.
 
 There is no maximum stake limit.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/02-epoch-terminology.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousStaking and Epochs](/networks/staking)[NextEpoch and Reward Schedule](/networks/staking/schedule)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/02-epoch-terminology.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousStaking and Epochs](/networks/staking)[NextEpoch and Reward Schedule](/networks/staking/schedule)
 ###### Rate this page
 
 😞😐😊
@@ -212,8 +213,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

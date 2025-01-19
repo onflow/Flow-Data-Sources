@@ -325,7 +325,7 @@ A user can define their own transactions or it can use already defined transacti
 
 Transactions can be submitted and obtained from the access node APIs, currently, there are two gRPC and REST APIs. You can find more information about them here:
 
-[**gRPC Transaction API**](/networks/node-ops/access-onchain-data/access-nodes/accessing-data/access-api#transactions)
+[**gRPC Transaction API**](/networks/access-onchain-data#transactions)
 
 [**REST Transaction API**](/http-api#tag/Transactions)
 
@@ -337,7 +337,7 @@ There are multiple SDKs implementing the above APIs for different languages:
 
 Find a list of all SDKs [here](/tools/clients)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/transactions.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousAccounts](/build/basics/accounts)[NextScripts](/build/basics/scripts)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/transactions.md)Last updated on **Jan 18, 2025** by **j pimmel**[PreviousAccounts](/build/basics/accounts)[NextScripts](/build/basics/scripts)
 ###### Rate this page
 
 😞😐😊
@@ -401,8 +401,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

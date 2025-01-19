@@ -16,7 +16,9 @@ Slashing Conditions | Flow Developer Portal
 * [Flow's Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
-  + [Accessing On-chain Data](/networks/node-ops/access-onchain-data/access-nodes/access-node-setup)
+  + [Access Nodes](/networks/node-ops/access-nodes/access-node-setup)
+  + [EVM Gateway Setup](/networks/node-ops/evm-gateway/evm-gateway-setup)
+  + [Light Nodes](/networks/node-ops/light-nodes/observer-node)
   + [Participating in the Network](/networks/node-ops/node-operation/faq)
     - [Operator FAQ](/networks/node-ops/node-operation/faq)
     - [Byzantine Attack Response](/networks/node-ops/node-operation/byzantine-node-attack-response)
@@ -38,6 +40,7 @@ Slashing Conditions | Flow Developer Portal
     - [Height coordinated upgrade](/networks/node-ops/node-operation/hcu)
     - [Protocol State Bootstrapping](/networks/node-ops/node-operation/protocol-state-bootstrap)
     - [Managing disk space](/networks/node-ops/node-operation/reclaim-disk)
+* [Accessing Data](/networks/access-onchain-data)
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
@@ -363,7 +366,7 @@ or if the SPoCK’s signature doesn't match the public key of the Verification N
 \*\*Adjudication: \*\*Consensus nodes evaluate the content and signatures of the result approval.
 If the witness turns out to be valid, the Verification Node who signed that result approval be slashed.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/slashing.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousUpcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)[NextNode Providers](/networks/node-ops/node-operation/node-providers)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/slashing.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousUpcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)[NextNode Providers](/networks/node-ops/node-operation/node-providers)
 ###### Rate this page
 
 😞😐😊
@@ -411,8 +414,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

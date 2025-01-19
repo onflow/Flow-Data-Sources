@@ -176,7 +176,7 @@ We can check the balance of the new account:
 
 The deployer should also own less tokens now:
 
- `_10cast balance \_10 --rpc-url https://testnet.evm.nodes.onflow.org \_10 --erc20 $DEPLOYED_MYTOKEN_ADDRESS \_10 $DEPLOYER_ADDRESS`[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/foundry.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousViem & Wagmi](/evm/guides/wagmi)[NextVRF (Randomness) in Solidity](/evm/guides/vrf)
+ `_10cast balance \_10 --rpc-url https://testnet.evm.nodes.onflow.org \_10 --erc20 $DEPLOYED_MYTOKEN_ADDRESS \_10 $DEPLOYER_ADDRESS`[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/foundry.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousViem & Wagmi](/evm/guides/wagmi)[NextVRF (Randomness) in Solidity](/evm/guides/vrf)
 ###### Rate this page
 
 😞😐😊
@@ -223,8 +223,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

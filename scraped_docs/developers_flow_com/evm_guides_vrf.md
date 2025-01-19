@@ -180,7 +180,7 @@ implentation](https://github.com/onflow/random-coin-toss) using the VRF.
 
 *This documentation was contributed by [Noah Naizir](https://x.com/noah_overflow), a community developer.*
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/vrf.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousFoundry](/evm/guides/foundry)[NextEthers](/evm/clients/ethers)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/vrf.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousFoundry](/evm/guides/foundry)[NextEthers](/evm/clients/ethers)
 ###### Rate this page
 
 😞😐😊
@@ -230,8 +230,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

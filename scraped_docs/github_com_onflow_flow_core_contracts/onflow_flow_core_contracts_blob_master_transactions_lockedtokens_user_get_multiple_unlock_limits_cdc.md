@@ -1,0 +1,23 @@
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/lockedTokens/user/get_multiple_unlock_limits.cdc
+
+```
+import LockedTokens from "LockedTokens"
+
+access(all) fun main(accounts: [Address]): [UFix64] {
+
+    var limits: [UFix64] = []
+
+    for account in accounts {
+        let lockedAccountInfoRef = getAccount(account)
+            .capabilities.borrow<&LockedTokens.TokenHolder>(
+                LockedTokens.LockedAccountInfoPublicPath
+            )
+            ?? panic("Could not borrow a reference to public LockedAccountInfo")
+
+        limits.append(lockedAccountInfoRef.getUnlockLimit())
+    }
+
+    return limits
+}
+
+```

@@ -50,11 +50,11 @@ Flowty is a one-stop shop for all of your NFT needs on the Flow blockchain. From
 
 Flowser combines all the tools for local development and gives you a clear UI to inspect the local Flow network.](https://flowser.dev/)[## Overflowbjartek
 
-Overflow is a Go-based DSL for testing and running interactive stories](https://github.com/bjartek/overflow)[## Flowdiver historical APIgithub.com/findonflow
+Overflow is a Go-based DSL for testing and running interactive stories](https://github.com/bjartek/overflow)[## Flow historical APIgithub.com/findonflow
 
 It is an Api to allow users to fetch historical data of Flow blockchain from the findlabs database.](https://findonflow.github.io/findlabs-api/)[## FlooksDoodles
 
-React hooks to interact with Flow blockchain, making development easy and intuitive. It's wagmi for Flow!](https://www.flooks.io/)[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/projects.mdx)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousBridges](/ecosystem/bridges)[NextFaucets](/ecosystem/faucets)Documentation
+React hooks to interact with Flow blockchain, making development easy and intuitive. It's wagmi for Flow!](https://www.flooks.io/)[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/projects.mdx)Last updated on **Jan 18, 2025** by **j pimmel**[PreviousBridges](/ecosystem/bridges)[NextFaucets](/ecosystem/faucets)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)
@@ -85,8 +85,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

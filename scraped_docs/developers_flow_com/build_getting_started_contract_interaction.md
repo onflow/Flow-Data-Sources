@@ -110,7 +110,7 @@ By understanding the `Counter` contract and how to interact with it, you're buil
 
 Proceed to the next tutorial to learn how to create your own contracts and deploy them live using the Flow CLI.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/contract-interaction.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousDifferences vs. EVM](/build/differences-vs-evm)[NextLocal Development](/build/getting-started/flow-cli)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/contract-interaction.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousDifferences vs. EVM](/build/differences-vs-evm)[NextLocal Development](/build/getting-started/flow-cli)
 ###### Rate this page
 
 😞😐😊
@@ -153,8 +153,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

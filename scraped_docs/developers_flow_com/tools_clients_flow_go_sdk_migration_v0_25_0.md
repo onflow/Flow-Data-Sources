@@ -76,7 +76,7 @@ network specific client as shown in the advanced example:
 
 *Version 0.25.0:*
 
- `_10// initialize a grpc network specific client_10flowClient, err := NewBaseClient(_10 grpc.EmulatorHost, _10 grpc.WithTransportCredentials(insecure.NewCredentials()),_10)_10latestBlock, err := flowClient.GetLatestBlock(ctx, true, MaxCallSendMsgSize(100))`[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/flow-go-sdk/migration-v0.25.0.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousFlow Go SDK](/tools/clients/flow-go-sdk)[NextFlow Dev Wallet](/tools/flow-dev-wallet)
+ `_10// initialize a grpc network specific client_10flowClient, err := NewBaseClient(_10 grpc.EmulatorHost, _10 grpc.WithTransportCredentials(insecure.NewCredentials()),_10)_10latestBlock, err := flowClient.GetLatestBlock(ctx, true, MaxCallSendMsgSize(100))`[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/flow-go-sdk/migration-v0.25.0.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousFlow Go SDK](/tools/clients/flow-go-sdk)[NextFlow Dev Wallet](/tools/flow-dev-wallet)
 ###### Rate this page
 
 😞😐😊
@@ -113,8 +113,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

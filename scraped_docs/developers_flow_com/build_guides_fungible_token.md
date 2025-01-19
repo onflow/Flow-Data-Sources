@@ -446,7 +446,7 @@ The transfer transaction also has a [generic version](https://github.com/onflow/
 * [View a repo of this example code](https://github.com/chasefleming/FooToken)
 * [Review an `ExampleToken` contract implementing all of the remaining FungibleToken interface](https://github.com/onflow/flow-ft/blob/master/contracts/ExampleToken.cdc)
 * [View the Flow Token Standard](https://github.com/onflow/flow-ft/blob/master/contracts/FungibleToken.cdc)
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/fungible-token.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousScaling Transactions from a Single Account](/build/advanced-concepts/scaling)[NextCreate an NFT Project](/build/guides/nft)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/fungible-token.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousScaling Transactions from a Single Account](/build/advanced-concepts/scaling)[NextCreate an NFT Project](/build/guides/nft)
 ###### Rate this page
 
 😞😐😊
@@ -499,8 +499,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

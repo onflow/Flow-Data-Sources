@@ -16,7 +16,9 @@ Database Encryption for Existing Node Operators | Flow Developer Portal
 * [Flow's Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
-  + [Accessing On-chain Data](/networks/node-ops/access-onchain-data/access-nodes/access-node-setup)
+  + [Access Nodes](/networks/node-ops/access-nodes/access-node-setup)
+  + [EVM Gateway Setup](/networks/node-ops/evm-gateway/evm-gateway-setup)
+  + [Light Nodes](/networks/node-ops/light-nodes/observer-node)
   + [Participating in the Network](/networks/node-ops/node-operation/faq)
     - [Operator FAQ](/networks/node-ops/node-operation/faq)
     - [Byzantine Attack Response](/networks/node-ops/node-operation/byzantine-node-attack-response)
@@ -38,6 +40,7 @@ Database Encryption for Existing Node Operators | Flow Developer Portal
     - [Height coordinated upgrade](/networks/node-ops/node-operation/hcu)
     - [Protocol State Bootstrapping](/networks/node-ops/node-operation/protocol-state-bootstrap)
     - [Managing disk space](/networks/node-ops/node-operation/reclaim-disk)
+* [Accessing Data](/networks/access-onchain-data)
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
@@ -79,7 +82,7 @@ The bootstrap directory passed to the `-o` flag must be the same bootstrap direc
 The default location is `/var/flow/bootstrap`, but double-check your setup before continuing.
 
 
-GenerateEncryptionKey `_15$./boot-tools/bootstrap db-encryption-key -o ./bootstrap_15<nil> INF generated db encryption key_15<nil> INF wrote file bootstrap/private-root-information/private-node-info_ab6e0b15837de7e5261777cb65665b318cf3f94492dde27c1ea13830e989bbf9secretsdb-key_15_15$tree ./bootstrap/_15./bootstrap_15├── private-root-information_15│ └── private-node-info_ab6e0b15837de7e5261777cb65665b318cf3f94492dde27c1ea13830e989bbf9_15│ ├── node-info.priv.json_15│ └── secretsdb-key_15└── public-root-information_15 ├── node-id_15 └── node-info.pub.ab6e0b15837de7e5261777cb65665b318cf3f94492dde27c1ea13830e989bbf9.json_15_153 directories, 4 files`[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/db-encryption-existing-operator.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousByzantine Attack Response](/networks/node-ops/node-operation/byzantine-node-attack-response)[NextGenesis Bootstrapping](/networks/node-ops/node-operation/guides/genesis-bootstrap)
+GenerateEncryptionKey `_15$./boot-tools/bootstrap db-encryption-key -o ./bootstrap_15<nil> INF generated db encryption key_15<nil> INF wrote file bootstrap/private-root-information/private-node-info_ab6e0b15837de7e5261777cb65665b318cf3f94492dde27c1ea13830e989bbf9secretsdb-key_15_15$tree ./bootstrap/_15./bootstrap_15├── private-root-information_15│ └── private-node-info_ab6e0b15837de7e5261777cb65665b318cf3f94492dde27c1ea13830e989bbf9_15│ ├── node-info.priv.json_15│ └── secretsdb-key_15└── public-root-information_15 ├── node-id_15 └── node-info.pub.ab6e0b15837de7e5261777cb65665b318cf3f94492dde27c1ea13830e989bbf9.json_15_153 directories, 4 files`[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/db-encryption-existing-operator.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousByzantine Attack Response](/networks/node-ops/node-operation/byzantine-node-attack-response)[NextGenesis Bootstrapping](/networks/node-ops/node-operation/guides/genesis-bootstrap)
 ###### Rate this page
 
 😞😐😊
@@ -117,8 +120,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

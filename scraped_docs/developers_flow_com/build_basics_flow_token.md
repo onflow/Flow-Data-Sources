@@ -125,7 +125,7 @@ Transactions are submitted using a Flow SDK via the Access API.
 
 On Flow, a transaction is identified by its hash - the hash that exists as soon as that transaction is signed and submitted to an Access or Collection node.
 Results of transactions can be queried by transaction hash through the Access API.
-A user can check the status of a transaction at any time via the [Flow Block Explorer](https://www.flowdiver.io/).
+A user can check the status of a transaction at any time via the [Flow Block Explorer](https://flowscan.io/).
 
 To expose these results natively in your app, you can use a Flow SDK to fetch transaction results,
 [for example using the Flow Go SDK](https://github.com/onflow/flow-go-sdk#querying-transaction-results).
@@ -142,7 +142,7 @@ The Flow SDKs also allow polling for events using the Flow Access API,
 
 To get started building on Flow, please see the [Flow App Quickstart](/build/getting-started/fcl-quickstart)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/flow-token.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousEvents](/build/basics/events)[NextSmart Contracts ↙](/build/basics/smart-contracts)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/flow-token.md)Last updated on **Jan 18, 2025** by **j pimmel**[PreviousEvents](/build/basics/events)[NextSmart Contracts ↙](/build/basics/smart-contracts)
 ###### Rate this page
 
 😞😐😊
@@ -190,8 +190,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

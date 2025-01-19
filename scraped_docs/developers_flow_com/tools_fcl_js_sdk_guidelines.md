@@ -339,7 +339,7 @@ Flow supports great flexibility when it comes to transaction signing, we can def
 
 After a transaction has been **built** and **signed**, it can be sent to the Flow blockchain where it will be executed. If sending was successful you can then [retrieve the transaction result](#get-transactions).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/sdk-guidelines.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousFCL Reference](/tools/clients/fcl-js/api)[NextAuthentication](/tools/clients/fcl-js/authentication)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/sdk-guidelines.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousFCL Reference](/tools/clients/fcl-js/api)[NextAuthentication](/tools/clients/fcl-js/authentication)
 ###### Rate this page
 
 😞😐😊
@@ -395,8 +395,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

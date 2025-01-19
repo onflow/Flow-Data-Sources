@@ -169,7 +169,7 @@ Discuss FCL with the community on the [forum](https://forum.onflow.org/c/develop
 
 Join the Flow community on [Discord](https://discord.gg/flow) to keep up to date and to talk to the team.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/index.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousClients](/tools/clients)[NextFCL Reference](/tools/clients/fcl-js/api)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/index.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousClients](/tools/clients)[NextFCL Reference](/tools/clients/fcl-js/api)
 ###### Rate this page
 
 😞😐😊
@@ -215,8 +215,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

@@ -31,6 +31,7 @@ Quorum Certificate and Distributed Key Generation | Flow Developer Portal
   + [Staking Collection Guide](/networks/staking/staking-collection)
   + [Basic Staking Guide (Deprecated)](/networks/staking/staking-guide)
 * [Node Ops](/networks/node-ops)
+* [Accessing Data](/networks/access-onchain-data)
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
@@ -180,7 +181,7 @@ transaction with the following arguments.
 See the [QC and DKG events and scripts document](/networks/staking/qc-dkg-scripts-events) for information
 about the events that can be emitted by these contracts and scripts you can use to query information.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/09-qc-dkg.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousHow to Query Staking rewards](/networks/staking/staking-rewards)[NextQC/DKG Scripts and Events](/networks/staking/qc-dkg-scripts-events)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/09-qc-dkg.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousHow to Query Staking rewards](/networks/staking/staking-rewards)[NextQC/DKG Scripts and Events](/networks/staking/qc-dkg-scripts-events)
 ###### Rate this page
 
 😞😐😊
@@ -228,8 +229,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

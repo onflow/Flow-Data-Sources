@@ -16,7 +16,9 @@ Node Economics | Flow Developer Portal
 * [Flow's Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
-  + [Accessing On-chain Data](/networks/node-ops/access-onchain-data/access-nodes/access-node-setup)
+  + [Access Nodes](/networks/node-ops/access-nodes/access-node-setup)
+  + [EVM Gateway Setup](/networks/node-ops/evm-gateway/evm-gateway-setup)
+  + [Light Nodes](/networks/node-ops/light-nodes/observer-node)
   + [Participating in the Network](/networks/node-ops/node-operation/faq)
     - [Operator FAQ](/networks/node-ops/node-operation/faq)
     - [Byzantine Attack Response](/networks/node-ops/node-operation/byzantine-node-attack-response)
@@ -38,6 +40,7 @@ Node Economics | Flow Developer Portal
     - [Height coordinated upgrade](/networks/node-ops/node-operation/hcu)
     - [Protocol State Bootstrapping](/networks/node-ops/node-operation/protocol-state-bootstrap)
     - [Managing disk space](/networks/node-ops/node-operation/reclaim-disk)
+* [Accessing Data](/networks/access-onchain-data)
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
@@ -56,7 +59,7 @@ warning
 
 This illustration is strictly to serve as an example. Actual numbers will vary based on several factors.
 
-For real-time numbers, please refer to the [block explorer](https://www.flowdiver.io/tokenomics).
+For real-time numbers, please refer to the [block explorer](https://www.flowscan.io/tokenomics).
 
 | # | Parameter | Value | Explanation |
 | --- | --- | --- | --- |
@@ -74,7 +77,7 @@ For real-time numbers, please refer to the [block explorer](https://www.flowdive
 
 1. Each year, 5% of the total Flow supply is distributed as rewards to incentivize validators and delegators. While the total rewards for each epoch are fixed, the rewards for individual stakers vary depending on the amount they stake and the total funds delegated to their node.
 2. All Flow node types follow the same economic principles, with the only difference being their minimum staking requirements. For details on the minimum stakes needed for each node type, see [here](https://flow.com/flow-tokenomics/technical-overview).
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-economics.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousNode Bootstrapping](/networks/node-ops/node-operation/node-bootstrap)[NextNode Migration](/networks/node-ops/node-operation/node-migration)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-economics.md)Last updated on **Jan 18, 2025** by **j pimmel**[PreviousNode Bootstrapping](/networks/node-ops/node-operation/node-bootstrap)[NextNode Migration](/networks/node-ops/node-operation/node-migration)
 ###### Rate this page
 
 😞😐😊
@@ -112,8 +115,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

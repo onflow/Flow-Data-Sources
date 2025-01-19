@@ -104,7 +104,7 @@ Prefer non-public access to a mutable state. That state may also be nested. For 
 
 Do not use the `access(all)` modifier on fields and functions unless necessary. Prefer `access(self)`, `acccess(Entitlement)`, or `access(contract)` and `access(account)` when other types in the contract or account need to have access.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/best-practices/security-best-practices.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousTesting Your Contracts](/build/smart-contracts/testing)[NextContract Upgrades with Incompatible Changes](/build/smart-contracts/best-practices/contract-upgrades)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/best-practices/security-best-practices.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousTesting Your Contracts](/build/smart-contracts/testing)[NextContract Upgrades with Incompatible Changes](/build/smart-contracts/best-practices/contract-upgrades)
 ###### Rate this page
 
 😞😐😊
@@ -147,8 +147,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

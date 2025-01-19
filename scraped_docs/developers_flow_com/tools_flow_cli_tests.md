@@ -191,7 +191,7 @@ This command will run only the test function named `testSumOfTwo` across all tes
 
 To dive deeper into testing the functionality of your Cadence scripts and contracts, explore the [Cadence Testing Framework](https://cadence-lang.org/docs/testing-framework) documentation.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/tests.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousDependency Manager](/tools/flow-cli/dependency-manager)[NextCadence Linter](/tools/flow-cli/lint)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/tests.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousDependency Manager](/tools/flow-cli/dependency-manager)[NextCadence Linter](/tools/flow-cli/lint)
 ###### Rate this page
 
 😞😐😊
@@ -238,8 +238,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

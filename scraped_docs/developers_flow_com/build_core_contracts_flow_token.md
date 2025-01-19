@@ -180,7 +180,7 @@ Event that is emitted when a new burner Resource gets created.
 
 To learn more about staking events, read [staking/events/](/networks/staking/staking-scripts-events)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/03-flow-token.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousFungible Token](/build/core-contracts/fungible-token)[NextService Account](/build/core-contracts/service-account)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/03-flow-token.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousFungible Token](/build/core-contracts/fungible-token)[NextService Account](/build/core-contracts/service-account)
 ###### Rate this page
 
 😞😐😊
@@ -225,8 +225,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

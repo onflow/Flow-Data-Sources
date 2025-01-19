@@ -201,7 +201,7 @@ Get familiar with the [Cadence anti-patterns](https://cadence-lang.org/docs/anti
   + [hybrid-custody](https://github.com/onflow/hybrid-custody/tree/main/test),
   + [flow-nft](https://github.com/onflow/flow-nft/tree/master/tests),
   + [flow-ft](https://github.com/onflow/flow-ft/tree/master/tests).
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/testing.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousDeploying Contracts](/build/smart-contracts/deploying)[NextSecurity Best Practices](/build/smart-contracts/best-practices/security-best-practices)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/testing.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousDeploying Contracts](/build/smart-contracts/deploying)[NextSecurity Best Practices](/build/smart-contracts/best-practices/security-best-practices)
 ###### Rate this page
 
 😞😐😊
@@ -252,8 +252,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

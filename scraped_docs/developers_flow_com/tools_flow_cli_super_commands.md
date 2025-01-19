@@ -104,7 +104,7 @@ To learn more about next steps following the initial setup, check out the follow
 
 * [Depedency Manager](/tools/flow-cli/dependency-manager): Lets you install and manage your contract dependencies with CLI commands.
 * [Manage Configuration](/tools/flow-cli/flow.json/manage-configuration): Learn how to manage your project configuration file.
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/super-commands.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousInstall Instructions](/tools/flow-cli/install)[NextGet an Account](/tools/flow-cli/accounts/get-accounts)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/super-commands.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousInstall Instructions](/tools/flow-cli/install)[NextGet an Account](/tools/flow-cli/accounts/get-accounts)
 ###### Rate this page
 
 😞😐😊
@@ -145,8 +145,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

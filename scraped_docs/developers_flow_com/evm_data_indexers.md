@@ -60,7 +60,7 @@ To integrate Moralis into your project, begin by [creating an account](https://m
 
 To begin using Alchemy, developers can [sign up for an account](https://www.alchemy.com/) on the Alchemy website. The platform offers extensive [documentation](https://docs.alchemy.com/) including API references, tutorials, and guides to help developers integrate Alchemy into their projects.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/data-indexers.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousCross-chain Bridges ↙](/evm/cross-chain-bridges)[NextFaucets ↙](/evm/faucets)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/data-indexers.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousCross-chain Bridges ↙](/evm/cross-chain-bridges)[NextFaucets ↙](/evm/faucets)
 ###### Rate this page
 
 😞😐😊
@@ -101,8 +101,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

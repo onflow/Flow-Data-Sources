@@ -43,7 +43,7 @@ Follow [these steps](/tools/flow-cli/install) to install the Flow CLI on macOS, 
 To learn more about using the Emulator,
 have a look at [the README of the repository](https://github.com/onflow/flow-emulator/#starting-the-server).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/emulator/index.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousData Collection](/tools/flow-cli/data-collection)[NextClients](/tools/clients)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/emulator/index.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousData Collection](/tools/flow-cli/data-collection)[NextClients](/tools/clients)
 ###### Rate this page
 
 😞😐😊
@@ -82,8 +82,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

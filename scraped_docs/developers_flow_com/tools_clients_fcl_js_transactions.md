@@ -75,7 +75,7 @@ These authorizations are important as you can only access/modify an accounts sto
 
 To learn more about `mutate`, check out the [API documentation](/tools/clients/fcl-js/api#mutate).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/transactions.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousScripts](/tools/clients/fcl-js/scripts)[NextSigning and Verifying Arbitrary Data](/tools/clients/fcl-js/user-signatures)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/transactions.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousScripts](/tools/clients/fcl-js/scripts)[NextSigning and Verifying Arbitrary Data](/tools/clients/fcl-js/user-signatures)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)
@@ -106,8 +106,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

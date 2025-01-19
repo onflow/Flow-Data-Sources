@@ -16,7 +16,9 @@ Node Roles | Flow Developer Portal
 * [Flow's Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
-  + [Accessing On-chain Data](/networks/node-ops/access-onchain-data/access-nodes/access-node-setup)
+  + [Access Nodes](/networks/node-ops/access-nodes/access-node-setup)
+  + [EVM Gateway Setup](/networks/node-ops/evm-gateway/evm-gateway-setup)
+  + [Light Nodes](/networks/node-ops/light-nodes/observer-node)
   + [Participating in the Network](/networks/node-ops/node-operation/faq)
     - [Operator FAQ](/networks/node-ops/node-operation/faq)
     - [Byzantine Attack Response](/networks/node-ops/node-operation/byzantine-node-attack-response)
@@ -38,6 +40,7 @@ Node Roles | Flow Developer Portal
     - [Height coordinated upgrade](/networks/node-ops/node-operation/hcu)
     - [Protocol State Bootstrapping](/networks/node-ops/node-operation/protocol-state-bootstrap)
     - [Managing disk space](/networks/node-ops/node-operation/reclaim-disk)
+* [Accessing Data](/networks/access-onchain-data)
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
@@ -97,7 +100,7 @@ Access nodes are required to stake 100 FLOW to be a confirmed node operator. How
 
 An observer node provides locally accessible, continuously updated, verified copy of the block data. It serves the Access API but unlike an access node, an observer node does not need to be staked, and **anyone** can run it without being added to the approved list of nodes.
 
-[Get started running an observer node](/networks/node-ops/access-onchain-data/light-nodes/observer-node)
+[Get started running an observer node](/networks/node-ops/light-nodes/observer-node)
 
 ## 
 
@@ -112,7 +115,7 @@ Here is a comparison of the different node roles,
 | Access | Yes | No | No 🆕 |
 | Observer | No | No | No |
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-roles.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousNode Provisioning](/networks/node-ops/node-operation/node-provisioning)[NextNode Setup](/networks/node-ops/node-operation/node-setup)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-roles.md)Last updated on **Jan 18, 2025** by **j pimmel**[PreviousNode Provisioning](/networks/node-ops/node-operation/node-provisioning)[NextNode Setup](/networks/node-ops/node-operation/node-setup)
 ###### Rate this page
 
 😞😐😊
@@ -154,8 +157,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

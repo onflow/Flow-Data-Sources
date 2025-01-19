@@ -218,7 +218,7 @@ Register Provider with FCL Handshake and implement 5 Endpoints.
 
 ![diagram showing current fcl authn and authz flow](/assets/images/fcl-ars-auth-v3.2-f2b418b21efa5f88072c3a235ec5a48b.png)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/custodial.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousAuthorization Function](/tools/wallet-provider-spec/authorization-function)[NextProvable Authn](/tools/wallet-provider-spec/provable-authn)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/custodial.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousAuthorization Function](/tools/wallet-provider-spec/authorization-function)[NextProvable Authn](/tools/wallet-provider-spec/provable-authn)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)
@@ -249,8 +249,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

@@ -136,7 +136,7 @@ several configuration files.
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/keys/generate-keys.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousFunding a Testnet Account](/tools/flow-cli/accounts/account-fund)[NextDecode Public Keys](/tools/flow-cli/keys/decode-keys)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/keys/generate-keys.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousFunding a Testnet Account](/tools/flow-cli/accounts/account-fund)[NextDecode Public Keys](/tools/flow-cli/keys/decode-keys)
 ###### Rate this page
 
 😞😐😊
@@ -183,8 +183,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

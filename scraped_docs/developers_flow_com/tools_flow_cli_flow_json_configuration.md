@@ -163,7 +163,7 @@ flow.json.
 
 To customize emulator values, add emulator section like the example below:
 
- `_10..._10_10"emulators": {_10 "custom-emulator": {_10 "port": 3600,_10 "serviceAccount": "emulator-account"_10 }_10}_10_10...`[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flow.json/configuration.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousInitialize Configuration](/tools/flow-cli/flow.json/initialize-configuration)[NextManage Configuration](/tools/flow-cli/flow.json/manage-configuration)
+ `_10..._10_10"emulators": {_10 "custom-emulator": {_10 "port": 3600,_10 "serviceAccount": "emulator-account"_10 }_10}_10_10...`[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flow.json/configuration.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousInitialize Configuration](/tools/flow-cli/flow.json/initialize-configuration)[NextManage Configuration](/tools/flow-cli/flow.json/manage-configuration)
 ###### Rate this page
 
 😞😐😊
@@ -206,8 +206,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

@@ -31,6 +31,7 @@ Machine Account | Flow Developer Portal
   + [Staking Collection Guide](/networks/staking/staking-collection)
   + [Basic Staking Guide (Deprecated)](/networks/staking/staking-guide)
 * [Node Ops](/networks/node-ops)
+* [Accessing Data](/networks/access-onchain-data)
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
@@ -78,7 +79,7 @@ We recommend a minimum balance at all times of 0.002 FLOW for collection nodes a
 
 A node operator can easily withdraw their FLOW from their machine account if they decide they don't need them there any more.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/11-machine-account.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousQC/DKG Scripts and Events](/networks/staking/qc-dkg-scripts-events)[NextFAQs](/networks/staking/faq)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/11-machine-account.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousQC/DKG Scripts and Events](/networks/staking/qc-dkg-scripts-events)[NextFAQs](/networks/staking/faq)
 ###### Rate this page
 
 😞😐😊
@@ -115,8 +116,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

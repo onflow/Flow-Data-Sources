@@ -89,7 +89,7 @@ Source: [NodeVersionBeacon.cdc](https://github.com/onflow/flow-core-contracts/bl
 
 Important events from `NodeVersionBeacon` are:
 
- `_13/// Event emitted when the version table is updated._13/// It contains the current version and all the upcoming versions_13/// sorted by block height._13/// The sequence increases by one each time an event is emitted._13/// It can be used to verify no events were missed._13access(all) event VersionBeacon(_13 versionBoundaries: [VersionBoundary],_13 sequence: UInt64_13)_13_13/// Event emitted any time the version boundary freeze period is updated._13/// freeze period is measured in blocks (from the current block)._13access(all) event NodeVersionBoundaryFreezePeriodChanged(freezePeriod: UInt64)`[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/04-service-account.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousFlow Token](/build/core-contracts/flow-token)[NextFlow Fees](/build/core-contracts/flow-fees)
+ `_13/// Event emitted when the version table is updated._13/// It contains the current version and all the upcoming versions_13/// sorted by block height._13/// The sequence increases by one each time an event is emitted._13/// It can be used to verify no events were missed._13access(all) event VersionBeacon(_13 versionBoundaries: [VersionBoundary],_13 sequence: UInt64_13)_13_13/// Event emitted any time the version boundary freeze period is updated._13/// freeze period is measured in blocks (from the current block)._13access(all) event NodeVersionBoundaryFreezePeriodChanged(freezePeriod: UInt64)`[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/04-service-account.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousFlow Token](/build/core-contracts/flow-token)[NextFlow Fees](/build/core-contracts/flow-fees)
 ###### Rate this page
 
 😞😐😊
@@ -128,8 +128,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

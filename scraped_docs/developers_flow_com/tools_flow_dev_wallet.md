@@ -116,7 +116,7 @@ Additionally, consider exploring these resources:
 * [Guide to Creating a Fungible Token on Flow](/build/guides/fungible-token)
 * [Tutorial on Fungible Tokens](https://cadence-lang.org/docs/tutorial/fungible-tokens)
 * [Faucets](/ecosystem/faucets)
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-dev-wallet/index.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousMigration Guide v0.25.0](/tools/clients/flow-go-sdk/migration-v0.25.0)[NextCadence VS Code Extension](/tools/vscode-extension)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-dev-wallet/index.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousMigration Guide v0.25.0](/tools/clients/flow-go-sdk/migration-v0.25.0)[NextCadence VS Code Extension](/tools/vscode-extension)
 ###### Rate this page
 
 😞😐😊
@@ -163,8 +163,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

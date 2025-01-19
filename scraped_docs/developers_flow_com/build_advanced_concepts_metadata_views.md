@@ -403,7 +403,7 @@ It provides an introduction to integrating these standards into your NFT contrac
 * See the [API reference for a complete list of Metadata functions](https://developers.flow.com/build/core-contracts/flow-nft/MetdataViews/MetadataViews)
 * Check out [an Example NFT project](https://github.com/onflow/flow-nft/blob/master/contracts/ExampleNFT.cdc) implementing `MetadataViews`
 * Read [the NFT Guide](/build/guides/nft) for an introduction to implementation
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/metadata-views.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousFLIX (Flow Interaction Templates)](/build/advanced-concepts/flix)[NextVRF (Randomness) in Cadence](/build/advanced-concepts/randomness)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/metadata-views.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousFLIX (Flow Interaction Templates)](/build/advanced-concepts/flix)[NextVRF (Randomness) in Cadence](/build/advanced-concepts/randomness)
 ###### Rate this page
 
 😞😐😊
@@ -458,8 +458,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

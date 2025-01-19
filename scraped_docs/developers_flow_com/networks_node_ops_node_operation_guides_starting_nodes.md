@@ -16,7 +16,9 @@ Starting Your Nodes | Flow Developer Portal
 * [Flow's Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
-  + [Accessing On-chain Data](/networks/node-ops/access-onchain-data/access-nodes/access-node-setup)
+  + [Access Nodes](/networks/node-ops/access-nodes/access-node-setup)
+  + [EVM Gateway Setup](/networks/node-ops/evm-gateway/evm-gateway-setup)
+  + [Light Nodes](/networks/node-ops/light-nodes/observer-node)
   + [Participating in the Network](/networks/node-ops/node-operation/faq)
     - [Operator FAQ](/networks/node-ops/node-operation/faq)
     - [Byzantine Attack Response](/networks/node-ops/node-operation/byzantine-node-attack-response)
@@ -41,6 +43,7 @@ Starting Your Nodes | Flow Developer Portal
     - [Height coordinated upgrade](/networks/node-ops/node-operation/hcu)
     - [Protocol State Bootstrapping](/networks/node-ops/node-operation/protocol-state-bootstrap)
     - [Managing disk space](/networks/node-ops/node-operation/reclaim-disk)
+* [Accessing Data](/networks/access-onchain-data)
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
@@ -94,7 +97,7 @@ If you don't have have systemd on your system, or prefer not to use systemd, you
 
 All networking layer settings are initialized to default values from the [config/default-config.yml](https://github.com/onflow/flow-go/blob/master/config/default-config.yml) file when the Flow node starts up. Each attribute in this YAML file matches a flag name, allowing you to override the default setting by specifying the corresponding flag in the `docker run` command. For instance, to change the `networking-connection-pruning` setting, use its matching flag name (`networking-connection-pruning`) and desired value in the `docker run` command.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/guides/starting-nodes.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousSpork Practice](/networks/node-ops/node-operation/guides/spork-practice)[NextMachine Accounts for Existing Node Operators](/networks/node-ops/node-operation/machine-existing-operator)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/guides/starting-nodes.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousSpork Practice](/networks/node-ops/node-operation/guides/spork-practice)[NextMachine Accounts for Existing Node Operators](/networks/node-ops/node-operation/machine-existing-operator)
 ###### Rate this page
 
 😞😐😊
@@ -138,8 +141,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

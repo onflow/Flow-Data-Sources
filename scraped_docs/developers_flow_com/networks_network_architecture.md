@@ -19,6 +19,7 @@ Flow's Network Architecture | Flow Developer Portal
   + [User safety](/networks/network-architecture/user-safety)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
+* [Accessing Data](/networks/access-onchain-data)
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
@@ -92,7 +93,7 @@ They can therefore specialize—and greatly increase the efficiency—for their 
 
 In the next section, lets look at how Flow multi-role architecture solves those three big problems with blockchains.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/network-architecture/index.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousNetworks](/networks)[NextSolving the blockchain trilemma](/networks/network-architecture/solving-blockchain-trilemma)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/network-architecture/index.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousNetworks](/networks)[NextSolving the blockchain trilemma](/networks/network-architecture/solving-blockchain-trilemma)
 ###### Rate this page
 
 😞😐😊
@@ -134,8 +135,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

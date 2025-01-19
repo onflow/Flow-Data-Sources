@@ -31,6 +31,7 @@ Manage a Staking Collection | Flow Developer Portal
   + [Staking Collection Guide](/networks/staking/staking-collection)
   + [Basic Staking Guide (Deprecated)](/networks/staking/staking-guide)
 * [Node Ops](/networks/node-ops)
+* [Accessing Data](/networks/access-onchain-data)
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
@@ -577,7 +578,7 @@ can use the **Get Machine Account Info** ([SCO.21](/build/core-contracts/staking
 This script returns a `{String: FlowStakingCollection.MachineAccountInfo}`,
 which is a mapping of nodeIDs to the `FlowStakingCollection.MachineAccountInfo` struct.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/14-staking-collection.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousTechnical Staking Options](/networks/staking/staking-options)[NextBasic Staking Guide (Deprecated)](/networks/staking/staking-guide)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/14-staking-collection.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousTechnical Staking Options](/networks/staking/staking-options)[NextBasic Staking Guide (Deprecated)](/networks/staking/staking-guide)
 ###### Rate this page
 
 😞😐😊
@@ -644,8 +645,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

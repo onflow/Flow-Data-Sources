@@ -411,7 +411,7 @@ Congrats, you did it! You’re now ready to launch the next fun NFT project on F
 * Dive into the details of [the NFT Standard](https://github.com/onflow/flow-nft)
 * For a deeper dive into `MetadataViews`, consult the [introduction guide](/build/advanced-concepts/metadata-views) or [the FLIP that introduced this feature](https://github.com/onflow/flips/blob/main/application/20210916-nft-metadata.md).
 * Use a [no code tool for creating NFT projects on Flow](https://www.touchstone.city/)
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/nft.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousCreate a Fungible Token](/build/guides/fungible-token)[NextAccount Linking (FLIP 72)](/build/guides/account-linking)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/nft.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousCreate a Fungible Token](/build/guides/fungible-token)[NextAccount Linking (FLIP 72)](/build/guides/account-linking)
 ###### Rate this page
 
 😞😐😊
@@ -464,8 +464,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

@@ -16,6 +16,7 @@ Flow Port | Flow Developer Portal
 * [Flow's Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
+* [Accessing Data](/networks/access-onchain-data)
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
   + [Flow Port Staking Guide](/networks/flow-port/staking-guide)
@@ -156,7 +157,7 @@ Please see a list [here](https://github.com/onflow/flow/blob/master/nodeoperator
 6. I am clicking 'submit' to execute a transaction, but nothing is happening. How can I unblock myself?
    
    * a.) Please disable any pop-up blockers and ad blockers you have and refresh the page. If you are still experiencing issues, please reach out via [Discord](https://discord.gg/flow) in the appropriate channel.
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-port/index.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousGovernance](/networks/governance)[NextFlow Port Staking Guide](/networks/flow-port/staking-guide)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-port/index.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousGovernance](/networks/governance)[NextFlow Port Staking Guide](/networks/flow-port/staking-guide)
 ###### Rate this page
 
 😞😐😊
@@ -205,8 +206,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

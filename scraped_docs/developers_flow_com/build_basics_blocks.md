@@ -94,7 +94,7 @@ Find [more about the command in the CLI docs](/tools/flow-cli/get-flow-data/get-
 
 Blocks can be obtained from the access node APIs, currently, there are two gRPC and REST APIs. You can find more information about them here:
 
-[**gRPC Block API**](/networks/node-ops/access-onchain-data/access-nodes/accessing-data/access-api#blocks)
+[**gRPC Block API**](/networks/access-onchain-data#blocks)
 
 [**REST Block API**](/http-api#tag/Blocks)
 
@@ -106,7 +106,7 @@ There are multiple SDKs implementing the above APIs for different languages:
 
 Find a list of all SDKs [here](/tools/clients)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/blocks.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousSimple Frontend](/build/getting-started/fcl-quickstart)[NextCollections](/build/basics/collections)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/blocks.md)Last updated on **Jan 18, 2025** by **j pimmel**[PreviousSimple Frontend](/build/getting-started/fcl-quickstart)[NextCollections](/build/basics/collections)
 ###### Rate this page
 
 😞😐😊
@@ -147,8 +147,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

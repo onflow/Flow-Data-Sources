@@ -98,7 +98,7 @@ Fees needed to execute transactions on a Web3 app are often a major challenge fo
 
 To learn more about storage fee and transaction fee, visit [Flow Tokenomics page](https://flow.com/flow-tokenomics/technical-overview).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/fees.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousNetworks](/evm/networks)[NextAccounts](/evm/accounts)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/fees.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousNetworks](/evm/networks)[NextAccounts](/evm/accounts)
 ###### Rate this page
 
 😞😐😊
@@ -135,8 +135,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

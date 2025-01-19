@@ -271,7 +271,7 @@ Your app will now look like the [simple onchain app](https://nextjs-topshot-acco
 
 In this tutorial, you took your first steps towards building powerful new experiences that meet you customers where they are. They can keep their assets in the wallet associate with one app, but also give your app the ability to use them - seamlessly, safely, and beautifully!
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking-with-dapper.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousWorking With Parent Accounts](/build/guides/account-linking/parent-accounts)[NextMore Guides](/build/guides/more-guides)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking-with-dapper.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousWorking With Parent Accounts](/build/guides/account-linking/parent-accounts)[NextMore Guides](/build/guides/more-guides)
 ###### Rate this page
 
 😞😐😊
@@ -329,8 +329,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

@@ -130,7 +130,7 @@ To verify your contract on [Flowscan](https://evm-testnet.flowscan.io/), you can
 
 The [verify](https://docs.blockscout.com/developer-support/verifying-a-smart-contract/hardhat-verification-plugin) plugin requires you to include constructor arguments with the verify task and ensures that they correspond to expected ABI signature. However, Blockscout ignores those arguments, so you may specify any values that correspond to the ABI. Execute the following command to verify the contract:
 
- `_10npx hardhat verify --network testnet DEPLOYED_CONTRACT_ADDRESS "Constructor argument 1"`[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/hardhat.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousIntegrating Metamask](/evm/guides/integrating-metamask)[NextRemix](/evm/guides/remix)
+ `_10npx hardhat verify --network testnet DEPLOYED_CONTRACT_ADDRESS "Constructor argument 1"`[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/hardhat.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousIntegrating Metamask](/evm/guides/integrating-metamask)[NextRemix](/evm/guides/remix)
 ###### Rate this page
 
 😞😐😊
@@ -177,8 +177,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

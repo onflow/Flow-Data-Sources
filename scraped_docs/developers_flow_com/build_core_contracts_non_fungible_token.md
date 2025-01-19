@@ -149,7 +149,7 @@ the NFT to update any stored information they have about the NFT in their databa
 * `owner: Address?`: The address of the account that owns the Collection that owns
   the token. If the collection is not stored in an account, `to` will be `nil`.
   + Example: `0x4445e7ad11568276`
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/08-non-fungible-token.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousEpoch Contracts](/build/core-contracts/epoch-contract-reference)[NextNFT Metadata](/build/core-contracts/nft-metadata)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/08-non-fungible-token.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousEpoch Contracts](/build/core-contracts/epoch-contract-reference)[NextNFT Metadata](/build/core-contracts/nft-metadata)
 ###### Rate this page
 
 😞😐😊
@@ -189,8 +189,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

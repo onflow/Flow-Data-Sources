@@ -42,7 +42,7 @@ Get the Flow Down is a curated collection of the best Flow blockchain tools, tut
 
 Engage with the Flow community, discuss ideas, and seek support on the Flow Blockchain Forum.](https://forum.onflow.org/)[## 📜FLIPs
 
-Flow Improvement Proposals (FLIPs) serve as a platform for engaging the Flow community in development, harnessing the collective ideas, insights, and expertise of contributors and experts while ensuring widespread communication of design changes.](https://github.com/onflow/flips)[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/index.mdx)Last updated on **Dec 20, 2024** by **Brian Doyle**[NextWallets](/ecosystem/wallets)Documentation
+Flow Improvement Proposals (FLIPs) serve as a platform for engaging the Flow community in development, harnessing the collective ideas, insights, and expertise of contributors and experts while ensuring widespread communication of design changes.](https://github.com/onflow/flips)[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/index.mdx)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[NextWallets](/ecosystem/wallets)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)
@@ -73,8 +73,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

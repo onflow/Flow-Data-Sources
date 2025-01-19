@@ -168,7 +168,7 @@ You should see the `computationUsed` field. Take a note of the value, you will u
 
 **On testnet or mainnet**
 
-Once a transaction is completed, you can use an explorer like [Flowdiver](https://flowdiver.io/) to review the transaction details and events emitted. For Flowdiver, you can open the transaction in question and look for the event `FeesDeducted` from the [`FlowFees`](https://github.com/onflow/flow-core-contracts/blob/master/contracts/FlowFees.cdc) contract:
+Once a transaction is completed, you can use an explorer like [Flowscan](https://flowscan.io/) to review the transaction details and events emitted. For Flowscan, you can open the transaction in question and look for the event `FeesDeducted` from the [`FlowFees`](https://github.com/onflow/flow-core-contracts/blob/master/contracts/FlowFees.cdc) contract:
 
 ![flowscan-fees](/assets/images/flowscan-fees-cb6b2a52450fcbbef7f20f30c4130453.png)
 
@@ -326,7 +326,7 @@ Additional Details:
 * Because it’s a tree, the cost of reads and writes grows with log(n), but does scale.
 * atree has an update queued up for [Crescendo](https://flow.com/upgrade/crescendo) that will improve this. The previous version erred on the side of adding new levels to the tree (to keep the code simple), while the new version tries to pack more data at each level. This should result in fewer levels for the same byte size. Additionally, it includes a more compact encoding leading to a reduction in the byte size of most accounts.
 * Even with these improvements, this relationship is likely to remain indefinitely. The bigger the account, the more bookkeeping the nodes have to do, which will result in somewhat larger tx fees.
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/fees.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousScripts](/build/basics/scripts)[NextEvents](/build/basics/events)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/fees.md)Last updated on **Jan 18, 2025** by **j pimmel**[PreviousScripts](/build/basics/scripts)[NextEvents](/build/basics/events)
 ###### Rate this page
 
 😞😐😊
@@ -377,8 +377,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

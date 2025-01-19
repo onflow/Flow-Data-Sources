@@ -16,6 +16,7 @@ Flow Port Staking Guide | Flow Developer Portal
 * [Flow's Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
+* [Accessing Data](/networks/access-onchain-data)
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
   + [Flow Port Staking Guide](/networks/flow-port/staking-guide)
@@ -162,10 +163,10 @@ Input the amount that you want to withdraw to your wallet, acknowledge the trans
 
 Once the transition is processed, you can now see the withdrawn rewards in your balance and you are now free to do other actions with them (send them to other accounts, delegate to a node, etc).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-port/staking-guide.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousFlow Port](/networks/flow-port)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-port/staking-guide.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousFlow Port](/networks/flow-port)
 ###### Rate this page
 
-  😞😐😊
+😞😐😊
 
 * [First Step](#first-step)
 * [Stake a Node](#stake-a-node)
@@ -207,8 +208,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

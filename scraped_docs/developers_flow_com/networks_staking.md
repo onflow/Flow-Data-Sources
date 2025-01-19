@@ -31,6 +31,7 @@ Epochs, Staking & Delegating on Flow | Flow Developer Portal
   + [Staking Collection Guide](/networks/staking/staking-collection)
   + [Basic Staking Guide (Deprecated)](/networks/staking/staking-guide)
 * [Node Ops](/networks/node-ops)
+* [Accessing Data](/networks/access-onchain-data)
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
@@ -193,7 +194,7 @@ the various methods for staking, and how you can participate safely and reliably
 See the [staking technical overview](/networks/staking/technical-overview) first
 for information about technical integration.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/index.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousUser safety](/networks/network-architecture/user-safety)[NextEpoch and Staking Terminology](/networks/staking/epoch-terminology)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/index.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousUser safety](/networks/network-architecture/user-safety)[NextEpoch and Staking Terminology](/networks/staking/epoch-terminology)
 ###### Rate this page
 
 😞😐😊
@@ -238,8 +239,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

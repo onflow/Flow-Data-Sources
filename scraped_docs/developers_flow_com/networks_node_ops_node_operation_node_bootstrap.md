@@ -16,7 +16,9 @@ Node Bootstrap | Flow Developer Portal
 * [Flow's Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
-  + [Accessing On-chain Data](/networks/node-ops/access-onchain-data/access-nodes/access-node-setup)
+  + [Access Nodes](/networks/node-ops/access-nodes/access-node-setup)
+  + [EVM Gateway Setup](/networks/node-ops/evm-gateway/evm-gateway-setup)
+  + [Light Nodes](/networks/node-ops/light-nodes/observer-node)
   + [Participating in the Network](/networks/node-ops/node-operation/faq)
     - [Operator FAQ](/networks/node-ops/node-operation/faq)
     - [Byzantine Attack Response](/networks/node-ops/node-operation/byzantine-node-attack-response)
@@ -38,6 +40,7 @@ Node Bootstrap | Flow Developer Portal
     - [Height coordinated upgrade](/networks/node-ops/node-operation/hcu)
     - [Protocol State Bootstrapping](/networks/node-ops/node-operation/protocol-state-bootstrap)
     - [Managing disk space](/networks/node-ops/node-operation/reclaim-disk)
+* [Accessing Data](/networks/access-onchain-data)
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
@@ -48,7 +51,7 @@ Node Bootstrap | Flow Developer Portal
 On this page
 # Node Bootstrap
 
-This guide is for getting a new node staked and running on Flow other than a permissionless Access node. For running a permissionless Access node see [Access node setup](/networks/node-ops/access-onchain-data/access-nodes/access-node-setup). For sporking documentation for existing node operators, see [Spork Process](/networks/node-ops/node-operation/spork).
+This guide is for getting a new node staked and running on Flow other than a permissionless Access node. For running a permissionless Access node see [Access node setup](/networks/node-ops/access-nodes/access-node-setup). For sporking documentation for existing node operators, see [Spork Process](/networks/node-ops/node-operation/spork).
 
 ## Timing[​](#timing "Direct link to Timing")
 
@@ -109,7 +112,7 @@ folder created earlier. Please take a back up of the entire folder.
 
 
  `_10## Skip this section if this is your first time ##_10# If you joined our network previously, make sure to take a backup of your previously generated keys!_10cp -r /path/to/bootstrap /path/to/bootstrap.bak_10#########################################################_10# Generate Keys_10$ mkdir ./bootstrap_10# YOUR_NODE_ADDRESS: FQDN associated to your instance (do NOT use an IP address, use a hostname)_10# YOUR_NODE_ROLE: The Flow nodes that you wish to run, it should be ONE of the following - [ access, collection, consensus, execution, verification ]_10$ ./boot-tools/bootstrap key --address \"YOUR_NODE_ADDRESS_GOES_HERE:3569\" --role YOUR_NODE_ROLE_GOES_HERE -o ./bootstrap`
-Example `_31$./boot-tools/bootstrap key --address "consensus-001.nodes.flow.com:3569" --role consensus -o ./bootstrap_31<nil> DBG will generate networking key_31<nil> INF generated networking key_31<nil> DBG will generate staking key_31<nil> INF generated staking key_31<nil> DBG will generate db encryption key_31<nil> INF generated db encryption key_31<nil> DBG assembling node information address=consensus-001.nodes.flow.com:3569_31<nil> DBG encoded public staking and network keys networkPubKey=7f31ae79017a2a58a5e59af9184f440d08885a16614b2c4e361019fa72a9a1a42bf85b4e3f9674782f12ca06afd9782e9ccf19496baed069139385b82f8f40f6 stakingPubKey=829d086b292d84de8e7938fd2fafa8f51a6e025f429291835c20e59d9e25665febf24fa59de12a4df08be7e82c5413180cc7b1c73e01f26e05344506aaca4fa9cc009dc1c33f8ba3d7c7509e86d3d3e7341b43b9bf80bb9fba56ae0b3135dd72_31<nil> INF wrote file bootstrap/public-root-information/node-id_31<nil> INF wrote file bootstrap/private-root-information/private-node-info_ab6e0b15837de7e5261777cb65665b318cf3f94492dde27c1ea13830e989bbf9/node-info.priv.json_31<nil> INF wrote file bootstrap/private-root-information/private-node-info_5e44ad5598bb0acb44784f629e84000ffea34d5552427247d9008ccf147fb87f/secretsdb-key_31<nil> INF wrote file bootstrap/public-root-information/node-info.pub.ab6e0b15837de7e5261777cb65665b318cf3f94492dde27c1ea13830e989bbf9.json_31<nil> DBG will generate machine account key_31<nil> INF generated machine account key_31<nil> DBG assembling machine account information address=consensus-001.nodes.flow.com:3569_31<nil> INF encoded machine account public key for entry to Flow Port machineAccountPubKey=f847b8406e8969b869014cd1684770a8db02d01621dd1846cdf42fc2bca3444d2d55fe7abf740c548639cc8451bcae0cd6a489e6ff59bb6b38c2cfb83e095e81035e507b02038203e8_31<nil> INF wrote file bootstrap/private-root-information/private-node-info_ab6e0b15837de7e5261777cb65665b318cf3f94492dde27c1ea13830e989bbf9/node-machine-account-key.priv.json_31_31$tree ./bootstrap/_31./bootstrap_31├── private-root-information_31│ └── private-node-info_ab6e0b15837de7e5261777cb65665b318cf3f94492dde27c1ea13830e989bbf9_31│ ├── node-info.priv.json_31│ ├── node-machine-account-key.priv.json_31│ └── secretsdb-key_31└── public-root-information_31 ├── node-id_31 └── node-info.pub.ab6e0b15837de7e5261777cb65665b318cf3f94492dde27c1ea13830e989bbf9.json_31_313 directories, 4 files`
+Example `_31$./boot-tools/bootstrap key --address "consensus-001.nodes.flow.com:3569" --role consensus -o ./bootstrap_31<nil> DBG will generate networking key_31<nil> INF generated networking key_31<nil> DBG will generate staking key_31<nil> INF generated staking key_31<nil> DBG will generate db encryption key_31<nil> INF generated db encryption key_31<nil> DBG assembling node information address=consensus-001.nodes.flow.com:3569_31<nil> DBG encoded public staking and network keys networkPubKey=7f31ae79017a2a58a5e59af9184f440d08885a16614b2c4e361019fa72a9a1a42bf85b4e3f9674782f12ca06afd9782e9ccf19496baed069139385b82f8f40f6 stakingPubKey=829d086b292d84de8e7938fd2fafa8f51a6e025f429291835c20e59d9e25665febf24fa59de12a4df08be7e82c5413180cc7b1c73e01f26e05344506aaca4fa9cc009dc1c33f8ba3d7c7509e86d3d3e7341b43b9bf80bb9fba56ae0b3135dd72_31<nil> INF wrote file bootstrap/public-root-information/node-id_31<nil> INF wrote file bootstrap/private-root-information/private-node-info_ab6e0b15837de7e5261777cb65665b318cf3f94492dde27c1ea13830e989bbf9/node-info.priv.json_31<nil> INF wrote file bootstrap/private-root-information/private-node-info_5e44ad5598bb0acb44784f629e84000ffea34d5552427247d9008ccf147fb87f/secretsdb-key_31<nil> INF wrote file bootstrap/public-root-information/node-info.pub.ab6e0b15837de7e5261777cb65665b318cf3f94492dde27c1ea13830e989bbf9.json_31<nil> DBG will generate machine account key_31<nil> INF generated machine account key_31<nil> DBG assembling machine account information address=consensus-001.nodes.flow.com:3569_31<nil> INF encoded machine account public key for entry to Flow Port machineAccountPubKey=f847b8406e8969b869014cd1684770a8db02d01621dd1846cdf42fc2bca3444d2d55fe7abf740c548639cc8451bcae0cd6a489e6ff59bb6b38c2cfb83e095e81035e507b02038203e8_31<nil> INF wrote file bootstrap/private-root-information/private-node-info_ab6e0b15837de7e5261777cb65665b318cf3f94492dde27c1ea13830e989bbf9/node-machine-account-key.priv.json_31_31$tree ./bootstrap/_31./bootstrap_31├── private-root-information_31│ └── private-node-info_ab6e0b15837de7e5261777cb65665b318cf3f94492dde27c1ea13830e989bbf9_31│ ├── node-info.priv.json_31│ ├─  ─ node-machine-account-key.priv.json_31│ └── secretsdb-key_31└── public-root-information_31 ├── node-id_31 └── node-info.pub.ab6e0b15837de7e5261777cb65665b318cf3f94492dde27c1ea13830e989bbf9.json_31_313 directories, 4 files`
 info
 
 For `consensus` and `collection` node types an additional key will be created for the Machine Account.
@@ -237,7 +240,7 @@ the snapshot must be provisioned within this time window.
 
 Once a valid root snapshot file is downloaded to the node's bootstrap folder, it can be started (see [guide](/networks/node-ops/node-operation/node-setup#start-the-node))
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-bootstrap.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousNode Monitoring](/networks/node-ops/node-operation/monitoring-nodes)[NextNode Economics](/networks/node-ops/node-operation/node-economics)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-bootstrap.md)Last updated on **Jan 18, 2025** by **j pimmel**[PreviousNode Monitoring](/networks/node-ops/node-operation/monitoring-nodes)[NextNode Economics](/networks/node-ops/node-operation/node-economics)
 ###### Rate this page
 
 😞😐😊
@@ -286,8 +289,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

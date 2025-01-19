@@ -31,6 +31,7 @@ Query Staking Info with Scripts or Events | Flow Developer Portal
   + [Staking Collection Guide](/networks/staking/staking-collection)
   + [Basic Staking Guide (Deprecated)](/networks/staking/staking-guide)
 * [Node Ops](/networks/node-ops)
+* [Accessing Data](/networks/access-onchain-data)
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
@@ -481,7 +482,7 @@ unstaked tokens balance.
 
 After this event, the FLOW tokens will be withdrawn to a newly created `FungibleToken.Vault` which the caller can deposit to the vault of their choice.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/07-staking-scripts-events.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousStaking Technical Overview](/networks/staking/technical-overview)[NextHow to Query Staking rewards](/networks/staking/staking-rewards)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/07-staking-scripts-events.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousStaking Technical Overview](/networks/staking/technical-overview)[NextHow to Query Staking rewards](/networks/staking/staking-rewards)
 ###### Rate this page
 
 😞😐😊
@@ -552,8 +553,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

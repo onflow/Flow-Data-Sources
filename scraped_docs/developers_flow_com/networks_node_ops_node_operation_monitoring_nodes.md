@@ -16,7 +16,9 @@ Monitoring Node Health | Flow Developer Portal
 * [Flow's Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
-  + [Accessing On-chain Data](/networks/node-ops/access-onchain-data/access-nodes/access-node-setup)
+  + [Access Nodes](/networks/node-ops/access-nodes/access-node-setup)
+  + [EVM Gateway Setup](/networks/node-ops/evm-gateway/evm-gateway-setup)
+  + [Light Nodes](/networks/node-ops/light-nodes/observer-node)
   + [Participating in the Network](/networks/node-ops/node-operation/faq)
     - [Operator FAQ](/networks/node-ops/node-operation/faq)
     - [Byzantine Attack Response](/networks/node-ops/node-operation/byzantine-node-attack-response)
@@ -38,6 +40,7 @@ Monitoring Node Health | Flow Developer Portal
     - [Height coordinated upgrade](/networks/node-ops/node-operation/hcu)
     - [Protocol State Bootstrapping](/networks/node-ops/node-operation/protocol-state-bootstrap)
     - [Managing disk space](/networks/node-ops/node-operation/reclaim-disk)
+* [Accessing Data](/networks/access-onchain-data)
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
@@ -108,7 +111,7 @@ When the machine account has a configuration error:
 
 The metrics include the account address of the machine account (`acct_address` label) for convenience:
 
- `_10# HELP machine_account_balance the last observed balance of this node's machine account, in units of FLOW_10# TYPE machine_account_balance gauge_10machine_account_balance{acct_address="7b16b57ae0a3c6aa"} 9.99464935`[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/monitoring-nodes.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousMachine Accounts for Existing Node Operators](/networks/node-ops/node-operation/machine-existing-operator)[NextNode Bootstrapping](/networks/node-ops/node-operation/node-bootstrap)
+ `_10# HELP machine_account_balance the last observed balance of this node's machine account, in units of FLOW_10# TYPE machine_account_balance gauge_10machine_account_balance{acct_address="7b16b57ae0a3c6aa"} 9.99464935`[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/monitoring-nodes.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousMachine Accounts for Existing Node Operators](/networks/node-ops/node-operation/machine-existing-operator)[NextNode Bootstrapping](/networks/node-ops/node-operation/node-bootstrap)
 ###### Rate this page
 
 😞😐😊
@@ -148,8 +151,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

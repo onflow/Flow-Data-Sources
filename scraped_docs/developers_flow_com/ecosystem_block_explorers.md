@@ -29,7 +29,7 @@ Block explorers are user-friendly online tools that visually present blockchain 
 
 ## Flow Diver[​](#flow-diver "Direct link to Flow Diver")
 
-[Flow Diver](https://www.flowdiver.io/) provides various tools to explore the blockchain, including:
+[Flowscan](https://flowscan.io/) provides various tools to explore the blockchain, including:
 
 * Blocks
 * Transactions
@@ -40,8 +40,8 @@ Block explorers are user-friendly online tools that visually present blockchain 
 
 ### Supported networks:[​](#supported-networks "Direct link to Supported networks:")
 
-* [Mainnet](https://www.flowdiver.io/)
-* [Testnet](https://testnet.flowdiver.io/)
+* [Mainnet](https://flowscan.io/)
+* [Testnet](https://testnet.flowscan.io/)
 
 ## Flow View[​](#flow-view "Direct link to Flow View")
 
@@ -81,7 +81,7 @@ Block explorers are user-friendly online tools that visually present blockchain 
 
 * [Testnet](https://evm-testnet.flowscan.io/)
 * [Mainnet](https://evm.flowscan.io/)
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/block-explorers.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousWallets](/ecosystem/wallets)[NextBridges](/ecosystem/bridges)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/block-explorers.md)Last updated on **Jan 18, 2025** by **j pimmel**[PreviousWallets](/ecosystem/wallets)[NextBridges](/ecosystem/bridges)
 ###### Rate this page
 
 😞😐😊
@@ -124,8 +124,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

@@ -16,7 +16,9 @@ Operator FAQ | Flow Developer Portal
 * [Flow's Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
-  + [Accessing On-chain Data](/networks/node-ops/access-onchain-data/access-nodes/access-node-setup)
+  + [Access Nodes](/networks/node-ops/access-nodes/access-node-setup)
+  + [EVM Gateway Setup](/networks/node-ops/evm-gateway/evm-gateway-setup)
+  + [Light Nodes](/networks/node-ops/light-nodes/observer-node)
   + [Participating in the Network](/networks/node-ops/node-operation/faq)
     - [Operator FAQ](/networks/node-ops/node-operation/faq)
     - [Byzantine Attack Response](/networks/node-ops/node-operation/byzantine-node-attack-response)
@@ -38,6 +40,7 @@ Operator FAQ | Flow Developer Portal
     - [Height coordinated upgrade](/networks/node-ops/node-operation/hcu)
     - [Protocol State Bootstrapping](/networks/node-ops/node-operation/protocol-state-bootstrap)
     - [Managing disk space](/networks/node-ops/node-operation/reclaim-disk)
+* [Accessing Data](/networks/access-onchain-data)
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
@@ -50,9 +53,9 @@ On this page
 
 ### Can anybody run a node? What is the approval process?[​](#can-anybody-run-a-node-what-is-the-approval-process "Direct link to Can anybody run a node? What is the approval process?")
 
-Anyone can run an [observer node](/networks/node-ops/access-onchain-data/light-nodes/observer-node).
+Anyone can run an [observer node](/networks/node-ops/light-nodes/observer-node).
 
-Anyone can run an Access Node after registering and staking. See [Access Node Setup](/networks/node-ops/access-onchain-data/access-nodes/access-node-setup) for detailed instructions.
+Anyone can run an Access Node after registering and staking. See [Access Node Setup](/networks/node-ops/access-nodes/access-node-setup) for detailed instructions.
 
 For the other node roles, individuals can go through an application process that involves asking about their background and experience contributing to decentralized projects. To pursue an application, please visit [the Flow website here to apply](https://www.onflow.org/node-validators).
 
@@ -107,7 +110,7 @@ these connections as file descriptors, and uses soft and hard limits to control 
 to manage how many connections it will open and accept from other nodes. If the limit is too low, the node will not be able to communicate
 with its peers, preventing it from functioning properly.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/faq.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousLight Node Setup](/networks/node-ops/access-onchain-data/light-nodes/observer-node)[NextByzantine Attack Response](/networks/node-ops/node-operation/byzantine-node-attack-response)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/faq.md)Last updated on **Jan 18, 2025** by **j pimmel**[PreviousLight Node Setup](/networks/node-ops/light-nodes/observer-node)[NextByzantine Attack Response](/networks/node-ops/node-operation/byzantine-node-attack-response)
 ###### Rate this page
 
 😞😐😊
@@ -154,8 +157,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

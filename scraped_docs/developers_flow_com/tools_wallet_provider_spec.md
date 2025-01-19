@@ -458,7 +458,7 @@ The provided `data` and `params` should include all the wallet needs to identify
 
 The eventual response back from the `authn-refresh` service should resolve to an `AuthnResponse` and look something like this:
 
- `_34{_34 f_type: "PollingResponse",_34 f_vsn: "1.0.0",_34 status: "APPROVED",_34 data: {_34 f_type: "AuthnResponse",_34 f_vsn: "1.0.0",_34 addr: "0xUSER",_34 services: [_34 // Authentication Service - REQUIRED_34 {_34 f_type: "Service",_34 f_vsn: "1.0.0",_34 type: "authn",_34 ..._34 },_34 // Authorization Service_34 {_34 f_type: "Service",_34 f_vsn: "1.0.0",_34 type: "authz",_34 ..._34 },_34 // Authentication Refresh Service_34 {_34 f_type: "Service",_34 f_vsn: "1.0.0",_34 type: "authn-refresh",_34 ..._34 }_34 // Additional Services_34 ],_34 }_34}`[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/index.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousCadence VS Code Extension](/tools/vscode-extension)[NextAuthorization Function](/tools/wallet-provider-spec/authorization-function)
+ `_34{_34 f_type: "PollingResponse",_34 f_vsn: "1.0.0",_34 status: "APPROVED",_34 data: {_34 f_type: "AuthnResponse",_34 f_vsn: "1.0.0",_34 addr: "0xUSER",_34 services: [_34 // Authentication Service - REQUIRED_34 {_34 f_type: "Service",_34 f_vsn: "1.0.0",_34 type: "authn",_34 ..._34 },_34 // Authorization Service_34 {_34 f_type: "Service",_34 f_vsn: "1.0.0",_34 type: "authz",_34 ..._34 },_34 // Authentication Refresh Service_34 {_34 f_type: "Service",_34 f_vsn: "1.0.0",_34 type: "authn-refresh",_34 ..._34 }_34 // Additional Services_34 ],_34 }_34}`[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/index.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousCadence VS Code Extension](/tools/vscode-extension)[NextAuthorization Function](/tools/wallet-provider-spec/authorization-function)
 ###### Rate this page
 
 😞😐😊
@@ -518,8 +518,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

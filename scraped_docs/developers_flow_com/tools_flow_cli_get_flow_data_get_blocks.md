@@ -175,7 +175,7 @@ several configuration files.
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/get-flow-data/get-blocks.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousSecurity](/tools/flow-cli/flow.json/security)[NextGet Events](/tools/flow-cli/get-flow-data/get-events)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/get-flow-data/get-blocks.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousSecurity](/tools/flow-cli/flow.json/security)[NextGet Events](/tools/flow-cli/get-flow-data/get-events)
 ###### Rate this page
 
 😞😐😊
@@ -230,8 +230,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

@@ -31,6 +31,7 @@ Basic Staking with FLOW | Flow Developer Portal
   + [Staking Collection Guide](/networks/staking/staking-collection)
   + [Basic Staking Guide (Deprecated)](/networks/staking/staking-guide)
 * [Node Ops](/networks/node-ops)
+* [Accessing Data](/networks/access-onchain-data)
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
@@ -296,7 +297,7 @@ It is possible to have multiple delegator objects per account
 by storing the node objects at different storage paths,
 but this would require small changes to these transactions to use the new storage paths.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/15-staking-guide.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousStaking Collection Guide](/networks/staking/staking-collection)[NextNode Operations](/networks/node-ops)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/15-staking-guide.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousStaking Collection Guide](/networks/staking/staking-collection)[NextNode Operations](/networks/node-ops)
 ###### Rate this page
 
 😞😐😊
@@ -351,8 +352,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

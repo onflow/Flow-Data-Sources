@@ -90,7 +90,7 @@ There are currently two clients that have integrated with FLIX that you can use:
 
 Flow provides an implementation of the Flow interaction template service as an open-source project. If you wish to run your own API, you can find the repository here: <https://github.com/onflow/flow-interaction-template-service>
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/flix.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousAccount Abstraction](/build/advanced-concepts/account-abstraction)[NextNFT Metadata Views](/build/advanced-concepts/metadata-views)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/flix.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousAccount Abstraction](/build/advanced-concepts/account-abstraction)[NextNFT Metadata Views](/build/advanced-concepts/metadata-views)
 ###### Rate this page
 
 😞😐😊
@@ -130,8 +130,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

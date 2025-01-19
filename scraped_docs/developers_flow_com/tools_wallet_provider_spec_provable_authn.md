@@ -68,7 +68,7 @@ with the following values:
 ### JavaScript Signing Example[​](#javascript-signing-example "Direct link to JavaScript Signing Example")
 
  `_20// Using WalletUtils_20import {WalletUtils} from "@onflow/fcl"_20_20const message = WalletUtils.encodeAccountProof(_20 appIdentifier, // A human readable string to identify your application during signing_20 address, // Flow address of the user authenticating_20 nonce, // minimum 32-btye nonce_20)_20_20sign(privateKey, message)_20_20// Without using FCL WalletUtils_20const ACCOUNT_PROOF_DOMAIN_TAG = rightPaddedHexBuffer(_20 Buffer.from("FCL-ACCOUNT-PROOF-V0.0").toString("hex"),_20 32_20)_20const message = rlp([appIdentifier, address, nonce])_20const prependUserDomainTag = (message) => ACCOUNT_PROOF_DOMAIN_TAG + message_20_20sign(privateKey, prependUserDomainTag(message))`
- `_17// Authentication Proof Service_17{_17 f_type: "Service", // Its a service!_17 f_vsn: "1.0.0", // Follows the v1.0.0 spec for the service_17 type: "account-proof", // the type of service it is_17 method: "DATA", // Its data!_17 uid: "awesome-wallet#account-proof", // A unique identifier for the service _17 data: {_17 f_type: "account-proof",_17 f_vsn: "1.0.0"_17 // The user's address (8 bytes, i.e 16 hex characters)_17 address: "0xf8d6e0586b0a20c7", _17 // Nonce signed by the current account-proof (minimum 32 bytes in total, i.e 64 hex characters)_17 nonce: "75f8587e5bd5f9dcc9909d0dae1f0ac5814458b2ae129620502cb936fde7120a",_17 signatures: [CompositeSignature],_17 }_17}`[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/provable-authn.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousIntroduction](/tools/wallet-provider-spec/custodial)[NextUser Signature](/tools/wallet-provider-spec/user-signature)
+ `_17// Authentication Proof Service_17{_17 f_type: "Service", // Its a service!_17 f_vsn: "1.0.0", // Follows the v1.0.0 spec for the service_17 type: "account-proof", // the type of service it is_17 method: "DATA", // Its data!_17 uid: "awesome-wallet#account-proof", // A unique identifier for the service _17 data: {_17 f_type: "account-proof",_17 f_vsn: "1.0.0"_17 // The user's address (8 bytes, i.e 16 hex characters)_17 address: "0xf8d6e0586b0a20c7", _17 // Nonce signed by the current account-proof (minimum 32 bytes in total, i.e 64 hex characters)_17 nonce: "75f8587e5bd5f9dcc9909d0dae1f0ac5814458b2ae129620502cb936fde7120a",_17 signatures: [CompositeSignature],_17 }_17}`[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/provable-authn.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousIntroduction](/tools/wallet-provider-spec/custodial)[NextUser Signature](/tools/wallet-provider-spec/user-signature)
 ###### Rate this page
 
 😞😐😊
@@ -107,8 +107,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

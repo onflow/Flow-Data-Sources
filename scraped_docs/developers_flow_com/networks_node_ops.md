@@ -16,8 +16,11 @@ Node Operations | Flow Developer Portal
 * [Flow's Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
-  + [Accessing On-chain Data](/networks/node-ops/access-onchain-data/access-nodes/access-node-setup)
+  + [Access Nodes](/networks/node-ops/access-nodes/access-node-setup)
+  + [EVM Gateway Setup](/networks/node-ops/evm-gateway/evm-gateway-setup)
+  + [Light Nodes](/networks/node-ops/light-nodes/observer-node)
   + [Participating in the Network](/networks/node-ops/node-operation/faq)
+* [Accessing Data](/networks/access-onchain-data)
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
@@ -59,7 +62,7 @@ The observer node is not staked but still provides the same API as the access no
 
 info
 
-To run a light node, follow this [guide](/networks/node-ops/access-onchain-data/light-nodes/observer-node)
+To run a light node, follow this [guide](/networks/node-ops/light-nodes/observer-node)
 
 ## Full Node[​](#full-node "Direct link to Full Node")
 
@@ -91,12 +94,12 @@ Launch an access node using QuickNode
 
 info
 
-To run a self-hosted access node, follow this [guide](/networks/node-ops/access-onchain-data/access-nodes/access-node-setup)
+To run a self-hosted access node, follow this [guide](/networks/node-ops/access-nodes/access-node-setup)
 
 
 tip
 
-Alternately, instead of running an access node, you can use the [Flow community](/networks/node-ops/access-onchain-data/access-nodes/accessing-data/access-api) access nodes or the ones run by any of the other node operators.
+Alternately, instead of running an access node, you can use the [Flow community](/networks/access-onchain-data) access nodes or the ones run by any of the other node operators.
 
 ### Validator Node[​](#validator-node "Direct link to Validator Node")
 
@@ -127,7 +130,7 @@ To set up a new staked node after it has been authorized by the Flow governance 
 1. [Provision](/networks/node-ops/node-operation/node-setup) the machine on which your node will run.
 2. [Generate and register](/networks/node-ops/node-operation/node-bootstrap) your node identity.
 3. [Start](/networks/node-ops/node-operation/node-bootstrap#step-3---start-your-flow-node) your node!
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/index.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousBasic Staking Guide (Deprecated)](/networks/staking/staking-guide)[NextAccess Node Setup](/networks/node-ops/access-onchain-data/access-nodes/access-node-setup)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/index.md)Last updated on **Jan 18, 2025** by **j pimmel**[PreviousBasic Staking Guide (Deprecated)](/networks/staking/staking-guide)[NextAccess Node Setup](/networks/node-ops/access-nodes/access-node-setup)
 ###### Rate this page
 
 😞😐😊
@@ -170,8 +173,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

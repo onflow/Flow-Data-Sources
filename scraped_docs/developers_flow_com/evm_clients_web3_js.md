@@ -117,7 +117,7 @@ Now that the transaction has been sent, the contract's state should have been up
 
 For more information about using smart contracts in web3.js, see the [official documentation](https://docs.web3js.org/libdocs/Contract).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/clients/web3-js.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousEthers](/evm/clients/ethers)[NextInteracting with COAs](/evm/cadence/interacting-with-coa)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/clients/web3-js.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousEthers](/evm/clients/ethers)[NextInteracting with COAs](/evm/cadence/interacting-with-coa)
 ###### Rate this page
 
 😞😐😊
@@ -159,8 +159,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

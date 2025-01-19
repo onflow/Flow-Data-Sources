@@ -106,7 +106,7 @@ We can leverage this model to design an ideal system transaction architecture as
   
   To simplify the system further, we can reuse the same cryptographic key multiple times within the same account by adding it as a new key. These additional keys can have a weight of 0 since they do not need to authorize transactions.
 
-Here’s a visual example of how such an [account configuration](https://www.flowdiver.io/account/0x18eb4ee6b3c026d2?tab=keys) might look:
+Here’s a visual example of how such an [account configuration](https://www.flowscan.io/account/18eb4ee6b3c026d2?tab=keys) might look:
 
 ![Example.Account](/assets/images/scaling-example-account-641e0c6dc104349f35e10af572efa6be.png "Example Account")
 
@@ -160,7 +160,7 @@ Running the example will execute 420 transactions at the same time:
 
 It takes roughly the time of 1 transaction to run all 420 without any errors.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/scaling.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousVRF (Randomness) in Cadence](/build/advanced-concepts/randomness)[NextCreate a Fungible Token](/build/guides/fungible-token)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/scaling.md)Last updated on **Jan 18, 2025** by **j pimmel**[PreviousVRF (Randomness) in Cadence](/build/advanced-concepts/randomness)[NextCreate a Fungible Token](/build/guides/fungible-token)
 ###### Rate this page
 
 😞😐😊
@@ -202,8 +202,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

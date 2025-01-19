@@ -60,7 +60,7 @@ but are nevertheless important to developers on Flow:
 * NFT Storefronts. ([NFTStorefront](/build/core-contracts/nft-storefront))
 * Account linking and Hybrid Custody. ([AccountLinking](/build/core-contracts/hybrid-custody))
 * EVM interfacing contract. ([EVM](/build/core-contracts/evm))
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/index.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousReact Native Development](/build/guides/mobile/react-native-quickstart)[NextFungible Token](/build/core-contracts/fungible-token)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/index.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousReact Native Development](/build/guides/mobile/react-native-quickstart)[NextFungible Token](/build/core-contracts/fungible-token)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)
@@ -91,8 +91,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

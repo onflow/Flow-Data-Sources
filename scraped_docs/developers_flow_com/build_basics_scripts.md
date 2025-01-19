@@ -79,7 +79,7 @@ Scripts can be used for the following:
 
 A script can be executed by submitting it to the Access API provided by access nodes. Currently, there are three API endpoints that allow a user to execute scripts at the latest sealed block, a previous block height, or a previous block ID.
 
-[**gRPC Script API**](/networks/node-ops/access-onchain-data/access-nodes/accessing-data/access-api#scripts)
+[**gRPC Script API**](/networks/access-onchain-data#scripts)
 
 [**REST Script API**](/http-api#tag/Scripts)
 
@@ -116,7 +116,7 @@ Following are some recommendations on how to write efficient scripts:
    
    1. Script execution on execution nodes is restricted to approximately the last 100 blocks. Any request for script execution on an execution node on a past block (specified by block ID or block height) will fail if that block is more than 100 blocks in the past.
    2. Script execution on an access node can go much beyond the last 100 blocks but is restricted to the height when the [last](https://developers.flow.com/networks/node-ops/node-operation/past-sporks) network upgrade ([HCU](https://developers.flow.com/networks/node-ops/node-operation/hcu) or spork) occurred.
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/scripts.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousTransactions](/build/basics/transactions)[NextFees](/build/basics/fees)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/scripts.md)Last updated on **Jan 18, 2025** by **j pimmel**[PreviousTransactions](/build/basics/transactions)[NextFees](/build/basics/fees)
 ###### Rate this page
 
 😞😐😊
@@ -158,8 +158,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

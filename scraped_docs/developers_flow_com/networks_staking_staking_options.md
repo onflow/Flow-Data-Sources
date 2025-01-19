@@ -31,6 +31,7 @@ Options for Building Staking Integrations | Flow Developer Portal
   + [Staking Collection Guide](/networks/staking/staking-collection)
   + [Basic Staking Guide (Deprecated)](/networks/staking/staking-guide)
 * [Node Ops](/networks/node-ops)
+* [Accessing Data](/networks/access-onchain-data)
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
@@ -68,7 +69,7 @@ and not recommended.
 
 The basic staking guide is detailed [here](/networks/staking/staking-guide)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/13-staking-options.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousFAQs](/networks/staking/faq)[NextStaking Collection Guide](/networks/staking/staking-collection)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/13-staking-options.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousFAQs](/networks/staking/faq)[NextStaking Collection Guide](/networks/staking/staking-collection)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)
@@ -99,8 +100,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

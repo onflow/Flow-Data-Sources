@@ -16,7 +16,9 @@ Setting Up a Flow Node | Flow Developer Portal
 * [Flow's Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
-  + [Accessing On-chain Data](/networks/node-ops/access-onchain-data/access-nodes/access-node-setup)
+  + [Access Nodes](/networks/node-ops/access-nodes/access-node-setup)
+  + [EVM Gateway Setup](/networks/node-ops/evm-gateway/evm-gateway-setup)
+  + [Light Nodes](/networks/node-ops/light-nodes/observer-node)
   + [Participating in the Network](/networks/node-ops/node-operation/faq)
     - [Operator FAQ](/networks/node-ops/node-operation/faq)
     - [Byzantine Attack Response](/networks/node-ops/node-operation/byzantine-node-attack-response)
@@ -38,6 +40,7 @@ Setting Up a Flow Node | Flow Developer Portal
     - [Height coordinated upgrade](/networks/node-ops/node-operation/hcu)
     - [Protocol State Bootstrapping](/networks/node-ops/node-operation/protocol-state-bootstrap)
     - [Managing disk space](/networks/node-ops/node-operation/reclaim-disk)
+* [Accessing Data](/networks/access-onchain-data)
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
@@ -49,7 +52,7 @@ On this page
 # Setting Up a Flow Node
 
 This guide is for running a Collection, Consensus, Verification and Execution node.
-If you are planning to run an Access node then refer to [access node setup](/networks/node-ops/access-onchain-data/access-nodes/access-node-setup).
+If you are planning to run an Access node then refer to [access node setup](/networks/node-ops/access-nodes/access-node-setup).
 
 First you'll need to provision a machine or virtual machine to run your node software. Please see follow the [node-provisioning](/networks/node-ops/node-operation/node-provisioning) guide for it.
 
@@ -197,7 +200,7 @@ This is intended for operators who would like to see what their Flow nodes are c
 
 The metrics for the node should be able to provide a good overview of the status of the node. If we want to get a quick snapshot of the status of the node, and if it's properly participating in the network, you can check the `consensus_compliance_finalized_height` or `consensus_compliance_sealed_height` metric, and ensure that it is not zero and strictly increasing.
 
- `_10curl localhost:8080/metrics | grep consensus_compliance_sealed_height_10_10# HELP consensus_compliance_sealed_height the last sealed height_10# TYPE consensus_compliance_sealed_height gauge_10consensus_compliance_sealed_height 1.132054e+06`[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-setup.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousNode Roles](/networks/node-ops/node-operation/node-roles)[NextPast Spork Info](/networks/node-ops/node-operation/past-sporks)
+ `_10curl localhost:8080/metrics | grep consensus_compliance_sealed_height_10_10# HELP consensus_compliance_sealed_height the last sealed height_10# TYPE consensus_compliance_sealed_height gauge_10consensus_compliance_sealed_height 1.132054e+06`[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-setup.md)Last updated on **Jan 18, 2025** by **j pimmel**[PreviousNode Roles](/networks/node-ops/node-operation/node-roles)[NextPast Spork Info](/networks/node-ops/node-operation/past-sporks)
 ###### Rate this page
 
 😞😐😊
@@ -251,8 +254,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

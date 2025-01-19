@@ -66,7 +66,7 @@ macOS, Linux, and Windows.
 
 To get started with creating your first Flow project and to learn more about how to use the Flow CLI super commands, please refer to the [Super Commands documentation](/tools/flow-cli/super-commands). These commands simplify the setup and development process, allowing you to focus on building your application without worrying about the underlying configurations.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/index.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousError Codes](/tools/error-codes)[NextInstall Instructions](/tools/flow-cli/install)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/index.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousError Codes](/tools/error-codes)[NextInstall Instructions](/tools/flow-cli/install)
 ###### Rate this page
 
 😞😐😊
@@ -104,8 +104,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

@@ -115,7 +115,7 @@ You'll be presented with a list of available core contracts to install:
 
 After selecting the contracts, press `enter` to confirm. The selected contracts will be added to your `flow.json` file and will be accessible in your project.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/dependency-manager.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousDevelopment Tools](/tools/flow-cli/utils/tools)[NextRunning Cadence Tests](/tools/flow-cli/tests)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/dependency-manager.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousDevelopment Tools](/tools/flow-cli/utils/tools)[NextRunning Cadence Tests](/tools/flow-cli/tests)
 ###### Rate this page
 
 😞😐😊
@@ -159,8 +159,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

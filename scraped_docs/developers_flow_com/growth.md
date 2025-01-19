@@ -79,7 +79,7 @@ You've got an app and are meeting the needs of regular customers. Core features 
 * Fundraising support (intros to investor network)
 * Grants tied to bigger ecosystem milestones
 * DevRel
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/growth/index.md)Last updated on **Dec 20, 2024** by **Brian Doyle**
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/growth/index.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**
 ###### Rate this page
 
 😞😐😊
@@ -127,8 +127,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

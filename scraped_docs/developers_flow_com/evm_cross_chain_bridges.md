@@ -33,7 +33,7 @@ Go to [Bridges](/ecosystem/bridges)
 
 ;
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/cross-chain-bridges.mdx)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousAccounts](/evm/accounts)[NextData Indexers](/evm/data-indexers)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/cross-chain-bridges.mdx)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousAccounts](/evm/accounts)[NextData Indexers](/evm/data-indexers)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)
@@ -64,8 +64,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

@@ -65,7 +65,7 @@ Install FCL JS using **npm** or **yarn**
 
 **Node.js**
 
- `_10const fcl = require("@onflow/fcl");`[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/installation.mdx)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousWallet Discovery](/tools/clients/fcl-js/discovery)[NextInteraction Templates](/tools/clients/fcl-js/interaction-templates)
+ `_10const fcl = require("@onflow/fcl");`[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/installation.mdx)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousWallet Discovery](/tools/clients/fcl-js/discovery)[NextInteraction Templates](/tools/clients/fcl-js/interaction-templates)
 ###### Rate this page
 
 😞😐😊
@@ -102,8 +102,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

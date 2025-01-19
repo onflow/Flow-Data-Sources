@@ -16,6 +16,7 @@ Networks | Flow Developer Portal
 * [Flow's Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
+* [Accessing Data](/networks/access-onchain-data)
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
@@ -32,11 +33,13 @@ Networks | Flow Developer Portal
 
 15 items](/networks/staking)[## 🗃️Node Ops
 
-2 items](/networks/node-ops)[## 🏛️Governance
+4 items](/networks/node-ops)[## 🗃️Accessing Data
+
+1 items](/networks/access-onchain-data)[## 🏛️Governance
 
 Learn about Flow's governance model and how it's empowering our community of users and builders.](/networks/governance)[## 🗃️Flow Port
 
-1 items](/networks/flow-port)[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/index.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousTestnet](/networks/flow-networks/accessing-testnet)[NextFlow's Network Architecture](/networks/network-architecture)Documentation
+1 items](/networks/flow-port)[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/index.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousTestnet](/networks/flow-networks/accessing-testnet)[NextFlow's Network Architecture](/networks/network-architecture)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)
@@ -67,8 +70,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

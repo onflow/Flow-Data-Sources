@@ -152,7 +152,7 @@ Another type of proof that EVM environments provide is proof for the state of ac
 
 Flow’s state system provides ways to construct inclusion and non-inclusion proofs and one can construct proofs for EVM account’s meta data (account balances, nonce, … ). A less common proof type is proof over the storage state of an account (mostly used for smart contracts). The first release of EVM on Flow won’t support these type of proofs.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/how-it-works.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousWhy EVM on Flow](/evm/about)[NextUsing EVM](/evm/using)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/how-it-works.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousWhy EVM on Flow](/evm/about)[NextUsing EVM](/evm/using)
 ###### Rate this page
 
 😞😐😊
@@ -202,8 +202,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

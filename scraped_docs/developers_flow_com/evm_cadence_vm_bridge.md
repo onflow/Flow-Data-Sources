@@ -244,7 +244,7 @@ For the current state of Flow EVM across various task paths, see the following r
 * [Flow EVM Equivalence forum post](https://forum.flow.com/t/evm-equivalence-on-flow-proposal-and-path-forward/5478)
 * [EVM Integration FLIP #223](https://github.com/onflow/flips/pull/225/files)
 * [Gateway & JSON RPC FLIP #235](https://github.com/onflow/flips/pull/235)
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/cadence/vm-bridge.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousBatched EVM Transactions](/evm/cadence/batched-evm-transactions)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/cadence/vm-bridge.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousBatched EVM Transactions](/evm/cadence/batched-evm-transactions)
 ###### Rate this page
 
 😞😐😊
@@ -292,8 +292,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

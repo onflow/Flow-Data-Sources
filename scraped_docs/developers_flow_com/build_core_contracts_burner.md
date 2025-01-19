@@ -56,7 +56,7 @@ should use `Burner.burn()` when destroying a resource instead of `destroy`.
 | Testnet | [`0x294e44e1ec6993c6`](https://contractbrowser.com/account/0x294e44e1ec6993c6) |
 | Mainnet | [`0xd8a7e05a7ac670c0`](https://contractbrowser.com/account/0xd8a7e05a7ac670c0) |
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/14-burner.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousEVM](/build/core-contracts/evm)[NextExplore More](/build/explore-more)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/14-burner.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousEVM](/build/core-contracts/evm)[NextExplore More](/build/explore-more)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)
@@ -87,8 +87,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

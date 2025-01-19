@@ -18,6 +18,7 @@ Flow Networks | Flow Developer Portal
 * [Flow's Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
+* [Accessing Data](/networks/access-onchain-data)
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
@@ -52,7 +53,7 @@ For more information on how to access these networks, refer to the following gui
 
 There are two primary ways to access on-chain data within the Flow network; Access Nodes and Light nodes. Access Nodes are the node type that are most useful for developers, as they provide access to the Flow network via the following API endpoints:
 
-* [Flow Access API](/networks/node-ops/access-onchain-data/access-nodes/accessing-data/access-api)
+* [Flow Access API](/networks/access-onchain-data)
   + [Mainnet](/networks/flow-networks/accessing-mainnet): `access.mainnet.nodes.onflow.org:9000`
   + [Testnet](/networks/flow-networks/accessing-testnet): `access.devnet.nodes.onflow.org:9000`
 * [Status Page](https://status.onflow.org/) - Network status page
@@ -65,12 +66,12 @@ Rate limits for Flow Public Access nodes hosted by QuickNode are detailed [here]
 
 If you’re getting started you don’t need to run your own node and you can use the above public nodes. The public access nodes are rate-limited, so as your product matures you might want to run your own node. There are multiple options available:
 
-* Start with a [Light (Observer) Node](/networks/node-ops/access-onchain-data/light-nodes/observer-node).
+* Start with a [Light (Observer) Node](/networks/node-ops/light-nodes/observer-node).
 * You can also use a third-party provider like [Quicknode](https://www.quicknode.com/docs/flow).
 
-Check out [Running a Node](/networks/node-ops/access-onchain-data/light-nodes/observer-node) for more information.
+Check out [Running a Node](/networks/node-ops/light-nodes/observer-node) for more information.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-networks/index.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[NextMainnet](/networks/flow-networks/accessing-mainnet)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-networks/index.md)Last updated on **Jan 18, 2025** by **j pimmel**[NextMainnet](/networks/flow-networks/accessing-mainnet)
 ###### Rate this page
 
 😞😐😊
@@ -111,8 +112,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

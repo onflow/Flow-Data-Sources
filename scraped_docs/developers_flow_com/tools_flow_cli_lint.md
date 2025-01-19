@@ -57,7 +57,7 @@ info
 
 The Cadence Linter is also available in the [Cadence VSCode extension](/tools/vscode-extension), which provides real-time feedback as you write your code.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/lint.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousRunning Cadence Tests](/tools/flow-cli/tests)[NextFlow Interaction Templates (FLIX)](/tools/flow-cli/flix)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/lint.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousRunning Cadence Tests](/tools/flow-cli/tests)[NextFlow Interaction Templates (FLIX)](/tools/flow-cli/flix)
 ###### Rate this page
 
 😞😐😊
@@ -95,8 +95,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

@@ -63,7 +63,7 @@ To optimize your NFT collections for this catalog, you’ll need to:
 1. Update your NFT contract to support `ViewResolver` and `MetadataViews` with implementation of the [core NFT views](/build/advanced-concepts/metadata-views).
 2. Deploy the updated contract to both testnet and mainnet.
 3. Afterwards, onboard your NFT to the Flow NFT catalog at <https://flow-nft-catalog.com>.
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/09-nft-metadata.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousNon-Fungible Token](/build/core-contracts/non-fungible-token)[NextNFT Storefront](/build/core-contracts/nft-storefront)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/09-nft-metadata.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousNon-Fungible Token](/build/core-contracts/non-fungible-token)[NextNFT Storefront](/build/core-contracts/nft-storefront)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)
@@ -94,8 +94,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

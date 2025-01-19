@@ -16,7 +16,9 @@ Upcoming Sporks | Flow Developer Portal
 * [Flow's Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
-  + [Accessing On-chain Data](/networks/node-ops/access-onchain-data/access-nodes/access-node-setup)
+  + [Access Nodes](/networks/node-ops/access-nodes/access-node-setup)
+  + [EVM Gateway Setup](/networks/node-ops/evm-gateway/evm-gateway-setup)
+  + [Light Nodes](/networks/node-ops/light-nodes/observer-node)
   + [Participating in the Network](/networks/node-ops/node-operation/faq)
     - [Operator FAQ](/networks/node-ops/node-operation/faq)
     - [Byzantine Attack Response](/networks/node-ops/node-operation/byzantine-node-attack-response)
@@ -38,6 +40,7 @@ Upcoming Sporks | Flow Developer Portal
     - [Height coordinated upgrade](/networks/node-ops/node-operation/hcu)
     - [Protocol State Bootstrapping](/networks/node-ops/node-operation/protocol-state-bootstrap)
     - [Managing disk space](/networks/node-ops/node-operation/reclaim-disk)
+* [Accessing Data](/networks/access-onchain-data)
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
@@ -82,7 +85,7 @@ The following are the upcoming Spork dates. These dates indicate the intention t
 | April 7, 2021 | [Mainnet 7](/networks/node-ops/node-operation/past-sporks#mainnet-7) | March 30, 2021 —> March 31, 2021 | Devnet21 |
 | March 10, 2021 | [Mainnet 6](/networks/node-ops/node-operation/past-sporks#mainnet-6) | March 9, 2021 —> March 10, 2021 | Devnet20 |
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/upcoming-sporks.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousNetwork Upgrade (Spork) Process](/networks/node-ops/node-operation/spork)[NextSlashing Conditions](/networks/node-ops/node-operation/slashing)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/upcoming-sporks.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousNetwork Upgrade (Spork) Process](/networks/node-ops/node-operation/spork)[NextSlashing Conditions](/networks/node-ops/node-operation/slashing)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)
@@ -113,8 +116,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

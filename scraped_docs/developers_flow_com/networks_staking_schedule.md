@@ -31,6 +31,7 @@ Epoch and Reward Schedule | Flow Developer Portal
   + [Staking Collection Guide](/networks/staking/staking-collection)
   + [Basic Staking Guide (Deprecated)](/networks/staking/staking-guide)
 * [Node Ops](/networks/node-ops)
+* [Accessing Data](/networks/access-onchain-data)
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
@@ -174,7 +175,7 @@ rewards were paid at the end of an epoch and the network transitioned to a new e
 Future rewards payments and epoch switchovers happen automatically via a system chunk transaction,
 which does not create regular transaction IDs.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/03-schedule.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousEpoch and Staking Terminology](/networks/staking/epoch-terminology)[NextEpoch Preparation Protocol](/networks/staking/epoch-preparation)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/03-schedule.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousEpoch and Staking Terminology](/networks/staking/epoch-terminology)[NextEpoch Preparation Protocol](/networks/staking/epoch-preparation)
 ###### Rate this page
 
 😞😐😊
@@ -216,8 +217,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

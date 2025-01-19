@@ -99,7 +99,7 @@ Specify the format of the command results.
 
 Specify the filename where you want the result to be saved
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/keys/derive-keys.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousDecode Public Keys](/tools/flow-cli/keys/decode-keys)[NextStart Emulator](/tools/flow-cli/deployment/start-emulator)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/keys/derive-keys.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousDecode Public Keys](/tools/flow-cli/keys/decode-keys)[NextStart Emulator](/tools/flow-cli/deployment/start-emulator)
 ###### Rate this page
 
 😞😐😊
@@ -145,8 +145,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
