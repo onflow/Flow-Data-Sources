@@ -19,6 +19,7 @@ User safety | Flow Developer Portal
   + [User safety](/networks/network-architecture/user-safety)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
+* [Accessing Data](/networks/access-onchain-data)
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
@@ -39,7 +40,7 @@ Flow’s multi-role architecture provides censorship & MEV resistance by design:
 
 ![mev_protection](/assets/images/mev_protection_in_flow-cb8116a0c2f0defaf2ec9bed7c552eb6.png)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/network-architecture/user-safety.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousSustainability](/networks/network-architecture/sustainability)[NextStaking and Epochs](/networks/staking)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/network-architecture/user-safety.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousSustainability](/networks/network-architecture/sustainability)[NextStaking and Epochs](/networks/staking)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)
@@ -70,8 +71,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

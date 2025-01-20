@@ -1,9 +1,9 @@
-# Source: https://developers.flow.com/tools/flow-cli/get-flow-data/get-collections
+# Source: https://developers.flow.com/tools/flow-cli/utils/signature-verify
 
 
 
 
-Get Collection | Flow Developer Portal
+Verify Signature | Flow Developer Portal
 
 
 
@@ -23,11 +23,11 @@ Get Collection | Flow Developer Portal
   + [Transactions](/tools/flow-cli/transactions/send-transactions)
   + [Flow.json](/tools/flow-cli/flow.json/initialize-configuration)
   + [Flow Entities](/tools/flow-cli/get-flow-data/get-blocks)
-    - [Get Block](/tools/flow-cli/get-flow-data/get-blocks)
-    - [Get Events](/tools/flow-cli/get-flow-data/get-events)
-    - [Get Collection](/tools/flow-cli/get-flow-data/get-collections)
-    - [Network Status](/tools/flow-cli/get-flow-data/get-status)
   + [Utils](/tools/flow-cli/utils/signature-generate)
+    - [Generate a Signature](/tools/flow-cli/utils/signature-generate)
+    - [Verify Signature](/tools/flow-cli/utils/signature-verify)
+    - [Snapshot Save](/tools/flow-cli/utils/snapshot-save)
+    - [Development Tools](/tools/flow-cli/utils/tools)
   + [Dependency Manager](/tools/flow-cli/dependency-manager)
   + [Running Cadence Tests](/tools/flow-cli/tests)
   + [Cadence Linter](/tools/flow-cli/lint)
@@ -42,63 +42,61 @@ Get Collection | Flow Developer Portal
 
 
 * [Flow CLI](/tools/flow-cli)
-* Flow Entities
-* Get Collection
+* Utils
+* Verify Signature
 On this page
-# Get Collection
+# Verify Signature
 
-The Flow CLI provides a command to fetch any collection from the Flow network.
+Verify validity of a signature based on provided message and public key of the signature creator.
 
- `_10flow collections get <collection_id>`
+ `_10flow signatures verify <message> <signature> <public key>`
 ## Example Usage[​](#example-usage "Direct link to Example Usage")
 
- `_10flow collections get 3e694588e789a72489667a36dd73104dea4579bcd400959d47aedccd7f930eeb \_10--host access.mainnet.nodes.onflow.org:9000`
-### Example response[​](#example-response "Direct link to Example response")
-
- `_10Collection ID 3e694588e789a72489667a36dd73104dea4579bcd400959d47aedccd7f930eeb:_10acc2ae1ff6deb2f4d7663d24af6ab1baf797ec264fd76a745a30792f6882093b_10ae8bfbc85ce994899a3f942072bfd3455823b1f7652106ac102d161c17fcb55c_1070c4d39d34e654173c5c2746e7bb3a6cdf1f5e6963538d62bad2156fc02ea1b2_102466237b5eafb469c01e2e5f929a05866de459df3bd768cde748e068c81c57bf`
+ `_11> flow signatures verify _11 'The quick brown fox jumps over the lazy dog' _11 b1c9eff5d829fdeaf2dad6308fc8033e3b8875bc185ef804ce5d0d980545ef5be0f98b47afc979d12272d257ce13c4b490e431bfcada485cb1d2e3f209be8d07 _11 0xc92a7c72a78f8f046a79f8a5fe1ef72424258a55eb869f13e6133301d64ad025d3362d5df9e7c82289637af1431042c4025d241fd430242368ce662d39636987_11_11Valid true_11Message The quick brown fox jumps over the lazy dog_11Signature b1c9eff5d829fdeaf2...7ce13c4b490eada485cb1d2e3f209be8d07_11Public Key c92a7c72a78...1431042c4025d241fd430242368ce662d39636987_11Hash Algorithm SHA3_256_11Signature Algorithm ECDSA_P256`
 ## Arguments[​](#arguments "Direct link to Arguments")
 
-### Collection ID[​](#collection-id "Direct link to Collection ID")
+### Message[​](#message "Direct link to Message")
 
-* Name: `collection_id`
-* Valid Input: SHA3-256 hash of the collection contents
+* Name: `message`
 
-## Arguments[​](#arguments-1 "Direct link to Arguments")
+Message data used for creating the signature.
+
+### Signature[​](#signature "Direct link to Signature")
+
+* Name: `signature`
+
+Message signature that will be verified.
+
+### Public Key[​](#public-key "Direct link to Public Key")
+
+* Name: `public key`
+
+Public key of the private key used for creating the signature.
 
 ## Flags[​](#flags "Direct link to Flags")
 
-### Host[​](#host "Direct link to Host")
+### Public Key Signature Algorithm[​](#public-key-signature-algorithm "Direct link to Public Key Signature Algorithm")
 
-* Flag: `--host`
-* Valid inputs: an IP address or hostname.
-* Default: `127.0.0.1:3569` (Flow Emulator)
+* Flag: `--sig-algo`
+* Valid inputs: `"ECDSA_P256", "ECDSA_secp256k1"`
 
-Specify the hostname of the Access API that will be
-used to execute the command. This flag overrides
-any host defined by the `--network` flag.
+Specify the ECDSA signature algorithm of the key pair used for signing.
 
-### Network Key[​](#network-key "Direct link to Network Key")
+Flow supports the secp256k1 and P-256 curves.
 
-* Flag: `--network-key`
-* Valid inputs: A valid network public key of the host in hex string format
+### Public Key Hash Algorithm[​](#public-key-hash-algorithm "Direct link to Public Key Hash Algorithm")
 
-Specify the network public key of the Access API that will be
-used to create a secure GRPC client when executing the command.
+* Flag: `--hash-algo`
+* Valid inputs: `"SHA2_256", "SHA3_256"`
+* Default: `"SHA3_256"`
 
-### Network[​](#network "Direct link to Network")
-
-* Flag: `--network`
-* Short Flag: `-n`
-* Valid inputs: the name of a network defined in the configuration (`flow.json`)
-* Default: `emulator`
-
-Specify which network you want the command to use for execution.
+Specify the hash algorithm of the key pair used for signing.
 
 ### Filter[​](#filter "Direct link to Filter")
 
 * Flag: `--filter`
 * Short Flag: `-x`
-* Valid inputs: a case-sensitive name of the result property.
+* Valid inputs: case-sensitive name of the result property.
 
 Specify any property name from the result you want to return as the only value.
 
@@ -108,15 +106,15 @@ Specify any property name from the result you want to return as the only value.
 * Short Flag: `-o`
 * Valid inputs: `json`, `inline`
 
-Specify the format of the command results.
+Specify in which format you want to display the result.
 
 ### Save[​](#save "Direct link to Save")
 
 * Flag: `--save`
 * Short Flag: `-s`
-* Valid inputs: a path in the current filesystem.
+* Valid inputs: valid filename
 
-Specify the filename where you want the result to be saved
+Specify the filename where you want the result to be saved.
 
 ### Log[​](#log "Direct link to Log")
 
@@ -125,18 +123,7 @@ Specify the filename where you want the result to be saved
 * Valid inputs: `none`, `error`, `debug`
 * Default: `info`
 
-Specify the log level. Control how much output you want to see during command execution.
-
-### Configuration[​](#configuration "Direct link to Configuration")
-
-* Flag: `--config-path`
-* Short Flag: `-f`
-* Valid inputs: a path in the current filesystem.
-* Default: `flow.json`
-
-Specify the path to the `flow.json` configuration file.
-You can use the `-f` flag multiple times to merge
-several configuration files.
+Specify the log level. Control how much output you want to see while command execution.
 
 ### Version Check[​](#version-check "Direct link to Version Check")
 
@@ -145,25 +132,23 @@ several configuration files.
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/get-flow-data/get-collections.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousGet Events](/tools/flow-cli/get-flow-data/get-events)[NextNetwork Status](/tools/flow-cli/get-flow-data/get-status)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/utils/signature-verify.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousGenerate a Signature](/tools/flow-cli/utils/signature-generate)[NextSnapshot Save](/tools/flow-cli/utils/snapshot-save)
 ###### Rate this page
 
 😞😐😊
 
 * [Example Usage](#example-usage)
-  + [Example response](#example-response)
 * [Arguments](#arguments)
-  + [Collection ID](#collection-id)
-* [Arguments](#arguments-1)
+  + [Message](#message)
+  + [Signature](#signature)
+  + [Public Key](#public-key)
 * [Flags](#flags)
-  + [Host](#host)
-  + [Network Key](#network-key)
-  + [Network](#network)
+  + [Public Key Signature Algorithm](#public-key-signature-algorithm)
+  + [Public Key Hash Algorithm](#public-key-hash-algorithm)
   + [Filter](#filter)
   + [Output](#output)
   + [Save](#save)
   + [Log](#log)
-  + [Configuration](#configuration)
   + [Version Check](#version-check)
 Documentation
 

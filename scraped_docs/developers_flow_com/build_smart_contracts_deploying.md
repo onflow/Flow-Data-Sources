@@ -130,7 +130,7 @@ warning
 
 Flow Testnet is explicitly for experimentation and testing and should not be used to exchange "real value" (e.g. developing a fiat money on/off-ramp for your testnet application).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/deploying.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousSmart Contracts on Flow](/build/smart-contracts/overview)[NextTesting Your Contracts](/build/smart-contracts/testing)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/deploying.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousSmart Contracts on Flow](/build/smart-contracts/overview)[NextTesting Your Contracts](/build/smart-contracts/testing)
 ###### Rate this page
 
 😞😐😊
@@ -177,8 +177,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

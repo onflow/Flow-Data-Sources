@@ -19,6 +19,7 @@ Sustainability | Flow Developer Portal
   + [User safety](/networks/network-architecture/user-safety)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
+* [Accessing Data](/networks/access-onchain-data)
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
@@ -39,7 +40,7 @@ The overall energy use of the network won’t increase significantly even if the
 
 Read more about it [here](https://flow.com/post/flow-blockchain-sustainability-energy-deloitte-report-nft).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/network-architecture/sustainability.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousSolving the blockchain trilemma](/networks/network-architecture/solving-blockchain-trilemma)[NextUser safety](/networks/network-architecture/user-safety)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/network-architecture/sustainability.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousSolving the blockchain trilemma](/networks/network-architecture/solving-blockchain-trilemma)[NextUser safety](/networks/network-architecture/user-safety)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)
@@ -70,8 +71,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

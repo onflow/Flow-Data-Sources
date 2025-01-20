@@ -88,7 +88,7 @@ To create a signing function you specify a function which consumes a payload and
 
 Example 3:
 
- `_17const signingFunction = ({_17 message, // The encoded string which needs to be used to produce the signature._17 addr, // The address of the Flow Account this signature is to be produced for._17 keyId, // The keyId of the key which is to be used to produce the signature._17 roles: {_17 proposer, // A Boolean representing if this signature to be produced for a proposer._17 authorizer, // A Boolean representing if this signature to be produced for a authorizer._17 payer, // A Boolean representing if this signature to be produced for a payer._17 }, _17 voucher, // The raw transactions information, can be used to create the message for additional safety and lack of trust in the supplied message._17}) => {_17 return {_17 addr, // The address of the Flow Account this signature was produced for._17 keyId, // The keyId for which key was used to produce the signature._17 signature: produceSignature(message) // The hex encoded string representing the signature of the message._17 }_17}`[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/authorization-function.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousWallet Provider Spec](/tools/wallet-provider-spec)[NextIntroduction](/tools/wallet-provider-spec/custodial)
+ `_17const signingFunction = ({_17 message, // The encoded string which needs to be used to produce the signature._17 addr, // The address of the Flow Account this signature is to be produced for._17 keyId, // The keyId of the key which is to be used to produce the signature._17 roles: {_17 proposer, // A Boolean representing if this signature to be produced for a proposer._17 authorizer, // A Boolean representing if this signature to be produced for a authorizer._17 payer, // A Boolean representing if this signature to be produced for a payer._17 }, _17 voucher, // The raw transactions information, can be used to create the message for additional safety and lack of trust in the supplied message._17}) => {_17 return {_17 addr, // The address of the Flow Account this signature was produced for._17 keyId, // The keyId for which key was used to produce the signature._17 signature: produceSignature(message) // The hex encoded string representing the signature of the message._17 }_17}`[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/authorization-function.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousWallet Provider Spec](/tools/wallet-provider-spec)[NextIntroduction](/tools/wallet-provider-spec/custodial)
 ###### Rate this page
 
 😞😐😊
@@ -129,8 +129,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

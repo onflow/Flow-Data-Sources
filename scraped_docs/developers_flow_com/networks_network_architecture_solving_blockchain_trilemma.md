@@ -19,6 +19,7 @@ Solving the blockchain trilemma | Flow Developer Portal
   + [User safety](/networks/network-architecture/user-safety)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
+* [Accessing Data](/networks/access-onchain-data)
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
@@ -70,7 +71,7 @@ Thus, Flow’s multi-role architecture solves the blockchain trilemma:
 
 ![trilemma_solved](/assets/images/flow_trillema_solved-1ba96289ea436ee41ca530f58ec8b558.png)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/network-architecture/solving-blockchain-trilemma.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousFlow's Network Architecture](/networks/network-architecture)[NextSustainability](/networks/network-architecture/sustainability)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/network-architecture/solving-blockchain-trilemma.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousFlow's Network Architecture](/networks/network-architecture)[NextSustainability](/networks/network-architecture/sustainability)
 ###### Rate this page
 
 😞😐😊
@@ -107,8 +108,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

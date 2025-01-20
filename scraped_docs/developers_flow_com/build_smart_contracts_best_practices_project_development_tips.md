@@ -324,7 +324,7 @@ and documenting their projects. (Documentation for these topics coming soon)
 
 If you have any feedback about these guidelines, please create an issue in the onflow/cadence-style-guide repo or make a PR updating the guidelines so we can start a discussion.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/best-practices/project-development-tips.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousContract Upgrades with Incompatible Changes](/build/smart-contracts/best-practices/contract-upgrades)[NextAccount Abstraction](/build/advanced-concepts/account-abstraction)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/best-practices/project-development-tips.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousContract Upgrades with Incompatible Changes](/build/smart-contracts/best-practices/contract-upgrades)[NextAccount Abstraction](/build/advanced-concepts/account-abstraction)
 ###### Rate this page
 
 😞😐😊
@@ -376,8 +376,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

@@ -1,9 +1,9 @@
-# Source: https://developers.flow.com/tools/flow-cli/get-flow-data/get-collections
+# Source: https://developers.flow.com/tools/flow-cli/get-flow-data/get-status
 
 
 
 
-Get Collection | Flow Developer Portal
+Network Status | Flow Developer Portal
 
 
 
@@ -43,29 +43,26 @@ Get Collection | Flow Developer Portal
 
 * [Flow CLI](/tools/flow-cli)
 * Flow Entities
-* Get Collection
+* Network Status
 On this page
-# Get Collection
+# Network Status
 
-The Flow CLI provides a command to fetch any collection from the Flow network.
+The Flow CLI provides a command to get network status of specified Flow Access Node
 
- `_10flow collections get <collection_id>`
+`flow status`
+
 ## Example Usage[​](#example-usage "Direct link to Example Usage")
 
- `_10flow collections get 3e694588e789a72489667a36dd73104dea4579bcd400959d47aedccd7f930eeb \_10--host access.mainnet.nodes.onflow.org:9000`
-### Example response[​](#example-response "Direct link to Example response")
-
- `_10Collection ID 3e694588e789a72489667a36dd73104dea4579bcd400959d47aedccd7f930eeb:_10acc2ae1ff6deb2f4d7663d24af6ab1baf797ec264fd76a745a30792f6882093b_10ae8bfbc85ce994899a3f942072bfd3455823b1f7652106ac102d161c17fcb55c_1070c4d39d34e654173c5c2746e7bb3a6cdf1f5e6963538d62bad2156fc02ea1b2_102466237b5eafb469c01e2e5f929a05866de459df3bd768cde748e068c81c57bf`
-## Arguments[​](#arguments "Direct link to Arguments")
-
-### Collection ID[​](#collection-id "Direct link to Collection ID")
-
-* Name: `collection_id`
-* Valid Input: SHA3-256 hash of the collection contents
-
-## Arguments[​](#arguments-1 "Direct link to Arguments")
-
+ `_10> flow status --network testnet_10_10Status: 🟢 ONLINE_10Network: testnet_10Access Node: access.devnet.nodes.onflow.org:9000`
 ## Flags[​](#flags "Direct link to Flags")
+
+### Network[​](#network "Direct link to Network")
+
+* Flag: `--network`
+* Short Flag: `-n`
+* Valid inputs: the name of a network defined in the configuration (`flow.json`).
+
+Specify which network you want the command to use for execution.
 
 ### Host[​](#host "Direct link to Host")
 
@@ -84,15 +81,6 @@ any host defined by the `--network` flag.
 
 Specify the network public key of the Access API that will be
 used to create a secure GRPC client when executing the command.
-
-### Network[​](#network "Direct link to Network")
-
-* Flag: `--network`
-* Short Flag: `-n`
-* Valid inputs: the name of a network defined in the configuration (`flow.json`)
-* Default: `emulator`
-
-Specify which network you want the command to use for execution.
 
 ### Filter[​](#filter "Direct link to Filter")
 
@@ -129,7 +117,7 @@ Specify the log level. Control how much output you want to see during command ex
 
 ### Configuration[​](#configuration "Direct link to Configuration")
 
-* Flag: `--config-path`
+* Flag: `--conf`
 * Short Flag: `-f`
 * Valid inputs: a path in the current filesystem.
 * Default: `flow.json`
@@ -145,20 +133,16 @@ several configuration files.
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/get-flow-data/get-collections.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousGet Events](/tools/flow-cli/get-flow-data/get-events)[NextNetwork Status](/tools/flow-cli/get-flow-data/get-status)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/get-flow-data/get-status.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousGet Collection](/tools/flow-cli/get-flow-data/get-collections)[NextGenerate a Signature](/tools/flow-cli/utils/signature-generate)
 ###### Rate this page
 
 😞😐😊
 
 * [Example Usage](#example-usage)
-  + [Example response](#example-response)
-* [Arguments](#arguments)
-  + [Collection ID](#collection-id)
-* [Arguments](#arguments-1)
 * [Flags](#flags)
+  + [Network](#network)
   + [Host](#host)
   + [Network Key](#network-key)
-  + [Network](#network)
   + [Filter](#filter)
   + [Output](#output)
   + [Save](#save)
