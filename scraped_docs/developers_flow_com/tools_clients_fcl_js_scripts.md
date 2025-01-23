@@ -79,7 +79,7 @@ In the below example we will use the concept of a `Point` again, but this time, 
 
 To learn more about `query`, check out the [API documentation](/tools/clients/fcl-js/api#query).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/scripts.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousProving Ownership of a Flow Account](/tools/clients/fcl-js/proving-authentication)[NextTransactions](/tools/clients/fcl-js/transactions)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/scripts.md)Last updated on **Dec 24, 2024** by **Jerome P**[PreviousProving Ownership of a Flow Account](/tools/clients/fcl-js/proving-authentication)[NextTransactions](/tools/clients/fcl-js/transactions)
 ###### Rate this page
 
 😞😐😊

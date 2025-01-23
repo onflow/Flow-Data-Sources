@@ -96,7 +96,7 @@ files by using `-f` flag multiple times.
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/deployment/emulator-snapshot.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousDeploy a Project](/tools/flow-cli/deployment/deploy-project-contracts)[NextExecute a Script](/tools/flow-cli/scripts/execute-scripts)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/deployment/emulator-snapshot.md)Last updated on **Dec 24, 2024** by **Jerome P**[PreviousDeploy a Project](/tools/flow-cli/deployment/deploy-project-contracts)[NextExecute a Script](/tools/flow-cli/scripts/execute-scripts)
 ###### Rate this page
 
 😞😐😊

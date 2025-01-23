@@ -35,7 +35,7 @@ Bridges are mechanisms that connect different blockchain networks, enabling secu
 
 [Axelar](https://www.axelar.network/) is a decentralized cross-chain network connecting over 55 blockchains, facilitating asset transfers and smart contract programmability. It features a proof-of-stake consensus for security and supports cross-chain applications through General Message Passing (GMP). Integrations with platforms like [Squid](https://www.squidrouter.com/) enable easy token swaps across networks like Ethereum and Polygon.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/bridges.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousFlow Block Explorers](/ecosystem/block-explorers)[NextCommunity Projects](/ecosystem/projects)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/bridges.md)Last updated on **Dec 24, 2024** by **Jerome P**[PreviousFlow Block Explorers](/ecosystem/block-explorers)[NextCommunity Projects](/ecosystem/projects)
 ###### Rate this page
 
 😞😐😊

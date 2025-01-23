@@ -117,7 +117,7 @@ Now that the transaction has been sent, the contract's state should have been up
 
 For more information about using smart contracts in web3.js, see the [official documentation](https://docs.web3js.org/libdocs/Contract).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/clients/web3-js.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousEthers](/evm/clients/ethers)[NextInteracting with COAs](/evm/cadence/interacting-with-coa)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/clients/web3-js.md)Last updated on **Dec 24, 2024** by **Jerome P**[PreviousEthers](/evm/clients/ethers)[NextInteracting with COAs](/evm/cadence/interacting-with-coa)
 ###### Rate this page
 
 😞😐😊

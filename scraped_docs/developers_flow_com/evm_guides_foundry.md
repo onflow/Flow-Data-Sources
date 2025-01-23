@@ -176,7 +176,7 @@ We can check the balance of the new account:
 
 The deployer should also own less tokens now:
 
- `_10cast balance \_10 --rpc-url https://testnet.evm.nodes.onflow.org \_10 --erc20 $DEPLOYED_MYTOKEN_ADDRESS \_10 $DEPLOYER_ADDRESS`[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/foundry.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousViem & Wagmi](/evm/guides/wagmi)[NextVRF (Randomness) in Solidity](/evm/guides/vrf)
+ `_10cast balance \_10 --rpc-url https://testnet.evm.nodes.onflow.org \_10 --erc20 $DEPLOYED_MYTOKEN_ADDRESS \_10 $DEPLOYER_ADDRESS`[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/foundry.md)Last updated on **Dec 24, 2024** by **Jerome P**[PreviousViem & Wagmi](/evm/guides/wagmi)[NextVRF (Randomness) in Solidity](/evm/guides/vrf)
 ###### Rate this page
 
 😞😐😊

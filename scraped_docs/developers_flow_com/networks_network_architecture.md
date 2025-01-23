@@ -93,7 +93,7 @@ They can therefore specialize—and greatly increase the efficiency—for their 
 
 In the next section, lets look at how Flow multi-role architecture solves those three big problems with blockchains.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/network-architecture/index.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousNetworks](/networks)[NextSolving the blockchain trilemma](/networks/network-architecture/solving-blockchain-trilemma)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/network-architecture/index.md)Last updated on **Dec 24, 2024** by **Jerome P**[PreviousNetworks](/networks)[NextSolving the blockchain trilemma](/networks/network-architecture/solving-blockchain-trilemma)
 ###### Rate this page
 
 😞😐😊

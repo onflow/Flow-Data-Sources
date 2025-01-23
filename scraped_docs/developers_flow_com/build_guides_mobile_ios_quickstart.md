@@ -142,7 +142,7 @@ The Agile Monkeys has written a very comprehensive guide on how to build a nativ
 [How to Build a Native iOS Dapper](https://dev.to/theagilemonkeys/how-to-buid-a-native-ios-dapp-that-uses-the-flow-blockchain-as-the-backend-n9k)
 [Source Code](https://github.com/jfsagasti/FlowNotes)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/ios-quickstart.md)Last updated on **Dec 20, 2024** by **Brian Doyle**[PreviousBuild a Walletless Mobile App (PWA)](/build/guides/mobile/walletless-pwa)[NextReact Native Development](/build/guides/mobile/react-native-quickstart)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/ios-quickstart.md)Last updated on **Dec 24, 2024** by **Jerome P**[PreviousBuild a Walletless Mobile App (PWA)](/build/guides/mobile/walletless-pwa)[NextReact Native Development](/build/guides/mobile/react-native-quickstart)
 ###### Rate this page
 
 😞😐😊
@@ -185,8 +185,8 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowdiver Mainnet](https://flowdiver.io/)
-* [Flowdiver Testnet](https://testnet.flowdiver.io/)
+* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)

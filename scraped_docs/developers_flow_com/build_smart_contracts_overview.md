@@ -109,7 +109,7 @@ See the [FT Guide](/build/guides/fungible-token) for a guide on how to create a 
 contract that conforms to the standard.
 
 * [Fungible Token contract interface](/build/core-contracts/fungible-token)
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/overview.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousLearn Cadence ↗️](/build/learn-cadence)[NextDeploying Contracts](/build/smart-contracts/deploying)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/overview.md)Last updated on **Dec 24, 2024** by **Jerome P**[PreviousLearn Cadence ↗️](/build/learn-cadence)[NextDeploying Contracts](/build/smart-contracts/deploying)
 ###### Rate this page
 
 😞😐😊

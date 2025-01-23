@@ -201,7 +201,7 @@ If you want to continue on generating your own contracts, you can also use the t
 
 After that, it's easy to add your contract to your project configuration using the Flow CLI [`config` commands](/tools/flow-cli/flow.json/manage-configuration).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/flow-cli.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousContract Interaction](/build/getting-started/contract-interaction)[NextSimple Frontend](/build/getting-started/fcl-quickstart)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/flow-cli.md)Last updated on **Dec 24, 2024** by **Jerome P**[PreviousContract Interaction](/build/getting-started/contract-interaction)[NextSimple Frontend](/build/getting-started/fcl-quickstart)
 ###### Rate this page
 
 😞😐😊

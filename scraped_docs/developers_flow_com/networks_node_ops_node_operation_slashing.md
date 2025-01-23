@@ -366,7 +366,7 @@ or if the SPoCK’s signature doesn't match the public key of the Verification N
 \*\*Adjudication: \*\*Consensus nodes evaluate the content and signatures of the result approval.
 If the witness turns out to be valid, the Verification Node who signed that result approval be slashed.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/slashing.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousUpcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)[NextNode Providers](/networks/node-ops/node-operation/node-providers)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/slashing.md)Last updated on **Dec 24, 2024** by **Jerome P**[PreviousUpcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)[NextNode Providers](/networks/node-ops/node-operation/node-providers)
 ###### Rate this page
 
 😞😐😊

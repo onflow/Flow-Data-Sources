@@ -82,7 +82,7 @@ At this point, the operator should update the node version to the new node softw
 The block height and the node version will be announced by the Flow team on Discord as well as the [forum page](https://forum.onflow.org/c/mainnet-sporks/36).
 It can also be directly queried from the chain using the following script.
 
- `_10TODO: insert flow cli command here to query the block version details.`[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/hcu.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousNode Providers](/networks/node-ops/node-operation/node-providers)[NextProtocol State Bootstrapping](/networks/node-ops/node-operation/protocol-state-bootstrap)
+ `_10TODO: insert flow cli command here to query the block version details.`[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/hcu.md)Last updated on **Dec 24, 2024** by **Jerome P**[PreviousNode Providers](/networks/node-ops/node-operation/node-providers)[NextProtocol State Bootstrapping](/networks/node-ops/node-operation/protocol-state-bootstrap)
 ###### Rate this page
 
 😞😐😊

@@ -33,7 +33,7 @@ Go to [Bridges](/ecosystem/bridges)
 
 ;
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/cross-chain-bridges.mdx)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousAccounts](/evm/accounts)[NextData Indexers](/evm/data-indexers)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/cross-chain-bridges.mdx)Last updated on **Dec 24, 2024** by **Jerome P**[PreviousAccounts](/evm/accounts)[NextData Indexers](/evm/data-indexers)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)

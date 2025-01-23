@@ -102,7 +102,7 @@ FCL will automatically replace the contract name with the address for the networ
 
 > Note: never put private keys in your `flow.json`. You should use the [key/location syntax](/tools/flow-cli/flow.json/security) to separate your keys into a separate git ignored file.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/configure-fcl.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousAuthentication](/tools/clients/fcl-js/authentication)[NextWallet Discovery](/tools/clients/fcl-js/discovery)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/configure-fcl.md)Last updated on **Dec 24, 2024** by **Jerome P**[PreviousAuthentication](/tools/clients/fcl-js/authentication)[NextWallet Discovery](/tools/clients/fcl-js/discovery)
 ###### Rate this page
 
 😞😐😊

@@ -32,7 +32,7 @@ Learn Cadence ↗️ | Flow Developer Portal
 * Learn Cadence ↗️
 # Learn Cadence ↗️
 
-;[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/learn-cadence.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousApp Architecture](/build/app-architecture)[NextSmart Contracts on Flow](/build/smart-contracts/overview)Documentation
+;[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/learn-cadence.md)Last updated on **Dec 24, 2024** by **Jerome P**[PreviousApp Architecture](/build/app-architecture)[NextSmart Contracts on Flow](/build/smart-contracts/overview)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)
