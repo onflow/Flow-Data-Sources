@@ -99,7 +99,7 @@ Specify the format of the command results.
 
 Specify the filename where you want the result to be saved
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/keys/derive-keys.md)Last updated on **Dec 24, 2024** by **Jerome P**[PreviousDecode Public Keys](/tools/flow-cli/keys/decode-keys)[NextStart Emulator](/tools/flow-cli/deployment/start-emulator)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/keys/derive-keys.md)Last updated on **Jan 3, 2025** by **Brian Doyle**[PreviousDecode Public Keys](/tools/flow-cli/keys/decode-keys)[NextStart Emulator](/tools/flow-cli/deployment/start-emulator)
 ###### Rate this page
 
 😞😐😊

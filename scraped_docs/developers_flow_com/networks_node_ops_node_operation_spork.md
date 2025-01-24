@@ -113,7 +113,7 @@ See [Node Bootstrap](/networks/node-ops/node-operation/node-bootstrap) for detai
 
 This error is OK. Your fellow node operators have not turned on/joined the network yet. So no need to worry about it!
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/spork.md)Last updated on **Dec 24, 2024** by **Jerome P**[PreviousPast Spork Info](/networks/node-ops/node-operation/past-sporks)[NextUpcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/spork.md)Last updated on **Jan 3, 2025** by **Brian Doyle**[PreviousPast Spork Info](/networks/node-ops/node-operation/past-sporks)[NextUpcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 ###### Rate this page
 
 😞😐😊

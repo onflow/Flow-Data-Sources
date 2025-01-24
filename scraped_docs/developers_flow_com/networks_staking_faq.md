@@ -113,7 +113,7 @@ and they can be moved to different accounts if the owner chooses.
 It is possible to query the information about a node that an address runs though, by using the
 `get_node_info_from_address.cdc` script.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/12-faq.md)Last updated on **Dec 24, 2024** by **Jerome P**[PreviousMachine Account](/networks/staking/machine-account)[NextTechnical Staking Options](/networks/staking/staking-options)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/12-faq.md)Last updated on **Jan 3, 2025** by **Brian Doyle**[PreviousMachine Account](/networks/staking/machine-account)[NextTechnical Staking Options](/networks/staking/staking-options)
 ###### Rate this page
 
 😞😐😊

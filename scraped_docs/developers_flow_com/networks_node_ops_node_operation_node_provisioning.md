@@ -142,7 +142,7 @@ In particular:
 
 These files contain confidential data, and must be stored and accessed securely.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-provisioning.md)Last updated on **Dec 24, 2024** by **Jerome P**[PreviousNode Migration](/networks/node-ops/node-operation/node-migration)[NextNode Roles](/networks/node-ops/node-operation/node-roles)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-provisioning.md)Last updated on **Jan 3, 2025** by **Brian Doyle**[PreviousNode Migration](/networks/node-ops/node-operation/node-migration)[NextNode Roles](/networks/node-ops/node-operation/node-roles)
 ###### Rate this page
 
 😞😐😊

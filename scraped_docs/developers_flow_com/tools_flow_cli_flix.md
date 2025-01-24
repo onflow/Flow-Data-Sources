@@ -303,7 +303,7 @@ several configuration files.
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flix.md)Last updated on **Dec 24, 2024** by **Jerome P**[PreviousCadence Linter](/tools/flow-cli/lint)[NextCadence Boilerplate](/tools/flow-cli/boilerplate)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flix.md)Last updated on **Jan 3, 2025** by **Brian Doyle**[PreviousCadence Linter](/tools/flow-cli/lint)[NextCadence Boilerplate](/tools/flow-cli/boilerplate)
 ###### Rate this page
 
 😞😐😊

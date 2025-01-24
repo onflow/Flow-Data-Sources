@@ -35,13 +35,23 @@ Bridges are mechanisms that connect different blockchain networks, enabling secu
 
 [Axelar](https://www.axelar.network/) is a decentralized cross-chain network connecting over 55 blockchains, facilitating asset transfers and smart contract programmability. It features a proof-of-stake consensus for security and supports cross-chain applications through General Message Passing (GMP). Integrations with platforms like [Squid](https://www.squidrouter.com/) enable easy token swaps across networks like Ethereum and Polygon.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/bridges.md)Last updated on **Dec 24, 2024** by **Jerome P**[PreviousFlow Block Explorers](/ecosystem/block-explorers)[NextCommunity Projects](/ecosystem/projects)
+## LayerZero[​](#layerzero "Direct link to LayerZero")
+
+[LayerZero](https://docs.layerzero.network/) is a decentralized omnichain interoperability protocol that enables direct cross-chain messaging and asset transfers. It uses a unique Ultra Light Node (ULN) architecture combined with decentralized verifiers to ensure secure message delivery across chains. LayerZero supports multiple EVM-compatible chains and provides developers with tools to build cross-chain applications through its EndpointV2 contracts.
+
+## Hyperlane[​](#hyperlane "Direct link to Hyperlane")
+
+[Hyperlane](https://www.usenexus.org/) is a modular interoperability framework that enables secure cross-chain communication. It allows developers to build applications that can seamlessly interact across different blockchain networks. Hyperlane's architecture emphasizes security and flexibility, providing customizable security models and permissionless interoperability between any blockchain networks.
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/bridges.md)Last updated on **Jan 21, 2025** by **Ali Serag**[PreviousFlow Block Explorers](/ecosystem/block-explorers)[NextCommunity Projects](/ecosystem/projects)
 ###### Rate this page
 
 😞😐😊
 
 * [Celer cBridge](#celer-cbridge)
 * [Axelar](#axelar)
+* [LayerZero](#layerzero)
+* [Hyperlane](#hyperlane)
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)

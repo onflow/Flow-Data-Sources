@@ -76,7 +76,7 @@ Source: [FlowStorageFees.cdc](https://github.com/onflow/flow-core-contracts/blob
 
 Important events for `FlowStorageFees` are:
 
- `_10// Emitted when the amount of storage capacity an account has per reserved Flow token changes_10access(all) event StorageMegaBytesPerReservedFLOWChanged(_ storageMegaBytesPerReservedFLOW: UFix64)_10_10// Emitted when the minimum amount of Flow tokens that an account needs to have reserved for storage capacity changes._10access(all) event MinimumStorageReservationChanged(_ minimumStorageReservation: UFix64)`[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/05-flow-fees.md)Last updated on **Dec 24, 2024** by **Jerome P**[PreviousService Account](/build/core-contracts/service-account)[NextStaking Table](/build/core-contracts/staking-contract-reference)
+ `_10// Emitted when the amount of storage capacity an account has per reserved Flow token changes_10access(all) event StorageMegaBytesPerReservedFLOWChanged(_ storageMegaBytesPerReservedFLOW: UFix64)_10_10// Emitted when the minimum amount of Flow tokens that an account needs to have reserved for storage capacity changes._10access(all) event MinimumStorageReservationChanged(_ minimumStorageReservation: UFix64)`[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/05-flow-fees.md)Last updated on **Jan 3, 2025** by **Brian Doyle**[PreviousService Account](/build/core-contracts/service-account)[NextStaking Table](/build/core-contracts/staking-contract-reference)
 ###### Rate this page
 
 😞😐😊

@@ -195,7 +195,7 @@ Use Dynamic Startup to bootstrap your node immediately, using the most recent Ro
  `_10 ... \_10 --dynamic-startup-access-address=secure.mainnet.nodes.onflow.org:9001 \_10 --dynamic-startup-access-publickey=28a0d9edd0de3f15866dfe4aea1560c4504fe313fc6ca3f63a63e4f98d0e295144692a58ebe7f7894349198613f65b2d960abf99ec2625e247b1c78ba5bf2eae \_10 --dynamic-startup-epoch=1`
 
 3. Start your node.
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/protocol-state-bootstrap.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousHeight coordinated upgrade](/networks/node-ops/node-operation/hcu)[NextManaging disk space](/networks/node-ops/node-operation/reclaim-disk)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/protocol-state-bootstrap.md)Last updated on **Jan 3, 2025** by **Brian Doyle**[PreviousHeight coordinated upgrade](/networks/node-ops/node-operation/hcu)[NextManaging disk space](/networks/node-ops/node-operation/reclaim-disk)
 ###### Rate this page
 
 😞😐😊

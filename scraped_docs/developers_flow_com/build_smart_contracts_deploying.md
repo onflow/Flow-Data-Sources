@@ -130,10 +130,10 @@ warning
 
 Flow Testnet is explicitly for experimentation and testing and should not be used to exchange "real value" (e.g. developing a fiat money on/off-ramp for your testnet application).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/deploying.md)Last updated on **Dec 24, 2024** by **Jerome P**[PreviousSmart Contracts on Flow](/build/smart-contracts/overview)[NextTesting Your Contracts](/build/smart-contracts/testing)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/deploying.md)Last updated on **Jan 3, 2025** by **Brian Doyle**[PreviousSmart Contracts on Flow](/build/smart-contracts/overview)[NextTesting Your Contracts](/build/smart-contracts/testing)
 ###### Rate this page
 
-😞 😐😊
+😞😐😊
 
 * [Creating an Account](#creating-an-account)
 * [Create and deploy a mainnet project](#create-and-deploy-a-mainnet-project)

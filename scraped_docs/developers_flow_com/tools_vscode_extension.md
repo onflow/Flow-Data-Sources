@@ -79,7 +79,7 @@ script `_10code --install-extension cadence-*.vsix`
 
 Restart VS Code and the extension should be installed!
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/vscode-extension/index.md)Last updated on **Jan 2, 2025** by **Alex Ni**[PreviousFlow Dev Wallet](/tools/flow-dev-wallet)[NextWallet Provider Spec](/tools/wallet-provider-spec)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/vscode-extension/index.md)Last updated on **Jan 3, 2025** by **Brian Doyle**[PreviousFlow Dev Wallet](/tools/flow-dev-wallet)[NextWallet Provider Spec](/tools/wallet-provider-spec)
 ###### Rate this page
 
 😞😐😊
