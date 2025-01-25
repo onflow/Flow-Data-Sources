@@ -13,7 +13,7 @@ Tags | Cadence
 
 ## C[​](#C "Direct link to C")
 
-* [cadence6](/docs/tags/cadence)
+* [cadence7](/docs/tags/cadence)
 
 ---
 
@@ -32,13 +32,13 @@ Tags | Cadence
 
 ## R[​](#R "Direct link to R")
 
-* [reference6](/docs/tags/reference)
+* [reference7](/docs/tags/reference)
 
 ---
 
 ## T[​](#T "Direct link to T")
 
-* [tutorial6](/docs/tags/tutorial)
+* [tutorial7](/docs/tags/tutorial)
 
 ---
 

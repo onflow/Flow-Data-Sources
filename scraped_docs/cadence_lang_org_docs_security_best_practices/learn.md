@@ -13,9 +13,9 @@ Cadence: Learn | Cadence
 
 Learning Cadence is easy. Get started:
 
-* **🏃‍♀️ Walk through the [tutorial](https://developers.flow.com/cadence/tutorial/first-steps)**
+* **🏃‍♀️ Walk through the [tutorial](./docs/tutorial/first-steps)**
 * **🛝 Try Cadence in the [Playground](https://play.flow.com/)**
-* **📕 Read the [documentation](https://cadence-lang.org/docs/)**
+* **📕 Read the [documentation](./docs/)**
 * **🎓 Take the [Emerald academy Beginner Cadence course](https://academy.ecdao.org/en)**
 * **🦍 Read how the [Bored Ape Yacht Club contract was implemented](https://flow.com/post/implementing-the-bored-ape-yacht-club-smart-contract-in-cadence)**
 * **📺 Watch some videos**

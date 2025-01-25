@@ -3,37 +3,41 @@
 
 
 
-6 docs tagged with "cadence" | Cadence
+7 docs tagged with "cadence" | Cadence
 
 
 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)Search
-# 6 docs tagged with "cadence"
+# 7 docs tagged with "cadence"
 
-[View All Tags](/docs/tags)[## 2. Hello World](/docs/tutorial/hello-world)
+[View All Tags](/docs/tags)[## Basic NFT](/docs/tutorial/non-fungible-tokens-1)
 
-A smart contract tutorial for Cadence.
+An introduction to a simplified version of NFTs on Cadence.
 
-[## 3. Resource Contract Tutorial](/docs/tutorial/resources)
-
-An introduction to resources, capabilities, and account storage in Cadence
-
-[## 4. Capability Tutorial](/docs/tutorial/capabilities)
+[## Capabilities](/docs/tutorial/capabilities)
 
 An introduction to capabilities and how they interact with resources in Cadence
 
-[## 5.1 Non-Fungible Token Tutorial Part 1](/docs/tutorial/non-fungible-tokens-1)
+[## First Steps](/docs/tutorial/first-steps)
 
-An introduction to NFTs on Cadence
+Welcome to our series of guides that will get you up to speed on [Cadence] as quickly as possible! In this program, you'll jump right into making meaningful projects. Don't worry, we'll point you to the important parts of the language reference as each concept is introduced!
 
-[## 5.2 Non-Fungible Token Tutorial Part 2](/docs/tutorial/non-fungible-tokens-2)
-
-An introduction to NFTs in Cadence
-
-[## 6. Fungible Token Tutorial](/docs/tutorial/fungible-tokens)
+[## Fungible Tokens](/docs/tutorial/fungible-tokens)
 
 An introduction to Fungible Tokens in Cadence
+
+[## Hello World](/docs/tutorial/hello-world)
+
+A smart contract tutorial for Cadence.
+
+[## Intermediate NFTs](/docs/tutorial/non-fungible-tokens-2)
+
+Learn how to manage collections of NFTs in Cadence
+
+[## Resources and the Move (<-) Operator](/docs/tutorial/resources)
+
+An introduction to resources, capabilities, and account storage in Cadence
 
 Got suggestions for this site? 
 

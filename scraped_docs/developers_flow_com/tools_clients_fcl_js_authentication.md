@@ -72,7 +72,7 @@ The [Quick Start](/build/getting-started/fcl-quickstart) guide will walk you thr
 
 We know this can all be fairly overwhelming, we are committed to help though. If you run into any problems, reach out to us on [Discord](https://discord.gg/flow), we are more than happy to help out.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/authentication.md)Last updated on **Jan 3, 2025** by **Brian Doyle**[PreviousSDK Reference](/tools/clients/fcl-js/sdk-guidelines)[NextHow to Configure FCL](/tools/clients/fcl-js/configure-fcl)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/authentication.md)Last updated on **Jan 7, 2025** by **Chase Fleming**[PreviousSDK Reference](/tools/clients/fcl-js/sdk-guidelines)[NextHow to Configure FCL](/tools/clients/fcl-js/configure-fcl)
 ###### Rate this page
 
 😞😐😊

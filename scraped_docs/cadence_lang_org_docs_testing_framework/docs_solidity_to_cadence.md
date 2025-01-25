@@ -3,7 +3,7 @@
 
 
 
-Guide for Solidity Developers | Cadence
+Cadence Guide for Solidity Developers | Cadence
 
 
 
@@ -19,14 +19,14 @@ Guide for Solidity Developers | Cadence
 * [Anti-Patterns](/docs/anti-patterns)
 * [Development Standards](/docs/project-development-tips)
 * [Security Best Practices](/docs/security-best-practices)
-* [Guide for Solidity Developers](/docs/solidity-to-cadence)
+* [Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
 * [Contract Upgrades with Incompatible Changes](/docs/contract-upgrades)
 * [JSON-Cadence format](/docs/json-cadence-spec)
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
 
-* Guide for Solidity Developers
+* Cadence Guide for Solidity Developers
 On this page
 
 Cadence introduces a different way to approach smart contract development which may feel unfamiliar to Solidity

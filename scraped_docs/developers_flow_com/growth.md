@@ -79,7 +79,7 @@ You've got an app and are meeting the needs of regular customers. Core features 
 * Fundraising support (intros to investor network)
 * Grants tied to bigger ecosystem milestones
 * DevRel
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/growth/index.md)Last updated on **Jan 3, 2025** by **Brian Doyle**
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/growth/index.md)Last updated on **Jan 7, 2025** by **Chase Fleming**
 ###### Rate this page
 
 😞😐😊

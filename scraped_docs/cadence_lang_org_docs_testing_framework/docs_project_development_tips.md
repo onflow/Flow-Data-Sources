@@ -19,7 +19,7 @@ Flow Smart Contract Project Development Standards | Cadence
 * [Anti-Patterns](/docs/anti-patterns)
 * [Development Standards](/docs/project-development-tips)
 * [Security Best Practices](/docs/security-best-practices)
-* [Guide for Solidity Developers](/docs/solidity-to-cadence)
+* [Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
 * [Contract Upgrades with Incompatible Changes](/docs/contract-upgrades)
 * [JSON-Cadence format](/docs/json-cadence-spec)
 * [Measuring Time](/docs/measuring-time)
@@ -322,7 +322,7 @@ If you have any feedback about these guidelines, please create an issue in the `
 [Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/project-development-tips.md)[PreviousAnti-Patterns](/docs/anti-patterns)[NextSecurity Best Practices](/docs/security-best-practices)
 ###### Rate this page
 
-  😞😐😊
+😞😐😊
 
 * [Context](#context)
   + [Implementing These Practices](#implementing-these-practices)

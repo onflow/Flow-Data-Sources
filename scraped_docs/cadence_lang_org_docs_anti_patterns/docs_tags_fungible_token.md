@@ -11,7 +11,7 @@ One doc tagged with "Fungible Token" | Cadence
 [Skip to main content](#__docusaurus_skipToContent_fallback)[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)Search
 # One doc tagged with "Fungible Token"
 
-[View All Tags](/docs/tags)[## 6. Fungible Token Tutorial](/docs/tutorial/fungible-tokens)
+[View All Tags](/docs/tags)[## Fungible Tokens](/docs/tutorial/fungible-tokens)
 
 An introduction to Fungible Tokens in Cadence
 

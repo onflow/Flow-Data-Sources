@@ -60,7 +60,7 @@ but are nevertheless important to developers on Flow:
 * NFT Storefronts. ([NFTStorefront](/build/core-contracts/nft-storefront))
 * Account linking and Hybrid Custody. ([AccountLinking](/build/core-contracts/hybrid-custody))
 * EVM interfacing contract. ([EVM](/build/core-contracts/evm))
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/index.md)Last updated on **Jan 3, 2025** by **Brian Doyle**[PreviousReact Native Development](/build/guides/mobile/react-native-quickstart)[NextFungible Token](/build/core-contracts/fungible-token)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/index.md)Last updated on **Jan 7, 2025** by **Chase Fleming**[PreviousReact Native Development](/build/guides/mobile/react-native-quickstart)[NextFungible Token](/build/core-contracts/fungible-token)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)

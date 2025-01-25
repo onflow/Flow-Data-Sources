@@ -19,7 +19,7 @@ Why Use Cadence? | Cadence
 * [Anti-Patterns](/docs/anti-patterns)
 * [Development Standards](/docs/project-development-tips)
 * [Security Best Practices](/docs/security-best-practices)
-* [Guide for Solidity Developers](/docs/solidity-to-cadence)
+* [Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
 * [Contract Upgrades with Incompatible Changes](/docs/contract-upgrades)
 * [JSON-Cadence format](/docs/json-cadence-spec)
 * [Measuring Time](/docs/measuring-time)
@@ -45,7 +45,7 @@ Cadence enables composability. Resources (which are arbitrary user-defined data 
 Cadence’s syntax is inspired by popular modern general-purpose programming languages like [Swift](https://developer.apple.com/swift/), [Kotlin](https://kotlinlang.org/), and [Rust](https://www.rust-lang.org/), so developers will find the syntax and the semantics familiar.
 Practical tooling, documentation, and examples enable developers to start creating programs quickly and effectively. Hundreds of developers were able to learn Cadence quickly and develop production-quality smart contracts with it shortly.
 
-[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/why.md)[PreviousIntroduction](/docs/)[Next1. First Steps](/docs/tutorial/first-steps)
+[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/why.md)[PreviousIntroduction](/docs/)[NextFirst Steps](/docs/tutorial/first-steps)
 ###### Rate this page
 
 😞😐😊

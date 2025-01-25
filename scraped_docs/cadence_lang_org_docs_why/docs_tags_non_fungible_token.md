@@ -11,13 +11,13 @@
 [Skip to main content](#__docusaurus_skipToContent_fallback)[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)Search
 # 2 docs tagged with "Non-Fungible Token"
 
-[View All Tags](/docs/tags)[## 5.1 Non-Fungible Token Tutorial Part 1](/docs/tutorial/non-fungible-tokens-1)
+[View All Tags](/docs/tags)[## Basic NFT](/docs/tutorial/non-fungible-tokens-1)
 
-An introduction to NFTs on Cadence
+An introduction to a simplified version of NFTs on Cadence.
 
-[## 5.2 Non-Fungible Token Tutorial Part 2](/docs/tutorial/non-fungible-tokens-2)
+[## Intermediate NFTs](/docs/tutorial/non-fungible-tokens-2)
 
-An introduction to NFTs in Cadence
+Learn how to manage collections of NFTs in Cadence
 
 Got suggestions for this site? 
 

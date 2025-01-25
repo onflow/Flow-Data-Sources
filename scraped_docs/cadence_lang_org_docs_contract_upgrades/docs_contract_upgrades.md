@@ -19,7 +19,7 @@ Contract Upgrades with Incompatible Changes | Cadence
 * [Anti-Patterns](/docs/anti-patterns)
 * [Development Standards](/docs/project-development-tips)
 * [Security Best Practices](/docs/security-best-practices)
-* [Guide for Solidity Developers](/docs/solidity-to-cadence)
+* [Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
 * [Contract Upgrades with Incompatible Changes](/docs/contract-upgrades)
 * [JSON-Cadence format](/docs/json-cadence-spec)
 * [Measuring Time](/docs/measuring-time)
@@ -56,7 +56,7 @@ If you absolutely must keep the old address when making an incompatible upgrade,
 
 ⚠️ Note that if any user accounts contain `structs` or `resources` from the *old* version of the contract that have been replaced with incompatible versions in the new one, **they will not load and will cause transactions that attempt to access them to crash**. For this reason, once any users have received `structs` or `resources` from the contract, this method of making an incompatible upgrade should not be attempted!
 
-[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/contract-upgrades.md)[PreviousGuide for Solidity Developers](/docs/solidity-to-cadence)[NextJSON-Cadence format](/docs/json-cadence-spec)
+[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/contract-upgrades.md)[PreviousCadence Guide for Solidity Developers](/docs/solidity-to-cadence)[NextJSON-Cadence format](/docs/json-cadence-spec)
 ###### Rate this page
 
 😞😐😊

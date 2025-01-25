@@ -155,7 +155,7 @@ several configuration files.
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/get-accounts.md)Last updated on **Jan 3, 2025** by **Brian Doyle**[PreviousSuper Commands](/tools/flow-cli/super-commands)[NextCreate an Account](/tools/flow-cli/accounts/create-accounts)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/get-accounts.md)Last updated on **Jan 7, 2025** by **Chase Fleming**[PreviousSuper Commands](/tools/flow-cli/super-commands)[NextCreate an Account](/tools/flow-cli/accounts/create-accounts)
 ###### Rate this page
 
 😞😐😊

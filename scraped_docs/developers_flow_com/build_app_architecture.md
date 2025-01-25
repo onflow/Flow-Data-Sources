@@ -96,7 +96,7 @@ App custody on Flow offers a unique approach to key management and user experien
 
 Selecting the right architecture is crucial when developing an app on the Flow blockchain. Your choice will influence not only the technical aspects but also the user experience and overall trust in your application. While Flow offers the tools and flexibility to cater to various needs, it's up to developers to harness these capabilities effectively. Whether you opt for a self-custody or app custody approach, ensure that your decision aligns with the core objectives of your app and the expectations of your users. Making informed architectural decisions will lay a strong foundation for your app's success.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/app-architecture/index.md)Last updated on **Jan 3, 2025** by **Brian Doyle**[PreviousSmart Contracts ↙](/build/basics/smart-contracts)[NextLearn Cadence ↗️](/build/learn-cadence)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/app-architecture/index.md)Last updated on **Jan 7, 2025** by **Chase Fleming**[PreviousSmart Contracts ↙](/build/basics/smart-contracts)[NextLearn Cadence ↗️](/build/learn-cadence)
 ###### Rate this page
 
 😞😐😊

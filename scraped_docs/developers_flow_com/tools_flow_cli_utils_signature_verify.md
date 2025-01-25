@@ -132,7 +132,7 @@ Specify the log level. Control how much output you want to see while command exe
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/utils/signature-verify.md)Last updated on **Dec 24, 2024** by **Navid TehraniFar**[PreviousGenerate a Signature](/tools/flow-cli/utils/signature-generate)[NextSnapshot Save](/tools/flow-cli/utils/snapshot-save)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/utils/signature-verify.md)Last updated on **Jan 7, 2025** by **Chase Fleming**[PreviousGenerate a Signature](/tools/flow-cli/utils/signature-generate)[NextSnapshot Save](/tools/flow-cli/utils/snapshot-save)
 ###### Rate this page
 
 😞😐😊

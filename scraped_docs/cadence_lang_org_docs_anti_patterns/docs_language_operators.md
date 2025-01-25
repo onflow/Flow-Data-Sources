@@ -51,7 +51,7 @@ Operators | Cadence
 * [Anti-Patterns](/docs/anti-patterns)
 * [Development Standards](/docs/project-development-tips)
 * [Security Best Practices](/docs/security-best-practices)
-* [Guide for Solidity Developers](/docs/solidity-to-cadence)
+* [Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
 * [Contract Upgrades with Incompatible Changes](/docs/contract-upgrades)
 * [JSON-Cadence format](/docs/json-cadence-spec)
 * [Measuring Time](/docs/measuring-time)
@@ -94,7 +94,12 @@ by one or more index or access expressions.
  `_10// Declare an array of integers._10let numbers = [1, 2]_10_10// Change the first element of the array._10//_10numbers[0] = 3_10_10// `numbers` is `[3, 2]``
  `_10// Declare an array of arrays of integers._10let arrays = [[1, 2], [3, 4]]_10_10// Change the first element in the second array_10//_10arrays[1][0] = 5_10_10// `arrays` is `[[1, 2], [5, 4]]``
  `_11let dictionaries = {_11 true: {1: 2},_11 false: {3: 4}_11}_11_11dictionaries[false][3] = 0_11_11// `dictionaries` is `{_11// true: {1: 2},_11// false: {3: 0}_11//}``
-## Force-assignment operator (`<-!`)[​](#force-assignment-operator-- "Direct link to force-assignment-operator--")
+## Move Operator (`<-`)[​](#move-operator-- "Direct link to move-operator--")
+
+The move operator (`<-`) is unique to Cadence and is used to move [resource types](/docs/language/resources) from one location to another. It works similar to the assignment operator (`=`) you're used to from most programming languages, except that the data in the location on the right side of the statement is **destroyed** by the operation.
+
+ `_29// Declare a resource named `SomeResource`, with a variable integer field._29_29access(all)_29resource SomeResource {_29 _29 access(all)_29 var value: Int_29_29 init(value: Int) {_29 self.value = value_29 }_29}_29_29// Declare a constant with value of resource type `SomeResource`._29_29let a: @SomeResource <- create SomeResource(value: 5)_29_29// *Move* the resource value to a new constant._29_29let b <- a_29_29// Invalid Line Below: Cannot use constant `a` anymore as the resource that it_29// referred to was moved to constant `b`._29_29a.value_29_29// Constant `b` owns the resource._29_29b.value // equals 5`
+## Force-assignment Operator (`<-!`)[​](#force-assignment-operator-- "Direct link to force-assignment-operator--")
 
 The force-assignment operator (`<-!`) assigns a resource-typed value
 to an optional-typed variable if the variable is nil.
@@ -419,7 +424,8 @@ and `5 + (6 * 7)` reinforces the default order.
 😞😐😊
 
 * [Assignment Operator (`=`)](#assignment-operator-)
-* [Force-assignment operator (`<-!`)](#force-assignment-operator--)
+* [Move Operator (`<-`)](#move-operator--)
+* [Force-assignment Operator (`<-!`)](#force-assignment-operator--)
 * [Swapping Operator (`<->`)](#swapping-operator--)
 * [Arithmetic Operators](#arithmetic-operators)
   + [Arithmetics on number super-types](#arithmetics-on-number-super-types)

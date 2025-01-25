@@ -13,13 +13,13 @@
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
 * [Tutorial](/docs/tutorial/first-steps)
-  + [1. First Steps](/docs/tutorial/first-steps)
-  + [2. Hello World](/docs/tutorial/hello-world)
-  + [3. Resource Contract Tutorial](/docs/tutorial/resources)
-  + [4. Capability Tutorial](/docs/tutorial/capabilities)
-  + [5.1 Non-Fungible Token Tutorial Part 1](/docs/tutorial/non-fungible-tokens-1)
-  + [5.2 Non-Fungible Token Tutorial Part 2](/docs/tutorial/non-fungible-tokens-2)
-  + [6. Fungible Token Tutorial](/docs/tutorial/fungible-tokens)
+  + [First Steps](/docs/tutorial/first-steps)
+  + [Hello World](/docs/tutorial/hello-world)
+  + [Resources and the Move (<-) Operator](/docs/tutorial/resources)
+  + [Capabilities](/docs/tutorial/capabilities)
+  + [Basic NFT](/docs/tutorial/non-fungible-tokens-1)
+  + [Intermediate NFTs](/docs/tutorial/non-fungible-tokens-2)
+  + [Fungible Tokens](/docs/tutorial/fungible-tokens)
   + [7. Marketplace Setup](/docs/tutorial/marketplace-setup)
   + [8. Marketplace](/docs/tutorial/marketplace-compose)
   + [9. Voting Contract](/docs/tutorial/voting)
@@ -30,7 +30,7 @@
 * [Anti-Patterns](/docs/anti-patterns)
 * [Development Standards](/docs/project-development-tips)
 * [Security Best Practices](/docs/security-best-practices)
-* [Guide for Solidity Developers](/docs/solidity-to-cadence)
+* [Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
 * [Contract Upgrades with Incompatible Changes](/docs/contract-upgrades)
 * [JSON-Cadence format](/docs/json-cadence-spec)
 * [Measuring Time](/docs/measuring-time)
@@ -40,6 +40,13 @@
 * Tutorial
 * 7. Marketplace Setup
 # 7. Marketplace Setup
+
+
+warning
+
+We're in the process of updating the Cadence tutorial series. This tutorial, and the ones following, have **not** yet been updated.
+
+Check back, or follow us on socials. These will be updated soon!
 
 In this tutorial, we're going to create a marketplace that uses both the fungible
 and non-fungible token (NFTs) contracts that we have learned about in previous tutorials.
@@ -108,7 +115,7 @@ With your playground now in the correct state, you're ready to continue with the
 
 You do not need to open a new playground session for the marketplace tutorial. You can just continue using this one.
 
-[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/tutorial/07-marketplace-setup.md)[Previous6. Fungible Token Tutorial](/docs/tutorial/fungible-tokens)[Next8. Marketplace](/docs/tutorial/marketplace-compose)Got suggestions for this site? 
+[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/tutorial/07-marketplace-setup.md)[PreviousFungible Tokens](/docs/tutorial/fungible-tokens)[Next8. Marketplace](/docs/tutorial/marketplace-compose)Got suggestions for this site? 
 
 * [It's open-source!](https://github.com/onflow/cadence-lang.org)
 The source code of this site is licensed under the Apache License, Version 2.0.

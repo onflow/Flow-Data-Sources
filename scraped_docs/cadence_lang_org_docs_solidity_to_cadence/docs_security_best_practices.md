@@ -19,7 +19,7 @@ Cadence Security Best Practices | Cadence
 * [Anti-Patterns](/docs/anti-patterns)
 * [Development Standards](/docs/project-development-tips)
 * [Security Best Practices](/docs/security-best-practices)
-* [Guide for Solidity Developers](/docs/solidity-to-cadence)
+* [Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
 * [Contract Upgrades with Incompatible Changes](/docs/contract-upgrades)
 * [JSON-Cadence format](/docs/json-cadence-spec)
 * [Measuring Time](/docs/measuring-time)
@@ -114,7 +114,7 @@ Do not use the `access(all)` modifier on fields unless necessary.
 Prefer `access(self)`, or `access(contract)` and `access(account)` when other types in the contract or account need to have access,
 and entitlement-based access for other cases.
 
-[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/security-best-practices.md)[PreviousDevelopment Standards](/docs/project-development-tips)[NextGuide for Solidity Developers](/docs/solidity-to-cadence)
+[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/security-best-practices.md)[PreviousDevelopment Standards](/docs/project-development-tips)[NextCadence Guide for Solidity Developers](/docs/solidity-to-cadence)
 ###### Rate this page
 
 😞😐😊

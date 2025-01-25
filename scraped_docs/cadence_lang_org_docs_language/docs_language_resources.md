@@ -51,7 +51,7 @@ Resources | Cadence
 * [Anti-Patterns](/docs/anti-patterns)
 * [Development Standards](/docs/project-development-tips)
 * [Security Best Practices](/docs/security-best-practices)
-* [Guide for Solidity Developers](/docs/solidity-to-cadence)
+* [Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
 * [Contract Upgrades with Incompatible Changes](/docs/contract-upgrades)
 * [JSON-Cadence format](/docs/json-cadence-spec)
 * [Measuring Time](/docs/measuring-time)
@@ -71,18 +71,13 @@ Resources **must** be created (instantiated) by using the `create` keyword.
 At the end of a function which has resources (variables, constants, parameters) in scope,
 the resources **must** be either **moved** or **destroyed**.
 
-They are **moved** when used as an initial value for a constant or variable,
-when assigned to a different variable,
-when passed as an argument to a function,
-and when returned from a function.
+They are **moved** when used as an initial value for a constant or variable, when assigned to a different variable, when passed as an argument to a function, and when returned from a function.
 
 Resources can be explicitly **destroyed** using the `destroy` keyword.
 
 Accessing a field or calling a function of a resource does not move or destroy it.
 
-When the resource is moved, the constant or variable
-that referred to the resource before the move becomes **invalid**.
-An **invalid** resource cannot be used again.
+When the resource is moved, the constant or variable that referred to the resource before the move becomes **invalid**. An **invalid** resource cannot be used again.
 
 To make the usage and behaviour of resource types explicit,
 the prefix `@` must be used in type annotations
@@ -96,12 +91,12 @@ when it is moved to a different variable,
 when it is moved to a function as an argument,
 and when it is returned from a function.
 
- `_47// Declare a resource named `SomeResource`, with a variable integer field._47//_47access(all)_47resource SomeResource {_47 _47 access(all)_47 var value: Int_47_47 init(value: Int) {_47 self.value = value_47 }_47}_47_47// Declare a constant with value of resource type `SomeResource`._47//_47let a: @SomeResource <- create SomeResource(value: 0)_47_47// *Move* the resource value to a new constant._47//_47let b <- a_47_47// Invalid: Cannot use constant `a` anymore as the resource that it referred to_47// was moved to constant `b`._47//_47a.value_47_47// Constant `b` owns the resource._47//_47b.value // equals 0_47_47// Declare a function which accepts a resource._47//_47// The parameter has a resource type, so the type annotation must be prefixed with `@`._47//_47access(all)_47fun use(resource: @SomeResource) {_47 // ..._47}_47_47// Call function `use` and move the resource into it._47//_47use(resource: <-b)_47_47// Invalid: Cannot use constant `b` anymore as the resource_47// it referred to was moved into function `use`._47//_47b.value`
+ `_47// Declare a resource named `SomeResource`, with a variable integer field._47_47access(all)_47resource SomeResource {_47 _47 access(all)_47 var value: Int_47_47 init(value: Int) {_47 self.value = value_47 }_47}_47_47// Declare a constant with value of resource type `SomeResource`._47_47let a: @SomeResource <- create SomeResource(value: 5)_47_47// *Move* the resource value to a new constant._47_47let b <- a_47_47// Invalid Line Below: Cannot use constant `a` anymore as the resource that it_47// referred to was moved to constant `b`._47_47a.value_47_47// Constant `b` owns the resource._47_47b.value // equals 5_47_47// Declare a function which accepts a resource._47_47// The parameter has a resource type, so the type annotation must be prefixed with `@`._47_47access(all)_47fun use(resource: @SomeResource) {_47 // ..._47}_47_47// Call function `use` and move the resource into it._47_47use(resource: <-b)_47_47// Invalid Line Below: Cannot use constant `b` anymore as the resource it_47// referred to was moved into function `use`._47_47b.value`
 
 A resource object cannot go out of scope and be dynamically lost.
 The program must either explicitly destroy it or move it to another context.
 
- `_10{_10 // Declare another, unrelated value of resource type `SomeResource`._10 //_10 let c <- create SomeResource(value: 10)_10_10 // Invalid: `c` is not used before the end of the scope, but must be._10 // It cannot be lost._10}`
+ `_10{_10 // Declare another, unrelated value of resource type `SomeResource`._10 _10 let c <- create SomeResource(value: 10)_10_10 // Invalid: `c` is not used before the end of the scope, but must be._10 // It cannot be lost._10}`
  `_12// Declare another, unrelated value of resource type `SomeResource`._12//_12let d <- create SomeResource(value: 20)_12_12// Destroy the resource referred to by constant `d`._12//_12destroy d_12_12// Invalid: Cannot use constant `d` anymore as the resource_12// it referred to was destroyed._12//_12d.value`
 
 To make it explicit that the type is a resource type

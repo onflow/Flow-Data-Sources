@@ -261,7 +261,7 @@ removed as a parent of the removed child.
 Note also that it's possible for a child account to remove a parent. This is necessary to give application developers
 and ultimately the owners of these child accounts the ability to revoke secondary access on owned accounts.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking/parent-accounts.md)Last updated on **Jan 3, 2025** by **Brian Doyle**[PreviousBuilding Walletless Applications Using Child Accounts](/build/guides/account-linking/child-accounts)[NextAccount Linking With NBA Top Shot](/build/guides/account-linking-with-dapper)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking/parent-accounts.md)Last updated on **Jan 7, 2025** by **Chase Fleming**[PreviousBuilding Walletless Applications Using Child Accounts](/build/guides/account-linking/child-accounts)[NextAccount Linking With NBA Top Shot](/build/guides/account-linking-with-dapper)
 ###### Rate this page
 
 😞😐😊

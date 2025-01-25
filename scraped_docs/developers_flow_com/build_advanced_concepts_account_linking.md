@@ -186,7 +186,7 @@ Learn more about it in the [Hybrid Custody documentation](/build/guides/account-
   [Magic](https://magic.link/).
 * [Starter template](https://github.com/Niftory/niftory-samples/tree/main/walletless-onboarding) for
   [Niftory](https://niftory.com/) Account Linking API.
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking/index.md)Last updated on **Jan 3, 2025** by **Brian Doyle**[PreviousCreate an NFT Project](/build/guides/nft)[NextBuilding Walletless Applications Using Child Accounts](/build/guides/account-linking/child-accounts)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking/index.md)Last updated on **Jan 7, 2025** by **Chase Fleming**[PreviousCreate an NFT Project](/build/guides/nft)[NextBuilding Walletless Applications Using Child Accounts](/build/guides/account-linking/child-accounts)
 ###### Rate this page
 
 😞😐😊
