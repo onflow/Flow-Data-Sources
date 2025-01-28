@@ -98,7 +98,7 @@ warning
 Unstaking a node will result in the node [not earning rewards](/networks/staking/technical-overview#staking-operations-available-to-all-stakers) for the next epoch.
 Delegators to the old node will have their tokens unstaked automatically. They will also stop earning rewards unless they withdraw their unstaked tokens and delegate them to a different node.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-migration.md)Last updated on **Jan 7, 2025** by **Chase Fleming**[PreviousNode Economics](/networks/node-ops/node-operation/node-economics)[NextNode Provisioning](/networks/node-ops/node-operation/node-provisioning)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-migration.md)Last updated on **Jan 10, 2025** by **Brian Doyle**[PreviousNode Economics](/networks/node-ops/node-operation/node-economics)[NextNode Provisioning](/networks/node-ops/node-operation/node-provisioning)
 ###### Rate this page
 
 😞😐😊

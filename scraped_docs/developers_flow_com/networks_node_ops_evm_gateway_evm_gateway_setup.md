@@ -42,22 +42,33 @@ service EVM client requests. It submits EVM transactions it receives into the Fl
 mutating EVM state when executed. Non-mutating RPC methods only query the local state index of the gateway and are never forwarded
 to Access Nodes. It does not participate in the block production process and requires no stake.
 
-## Who Should Run an EVM Gateway[​](#who-should-run-an-evm-gateway "Direct link to Who Should Run an EVM Gateway")
+## Anyone can run EVM Gateway[​](#anyone-can-run-evm-gateway "Direct link to Anyone can run EVM Gateway")
 
 The EVM Gateway can serve as a dedicated private RPC, a performance scaling solution, and a free gas provider offering similar capabilities
-to centralized middleware providers like Infura, Alchemy, etc at a fraction of the cost. This is because EVM Gateway nodes connect
-directly to the Flow network with no middle layer in between.
+to centralized middleware providers like Infura, Alchemy, etc. at a fraction of the cost. EVM Gateway nodes connect directly to the Flow network
+with no middleware giving you full control.
 
-Applications which generate high call volumes to the JSON-RPC and which may have hit rate limits on Flow public nodes may benefit from running their
-own gateway to remove rate limits. Self-hosted gateways connect directly to public Flow Access Nodes, which can also be [self-operated](/networks/node-ops/access-nodes/access-node-setup).
+If you are just getting started building your application, you can use the [public EVM Gateway](https://developers.flow.com/evm/networks).
+Applications generating high call volumes to the JSON-RPC may have hit rate limits on Flow public EVM Gateway and may benefit from running their
+own gateway to remove rate limits. Self-hosted gateways connect directly to public Flow Access Nodes, which may also optionally be [run](/networks/node-ops/access-nodes/access-node-setup).
+
+info
+
+Apps can use EVM gateway to subsidize user transaction fees for smoother onboarding
+
+Alternatively, you can also choose from any of the following providers who provide the EVM Gateway as a managed service along with other value added services on top.
+
+1. [Alchemy](https://www.alchemy.com/flow)
+2. [ThirdWeb](https://thirdweb.com/flow)
+3. [Moralis](https://docs.moralis.com/web3-data-api/evm/chains/flow)
+4. [QuickNode](https://www.quicknode.com/chains/flow)
 
 ## Hardware specifications[​](#hardware-specifications "Direct link to Hardware specifications")
 
-The EVM Gateway is a lightweight node which runs on commodity hardware and cloud VMs. It can be run on GCP *standard* and AWS *large*
-VM types for typical app co-location use-cases. However, higher volume use cases may require larger instance types and more
+The EVM Gateway is a lightweight node which runs on commodity hardware and cloud VMs. It can be run on GCP **standard** and AWS **large**
+VM types for low to moderate volume app co-location use-cases. However, higher volume use cases may require larger instance types and more
 testing. An inactive node requires less than 200MB memory when run in Docker and data storage growth corresponds with Flow EVM transaction
-growth. Listed below are theoretical RPS maximums based on mainnet CPU and memory resource utilization metrics and linear
-volume scaling assumptions.
+growth. Listed below are theoretical RPS maximums based on Flow mainnet CPU and memory resource utilization metrics and linear scaling assumptions.
 
 ### Google Cloud Platform (GCP) VM Types[​](#google-cloud-platform-gcp-vm-types "Direct link to Google Cloud Platform (GCP) VM Types")
 
@@ -171,7 +182,7 @@ spork per year. A canonical list of required hosts can be found in the EVM Gatew
 
 **Create EVM Gateway service**
 
- `_30sudo tee <<EOF >/dev/null /etc/systemd/system/gateway.service_30[Unit]_30Description=Gateway daemon_30After=network-online.target_30_30[Service]_30User=$USER_30ExecStart=/usr/bin/evm-gateway \_30--access-node-grpc-host=$ACCESS_NODE_GRPC_HOST \_30--access-node-spork-hosts=ACCESS_NODE_SPORK_HOSTS \_30--flow-network-id=$FLOW_NETWORK_ID \_30--init-cadence-height=$INIT_CADENCE_HEIGHT \_30--ws-enabled=true \_30--coinbase=$COINBASE \_30--coa-address=$COA_ADDRESS \_30--coa-key=$COA_KEY \_30--rate-limit=9999999 \_30--rpc-host=0.0.0.0 \_30--gas-price=$GAS_PRICE \_30--tx-state-validation=local-index_30Restart=always_30RestartSec=3_30LimitNOFILE=4096_30_30[Install]_30WantedBy=multi-user.target_30EOF_30_30cat /etc/systemd/system/gateway.service_30sudo systemctl enable gateway`
+ `_30sudo tee <<EOF >/dev/null /etc/systemd/system/gateway.service_30[Unit]_30Description=Gateway daemon_30After=network-online.target_30_30[Service]_30User=$USER_30ExecStart=/usr/bin/evm-gateway \_30--access-node-grpc-host=$ACCESS_NODE_GRPC_HOST \_30--access-node-spork-hosts=$ACCESS_NODE_SPORK_HOSTS \_30--flow-network-id=$FLOW_NETWORK_ID \_30--init-cadence-height=$INIT_CADENCE_HEIGHT \_30--ws-enabled=true \_30--coinbase=$COINBASE \_30--coa-address=$COA_ADDRESS \_30--coa-key=$COA_KEY \_30--rate-limit=9999999 \_30--rpc-host=0.0.0.0 \_30--gas-price=$GAS_PRICE \_30--tx-state-validation=local-index_30Restart=always_30RestartSec=3_30LimitNOFILE=4096_30_30[Install]_30WantedBy=multi-user.target_30EOF_30_30cat /etc/systemd/system/gateway.service_30sudo systemctl enable gateway`
 
 **Start all services**
 
@@ -241,7 +252,7 @@ EVM Gateway.
 
 ### Database version inconsistency/corruption[​](#database-version-inconsistencycorruption "Direct link to Database version inconsistency/corruption")
 
-If you see a similar message to this from an aborted startup the gateway database directory is not compatible with the schema versions of the runtime, or there may be corruption. In this instance we recommend
+If you see a similar message to this from an aborted startup the gateway database directory is not compatible with the schema versions of the runtime, or there may be corruption. In this instance we recommend that you delete the contents of the EVM GW data directory.
 
  `_10Jan 16 17:00:57 nodename docker[6552]: {"level":"error","error":"failed to open db for dir: /flow-evm-gateway/db, with: pebble: manifest file \"MANIFEST-018340\" for DB \"/flow-evm-gateway/db\": comparer name from file \"leveldb.BytewiseComparator\" != comparer name from Options \"flow.MVCCComparer\"","time":"2025-01-16T17:00:57Z","message":"Gateway runtime error"}`
 ### State stream configuration[​](#state-stream-configuration "Direct link to State stream configuration")
@@ -258,17 +269,12 @@ This is required by the gateway to allow both the streaming and non-streaming AP
 
 The following log entry will occur when the EVM Gateway attempts to sync with the Access Node but it has not yet synced up to latest block
 
- `_10failure in event subscription at height ${INIT-CADENCE-HEIGHT}, with: recoverable: disconnected: error receiving event: rpc error: code = FailedPrecondition desc = could not get start height: failed to get lowest indexed height: index not initialized`
-## FAQs[​](#faqs "Direct link to FAQs")
-
-TBD
-
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/evm-gateway/evm-gateway-setup.md)Last updated on **Jan 18, 2025** by **j pimmel**[PreviousExecution Data](/networks/node-ops/access-nodes/access-node-configuration-options)[NextLight Node Setup](/networks/node-ops/light-nodes/observer-node)
+ `_10failure in event subscription at height ${INIT-CADENCE-HEIGHT}, with: recoverable: disconnected: error receiving event: rpc error: code = FailedPrecondition desc = could not get start height: failed to get lowest indexed height: index not initialized`[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/evm-gateway/evm-gateway-setup.md)Last updated on **Jan 27, 2025** by **j pimmel**[PreviousExecution Data](/networks/node-ops/access-nodes/access-node-configuration-options)[NextLight Node Setup](/networks/node-ops/light-nodes/observer-node)
 ###### Rate this page
 
 😞😐😊
 
-* [Who Should Run an EVM Gateway](#who-should-run-an-evm-gateway)
+* [Anyone can run EVM Gateway](#anyone-can-run-evm-gateway)
 * [Hardware specifications](#hardware-specifications)
   + [Google Cloud Platform (GCP) VM Types](#google-cloud-platform-gcp-vm-types)
   + [Amazon Web Services (AWS) EC2 Instance Types](#amazon-web-services-aws-ec2-instance-types)
@@ -288,7 +294,6 @@ TBD
   + [Database version inconsistency/corruption](#database-version-inconsistencycorruption)
   + [State stream configuration](#state-stream-configuration)
   + [Access Node not fully synced](#access-node-not-fully-synced)
-* [FAQs](#faqs)
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)

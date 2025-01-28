@@ -72,7 +72,7 @@ Multiple contracts can be deployed to the same target account.
 
 For example, here's how we'd deploy contracts `Foo` and `Bar` to the account `my-testnet-account`:
 
- `_11{_11 "contracts": {_11 "Foo": "./cadence/contracts/FooContract.cdc",_11 "Bar": "./cadence/contracts/BarContract.cdc"_11 },_11 "deployments": {_11 "testnet": {_11 "my-testnet-account": ["Foo", "Bar"]_11 }_11 }_11}`[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/deployment/project-contracts.md)Last updated on **Jan 7, 2025** by **Chase Fleming**[PreviousStart Emulator](/tools/flow-cli/deployment/start-emulator)[NextDeploy a Project](/tools/flow-cli/deployment/deploy-project-contracts)
+ `_11{_11 "contracts": {_11 "Foo": "./cadence/contracts/FooContract.cdc",_11 "Bar": "./cadence/contracts/BarContract.cdc"_11 },_11 "deployments": {_11 "testnet": {_11 "my-testnet-account": ["Foo", "Bar"]_11 }_11 }_11}`[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/deployment/project-contracts.md)Last updated on **Jan 10, 2025** by **Brian Doyle**[PreviousStart Emulator](/tools/flow-cli/deployment/start-emulator)[NextDeploy a Project](/tools/flow-cli/deployment/deploy-project-contracts)
 ###### Rate this page
 
 😞😐😊

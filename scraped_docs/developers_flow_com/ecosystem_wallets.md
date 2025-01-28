@@ -86,7 +86,7 @@ Store, manage, and interact securely with tokens and digital assets on Flow. Dis
 
 Looking for a way to create mock developer wallets to test your app? The [The Flow Dev Wallet](/tools/flow-dev-wallet) simulates the protocols used by [FCL](/tools/clients/fcl-js) to interact with the Flow blockchain on behalf of simulated user accounts.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/wallets.md)Last updated on **Jan 7, 2025** by **Chase Fleming**[PreviousEcosystem](/ecosystem)[NextFlow Block Explorers](/ecosystem/block-explorers)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/wallets.md)Last updated on **Jan 10, 2025** by **Brian Doyle**[PreviousEcosystem](/ecosystem)[NextFlow Block Explorers](/ecosystem/block-explorers)
 ###### Rate this page
 
 😞😐😊

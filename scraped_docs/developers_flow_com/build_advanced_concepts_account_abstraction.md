@@ -85,7 +85,7 @@ These improvements are especially notable on mobile, where users are typically m
 | --- | --- |
 | Developers can build new features that streamline the user experience of Web3 apps, such as ‘session keys’ that pre-approve transactions for a period of time or setting custom limits on transaction volume or network fees. | Since all accounts are smart contracts, Flow has support for these new controls that enable apps to sign pre-approved transactions based on user controls and preferences. |
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/account-abstraction.md)Last updated on **Jan 7, 2025** by **Chase Fleming**[PreviousDevelopment Standards](/build/smart-contracts/best-practices/project-development-tips)[NextFLIX (Flow Interaction Templates)](/build/advanced-concepts/flix)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/account-abstraction.md)Last updated on **Jan 10, 2025** by **Brian Doyle**[PreviousDevelopment Standards](/build/smart-contracts/best-practices/project-development-tips)[NextFLIX (Flow Interaction Templates)](/build/advanced-concepts/flix)
 ###### Rate this page
 
 😞😐😊

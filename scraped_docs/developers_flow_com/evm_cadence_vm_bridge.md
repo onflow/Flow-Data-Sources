@@ -244,7 +244,7 @@ For the current state of Flow EVM across various task paths, see the following r
 * [Flow EVM Equivalence forum post](https://forum.flow.com/t/evm-equivalence-on-flow-proposal-and-path-forward/5478)
 * [EVM Integration FLIP #223](https://github.com/onflow/flips/pull/225/files)
 * [Gateway & JSON RPC FLIP #235](https://github.com/onflow/flips/pull/235)
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/cadence/vm-bridge.md)Last updated on **Jan 7, 2025** by **Chase Fleming**[PreviousBatched EVM Transactions](/evm/cadence/batched-evm-transactions)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/cadence/vm-bridge.md)Last updated on **Jan 10, 2025** by **Brian Doyle**[PreviousBatched EVM Transactions](/evm/cadence/batched-evm-transactions)
 ###### Rate this page
 
 😞😐😊

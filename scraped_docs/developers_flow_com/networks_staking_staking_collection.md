@@ -578,7 +578,7 @@ can use the **Get Machine Account Info** ([SCO.21](/build/core-contracts/staking
 This script returns a `{String: FlowStakingCollection.MachineAccountInfo}`,
 which is a mapping of nodeIDs to the `FlowStakingCollection.MachineAccountInfo` struct.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/14-staking-collection.md)Last updated on **Jan 7, 2025** by **Chase Fleming**[PreviousTechnical Staking Options](/networks/staking/staking-options)[NextBasic Staking Guide (Deprecated)](/networks/staking/staking-guide)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/14-staking-collection.md)Last updated on **Jan 10, 2025** by **Brian Doyle**[PreviousTechnical Staking Options](/networks/staking/staking-options)[NextBasic Staking Guide (Deprecated)](/networks/staking/staking-guide)
 ###### Rate this page
 
 😞😐😊

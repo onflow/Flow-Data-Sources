@@ -136,7 +136,7 @@ several configuration files.
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/keys/generate-keys.md)Last updated on **Jan 7, 2025** by **Chase Fleming**[PreviousFunding a Testnet Account](/tools/flow-cli/accounts/account-fund)[NextDecode Public Keys](/tools/flow-cli/keys/decode-keys)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/keys/generate-keys.md)Last updated on **Jan 10, 2025** by **Brian Doyle**[PreviousFunding a Testnet Account](/tools/flow-cli/accounts/account-fund)[NextDecode Public Keys](/tools/flow-cli/keys/decode-keys)
 ###### Rate this page
 
 😞😐😊

@@ -324,7 +324,7 @@ and documenting their projects. (Documentation for these topics coming soon)
 
 If you have any feedback about these guidelines, please create an issue in the onflow/cadence-style-guide repo or make a PR updating the guidelines so we can start a discussion.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/best-practices/project-development-tips.md)Last updated on **Jan 7, 2025** by **Chase Fleming**[PreviousContract Upgrades with Incompatible Changes](/build/smart-contracts/best-practices/contract-upgrades)[NextAccount Abstraction](/build/advanced-concepts/account-abstraction)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/best-practices/project-development-tips.md)Last updated on **Jan 10, 2025** by **Brian Doyle**[PreviousContract Upgrades with Incompatible Changes](/build/smart-contracts/best-practices/contract-upgrades)[NextAccount Abstraction](/build/advanced-concepts/account-abstraction)
 ###### Rate this page
 
 😞😐😊

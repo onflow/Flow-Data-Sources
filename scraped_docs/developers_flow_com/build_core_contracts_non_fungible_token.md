@@ -149,7 +149,7 @@ the NFT to update any stored information they have about the NFT in their databa
 * `owner: Address?`: The address of the account that owns the Collection that owns
   the token. If the collection is not stored in an account, `to` will be `nil`.
   + Example: `0x4445e7ad11568276`
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/08-non-fungible-token.md)Last updated on **Jan 7, 2025** by **Chase Fleming**[PreviousEpoch Contracts](/build/core-contracts/epoch-contract-reference)[NextNFT Metadata](/build/core-contracts/nft-metadata)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/08-non-fungible-token.md)Last updated on **Jan 10, 2025** by **Brian Doyle**[PreviousEpoch Contracts](/build/core-contracts/epoch-contract-reference)[NextNFT Metadata](/build/core-contracts/nft-metadata)
 ###### Rate this page
 
 😞😐😊

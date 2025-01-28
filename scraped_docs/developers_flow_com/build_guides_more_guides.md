@@ -49,7 +49,7 @@ Tutorial for a marketplace that uses fungible and non-fungible token (NFTs)](htt
 
 A walk through how resources can own other resources by creating, deploying, and moving composable NFTs](https://cadence-lang.org/docs/tutorial/resources-compose)[## Twitter CloneAndrea Muttoni
 
-Web3 version of Twitter](https://dev.to/muttoni/lets-build-a-twitter-clone-on-web3-a-comprehensive-guide-to-building-on-flow-24l9)[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/more-guides.mdx)Last updated on **Jan 7, 2025** by **Chase Fleming**[PreviousAccount Linking With NBA Top Shot](/build/guides/account-linking-with-dapper)[NextOverview](/build/guides/mobile/overview)Documentation
+Web3 version of Twitter](https://dev.to/muttoni/lets-build-a-twitter-clone-on-web3-a-comprehensive-guide-to-building-on-flow-24l9)[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/more-guides.mdx)Last updated on **Jan 10, 2025** by **Brian Doyle**[PreviousAccount Linking With NBA Top Shot](/build/guides/account-linking-with-dapper)[NextOverview](/build/guides/mobile/overview)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)
