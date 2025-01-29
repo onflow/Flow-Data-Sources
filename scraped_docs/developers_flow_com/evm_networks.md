@@ -53,7 +53,7 @@ EVM on Flow has the following public RPC nodes available:
 | Currency Symbol | FLOW |
 | Block Explorer | <https://evm-testnet.flowscan.io> |
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/networks.md)Last updated on **Jan 10, 2025** by **Brian Doyle**[PreviousUsing EVM](/evm/using)[NextFees](/evm/fees)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/networks.md)Last updated on **Jan 10, 2025** by **Ali Serag**[PreviousUsing EVM](/evm/using)[NextFees](/evm/fees)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)

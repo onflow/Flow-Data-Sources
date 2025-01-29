@@ -151,7 +151,8 @@ Content typeapplication/jsonCopy Expand all  Collapse all `[
     - "payload": "string",
     - "execution_result": "<http://example.com>"},
   + "_links": {
-    - "_self": "string"}}
+    - "_self": "string"},
+  + "block_status": "BLOCK_UNKNOWN"}
 
 ]`
 ## Get Blocks by ID.
@@ -261,7 +262,8 @@ Content typeapplication/jsonCopy Expand all  Collapse all `[
     - "payload": "string",
     - "execution_result": "<http://example.com>"},
   + "_links": {
-    - "_self": "string"}}
+    - "_self": "string"},
+  + "block_status": "BLOCK_UNKNOWN"}
 
 ]`
 ## Get Block Payload by Block ID.

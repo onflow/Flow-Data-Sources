@@ -167,7 +167,7 @@ several configuration files.
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/send-signed-transactions.md)Last updated on **Jan 10, 2025** by **Brian Doyle**[PreviousSign a Transaction](/tools/flow-cli/transactions/sign-transaction)[NextBuild a Complex Transaction](/tools/flow-cli/transactions/decode-transactions)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/send-signed-transactions.md)Last updated on **Jan 10, 2025** by **Ali Serag**[PreviousSign a Transaction](/tools/flow-cli/transactions/sign-transaction)[NextBuild a Complex Transaction](/tools/flow-cli/transactions/decode-transactions)
 ###### Rate this page
 
 😞😐😊

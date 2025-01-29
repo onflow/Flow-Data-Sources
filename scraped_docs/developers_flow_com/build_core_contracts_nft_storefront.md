@@ -403,7 +403,7 @@ A entitled receiver has not been paid during the sale of the NFT.
 
 ![NFT Storefront Process flow](https://user-images.githubusercontent.com/14581509/191960793-ff153e5d-2934-410c-b724-5c5dffd2c20f.png)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/10-nft-storefront.md)Last updated on **Jan 10, 2025** by **Brian Doyle**[PreviousNFT Metadata](/build/core-contracts/nft-metadata)[NextStaking Collection](/build/core-contracts/staking-collection)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/10-nft-storefront.md)Last updated on **Jan 10, 2025** by **Ali Serag**[PreviousNFT Metadata](/build/core-contracts/nft-metadata)[NextStaking Collection](/build/core-contracts/staking-collection)
 ###### Rate this page
 
 😞😐😊

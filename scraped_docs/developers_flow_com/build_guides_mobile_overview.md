@@ -90,7 +90,7 @@ Coming soon:
 
 * Samples for key in-app functionality, like in-app purchasing
 * Progressive user onboarding
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/overview.md)Last updated on **Jan 10, 2025** by **Brian Doyle**[PreviousMore Guides](/build/guides/more-guides)[NextBuild a Walletless Mobile App (PWA)](/build/guides/mobile/walletless-pwa)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/overview.md)Last updated on **Jan 10, 2025** by **Ali Serag**[PreviousMore Guides](/build/guides/more-guides)[NextBuild a Walletless Mobile App (PWA)](/build/guides/mobile/walletless-pwa)
 ###### Rate this page
 
 😞😐😊

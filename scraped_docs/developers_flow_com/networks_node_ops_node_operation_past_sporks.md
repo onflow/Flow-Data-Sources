@@ -965,7 +965,7 @@ While FCL v0.0.67 is not strictly necessary to use Mainnet 6, we strongly recomm
 | **Branch/Tag**: v0.12.1 |
 | **Docker Image Tag**: v0.12.1 |
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/past-sporks.md)Last updated on **Jan 10, 2025** by **Brian Doyle**[PreviousNode Setup](/networks/node-ops/node-operation/node-setup)[NextNetwork Upgrade (Spork) Process](/networks/node-ops/node-operation/spork)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/past-sporks.md)Last updated on **Jan 10, 2025** by **Ali Serag**[PreviousNode Setup](/networks/node-ops/node-operation/node-setup)[NextNetwork Upgrade (Spork) Process](/networks/node-ops/node-operation/spork)
 ###### Rate this page
 
 😞😐😊

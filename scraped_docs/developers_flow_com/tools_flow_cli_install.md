@@ -150,7 +150,7 @@ If you want to install versions before v0.42.0 you have to use a different insta
 
 **Windows**
 
- `_10iex "& { $(irm 'https://raw.githubusercontent.com/onflow/flow-cli/master/install.ps1') }"`[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/install.md)Last updated on **Jan 10, 2025** by **Brian Doyle**[PreviousFlow CLI](/tools/flow-cli)[NextSuper Commands](/tools/flow-cli/super-commands)
+ `_10iex "& { $(irm 'https://raw.githubusercontent.com/onflow/flow-cli/master/install.ps1') }"`[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/install.md)Last updated on **Jan 10, 2025** by **Ali Serag**[PreviousFlow CLI](/tools/flow-cli)[NextSuper Commands](/tools/flow-cli/super-commands)
 ###### Rate this page
 
 😞😐😊

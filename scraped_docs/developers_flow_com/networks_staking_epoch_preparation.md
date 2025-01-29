@@ -300,7 +300,7 @@ Consensus
 See the [epoch scripts and events document](/networks/staking/epoch-scripts-events#introduction) for detailed documentation about
 you can use scripts events to learn information about the state of the epoch contracts.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/04-epoch-preparation.md)Last updated on **Jan 10, 2025** by **Brian Doyle**[PreviousEpoch and Reward Schedule](/networks/staking/schedule)[NextStake Slashing](/networks/staking/stake-slashing)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/04-epoch-preparation.md)Last updated on **Jan 10, 2025** by **Ali Serag**[PreviousEpoch and Reward Schedule](/networks/staking/schedule)[NextStake Slashing](/networks/staking/stake-slashing)
 ###### Rate this page
 
 😞😐😊

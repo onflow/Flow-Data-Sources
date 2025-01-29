@@ -176,7 +176,7 @@ they will not be included in the next epoch and will not receive any rewards.
 
 There is no maximum stake limit.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/02-epoch-terminology.md)Last updated on **Jan 10, 2025** by **Brian Doyle**[PreviousStaking and Epochs](/networks/staking)[NextEpoch and Reward Schedule](/networks/staking/schedule)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/02-epoch-terminology.md)Last updated on **Jan 10, 2025** by **Ali Serag**[PreviousStaking and Epochs](/networks/staking)[NextEpoch and Reward Schedule](/networks/staking/schedule)
 ###### Rate this page
 
 😞😐😊

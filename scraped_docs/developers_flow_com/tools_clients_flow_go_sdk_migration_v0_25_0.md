@@ -76,7 +76,7 @@ network specific client as shown in the advanced example:
 
 *Version 0.25.0:*
 
- `_10// initialize a grpc network specific client_10flowClient, err := NewBaseClient(_10 grpc.EmulatorHost, _10 grpc.WithTransportCredentials(insecure.NewCredentials()),_10)_10latestBlock, err := flowClient.GetLatestBlock(ctx, true, MaxCallSendMsgSize(100))`[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/flow-go-sdk/migration-v0.25.0.md)Last updated on **Jan 7, 2025** by **Chase Fleming**[PreviousFlow Go SDK](/tools/clients/flow-go-sdk)[NextFlow Dev Wallet](/tools/flow-dev-wallet)
+ `_10// initialize a grpc network specific client_10flowClient, err := NewBaseClient(_10 grpc.EmulatorHost, _10 grpc.WithTransportCredentials(insecure.NewCredentials()),_10)_10latestBlock, err := flowClient.GetLatestBlock(ctx, true, MaxCallSendMsgSize(100))`[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/flow-go-sdk/migration-v0.25.0.md)Last updated on **Jan 10, 2025** by **Ali Serag**[PreviousFlow Go SDK](/tools/clients/flow-go-sdk)[NextFlow Dev Wallet](/tools/flow-dev-wallet)
 ###### Rate this page
 
 😞😐😊

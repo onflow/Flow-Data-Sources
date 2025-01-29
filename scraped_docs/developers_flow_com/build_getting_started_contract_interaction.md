@@ -110,7 +110,7 @@ By understanding the `Counter` contract and how to interact with it, you're buil
 
 Proceed to the next tutorial to learn how to create your own contracts and deploy them live using the Flow CLI.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/contract-interaction.md)Last updated on **Jan 10, 2025** by **Brian Doyle**[PreviousDifferences vs. EVM](/build/differences-vs-evm)[NextLocal Development](/build/getting-started/flow-cli)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/contract-interaction.md)Last updated on **Jan 10, 2025** by **Ali Serag**[PreviousDifferences vs. EVM](/build/differences-vs-evm)[NextLocal Development](/build/getting-started/flow-cli)
 ###### Rate this page
 
 😞😐😊

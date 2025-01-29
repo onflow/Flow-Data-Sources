@@ -211,7 +211,7 @@ The entire game is crafted upon the previously discussed setup, ensuring a seaml
 
 The balloon inflation game stands as a testament to the seamless integration of Flow, Magic, and PWA technology, creating a user-friendly blockchain game that is accessible, engaging, and secure. Players can enjoy the game, mint NFTs, and take full ownership of their digital assets with ease and convenience.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/walletless-pwa.md)Last updated on **Jan 10, 2025** by **Brian Doyle**[PreviousOverview](/build/guides/mobile/overview)[NextIOS Development](/build/guides/mobile/ios-quickstart)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/walletless-pwa.md)Last updated on **Jan 10, 2025** by **Ali Serag**[PreviousOverview](/build/guides/mobile/overview)[NextIOS Development](/build/guides/mobile/ios-quickstart)
 ###### Rate this page
 
 😞😐😊

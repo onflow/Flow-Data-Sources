@@ -201,7 +201,7 @@ Get familiar with the [Cadence anti-patterns](https://cadence-lang.org/docs/anti
   + [hybrid-custody](https://github.com/onflow/hybrid-custody/tree/main/test),
   + [flow-nft](https://github.com/onflow/flow-nft/tree/master/tests),
   + [flow-ft](https://github.com/onflow/flow-ft/tree/master/tests).
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/testing.md)Last updated on **Jan 10, 2025** by **Brian Doyle**[PreviousDeploying Contracts](/build/smart-contracts/deploying)[NextSecurity Best Practices](/build/smart-contracts/best-practices/security-best-practices)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/testing.md)Last updated on **Jan 10, 2025** by **Ali Serag**[PreviousDeploying Contracts](/build/smart-contracts/deploying)[NextSecurity Best Practices](/build/smart-contracts/best-practices/security-best-practices)
 ###### Rate this page
 
 😞😐😊

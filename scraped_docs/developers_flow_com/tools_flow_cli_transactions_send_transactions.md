@@ -244,7 +244,7 @@ several configuration files.
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/send-transactions.md)Last updated on **Jan 10, 2025** by **Brian Doyle**[PreviousExecute a Script](/tools/flow-cli/scripts/execute-scripts)[NextGet a Transaction](/tools/flow-cli/transactions/get-transactions)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/send-transactions.md)Last updated on **Jan 10, 2025** by **Ali Serag**[PreviousExecute a Script](/tools/flow-cli/scripts/execute-scripts)[NextGet a Transaction](/tools/flow-cli/transactions/get-transactions)
 ###### Rate this page
 
 😞😐😊

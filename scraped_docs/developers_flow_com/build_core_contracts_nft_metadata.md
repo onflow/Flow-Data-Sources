@@ -63,7 +63,7 @@ To optimize your NFT collections for this catalog, you’ll need to:
 1. Update your NFT contract to support `ViewResolver` and `MetadataViews` with implementation of the [core NFT views](/build/advanced-concepts/metadata-views).
 2. Deploy the updated contract to both testnet and mainnet.
 3. Afterwards, onboard your NFT to the Flow NFT catalog at <https://flow-nft-catalog.com>.
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/09-nft-metadata.md)Last updated on **Jan 10, 2025** by **Brian Doyle**[PreviousNon-Fungible Token](/build/core-contracts/non-fungible-token)[NextNFT Storefront](/build/core-contracts/nft-storefront)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/09-nft-metadata.md)Last updated on **Jan 10, 2025** by **Ali Serag**[PreviousNon-Fungible Token](/build/core-contracts/non-fungible-token)[NextNFT Storefront](/build/core-contracts/nft-storefront)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)

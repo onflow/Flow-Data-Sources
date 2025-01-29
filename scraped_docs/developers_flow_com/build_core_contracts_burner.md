@@ -56,7 +56,7 @@ should use `Burner.burn()` when destroying a resource instead of `destroy`.
 | Testnet | [`0x294e44e1ec6993c6`](https://contractbrowser.com/account/0x294e44e1ec6993c6) |
 | Mainnet | [`0xd8a7e05a7ac670c0`](https://contractbrowser.com/account/0xd8a7e05a7ac670c0) |
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/14-burner.md)Last updated on **Jan 7, 2025** by **Chase Fleming**[PreviousEVM](/build/core-contracts/evm)[NextExplore More](/build/explore-more)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/14-burner.md)Last updated on **Jan 10, 2025** by **Ali Serag**[PreviousEVM](/build/core-contracts/evm)[NextExplore More](/build/explore-more)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)

@@ -175,7 +175,7 @@ files by using `-f` flag multiple times.
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/sign-transaction.md)Last updated on **Jan 7, 2025** by **Chase Fleming**[PreviousBuild a Complex Transaction](/tools/flow-cli/transactions/complex-transactions)[NextSend Signed Transaction](/tools/flow-cli/transactions/send-signed-transactions)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/sign-transaction.md)Last updated on **Jan 10, 2025** by **Ali Serag**[PreviousBuild a Complex Transaction](/tools/flow-cli/transactions/complex-transactions)[NextSend Signed Transaction](/tools/flow-cli/transactions/send-signed-transactions)
 ###### Rate this page
 
 😞😐😊

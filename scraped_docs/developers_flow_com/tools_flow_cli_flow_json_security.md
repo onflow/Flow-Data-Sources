@@ -106,7 +106,7 @@ Example `.env` file:
 
 You can merge multiple configuration files like so:
 
- `_10flow project deploy -f main.json -f private.json`[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flow.json/security.md)Last updated on **Jan 10, 2025** by **Brian Doyle**[PreviousManage Configuration](/tools/flow-cli/flow.json/manage-configuration)[NextGet Block](/tools/flow-cli/get-flow-data/get-blocks)
+ `_10flow project deploy -f main.json -f private.json`[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flow.json/security.md)Last updated on **Jan 10, 2025** by **Ali Serag**[PreviousManage Configuration](/tools/flow-cli/flow.json/manage-configuration)[NextGet Block](/tools/flow-cli/get-flow-data/get-blocks)
 ###### Rate this page
 
 😞😐😊

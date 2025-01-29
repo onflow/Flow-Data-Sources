@@ -120,7 +120,7 @@ CheckMachineAccount `_10$ ./boot-tools/bootstrap check-machine-account --access-
 
 This command will detect and provide information about common misconfigurations, or confirm that the machine account is configured correctly.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/machine-existing-operator.md)Last updated on **Jan 10, 2025** by **Brian Doyle**[PreviousStarting Your Nodes](/networks/node-ops/node-operation/guides/starting-nodes)[NextNode Monitoring](/networks/node-ops/node-operation/monitoring-nodes)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/machine-existing-operator.md)Last updated on **Jan 10, 2025** by **Ali Serag**[PreviousStarting Your Nodes](/networks/node-ops/node-operation/guides/starting-nodes)[NextNode Monitoring](/networks/node-ops/node-operation/monitoring-nodes)
 ###### Rate this page
 
 😞😐😊

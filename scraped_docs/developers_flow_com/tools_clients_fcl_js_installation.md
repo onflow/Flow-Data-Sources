@@ -65,7 +65,7 @@ Install FCL JS using **npm** or **yarn**
 
 **Node.js**
 
- `_10const fcl = require("@onflow/fcl");`[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/installation.mdx)Last updated on **Jan 10, 2025** by **Brian Doyle**[PreviousWallet Discovery](/tools/clients/fcl-js/discovery)[NextInteraction Templates](/tools/clients/fcl-js/interaction-templates)
+ `_10const fcl = require("@onflow/fcl");`[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/installation.mdx)Last updated on **Jan 10, 2025** by **Ali Serag**[PreviousWallet Discovery](/tools/clients/fcl-js/discovery)[NextInteraction Templates](/tools/clients/fcl-js/interaction-templates)
 ###### Rate this page
 
 😞😐😊
