@@ -90,7 +90,7 @@ Follow the steps below to change the greeting and retrieve the new greeting.
 5. Click on the orange `changeGreeting` button.
 6. Sign the Metamask transaction.
 7. Verify the greeting has changed by re-running `get-greeting.js` script above.
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/remix.md)Last updated on **Jan 10, 2025** by **Brian Doyle**[PreviousHardhat](/evm/guides/hardhat)[NextViem & Wagmi](/evm/guides/wagmi)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/remix.md)Last updated on **Jan 10, 2025** by **Ali Serag**[PreviousHardhat](/evm/guides/hardhat)[NextViem & Wagmi](/evm/guides/wagmi)
 ###### Rate this page
 
 😞😐😊
