@@ -1,4 +1,4 @@
-# Source: https://github.com/orgs/onflow/discussions/1225
+# Source: https://github.com/orgs/onflow/discussions/1545
 
 
 
@@ -8,7 +8,7 @@
 
 
 
-VSCode extension doesn't resolve non-public function access properly · onflow · Discussion #1225 · GitHub
+Flow Builder Perks Program · onflow · Discussion #1545 · GitHub
 
 
 
@@ -36,7 +36,7 @@ Toggle navigation
 
 
 
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Forgs%2Fonflow%2Fdiscussions%2F1225)
+[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Forgs%2Fonflow%2Fdiscussions%2F1545)
 
 
 [onflow](/onflow)
@@ -255,7 +255,7 @@ To see all available qualifiers, see our [documentation](https://docs.github.com
 
 
 
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Forgs%2Fonflow%2Fdiscussions%2F1225)
+[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Forgs%2Fonflow%2Fdiscussions%2F1545)
 
 [Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Fvoltron%2Fdiscussions_fragments%2Fdiscussion_layout&source=header-repo&source_repo=onflow%2Fflow)
 Reseting focus
@@ -308,16 +308,11 @@ More
 
 
 
-# VSCode extension doesn't resolve non-public function access properly #1225
+# Flow Builder Perks Program #1545
 
-
-[Answered](#discussioncomment-4607620)
-by
-[btspoony](/btspoony "btspoony")
- 
-[austinkline](/austinkline)
-asked this question in
-[Developer Tooling](/orgs/onflow/discussions/categories/developer-tooling)
+[Aliserag](/Aliserag)
+started this conversation in
+[General](/orgs/onflow/discussions/categories/general)
 
 
 
@@ -325,26 +320,21 @@ asked this question in
 
 
 
-[VSCode extension doesn't resolve non-public function access properly](#top)
-#1225
+[Flow Builder Perks Program](#top)
+#1545
 
-[![@austinkline](https://avatars.githubusercontent.com/u/8711160?s=40&v=4)
-austinkline](/austinkline)
+[![@Aliserag](https://avatars.githubusercontent.com/u/11467748?s=40&v=4)
+Aliserag](/Aliserag)
 
-Jan 5, 2023
+Jan 31, 2025
 ·
-1 comment
+0 comments
 
 
 
 
 
-[Answered](#discussioncomment-4607620)
-by
-[btspoony](/btspoony "btspoony")
-
-
- [Return to top](#top)
+[Return to top](#top)
 
 
 
@@ -389,7 +379,7 @@ Quote reply
 
 
 
-## [austinkline](/austinkline) [Jan 5, 2023](#discussion-4727686)
+## [Aliserag](/Aliserag) [Jan 31, 2025](#discussion-7898592) Collaborator
 
 
 
@@ -397,7 +387,7 @@ Quote reply
  
 
 
-| If I make a function in one contract that is imported by another with `access(account)` instead of `pub`, VSCode doesn't think I have access and shows an error instead |
+| Flow is home to numerous AAA web3 platforms, including Disney Pinnacle, Barbie Boss Beauties, NFL AllDay, and NBA Top Shot. Since announcing seamless support with EVM late last year, Flow has seen a rapid influx of EVM-based builders launching new projects every day. With thousands of smart contracts serving over 36 million user accounts, Flow continues to grow its builder community through partnerships, hackathons, and technical leadership.  The Flow Builder Perks is a new initiative that provides startups, hackathon participants, and verified builders with exclusive benefits from top technology partners. Inspired by programs like the [GitHub Student Developer Pack](https://education.github.com/pack), [AWS Activate](https://aws.amazon.com/activate/), [Google for Startups](https://startup.google.com/), and [Superteam Member Perks](https://superteam.fun/member-perks), its launch will initially offer a highly curated list of 10 perks designed to help projects launch and scale quickly. These include access to cloud computing and LLM API credits, hosting services, developer tooling and more.  By connecting to the Flow Developers Portal and authenticating through GitHub, qualified builders will gain easy, barrier-free access to valuable tools and services. This streamlined program equips teams early in their project lifecycle with the resources they need to learn, integrate partner technologies, and innovate without unnecessary hurdles.  Comment below on the perks you would love to see included in this initiative! |
 | --- |
 
 Beta
@@ -408,7 +398,7 @@ Was this translation helpful?
  
 
 
-3
+2
  You must be logged in to vote
 
 
@@ -422,163 +412,14 @@ All reactions
 
 
 
-Answered by
-[btspoony](/btspoony)
 
-[Jan 6, 2023](https://github.com/orgs/onflow/discussions/1225#discussioncomment-4607620)
 
-Related Issues:
 
-* <https://github.com/onflow/vscode-cadence/issues/75>
-* <https://github.com/onflow/vscode-cadence/issues/199>
 
 
-[View full answer](#discussioncomment-4607620)
 
 
-
-
-
-
-
-
-
-## Replies: 1 comment
-
-
-* [Oldest](/orgs/onflow/discussions/1225?sort=old)
-* [Newest](/orgs/onflow/discussions/1225?sort=new)
-* [Top](/orgs/onflow/discussions/1225?sort=top)
-
-
-
- 
-
-
-Comment options
-
-
-
-
-
-
-# {{title}}
-
-
-
-
-
- 
-
-
-
-
-Something went wrong.
-
-
-
-
-
-
-
- 
-Quote reply
-
-
-
-
-
-
- 
-edited by justinbarry
-
-
-
-
-
-
-# {{editor}}'s edit
-
-
-
-
-
- {{actor}} deleted this content
-.
-
-
-
-
-# {{editor}}'s edit
-
-
-
-
-
- 
-
-
-
-
-Something went wrong.
-
-
-
-
-
-
-
-
-### [btspoony](/btspoony) [Jan 6, 2023](#discussioncomment-4607620) Collaborator
-
-
-
- -
- 
-
-
-| Related Issues:   * <https://github.com/onflow/vscode-cadence/issues/75> * <https://github.com/onflow/vscode-cadence/issues/199> |
-| --- |
-
-Beta
-Was this translation helpful?
-[Give feedback.](#)
-
-
- 
-
-Marked as answer
-
-
- 
-
-
-1
- You must be logged in to vote
-
-
-
- 
-All reactions
-
-
-
-
-
-0 replies
-
-
-
-
-
-
-
-
-Answer selected by
-[turbolent](/turbolent)
-
-
-
+## Replies: 0 comments
 
 
 
@@ -589,28 +430,27 @@ Answer selected by
 [Sign up for free](/join?source=comment-repo)
 **to join this conversation on GitHub**.
 Already have an account?
-[Sign in to comment](/login?return_to=https%3A%2F%2Fgithub.com%2Forgs%2Fonflow%2Fdiscussions%2F1225)
+[Sign in to comment](/login?return_to=https%3A%2F%2Fgithub.com%2Forgs%2Fonflow%2Fdiscussions%2F1545)
 
 
 
 
 Category
 
-[🌊
+[💬
 
-Developer Tooling](/orgs/onflow/discussions/categories/developer-tooling)
+General](/orgs/onflow/discussions/categories/general)
 
 
 
 Labels
 
-[VSCode Extension](/orgs/onflow/discussions?discussions_q=label%3A%22VSCode+Extension%22)
-[Solved!](/orgs/onflow/discussions?discussions_q=label%3ASolved%21)
+None yet
 
 
-2 participants
+1 participant
 
-[![@austinkline](https://avatars.githubusercontent.com/u/8711160?s=48&v=4)](/austinkline) [![@btspoony](https://avatars.githubusercontent.com/u/707025?s=48&v=4)](/btspoony) 
+[![@Aliserag](https://avatars.githubusercontent.com/u/11467748?s=48&v=4)](/Aliserag) 
 
 
 
