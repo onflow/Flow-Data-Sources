@@ -1,4 +1,4 @@
-# Source: https://cadence-lang.org/docs/language/accounts/
+# Source: https://cadence-lang.org/docs/language/accounts
 
 
 
