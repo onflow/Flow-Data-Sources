@@ -1,9 +1,9 @@
-# Source: https://developers.flow.com/build/explore-more
+# Source: https://developers.flow.com/ecosystem/vcs-and-funds
 
 
 
 
-Explore More | Flow Developer Portal
+VCs & Funds | Flow Developer Portal
 
 
 
@@ -11,36 +11,27 @@ Explore More | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
-* [Why Flow](/build/flow)
-* [Differences vs. EVM](/build/differences-vs-evm)
-* [Getting Started](/build/getting-started/contract-interaction)
-* [Flow Protocol](/build/basics/blocks)
-* [App Architecture](/build/app-architecture)
-* [Writing and Deploying Smart Contracts](/build/learn-cadence)
-* [Advanced Concepts](/build/advanced-concepts/account-abstraction)
-* [Guides](/build/guides/fungible-token)
-* [Core Smart Contracts](/build/core-contracts)
-* [Explore More](/build/explore-more)
+* [Ecosystem](/ecosystem)
+* [Wallets](/ecosystem/wallets)
+* [Flow Block Explorers](/ecosystem/block-explorers)
+* [Bridges](/ecosystem/bridges)
+* [Community Projects](/ecosystem/projects)
+* [VCs & Funds](/ecosystem/vcs-and-funds)
+* [Faucets](/ecosystem/faucets)
+* [Grants](/ecosystem/grants)
+* [Hackathons](/ecosystem/hackathons)
+* [Auditors](/ecosystem/auditors)
+* [Ecosystem Overview](/ecosystem/overview)
 
 
-* Explore More
-# Explore More
+* VCs & Funds
+# VCs & Funds
 
-Below are some additional tutorials to help you get started with Flow:
+Building a successful Web3 project requires more than just great technology - having the right investors and partners can make all the difference. The Flow ecosystem is supported by some of the world's leading venture capital firms and crypto-native funds.
 
-[## Flow App QuickstartFlow Blockchain
+Research shows that warm introductions can increase your chances of securing funding by up to 500% more liley compared to cold outreach. The Flow Foundation can help facilitate introductions to our network of trusted investors who have a deep understanding of the Flow ecosystem and web3. Reach out to your local dev-rel in [office hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com) or [discord](https://discord.gg/flow) to get a warm introduction.
 
-Simple walkthrough building a web3 app using the Flow Client Library (FCL)](/build/getting-started/fcl-quickstart)[## Fungible Token GuideFlow Blockchain
-
-Steps to create, deploy, mint, and transfer fungible tokens on Flow](/build/guides/fungible-token)[## NFT GuideEmerald City DAO
-
-A DApp that lets users create an empty collection, mint some pre-loaded NFTs, and transfer them to another account on Flow testnet.](https://academy.ecdao.org/en/quickstarts/1-non-fungible-token-next)[## Walkthrough GuidesFlow Blockchain
-
-Longer form guides to help you get started with Flow](/build/getting-started/fcl-quickstart)[## Emerald AcademyEmerald City DAO
-
-Quickstart Tutorials for Flow created by Emerald City Dao](https://academy.ecdao.org/en/quickstarts)[## Basic ConceptsFlow Blockchain
-
-Basic Concepts of Flow Blockchain](/build/basics/blocks)[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/explore-more.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousBurner](/build/core-contracts/burner)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/vcs-and-funds.md)Last updated on **Feb 3, 2025** by **Brian Doyle**[PreviousCommunity Projects](/ecosystem/projects)[NextFaucets](/ecosystem/faucets)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)

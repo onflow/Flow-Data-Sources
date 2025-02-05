@@ -16,7 +16,10 @@ Ecosystem | Flow Developer Portal
 * [Flow Block Explorers](/ecosystem/block-explorers)
 * [Bridges](/ecosystem/bridges)
 * [Community Projects](/ecosystem/projects)
+* [VCs & Funds](/ecosystem/vcs-and-funds)
 * [Faucets](/ecosystem/faucets)
+* [Grants](/ecosystem/grants)
+* [Hackathons](/ecosystem/hackathons)
 * [Auditors](/ecosystem/auditors)
 * [Ecosystem Overview](/ecosystem/overview)
 
@@ -32,9 +35,15 @@ User-friendly online tools that provide visual representations of blockchain dat
 
 Mechanisms that connect different blockchain networks, allowing secure and decentralized transfer of assets and data across platforms.](/ecosystem/bridges)[## 🏟️Community Projects
 
-Explore the diverse projects and contributions within the Flow Blockchain community.](/ecosystem/projects)[## 💧Faucets
+Explore the diverse projects and contributions within the Flow Blockchain community.](/ecosystem/projects)[## 💼VCs & Funds
 
-Get free Flow tokens for testing. Faucets are like taps for tokens, useful for trying Flow without buying tokens.](/ecosystem/faucets)[## 🔎Auditors
+Connect with venture capital firms and investment funds supporting Flow projects](/ecosystem/vcs-and-funds)[## 💧Faucets
+
+Get free Flow tokens for testing. Faucets are like taps for tokens, useful for trying Flow without buying tokens.](/ecosystem/faucets)[## 🌱Grants
+
+Discover grant opportunities and funding programs available for Flow developers](/ecosystem/grants)[## 🚀Hackathons
+
+Participate in Flow hackathons to build, learn, and win prizes](/ecosystem/hackathons)[## 🔎Auditors
 
 Third-party auditors for Cadence contract auditing](/ecosystem/auditors)[## Ecosystem Overview
 
@@ -42,7 +51,7 @@ Get the Flow Down is a curated collection of the best Flow blockchain tools, tut
 
 Engage with the Flow community, discuss ideas, and seek support on the Flow Blockchain Forum.](https://forum.onflow.org/)[## 📜FLIPs
 
-Flow Improvement Proposals (FLIPs) serve as a platform for engaging the Flow community in development, harnessing the collective ideas, insights, and expertise of contributors and experts while ensuring widespread communication of design changes.](https://github.com/onflow/flips)[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/index.mdx)Last updated on **Jan 10, 2025** by **Ali Serag**[NextWallets](/ecosystem/wallets)Documentation
+Flow Improvement Proposals (FLIPs) serve as a platform for engaging the Flow community in development, harnessing the collective ideas, insights, and expertise of contributors and experts while ensuring widespread communication of design changes.](https://github.com/onflow/flips)[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/index.mdx)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[NextWallets](/ecosystem/wallets)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)

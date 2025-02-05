@@ -111,7 +111,7 @@ When the machine account has a configuration error:
 
 The metrics include the account address of the machine account (`acct_address` label) for convenience:
 
- `_10# HELP machine_account_balance the last observed balance of this node's machine account, in units of FLOW_10# TYPE machine_account_balance gauge_10machine_account_balance{acct_address="7b16b57ae0a3c6aa"} 9.99464935`[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/monitoring-nodes.md)Last updated on **Jan 10, 2025** by **Ali Serag**[PreviousMachine Accounts for Existing Node Operators](/networks/node-ops/node-operation/machine-existing-operator)[NextNode Bootstrapping](/networks/node-ops/node-operation/node-bootstrap)
+ `_10# HELP machine_account_balance the last observed balance of this node's machine account, in units of FLOW_10# TYPE machine_account_balance gauge_10machine_account_balance{acct_address="7b16b57ae0a3c6aa"} 9.99464935`[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/monitoring-nodes.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousMachine Accounts for Existing Node Operators](/networks/node-ops/node-operation/machine-existing-operator)[NextNode Bootstrapping](/networks/node-ops/node-operation/node-bootstrap)
 ###### Rate this page
 
 😞😐😊

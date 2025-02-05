@@ -403,7 +403,7 @@ It provides an introduction to integrating these standards into your NFT contrac
 * See the [API reference for a complete list of Metadata functions](https://developers.flow.com/build/core-contracts/flow-nft/MetdataViews/MetadataViews)
 * Check out [an Example NFT project](https://github.com/onflow/flow-nft/blob/master/contracts/ExampleNFT.cdc) implementing `MetadataViews`
 * Read [the NFT Guide](/build/guides/nft) for an introduction to implementation
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/metadata-views.md)Last updated on **Jan 10, 2025** by **Ali Serag**[PreviousFLIX (Flow Interaction Templates)](/build/advanced-concepts/flix)[NextVRF (Randomness) in Cadence](/build/advanced-concepts/randomness)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/metadata-views.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousFLIX (Flow Interaction Templates)](/build/advanced-concepts/flix)[NextVRF (Randomness) in Cadence](/build/advanced-concepts/randomness)
 ###### Rate this page
 
 😞😐😊

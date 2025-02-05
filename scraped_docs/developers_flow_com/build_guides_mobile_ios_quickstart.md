@@ -142,7 +142,7 @@ The Agile Monkeys has written a very comprehensive guide on how to build a nativ
 [How to Build a Native iOS Dapper](https://dev.to/theagilemonkeys/how-to-buid-a-native-ios-dapp-that-uses-the-flow-blockchain-as-the-backend-n9k)
 [Source Code](https://github.com/jfsagasti/FlowNotes)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/ios-quickstart.md)Last updated on **Jan 10, 2025** by **Ali Serag**[PreviousBuild a Walletless Mobile App (PWA)](/build/guides/mobile/walletless-pwa)[NextReact Native Development](/build/guides/mobile/react-native-quickstart)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/ios-quickstart.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousBuild a Walletless Mobile App (PWA)](/build/guides/mobile/walletless-pwa)[NextReact Native Development](/build/guides/mobile/react-native-quickstart)
 ###### Rate this page
 
 😞😐😊

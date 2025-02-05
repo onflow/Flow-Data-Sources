@@ -146,7 +146,7 @@ To learn more about other possible configurations, check out the following links
 
 * [Discovery API Docs](/tools/clients/fcl-js/api#discovery-1)
 * [Discovery Github Repo](https://github.com/onflow/fcl-discovery)
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/discovery.md)Last updated on **Jan 10, 2025** by **Ali Serag**[PreviousHow to Configure FCL](/tools/clients/fcl-js/configure-fcl)[NextInstallation](/tools/clients/fcl-js/installation)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/discovery.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousHow to Configure FCL](/tools/clients/fcl-js/configure-fcl)[NextInstallation](/tools/clients/fcl-js/installation)
 ###### Rate this page
 
 😞😐😊

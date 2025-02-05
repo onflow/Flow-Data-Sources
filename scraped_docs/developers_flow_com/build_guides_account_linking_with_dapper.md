@@ -271,7 +271,7 @@ Your app will now look like the [simple onchain app](https://nextjs-topshot-acco
 
 In this tutorial, you took your first steps towards building powerful new experiences that meet you customers where they are. They can keep their assets in the wallet associate with one app, but also give your app the ability to use them - seamlessly, safely, and beautifully!
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking-with-dapper.md)Last updated on **Jan 10, 2025** by **Ali Serag**[PreviousWorking With Parent Accounts](/build/guides/account-linking/parent-accounts)[NextMore Guides](/build/guides/more-guides)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking-with-dapper.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousWorking With Parent Accounts](/build/guides/account-linking/parent-accounts)[NextMore Guides](/build/guides/more-guides)
 ###### Rate this page
 
 😞😐😊

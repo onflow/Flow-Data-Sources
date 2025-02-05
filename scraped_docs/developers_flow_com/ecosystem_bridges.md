@@ -16,7 +16,10 @@ Bridges | Flow Developer Portal
 * [Flow Block Explorers](/ecosystem/block-explorers)
 * [Bridges](/ecosystem/bridges)
 * [Community Projects](/ecosystem/projects)
+* [VCs & Funds](/ecosystem/vcs-and-funds)
 * [Faucets](/ecosystem/faucets)
+* [Grants](/ecosystem/grants)
+* [Hackathons](/ecosystem/hackathons)
 * [Auditors](/ecosystem/auditors)
 * [Ecosystem Overview](/ecosystem/overview)
 

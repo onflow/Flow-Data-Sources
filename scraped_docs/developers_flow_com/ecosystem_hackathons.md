@@ -1,9 +1,9 @@
-# Source: https://developers.flow.com/community
+# Source: https://developers.flow.com/ecosystem/hackathons
 
 
 
 
-Ecosystem | Flow Developer Portal
+Hackathons | Flow Developer Portal
 
 
 
@@ -24,34 +24,43 @@ Ecosystem | Flow Developer Portal
 * [Ecosystem Overview](/ecosystem/overview)
 
 
-* Ecosystem
-# Ecosystem
+* Hackathons
+On this page
+# Flow World Tour Hackathons
 
-[## 🔑Wallets
+Some of the most groundbreaking blockchain projects began as hackathon ideas—CryptoKitties, the game that revolutionized NFTs, was first built at the ETHGlobal Waterloo hackathon. Your project could be next.
 
-Store, manage, and interact securely with tokens and digital assets on Flow. Discover a range of wallets that offer convenient ways to handle and safeguard your cryptocurrency holdings, ensuring easy access and enhanced security for your transactions and assets.](/ecosystem/wallets)[## 🔍Flow Block Explorers
+## Flow World Tour[​](#flow-world-tour "Direct link to Flow World Tour")
 
-User-friendly online tools that provide visual representations of blockchain data, facilitating easy navigation through transactions, blocks, addresses, and smart contracts while ensuring real-time insights and transparency.](/ecosystem/block-explorers)[## ⛓️Bridges
+We're bringing together builders, creators, and innovators through a series of global hackathons—both in-person and online. These events are more than just competitions; they’re an opportunity to experiment, collaborate, and turn bold ideas into reality.
 
-Mechanisms that connect different blockchain networks, allowing secure and decentralized transfer of assets and data across platforms.](/ecosystem/bridges)[## 🏟️Community Projects
+### Why Join?[​](#why-join "Direct link to Why Join?")
 
-Explore the diverse projects and contributions within the Flow Blockchain community.](/ecosystem/projects)[## 💼VCs & Funds
+#### **Build & Learn**[​](#build--learn "Direct link to build--learn")
 
-Connect with venture capital firms and investment funds supporting Flow projects](/ecosystem/vcs-and-funds)[## 💧Faucets
+Get hands-on experience with Flow while accessing expert mentorship, technical workshops, and valuable resources to refine your skills on the cutting edge, from AI agents to next-gen DeFi.
 
-Get free Flow tokens for testing. Faucets are like taps for tokens, useful for trying Flow without buying tokens.](/ecosystem/faucets)[## 🌱Grants
+#### **Network & Connect**[​](#network--connect "Direct link to network--connect")
 
-Discover grant opportunities and funding programs available for Flow developers](/ecosystem/grants)[## 🚀Hackathons
+Meet like-minded builders, potential co-founders, and potential investors. These events are a gateway to becoming part of the global Flow community.
 
-Participate in Flow hackathons to build, learn, and win prizes](/ecosystem/hackathons)[## 🔎Auditors
+#### **Win & Launch**[​](#win--launch "Direct link to win--launch")
 
-Third-party auditors for Cadence contract auditing](/ecosystem/auditors)[## Ecosystem Overview
+With substantial prize pools, industry recognition, and the chance to launch your project, hackathons can be the stepping stone to your next big startup, side-project, or public good.
 
-Get the Flow Down is a curated collection of the best Flow blockchain tools, tutorials, articles and more! If you have come across an awesome tutorial, tool, community, blog or you have created one yourself, please create a PR!](/ecosystem/overview)[## 🏛️Flow Forum
+## Find Your Flow State[​](#find-your-flow-state "Direct link to Find Your Flow State")
 
-Engage with the Flow community, discuss ideas, and seek support on the Flow Blockchain Forum.](https://forum.onflow.org/)[## 📜FLIPs
+Stay ahead of upcoming hackathons and exclusive announcements. [Join Flow World Tour on Telegram](https://t.me/flow_world_tour).
 
-Flow Improvement Proposals (FLIPs) serve as a platform for engaging the Flow community in development, harnessing the collective ideas, insights, and expertise of contributors and experts while ensuring widespread communication of design changes.](https://github.com/onflow/flips)[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/index.mdx)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[NextWallets](/ecosystem/wallets)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/hackathons.md)Last updated on **Feb 3, 2025** by **Brian Doyle**[PreviousGrants](/ecosystem/grants)[NextAuditors](/ecosystem/auditors)
+###### Rate this page
+
+😞😐😊
+
+* [Flow World Tour](#flow-world-tour)
+  + [Why Join?](#why-join)
+* [Find Your Flow State](#find-your-flow-state)
+Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)

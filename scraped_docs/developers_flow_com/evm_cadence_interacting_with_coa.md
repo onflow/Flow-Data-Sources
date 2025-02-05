@@ -151,7 +151,7 @@ For more information about Cadence Owned Accounts, see [Flow EVM Accounts](/evm/
 
 Other useful snippets for interacting with COAs can be found [here](https://fw-internal-doc.gitbook.io/evm).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/cadence/interacting-with-coa.md)Last updated on **Jan 10, 2025** by **Ali Serag**[PreviousWeb3.js](/evm/clients/web3-js)[NextDirect Calls to Flow EVM](/evm/cadence/direct-calls)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/cadence/interacting-with-coa.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousWeb3.js](/evm/clients/web3-js)[NextDirect Calls to Flow EVM](/evm/cadence/direct-calls)
 ###### Rate this page
 
 😞😐😊

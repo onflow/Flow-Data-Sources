@@ -151,7 +151,7 @@ via the `Burner.burn()` method, this event is emitted with the following argumen
   + Example: `0.00017485`
 * `fromUUID: UInt64`: The UUID of the Vault that was burnt.
   + Example: `177021372071991`
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/02-fungible-token.md)Last updated on **Jan 10, 2025** by **Ali Serag**[PreviousCore Smart Contracts](/build/core-contracts)[NextFlow Token](/build/core-contracts/flow-token)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/02-fungible-token.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousCore Smart Contracts](/build/core-contracts)[NextFlow Token](/build/core-contracts/flow-token)
 ###### Rate this page
 
 😞😐😊

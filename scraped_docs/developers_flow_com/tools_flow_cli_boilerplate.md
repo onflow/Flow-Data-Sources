@@ -95,7 +95,7 @@ The `--dir` flag is an optional feature in the Flow CLI `generate` commands, all
 
 Use the `--dir` flag only if your project requires a different organizational structure than the default.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/boilerplate.md)Last updated on **Jan 10, 2025** by **Ali Serag**[PreviousFlow Interaction Templates (FLIX)](/tools/flow-cli/flix)[NextData Collection](/tools/flow-cli/data-collection)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/boilerplate.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousFlow Interaction Templates (FLIX)](/tools/flow-cli/flix)[NextData Collection](/tools/flow-cli/data-collection)
 ###### Rate this page
 
 😞😐😊

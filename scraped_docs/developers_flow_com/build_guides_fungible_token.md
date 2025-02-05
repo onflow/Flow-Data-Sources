@@ -446,7 +446,7 @@ The transfer transaction also has a [generic version](https://github.com/onflow/
 * [View a repo of this example code](https://github.com/chasefleming/FooToken)
 * [Review an `ExampleToken` contract implementing all of the remaining FungibleToken interface](https://github.com/onflow/flow-ft/blob/master/contracts/ExampleToken.cdc)
 * [View the Flow Token Standard](https://github.com/onflow/flow-ft/blob/master/contracts/FungibleToken.cdc)
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/fungible-token.md)Last updated on **Jan 10, 2025** by **Ali Serag**[PreviousScaling Transactions from a Single Account](/build/advanced-concepts/scaling)[NextCreate an NFT Project](/build/guides/nft)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/fungible-token.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousScaling Transactions from a Single Account](/build/advanced-concepts/scaling)[NextCreate an NFT Project](/build/guides/nft)
 ###### Rate this page
 
 😞😐😊

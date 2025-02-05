@@ -16,7 +16,10 @@ Auditors | Flow Developer Portal
 * [Flow Block Explorers](/ecosystem/block-explorers)
 * [Bridges](/ecosystem/bridges)
 * [Community Projects](/ecosystem/projects)
+* [VCs & Funds](/ecosystem/vcs-and-funds)
 * [Faucets](/ecosystem/faucets)
+* [Grants](/ecosystem/grants)
+* [Hackathons](/ecosystem/hackathons)
 * [Auditors](/ecosystem/auditors)
 * [Ecosystem Overview](/ecosystem/overview)
 
@@ -51,7 +54,7 @@ The following companies provide independent contract auditing services of Cadenc
 
 [Emerald City Academy - Shield](https://docs.ecdao.org/auditing/shield) a Cadence-specialized, community-driven auditing service also offering development support and review for Cadence smart contracts.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/auditors.md)Last updated on **Jan 10, 2025** by **Ali Serag**[PreviousFaucets](/ecosystem/faucets)[NextEcosystem Overview](/ecosystem/overview)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/auditors.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousHackathons](/ecosystem/hackathons)[NextEcosystem Overview](/ecosystem/overview)
 ###### Rate this page
 
 😞😐😊

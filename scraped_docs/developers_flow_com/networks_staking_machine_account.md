@@ -79,7 +79,7 @@ We recommend a minimum balance at all times of 0.002 FLOW for collection nodes a
 
 A node operator can easily withdraw their FLOW from their machine account if they decide they don't need them there any more.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/11-machine-account.md)Last updated on **Jan 10, 2025** by **Ali Serag**[PreviousQC/DKG Scripts and Events](/networks/staking/qc-dkg-scripts-events)[NextFAQs](/networks/staking/faq)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/11-machine-account.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousQC/DKG Scripts and Events](/networks/staking/qc-dkg-scripts-events)[NextFAQs](/networks/staking/faq)
 ###### Rate this page
 
 😞😐😊

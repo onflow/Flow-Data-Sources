@@ -181,7 +181,7 @@ transaction with the following arguments.
 See the [QC and DKG events and scripts document](/networks/staking/qc-dkg-scripts-events) for information
 about the events that can be emitted by these contracts and scripts you can use to query information.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/09-qc-dkg.md)Last updated on **Jan 10, 2025** by **Ali Serag**[PreviousHow to Query Staking rewards](/networks/staking/staking-rewards)[NextQC/DKG Scripts and Events](/networks/staking/qc-dkg-scripts-events)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/09-qc-dkg.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousHow to Query Staking rewards](/networks/staking/staking-rewards)[NextQC/DKG Scripts and Events](/networks/staking/qc-dkg-scripts-events)
 ###### Rate this page
 
 😞😐😊

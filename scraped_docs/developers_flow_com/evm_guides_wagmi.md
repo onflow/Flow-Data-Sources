@@ -111,7 +111,7 @@ Test it by updating the greeting, signing a transaction in your Metamask then wa
 
 ![Update HelloWorld Greeting](/assets/images/Update-HelloWorld-Greeting-97929700145ed51e0a6226f562fda7c0.gif)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/wagmi.md)Last updated on **Jan 10, 2025** by **Ali Serag**[PreviousRemix](/evm/guides/remix)[NextFoundry](/evm/guides/foundry)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/wagmi.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousRemix](/evm/guides/remix)[NextFoundry](/evm/guides/foundry)
 ###### Rate this page
 
 😞😐😊

@@ -1,9 +1,9 @@
-# Source: https://developers.flow.com/build/explore-more
+# Source: https://developers.flow.com/ecosystem/grants
 
 
 
 
-Explore More | Flow Developer Portal
+Grants | Flow Developer Portal
 
 
 
@@ -11,36 +11,47 @@ Explore More | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
-* [Why Flow](/build/flow)
-* [Differences vs. EVM](/build/differences-vs-evm)
-* [Getting Started](/build/getting-started/contract-interaction)
-* [Flow Protocol](/build/basics/blocks)
-* [App Architecture](/build/app-architecture)
-* [Writing and Deploying Smart Contracts](/build/learn-cadence)
-* [Advanced Concepts](/build/advanced-concepts/account-abstraction)
-* [Guides](/build/guides/fungible-token)
-* [Core Smart Contracts](/build/core-contracts)
-* [Explore More](/build/explore-more)
+* [Ecosystem](/ecosystem)
+* [Wallets](/ecosystem/wallets)
+* [Flow Block Explorers](/ecosystem/block-explorers)
+* [Bridges](/ecosystem/bridges)
+* [Community Projects](/ecosystem/projects)
+* [VCs & Funds](/ecosystem/vcs-and-funds)
+* [Faucets](/ecosystem/faucets)
+* [Grants](/ecosystem/grants)
+* [Hackathons](/ecosystem/hackathons)
+* [Auditors](/ecosystem/auditors)
+* [Ecosystem Overview](/ecosystem/overview)
 
 
-* Explore More
-# Explore More
+* Grants
+On this page
+# Flow Developer Grants
 
-Below are some additional tutorials to help you get started with Flow:
+The Flow Foundation provides grants to support developers and teams building tools and products that enhance the Flow ecosystem.
 
-[## Flow App QuickstartFlow Blockchain
+## Focus Areas[​](#focus-areas "Direct link to Focus Areas")
 
-Simple walkthrough building a web3 app using the Flow Client Library (FCL)](/build/getting-started/fcl-quickstart)[## Fungible Token GuideFlow Blockchain
+We are particularly interested in projects across these key areas:
 
-Steps to create, deploy, mint, and transfer fungible tokens on Flow](/build/guides/fungible-token)[## NFT GuideEmerald City DAO
+* **Telegram Miniapps**: Building integrations and applications for the Telegram ecosystem
+* **DeFi**: Innovative decentralized finance solutions
+* **AI Agents**: Artificial intelligence and autonomous systems
+* **Sports**: Applications and platforms in the sports and gaming sector
 
-A DApp that lets users create an empty collection, mint some pre-loaded NFTs, and transfer them to another account on Flow testnet.](https://academy.ecdao.org/en/quickstarts/1-non-fungible-token-next)[## Walkthrough GuidesFlow Blockchain
+## How to Apply[​](#how-to-apply "Direct link to How to Apply")
 
-Longer form guides to help you get started with Flow](/build/getting-started/fcl-quickstart)[## Emerald AcademyEmerald City DAO
+1. Visit the [Flow Developer Grants Repository](https://github.com/onflow/developer-grants)
+2. Create a new issue using the "Grant Application" template
+3. Fill out all required details about your project
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/grants.md)Last updated on **Feb 3, 2025** by **Brian Doyle**[PreviousFaucets](/ecosystem/faucets)[NextHackathons](/ecosystem/hackathons)
+###### Rate this page
 
-Quickstart Tutorials for Flow created by Emerald City Dao](https://academy.ecdao.org/en/quickstarts)[## Basic ConceptsFlow Blockchain
+😞😐😊
 
-Basic Concepts of Flow Blockchain](/build/basics/blocks)[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/explore-more.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousBurner](/build/core-contracts/burner)Documentation
+* [Focus Areas](#focus-areas)
+* [How to Apply](#how-to-apply)
+Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)

@@ -133,7 +133,7 @@ several configuration files.
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/get-flow-data/get-status.md)Last updated on **Jan 10, 2025** by **Ali Serag**[PreviousGet Collection](/tools/flow-cli/get-flow-data/get-collections)[NextGenerate a Signature](/tools/flow-cli/utils/signature-generate)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/get-flow-data/get-status.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousGet Collection](/tools/flow-cli/get-flow-data/get-collections)[NextGenerate a Signature](/tools/flow-cli/utils/signature-generate)
 ###### Rate this page
 
 😞😐😊
