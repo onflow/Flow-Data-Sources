@@ -3,7 +3,7 @@
 
 
 
-Simple Frontend | Flow Developer Portal
+Building a Simple Frontend with FCL | Flow Developer Portal
 
 
 
@@ -21,7 +21,7 @@ Simple Frontend | Flow Developer Portal
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
-* [Guides](/build/guides/fungible-token)
+* [Guides](/build/guides/account-linking)
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
@@ -267,7 +267,7 @@ By following these steps, you've successfully created a simple frontend applicat
 
 ## Additional Resources[​](#additional-resources "Direct link to Additional Resources")
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/fcl-quickstart.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousLocal Development](/build/getting-started/flow-cli)[NextBlocks](/build/basics/blocks)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/fcl-quickstart.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousLocal Development](/build/getting-started/flow-cli)[NextBlocks](/build/basics/blocks)
 ###### Rate this page
 
 😞😐😊

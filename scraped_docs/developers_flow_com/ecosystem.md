@@ -51,7 +51,7 @@ Get the Flow Down is a curated collection of the best Flow blockchain tools, tut
 
 Engage with the Flow community, discuss ideas, and seek support on the Flow Blockchain Forum.](https://forum.onflow.org/)[## 📜FLIPs
 
-Flow Improvement Proposals (FLIPs) serve as a platform for engaging the Flow community in development, harnessing the collective ideas, insights, and expertise of contributors and experts while ensuring widespread communication of design changes.](https://github.com/onflow/flips)[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/index.mdx)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[NextWallets](/ecosystem/wallets)Documentation
+Flow Improvement Proposals (FLIPs) serve as a platform for engaging the Flow community in development, harnessing the collective ideas, insights, and expertise of contributors and experts while ensuring widespread communication of design changes.](https://github.com/onflow/flips)[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/index.mdx)Last updated on **Jan 22, 2025** by **Chase Fleming**[NextWallets](/ecosystem/wallets)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)

@@ -110,7 +110,7 @@ files by using `-f` flag multiple times.
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/utils/tools.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousSnapshot Save](/tools/flow-cli/utils/snapshot-save)[NextDependency Manager](/tools/flow-cli/dependency-manager)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/utils/tools.md)Last updated on **Jan 22, 2025** by **Chase Fleming**[PreviousSnapshot Save](/tools/flow-cli/utils/snapshot-save)[NextDependency Manager](/tools/flow-cli/dependency-manager)
 ###### Rate this page
 
 😞😐😊

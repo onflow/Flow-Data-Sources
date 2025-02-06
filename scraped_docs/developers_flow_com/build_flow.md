@@ -18,7 +18,7 @@ Why Flow | Flow Developer Portal
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
-* [Guides](/build/guides/fungible-token)
+* [Guides](/build/guides/account-linking)
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
@@ -122,7 +122,7 @@ The [FLOW](/build/core-contracts/flow-token) (or $FLOW) token is the native curr
 
 * The [Flow Technical Primer](https://www.onflow.org/primer) is a great place to start to understand how Flow works.
 * The [Three technical whitepapers](https://www.onflow.org/technical-paper) cover the unique innovation behind the Flow blockchain network in-depth.
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/flow.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[NextDifferences vs. EVM](/build/differences-vs-evm)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/flow.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[NextDifferences vs. EVM](/build/differences-vs-evm)
 ###### Rate this page
 
 😞😐😊

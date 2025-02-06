@@ -104,7 +104,7 @@ To learn more about next steps following the initial setup, check out the follow
 
 * [Depedency Manager](/tools/flow-cli/dependency-manager): Lets you install and manage your contract dependencies with CLI commands.
 * [Manage Configuration](/tools/flow-cli/flow.json/manage-configuration): Learn how to manage your project configuration file.
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/super-commands.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousInstall Instructions](/tools/flow-cli/install)[NextGet an Account](/tools/flow-cli/accounts/get-accounts)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/super-commands.md)Last updated on **Jan 22, 2025** by **Chase Fleming**[PreviousInstall Instructions](/tools/flow-cli/install)[NextGet an Account](/tools/flow-cli/accounts/get-accounts)
 ###### Rate this page
 
 😞😐😊

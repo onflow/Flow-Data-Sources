@@ -175,7 +175,7 @@ rewards were paid at the end of an epoch and the network transitioned to a new e
 Future rewards payments and epoch switchovers happen automatically via a system chunk transaction,
 which does not create regular transaction IDs.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/03-schedule.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousEpoch and Staking Terminology](/networks/staking/epoch-terminology)[NextEpoch Preparation Protocol](/networks/staking/epoch-preparation)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/03-schedule.md)Last updated on **Jan 22, 2025** by **Chase Fleming**[PreviousEpoch and Staking Terminology](/networks/staking/epoch-terminology)[NextEpoch Preparation Protocol](/networks/staking/epoch-preparation)
 ###### Rate this page
 
 😞😐😊

@@ -479,7 +479,7 @@ Quote reply
  
 
 
-| [@sideninja](https://github.com/sideninja) once we are done with `Flow CLI Supercommands` we could take a look at the VSCode Extension experience end to end |
+| @sideninja once we are done with `Flow CLI Supercommands` we could take a look at the VSCode Extension experience end to end |
 | --- |
 
 Beta

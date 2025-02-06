@@ -1507,10 +1507,10 @@ Signature objects are used to represent a signature for a particular message as 
 | `keyId` | number | The index of the key to use during authorization. (Multiple keys on an account is possible). |
 | `signature` | string | a hexidecimal-encoded string representation of the generated signature |
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/api.md)Last updated on **Jan 18, 2025** by **j pimmel**[PreviousFlow Client Library (FCL)](/tools/clients/fcl-js)[NextSDK Reference](/tools/clients/fcl-js/sdk-guidelines)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/api.md)Last updated on **Jan 22, 2025** by **Chase Fleming**[PreviousFlow Client Library (FCL)](/tools/clients/fcl-js)[NextSDK Reference](/tools/clients/fcl-js/sdk-guidelines)
 ###### Rate this page
 
-   😞😐😊
+😞😐😊
 
 * [Configuration](#configuration)
   + [Setting Configuration Values](#setting-configuration-values)

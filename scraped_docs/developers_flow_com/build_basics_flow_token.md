@@ -27,7 +27,7 @@ FLOW Coin | Flow Developer Portal
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
-* [Guides](/build/guides/fungible-token)
+* [Guides](/build/guides/account-linking)
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
@@ -142,7 +142,7 @@ The Flow SDKs also allow polling for events using the Flow Access API,
 
 To get started building on Flow, please see the [Flow App Quickstart](/build/getting-started/fcl-quickstart)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/flow-token.md)Last updated on **Jan 18, 2025** by **j pimmel**[PreviousEvents](/build/basics/events)[NextSmart Contracts ↙](/build/basics/smart-contracts)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/flow-token.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousEvents](/build/basics/events)[NextSmart Contracts ↙](/build/basics/smart-contracts)
 ###### Rate this page
 
 😞😐😊

@@ -97,7 +97,7 @@ If you don't have have systemd on your system, or prefer not to use systemd, you
 
 All networking layer settings are initialized to default values from the [config/default-config.yml](https://github.com/onflow/flow-go/blob/master/config/default-config.yml) file when the Flow node starts up. Each attribute in this YAML file matches a flag name, allowing you to override the default setting by specifying the corresponding flag in the `docker run` command. For instance, to change the `networking-connection-pruning` setting, use its matching flag name (`networking-connection-pruning`) and desired value in the `docker run` command.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/guides/starting-nodes.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousSpork Practice](/networks/node-ops/node-operation/guides/spork-practice)[NextMachine Accounts for Existing Node Operators](/networks/node-ops/node-operation/machine-existing-operator)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/guides/starting-nodes.md)Last updated on **Jan 22, 2025** by **Chase Fleming**[PreviousSpork Practice](/networks/node-ops/node-operation/guides/spork-practice)[NextMachine Accounts for Existing Node Operators](/networks/node-ops/node-operation/machine-existing-operator)
 ###### Rate this page
 
 😞😐😊

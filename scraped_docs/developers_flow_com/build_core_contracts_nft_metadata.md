@@ -18,7 +18,7 @@ NFT Metadata Contract | Flow Developer Portal
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
-* [Guides](/build/guides/fungible-token)
+* [Guides](/build/guides/account-linking)
 * [Core Smart Contracts](/build/core-contracts)
   + [Fungible Token](/build/core-contracts/fungible-token)
   + [Flow Token](/build/core-contracts/flow-token)
@@ -56,14 +56,14 @@ Source: [MetadataViews.cdc](https://github.com/onflow/flow-nft/blob/master/contr
 | Testnet | `0x631e88ae7f1d7c20` |
 | Mainnet | `0x1d7e57aa55817448` |
 
-There exists a tool, [Flow NFT Catalog](https://flow-nft-catalog.com), which enables dapp developers the ability to unlock interoperability of your NFT collection across the Flow ecosystem. This will help make your NFT collection’s metadata more discoverable and interoperable.
+There exists a tool, [Flow NFT Catalog](https://flow-nft-catalog.com), which enables dapp developers the ability to unlock interoperability of your NFT collection across the Flow ecosystem. This will help make your NFT collection's metadata more discoverable and interoperable.
 
-To optimize your NFT collections for this catalog, you’ll need to:
+To optimize your NFT collections for this catalog, you'll need to:
 
 1. Update your NFT contract to support `ViewResolver` and `MetadataViews` with implementation of the [core NFT views](/build/advanced-concepts/metadata-views).
 2. Deploy the updated contract to both testnet and mainnet.
 3. Afterwards, onboard your NFT to the Flow NFT catalog at <https://flow-nft-catalog.com>.
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/09-nft-metadata.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousNon-Fungible Token](/build/core-contracts/non-fungible-token)[NextNFT Storefront](/build/core-contracts/nft-storefront)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/09-nft-metadata.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousNon-Fungible Token](/build/core-contracts/non-fungible-token)[NextNFT Storefront](/build/core-contracts/nft-storefront)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)

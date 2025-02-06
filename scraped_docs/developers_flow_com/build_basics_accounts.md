@@ -27,7 +27,7 @@ Accounts | Flow Developer Portal
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
-* [Guides](/build/guides/fungible-token)
+* [Guides](/build/guides/account-linking)
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
@@ -49,7 +49,7 @@ An account on Flow is a record in the chain state that holds the following infor
 * Code: Cadence contracts deployed to the account
 * Storage: area of the account used to store resource assets.
 
-Accounts and their keys are needed to sign transactions that change the Flow blockchain state. To execute a transaction, a small amount of Flow, called a [“Fee”](/build/basics/fees) must be paid by the account or subsidized by a wallet or service. Flow allocates a fixed amount of storage to each account for saving data structures and Resources. Flow allocates a [fixed amount of storage](/build/basics/fees#storage) to each account for saving data structures and Resources.
+Accounts and their keys are needed to sign transactions that change the Flow blockchain state. To execute a transaction, a small amount of Flow, called a ["Fee"](/build/basics/fees) must be paid by the account or subsidized by a wallet or service. Flow allocates a fixed amount of storage to each account for saving data structures and Resources. Flow allocates a [fixed amount of storage](/build/basics/fees#storage) to each account for saving data structures and Resources.
 An account may also contain contract code which transactions and scripts can interact with to query or mutate the state of the blockchain.
 
 A simple representation of an account:
@@ -70,7 +70,7 @@ warning
 
 The minimum amount of FLOW an account can have is **0.001**.
 
-This minimum storage fee is provided by the account creator and covers the cost of storing up to 100kB of data in perpetuity. This fee is applied only once and can be "topped up" to add additional storage to an account. The minimum account reservation ensures that most accounts won't run out of storage capacity if anyone deposits anything (like an NFT) to the account.
+This minimum storage fee is provided by the account creator and covers the cost of storing up to 100kB of data in perpetuity. This fee is applied only once and can be "topped up" to add additional storage to an account. The minimum account reservation ensures that most accounts won't run out of storage capacity if anyone deposits anything (like an NFT) to the account.
 
 ### Maximum available balance[​](#maximum-available-balance "Direct link to Maximum available balance")
 
@@ -93,7 +93,7 @@ Each Flow account has an associated storage and capacity. The account's storage 
 
 Flow accounts can be configured with multiple public keys that are used to control access. Owners of the associated private keys can sign transactions to mutate the account's state.
 
-During account creation, public keys can be provided which will be used when interacting with the account. Account keys can be added, removed, or revoked by sending a transaction. This is radically different from blockchains like Ethereum where an account is tied to a single public/private key pair.
+During account creation, public keys can be provided which will be used when interacting with the account. Account keys can be added, removed, or revoked by sending a transaction. This is radically different from blockchains like Ethereum where an account is tied to a single public/private key pair.
 
 Each account key has a weight that determines the signing power it holds.
 
@@ -114,7 +114,7 @@ An account key contains the following attributes:
 * **Signature algorithm** (see below)
 * **Hash algorithm** (see below)
 * **Weight** integer between 0-1000
-* **Revoked** whether the key has been revoked or it’s active
+* **Revoked** whether the key has been revoked or it's active
 * **Sequence Number** is a number that increases with each submitted transaction signed by this key
 
 ### Signature and Hash Algorithms[​](#signature-and-hash-algorithms "Direct link to Signature and Hash Algorithms")
@@ -128,7 +128,7 @@ There are two curves commonly used with the ECDSA algorithm, secp256r1 ([OID 1.2
 | ECDSA | P-256 | ECDSA\_P256 | 2 |
 | ECDSA | secp256k1 | ECDSA\_secp256k1 | 3 |
 
-*Please note that the codes listed here are for the signature algorithms as used by the node API, and they are different from the ones [defined in Cadence](https://cadence-lang.org/docs/language/crypto#signing-algorithms)*
+*Please note that the codes listed here are for the signature algorithms as used by the node API, and they are different from the ones [defined in Cadence](https://cadence-lang.org/docs/language/crypto#signing-algorithms)*
 
 | Algorithm | Output Size | ID | Code |
 | --- | --- | --- | --- |
@@ -139,7 +139,7 @@ Both hashing and signature algorithms are compatible with each other, so you can
 
 ### **Locked / Keyless Accounts**[​](#locked--keyless-accounts "Direct link to locked--keyless-accounts")
 
-An account on Flow doesn’t require keys in order to exist, but this makes the account immutable since no transaction can be signed that can change the account. This can be useful if we want to freeze an account contract code and it elegantly solves the problem of having multiple account types (as that is the case for Ethereum).
+An account on Flow doesn't require keys in order to exist, but this makes the account immutable since no transaction can be signed that can change the account. This can be useful if we want to freeze an account contract code and it elegantly solves the problem of having multiple account types (as that is the case for Ethereum).
 
 ![Screenshot 2023-08-16 at 18.59.10.png](/assets/images/Screenshot_2023-08-16_at_18.59.10-e9f4a40f84719ce04fd22ce24ebb0a2f.png)
 
@@ -147,7 +147,7 @@ You can achieve keyless accounts by either removing an existing public key from 
 
 danger
 
-Be careful when removing keys from an existing account, because once an account’s total key weights sum to less than 1000, it can no longer be modified.
+Be careful when removing keys from an existing account, because once an account's total key weights sum to less than 1000, it can no longer be modified.
 
 ### **Multi-Sig Accounts**[​](#multi-sig-accounts "Direct link to multi-sig-accounts")
 
@@ -176,7 +176,7 @@ We are supporting ECDSA with the curves `P-256` and `secp256k1`. For these curve
 
 Accounts are created on the Flow blockchain by calling a special [create account Cadence function](https://cadence-lang.org/docs/language/accounts#account-creation). Once an account is created we can associate a new key with that account. Of course, all that can be done within a single transaction. Keep in mind that there is an account creation fee that needs to be paid. Account creation fees are relatively low, and we expect that wallet providers and exchanges will cover the cost when a user converts fiat to crypto for the first time.
 
-For development purposes, [you can use Flow CLI to easily create emulator, testnet and mainnet accounts.](/tools/flow-cli/accounts/create-accounts) The account creation fee is paid by a funding wallet so you don’t need a pre-existing account to create it.
+For development purposes, [you can use Flow CLI to easily create emulator, testnet and mainnet accounts.](/tools/flow-cli/accounts/create-accounts) The account creation fee is paid by a funding wallet so you don't need a pre-existing account to create it.
 
 ### **Key Generation**[​](#key-generation "Direct link to key-generation")
 
@@ -233,7 +233,7 @@ There are multiple SDKs implementing the above APIs for different languages:
 
 Find a list of all SDKs here: [tools/clients](/tools/clients)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/accounts.md)Last updated on **Jan 18, 2025** by **j pimmel**[PreviousCollections](/build/basics/collections)[NextTransactions](/build/basics/transactions)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/accounts.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousCollections](/build/basics/collections)[NextTransactions](/build/basics/transactions)
 ###### Rate this page
 
 😞😐😊

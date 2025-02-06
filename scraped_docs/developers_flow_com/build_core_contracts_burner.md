@@ -18,7 +18,7 @@ Flow Burner Contract Address | Flow Developer Portal
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
-* [Guides](/build/guides/fungible-token)
+* [Guides](/build/guides/account-linking)
 * [Core Smart Contracts](/build/core-contracts)
   + [Fungible Token](/build/core-contracts/fungible-token)
   + [Flow Token](/build/core-contracts/flow-token)
@@ -56,7 +56,7 @@ should use `Burner.burn()` when destroying a resource instead of `destroy`.
 | Testnet | [`0x294e44e1ec6993c6`](https://contractbrowser.com/account/0x294e44e1ec6993c6) |
 | Mainnet | [`0xd8a7e05a7ac670c0`](https://contractbrowser.com/account/0xd8a7e05a7ac670c0) |
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/14-burner.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousEVM](/build/core-contracts/evm)[NextExplore More](/build/explore-more)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/14-burner.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousEVM](/build/core-contracts/evm)[NextExplore More](/build/explore-more)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)

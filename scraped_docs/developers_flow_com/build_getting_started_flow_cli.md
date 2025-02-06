@@ -3,7 +3,7 @@
 
 
 
-Local Development | Flow Developer Portal
+Local Development with Flow CLI | Flow Developer Portal
 
 
 
@@ -21,7 +21,7 @@ Local Development | Flow Developer Portal
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
-* [Guides](/build/guides/fungible-token)
+* [Guides](/build/guides/account-linking)
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
@@ -201,7 +201,7 @@ If you want to continue on generating your own contracts, you can also use the t
 
 After that, it's easy to add your contract to your project configuration using the Flow CLI [`config` commands](/tools/flow-cli/flow.json/manage-configuration).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/flow-cli.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousContract Interaction](/build/getting-started/contract-interaction)[NextSimple Frontend](/build/getting-started/fcl-quickstart)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/flow-cli.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousContract Interaction](/build/getting-started/contract-interaction)[NextSimple Frontend](/build/getting-started/fcl-quickstart)
 ###### Rate this page
 
 😞😐😊

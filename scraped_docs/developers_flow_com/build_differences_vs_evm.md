@@ -18,7 +18,7 @@ Differences vs. EVM | Flow Developer Portal
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
-* [Guides](/build/guides/fungible-token)
+* [Guides](/build/guides/account-linking)
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
@@ -130,7 +130,7 @@ If you're already familiar with blockchain development, here's a comparison betw
 * [Testing Smart Contracts](https://ethereum.org/en/developers/docs/smart-contracts/testing/)
   + [Cadence testing framework](https://cadence-lang.org/docs/testing-framework) enables native tests in Cadence.
   + [overflow](https://github.com/bjartek/overflow) for testing in Go.
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/differences-vs-evm/index.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousWhy Flow](/build/flow)[NextContract Interaction](/build/getting-started/contract-interaction)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/differences-vs-evm/index.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousWhy Flow](/build/flow)[NextContract Interaction](/build/getting-started/contract-interaction)
 ###### Rate this page
 
 😞😐😊

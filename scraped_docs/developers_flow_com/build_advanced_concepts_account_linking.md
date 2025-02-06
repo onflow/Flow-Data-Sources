@@ -18,14 +18,14 @@ Account Linking (FLIP 72) | Flow Developer Portal
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
-* [Guides](/build/guides/fungible-token)
-  + [Create a Fungible Token](/build/guides/fungible-token)
-  + [Create an NFT Project](/build/guides/nft)
+* [Guides](/build/guides/account-linking)
   + [Account Linking (FLIP 72)](/build/guides/account-linking)
     - [Building Walletless Applications Using Child Accounts](/build/guides/account-linking/child-accounts)
     - [Working With Parent Accounts](/build/guides/account-linking/parent-accounts)
   + [Account Linking With NBA Top Shot](/build/guides/account-linking-with-dapper)
   + [More Guides](/build/guides/more-guides)
+  + [Creating an NFT Contract](/build/guides/nft)
+  + [Creating a Fungible Token](/build/guides/fungible-token)
   + [Building on Mobile](/build/guides/mobile/overview)
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
@@ -143,10 +143,10 @@ seamless to continue using the original app while also enjoying their assets in 
 ## Security Considerations[​](#security-considerations "Direct link to Security Considerations")
 
 Account linking is a *very* powerful Cadence feature, and thus it must be treated with care. So far in this document,
-we’ve discussed account linking between two accounts we own, even if the child account is managed by a third-party
+we've discussed account linking between two accounts we own, even if the child account is managed by a third-party
 application. But, we can't make the same trust assumptions about custodial accounts in the real world.
 
-Creating an `&Account` Capability and publishing it to an account we don’t own means we are giving that account full
+Creating an `&Account` Capability and publishing it to an account we don't own means we are giving that account full
 access to our account. This should be seen as an anti-pattern.
 
 warning
@@ -186,7 +186,7 @@ Learn more about it in the [Hybrid Custody documentation](/build/guides/account-
   [Magic](https://magic.link/).
 * [Starter template](https://github.com/Niftory/niftory-samples/tree/main/walletless-onboarding) for
   [Niftory](https://niftory.com/) Account Linking API.
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking/index.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousCreate an NFT Project](/build/guides/nft)[NextBuilding Walletless Applications Using Child Accounts](/build/guides/account-linking/child-accounts)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking/index.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousScaling Transactions from a Single Account](/build/advanced-concepts/scaling)[NextBuilding Walletless Applications Using Child Accounts](/build/guides/account-linking/child-accounts)
 ###### Rate this page
 
 😞😐😊

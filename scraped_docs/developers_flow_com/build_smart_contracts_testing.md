@@ -23,7 +23,7 @@ Testing Your Contracts | Flow Developer Portal
   + [Testing Your Contracts](/build/smart-contracts/testing)
   + [Best Practices](/build/smart-contracts/best-practices/security-best-practices)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
-* [Guides](/build/guides/fungible-token)
+* [Guides](/build/guides/account-linking)
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
@@ -43,12 +43,12 @@ If you haven't installed the Flow CLI yet and have [homebrew](https://brew.sh/) 
 
 ## Create a new project[​](#create-a-new-project "Direct link to Create a new project")
 
-In your preferred code editor, create a new directory for your project and navigate to it in the terminal. Then initialize a new Flow project by running the command `flow init`. This will create a `flow.json` config file that contains the [project's configuration](/tools/flow-cli/flow.json/configuration).
+In your preferred code editor, create a new directory for your project and navigate to it in the terminal. Then initialize a new Flow project by running the command `flow init`. This will create a `flow.json` config file that contains the [project's configuration](/tools/flow-cli/flow.json/configuration).
 
  `_10mkdir test-cadence_10cd test-cadence_10flow init`
 ## Write a simple smart contract[​](#write-a-simple-smart-contract "Direct link to Write a simple smart contract")
 
-In your code editor, create a new file called `calculator.cdc` and add the following code:
+In your code editor, create a new file called `calculator.cdc` and add the following code:
 
 calculator.cdc `_16access(all) contract Calculator {_16 access(all)_16 fun add(a: Int, b: Int): Int {_16 return a + b_16 }_16_16 access(all)_16 fun subtract(a: Int, b: Int): Int {_16 return a - b_16 }_16_16 access(all)_16 fun multiply(a: Int, b: Int): Int {_16 return a * b_16 }_16}`
 ## Add the smart contract to the config[​](#add-the-smart-contract-to-the-config "Direct link to Add the smart contract to the config")
@@ -74,7 +74,7 @@ In the next release, there will be `20` addresses for contract deployment during
 
 ## Write unit tests[​](#write-unit-tests "Direct link to Write unit tests")
 
-In the same directory, create a new file called `calculator_test.cdc` and add the following code:
+In the same directory, create a new file called `calculator_test.cdc` and add the following code:
 
 calculator\_test.cdc `_22import Test_22import "Calculator" // contract name from the previous step_22_22access(all)_22fun setup() {_22 let err = Test.deployContract(_22 name: "Calculator",_22 path: "./calculator.cdc",_22 arguments: []_22 )_22 Test.expect(err, Test.beNil())_22}_22_22access(all)_22fun testAdd() {_22 Test.assertEqual(5, Calculator.add(a: 2, b: 3))_22}_22_22access(all)_22fun testSubtract() {_22 Test.assertEqual(2, Calculator.subtract(a: 5, b: 3))_22}`
 
@@ -116,9 +116,9 @@ our code coverage percentage goes to `100%`:
 
 The Cadence testing framework provides various features and techniques for writing comprehensive test scenarios. Some of these include:
 
-* [**Code Coverage**](https://github.com/m-Peter/flow-code-coverage): You can use the `--cover` flag with the `flow test` command to view code coverage results when running your tests. This allows you to identify areas of your code that are not adequately covered by your test inputs.
+* [**Code Coverage**](https://github.com/m-Peter/flow-code-coverage): You can use the `--cover` flag with the `flow test` command to view code coverage results when running your tests. This allows you to identify areas of your code that are not adequately covered by your test inputs.
 * **Test Helpers**: Test helpers are reusable functions that help you set up the initial state for your test files. You can define test helpers in a Cadence program and use them in your test files by importing it whenever needed.
-* [**Assertions**](https://cadence-lang.org/docs/testing-framework#assertions): The testing framework provides built-in assertion functions, such as `assertEqual`, `beNil`, `beEmpty`, `contain`, to help you verify the expected behavior of your smart contracts.
+* [**Assertions**](https://cadence-lang.org/docs/testing-framework#assertions): The testing framework provides built-in assertion functions, such as `assertEqual`, `beNil`, `beEmpty`, `contain`, to help you verify the expected behavior of your smart contracts.
 * **Test Suites**: You can organize your test files into test suites to improve the readability and maintainability of your test code. Test suites allow you to group related test cases and set up common test helpers for all the tests in the suite.
 * [**Integration tests**](https://github.com/bjartek/overflow): In our previous example, we would directly call the available methods on the contract under test. This is generally categorized as unit testing. You can also write integration tests, by executing scripts & transactions to interact with the contracts under testing. If you would like to write your tests in Go, instead of Cadence, you can use [Overflow tool](https://github.com/bjartek/overflow) to run integration tests against either an local emulator, testnet, mainnet or an in memory instance of the flow-emulator.
 
@@ -201,7 +201,7 @@ Get familiar with the [Cadence anti-patterns](https://cadence-lang.org/docs/anti
   + [hybrid-custody](https://github.com/onflow/hybrid-custody/tree/main/test),
   + [flow-nft](https://github.com/onflow/flow-nft/tree/master/tests),
   + [flow-ft](https://github.com/onflow/flow-ft/tree/master/tests).
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/testing.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousDeploying Contracts](/build/smart-contracts/deploying)[NextSecurity Best Practices](/build/smart-contracts/best-practices/security-best-practices)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/testing.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousDeploying Contracts](/build/smart-contracts/deploying)[NextSecurity Best Practices](/build/smart-contracts/best-practices/security-best-practices)
 ###### Rate this page
 
 😞😐😊

@@ -18,12 +18,12 @@ More Guides | Flow Developer Portal
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
-* [Guides](/build/guides/fungible-token)
-  + [Create a Fungible Token](/build/guides/fungible-token)
-  + [Create an NFT Project](/build/guides/nft)
+* [Guides](/build/guides/account-linking)
   + [Account Linking (FLIP 72)](/build/guides/account-linking)
   + [Account Linking With NBA Top Shot](/build/guides/account-linking-with-dapper)
   + [More Guides](/build/guides/more-guides)
+  + [Creating an NFT Contract](/build/guides/nft)
+  + [Creating a Fungible Token](/build/guides/fungible-token)
   + [Building on Mobile](/build/guides/mobile/overview)
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
@@ -49,7 +49,7 @@ Tutorial for a marketplace that uses fungible and non-fungible token (NFTs)](htt
 
 A walk through how resources can own other resources by creating, deploying, and moving composable NFTs](https://cadence-lang.org/docs/tutorial/resources-compose)[## Twitter CloneAndrea Muttoni
 
-Web3 version of Twitter](https://dev.to/muttoni/lets-build-a-twitter-clone-on-web3-a-comprehensive-guide-to-building-on-flow-24l9)[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/more-guides.mdx)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousAccount Linking With NBA Top Shot](/build/guides/account-linking-with-dapper)[NextOverview](/build/guides/mobile/overview)Documentation
+Web3 version of Twitter](https://dev.to/muttoni/lets-build-a-twitter-clone-on-web3-a-comprehensive-guide-to-building-on-flow-24l9)[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/more-guides.mdx)Last updated on **Jan 22, 2025** by **Chase Fleming**[PreviousAccount Linking With NBA Top Shot](/build/guides/account-linking-with-dapper)[NextCreating an NFT Contract](/build/guides/nft)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)

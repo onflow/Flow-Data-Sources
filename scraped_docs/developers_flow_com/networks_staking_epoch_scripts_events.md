@@ -164,7 +164,7 @@ to get the current epoch phase.
 
 This script does not require any arguments.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/05-epoch-scripts-events.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousStake Slashing](/networks/staking/stake-slashing)[NextStaking Technical Overview](/networks/staking/technical-overview)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/05-epoch-scripts-events.md)Last updated on **Jan 22, 2025** by **Chase Fleming**[PreviousStake Slashing](/networks/staking/stake-slashing)[NextStaking Technical Overview](/networks/staking/technical-overview)
 ###### Rate this page
 
 😞😐😊

@@ -40,7 +40,7 @@ Flow’s multi-role architecture provides censorship & MEV resistance by design:
 
 ![mev_protection](/assets/images/mev_protection_in_flow-cb8116a0c2f0defaf2ec9bed7c552eb6.png)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/network-architecture/user-safety.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousSustainability](/networks/network-architecture/sustainability)[NextStaking and Epochs](/networks/staking)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/network-architecture/user-safety.md)Last updated on **Jan 22, 2025** by **Chase Fleming**[PreviousSustainability](/networks/network-architecture/sustainability)[NextStaking and Epochs](/networks/staking)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)

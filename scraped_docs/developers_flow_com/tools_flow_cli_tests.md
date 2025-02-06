@@ -191,7 +191,7 @@ This command will run only the test function named `testSumOfTwo` across all tes
 
 To dive deeper into testing the functionality of your Cadence scripts and contracts, explore the [Cadence Testing Framework](https://cadence-lang.org/docs/testing-framework) documentation.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/tests.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousDependency Manager](/tools/flow-cli/dependency-manager)[NextCadence Linter](/tools/flow-cli/lint)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/tests.md)Last updated on **Jan 22, 2025** by **Chase Fleming**[PreviousDependency Manager](/tools/flow-cli/dependency-manager)[NextCadence Linter](/tools/flow-cli/lint)
 ###### Rate this page
 
 😞😐😊

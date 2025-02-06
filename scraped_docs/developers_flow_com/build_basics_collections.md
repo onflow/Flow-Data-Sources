@@ -27,7 +27,7 @@ Collections | Flow Developer Portal
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
-* [Guides](/build/guides/fungible-token)
+* [Guides](/build/guides/account-linking)
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
@@ -37,7 +37,7 @@ Collections | Flow Developer Portal
 On this page
 # Collections
 
-Collections link blocks and transactions together. Collection node clusters make these collections (using the HotStuff consensus algorithm), made up of an ordered list of one or more hashes of [signed transactions](/build/basics/transactions). In order to optimize data, blocks don’t contain transactions (as they do on Ethereum). The benefits are transaction data does not get transferred to consensus nodes on the network which optimizes transfer speed and this architecture allows scaling of ingestion speed by adding collection clusters. Consensus nodes need to only agree on the order of transactions to be executed, they don’t need to know the transaction payload, thus making blocks and collections lightweight. Collection nodes hold transaction payloads for anyone who requests them (e.g. execution nodes).
+Collections link blocks and transactions together. Collection node clusters make these collections (using the HotStuff consensus algorithm), made up of an ordered list of one or more hashes of [signed transactions](/build/basics/transactions). In order to optimize data, blocks don't contain transactions (as they do on Ethereum). The benefits are transaction data does not get transferred to consensus nodes on the network which optimizes transfer speed and this architecture allows scaling of ingestion speed by adding collection clusters. Consensus nodes need to only agree on the order of transactions to be executed, they don't need to know the transaction payload, thus making blocks and collections lightweight. Collection nodes hold transaction payloads for anyone who requests them (e.g. execution nodes).
 
 ![Screenshot 2023-08-17 at 19.50.39.png](/assets/images/Screenshot_2023-08-17_at_19.50.39-2b14e257fed830fc8a1c9d315ac113ab.png)
 
@@ -63,7 +63,7 @@ There are multiple SDKs implementing the above APIs for different languages:
 
 Find a list of all SDKs [here](/tools/clients)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/collections.md)Last updated on **Jan 18, 2025** by **j pimmel**[PreviousBlocks](/build/basics/blocks)[NextAccounts](/build/basics/accounts)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/collections.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousBlocks](/build/basics/blocks)[NextAccounts](/build/basics/accounts)
 ###### Rate this page
 
 😞😐😊

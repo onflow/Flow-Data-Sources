@@ -23,7 +23,7 @@ Scaling Transactions from a Single Account | Flow Developer Portal
   + [NFT Metadata Views](/build/advanced-concepts/metadata-views)
   + [VRF (Randomness) in Cadence](/build/advanced-concepts/randomness)
   + [Scaling Transactions from a Single Account](/build/advanced-concepts/scaling)
-* [Guides](/build/guides/fungible-token)
+* [Guides](/build/guides/account-linking)
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
@@ -44,10 +44,10 @@ Flow is designed for consumer-scale internet applications and is one of the fast
    * Swapping tokens on decentralized exchanges (DEXs)
    * Staking or unstaking tokens
    
-   In this category, each transaction originates from a unique account and is sent to the Flow network from a different machine. Developers don’t need to take special measures to scale for this category, beyond ensuring their logic is primarily on-chain and their supporting systems (e.g., frontend, backend) can handle scaling if they become bottlenecks. Flow’s protocol inherently manages scaling for user transactions.
+   In this category, each transaction originates from a unique account and is sent to the Flow network from a different machine. Developers don't need to take special measures to scale for this category, beyond ensuring their logic is primarily on-chain and their supporting systems (e.g., frontend, backend) can handle scaling if they become bottlenecks. Flow's protocol inherently manages scaling for user transactions.
 2. **System Transactions**
    
-   These are transactions initiated by an app’s backend or various tools, such as:
+   These are transactions initiated by an app's backend or various tools, such as:
    
    * Minting thousands of tokens from a single minter account
    * Creating transaction workers for custodians
@@ -55,7 +55,7 @@ Flow is designed for consumer-scale internet applications and is one of the fast
    
    In this category, many transactions originate from the same account and are sent to the Flow network from the same machine, which can make scaling tricky. This guide focuses on strategies for scaling transactions from a single account.
 
-In the following sections, we’ll explore how to execute concurrent transactions from a single account on Flow using multiple proposer keys.
+In the following sections, we'll explore how to execute concurrent transactions from a single account on Flow using multiple proposer keys.
 
 info
 
@@ -65,7 +65,7 @@ This guide is specific to non-EVM transactions. For EVM-compatible transactions,
 
 Blockchains use sequence numbers, also known as nonces, for each transaction to prevent [replay attacks](https://en.wikipedia.org/wiki/Replay_attack) and allow users to specify the order of their transactions. The Flow network requires a specific sequence number for each incoming transaction and will reject any transaction where the sequence number does not exactly match the expected next value.
 
-This behavior presents a challenge for scaling, as sending multiple transactions does not guarantee that they will be executed in the order they were sent. This is a fundamental aspect of Flow’s resistance to MEV (Maximal Extractable Value), as transaction ordering is randomized within each block.
+This behavior presents a challenge for scaling, as sending multiple transactions does not guarantee that they will be executed in the order they were sent. This is a fundamental aspect of Flow's resistance to MEV (Maximal Extractable Value), as transaction ordering is randomized within each block.
 
 If a transaction arrives out of order, the network will reject it and return an error message similar to the following:
 
@@ -106,13 +106,13 @@ We can leverage this model to design an ideal system transaction architecture as
   
   To simplify the system further, we can reuse the same cryptographic key multiple times within the same account by adding it as a new key. These additional keys can have a weight of 0 since they do not need to authorize transactions.
 
-Here’s a visual example of how such an [account configuration](https://www.flowscan.io/account/18eb4ee6b3c026d2?tab=keys) might look:
+Here's a visual example of how such an [account configuration](https://www.flowscan.io/account/18eb4ee6b3c026d2?tab=keys) might look:
 
 ![Example.Account](/assets/images/scaling-example-account-641e0c6dc104349f35e10af572efa6be.png "Example Account")
 
 As shown, the account includes additional weightless keys designated for proposals, each with its own independent sequence number. This setup ensures that multiple workers can operate concurrently without conflicts or synchronization issues.
 
-In the next section, we’ll demonstrate how to implement this architecture using the [Go SDK](https://github.com/onflow/flow-go-sdk).
+In the next section, we'll demonstrate how to implement this architecture using the [Go SDK](https://github.com/onflow/flow-go-sdk).
 
 ## Example Implementation[​](#example-implementation "Direct link to Example Implementation")
 
@@ -139,7 +139,7 @@ When the example starts, it will deploy the `Counter` contract to the account an
 
  `_20transaction(code: String, numKeys: Int) {_20_20 prepare(signer: auth(AddContract, AddKey) &Account) {_20 // deploy the contract_20 signer.contracts.add(name: "Counter", code: code.decodeHex())_20_20 // copy the main key with 0 weight multiple times_20 // to create the required number of keys_20 let key = signer.keys.get(keyIndex: 0)!_20 var count: Int = 0_20 while count < numKeys {_20 signer.keys.add(_20 publicKey: key.publicKey,_20 hashAlgorithm: key.hashAlgorithm,_20 weight: 0.0_20 )_20 count = count + 1_20 }_20 }_20}`
 
-Next, the main loop starts. Each worker will process a transaction request from the queue and execute it. Here’s the code for the main loop:
+Next, the main loop starts. Each worker will process a transaction request from the queue and execute it. Here's the code for the main loop:
 
  `_36// populate the job channel with the number of transactions to execute_36txChan := make(chan int, numTxs)_36for i := 0; i < numTxs; i++ {_36 txChan <- i_36}_36_36startTime := time.Now()_36_36var wg sync.WaitGroup_36// start the workers_36for i := 0; i < numProposalKeys; i++ {_36 wg.Add(1)_36_36 // worker code_36 // this will run in parallel for each proposal key_36 go func(keyIndex int) {_36 defer wg.Done()_36_36 // consume the job channel_36 for range txChan {_36 fmt.Printf("[Worker %d] executing transaction\n", keyIndex)_36_36 // execute the transaction_36 err := IncreaseCounter(ctx, flowClient, account, signer, keyIndex)_36 if err != nil {_36 fmt.Printf("[Worker %d] Error: %v\n", keyIndex, err)_36 return_36 }_36 }_36 }(i)_36}_36_36close(txChan)_36_36// wait for all workers to finish_36wg.Wait()`
 
@@ -160,7 +160,7 @@ Running the example will execute 420 transactions at the same time:
 
 It takes roughly the time of 1 transaction to run all 420 without any errors.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/scaling.md)Last updated on **Jan 18, 2025** by **j pimmel**[PreviousVRF (Randomness) in Cadence](/build/advanced-concepts/randomness)[NextCreate a Fungible Token](/build/guides/fungible-token)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/scaling.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousVRF (Randomness) in Cadence](/build/advanced-concepts/randomness)[NextAccount Linking (FLIP 72)](/build/guides/account-linking)
 ###### Rate this page
 
 😞😐😊

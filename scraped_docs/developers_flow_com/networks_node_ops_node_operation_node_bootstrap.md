@@ -240,7 +240,7 @@ the snapshot must be provisioned within this time window.
 
 Once a valid root snapshot file is downloaded to the node's bootstrap folder, it can be started (see [guide](/networks/node-ops/node-operation/node-setup#start-the-node))
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-bootstrap.md)Last updated on **Jan 18, 2025** by **j pimmel**[PreviousNode Monitoring](/networks/node-ops/node-operation/monitoring-nodes)[NextNode Economics](/networks/node-ops/node-operation/node-economics)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-bootstrap.md)Last updated on **Jan 22, 2025** by **Chase Fleming**[PreviousNode Monitoring](/networks/node-ops/node-operation/monitoring-nodes)[NextNode Economics](/networks/node-ops/node-operation/node-economics)
 ###### Rate this page
 
 😞😐😊

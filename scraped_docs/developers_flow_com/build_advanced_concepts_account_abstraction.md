@@ -23,7 +23,7 @@ Account Abstraction | Flow Developer Portal
   + [NFT Metadata Views](/build/advanced-concepts/metadata-views)
   + [VRF (Randomness) in Cadence](/build/advanced-concepts/randomness)
   + [Scaling Transactions from a Single Account](/build/advanced-concepts/scaling)
-* [Guides](/build/guides/fungible-token)
+* [Guides](/build/guides/account-linking)
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
@@ -83,9 +83,9 @@ These improvements are especially notable on mobile, where users are typically m
 
 | Account Abstraction | Flow |
 | --- | --- |
-| Developers can build new features that streamline the user experience of Web3 apps, such as ‘session keys’ that pre-approve transactions for a period of time or setting custom limits on transaction volume or network fees. | Since all accounts are smart contracts, Flow has support for these new controls that enable apps to sign pre-approved transactions based on user controls and preferences. |
+| Developers can build new features that streamline the user experience of Web3 apps, such as 'session keys' that pre-approve transactions for a period of time or setting custom limits on transaction volume or network fees. | Since all accounts are smart contracts, Flow has support for these new controls that enable apps to sign pre-approved transactions based on user controls and preferences. |
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/account-abstraction.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousDevelopment Standards](/build/smart-contracts/best-practices/project-development-tips)[NextFLIX (Flow Interaction Templates)](/build/advanced-concepts/flix)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/account-abstraction.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousDevelopment Standards](/build/smart-contracts/best-practices/project-development-tips)[NextFLIX (Flow Interaction Templates)](/build/advanced-concepts/flix)
 ###### Rate this page
 
 😞😐😊

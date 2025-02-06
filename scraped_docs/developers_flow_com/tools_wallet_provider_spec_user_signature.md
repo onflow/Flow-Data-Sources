@@ -113,7 +113,7 @@ The signature can now be verified on the Flow blockchain. The following illustra
 * On receipt of message, prompt user to approve or decline
 * Prepend `UserDomainTag`, hash and sign the message with the signatureAlgorithm specified on user's key
 * Return a standard `PollingResponse` with an array of `CompositeSignatures` as data or `null` and `reason` if declined
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/user-signature.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousProvable Authn](/tools/wallet-provider-spec/provable-authn)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/user-signature.md)Last updated on **Jan 22, 2025** by **Chase Fleming**[PreviousProvable Authn](/tools/wallet-provider-spec/provable-authn)
 ###### Rate this page
 
 😞😐😊

@@ -18,7 +18,7 @@ NFT Storefront Smart Contract | Flow Developer Portal
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
-* [Guides](/build/guides/fungible-token)
+* [Guides](/build/guides/account-linking)
 * [Core Smart Contracts](/build/core-contracts)
   + [Fungible Token](/build/core-contracts/fungible-token)
   + [Flow Token](/build/core-contracts/flow-token)
@@ -105,7 +105,7 @@ The next step is to create a listing under the newly created storefront resource
 
 ### **Scenario 1:** Selling NFTs corresponds to more than one cryptocurrency, i.e. FLOW, USDC etc.[​](#scenario-1-selling-nfts-corresponds-to-more-than-one-cryptocurrency-ie-flow-usdc-etc "Direct link to scenario-1-selling-nfts-corresponds-to-more-than-one-cryptocurrency-ie-flow-usdc-etc")
 
-The `NFTStorefrontV2` contract doesn’t support selling an NFT for multiple different currencies with a single listing. However, this can be achieved by creating multiple listings for the same NFT for each different currency.
+The `NFTStorefrontV2` contract doesn't support selling an NFT for multiple different currencies with a single listing. However, this can be achieved by creating multiple listings for the same NFT for each different currency.
 
 **Example -** Alice wants to sell a kitty and is open to receiving FLOW and USDC
 
@@ -136,16 +136,16 @@ The seller can use [sell\_item](https://github.com/onflow/nft-storefront/blob/ma
 
 ### Considerations[​](#considerations "Direct link to Considerations")
 
-1. **Ghost listings -** *Ghost listings are listings which don’t have an underlying NFT in the seller’s account. However, the listing is still available for buyers to attempt to purchase*. StorefrontV2 is not immune to ghost listings. Usually, ghost listings will cause a purchaser’s transaction to fail, which is annoying but isn’t a significant problem. Ghost listings become a problem for the seller when the listed NFT comes back to the seller’s account after its original sale. The ghost listing will no longer be invalid when it comes back, and anyone can purchase it even if the seller doesn’t want to sell it at that price anymore.
+1. **Ghost listings -** *Ghost listings are listings which don't have an underlying NFT in the seller's account. However, the listing is still available for buyers to attempt to purchase*. StorefrontV2 is not immune to ghost listings. Usually, ghost listings will cause a purchaser's transaction to fail, which is annoying but isn't a significant problem. Ghost listings become a problem for the seller when the listed NFT comes back to the seller's account after its original sale. The ghost listing will no longer be invalid when it comes back, and anyone can purchase it even if the seller doesn't want to sell it at that price anymore.
    
-   **Note -** *We recommend that marketplaces and p2p dApps create an off-chain notification service that tells their users (i.e., sellers) to remove the listings if they don’t hold the NFT anymore in the same account.*
+   **Note -** *We recommend that marketplaces and p2p dApps create an off-chain notification service that tells their users (i.e., sellers) to remove the listings if they don't hold the NFT anymore in the same account.*
 2. **Expired listings -** `NFTStorefrontV2` introduces a safety measure to specify that a listing will expire after a certain period that can be set during the creation so no one can purchase the listing anymore. It is not a fool-proof safety measure, but it does give some safe ground to the sellers for the ghost listings & stale listings.
    
    **Note -** *We recommended for marketplaces and p2p dApps not to show the expired listings on their dashboards.*
 
 ## Purchasing NFTs[​](#purchasing-nfts "Direct link to Purchasing NFTs")
 
-Purchasing NFTs through the `NFTStorefrontV2` is simple. The buyer has to provide the payment vault and the `commissionRecipient` , if applicable, during the purchase. p2p dApps don’t need any intermediaries to facilitate the purchase of listings. [`purchase`](#fun-purchase) API offered by the `Listing` resource gets used to facilitate the purchase of NFT.
+Purchasing NFTs through the `NFTStorefrontV2` is simple. The buyer has to provide the payment vault and the `commissionRecipient` , if applicable, during the purchase. p2p dApps don't need any intermediaries to facilitate the purchase of listings. [`purchase`](#fun-purchase) API offered by the `Listing` resource gets used to facilitate the purchase of NFT.
 
 During the listing purchase all saleCuts are paid automatically. This also includes distributing royalties for that NFT, if applicable. If the vault provided by the buyer lacks sufficient funds then the transaction will fail.
 
@@ -154,7 +154,7 @@ During the listing purchase all saleCuts are paid automatically. This also inclu
 1. **Auto cleanup -** `NFTStorefrontV2` offers a unique ability to do auto cleanup of duplicate listings during a purchase. It comes with a drawback if one NFT has thousands of duplicate listings. It will become the bottleneck during purchasing one of the listings as it will likely trigger an out-of-gas error.
    
    **Note -** *We recommended NOT to have more than 50 (TBD) duplicate listings of any given NFT.*
-2. **Unsupported receiver capability** - A common pitfall during the purchase of an NFT that some saleCut receivers don’t have a supported receiver capability because that entitled sale cut would transfer to first valid sale cut receiver. However, it can be partially solved by providing the generic receiver using the [`FungibleTokenSwitchboard`](https://github.com/onflow/flow-ft/blob/master/contracts/FungibleTokenSwitchboard.cdc) contract and adding all the currency capabilities the beneficiary wants to receive. More on the `FungibleTokenSwitchboard` can be read in [Fungible Token Switchboard](https://github.com/onflow/flow-ft#fungible-token-switchboard)
+2. **Unsupported receiver capability** - A common pitfall during the purchase of an NFT that some saleCut receivers don't have a supported receiver capability because that entitled sale cut would transfer to first valid sale cut receiver. However, it can be partially solved by providing the generic receiver using the [`FungibleTokenSwitchboard`](https://github.com/onflow/flow-ft/blob/master/contracts/FungibleTokenSwitchboard.cdc) contract and adding all the currency capabilities the beneficiary wants to receive. More on the `FungibleTokenSwitchboard` can be read in [Fungible Token Switchboard](https://github.com/onflow/flow-ft#fungible-token-switchboard)
 
 ## Enabling creator royalties for NFTs[​](#enabling-creator-royalties-for-nfts "Direct link to Enabling creator royalties for NFTs")
 
@@ -403,7 +403,7 @@ A entitled receiver has not been paid during the sale of the NFT.
 
 ![NFT Storefront Process flow](https://user-images.githubusercontent.com/14581509/191960793-ff153e5d-2934-410c-b724-5c5dffd2c20f.png)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/10-nft-storefront.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousNFT Metadata](/build/core-contracts/nft-metadata)[NextStaking Collection](/build/core-contracts/staking-collection)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/10-nft-storefront.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousNFT Metadata](/build/core-contracts/nft-metadata)[NextStaking Collection](/build/core-contracts/staking-collection)
 ###### Rate this page
 
 😞😐😊

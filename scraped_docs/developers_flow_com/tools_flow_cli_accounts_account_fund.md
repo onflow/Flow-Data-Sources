@@ -70,7 +70,7 @@ Fund a valid Testnet Flow Account using the Flow CLI.
 
 Flow [account address](/build/basics/accounts) (prefixed with `0x` or not).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/account-fund.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousAccount Staking Info](/tools/flow-cli/accounts/account-staking-info)[NextGenerate Keys](/tools/flow-cli/keys/generate-keys)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/account-fund.md)Last updated on **Jan 22, 2025** by **Chase Fleming**[PreviousAccount Staking Info](/tools/flow-cli/accounts/account-staking-info)[NextGenerate Keys](/tools/flow-cli/keys/generate-keys)
 ###### Rate this page
 
 😞😐😊

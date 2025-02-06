@@ -297,7 +297,7 @@ It is possible to have multiple delegator objects per account
 by storing the node objects at different storage paths,
 but this would require small changes to these transactions to use the new storage paths.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/15-staking-guide.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousStaking Collection Guide](/networks/staking/staking-collection)[NextNode Operations](/networks/node-ops)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/15-staking-guide.md)Last updated on **Jan 22, 2025** by **Chase Fleming**[PreviousStaking Collection Guide](/networks/staking/staking-collection)[NextNode Operations](/networks/node-ops)
 ###### Rate this page
 
 😞😐😊

@@ -23,7 +23,7 @@ Deploying Contracts | Flow Developer Portal
   + [Testing Your Contracts](/build/smart-contracts/testing)
   + [Best Practices](/build/smart-contracts/best-practices/security-best-practices)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
-* [Guides](/build/guides/fungible-token)
+* [Guides](/build/guides/account-linking)
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
@@ -130,7 +130,7 @@ warning
 
 Flow Testnet is explicitly for experimentation and testing and should not be used to exchange "real value" (e.g. developing a fiat money on/off-ramp for your testnet application).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/deploying.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousSmart Contracts on Flow](/build/smart-contracts/overview)[NextTesting Your Contracts](/build/smart-contracts/testing)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/deploying.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousSmart Contracts on Flow](/build/smart-contracts/overview)[NextTesting Your Contracts](/build/smart-contracts/testing)
 ###### Rate this page
 
 😞😐😊

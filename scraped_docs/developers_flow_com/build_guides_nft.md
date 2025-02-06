@@ -3,7 +3,7 @@
 
 
 
-How to Create an NFT Project on Flow | Flow Developer Portal
+Creating an NFT Contract | Flow Developer Portal
 
 
 
@@ -18,21 +18,21 @@ How to Create an NFT Project on Flow | Flow Developer Portal
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
-* [Guides](/build/guides/fungible-token)
-  + [Create a Fungible Token](/build/guides/fungible-token)
-  + [Create an NFT Project](/build/guides/nft)
+* [Guides](/build/guides/account-linking)
   + [Account Linking (FLIP 72)](/build/guides/account-linking)
   + [Account Linking With NBA Top Shot](/build/guides/account-linking-with-dapper)
   + [More Guides](/build/guides/more-guides)
+  + [Creating an NFT Contract](/build/guides/nft)
+  + [Creating a Fungible Token](/build/guides/fungible-token)
   + [Building on Mobile](/build/guides/mobile/overview)
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
 
 * Guides
-* Create an NFT Project
+* Creating an NFT Contract
 On this page
-# How to Create an NFT Project on Flow
+# Creating an NFT Contract
 
 
 info
@@ -60,7 +60,7 @@ The **Flow CLI** (Command Line Interface) provides a suite of tools
 that allow developers to interact seamlessly with the Flow blockchain.
 
 If you haven't installed the Flow CLI yet and have [Homebrew](https://brew.sh/) installed,
-you can run `brew install flow-cli`. If you don’t have Homebrew,
+you can run `brew install flow-cli`. If you don't have Homebrew,
 please follow [the installation guide here](/tools/flow-cli/install).
 
 ### Initializing a New Project[​](#initializing-a-new-project "Direct link to Initializing a New Project")
@@ -282,7 +282,7 @@ In a separate terminal or command prompt, deploy the contract:
 
  `_10flow project deploy`
 
-You’ll then see a message that says `All contracts deployed successfully`.
+You'll then see a message that says `All contracts deployed successfully`.
 
 ## Creating an NFTCollection[​](#creating-an-nftcollection "Direct link to Creating an NFTCollection")
 
@@ -403,7 +403,7 @@ To verify the transfer, you can run the earlier script for `test-acct-2` (replac
 The transfer transaction also has a [generic version](https://github.com/onflow/flow-nft/blob/master/transactions/generic_transfer_with_address.cdc)
 that developers are encouraged to use!
 
-Congrats, you did it! You’re now ready to launch the next fun NFT project on Flow.
+Congrats, you did it! You're now ready to launch the next fun NFT project on Flow.
 
 ## More[​](#more "Direct link to More")
 
@@ -411,7 +411,7 @@ Congrats, you did it! You’re now ready to launch the next fun NFT project on F
 * Dive into the details of [the NFT Standard](https://github.com/onflow/flow-nft)
 * For a deeper dive into `MetadataViews`, consult the [introduction guide](/build/advanced-concepts/metadata-views) or [the FLIP that introduced this feature](https://github.com/onflow/flips/blob/main/application/20210916-nft-metadata.md).
 * Use a [no code tool for creating NFT projects on Flow](https://www.touchstone.city/)
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/nft.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousCreate a Fungible Token](/build/guides/fungible-token)[NextAccount Linking (FLIP 72)](/build/guides/account-linking)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/nft.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousMore Guides](/build/guides/more-guides)[NextCreating a Fungible Token](/build/guides/fungible-token)
 ###### Rate this page
 
 😞😐😊

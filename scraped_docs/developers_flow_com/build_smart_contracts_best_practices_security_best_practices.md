@@ -26,7 +26,7 @@ Cadence Security Best Practices | Flow Developer Portal
     - [Contract Upgrades with Incompatible Changes](/build/smart-contracts/best-practices/contract-upgrades)
     - [Development Standards](/build/smart-contracts/best-practices/project-development-tips)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
-* [Guides](/build/guides/fungible-token)
+* [Guides](/build/guides/account-linking)
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
@@ -56,7 +56,7 @@ like `<auth(Owner) &MyResource>`.
 
 ## Account Storage[​](#account-storage "Direct link to Account Storage")
 
-Don't trust a users’ [account storage](https://cadence-lang.org/docs/language/accounts#account-storage). Users have full control over their data and may reorganize it as they see fit. Users may store values in any path, so paths may store values of “unexpected” types. These values may be instances of types in contracts that the user deployed.
+Don't trust a users' [account storage](https://cadence-lang.org/docs/language/accounts#account-storage). Users have full control over their data and may reorganize it as they see fit. Users may store values in any path, so paths may store values of "unexpected" types. These values may be instances of types in contracts that the user deployed.
 
 Always [borrow](https://cadence-lang.org/docs/language/capabilities) with the specific type that is expected. Or, check if the value is an instance of the expected type.
 
@@ -71,7 +71,7 @@ It is preferable to use capabilities over direct `&Account` references when expo
 
 ## Capabilities[​](#capabilities "Direct link to Capabilities")
 
-Don’t store anything under the [public capability storage](https://cadence-lang.org/docs/language/capabilities) unless strictly required. Anyone can access your public capability using `Account.capabilities.get`. If something needs to be stored under `/public/`, make sure only read functionality is provided by restricting privileged functions with entitlements.
+Don't store anything under the [public capability storage](https://cadence-lang.org/docs/language/capabilities) unless strictly required. Anyone can access your public capability using `Account.capabilities.get`. If something needs to be stored under `/public/`, make sure only read functionality is provided by restricting privileged functions with entitlements.
 
 When publishing a capability, the capability might already be present at the given `PublicPath`.
 In that case, Cadence will panic with a runtime error to not override the already published capability.
@@ -84,9 +84,9 @@ Ensure capabilities cannot be accessed by unauthorized parties. For example, cap
 
 ## Transactions[​](#transactions "Direct link to Transactions")
 
-Audits of Cadence code should also include [transactions](https://cadence-lang.org/docs/language/transactions), as they may contain arbitrary code, just, like in contracts. In addition, they are given full access to the accounts of the transaction’s signers, i.e. the transaction is allowed to manipulate the signers’ account storage, contracts, and keys.
+Audits of Cadence code should also include [transactions](https://cadence-lang.org/docs/language/transactions), as they may contain arbitrary code, just, like in contracts. In addition, they are given full access to the accounts of the transaction's signers, i.e. the transaction is allowed to manipulate the signers' account storage, contracts, and keys.
 
-Signing a transaction gives access to the `&Account`, i.e. access to the account’s storage, keys, and contracts depending on what entitlements are specified.
+Signing a transaction gives access to the `&Account`, i.e. access to the account's storage, keys, and contracts depending on what entitlements are specified.
 
 Do not blindly sign a transaction. The transaction could for example change deployed contracts by upgrading them with malicious statements, revoking or adding keys, transferring resources from storage, etc.
 
@@ -98,13 +98,13 @@ If given a less-specific type, cast to the more specific type that is expected. 
 
 ## Access Control[​](#access-control "Direct link to Access Control")
 
-Declaring a field as [`access(all)`](https://cadence-lang.org/docs/language/access-control) only protects from replacing the field’s value, but the value itself can still be mutated if it is mutable. Remember that containers, like dictionaries, and arrays, are mutable.
+Declaring a field as [`access(all)`](https://cadence-lang.org/docs/language/access-control) only protects from replacing the field's value, but the value itself can still be mutated if it is mutable. Remember that containers, like dictionaries, and arrays, are mutable.
 
 Prefer non-public access to a mutable state. That state may also be nested. For example, a child may still be mutated even if its parent exposes it through a field with non-settable access.
 
 Do not use the `access(all)` modifier on fields and functions unless necessary. Prefer `access(self)`, `acccess(Entitlement)`, or `access(contract)` and `access(account)` when other types in the contract or account need to have access.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/best-practices/security-best-practices.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousTesting Your Contracts](/build/smart-contracts/testing)[NextContract Upgrades with Incompatible Changes](/build/smart-contracts/best-practices/contract-upgrades)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/best-practices/security-best-practices.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousTesting Your Contracts](/build/smart-contracts/testing)[NextContract Upgrades with Incompatible Changes](/build/smart-contracts/best-practices/contract-upgrades)
 ###### Rate this page
 
 😞😐😊

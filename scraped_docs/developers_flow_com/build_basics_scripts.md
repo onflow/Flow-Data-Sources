@@ -27,7 +27,7 @@ Scripts | Flow Developer Portal
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
-* [Guides](/build/guides/fungible-token)
+* [Guides](/build/guides/account-linking)
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
@@ -116,7 +116,7 @@ Following are some recommendations on how to write efficient scripts:
    
    1. Script execution on execution nodes is restricted to approximately the last 100 blocks. Any request for script execution on an execution node on a past block (specified by block ID or block height) will fail if that block is more than 100 blocks in the past.
    2. Script execution on an access node can go much beyond the last 100 blocks but is restricted to the height when the [last](https://developers.flow.com/networks/node-ops/node-operation/past-sporks) network upgrade ([HCU](https://developers.flow.com/networks/node-ops/node-operation/hcu) or spork) occurred.
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/scripts.md)Last updated on **Jan 18, 2025** by **j pimmel**[PreviousTransactions](/build/basics/transactions)[NextFees](/build/basics/fees)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/scripts.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousTransactions](/build/basics/transactions)[NextFees](/build/basics/fees)
 ###### Rate this page
 
 😞😐😊

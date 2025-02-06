@@ -71,7 +71,7 @@ On this page
 
 [Flow OpenAPI](/http-api) specification.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/index.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousFlow Emulator](/tools/emulator)[NextFlow Client Library (FCL)](/tools/clients/fcl-js)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/index.md)Last updated on **Jan 22, 2025** by **Chase Fleming**[PreviousFlow Emulator](/tools/emulator)[NextFlow Client Library (FCL)](/tools/clients/fcl-js)
 ###### Rate this page
 
 😞😐😊

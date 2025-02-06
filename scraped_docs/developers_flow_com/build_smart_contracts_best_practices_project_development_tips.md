@@ -26,7 +26,7 @@ Flow Smart Contract Project Development Standards | Flow Developer Portal
     - [Contract Upgrades with Incompatible Changes](/build/smart-contracts/best-practices/contract-upgrades)
     - [Development Standards](/build/smart-contracts/best-practices/project-development-tips)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
-* [Guides](/build/guides/fungible-token)
+* [Guides](/build/guides/account-linking)
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
@@ -120,7 +120,7 @@ are available [here](https://cadence-lang.org/docs/).
 The technical leader should be someone who understands Cadence well and has written Cadence smart contracts
 before. Production-level smart contracts are not the place for beginners to get their start.
 
-It should be this person’s responsibility to lead design discussions
+It should be this person's responsibility to lead design discussions
 with product managers and the community, write most of the code and tests,
 solicit reviews, make requested changes and make sure the project gets completed in a timely manner.
 
@@ -142,7 +142,7 @@ As projects like NBA Topshot have shown, when a blockchain product becomes succe
 others can and do to build on top of what you are doing.
 Whether that is analytics, tools, or other value adds that could help grow your project ecosystem,
 composability is key and that depends on open source development.
-If there isn’t already an open source repo, builders should consider creating one.
+If there isn't already an open source repo, builders should consider creating one.
 
 Builders can start from the [the Flow open source template](https://github.com/onflow/open-source-template)
 and make sure all of their repo is set up with some initial documentation for what the repo is for
@@ -284,7 +284,7 @@ come in and understand what each one is doing without having to parse confusing 
 
 ### Projects should engage with and respond to their own Community[​](#projects-should-engage-with-and-respond-to-their-own-community "Direct link to Projects should engage with and respond to their own Community")
 
-Once a contract is deployed, the work doesn’t stop there.
+Once a contract is deployed, the work doesn't stop there.
 Project communities require ongoing nurturing and support.
 As the developer of a public project on a public blockchain,
 the owners have an obligation to be helpful and responsive to the community
@@ -324,7 +324,7 @@ and documenting their projects. (Documentation for these topics coming soon)
 
 If you have any feedback about these guidelines, please create an issue in the onflow/cadence-style-guide repo or make a PR updating the guidelines so we can start a discussion.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/best-practices/project-development-tips.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousContract Upgrades with Incompatible Changes](/build/smart-contracts/best-practices/contract-upgrades)[NextAccount Abstraction](/build/advanced-concepts/account-abstraction)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/best-practices/project-development-tips.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousContract Upgrades with Incompatible Changes](/build/smart-contracts/best-practices/contract-upgrades)[NextAccount Abstraction](/build/advanced-concepts/account-abstraction)
 ###### Rate this page
 
 😞😐😊

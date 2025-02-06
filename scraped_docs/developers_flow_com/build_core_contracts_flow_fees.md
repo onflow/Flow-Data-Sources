@@ -18,7 +18,7 @@ Flow Fees Contract | Flow Developer Portal
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
-* [Guides](/build/guides/fungible-token)
+* [Guides](/build/guides/account-linking)
 * [Core Smart Contracts](/build/core-contracts)
   + [Fungible Token](/build/core-contracts/fungible-token)
   + [Flow Token](/build/core-contracts/flow-token)
@@ -76,7 +76,7 @@ Source: [FlowStorageFees.cdc](https://github.com/onflow/flow-core-contracts/blob
 
 Important events for `FlowStorageFees` are:
 
- `_10// Emitted when the amount of storage capacity an account has per reserved Flow token changes_10access(all) event StorageMegaBytesPerReservedFLOWChanged(_ storageMegaBytesPerReservedFLOW: UFix64)_10_10// Emitted when the minimum amount of Flow tokens that an account needs to have reserved for storage capacity changes._10access(all) event MinimumStorageReservationChanged(_ minimumStorageReservation: UFix64)`[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/05-flow-fees.md)Last updated on **Jan 10, 2025** by **Ali Serag**[PreviousService Account](/build/core-contracts/service-account)[NextStaking Table](/build/core-contracts/staking-contract-reference)
+ `_10// Emitted when the amount of storage capacity an account has per reserved Flow token changes_10access(all) event StorageMegaBytesPerReservedFLOWChanged(_ storageMegaBytesPerReservedFLOW: UFix64)_10_10// Emitted when the minimum amount of Flow tokens that an account needs to have reserved for storage capacity changes._10access(all) event MinimumStorageReservationChanged(_ minimumStorageReservation: UFix64)`[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/05-flow-fees.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousService Account](/build/core-contracts/service-account)[NextStaking Table](/build/core-contracts/staking-contract-reference)
 ###### Rate this page
 
 😞😐😊

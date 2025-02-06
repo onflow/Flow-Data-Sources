@@ -18,7 +18,7 @@ Fungible Token Contract | Flow Developer Portal
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
-* [Guides](/build/guides/fungible-token)
+* [Guides](/build/guides/account-linking)
 * [Core Smart Contracts](/build/core-contracts)
   + [Fungible Token](/build/core-contracts/fungible-token)
   + [Flow Token](/build/core-contracts/flow-token)
@@ -151,7 +151,7 @@ via the `Burner.burn()` method, this event is emitted with the following argumen
   + Example: `0.00017485`
 * `fromUUID: UInt64`: The UUID of the Vault that was burnt.
   + Example: `177021372071991`
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/02-fungible-token.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousCore Smart Contracts](/build/core-contracts)[NextFlow Token](/build/core-contracts/flow-token)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/02-fungible-token.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousCore Smart Contracts](/build/core-contracts)[NextFlow Token](/build/core-contracts/flow-token)
 ###### Rate this page
 
 😞😐😊

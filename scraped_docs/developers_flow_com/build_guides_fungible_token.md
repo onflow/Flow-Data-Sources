@@ -3,7 +3,7 @@
 
 
 
-How to Create a Fungible Token on Flow | Flow Developer Portal
+Creating a Fungible Token | Flow Developer Portal
 
 
 
@@ -18,21 +18,21 @@ How to Create a Fungible Token on Flow | Flow Developer Portal
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
-* [Guides](/build/guides/fungible-token)
-  + [Create a Fungible Token](/build/guides/fungible-token)
-  + [Create an NFT Project](/build/guides/nft)
+* [Guides](/build/guides/account-linking)
   + [Account Linking (FLIP 72)](/build/guides/account-linking)
   + [Account Linking With NBA Top Shot](/build/guides/account-linking-with-dapper)
   + [More Guides](/build/guides/more-guides)
+  + [Creating an NFT Contract](/build/guides/nft)
+  + [Creating a Fungible Token](/build/guides/fungible-token)
   + [Building on Mobile](/build/guides/mobile/overview)
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
 
 * Guides
-* Create a Fungible Token
+* Creating a Fungible Token
 On this page
-# How to Create a Fungible Token on Flow
+# Creating a Fungible Token
 
 
 info
@@ -94,7 +94,7 @@ To start creating a Fungible Token on the Flow blockchain, you'll first need som
 The **Flow CLI** (Command Line Interface) provides a suite of tools that allow developers to interact seamlessly with the Flow blockchain.
 
 If you haven't installed the Flow CLI yet and have [Homebrew](https://brew.sh/) installed,
-you can run `brew install flow-cli`. If you don’t have Homebrew,
+you can run `brew install flow-cli`. If you don't have Homebrew,
 please follow [the installation guide here](https://developers.flow.com/tools/flow-cli/install).
 
 ### Initializing a New Project[​](#initializing-a-new-project "Direct link to Initializing a New Project")
@@ -144,7 +144,7 @@ In this contract file, we want to import our `FungibleToken` contract that we've
 In this same file, let's create our contract which implements the `FungibleToken` contract interface (it does so by setting it following the `FooToken:`).
 We'll also include fields for standard storage and public paths
 for our resource definitions.
-In our `init` — which runs on the contract's first deployment and is used to set initial values — let’s set an starting total supply of 1,000 tokens for this example.
+In our `init` — which runs on the contract's first deployment and is used to set initial values — let's set an starting total supply of 1,000 tokens for this example.
 
  `_16// ...previous code_16_16access(all) contract FooToken: FungibleToken {_16 access(all) var totalSupply: UFix64_16_16 access(all) let VaultStoragePath: StoragePath_16 access(all) let VaultPublicPath: PublicPath_16 access(all) let MinterStoragePath: StoragePath_16_16 init() {_16 self.totalSupply = 1000.0_16 self.VaultStoragePath = /storage/fooTokenVault_16 self.VaultPublicPath = /public/fooTokenVault_16 self.MinterStoragePath = /storage/fooTokenMinter_16 }_16}`
 ### Creating a Vault[​](#creating-a-vault "Direct link to Creating a Vault")
@@ -295,7 +295,7 @@ Congrats, you've deployed your contract to the Flow Blockchain emulator.
 To read more about deploying your project to other environments,
 see the [CLI docs](https://developers.flow.com/tools/flow-cli/deployment/deploy-project-contracts).
 
-## Reading the Token’s Total Supply[​](#reading-the-tokens-total-supply "Direct link to Reading the Token’s Total Supply")
+## Reading the Token's Total Supply[​](#reading-the-tokens-total-supply "Direct link to Reading the Token's Total Supply")
 
 Let's now check that our total supply was initialized with 1,000 FooTokens. Go ahead and create a script called `get_total_supply.cdc` using the `generate` command.
 
@@ -317,7 +317,7 @@ To learn more about running scripts using Flow CLI, [see the docs](https://devel
 
 On Flow, newly created accounts cannot receive arbitrary assets.
 They need to be initialized to receive resources.
-In our case, we want to give accounts tokens and we’ll need to create
+In our case, we want to give accounts tokens and we'll need to create
 a `Vault` (which acts as a receiver) on each account that we want
 to have the ability to receive tokens. To do this, we'll need to run a transaction
 which will create the vault and set it in their storage
@@ -354,7 +354,7 @@ To call our setup account transaction from the CLI, we'll run the following:
 
 To learn more about running transactions using CLI, [see the docs](https://developers.flow.com/tools/flow-cli/transactions/send-transactions).
 
-## Reading a Vault’s Balance[​](#reading-a-vaults-balance "Direct link to Reading a Vault’s Balance")
+## Reading a Vault's Balance[​](#reading-a-vaults-balance "Direct link to Reading a Vault's Balance")
 
 Let's now read the balance of the newly created account (`test-acct`) to check it's zero.
 
@@ -446,7 +446,7 @@ The transfer transaction also has a [generic version](https://github.com/onflow/
 * [View a repo of this example code](https://github.com/chasefleming/FooToken)
 * [Review an `ExampleToken` contract implementing all of the remaining FungibleToken interface](https://github.com/onflow/flow-ft/blob/master/contracts/ExampleToken.cdc)
 * [View the Flow Token Standard](https://github.com/onflow/flow-ft/blob/master/contracts/FungibleToken.cdc)
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/fungible-token.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousScaling Transactions from a Single Account](/build/advanced-concepts/scaling)[NextCreate an NFT Project](/build/guides/nft)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/fungible-token.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousCreating an NFT Contract](/build/guides/nft)[NextOverview](/build/guides/mobile/overview)
 ###### Rate this page
 
 😞😐😊
@@ -462,9 +462,9 @@ The transfer transaction also has a [generic version](https://github.com/onflow/
   + [Adding Support for Metadata Views](#adding-support-for-metadata-views)
   + [Creating a Minter](#creating-a-minter)
 * [Deploying the Contract](#deploying-the-contract)
-* [Reading the Token’s Total Supply](#reading-the-tokens-total-supply)
+* [Reading the Token's Total Supply](#reading-the-tokens-total-supply)
 * [Giving Accounts the Ability to Receive Tokens](#giving-accounts-the-ability-to-receive-tokens)
-* [Reading a Vault’s Balance](#reading-a-vaults-balance)
+* [Reading a Vault's Balance](#reading-a-vaults-balance)
 * [Minting More Tokens](#minting-more-tokens)
 * [Transferring Tokens Between Accounts](#transferring-tokens-between-accounts)
 * [More](#more)

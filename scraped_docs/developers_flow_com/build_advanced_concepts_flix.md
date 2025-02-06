@@ -23,7 +23,7 @@ FLIX (Flow Interaction Templates) | Flow Developer Portal
   + [NFT Metadata Views](/build/advanced-concepts/metadata-views)
   + [VRF (Randomness) in Cadence](/build/advanced-concepts/randomness)
   + [Scaling Transactions from a Single Account](/build/advanced-concepts/scaling)
-* [Guides](/build/guides/fungible-token)
+* [Guides](/build/guides/account-linking)
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
@@ -37,7 +37,7 @@ Flow Interaction Templates is a standard for how contract developers, wallets, u
 
 Interaction Templates provide a way to use and reuse existing scripts and transactions, as well as to provide more metadata such as a human-readable title and description of what the transaction or script will do, which can be used by the developer as well as the user of the application.
 
-By using FLIX transactions and scripts, developers don’t have to write their own for common operations!
+By using FLIX transactions and scripts, developers don't have to write their own for common operations!
 
 Read more about the design and purpose of FLIX in the [FLIP](https://github.com/onflow/flips/blob/main/application/20220503-interaction-templates.md)
 
@@ -90,7 +90,7 @@ There are currently two clients that have integrated with FLIX that you can use:
 
 Flow provides an implementation of the Flow interaction template service as an open-source project. If you wish to run your own API, you can find the repository here: <https://github.com/onflow/flow-interaction-template-service>
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/flix.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousAccount Abstraction](/build/advanced-concepts/account-abstraction)[NextNFT Metadata Views](/build/advanced-concepts/metadata-views)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/flix.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousAccount Abstraction](/build/advanced-concepts/account-abstraction)[NextNFT Metadata Views](/build/advanced-concepts/metadata-views)
 ###### Rate this page
 
 😞😐😊

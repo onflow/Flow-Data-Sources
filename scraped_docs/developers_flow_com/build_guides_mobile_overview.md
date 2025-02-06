@@ -18,12 +18,12 @@ Overview | Flow Developer Portal
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
-* [Guides](/build/guides/fungible-token)
-  + [Create a Fungible Token](/build/guides/fungible-token)
-  + [Create an NFT Project](/build/guides/nft)
+* [Guides](/build/guides/account-linking)
   + [Account Linking (FLIP 72)](/build/guides/account-linking)
   + [Account Linking With NBA Top Shot](/build/guides/account-linking-with-dapper)
   + [More Guides](/build/guides/more-guides)
+  + [Creating an NFT Contract](/build/guides/nft)
+  + [Creating a Fungible Token](/build/guides/fungible-token)
   + [Building on Mobile](/build/guides/mobile/overview)
     - [Overview](/build/guides/mobile/overview)
     - [Build a Walletless Mobile App (PWA)](/build/guides/mobile/walletless-pwa)
@@ -45,12 +45,12 @@ Building mobile native applications that interact with the blockchain enables a 
 
 Millions of users with Flow accounts are exploring the ecosystem and looking for applications. Most of these users purchased Flow NFTs and are comfortable with web3 principles.
 
-In addition to the existing userbase, developers can tap into smart contracts deployed on the Flow blockchain. These contracts, including their on-chain state, provide unique possibilities to build experiences that enrich applications users are already using.
+In addition to the existing user base, developers can tap into smart contracts deployed on the Flow blockchain. These contracts, including their on-chain state, provide unique possibilities to build experiences that enrich applications users are already using.
 
 The following key capabilities make Flow a standout choice for mobile applications:
 
 * On-device key encryption via Secure Enclave & Keychain
-* Mobile wallet compabilitity and support for WalletConnect 2.0
+* Mobile wallet compatibility and support for WalletConnect 2.0
 * Simple, progressive onboarding experience with postponed account linking
 * Seamless in-app experience with on-chain interactions without constant signing requests
 * Account flexibility enabling secure account recovery and sharing
@@ -90,7 +90,7 @@ Coming soon:
 
 * Samples for key in-app functionality, like in-app purchasing
 * Progressive user onboarding
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/overview.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousMore Guides](/build/guides/more-guides)[NextBuild a Walletless Mobile App (PWA)](/build/guides/mobile/walletless-pwa)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/overview.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousCreating a Fungible Token](/build/guides/fungible-token)[NextBuild a Walletless Mobile App (PWA)](/build/guides/mobile/walletless-pwa)
 ###### Rate this page
 
 😞😐😊

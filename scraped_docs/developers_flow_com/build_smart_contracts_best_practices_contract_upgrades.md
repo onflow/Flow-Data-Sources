@@ -26,7 +26,7 @@ Contract Upgrades with Incompatible Changes | Flow Developer Portal
     - [Contract Upgrades with Incompatible Changes](/build/smart-contracts/best-practices/contract-upgrades)
     - [Development Standards](/build/smart-contracts/best-practices/project-development-tips)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
-* [Guides](/build/guides/fungible-token)
+* [Guides](/build/guides/account-linking)
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
@@ -63,7 +63,7 @@ If you absolutely must keep the old address when making an incompatible upgrade,
 
 ⚠️ Note that if any user accounts contain `structs` or `resources` from the *old* version of the contract that have been replaced with incompatible versions in the new one, **they will not load and will cause transactions that attempt to access them to crash**. For this reason, once any users have received `structs` or `resources` from the contract, this method of making an incompatible upgrade should not be attempted!
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/best-practices/contract-upgrades.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousSecurity Best Practices](/build/smart-contracts/best-practices/security-best-practices)[NextDevelopment Standards](/build/smart-contracts/best-practices/project-development-tips)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/best-practices/contract-upgrades.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousSecurity Best Practices](/build/smart-contracts/best-practices/security-best-practices)[NextDevelopment Standards](/build/smart-contracts/best-practices/project-development-tips)
 ###### Rate this page
 
 😞😐😊

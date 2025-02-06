@@ -23,7 +23,7 @@ Learn Cadence ↗️ | Flow Developer Portal
   + [Testing Your Contracts](/build/smart-contracts/testing)
   + [Best Practices](/build/smart-contracts/best-practices/security-best-practices)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
-* [Guides](/build/guides/fungible-token)
+* [Guides](/build/guides/account-linking)
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
@@ -32,7 +32,7 @@ Learn Cadence ↗️ | Flow Developer Portal
 * Learn Cadence ↗️
 # Learn Cadence ↗️
 
-;[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/learn-cadence.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousApp Architecture](/build/app-architecture)[NextSmart Contracts on Flow](/build/smart-contracts/overview)Documentation
+;[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/learn-cadence.md)Last updated on **Jan 22, 2025** by **Chase Fleming**[PreviousApp Architecture](/build/app-architecture)[NextSmart Contracts on Flow](/build/smart-contracts/overview)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)

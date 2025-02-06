@@ -27,7 +27,7 @@ Events | Flow Developer Portal
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
-* [Guides](/build/guides/fungible-token)
+* [Guides](/build/guides/account-linking)
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
@@ -41,7 +41,7 @@ Flow events are special values that are emitted on the network during the execut
 
 Events are defined as Cadence code and you should [read Cadence documentation](https://cadence-lang.org/docs/language/events) to understand how to define them.
 
-Since transactions don’t have return values you can leverage events to broadcast certain changes the transaction caused. Clients listening on Flow networks (apps) can listen to these events being emitted and react.
+Since transactions don't have return values you can leverage events to broadcast certain changes the transaction caused. Clients listening on Flow networks (apps) can listen to these events being emitted and react.
 
 ![Screenshot 2023-08-18 at 14.09.33.png](/assets/images/Screenshot_2023-08-18_at_14.09.33-5a94d1214f7016737c79587c24373313.png)
 
@@ -132,7 +132,7 @@ These events are very common since they accommodate all transactions on Flow. Ea
 
 An example of fee events:
 
- `_24Events:_24 - Index: 0_24 Type: A.f233dcee88fe0abe.FungibleToken.Withdrawn_24 Tx ID: 1ec90051e3bc74fc36cbd16fc83df08e463dda8f92e8e2193e061f9d41b2ad92_24 Values:_24 - type (String): "1654653399040a61.FlowToken.Vault"_24 - amount (UFix64): 0.00000100_24 - from (Address?): b30eb2755dca4572_24_24 - Index: 1_24 Type: A.f233dcee88fe0abe.FungibleToken.Deposited_24 Tx ID: 1ec90051e3bc74fc36cbd16fc83df08e463dda8f92e8e2193e061f9d41b2ad92_24 Values:_24 - type (String): "1654653399040a61.FlowToken.Vault"_24 - amount (UFix64): 0.00000100_24 - to (Address?): f919ee77447b7497_24_24 - Index: 2_24 Type: A.f919ee77447b7497.FlowFees.FeesDeducted_24 Tx ID: 1ec90051e3bc74fc36cbd16fc83df08e463dda8f92e8e2193e061f9d41b2ad92_24 Values:_24 - amount (UFix64): 0.00000100_24 - inclusionEffort (UFix64): 1.00000000_24 - executionEffort (UFix64): 0.00000000`[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/events.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousFees](/build/basics/fees)[NextFLOW Coin](/build/basics/flow-token)
+ `_24Events:_24 - Index: 0_24 Type: A.f233dcee88fe0abe.FungibleToken.Withdrawn_24 Tx ID: 1ec90051e3bc74fc36cbd16fc83df08e463dda8f92e8e2193e061f9d41b2ad92_24 Values:_24 - type (String): "1654653399040a61.FlowToken.Vault"_24 - amount (UFix64): 0.00000100_24 - from (Address?): b30eb2755dca4572_24_24 - Index: 1_24 Type: A.f233dcee88fe0abe.FungibleToken.Deposited_24 Tx ID: 1ec90051e3bc74fc36cbd16fc83df08e463dda8f92e8e2193e061f9d41b2ad92_24 Values:_24 - type (String): "1654653399040a61.FlowToken.Vault"_24 - amount (UFix64): 0.00000100_24 - to (Address?): f919ee77447b7497_24_24 - Index: 2_24 Type: A.f919ee77447b7497.FlowFees.FeesDeducted_24 Tx ID: 1ec90051e3bc74fc36cbd16fc83df08e463dda8f92e8e2193e061f9d41b2ad92_24 Values:_24 - amount (UFix64): 0.00000100_24 - inclusionEffort (UFix64): 1.00000000_24 - executionEffort (UFix64): 0.00000000`[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/events.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousFees](/build/basics/fees)[NextFLOW Coin](/build/basics/flow-token)
 ###### Rate this page
 
 😞😐😊

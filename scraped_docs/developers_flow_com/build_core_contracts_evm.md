@@ -18,7 +18,7 @@ Flow EVM | Flow Developer Portal
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
-* [Guides](/build/guides/fungible-token)
+* [Guides](/build/guides/account-linking)
 * [Core Smart Contracts](/build/core-contracts)
   + [Fungible Token](/build/core-contracts/fungible-token)
   + [Flow Token](/build/core-contracts/flow-token)
@@ -57,7 +57,7 @@ Mainnet/Testnet Source: [`EVM.cdc`](https://github.com/onflow/flow-go/blob/maste
 | Testnet | [`0x8c5303eaa26202d6`](https://contractbrowser.com/A.8c5303eaa26202d6.EVM) |
 | Mainnet | [`0xe467b9dd11fa00df`](https://contractbrowser.com/A.e467b9dd11fa00df.EVM) |
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/13-evm.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousAccount Linking](/build/core-contracts/hybrid-custody)[NextBurner](/build/core-contracts/burner)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/13-evm.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousAccount Linking](/build/core-contracts/hybrid-custody)[NextBurner](/build/core-contracts/burner)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)

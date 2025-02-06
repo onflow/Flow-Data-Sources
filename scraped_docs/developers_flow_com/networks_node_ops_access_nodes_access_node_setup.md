@@ -273,7 +273,7 @@ Node types are defined [here](https://github.com/onflow/flow-core-contracts/blob
 
 Example: there are 115 access nodes already part of the network. Hence, the total number of new nodes that can join are 118 - 115 = 3.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/access-nodes/access-node-setup.md)Last updated on **Jan 18, 2025** by **j pimmel**[PreviousNode Operations](/networks/node-ops)[NextExecution Data](/networks/node-ops/access-nodes/access-node-configuration-options)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/access-nodes/access-node-setup.md)Last updated on **Jan 22, 2025** by **Chase Fleming**[PreviousNode Operations](/networks/node-ops)[NextExecution Data](/networks/node-ops/access-nodes/access-node-configuration-options)
 ###### Rate this page
 
 😞😐😊

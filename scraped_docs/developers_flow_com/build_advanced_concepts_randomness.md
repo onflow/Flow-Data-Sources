@@ -23,7 +23,7 @@ Flow On-chain Randomness in Cadence | Flow Developer Portal
   + [NFT Metadata Views](/build/advanced-concepts/metadata-views)
   + [VRF (Randomness) in Cadence](/build/advanced-concepts/randomness)
   + [Scaling Transactions from a Single Account](/build/advanced-concepts/scaling)
-* [Guides](/build/guides/fungible-token)
+* [Guides](/build/guides/account-linking)
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
@@ -35,7 +35,7 @@ On this page
 
 Flow enhances blockchain functionality and eliminates reliance on external oracles by providing native onchain randomness at the protocol level. This secure, decentralized feature empowers developers to build a variety of applications with truly unpredictable, transparent, and fair outcomes, achieved with greater efficiency.
 
-Flow’s onchain randomness delivers immediate random values within smart contracts, bypassing the latency and complexity of oracle integration. Developers can obtain verifiably random results with a single line of Cadence code, streamlining the development process and enhancing the performance of decentralized applications.
+Flow's onchain randomness delivers immediate random values within smart contracts, bypassing the latency and complexity of oracle integration. Developers can obtain verifiably random results with a single line of Cadence code, streamlining the development process and enhancing the performance of decentralized applications.
 
 ## Use Cases of Onchain Randomness[​](#use-cases-of-onchain-randomness "Direct link to Use Cases of Onchain Randomness")
 
@@ -59,7 +59,7 @@ For over three years, the beacon has ensured protocol security by selecting whic
 Cadence has historically provided the `unsafeRandom` function to return a pseudo-random number. The stream of random numbers produced was potentially unsafe in the following two regards:
 
 1. The sequence of random numbers is potentially predictable by transactions within the same block and by other smart contracts calling into your smart contract.
-2. A transaction calling into your smart contract can potentially bias the sequence of random numbers which your smart contract internally generates. Currently, the block hash seeds `unsafeRandom`. Consensus nodes can *easily* bias the block hash and **influence the seed for `unsafeRandom`**.
+2. A transaction calling into your smart contract can potentially bias the sequence of random numbers which your smart contract internally generates. Currently, the block hash seeds `unsafeRandom`. Consensus nodes can *easily* bias the block hash and **influence the seed for `unsafeRandom`**.
 
 warning
 
@@ -112,11 +112,11 @@ There are ideas how to further optimize the developer experience in the future. 
 On Flow, we have absorbed all security complexity into the platform.
 
 [FLIP 123: On-chain Random beacon history for commit-reveal schemes](https://github.com/onflow/flips/blob/main/protocol/20230728-commit-reveal.md#flip-123-on-chain-random-beacon-history-for-commit-reveal-schemes) was introduced to provide a safe pattern to use randomness in transactions so that it's not possible to revert unfavorable randomized transaction results.
-We recommend this approach as a best-practice example for implementing a commit-reveal scheme in Cadence. The `RandomBeaconHistory` contract provides a convenient archive, where for each past block height (starting Nov 2023) the respective “source of randomness” can be retrieved. The `RandomBeaconHistory` contract is automatically executed by the system at each block to store the next source of randomness value.
+We recommend this approach as a best-practice example for implementing a commit-reveal scheme in Cadence. The `RandomBeaconHistory` contract provides a convenient archive, where for each past block height (starting Nov 2023) the respective "source of randomness" can be retrieved. The `RandomBeaconHistory` contract is automatically executed by the system at each block to store the next source of randomness value.
 
 info
 
-💡 While the commit-and-reveal scheme mitigates post-selection of results by adversarial clients, Flow’s secure randomness additionally protects against any pre-selection vulnerabilities (like biasing attacks by byzantine miners).
+💡 While the commit-and-reveal scheme mitigates post-selection of results by adversarial clients, Flow's secure randomness additionally protects against any pre-selection vulnerabilities (like biasing attacks by byzantine miners).
 
 A commit-reveal scheme can be implemented as follows. The coin toss example described earlier will be used for illustration:
 
@@ -156,14 +156,14 @@ This is an invitation for builders and creators: leverage Flow's onchain randomn
 
 ## Learn More[​](#learn-more "Direct link to Learn More")
 
-If you’d like to dive deeper into Flow’s onchain randomness, here’s a list of resources:
+If you'd like to dive deeper into Flow's onchain randomness, here's a list of resources:
 
 * To learn more about how randomness works under the hood, see [the forum post](https://forum.flow.com/t/secure-random-number-generator-for-flow-s-smart-contracts/5110).
 * These documents provide a more in-depth technical understanding of the updates and enhancements to the Flow blockchain.
   + **[FLIP 120: Update unsafeRandom function](https://github.com/onflow/flips/blob/main/cadence/20230713-random-function.md#flip-120-update-unsaferandom-function)**
   + **[FLIP 123: On-chain Random beacon history for commit-reveal schemes](https://github.com/onflow/flips/blob/main/protocol/20230728-commit-reveal.md#flip-123-on-chain-random-beacon-history-for-commit-reveal-schemes)**
 * To see working Cadence code, explore the [coin toss example on GitHub](https://github.com/onflow/random-coin-toss).
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/randomness.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousNFT Metadata Views](/build/advanced-concepts/metadata-views)[NextScaling Transactions from a Single Account](/build/advanced-concepts/scaling)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/randomness.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousNFT Metadata Views](/build/advanced-concepts/metadata-views)[NextScaling Transactions from a Single Account](/build/advanced-concepts/scaling)
 ###### Rate this page
 
 😞😐😊

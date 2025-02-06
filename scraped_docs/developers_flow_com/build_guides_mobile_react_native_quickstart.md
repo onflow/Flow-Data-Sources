@@ -18,12 +18,12 @@ React Native Development | Flow Developer Portal
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
-* [Guides](/build/guides/fungible-token)
-  + [Create a Fungible Token](/build/guides/fungible-token)
-  + [Create an NFT Project](/build/guides/nft)
+* [Guides](/build/guides/account-linking)
   + [Account Linking (FLIP 72)](/build/guides/account-linking)
   + [Account Linking With NBA Top Shot](/build/guides/account-linking-with-dapper)
   + [More Guides](/build/guides/more-guides)
+  + [Creating an NFT Contract](/build/guides/nft)
+  + [Creating a Fungible Token](/build/guides/fungible-token)
   + [Building on Mobile](/build/guides/mobile/overview)
     - [Overview](/build/guides/mobile/overview)
     - [Build a Walletless Mobile App (PWA)](/build/guides/mobile/walletless-pwa)
@@ -226,7 +226,7 @@ That's it! You now have a shippable Flow dapp that can auth, query, init account
 * [More on Transactions](/tools/clients/fcl-js/transactions)
 * [User Signatures](/tools/clients/fcl-js/user-signatures)
 * [Proving Account Ownership](/tools/clients/fcl-js/proving-authentication)
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/react-native-quickstart.md)Last updated on **Jan 18, 2025** by **j pimmel**[PreviousIOS Development](/build/guides/mobile/ios-quickstart)[NextCore Smart Contracts](/build/core-contracts)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/react-native-quickstart.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousIOS Development](/build/guides/mobile/ios-quickstart)[NextCore Smart Contracts](/build/core-contracts)
 ###### Rate this page
 
 😞😐😊

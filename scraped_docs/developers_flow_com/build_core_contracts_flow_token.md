@@ -18,7 +18,7 @@ Flow Token Contract | Flow Developer Portal
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
-* [Guides](/build/guides/fungible-token)
+* [Guides](/build/guides/account-linking)
 * [Core Smart Contracts](/build/core-contracts)
   + [Fungible Token](/build/core-contracts/fungible-token)
   + [Flow Token](/build/core-contracts/flow-token)
@@ -180,7 +180,7 @@ Event that is emitted when a new burner Resource gets created.
 
 To learn more about staking events, read [staking/events/](/networks/staking/staking-scripts-events)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/03-flow-token.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousFungible Token](/build/core-contracts/fungible-token)[NextService Account](/build/core-contracts/service-account)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/03-flow-token.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousFungible Token](/build/core-contracts/fungible-token)[NextService Account](/build/core-contracts/service-account)
 ###### Rate this page
 
 😞😐😊

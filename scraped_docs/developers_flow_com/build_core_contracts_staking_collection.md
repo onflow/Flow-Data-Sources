@@ -18,7 +18,7 @@ Flow Staking Collection Contract Reference | Flow Developer Portal
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
-* [Guides](/build/guides/fungible-token)
+* [Guides](/build/guides/account-linking)
 * [Core Smart Contracts](/build/core-contracts)
   + [Fungible Token](/build/core-contracts/fungible-token)
   + [Flow Token](/build/core-contracts/flow-token)
@@ -117,7 +117,7 @@ to be interacted with using the Staking Collection API.
 
 The `StakingCollection` contract emits an event whenever an important action occurs.
 
- `_10 access(all) event NodeAddedToStakingCollection(nodeID: String, role: UInt8, amountCommitted: UFix64, address: Address?)_10 access(all) event DelegatorAddedToStakingCollection(nodeID: String, delegatorID: UInt32, amountCommitted: UFix64, address: Address?)_10_10 access(all) event NodeRemovedFromStakingCollection(nodeID: String, role: UInt8, address: Address?)_10 access(all) event DelegatorRemovedFromStakingCollection(nodeID: String, delegatorID: UInt32, address: Address?)_10_10 access(all) event MachineAccountCreated(nodeID: String, role: UInt8, address: Address)`[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/11-staking-collection.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousNFT Storefront](/build/core-contracts/nft-storefront)[NextAccount Linking](/build/core-contracts/hybrid-custody)
+ `_10 access(all) event NodeAddedToStakingCollection(nodeID: String, role: UInt8, amountCommitted: UFix64, address: Address?)_10 access(all) event DelegatorAddedToStakingCollection(nodeID: String, delegatorID: UInt32, amountCommitted: UFix64, address: Address?)_10_10 access(all) event NodeRemovedFromStakingCollection(nodeID: String, role: UInt8, address: Address?)_10 access(all) event DelegatorRemovedFromStakingCollection(nodeID: String, delegatorID: UInt32, address: Address?)_10_10 access(all) event MachineAccountCreated(nodeID: String, role: UInt8, address: Address)`[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/11-staking-collection.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousNFT Storefront](/build/core-contracts/nft-storefront)[NextAccount Linking](/build/core-contracts/hybrid-custody)
 ###### Rate this page
 
 😞😐😊

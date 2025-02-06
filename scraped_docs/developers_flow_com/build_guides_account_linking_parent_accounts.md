@@ -18,14 +18,14 @@ Working With Parent Accounts | Flow Developer Portal
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
-* [Guides](/build/guides/fungible-token)
-  + [Create a Fungible Token](/build/guides/fungible-token)
-  + [Create an NFT Project](/build/guides/nft)
+* [Guides](/build/guides/account-linking)
   + [Account Linking (FLIP 72)](/build/guides/account-linking)
     - [Building Walletless Applications Using Child Accounts](/build/guides/account-linking/child-accounts)
     - [Working With Parent Accounts](/build/guides/account-linking/parent-accounts)
   + [Account Linking With NBA Top Shot](/build/guides/account-linking-with-dapper)
   + [More Guides](/build/guides/more-guides)
+  + [Creating an NFT Contract](/build/guides/nft)
+  + [Creating a Fungible Token](/build/guides/fungible-token)
   + [Building on Mobile](/build/guides/mobile/overview)
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
@@ -45,9 +45,9 @@ all their owned assets.
 
 * Understand the Hybrid Custody account model
 * Differentiate between restricted child accounts and unrestricted owned accounts
-* Get your app to recognize “parent” accounts along with any associated “child” accounts
+* Get your app to recognize "parent" accounts along with any associated "child" accounts
 * View Fungible and NonFungible Token metadata relating to assets across all of a user's associated accounts - their
-  wallet-mediated “parent” account and any hybrid custody model “child” accounts
+  wallet-mediated "parent" account and any hybrid custody model "child" accounts
 * Facilitate transactions acting on assets in child accounts
 
 ## Design Overview[​](#design-overview "Direct link to Design Overview")
@@ -261,7 +261,7 @@ removed as a parent of the removed child.
 Note also that it's possible for a child account to remove a parent. This is necessary to give application developers
 and ultimately the owners of these child accounts the ability to revoke secondary access on owned accounts.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking/parent-accounts.md)Last updated on **Jan 28, 2025** by **Giovanni Sanchez**[PreviousBuilding Walletless Applications Using Child Accounts](/build/guides/account-linking/child-accounts)[NextAccount Linking With NBA Top Shot](/build/guides/account-linking-with-dapper)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking/parent-accounts.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousBuilding Walletless Applications Using Child Accounts](/build/guides/account-linking/child-accounts)[NextAccount Linking With NBA Top Shot](/build/guides/account-linking-with-dapper)
 ###### Rate this page
 
 😞😐😊
