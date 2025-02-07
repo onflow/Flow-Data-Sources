@@ -110,7 +110,7 @@ these connections as file descriptors, and uses soft and hard limits to control 
 to manage how many connections it will open and accept from other nodes. If the limit is too low, the node will not be able to communicate
 with its peers, preventing it from functioning properly.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/faq.md)Last updated on **Jan 22, 2025** by **Chase Fleming**[PreviousLight Node Setup](/networks/node-ops/light-nodes/observer-node)[NextByzantine Attack Response](/networks/node-ops/node-operation/byzantine-node-attack-response)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/faq.md)Last updated on **Jan 23, 2025** by **Brian Doyle**[PreviousLight Node Setup](/networks/node-ops/light-nodes/observer-node)[NextByzantine Attack Response](/networks/node-ops/node-operation/byzantine-node-attack-response)
 ###### Rate this page
 
 😞😐😊

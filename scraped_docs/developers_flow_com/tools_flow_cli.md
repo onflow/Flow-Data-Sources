@@ -66,7 +66,7 @@ macOS, Linux, and Windows.
 
 To get started with creating your first Flow project and to learn more about how to use the Flow CLI super commands, please refer to the [Super Commands documentation](/tools/flow-cli/super-commands). These commands simplify the setup and development process, allowing you to focus on building your application without worrying about the underlying configurations.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/index.md)Last updated on **Jan 22, 2025** by **Chase Fleming**[PreviousError Codes](/tools/error-codes)[NextInstall Instructions](/tools/flow-cli/install)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/index.md)Last updated on **Jan 23, 2025** by **Brian Doyle**[PreviousError Codes](/tools/error-codes)[NextInstall Instructions](/tools/flow-cli/install)
 ###### Rate this page
 
 😞😐😊

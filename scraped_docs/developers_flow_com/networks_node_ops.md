@@ -130,7 +130,7 @@ To set up a new staked node after it has been authorized by the Flow governance 
 1. [Provision](/networks/node-ops/node-operation/node-setup) the machine on which your node will run.
 2. [Generate and register](/networks/node-ops/node-operation/node-bootstrap) your node identity.
 3. [Start](/networks/node-ops/node-operation/node-bootstrap#step-3---start-your-flow-node) your node!
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/index.md)Last updated on **Jan 22, 2025** by **Chase Fleming**[PreviousBasic Staking Guide (Deprecated)](/networks/staking/staking-guide)[NextAccess Node Setup](/networks/node-ops/access-nodes/access-node-setup)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/index.md)Last updated on **Jan 23, 2025** by **Brian Doyle**[PreviousBasic Staking Guide (Deprecated)](/networks/staking/staking-guide)[NextAccess Node Setup](/networks/node-ops/access-nodes/access-node-setup)
 ###### Rate this page
 
 😞😐😊

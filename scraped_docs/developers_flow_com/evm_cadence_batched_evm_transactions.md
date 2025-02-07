@@ -451,7 +451,7 @@ guides to deepen your understanding:
 
 Ready to level up your Cadence skills? Take a look at [these Cadence tutorials](https://cadence-lang.org/docs/tutorial/first-steps).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/cadence/batched-evm-transactions.md)Last updated on **Jan 10, 2025** by **Ali Serag**[PreviousDirect Calls to Flow EVM](/evm/cadence/direct-calls)[NextCross-VM Bridge](/evm/cadence/vm-bridge)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/cadence/batched-evm-transactions.md)Last updated on **Jan 23, 2025** by **Brian Doyle**[PreviousDirect Calls to Flow EVM](/evm/cadence/direct-calls)[NextCross-VM Bridge](/evm/cadence/vm-bridge)
 ###### Rate this page
 
 😞😐😊

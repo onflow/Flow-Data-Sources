@@ -163,7 +163,7 @@ Input the amount that you want to withdraw to your wallet, acknowledge the trans
 
 Once the transition is processed, you can now see the withdrawn rewards in your balance and you are now free to do other actions with them (send them to other accounts, delegate to a node, etc).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-port/staking-guide.md)Last updated on **Jan 22, 2025** by **Chase Fleming**[PreviousFlow Port](/networks/flow-port)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-port/staking-guide.md)Last updated on **Jan 23, 2025** by **Brian Doyle**[PreviousFlow Port](/networks/flow-port)
 ###### Rate this page
 
 😞😐😊

@@ -116,7 +116,7 @@ Specify in which format you want to display the result.
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/utils/snapshot-save.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousVerify Signature](/tools/flow-cli/utils/signature-verify)[NextDevelopment Tools](/tools/flow-cli/utils/tools)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/utils/snapshot-save.md)Last updated on **Jan 23, 2025** by **Brian Doyle**[PreviousVerify Signature](/tools/flow-cli/utils/signature-verify)[NextDevelopment Tools](/tools/flow-cli/utils/tools)
 ###### Rate this page
 
 😞😐😊

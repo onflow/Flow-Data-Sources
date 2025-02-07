@@ -74,7 +74,7 @@ Each Validator makes an individual decision of which Protocol Version they choos
 
 The process by which the Core Team chooses the updates for each new Protocol Version follows the open process described above, using GitHub as an open discussion platform to gauge the priorities and needs of the entire Flow ecosystem. The proposed changes by the Core Team will be announced and discussed well before they are implemented, and any community member can propose their own changes or contribute code updates to implement any proposed changes. The details of a new Protocol Version are publicly available no less than 14 days before that version is formally recommended for use by Validators (a “Release”), with the complete implementation source code visible for no less than 7 days before a Release.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/governance.md)Last updated on **Jan 22, 2025** by **Chase Fleming**[PreviousAccess HTTP API ↗️](/networks/access-onchain-data/access-http-api)[NextFlow Port](/networks/flow-port)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/governance.md)Last updated on **Jan 23, 2025** by **Brian Doyle**[PreviousAccess HTTP API ↗️](/networks/access-onchain-data/access-http-api)[NextFlow Port](/networks/flow-port)
 ###### Rate this page
 
 😞😐😊

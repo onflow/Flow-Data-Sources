@@ -152,7 +152,7 @@ several configuration files.
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/account-staking-info.md)Last updated on **Jan 22, 2025** by **Chase Fleming**[PreviousRemove a Contract](/tools/flow-cli/accounts/account-remove-contract)[NextFunding a Testnet Account](/tools/flow-cli/accounts/account-fund)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/account-staking-info.md)Last updated on **Jan 23, 2025** by **Brian Doyle**[PreviousRemove a Contract](/tools/flow-cli/accounts/account-remove-contract)[NextFunding a Testnet Account](/tools/flow-cli/accounts/account-fund)
 ###### Rate this page
 
 😞😐😊

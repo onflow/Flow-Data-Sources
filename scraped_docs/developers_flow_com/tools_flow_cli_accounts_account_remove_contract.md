@@ -168,7 +168,7 @@ several configuration files.
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/account-remove-contract.md)Last updated on **Jan 22, 2025** by **Chase Fleming**[PreviousUpdate a Contract](/tools/flow-cli/accounts/account-update-contract)[NextAccount Staking Info](/tools/flow-cli/accounts/account-staking-info)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/account-remove-contract.md)Last updated on **Jan 23, 2025** by **Brian Doyle**[PreviousUpdate a Contract](/tools/flow-cli/accounts/account-update-contract)[NextAccount Staking Info](/tools/flow-cli/accounts/account-staking-info)
 ###### Rate this page
 
 😞😐😊
