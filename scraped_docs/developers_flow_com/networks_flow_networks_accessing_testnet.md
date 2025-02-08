@@ -62,7 +62,7 @@ Accounts and tokens for testing can be obtained through the [testnet faucet](htt
 
 You can review [all available core contracts](/build/core-contracts) deployed to the Testnet to identify which ones you want to import.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-networks/accessing-testnet.md)Last updated on **Jan 23, 2025** by **Brian Doyle**[PreviousMainnet](/networks/flow-networks/accessing-mainnet)[NextNetworks](/networks)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-networks/accessing-testnet.md)Last updated on **Jan 27, 2025** by **j pimmel**[PreviousMainnet](/networks/flow-networks/accessing-mainnet)[NextNetworks](/networks)
 ###### Rate this page
 
 😞😐😊

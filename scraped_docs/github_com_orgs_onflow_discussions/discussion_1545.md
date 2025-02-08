@@ -17,9 +17,6 @@ Flow Builder Perks Program · onflow · Discussion #1545 · GitHub
 
 
 
-
-
-
 [Skip to content](#start-of-content)
 
 
@@ -257,7 +254,7 @@ To see all available qualifiers, see our [documentation](https://docs.github.com
 
 [Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Forgs%2Fonflow%2Fdiscussions%2F1545)
 
-[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Fvoltron%2Fdiscussions_fragments%2Fdiscussion_layout&source=header-repo&source_repo=onflow%2Fflow)
+[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Fdiscussions%2Fshow&source=header-repo&source_repo=onflow%2Fflow)
 Reseting focus
 
 
@@ -398,7 +395,7 @@ Was this translation helpful?
  
 
 
-4
+5
  You must be logged in to vote
 
 

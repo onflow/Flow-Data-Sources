@@ -14,6 +14,7 @@ Bridges | Flow Developer Portal
 * [Ecosystem](/ecosystem)
 * [Wallets](/ecosystem/wallets)
 * [Flow Block Explorers](/ecosystem/block-explorers)
+* [Developer Profile](/ecosystem/developer-profile)
 * [Bridges](/ecosystem/bridges)
 * [Community Projects](/ecosystem/projects)
 * [VCs & Funds](/ecosystem/vcs-and-funds)
@@ -46,7 +47,7 @@ Bridges are mechanisms that connect different blockchain networks, enabling secu
 
 [Hyperlane](https://www.usenexus.org/) is a modular interoperability framework that enables secure cross-chain communication. It allows developers to build applications that can seamlessly interact across different blockchain networks. Hyperlane's architecture emphasizes security and flexibility, providing customizable security models and permissionless interoperability between any blockchain networks.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/bridges.md)Last updated on **Jan 23, 2025** by **Brian Doyle**[PreviousFlow Block Explorers](/ecosystem/block-explorers)[NextCommunity Projects](/ecosystem/projects)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/bridges.md)Last updated on **Jan 27, 2025** by **j pimmel**[PreviousDeveloper Profile](/ecosystem/developer-profile)[NextCommunity Projects](/ecosystem/projects)
 ###### Rate this page
 
 😞😐😊

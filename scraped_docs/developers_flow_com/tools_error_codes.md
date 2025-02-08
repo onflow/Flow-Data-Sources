@@ -303,7 +303,7 @@ Example:
 Example:
 `...`
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/error-codes.md)Last updated on **Jan 23, 2025** by **Brian Doyle**[PreviousTools](/tools)[NextFlow CLI](/tools/flow-cli)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/error-codes.md)Last updated on **Jan 27, 2025** by **j pimmel**[PreviousTools](/tools)[NextFlow CLI](/tools/flow-cli)
 ###### Rate this page
 
 😞😐😊

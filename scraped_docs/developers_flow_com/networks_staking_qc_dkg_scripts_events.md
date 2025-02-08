@@ -121,7 +121,7 @@ can use the **Get Node Has Submitted** ([DKG.08](/build/core-contracts/epoch-con
 
 ## DKG Events[​](#dkg-events "Direct link to DKG Events")
 
- `_10/// Emitted when the admin enables the DKG_10access(all) event StartDKG()_10_10/// Emitted when the admin ends the DKG after enough submissions have been recorded_10access(all) event EndDKG(finalSubmission: [String?]?)_10_10/// Emitted when a consensus node has posted a message to the DKG whiteboard_10access(all) event BroadcastMessage(nodeID: String, content: String)`[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/10-qc-dkg-scripts-events.md)Last updated on **Jan 23, 2025** by **Brian Doyle**[PreviousQC and DKG](/networks/staking/qc-dkg)[NextMachine Account](/networks/staking/machine-account)
+ `_10/// Emitted when the admin enables the DKG_10access(all) event StartDKG()_10_10/// Emitted when the admin ends the DKG after enough submissions have been recorded_10access(all) event EndDKG(finalSubmission: [String?]?)_10_10/// Emitted when a consensus node has posted a message to the DKG whiteboard_10access(all) event BroadcastMessage(nodeID: String, content: String)`[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/10-qc-dkg-scripts-events.md)Last updated on **Jan 27, 2025** by **j pimmel**[PreviousQC and DKG](/networks/staking/qc-dkg)[NextMachine Account](/networks/staking/machine-account)
 ###### Rate this page
 
 😞😐😊

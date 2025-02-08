@@ -200,7 +200,7 @@ This is intended for operators who would like to see what their Flow nodes are c
 
 The metrics for the node should be able to provide a good overview of the status of the node. If we want to get a quick snapshot of the status of the node, and if it's properly participating in the network, you can check the `consensus_compliance_finalized_height` or `consensus_compliance_sealed_height` metric, and ensure that it is not zero and strictly increasing.
 
- `_10curl localhost:8080/metrics | grep consensus_compliance_sealed_height_10_10# HELP consensus_compliance_sealed_height the last sealed height_10# TYPE consensus_compliance_sealed_height gauge_10consensus_compliance_sealed_height 1.132054e+06`[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-setup.md)Last updated on **Jan 22, 2025** by **Chase Fleming**[PreviousNode Roles](/networks/node-ops/node-operation/node-roles)[NextPast Spork Info](/networks/node-ops/node-operation/past-sporks)
+ `_10curl localhost:8080/metrics | grep consensus_compliance_sealed_height_10_10# HELP consensus_compliance_sealed_height the last sealed height_10# TYPE consensus_compliance_sealed_height gauge_10consensus_compliance_sealed_height 1.132054e+06`[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-setup.md)Last updated on **Jan 27, 2025** by **j pimmel**[PreviousNode Roles](/networks/node-ops/node-operation/node-roles)[NextPast Spork Info](/networks/node-ops/node-operation/past-sporks)
 ###### Rate this page
 
 😞😐😊

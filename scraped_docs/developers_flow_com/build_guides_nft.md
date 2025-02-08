@@ -219,7 +219,17 @@ Here are the `FungibleToken` event definitions:
 These events are [emitted by the `Collection` interface](https://github.com/onflow/flow-nft/blob/master/contracts/NonFungibleToken.cdc#L202)
 in the `NonFungibleToken` contract whenever the relevant function is called on any implementation.
 
-There is also a [standard `NonFungibleToken.Updated` event](https://github.com/onflow/flow-nft/blob/master/contracts/NonFungibleToken.cdc#L63-L77)
+There is also a `NonFungibleToken.NFT.ResourceDestroyed` event that is emitted every time an NFT is destroyed:
+
+ `_10 /// Event that is emitted automatically every time a resource is destroyed_10 /// The type information is included in the metadata event so it is not needed as an argument_10 access(all) event ResourceDestroyed(id: UInt64 = self.id, uuid: UInt64 = self.uuid)`
+
+`ResourceDestroyed` events are standard events that can be added to any resource definition
+to be emitted when the resource is destroyed. Learn more about them [in the Cadence docs](https://cadence-lang.org/docs/language/resources#destroy-events).
+
+Additionally, check out the optional [`Burner` contract](/build/core-contracts/burner),
+which is the standard that all projects should use for handling the destruction of any resource.
+
+Lastly, there is a [standard `NonFungibleToken.Updated` event](https://github.com/onflow/flow-nft/blob/master/contracts/NonFungibleToken.cdc#L63-L77)
 that your contract can emit if the NFT is updated in any way.
 This is optional though, so no need to include support for it in your implementation.
 
@@ -409,9 +419,11 @@ Congrats, you did it! You're now ready to launch the next fun NFT project on Flo
 
 * Explore [an example NFT repository](https://github.com/nvdtf/flow-nft-scaffold/blob/main/cadence/contracts/exampleNFT/ExampleNFT.cdc)
 * Dive into the details of [the NFT Standard](https://github.com/onflow/flow-nft)
+* Check out the [`Burner` contract](/build/core-contracts/burner), which is the standard
+  that all projects should use for handling the destruction of any resource.
 * For a deeper dive into `MetadataViews`, consult the [introduction guide](/build/advanced-concepts/metadata-views) or [the FLIP that introduced this feature](https://github.com/onflow/flips/blob/main/application/20210916-nft-metadata.md).
 * Use a [no code tool for creating NFT projects on Flow](https://www.touchstone.city/)
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/nft.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousMore Guides](/build/guides/more-guides)[NextCreating a Fungible Token](/build/guides/fungible-token)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/nft.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousMore Guides](/build/guides/more-guides)[NextCreating a Fungible Token](/build/guides/fungible-token)
 ###### Rate this page
 
 😞😐😊

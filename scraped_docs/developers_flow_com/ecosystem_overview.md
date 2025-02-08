@@ -14,6 +14,7 @@ Ecosystem Overview | Flow Developer Portal
 * [Ecosystem](/ecosystem)
 * [Wallets](/ecosystem/wallets)
 * [Flow Block Explorers](/ecosystem/block-explorers)
+* [Developer Profile](/ecosystem/developer-profile)
 * [Bridges](/ecosystem/bridges)
 * [Community Projects](/ecosystem/projects)
 * [VCs & Funds](/ecosystem/vcs-and-funds)

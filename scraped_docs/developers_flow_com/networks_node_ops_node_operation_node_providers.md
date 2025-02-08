@@ -68,7 +68,7 @@ On this page
 
 * Testnet
 * Mainnet
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-providers.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousSlashing Conditions](/networks/node-ops/node-operation/slashing)[NextHeight coordinated upgrade](/networks/node-ops/node-operation/hcu)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-providers.md)Last updated on **Jan 27, 2025** by **j pimmel**[PreviousSlashing Conditions](/networks/node-ops/node-operation/slashing)[NextHeight coordinated upgrade](/networks/node-ops/node-operation/hcu)
 ###### Rate this page
 
 😞😐😊

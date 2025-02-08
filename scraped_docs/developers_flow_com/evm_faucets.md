@@ -33,7 +33,7 @@ Go to [Faucets](/ecosystem/faucets)
 
 ;
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/faucets.mdx)Last updated on **Jan 23, 2025** by **Brian Doyle**[PreviousData Indexers](/evm/data-indexers)[NextBlock Explorers ↙](/evm/block-explorers)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/faucets.mdx)Last updated on **Jan 27, 2025** by **j pimmel**[PreviousData Indexers](/evm/data-indexers)[NextBlock Explorers ↙](/evm/block-explorers)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)

@@ -115,7 +115,7 @@ You'll be presented with a list of available core contracts to install:
 
 After selecting the contracts, press `enter` to confirm. The selected contracts will be added to your `flow.json` file and will be accessible in your project.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/dependency-manager.md)Last updated on **Jan 23, 2025** by **Brian Doyle**[PreviousDevelopment Tools](/tools/flow-cli/utils/tools)[NextRunning Cadence Tests](/tools/flow-cli/tests)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/dependency-manager.md)Last updated on **Jan 27, 2025** by **j pimmel**[PreviousDevelopment Tools](/tools/flow-cli/utils/tools)[NextRunning Cadence Tests](/tools/flow-cli/tests)
 ###### Rate this page
 
 😞😐😊

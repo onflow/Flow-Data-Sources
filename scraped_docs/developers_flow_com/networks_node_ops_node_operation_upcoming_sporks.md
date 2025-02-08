@@ -85,7 +85,7 @@ The following are the upcoming Spork dates. These dates indicate the intention t
 | April 7, 2021 | [Mainnet 7](/networks/node-ops/node-operation/past-sporks#mainnet-7) | March 30, 2021 —> March 31, 2021 | Devnet21 |
 | March 10, 2021 | [Mainnet 6](/networks/node-ops/node-operation/past-sporks#mainnet-6) | March 9, 2021 —> March 10, 2021 | Devnet20 |
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/upcoming-sporks.md)Last updated on **Jan 23, 2025** by **Brian Doyle**[PreviousNetwork Upgrade (Spork) Process](/networks/node-ops/node-operation/spork)[NextSlashing Conditions](/networks/node-ops/node-operation/slashing)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/upcoming-sporks.md)Last updated on **Jan 27, 2025** by **j pimmel**[PreviousNetwork Upgrade (Spork) Process](/networks/node-ops/node-operation/spork)[NextSlashing Conditions](/networks/node-ops/node-operation/slashing)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)
