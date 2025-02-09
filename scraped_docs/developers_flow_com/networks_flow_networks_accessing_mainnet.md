@@ -70,7 +70,7 @@ Make sure to take a note of the address. If you want to verify the public key fo
 
 You can review [all available core contracts](/build/core-contracts) deployed to the mainnet to identify which ones you want to import.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-networks/accessing-mainnet.md)Last updated on **Jan 23, 2025** by **Brian Doyle**[PreviousFlow Networks](/networks/flow-networks)[NextTestnet](/networks/flow-networks/accessing-testnet)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-networks/accessing-mainnet.md)Last updated on **Jan 27, 2025** by **j pimmel**[PreviousFlow Networks](/networks/flow-networks)[NextTestnet](/networks/flow-networks/accessing-testnet)
 ###### Rate this page
 
 😞😐😊
