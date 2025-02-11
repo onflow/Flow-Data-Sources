@@ -18,12 +18,12 @@ Build a Walletless Mobile App (PWA) | Flow Developer Portal
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
-* [Guides](/build/guides/fungible-token)
-  + [Create a Fungible Token](/build/guides/fungible-token)
-  + [Create an NFT Project](/build/guides/nft)
+* [Guides](/build/guides/account-linking)
   + [Account Linking (FLIP 72)](/build/guides/account-linking)
   + [Account Linking With NBA Top Shot](/build/guides/account-linking-with-dapper)
   + [More Guides](/build/guides/more-guides)
+  + [Creating an NFT Contract](/build/guides/nft)
+  + [Creating a Fungible Token](/build/guides/fungible-token)
   + [Building on Mobile](/build/guides/mobile/overview)
     - [Overview](/build/guides/mobile/overview)
     - [Build a Walletless Mobile App (PWA)](/build/guides/mobile/walletless-pwa)
@@ -56,8 +56,8 @@ To effectively follow this tutorial, the developer requires a few essential libr
 ## **Dependencies**[​](#dependencies "Direct link to dependencies")
 
 1. **Magic Account**: Start by setting up an app on magic.link, during which you will obtain an API key crucial for further steps.
-2. **Magic SDK**: Essential for integrating Magic’s functionality in your project, and can be found [here](https://www.npmjs.com/package/magic-sdk).
-3. **Magic Flow SDK**: This SDK enables Magic’s integration with Flow. You can install it from [this link](https://www.npmjs.com/package/@magic-ext/flow/v/13.3.0).
+2. **Magic SDK**: Essential for integrating Magic's functionality in your project, and can be found [here](https://www.npmjs.com/package/magic-sdk).
+3. **Magic Flow SDK**: This SDK enables Magic's integration with Flow. You can install it from [this link](https://www.npmjs.com/package/@magic-ext/flow/v/13.3.0).
 4. **Flow Client Library ([FCL](https://developers.flow.com/tooling/fcl-js))**: As the JavaScript SDK for the Flow blockchain, FCL allows developers to create applications that seamlessly interact with the Flow blockchain and its smart contracts.
 5. **React**: Our project will be built using the React framework.
 
@@ -77,7 +77,7 @@ Following the build, you can serve your application locally using:
 
  `_10npx serve -s build`
 
-To thoroughly test your PWA, especially on a mobile device, it’s highly recommended to use a tool like **`ngrok`**. Start **`ngrok`** and point it to the local port your application is running on:
+To thoroughly test your PWA, especially on a mobile device, it's highly recommended to use a tool like **`ngrok`**. Start **`ngrok`** and point it to the local port your application is running on:
 
  `_10ngrok http 3000`
 
@@ -87,11 +87,11 @@ You can now grab the link and go to it on your mobile device to test the PWA!
 
 ### Integrating with Magic[​](#integrating-with-magic "Direct link to Integrating with Magic")
 
-Proceed to install the Magic-related dependencies in your project. Ensure you add your Magic app’s key as an environment variable for secure access:
+Proceed to install the Magic-related dependencies in your project. Ensure you add your Magic app's key as an environment variable for secure access:
 
  `_10yarn add magic-sdk @magic-ext/flow @onflow/fcl`
 
-Let’s create a helper file, **`magic.js`**, to manage our Magic extension setup. Ensure that your environment variable with the Magic API key is correctly set before proceeding.
+Let's create a helper file, **`magic.js`**, to manage our Magic extension setup. Ensure that your environment variable with the Magic API key is correctly set before proceeding.
 
  `_13import { Magic } from "magic-sdk";_13import { FlowExtension } from "@magic-ext/flow";_13_13const magic = new Magic(process.env.REACT_APP_MAGIC_KEY, {_13 extensions: [_13 new FlowExtension({_13 rpcUrl: "https://rest-testnet.onflow.org",_13 network: "testnet",_13 }),_13 ],_13});_13_13export default magic;`
 
@@ -109,17 +109,17 @@ This file creates a React context that will be used to share the current user's 
 
 **`currentUserProvider.js`**
 
-This file defines a React provider component that uses the context created above. This provider component will wrap around your application’s components, allowing them to access the current user's data.
+This file defines a React provider component that uses the context created above. This provider component will wrap around your application's components, allowing them to access the current user's data.
 
-* **useState**: To create state variables for storing the current user’s data and the loading status.
-* **useEffect**: To fetch the user’s data from Magic when the component mounts.
+* **useState**: To create state variables for storing the current user's data and the loading status.
+* **useEffect**: To fetch the user's data from Magic when the component mounts.
 * **magic.user.isLoggedIn**: Checks if a user is logged in.
-* **magic.user.getMetadata**: Fetches the user’s metadata.
+* **magic.user.getMetadata**: Fetches the user's metadata.
 
  `_37import React, { useState, useEffect } from "react";_37import CurrentUserContext from "./currentUserContext";_37import magic from "./magic"; // You should have this from the previous part of the tutorial_37_37const CurrentUserProvider = ({ children }) => {_37 const [currentUser, setCurrentUser] = useState(null);_37 const [userStatusLoading, setUserStatusLoading] = useState(false);_37_37 useEffect(() => {_37 const fetchUserData = async () => {_37 try {_37 setUserStatusLoading(true);_37 const magicIsLoggedIn = await magic.user.isLoggedIn();_37 if (magicIsLoggedIn) {_37 const metaData = await magic.user.getMetadata();_37 setCurrentUser(metaData);_37 }_37 } catch (error) {_37 console.error("Error fetching user data:", error);_37 } finally {_37 setUserStatusLoading(false);_37 }_37 };_37_37 fetchUserData();_37 }, []);_37_37 return (_37 <CurrentUserContext.Provider_37 value={{ currentUser, setCurrentUser, userStatusLoading }}_37 >_37 {children}_37 </CurrentUserContext.Provider>_37 );_37};_37_37export default CurrentUserProvider;`
 ### **Logging in the User**[​](#logging-in-the-user "Direct link to logging-in-the-user")
 
-This part shows how to log in a user using Magic’s SMS authentication.
+This part shows how to log in a user using Magic's SMS authentication.
 
 * **magic.auth.loginWithSMS**: A function provided by Magic to authenticate users using their phone number.
 * **setCurrentUser**: Updates the user's data in the context.
@@ -135,11 +135,11 @@ This example shows how to interact with the Flow blockchain using FCL and Magic 
  `_26import * as fcl from "@onflow/fcl";_26import magic from "./magic";_26_26fcl.config({_26 "flow.network": "testnet",_26 "accessNode.api": "https://rest-testnet.onflow.org",_26 "discovery.wallet": `https://fcl-discovery.onflow.org/testnet/authn`,_26})_26_26const AUTHORIZATION_FUNCTION = magic.flow.authorization;_26_26const transactionExample = async (currentUser) => {_26 const response = await fcl.send([_26 fcl.transaction`_26 // Your Cadence code here_26 `,_26 fcl.args([_26 fcl.arg(currentUser.publicAddress, fcl.types.Address),_26 ]),_26 fcl.proposer(AUTHORIZATION_FUNCTION),_26 fcl.authorizations([AUTHORIZATION_FUNCTION]),_26 fcl.payer(AUTHORIZATION_FUNCTION),_26 fcl.limit(9999),_26 ]);_26 const transactionData = await fcl.tx(response).onceSealed();_26};`
 ### ****Account Linking with Flow****[​](#account-linking-with-flow "Direct link to account-linking-with-flow")
 
-Now we can unlock the real power of Flow. Lets say you have another Flow account and you want to link the “magic” account as a child account so that you can take full custody of whatever is in the magic account you can do this via Hybird Custody.
+Now we can unlock the real power of Flow. Lets say you have another Flow account and you want to link the "magic" account as a child account so that you can take full custody of whatever is in the magic account you can do this via Hybird Custody.
 
 You can view the hybrid custody repo and contracts here: <https://github.com/onflow/hybrid-custody>
 
-We will maintain two accounts within the app. The child(magic) account form earlier and new non custodial FCL flow account. I won’t go over how to log in with FCL here and use it but you can do the normal process to obtain the parent account.
+We will maintain two accounts within the app. The child(magic) account form earlier and new non custodial FCL flow account. I won't go over how to log in with FCL here and use it but you can do the normal process to obtain the parent account.
 
 One you have the parent account and child(magic) account logged in you can link the account by using the following transaction.
 
@@ -211,7 +211,7 @@ The entire game is crafted upon the previously discussed setup, ensuring a seaml
 
 The balloon inflation game stands as a testament to the seamless integration of Flow, Magic, and PWA technology, creating a user-friendly blockchain game that is accessible, engaging, and secure. Players can enjoy the game, mint NFTs, and take full ownership of their digital assets with ease and convenience.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/walletless-pwa.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousOverview](/build/guides/mobile/overview)[NextIOS Development](/build/guides/mobile/ios-quickstart)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/walletless-pwa.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousOverview](/build/guides/mobile/overview)[NextIOS Development](/build/guides/mobile/ios-quickstart)
 ###### Rate this page
 
 😞😐😊

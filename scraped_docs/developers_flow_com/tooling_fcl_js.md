@@ -169,7 +169,7 @@ Discuss FCL with the community on the [forum](https://forum.onflow.org/c/develop
 
 Join the Flow community on [Discord](https://discord.gg/flow) to keep up to date and to talk to the team.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/index.md)Last updated on **Jan 14, 2025** by **Giovanni Sanchez**[PreviousClients](/tools/clients)[NextFCL Reference](/tools/clients/fcl-js/api)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/index.md)Last updated on **Jan 27, 2025** by **j pimmel**[PreviousClients](/tools/clients)[NextFCL Reference](/tools/clients/fcl-js/api)
 ###### Rate this page
 
 😞😐😊
