@@ -28,6 +28,7 @@ SITES = [
     "https://cadence-lang.org/docs/json-cadence-spec",
     "https://cadence-lang.org/docs/measuring-time",
     "https://cadence-lang.org/docs/testing-framework",
+    "https://flow.sift.ing/",
 
     # GitHub repos
     "https://github.com/onflow/flow-ft/",
