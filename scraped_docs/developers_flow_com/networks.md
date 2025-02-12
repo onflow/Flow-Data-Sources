@@ -39,7 +39,7 @@ Networks | Flow Developer Portal
 
 Learn about Flow's governance model and how it's empowering our community of users and builders.](/networks/governance)[## 🗃️Flow Port
 
-1 items](/networks/flow-port)[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/index.md)Last updated on **Jan 27, 2025** by **j pimmel**[PreviousTestnet](/networks/flow-networks/accessing-testnet)[NextFlow's Network Architecture](/networks/network-architecture)Documentation
+1 items](/networks/flow-port)[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/index.md)Last updated on **Jan 28, 2025** by **Giovanni Sanchez**[PreviousTestnet](/networks/flow-networks/accessing-testnet)[NextFlow's Network Architecture](/networks/network-architecture)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)

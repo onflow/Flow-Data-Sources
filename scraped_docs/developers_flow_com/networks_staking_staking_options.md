@@ -69,7 +69,7 @@ and not recommended.
 
 The basic staking guide is detailed [here](/networks/staking/staking-guide)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/13-staking-options.md)Last updated on **Jan 27, 2025** by **j pimmel**[PreviousFAQs](/networks/staking/faq)[NextStaking Collection Guide](/networks/staking/staking-collection)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/13-staking-options.md)Last updated on **Jan 28, 2025** by **Giovanni Sanchez**[PreviousFAQs](/networks/staking/faq)[NextStaking Collection Guide](/networks/staking/staking-collection)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)

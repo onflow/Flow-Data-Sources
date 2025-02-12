@@ -180,7 +180,7 @@ implentation](https://github.com/onflow/random-coin-toss) using the VRF.
 
 *This documentation was contributed by [Noah Naizir](https://x.com/noah_overflow), a community developer.*
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/vrf.md)Last updated on **Jan 27, 2025** by **j pimmel**[PreviousFoundry](/evm/guides/foundry)[NextEthers](/evm/clients/ethers)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/vrf.md)Last updated on **Jan 28, 2025** by **Giovanni Sanchez**[PreviousFoundry](/evm/guides/foundry)[NextEthers](/evm/clients/ethers)
 ###### Rate this page
 
 😞😐😊

@@ -71,7 +71,7 @@ If you’re getting started you don’t need to run your own node and you can us
 
 Check out [Running a Node](/networks/node-ops/light-nodes/observer-node) for more information.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-networks/index.md)Last updated on **Jan 27, 2025** by **j pimmel**[NextMainnet](/networks/flow-networks/accessing-mainnet)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-networks/index.md)Last updated on **Jan 28, 2025** by **Giovanni Sanchez**[NextMainnet](/networks/flow-networks/accessing-mainnet)
 ###### Rate this page
 
 😞😐😊

@@ -45,7 +45,7 @@ We are particularly interested in projects across these key areas:
 1. Visit the [Flow Developer Grants Repository](https://github.com/onflow/developer-grants)
 2. Create a new issue using the "Grant Application" template
 3. Fill out all required details about your project
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/grants.md)Last updated on **Feb 3, 2025** by **Brian Doyle**[PreviousFaucets](/ecosystem/faucets)[NextHackathons](/ecosystem/hackathons)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/grants.md)Last updated on **Feb 4, 2025** by **Brian Doyle**[PreviousFaucets](/ecosystem/faucets)[NextHackathons](/ecosystem/hackathons)
 ###### Rate this page
 
 😞😐😊

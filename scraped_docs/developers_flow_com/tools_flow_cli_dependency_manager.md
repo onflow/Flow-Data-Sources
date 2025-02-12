@@ -81,6 +81,14 @@ You can also install multiple dependencies at once. For example:
 
 This command installs both the `FlowToken` contract from Testnet and the `NonFungibleToken` contract from Mainnet.
 
+### Installing All Dependencies From an Address[​](#installing-all-dependencies-from-an-address "Direct link to Installing All Dependencies From an Address")
+
+Sometimes you may want to install all the contracts that exist at a particular address, rather than specifying each contract name individually. You can do this by omitting the contract name in the dependency source. For example:
+
+ `_10flow dependencies install testnet://7e60df042a9c0868`
+
+This tells the Dependency Manager to fetch every contract deployed at the `7e60df042a9c0868` address on `testnet` and store them in your `imports` folder. You can later import these contracts in your code or use them in your deployments as needed.
+
 ### Installing Dependencies from `flow.json`[​](#installing-dependencies-from-flowjson "Direct link to installing-dependencies-from-flowjson")
 
 If you run the `install` command without specifying any dependencies, it will install all the dependencies listed in your `flow.json` file and ensure they are up to date:
@@ -111,11 +119,11 @@ To use the `discover` command, run:
 
 You'll be presented with a list of available core contracts to install:
 
- `_14Select any core contracts you would like to install or skip to continue._14Use arrow keys to navigate, space to select, enter to confirm or skip, q to quit:_14_14> [ ] FlowEpoch_14 [ ] FlowIDTableStaking_14 [ ] FlowClusterQC_14 [ ] FlowDKG_14 [ ] FlowServiceAccount_14 [ ] NodeVersionBeacon_14 [ ] RandomBeaconHistory_14 [ ] FlowStorageFees_14 [ ] FlowFees_14 [ ] FungibleTokenSwitchboard_14 [ ] EVM`
+ `_15Select any core contracts you would like to install or skip to continue._15Use arrow keys to navigate, space to select, enter to confirm or skip, q to quit:_15_15> [ ] FlowEpoch_15 [ ] FlowIDTableStaking_15 [ ] FlowClusterQC_15 [ ] FlowDKG_15 [ ] FlowServiceAccount_15 [ ] NodeVersionBeacon_15 [ ] RandomBeaconHistory_15 [ ] FlowStorageFees_15 [ ] FlowFees_15 [ ] FungibleTokenSwitchboard_15 [ ] EVM_15 [ ] Crypto`
 
 After selecting the contracts, press `enter` to confirm. The selected contracts will be added to your `flow.json` file and will be accessible in your project.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/dependency-manager.md)Last updated on **Jan 27, 2025** by **j pimmel**[PreviousDevelopment Tools](/tools/flow-cli/utils/tools)[NextRunning Cadence Tests](/tools/flow-cli/tests)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/dependency-manager.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousDevelopment Tools](/tools/flow-cli/utils/tools)[NextRunning Cadence Tests](/tools/flow-cli/tests)
 ###### Rate this page
 
 😞😐😊
@@ -124,6 +132,7 @@ After selecting the contracts, press `enter` to confirm. The selected contracts 
   + [Installing Specific Dependencies](#installing-specific-dependencies)
   + [Installing Core Contracts Using Simplified Syntax](#installing-core-contracts-using-simplified-syntax)
   + [Installing Multiple Dependencies](#installing-multiple-dependencies)
+  + [Installing All Dependencies From an Address](#installing-all-dependencies-from-an-address)
   + [Installing Dependencies from `flow.json`](#installing-dependencies-from-flowjson)
   + [Example `flow.json` Entry](#example-flowjson-entry)
   + [Other Things to Note](#other-things-to-note)

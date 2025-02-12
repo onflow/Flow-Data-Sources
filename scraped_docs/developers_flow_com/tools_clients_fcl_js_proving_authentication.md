@@ -163,7 +163,7 @@ data using FCL's provided utility:
 * A successful FCL authentication proves the user fully controls a Flow account. This means the user
   controls one or many account keys with weights that add up to the full account weight. The authentication
   would fail if the user doesn't control keys that add up to a full weight.
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/proving-authentication.mdx)Last updated on **Jan 27, 2025** by **j pimmel**[PreviousInteraction Templates](/tools/clients/fcl-js/interaction-templates)[NextScripts](/tools/clients/fcl-js/scripts)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/proving-authentication.mdx)Last updated on **Jan 28, 2025** by **Giovanni Sanchez**[PreviousInteraction Templates](/tools/clients/fcl-js/interaction-templates)[NextScripts](/tools/clients/fcl-js/scripts)
 ###### Rate this page
 
 😞😐😊

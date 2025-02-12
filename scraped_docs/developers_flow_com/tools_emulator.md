@@ -43,7 +43,7 @@ Follow [these steps](/tools/flow-cli/install) to install the Flow CLI on macOS, 
 To learn more about using the Emulator,
 have a look at [the README of the repository](https://github.com/onflow/flow-emulator/#starting-the-server).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/emulator/index.md)Last updated on **Jan 27, 2025** by **j pimmel**[PreviousData Collection](/tools/flow-cli/data-collection)[NextClients](/tools/clients)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/emulator/index.md)Last updated on **Jan 28, 2025** by **Giovanni Sanchez**[PreviousData Collection](/tools/flow-cli/data-collection)[NextClients](/tools/clients)
 ###### Rate this page
 
 😞😐😊

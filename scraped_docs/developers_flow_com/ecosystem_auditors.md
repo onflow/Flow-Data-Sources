@@ -55,7 +55,7 @@ The following companies provide independent contract auditing services of Cadenc
 
 [Emerald City Academy - Shield](https://docs.ecdao.org/auditing/shield) a Cadence-specialized, community-driven auditing service also offering development support and review for Cadence smart contracts.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/auditors.md)Last updated on **Jan 27, 2025** by **j pimmel**[PreviousHackathons](/ecosystem/hackathons)[NextEcosystem Overview](/ecosystem/overview)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/auditors.md)Last updated on **Jan 28, 2025** by **Giovanni Sanchez**[PreviousHackathons](/ecosystem/hackathons)[NextEcosystem Overview](/ecosystem/overview)
 ###### Rate this page
 
 😞😐😊

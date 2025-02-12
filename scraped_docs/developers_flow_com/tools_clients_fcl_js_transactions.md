@@ -75,7 +75,7 @@ These authorizations are important as you can only access/modify an accounts sto
 
 To learn more about `mutate`, check out the [API documentation](/tools/clients/fcl-js/api#mutate).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/transactions.md)Last updated on **Jan 27, 2025** by **j pimmel**[PreviousScripts](/tools/clients/fcl-js/scripts)[NextSigning and Verifying Arbitrary Data](/tools/clients/fcl-js/user-signatures)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/transactions.md)Last updated on **Jan 28, 2025** by **Giovanni Sanchez**[PreviousScripts](/tools/clients/fcl-js/scripts)[NextSigning and Verifying Arbitrary Data](/tools/clients/fcl-js/user-signatures)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)

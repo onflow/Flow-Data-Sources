@@ -114,7 +114,7 @@ Use cases include cryptographic login, message validation, verifiable credential
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/user-signatures.md)Last updated on **Jan 27, 2025** by **j pimmel**[PreviousTransactions](/tools/clients/fcl-js/transactions)[NextWalletConnect 2.0 Manual Configuration](/tools/clients/fcl-js/wallet-connect)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/user-signatures.md)Last updated on **Jan 28, 2025** by **Giovanni Sanchez**[PreviousTransactions](/tools/clients/fcl-js/transactions)[NextWalletConnect 2.0 Manual Configuration](/tools/clients/fcl-js/wallet-connect)
 ###### Rate this page
 
 😞😐😊

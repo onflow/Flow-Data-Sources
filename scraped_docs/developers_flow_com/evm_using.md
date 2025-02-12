@@ -145,7 +145,7 @@ To use the Flow Wallet Chrome extension:
 
 Read more about the [EVM Gateway](https://github.com/onflow/flow-evm-gateway) on Flow and how it implements the Ethereum JSON-RPC API.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/using.mdx)Last updated on **Jan 27, 2025** by **j pimmel**[PreviousHow it Works](/evm/how-it-works)[NextNetworks](/evm/networks)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/using.mdx)Last updated on **Jan 28, 2025** by **Giovanni Sanchez**[PreviousHow it Works](/evm/how-it-works)[NextNetworks](/evm/networks)
 ###### Rate this page
 
 😞😐😊

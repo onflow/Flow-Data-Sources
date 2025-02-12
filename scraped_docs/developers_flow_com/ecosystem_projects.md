@@ -58,7 +58,7 @@ Overflow is a Go-based DSL for testing and running interactive stories](https://
 
 It is an Api to allow users to fetch historical data of Flow blockchain from the findlabs database.](https://findonflow.github.io/findlabs-api/)[## FlooksDoodles
 
-React hooks to interact with Flow blockchain, making development easy and intuitive. It's wagmi for Flow!](https://www.flooks.io/)[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/projects.mdx)Last updated on **Jan 27, 2025** by **j pimmel**[PreviousBridges](/ecosystem/bridges)[NextVCs & Funds](/ecosystem/vcs-and-funds)Documentation
+React hooks to interact with Flow blockchain, making development easy and intuitive. It's wagmi for Flow!](https://www.flooks.io/)[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/projects.mdx)Last updated on **Jan 28, 2025** by **Giovanni Sanchez**[PreviousBridges](/ecosystem/bridges)[NextVCs & Funds](/ecosystem/vcs-and-funds)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)

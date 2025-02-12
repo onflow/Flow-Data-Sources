@@ -101,7 +101,7 @@ If you plan on using your flow.json in a production environment, you'll want to 
 
 After adding your account to your `flow.json` file, you're ready to use your account in your project. You can now deploy contracts, run transactions, and interact with the Flow blockchain using your new account.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/faucets.md)Last updated on **Jan 27, 2025** by **j pimmel**[PreviousVCs & Funds](/ecosystem/vcs-and-funds)[NextGrants](/ecosystem/grants)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/faucets.md)Last updated on **Jan 28, 2025** by **Giovanni Sanchez**[PreviousVCs & Funds](/ecosystem/vcs-and-funds)[NextGrants](/ecosystem/grants)
 ###### Rate this page
 
 😞😐😊

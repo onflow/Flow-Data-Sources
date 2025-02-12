@@ -221,7 +221,7 @@ several configuration files.
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/deployment/deploy-project-contracts.md)Last updated on **Jan 27, 2025** by **j pimmel**[PreviousAdd Project Contracts](/tools/flow-cli/deployment/project-contracts)[NextCreate Emulator Snapshot](/tools/flow-cli/deployment/emulator-snapshot)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/deployment/deploy-project-contracts.md)Last updated on **Jan 28, 2025** by **Giovanni Sanchez**[PreviousAdd Project Contracts](/tools/flow-cli/deployment/project-contracts)[NextCreate Emulator Snapshot](/tools/flow-cli/deployment/emulator-snapshot)
 ###### Rate this page
 
 😞😐😊

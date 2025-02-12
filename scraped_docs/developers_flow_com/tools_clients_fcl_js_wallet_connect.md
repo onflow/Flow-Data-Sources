@@ -191,7 +191,7 @@ Wallets sourced from WalletConnect Cloud Registry automatically build the servic
 1. Read the [FCL Wallet Provider Spec](https://github.com/onflow/fcl-js/blob/master/packages/fcl/src/wallet-provider-spec/draft-v4.md).
 2. Check out the a WalletConnect 2.0 [React POC Wallet](https://github.com/gregsantos/flow-walletconnect-v2-react-wallet) and [FCL Flow dApp](https://github.com/gregsantos/flow-walletconnect-v2-react-dapp) with support for WalletConnect v2.0.
 3. Read and review the [WalletConnect 2.0 Docs](https://docs.walletconnect.com/2.0/), [examples and resources](https://docs.walletconnect.com/2.0/introduction/examples-and-resources).
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/wallet-connect.md)Last updated on **Jan 27, 2025** by **j pimmel**[PreviousSigning and Verifying Arbitrary Data](/tools/clients/fcl-js/user-signatures)[NextFlow Go SDK](/tools/clients/flow-go-sdk)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/wallet-connect.md)Last updated on **Jan 28, 2025** by **Giovanni Sanchez**[PreviousSigning and Verifying Arbitrary Data](/tools/clients/fcl-js/user-signatures)[NextFlow Go SDK](/tools/clients/flow-go-sdk)
 ###### Rate this page
 
 😞😐😊

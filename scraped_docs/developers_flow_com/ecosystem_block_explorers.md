@@ -85,7 +85,7 @@ Block explorers are user-friendly online tools that visually present blockchain 
 
 * [Testnet](https://evm-testnet.flowscan.io/)
 * [Mainnet](https://evm.flowscan.io/)
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/block-explorers.md)Last updated on **Jan 27, 2025** by **j pimmel**[PreviousWallets](/ecosystem/wallets)[NextDeveloper Profile](/ecosystem/developer-profile)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/block-explorers.md)Last updated on **Jan 28, 2025** by **Giovanni Sanchez**[PreviousWallets](/ecosystem/wallets)[NextDeveloper Profile](/ecosystem/developer-profile)
 ###### Rate this page
 
 😞😐😊

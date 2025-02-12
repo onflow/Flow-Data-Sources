@@ -171,7 +171,7 @@ Transaction content (`tx.cdc`):
 
 This is an example configuration using mock values:
 
- `_26{_26 ... _26 "accounts": {_26 "alice": {_26 "address": "0x1",_26 "key": "111...111"_26 },_26 "bob": {_26 "address": "0x2",_26 "key": "222...222"_26 },_26 "charlie": {_26 "address": "0x3",_26 "key": "333...333"_26 },_26 "dylan1": {_26 "address": "0x4",_26 "key": "444...444"_26 },_26 "dylan2": {_26 "address": "0x4",_26 "key": "555...555"_26 }_26 }_26 ..._26}`[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/complex-transactions.md)Last updated on **Jan 27, 2025** by **j pimmel**[PreviousBuild a Transaction](/tools/flow-cli/transactions/build-transactions)[NextSign a Transaction](/tools/flow-cli/transactions/sign-transaction)
+ `_26{_26 ... _26 "accounts": {_26 "alice": {_26 "address": "0x1",_26 "key": "111...111"_26 },_26 "bob": {_26 "address": "0x2",_26 "key": "222...222"_26 },_26 "charlie": {_26 "address": "0x3",_26 "key": "333...333"_26 },_26 "dylan1": {_26 "address": "0x4",_26 "key": "444...444"_26 },_26 "dylan2": {_26 "address": "0x4",_26 "key": "555...555"_26 }_26 }_26 ..._26}`[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/complex-transactions.md)Last updated on **Jan 28, 2025** by **Giovanni Sanchez**[PreviousBuild a Transaction](/tools/flow-cli/transactions/build-transactions)[NextSign a Transaction](/tools/flow-cli/transactions/sign-transaction)
 ###### Rate this page
 
 😞😐😊

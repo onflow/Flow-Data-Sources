@@ -928,7 +928,7 @@ Below is a list of the available CLI flags to control the behavior of the API
 
 ℹ️ This API provides access to Execution Data, which can be very large (100s of MB) for a given block. Given the large amount of data, operators should consider their expected usage patters and tune the available settings to limit the resources a single client can use. It may also be useful to use other means of managing traffic, such as reverse proxies or QoS tools.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/index.md)Last updated on **Jan 27, 2025** by **j pimmel**[PreviousManaging disk space](/networks/node-ops/node-operation/reclaim-disk)[NextAccess HTTP API ↗️](/networks/access-onchain-data/access-http-api)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/index.md)Last updated on **Jan 28, 2025** by **Giovanni Sanchez**[PreviousManaging disk space](/networks/node-ops/node-operation/reclaim-disk)[NextAccess HTTP API ↗️](/networks/access-onchain-data/access-http-api)
 ###### Rate this page
 
 😞😐😊
