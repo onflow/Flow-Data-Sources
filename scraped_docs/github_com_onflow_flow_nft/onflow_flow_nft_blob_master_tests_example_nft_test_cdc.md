@@ -30,6 +30,7 @@ fun setup() {
     deploy("ViewResolver", "../contracts/ViewResolver.cdc")
     deploy("NonFungibleToken", "../contracts/NonFungibleToken.cdc")
     deploy("MetadataViews", "../contracts/MetadataViews.cdc")
+    deploy("CrossVMMetadataViews", "../contracts/CrossVMMetadataViews.cdc")
     deploy("ExampleNFT", "../contracts/ExampleNFT.cdc")
     deploy("MaliciousNFT", "../contracts/test/MaliciousNFT.cdc")
 }
@@ -316,6 +317,20 @@ fun testGetNFTView() {
 
     var scriptResult = executeScript(
         "scripts/get_nft_view.cdc",
+        [
+            admin.address,
+            collectionIDs[0]
+        ]
+    )
+    Test.expect(scriptResult, Test.beSucceeded())
+}
+
+access(all)
+fun testGetCrossVMNFTView() {
+    var collectionIDs = getCollectionIDs(from: admin.address, path: /public/exampleNFTCollection)
+
+    var scriptResult = executeScript(
+        "scripts/get_cross_vm_nft_view.cdc",
         [
             admin.address,
             collectionIDs[0]
