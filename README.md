@@ -16,8 +16,7 @@ This repository contains a Python script that updates daily a list of Flow-relat
   - [Running the Scraper](#running-the-scraper)
 - [Modifying the List of Sites](#modifying-the-list-of-sites)
 - [Output Structure](#output-structure)
-- [Scheduling & Automation](#scheduling--automation)
-- [FAQ](#faq)
+- [Scheduling & Automation](#scheduling-automation)
 
 ---
 
@@ -72,21 +71,23 @@ Install all dependencies:
 
 pip install requests beautifulsoup4 markdownify
 
-
 ### Running the Scraper
+
 Clone or download this repo locally.
 
 In the repo directory, run:
 
+```bash
 python scraper.py
+```
 
-The script will crawl each site listed in SITES (inside scraper.py) and output the results under scraped_docs/.
+The script will crawl each site listed in `SITES` (inside `scraper.py`) and output the results under `scraped_docs/`.
 
-Modifying the List of Sites
-Inside scraper.py, near the top, you’ll see:
+### Modifying the List of Sites
 
-python
+Inside `scraper.py`, near the top, you’ll see:
 
+```python
 SITES = [
     "https://developers.flow.com/",
     "https://academy.ecdao.org/en/cadence-by-example",
@@ -95,17 +96,29 @@ SITES = [
     ...
     "https://github.com/orgs/onflow/discussions"
 ]
+```
 
-Add a docs site by appending its URL if it’s not on GitHub.
-Add a GitHub repo by appending the base URL (e.g. "https://github.com/onflow/another-repo").
-Add another GitHub Discussions page if needed.
-Remove any site by deleting or commenting out its line.
+- Add a docs site by appending its URL if it’s not on GitHub.
+- Add a GitHub repo by appending the base URL (e.g. "<https://github.com/onflow/another-repo>").
+- Add another GitHub Discussions page if needed.
+- Remove any site by deleting or commenting out its line.
+
 For private sites or repos, you may need authentication tokens/cookies to see content that’s not public.
 
-Output Structure
+### Merging
+
+You can merge all the `.md` files into a single file or a file containing only the essentials (removing code blocks, etc.).  
+That will be useful for indexing or searching or being used in a chatbot.
+
+```bash
+python merge.py
+```
+
+### Output Structure
+
 After a successful run, you’ll see:
 
-
+```bash
 scraped_docs/
   ├─ developers_flow_com/
   │   ├─ index.md
@@ -119,8 +132,15 @@ scraped_docs/
   │   ├─ discussion_1514.md
   │   └─ ...
   └─ ...
+merged_docs/
+  ├─ all_merged.md
+  └─ essentials_merged.md
+```
 
-Docs directories for each site
-Repos with code files in .md (wrapped code blocks)
-Discussions as discussion_<id>.md, each containing Q&A text.
+- Docs directories for each site
+- Repos with code files in `.md` (wrapped code blocks)
+- Discussions as `discussion_<id>.md`, each containing Q&A text.
 
+### Scheduling Automation
+
+The script can be scheduled to run daily using **GitHub Actions**.
