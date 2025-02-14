@@ -17,17 +17,6 @@ SITES = [
     "https://academy.ecdao.org/en/catalog/courses/learn-cadence-beginner",
     "https://academy.ecdao.org/en/catalog/courses/beginner-dapp",
     "https://cadence-lang.org/docs/why",
-    "https://cadence-lang.org/docs/tutorial/",
-    "https://cadence-lang.org/docs/language/",
-    "https://cadence-lang.org/docs/design-patterns",
-    "https://cadence-lang.org/docs/anti-patterns",
-    "https://cadence-lang.org/docs/project-development-tips",
-    "https://cadence-lang.org/docs/security-best-practices",
-    "https://cadence-lang.org/docs/solidity-to-cadence",
-    "https://cadence-lang.org/docs/contract-upgrades",
-    "https://cadence-lang.org/docs/json-cadence-spec",
-    "https://cadence-lang.org/docs/measuring-time",
-    "https://cadence-lang.org/docs/testing-framework",
     "https://flow.sift.ing/",
 
     # GitHub repos
