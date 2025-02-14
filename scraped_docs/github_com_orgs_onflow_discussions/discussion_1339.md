@@ -313,9 +313,10 @@ More
 
 Pinned
 
+Unanswered
 [fotescodev](/fotescodev)
-started this conversation in
-[Flow Mobile](/orgs/onflow/discussions/categories/flow-mobile)
+asked this question in
+[Developer Tooling](/orgs/onflow/discussions/categories/developer-tooling)
 
 
 
@@ -572,9 +573,9 @@ Already have an account?
 
 Category
 
-[📱
+[🌊
 
-Flow Mobile](/orgs/onflow/discussions/categories/flow-mobile)
+Developer Tooling](/orgs/onflow/discussions/categories/developer-tooling)
 
 
 
