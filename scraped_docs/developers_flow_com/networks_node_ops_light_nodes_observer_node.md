@@ -204,7 +204,7 @@ Access-003:
 While the public keys remain the same, the hostnames change each spork to include the spork name. Substitute `[current mainnet spork]` and `[current devnet spork]` with the appropriate spork name (e.g. `mainnet20`).
 See [Past Sporks](/networks/node-ops/node-operation/past-sporks) for the current spork for each network.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/light-nodes/observer-node.md)Last updated on **Jan 28, 2025** by **Giovanni Sanchez**[PreviousEVM Gateway Setup](/networks/node-ops/evm-gateway/evm-gateway-setup)[NextOperator FAQ](/networks/node-ops/node-operation/faq)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/light-nodes/observer-node.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousEVM Gateway Setup](/networks/node-ops/evm-gateway/evm-gateway-setup)[NextOperator FAQ](/networks/node-ops/node-operation/faq)
 ###### Rate this page
 
 😞😐😊

@@ -106,7 +106,7 @@ Upon restart, the chunk data pack directory will be automatically recreated.
 
 > Note: Always exercise caution when performing system operations, and make sure you have a backup of important data before making any changes.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/reclaim-disk.md)Last updated on **Jan 28, 2025** by **Giovanni Sanchez**[PreviousProtocol State Bootstrapping](/networks/node-ops/node-operation/protocol-state-bootstrap)[NextAccess API](/networks/access-onchain-data)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/reclaim-disk.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousProtocol State Bootstrapping](/networks/node-ops/node-operation/protocol-state-bootstrap)[NextAccess API](/networks/access-onchain-data)
 ###### Rate this page
 
 😞😐😊

@@ -15,6 +15,7 @@ Developer Profile | Flow Developer Portal
 * [Wallets](/ecosystem/wallets)
 * [Flow Block Explorers](/ecosystem/block-explorers)
 * [Developer Profile](/ecosystem/developer-profile)
+* [DeFi & Liquidity](/ecosystem/defi-liquidity)
 * [Bridges](/ecosystem/bridges)
 * [Community Projects](/ecosystem/projects)
 * [VCs & Funds](/ecosystem/vcs-and-funds)
@@ -93,7 +94,7 @@ Complete the challenge!
 
 We'll be updating the Developer Profile with new features and challenges. Check back soon!
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/developer-profile.md)Last updated on **Feb 8, 2025** by **Brian Doyle**[PreviousFlow Block Explorers](/ecosystem/block-explorers)[NextBridges](/ecosystem/bridges)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/developer-profile.md)Last updated on **Feb 13, 2025** by **bz**[PreviousFlow Block Explorers](/ecosystem/block-explorers)[NextDeFi & Liquidity](/ecosystem/defi-liquidity)
 ###### Rate this page
 
 😞😐😊

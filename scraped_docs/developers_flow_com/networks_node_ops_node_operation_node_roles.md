@@ -115,7 +115,7 @@ Here is a comparison of the different node roles,
 | Access | Yes | No | No 🆕 |
 | Observer | No | No | No |
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-roles.md)Last updated on **Jan 28, 2025** by **Giovanni Sanchez**[PreviousNode Provisioning](/networks/node-ops/node-operation/node-provisioning)[NextNode Setup](/networks/node-ops/node-operation/node-setup)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-roles.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousNode Provisioning](/networks/node-ops/node-operation/node-provisioning)[NextNode Setup](/networks/node-ops/node-operation/node-setup)
 ###### Rate this page
 
 😞😐😊

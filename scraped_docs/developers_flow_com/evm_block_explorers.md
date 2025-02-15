@@ -33,7 +33,7 @@ Go to [Block explorers](/ecosystem/block-explorers)
 
 ;
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/block-explorers.mdx)Last updated on **Jan 28, 2025** by **Giovanni Sanchez**[PreviousFaucets ↙](/evm/faucets)[NextIntegrating Metamask](/evm/guides/integrating-metamask)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/block-explorers.mdx)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousFaucets ↙](/evm/faucets)[NextIntegrating Metamask](/evm/guides/integrating-metamask)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)

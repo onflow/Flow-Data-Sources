@@ -15,6 +15,7 @@ Bridges | Flow Developer Portal
 * [Wallets](/ecosystem/wallets)
 * [Flow Block Explorers](/ecosystem/block-explorers)
 * [Developer Profile](/ecosystem/developer-profile)
+* [DeFi & Liquidity](/ecosystem/defi-liquidity)
 * [Bridges](/ecosystem/bridges)
 * [Community Projects](/ecosystem/projects)
 * [VCs & Funds](/ecosystem/vcs-and-funds)
@@ -31,13 +32,13 @@ On this page
 
 Bridges are mechanisms that connect different blockchain networks, enabling secure and decentralized transfers of assets and data across various platforms.
 
-## Celer cBridge[​](#celer-cbridge "Direct link to Celer cBridge")
+## Stargate Bridge[​](#stargate-bridge "Direct link to Stargate Bridge")
 
-[Celer cBridge](https://cbridge.celer.network/) is a decentralized and non-custodial asset bridge that supports more than 150 tokens across over 40 blockchains and layer-2 rollups. It is built on top of the [Celer](https://celer.network/) Inter-chain Message Framework. cBridge has facilitated over $13 billion in cross-chain asset transfer volume across 40+ blockchains for more than 350,000 unique users. It is rapidly growing and expanding to support more blockchains and layer-2 solutions.
+[Stargate Bridge](https://stargate.finance/bridge) is a cross-chain liquidity transfer protocol powered by LayerZero that enables seamless bridging of assets between Flow and major blockchain networks like Ethereum, BNB Chain, and Base. It uses LayerZero's omnichain messaging capabilities which allow Stargate to provide deep liquidity pools, low slippage, and cost-efficient transfers for stablecoins and cryptocurrencies such as USDC, USDT, USDF, and ETH.
 
-## Axelar[​](#axelar "Direct link to Axelar")
+## Flow Bridge[​](#flow-bridge "Direct link to Flow Bridge")
 
-[Axelar](https://www.axelar.network/) is a decentralized cross-chain network connecting over 55 blockchains, facilitating asset transfers and smart contract programmability. It features a proof-of-stake consensus for security and supports cross-chain applications through General Message Passing (GMP). Integrations with platforms like [Squid](https://www.squidrouter.com/) enable easy token swaps across networks like Ethereum and Polygon.
+[Flow Bridge](https://bridge.flow.com/) is a user-friendly, decentralized bridge designed to facilitate secure transfers of stablecoins like USDC, USDT, and USDF to and from Flow blockchain. Powered by Superbridge, it leverages native bridge contracts for official Superchain rollups, ensuring users receive the canonical asset on Flow with minimal trust assumptions. Flow Bridge supports transfers from 24+ chains, with ultra-low transaction fees and fast settlement times.
 
 ## LayerZero[​](#layerzero "Direct link to LayerZero")
 
@@ -47,15 +48,25 @@ Bridges are mechanisms that connect different blockchain networks, enabling secu
 
 [Hyperlane](https://www.usenexus.org/) is a modular interoperability framework that enables secure cross-chain communication. It allows developers to build applications that can seamlessly interact across different blockchain networks. Hyperlane's architecture emphasizes security and flexibility, providing customizable security models and permissionless interoperability between any blockchain networks.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/bridges.md)Last updated on **Jan 28, 2025** by **Giovanni Sanchez**[PreviousDeveloper Profile](/ecosystem/developer-profile)[NextCommunity Projects](/ecosystem/projects)
+## Celer cBridge[​](#celer-cbridge "Direct link to Celer cBridge")
+
+[Celer cBridge](https://cbridge.celer.network/) is a decentralized and non-custodial asset bridge that supports more than 150 tokens across over 40 blockchains and layer-2 rollups. It is built on top of the [Celer](https://celer.network/) Inter-chain Message Framework. cBridge has facilitated over $13 billion in cross-chain asset transfer volume across 40+ blockchains for more than 350,000 unique users. It is rapidly growing and expanding to support more blockchains and layer-2 solutions.
+
+## Axelar[​](#axelar "Direct link to Axelar")
+
+[Axelar](https://www.axelar.network/) is a decentralized cross-chain network connecting over 55 blockchains, facilitating asset transfers and smart contract programmability. It features a proof-of-stake consensus for security and supports cross-chain applications through General Message Passing (GMP). Integrations with platforms like [Squid](https://www.squidrouter.com/) enable easy token swaps across networks like Ethereum and Polygon.
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/bridges.md)Last updated on **Feb 14, 2025** by **bz**[PreviousStablecoins & Bridges FAQ](/ecosystem/defi-liquidity/faq)[NextCommunity Projects](/ecosystem/projects)
 ###### Rate this page
 
 😞😐😊
 
-* [Celer cBridge](#celer-cbridge)
-* [Axelar](#axelar)
+* [Stargate Bridge](#stargate-bridge)
+* [Flow Bridge](#flow-bridge)
 * [LayerZero](#layerzero)
 * [Hyperlane](#hyperlane)
+* [Celer cBridge](#celer-cbridge)
+* [Axelar](#axelar)
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)

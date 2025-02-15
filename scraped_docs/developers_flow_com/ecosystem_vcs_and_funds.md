@@ -15,6 +15,7 @@ VCs & Funds | Flow Developer Portal
 * [Wallets](/ecosystem/wallets)
 * [Flow Block Explorers](/ecosystem/block-explorers)
 * [Developer Profile](/ecosystem/developer-profile)
+* [DeFi & Liquidity](/ecosystem/defi-liquidity)
 * [Bridges](/ecosystem/bridges)
 * [Community Projects](/ecosystem/projects)
 * [VCs & Funds](/ecosystem/vcs-and-funds)
@@ -32,7 +33,7 @@ Building a successful Web3 project requires more than just great technology - ha
 
 Research shows that warm introductions can increase your chances of securing funding by up to 500% more liley compared to cold outreach. The Flow Foundation can help facilitate introductions to our network of trusted investors who have a deep understanding of the Flow ecosystem and web3. Reach out to your local dev-rel in [office hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com) or [discord](https://discord.gg/flow) to get a warm introduction.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/vcs-and-funds.md)Last updated on **Feb 4, 2025** by **Brian Doyle**[PreviousCommunity Projects](/ecosystem/projects)[NextFaucets](/ecosystem/faucets)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/vcs-and-funds.md)Last updated on **Feb 13, 2025** by **bz**[PreviousCommunity Projects](/ecosystem/projects)[NextFaucets](/ecosystem/faucets)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)

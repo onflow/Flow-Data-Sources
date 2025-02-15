@@ -177,7 +177,7 @@ Make sure you're part of the [Discord Chat](https://chat.onflow.org). Once all n
 
 Start your systems, let's make some blocks!
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/guides/genesis-bootstrap.md)Last updated on **Jan 28, 2025** by **Giovanni Sanchez**[PreviousDatabase Encryption for Existing Node Operators](/networks/node-ops/node-operation/db-encryption-existing-operator)[NextSpork Practice](/networks/node-ops/node-operation/guides/spork-practice)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/guides/genesis-bootstrap.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousDatabase Encryption for Existing Node Operators](/networks/node-ops/node-operation/db-encryption-existing-operator)[NextSpork Practice](/networks/node-ops/node-operation/guides/spork-practice)
 ###### Rate this page
 
 😞😐😊

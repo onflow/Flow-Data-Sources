@@ -15,6 +15,7 @@ Flow Block Explorers | Flow Developer Portal
 * [Wallets](/ecosystem/wallets)
 * [Flow Block Explorers](/ecosystem/block-explorers)
 * [Developer Profile](/ecosystem/developer-profile)
+* [DeFi & Liquidity](/ecosystem/defi-liquidity)
 * [Bridges](/ecosystem/bridges)
 * [Community Projects](/ecosystem/projects)
 * [VCs & Funds](/ecosystem/vcs-and-funds)
@@ -85,7 +86,7 @@ Block explorers are user-friendly online tools that visually present blockchain 
 
 * [Testnet](https://evm-testnet.flowscan.io/)
 * [Mainnet](https://evm.flowscan.io/)
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/block-explorers.md)Last updated on **Jan 28, 2025** by **Giovanni Sanchez**[PreviousWallets](/ecosystem/wallets)[NextDeveloper Profile](/ecosystem/developer-profile)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/block-explorers.md)Last updated on **Feb 13, 2025** by **bz**[PreviousWallets](/ecosystem/wallets)[NextDeveloper Profile](/ecosystem/developer-profile)
 ###### Rate this page
 
 😞😐😊

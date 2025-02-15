@@ -130,7 +130,7 @@ upon account creation.
 
 Specify the log level. Control how much output you want to see while command execution.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flow.json/initialize-configuration.md)Last updated on **Jan 28, 2025** by **Giovanni Sanchez**[PreviousBuild a Complex Transaction](/tools/flow-cli/transactions/decode-transactions)[NextConfiguration](/tools/flow-cli/flow.json/configuration)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flow.json/initialize-configuration.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousBuild a Complex Transaction](/tools/flow-cli/transactions/decode-transactions)[NextConfiguration](/tools/flow-cli/flow.json/configuration)
 ###### Rate this page
 
 😞😐😊

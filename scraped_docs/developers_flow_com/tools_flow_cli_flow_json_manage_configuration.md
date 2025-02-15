@@ -64,7 +64,7 @@ validate values that will be added to the configuration.
 Specify a filename for the configuration files, you can provide multiple configuration
 files by using `-f` flag multiple times.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flow.json/manage-configuration.md)Last updated on **Jan 28, 2025** by **Giovanni Sanchez**[PreviousConfiguration](/tools/flow-cli/flow.json/configuration)[NextSecurity](/tools/flow-cli/flow.json/security)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flow.json/manage-configuration.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousConfiguration](/tools/flow-cli/flow.json/configuration)[NextSecurity](/tools/flow-cli/flow.json/security)
 ###### Rate this page
 
 😞😐😊

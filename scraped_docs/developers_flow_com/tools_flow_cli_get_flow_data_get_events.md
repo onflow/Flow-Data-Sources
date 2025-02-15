@@ -194,7 +194,7 @@ several configuration files.
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/get-flow-data/get-events.md)Last updated on **Jan 28, 2025** by **Giovanni Sanchez**[PreviousGet Block](/tools/flow-cli/get-flow-data/get-blocks)[NextGet Collection](/tools/flow-cli/get-flow-data/get-collections)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/get-flow-data/get-events.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousGet Block](/tools/flow-cli/get-flow-data/get-blocks)[NextGet Collection](/tools/flow-cli/get-flow-data/get-collections)
 ###### Rate this page
 
 😞😐😊

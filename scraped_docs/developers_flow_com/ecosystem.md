@@ -15,6 +15,7 @@ Ecosystem | Flow Developer Portal
 * [Wallets](/ecosystem/wallets)
 * [Flow Block Explorers](/ecosystem/block-explorers)
 * [Developer Profile](/ecosystem/developer-profile)
+* [DeFi & Liquidity](/ecosystem/defi-liquidity)
 * [Bridges](/ecosystem/bridges)
 * [Community Projects](/ecosystem/projects)
 * [VCs & Funds](/ecosystem/vcs-and-funds)
@@ -34,7 +35,9 @@ Store, manage, and interact securely with tokens and digital assets on Flow. Dis
 
 User-friendly online tools that provide visual representations of blockchain data, facilitating easy navigation through transactions, blocks, addresses, and smart contracts while ensuring real-time insights and transparency.](/ecosystem/block-explorers)[## ⭐Developer Profile
 
-Learn about Developer Profile - Flow's upcoming developer recognition and learning platform. Create your builder profile. In the future, you'll be able to track your learning journey, showcase your projects, and connect with the Flow ecosystem.](/ecosystem/developer-profile)[## ⛓️Bridges
+Learn about Developer Profile - Flow's upcoming developer recognition and learning platform. Create your builder profile. In the future, you'll be able to track your learning journey, showcase your projects, and connect with the Flow ecosystem.](/ecosystem/developer-profile)[## 💧DeFi & Liquidity
+
+2 items](/ecosystem/defi-liquidity)[## ⛓️Bridges
 
 Mechanisms that connect different blockchain networks, allowing secure and decentralized transfer of assets and data across platforms.](/ecosystem/bridges)[## 🏟️Community Projects
 
@@ -54,7 +57,7 @@ Get the Flow Down is a curated collection of the best Flow blockchain tools, tut
 
 Engage with the Flow community, discuss ideas, and seek support on the Flow Blockchain Forum.](https://forum.onflow.org/)[## 📜FLIPs
 
-Flow Improvement Proposals (FLIPs) serve as a platform for engaging the Flow community in development, harnessing the collective ideas, insights, and expertise of contributors and experts while ensuring widespread communication of design changes.](https://github.com/onflow/flips)[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/index.mdx)Last updated on **Jan 28, 2025** by **Giovanni Sanchez**[NextWallets](/ecosystem/wallets)Documentation
+Flow Improvement Proposals (FLIPs) serve as a platform for engaging the Flow community in development, harnessing the collective ideas, insights, and expertise of contributors and experts while ensuring widespread communication of design changes.](https://github.com/onflow/flips)[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/index.mdx)Last updated on **Feb 5, 2025** by **Brian Doyle**[NextWallets](/ecosystem/wallets)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)

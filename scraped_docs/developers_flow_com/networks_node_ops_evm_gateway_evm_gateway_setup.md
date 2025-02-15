@@ -269,7 +269,7 @@ This is required by the gateway to allow both the streaming and non-streaming AP
 
 The following log entry will occur when the EVM Gateway attempts to sync with the Access Node but it has not yet synced up to latest block
 
- `_10failure in event subscription at height ${INIT-CADENCE-HEIGHT}, with: recoverable: disconnected: error receiving event: rpc error: code = FailedPrecondition desc = could not get start height: failed to get lowest indexed height: index not initialized`[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/evm-gateway/evm-gateway-setup.md)Last updated on **Jan 28, 2025** by **Giovanni Sanchez**[PreviousExecution Data](/networks/node-ops/access-nodes/access-node-configuration-options)[NextLight Node Setup](/networks/node-ops/light-nodes/observer-node)
+ `_10failure in event subscription at height ${INIT-CADENCE-HEIGHT}, with: recoverable: disconnected: error receiving event: rpc error: code = FailedPrecondition desc = could not get start height: failed to get lowest indexed height: index not initialized`[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/evm-gateway/evm-gateway-setup.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousExecution Data](/networks/node-ops/access-nodes/access-node-configuration-options)[NextLight Node Setup](/networks/node-ops/light-nodes/observer-node)
 ###### Rate this page
 
 😞😐😊

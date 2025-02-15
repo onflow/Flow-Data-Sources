@@ -204,7 +204,7 @@ several configuration files.
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/account-add-contract.md)Last updated on **Jan 28, 2025** by **Giovanni Sanchez**[PreviousCreate an Account](/tools/flow-cli/accounts/create-accounts)[NextUpdate a Contract](/tools/flow-cli/accounts/account-update-contract)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/account-add-contract.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousCreate an Account](/tools/flow-cli/accounts/create-accounts)[NextUpdate a Contract](/tools/flow-cli/accounts/account-update-contract)
 ###### Rate this page
 
 😞😐😊

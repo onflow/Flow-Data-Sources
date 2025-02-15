@@ -40,7 +40,7 @@ The overall energy use of the network won’t increase significantly even if the
 
 Read more about it [here](https://flow.com/post/flow-blockchain-sustainability-energy-deloitte-report-nft).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/network-architecture/sustainability.md)Last updated on **Jan 28, 2025** by **Giovanni Sanchez**[PreviousSolving the blockchain trilemma](/networks/network-architecture/solving-blockchain-trilemma)[NextUser safety](/networks/network-architecture/user-safety)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/network-architecture/sustainability.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousSolving the blockchain trilemma](/networks/network-architecture/solving-blockchain-trilemma)[NextUser safety](/networks/network-architecture/user-safety)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)

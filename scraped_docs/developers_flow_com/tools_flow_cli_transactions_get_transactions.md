@@ -168,7 +168,7 @@ several configuration files.
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/get-transactions.md)Last updated on **Jan 28, 2025** by **Giovanni Sanchez**[PreviousSend a Transaction](/tools/flow-cli/transactions/send-transactions)[NextBuild a Transaction](/tools/flow-cli/transactions/build-transactions)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/get-transactions.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousSend a Transaction](/tools/flow-cli/transactions/send-transactions)[NextBuild a Transaction](/tools/flow-cli/transactions/build-transactions)
 ###### Rate this page
 
 😞😐😊

@@ -15,6 +15,7 @@ Hackathons | Flow Developer Portal
 * [Wallets](/ecosystem/wallets)
 * [Flow Block Explorers](/ecosystem/block-explorers)
 * [Developer Profile](/ecosystem/developer-profile)
+* [DeFi & Liquidity](/ecosystem/defi-liquidity)
 * [Bridges](/ecosystem/bridges)
 * [Community Projects](/ecosystem/projects)
 * [VCs & Funds](/ecosystem/vcs-and-funds)
@@ -53,7 +54,7 @@ With substantial prize pools, industry recognition, and the chance to launch you
 
 Stay ahead of upcoming hackathons and exclusive announcements. [Join Flow World Tour on Telegram](https://t.me/flow_world_tour).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/hackathons.md)Last updated on **Feb 4, 2025** by **Brian Doyle**[PreviousGrants](/ecosystem/grants)[NextAuditors](/ecosystem/auditors)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/hackathons.md)Last updated on **Feb 13, 2025** by **bz**[PreviousGrants](/ecosystem/grants)[NextAuditors](/ecosystem/auditors)
 ###### Rate this page
 
 😞😐😊

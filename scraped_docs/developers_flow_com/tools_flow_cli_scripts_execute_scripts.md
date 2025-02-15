@@ -164,7 +164,7 @@ several configuration files.
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/scripts/execute-scripts.md)Last updated on **Jan 28, 2025** by **Giovanni Sanchez**[PreviousCreate Emulator Snapshot](/tools/flow-cli/deployment/emulator-snapshot)[NextSend a Transaction](/tools/flow-cli/transactions/send-transactions)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/scripts/execute-scripts.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousCreate Emulator Snapshot](/tools/flow-cli/deployment/emulator-snapshot)[NextSend a Transaction](/tools/flow-cli/transactions/send-transactions)
 ###### Rate this page
 
 😞😐😊
