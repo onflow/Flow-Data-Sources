@@ -85,7 +85,7 @@ To learn how to create and interact with COAs in Cadence, see the guide for [Int
 
 For more information about Cadence Owned Accounts, see the [Flow EVM Support FLIP](https://github.com/onflow/flips/pull/225/files)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/accounts.md)Last updated on **Jan 28, 2025** by **Giovanni Sanchez**[PreviousFees](/evm/fees)[NextCross-chain Bridges ↙](/evm/cross-chain-bridges)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/accounts.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousFees](/evm/fees)[NextCross-chain Bridges ↙](/evm/cross-chain-bridges)
 ###### Rate this page
 
 😞😐😊

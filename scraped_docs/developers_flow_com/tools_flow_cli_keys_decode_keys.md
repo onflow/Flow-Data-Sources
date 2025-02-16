@@ -113,7 +113,7 @@ Specify the filename where you want the result to be saved
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/keys/decode-keys.md)Last updated on **Jan 28, 2025** by **Giovanni Sanchez**[PreviousGenerate Keys](/tools/flow-cli/keys/generate-keys)[NextDerive Public Key](/tools/flow-cli/keys/derive-keys)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/keys/decode-keys.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousGenerate Keys](/tools/flow-cli/keys/generate-keys)[NextDerive Public Key](/tools/flow-cli/keys/derive-keys)
 ###### Rate this page
 
 😞😐😊
