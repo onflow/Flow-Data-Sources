@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/stakingProxy/setup_node_account.cdc
 
 ```
-import StakingProxy from "StakingProxy"
+import "StakingProxy"
 
 transaction() {
 

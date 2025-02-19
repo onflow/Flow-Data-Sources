@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/epoch/admin/update_staking_views.cdc
 
 ```
-import FlowEpoch from "FlowEpoch"
+import "FlowEpoch"
 
 transaction(newStakingViews: UInt64) {
     prepare(signer: auth(BorrowValue) &Account) {

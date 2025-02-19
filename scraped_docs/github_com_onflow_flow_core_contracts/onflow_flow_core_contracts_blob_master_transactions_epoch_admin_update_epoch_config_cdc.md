@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/epoch/admin/update_epoch_config.cdc
 
 ```
-import FlowEpoch from "FlowEpoch"
+import "FlowEpoch"
 
 transaction(dkgPhaseLen: UInt64, stakingLen: UInt64, epochLen: UInt64) {
     prepare(signer: auth(BorrowValue) &Account) {

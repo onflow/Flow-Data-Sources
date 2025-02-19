@@ -1,8 +1,8 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/delegation/del_withdraw_unstaked_tokens.cdc
 
 ```
-import FlowIDTableStaking from "FlowIDTableStaking"
-import FlowToken from "FlowToken"
+import "FlowIDTableStaking"
+import "FlowToken"
 
 
 transaction(amount: UFix64) {

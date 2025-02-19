@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/stakingCollection/stake_new_tokens.cdc
 
 ```
-import FlowStakingCollection from "FlowStakingCollection"
+import "FlowStakingCollection"
 
 /// Commits new tokens to stake for the specified node or delegator in the staking collection
 /// The tokens from the locked vault are used first, if it exists

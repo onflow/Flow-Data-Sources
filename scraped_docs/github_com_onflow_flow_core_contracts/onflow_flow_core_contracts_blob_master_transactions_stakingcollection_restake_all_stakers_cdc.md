@@ -1,8 +1,8 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/stakingCollection/restake_all_stakers.cdc
 
 ```
-import FlowStakingCollection from "FlowStakingCollection"
-import FlowIDTableStaking from "FlowIDTableStaking"
+import "FlowStakingCollection"
+import "FlowIDTableStaking"
 
 /// Commits rewarded tokens to stake for all nodes and delegators in a collection
 

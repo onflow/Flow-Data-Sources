@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/admin/remove_invalid_nodes.cdc
 
 ```
-import FlowIDTableStaking from "FlowIDTableStaking"
+import "FlowIDTableStaking"
 
 // This transaction ends the staking auction, which refunds nodes 
 // with insufficient stake

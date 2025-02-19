@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/admin/set_approved_nodes.cdc
 
 ```
-import FlowIDTableStaking from "FlowIDTableStaking"
+import "FlowIDTableStaking"
 
 // This transaction sets the list of approved nodes in the ID table
 

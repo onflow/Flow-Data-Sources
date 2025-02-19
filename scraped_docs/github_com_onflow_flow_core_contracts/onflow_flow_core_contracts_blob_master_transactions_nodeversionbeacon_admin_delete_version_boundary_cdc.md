@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/nodeVersionBeacon/admin/delete_version_boundary.cdc
 
 ```
-import NodeVersionBeacon from "NodeVersionBeacon"
+import "NodeVersionBeacon"
 
 /// Transaction that allows NodeVersionAdmin to delete the
 /// version boundary mapping in the versionTable at the specified

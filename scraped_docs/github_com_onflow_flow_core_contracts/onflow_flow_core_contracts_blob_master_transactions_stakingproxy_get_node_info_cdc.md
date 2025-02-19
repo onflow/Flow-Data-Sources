@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/stakingProxy/get_node_info.cdc
 
 ```
-import StakingProxy from "StakingProxy"
+import "StakingProxy"
 
 access(all) fun main(account: Address, nodeID: String): StakingProxy.NodeInfo {
 

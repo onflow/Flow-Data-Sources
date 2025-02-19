@@ -1,10 +1,10 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/stakingCollection/test/deposit_tokens.cdc
 
 ```
-import FlowStakingCollection from "FlowStakingCollection"
-import FlowToken from "FlowToken"
-import FungibleToken from "FungibleToken"
-import LockedTokens from "LockedTokens"
+import "FlowStakingCollection"
+import "FlowToken"
+import "FungibleToken"
+import "LockedTokens"
 
 // Used only for test purposes to test the deposit token function in the staking collection
 

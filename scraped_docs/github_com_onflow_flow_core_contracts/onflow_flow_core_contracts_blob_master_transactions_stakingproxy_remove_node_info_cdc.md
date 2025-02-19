@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/stakingProxy/remove_node_info.cdc
 
 ```
-import StakingProxy from "StakingProxy"
+import "StakingProxy"
 
 transaction(nodeID: String) {
 

@@ -2,7 +2,7 @@
 
 ```
 import Crypto
-import FlowStakingCollection from "FlowStakingCollection"
+import "FlowStakingCollection"
 
 /// Registers a delegator in the staking collection resource
 /// for the specified node information and the amount of tokens to commit

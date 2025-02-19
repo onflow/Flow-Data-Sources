@@ -1,8 +1,7 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/epoch/admin/advance_view.cdc
 
 ```
-import FlowEpoch from "FlowEpoch"
-import FlowIDTableStaking from "FlowIDTableStaking"
+import "FlowEpoch"
 
 transaction(phase: String) {
     prepare(signer: auth(BorrowValue) &Account) {

@@ -1,8 +1,8 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/delegation/register_many_delegators.cdc
 
 ```
-import FlowIDTableStaking from "FlowIDTableStaking"
-import FlowToken from "FlowToken"
+import "FlowIDTableStaking"
+import "FlowToken"
 
 transaction(nodeIDs: [String], paths: [StoragePath]) {
 

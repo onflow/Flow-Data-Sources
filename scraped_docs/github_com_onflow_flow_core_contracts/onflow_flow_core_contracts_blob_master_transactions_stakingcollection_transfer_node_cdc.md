@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/stakingCollection/transfer_node.cdc
 
 ```
-import FlowStakingCollection from "FlowStakingCollection"
+import "FlowStakingCollection"
 
 // Transfers a NodeStaker object from an authorizers account
 // and adds the NodeStaker to another accounts Staking Collection

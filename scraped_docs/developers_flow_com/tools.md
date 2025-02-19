@@ -34,9 +34,9 @@ A development tool that looks, acts and talks like Flow](/tools/emulator)[## �
 
 Diverse programming tools to facilitate seamless interaction with the Flow blockchain network across multiple languages and platforms.](/tools/clients)[## Flow Dev Wallet
 
-The Flow Dev Wallet is a mock Flow wallet that simulates the protocols used by FCL to interact with the Flow blockchain on behalf of simulated user accounts.](/tools/flow-dev-wallet)[## Cadence VS Code Extension
+The Flow Dev Wallet is a mock Flow wallet that simulates the protocols used by FCL to interact with the Flow blockchain on behalf of simulated user accounts.](/tools/flow-dev-wallet)[## 🗃️Cadence VS Code Extension
 
-This extension integrates Cadence, the resource-oriented smart contract programming language of Flow, into Visual Studio Code.](/tools/vscode-extension)[## 🗃️Wallet Provider Spec
+1 items](/tools/vscode-extension)[## 🗃️Wallet Provider Spec
 
 4 items](/tools/wallet-provider-spec)[## FlowserFlowser
 

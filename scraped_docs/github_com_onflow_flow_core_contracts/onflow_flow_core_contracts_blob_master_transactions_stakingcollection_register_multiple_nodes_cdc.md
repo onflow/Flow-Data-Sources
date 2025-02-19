@@ -2,7 +2,7 @@
 
 ```
 import Crypto
-import FlowStakingCollection from "FlowStakingCollection"
+import "FlowStakingCollection"
 
 /// Registers multiple nodes in the staking collection resource
 /// for the specified node information

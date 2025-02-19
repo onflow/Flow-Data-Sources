@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/FlowServiceAccount/remove_account_creator.cdc
 
 ```
-import FlowServiceAccount from "FlowServiceAccount"
+import "FlowServiceAccount"
 
 // This transaction removes an account creator
 transaction(accountCreator: Address) {

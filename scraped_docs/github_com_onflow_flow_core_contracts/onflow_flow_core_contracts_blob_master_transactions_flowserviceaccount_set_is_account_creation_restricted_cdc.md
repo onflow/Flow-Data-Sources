@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/FlowServiceAccount/set_is_account_creation_restricted.cdc
 
 ```
-import FlowServiceAccount from "FlowServiceAccount"
+import "FlowServiceAccount"
 
 // This transaction changes `is account ceration restricted` value
 transaction(restricted: Bool) {

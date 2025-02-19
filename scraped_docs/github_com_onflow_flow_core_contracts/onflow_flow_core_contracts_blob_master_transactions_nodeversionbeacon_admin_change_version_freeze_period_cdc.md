@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/nodeVersionBeacon/admin/change_version_freeze_period.cdc
 
 ```
-import NodeVersionBeacon from "NodeVersionBeacon"
+import "NodeVersionBeacon"
 
 /// Transaction that allows NodeVersionAdmin to change
 /// the defined versionUpdateBuffer

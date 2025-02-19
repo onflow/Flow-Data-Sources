@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/epoch/admin/update_epoch_views.cdc
 
 ```
-import FlowEpoch from "FlowEpoch"
+import "FlowEpoch"
 
 transaction(newAuctionViews: UInt64) {
     prepare(signer: auth(BorrowValue) &Account) {

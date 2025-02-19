@@ -1,8 +1,8 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/epoch/admin/calculate_rewards.cdc
 
 ```
-import FlowEpoch from "FlowEpoch"
-import FlowIDTableStaking from "FlowIDTableStaking"
+import "FlowEpoch"
+import "FlowIDTableStaking"
 
 transaction() {
     prepare(signer: auth(BorrowValue) &Account) {

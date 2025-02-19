@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/stakingProxy/stake_unstaked_tokens.cdc
 
 ```
-import StakingProxy from "StakingProxy"
+import "StakingProxy"
 
 transaction(nodeID: String, amount: UFix64) {
 

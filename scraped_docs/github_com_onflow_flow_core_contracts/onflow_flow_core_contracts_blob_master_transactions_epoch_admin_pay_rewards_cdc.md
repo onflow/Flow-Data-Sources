@@ -1,8 +1,8 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/epoch/admin/pay_rewards.cdc
 
 ```
-import FlowEpoch from "FlowEpoch"
-import FlowIDTableStaking from "FlowIDTableStaking"
+import "FlowEpoch"
+import "FlowIDTableStaking"
 
 /// Pays the rewards for the previous epoch
 /// If the rewards have already been paid, the payment will not happen

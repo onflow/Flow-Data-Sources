@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/epoch/admin/set_automatic_rewards.cdc
 
 ```
-import FlowEpoch from "FlowEpoch"
+import "FlowEpoch"
 
 transaction(automaticRewardsEnabled: Bool) {
     prepare(signer: auth(BorrowValue) &Account) {

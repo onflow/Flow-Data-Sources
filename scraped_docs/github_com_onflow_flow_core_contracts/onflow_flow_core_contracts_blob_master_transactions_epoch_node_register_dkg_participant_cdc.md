@@ -1,9 +1,9 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/epoch/node/register_dkg_participant.cdc
 
 ```
-import FlowEpoch from "FlowEpoch"
-import FlowIDTableStaking from "FlowIDTableStaking"
-import FlowDKG from "FlowDKG"
+import "FlowEpoch"
+import "FlowIDTableStaking"
+import "FlowDKG"
 
 transaction() {
 

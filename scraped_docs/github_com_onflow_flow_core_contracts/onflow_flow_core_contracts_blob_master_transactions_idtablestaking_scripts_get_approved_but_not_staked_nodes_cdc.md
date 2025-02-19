@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_approved_but_not_staked_nodes.cdc
 
 ```
-import FlowIDTableStaking from "FlowIDTableStaking"
+import "FlowIDTableStaking"
 
 // This script returns the list of nodes that are on the approved list but do not currently have tokens staked above the minimum requirement.
 access(all) fun main(): [String] {

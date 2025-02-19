@@ -1,8 +1,8 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/node/withdraw_reward_tokens.cdc
 
 ```
-import FlowIDTableStaking from "FlowIDTableStaking"
-import FlowToken from "FlowToken"
+import "FlowIDTableStaking"
+import "FlowToken"
 
 
 transaction(amount: UFix64) {

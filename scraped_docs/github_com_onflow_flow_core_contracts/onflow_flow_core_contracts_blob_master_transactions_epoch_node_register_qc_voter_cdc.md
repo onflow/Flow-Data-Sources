@@ -1,9 +1,9 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/epoch/node/register_qc_voter.cdc
 
 ```
-import FlowEpoch from "FlowEpoch"
-import FlowIDTableStaking from "FlowIDTableStaking"
-import FlowClusterQC from "FlowClusterQC"
+import "FlowEpoch"
+import "FlowIDTableStaking"
+import "FlowClusterQC"
 
 transaction() {
 

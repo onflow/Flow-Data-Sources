@@ -1,9 +1,9 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/contracts/FlowToken.cdc
 
 ```
-import FungibleToken from "FungibleToken"
-import MetadataViews from "MetadataViews"
-import FungibleTokenMetadataViews from "FungibleTokenMetadataViews"
+import "FungibleToken"
+import "MetadataViews"
+import "FungibleTokenMetadataViews"
 
 access(all) contract FlowToken: FungibleToken {
 

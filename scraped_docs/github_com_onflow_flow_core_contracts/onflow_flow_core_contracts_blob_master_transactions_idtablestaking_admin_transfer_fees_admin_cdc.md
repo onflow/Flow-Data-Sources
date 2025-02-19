@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/admin/transfer_fees_admin.cdc
 
 ```
-import FlowFees from "FlowFees"
+import "FlowFees"
 
 transaction {
 

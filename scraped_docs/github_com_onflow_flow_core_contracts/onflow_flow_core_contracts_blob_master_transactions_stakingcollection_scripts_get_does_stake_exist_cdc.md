@@ -1,8 +1,8 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/stakingCollection/scripts/get_does_stake_exist.cdc
 
 ```
-import FlowStakingCollection from "FlowStakingCollection"
-import FlowIDTableStaking from "FlowIDTableStaking"
+import "FlowStakingCollection"
+import "FlowIDTableStaking"
 
 /// Tells if the specified node or delegator exists in the staking collection 
 /// for the specified address

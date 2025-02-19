@@ -1,8 +1,8 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/stakingProxy/register_node.cdc
 
 ```
-import LockedTokens from "LockedTokens"
-import StakingProxy from "StakingProxy"
+import "LockedTokens"
+import "StakingProxy"
 
 transaction(address: Address, id: String, amount: UFix64) {
 

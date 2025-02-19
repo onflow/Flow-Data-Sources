@@ -2,7 +2,7 @@
 
 ```
 import Crypto
-import FlowToken from "FlowToken"
+import "FlowToken"
 
 transaction(publicKeys: [Crypto.KeyListEntry], contractName: String, code: String, rewardAmount: UFix64, rewardCut: UFix64, candidateNodeLimits: [UInt64]) {
 

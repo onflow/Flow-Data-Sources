@@ -18,6 +18,7 @@ Cadence VS Code Extension | Flow Developer Portal
 * [Clients](/tools/clients)
 * [Flow Dev Wallet](/tools/flow-dev-wallet)
 * [Cadence VS Code Extension](/tools/vscode-extension)
+  + [Use Cursor AI](/tools/vscode-extension/cursor)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 
 
@@ -79,7 +80,7 @@ script `_10code --install-extension cadence-*.vsix`
 
 Restart VS Code and the extension should be installed!
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/vscode-extension/index.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousFlow Dev Wallet](/tools/flow-dev-wallet)[NextWallet Provider Spec](/tools/wallet-provider-spec)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/vscode-extension/index.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousFlow Dev Wallet](/tools/flow-dev-wallet)[NextUse Cursor AI](/tools/vscode-extension/cursor)
 ###### Rate this page
 
 😞😐😊
