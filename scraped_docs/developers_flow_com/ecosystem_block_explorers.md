@@ -75,7 +75,7 @@ Block explorers are user-friendly online tools that visually present blockchain 
 
 ## Flowscan [EVM][​](#flowscan-evm "Direct link to Flowscan [EVM]")
 
-[Flowscan](https://evm-testnet.flowscan.io/) is based off of the popular Blockscout and provides a user-friendly interface to search for specific EVM transactions, blocks, monitor network health, and track the status of various smart contracts and tokens on for EVM on Flow. Features include:
+[Flowscan](https://evm-testnet.flowscan.io/) is based off of the popular Blockscout and provides a user-friendly interface to search for specific EVM transactions, blocks, monitor network health, and track the status of various smart contracts and tokens on Flow EVM. Features include:
 
 * Real-Time Data: View live transaction data, blocks, and account activities.
 * Search Functionality: Search for specific transactions, blocks, and accounts.
@@ -86,7 +86,7 @@ Block explorers are user-friendly online tools that visually present blockchain 
 
 * [Testnet](https://evm-testnet.flowscan.io/)
 * [Mainnet](https://evm.flowscan.io/)
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/block-explorers.md)Last updated on **Feb 13, 2025** by **bz**[PreviousWallets](/ecosystem/wallets)[NextDeveloper Profile](/ecosystem/developer-profile)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/block-explorers.md)Last updated on **Feb 19, 2025** by **bz**[PreviousWallets](/ecosystem/wallets)[NextDeveloper Profile](/ecosystem/developer-profile)
 ###### Rate this page
 
 😞😐😊

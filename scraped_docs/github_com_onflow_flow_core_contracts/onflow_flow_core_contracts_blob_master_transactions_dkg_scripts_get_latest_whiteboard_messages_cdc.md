@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/scripts/get_latest_whiteboard_messages.cdc
 
 ```
-import FlowDKG from "FlowDKG"
+import "FlowDKG"
 
 access(all) fun main(fromIndex: Int): [FlowDKG.Message] {
     let messages = FlowDKG.getWhiteBoardMessages()

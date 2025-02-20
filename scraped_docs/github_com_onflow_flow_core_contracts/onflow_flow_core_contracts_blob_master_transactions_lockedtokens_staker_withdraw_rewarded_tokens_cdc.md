@@ -1,9 +1,9 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/lockedTokens/staker/withdraw_rewarded_tokens.cdc
 
 ```
-import LockedTokens from "LockedTokens"
-import FlowToken from "FlowToken"
-import FungibleToken from "FungibleToken"
+import "LockedTokens"
+import "FlowToken"
+import "FungibleToken"
 
 transaction(amount: UFix64) {
 

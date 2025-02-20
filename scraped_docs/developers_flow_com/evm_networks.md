@@ -13,7 +13,7 @@ Networks | Flow Developer Portal
 
 * [Why EVM on Flow](/evm/about)
 * [How it Works](/evm/how-it-works)
-* [Using EVM](/evm/using)
+* [Using Flow EVM](/evm/using)
 * [Networks](/evm/networks)
 * [Fees](/evm/fees)
 * [Accounts](/evm/accounts)
@@ -29,13 +29,13 @@ Networks | Flow Developer Portal
 * Networks
 # Networks
 
-EVM on Flow has the following public RPC nodes available:
+Flow EVM has the following public RPC nodes available:
 
 # Mainnet
 
 | Name | Value |
 | --- | --- |
-| Network Name | EVM on Flow |
+| Network Name | Flow EVM |
 | Description | The public RPC URL for Flow Mainnet |
 | RPC Endpoint | <https://mainnet.evm.nodes.onflow.org> |
 | Chain ID | 747 |
@@ -46,14 +46,14 @@ EVM on Flow has the following public RPC nodes available:
 
 | Name | Value |
 | --- | --- |
-| Network Name | EVM on Flow Testnet |
+| Network Name | Flow EVM Testnet |
 | Description | The public RPC URL for Flow Testnet |
 | RPC Endpoint | <https://testnet.evm.nodes.onflow.org> |
 | Chain ID | 545 |
 | Currency Symbol | FLOW |
 | Block Explorer | <https://evm-testnet.flowscan.io> |
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/networks.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousUsing EVM](/evm/using)[NextFees](/evm/fees)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/networks.md)Last updated on **Feb 18, 2025** by **Brian Doyle**[PreviousUsing Flow EVM](/evm/using)[NextFees](/evm/fees)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)

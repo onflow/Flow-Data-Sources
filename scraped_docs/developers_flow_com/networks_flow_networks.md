@@ -31,7 +31,7 @@ On this page
 
 note
 
-This page provides information on Flow network RPCs. EVM on Flow network RPCs can be found [here](/evm/networks)
+This page provides information on Flow network RPCs. Flow EVM network RPCs can be found [here](/evm/networks)
 
 In addition to Mainnet, developers have access to the Testnet environment, which serves as an essential testing ground for applications and smart contracts prior to their deployment on Mainnet. This ensures that any potential issues can be identified and resolved in a controlled setting, mitigating risks associated with live deployment.
 
@@ -71,7 +71,7 @@ If you’re getting started you don’t need to run your own node and you can us
 
 Check out [Running a Node](/networks/node-ops/light-nodes/observer-node) for more information.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-networks/index.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[NextMainnet](/networks/flow-networks/accessing-mainnet)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-networks/index.md)Last updated on **Feb 18, 2025** by **Brian Doyle**[NextMainnet](/networks/flow-networks/accessing-mainnet)
 ###### Rate this page
 
 😞😐😊

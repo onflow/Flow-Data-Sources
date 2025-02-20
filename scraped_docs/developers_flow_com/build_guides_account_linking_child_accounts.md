@@ -298,7 +298,7 @@ While perhaps not useful for most apps, this pattern may be desirable for advanc
 access account themselves. The user funds account creation, adding keys they custody, and delegates secondary access to
 some other account.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking/child-accounts.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousAccount Linking (FLIP 72)](/build/guides/account-linking)[NextWorking With Parent Accounts](/build/guides/account-linking/parent-accounts)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking/child-accounts.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousAccount Linking (FLIP 72)](/build/guides/account-linking)[NextWorking With Parent Accounts](/build/guides/account-linking/parent-accounts)
 ###### Rate this page
 
 😞😐😊

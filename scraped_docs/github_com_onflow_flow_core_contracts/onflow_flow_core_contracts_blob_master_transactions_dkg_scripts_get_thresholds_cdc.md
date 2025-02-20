@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/scripts/get_thresholds.cdc
 
 ```
-import FlowDKG from "FlowDKG"
+import "FlowDKG"
 
 access(all) struct Thresholds {
     access(all) let native: UInt64

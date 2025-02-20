@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/lockedTokens/user/get_multiple_unlock_limits.cdc
 
 ```
-import LockedTokens from "LockedTokens"
+import "LockedTokens"
 
 access(all) fun main(accounts: [Address]): [UFix64] {
 

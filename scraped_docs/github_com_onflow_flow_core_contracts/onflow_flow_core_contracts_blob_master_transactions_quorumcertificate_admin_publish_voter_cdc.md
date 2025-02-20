@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/quorumCertificate/admin/publish_voter.cdc
 
 ```
-import FlowClusterQC from "FlowClusterQC"
+import "FlowClusterQC"
 
 // Test transaction for the QC admin to publish a reference
 // that allows accounts to register for QC voting

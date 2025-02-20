@@ -326,7 +326,7 @@ Additional Details:
 * Because it's a tree, the cost of reads and writes grows with log(n), but does scale.
 * atree has an update queued up for [Crescendo](https://flow.com/upgrade/crescendo) that will improve this. The previous version erred on the side of adding new levels to the tree (to keep the code simple), while the new version tries to pack more data at each level. This should result in fewer levels for the same byte size. Additionally, it includes a more compact encoding leading to a reduction in the byte size of most accounts.
 * Even with these improvements, this relationship is likely to remain indefinitely. The bigger the account, the more bookkeeping the nodes have to do, which will result in somewhat larger tx fees.
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/fees.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousScripts](/build/basics/scripts)[NextEvents](/build/basics/events)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/fees.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousScripts](/build/basics/scripts)[NextEvents](/build/basics/events)
 ###### Rate this page
 
 😞😐😊

@@ -1,8 +1,8 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/lockedTokens/delegator/withdraw_rewarded_tokens_locked.cdc
 
 ```
-import LockedTokens from "LockedTokens"
-import FungibleToken from "FungibleToken"
+import "LockedTokens"
+import "FungibleToken"
 
 transaction(amount: UFix64) {
     let nodeDelegatorProxy: LockedTokens.LockedNodeDelegatorProxy

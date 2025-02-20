@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/send_whiteboard_message.cdc
 
 ```
-import FlowDKG from "FlowDKG"
+import "FlowDKG"
 
 transaction(content: String) {
 

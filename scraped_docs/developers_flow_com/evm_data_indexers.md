@@ -13,7 +13,7 @@ Data Indexers | Flow Developer Portal
 
 * [Why EVM on Flow](/evm/about)
 * [How it Works](/evm/how-it-works)
-* [Using EVM](/evm/using)
+* [Using Flow EVM](/evm/using)
 * [Networks](/evm/networks)
 * [Fees](/evm/fees)
 * [Accounts](/evm/accounts)
@@ -60,7 +60,7 @@ To integrate Moralis into your project, begin by [creating an account](https://m
 
 To begin using Alchemy, developers can [sign up for an account](https://www.alchemy.com/) on the Alchemy website. The platform offers extensive [documentation](https://docs.alchemy.com/) including API references, tutorials, and guides to help developers integrate Alchemy into their projects.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/data-indexers.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousCross-chain Bridges ↙](/evm/cross-chain-bridges)[NextFaucets ↙](/evm/faucets)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/data-indexers.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousCross-chain Bridges ↙](/evm/cross-chain-bridges)[NextFaucets ↙](/evm/faucets)
 ###### Rate this page
 
 😞😐😊

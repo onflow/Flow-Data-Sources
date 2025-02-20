@@ -186,7 +186,7 @@ Learn more about it in the [Hybrid Custody documentation](/build/guides/account-
   [Magic](https://magic.link/).
 * [Starter template](https://github.com/Niftory/niftory-samples/tree/main/walletless-onboarding) for
   [Niftory](https://niftory.com/) Account Linking API.
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking/index.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousScaling Transactions from a Single Account](/build/advanced-concepts/scaling)[NextBuilding Walletless Applications Using Child Accounts](/build/guides/account-linking/child-accounts)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking/index.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousScaling Transactions from a Single Account](/build/advanced-concepts/scaling)[NextBuilding Walletless Applications Using Child Accounts](/build/guides/account-linking/child-accounts)
 ###### Rate this page
 
 😞😐😊

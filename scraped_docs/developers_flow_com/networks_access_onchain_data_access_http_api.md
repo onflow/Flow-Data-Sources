@@ -28,7 +28,7 @@ Access HTTP API ↗️ | Flow Developer Portal
 
 Go to [HTTP API](/http-api)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/access-http-api.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousAccess API](/networks/access-onchain-data)[NextGovernance](/networks/governance)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/access-http-api.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousAccess API](/networks/access-onchain-data)[NextGovernance](/networks/governance)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)

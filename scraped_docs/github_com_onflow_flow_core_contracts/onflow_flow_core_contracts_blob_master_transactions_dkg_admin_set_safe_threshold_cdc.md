@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/admin/set_safe_threshold.cdc
 
 ```
-import FlowDKG from "FlowDKG"
+import "FlowDKG"
 
 transaction(newThresholdPercentage: UFix64?) {
 

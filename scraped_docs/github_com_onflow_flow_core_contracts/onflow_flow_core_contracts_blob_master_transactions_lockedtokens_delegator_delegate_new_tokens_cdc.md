@@ -1,9 +1,9 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/lockedTokens/delegator/delegate_new_tokens.cdc
 
 ```
-import FlowToken from "FlowToken"
-import FungibleToken from "FungibleToken"
-import LockedTokens from "LockedTokens"
+import "FlowToken"
+import "FungibleToken"
+import "LockedTokens"
 
 transaction(amount: UFix64) {
 

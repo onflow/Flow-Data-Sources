@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/quorumCertificate/scripts/get_node_has_voted.cdc
 
 ```
-import FlowClusterQC from "FlowClusterQC"
+import "FlowClusterQC"
 
 // Returns a boolean indicating if a node has submitted a vote for this epoch
 

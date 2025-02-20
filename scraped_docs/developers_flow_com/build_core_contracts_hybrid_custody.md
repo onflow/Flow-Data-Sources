@@ -49,7 +49,7 @@ You can see the docs for account linking [here](https://developers.flow.com/buil
 | Testnet | [`0x294e44e1ec6993c6`](https://contractbrowser.com/account/0x294e44e1ec6993c6) |
 | Mainnet | [`0xd8a7e05a7ac670c0`](https://contractbrowser.com/account/0xd8a7e05a7ac670c0) |
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/12-hybrid-custody.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousStaking Collection](/build/core-contracts/staking-collection)[NextEVM](/build/core-contracts/evm)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/12-hybrid-custody.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousStaking Collection](/build/core-contracts/staking-collection)[NextEVM](/build/core-contracts/evm)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)

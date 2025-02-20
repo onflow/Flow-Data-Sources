@@ -337,7 +337,7 @@ There are multiple SDKs implementing the above APIs for different languages:
 
 Find a list of all SDKs [here](/tools/clients)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/transactions.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousAccounts](/build/basics/accounts)[NextScripts](/build/basics/scripts)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/transactions.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousAccounts](/build/basics/accounts)[NextScripts](/build/basics/scripts)
 ###### Rate this page
 
 😞😐😊

@@ -3,7 +3,7 @@
 
 
 
-Using EVM On Flow | Flow Developer Portal
+Using Flow EVM | Flow Developer Portal
 
 
 
@@ -13,7 +13,7 @@ Using EVM On Flow | Flow Developer Portal
 
 * [Why EVM on Flow](/evm/about)
 * [How it Works](/evm/how-it-works)
-* [Using EVM](/evm/using)
+* [Using Flow EVM](/evm/using)
 * [Networks](/evm/networks)
 * [Fees](/evm/fees)
 * [Accounts](/evm/accounts)
@@ -26,17 +26,17 @@ Using EVM On Flow | Flow Developer Portal
 * [Using EVM with Cadence](/evm/cadence/interacting-with-coa)
 
 
-* Using EVM
+* Using Flow EVM
 On this page
-# Using EVM On Flow
+# Using Flow
 
 ## EVM Wallets[​](#evm-wallets "Direct link to EVM Wallets")
 
-Applications deployed to EVM on Flow will work with popular EVM-compatible wallets such as [MetaMask](https://chromewebstore.google.com/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn), all you need to do is add the correct [RPC endpoint](/evm/networks) as a custom network.
+Applications deployed to Flow EVM will work with popular EVM-compatible wallets such as [MetaMask](https://chromewebstore.google.com/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn), all you need to do is add the correct [RPC endpoint](/evm/networks) as a custom network.
 
 ### [MetaMask](https://metamask.io)[​](#metamask "Direct link to metamask")
 
-Manual method: Add EVM on Flow as a custom network to MetaMask:
+Manual method: Add Flow EVM as a custom network to MetaMask:
 
 1. Open the MetaMask browser extension
 2. Open the network selection dropdown menu by clicking the dropdown button at the top of the extension
@@ -46,22 +46,22 @@ Manual method: Add EVM on Flow as a custom network to MetaMask:
 
 | Name | Value |
 | --- | --- |
-| Network Name | EVM on Flow |
+| Network Name | Flow EVM |
 | Description | The public RPC url for Flow Mainnet |
 | RPC Endpoint | <https://mainnet.evm.nodes.onflow.org> |
 | Chain ID | 747 |
 | Currency Symbol | FLOW |
 | Block Explorer | <https://evm.flowscan.io/> |
 
-6. Tap the Save button to save EVM on Flow as a network.
+6. Tap the Save button to save Flow EVM as a network.
 
-You should now be able to connect to the EVM on Flow by selecting it from the network selection dropdown menu.
+You should now be able to connect to the Flow EVM by selecting it from the network selection dropdown menu.
 
-To additionally add the EVM on Flow Testnet to MetaMask, follow the same steps as above, but use the following information:
+To additionally add the Flow EVM Testnet to MetaMask, follow the same steps as above, but use the following information:
 
 | Name | Value |
 | --- | --- |
-| Network Name | EVM on Flow Testnet |
+| Network Name | Flow EVM Testnet |
 | Description | The public RPC url for Flow Testnet |
 | RPC Endpoint | <https://testnet.evm.nodes.onflow.org> |
 | Chain ID | 545 |
@@ -83,7 +83,7 @@ To use the Flow Wallet Chrome extension:
 
 ## EVM Specification[​](#evm-specification "Direct link to EVM Specification")
 
-* EVM on Flow is a virtual EVM-based blockchain using the latest EVM byte-code interpreter `Geth v1.13`
+* Flow EVM is a virtual EVM-based blockchain using the latest EVM byte-code interpreter `Geth v1.13`
 * Utilizes `FLOW` token for transactions, with balances denominated in `Atto-FLOW` (1 `FLOW` = 10^18 `Atto-FLOW`)
 * The [EVM Gateway](https://github.com/onflow/flow-evm-gateway) exposes the standard EVM API (Ethereum JSON-RPC)
 * Read more about the implementation in [FLIP 223: EVM integration interface](https://github.com/onflow/flips/blob/main/protocol/20231116-evm-support.md)
@@ -145,7 +145,7 @@ To use the Flow Wallet Chrome extension:
 
 Read more about the [EVM Gateway](https://github.com/onflow/flow-evm-gateway) on Flow and how it implements the Ethereum JSON-RPC API.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/using.mdx)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousHow it Works](/evm/how-it-works)[NextNetworks](/evm/networks)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/using.mdx)Last updated on **Feb 18, 2025** by **Brian Doyle**[PreviousHow it Works](/evm/how-it-works)[NextNetworks](/evm/networks)
 ###### Rate this page
 
 😞😐😊

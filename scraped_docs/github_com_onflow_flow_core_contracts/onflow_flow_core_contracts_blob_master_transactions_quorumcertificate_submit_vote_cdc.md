@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/quorumCertificate/submit_vote.cdc
 
 ```
-import FlowClusterQC from "FlowClusterQC"
+import "FlowClusterQC"
 
 // A node voter uses this transaction to submit a QC vote
 //

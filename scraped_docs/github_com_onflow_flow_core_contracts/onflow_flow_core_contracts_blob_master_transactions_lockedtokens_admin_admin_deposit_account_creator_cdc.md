@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/lockedTokens/admin/admin_deposit_account_creator.cdc
 
 ```
-import LockedTokens from "LockedTokens"
+import "LockedTokens"
 
 /// token admin signs this transaction to deposit a capability
 /// into a custody provider's account that allows them to add

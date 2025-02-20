@@ -194,7 +194,7 @@ the various methods for staking, and how you can participate safely and reliably
 See the [staking technical overview](/networks/staking/technical-overview) first
 for information about technical integration.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/index.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousUser safety](/networks/network-architecture/user-safety)[NextEpoch and Staking Terminology](/networks/staking/epoch-terminology)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/index.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousUser safety](/networks/network-architecture/user-safety)[NextEpoch and Staking Terminology](/networks/staking/epoch-terminology)
 ###### Rate this page
 
 😞😐😊

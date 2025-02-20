@@ -1,10 +1,10 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/lockedTokens/staker/stake_new_tokens.cdc
 
 ```
-import FlowToken from "FlowToken"
-import FungibleToken from "FungibleToken"
-import LockedTokens from "LockedTokens"
-import StakingProxy from "StakingProxy"
+import "FlowToken"
+import "FungibleToken"
+import "LockedTokens"
+import "StakingProxy"
 
 transaction(amount: UFix64) {
 

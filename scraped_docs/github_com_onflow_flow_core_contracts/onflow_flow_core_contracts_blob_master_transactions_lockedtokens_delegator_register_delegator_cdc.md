@@ -1,10 +1,10 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/lockedTokens/delegator/register_delegator.cdc
 
 ```
-import FlowToken from "FlowToken"
-import LockedTokens from "LockedTokens"
-import FlowIDTableStaking from "FlowIDTableStaking"
-import FungibleToken from "FungibleToken"
+import "FlowToken"
+import "LockedTokens"
+import "FlowIDTableStaking"
+import "FungibleToken"
 
 transaction(id: String, amount: UFix64) {
 

@@ -101,7 +101,7 @@ These scripts are read-only and get info about the current state of the epoch co
 See the [epoch documentation](/networks/staking/epoch-scripts-events)
 for a list and documentation for important `FlowEpoch` events.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/07-epoch-contract-reference.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousStaking Table](/build/core-contracts/staking-contract-reference)[NextNon-Fungible Token](/build/core-contracts/non-fungible-token)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/07-epoch-contract-reference.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousStaking Table](/build/core-contracts/staking-contract-reference)[NextNon-Fungible Token](/build/core-contracts/non-fungible-token)
 ###### Rate this page
 
 😞😐😊

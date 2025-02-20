@@ -267,7 +267,7 @@ By following these steps, you've successfully created a simple frontend applicat
 
 ## Additional Resources[​](#additional-resources "Direct link to Additional Resources")
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/fcl-quickstart.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousLocal Development](/build/getting-started/flow-cli)[NextBlocks](/build/basics/blocks)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/fcl-quickstart.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousLocal Development](/build/getting-started/flow-cli)[NextBlocks](/build/basics/blocks)
 ###### Rate this page
 
 😞😐😊

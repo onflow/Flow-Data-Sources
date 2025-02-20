@@ -160,7 +160,7 @@ Running the example will execute 420 transactions at the same time:
 
 It takes roughly the time of 1 transaction to run all 420 without any errors.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/scaling.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousVRF (Randomness) in Cadence](/build/advanced-concepts/randomness)[NextAccount Linking (FLIP 72)](/build/guides/account-linking)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/scaling.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousVRF (Randomness) in Cadence](/build/advanced-concepts/randomness)[NextAccount Linking (FLIP 72)](/build/guides/account-linking)
 ###### Rate this page
 
 😞😐😊

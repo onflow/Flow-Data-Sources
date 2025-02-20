@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/lockedTokens/delegator/get_delegator_node_id.cdc
 
 ```
-import LockedTokens from "LockedTokens"
+import "LockedTokens"
 
 access(all) fun main(account: Address): String {
 

@@ -1,8 +1,8 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/lockedTokens/delegator/get_delegator_info.cdc
 
 ```
-import FlowIDTableStaking from "FlowIDTableStaking"
-import LockedTokens from "LockedTokens"
+import "FlowIDTableStaking"
+import "LockedTokens"
 
 // Returns an array of DelegatorInfo objects that the account controls
 // in its normal account and shared account

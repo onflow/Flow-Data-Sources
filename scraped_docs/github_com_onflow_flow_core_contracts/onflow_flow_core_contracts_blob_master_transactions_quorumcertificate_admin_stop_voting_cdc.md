@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/quorumCertificate/admin/stop_voting.cdc
 
 ```
-import FlowClusterQC from "FlowClusterQC"
+import "FlowClusterQC"
 
 // Test transaction for the QC contract to stop the voting period
 

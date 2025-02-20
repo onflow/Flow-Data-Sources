@@ -260,7 +260,7 @@ FLIP: <https://github.com/onflow/flips/blob/main/protocol/20230309-accessnode-ev
 
 Protobuf: <https://github.com/onflow/flow/blob/master/protobuf/flow/executiondata/executiondata.proto>
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/access-nodes/access-node-configuration-options.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousAccess Node Setup](/networks/node-ops/access-nodes/access-node-setup)[NextEVM Gateway Setup](/networks/node-ops/evm-gateway/evm-gateway-setup)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/access-nodes/access-node-configuration-options.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousAccess Node Setup](/networks/node-ops/access-nodes/access-node-setup)[NextEVM Gateway Setup](/networks/node-ops/evm-gateway/evm-gateway-setup)
 ###### Rate this page
 
 😞😐😊

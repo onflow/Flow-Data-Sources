@@ -13,7 +13,7 @@ Cross-VM Bridge | Flow Developer Portal
 
 * [Why EVM on Flow](/evm/about)
 * [How it Works](/evm/how-it-works)
-* [Using EVM](/evm/using)
+* [Using Flow EVM](/evm/using)
 * [Networks](/evm/networks)
 * [Fees](/evm/fees)
 * [Accounts](/evm/accounts)
@@ -46,7 +46,7 @@ access to, and maintaining links between associated contracts. It additionally a
 enforce source VM asset burn or lock, and target VM token mint or unlock.
 
 Developers wishing to use the Cross-VM Bridge will be required to use a Cadence transaction. Cross-VM bridging
-functionality is not currently available natively in EVM on Flow. By extension, this means that the EVM account bridging
+functionality is not currently available natively in Flow EVM. By extension, this means that the EVM account bridging
 from EVM to Cadence must be a [`CadenceOwnedAccount` (COA)](/evm/cadence/interacting-with-coa) as this is the only EVM account
 type that can be controlled from the Cadence runtime.
 
@@ -80,7 +80,7 @@ info
 
 All bridging activity in either direction is orchestrated via Cadence on COA EVM accounts. This means that all bridging
 activity must be initiated via a Cadence transaction, not an EVM transaction regardless of the directionality of the
-bridge request. For more information on the interplay between Cadence and EVM, see [How EVM on Flow
+bridge request. For more information on the interplay between Cadence and EVM, see [How Flow EVM
 Works](/evm/how-it-works).
 
 ### Overview[​](#overview "Direct link to Overview")
@@ -244,7 +244,7 @@ For the current state of Flow EVM across various task paths, see the following r
 * [Flow EVM Equivalence forum post](https://forum.flow.com/t/evm-equivalence-on-flow-proposal-and-path-forward/5478)
 * [EVM Integration FLIP #223](https://github.com/onflow/flips/pull/225/files)
 * [Gateway & JSON RPC FLIP #235](https://github.com/onflow/flips/pull/235)
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/cadence/vm-bridge.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousBatched EVM Transactions](/evm/cadence/batched-evm-transactions)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/cadence/vm-bridge.md)Last updated on **Feb 18, 2025** by **Brian Doyle**[PreviousBatched EVM Transactions](/evm/cadence/batched-evm-transactions)
 ###### Rate this page
 
 😞😐😊

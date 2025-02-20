@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/lockedTokens/user/get_locked_account_address.cdc
 
 ```
-import LockedTokens from "LockedTokens"
+import "LockedTokens"
 
 access(all) fun main(account: Address): Address {
 

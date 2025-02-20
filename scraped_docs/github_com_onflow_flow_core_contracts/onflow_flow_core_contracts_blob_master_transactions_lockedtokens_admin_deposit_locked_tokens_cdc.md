@@ -1,10 +1,10 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/lockedTokens/admin/deposit_locked_tokens.cdc
 
 ```
-import FungibleToken from "FungibleToken"
-import FlowToken from "FlowToken"
+import "FungibleToken"
+import "FlowToken"
 
-import LockedTokens from "LockedTokens"
+import "LockedTokens"
 
 transaction(to: Address, amount: UFix64) {
 

@@ -13,7 +13,7 @@ Interacting with COAs from Cadence | Flow Developer Portal
 
 * [Why EVM on Flow](/evm/about)
 * [How it Works](/evm/how-it-works)
-* [Using EVM](/evm/using)
+* [Using Flow EVM](/evm/using)
 * [Networks](/evm/networks)
 * [Fees](/evm/fees)
 * [Accounts](/evm/accounts)
@@ -151,7 +151,7 @@ For more information about Cadence Owned Accounts, see [Flow EVM Accounts](/evm/
 
 Other useful snippets for interacting with COAs can be found [here](https://fw-internal-doc.gitbook.io/evm).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/cadence/interacting-with-coa.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousWeb3.js](/evm/clients/web3-js)[NextDirect Calls to Flow EVM](/evm/cadence/direct-calls)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/cadence/interacting-with-coa.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousWeb3.js](/evm/clients/web3-js)[NextDirect Calls to Flow EVM](/evm/cadence/direct-calls)
 ###### Rate this page
 
 😞😐😊

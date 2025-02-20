@@ -52,7 +52,7 @@ Learn what led Dieter Shirley, Chief Architect of Flow and co-author of the ERC-
 
 Cadence is a resource-oriented programming language that makes it easy to build secure, scalable, and composable applications.
 
-### EVM on Flow
+### Flow EVM
 
 The future is here. Deploy your Solidity contracts on Flow to get sub-cent transaction fees, sponsored gas, and the ability to scale to millions of users.
 

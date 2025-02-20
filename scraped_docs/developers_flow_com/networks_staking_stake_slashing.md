@@ -69,7 +69,7 @@ It is still TBD where the slashed tokens will be deposited.
 The remaining un-slashed stake is deposited back into node's unstaked pool
 at the end of the unstaking period.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/04-stake-slashing.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousEpoch Preparation Protocol](/networks/staking/epoch-preparation)[NextEpoch Scripts and Events](/networks/staking/epoch-scripts-events)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/04-stake-slashing.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousEpoch Preparation Protocol](/networks/staking/epoch-preparation)[NextEpoch Scripts and Events](/networks/staking/epoch-scripts-events)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)

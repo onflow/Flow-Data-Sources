@@ -195,7 +195,7 @@ The following command returns a list of the currently blocked nodes.
 
 After unblocking the node, connections and traffic coming from the node should resume.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/byzantine-node-attack-response.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousOperator FAQ](/networks/node-ops/node-operation/faq)[NextDatabase Encryption for Existing Node Operators](/networks/node-ops/node-operation/db-encryption-existing-operator)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/byzantine-node-attack-response.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousOperator FAQ](/networks/node-ops/node-operation/faq)[NextDatabase Encryption for Existing Node Operators](/networks/node-ops/node-operation/db-encryption-existing-operator)
 ###### Rate this page
 
 😞😐😊

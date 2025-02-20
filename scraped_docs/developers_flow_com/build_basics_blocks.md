@@ -106,7 +106,7 @@ There are multiple SDKs implementing the above APIs for different languages:
 
 Find a list of all SDKs [here](/tools/clients)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/blocks.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousSimple Frontend](/build/getting-started/fcl-quickstart)[NextCollections](/build/basics/collections)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/blocks.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousSimple Frontend](/build/getting-started/fcl-quickstart)[NextCollections](/build/basics/collections)
 ###### Rate this page
 
 😞😐😊

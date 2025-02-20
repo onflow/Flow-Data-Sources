@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/lockedTokens/admin/custody_setup_account_creator.cdc
 
 ```
-import LockedTokens from "LockedTokens"
+import "LockedTokens"
 
 transaction {
 

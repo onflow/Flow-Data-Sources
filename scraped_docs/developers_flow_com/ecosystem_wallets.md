@@ -83,7 +83,7 @@ Store, manage, and interact securely with tokens and digital assets on Flow. Dis
 
 ## Metamask Wallet[​](#metamask-wallet "Direct link to Metamask Wallet")
 
-[Metamask](https://metamask.io/) is a secure and user-friendly crypto wallet for NFTs and digital tokens. Presently only supports EVM on Flow and cannot access Cadence accounts.
+[Metamask](https://metamask.io/) is a secure and user-friendly crypto wallet for NFTs and digital tokens. Presently only supports Flow EVM and cannot access Cadence accounts.
 
 <https://metamask.io/>
 
@@ -91,7 +91,7 @@ Store, manage, and interact securely with tokens and digital assets on Flow. Dis
 
 Looking for a way to create mock developer wallets to test your app? The [The Flow Dev Wallet](/tools/flow-dev-wallet) simulates the protocols used by [FCL](/tools/clients/fcl-js) to interact with the Flow blockchain on behalf of simulated user accounts.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/wallets.md)Last updated on **Feb 13, 2025** by **bz**[PreviousEcosystem](/ecosystem)[NextFlow Block Explorers](/ecosystem/block-explorers)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/wallets.md)Last updated on **Feb 18, 2025** by **Brian Doyle**[PreviousEcosystem](/ecosystem)[NextFlow Block Explorers](/ecosystem/block-explorers)
 ###### Rate this page
 
 😞😐😊

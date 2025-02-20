@@ -40,7 +40,7 @@ Flow EVM | Flow Developer Portal
 * EVM
 # Contract
 
-The `EVM` contract is the entrypoint from Cadence to EVM on Flow. While many developers may choose to interact with EVM
+The `EVM` contract is the entrypoint from Cadence to Flow EVM. While many developers may choose to interact with EVM
 via [EVM-equivalent tooling paths](/evm/using), all access to Flow EVM ultimately interfaces via Cadence at
 some level.
 
@@ -57,7 +57,7 @@ Mainnet/Testnet Source: [`EVM.cdc`](https://github.com/onflow/flow-go/blob/maste
 | Testnet | [`0x8c5303eaa26202d6`](https://contractbrowser.com/A.8c5303eaa26202d6.EVM) |
 | Mainnet | [`0xe467b9dd11fa00df`](https://contractbrowser.com/A.e467b9dd11fa00df.EVM) |
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/13-evm.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousAccount Linking](/build/core-contracts/hybrid-custody)[NextBurner](/build/core-contracts/burner)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/13-evm.md)Last updated on **Feb 18, 2025** by **Brian Doyle**[PreviousAccount Linking](/build/core-contracts/hybrid-custody)[NextBurner](/build/core-contracts/burner)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)

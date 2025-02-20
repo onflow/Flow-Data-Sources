@@ -13,7 +13,7 @@ VRF (Randomness) in Solidity | Flow Developer Portal
 
 * [Why EVM on Flow](/evm/about)
 * [How it Works](/evm/how-it-works)
-* [Using EVM](/evm/using)
+* [Using Flow EVM](/evm/using)
 * [Networks](/evm/networks)
 * [Fees](/evm/fees)
 * [Accounts](/evm/accounts)
@@ -63,7 +63,7 @@ calls to retrieve random values and other information.
 
 | **Parameter** | **Value** |
 | --- | --- |
-| **Network Name** | EVM on Flow Testnet |
+| **Network Name** | Flow EVM Testnet |
 | **RPC Endpoint** | [https://testnet.evm.nodes.onflow.org](https://testnet.evm.nodes.onflow.org/) |
 | **Chain ID** | 545 |
 | **Currency Symbol** | FLOW |
@@ -73,7 +73,7 @@ calls to retrieve random values and other information.
 
 1. Open Metamask and click **Networks** -> **Add Network**.
 2. Enter the following details:
-   * **Network Name**: EVM on Flow Testnet
+   * **Network Name**: Flow EVM Testnet
    * **RPC URL**: `https://testnet.evm.nodes.onflow.org`
    * **Chain ID**: `545`
    * **Currency Symbol**: `FLOW`
@@ -180,7 +180,7 @@ implentation](https://github.com/onflow/random-coin-toss) using the VRF.
 
 *This documentation was contributed by [Noah Naizir](https://x.com/noah_overflow), a community developer.*
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/vrf.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousFoundry](/evm/guides/foundry)[NextEthers](/evm/clients/ethers)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/vrf.md)Last updated on **Feb 18, 2025** by **Brian Doyle**[PreviousFoundry](/evm/guides/foundry)[NextEthers](/evm/clients/ethers)
 ###### Rate this page
 
 😞😐😊

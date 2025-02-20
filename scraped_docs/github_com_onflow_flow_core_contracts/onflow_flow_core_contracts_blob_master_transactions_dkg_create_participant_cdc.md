@@ -1,7 +1,9 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/create_participant.cdc
 
 ```
-import FlowDKG from "FlowDKG"
+import "FlowDKG"
+
+// TODO: only used for testing
 
 transaction(address: Address, nodeID: String) {
 

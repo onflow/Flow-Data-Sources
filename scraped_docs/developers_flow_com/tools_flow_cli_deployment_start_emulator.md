@@ -93,7 +93,7 @@ For a complete list of available flags, run:
 
 To explore advanced features like snapshots, rollbacks, and debugging, visit the [Flow Emulator README](https://github.com/onflow/flow-emulator).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/deployment/start-emulator.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousDerive Public Key](/tools/flow-cli/keys/derive-keys)[NextAdd Project Contracts](/tools/flow-cli/deployment/project-contracts)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/deployment/start-emulator.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousDerive Public Key](/tools/flow-cli/keys/derive-keys)[NextAdd Project Contracts](/tools/flow-cli/deployment/project-contracts)
 ###### Rate this page
 
 😞😐😊

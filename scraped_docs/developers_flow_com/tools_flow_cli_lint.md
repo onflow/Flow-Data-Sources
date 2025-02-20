@@ -57,7 +57,7 @@ info
 
 The Cadence Linter is also available in the [Cadence VSCode extension](/tools/vscode-extension), which provides real-time feedback as you write your code.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/lint.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousRunning Cadence Tests](/tools/flow-cli/tests)[NextFlow Interaction Templates (FLIX)](/tools/flow-cli/flix)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/lint.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousRunning Cadence Tests](/tools/flow-cli/tests)[NextFlow Interaction Templates (FLIX)](/tools/flow-cli/flix)
 ###### Rate this page
 
 😞😐😊

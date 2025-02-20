@@ -1,8 +1,8 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/lockedTokens/staker/update_networking_address.cdc
 
 ```
-import LockedTokens from "LockedTokens"
-import FungibleToken from "FungibleToken"
+import "LockedTokens"
+import "FungibleToken"
 
 transaction(newAddress: String) {
 

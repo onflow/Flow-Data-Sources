@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/lockedTokens/admin/unlock_tokens_for_multiple_accounts.cdc
 
 ```
-import LockedTokens from "LockedTokens"
+import "LockedTokens"
 
 // This transaction uses the locked tokens admin
 // to set the unlock limit for multiple accounts

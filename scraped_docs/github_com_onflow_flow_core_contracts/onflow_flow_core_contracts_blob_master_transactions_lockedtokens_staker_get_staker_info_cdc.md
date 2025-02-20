@@ -1,8 +1,8 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/lockedTokens/staker/get_staker_info.cdc
 
 ```
-import FlowIDTableStaking from "FlowIDTableStaking"
-import LockedTokens from "LockedTokens"
+import "FlowIDTableStaking"
+import "LockedTokens"
 
 // Returns an array of NodeInfo objects that the account controls
 // in its normal account and shared account

@@ -13,7 +13,7 @@ Batched EVM Transactions Using Cadence | Flow Developer Portal
 
 * [Why EVM on Flow](/evm/about)
 * [How it Works](/evm/how-it-works)
-* [Using EVM](/evm/using)
+* [Using Flow EVM](/evm/using)
 * [Networks](/evm/networks)
 * [Fees](/evm/fees)
 * [Accounts](/evm/accounts)
@@ -445,13 +445,13 @@ and the Flow blockchain. How will you use these features to build Web3's next ki
 Now that you've experienced the power of Cadence and EVM interactions firsthand, we recommend checking out the following
 guides to deepen your understanding:
 
-* [How EVM on Flow Works](/evm/how-it-works) - Learn more about the Flow EVM and how it differs from traditional EVM platforms
+* [How Flow EVM Works](/evm/how-it-works) - Learn more about the Flow EVM and how it differs from traditional EVM platforms
 * [Interacting with COAs](/evm/cadence/interacting-with-coa) - Get a fuller picture of how Cadence interacts with EVM contracts via Cadence-owned accounts
 * [Cadence Transactions](/build/basics/transactions) - Learn more about the Cadence transaction model
 
 Ready to level up your Cadence skills? Take a look at [these Cadence tutorials](https://cadence-lang.org/docs/tutorial/first-steps).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/cadence/batched-evm-transactions.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousDirect Calls to Flow EVM](/evm/cadence/direct-calls)[NextCross-VM Bridge](/evm/cadence/vm-bridge)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/cadence/batched-evm-transactions.md)Last updated on **Feb 18, 2025** by **Brian Doyle**[PreviousDirect Calls to Flow EVM](/evm/cadence/direct-calls)[NextCross-VM Bridge](/evm/cadence/vm-bridge)
 ###### Rate this page
 
 😞😐😊

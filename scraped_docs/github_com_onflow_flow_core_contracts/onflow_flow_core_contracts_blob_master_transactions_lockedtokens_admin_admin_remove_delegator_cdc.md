@@ -1,8 +1,8 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/lockedTokens/admin/admin_remove_delegator.cdc
 
 ```
-import FlowIDTableStaking from "FlowIDTableStaking"
-import LockedTokens from "LockedTokens"
+import "FlowIDTableStaking"
+import "LockedTokens"
 
 transaction {
 

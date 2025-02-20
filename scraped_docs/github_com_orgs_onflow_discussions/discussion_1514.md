@@ -103,7 +103,8 @@ Toggle navigation
   
   Explore
   + [Learning Pathways](https://resources.github.com/learn/pathways)
-  + [White papers, Ebooks, Webinars](https://resources.github.com)
+  + [Events & Webinars](https://resources.github.com)
+  + [Ebooks & Whitepapers](https://github.com/resources/whitepapers)
   + [Customer Stories](https://github.com/customer-stories)
   + [Partners](https://partner.github.com)
   + [Executive Insights](https://github.com/solutions/executive-insights)

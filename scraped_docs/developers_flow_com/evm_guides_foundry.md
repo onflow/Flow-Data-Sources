@@ -13,7 +13,7 @@ Using Foundry with Flow | Flow Developer Portal
 
 * [Why EVM on Flow](/evm/about)
 * [How it Works](/evm/how-it-works)
-* [Using EVM](/evm/using)
+* [Using Flow EVM](/evm/using)
 * [Networks](/evm/networks)
 * [Fees](/evm/fees)
 * [Accounts](/evm/accounts)
@@ -176,7 +176,7 @@ We can check the balance of the new account:
 
 The deployer should also own less tokens now:
 
- `_10cast balance \_10 --rpc-url https://testnet.evm.nodes.onflow.org \_10 --erc20 $DEPLOYED_MYTOKEN_ADDRESS \_10 $DEPLOYER_ADDRESS`[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/foundry.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousViem & Wagmi](/evm/guides/wagmi)[NextVRF (Randomness) in Solidity](/evm/guides/vrf)
+ `_10cast balance \_10 --rpc-url https://testnet.evm.nodes.onflow.org \_10 --erc20 $DEPLOYED_MYTOKEN_ADDRESS \_10 $DEPLOYER_ADDRESS`[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/foundry.md)Last updated on **Feb 18, 2025** by **Brian Doyle**[PreviousViem & Wagmi](/evm/guides/wagmi)[NextVRF (Randomness) in Solidity](/evm/guides/vrf)
 ###### Rate this page
 
 😞😐😊

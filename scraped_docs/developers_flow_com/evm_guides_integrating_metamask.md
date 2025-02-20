@@ -13,7 +13,7 @@ Integrating Metamask | Flow Developer Portal
 
 * [Why EVM on Flow](/evm/about)
 * [How it Works](/evm/how-it-works)
-* [Using EVM](/evm/using)
+* [Using Flow EVM](/evm/using)
 * [Networks](/evm/networks)
 * [Fees](/evm/fees)
 * [Accounts](/evm/accounts)
@@ -75,7 +75,7 @@ After they approve, your app will be connected to the Flow network.
 
 By using this approach to add the Flow network to Metamask, you can avoid manual user data entry and ensure that users are ready to interact with your dApp!
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/integrating-metamask.mdx)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousBlock Explorers ↙](/evm/block-explorers)[NextHardhat](/evm/guides/hardhat)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/integrating-metamask.mdx)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousBlock Explorers ↙](/evm/block-explorers)[NextHardhat](/evm/guides/hardhat)
 ###### Rate this page
 
 😞😐😊

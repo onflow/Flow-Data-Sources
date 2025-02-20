@@ -90,7 +90,7 @@ Coming soon:
 
 * Samples for key in-app functionality, like in-app purchasing
 * Progressive user onboarding
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/overview.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousCreating a Fungible Token](/build/guides/fungible-token)[NextBuild a Walletless Mobile App (PWA)](/build/guides/mobile/walletless-pwa)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/overview.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousCreating a Fungible Token](/build/guides/fungible-token)[NextBuild a Walletless Mobile App (PWA)](/build/guides/mobile/walletless-pwa)
 ###### Rate this page
 
 😞😐😊

@@ -1,10 +1,10 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/lockedTokens/user/get_total_balance.cdc
 
 ```
-import FungibleToken from "FungibleToken"
-import FlowToken from "FlowToken"
-import FlowIDTableStaking from "FlowIDTableStaking"
-import LockedTokens from "LockedTokens"
+import "FungibleToken"
+import "FlowToken"
+import "FlowIDTableStaking"
+import "LockedTokens"
 
 // This script gets the TOTAL number of FLOW an account owns, across unlocked, locked, and staking.
 

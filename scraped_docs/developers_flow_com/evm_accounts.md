@@ -13,7 +13,7 @@ Accounts | Flow Developer Portal
 
 * [Why EVM on Flow](/evm/about)
 * [How it Works](/evm/how-it-works)
-* [Using EVM](/evm/using)
+* [Using Flow EVM](/evm/using)
 * [Networks](/evm/networks)
 * [Fees](/evm/fees)
 * [Accounts](/evm/accounts)
@@ -34,7 +34,7 @@ Are you a Cadence developer looking for information about Accounts on Cadence? I
 
 # Accounts
 
-There are three types of accounts used for EVM on Flow.
+There are three types of accounts used for Flow EVM.
 
 1. **Externally Owned Accounts (EOA)**: EOAs are controlled by private individuals using cryptographic keys and can initiate transactions directly. They are the primary account type for users to interact with the blockchain, holding and sending cryptocurrency or calling smart contract functions.
 2. **Contract Accounts**: These accounts hold smart contract code and are governed by this code's logic. Unlike EOAs, Contract Accounts do not initiate transactions on their own but can execute transactions in response to calls they receive from EOAs or other contracts.
@@ -85,7 +85,7 @@ To learn how to create and interact with COAs in Cadence, see the guide for [Int
 
 For more information about Cadence Owned Accounts, see the [Flow EVM Support FLIP](https://github.com/onflow/flips/pull/225/files)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/accounts.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousFees](/evm/fees)[NextCross-chain Bridges ↙](/evm/cross-chain-bridges)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/accounts.md)Last updated on **Feb 18, 2025** by **Brian Doyle**[PreviousFees](/evm/fees)[NextCross-chain Bridges ↙](/evm/cross-chain-bridges)
 ###### Rate this page
 
 😞😐😊

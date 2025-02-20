@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/quorumCertificate/admin/start_voting.cdc
 
 ```
-import FlowClusterQC from "FlowClusterQC"
+import "FlowClusterQC"
 
 // Test transaction for the QC admin to start the QC voting period
 // with a array of collector node clusters

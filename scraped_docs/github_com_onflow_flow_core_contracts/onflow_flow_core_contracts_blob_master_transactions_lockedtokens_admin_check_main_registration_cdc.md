@@ -1,10 +1,10 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/lockedTokens/admin/check_main_registration.cdc
 
 ```
-import FungibleToken from "FungibleToken"
-import FlowToken from "FlowToken"
+import "FungibleToken"
+import "FlowToken"
 
-import LockedTokens from "LockedTokens"
+import "LockedTokens"
 
 transaction(mainAccount: Address) {
 

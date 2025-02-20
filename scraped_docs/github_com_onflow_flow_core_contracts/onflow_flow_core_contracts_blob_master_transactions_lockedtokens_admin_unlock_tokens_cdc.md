@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/lockedTokens/admin/unlock_tokens.cdc
 
 ```
-import LockedTokens from "LockedTokens"
+import "LockedTokens"
 
 transaction(targetAccount: Address, delta: UFix64) {
 
