@@ -77,7 +77,7 @@ For real-time numbers, please refer to the [block explorer](https://www.flowscan
 
 1. Each year, 5% of the total Flow supply is distributed as rewards to incentivize validators and delegators. While the total rewards for each epoch are fixed, the rewards for individual stakers vary depending on the amount they stake and the total funds delegated to their node.
 2. All Flow node types follow the same economic principles, with the only difference being their minimum staking requirements. For details on the minimum stakes needed for each node type, see [here](https://flow.com/flow-tokenomics/technical-overview).
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-economics.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousNode Bootstrapping](/networks/node-ops/node-operation/node-bootstrap)[NextNode Migration](/networks/node-ops/node-operation/node-migration)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-economics.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousNode Bootstrapping](/networks/node-ops/node-operation/node-bootstrap)[NextNode Migration](/networks/node-ops/node-operation/node-migration)
 ###### Rate this page
 
 😞😐😊

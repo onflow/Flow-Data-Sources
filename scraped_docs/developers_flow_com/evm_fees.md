@@ -13,7 +13,7 @@ Fees | Flow Developer Portal
 
 * [Why EVM on Flow](/evm/about)
 * [How it Works](/evm/how-it-works)
-* [Using EVM](/evm/using)
+* [Using Flow EVM](/evm/using)
 * [Networks](/evm/networks)
 * [Fees](/evm/fees)
 * [Accounts](/evm/accounts)
@@ -39,7 +39,7 @@ EVM transactions are ultra low-cost and use the native FLOW token as gas. [Exter
 
 ## How Transaction Fees are Computed on EVM
 
-With EVM on Flow, EVM operations can now be called within Cadence transactions. EVM operations also have an associated effort measured in gas which needs to be factored into the execution effort calculation in addition to the Flow computation for any EVM transaction.
+With Flow EVM, EVM operations can now be called within Cadence transactions. EVM operations also have an associated effort measured in gas which needs to be factored into the execution effort calculation in addition to the Flow computation for any EVM transaction.
 
  `_10Transaction fee on EVM = surge x [inclusion fee + (execution effort * unit cost)]`
 
@@ -98,7 +98,7 @@ Fees needed to execute transactions on a Web3 app are often a major challenge fo
 
 To learn more about storage fee and transaction fee, visit [Flow Tokenomics page](https://flow.com/flow-tokenomics/technical-overview).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/fees.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousNetworks](/evm/networks)[NextAccounts](/evm/accounts)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/fees.md)Last updated on **Feb 18, 2025** by **Brian Doyle**[PreviousNetworks](/evm/networks)[NextAccounts](/evm/accounts)
 ###### Rate this page
 
 😞😐😊

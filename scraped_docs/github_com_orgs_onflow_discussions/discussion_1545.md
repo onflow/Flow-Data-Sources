@@ -304,7 +304,8 @@ More
 * [Packages](/orgs/onflow/packages)
 * [People](/orgs/onflow/people)
 
- 
+
+
 
 
 
@@ -329,7 +330,7 @@ Aliserag](/Aliserag)
 
 Jan 31, 2025
 ·
-0 comments
+1 comment
 
 
 
@@ -420,7 +421,94 @@ All reactions
 
 
 
-## Replies: 0 comments
+## Replies: 1 comment
+
+
+* [Oldest](/orgs/onflow/discussions/1545?sort=old)
+* [Newest](/orgs/onflow/discussions/1545?sort=new)
+* [Top](/orgs/onflow/discussions/1545?sort=top)
+
+
+
+ 
+
+
+Comment options
+
+
+
+
+
+
+# {{title}}
+
+
+
+
+
+ 
+
+
+
+
+Something went wrong.
+
+
+
+
+
+
+
+ 
+Quote reply
+
+
+
+
+
+
+### [hahu07](/hahu07) [Feb 20, 2025](#discussioncomment-12268625)
+
+
+
+ -
+ 
+
+
+| which perks available? |
+| --- |
+
+Beta
+Was this translation helpful?
+[Give feedback.](#)
+
+
+ 
+
+
+1
+ You must be logged in to vote
+
+
+
+ 
+All reactions
+
+
+
+
+
+0 replies
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -449,9 +537,9 @@ Labels
 None yet
 
 
-1 participant
+2 participants
 
-[![@Aliserag](https://avatars.githubusercontent.com/u/11467748?s=48&v=4)](/Aliserag) 
+[![@Aliserag](https://avatars.githubusercontent.com/u/11467748?s=48&v=4)](/Aliserag) [![@hahu07](https://avatars.githubusercontent.com/u/106557879?s=48&v=4)](/hahu07) 
 
 
 

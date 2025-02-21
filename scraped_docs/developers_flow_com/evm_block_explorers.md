@@ -13,7 +13,7 @@ Block Explorers ↙ | Flow Developer Portal
 
 * [Why EVM on Flow](/evm/about)
 * [How it Works](/evm/how-it-works)
-* [Using EVM](/evm/using)
+* [Using Flow EVM](/evm/using)
 * [Networks](/evm/networks)
 * [Fees](/evm/fees)
 * [Accounts](/evm/accounts)
@@ -33,7 +33,7 @@ Go to [Block explorers](/ecosystem/block-explorers)
 
 ;
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/block-explorers.mdx)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousFaucets ↙](/evm/faucets)[NextIntegrating Metamask](/evm/guides/integrating-metamask)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/block-explorers.mdx)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousFaucets ↙](/evm/faucets)[NextIntegrating Metamask](/evm/guides/integrating-metamask)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)

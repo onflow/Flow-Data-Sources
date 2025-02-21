@@ -98,7 +98,7 @@ Specify the filename where you want the result to be saved
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/decode-transactions.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousSend Signed Transaction](/tools/flow-cli/transactions/send-signed-transactions)[NextInitialize Configuration](/tools/flow-cli/flow.json/initialize-configuration)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/decode-transactions.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousSend Signed Transaction](/tools/flow-cli/transactions/send-signed-transactions)[NextInitialize Configuration](/tools/flow-cli/flow.json/initialize-configuration)
 ###### Rate this page
 
 😞😐😊

@@ -1,11 +1,11 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/contracts/FlowServiceAccount.cdc
 
 ```
-import FungibleToken from "FungibleToken"
-import FlowToken from "FlowToken"
-import FlowFees from "FlowFees"
-import FlowStorageFees from "FlowStorageFees"
-import FlowExecutionParameters from "FlowExecutionParameters"
+import "FungibleToken"
+import "FlowToken"
+import "FlowFees"
+import "FlowStorageFees"
+import "FlowExecutionParameters"
 
 access(all) contract FlowServiceAccount {
 

@@ -25,4 +25,5 @@ jobs:
         run: sh -ci "$(curl -fsSL https://raw.githubusercontent.com/onflow/flow-cli/master/install.sh)"
       - name: Run Go and Cadence tests
         run: make ci
+
 ```

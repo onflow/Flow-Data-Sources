@@ -13,7 +13,7 @@ Viem & Wagmi | Flow Developer Portal
 
 * [Why EVM on Flow](/evm/about)
 * [How it Works](/evm/how-it-works)
-* [Using EVM](/evm/using)
+* [Using Flow EVM](/evm/using)
 * [Networks](/evm/networks)
 * [Fees](/evm/fees)
 * [Accounts](/evm/accounts)
@@ -25,6 +25,7 @@ Viem & Wagmi | Flow Developer Portal
   + [Integrating Metamask](/evm/guides/integrating-metamask)
   + [Hardhat](/evm/guides/hardhat)
   + [Remix](/evm/guides/remix)
+  + [Rainbowkit](/evm/guides/rainbowkit)
   + [Viem & Wagmi](/evm/guides/wagmi)
   + [Foundry](/evm/guides/foundry)
   + [VRF (Randomness) in Solidity](/evm/guides/vrf)
@@ -111,7 +112,7 @@ Test it by updating the greeting, signing a transaction in your Metamask then wa
 
 ![Update HelloWorld Greeting](/assets/images/Update-HelloWorld-Greeting-97929700145ed51e0a6226f562fda7c0.gif)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/wagmi.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousRemix](/evm/guides/remix)[NextFoundry](/evm/guides/foundry)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/wagmi.md)Last updated on **Feb 18, 2025** by **Brian Doyle**[PreviousRainbowkit](/evm/guides/rainbowkit)[NextFoundry](/evm/guides/foundry)
 ###### Rate this page
 
 😞😐😊

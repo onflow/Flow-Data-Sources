@@ -25,6 +25,7 @@ VRF (Randomness) in Solidity | Flow Developer Portal
   + [Integrating Metamask](/evm/guides/integrating-metamask)
   + [Hardhat](/evm/guides/hardhat)
   + [Remix](/evm/guides/remix)
+  + [Rainbowkit](/evm/guides/rainbowkit)
   + [Viem & Wagmi](/evm/guides/wagmi)
   + [Foundry](/evm/guides/foundry)
   + [VRF (Randomness) in Solidity](/evm/guides/vrf)

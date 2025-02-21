@@ -13,7 +13,7 @@ Web3.js on Flow Blockchain | Flow Developer Portal
 
 * [Why EVM on Flow](/evm/about)
 * [How it Works](/evm/how-it-works)
-* [Using EVM](/evm/using)
+* [Using Flow EVM](/evm/using)
 * [Networks](/evm/networks)
 * [Fees](/evm/fees)
 * [Accounts](/evm/accounts)
@@ -117,7 +117,7 @@ Now that the transaction has been sent, the contract's state should have been up
 
 For more information about using smart contracts in web3.js, see the [official documentation](https://docs.web3js.org/libdocs/Contract).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/clients/web3-js.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousEthers](/evm/clients/ethers)[NextInteracting with COAs](/evm/cadence/interacting-with-coa)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/clients/web3-js.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousEthers](/evm/clients/ethers)[NextInteracting with COAs](/evm/cadence/interacting-with-coa)
 ###### Rate this page
 
 😞😐😊

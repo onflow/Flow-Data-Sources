@@ -13,7 +13,7 @@ Direct Calls from Cadence to Flow EVM | Flow Developer Portal
 
 * [Why EVM on Flow](/evm/about)
 * [How it Works](/evm/how-it-works)
-* [Using EVM](/evm/using)
+* [Using Flow EVM](/evm/using)
 * [Networks](/evm/networks)
 * [Fees](/evm/fees)
 * [Accounts](/evm/accounts)
@@ -92,7 +92,7 @@ Direct calls to Flow EVM require gas, it's important to understand how gas usage
 
 For more information and a deeper dive into the `EVMAddress`, `Result`, and `Status` objects, see [the contract here](https://github.com/onflow/flow-go/blob/master/fvm/evm/stdlib/contract.cdc).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/cadence/direct-calls.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousInteracting with COAs](/evm/cadence/interacting-with-coa)[NextBatched EVM Transactions](/evm/cadence/batched-evm-transactions)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/cadence/direct-calls.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousInteracting with COAs](/evm/cadence/interacting-with-coa)[NextBatched EVM Transactions](/evm/cadence/batched-evm-transactions)
 ###### Rate this page
 
 😞😐😊

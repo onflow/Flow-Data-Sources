@@ -13,7 +13,7 @@ Flow Remix Guide | Flow Developer Portal
 
 * [Why EVM on Flow](/evm/about)
 * [How it Works](/evm/how-it-works)
-* [Using EVM](/evm/using)
+* [Using Flow EVM](/evm/using)
 * [Networks](/evm/networks)
 * [Fees](/evm/fees)
 * [Accounts](/evm/accounts)
@@ -25,6 +25,7 @@ Flow Remix Guide | Flow Developer Portal
   + [Integrating Metamask](/evm/guides/integrating-metamask)
   + [Hardhat](/evm/guides/hardhat)
   + [Remix](/evm/guides/remix)
+  + [Rainbowkit](/evm/guides/rainbowkit)
   + [Viem & Wagmi](/evm/guides/wagmi)
   + [Foundry](/evm/guides/foundry)
   + [VRF (Randomness) in Solidity](/evm/guides/vrf)
@@ -90,7 +91,7 @@ Follow the steps below to change the greeting and retrieve the new greeting.
 5. Click on the orange `changeGreeting` button.
 6. Sign the Metamask transaction.
 7. Verify the greeting has changed by re-running `get-greeting.js` script above.
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/remix.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousHardhat](/evm/guides/hardhat)[NextViem & Wagmi](/evm/guides/wagmi)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/remix.md)Last updated on **Feb 18, 2025** by **Brian Doyle**[PreviousHardhat](/evm/guides/hardhat)[NextRainbowkit](/evm/guides/rainbowkit)
 ###### Rate this page
 
 😞😐😊
