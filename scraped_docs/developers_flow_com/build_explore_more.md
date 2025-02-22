@@ -9,7 +9,7 @@ Explore More | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -40,7 +40,7 @@ Longer form guides to help you get started with Flow](/build/getting-started/fcl
 
 Quickstart Tutorials for Flow created by Emerald City Dao](https://academy.ecdao.org/en/quickstarts)[## Basic ConceptsFlow Blockchain
 
-Basic Concepts of Flow Blockchain](/build/basics/blocks)[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/explore-more.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousBurner](/build/core-contracts/burner)Documentation
+Basic Concepts of Flow Blockchain](/build/basics/blocks)[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/explore-more.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousBurner](/build/core-contracts/burner)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)

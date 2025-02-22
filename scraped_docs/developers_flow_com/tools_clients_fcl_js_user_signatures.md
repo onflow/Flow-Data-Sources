@@ -9,7 +9,7 @@ Signing and Verifying Arbitrary Data | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
@@ -114,7 +114,7 @@ Use cases include cryptographic login, message validation, verifiable credential
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/user-signatures.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousTransactions](/tools/clients/fcl-js/transactions)[NextWalletConnect 2.0 Manual Configuration](/tools/clients/fcl-js/wallet-connect)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/user-signatures.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousTransactions](/tools/clients/fcl-js/transactions)[NextWalletConnect 2.0 Manual Configuration](/tools/clients/fcl-js/wallet-connect)
 ###### Rate this page
 
 😞😐😊

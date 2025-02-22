@@ -9,7 +9,7 @@ Developer Profile | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Ecosystem](/ecosystem)
 * [Wallets](/ecosystem/wallets)
@@ -94,7 +94,7 @@ Complete the challenge!
 
 We'll be updating the Developer Profile with new features and challenges. Check back soon!
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/developer-profile.md)Last updated on **Feb 13, 2025** by **bz**[PreviousFlow Block Explorers](/ecosystem/block-explorers)[NextDeFi & Liquidity](/ecosystem/defi-liquidity)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/developer-profile.md)Last updated on **Feb 14, 2025** by **bz**[PreviousFlow Block Explorers](/ecosystem/block-explorers)[NextDeFi & Liquidity](/ecosystem/defi-liquidity)
 ###### Rate this page
 
 😞😐😊

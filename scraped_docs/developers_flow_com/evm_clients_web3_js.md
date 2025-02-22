@@ -9,7 +9,7 @@ Web3.js on Flow Blockchain | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Why EVM on Flow](/evm/about)
 * [How it Works](/evm/how-it-works)
@@ -117,7 +117,7 @@ Now that the transaction has been sent, the contract's state should have been up
 
 For more information about using smart contracts in web3.js, see the [official documentation](https://docs.web3js.org/libdocs/Contract).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/clients/web3-js.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousEthers](/evm/clients/ethers)[NextInteracting with COAs](/evm/cadence/interacting-with-coa)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/clients/web3-js.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousEthers](/evm/clients/ethers)[NextInteracting with COAs](/evm/cadence/interacting-with-coa)
 ###### Rate this page
 
 😞😐😊

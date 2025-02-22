@@ -9,7 +9,7 @@ Manage Configuration | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
@@ -64,7 +64,7 @@ validate values that will be added to the configuration.
 Specify a filename for the configuration files, you can provide multiple configuration
 files by using `-f` flag multiple times.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flow.json/manage-configuration.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousConfiguration](/tools/flow-cli/flow.json/configuration)[NextSecurity](/tools/flow-cli/flow.json/security)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flow.json/manage-configuration.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousConfiguration](/tools/flow-cli/flow.json/configuration)[NextSecurity](/tools/flow-cli/flow.json/security)
 ###### Rate this page
 
 😞😐😊

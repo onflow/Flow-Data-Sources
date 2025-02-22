@@ -9,7 +9,7 @@ Local Development with Flow CLI | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -201,7 +201,7 @@ If you want to continue on generating your own contracts, you can also use the t
 
 After that, it's easy to add your contract to your project configuration using the Flow CLI [`config` commands](/tools/flow-cli/flow.json/manage-configuration).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/flow-cli.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousContract Interaction](/build/getting-started/contract-interaction)[NextSimple Frontend](/build/getting-started/fcl-quickstart)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/flow-cli.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousContract Interaction](/build/getting-started/contract-interaction)[NextSimple Frontend](/build/getting-started/fcl-quickstart)
 ###### Rate this page
 
 😞😐😊

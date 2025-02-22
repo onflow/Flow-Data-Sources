@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/FlowServiceAccount/set_tx_fee_parameters.cdc
 
 ```
-import FlowFees from "FlowFees"
+import "FlowFees"
 
 // This transaction sets the FlowFees parameters
 transaction(surgeFactor: UFix64, inclusionEffortCost: UFix64, executionEffortCost: UFix64) {

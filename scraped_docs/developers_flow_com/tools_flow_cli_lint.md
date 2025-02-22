@@ -9,7 +9,7 @@ Cadence Linter | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
@@ -57,7 +57,7 @@ info
 
 The Cadence Linter is also available in the [Cadence VSCode extension](/tools/vscode-extension), which provides real-time feedback as you write your code.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/lint.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousRunning Cadence Tests](/tools/flow-cli/tests)[NextFlow Interaction Templates (FLIX)](/tools/flow-cli/flix)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/lint.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousRunning Cadence Tests](/tools/flow-cli/tests)[NextFlow Interaction Templates (FLIX)](/tools/flow-cli/flix)
 ###### Rate this page
 
 😞😐😊

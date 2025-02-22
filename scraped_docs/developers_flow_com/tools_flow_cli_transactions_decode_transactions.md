@@ -9,7 +9,7 @@ Build a Complex Transaction | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
@@ -98,7 +98,7 @@ Specify the filename where you want the result to be saved
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/decode-transactions.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousSend Signed Transaction](/tools/flow-cli/transactions/send-signed-transactions)[NextInitialize Configuration](/tools/flow-cli/flow.json/initialize-configuration)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/decode-transactions.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousSend Signed Transaction](/tools/flow-cli/transactions/send-signed-transactions)[NextInitialize Configuration](/tools/flow-cli/flow.json/initialize-configuration)
 ###### Rate this page
 
 😞😐😊

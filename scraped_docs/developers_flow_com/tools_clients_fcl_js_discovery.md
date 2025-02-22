@@ -9,7 +9,7 @@ Wallet Discovery | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
@@ -146,7 +146,7 @@ To learn more about other possible configurations, check out the following links
 
 * [Discovery API Docs](/tools/clients/fcl-js/api#discovery-1)
 * [Discovery Github Repo](https://github.com/onflow/fcl-discovery)
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/discovery.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousHow to Configure FCL](/tools/clients/fcl-js/configure-fcl)[NextInstallation](/tools/clients/fcl-js/installation)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/discovery.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousHow to Configure FCL](/tools/clients/fcl-js/configure-fcl)[NextInstallation](/tools/clients/fcl-js/installation)
 ###### Rate this page
 
 😞😐😊

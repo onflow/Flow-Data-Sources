@@ -9,7 +9,7 @@ Wallets | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Ecosystem](/ecosystem)
 * [Wallets](/ecosystem/wallets)
@@ -34,78 +34,52 @@ Store, manage, and interact securely with tokens and digital assets on Flow. Dis
 
 ## Flow Wallet[​](#flow-wallet "Direct link to Flow Wallet")
 
-[Flow Wallet](https://wallet.flow.com/) is Flow's oldest wallet extension and seamlessly interacts with all Cadence and EVM dApps in the ecosystem.
-
-* <https://wallet.flow.com/>
-* <https://frw.gitbook.io/>
-
-## Dapper Wallet[​](#dapper-wallet "Direct link to Dapper Wallet")
-
-[Dapper Wallet](https://www.meetdapper.com/) is a wallet exceptionally friendly for first time crypto collectors to buy and manage digital assets.
-
-<https://www.meetdapper.com/>
-
-## Ledger[​](#ledger "Direct link to Ledger")
-
-[Ledger](https://www.ledger.com/) is a hardware wallet to secure, buy, exchange, and grow your crypto assets.
-
-<https://www.ledger.com/>
-
-## NuFi[​](#nufi "Direct link to NuFi")
-
-[NuFi](https://nu.fi/) is a non-custodial wallet with staking and Ledger support.
-
-<https://nu.fi/>
-
-## Magic.link[​](#magiclink "Direct link to Magic.link")
-
-[Magic](https://magic.link/) is a developer SDK that integrates with your application to enable passwordless Web3 onboarding (no seed phrases) and authentication using magic links (similar to Slack and Medium).
-
-<https://magic.link/>
-
-## Niftory[​](#niftory "Direct link to Niftory")
-
-[Niftory](https://niftory.com/) is a developer platform that offers APIs to create wallets and interact with NFTs.
-
-<https://niftory.com/>
-
-## Finoa[​](#finoa "Direct link to Finoa")
-
-[Finoa](https://www.finoa.io/) is a platform for institutional investors to safely store and stake their FLOW tokens.
-
-<https://www.finoa.io/flow/>
-
-## Blocto[​](#blocto "Direct link to Blocto")
-
-[Blocto](https://www.blocto.io/) is a cross-chain mobile wallet for IOS and Android devices.
-
-<https://www.blocto.io/>
+[Flow Wallet](https://wallet.flow.com/) is the most popular Flow-native wallet, it sponsors all gas fees for users and interacts seamlessly with both Cadence and EVM dApps in the ecosystem.
 
 ## Metamask Wallet[​](#metamask-wallet "Direct link to Metamask Wallet")
 
 [Metamask](https://metamask.io/) is a secure and user-friendly crypto wallet for NFTs and digital tokens. Presently only supports Flow EVM and cannot access Cadence accounts.
 
-<https://metamask.io/>
+## Dapper Wallet[​](#dapper-wallet "Direct link to Dapper Wallet")
+
+[Dapper Wallet](https://www.meetdapper.com/) is a wallet exceptionally friendly for first time crypto collectors to buy and manage digital assets.
+
+## Ledger[​](#ledger "Direct link to Ledger")
+
+[Ledger](https://www.ledger.com/) is a hardware wallet to secure, buy, exchange, and grow your crypto assets.
+
+## Finoa[​](#finoa "Direct link to Finoa")
+
+[Finoa](https://www.finoa.io/) is a platform for institutional investors to safely store and stake their FLOW tokens.
+
+## Blocto[​](#blocto "Direct link to Blocto")
+
+[Blocto](https://www.blocto.io/) is a cross-chain mobile wallet for IOS and Android devices.
+
+## For Developers[​](#for-developers "Direct link to For Developers")
 
 ## Flow Dev Wallet[​](#flow-dev-wallet "Direct link to Flow Dev Wallet")
 
-Looking for a way to create mock developer wallets to test your app? The [The Flow Dev Wallet](/tools/flow-dev-wallet) simulates the protocols used by [FCL](/tools/clients/fcl-js) to interact with the Flow blockchain on behalf of simulated user accounts.
+[The Flow Dev Wallet](/tools/flow-dev-wallet) simulates the protocols used by [FCL](/tools/clients/fcl-js) to interact with the Flow blockchain on behalf of simulated user accounts.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/wallets.md)Last updated on **Feb 18, 2025** by **Brian Doyle**[PreviousEcosystem](/ecosystem)[NextFlow Block Explorers](/ecosystem/block-explorers)
+## Magic.link[​](#magiclink "Direct link to Magic.link")
+
+[Magic](https://magic.link/) is a developer SDK that integrates with your application to enable passwordless Web3 onboarding (no seed phrases) and authentication using magic links (similar to Slack and Medium).
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/wallets.md)Last updated on **Feb 21, 2025** by **Ali Serag**[PreviousEcosystem](/ecosystem)[NextFlow Block Explorers](/ecosystem/block-explorers)
 ###### Rate this page
 
 😞😐😊
 
 * [Flow Wallet](#flow-wallet)
+* [Metamask Wallet](#metamask-wallet)
 * [Dapper Wallet](#dapper-wallet)
 * [Ledger](#ledger)
-* [NuFi](#nufi)
-* [Magic.link](#magiclink)
-* [Niftory](#niftory)
 * [Finoa](#finoa)
 * [Blocto](#blocto)
-* [Metamask Wallet](#metamask-wallet)
+* [For Developers](#for-developers)
 * [Flow Dev Wallet](#flow-dev-wallet)
+* [Magic.link](#magiclink)
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)

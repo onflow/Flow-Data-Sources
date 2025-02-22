@@ -9,7 +9,7 @@ Flow Dev Wallet | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
@@ -116,7 +116,7 @@ Additionally, consider exploring these resources:
 * [Guide to Creating a Fungible Token on Flow](/build/guides/fungible-token)
 * [Tutorial on Fungible Tokens](https://cadence-lang.org/docs/tutorial/fungible-tokens)
 * [Faucets](/ecosystem/faucets)
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-dev-wallet/index.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousMigration Guide v0.25.0](/tools/clients/flow-go-sdk/migration-v0.25.0)[NextCadence VS Code Extension](/tools/vscode-extension)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-dev-wallet/index.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousMigration Guide v0.25.0](/tools/clients/flow-go-sdk/migration-v0.25.0)[NextCadence VS Code Extension](/tools/vscode-extension)
 ###### Rate this page
 
 😞😐😊

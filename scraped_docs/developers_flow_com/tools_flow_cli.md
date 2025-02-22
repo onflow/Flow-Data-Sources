@@ -9,7 +9,7 @@ Flow CLI | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
@@ -66,7 +66,7 @@ macOS, Linux, and Windows.
 
 To get started with creating your first Flow project and to learn more about how to use the Flow CLI super commands, please refer to the [Super Commands documentation](/tools/flow-cli/super-commands). These commands simplify the setup and development process, allowing you to focus on building your application without worrying about the underlying configurations.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/index.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousError Codes](/tools/error-codes)[NextInstall Instructions](/tools/flow-cli/install)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/index.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousError Codes](/tools/error-codes)[NextInstall Instructions](/tools/flow-cli/install)
 ###### Rate this page
 
 😞😐😊

@@ -9,7 +9,7 @@ Proving Ownership of a Flow Account | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
@@ -163,7 +163,7 @@ data using FCL's provided utility:
 * A successful FCL authentication proves the user fully controls a Flow account. This means the user
   controls one or many account keys with weights that add up to the full account weight. The authentication
   would fail if the user doesn't control keys that add up to a full weight.
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/proving-authentication.mdx)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousInteraction Templates](/tools/clients/fcl-js/interaction-templates)[NextScripts](/tools/clients/fcl-js/scripts)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/proving-authentication.mdx)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousInteraction Templates](/tools/clients/fcl-js/interaction-templates)[NextScripts](/tools/clients/fcl-js/scripts)
 ###### Rate this page
 
 😞😐😊

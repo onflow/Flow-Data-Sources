@@ -9,7 +9,7 @@ Overview | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -90,7 +90,7 @@ Coming soon:
 
 * Samples for key in-app functionality, like in-app purchasing
 * Progressive user onboarding
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/overview.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousCreating a Fungible Token](/build/guides/fungible-token)[NextBuild a Walletless Mobile App (PWA)](/build/guides/mobile/walletless-pwa)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/overview.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousCreating a Fungible Token](/build/guides/fungible-token)[NextBuild a Walletless Mobile App (PWA)](/build/guides/mobile/walletless-pwa)
 ###### Rate this page
 
 😞😐😊

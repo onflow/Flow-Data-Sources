@@ -9,7 +9,7 @@ Height coordinated upgrade (HCU) | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
@@ -82,7 +82,7 @@ At this point, the operator should update the node version to the new node softw
 The block height and the node version will be announced by the Flow team on Discord as well as the [forum page](https://forum.onflow.org/c/mainnet-sporks/36).
 It can also be directly queried from the chain using the following script.
 
- `_10TODO: insert flow cli command here to query the block version details.`[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/hcu.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousNode Providers](/networks/node-ops/node-operation/node-providers)[NextProtocol State Bootstrapping](/networks/node-ops/node-operation/protocol-state-bootstrap)
+ `_10TODO: insert flow cli command here to query the block version details.`[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/hcu.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousNode Providers](/networks/node-ops/node-operation/node-providers)[NextProtocol State Bootstrapping](/networks/node-ops/node-operation/protocol-state-bootstrap)
 ###### Rate this page
 
 😞😐😊

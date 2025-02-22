@@ -9,7 +9,7 @@ Running Cadence Tests | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
@@ -191,7 +191,7 @@ This command will run only the test function named `testSumOfTwo` across all tes
 
 To dive deeper into testing the functionality of your Cadence scripts and contracts, explore the [Cadence Testing Framework](https://cadence-lang.org/docs/testing-framework) documentation.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/tests.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousDependency Manager](/tools/flow-cli/dependency-manager)[NextCadence Linter](/tools/flow-cli/lint)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/tests.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousDependency Manager](/tools/flow-cli/dependency-manager)[NextCadence Linter](/tools/flow-cli/lint)
 ###### Rate this page
 
 😞😐😊

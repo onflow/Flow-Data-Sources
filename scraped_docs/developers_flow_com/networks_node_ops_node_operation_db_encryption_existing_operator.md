@@ -9,7 +9,7 @@ Database Encryption for Existing Node Operators | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
@@ -82,7 +82,7 @@ The bootstrap directory passed to the `-o` flag must be the same bootstrap direc
 The default location is `/var/flow/bootstrap`, but double-check your setup before continuing.
 
 
-GenerateEncryptionKey `_15$./boot-tools/bootstrap db-encryption-key -o ./bootstrap_15<nil> INF generated db encryption key_15<nil> INF wrote file bootstrap/private-root-information/private-node-info_ab6e0b15837de7e5261777cb65665b318cf3f94492dde27c1ea13830e989bbf9secretsdb-key_15_15$tree ./bootstrap/_15./bootstrap_15├── private-root-information_15│ └── private-node-info_ab6e0b15837de7e5261777cb65665b318cf3f94492dde27c1ea13830e989bbf9_15│ ├── node-info.priv.json_15│ └── secretsdb-key_15└── public-root-information_15 ├── node-id_15 └── node-info.pub.ab6e0b15837de7e5261777cb65665b318cf3f94492dde27c1ea13830e989bbf9.json_15_153 directories, 4 files`[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/db-encryption-existing-operator.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousByzantine Attack Response](/networks/node-ops/node-operation/byzantine-node-attack-response)[NextGenesis Bootstrapping](/networks/node-ops/node-operation/guides/genesis-bootstrap)
+GenerateEncryptionKey `_15$./boot-tools/bootstrap db-encryption-key -o ./bootstrap_15<nil> INF generated db encryption key_15<nil> INF wrote file bootstrap/private-root-information/private-node-info_ab6e0b15837de7e5261777cb65665b318cf3f94492dde27c1ea13830e989bbf9secretsdb-key_15_15$tree ./bootstrap/_15./bootstrap_15├── private-root-information_15│ └── private-node-info_ab6e0b15837de7e5261777cb65665b318cf3f94492dde27c1ea13830e989bbf9_15│ ├── node-info.priv.json_15│ └── secretsdb-key_15└── public-root-information_15 ├── node-id_15 └── node-info.pub.ab6e0b15837de7e5261777cb65665b318cf3f94492dde27c1ea13830e989bbf9.json_15_153 directories, 4 files`[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/db-encryption-existing-operator.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousByzantine Attack Response](/networks/node-ops/node-operation/byzantine-node-attack-response)[NextGenesis Bootstrapping](/networks/node-ops/node-operation/guides/genesis-bootstrap)
 ###### Rate this page
 
 😞😐😊

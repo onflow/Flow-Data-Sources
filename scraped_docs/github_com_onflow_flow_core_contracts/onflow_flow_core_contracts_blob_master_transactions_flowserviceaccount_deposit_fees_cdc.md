@@ -1,9 +1,9 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/FlowServiceAccount/deposit_fees.cdc
 
 ```
-import FungibleToken from "FungibleToken"
-import FlowToken from "FlowToken"
-import FlowFees from "FlowFees"
+import "FungibleToken"
+import "FlowToken"
+import "FlowFees"
 
 // Deposit tokens to the FlowFees Vault
 // only for testing

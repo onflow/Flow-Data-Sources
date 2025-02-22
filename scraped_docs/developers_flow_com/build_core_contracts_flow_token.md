@@ -9,7 +9,7 @@ Flow Token Contract | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -180,7 +180,7 @@ Event that is emitted when a new burner Resource gets created.
 
 To learn more about staking events, read [staking/events/](/networks/staking/staking-scripts-events)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/03-flow-token.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousFungible Token](/build/core-contracts/fungible-token)[NextService Account](/build/core-contracts/service-account)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/03-flow-token.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousFungible Token](/build/core-contracts/fungible-token)[NextService Account](/build/core-contracts/service-account)
 ###### Rate this page
 
 😞😐😊

@@ -9,7 +9,7 @@ Epoch Preparation Protocol | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
@@ -300,7 +300,7 @@ Consensus
 See the [epoch scripts and events document](/networks/staking/epoch-scripts-events#introduction) for detailed documentation about
 you can use scripts events to learn information about the state of the epoch contracts.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/04-epoch-preparation.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousEpoch and Reward Schedule](/networks/staking/schedule)[NextStake Slashing](/networks/staking/stake-slashing)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/04-epoch-preparation.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousEpoch and Reward Schedule](/networks/staking/schedule)[NextStake Slashing](/networks/staking/stake-slashing)
 ###### Rate this page
 
 😞😐😊

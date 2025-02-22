@@ -9,7 +9,7 @@ Flow Port Staking Guide | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
@@ -163,7 +163,7 @@ Input the amount that you want to withdraw to your wallet, acknowledge the trans
 
 Once the transition is processed, you can now see the withdrawn rewards in your balance and you are now free to do other actions with them (send them to other accounts, delegate to a node, etc).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-port/staking-guide.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousFlow Port](/networks/flow-port)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-port/staking-guide.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousFlow Port](/networks/flow-port)
 ###### Rate this page
 
 😞😐😊

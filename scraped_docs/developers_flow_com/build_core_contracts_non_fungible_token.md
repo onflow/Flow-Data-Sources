@@ -9,7 +9,7 @@ Non-Fungible Token Contract | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -149,7 +149,7 @@ the NFT to update any stored information they have about the NFT in their databa
 * `owner: Address?`: The address of the account that owns the Collection that owns
   the token. If the collection is not stored in an account, `to` will be `nil`.
   + Example: `0x4445e7ad11568276`
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/08-non-fungible-token.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousEpoch Contracts](/build/core-contracts/epoch-contract-reference)[NextNFT Metadata](/build/core-contracts/nft-metadata)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/08-non-fungible-token.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousEpoch Contracts](/build/core-contracts/epoch-contract-reference)[NextNFT Metadata](/build/core-contracts/nft-metadata)
 ###### Rate this page
 
 😞😐😊

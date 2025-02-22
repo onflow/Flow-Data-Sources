@@ -9,7 +9,7 @@ Flow Client Library (FCL) | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
@@ -169,7 +169,7 @@ Discuss FCL with the community on the [forum](https://forum.onflow.org/c/develop
 
 Join the Flow community on [Discord](https://discord.gg/flow) to keep up to date and to talk to the team.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/index.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousClients](/tools/clients)[NextFCL Reference](/tools/clients/fcl-js/api)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/index.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousClients](/tools/clients)[NextFCL Reference](/tools/clients/fcl-js/api)
 ###### Rate this page
 
 😞😐😊

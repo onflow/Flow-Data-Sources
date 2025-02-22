@@ -9,7 +9,7 @@ Security | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
@@ -106,7 +106,7 @@ Example `.env` file:
 
 You can merge multiple configuration files like so:
 
- `_10flow project deploy -f main.json -f private.json`[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flow.json/security.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousManage Configuration](/tools/flow-cli/flow.json/manage-configuration)[NextGet Block](/tools/flow-cli/get-flow-data/get-blocks)
+ `_10flow project deploy -f main.json -f private.json`[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flow.json/security.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousManage Configuration](/tools/flow-cli/flow.json/manage-configuration)[NextGet Block](/tools/flow-cli/get-flow-data/get-blocks)
 ###### Rate this page
 
 😞😐😊

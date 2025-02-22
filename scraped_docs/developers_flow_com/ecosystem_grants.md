@@ -9,7 +9,7 @@ Grants | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Ecosystem](/ecosystem)
 * [Wallets](/ecosystem/wallets)
@@ -46,7 +46,7 @@ We are particularly interested in projects across these key areas:
 1. Visit the [Flow Developer Grants Repository](https://github.com/onflow/developer-grants)
 2. Create a new issue using the "Grant Application" template
 3. Fill out all required details about your project
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/grants.md)Last updated on **Feb 13, 2025** by **bz**[PreviousFaucets](/ecosystem/faucets)[NextHackathons](/ecosystem/hackathons)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/grants.md)Last updated on **Feb 14, 2025** by **bz**[PreviousFaucets](/ecosystem/faucets)[NextHackathons](/ecosystem/hackathons)
 ###### Rate this page
 
 😞😐😊

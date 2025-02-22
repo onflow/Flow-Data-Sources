@@ -9,7 +9,7 @@ Faucets | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Ecosystem](/ecosystem)
 * [Wallets](/ecosystem/wallets)
@@ -102,7 +102,7 @@ If you plan on using your flow.json in a production environment, you'll want to 
 
 After adding your account to your `flow.json` file, you're ready to use your account in your project. You can now deploy contracts, run transactions, and interact with the Flow blockchain using your new account.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/faucets.md)Last updated on **Feb 13, 2025** by **bz**[PreviousVCs & Funds](/ecosystem/vcs-and-funds)[NextGrants](/ecosystem/grants)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/faucets.md)Last updated on **Feb 14, 2025** by **bz**[PreviousVCs & Funds](/ecosystem/vcs-and-funds)[NextGrants](/ecosystem/grants)
 ###### Rate this page
 
 😞😐😊

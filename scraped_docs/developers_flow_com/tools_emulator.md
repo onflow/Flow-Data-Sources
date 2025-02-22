@@ -9,7 +9,7 @@ Flow Emulator | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
@@ -43,7 +43,7 @@ Follow [these steps](/tools/flow-cli/install) to install the Flow CLI on macOS, 
 To learn more about using the Emulator,
 have a look at [the README of the repository](https://github.com/onflow/flow-emulator/#starting-the-server).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/emulator/index.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousData Collection](/tools/flow-cli/data-collection)[NextClients](/tools/clients)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/emulator/index.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousData Collection](/tools/flow-cli/data-collection)[NextClients](/tools/clients)
 ###### Rate this page
 
 😞😐😊

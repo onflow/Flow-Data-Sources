@@ -9,7 +9,7 @@ Testing Your Contracts | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -201,7 +201,7 @@ Get familiar with the [Cadence anti-patterns](https://cadence-lang.org/docs/anti
   + [hybrid-custody](https://github.com/onflow/hybrid-custody/tree/main/test),
   + [flow-nft](https://github.com/onflow/flow-nft/tree/master/tests),
   + [flow-ft](https://github.com/onflow/flow-ft/tree/master/tests).
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/testing.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousDeploying Contracts](/build/smart-contracts/deploying)[NextSecurity Best Practices](/build/smart-contracts/best-practices/security-best-practices)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/testing.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousDeploying Contracts](/build/smart-contracts/deploying)[NextSecurity Best Practices](/build/smart-contracts/best-practices/security-best-practices)
 ###### Rate this page
 
 😞😐😊

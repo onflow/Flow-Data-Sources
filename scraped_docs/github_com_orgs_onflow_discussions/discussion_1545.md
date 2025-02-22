@@ -330,7 +330,9 @@ Aliserag](/Aliserag)
 
 Jan 31, 2025
 ·
-1 comment
+1 comments
+·
+1 reply
 
 
 
@@ -421,7 +423,7 @@ All reactions
 
 
 
-## Replies: 1 comment
+## Replies: 1 comment · 1 reply
 
 
 * [Oldest](/orgs/onflow/discussions/1545?sort=old)
@@ -498,7 +500,77 @@ All reactions
 
 
 
-0 replies
+1 reply
+
+
+
+
+
+
+[![@Aliserag](https://avatars.githubusercontent.com/u/11467748?s=60&v=4)](/Aliserag)
+ 
+
+
+Comment options
+
+
+
+
+
+
+# {{title}}
+
+
+
+
+
+ 
+
+
+
+
+Something went wrong.
+
+
+
+
+
+
+
+ 
+Quote reply
+
+
+
+
+
+
+#### [Aliserag](/Aliserag) [Feb 21, 2025](#discussioncomment-12269914) Collaborator Author
+
+
+
+ -
+ 
+
+
+| Plan to go live with the first curated perks soon, keep posted ;) |
+| --- |
+
+Beta
+Was this translation helpful?
+[Give feedback.](#)
+
+
+ 
+All reactions
+
+
+
+
+
+
+
+
 
 
 

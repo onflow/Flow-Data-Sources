@@ -9,7 +9,7 @@ Flow Testnet | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Flow Networks](/networks/flow-networks)
   + [Mainnet](/networks/flow-networks/accessing-mainnet)
@@ -62,7 +62,7 @@ Accounts and tokens for testing can be obtained through the [testnet faucet](htt
 
 You can review [all available core contracts](/build/core-contracts) deployed to the Testnet to identify which ones you want to import.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-networks/accessing-testnet.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousMainnet](/networks/flow-networks/accessing-mainnet)[NextNetworks](/networks)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-networks/accessing-testnet.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousMainnet](/networks/flow-networks/accessing-mainnet)[NextNetworks](/networks)
 ###### Rate this page
 
 😞😐😊

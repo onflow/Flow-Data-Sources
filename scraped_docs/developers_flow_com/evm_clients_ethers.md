@@ -9,7 +9,7 @@ Ethers.js on Flow Blockchain | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Why EVM on Flow](/evm/about)
 * [How it Works](/evm/how-it-works)
@@ -86,7 +86,7 @@ For contracts that require writing, you'll need to provide a `Signer` object ins
 
 After setting up your `Contract` object, you can call methods on the smart contract as needed:
 
- `_10async function setValue(value) {_10 const tx = await contract.set(value);_10 console.log(tx.hash);_10}_10_10async function getValue() {_10 const value = await contract.get();_10 console.log(value.toString());_10}`[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/clients/ethers.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousVRF (Randomness) in Solidity](/evm/guides/vrf)[NextWeb3.js](/evm/clients/web3-js)
+ `_10async function setValue(value) {_10 const tx = await contract.set(value);_10 console.log(tx.hash);_10}_10_10async function getValue() {_10 const value = await contract.get();_10 console.log(value.toString());_10}`[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/clients/ethers.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousVRF (Randomness) in Solidity](/evm/guides/vrf)[NextWeb3.js](/evm/clients/web3-js)
 ###### Rate this page
 
 😞😐😊

@@ -9,7 +9,7 @@ Account Abstraction | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -85,7 +85,7 @@ These improvements are especially notable on mobile, where users are typically m
 | --- | --- |
 | Developers can build new features that streamline the user experience of Web3 apps, such as 'session keys' that pre-approve transactions for a period of time or setting custom limits on transaction volume or network fees. | Since all accounts are smart contracts, Flow has support for these new controls that enable apps to sign pre-approved transactions based on user controls and preferences. |
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/account-abstraction.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousDevelopment Standards](/build/smart-contracts/best-practices/project-development-tips)[NextFLIX (Flow Interaction Templates)](/build/advanced-concepts/flix)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/account-abstraction.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousDevelopment Standards](/build/smart-contracts/best-practices/project-development-tips)[NextFLIX (Flow Interaction Templates)](/build/advanced-concepts/flix)
 ###### Rate this page
 
 😞😐😊

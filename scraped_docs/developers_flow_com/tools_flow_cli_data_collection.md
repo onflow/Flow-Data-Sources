@@ -9,7 +9,7 @@ Data Collection | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
@@ -67,7 +67,7 @@ section of <https://help.mixpanel.com/hc/en-us/articles/115004613766-Default-Pro
 Please note that although Mixpanel's page above mentions that geolocation properties are recorded by default,
 we have turned off geolocation data reporting to Mixpanel.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/data-collection.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousCadence Boilerplate](/tools/flow-cli/boilerplate)[NextFlow Emulator](/tools/emulator)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/data-collection.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousCadence Boilerplate](/tools/flow-cli/boilerplate)[NextFlow Emulator](/tools/emulator)
 ###### Rate this page
 
 😞😐😊

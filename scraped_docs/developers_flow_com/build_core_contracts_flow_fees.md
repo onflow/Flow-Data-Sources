@@ -9,7 +9,7 @@ Flow Fees Contract | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -76,7 +76,7 @@ Source: [FlowStorageFees.cdc](https://github.com/onflow/flow-core-contracts/blob
 
 Important events for `FlowStorageFees` are:
 
- `_10// Emitted when the amount of storage capacity an account has per reserved Flow token changes_10access(all) event StorageMegaBytesPerReservedFLOWChanged(_ storageMegaBytesPerReservedFLOW: UFix64)_10_10// Emitted when the minimum amount of Flow tokens that an account needs to have reserved for storage capacity changes._10access(all) event MinimumStorageReservationChanged(_ minimumStorageReservation: UFix64)`[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/05-flow-fees.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousService Account](/build/core-contracts/service-account)[NextStaking Table](/build/core-contracts/staking-contract-reference)
+ `_10// Emitted when the amount of storage capacity an account has per reserved Flow token changes_10access(all) event StorageMegaBytesPerReservedFLOWChanged(_ storageMegaBytesPerReservedFLOW: UFix64)_10_10// Emitted when the minimum amount of Flow tokens that an account needs to have reserved for storage capacity changes._10access(all) event MinimumStorageReservationChanged(_ minimumStorageReservation: UFix64)`[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/05-flow-fees.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousService Account](/build/core-contracts/service-account)[NextStaking Table](/build/core-contracts/staking-contract-reference)
 ###### Rate this page
 
 😞😐😊

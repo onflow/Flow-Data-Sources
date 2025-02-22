@@ -9,7 +9,7 @@ Ecosystem | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Ecosystem](/ecosystem)
 * [Wallets](/ecosystem/wallets)
@@ -57,7 +57,7 @@ Get the Flow Down is a curated collection of the best Flow blockchain tools, tut
 
 Engage with the Flow community, discuss ideas, and seek support on the Flow Blockchain Forum.](https://forum.onflow.org/)[## 📜FLIPs
 
-Flow Improvement Proposals (FLIPs) serve as a platform for engaging the Flow community in development, harnessing the collective ideas, insights, and expertise of contributors and experts while ensuring widespread communication of design changes.](https://github.com/onflow/flips)[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/index.mdx)Last updated on **Feb 6, 2025** by **Brian Doyle**[NextWallets](/ecosystem/wallets)Documentation
+Flow Improvement Proposals (FLIPs) serve as a platform for engaging the Flow community in development, harnessing the collective ideas, insights, and expertise of contributors and experts while ensuring widespread communication of design changes.](https://github.com/onflow/flips)[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/index.mdx)Last updated on **Feb 7, 2025** by **Josh Hannan**[NextWallets](/ecosystem/wallets)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)

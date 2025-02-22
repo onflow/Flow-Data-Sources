@@ -9,7 +9,7 @@ User Signature | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
@@ -113,7 +113,7 @@ The signature can now be verified on the Flow blockchain. The following illustra
 * On receipt of message, prompt user to approve or decline
 * Prepend `UserDomainTag`, hash and sign the message with the signatureAlgorithm specified on user's key
 * Return a standard `PollingResponse` with an array of `CompositeSignatures` as data or `null` and `reason` if declined
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/user-signature.md)Last updated on **Feb 5, 2025** by **Brian Doyle**[PreviousProvable Authn](/tools/wallet-provider-spec/provable-authn)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/user-signature.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousProvable Authn](/tools/wallet-provider-spec/provable-authn)
 ###### Rate this page
 
 😞😐😊

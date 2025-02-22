@@ -9,7 +9,7 @@ Network Upgrade (Spork) Process | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
@@ -113,7 +113,7 @@ See [Node Bootstrap](/networks/node-ops/node-operation/node-bootstrap) for detai
 
 This error is OK. Your fellow node operators have not turned on/joined the network yet. So no need to worry about it!
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/spork.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousPast Spork Info](/networks/node-ops/node-operation/past-sporks)[NextUpcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/spork.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousPast Spork Info](/networks/node-ops/node-operation/past-sporks)[NextUpcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 ###### Rate this page
 
 😞😐😊

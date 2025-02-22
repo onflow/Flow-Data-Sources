@@ -9,7 +9,7 @@ User safety | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
@@ -40,7 +40,7 @@ Flow’s multi-role architecture provides censorship & MEV resistance by design:
 
 ![mev_protection](/assets/images/mev_protection_in_flow-cb8116a0c2f0defaf2ec9bed7c552eb6.png)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/network-architecture/user-safety.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousSustainability](/networks/network-architecture/sustainability)[NextStaking and Epochs](/networks/staking)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/network-architecture/user-safety.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousSustainability](/networks/network-architecture/sustainability)[NextStaking and Epochs](/networks/staking)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)

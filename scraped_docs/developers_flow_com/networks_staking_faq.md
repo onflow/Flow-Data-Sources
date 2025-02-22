@@ -9,7 +9,7 @@ Staking FAQ | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
@@ -113,7 +113,7 @@ and they can be moved to different accounts if the owner chooses.
 It is possible to query the information about a node that an address runs though, by using the
 `get_node_info_from_address.cdc` script.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/12-faq.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousMachine Account](/networks/staking/machine-account)[NextTechnical Staking Options](/networks/staking/staking-options)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/12-faq.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousMachine Account](/networks/staking/machine-account)[NextTechnical Staking Options](/networks/staking/staking-options)
 ###### Rate this page
 
 😞😐😊

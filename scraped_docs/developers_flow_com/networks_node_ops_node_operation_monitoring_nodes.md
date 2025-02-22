@@ -9,7 +9,7 @@ Monitoring Node Health | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
@@ -111,7 +111,7 @@ When the machine account has a configuration error:
 
 The metrics include the account address of the machine account (`acct_address` label) for convenience:
 
- `_10# HELP machine_account_balance the last observed balance of this node's machine account, in units of FLOW_10# TYPE machine_account_balance gauge_10machine_account_balance{acct_address="7b16b57ae0a3c6aa"} 9.99464935`[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/monitoring-nodes.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousMachine Accounts for Existing Node Operators](/networks/node-ops/node-operation/machine-existing-operator)[NextNode Bootstrapping](/networks/node-ops/node-operation/node-bootstrap)
+ `_10# HELP machine_account_balance the last observed balance of this node's machine account, in units of FLOW_10# TYPE machine_account_balance gauge_10machine_account_balance{acct_address="7b16b57ae0a3c6aa"} 9.99464935`[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/monitoring-nodes.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousMachine Accounts for Existing Node Operators](/networks/node-ops/node-operation/machine-existing-operator)[NextNode Bootstrapping](/networks/node-ops/node-operation/node-bootstrap)
 ###### Rate this page
 
 😞😐😊

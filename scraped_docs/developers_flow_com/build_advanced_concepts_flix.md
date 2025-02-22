@@ -9,7 +9,7 @@ FLIX (Flow Interaction Templates) | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -90,7 +90,7 @@ There are currently two clients that have integrated with FLIX that you can use:
 
 Flow provides an implementation of the Flow interaction template service as an open-source project. If you wish to run your own API, you can find the repository here: <https://github.com/onflow/flow-interaction-template-service>
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/flix.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousAccount Abstraction](/build/advanced-concepts/account-abstraction)[NextNFT Metadata Views](/build/advanced-concepts/metadata-views)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/flix.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousAccount Abstraction](/build/advanced-concepts/account-abstraction)[NextNFT Metadata Views](/build/advanced-concepts/metadata-views)
 ###### Rate this page
 
 😞😐😊

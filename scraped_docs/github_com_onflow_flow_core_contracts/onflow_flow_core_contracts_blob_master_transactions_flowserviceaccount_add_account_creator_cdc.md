@@ -1,7 +1,7 @@
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/FlowServiceAccount/add_account_creator.cdc
 
 ```
-import FlowServiceAccount from "FlowServiceAccount"
+import "FlowServiceAccount"
 
 // This transaction adds a new account crerator
 transaction(accountCreator: Address) {

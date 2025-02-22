@@ -9,7 +9,7 @@ Quorum Certificate and Distributed Key Generation | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
@@ -181,7 +181,7 @@ transaction with the following arguments.
 See the [QC and DKG events and scripts document](/networks/staking/qc-dkg-scripts-events) for information
 about the events that can be emitted by these contracts and scripts you can use to query information.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/09-qc-dkg.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousHow to Query Staking rewards](/networks/staking/staking-rewards)[NextQC/DKG Scripts and Events](/networks/staking/qc-dkg-scripts-events)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/09-qc-dkg.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousHow to Query Staking rewards](/networks/staking/staking-rewards)[NextQC/DKG Scripts and Events](/networks/staking/qc-dkg-scripts-events)
 ###### Rate this page
 
 😞😐😊
