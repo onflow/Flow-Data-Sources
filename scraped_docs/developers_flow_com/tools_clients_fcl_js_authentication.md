@@ -9,7 +9,7 @@ Authentication | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
@@ -72,7 +72,7 @@ The [Quick Start](/build/getting-started/fcl-quickstart) guide will walk you thr
 
 We know this can all be fairly overwhelming, we are committed to help though. If you run into any problems, reach out to us on [Discord](https://discord.gg/flow), we are more than happy to help out.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/authentication.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousSDK Reference](/tools/clients/fcl-js/sdk-guidelines)[NextHow to Configure FCL](/tools/clients/fcl-js/configure-fcl)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/authentication.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousSDK Reference](/tools/clients/fcl-js/sdk-guidelines)[NextHow to Configure FCL](/tools/clients/fcl-js/configure-fcl)
 ###### Rate this page
 
 😞😐😊

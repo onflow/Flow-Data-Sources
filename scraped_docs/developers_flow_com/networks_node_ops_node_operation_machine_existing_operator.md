@@ -9,7 +9,7 @@ Machine Accounts for Existing Node Operators | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
@@ -120,7 +120,7 @@ CheckMachineAccount `_10$ ./boot-tools/bootstrap check-machine-account --access-
 
 This command will detect and provide information about common misconfigurations, or confirm that the machine account is configured correctly.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/machine-existing-operator.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousStarting Your Nodes](/networks/node-ops/node-operation/guides/starting-nodes)[NextNode Monitoring](/networks/node-ops/node-operation/monitoring-nodes)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/machine-existing-operator.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousStarting Your Nodes](/networks/node-ops/node-operation/guides/starting-nodes)[NextNode Monitoring](/networks/node-ops/node-operation/monitoring-nodes)
 ###### Rate this page
 
 😞😐😊

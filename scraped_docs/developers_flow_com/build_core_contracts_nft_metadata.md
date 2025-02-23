@@ -9,7 +9,7 @@ NFT Metadata Contract | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -63,7 +63,7 @@ To optimize your NFT collections for this catalog, you'll need to:
 1. Update your NFT contract to support `ViewResolver` and `MetadataViews` with implementation of the [core NFT views](/build/advanced-concepts/metadata-views).
 2. Deploy the updated contract to both testnet and mainnet.
 3. Afterwards, onboard your NFT to the Flow NFT catalog at <https://flow-nft-catalog.com>.
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/09-nft-metadata.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousNon-Fungible Token](/build/core-contracts/non-fungible-token)[NextNFT Storefront](/build/core-contracts/nft-storefront)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/09-nft-metadata.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousNon-Fungible Token](/build/core-contracts/non-fungible-token)[NextNFT Storefront](/build/core-contracts/nft-storefront)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)

@@ -9,7 +9,7 @@ Build a Transaction | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
@@ -226,7 +226,7 @@ files by using `-f` flag multiple times.
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/build-transactions.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousGet a Transaction](/tools/flow-cli/transactions/get-transactions)[NextBuild a Complex Transaction](/tools/flow-cli/transactions/complex-transactions)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/build-transactions.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousGet a Transaction](/tools/flow-cli/transactions/get-transactions)[NextBuild a Complex Transaction](/tools/flow-cli/transactions/complex-transactions)
 ###### Rate this page
 
 😞😐😊

@@ -9,7 +9,7 @@ Flow Client Library (FCL) | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
@@ -64,11 +64,11 @@ To use the FCL JS in your application, install using **yarn** or **npm**
 
 **ES6**
 
- `_10import * as fcl from "@onflow/fcl";`
+ `_10import * as fcl from '@onflow/fcl';`
 
 **Node.js**
 
- `_10const fcl = require("@onflow/fcl");`
+ `_10const fcl = require('@onflow/fcl');`
 
 ---
 
@@ -79,7 +79,7 @@ To use the FCL JS in your application, install using **yarn** or **npm**
 * *Wallet Discovery* and *Sign-up/Login*: Onboard users with ease. Never worry about supporting multiple wallets.
   Authenticate users with any [FCL compatible wallet](/tools/clients/fcl-js#current-wallet-providers).
 
- `_10// in the browser_10import * as fcl from "@onflow/fcl"_10_10fcl.config({_10 "discovery.wallet": "https://fcl-discovery.onflow.org/testnet/authn", // Endpoint set to Testnet_10})_10_10fcl.authenticate()`
+ `_10// in the browser_10import * as fcl from '@onflow/fcl';_10_10fcl.config({_10 'discovery.wallet': 'https://fcl-discovery.onflow.org/testnet/authn', // Endpoint set to Testnet_10});_10_10fcl.authenticate();`
 
 ![FCL Default Discovery UI](/assets/images/discovery-c2c95d28a66e86c570491a36e37e0afa.png)
 
@@ -94,11 +94,11 @@ To use the FCL JS in your application, install using **yarn** or **npm**
 
 * *Query the chain*: Send arbitrary Cadence scripts to the chain and receive back decoded values
 
- `_16import * as fcl from "@onflow/fcl";_16_16const result = await fcl.query({_16 cadence: `_16 access(all) fun main(a: Int, b: Int, addr: Address): Int {_16 log(addr)_16 return a + b_16 }_16 `,_16 args: (arg, t) => [_16 arg(7, t.Int), // a: Int_16 arg(6, t.Int), // b: Int_16 arg("0xba1132bc08f82fe2", t.Address), // addr: Address_16 ],_16});_16console.log(result); // 13`
+ `_16import * as fcl from '@onflow/fcl';_16_16const result = await fcl.query({_16 cadence: `_16 access(all) fun main(a: Int, b: Int, addr: Address): Int {_16 log(addr)_16 return a + b_16 }_16 `,_16 args: (arg, t) => [_16 arg(7, t.Int), // a: Int_16 arg(6, t.Int), // b: Int_16 arg('0xba1132bc08f82fe2', t.Address), // addr: Address_16 ],_16});_16console.log(result); // 13`
 
 * *Mutate the chain*: Send arbitrary transactions with your own signatures or via a user's wallet to perform state changes on chain.
 
- `_14import * as fcl from "@onflow/fcl";_14// in the browser, FCL will automatically connect to the user's wallet to request signatures to run the transaction_14const txId = await fcl.mutate({_14 cadence: `_14 import Profile from 0xba1132bc08f82fe2_14 _14 transaction(name: String) {_14 prepare(account: auth(BorrowValue) &Account) {_14 account.storage.borrow<&{Profile.Owner}>(from: Profile.privatePath)!.setName(name)_14 }_14 }_14 `,_14 args: (arg, t) => [arg("myName", t.String)],_14});`
+ `_14import * as fcl from '@onflow/fcl';_14// in the browser, FCL will automatically connect to the user's wallet to request signatures to run the transaction_14const txId = await fcl.mutate({_14 cadence: `_14 import Profile from 0xba1132bc08f82fe2_14 _14 transaction(name: String) {_14 prepare(account: auth(BorrowValue) &Account) {_14 account.storage.borrow<&{Profile.Owner}>(from: Profile.privatePath)!.setName(name)_14 }_14 }_14 `,_14 args: (arg, t) => [arg('myName', t.String)],_14});`
 
 [Learn more about on-chain interactions >](/tools/clients/fcl-js/api#on-chain-interactions)
 
@@ -137,12 +137,11 @@ The communication channels involve responding to a set of pre-defined FCL messag
 
 ### Current Wallet Providers[​](#current-wallet-providers "Direct link to Current Wallet Providers")
 
-* [Blocto](https://blocto.portto.io/en/)
-* [Ledger](https://ledger.com) (limited transaction support)
+* [Flow Wallet](https://wallet.flow.com/)
 * [Dapper Wallet](https://www.meetdapper.com/)
-* [Lilico](https://lilico.app/)
-* [Flipper](https://flipper.org/)
+* [Blocto](https://blocto.portto.io/en/)
 * [NuFi](https://nu.fi)
+* [Ledger](https://ledger.com) (limited transaction support)
 
 ### Wallet Discovery[​](#wallet-discovery "Direct link to Wallet Discovery")
 
@@ -169,7 +168,7 @@ Discuss FCL with the community on the [forum](https://forum.onflow.org/c/develop
 
 Join the Flow community on [Discord](https://discord.gg/flow) to keep up to date and to talk to the team.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/index.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousClients](/tools/clients)[NextFCL Reference](/tools/clients/fcl-js/api)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/index.md)Last updated on **Feb 22, 2025** by **bz**[PreviousClients](/tools/clients)[NextFCL Reference](/tools/clients/fcl-js/api)
 ###### Rate this page
 
 😞😐😊

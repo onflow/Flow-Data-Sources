@@ -9,7 +9,7 @@ Learn Cadence ↗️ | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -32,7 +32,7 @@ Learn Cadence ↗️ | Flow Developer Portal
 * Learn Cadence ↗️
 # Learn Cadence ↗️
 
-;[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/learn-cadence.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousApp Architecture](/build/app-architecture)[NextSmart Contracts on Flow](/build/smart-contracts/overview)Documentation
+;[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/learn-cadence.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousApp Architecture](/build/app-architecture)[NextSmart Contracts on Flow](/build/smart-contracts/overview)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)

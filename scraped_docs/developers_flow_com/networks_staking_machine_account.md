@@ -9,7 +9,7 @@ Machine Account | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
@@ -79,7 +79,7 @@ We recommend a minimum balance at all times of 0.002 FLOW for collection nodes a
 
 A node operator can easily withdraw their FLOW from their machine account if they decide they don't need them there any more.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/11-machine-account.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousQC/DKG Scripts and Events](/networks/staking/qc-dkg-scripts-events)[NextFAQs](/networks/staking/faq)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/11-machine-account.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousQC/DKG Scripts and Events](/networks/staking/qc-dkg-scripts-events)[NextFAQs](/networks/staking/faq)
 ###### Rate this page
 
 😞😐😊

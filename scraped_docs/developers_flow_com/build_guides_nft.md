@@ -9,7 +9,7 @@ Creating an NFT Contract | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -423,7 +423,7 @@ Congrats, you did it! You're now ready to launch the next fun NFT project on Flo
   that all projects should use for handling the destruction of any resource.
 * For a deeper dive into `MetadataViews`, consult the [introduction guide](/build/advanced-concepts/metadata-views) or [the FLIP that introduced this feature](https://github.com/onflow/flips/blob/main/application/20210916-nft-metadata.md).
 * Use a [no code tool for creating NFT projects on Flow](https://www.touchstone.city/)
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/nft.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousMore Guides](/build/guides/more-guides)[NextCreating a Fungible Token](/build/guides/fungible-token)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/nft.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousMore Guides](/build/guides/more-guides)[NextCreating a Fungible Token](/build/guides/fungible-token)
 ###### Rate this page
 
 😞😐😊

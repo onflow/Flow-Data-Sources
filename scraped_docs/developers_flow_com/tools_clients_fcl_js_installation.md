@@ -9,7 +9,7 @@ Installation | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
@@ -65,7 +65,7 @@ Install FCL JS using **npm** or **yarn**
 
 **Node.js**
 
- `_10const fcl = require("@onflow/fcl");`[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/installation.mdx)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousWallet Discovery](/tools/clients/fcl-js/discovery)[NextInteraction Templates](/tools/clients/fcl-js/interaction-templates)
+ `_10const fcl = require("@onflow/fcl");`[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/installation.mdx)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousWallet Discovery](/tools/clients/fcl-js/discovery)[NextInteraction Templates](/tools/clients/fcl-js/interaction-templates)
 ###### Rate this page
 
 😞😐😊

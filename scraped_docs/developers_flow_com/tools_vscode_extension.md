@@ -9,7 +9,7 @@ Cadence VS Code Extension | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
@@ -80,7 +80,7 @@ script `_10code --install-extension cadence-*.vsix`
 
 Restart VS Code and the extension should be installed!
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/vscode-extension/index.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousFlow Dev Wallet](/tools/flow-dev-wallet)[NextUse Cursor AI](/tools/vscode-extension/cursor)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/vscode-extension/index.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousFlow Dev Wallet](/tools/flow-dev-wallet)[NextUse Cursor AI](/tools/vscode-extension/cursor)
 ###### Rate this page
 
 😞😐😊

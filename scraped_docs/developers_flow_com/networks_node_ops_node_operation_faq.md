@@ -9,7 +9,7 @@ Operator FAQ | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
@@ -110,7 +110,7 @@ these connections as file descriptors, and uses soft and hard limits to control 
 to manage how many connections it will open and accept from other nodes. If the limit is too low, the node will not be able to communicate
 with its peers, preventing it from functioning properly.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/faq.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousLight Node Setup](/networks/node-ops/light-nodes/observer-node)[NextByzantine Attack Response](/networks/node-ops/node-operation/byzantine-node-attack-response)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/faq.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousLight Node Setup](/networks/node-ops/light-nodes/observer-node)[NextByzantine Attack Response](/networks/node-ops/node-operation/byzantine-node-attack-response)
 ###### Rate this page
 
 😞😐😊

@@ -9,7 +9,7 @@ Past Spork Info | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
@@ -965,7 +965,7 @@ While FCL v0.0.67 is not strictly necessary to use Mainnet 6, we strongly recomm
 | **Branch/Tag**: v0.12.1 |
 | **Docker Image Tag**: v0.12.1 |
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/past-sporks.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousNode Setup](/networks/node-ops/node-operation/node-setup)[NextNetwork Upgrade (Spork) Process](/networks/node-ops/node-operation/spork)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/past-sporks.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousNode Setup](/networks/node-ops/node-operation/node-setup)[NextNetwork Upgrade (Spork) Process](/networks/node-ops/node-operation/spork)
 ###### Rate this page
 
 😞😐😊

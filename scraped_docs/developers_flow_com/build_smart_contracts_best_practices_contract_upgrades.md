@@ -9,7 +9,7 @@ Contract Upgrades with Incompatible Changes | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -63,7 +63,7 @@ If you absolutely must keep the old address when making an incompatible upgrade,
 
 ⚠️ Note that if any user accounts contain `structs` or `resources` from the *old* version of the contract that have been replaced with incompatible versions in the new one, **they will not load and will cause transactions that attempt to access them to crash**. For this reason, once any users have received `structs` or `resources` from the contract, this method of making an incompatible upgrade should not be attempted!
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/best-practices/contract-upgrades.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousSecurity Best Practices](/build/smart-contracts/best-practices/security-best-practices)[NextDevelopment Standards](/build/smart-contracts/best-practices/project-development-tips)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/best-practices/contract-upgrades.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousSecurity Best Practices](/build/smart-contracts/best-practices/security-best-practices)[NextDevelopment Standards](/build/smart-contracts/best-practices/project-development-tips)
 ###### Rate this page
 
 😞😐😊

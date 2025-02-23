@@ -9,7 +9,7 @@ Upcoming Sporks | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
@@ -85,7 +85,7 @@ The following are the upcoming Spork dates. These dates indicate the intention t
 | April 7, 2021 | [Mainnet 7](/networks/node-ops/node-operation/past-sporks#mainnet-7) | March 30, 2021 —> March 31, 2021 | Devnet21 |
 | March 10, 2021 | [Mainnet 6](/networks/node-ops/node-operation/past-sporks#mainnet-6) | March 9, 2021 —> March 10, 2021 | Devnet20 |
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/upcoming-sporks.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousNetwork Upgrade (Spork) Process](/networks/node-ops/node-operation/spork)[NextSlashing Conditions](/networks/node-ops/node-operation/slashing)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/upcoming-sporks.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousNetwork Upgrade (Spork) Process](/networks/node-ops/node-operation/spork)[NextSlashing Conditions](/networks/node-ops/node-operation/slashing)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)

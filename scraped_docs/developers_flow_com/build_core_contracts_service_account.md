@@ -9,7 +9,7 @@ Service Account Contracts | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -89,7 +89,7 @@ Source: [NodeVersionBeacon.cdc](https://github.com/onflow/flow-core-contracts/bl
 
 Important events from `NodeVersionBeacon` are:
 
- `_13/// Event emitted when the version table is updated._13/// It contains the current version and all the upcoming versions_13/// sorted by block height._13/// The sequence increases by one each time an event is emitted._13/// It can be used to verify no events were missed._13access(all) event VersionBeacon(_13 versionBoundaries: [VersionBoundary],_13 sequence: UInt64_13)_13_13/// Event emitted any time the version boundary freeze period is updated._13/// freeze period is measured in blocks (from the current block)._13access(all) event NodeVersionBoundaryFreezePeriodChanged(freezePeriod: UInt64)`[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/04-service-account.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousFlow Token](/build/core-contracts/flow-token)[NextFlow Fees](/build/core-contracts/flow-fees)
+ `_13/// Event emitted when the version table is updated._13/// It contains the current version and all the upcoming versions_13/// sorted by block height._13/// The sequence increases by one each time an event is emitted._13/// It can be used to verify no events were missed._13access(all) event VersionBeacon(_13 versionBoundaries: [VersionBoundary],_13 sequence: UInt64_13)_13_13/// Event emitted any time the version boundary freeze period is updated._13/// freeze period is measured in blocks (from the current block)._13access(all) event NodeVersionBoundaryFreezePeriodChanged(freezePeriod: UInt64)`[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/04-service-account.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousFlow Token](/build/core-contracts/flow-token)[NextFlow Fees](/build/core-contracts/flow-fees)
 ###### Rate this page
 
 😞😐😊

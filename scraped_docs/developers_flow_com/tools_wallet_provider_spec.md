@@ -9,7 +9,7 @@ Wallet Provider Spec | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
@@ -458,7 +458,7 @@ The provided `data` and `params` should include all the wallet needs to identify
 
 The eventual response back from the `authn-refresh` service should resolve to an `AuthnResponse` and look something like this:
 
- `_34{_34 f_type: "PollingResponse",_34 f_vsn: "1.0.0",_34 status: "APPROVED",_34 data: {_34 f_type: "AuthnResponse",_34 f_vsn: "1.0.0",_34 addr: "0xUSER",_34 services: [_34 // Authentication Service - REQUIRED_34 {_34 f_type: "Service",_34 f_vsn: "1.0.0",_34 type: "authn",_34 ..._34 },_34 // Authorization Service_34 {_34 f_type: "Service",_34 f_vsn: "1.0.0",_34 type: "authz",_34 ..._34 },_34 // Authentication Refresh Service_34 {_34 f_type: "Service",_34 f_vsn: "1.0.0",_34 type: "authn-refresh",_34 ..._34 }_34 // Additional Services_34 ],_34 }_34}`[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/index.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousUse Cursor AI](/tools/vscode-extension/cursor)[NextAuthorization Function](/tools/wallet-provider-spec/authorization-function)
+ `_34{_34 f_type: "PollingResponse",_34 f_vsn: "1.0.0",_34 status: "APPROVED",_34 data: {_34 f_type: "AuthnResponse",_34 f_vsn: "1.0.0",_34 addr: "0xUSER",_34 services: [_34 // Authentication Service - REQUIRED_34 {_34 f_type: "Service",_34 f_vsn: "1.0.0",_34 type: "authn",_34 ..._34 },_34 // Authorization Service_34 {_34 f_type: "Service",_34 f_vsn: "1.0.0",_34 type: "authz",_34 ..._34 },_34 // Authentication Refresh Service_34 {_34 f_type: "Service",_34 f_vsn: "1.0.0",_34 type: "authn-refresh",_34 ..._34 }_34 // Additional Services_34 ],_34 }_34}`[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/index.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousUse Cursor AI](/tools/vscode-extension/cursor)[NextAuthorization Function](/tools/wallet-provider-spec/authorization-function)
 ###### Rate this page
 
 😞😐😊

@@ -9,7 +9,7 @@ Direct Calls from Cadence to Flow EVM | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Why EVM on Flow](/evm/about)
 * [How it Works](/evm/how-it-works)
@@ -92,7 +92,7 @@ Direct calls to Flow EVM require gas, it's important to understand how gas usage
 
 For more information and a deeper dive into the `EVMAddress`, `Result`, and `Status` objects, see [the contract here](https://github.com/onflow/flow-go/blob/master/fvm/evm/stdlib/contract.cdc).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/cadence/direct-calls.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousInteracting with COAs](/evm/cadence/interacting-with-coa)[NextBatched EVM Transactions](/evm/cadence/batched-evm-transactions)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/cadence/direct-calls.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousInteracting with COAs](/evm/cadence/interacting-with-coa)[NextBatched EVM Transactions](/evm/cadence/batched-evm-transactions)
 ###### Rate this page
 
 😞😐😊

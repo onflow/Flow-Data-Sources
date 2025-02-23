@@ -9,7 +9,7 @@ Governance | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
@@ -74,7 +74,7 @@ Each Validator makes an individual decision of which Protocol Version they choos
 
 The process by which the Core Team chooses the updates for each new Protocol Version follows the open process described above, using GitHub as an open discussion platform to gauge the priorities and needs of the entire Flow ecosystem. The proposed changes by the Core Team will be announced and discussed well before they are implemented, and any community member can propose their own changes or contribute code updates to implement any proposed changes. The details of a new Protocol Version are publicly available no less than 14 days before that version is formally recommended for use by Validators (a “Release”), with the complete implementation source code visible for no less than 7 days before a Release.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/governance.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousAccess HTTP API ↗️](/networks/access-onchain-data/access-http-api)[NextFlow Port](/networks/flow-port)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/governance.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousAccess HTTP API ↗️](/networks/access-onchain-data/access-http-api)[NextFlow Port](/networks/flow-port)
 ###### Rate this page
 
 😞😐😊

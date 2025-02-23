@@ -9,7 +9,7 @@ Options for Building Staking Integrations | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
@@ -69,7 +69,7 @@ and not recommended.
 
 The basic staking guide is detailed [here](/networks/staking/staking-guide)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/13-staking-options.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousFAQs](/networks/staking/faq)[NextStaking Collection Guide](/networks/staking/staking-collection)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/13-staking-options.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousFAQs](/networks/staking/faq)[NextStaking Collection Guide](/networks/staking/staking-collection)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)

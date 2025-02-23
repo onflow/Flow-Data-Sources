@@ -9,7 +9,7 @@ Derive Public Key | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
@@ -99,7 +99,7 @@ Specify the format of the command results.
 
 Specify the filename where you want the result to be saved
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/keys/derive-keys.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousDecode Public Keys](/tools/flow-cli/keys/decode-keys)[NextStart Emulator](/tools/flow-cli/deployment/start-emulator)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/keys/derive-keys.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousDecode Public Keys](/tools/flow-cli/keys/decode-keys)[NextStart Emulator](/tools/flow-cli/deployment/start-emulator)
 ###### Rate this page
 
 😞😐😊

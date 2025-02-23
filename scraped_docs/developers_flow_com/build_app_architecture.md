@@ -9,7 +9,7 @@ App Architecture | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -96,7 +96,7 @@ App custody on Flow offers a unique approach to key management and user experien
 
 Selecting the right architecture is crucial when developing an app on the Flow blockchain. Your choice will influence not only the technical aspects but also the user experience and overall trust in your application. While Flow offers the tools and flexibility to cater to various needs, it's up to developers to harness these capabilities effectively. Whether you opt for a self-custody or app custody approach, ensure that your decision aligns with the core objectives of your app and the expectations of your users. Making informed architectural decisions will lay a strong foundation for your app's success.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/app-architecture/index.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousSmart Contracts ↙](/build/basics/smart-contracts)[NextLearn Cadence ↗️](/build/learn-cadence)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/app-architecture/index.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousSmart Contracts ↙](/build/basics/smart-contracts)[NextLearn Cadence ↗️](/build/learn-cadence)
 ###### Rate this page
 
 😞😐😊

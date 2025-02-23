@@ -9,7 +9,7 @@ Using Flow EVM | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Why EVM on Flow](/evm/about)
 * [How it Works](/evm/how-it-works)
@@ -74,7 +74,7 @@ Use the [Flow Testnet Faucet](https://faucet.flow.com/fund-account) to fund your
 
 ### [Flow Wallet](https://wallet.flow.com)[​](#flow-wallet "Direct link to flow-wallet")
 
-Flow Wallet is available on [Android](https://play.google.com/store/apps/details?id=io.outblock.lilico&hl=en_US&gl=US) and [iOS](https://apps.apple.com/ca/app/flow-core/id1644169603), with desktop support using the Flow Wallet [Chrome extension](https://chromewebstore.google.com/detail/flow-reference-wallet/hpclkefagolihohboafpheddmmgdffjm). In addition to being able to transact in both EVM and Cadence environments, Flow Wallet will also allow you to view and move assets between EVM and Cadence, making it possible to manage all your assets in one place.
+Flow Wallet is available on [Android](https://play.google.com/store/apps/details?id=com.flowfoundation.wallet) and [iOS](https://apps.apple.com/ca/app/flow-wallet-nfts-and-crypto/id6478996750), with desktop support using the Flow Wallet [Chrome extension](https://chromewebstore.google.com/detail/flow-reference-wallet/hpclkefagolihohboafpheddmmgdffjm). In addition to being able to transact in both EVM and Cadence environments, Flow Wallet will also allow you to view and move assets between EVM and Cadence, making it possible to manage all your assets in one place.
 
 To use the Flow Wallet Chrome extension:
 
@@ -145,7 +145,7 @@ To use the Flow Wallet Chrome extension:
 
 Read more about the [EVM Gateway](https://github.com/onflow/flow-evm-gateway) on Flow and how it implements the Ethereum JSON-RPC API.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/using.mdx)Last updated on **Feb 18, 2025** by **Brian Doyle**[PreviousHow it Works](/evm/how-it-works)[NextNetworks](/evm/networks)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/using.mdx)Last updated on **Feb 22, 2025** by **bz**[PreviousHow it Works](/evm/how-it-works)[NextNetworks](/evm/networks)
 ###### Rate this page
 
 😞😐😊

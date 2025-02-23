@@ -9,7 +9,7 @@ Fungible Token Contract | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -151,7 +151,7 @@ via the `Burner.burn()` method, this event is emitted with the following argumen
   + Example: `0.00017485`
 * `fromUUID: UInt64`: The UUID of the Vault that was burnt.
   + Example: `177021372071991`
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/02-fungible-token.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousCore Smart Contracts](/build/core-contracts)[NextFlow Token](/build/core-contracts/flow-token)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/02-fungible-token.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousCore Smart Contracts](/build/core-contracts)[NextFlow Token](/build/core-contracts/flow-token)
 ###### Rate this page
 
 😞😐😊

@@ -9,7 +9,7 @@ Serving execution data | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
@@ -260,7 +260,7 @@ FLIP: <https://github.com/onflow/flips/blob/main/protocol/20230309-accessnode-ev
 
 Protobuf: <https://github.com/onflow/flow/blob/master/protobuf/flow/executiondata/executiondata.proto>
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/access-nodes/access-node-configuration-options.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousAccess Node Setup](/networks/node-ops/access-nodes/access-node-setup)[NextEVM Gateway Setup](/networks/node-ops/evm-gateway/evm-gateway-setup)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/access-nodes/access-node-configuration-options.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousAccess Node Setup](/networks/node-ops/access-nodes/access-node-setup)[NextEVM Gateway Setup](/networks/node-ops/evm-gateway/evm-gateway-setup)
 ###### Rate this page
 
 😞😐😊

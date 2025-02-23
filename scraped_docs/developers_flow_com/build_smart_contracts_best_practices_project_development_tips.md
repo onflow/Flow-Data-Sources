@@ -9,7 +9,7 @@ Flow Smart Contract Project Development Standards | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -324,7 +324,7 @@ and documenting their projects. (Documentation for these topics coming soon)
 
 If you have any feedback about these guidelines, please create an issue in the onflow/cadence-style-guide repo or make a PR updating the guidelines so we can start a discussion.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/best-practices/project-development-tips.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousContract Upgrades with Incompatible Changes](/build/smart-contracts/best-practices/contract-upgrades)[NextAccount Abstraction](/build/advanced-concepts/account-abstraction)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/best-practices/project-development-tips.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousContract Upgrades with Incompatible Changes](/build/smart-contracts/best-practices/contract-upgrades)[NextAccount Abstraction](/build/advanced-concepts/account-abstraction)
 ###### Rate this page
 
 😞😐😊

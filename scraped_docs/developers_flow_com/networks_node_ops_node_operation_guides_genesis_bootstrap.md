@@ -9,7 +9,7 @@ Genesis Bootstrapping | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
@@ -177,7 +177,7 @@ Make sure you're part of the [Discord Chat](https://chat.onflow.org). Once all n
 
 Start your systems, let's make some blocks!
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/guides/genesis-bootstrap.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousDatabase Encryption for Existing Node Operators](/networks/node-ops/node-operation/db-encryption-existing-operator)[NextSpork Practice](/networks/node-ops/node-operation/guides/spork-practice)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/guides/genesis-bootstrap.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousDatabase Encryption for Existing Node Operators](/networks/node-ops/node-operation/db-encryption-existing-operator)[NextSpork Practice](/networks/node-ops/node-operation/guides/spork-practice)
 ###### Rate this page
 
 😞😐😊

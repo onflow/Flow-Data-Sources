@@ -9,7 +9,7 @@ Byzantine Node Attack Response | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
@@ -195,7 +195,7 @@ The following command returns a list of the currently blocked nodes.
 
 After unblocking the node, connections and traffic coming from the node should resume.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/byzantine-node-attack-response.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousOperator FAQ](/networks/node-ops/node-operation/faq)[NextDatabase Encryption for Existing Node Operators](/networks/node-ops/node-operation/db-encryption-existing-operator)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/byzantine-node-attack-response.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousOperator FAQ](/networks/node-ops/node-operation/faq)[NextDatabase Encryption for Existing Node Operators](/networks/node-ops/node-operation/db-encryption-existing-operator)
 ###### Rate this page
 
 😞😐😊

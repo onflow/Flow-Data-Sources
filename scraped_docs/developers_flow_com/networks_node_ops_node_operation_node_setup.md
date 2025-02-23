@@ -9,7 +9,7 @@ Setting Up a Flow Node | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
@@ -200,7 +200,7 @@ This is intended for operators who would like to see what their Flow nodes are c
 
 The metrics for the node should be able to provide a good overview of the status of the node. If we want to get a quick snapshot of the status of the node, and if it's properly participating in the network, you can check the `consensus_compliance_finalized_height` or `consensus_compliance_sealed_height` metric, and ensure that it is not zero and strictly increasing.
 
- `_10curl localhost:8080/metrics | grep consensus_compliance_sealed_height_10_10# HELP consensus_compliance_sealed_height the last sealed height_10# TYPE consensus_compliance_sealed_height gauge_10consensus_compliance_sealed_height 1.132054e+06`[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-setup.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousNode Roles](/networks/node-ops/node-operation/node-roles)[NextPast Spork Info](/networks/node-ops/node-operation/past-sporks)
+ `_10curl localhost:8080/metrics | grep consensus_compliance_sealed_height_10_10# HELP consensus_compliance_sealed_height the last sealed height_10# TYPE consensus_compliance_sealed_height gauge_10consensus_compliance_sealed_height 1.132054e+06`[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-setup.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousNode Roles](/networks/node-ops/node-operation/node-roles)[NextPast Spork Info](/networks/node-ops/node-operation/past-sporks)
 ###### Rate this page
 
 😞😐😊

@@ -9,7 +9,7 @@ Node Bootstrap | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
@@ -240,7 +240,7 @@ the snapshot must be provisioned within this time window.
 
 Once a valid root snapshot file is downloaded to the node's bootstrap folder, it can be started (see [guide](/networks/node-ops/node-operation/node-setup#start-the-node))
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-bootstrap.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousNode Monitoring](/networks/node-ops/node-operation/monitoring-nodes)[NextNode Economics](/networks/node-ops/node-operation/node-economics)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-bootstrap.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousNode Monitoring](/networks/node-ops/node-operation/monitoring-nodes)[NextNode Economics](/networks/node-ops/node-operation/node-economics)
 ###### Rate this page
 
 😞😐😊

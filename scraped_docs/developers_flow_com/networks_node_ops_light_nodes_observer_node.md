@@ -9,7 +9,7 @@ Light Node a.k.a Observer Node | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
@@ -204,7 +204,7 @@ Access-003:
 While the public keys remain the same, the hostnames change each spork to include the spork name. Substitute `[current mainnet spork]` and `[current devnet spork]` with the appropriate spork name (e.g. `mainnet20`).
 See [Past Sporks](/networks/node-ops/node-operation/past-sporks) for the current spork for each network.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/light-nodes/observer-node.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousEVM Gateway Setup](/networks/node-ops/evm-gateway/evm-gateway-setup)[NextOperator FAQ](/networks/node-ops/node-operation/faq)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/light-nodes/observer-node.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousEVM Gateway Setup](/networks/node-ops/evm-gateway/evm-gateway-setup)[NextOperator FAQ](/networks/node-ops/node-operation/faq)
 ###### Rate this page
 
 😞😐😊

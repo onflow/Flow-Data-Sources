@@ -9,7 +9,7 @@ Working With Parent Accounts | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -261,7 +261,7 @@ removed as a parent of the removed child.
 Note also that it's possible for a child account to remove a parent. This is necessary to give application developers
 and ultimately the owners of these child accounts the ability to revoke secondary access on owned accounts.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking/parent-accounts.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousBuilding Walletless Applications Using Child Accounts](/build/guides/account-linking/child-accounts)[NextAccount Linking With NBA Top Shot](/build/guides/account-linking-with-dapper)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking/parent-accounts.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousBuilding Walletless Applications Using Child Accounts](/build/guides/account-linking/child-accounts)[NextAccount Linking With NBA Top Shot](/build/guides/account-linking-with-dapper)
 ###### Rate this page
 
 😞😐😊

@@ -9,7 +9,7 @@ Deploying Contracts | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -130,7 +130,7 @@ warning
 
 Flow Testnet is explicitly for experimentation and testing and should not be used to exchange "real value" (e.g. developing a fiat money on/off-ramp for your testnet application).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/deploying.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousSmart Contracts on Flow](/build/smart-contracts/overview)[NextTesting Your Contracts](/build/smart-contracts/testing)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/deploying.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousSmart Contracts on Flow](/build/smart-contracts/overview)[NextTesting Your Contracts](/build/smart-contracts/testing)
 ###### Rate this page
 
 😞😐😊

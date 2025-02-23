@@ -9,7 +9,7 @@ Flow Port | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
@@ -157,7 +157,7 @@ Please see a list [here](https://github.com/onflow/flow/blob/master/nodeoperator
 6. I am clicking 'submit' to execute a transaction, but nothing is happening. How can I unblock myself?
    
    * a.) Please disable any pop-up blockers and ad blockers you have and refresh the page. If you are still experiencing issues, please reach out via [Discord](https://discord.gg/flow) in the appropriate channel.
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-port/index.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousGovernance](/networks/governance)[NextFlow Port Staking Guide](/networks/flow-port/staking-guide)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-port/index.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousGovernance](/networks/governance)[NextFlow Port Staking Guide](/networks/flow-port/staking-guide)
 ###### Rate this page
 
 😞😐😊

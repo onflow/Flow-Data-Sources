@@ -9,7 +9,7 @@ Contract Interaction | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -110,7 +110,7 @@ By understanding the `Counter` contract and how to interact with it, you're buil
 
 Proceed to the next tutorial to learn how to create your own contracts and deploy them live using the Flow CLI.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/contract-interaction.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousDifferences vs. EVM](/build/differences-vs-evm)[NextLocal Development](/build/getting-started/flow-cli)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/contract-interaction.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousDifferences vs. EVM](/build/differences-vs-evm)[NextLocal Development](/build/getting-started/flow-cli)
 ###### Rate this page
 
 😞😐😊

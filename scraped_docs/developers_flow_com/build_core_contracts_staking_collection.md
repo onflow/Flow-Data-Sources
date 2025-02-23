@@ -9,7 +9,7 @@ Flow Staking Collection Contract Reference | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -117,7 +117,7 @@ to be interacted with using the Staking Collection API.
 
 The `StakingCollection` contract emits an event whenever an important action occurs.
 
- `_10 access(all) event NodeAddedToStakingCollection(nodeID: String, role: UInt8, amountCommitted: UFix64, address: Address?)_10 access(all) event DelegatorAddedToStakingCollection(nodeID: String, delegatorID: UInt32, amountCommitted: UFix64, address: Address?)_10_10 access(all) event NodeRemovedFromStakingCollection(nodeID: String, role: UInt8, address: Address?)_10 access(all) event DelegatorRemovedFromStakingCollection(nodeID: String, delegatorID: UInt32, address: Address?)_10_10 access(all) event MachineAccountCreated(nodeID: String, role: UInt8, address: Address)`[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/11-staking-collection.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousNFT Storefront](/build/core-contracts/nft-storefront)[NextAccount Linking](/build/core-contracts/hybrid-custody)
+ `_10 access(all) event NodeAddedToStakingCollection(nodeID: String, role: UInt8, amountCommitted: UFix64, address: Address?)_10 access(all) event DelegatorAddedToStakingCollection(nodeID: String, delegatorID: UInt32, amountCommitted: UFix64, address: Address?)_10_10 access(all) event NodeRemovedFromStakingCollection(nodeID: String, role: UInt8, address: Address?)_10 access(all) event DelegatorRemovedFromStakingCollection(nodeID: String, delegatorID: UInt32, address: Address?)_10_10 access(all) event MachineAccountCreated(nodeID: String, role: UInt8, address: Address)`[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/11-staking-collection.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousNFT Storefront](/build/core-contracts/nft-storefront)[NextAccount Linking](/build/core-contracts/hybrid-custody)
 ###### Rate this page
 
 😞😐😊

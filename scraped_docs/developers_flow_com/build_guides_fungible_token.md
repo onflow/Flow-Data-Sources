@@ -9,7 +9,7 @@ Creating a Fungible Token | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -451,7 +451,7 @@ The transfer transaction also has a [generic version](https://github.com/onflow/
 * [View a repo of this example code](https://github.com/chasefleming/FooToken)
 * [Review an `ExampleToken` contract implementing all of the remaining FungibleToken interface](https://github.com/onflow/flow-ft/blob/master/contracts/ExampleToken.cdc)
 * [View the Flow Token Standard](https://github.com/onflow/flow-ft/blob/master/contracts/FungibleToken.cdc)
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/fungible-token.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousCreating an NFT Contract](/build/guides/nft)[NextOverview](/build/guides/mobile/overview)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/fungible-token.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousCreating an NFT Contract](/build/guides/nft)[NextOverview](/build/guides/mobile/overview)
 ###### Rate this page
 
 😞😐😊

@@ -9,7 +9,7 @@ NFT Storefront Smart Contract | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -403,7 +403,7 @@ A entitled receiver has not been paid during the sale of the NFT.
 
 ![NFT Storefront Process flow](https://user-images.githubusercontent.com/14581509/191960793-ff153e5d-2934-410c-b724-5c5dffd2c20f.png)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/10-nft-storefront.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousNFT Metadata](/build/core-contracts/nft-metadata)[NextStaking Collection](/build/core-contracts/staking-collection)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/10-nft-storefront.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousNFT Metadata](/build/core-contracts/nft-metadata)[NextStaking Collection](/build/core-contracts/staking-collection)
 ###### Rate this page
 
 😞😐😊

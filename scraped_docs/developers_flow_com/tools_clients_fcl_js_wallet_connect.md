@@ -9,7 +9,7 @@ WalletConnect 2.0 Manual Configuration | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
@@ -191,7 +191,7 @@ Wallets sourced from WalletConnect Cloud Registry automatically build the servic
 1. Read the [FCL Wallet Provider Spec](https://github.com/onflow/fcl-js/blob/master/packages/fcl/src/wallet-provider-spec/draft-v4.md).
 2. Check out the a WalletConnect 2.0 [React POC Wallet](https://github.com/gregsantos/flow-walletconnect-v2-react-wallet) and [FCL Flow dApp](https://github.com/gregsantos/flow-walletconnect-v2-react-dapp) with support for WalletConnect v2.0.
 3. Read and review the [WalletConnect 2.0 Docs](https://docs.walletconnect.com/2.0/), [examples and resources](https://docs.walletconnect.com/2.0/introduction/examples-and-resources).
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/wallet-connect.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousSigning and Verifying Arbitrary Data](/tools/clients/fcl-js/user-signatures)[NextFlow Go SDK](/tools/clients/flow-go-sdk)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/wallet-connect.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousSigning and Verifying Arbitrary Data](/tools/clients/fcl-js/user-signatures)[NextFlow Go SDK](/tools/clients/flow-go-sdk)
 ###### Rate this page
 
 😞😐😊

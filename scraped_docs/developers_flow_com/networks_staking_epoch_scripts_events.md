@@ -9,7 +9,7 @@ Query Epoch Info with Scripts or Events | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
@@ -164,7 +164,7 @@ to get the current epoch phase.
 
 This script does not require any arguments.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/05-epoch-scripts-events.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousStake Slashing](/networks/staking/stake-slashing)[NextStaking Technical Overview](/networks/staking/technical-overview)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/05-epoch-scripts-events.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousStake Slashing](/networks/staking/stake-slashing)[NextStaking Technical Overview](/networks/staking/technical-overview)
 ###### Rate this page
 
 😞😐😊

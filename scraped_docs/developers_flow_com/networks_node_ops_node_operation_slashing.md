@@ -9,7 +9,7 @@ Slashing Conditions | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
@@ -366,7 +366,7 @@ or if the SPoCK’s signature doesn't match the public key of the Verification N
 \*\*Adjudication: \*\*Consensus nodes evaluate the content and signatures of the result approval.
 If the witness turns out to be valid, the Verification Node who signed that result approval be slashed.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/slashing.md)Last updated on **Feb 6, 2025** by **Brian Doyle**[PreviousUpcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)[NextNode Providers](/networks/node-ops/node-operation/node-providers)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/slashing.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousUpcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)[NextNode Providers](/networks/node-ops/node-operation/node-providers)
 ###### Rate this page
 
 😞😐😊

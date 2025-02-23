@@ -9,7 +9,7 @@ Growth | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)SearchOn this page
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)SearchOn this page
 # Growth
 
 At each stage of your project, you can get advice, support, and resources from the Flow ecosystem. Here's a breakdown of *what you are doing* and *what support we offer* at each stage:
@@ -79,7 +79,7 @@ You've got an app and are meeting the needs of regular customers. Core features 
 * Fundraising support (intros to investor network)
 * Grants tied to bigger ecosystem milestones
 * DevRel
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/growth/index.md)Last updated on **Feb 7, 2025** by **Josh Hannan**
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/growth/index.md)Last updated on **Feb 11, 2025** by **Chase Fleming**
 ###### Rate this page
 
 😞😐😊

@@ -9,7 +9,7 @@ Flow On-chain Randomness in Cadence | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -163,7 +163,7 @@ If you'd like to dive deeper into Flow's onchain randomness, here's a list of re
   + **[FLIP 120: Update unsafeRandom function](https://github.com/onflow/flips/blob/main/cadence/20230713-random-function.md#flip-120-update-unsaferandom-function)**
   + **[FLIP 123: On-chain Random beacon history for commit-reveal schemes](https://github.com/onflow/flips/blob/main/protocol/20230728-commit-reveal.md#flip-123-on-chain-random-beacon-history-for-commit-reveal-schemes)**
 * To see working Cadence code, explore the [coin toss example on GitHub](https://github.com/onflow/random-coin-toss).
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/randomness.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousNFT Metadata Views](/build/advanced-concepts/metadata-views)[NextScaling Transactions from a Single Account](/build/advanced-concepts/scaling)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/randomness.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousNFT Metadata Views](/build/advanced-concepts/metadata-views)[NextScaling Transactions from a Single Account](/build/advanced-concepts/scaling)
 ###### Rate this page
 
 😞😐😊
