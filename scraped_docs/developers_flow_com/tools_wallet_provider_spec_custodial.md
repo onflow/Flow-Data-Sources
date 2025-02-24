@@ -9,7 +9,7 @@ Introduction | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
@@ -218,7 +218,7 @@ Register Provider with FCL Handshake and implement 5 Endpoints.
 
 ![diagram showing current fcl authn and authz flow](/assets/images/fcl-ars-auth-v3.2-f2b418b21efa5f88072c3a235ec5a48b.png)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/custodial.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousAuthorization Function](/tools/wallet-provider-spec/authorization-function)[NextProvable Authn](/tools/wallet-provider-spec/provable-authn)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/custodial.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousAuthorization Function](/tools/wallet-provider-spec/authorization-function)[NextProvable Authn](/tools/wallet-provider-spec/provable-authn)Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)

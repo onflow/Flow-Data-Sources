@@ -9,7 +9,7 @@ Events | Flow Developer Portal
 
 
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -132,7 +132,7 @@ These events are very common since they accommodate all transactions on Flow. Ea
 
 An example of fee events:
 
- `_24Events:_24 - Index: 0_24 Type: A.f233dcee88fe0abe.FungibleToken.Withdrawn_24 Tx ID: 1ec90051e3bc74fc36cbd16fc83df08e463dda8f92e8e2193e061f9d41b2ad92_24 Values:_24 - type (String): "1654653399040a61.FlowToken.Vault"_24 - amount (UFix64): 0.00000100_24 - from (Address?): b30eb2755dca4572_24_24 - Index: 1_24 Type: A.f233dcee88fe0abe.FungibleToken.Deposited_24 Tx ID: 1ec90051e3bc74fc36cbd16fc83df08e463dda8f92e8e2193e061f9d41b2ad92_24 Values:_24 - type (String): "1654653399040a61.FlowToken.Vault"_24 - amount (UFix64): 0.00000100_24 - to (Address?): f919ee77447b7497_24_24 - Index: 2_24 Type: A.f919ee77447b7497.FlowFees.FeesDeducted_24 Tx ID: 1ec90051e3bc74fc36cbd16fc83df08e463dda8f92e8e2193e061f9d41b2ad92_24 Values:_24 - amount (UFix64): 0.00000100_24 - inclusionEffort (UFix64): 1.00000000_24 - executionEffort (UFix64): 0.00000000`[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/events.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousFees](/build/basics/fees)[NextFLOW Coin](/build/basics/flow-token)
+ `_24Events:_24 - Index: 0_24 Type: A.f233dcee88fe0abe.FungibleToken.Withdrawn_24 Tx ID: 1ec90051e3bc74fc36cbd16fc83df08e463dda8f92e8e2193e061f9d41b2ad92_24 Values:_24 - type (String): "1654653399040a61.FlowToken.Vault"_24 - amount (UFix64): 0.00000100_24 - from (Address?): b30eb2755dca4572_24_24 - Index: 1_24 Type: A.f233dcee88fe0abe.FungibleToken.Deposited_24 Tx ID: 1ec90051e3bc74fc36cbd16fc83df08e463dda8f92e8e2193e061f9d41b2ad92_24 Values:_24 - type (String): "1654653399040a61.FlowToken.Vault"_24 - amount (UFix64): 0.00000100_24 - to (Address?): f919ee77447b7497_24_24 - Index: 2_24 Type: A.f919ee77447b7497.FlowFees.FeesDeducted_24 Tx ID: 1ec90051e3bc74fc36cbd16fc83df08e463dda8f92e8e2193e061f9d41b2ad92_24 Values:_24 - amount (UFix64): 0.00000100_24 - inclusionEffort (UFix64): 1.00000000_24 - executionEffort (UFix64): 0.00000000`[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/events.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousFees](/build/basics/fees)[NextFLOW Coin](/build/basics/flow-token)
 ###### Rate this page
 
 😞😐😊
