@@ -1,20 +1,22 @@
 # Source: https://developers.flow.com/build/basics/collections
 
-
-
-
 Collections | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
 * [Getting Started](/build/getting-started/contract-interaction)
 * [Flow Protocol](/build/basics/blocks)
+
   + [Blocks](/build/basics/blocks)
   + [Collections](/build/basics/collections)
   + [Accounts](/build/basics/accounts)
@@ -31,10 +33,11 @@ Collections | Flow Developer Portal
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
-
 * Flow Protocol
 * Collections
+
 On this page
+
 # Collections
 
 Collections link blocks and transactions together. Collection node clusters make these collections (using the HotStuff consensus algorithm), made up of an ordered list of one or more hashes of [signed transactions](/build/basics/transactions). In order to optimize data, blocks don't contain transactions (as they do on Ethereum). The benefits are transaction data does not get transferred to consensus nodes on the network which optimizes transfer speed and this architecture allows scaling of ingestion speed by adding collection clusters. Consensus nodes need to only agree on the order of transactions to be executed, they don't need to know the transaction payload, thus making blocks and collections lightweight. Collection nodes hold transaction payloads for anyone who requests them (e.g. execution nodes).
@@ -45,7 +48,9 @@ Collections link blocks and transactions together. Collection node clusters make
 
 You can use the Flow CLI to get the collection data by running:
 
- `_10flow collections get caff1a7f4a85534e69badcda59b73428a6824ef8103f09cb9eaeaa216c7d7d3f -n mainnet`
+`_10
+
+flow collections get caff1a7f4a85534e69badcda59b73428a6824ef8103f09cb9eaeaa216c7d7d3f -n mainnet`
 
 Find [more about the command in the CLI docs](/tools/flow-cli/get-flow-data/get-collections).
 
@@ -63,12 +68,22 @@ There are multiple SDKs implementing the above APIs for different languages:
 
 Find a list of all SDKs [here](/tools/clients)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/collections.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousBlocks](/build/basics/blocks)[NextAccounts](/build/basics/accounts)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/collections.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Blocks](/build/basics/blocks)[Next
+
+Accounts](/build/basics/accounts)
+
 ###### Rate this page
 
 😞😐😊
 
 * [Collection Retrieval](#collection-retrieval)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -81,6 +96,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -90,6 +106,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -97,6 +114,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -106,6 +124,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -113,5 +132,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

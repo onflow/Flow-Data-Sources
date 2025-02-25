@@ -1,30 +1,14 @@
 # Source: https://academy.ecdao.org/en/catalog/courses/beginner-dapp-ios/chapter4/lesson2
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -51,7 +35,6 @@ Connect
 [4.1 Connecting the Blockchain](/en/catalog/courses/beginner-dapp-ios/chapter4/lesson1)[4.2 Integrating WalletConnect and Lilco Wallet](/en/catalog/courses/beginner-dapp-ios/chapter4/lesson2)[4.3 Running a Script](/en/catalog/courses/beginner-dapp-ios/chapter4/lesson3)[4.4 Passing in Arguments to a Script](/en/catalog/courses/beginner-dapp-ios/chapter4/lesson4)[4.5 Finishing the Skeleton](/en/catalog/courses/beginner-dapp-ios/chapter4/lesson5)
 
 Course Overview
-
 
 [Catalog](/en/catalog)
 [Course](/en/catalog/courses/beginner-dapp-ios)
@@ -95,11 +78,13 @@ Head over to the `Explorer` tab and fill out the form as shown in the images bel
 Head back to the `Settings` tab and copy your `Project ID`, save this somewhere as you will need it in a later step.
 
 ![](https://i.imgur.com/QRtLeGk.png)
+
 ## Setup the WalletConnect Plugin
 
 Add the following `WalletConnectConfig` about the `metadata` property in the `setup()` function.
 
 swift
+
 ```
 		
 			let walletConnect = FCL.Metadata.WalletConnectConfig(urlScheme: "emeraldDApp://", projectID: "485264ff93ea1a0e78e96a740c1e775d")
@@ -110,6 +95,7 @@ swift
 Then update the `metadata` property like so:
 
 swift
+
 ```
 		
 			let metadata = FCL.Metadata(appName: "Emerald DApp!",
@@ -121,6 +107,7 @@ swift
 		 
 	
 ```
+
 ## Running The DApp On Your iOS Device
 
 First, you need to ensure Developer Mode is enabled on your iOS Device. If you connect an iOS, visionOS, or watchOS device with Developer Mode disabled to your Mac, the Xcode scheme selectorâs destination list shows it as an âUnavailable Deviceâ.
@@ -144,10 +131,10 @@ Select your iOS device from the scheme selector then hit the play button to run 
 This time when you sign in, select Lilico, if everything is working properly Lilico Moible should open automatically. Once the Auth screen loads, select Approve. In theory, you should automatically be directed back to your DApp, however, in practice sometimes the routing just doesnât workâ¦ you can manually switch back to your DApp at any time after selecting approve.
 
 ![](https://i.imgur.com/UZKe84P.png)
+
 ## Quests
 
 Weâve got a lot to cover in lesson 3, your Quest for today is to go back over any pieces you may have struggled with up until this point. Ask any questions you might have in Discord.
-
 
 ![User avatar](https://avatars.githubusercontent.com/u/3641594?s=400&u=044fd05bc61270527c4da99212f143595d6fa4a1&v=4)
 
@@ -155,15 +142,14 @@ Author
 
 [BoiseITGuru](https://twitter.com/boise_it_guru)
 
-
-
-
 [Quests](#quests)
-[Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/beginner-dapp-ios/en/chapter4/lesson2.md)
 
+[Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/beginner-dapp-ios/en/chapter4/lesson2.md)
 
 [Connecting the Blockchain](/en/catalog/courses/beginner-dapp-ios/chapter4/lesson1)
 [Running a Script](/en/catalog/courses/beginner-dapp-ios/chapter4/lesson3)
+
+
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
@@ -171,17 +157,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

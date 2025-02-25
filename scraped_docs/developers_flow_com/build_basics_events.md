@@ -1,20 +1,22 @@
 # Source: https://developers.flow.com/build/basics/events
 
-
-
-
 Events | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
 * [Getting Started](/build/getting-started/contract-interaction)
 * [Flow Protocol](/build/basics/blocks)
+
   + [Blocks](/build/basics/blocks)
   + [Collections](/build/basics/collections)
   + [Accounts](/build/basics/accounts)
@@ -31,10 +33,11 @@ Events | Flow Developer Portal
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
-
 * Flow Protocol
 * Events
+
 On this page
+
 # Events
 
 Flow events are special values that are emitted on the network during the execution of a Cadence program and can be observed by off-chain observers.
@@ -78,7 +81,9 @@ For more details [on the core events, you can read Cadence reference documentati
 
 Events that are defined inside contracts and when emitted follow a common naming schema. The schema consists of 4 parts:
 
- `_10A.{contract address}.{contract name}.{event type}`
+`_10
+
+A.{contract address}.{contract name}.{event type}`
 
 An example event would look like:
 
@@ -102,7 +107,29 @@ The most common events are when tokens are transferred which is accomplished wit
 
 Event name: `FungibleToken.Withdrawn`
 
- `_10event Withdrawn(type: String,_10 amount: UFix64,_10 from: Address?,_10 fromUUID: UInt64,_10 withdrawnUUID: UInt64,_10 balanceAfter: UFix64)`
+`_10
+
+event Withdrawn(type: String,
+
+_10
+
+amount: UFix64,
+
+_10
+
+from: Address?,
+
+_10
+
+fromUUID: UInt64,
+
+_10
+
+withdrawnUUID: UInt64,
+
+_10
+
+balanceAfter: UFix64)`
 
 Mainnet event: `A.f233dcee88fe0abe.FungibleToken.Withdrawn`
 
@@ -110,7 +137,29 @@ Testnet event: `A.9a0766d93b6608b7.FungibleToken.Withdrawn`
 
 **Deposit Tokens**
 
- `_10event Deposited(type: String,_10 amount: UFix64,_10 to: Address?,_10 toUUID: UInt64,_10 depositedUUID: UInt64,_10 balanceAfter: UFix64)`
+`_10
+
+event Deposited(type: String,
+
+_10
+
+amount: UFix64,
+
+_10
+
+to: Address?,
+
+_10
+
+toUUID: UInt64,
+
+_10
+
+depositedUUID: UInt64,
+
+_10
+
+balanceAfter: UFix64)`
 
 Event name: `FungibleToken.Deposited`
 
@@ -132,7 +181,108 @@ These events are very common since they accommodate all transactions on Flow. Ea
 
 An example of fee events:
 
- `_24Events:_24 - Index: 0_24 Type: A.f233dcee88fe0abe.FungibleToken.Withdrawn_24 Tx ID: 1ec90051e3bc74fc36cbd16fc83df08e463dda8f92e8e2193e061f9d41b2ad92_24 Values:_24 - type (String): "1654653399040a61.FlowToken.Vault"_24 - amount (UFix64): 0.00000100_24 - from (Address?): b30eb2755dca4572_24_24 - Index: 1_24 Type: A.f233dcee88fe0abe.FungibleToken.Deposited_24 Tx ID: 1ec90051e3bc74fc36cbd16fc83df08e463dda8f92e8e2193e061f9d41b2ad92_24 Values:_24 - type (String): "1654653399040a61.FlowToken.Vault"_24 - amount (UFix64): 0.00000100_24 - to (Address?): f919ee77447b7497_24_24 - Index: 2_24 Type: A.f919ee77447b7497.FlowFees.FeesDeducted_24 Tx ID: 1ec90051e3bc74fc36cbd16fc83df08e463dda8f92e8e2193e061f9d41b2ad92_24 Values:_24 - amount (UFix64): 0.00000100_24 - inclusionEffort (UFix64): 1.00000000_24 - executionEffort (UFix64): 0.00000000`[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/events.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousFees](/build/basics/fees)[NextFLOW Coin](/build/basics/flow-token)
+`_24
+
+Events:
+
+_24
+
+- Index: 0
+
+_24
+
+Type: A.f233dcee88fe0abe.FungibleToken.Withdrawn
+
+_24
+
+Tx ID: 1ec90051e3bc74fc36cbd16fc83df08e463dda8f92e8e2193e061f9d41b2ad92
+
+_24
+
+Values:
+
+_24
+
+- type (String): "1654653399040a61.FlowToken.Vault"
+
+_24
+
+- amount (UFix64): 0.00000100
+
+_24
+
+- from (Address?): b30eb2755dca4572
+
+_24
+
+_24
+
+- Index: 1
+
+_24
+
+Type: A.f233dcee88fe0abe.FungibleToken.Deposited
+
+_24
+
+Tx ID: 1ec90051e3bc74fc36cbd16fc83df08e463dda8f92e8e2193e061f9d41b2ad92
+
+_24
+
+Values:
+
+_24
+
+- type (String): "1654653399040a61.FlowToken.Vault"
+
+_24
+
+- amount (UFix64): 0.00000100
+
+_24
+
+- to (Address?): f919ee77447b7497
+
+_24
+
+_24
+
+- Index: 2
+
+_24
+
+Type: A.f919ee77447b7497.FlowFees.FeesDeducted
+
+_24
+
+Tx ID: 1ec90051e3bc74fc36cbd16fc83df08e463dda8f92e8e2193e061f9d41b2ad92
+
+_24
+
+Values:
+
+_24
+
+- amount (UFix64): 0.00000100
+
+_24
+
+- inclusionEffort (UFix64): 1.00000000
+
+_24
+
+- executionEffort (UFix64): 0.00000000`
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/events.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Fees](/build/basics/fees)[Next
+
+FLOW Coin](/build/basics/flow-token)
+
 ###### Rate this page
 
 😞😐😊
@@ -141,6 +291,7 @@ An example of fee events:
 * [User-defined events](#user-defined-events)
   + [Fungible Token Events](#fungible-token-events)
   + [**Fee Events**](#fee-events)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -153,6 +304,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -162,6 +314,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -169,6 +322,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -178,6 +332,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -185,5 +340,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

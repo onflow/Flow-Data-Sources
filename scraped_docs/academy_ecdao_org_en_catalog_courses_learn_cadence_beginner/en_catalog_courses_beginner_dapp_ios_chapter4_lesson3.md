@@ -1,30 +1,14 @@
 # Source: https://academy.ecdao.org/en/catalog/courses/beginner-dapp-ios/chapter4/lesson3
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -52,7 +36,6 @@ Connect
 
 Course Overview
 
-
 [Catalog](/en/catalog)
 [Course](/en/catalog/courses/beginner-dapp-ios)
 Beginner Dapp Ios
@@ -74,6 +57,7 @@ In our `ContentView` file, letâs add a function to execute a script on Flow
 > Under the `body` closure, make a new function called `getGreeting()`:
 
 javascript
+
 ```
 		
 			func getGreeting() async {}
@@ -88,6 +72,7 @@ Inside your function, letâs actually execute a script using FCL by doing tw
 1. Importing `FCL` at the top of the file so we can call the `fcl.query` function:
 
 javascript
+
 ```
 		
 			import FCL
@@ -98,6 +83,7 @@ javascript
 2. Adding this code inside the `getGreeting` function:
 
 swift
+
 ```
 		
 			func getGreeting() async {
@@ -134,6 +120,7 @@ The response object that is returned from `fcl.query()` has this `decode()` func
 The script that we provide to `fcl.query()` is the same script we created in Chapter 3 to read the `greeting` variable from our `HelloWorld` contract with one minor change. Since we need to find the contract itself on the blockchain, Iâve changed the import to use an âAddress Replacementâ variable called `0xDeployer`. If you recall from lesson 1 we already defined a configuration key for this variable on our `FlowManager` service. Letâs update the value of our `testAccount` variable now.
 
 swift
+
 ```
 		
 			...
@@ -158,6 +145,7 @@ We could make a button and call this function every time we click the button, bu
 In lesson 1, we covered how to create a `Task` to call asynchronous functions, today we are going to expand on that using the `.task {}` SwiftUI modifier allowing us to start asynchronous work as soon as the view is shown. In the `ContentView` file add the following to the `greetingDisplay` `Text` view.
 
 swift
+
 ```
 		
 			Text(greetingDisplay)
@@ -172,6 +160,7 @@ swift
 If you run your app on the simulator, after signing in, you should see the value of `HelloWorld.greeting` displayed in the console. Now letâs update our `getGreeting()` function to actually update `greetingDisplay` when it is called.
 
 swift
+
 ```
 		
 			func getGreeting() async {
@@ -204,6 +193,7 @@ Now when you run your app on the simulator, you should see the value of `result`
 We did it! We are successfully reading from the blockchain. Here is what your `ContentView` page should look like at this point:
 
 swift
+
 ```
 		
 			import SwiftUI
@@ -289,6 +279,7 @@ struct ContentView: View {
 		 
 	
 ```
+
 ## Quests
 
 You have a lot of tools under your belt now, in fact much more than you think you do. Letâs see what youâre capable ofâ¦
@@ -301,22 +292,20 @@ Submit all the code you used to call the script and the result of the script.
 
 Submit all the code you used to do this.
 
-
 ![User avatar](https://avatars.githubusercontent.com/u/3641594?s=400&u=044fd05bc61270527c4da99212f143595d6fa4a1&v=4)
 
 Author
 
 [BoiseITGuru](https://twitter.com/boise_it_guru)
 
-
-
-
 [Quests](#quests)
-[Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/beginner-dapp-ios/en/chapter4/lesson3.md)
 
+[Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/beginner-dapp-ios/en/chapter4/lesson3.md)
 
 [Integrating WalletConnect and Lilco Wallet](/en/catalog/courses/beginner-dapp-ios/chapter4/lesson2)
 [Passing in Arguments to a Script](/en/catalog/courses/beginner-dapp-ios/chapter4/lesson4)
+
+
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
@@ -324,17 +313,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

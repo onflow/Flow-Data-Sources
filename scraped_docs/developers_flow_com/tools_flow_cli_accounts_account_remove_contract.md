@@ -1,22 +1,25 @@
 # Source: https://developers.flow.com/tools/flow-cli/accounts/account-remove-contract
 
-
-
-
 Remove a Contract | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
 * [Flow CLI](/tools/flow-cli)
+
   + [Install Instructions](/tools/flow-cli/install)
   + [Super Commands](/tools/flow-cli/super-commands)
   + [Accounts](/tools/flow-cli/accounts/get-accounts)
+
     - [Get an Account](/tools/flow-cli/accounts/get-accounts)
     - [Create an Account](/tools/flow-cli/accounts/create-accounts)
     - [Deploy a Contract](/tools/flow-cli/accounts/account-add-contract)
@@ -43,25 +46,145 @@ Remove a Contract | Flow Developer Portal
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 
-
 * [Flow CLI](/tools/flow-cli)
 * Accounts
 * Remove a Contract
+
 On this page
+
 # Remove a Contract
 
 *This feature is only found in the Emulator. You **cannot** remove a contract on Testnet or Mainnet.*
 
 Remove an existing contract deployed to a Flow account using the Flow CLI.
 
- `_10flow accounts remove-contract <name>`
+`_10
+
+flow accounts remove-contract <name>`
+
 ## Example Usage[​](#example-usage "Direct link to Example Usage")
 
- `_17> flow accounts remove-contract FungibleToken_17_17Contract 'FungibleToken' removed from account '0xf8d6e0586b0a20c7'_17_17Address 0xf8d6e0586b0a20c7_17Balance 99999999999.70000000_17Keys 1_17_17Key 0 Public Key 640a5a359bf3536d15192f18d872d57c98a96cb871b92b70cecb0739c2d5c37b4be12548d3526933c2cda9b0b9c69412f45ffb6b85b6840d8569d969fe84e5b7_17 Weight 1000_17 Signature Algorithm ECDSA_P256_17 Hash Algorithm SHA3_256_17 Revoked false_17 Sequence Number 6_17 Index 0_17_17Contracts Deployed: 0`
+`_17
+
+> flow accounts remove-contract FungibleToken
+
+_17
+
+_17
+
+Contract 'FungibleToken' removed from account '0xf8d6e0586b0a20c7'
+
+_17
+
+_17
+
+Address 0xf8d6e0586b0a20c7
+
+_17
+
+Balance 99999999999.70000000
+
+_17
+
+Keys 1
+
+_17
+
+_17
+
+Key 0 Public Key 640a5a359bf3536d15192f18d872d57c98a96cb871b92b70cecb0739c2d5c37b4be12548d3526933c2cda9b0b9c69412f45ffb6b85b6840d8569d969fe84e5b7
+
+_17
+
+Weight 1000
+
+_17
+
+Signature Algorithm ECDSA_P256
+
+_17
+
+Hash Algorithm SHA3_256
+
+_17
+
+Revoked false
+
+_17
+
+Sequence Number 6
+
+_17
+
+Index 0
+
+_17
+
+_17
+
+Contracts Deployed: 0`
 
 **Testnet Example**
 
- `_17> flow accounts remove-contract FungibleToken --signer alice --network testnet_17_17Contract 'FungibleToken' removed from account '0xf8d6e0586b0a20c7'_17_17Address 0xf8d6e0586b0a20c7_17Balance 99999999999.70000000_17Keys 1_17_17Key 0 Public Key 640a5a359bf3536d15192f18d872d57c98a96cb871b92b70cecb0739c2d5c37b4be12548d3526933c2cda9b0b9c69412f45ffb6b85b6840d8569d969fe84e5b7_17 Weight 1000_17 Signature Algorithm ECDSA_P256_17 Hash Algorithm SHA3_256_17 Revoked false_17 Sequence Number 6_17 Index 0_17_17Contracts Deployed: 0`
+`_17
+
+> flow accounts remove-contract FungibleToken --signer alice --network testnet
+
+_17
+
+_17
+
+Contract 'FungibleToken' removed from account '0xf8d6e0586b0a20c7'
+
+_17
+
+_17
+
+Address 0xf8d6e0586b0a20c7
+
+_17
+
+Balance 99999999999.70000000
+
+_17
+
+Keys 1
+
+_17
+
+_17
+
+Key 0 Public Key 640a5a359bf3536d15192f18d872d57c98a96cb871b92b70cecb0739c2d5c37b4be12548d3526933c2cda9b0b9c69412f45ffb6b85b6840d8569d969fe84e5b7
+
+_17
+
+Weight 1000
+
+_17
+
+Signature Algorithm ECDSA_P256
+
+_17
+
+Hash Algorithm SHA3_256
+
+_17
+
+Revoked false
+
+_17
+
+Sequence Number 6
+
+_17
+
+Index 0
+
+_17
+
+_17
+
+Contracts Deployed: 0`
 
 *Make sure alice account is defined in flow.json*
 
@@ -168,7 +291,16 @@ several configuration files.
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/account-remove-contract.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousUpdate a Contract](/tools/flow-cli/accounts/account-update-contract)[NextAccount Staking Info](/tools/flow-cli/accounts/account-staking-info)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/account-remove-contract.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Update a Contract](/tools/flow-cli/accounts/account-update-contract)[Next
+
+Account Staking Info](/tools/flow-cli/accounts/account-staking-info)
+
 ###### Rate this page
 
 😞😐😊
@@ -188,6 +320,7 @@ Skip version check during start up to speed up process for slow connections.
   + [Log](#log)
   + [Configuration](#configuration)
   + [Version Check](#version-check)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -200,6 +333,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -209,6 +343,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -216,6 +351,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -225,6 +361,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -232,5 +369,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

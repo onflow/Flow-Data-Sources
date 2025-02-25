@@ -1,20 +1,22 @@
 # Source: https://developers.flow.com/build/basics/accounts
 
-
-
-
 Accounts | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
 * [Getting Started](/build/getting-started/contract-interaction)
 * [Flow Protocol](/build/basics/blocks)
+
   + [Blocks](/build/basics/blocks)
   + [Collections](/build/basics/collections)
   + [Accounts](/build/basics/accounts)
@@ -31,14 +33,14 @@ Accounts | Flow Developer Portal
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
-
 * Flow Protocol
 * Accounts
+
 On this page
+
 info
 
 Are you an EVM developer looking for information about EVM Accounts on Flow? If so, check out the EVM specific documentation [here](/evm/accounts)
-
 
 # Accounts
 
@@ -76,11 +78,48 @@ This minimum storage fee is provided by the account creator and covers the cost 
 
 Due to the storage restrictions, there is a maximum available balance that user can withdraw from the wallet. The core contract [`FlowStorageFees`](/build/core-contracts/flow-fees#flowstoragefees) provides a function to retrieve that value:
 
- `_10import "FlowStorageFees"_10_10access(all) fun main(accountAddress: Address): UFix64 {_10 return FlowStorageFees.defaultTokenAvailableBalance(accountAddress)_10}`
+`_10
+
+import "FlowStorageFees"
+
+_10
+
+_10
+
+access(all) fun main(accountAddress: Address): UFix64 {
+
+_10
+
+return FlowStorageFees.defaultTokenAvailableBalance(accountAddress)
+
+_10
+
+}`
 
 Alternatively developers can use `availableBalance` property of the `Account`
 
- `_10access(all) fun main(address: Address): UFix64 {_10 let acc = getAccount(address)_10 let balance = acc.availableBalance_10_10 return balance_10}`
+`_10
+
+access(all) fun main(address: Address): UFix64 {
+
+_10
+
+let acc = getAccount(address)
+
+_10
+
+let balance = acc.availableBalance
+
+_10
+
+_10
+
+return balance
+
+_10
+
+}`
+
 ## Contracts[​](#contracts "Direct link to Contracts")
 
 An account can optionally store multiple [Cadence contracts](https://cadence-lang.org/docs/language/contracts). The code is stored as a human-readable UTF-8 encoded string which makes it easy for anyone to inspect the contents.
@@ -215,7 +254,9 @@ by trusted community members and organizations.
 
 You can use the Flow CLI to get account data by running:
 
- `_10flow accounts get 0xf919ee77447b7497 -n mainnet`
+`_10
+
+flow accounts get 0xf919ee77447b7497 -n mainnet`
 
 Find [more about the command in the CLI docs](/tools/flow-cli/accounts/get-accounts).
 
@@ -233,7 +274,16 @@ There are multiple SDKs implementing the above APIs for different languages:
 
 Find a list of all SDKs here: [tools/clients](/tools/clients)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/accounts.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousCollections](/build/basics/collections)[NextTransactions](/build/basics/transactions)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/accounts.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Collections](/build/basics/collections)[Next
+
+Transactions](/build/basics/transactions)
+
 ###### Rate this page
 
 😞😐😊
@@ -256,6 +306,7 @@ Find a list of all SDKs here: [tools/clients](/tools/clients)
   + [Network Management](#network-management)
   + [Governance](#governance)
 * [Accounts Retrieval](#accounts-retrieval)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -268,6 +319,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -277,6 +329,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -284,6 +337,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -293,6 +347,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -300,5 +355,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

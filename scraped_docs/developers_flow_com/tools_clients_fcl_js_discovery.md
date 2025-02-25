@@ -1,22 +1,25 @@
 # Source: https://developers.flow.com/tools/clients/fcl-js/discovery
 
-
-
-
 Wallet Discovery | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
 * [Flow CLI](/tools/flow-cli)
 * [Flow Emulator](/tools/emulator)
 * [Clients](/tools/clients)
+
   + [Flow Client Library (FCL)](/tools/clients/fcl-js)
+
     - [FCL Reference](/tools/clients/fcl-js/api)
     - [SDK Reference](/tools/clients/fcl-js/sdk-guidelines)
     - [Authentication](/tools/clients/fcl-js/authentication)
@@ -34,11 +37,12 @@ Wallet Discovery | Flow Developer Portal
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 
-
 * [Clients](/tools/clients)
 * [Flow Client Library (FCL)](/tools/clients/fcl-js)
 * Wallet Discovery
+
 On this page
+
 # Wallet Discovery
 
 ## Wallet Discovery[​](#wallet-discovery "Direct link to Wallet Discovery")
@@ -59,10 +63,30 @@ When authenticating via FCL using Discovery UI, a user is shown a list of servic
 This method is the simplest way to integrate Discovery and its wallets and services into your app. All you have to do is configure `discovery.wallet` with the host endpoint for testnet or mainnet.
 
 > **Note**: Opt-in wallets, like Ledger and Dapper Wallet, require you to explicitly state you'd like to use them. For more information on including opt-in wallets, [see these docs](/tools/clients/fcl-js/api#more-configuration).
-> 
+>
 > A [Dapper Wallet](https://meetdapper.com/developers) developer account is required. To enable Dapper Wallet inside FCL, you need to [follow this guide](https://docs.meetdapper.com/quickstart).
 
- `_10import { config } from '@onflow/fcl';_10_10config({_10 'accessNode.api': 'https://rest-testnet.onflow.org',_10 'discovery.wallet': 'https://fcl-discovery.onflow.org/testnet/authn',_10});`
+`_10
+
+import { config } from '@onflow/fcl';
+
+_10
+
+_10
+
+config({
+
+_10
+
+'accessNode.api': 'https://rest-testnet.onflow.org',
+
+_10
+
+'discovery.wallet': 'https://fcl-discovery.onflow.org/testnet/authn',
+
+_10
+
+});`
 
 Any time you call `fcl.authenticate` the user will be presented with that screen.
 
@@ -74,7 +98,27 @@ Starting in version 0.0.79-alpha.4, dapps now have the ability to display app a 
 
 All you have to do is set `app.detail.icon` and `app.detail.title` like this:
 
- `_10import { config } from '@onflow/fcl';_10_10config({_10 'app.detail.icon': 'https://placekitten.com/g/200/200',_10 'app.detail.title': 'Kitten Dapp',_10});`
+`_10
+
+import { config } from '@onflow/fcl';
+
+_10
+
+_10
+
+config({
+
+_10
+
+'app.detail.icon': 'https://placekitten.com/g/200/200',
+
+_10
+
+'app.detail.title': 'Kitten Dapp',
+
+_10
+
+});`
 
 **Note:** If these configuration options aren't set, Dapps using the Discovery API will still display a default icon and "Unknown App" as the title when attempting to authorize a user who is not logged in. It is highly recommended to set these values accurately before going live.
 
@@ -84,23 +128,210 @@ If you want more control over your authentication UI, the Discovery API is also 
 
 Setup still requires configuration of the Discovery endpoint, but when using the API it is set via `discovery.authn.endpoint` as shown below.
 
- `_10import { config } from '@onflow/fcl';_10_10config({_10 'accessNode.api': 'https://rest-testnet.onflow.org',_10 'discovery.authn.endpoint':_10 'https://fcl-discovery.onflow.org/api/testnet/authn',_10});`
+`_10
+
+import { config } from '@onflow/fcl';
+
+_10
+
+_10
+
+config({
+
+_10
+
+'accessNode.api': 'https://rest-testnet.onflow.org',
+
+_10
+
+'discovery.authn.endpoint':
+
+_10
+
+'https://fcl-discovery.onflow.org/api/testnet/authn',
+
+_10
+
+});`
 
 You can access services in your Dapp from `fcl.discovery`:
 
- `_10import * as fcl from '@onflow/fcl';_10_10fcl.discovery.authn.subscribe(callback);_10_10// OR_10_10fcl.discovery.authn.snapshot();`
+`_10
+
+import * as fcl from '@onflow/fcl';
+
+_10
+
+_10
+
+fcl.discovery.authn.subscribe(callback);
+
+_10
+
+_10
+
+// OR
+
+_10
+
+_10
+
+fcl.discovery.authn.snapshot();`
 
 In order to authenticate with a service (for example, when a user click's "login"), pass the selected service to the `fcl.authenticate` method described here [in the API reference](/tools/clients/fcl-js/api#authenticate):
 
- `_10fcl.authenticate({ service });`
+`_10
+
+fcl.authenticate({ service });`
 
 A simple React component may end up looking like this:
 
- `_24import './config';_24import { useState, useEffect } from 'react';_24import * as fcl from '@onflow/fcl';_24_24function Component() {_24 const [services, setServices] = useState([]);_24 useEffect(_24 () => fcl.discovery.authn.subscribe((res) => setServices(res.results)),_24 [],_24 );_24_24 return (_24 <div>_24 {services.map((service) => (_24 <button_24 key={service.provider.address}_24 onClick={() => fcl.authenticate({ service })}_24 >_24 Login with {service.provider.name}_24 </button>_24 ))}_24 </div>_24 );_24}`
+`_24
+
+import './config';
+
+_24
+
+import { useState, useEffect } from 'react';
+
+_24
+
+import * as fcl from '@onflow/fcl';
+
+_24
+
+_24
+
+function Component() {
+
+_24
+
+const [services, setServices] = useState([]);
+
+_24
+
+useEffect(
+
+_24
+
+() => fcl.discovery.authn.subscribe((res) => setServices(res.results)),
+
+_24
+
+[],
+
+_24
+
+);
+
+_24
+
+_24
+
+return (
+
+_24
+
+<div>
+
+_24
+
+{services.map((service) => (
+
+_24
+
+<button
+
+_24
+
+key={service.provider.address}
+
+_24
+
+onClick={() => fcl.authenticate({ service })}
+
+_24
+
+>
+
+_24
+
+Login with {service.provider.name}
+
+_24
+
+</button>
+
+_24
+
+))}
+
+_24
+
+</div>
+
+_24
+
+);
+
+_24
+
+}`
 
 Helpful fields for your UI can be found in the `provider` object inside of the service. Fields include the following:
 
- `_13{_13 ...,_13 "provider": {_13 "address": "0xf086a545ce3c552d",_13 "name": "Blocto",_13 "icon": "/images/blocto.png",_13 "description": "Your entrance to the blockchain world.",_13 "color": "#afd8f7",_13 "supportEmail": "support@blocto.app",_13 "authn_endpoint": "https://flow-wallet-testnet.blocto.app/authn",_13 "website": "https://blocto.portto.io"_13 }_13}`
+`_13
+
+{
+
+_13
+
+...,
+
+_13
+
+"provider": {
+
+_13
+
+"address": "0xf086a545ce3c552d",
+
+_13
+
+"name": "Blocto",
+
+_13
+
+"icon": "/images/blocto.png",
+
+_13
+
+"description": "Your entrance to the blockchain world.",
+
+_13
+
+"color": "#afd8f7",
+
+_13
+
+"supportEmail": "support@blocto.app",
+
+_13
+
+"authn_endpoint": "https://flow-wallet-testnet.blocto.app/authn",
+
+_13
+
+"website": "https://blocto.portto.io"
+
+_13
+
+}
+
+_13
+
+}`
+
 ## Network Configuration[​](#network-configuration "Direct link to Network Configuration")
 
 ### Discovery UI URLs[​](#discovery-ui-urls "Direct link to Discovery UI URLs")
@@ -133,7 +364,31 @@ Opt-in wallets are those that don't have support for authentication, authorizati
 
 To include opt-in wallets from FCL:
 
- `_10import * as fcl from "@onflow/fcl"_10_10fcl.config({_10 "discovery.wallet": "https://fcl-discovery.onflow.org/testnet/authn",_10 "discovery.authn.endpoint": "https://fcl-discovery.onflow.org/api/testnet/authn",_10 "discovery.authn.include": ["0x123"] // Service account address_10})`
+`_10
+
+import * as fcl from "@onflow/fcl"
+
+_10
+
+_10
+
+fcl.config({
+
+_10
+
+"discovery.wallet": "https://fcl-discovery.onflow.org/testnet/authn",
+
+_10
+
+"discovery.authn.endpoint": "https://fcl-discovery.onflow.org/api/testnet/authn",
+
+_10
+
+"discovery.authn.include": ["0x123"] // Service account address
+
+_10
+
+})`
 
 **Opt-In Wallet Addresses on Testnet and Mainnet**
 
@@ -146,7 +401,17 @@ To learn more about other possible configurations, check out the following links
 
 * [Discovery API Docs](/tools/clients/fcl-js/api#discovery-1)
 * [Discovery Github Repo](https://github.com/onflow/fcl-discovery)
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/discovery.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousHow to Configure FCL](/tools/clients/fcl-js/configure-fcl)[NextInstallation](/tools/clients/fcl-js/installation)
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/discovery.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+How to Configure FCL](/tools/clients/fcl-js/configure-fcl)[Next
+
+Installation](/tools/clients/fcl-js/installation)
+
 ###### Rate this page
 
 😞😐😊
@@ -160,6 +425,7 @@ To learn more about other possible configurations, check out the following links
   + [Discovery API Endpoints](#discovery-api-endpoints)
 * [Other Configuration](#other-configuration)
   + [Include Opt-In Wallets](#include-opt-in-wallets)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -172,6 +438,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -181,6 +448,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -188,6 +456,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -197,6 +466,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -204,5 +474,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

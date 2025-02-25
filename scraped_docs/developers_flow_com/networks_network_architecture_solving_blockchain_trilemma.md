@@ -1,19 +1,21 @@
 # Source: https://developers.flow.com/networks/network-architecture/solving-blockchain-trilemma
 
-
-
-
 Solving the blockchain trilemma | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
 * [Flow's Network Architecture](/networks/network-architecture)
+
   + [Solving the blockchain trilemma](/networks/network-architecture/solving-blockchain-trilemma)
   + [Sustainability](/networks/network-architecture/sustainability)
   + [User safety](/networks/network-architecture/user-safety)
@@ -23,10 +25,11 @@ Solving the blockchain trilemma | Flow Developer Portal
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
-
 * [Flow's Network Architecture](/networks/network-architecture)
 * Solving the blockchain trilemma
+
 On this page
+
 # Solving the blockchain trilemma
 
 In a monolithic architecture, all nodes perform every task. As network usage grows, the transaction processing capacity of the individual nodes becomes a limiting factor, restricting the network’s throughput and latency. The amount of data that can be stored on-chain is limited since nodes have a finite storage capacity. The only way to scale monolithic blockchains is by increasing the capacity of each node by adding more CPU, memory, and storage (i.e. vertical scaling, an approach taken by Solana). However, this solution comes at the cost of decentralization. As nodes scale vertically, they become more expensive to run, and eventually, only a few operators can afford to run such high-performance, high-capacity nodes. Worse, energy consumption for every node in the network increases over time, making the chain environmentally unsustainable.
@@ -71,12 +74,22 @@ Thus, Flow’s multi-role architecture solves the blockchain trilemma:
 
 ![trilemma_solved](/assets/images/flow_trillema_solved-1ba96289ea436ee41ca530f58ec8b558.png)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/network-architecture/solving-blockchain-trilemma.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousFlow's Network Architecture](/networks/network-architecture)[NextSustainability](/networks/network-architecture/sustainability)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/network-architecture/solving-blockchain-trilemma.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Flow's Network Architecture](/networks/network-architecture)[Next
+
+Sustainability](/networks/network-architecture/sustainability)
+
 ###### Rate this page
 
 😞😐😊
 
 * [Separating Consensus from Compute](#separating-consensus-from-compute)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -89,6 +102,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -98,6 +112,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -105,6 +120,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -114,6 +130,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -121,5 +138,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

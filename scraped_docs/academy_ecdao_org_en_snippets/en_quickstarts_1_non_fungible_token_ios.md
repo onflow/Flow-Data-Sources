@@ -1,28 +1,14 @@
 # Source: https://academy.ecdao.org/en/quickstarts/1-non-fungible-token-ios
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -35,14 +21,11 @@ Non Fungible Token (NFT)
 
 # Non Fungible Token (NFT)
 
-
 Quickstart
 
 SwiftUI
 
 Mint NFTs and transfer them to another account on Flow Testnet.
-
-
 
 ## ð© Quickstart 1: Non-Fungible Token
 
@@ -72,6 +55,7 @@ Required:
 > in a terminal window, clone the project repo, install the dependencies, and open the project in Xcode:
 
 sh
+
 ```
 		
 			git clone https://github.com/boiseitguru/1-non-fungible-token-ios.git
@@ -81,18 +65,22 @@ open NonFungible\ Token.xcodeproj
 		 
 	
 ```
+
 > Next we need to copy or rename `flow.json.example` to `flow.json`.
 
 sh
+
 ```
 		
 			mv flow.json.example flow.json
 		 
 	
 ```
+
 > in a second terminal window, start your ð·â local emulator:
 
 bash
+
 ```
 		
 			cd 1-non-fungible-token-ios
@@ -106,6 +94,7 @@ flow emulator start -v
 > in a third terminal window, ð¾ deploy your contract and ð¸ start your local wallet:
 
 bash
+
 ```
 		
 			cd 1-non-fungible-token-ios
@@ -114,6 +103,7 @@ flow dev-wallet
 		 
 	
 ```
+
 > You can `flow project deploy --update` to deploy a new contract any time.
 
 ð± Once the emulator and dev-wallet have been started, use Xcode to run your app on the iOS simulator. (ð§¨ FCL-Swift does not currently support using the dev-wallet on a physical iOS device.)
@@ -176,6 +166,7 @@ This will mint 3 NFTs to the supplied address (`0xf8d6e0586b0a20c7`).
 ![account-select](https://i.imgur.com/bbS1hknl.png)
 ![create-account](https://i.imgur.com/fb4hh6Vl.png)
 ![account-created](https://i.imgur.com/5FilEbml.png)
+
 > Click `Get NFTs` again. You will see an error appear:
 
 ![get-nfts](https://i.imgur.com/FiSkeq1l.png)
@@ -222,6 +213,7 @@ Log in to that account, click `Get NFTs`, and you will see it has an NFT now!
 > â½ï¸ Add your new testnet account to your `flow.json` by modifying the following lines of code. Paste your address you copied above to where it says âYOUR GENERATED ADDRESSâ, and paste your private key where it says âYOUR PRIVATE KEYâ.
 
 json
+
 ```
 		
 			{
@@ -292,6 +284,7 @@ Notice that we do not want to re-deploy NonFungibleToken or MetadataViews. That 
 > ð Deploy your ExampleNFT smart contract:
 
 sh
+
 ```
 		
 			flow project deploy --network=testnet
@@ -304,6 +297,7 @@ sh
 ð± Open `NonFungible Token.xcodeproj` in Xcode and update line 13 of `Hello World > Flow > FlowManager.swift with the newly created Testnet account so we can interact with your new contract.
 
 swift
+
 ```
 		
 			import UIKit
@@ -320,6 +314,7 @@ class FlowManager: ObservableObject {
 You will also need to change the first to lines of the `setup()` function inside FlowManager to switch over to the Flow testnet, as shown below. WalletConnect has been configured for this project allowing you to use the wallet of your choice on testnet. For details on how to setup Lilico Wallet for development use on testnet, check out our course [Setting Up Lilico Wallet For Development](https://academy.ecdao.org/en/catalog/courses/setting-up-lilico-wallet-for-development)
 
 swift
+
 ```
 		
 			class FlowManager: ObservableObject {
@@ -355,18 +350,15 @@ Lastly, run the app in the simulator or on your iOS/iPadOS Device.
 
 > ð Problems, questions, comments on the stack? Post them to the [ð Emerald City Discord](https://discord.gg/emerald-city-906264258189332541).
 
-
 ![User avatar](https://avatars.githubusercontent.com/u/3641594?s=400&u=044fd05bc61270527c4da99212f143595d6fa4a1&v=4)
 
 Author
 
 [BoiseITGuru](https://twitter.com/boise_it_guru)
 
-
-
-
 [Fork Quickstart](https://github.com/boiseitguru/1-non-fungible-token-ios/fork)
 [Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/quickstarts/1-non-fungible-token-ios/en/readme.md)
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
@@ -375,17 +367,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

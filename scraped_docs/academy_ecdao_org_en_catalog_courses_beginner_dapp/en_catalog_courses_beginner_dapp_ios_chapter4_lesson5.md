@@ -1,30 +1,14 @@
 # Source: https://academy.ecdao.org/en/catalog/courses/beginner-dapp-ios/chapter4/lesson5
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -51,7 +35,6 @@ Connect
 [4.1 Connecting the Blockchain](/en/catalog/courses/beginner-dapp-ios/chapter4/lesson1)[4.2 Integrating WalletConnect and Lilco Wallet](/en/catalog/courses/beginner-dapp-ios/chapter4/lesson2)[4.3 Running a Script](/en/catalog/courses/beginner-dapp-ios/chapter4/lesson3)[4.4 Passing in Arguments to a Script](/en/catalog/courses/beginner-dapp-ios/chapter4/lesson4)[4.5 Finishing the Skeleton](/en/catalog/courses/beginner-dapp-ios/chapter4/lesson5)
 
 Course Overview
-
 
 [Catalog](/en/catalog)
 [Course](/en/catalog/courses/beginner-dapp-ios)
@@ -84,6 +67,7 @@ We must complete step 3 in order to complete our DApp.
 Here is *something similar* to what your `ContentView` file should be right now, after completing the quests from the previous few lessons:
 
 swift
+
 ```
 		
 			import SwiftUI
@@ -169,6 +153,7 @@ struct ContentView: View {
 		 
 	
 ```
+
 ## Sending Transactions Using FCL
 
 > Lets implement a `changeGreeting` function that sends a transaction to change our greeting using FCL.
@@ -176,6 +161,7 @@ struct ContentView: View {
 Here is a snippet of a transaction:
 
 swift
+
 ```
 		
 			func changeGreeting() async {
@@ -208,6 +194,7 @@ Parameters 2-4 all default to the current user.
 > Letâs finsih up our DApp to see how this works in practice.
 
 swift
+
 ```
 		
 			func changeGreeting() async {
@@ -269,6 +256,7 @@ A txId or âtransaction idâ can help you find information about your tr
 > Copy + paste that transactionId, go to <https://testnet.flowdiver.io/>, and paste it into the search bar. You should be able to discover your transaction!
 
 ![](https://i.imgur.com/IHZBBGV.png)
+
 ## Updating the Displayed Greeting After Transaction
 
 Now that we are changing the greeting, we want to make sure our frontend reflects this change.
@@ -276,6 +264,7 @@ Now that we are changing the greeting, we want to make sure our frontend reflect
 > Inside of `changeGreeting`, after the `print`, add these lines:
 
 swift
+
 ```
 		
 			_ = try await txId.onceSealed()
@@ -300,21 +289,18 @@ This also concludes the course! If you want to check out other courses, please s
 
 Sumbmit a link to your Github repo with your completed Emerald DApp iOS App!!
 
-
 ![User avatar](https://avatars.githubusercontent.com/u/3641594?s=400&u=044fd05bc61270527c4da99212f143595d6fa4a1&v=4)
 
 Author
 
 [BoiseITGuru](https://twitter.com/boise_it_guru)
 
-
-
-
 [Quests](#quests)
+
 [Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/beginner-dapp-ios/en/chapter4/lesson5.md)
 
-
 [Passing in Arguments to a Script](/en/catalog/courses/beginner-dapp-ios/chapter4/lesson4)
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
@@ -323,17 +309,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/ecosystem/grants
 
-
-
-
 Grants | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Ecosystem](/ecosystem)
 * [Wallets](/ecosystem/wallets)
@@ -25,9 +26,10 @@ Grants | Flow Developer Portal
 * [Auditors](/ecosystem/auditors)
 * [Ecosystem Overview](/ecosystem/overview)
 
-
 * Grants
+
 On this page
+
 # Flow Developer Grants
 
 The Flow Foundation provides grants to support developers and teams building tools and products that enhance the Flow ecosystem.
@@ -46,13 +48,24 @@ We are particularly interested in projects across these key areas:
 1. Visit the [Flow Developer Grants Repository](https://github.com/onflow/developer-grants)
 2. Create a new issue using the "Grant Application" template
 3. Fill out all required details about your project
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/grants.md)Last updated on **Feb 14, 2025** by **bz**[PreviousFaucets](/ecosystem/faucets)[NextHackathons](/ecosystem/hackathons)
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/grants.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Faucets](/ecosystem/faucets)[Next
+
+Hackathons](/ecosystem/hackathons)
+
 ###### Rate this page
 
 😞😐😊
 
 * [Focus Areas](#focus-areas)
 * [How to Apply](#how-to-apply)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -65,6 +78,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -74,6 +88,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -81,6 +96,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -90,6 +106,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -97,5 +114,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

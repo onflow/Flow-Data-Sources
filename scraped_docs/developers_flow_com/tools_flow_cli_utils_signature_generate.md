@@ -1,19 +1,21 @@
 # Source: https://developers.flow.com/tools/flow-cli/utils/signature-generate
 
-
-
-
 Generate a Signature | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
 * [Flow CLI](/tools/flow-cli)
+
   + [Install Instructions](/tools/flow-cli/install)
   + [Super Commands](/tools/flow-cli/super-commands)
   + [Accounts](/tools/flow-cli/accounts/get-accounts)
@@ -24,6 +26,7 @@ Generate a Signature | Flow Developer Portal
   + [Flow.json](/tools/flow-cli/flow.json/initialize-configuration)
   + [Flow Entities](/tools/flow-cli/get-flow-data/get-blocks)
   + [Utils](/tools/flow-cli/utils/signature-generate)
+
     - [Generate a Signature](/tools/flow-cli/utils/signature-generate)
     - [Verify Signature](/tools/flow-cli/utils/signature-verify)
     - [Snapshot Save](/tools/flow-cli/utils/snapshot-save)
@@ -40,23 +43,51 @@ Generate a Signature | Flow Developer Portal
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 
-
 * [Flow CLI](/tools/flow-cli)
 * Utils
 * Generate a Signature
+
 On this page
+
 # Generate a Signature
 
 Generate a signature using the private key of the signer account.
 
- `_10flow signatures generate <message>`
+`_10
+
+flow signatures generate <message>`
 
 ⚠️ *Make sure the account you want to use for signing is saved in the `flow.json` configuration.
 The address of the account is not important, just the private key.*
 
 ## Example Usage[​](#example-usage "Direct link to Example Usage")
 
- `_10> flow signatures generate 'The quick brown fox jumps over the lazy dog' --signer alice_10_10Signature b33eabfb05d374b...f09929da96f5beec167fd1f123ec_10Message The quick brown fox jumps over the lazy dog_10Public Key 0xc92a7c...042c4025d241fd430242368ce662d39636987_10Hash Algorithm SHA3_256_10Signature Algorithm ECDSA_P256`
+`_10
+
+> flow signatures generate 'The quick brown fox jumps over the lazy dog' --signer alice
+
+_10
+
+_10
+
+Signature b33eabfb05d374b...f09929da96f5beec167fd1f123ec
+
+_10
+
+Message The quick brown fox jumps over the lazy dog
+
+_10
+
+Public Key 0xc92a7c...042c4025d241fd430242368ce662d39636987
+
+_10
+
+Hash Algorithm SHA3_256
+
+_10
+
+Signature Algorithm ECDSA_P256`
+
 ## Arguments[​](#arguments "Direct link to Arguments")
 
 ### Message[​](#message "Direct link to Message")
@@ -123,7 +154,16 @@ files by using `-f` flag multiple times.
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/utils/signature-generate.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousNetwork Status](/tools/flow-cli/get-flow-data/get-status)[NextVerify Signature](/tools/flow-cli/utils/signature-verify)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/utils/signature-generate.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Network Status](/tools/flow-cli/get-flow-data/get-status)[Next
+
+Verify Signature](/tools/flow-cli/utils/signature-verify)
+
 ###### Rate this page
 
 😞😐😊
@@ -139,6 +179,7 @@ Skip version check during start up to speed up process for slow connections.
   + [Log](#log)
   + [Configuration](#configuration)
   + [Version Check](#version-check)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -151,6 +192,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -160,6 +202,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -167,6 +210,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -176,6 +220,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -183,5 +228,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

@@ -1,29 +1,14 @@
 # Source: https://academy.ecdao.org/en/catalog/tutorials/flow-unity-sdk
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -36,14 +21,11 @@ Integrating User Profile with Flow Unity SDK
 
 # Integrating User Profile with Flow Unity SDK
 
-
 Tutorial
 
 Beginner
 
 20 mins
-
-
 
 # Tutorial - Using Flow Unity SDK
 
@@ -91,6 +73,7 @@ And we are done! Now we will setup our Unity.
 1. Letâs go back to our `Cadence.cs` script and add all the .cdc files like this -
 
 cs
+
 ```
 		
 			using DapperLabs.Flow.Sdk.Unity;
@@ -131,6 +114,7 @@ Then letâs go ahead and make a simple UI to interact with our script. We wi
 Now, letâs make a script to handle all of our functions, Iâll name it `FlowHandler.cs` -
 
 cs
+
 ```
 		
 			using System.Threading.Tasks;
@@ -225,6 +209,7 @@ Awesome! now if you run your game, it should show you a QR code, scan the QR wit
 To keep things simple we will make a new function called `CreateNewUser` in the same class that will be called when we hit the submit button, which will read the `NewUserNameText` and call the `CallNewUserTransaction` with the value. Which will look something like this -
 
 cs
+
 ```
 		
 			    public TMP_InputField CreateUserNameText;
@@ -271,6 +256,7 @@ If you wanna give it a try go ahead! But we will be moving along and do the test
 Create a new function called `UpdateUserName` which shall be attached to the Sumbit button of the Update Username Section which then reads the new username from the `NewUserNameText` and calls the `CallUpdateUsernameTransaction` function with the new username value.
 
 cs
+
 ```
 		
 			    public TMP_InputField NewUserNameText;
@@ -315,6 +301,7 @@ Go ahead and assign the values in the inspector and attach the `UpdateUserName` 
 Create a new function and call it `ReadProfileValue` which will be assigned to the appropriate button, which then calls the `ExecuteReadProfileScript` function which will display us the data. We also make a new struct called `ScriptResponseStruct`, to match the return value from the .cdc script.
 
 cs
+
 ```
 		
 			    public TextMeshProUGUI ReadProfileInfoText;
@@ -385,17 +372,14 @@ We are done! Go ahead and play with it! See what else can you discover or add mo
 
 Congratulation! Go buy yourself some nice Mango Lassi! You did great today! Cheers!
 
-
 ![User avatar](https://i.imgur.com/Nfww3sn.png)
 
 Author
 
 [Memxor](https://twitter.com/memxor_)
 
-
-
-
 [Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/tutorials/flow-unity-sdk/en/readme.md)
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
@@ -404,17 +388,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

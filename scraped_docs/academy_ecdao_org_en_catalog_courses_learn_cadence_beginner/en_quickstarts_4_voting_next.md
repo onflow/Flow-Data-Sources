@@ -1,28 +1,14 @@
 # Source: https://academy.ecdao.org/en/quickstarts/4-voting-next
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -35,15 +21,13 @@ Voting
 
 # Voting
 
-
 Quickstart
 
 Next.js
+
 React.js
 
 A Next.js DApp that spins up an open DAO that lets community members create proposals and vote within it based on token holdings that govern the DAO.
-
-
 
 ## ð© Quickstart 4: Voting
 
@@ -66,15 +50,18 @@ Required:
 * [Flow CLI](https://docs.onflow.org/flow-cli/install/) (ð§¨ Make sure to install the correct link for your system ð§¨). You know you have installed it if you type `flow version` in your terminal and it prints a version.
 
 sh
+
 ```
 		
 			git clone https://github.com/emerald-dao/4-voting.git
 		 
 	
 ```
+
 > in a terminal window, ð± install the dependencies start your frontend:
 
 sh
+
 ```
 		
 			cd 4-voting
@@ -83,9 +70,11 @@ npm run dev
 		 
 	
 ```
+
 > in a second terminal window, start your ð·â local emulator:
 
 bash
+
 ```
 		
 			cd 4-voting
@@ -99,6 +88,7 @@ flow emulator start -v
 > in a third terminal window, ð¾ deploy your contract and ð¸ start your local wallet:
 
 bash
+
 ```
 		
 			cd 4-voting
@@ -107,6 +97,7 @@ flow dev-wallet
 		 
 	
 ```
+
 > You can `flow project deploy --update` to deploy a new contract any time.
 
 ð± Open http://localhost:3000 to see the app
@@ -127,6 +118,7 @@ After logging in to our DApp, you will see that there is no name or description 
 You will now see that being changed on your frontend:
 
 ![name & describe dao](https://i.imgur.com/nRHh0Mr.png)
+
 ## ðª Checkpoint 3: Join the DAO
 
 Now that we have given our DAO a name & description, letâs join the DAO!
@@ -170,6 +162,7 @@ A popup will appear to create your new proposal. This is a transaction that will
 After clicking âApproveâ, you will be taken back to the main dashboard. You should now see a vote in play:
 
 ![a vote is now in play](https://i.imgur.com/PQXUtbb.png)
+
 ## ð Checkpoint 5: Viewing a Proposal
 
 Now that a proposal has been created, lets click on it and see what it looks like:
@@ -236,6 +229,7 @@ Letâs try to submit a vote from another account!
 > â½ï¸ Add your new testnet account to your `flow.json` by modifying the following lines of code. Paste your address you copied above to where it says âYOUR GENERATED ADDRESSâ, and paste your private key where it says âYOUR PRIVATE KEYâ.
 
 json
+
 ```
 		
 			"accounts": {
@@ -271,9 +265,11 @@ json
 		 
 	
 ```
+
 > ð Deploy your Vote smart contract:
 
 sh
+
 ```
 		
 			flow project deploy --network=testnet
@@ -320,16 +316,15 @@ Letâs try out our application on testnet:
 
 > ð Problems, questions, comments on the stack? Post them to the [ð Emerald City Discord](https://discord.gg/emerald-city-906264258189332541).
 
-
 ![User avatar](https://avatars.githubusercontent.com/u/100654804?v=4)
 
 Author
 
 [Emerald City](https://twitter.com/emerald_dao)
 
-
 [Fork Quickstart](https://github.com/emerald-dao/4-voting/fork)
 [Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/quickstarts/4-voting-next/en/readme.md)
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
@@ -338,17 +333,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

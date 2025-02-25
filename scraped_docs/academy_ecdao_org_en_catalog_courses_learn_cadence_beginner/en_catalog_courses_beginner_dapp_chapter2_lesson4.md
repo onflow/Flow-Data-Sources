@@ -1,30 +1,14 @@
 # Source: https://academy.ecdao.org/en/catalog/courses/beginner-dapp/chapter2/lesson4
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -56,7 +40,6 @@ Connect
 
 Course Overview
 
-
 [Catalog](/en/catalog)
 [Course](/en/catalog/courses/beginner-dapp)
 Beginner Dapp
@@ -80,11 +63,13 @@ One solution to creating a new nav bar would be to just throw some more code int
 Your directory should be structured like this:
 
 ![](/courses/beginner-dapp/structured-directory.png)
+
 ### Adding Some Code
 
 > Inside of your `Nav.jsx` file, add this code:
 
 javascript
+
 ```
 		
 			import styles from '../styles/Nav.module.css';
@@ -105,6 +90,7 @@ This code is very simple, it:
 > Next, inside the `<nav>` tag, letâs add some code:
 
 javascript
+
 ```
 		
 			<nav>
@@ -125,6 +111,7 @@ This is great! But the problem is, nothing is displaying on the screen. Why is t
 Your `./pages/index.js` file should now look like this:
 
 javascript
+
 ```
 		
 			import Head from 'next/head';
@@ -174,11 +161,13 @@ export default function Home() {
 You should now notice that your project looks like this:
 
 ![](/courses/beginner-dapp/base-nav.png)
+
 ### Making it Less Ugly
 
 Inside of `./styles/Nav.module.css`, letâs make a new class called `nav`:
 
 css
+
 ```
 		
 			.nav {
@@ -189,9 +178,11 @@ css
 		 
 	
 ```
+
 > Now, inside of our `Nav.jsx` file, add the `nav` className to the `<nav>` tag:
 
 javascript
+
 ```
 		
 			<nav className={styles.nav}>
@@ -205,6 +196,7 @@ javascript
 You should now see that our `<Nav>` component looks pretty cool!
 
 ![](/courses/beginner-dapp/second-nav.png)
+
 ## Adding an Input Field
 
 The DApp we are building is one where you can change a âGreetingâ value inside our contract, and then display it to the public. In order to do that, we need to be able to type our new greeting into an input box and then send it to the blockchain. So, letâs make an input field!
@@ -214,6 +206,7 @@ Inside of `./pages/index.js`, do two things:
 > First, replace the âGoodbyeâ `<button>` with this code:
 
 html
+
 ```
 		
 			<input placeholder="Hello, World!" />
@@ -230,15 +223,18 @@ We basically created an input field and added a placeholder of âHello, Worl
 > At the top of the file, add this line:
 
 javascript
+
 ```
 		
 			import { useState } from 'react';
 		 
 	
 ```
+
 > Then, right after the line that says `export default function Home() {`, add this line of code:
 
 javascript
+
 ```
 		
 			const [newGreeting, setNewGreeting] = useState('');
@@ -251,6 +247,7 @@ javascript
 > Make your `<input>` tag look like this:
 
 html
+
 ```
 		
 			<input onChange={(e) => setNewGreeting(e.target.value)} placeholder="Hello, World!" />
@@ -279,22 +276,20 @@ In Chapter 3, we will start exploring some blockchain code.
 
 To upload your quests, show us your `./pages/index.js` file and take a screenshot of your `newGreeting` being printed to the developer console.
 
-
 ![User avatar](/avatars/jacob.jpeg)
 
 Author
 
 [Jacob Tucker](https://twitter.com/jacobmtucker)
 
-
-
-
 [Quests](#quests)
-[Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/beginner-dapp/en/chapter2/lesson4.md)
 
+[Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/beginner-dapp/en/chapter2/lesson4.md)
 
 [Adding Javascript Code](/en/catalog/courses/beginner-dapp/chapter2/lesson3)
 [Our First Smart Contract](/en/catalog/courses/beginner-dapp/chapter3/lesson1)
+
+
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
@@ -302,17 +297,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

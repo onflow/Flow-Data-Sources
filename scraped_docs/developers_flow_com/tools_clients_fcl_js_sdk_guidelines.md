@@ -1,22 +1,25 @@
 # Source: https://developers.flow.com/tools/clients/fcl-js/sdk-guidelines
 
-
-
-
 SDK Reference | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
 * [Flow CLI](/tools/flow-cli)
 * [Flow Emulator](/tools/emulator)
 * [Clients](/tools/clients)
+
   + [Flow Client Library (FCL)](/tools/clients/fcl-js)
+
     - [FCL Reference](/tools/clients/fcl-js/api)
     - [SDK Reference](/tools/clients/fcl-js/sdk-guidelines)
     - [Authentication](/tools/clients/fcl-js/authentication)
@@ -34,11 +37,12 @@ SDK Reference | Flow Developer Portal
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 
-
 * [Clients](/tools/clients)
 * [Flow Client Library (FCL)](/tools/clients/fcl-js)
 * SDK Reference
+
 On this page
+
 # SDK Reference
 
 ## Overview[​](#overview "Direct link to Overview")
@@ -56,14 +60,26 @@ The library client specifications can be found here:
 
 NPM:
 
- `_10npm install --save @onflow/fcl @onflow/types`
+`_10
+
+npm install --save @onflow/fcl @onflow/types`
 
 Yarn:
 
- `_10yarn add @onflow/fcl @onflow/types`
+`_10
+
+yarn add @onflow/fcl @onflow/types`
+
 ### Importing the Library[​](#importing-the-library "Direct link to Importing the Library")
 
- `_10import * as fcl from "@onflow/fcl"_10import * as types from "@onflow/types"`
+`_10
+
+import * as fcl from "@onflow/fcl"
+
+_10
+
+import * as types from "@onflow/types"`
+
 ## Connect[​](#connect "Direct link to Connect")
 
 [![](https://raw.githubusercontent.com/onflow/sdks/main/templates/documentation/ref.svg)](/tools/clients/fcl-js/configure-fcl)
@@ -78,7 +94,24 @@ By default, the library uses HTTP to communicate with the access nodes and it mu
 
 Example:
 
- `_10import { config } from "@onflow/fcl"_10_10config({_10 "accessNode.api": "https://rest-testnet.onflow.org"_10})`
+`_10
+
+import { config } from "@onflow/fcl"
+
+_10
+
+_10
+
+config({
+
+_10
+
+"accessNode.api": "https://rest-testnet.onflow.org"
+
+_10
+
+})`
+
 ## Querying the Flow Network[​](#querying-the-flow-network "Direct link to Querying the Flow Network")
 
 After you have established a connection with an access node, you can query the Flow network to retrieve data about blocks, accounts, events and transactions. We will explore how to retrieve each of these entities in the sections below.
@@ -97,7 +130,39 @@ Query the network for block by id, height or get the latest block.
 
 This example depicts ways to get the latest block as well as any other block by height or ID:
 
- `_10import * as fcl from "@onflow/fcl";_10_10// Get latest block_10const latestBlock = await fcl.latestBlock(true); // If true, get the latest sealed block_10_10// Get block by ID (uses builder function)_10await fcl.send([fcl.getBlock(), fcl.atBlockId("23232323232")]).then(fcl.decode);_10_10// Get block at height (uses builder function)_10await fcl.send([fcl.getBlock(), fcl.atBlockHeight(123)]).then(fcl.decode)`
+`_10
+
+import * as fcl from "@onflow/fcl";
+
+_10
+
+_10
+
+// Get latest block
+
+_10
+
+const latestBlock = await fcl.latestBlock(true); // If true, get the latest sealed block
+
+_10
+
+_10
+
+// Get block by ID (uses builder function)
+
+_10
+
+await fcl.send([fcl.getBlock(), fcl.atBlockId("23232323232")]).then(fcl.decode);
+
+_10
+
+_10
+
+// Get block at height (uses builder function)
+
+_10
+
+await fcl.send([fcl.getBlock(), fcl.atBlockHeight(123)]).then(fcl.decode)`
 
 Result output: [BlockObject](/tools/clients/fcl-js/api#blockobject)
 
@@ -120,7 +185,41 @@ An account includes the following data:
 
 Example depicts ways to get an account at the latest block and at a specific block height:
 
- `_10import * as fcl from "@onflow/fcl";_10_10// Get account from latest block height_10const account = await fcl.account("0x1d007d755706c469");_10_10// Get account at a specific block height_10fcl.send([_10 fcl.getAccount("0x1d007d755706c469"),_10 fcl.atBlockHeight(123)_10]);`
+`_10
+
+import * as fcl from "@onflow/fcl";
+
+_10
+
+_10
+
+// Get account from latest block height
+
+_10
+
+const account = await fcl.account("0x1d007d755706c469");
+
+_10
+
+_10
+
+// Get account at a specific block height
+
+_10
+
+fcl.send([
+
+_10
+
+fcl.getAccount("0x1d007d755706c469"),
+
+_10
+
+fcl.atBlockHeight(123)
+
+_10
+
+]);`
 
 Result output: [AccountObject](/tools/clients/fcl-js/api#accountobject)
 
@@ -145,7 +244,59 @@ Retrieve transactions from the network by providing a transaction ID. After a tr
 | SEALED | ✅ | The transaction has been executed and the result is sealed in a block |
 | EXPIRED | ✅ | The transaction reference block is outdated before being executed |
 
- `_16import * as fcl from "@onflow/fcl";_16_16// Snapshot the transaction at a point in time_16fcl.tx(transactionId).snapshot();_16_16// Subscribe to a transaction's updates_16fcl.tx(transactionId).subscribe(callback);_16_16// Provides the transaction once the status is finalized_16fcl.tx(transactionId).onceFinalized();_16_16// Provides the transaction once the status is executed_16fcl.tx(transactionId).onceExecuted();_16_16// Provides the transaction once the status is sealed_16fcl.tx(transactionId).onceSealed();`
+`_16
+
+import * as fcl from "@onflow/fcl";
+
+_16
+
+_16
+
+// Snapshot the transaction at a point in time
+
+_16
+
+fcl.tx(transactionId).snapshot();
+
+_16
+
+_16
+
+// Subscribe to a transaction's updates
+
+_16
+
+fcl.tx(transactionId).subscribe(callback);
+
+_16
+
+_16
+
+// Provides the transaction once the status is finalized
+
+_16
+
+fcl.tx(transactionId).onceFinalized();
+
+_16
+
+_16
+
+// Provides the transaction once the status is executed
+
+_16
+
+fcl.tx(transactionId).onceExecuted();
+
+_16
+
+_16
+
+// Provides the transaction once the status is sealed
+
+_16
+
+fcl.tx(transactionId).onceSealed();`
 
 Result output: [TransactionStatusObject](/tools/clients/fcl-js/api#gettransactionstatus)
 
@@ -157,7 +308,9 @@ Retrieve events by a given type in a specified block height range or through a l
 
 📖 **Event type** is a string that follow a standard format:
 
- `_10A.{contract address}.{contract name}.{event name}`
+`_10
+
+A.{contract address}.{contract name}.{event name}`
 
 Please read more about [events in the documentation](https://cadence-lang.org/docs/language/core-events). The exception to this standard are
 core events, and you should read more about them in [this document](https://cadence-lang.org/docs/language/core-events).
@@ -168,7 +321,89 @@ core events, and you should read more about them in [this document](https://cade
 
 Example depicts ways to get events within block range or by block IDs:
 
- `_22import * as fcl from "@onflow/fcl";_22_22// Get events at block height range_22await fcl_22 .send([_22 fcl.getEventsAtBlockHeightRange(_22 "A.7e60df042a9c0868.FlowToken.TokensWithdrawn", // event name_22 35580624, // block to start looking for events at_22 35580624 // block to stop looking for events at_22 ),_22 ])_22 .then(fcl.decode);_22_22// Get events from list of block ids_22await fcl_22 .send([_22 fcl.getEventsAtBlockIds("A.7e60df042a9c0868.FlowToken.TokensWithdrawn", [_22 "c4f239d49e96d1e5fbcf1f31027a6e582e8c03fcd9954177b7723fdb03d938c7",_22 "5dbaa85922eb194a3dc463c946cc01c866f2ff2b88f3e59e21c0d8d00113273f",_22 ]),_22 ])_22 .then(fcl.decode);`
+`_22
+
+import * as fcl from "@onflow/fcl";
+
+_22
+
+_22
+
+// Get events at block height range
+
+_22
+
+await fcl
+
+_22
+
+.send([
+
+_22
+
+fcl.getEventsAtBlockHeightRange(
+
+_22
+
+"A.7e60df042a9c0868.FlowToken.TokensWithdrawn", // event name
+
+_22
+
+35580624, // block to start looking for events at
+
+_22
+
+35580624 // block to stop looking for events at
+
+_22
+
+),
+
+_22
+
+])
+
+_22
+
+.then(fcl.decode);
+
+_22
+
+_22
+
+// Get events from list of block ids
+
+_22
+
+await fcl
+
+_22
+
+.send([
+
+_22
+
+fcl.getEventsAtBlockIds("A.7e60df042a9c0868.FlowToken.TokensWithdrawn", [
+
+_22
+
+"c4f239d49e96d1e5fbcf1f31027a6e582e8c03fcd9954177b7723fdb03d938c7",
+
+_22
+
+"5dbaa85922eb194a3dc463c946cc01c866f2ff2b88f3e59e21c0d8d00113273f",
+
+_22
+
+]),
+
+_22
+
+])
+
+_22
+
+.then(fcl.decode);`
 
 Result output: [EventObject](/tools/clients/fcl-js/api#event-object)
 
@@ -183,7 +418,39 @@ Collections are used to improve consensus throughput by increasing the number of
 
 Example retrieving a collection:
 
- `_10import * as fcl from "@onflow/fcl";_10_10const collection = await fcl_10 .send([_10 fcl.getCollection(_10 "cccdb0c67d015dc7f6444e8f62a3244ed650215ed66b90603006c70c5ef1f6e5"_10 ),_10 ])_10 .then(fcl.decode);`
+`_10
+
+import * as fcl from "@onflow/fcl";
+
+_10
+
+_10
+
+const collection = await fcl
+
+_10
+
+.send([
+
+_10
+
+fcl.getCollection(
+
+_10
+
+"cccdb0c67d015dc7f6444e8f62a3244ed650215ed66b90603006c70c5ef1f6e5"
+
+_10
+
+),
+
+_10
+
+])
+
+_10
+
+.then(fcl.decode);`
 
 Result output: [CollectionObject](/tools/clients/fcl-js/api#collectionobject)
 
@@ -199,11 +466,70 @@ We can execute a script using the latest state of the Flow blockchain or we can 
 
 📖 **Block height** expresses the height of the block in the chain.
 
- `_15import * as fcl from "@onflow/fcl";_15_15const result = await fcl.query({_15 cadence: `_15 access(all) fun main(a: Int, b: Int, addr: Address): Int {_15 log(addr)_15 return a + b_15 }_15 `,_15 args: (arg, t) => [_15 arg(7, t.Int), // a: Int_15 arg(6, t.Int), // b: Int_15 arg("0xba1132bc08f82fe2", t.Address), // addr: Address_15 ],_15});`
+`_15
+
+import * as fcl from "@onflow/fcl";
+
+_15
+
+_15
+
+const result = await fcl.query({
+
+_15
+
+cadence: `
+
+_15
+
+access(all) fun main(a: Int, b: Int, addr: Address): Int {
+
+_15
+
+log(addr)
+
+_15
+
+return a + b
+
+_15
+
+}
+
+_15
+
+`,
+
+_15
+
+args: (arg, t) => [
+
+_15
+
+arg(7, t.Int), // a: Int
+
+_15
+
+arg(6, t.Int), // b: Int
+
+_15
+
+arg("0xba1132bc08f82fe2", t.Address), // addr: Address
+
+_15
+
+],
+
+_15
+
+});`
 
 Example output:
 
- `_10console.log(result); // 13`
+`_10
+
+console.log(result); // 13`
+
 ## Mutate Flow Network[​](#mutate-flow-network "Direct link to Mutate Flow Network")
 
 Flow, like most blockchains, allows anybody to submit a transaction that mutates the shared global chain state. A transaction is an object that holds a payload, which describes the state mutation, and one or more authorizations that permit the transaction to mutate the state owned by specific accounts.
@@ -216,7 +542,25 @@ A transaction is nothing more than a signed set of data that includes script cod
 
 📖 **Script** field is the portion of the transaction that describes the state mutation logic. On Flow, transaction logic is written in [Cadence](https://cadence-lang.org/docs). Here is an example transaction script:
 
- `_10transaction(greeting: String) {_10 execute {_10 log(greeting.concat(", World!"))_10 }_10}`
+`_10
+
+transaction(greeting: String) {
+
+_10
+
+execute {
+
+_10
+
+log(greeting.concat(", World!"))
+
+_10
+
+}
+
+_10
+
+}`
 
 📖 **Arguments**. A transaction can accept zero or more arguments that are passed into the Cadence script. The arguments on the transaction must match the number and order declared in the Cadence script. Sample script from above accepts a single `String` argument.
 
@@ -240,7 +584,17 @@ The number of authorizers on the transaction must match the number of `&Account`
 
 Example transaction with multiple authorizers:
 
- `_10transaction {_10 prepare(authorizer1: &Account, authorizer2: &Account) { }_10}`
+`_10
+
+transaction {
+
+_10
+
+prepare(authorizer1: &Account, authorizer2: &Account) { }
+
+_10
+
+}`
 
 📖 **Gas limit** is the limit on the amount of computation a transaction requires, and it will abort if it exceeds its gas limit.
 Cadence uses metering to measure the number of operations per transaction. You can read more about it in the [Cadence documentation](https://cadence-lang.org/docs).
@@ -257,7 +611,67 @@ A transaction expires after `600` blocks are committed on top of the reference b
 
 FCL "mutate" does the work of building, signing, and sending a transaction behind the scenes. In order to mutate the blockchain state using FCL, you need to do the following:
 
- `_16import * as fcl from "@onflow/fcl"_16_16await fcl.mutate({_16 cadence: `_16 transaction(a: Int) {_16 prepare(acct: &Account) {_16 log(acct)_16 log(a)_16 }_16 }_16 `,_16 args: (arg, t) => [_16 arg(6, t.Int)_16 ],_16 limit: 50_16})`
+`_16
+
+import * as fcl from "@onflow/fcl"
+
+_16
+
+_16
+
+await fcl.mutate({
+
+_16
+
+cadence: `
+
+_16
+
+transaction(a: Int) {
+
+_16
+
+prepare(acct: &Account) {
+
+_16
+
+log(acct)
+
+_16
+
+log(a)
+
+_16
+
+}
+
+_16
+
+}
+
+_16
+
+`,
+
+_16
+
+args: (arg, t) => [
+
+_16
+
+arg(6, t.Int)
+
+_16
+
+],
+
+_16
+
+limit: 50
+
+_16
+
+})`
 
 Flow supports great flexibility when it comes to transaction signing, we can define multiple authorizers (multi-sig transactions) and have different payer account than proposer. We will explore advanced signing scenarios bellow.
 
@@ -271,7 +685,218 @@ Flow supports great flexibility when it comes to transaction signing, we can def
 | --- | --- | --- |
 | `0x01` | 1 | 1000 |
 
- `_56// There are multiple ways to acheive this_56import * as fcl from "@onflow/fcl"_56_56// FCL provides currentUser as an authorization function_56await fcl.mutate({_56 cadence: `_56 transaction {_56 prepare(acct: &Account) {}_56 }_56 `,_56 proposer: currentUser,_56 payer: currentUser,_56 authorizations: [currentUser],_56 limit: 50,_56})_56_56// Or, simplified_56_56mutate({_56 cadence: `_56 transaction {_56 prepare(acct: &Account) {}_56 }_56 `,_56 authz: currentUser, // Optional. Will default to currentUser if not provided._56 limit: 50,_56})_56_56_56// Or, create a custom authorization function_56const authzFn = async (txAccount) => {_56 return {_56 ...txAccount,_56 addr: "0x01",_56 keyId: 0,_56 signingFunction: async(signable) => {_56 return {_56 addr: "0x01",_56 keyId: 0,_56 signature_56 }_56 }_56 }_56}_56_56mutate({_56 cadence: `_56 transaction {_56 prepare(acct: &Account) {}_56 }_56 `,_56 proposer: authzFn,_56 payer: authzFn,_56 authorizations: [authzFn],_56 limit: 50,_56})`
+`_56
+
+// There are multiple ways to acheive this
+
+_56
+
+import * as fcl from "@onflow/fcl"
+
+_56
+
+_56
+
+// FCL provides currentUser as an authorization function
+
+_56
+
+await fcl.mutate({
+
+_56
+
+cadence: `
+
+_56
+
+transaction {
+
+_56
+
+prepare(acct: &Account) {}
+
+_56
+
+}
+
+_56
+
+`,
+
+_56
+
+proposer: currentUser,
+
+_56
+
+payer: currentUser,
+
+_56
+
+authorizations: [currentUser],
+
+_56
+
+limit: 50,
+
+_56
+
+})
+
+_56
+
+_56
+
+// Or, simplified
+
+_56
+
+_56
+
+mutate({
+
+_56
+
+cadence: `
+
+_56
+
+transaction {
+
+_56
+
+prepare(acct: &Account) {}
+
+_56
+
+}
+
+_56
+
+`,
+
+_56
+
+authz: currentUser, // Optional. Will default to currentUser if not provided.
+
+_56
+
+limit: 50,
+
+_56
+
+})
+
+_56
+
+_56
+
+_56
+
+// Or, create a custom authorization function
+
+_56
+
+const authzFn = async (txAccount) => {
+
+_56
+
+return {
+
+_56
+
+...txAccount,
+
+_56
+
+addr: "0x01",
+
+_56
+
+keyId: 0,
+
+_56
+
+signingFunction: async(signable) => {
+
+_56
+
+return {
+
+_56
+
+addr: "0x01",
+
+_56
+
+keyId: 0,
+
+_56
+
+signature
+
+_56
+
+}
+
+_56
+
+}
+
+_56
+
+}
+
+_56
+
+}
+
+_56
+
+_56
+
+mutate({
+
+_56
+
+cadence: `
+
+_56
+
+transaction {
+
+_56
+
+prepare(acct: &Account) {}
+
+_56
+
+}
+
+_56
+
+`,
+
+_56
+
+proposer: authzFn,
+
+_56
+
+payer: authzFn,
+
+_56
+
+authorizations: [authzFn],
+
+_56
+
+limit: 50,
+
+_56
+
+})`
+
 ### [Single party, multiple signatures](/build/basics/transactions#single-party-multiple-signatures)[​](#single-party-multiple-signatures "Direct link to single-party-multiple-signatures")
 
 * Proposer, payer and authorizer are the same account (`0x01`).
@@ -285,7 +910,170 @@ Flow supports great flexibility when it comes to transaction signing, we can def
 
 **[![](https://raw.githubusercontent.com/onflow/sdks/main/templates/documentation/try.svg)](https://github.com/onflow/flow-go-sdk/tree/master/examples#single-party-multiple-signatures)**
 
- `_42import * as fcl from "@onflow/fcl"_42_42const authzFn = async (txAccount) => {_42 return [_42 {_42 ...txAccount,_42 addr: "0x01",_42 keyId: 0,_42 signingFunction: async(signable) => {_42 return {_42 addr: "0x01",_42 keyId: 0,_42 signature_42 }_42 }_42 },_42 {_42 ...txAccount,_42 addr: "0x01",_42 keyId: 1,_42 signingFunction: async(signable) => {_42 return {_42 addr: "0x01",_42 keyId: 1,_42 signature_42 }_42 }_42 }_42 ]_42}_42_42mutate({_42 cadence: `_42 transaction {_42 prepare(acct: &Account) {}_42 }_42 `,_42 proposer: authzFn,_42 payer: authzFn,_42 authorizations: [authzFn],_42 limit: 50,_42})`
+`_42
+
+import * as fcl from "@onflow/fcl"
+
+_42
+
+_42
+
+const authzFn = async (txAccount) => {
+
+_42
+
+return [
+
+_42
+
+{
+
+_42
+
+...txAccount,
+
+_42
+
+addr: "0x01",
+
+_42
+
+keyId: 0,
+
+_42
+
+signingFunction: async(signable) => {
+
+_42
+
+return {
+
+_42
+
+addr: "0x01",
+
+_42
+
+keyId: 0,
+
+_42
+
+signature
+
+_42
+
+}
+
+_42
+
+}
+
+_42
+
+},
+
+_42
+
+{
+
+_42
+
+...txAccount,
+
+_42
+
+addr: "0x01",
+
+_42
+
+keyId: 1,
+
+_42
+
+signingFunction: async(signable) => {
+
+_42
+
+return {
+
+_42
+
+addr: "0x01",
+
+_42
+
+keyId: 1,
+
+_42
+
+signature
+
+_42
+
+}
+
+_42
+
+}
+
+_42
+
+}
+
+_42
+
+]
+
+_42
+
+}
+
+_42
+
+_42
+
+mutate({
+
+_42
+
+cadence: `
+
+_42
+
+transaction {
+
+_42
+
+prepare(acct: &Account) {}
+
+_42
+
+}
+
+_42
+
+`,
+
+_42
+
+proposer: authzFn,
+
+_42
+
+payer: authzFn,
+
+_42
+
+authorizations: [authzFn],
+
+_42
+
+limit: 50,
+
+_42
+
+})`
+
 ### [Multiple parties](/build/basics/transactions#multiple-parties)[​](#multiple-parties "Direct link to multiple-parties")
 
 * Proposer and authorizer are the same account (`0x01`).
@@ -301,7 +1089,172 @@ Flow supports great flexibility when it comes to transaction signing, we can def
 
 **[![](https://raw.githubusercontent.com/onflow/sdks/main/templates/documentation/try.svg)](https://github.com/onflow/flow-go-sdk/tree/master/examples#multiple-parties)**
 
- `_43import * as fcl from "@onflow/fcl"_43_43const authzFn = async (txAccount) => {_43 return {_43 ...txAccount,_43 addr: "0x01",_43 keyId: 0,_43 signingFunction: async(signable) => {_43 return {_43 addr: "0x01",_43 keyId: 0,_43 signature_43 }_43 }_43 }_43}_43_43const authzTwoFn = async (txAccount) => {_43 return {_43 ...txAccount,_43 addr: "0x02",_43 keyId: 0,_43 signingFunction: async(signable) => {_43 return {_43 addr: "0x02",_43 keyId: 0,_43 signature_43 }_43 }_43 }_43}_43_43mutate({_43 cadence: `_43 transaction {_43 prepare(acct: &Account) {}_43 }_43 `,_43 proposer: authzFn,_43 payer: authzTwoFn,_43 authorizations: [authzFn],_43 limit: 50,_43})`
+`_43
+
+import * as fcl from "@onflow/fcl"
+
+_43
+
+_43
+
+const authzFn = async (txAccount) => {
+
+_43
+
+return {
+
+_43
+
+...txAccount,
+
+_43
+
+addr: "0x01",
+
+_43
+
+keyId: 0,
+
+_43
+
+signingFunction: async(signable) => {
+
+_43
+
+return {
+
+_43
+
+addr: "0x01",
+
+_43
+
+keyId: 0,
+
+_43
+
+signature
+
+_43
+
+}
+
+_43
+
+}
+
+_43
+
+}
+
+_43
+
+}
+
+_43
+
+_43
+
+const authzTwoFn = async (txAccount) => {
+
+_43
+
+return {
+
+_43
+
+...txAccount,
+
+_43
+
+addr: "0x02",
+
+_43
+
+keyId: 0,
+
+_43
+
+signingFunction: async(signable) => {
+
+_43
+
+return {
+
+_43
+
+addr: "0x02",
+
+_43
+
+keyId: 0,
+
+_43
+
+signature
+
+_43
+
+}
+
+_43
+
+}
+
+_43
+
+}
+
+_43
+
+}
+
+_43
+
+_43
+
+mutate({
+
+_43
+
+cadence: `
+
+_43
+
+transaction {
+
+_43
+
+prepare(acct: &Account) {}
+
+_43
+
+}
+
+_43
+
+`,
+
+_43
+
+proposer: authzFn,
+
+_43
+
+payer: authzTwoFn,
+
+_43
+
+authorizations: [authzFn],
+
+_43
+
+limit: 50,
+
+_43
+
+})`
+
 ### [Multiple parties, two authorizers](/build/basics/transactions#multiple-parties)[​](#multiple-parties-two-authorizers "Direct link to multiple-parties-two-authorizers")
 
 * Proposer and authorizer are the same account (`0x01`).
@@ -318,7 +1271,172 @@ Flow supports great flexibility when it comes to transaction signing, we can def
 
 **[![](https://raw.githubusercontent.com/onflow/sdks/main/templates/documentation/try.svg)](https://github.com/onflow/flow-go-sdk/tree/master/examples#multiple-parties-two-authorizers)**
 
- `_43import * as fcl from "@onflow/fcl"_43_43const authzFn = async (txAccount) => {_43 return {_43 ...txAccount,_43 addr: "0x01",_43 keyId: 0,_43 signingFunction: async(signable) => {_43 return {_43 addr: "0x01",_43 keyId: 0,_43 signature_43 }_43 }_43 }_43}_43_43const authzTwoFn = async (txAccount) => {_43 return {_43 ...txAccount,_43 addr: "0x02",_43 keyId: 0,_43 signingFunction: async(signable) => {_43 return {_43 addr: "0x02",_43 keyId: 0,_43 signature_43 }_43 }_43 }_43}_43_43mutate({_43 cadence: `_43 transaction {_43 prepare(acct: &Account, acct2: &Account) {}_43 }_43 `,_43 proposer: authzFn,_43 payer: authzTwoFn,_43 authorizations: [authzFn, authzTwoFn],_43 limit: 50,_43})`
+`_43
+
+import * as fcl from "@onflow/fcl"
+
+_43
+
+_43
+
+const authzFn = async (txAccount) => {
+
+_43
+
+return {
+
+_43
+
+...txAccount,
+
+_43
+
+addr: "0x01",
+
+_43
+
+keyId: 0,
+
+_43
+
+signingFunction: async(signable) => {
+
+_43
+
+return {
+
+_43
+
+addr: "0x01",
+
+_43
+
+keyId: 0,
+
+_43
+
+signature
+
+_43
+
+}
+
+_43
+
+}
+
+_43
+
+}
+
+_43
+
+}
+
+_43
+
+_43
+
+const authzTwoFn = async (txAccount) => {
+
+_43
+
+return {
+
+_43
+
+...txAccount,
+
+_43
+
+addr: "0x02",
+
+_43
+
+keyId: 0,
+
+_43
+
+signingFunction: async(signable) => {
+
+_43
+
+return {
+
+_43
+
+addr: "0x02",
+
+_43
+
+keyId: 0,
+
+_43
+
+signature
+
+_43
+
+}
+
+_43
+
+}
+
+_43
+
+}
+
+_43
+
+}
+
+_43
+
+_43
+
+mutate({
+
+_43
+
+cadence: `
+
+_43
+
+transaction {
+
+_43
+
+prepare(acct: &Account, acct2: &Account) {}
+
+_43
+
+}
+
+_43
+
+`,
+
+_43
+
+proposer: authzFn,
+
+_43
+
+payer: authzTwoFn,
+
+_43
+
+authorizations: [authzFn, authzTwoFn],
+
+_43
+
+limit: 50,
+
+_43
+
+})`
+
 ### [Multiple parties, multiple signatures](/build/basics/transactions#multiple-parties)[​](#multiple-parties-multiple-signatures "Direct link to multiple-parties-multiple-signatures")
 
 * Proposer and authorizer are the same account (`0x01`).
@@ -335,11 +1453,296 @@ Flow supports great flexibility when it comes to transaction signing, we can def
 | `0x02` | 3 | 500 |
 | `0x02` | 4 | 500 |
 
- `_71import * as fcl from "@onflow/fcl"_71_71const authzFn = async (txAccount) => {_71 return [_71 {_71 ...txAccount,_71 addr: "0x01",_71 keyId: 0,_71 signingFunction: async(signable) => {_71 return {_71 addr: "0x01",_71 keyId: 0,_71 signature_71 }_71 }_71 },_71 {_71 ...txAccount,_71 addr: "0x01",_71 keyId: 1,_71 signingFunction: async(signable) => {_71 return {_71 addr: "0x01",_71 keyId: 1,_71 signature_71 }_71 }_71 }_71 ]_71}_71_71const authzTwoFn = async (txAccount) => {_71 return [_71 {_71 ...txAccount,_71 addr: "0x02",_71 keyId: 0,_71 signingFunction: async(signable) => {_71 return {_71 addr: "0x02",_71 keyId: 0,_71 signature_71 }_71 }_71 },_71 {_71 ...txAccount,_71 addr: "0x02",_71 keyId: 1,_71 signingFunction: async(signable) => {_71 return {_71 addr: "0x02",_71 keyId: 1,_71 signature_71 }_71 }_71 }_71 ]_71}_71_71mutate({_71 cadence: `_71 transaction {_71 prepare(acct: &Account) {}_71 }_71 `,_71 proposer: authzFn,_71 payer: authzTwoFn,_71 authorizations: [authzFn],_71 limit: 50,_71})`
+`_71
+
+import * as fcl from "@onflow/fcl"
+
+_71
+
+_71
+
+const authzFn = async (txAccount) => {
+
+_71
+
+return [
+
+_71
+
+{
+
+_71
+
+...txAccount,
+
+_71
+
+addr: "0x01",
+
+_71
+
+keyId: 0,
+
+_71
+
+signingFunction: async(signable) => {
+
+_71
+
+return {
+
+_71
+
+addr: "0x01",
+
+_71
+
+keyId: 0,
+
+_71
+
+signature
+
+_71
+
+}
+
+_71
+
+}
+
+_71
+
+},
+
+_71
+
+{
+
+_71
+
+...txAccount,
+
+_71
+
+addr: "0x01",
+
+_71
+
+keyId: 1,
+
+_71
+
+signingFunction: async(signable) => {
+
+_71
+
+return {
+
+_71
+
+addr: "0x01",
+
+_71
+
+keyId: 1,
+
+_71
+
+signature
+
+_71
+
+}
+
+_71
+
+}
+
+_71
+
+}
+
+_71
+
+]
+
+_71
+
+}
+
+_71
+
+_71
+
+const authzTwoFn = async (txAccount) => {
+
+_71
+
+return [
+
+_71
+
+{
+
+_71
+
+...txAccount,
+
+_71
+
+addr: "0x02",
+
+_71
+
+keyId: 0,
+
+_71
+
+signingFunction: async(signable) => {
+
+_71
+
+return {
+
+_71
+
+addr: "0x02",
+
+_71
+
+keyId: 0,
+
+_71
+
+signature
+
+_71
+
+}
+
+_71
+
+}
+
+_71
+
+},
+
+_71
+
+{
+
+_71
+
+...txAccount,
+
+_71
+
+addr: "0x02",
+
+_71
+
+keyId: 1,
+
+_71
+
+signingFunction: async(signable) => {
+
+_71
+
+return {
+
+_71
+
+addr: "0x02",
+
+_71
+
+keyId: 1,
+
+_71
+
+signature
+
+_71
+
+}
+
+_71
+
+}
+
+_71
+
+}
+
+_71
+
+]
+
+_71
+
+}
+
+_71
+
+_71
+
+mutate({
+
+_71
+
+cadence: `
+
+_71
+
+transaction {
+
+_71
+
+prepare(acct: &Account) {}
+
+_71
+
+}
+
+_71
+
+`,
+
+_71
+
+proposer: authzFn,
+
+_71
+
+payer: authzTwoFn,
+
+_71
+
+authorizations: [authzFn],
+
+_71
+
+limit: 50,
+
+_71
+
+})`
 
 After a transaction has been **built** and **signed**, it can be sent to the Flow blockchain where it will be executed. If sending was successful you can then [retrieve the transaction result](#get-transactions).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/sdk-guidelines.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousFCL Reference](/tools/clients/fcl-js/api)[NextAuthentication](/tools/clients/fcl-js/authentication)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/sdk-guidelines.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+FCL Reference](/tools/clients/fcl-js/api)[Next
+
+Authentication](/tools/clients/fcl-js/authentication)
+
 ###### Rate this page
 
 😞😐😊
@@ -364,6 +1767,7 @@ After a transaction has been **built** and **signed**, it can be sent to the Flo
   + [Multiple parties](#multiple-parties)
   + [Multiple parties, two authorizers](#multiple-parties-two-authorizers)
   + [Multiple parties, multiple signatures](#multiple-parties-multiple-signatures)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -376,6 +1780,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -385,6 +1790,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -392,6 +1798,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -401,6 +1808,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -408,5 +1816,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

@@ -1,29 +1,14 @@
 # Source: https://academy.ecdao.org/en/catalog/tutorials/deploy-contract-flow-cli
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -36,20 +21,16 @@ Deploy a Contract w/ the Flow CLI
 
 # Deploy a Contract w/ the Flow CLI
 
-
 Tutorial
 
 Beginner
 
 5 minutes
 
-
-
 This tutorial will help you deploy a smart contract on Flow testnet/mainnet using the Flow CLI.
 
-  
-
 Follow along in a video format.
+
 ## 1. Install the Flow CLI
 
 Open up a terminal on your computer. Paste and run the command based on your system:
@@ -57,6 +38,7 @@ Open up a terminal on your computer. Paste and run the command based on your sys
 * Mac:
 
 bash
+
 ```
 		
 			sh -ci "$(curl -fsSL https://raw.githubusercontent.com/onflow/flow-cli/master/install.sh)"
@@ -67,6 +49,7 @@ bash
 * Linux:
 
 bash
+
 ```
 		
 			sh -ci "$(curl -fsSL https://raw.githubusercontent.com/onflow/flow-cli/master/install.sh)"
@@ -77,6 +60,7 @@ bash
 * Windows:
 
 bash
+
 ```
 		
 			iex "& { $(irm 'https://raw.githubusercontent.com/onflow/flow-cli/master/install.ps1') }"
@@ -101,6 +85,7 @@ Now we need to configure your flow.json to be able to find and deploy your contr
 First, add your contract to the âcontractsâ object. The key should be the name of your contract, and the value should be the file destination of your contract in your project.
 
 json
+
 ```
 		
 			{
@@ -134,6 +119,7 @@ json
 Next, add all the contract dependencies that your `ExampleContract` uses. For example, if it imports `NonFungibleToken`, you have to add it and all its âaliasesâ to your flow.json. Aliases are where the contract is already deployed on testnet/mainnet.
 
 json
+
 ```
 		
 			{
@@ -174,6 +160,7 @@ json
 Next, add your contract to the âdeploymentsâ object:
 
 json
+
 ```
 		
 			{
@@ -216,6 +203,7 @@ json
 		 
 	
 ```
+
 ## 5. Deploy
 
 Lastly, run one of the following commands in your terminal:
@@ -229,19 +217,16 @@ To make sure your contract was actually deployed, you can use [Contract Browser]
 
 Till next time ~ Jacob Tucker
 
-
 ![User avatar](/avatars/jacob.jpeg)
 
 Author
 
 [Jacob Tucker](https://twitter.com/jacobmtucker)
 
-
-
-
 [Video lesson](#)
 
 [Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/tutorials/deploy-contract-flow-cli/en/readme.md)
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
@@ -250,17 +235,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

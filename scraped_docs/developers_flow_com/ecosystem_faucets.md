@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/ecosystem/faucets
 
-
-
-
 Faucets | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Ecosystem](/ecosystem)
 * [Wallets](/ecosystem/wallets)
@@ -25,9 +26,10 @@ Faucets | Flow Developer Portal
 * [Auditors](/ecosystem/auditors)
 * [Ecosystem Overview](/ecosystem/overview)
 
-
 * Faucets
+
 On this page
+
 # Faucets
 
 Network Faucets provide free Flow tokens for testing purposes, functioning like taps that dispense tokens. They are valuable tools for experimenting with Flow without the need to purchase tokens.
@@ -47,6 +49,7 @@ Network Faucets provide free Flow tokens for testing purposes, functioning like 
 ### Supported Networks[​](#supported-networks-1 "Direct link to Supported Networks")
 
 * [Testnet](https://learnweb3.io/faucets/flow)
+
 ## Using Flow Faucet[​](#using-flow-faucet "Direct link to Using Flow Faucet")
 
 ### Funding Your Account[​](#funding-your-account "Direct link to Funding Your Account")
@@ -63,11 +66,41 @@ After a few seconds, you'll see your account's FLOW balance as a confirmation. N
 
 To create a Flow-native account, you'll need to generate a key pair. You can do this most easily [Flow CLI](/build/getting-started/flow-cli) with the [`keys generate` command](/tools/flow-cli/keys/generate-keys)
 
- `_10flow keys generate`
+`_10
+
+flow keys generate`
 
 You'll receive a private key and a public key pair with default `ECDSA_P256` signature and `SHA3_256` hash algorithms.
 
- `_10❯ flow keys generate_10_10🔴️ Store private key safely and don't share with anyone!_10Private Key <PRIVATE_KEY>_10Public Key <PUBLIC_KEY>_10Mnemonic <MNEMONIC_PHRASE>_10Derivation Path m/44'/539'/0'/0/0_10Signature Algorithm ECDSA_P256`
+`_10
+
+❯ flow keys generate
+
+_10
+
+_10
+
+🔴️ Store private key safely and don't share with anyone!
+
+_10
+
+Private Key <PRIVATE_KEY>
+
+_10
+
+Public Key <PUBLIC_KEY>
+
+_10
+
+Mnemonic <MNEMONIC_PHRASE>
+
+_10
+
+Derivation Path m/44'/539'/0'/0/0
+
+_10
+
+Signature Algorithm ECDSA_P256`
 
 You can then use the public key to create a new Flow account on the Faucet. Copy the resulting public key for the next step.
 
@@ -95,14 +128,54 @@ You'll be met with a confirmation screen, showing your Flow account address and 
 
 Once your account has been created, you can add the account to your `flow.json` configuration file under the `accounts` attribute, like so:
 
- `_10{_10 "accounts": {_10 "testnet-dev-account": {_10 "address": "<YOUR_ADDRESS>",_10 "key": "<PRIVATE_KEY>"_10 }_10 }_10}`
+`_10
+
+{
+
+_10
+
+"accounts": {
+
+_10
+
+"testnet-dev-account": {
+
+_10
+
+"address": "<YOUR_ADDRESS>",
+
+_10
+
+"key": "<PRIVATE_KEY>"
+
+_10
+
+}
+
+_10
+
+}
+
+_10
+
+}`
+
 warning
 
 If you plan on using your flow.json in a production environment, you'll want to look at alternative methods to manage your keys more securely, at minimum using environment variables instead of storing your account private keys in plain text. See [How to Securely Use CLI](/tools/flow-cli/flow.json/security) for more information on alternate key management strategies and how to configure them in your `flow.json` file.
 
 After adding your account to your `flow.json` file, you're ready to use your account in your project. You can now deploy contracts, run transactions, and interact with the Flow blockchain using your new account.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/faucets.md)Last updated on **Feb 14, 2025** by **bz**[PreviousVCs & Funds](/ecosystem/vcs-and-funds)[NextGrants](/ecosystem/grants)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/faucets.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+VCs & Funds](/ecosystem/vcs-and-funds)[Next
+
+Grants](/ecosystem/grants)
+
 ###### Rate this page
 
 😞😐😊
@@ -114,6 +187,7 @@ After adding your account to your `flow.json` file, you're ready to use your acc
 * [Using Flow Faucet](#using-flow-faucet)
   + [Funding Your Account](#funding-your-account)
   + [Creating a Flow Account](#creating-a-flow-account)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -126,6 +200,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -135,6 +210,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -142,6 +218,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -151,6 +228,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -158,5 +236,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

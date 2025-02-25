@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/build/differences-vs-evm
 
-
-
-
 Differences vs. EVM | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -22,9 +23,10 @@ Differences vs. EVM | Flow Developer Portal
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
-
 * Differences vs. EVM
+
 On this page
+
 # Differences vs. EVM
 
 Flow [Cadence](https://cadence-lang.org/) is designed with many improvements over prior blockchain networks. As a result, you'll notice many differences between Flow vs. other blockchains, especially Ethereum. This document will be most useful to developers who are already familiar with building on the EVM, but contains details useful to all developers. Check out [Why Flow](/build/flow) for a more general overview of the Flow blockchain.
@@ -87,7 +89,170 @@ You can interact with the state on most other blockchains by cryptographically a
 
 Here is a sample transaction that mints an NFT from `ExampleNFT` contract on Testnet:
 
- `_47import NonFungibleToken from 0x631e88ae7f1d7c20_47import ExampleNFT from 0x2bd9d8989a3352a1_47_47/// Mints a new ExampleNFT into recipient's account_47_47transaction(recipient: Address) {_47_47 /// Reference to the receiver's collection_47 let recipientCollectionRef: &{NonFungibleToken.Collection}_47_47 /// Previous NFT ID before the transaction executes_47 let mintingIDBefore: UInt64_47_47 prepare(signer: &Account) {_47_47 self.mintingIDBefore = ExampleNFT.totalSupply_47_47 // Borrow the recipient's public NFT collection reference_47 self.recipientCollectionRef = getAccount(recipient)_47 .capabilities.get<&{NonFungibleToken.Collection}>(ExampleNFT.CollectionPublicPath)_47 .borrow()_47 ?? panic("The recipient does not have a NonFungibleToken Receiver at "_47 .concat(ExampleNFT.CollectionPublicPath.toString())_47 .concat(" that is capable of receiving an NFT.")_47 .concat("The recipient must initialize their account with this collection and receiver first!"))_47_47 }_47_47 execute {_47_47 let currentIDString = self.mintingIDBefore.toString()_47_47 // Mint the NFT and deposit it to the recipient's collection_47 ExampleNFT.mintNFT(_47 recipient: self.recipientCollectionRef,_47 name: "Example NFT #".concat(currentIDString),_47 description: "Example description for #".concat(currentIDString),_47 thumbnail: "https://robohash.org/".concat(currentIDString),_47 royalties: []_47 )_47 }_47_47 post {_47 self.recipientCollectionRef.getIDs().contains(self.mintingIDBefore): "The next NFT ID should have been minted and delivered"_47 ExampleNFT.totalSupply == self.mintingIDBefore + 1: "The total supply should have been increased by 1"_47 }_47}`
+`_47
+
+import NonFungibleToken from 0x631e88ae7f1d7c20
+
+_47
+
+import ExampleNFT from 0x2bd9d8989a3352a1
+
+_47
+
+_47
+
+/// Mints a new ExampleNFT into recipient's account
+
+_47
+
+_47
+
+transaction(recipient: Address) {
+
+_47
+
+_47
+
+/// Reference to the receiver's collection
+
+_47
+
+let recipientCollectionRef: &{NonFungibleToken.Collection}
+
+_47
+
+_47
+
+/// Previous NFT ID before the transaction executes
+
+_47
+
+let mintingIDBefore: UInt64
+
+_47
+
+_47
+
+prepare(signer: &Account) {
+
+_47
+
+_47
+
+self.mintingIDBefore = ExampleNFT.totalSupply
+
+_47
+
+_47
+
+// Borrow the recipient's public NFT collection reference
+
+_47
+
+self.recipientCollectionRef = getAccount(recipient)
+
+_47
+
+.capabilities.get<&{NonFungibleToken.Collection}>(ExampleNFT.CollectionPublicPath)
+
+_47
+
+.borrow()
+
+_47
+
+?? panic("The recipient does not have a NonFungibleToken Receiver at "
+
+_47
+
+.concat(ExampleNFT.CollectionPublicPath.toString())
+
+_47
+
+.concat(" that is capable of receiving an NFT.")
+
+_47
+
+.concat("The recipient must initialize their account with this collection and receiver first!"))
+
+_47
+
+_47
+
+}
+
+_47
+
+_47
+
+execute {
+
+_47
+
+_47
+
+let currentIDString = self.mintingIDBefore.toString()
+
+_47
+
+_47
+
+// Mint the NFT and deposit it to the recipient's collection
+
+_47
+
+ExampleNFT.mintNFT(
+
+_47
+
+recipient: self.recipientCollectionRef,
+
+_47
+
+name: "Example NFT #".concat(currentIDString),
+
+_47
+
+description: "Example description for #".concat(currentIDString),
+
+_47
+
+thumbnail: "https://robohash.org/".concat(currentIDString),
+
+_47
+
+royalties: []
+
+_47
+
+)
+
+_47
+
+}
+
+_47
+
+_47
+
+post {
+
+_47
+
+self.recipientCollectionRef.getIDs().contains(self.mintingIDBefore): "The next NFT ID should have been minted and delivered"
+
+_47
+
+ExampleNFT.totalSupply == self.mintingIDBefore + 1: "The total supply should have been increased by 1"
+
+_47
+
+}
+
+_47
+
+}`
+
 ### Authorizing Transactions[​](#authorizing-transactions "Direct link to Authorizing Transactions")
 
 The process to authorize a transaction on Flow Cadence is more complex, but also much more powerful than an EVM transaction:
@@ -100,7 +265,77 @@ The process to authorize a transaction on Flow Cadence is more complex, but also
 
 The same powerful concept also exists for querying the blockchain state using Scripts. Here is a sample script that fetches the `ExampleNFT` IDs owned by a given account on Testnet:
 
- `_21/// Script to get NFT IDs in an account's collection_21_21import NonFungibleToken from 0x631e88ae7f1d7c20_21import ExampleNFT from 0x2bd9d8989a3352a1_21_21access(all) fun main(address: Address, collectionPublicPath: PublicPath): [UInt64] {_21_21 let account = getAccount(address)_21_21 let collectionRef = account_21 .capabilities.get<&{NonFungibleToken.Collection}>(collectionPublicPath)_21 .borrow()_21 ?? panic("The account with address "_21 .concat(address.toString())_21 .concat("does not have a NonFungibleToken Collection at "_21 .concat(ExampleNFT.CollectionPublicPath.toString())_21 .concat(". The account must initialize their account with this collection first!")))_21_21 return collectionRef.getIDs()_21_21}`
+`_21
+
+/// Script to get NFT IDs in an account's collection
+
+_21
+
+_21
+
+import NonFungibleToken from 0x631e88ae7f1d7c20
+
+_21
+
+import ExampleNFT from 0x2bd9d8989a3352a1
+
+_21
+
+_21
+
+access(all) fun main(address: Address, collectionPublicPath: PublicPath): [UInt64] {
+
+_21
+
+_21
+
+let account = getAccount(address)
+
+_21
+
+_21
+
+let collectionRef = account
+
+_21
+
+.capabilities.get<&{NonFungibleToken.Collection}>(collectionPublicPath)
+
+_21
+
+.borrow()
+
+_21
+
+?? panic("The account with address "
+
+_21
+
+.concat(address.toString())
+
+_21
+
+.concat("does not have a NonFungibleToken Collection at "
+
+_21
+
+.concat(ExampleNFT.CollectionPublicPath.toString())
+
+_21
+
+.concat(". The account must initialize their account with this collection first!")))
+
+_21
+
+_21
+
+return collectionRef.getIDs()
+
+_21
+
+_21
+
+}`
 
 Check out [Transactions](/build/basics/transactions) and [Scripts](/build/basics/scripts) to learn more about the concepts. You can also read the Cadence language reference on [Transactions](/build/basics/transactions) to dive deeper.
 
@@ -130,7 +365,17 @@ If you're already familiar with blockchain development, here's a comparison betw
 * [Testing Smart Contracts](https://ethereum.org/en/developers/docs/smart-contracts/testing/)
   + [Cadence testing framework](https://cadence-lang.org/docs/testing-framework) enables native tests in Cadence.
   + [overflow](https://github.com/bjartek/overflow) for testing in Go.
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/differences-vs-evm/index.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousWhy Flow](/build/flow)[NextContract Interaction](/build/getting-started/contract-interaction)
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/differences-vs-evm/index.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Why Flow](/build/flow)[Next
+
+Contract Interaction](/build/getting-started/contract-interaction)
+
 ###### Rate this page
 
 😞😐😊
@@ -141,6 +386,7 @@ If you're already familiar with blockchain development, here's a comparison betw
   + [Authorizing Transactions](#authorizing-transactions)
 * [Flow Nodes](#flow-nodes)
 * [SDKs and Tools](#sdks-and-tools)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -153,6 +399,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -162,6 +409,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -169,6 +417,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -178,6 +427,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -185,5 +435,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

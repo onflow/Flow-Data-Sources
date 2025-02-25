@@ -1,20 +1,22 @@
 # Source: https://developers.flow.com/networks/staking/epoch-scripts-events
 
-
-
-
 Query Epoch Info with Scripts or Events | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
 * [Flow's Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
+
   + [Epoch and Staking Terminology](/networks/staking/epoch-terminology)
   + [Epoch and Reward Schedule](/networks/staking/schedule)
   + [Epoch Preparation Protocol](/networks/staking/epoch-preparation)
@@ -35,10 +37,11 @@ Query Epoch Info with Scripts or Events | Flow Developer Portal
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
-
 * [Staking and Epochs](/networks/staking)
 * Epoch Scripts and Events
+
 On this page
+
 # Query Epoch Info with Scripts or Events
 
 ## Introduction[​](#introduction "Direct link to Introduction")
@@ -97,7 +100,88 @@ when the epoch commit phase ends and the Epoch Smart Contracts transition
 to the staking auction phase.
 It contains the relevant metadata for the new epoch that was generated during the last epoch:
 
- `_24 access(all) event EpochStart (_24_24 /// The counter for the current epoch that is beginning_24 counter: UInt64,_24_24 /// The first view (inclusive) of the current epoch._24 firstView: UInt64,_24_24 /// The last view (inclusive) of the current epoch's staking auction._24 stakingAuctionEndView: UInt64,_24_24 /// The last view (inclusive) of the current epoch._24 finalView: UInt64,_24_24 /// Total FLOW staked by all nodes and delegators for the current epoch._24 totalStaked: UFix64,_24_24 /// Total supply of all FLOW for the current epoch_24 /// Includes the rewards that will be paid for the previous epoch_24 totalFlowSupply: UFix64,_24_24 /// The total rewards that will be paid out at the end of the current epoch._24 totalRewards: UFix64,_24 )`
+`_24
+
+access(all) event EpochStart (
+
+_24
+
+_24
+
+/// The counter for the current epoch that is beginning
+
+_24
+
+counter: UInt64,
+
+_24
+
+_24
+
+/// The first view (inclusive) of the current epoch.
+
+_24
+
+firstView: UInt64,
+
+_24
+
+_24
+
+/// The last view (inclusive) of the current epoch's staking auction.
+
+_24
+
+stakingAuctionEndView: UInt64,
+
+_24
+
+_24
+
+/// The last view (inclusive) of the current epoch.
+
+_24
+
+finalView: UInt64,
+
+_24
+
+_24
+
+/// Total FLOW staked by all nodes and delegators for the current epoch.
+
+_24
+
+totalStaked: UFix64,
+
+_24
+
+_24
+
+/// Total supply of all FLOW for the current epoch
+
+_24
+
+/// Includes the rewards that will be paid for the previous epoch
+
+_24
+
+totalFlowSupply: UFix64,
+
+_24
+
+_24
+
+/// The total rewards that will be paid out at the end of the current epoch.
+
+_24
+
+totalRewards: UFix64,
+
+_24
+
+)`
+
 #### `FlowEpoch.EpochSetup`[​](#flowepochepochsetup "Direct link to flowepochepochsetup")
 
 The Epoch Setup service event is emitted by `FlowEpoch.startEpochSetup()`
@@ -105,21 +189,332 @@ when the staking auction phase ends and the Epoch Smart Contracts transition to 
 It contains the finalized identity table for the upcoming epoch,
 as well as timing information for phase changes.
 
- `_35access(all) event EpochSetup (_35_35 /// The counter for the upcoming epoch. Must be one greater than the_35 /// counter for the current epoch._35 counter: UInt64,_35_35 /// Identity table for the upcoming epoch with all node information._35 /// Includes:_35 /// nodeID, staking key, networking key, networking address, role,_35 /// staking information, weight, and more._35 nodeInfo: [FlowIDTableStaking.NodeInfo],_35_35 /// The first view (inclusive) of the upcoming epoch._35 firstView: UInt64,_35_35 /// The last view (inclusive) of the upcoming epoch._35 finalView: UInt64,_35_35 /// The cluster assignment for the upcoming epoch. Each element in the list_35 /// represents one cluster and contains all the node IDs assigned to that_35 /// cluster, with their weights and votes_35 collectorClusters: [FlowClusterQC.Cluster],_35_35 /// The source of randomness to seed the leader selection algorithm with _35 /// for the upcoming epoch._35 randomSource: String,_35_35 /// The deadlines of each phase in the DKG protocol to be completed in the upcoming_35 /// EpochSetup phase. Deadlines are specified in terms of a consensus view number. _35 /// When a DKG participant observes a finalized and sealed block with view greater _35 /// than the given deadline, it can safely transition to the next phase. _35 DKGPhase1FinalView: UInt64,_35 DKGPhase2FinalView: UInt64,_35 DKGPhase3FinalView: UInt64_35)`
+`_35
+
+access(all) event EpochSetup (
+
+_35
+
+_35
+
+/// The counter for the upcoming epoch. Must be one greater than the
+
+_35
+
+/// counter for the current epoch.
+
+_35
+
+counter: UInt64,
+
+_35
+
+_35
+
+/// Identity table for the upcoming epoch with all node information.
+
+_35
+
+/// Includes:
+
+_35
+
+/// nodeID, staking key, networking key, networking address, role,
+
+_35
+
+/// staking information, weight, and more.
+
+_35
+
+nodeInfo: [FlowIDTableStaking.NodeInfo],
+
+_35
+
+_35
+
+/// The first view (inclusive) of the upcoming epoch.
+
+_35
+
+firstView: UInt64,
+
+_35
+
+_35
+
+/// The last view (inclusive) of the upcoming epoch.
+
+_35
+
+finalView: UInt64,
+
+_35
+
+_35
+
+/// The cluster assignment for the upcoming epoch. Each element in the list
+
+_35
+
+/// represents one cluster and contains all the node IDs assigned to that
+
+_35
+
+/// cluster, with their weights and votes
+
+_35
+
+collectorClusters: [FlowClusterQC.Cluster],
+
+_35
+
+_35
+
+/// The source of randomness to seed the leader selection algorithm with
+
+_35
+
+/// for the upcoming epoch.
+
+_35
+
+randomSource: String,
+
+_35
+
+_35
+
+/// The deadlines of each phase in the DKG protocol to be completed in the upcoming
+
+_35
+
+/// EpochSetup phase. Deadlines are specified in terms of a consensus view number.
+
+_35
+
+/// When a DKG participant observes a finalized and sealed block with view greater
+
+_35
+
+/// than the given deadline, it can safely transition to the next phase.
+
+_35
+
+DKGPhase1FinalView: UInt64,
+
+_35
+
+DKGPhase2FinalView: UInt64,
+
+_35
+
+DKGPhase3FinalView: UInt64
+
+_35
+
+)`
+
 #### `FlowEpoch.EpochCommit`[​](#flowepochepochcommit "Direct link to flowepochepochcommit")
 
 The `EpochCommit` service event is emitted when the Epoch Smart Contracts transition
 from the Epoch Setup phase to the Epoch Commit phase.
 It is emitted only when all preparation for the upcoming epoch (QC and DKG) has been completed.
 
- `_16access(all) event EpochCommit (_16_16 /// The counter for the upcoming epoch. Must be equal to the counter in the_16 /// previous EpochSetup event._16 counter: UInt64,_16_16 /// The result of the QC aggregation process. Each element contains _16 /// all the nodes and votes received for a particular cluster_16 /// QC stands for quorum certificate that each cluster generates._16 clusterQCs: [FlowClusterQC.ClusterQC],_16_16 /// The resulting public keys from the DKG process, encoded as by the flow-go_16 /// crypto library, then hex-encoded._16 /// Group public key is the first element, followed by the individual keys_16 dkgPubKeys: [String],_16)`
+`_16
+
+access(all) event EpochCommit (
+
+_16
+
+_16
+
+/// The counter for the upcoming epoch. Must be equal to the counter in the
+
+_16
+
+/// previous EpochSetup event.
+
+_16
+
+counter: UInt64,
+
+_16
+
+_16
+
+/// The result of the QC aggregation process. Each element contains
+
+_16
+
+/// all the nodes and votes received for a particular cluster
+
+_16
+
+/// QC stands for quorum certificate that each cluster generates.
+
+_16
+
+clusterQCs: [FlowClusterQC.ClusterQC],
+
+_16
+
+_16
+
+/// The resulting public keys from the DKG process, encoded as by the flow-go
+
+_16
+
+/// crypto library, then hex-encoded.
+
+_16
+
+/// Group public key is the first element, followed by the individual keys
+
+_16
+
+dkgPubKeys: [String],
+
+_16
+
+)`
+
 ## Query Information with Scripts[​](#query-information-with-scripts "Direct link to Query Information with Scripts")
 
 The `FlowEpoch` smart contract stores important metadata about the current, proposed,
 and previous epochs. Metadata for all historical epochs is stored permanently
 in the Epoch Smart Contract's storage.
 
- `_38access(all) struct EpochMetadata {_38_38 /// The identifier for the epoch_38 access(all) let counter: UInt64_38_38 /// The seed used for generating the epoch setup_38 access(all) let seed: String_38_38 /// The first view of this epoch_38 access(all) let startView: UInt64_38_38 /// The last view of this epoch_38 access(all) let endView: UInt64_38_38 /// The last view of the staking auction_38 access(all) let stakingEndView: UInt64_38_38 /// The total rewards that are paid out for the epoch_38 access(all) var totalRewards: UFix64_38_38 /// The reward amounts that are paid to each individual node and its delegators_38 access(all) var rewardAmounts: [FlowIDTableStaking.RewardsBreakdown]_38_38 /// Tracks if rewards have been paid for this epoch_38 access(all) var rewardsPaid: Bool_38_38 /// The organization of collector node IDs into clusters_38 /// determined by a round robin sorting algorithm_38 access(all) let collectorClusters: [FlowClusterQC.Cluster]_38_38 /// The Quorum Certificates from the ClusterQC contract_38 access(all) var clusterQCs: [FlowClusterQC.ClusterQC]_38_38 /// The public keys associated with the Distributed Key Generation_38 /// process that consensus nodes participate in_38 /// Group key is the last element at index: length - 1_38 access(all) var dkgKeys: [String]_38}`
+`_38
+
+access(all) struct EpochMetadata {
+
+_38
+
+_38
+
+/// The identifier for the epoch
+
+_38
+
+access(all) let counter: UInt64
+
+_38
+
+_38
+
+/// The seed used for generating the epoch setup
+
+_38
+
+access(all) let seed: String
+
+_38
+
+_38
+
+/// The first view of this epoch
+
+_38
+
+access(all) let startView: UInt64
+
+_38
+
+_38
+
+/// The last view of this epoch
+
+_38
+
+access(all) let endView: UInt64
+
+_38
+
+_38
+
+/// The last view of the staking auction
+
+_38
+
+access(all) let stakingEndView: UInt64
+
+_38
+
+_38
+
+/// The total rewards that are paid out for the epoch
+
+_38
+
+access(all) var totalRewards: UFix64
+
+_38
+
+_38
+
+/// The reward amounts that are paid to each individual node and its delegators
+
+_38
+
+access(all) var rewardAmounts: [FlowIDTableStaking.RewardsBreakdown]
+
+_38
+
+_38
+
+/// Tracks if rewards have been paid for this epoch
+
+_38
+
+access(all) var rewardsPaid: Bool
+
+_38
+
+_38
+
+/// The organization of collector node IDs into clusters
+
+_38
+
+/// determined by a round robin sorting algorithm
+
+_38
+
+access(all) let collectorClusters: [FlowClusterQC.Cluster]
+
+_38
+
+_38
+
+/// The Quorum Certificates from the ClusterQC contract
+
+_38
+
+access(all) var clusterQCs: [FlowClusterQC.ClusterQC]
+
+_38
+
+_38
+
+/// The public keys associated with the Distributed Key Generation
+
+_38
+
+/// process that consensus nodes participate in
+
+_38
+
+/// Group key is the last element at index: length - 1
+
+_38
+
+access(all) var dkgKeys: [String]
+
+_38
+
+}`
+
 #### Get Epoch Metadata[​](#get-epoch-metadata "Direct link to Get Epoch Metadata")
 
 The `FlowEpoch` smart contract provides a public function, `FlowEpoch.getEpochMetadata()`
@@ -137,7 +532,65 @@ with the following arguments:
 The `FlowEpoch` smart contract also has a set of metadata that is configurable by the admin
 for phase lengths, number of collector clusters, and inflation percentage.
 
- `_17access(all) struct Config {_17 /// The number of views in an entire epoch_17 access(all) var numViewsInEpoch: UInt64_17_17 /// The number of views in the staking auction_17 access(all) var numViewsInStakingAuction: UInt64_17 _17 /// The number of views in each dkg phase_17 access(all) var numViewsInDKGPhase: UInt64_17_17 /// The number of collector clusters in each epoch_17 access(all) var numCollectorClusters: UInt16_17_17 /// Tracks the annualized percentage of FLOW total supply that is minted as rewards at the end of an epoch_17 /// Calculation for a single epoch would be (totalSupply * FLOWsupplyIncreasePercentage) / 52_17 access(all) var FLOWsupplyIncreasePercentage: UFix64_17}`
+`_17
+
+access(all) struct Config {
+
+_17
+
+/// The number of views in an entire epoch
+
+_17
+
+access(all) var numViewsInEpoch: UInt64
+
+_17
+
+_17
+
+/// The number of views in the staking auction
+
+_17
+
+access(all) var numViewsInStakingAuction: UInt64
+
+_17
+
+_17
+
+/// The number of views in each dkg phase
+
+_17
+
+access(all) var numViewsInDKGPhase: UInt64
+
+_17
+
+_17
+
+/// The number of collector clusters in each epoch
+
+_17
+
+access(all) var numCollectorClusters: UInt16
+
+_17
+
+_17
+
+/// Tracks the annualized percentage of FLOW total supply that is minted as rewards at the end of an epoch
+
+_17
+
+/// Calculation for a single epoch would be (totalSupply * FLOWsupplyIncreasePercentage) / 52
+
+_17
+
+access(all) var FLOWsupplyIncreasePercentage: UFix64
+
+_17
+
+}`
 
 You can use the **Get Configurable Metadata**([EP.02](/build/core-contracts/epoch-contract-reference#getting-epoch-info)) script
 to get the list of configurable metadata:
@@ -157,14 +610,41 @@ This script does not require any arguments.
 
 The `FlowEpoch` smart contract always tracks the active phase of the current epoch.
 
- `_10access(all) enum EpochPhase: UInt8 {_10 access(all) case STAKINGAUCTION_10 access(all) case EPOCHSETUP_10 access(all) case EPOCHCOMMIT_10}`
+`_10
+
+access(all) enum EpochPhase: UInt8 {
+
+_10
+
+access(all) case STAKINGAUCTION
+
+_10
+
+access(all) case EPOCHSETUP
+
+_10
+
+access(all) case EPOCHCOMMIT
+
+_10
+
+}`
 
 You can use the **Get Epoch Phase**([EP.04](/build/core-contracts/epoch-contract-reference#getting-epoch-info)) script
 to get the current epoch phase.
 
 This script does not require any arguments.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/05-epoch-scripts-events.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousStake Slashing](/networks/staking/stake-slashing)[NextStaking Technical Overview](/networks/staking/technical-overview)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/05-epoch-scripts-events.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Stake Slashing](/networks/staking/stake-slashing)[Next
+
+Staking Technical Overview](/networks/staking/technical-overview)
+
 ###### Rate this page
 
 😞😐😊
@@ -181,6 +661,7 @@ This script does not require any arguments.
   + [Get Configurable Metadata](#get-configurable-metadata)
   + [Get Epoch Counter](#get-epoch-counter)
   + [Get Epoch Phase](#get-epoch-phase)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -193,6 +674,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -202,6 +684,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -209,6 +692,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -218,6 +702,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -225,5 +710,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

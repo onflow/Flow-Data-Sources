@@ -1,19 +1,22 @@
 # Source: https://cadence-lang.org/docs/language/imports
 
-
-
-
 Imports | Cadence
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)Search
+[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
+
+[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+
+Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
 * [Tutorial](/docs/tutorial/first-steps)
 * [Language Reference](/docs/language/)
+
   + [Syntax](/docs/language/syntax)
   + [Constants and Variable Declarations](/docs/language/constants-and-variables)
   + [Type Annotations](/docs/language/type-annotations)
@@ -57,9 +60,9 @@ Imports | Cadence
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
-
 * [Language Reference](/docs/language/)
 * Imports
+
 # Imports
 
 Programs can import declarations (types, functions, variables, etc.) from other programs.
@@ -77,9 +80,43 @@ If importing an external type in a different account,
 the location is an address literal, and the address
 of the account where the declarations are deployed to and published.
 
- `_10// Import the type `Counter` from a local file._10//_10import Counter from "./examples/counter.cdc"_10_10// Import the type `Counter` from an external account._10//_10import Counter from 0x299F20A29311B9248F12`[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/imports.mdx)[PreviousReferences](/docs/language/references)[NextAccounts](/docs/language/accounts/)Got suggestions for this site? 
+`_10
+
+// Import the type `Counter` from a local file.
+
+_10
+
+//
+
+_10
+
+import Counter from "./examples/counter.cdc"
+
+_10
+
+_10
+
+// Import the type `Counter` from an external account.
+
+_10
+
+//
+
+_10
+
+import Counter from 0x299F20A29311B9248F12`
+
+[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/imports.mdx)
+
+[Previous
+
+References](/docs/language/references)[Next
+
+Accounts](/docs/language/accounts/)
+
+Got suggestions for this site?
 
 * [It's open-source!](https://github.com/onflow/cadence-lang.org)
+
 The source code of this site is licensed under the Apache License, Version 2.0.
 Content is licensed under the Creative Commons Attribution 4.0 International License.
-

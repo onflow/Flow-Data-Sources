@@ -1,20 +1,22 @@
 # Source: https://developers.flow.com/networks/staking/technical-overview
 
-
-
-
 Staking Technical Overview | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
 * [Flow's Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
+
   + [Epoch and Staking Terminology](/networks/staking/epoch-terminology)
   + [Epoch and Reward Schedule](/networks/staking/schedule)
   + [Epoch Preparation Protocol](/networks/staking/epoch-preparation)
@@ -35,21 +37,21 @@ Staking Technical Overview | Flow Developer Portal
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
-
 * [Staking and Epochs](/networks/staking)
 * Staking Technical Overview
-On this pagewarning
+
+On this page
+
+warning
 
 If you haven't read the Introduction, please read that first. That document
 provides a non-technical overview of staking on Flow for all users and is a
 necessary prerequisite to this document.
 
-
 warning
 
 This document assumes you have some technical knowledge about the Flow
 blockchain and programming environment.
-
 
 # Staking
 
@@ -162,7 +164,6 @@ The register node transaction only needs to be submitted once per node. A node
 does not need to register every epoch. A registration cannot be used to manage
 multiple nodes. Multiple nodes need to be registered separately (with the
 Staking Collection).
-
 
 warning
 
@@ -310,7 +311,17 @@ At the end of every epoch, tokens are moved between pools in this order:
 2. All committed tokens get moved to staked tokens pool.
 3. All unstaking tokens get moved to the unstaked tokens pool.
 4. All requested unstaking tokens get moved from the staked pool to the unstaking pool.
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/06-technical-overview.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousEpoch Scripts and Events](/networks/staking/epoch-scripts-events)[NextStaking Scripts and Events](/networks/staking/staking-scripts-events)
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/06-technical-overview.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Epoch Scripts and Events](/networks/staking/epoch-scripts-events)[Next
+
+Staking Scripts and Events](/networks/staking/staking-scripts-events)
+
 ###### Rate this page
 
 😞😐😊
@@ -325,6 +336,7 @@ At the end of every epoch, tokens are moved between pools in this order:
   + [Withdraw Unstaked Tokens](#withdraw-unstaked-tokens)
   + [Withdraw Rewarded Tokens](#withdraw-rewarded-tokens)
 * [Token Pools](#token-pools)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -337,6 +349,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -346,6 +359,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -353,6 +367,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -362,6 +377,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -369,5 +385,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

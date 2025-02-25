@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/tools/wallet-provider-spec/custodial
 
-
-
-
 Introduction | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
@@ -19,14 +20,15 @@ Introduction | Flow Developer Portal
 * [Flow Dev Wallet](/tools/flow-dev-wallet)
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
+
   + [Authorization Function](/tools/wallet-provider-spec/authorization-function)
   + [Introduction](/tools/wallet-provider-spec/custodial)
   + [Provable Authn](/tools/wallet-provider-spec/provable-authn)
   + [User Signature](/tools/wallet-provider-spec/user-signature)
 
-
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 * Introduction
+
 # Introduction
 
 A Wallet Provider handles Authentications and Authorizations. They play a very important role of being the place the users control their information and approve transactions.
@@ -43,7 +45,37 @@ Public identity will be stored on chain as a resource, it will be publicly avail
 
 In FCL getting a users public identity will be as easy as:
 
- `_10import {user} from "@onflow/fcl"_10_10const identity = await user(flowAddress).snapshot()_10// ^_10// `------ The public identity for `flowAddress`_10_10const unsub = user(flowAddress).subscribe(identity => console.log(identity))_10// ^_10// `------- The public identity for `flowAddress``
+`_10
+
+import {user} from "@onflow/fcl"
+
+_10
+
+_10
+
+const identity = await user(flowAddress).snapshot()
+
+_10
+
+// ^
+
+_10
+
+// `------ The public identity for `flowAddress`
+
+_10
+
+_10
+
+const unsub = user(flowAddress).subscribe(identity => console.log(identity))
+
+_10
+
+// ^
+
+_10
+
+// `------- The public identity for `flowAddress``
 
 Private identity will be stored by the Wallet Provider, it will only be available to the currentUser.
 
@@ -54,7 +86,36 @@ We highly recommend Wallet Providers let the user see what scopes are being requ
 
 Consumers of identities in FCL should always assume all data is optional, and should store as little as possible, FCL will make sure the users always see the latest.
 
- `_10import {config, currentUser, authenticate} from "@onflow/fcl"_10_10config.put("challenge.scope", "email") // request the email scope_10_10const unsub = currentUser().subscribe(identity => console.log(identity))_10// ^_10// `------- The private identity for the currentUser_10_10authenticate() // trigger the challenge step (authenticate the user via a wallet provider)`
+`_10
+
+import {config, currentUser, authenticate} from "@onflow/fcl"
+
+_10
+
+_10
+
+config.put("challenge.scope", "email") // request the email scope
+
+_10
+
+_10
+
+const unsub = currentUser().subscribe(identity => console.log(identity))
+
+_10
+
+// ^
+
+_10
+
+// `------- The private identity for the currentUser
+
+_10
+
+_10
+
+authenticate() // trigger the challenge step (authenticate the user via a wallet provider)`
+
 # Identity Data
 
 * All information in Identities are optional and may not be there.
@@ -114,7 +175,31 @@ The Authentication Endpoint will receive the following data as query params:
 * `scope` *(optional)* -- the scopes requested by the dapp
 * `redirect` *(optional)* -- where to redirect once the authentication challenge is complete
 
- `_10GET https://provider.com/flow/authenticate_10 ?l6n=https%3A%2F%2Fdapp.com_10 &nonce=asdfasdfasdf_10 &scope=email+shippingAddress_10 &redirect=https%3A%2F%2Fdapp.com%2Fflow%2Fcallback_10_10The values will use javascripts `encodeURIComponent` function and scopes will be `+` deliminated.`
+`_10
+
+GET https://provider.com/flow/authenticate
+
+_10
+
+?l6n=https%3A%2F%2Fdapp.com
+
+_10
+
+&nonce=asdfasdfasdf
+
+_10
+
+&scope=email+shippingAddress
+
+_10
+
+&redirect=https%3A%2F%2Fdapp.com%2Fflow%2Fcallback
+
+_10
+
+_10
+
+The values will use javascripts `encodeURIComponent` function and scopes will be `+` deliminated.`
 
 We can tell that this challenge is using the Redirect Flow because of the inclusion of the redirect query param.
 The Iframe Flow will still need to be supported as it will be the default flow for dapps.
@@ -125,11 +210,91 @@ Once the Wallet Provider is ready to hand back control to the dapp and FCL it ne
 
 Redirecting will look like this:
 
- `_10GET https://dapp.com/flow/callback # supplied by the redirect query param above_10 ?l6n=https%3A%2F%2Fdapp.com # the l6n supplied by FCL above_10 &nonce=asdfasdfasdf # the nonce supplied by FCL above_10 &addr=0xab4U9KMf # address for the users flow account (if available) -- will be used to fetch public identity information and hooks_10 &padder=0xhMgqTff86 # address for the Wallet Providers account -- will be used to fetch provider information_10 &code=afseasdfsadf # a token supplied to FCL from the Wallet Provider, FCL will use this token when requesting private information and hooks, can be any url safe value_10 &exp=1650400809517 # when the code expires, a value of `0` will be considered as never expires_10 &hks==https%3A%2F%2Fprovider.com%2Fhooks # a URL where FCL can request the private information and hooks`
+`_10
+
+GET https://dapp.com/flow/callback # supplied by the redirect query param above
+
+_10
+
+?l6n=https%3A%2F%2Fdapp.com # the l6n supplied by FCL above
+
+_10
+
+&nonce=asdfasdfasdf # the nonce supplied by FCL above
+
+_10
+
+&addr=0xab4U9KMf # address for the users flow account (if available) -- will be used to fetch public identity information and hooks
+
+_10
+
+&padder=0xhMgqTff86 # address for the Wallet Providers account -- will be used to fetch provider information
+
+_10
+
+&code=afseasdfsadf # a token supplied to FCL from the Wallet Provider, FCL will use this token when requesting private information and hooks, can be any url safe value
+
+_10
+
+&exp=1650400809517 # when the code expires, a value of `0` will be considered as never expires
+
+_10
+
+&hks==https%3A%2F%2Fprovider.com%2Fhooks # a URL where FCL can request the private information and hooks`
 
 Iframe will look like this:
 
- `_13parent.postMessage(_13 {_13 type: "FCL::CHALLENGE::RESPONSE", // used by FCL to know what kind of message this is_13 addr: "0xab4U9KMf",_13 paddr: "0xhMgqTff86",_13 code: "afseasdfsadf",_13 exp: 1650400809517,_13 hks: "https://provider.com/hooks",_13 nonce: "asdfasdfasdf",_13 l6n: decodeURIComponent(l6n),_13 },_13 decodeURIComponent(l6n)_13)`
+`_13
+
+parent.postMessage(
+
+_13
+
+{
+
+_13
+
+type: "FCL::CHALLENGE::RESPONSE", // used by FCL to know what kind of message this is
+
+_13
+
+addr: "0xab4U9KMf",
+
+_13
+
+paddr: "0xhMgqTff86",
+
+_13
+
+code: "afseasdfsadf",
+
+_13
+
+exp: 1650400809517,
+
+_13
+
+hks: "https://provider.com/hooks",
+
+_13
+
+nonce: "asdfasdfasdf",
+
+_13
+
+l6n: decodeURIComponent(l6n),
+
+_13
+
+},
+
+_13
+
+decodeURIComponent(l6n)
+
+_13
+
+)`
 
 FCL should now have everything it needs to collect the Public, Private and Wallet Provider Info.
 The Wallet Provider info will be on chain so its not something that needs to be worried about here by the Wallet Provider.
@@ -137,7 +302,13 @@ What does need to be worried about handling the hooks request which was supplied
 
 The hooks request will be to the `hks` value supplied in the challenge response. The request will also include the code as a query param
 
- `_10GET https://povider.com/hooks_10 ?code=afseasdfsadf`
+`_10
+
+GET https://povider.com/hooks
+
+_10
+
+?code=afseasdfsadf`
 
 This request needs to happen for a number of reasons.
 
@@ -151,12 +322,184 @@ When users return to a dapp, if the code FCL stored hasnt expired, FCL will make
 
 The hooks request should respond with the following JSON
 
- `_22const privateHooks = {_22 addr: "0xab4U9KMf", // the flow address this user is using for the dapp_22 keyId: 3, // the keyId the user wants to use when authorizing transaction_22 identity: { // the identity information fcl always wants if its there, will be deep merged into public info_22 name: "Bob the Builder",_22 avatar: "https://avatars.onflow.org/avatar/0xab4U9KMf.svg"_22 cover: "https://placekittens.com/g/900/300",_22 color: "cccc00",_22 bio: "",_22 },_22 scoped: { // the private info request in the original challenge_22 email: "bob@bob.bob", // the user said it was okay for the dapp to know the email_22 shippingAddress: null, // the user said it was NOT okay for the dapp to know the shippingAddress_22 },_22 provider: {_22 addr: "0xhMgqTff86", // the flow address for the wallet provider (used in the identity composite id)_22 pid: 2345432, // the wallet providers internal id for the user (used in the identity composite id)_22 name: "Super Wallet",_22 icon: "https://provider.com/assets/icon.svg",_22 authn: "https://provider.com/flow/authenticate",_22 }_22}`
+`_22
+
+const privateHooks = {
+
+_22
+
+addr: "0xab4U9KMf", // the flow address this user is using for the dapp
+
+_22
+
+keyId: 3, // the keyId the user wants to use when authorizing transaction
+
+_22
+
+identity: { // the identity information fcl always wants if its there, will be deep merged into public info
+
+_22
+
+name: "Bob the Builder",
+
+_22
+
+avatar: "https://avatars.onflow.org/avatar/0xab4U9KMf.svg"
+
+_22
+
+cover: "https://placekittens.com/g/900/300",
+
+_22
+
+color: "cccc00",
+
+_22
+
+bio: "",
+
+_22
+
+},
+
+_22
+
+scoped: { // the private info request in the original challenge
+
+_22
+
+email: "bob@bob.bob", // the user said it was okay for the dapp to know the email
+
+_22
+
+shippingAddress: null, // the user said it was NOT okay for the dapp to know the shippingAddress
+
+_22
+
+},
+
+_22
+
+provider: {
+
+_22
+
+addr: "0xhMgqTff86", // the flow address for the wallet provider (used in the identity composite id)
+
+_22
+
+pid: 2345432, // the wallet providers internal id for the user (used in the identity composite id)
+
+_22
+
+name: "Super Wallet",
+
+_22
+
+icon: "https://provider.com/assets/icon.svg",
+
+_22
+
+authn: "https://provider.com/flow/authenticate",
+
+_22
+
+}
+
+_22
+
+}`
 
 When FCL requested the Public info from the chain it is expecting something like this.
 It will be on the Wallet Provider to keep this information up to date.
 
- `_22const publicHooks = {_22 addr: "0xab4U9KMf",_22 keyId: 2,_22 identity: {_22 name: "Bob the Builder",_22 avatar: "https://avatars.onflow.org/avatar/0xab4U9KMf.svg"_22 cover: "https://placekittens.com/g/900/300",_22 color: "cccc00",_22 bio: "",_22 },_22 authorizations: [_22 {_22 id: 345324539,_22 addr: "0xhMgqTff86",_22 method: "HTTP/POST",_22 endpoint: "https://provider.com/flow/authorize",_22 data: {_22 id: 2345432_22 }_22 }_22 ]_22}`
+`_22
+
+const publicHooks = {
+
+_22
+
+addr: "0xab4U9KMf",
+
+_22
+
+keyId: 2,
+
+_22
+
+identity: {
+
+_22
+
+name: "Bob the Builder",
+
+_22
+
+avatar: "https://avatars.onflow.org/avatar/0xab4U9KMf.svg"
+
+_22
+
+cover: "https://placekittens.com/g/900/300",
+
+_22
+
+color: "cccc00",
+
+_22
+
+bio: "",
+
+_22
+
+},
+
+_22
+
+authorizations: [
+
+_22
+
+{
+
+_22
+
+id: 345324539,
+
+_22
+
+addr: "0xhMgqTff86",
+
+_22
+
+method: "HTTP/POST",
+
+_22
+
+endpoint: "https://provider.com/flow/authorize",
+
+_22
+
+data: {
+
+_22
+
+id: 2345432
+
+_22
+
+}
+
+_22
+
+}
+
+_22
+
+]
+
+_22
+
+}`
 
 At this point FCL can be fairly confident who the currentUser is and is ready to initiate transactions the user can authorize.
 
@@ -175,34 +518,272 @@ The core concepts to this idea are:
 
 Below is the public authorization hook we received during the challenge above.
 
- `_10 {_10 id: 345324539,_10 addr: "0xhMgqTff86",_10 method: "HTTP/POST",_10 endpoint: "https://provider.com/flow/authorize",_10 data: {_10 id: 2345432_10 }_10 }`
+`_10
+
+{
+
+_10
+
+id: 345324539,
+
+_10
+
+addr: "0xhMgqTff86",
+
+_10
+
+method: "HTTP/POST",
+
+_10
+
+endpoint: "https://provider.com/flow/authorize",
+
+_10
+
+data: {
+
+_10
+
+id: 2345432
+
+_10
+
+}
+
+_10
+
+}`
 
 FCL will take that hook and do the following post requeset:
 
- `_14POST https://provider.com/flow/authorize_14 ?id=2345432_14---_14{_14 message: "...", // what needs to be signed (needs to be convered from hex to binary before signing)_14 addr: "0xab4U9KMf", // the flow address that needs to sign_14 keyId: 3, // the flow account keyId for the private key that needs to sign_14 roles: {_14 proposer: true, // this accounts sequence number will be used in the transaction_14 authorizer: true, // this transaction can "move" and "modify" the accounts resources directly_14 payer: true, // this transaction will be paid for by this account (also signifies that they are signing an envelopeMessage instead of a payloadMessage)_14 },_14 interaction: {...} // needed to recreate the message if the Wallet Provider wants to verify the message._14}`
+`_14
+
+POST https://provider.com/flow/authorize
+
+_14
+
+?id=2345432
+
+_14
+
+---
+
+_14
+
+{
+
+_14
+
+message: "...", // what needs to be signed (needs to be convered from hex to binary before signing)
+
+_14
+
+addr: "0xab4U9KMf", // the flow address that needs to sign
+
+_14
+
+keyId: 3, // the flow account keyId for the private key that needs to sign
+
+_14
+
+roles: {
+
+_14
+
+proposer: true, // this accounts sequence number will be used in the transaction
+
+_14
+
+authorizer: true, // this transaction can "move" and "modify" the accounts resources directly
+
+_14
+
+payer: true, // this transaction will be paid for by this account (also signifies that they are signing an envelopeMessage instead of a payloadMessage)
+
+_14
+
+},
+
+_14
+
+interaction: {...} // needed to recreate the message if the Wallet Provider wants to verify the message.
+
+_14
+
+}`
 
 FCL ise expecting something like this in response:
 
- `_18{_18 status: "PENDING",_18 reason: null,_18 compositeSignature: null,_18 authorizationUpdates: {_18 method: "HTTP/POST",_18 endpoint: "https://provider.com/flow/authorizations/4323",_18 },_18 local: [_18 {_18 method: "BROWSER/IFRAME",_18 endpoint: "https://provider.com/authorizations/4324",_18 width: "300",_18 height: "600",_18 background: "#ff0066"_18 }_18 ]_18}`
+`_18
+
+{
+
+_18
+
+status: "PENDING",
+
+_18
+
+reason: null,
+
+_18
+
+compositeSignature: null,
+
+_18
+
+authorizationUpdates: {
+
+_18
+
+method: "HTTP/POST",
+
+_18
+
+endpoint: "https://provider.com/flow/authorizations/4323",
+
+_18
+
+},
+
+_18
+
+local: [
+
+_18
+
+{
+
+_18
+
+method: "BROWSER/IFRAME",
+
+_18
+
+endpoint: "https://provider.com/authorizations/4324",
+
+_18
+
+width: "300",
+
+_18
+
+height: "600",
+
+_18
+
+background: "#ff0066"
+
+_18
+
+}
+
+_18
+
+]
+
+_18
+
+}`
 
 That local hook will be consumed by FCL, rendering an iframe with the endpoint as the src. If the user is already authenticated this screen could show them the Wallet Providers transaction approval process directly.
 Because FCL isnt relying on any communication to or from the Iframe it can lock it down as much as possible, and remove it once the authorization is complete.
 While displaying the local hook, it will request the status of the authorization from the `authorizationUpdates` hook.
 
- `_10POST https://provider.com/flow/authorizations/4323`
+`_10
+
+POST https://provider.com/flow/authorizations/4323`
 
 Expecting a response that has the same structure as the origin but without the local hooks:
 
- `_10{_10 status: "PENDING",_10 reason: "",_10 compositeSignature: null,_10 authorizationUpdates: {_10 method: "HTTP/POST",_10 endpoint: "https://provider.com/flow/authorizations/4323",_10 },_10}`
+`_10
+
+{
+
+_10
+
+status: "PENDING",
+
+_10
+
+reason: "",
+
+_10
+
+compositeSignature: null,
+
+_10
+
+authorizationUpdates: {
+
+_10
+
+method: "HTTP/POST",
+
+_10
+
+endpoint: "https://provider.com/flow/authorizations/4323",
+
+_10
+
+},
+
+_10
+
+}`
 
 FCL will then follow the new `authorizationUpdates` hooks until the status changes to `"APPROVED"` or `"DECLINED"`.
 If the authorization is declined it should include a reason if possible.
 
- `_10{_10 status: "DECLINED",_10 reason: "They said no",_10}`
+`_10
+
+{
+
+_10
+
+status: "DECLINED",
+
+_10
+
+reason: "They said no",
+
+_10
+
+}`
 
 If the authorization is approved it should include a composite signature:
 
- `_10{_10 status: "APPROVED",_10 compositeSignature: {_10 addr: "0xab4U9KMf", // the flow address that needs to sign_10 keyId: 3, // the flow account keyId for the private key that needs to sign_10 signature: "..." // binary signature of message encoded as hex_10 }_10}`
+`_10
+
+{
+
+_10
+
+status: "APPROVED",
+
+_10
+
+compositeSignature: {
+
+_10
+
+addr: "0xab4U9KMf", // the flow address that needs to sign
+
+_10
+
+keyId: 3, // the flow account keyId for the private key that needs to sign
+
+_10
+
+signature: "..." // binary signature of message encoded as hex
+
+_10
+
+}
+
+_10
+
+}`
 
 FCl can now submit the transaction to the Flow blockchain.
 
@@ -218,7 +799,17 @@ Register Provider with FCL Handshake and implement 5 Endpoints.
 
 ![diagram showing current fcl authn and authz flow](/assets/images/fcl-ars-auth-v3.2-f2b418b21efa5f88072c3a235ec5a48b.png)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/custodial.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousAuthorization Function](/tools/wallet-provider-spec/authorization-function)[NextProvable Authn](/tools/wallet-provider-spec/provable-authn)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/custodial.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Authorization Function](/tools/wallet-provider-spec/authorization-function)[Next
+
+Provable Authn](/tools/wallet-provider-spec/provable-authn)
+
+Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)
@@ -230,6 +821,7 @@ Register Provider with FCL Handshake and implement 5 Endpoints.
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -239,6 +831,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -246,6 +839,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -255,6 +849,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -262,5 +857,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

@@ -1,28 +1,14 @@
 # Source: https://academy.ecdao.org/en/quickstarts/0-hello-world-svelte
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -35,14 +21,11 @@ Hello World
 
 # Hello World
 
-
 Quickstart
 
 SvelteKit
 
 Change and read a greeting field on Flow Testnet.
-
-
 
 ## ð© Quickstart 0: Hello World
 
@@ -60,8 +43,6 @@ Change and read a greeting field on Flow Testnet.
 
 Want a video walkthrough? Check out Jacob Tuckerâs walkthrough here:
 
-  
-
 ## ð¦ Checkpoint 0: Install
 
 Required:
@@ -71,6 +52,7 @@ Required:
 * [Flow CLI](https://docs.onflow.org/flow-cli/install/) - you know you have installed it if you type `flow version` in your terminal and it prints a version.
 
 sh
+
 ```
 		
 			git clone https://github.com/emerald-dao/0-hello-world-svelte.git
@@ -83,6 +65,7 @@ First, rename the `.env.example` file to `.env`
 Then, in a terminal window, install the dependencies and start your frontend:
 
 sh
+
 ```
 		
 			cd 0-hello-world-svelte
@@ -95,6 +78,7 @@ npm run dev
 In a second terminal window, start your local emulator:
 
 bash
+
 ```
 		
 			cd 0-hello-world-svelte
@@ -108,6 +92,7 @@ flow emulator start -v
 In a third terminal window, deploy your contract and start your local wallet:
 
 bash
+
 ```
 		
 			cd 0-hello-world-svelte
@@ -130,6 +115,7 @@ Click the âConnectâ button and notice a window appears with different 
 Click the `Get greeting` button to see your greeting:
 
 ![get greeting](https://i.imgur.com/scGk30z.png)
+
 ## âï¸ Checkpoint 3: Changing the Greeting
 
 Change the greeting! Type a new greeting into the input.
@@ -160,6 +146,7 @@ We will now deploy our contracts to the account we just created.
 In your flow.json file, under the âdeploymentsâ object, add the following:
 
 json
+
 ```
 		
 			"testnet": {
@@ -174,6 +161,7 @@ json
 Then, under the âcontractsâ object, find the âHelloWorldâ object and add a new testnet alias. The address you put should be the same one that was added to your flow.json automatically under the âtestnet-accountâ object:
 
 json
+
 ```
 		
 			"HelloWorld": {
@@ -190,6 +178,7 @@ json
 Your final flow.json should look something like this:
 
 json
+
 ```
 		
 			{
@@ -280,6 +269,7 @@ json
 ð Deploy your HelloWorld smart contract:
 
 sh
+
 ```
 		
 			flow project deploy --network=testnet
@@ -313,16 +303,15 @@ Run `npm run dev` to start your application in a terminal, and have a blast with
 
 > ð Problems, questions, comments on the stack? Post them to the [ð Emerald City Discord](https://discord.gg/emerald-city-906264258189332541).
 
-
 ![User avatar](https://avatars.githubusercontent.com/u/100654804?v=4)
 
 Author
 
 [Emerald City](https://twitter.com/emerald_dao)
 
-
 [Fork Quickstart](https://github.com/emerald-dao/0-hello-world-svelte/fork)
 [Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/quickstarts/0-hello-world-svelte/en/readme.md)
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
@@ -331,17 +320,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

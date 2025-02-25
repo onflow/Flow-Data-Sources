@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/tools/wallet-provider-spec/authorization-function
 
-
-
-
 Authorization Function | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
@@ -19,15 +20,17 @@ Authorization Function | Flow Developer Portal
 * [Flow Dev Wallet](/tools/flow-dev-wallet)
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
+
   + [Authorization Function](/tools/wallet-provider-spec/authorization-function)
   + [Introduction](/tools/wallet-provider-spec/custodial)
   + [Provable Authn](/tools/wallet-provider-spec/provable-authn)
   + [User Signature](/tools/wallet-provider-spec/user-signature)
 
-
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 * Authorization Function
+
 On this page
+
 # Authorization Function
 
 ## Overview[​](#overview "Direct link to Overview")
@@ -44,7 +47,41 @@ To use an Authorization Function, you specify that Authorization Function as the
 
 Example 1:
 
- `_10import * as fcl from "@onflow/fcl"_10_10const myAuthorizationFunction = ... // An Authorization Function_10_10const response = fcl.send([_10 fcl.transaction`transaction() { prepare(acct: &Account) {} execute { log("Hello, Flow!") } }`,_10 fcl.proposer(myAuthorizationFunction),_10 fcl.payer(myAuthorizationFunction),_10 fcl.authorizers([ myAuthorizationFunction ])_10])`
+`_10
+
+import * as fcl from "@onflow/fcl"
+
+_10
+
+_10
+
+const myAuthorizationFunction = ... // An Authorization Function
+
+_10
+
+_10
+
+const response = fcl.send([
+
+_10
+
+fcl.transaction`transaction() { prepare(acct: &Account) {} execute { log("Hello, Flow!") } }`,
+
+_10
+
+fcl.proposer(myAuthorizationFunction),
+
+_10
+
+fcl.payer(myAuthorizationFunction),
+
+_10
+
+fcl.authorizers([ myAuthorizationFunction ])
+
+_10
+
+])`
 
 The builder functions, `fcl.proposer`, `fcl.payer` and `fcl.authorizations` each consume the Authorization Function and set it as the resolve field on the internal Account object it creates.
 
@@ -63,20 +100,183 @@ The Authorization Function has a concept of an account. An account represent a p
 
 Lets say we knew up front the account, keyId and had a function that could sign things.
 
- `_10const ADDRESS = "0xba1132bc08f82fe2"_10const KEY_ID = 1 // this account on testnet has three keys, we want the one with an index of 1 (has a weight of 1000)_10const sign = msg => { /* ... returns signature (for the key above) for supplied message ... */ }`
+`_10
+
+const ADDRESS = "0xba1132bc08f82fe2"
+
+_10
+
+const KEY_ID = 1 // this account on testnet has three keys, we want the one with an index of 1 (has a weight of 1000)
+
+_10
+
+const sign = msg => { /* ... returns signature (for the key above) for supplied message ... */ }`
 
 Our Authorization Function becomes about filling things in:
 
 Example 2:
 
- `_18const authorizationFunction = async (account) => {_18 // authorization function need to return an account_18 return {_18 ...account, // bunch of defaults in here, we want to overload some of them though_18 tempId: `${ADDRESS}-${KEY_ID}`, // tempIds are more of an advanced topic, for 99% of the times where you know the address and keyId you will want it to be a unique string per that address and keyId_18 addr: ADDRESS, // the address of the signatory_18 keyId: Number(KEY_ID), // this is the keyId for the accounts registered key that will be used to sign, make extra sure this is a number and not a string_18 signingFunction: async signable => {_18 // Singing functions are passed a signable and need to return a composite signature_18 // signable.message is a hex string of what needs to be signed._18 return {_18 addr: ADDRESS, // needs to be the same as the account.addr_18 keyId: Number(KEY_ID), // needs to be the same as account.keyId, once again make sure its a number and not a string_18 signature: sign(signable.message), // this needs to be a hex string of the signature, where signable.message is the hex value that needs to be signed_18 }_18 }_18 }_18}`
+`_18
+
+const authorizationFunction = async (account) => {
+
+_18
+
+// authorization function need to return an account
+
+_18
+
+return {
+
+_18
+
+...account, // bunch of defaults in here, we want to overload some of them though
+
+_18
+
+tempId: `${ADDRESS}-${KEY_ID}`, // tempIds are more of an advanced topic, for 99% of the times where you know the address and keyId you will want it to be a unique string per that address and keyId
+
+_18
+
+addr: ADDRESS, // the address of the signatory
+
+_18
+
+keyId: Number(KEY_ID), // this is the keyId for the accounts registered key that will be used to sign, make extra sure this is a number and not a string
+
+_18
+
+signingFunction: async signable => {
+
+_18
+
+// Singing functions are passed a signable and need to return a composite signature
+
+_18
+
+// signable.message is a hex string of what needs to be signed.
+
+_18
+
+return {
+
+_18
+
+addr: ADDRESS, // needs to be the same as the account.addr
+
+_18
+
+keyId: Number(KEY_ID), // needs to be the same as account.keyId, once again make sure its a number and not a string
+
+_18
+
+signature: sign(signable.message), // this needs to be a hex string of the signature, where signable.message is the hex value that needs to be signed
+
+_18
+
+}
+
+_18
+
+}
+
+_18
+
+}
+
+_18
+
+}`
+
 ## Async stuff[​](#async-stuff "Direct link to Async stuff")
 
 Both the Authorization Function, and the accounts Signing Function can be asynchronous. This means both of these functions can go and get the information needed elsewhere. Say each of your users had a `userId`. From this `userId` say you had an api call that could return the corresponding address and key that is needed for the Authorization Functions account. You could also have another endpoint that when posted the signable (includes what needs to be signed) and the `userId` it can return with the composite signature if your api decides its okay to sign (the signable has all sorts of info to help you decide). An authorization function that can do that could look something like this.
 
 Example 3:
 
- `_22const getAccount = (userId) => fetch(`/api/user/${userId}/account`).then(d => d.json())_22const getSignature = (userId, signable) = fetch(`/api/user/${userId}/sign`, {_22 method: "POST",_22 headers: { "Content-Type": "application/json"},_22 body: JSON.stringify(signable),_22})_22_22function authz (userId) {_22 return async function authorizationFunction (account) {_22 const {addr, keyId} = await getAccount(userId)_22_22 return {_22 ...account,_22 tempId: `${addr}-${keyId}`,_22 addr: addr,_22 keyId: Number(keyId),_22 signingFunction: signable => {_22 return getSignature(userId, signable)_22 }_22 }_22 }_22}`
+`_22
+
+const getAccount = (userId) => fetch(`/api/user/${userId}/account`).then(d => d.json())
+
+_22
+
+const getSignature = (userId, signable) = fetch(`/api/user/${userId}/sign`, {
+
+_22
+
+method: "POST",
+
+_22
+
+headers: { "Content-Type": "application/json"},
+
+_22
+
+body: JSON.stringify(signable),
+
+_22
+
+})
+
+_22
+
+_22
+
+function authz (userId) {
+
+_22
+
+return async function authorizationFunction (account) {
+
+_22
+
+const {addr, keyId} = await getAccount(userId)
+
+_22
+
+_22
+
+return {
+
+_22
+
+...account,
+
+_22
+
+tempId: `${addr}-${keyId}`,
+
+_22
+
+addr: addr,
+
+_22
+
+keyId: Number(keyId),
+
+_22
+
+signingFunction: signable => {
+
+_22
+
+return getSignature(userId, signable)
+
+_22
+
+}
+
+_22
+
+}
+
+_22
+
+}
+
+_22
+
+}`
 
 The above **Example 3** is the same as **Example 2**, but the information is gathered during the execution of the authorization function based on the supplied user id.
 
@@ -88,7 +288,84 @@ To create a signing function you specify a function which consumes a payload and
 
 Example 3:
 
- `_17const signingFunction = ({_17 message, // The encoded string which needs to be used to produce the signature._17 addr, // The address of the Flow Account this signature is to be produced for._17 keyId, // The keyId of the key which is to be used to produce the signature._17 roles: {_17 proposer, // A Boolean representing if this signature to be produced for a proposer._17 authorizer, // A Boolean representing if this signature to be produced for a authorizer._17 payer, // A Boolean representing if this signature to be produced for a payer._17 }, _17 voucher, // The raw transactions information, can be used to create the message for additional safety and lack of trust in the supplied message._17}) => {_17 return {_17 addr, // The address of the Flow Account this signature was produced for._17 keyId, // The keyId for which key was used to produce the signature._17 signature: produceSignature(message) // The hex encoded string representing the signature of the message._17 }_17}`[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/authorization-function.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousWallet Provider Spec](/tools/wallet-provider-spec)[NextIntroduction](/tools/wallet-provider-spec/custodial)
+`_17
+
+const signingFunction = ({
+
+_17
+
+message, // The encoded string which needs to be used to produce the signature.
+
+_17
+
+addr, // The address of the Flow Account this signature is to be produced for.
+
+_17
+
+keyId, // The keyId of the key which is to be used to produce the signature.
+
+_17
+
+roles: {
+
+_17
+
+proposer, // A Boolean representing if this signature to be produced for a proposer.
+
+_17
+
+authorizer, // A Boolean representing if this signature to be produced for a authorizer.
+
+_17
+
+payer, // A Boolean representing if this signature to be produced for a payer.
+
+_17
+
+},
+
+_17
+
+voucher, // The raw transactions information, can be used to create the message for additional safety and lack of trust in the supplied message.
+
+_17
+
+}) => {
+
+_17
+
+return {
+
+_17
+
+addr, // The address of the Flow Account this signature was produced for.
+
+_17
+
+keyId, // The keyId for which key was used to produce the signature.
+
+_17
+
+signature: produceSignature(message) // The hex encoded string representing the signature of the message.
+
+_17
+
+}
+
+_17
+
+}`
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/authorization-function.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Wallet Provider Spec](/tools/wallet-provider-spec)[Next
+
+Introduction](/tools/wallet-provider-spec/custodial)
+
 ###### Rate this page
 
 😞😐😊
@@ -98,6 +375,7 @@ Example 3:
 * [How to Create An Authorization Function](#how-to-create-an-authorization-function)
 * [Async stuff](#async-stuff)
 * [How to create a Signing Function](#how-to-create-a-signing-function)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -110,6 +388,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -119,6 +398,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -126,6 +406,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -135,6 +416,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -142,5 +424,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

@@ -1,22 +1,25 @@
 # Source: https://developers.flow.com/tools/clients/fcl-js/user-signatures
 
-
-
-
 Signing and Verifying Arbitrary Data | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
 * [Flow CLI](/tools/flow-cli)
 * [Flow Emulator](/tools/emulator)
 * [Clients](/tools/clients)
+
   + [Flow Client Library (FCL)](/tools/clients/fcl-js)
+
     - [FCL Reference](/tools/clients/fcl-js/api)
     - [SDK Reference](/tools/clients/fcl-js/sdk-guidelines)
     - [Authentication](/tools/clients/fcl-js/authentication)
@@ -34,11 +37,12 @@ Signing and Verifying Arbitrary Data | Flow Developer Portal
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 
-
 * [Clients](/tools/clients)
 * [Flow Client Library (FCL)](/tools/clients/fcl-js)
 * Signing and Verifying Arbitrary Data
+
 On this page
+
 # Signing and Verifying Arbitrary Data
 
 ## Signing Arbitrary Data[​](#signing-arbitrary-data "Direct link to Signing Arbitrary Data")
@@ -79,7 +83,43 @@ A method to use allowing the user to personally sign data via FCL Compatible Wal
 
 #### Usage[​](#usage "Direct link to Usage")
 
- `_10import * as fcl from "@onflow/fcl"_10_10const signMessage = async () => {_10 const MSG = Buffer.from("FOO").toString("hex")_10 try {_10 return await fcl.currentUser.signUserMessage(MSG)_10 } catch (error) {_10 console.log(error)_10 }_10}`
+`_10
+
+import * as fcl from "@onflow/fcl"
+
+_10
+
+_10
+
+const signMessage = async () => {
+
+_10
+
+const MSG = Buffer.from("FOO").toString("hex")
+
+_10
+
+try {
+
+_10
+
+return await fcl.currentUser.signUserMessage(MSG)
+
+_10
+
+} catch (error) {
+
+_10
+
+console.log(error)
+
+_10
+
+}
+
+_10
+
+}`
 
 ---
 
@@ -107,14 +147,102 @@ A method allowing applications to cryptographically verify the ownership of a Fl
 
 #### Usage[​](#usage-1 "Direct link to Usage")
 
- `_20/**_20 * Verify a valid signature/s for an account on Flow._20 *_20 * @param {string} msg - A message string in hexadecimal format_20 * @param {Array} compSigs - An array of Composite Signatures_20 * @param {string} compSigs[].addr - The account address_20 * @param {number} compSigs[].keyId - The account keyId_20 * @param {string} compSigs[].signature - The signature to verify_20 * @param {Object} [opts={}] - Options object_20 * @param {string} opts.fclCryptoContract - An optional override of Flow account address where the FCLCrypto contract is deployed_20 * @return {bool}_20 *_20 * @example_20 *_20 * const isValid = await fcl.AppUtils.verifyUserSignatures(_20 * Buffer.from('FOO').toString("hex"),_20 * [{f_type: "CompositeSignature", f_vsn: "1.0.0", addr: "0x123", keyId: 0, signature: "abc123"}],_20 * {fclCryptoContract}_20 * )_20 */`
+`_20
+
+/**
+
+_20
+
+* Verify a valid signature/s for an account on Flow.
+
+_20
+
+*
+
+_20
+
+* @param {string} msg - A message string in hexadecimal format
+
+_20
+
+* @param {Array} compSigs - An array of Composite Signatures
+
+_20
+
+* @param {string} compSigs[].addr - The account address
+
+_20
+
+* @param {number} compSigs[].keyId - The account keyId
+
+_20
+
+* @param {string} compSigs[].signature - The signature to verify
+
+_20
+
+* @param {Object} [opts={}] - Options object
+
+_20
+
+* @param {string} opts.fclCryptoContract - An optional override of Flow account address where the FCLCrypto contract is deployed
+
+_20
+
+* @return {bool}
+
+_20
+
+*
+
+_20
+
+* @example
+
+_20
+
+*
+
+_20
+
+* const isValid = await fcl.AppUtils.verifyUserSignatures(
+
+_20
+
+* Buffer.from('FOO').toString("hex"),
+
+_20
+
+* [{f_type: "CompositeSignature", f_vsn: "1.0.0", addr: "0x123", keyId: 0, signature: "abc123"}],
+
+_20
+
+* {fclCryptoContract}
+
+_20
+
+* )
+
+_20
+
+*/`
+
 #### Examples[​](#examples "Direct link to Examples")
 
 Use cases include cryptographic login, message validation, verifiable credentials, and others.
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/user-signatures.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousTransactions](/tools/clients/fcl-js/transactions)[NextWalletConnect 2.0 Manual Configuration](/tools/clients/fcl-js/wallet-connect)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/user-signatures.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Transactions](/tools/clients/fcl-js/transactions)[Next
+
+WalletConnect 2.0 Manual Configuration](/tools/clients/fcl-js/wallet-connect)
+
 ###### Rate this page
 
 😞😐😊
@@ -125,6 +253,7 @@ Use cases include cryptographic login, message validation, verifiable credential
   + [Arguments](#arguments)
 * [`AppUtils.verifyUserSignatures`](#apputilsverifyusersignatures)
   + [Arguments](#arguments-1)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -137,6 +266,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -146,6 +276,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -153,6 +284,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -162,6 +294,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -169,5 +302,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

@@ -1,25 +1,14 @@
 # Source: https://academy.ecdao.org/en/cadence-by-example/19-account-storage
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -39,6 +28,7 @@ To do so, you need to have special authorized privileges on an `&Account` type. 
 Data is stored at âstorage pathsâ. You use the `save` function to store data, `load` to bring it out of storage, and `borrow` to get a reference to it.
 
 cadence
+
 ```
 		
 			// Contract file: Test.cdc
@@ -66,6 +56,7 @@ access(all) contract Test {
 ```
 
 cadence
+
 ```
 		
 			// Transaction file: store_nft.cdc
@@ -98,6 +89,7 @@ transaction(rarity: String) {
 ```
 
 cadence
+
 ```
 		
 			// Transaction file: borrow_nft.cdc
@@ -123,6 +115,7 @@ transaction() {
 ```
 
 cadence
+
 ```
 		
 			// Transaction file: destroy_nft.cdc
@@ -146,10 +139,12 @@ transaction() {
 	
 ```
 
-
 [Access Control](/en/cadence-by-example/18-access-control)
 [Entitlements](/en/cadence-by-example/20-entitlements)
+
 [Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/cadence-by-example/en/19-account-storage.md)
+
+
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
@@ -157,17 +152,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

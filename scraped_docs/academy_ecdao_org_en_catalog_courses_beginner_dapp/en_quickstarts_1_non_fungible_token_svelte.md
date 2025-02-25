@@ -1,28 +1,14 @@
 # Source: https://academy.ecdao.org/en/quickstarts/1-non-fungible-token-svelte
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -35,14 +21,11 @@ Non Fungible Token (NFT)
 
 # Non Fungible Token (NFT)
 
-
 Quickstart
 
 SvelteKit
 
 Mint NFTs and transfer them to another account on Flow Testnet.
-
-
 
 ## ð© Quickstart 1: NonFungibleToken
 
@@ -65,6 +48,7 @@ Required:
 * [Flow CLI](https://docs.onflow.org/flow-cli/install/) - you know you have installed it if you type `flow version` in your terminal and it prints a version.
 
 sh
+
 ```
 		
 			git clone https://github.com/emerald-dao/1-non-fungible-token-svelte.git
@@ -77,6 +61,7 @@ First, rename the `.env.example` file to `.env`
 Then, in a terminal window, install the dependencies and start your frontend:
 
 sh
+
 ```
 		
 			cd 1-non-fungible-token-svelte
@@ -89,6 +74,7 @@ npm run dev
 In a second terminal window, start your local emulator:
 
 bash
+
 ```
 		
 			cd 1-non-fungible-token-svelte
@@ -102,6 +88,7 @@ flow emulator start -v
 In a third terminal window, deploy your contract and start your local wallet:
 
 bash
+
 ```
 		
 			cd 1-non-fungible-token-svelte
@@ -142,6 +129,7 @@ This will mint 3 NFTs to the supplied address (`0xf8d6e0586b0a20c7`).
 Go back to your application and click `Get NFTs`. Notice that 3 NFTs appear! Woooohoooo.
 
 ![NFTs now appear on the frontend](https://i.imgur.com/Yf6gP97.png)
+
 ## ð Checkpoint 5: Setup Another User
 
 Log out of the current account and connect to another account. Set up another NFT Collection.
@@ -172,6 +160,7 @@ We will now deploy our contracts to the account we just created.
 In your flow.json file, under the âdeploymentsâ object, add the following:
 
 json
+
 ```
 		
 			"testnet": {
@@ -186,6 +175,7 @@ json
 Then, under the âcontractsâ object, find the âExampleNFTâ object and add a new testnet alias. The address you put should be the same one that was added to your flow.json automatically under the âtestnet-accountâ object:
 
 json
+
 ```
 		
 			"ExampleNFT": {
@@ -202,6 +192,7 @@ json
 Your final flow.json should look something like this:
 
 json
+
 ```
 		
 			{
@@ -292,6 +283,7 @@ json
 ð Deploy your ExampleNFT smart contract:
 
 sh
+
 ```
 		
 			flow project deploy --network=testnet
@@ -326,16 +318,15 @@ Run `npm run dev` to start your application in a terminal, and have a blast with
 
 > ð Problems, questions, comments on the stack? Post them to the [ð Emerald City Discord](https://discord.gg/emerald-city-906264258189332541).
 
-
 ![User avatar](https://avatars.githubusercontent.com/u/100654804?v=4)
 
 Author
 
 [Emerald City](https://twitter.com/emerald_dao)
 
-
 [Fork Quickstart](https://github.com/emerald-dao/1-non-fungible-token-svelte/fork)
 [Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/quickstarts/1-non-fungible-token-svelte/en/readme.md)
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
@@ -344,17 +335,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

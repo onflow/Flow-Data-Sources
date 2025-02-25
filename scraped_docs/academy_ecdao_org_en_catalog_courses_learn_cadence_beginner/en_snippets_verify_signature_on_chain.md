@@ -1,27 +1,14 @@
 # Source: https://academy.ecdao.org/en/snippets/verify-signature-on-chain
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -34,10 +21,7 @@ Sign & Verify a User Message On Chain
 
 # Sign & Verify a User Message On Chain
 
-
 Snippet
-
-
 
 The idea here is you want to have a user sign an âintentâ and verify that:
 
@@ -52,6 +36,7 @@ The message the user is actually signing contains:
 We then use this message to verify both the intent and block id on chain.
 
 javascript
+
 ```
 		
 			import { authenticate, block, config, currentUser, query, unauthenticate } from '@onflow/fcl';
@@ -117,6 +102,7 @@ signAndVerifyUserSignature(intent);
 The following is the Cadence code imported in the above file:
 
 cadence
+
 ```
 		
 			import Crypto
@@ -235,18 +221,15 @@ access(all) fun verifySignature(acctAddress: Address, intent: String, message: S
 	
 ```
 
-
 ![User avatar](/avatars/jacob.jpeg)
 
 Author
 
 [Jacob Tucker](https://twitter.com/jacobmtucker)
 
-
-
-
 [Run Code](https://codesandbox.io/s/verify-signature-on-chain-vk7mt7?file=/src/index.js)
 [Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/snippets/verify-signature-on-chain/readme.md)
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
@@ -255,17 +238,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

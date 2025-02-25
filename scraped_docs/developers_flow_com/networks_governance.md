@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/networks/governance
 
-
-
-
 Governance | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
@@ -20,9 +21,10 @@ Governance | Flow Developer Portal
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
-
 * Governance
+
 On this page
+
 # Governance
 
 ## Participation[​](#participation "Direct link to Participation")
@@ -74,7 +76,16 @@ Each Validator makes an individual decision of which Protocol Version they choos
 
 The process by which the Core Team chooses the updates for each new Protocol Version follows the open process described above, using GitHub as an open discussion platform to gauge the priorities and needs of the entire Flow ecosystem. The proposed changes by the Core Team will be announced and discussed well before they are implemented, and any community member can propose their own changes or contribute code updates to implement any proposed changes. The details of a new Protocol Version are publicly available no less than 14 days before that version is formally recommended for use by Validators (a “Release”), with the complete implementation source code visible for no less than 7 days before a Release.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/governance.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousAccess HTTP API ↗️](/networks/access-onchain-data/access-http-api)[NextFlow Port](/networks/flow-port)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/governance.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Access HTTP API ↗️](/networks/access-onchain-data/access-http-api)[Next
+
+Flow Port](/networks/flow-port)
+
 ###### Rate this page
 
 😞😐😊
@@ -85,6 +96,7 @@ The process by which the Core Team chooses the updates for each new Protocol Ver
   + [Timing](#timing)
 * [Protocol Set Parameters](#protocol-set-parameters)
 * [Early Governance of the Protocol](#early-governance-of-the-protocol)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -97,6 +109,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -106,6 +119,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -113,6 +127,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -122,6 +137,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -129,5 +145,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

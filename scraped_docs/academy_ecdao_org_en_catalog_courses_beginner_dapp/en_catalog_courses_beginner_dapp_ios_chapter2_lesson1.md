@@ -1,30 +1,14 @@
 # Source: https://academy.ecdao.org/en/catalog/courses/beginner-dapp-ios/chapter2/lesson1
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -51,7 +35,6 @@ Connect
 [4.1 Connecting the Blockchain](/en/catalog/courses/beginner-dapp-ios/chapter4/lesson1)[4.2 Integrating WalletConnect and Lilco Wallet](/en/catalog/courses/beginner-dapp-ios/chapter4/lesson2)[4.3 Running a Script](/en/catalog/courses/beginner-dapp-ios/chapter4/lesson3)[4.4 Passing in Arguments to a Script](/en/catalog/courses/beginner-dapp-ios/chapter4/lesson4)[4.5 Finishing the Skeleton](/en/catalog/courses/beginner-dapp-ios/chapter4/lesson5)
 
 Course Overview
-
 
 [Catalog](/en/catalog)
 [Course](/en/catalog/courses/beginner-dapp-ios)
@@ -148,6 +131,7 @@ As we develop our DApp, the changes you make to your SwiftUI views will be updat
 
 ![](https://i.imgur.com/KflRwZS.png)
 ![](https://i.imgur.com/sQJsyhz.png)
+
 ## Running Our DApp On The Simulator
 
 Xcode includes simulators for all currently supported Apple devices including iPhone, iPad, Apple Watch, and Apple TV. Simulators are useful for testing your application on various devices however, it is always recommended to test on a physical device before deploying an application to the App Store. The simulator is a full-fledged virtual environment that mimics an Apple device, allowing developers to test their apps, while Xcode previews provide a lightweight, real-time preview of SwiftUI user interfaces directly within the Xcode editor.
@@ -159,6 +143,7 @@ To launch the simulator simply select a device from the drop-down list, then pre
 Once the simulator loads, it will automatically install and launch our DApp. Hopefully, it will look something like this:
 
 ![](https://i.imgur.com/T1ask9Rl.png)
+
 ## Storing Our iOS DApp On GitHub
 
 As we wrap up this section, letâs talk about GitHub, an indispensable tool for developers like us. GitHub provides a centralized platform to store and manage our code, allowing easy tracking of our projectâs progress. Whether youâre working on personal projects or collaborating with a team, GitHub streamlines code sharing and version control.
@@ -178,6 +163,7 @@ In Git, a repository is like a container for our project.
 You will now be taken to a page with no files inside of it. It should look like this:
 
 ![](/courses/beginner-dapp/empty-github.png)
+
 ### Pushing to Our Repository
 
 Letâs now add (or âpushâ) our iOS app code to GitHub. Open up a terminal on your computer and make sure youâre in the base directory of your project.
@@ -185,6 +171,7 @@ Letâs now add (or âpushâ) our iOS app code to GitHub. Open up a t
 > Run the following lines of code:
 
 bash
+
 ```
 		
 			git add .
@@ -201,6 +188,7 @@ Replace [THE URL OF YOUR GITHUB REPOSITORY] with the actual URL of your newly cr
 If this is your first time pushing to GitHub, it may prompt you to log in. After completing the push, you can visit your GitHub repository to verify that all your code is there, securely stored and ready for future development!
 
 ![](https://i.imgur.com/UZPdhw3.png)
+
 ### Making Changes
 
 Now, what if we make changes to our code? How do we put it on GitHub?
@@ -208,6 +196,7 @@ Now, what if we make changes to our code? How do we put it on GitHub?
 When you make a change in your code and save the file, you can push it to GitHub by running:
 
 bash
+
 ```
 		
 			git add .
@@ -216,6 +205,7 @@ git push origin main
 		 
 	
 ```
+
 ## Conclusion
 
 All we wanted you to do today was create the Xcode project and run the application on the simulator. If you could successfully do that, woo! You will have no problem with the Quest.
@@ -236,15 +226,14 @@ Author
 
 [BoiseITGuru](https://twitter.com/boise_it_guru)
 
-
-
-
 [Quests](#quests)
-[Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/beginner-dapp-ios/en/chapter2/lesson1.md)
 
+[Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/beginner-dapp-ios/en/chapter2/lesson1.md)
 
 [Exploring the Flow Blockchain & Cadence](/en/catalog/courses/beginner-dapp-ios/chapter1/lesson2)
 [Learning Frontend Code](/en/catalog/courses/beginner-dapp-ios/chapter2/lesson2)
+
+
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
@@ -252,17 +241,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

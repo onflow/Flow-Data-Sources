@@ -1,29 +1,14 @@
 # Source: https://academy.ecdao.org/en/catalog/tutorials/magic-link-auth
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -36,14 +21,11 @@ Add Magic Link to your DApp
 
 # Add Magic Link to your DApp
 
-
 Tutorial
 
 Beginner
 
 20 minutes
-
-
 
 This tutorial will teach you how to use [Magic Link](https://magic.link/) to onboard users to your DApp with just an email. You will first learn how to authenticate users in to your DApp. After authenticating, you will have the userâs login info and learn how to send a test transaction as well.
 
@@ -64,12 +46,14 @@ Navigate to your `magic-flow-tutorial` directory in terminal and follow the step
 ### 1. Install Dependencies
 
 bash
+
 ```
 		
 			npm install @onflow/fcl magic-sdk @magic-ext/flow
 		 
 	
 ```
+
 ### 2. Create a New Magic Instance
 
 To create a Magic instance, you will need an API key from their platform. Go to <https://dashboard.magic.link/login>, create an account, create a new project, and select âFlow (testnet)â for your network. You will then be redirected to your API Keys.
@@ -81,6 +65,7 @@ You will see your âPublishable API Keyâ here:
 Inside your DApp, open up the `App.js` file and replace it with the following code:
 
 js
+
 ```
 		
 			import { Magic } from "magic-sdk";
@@ -117,6 +102,7 @@ Make sure to replace âAPY\_KEYâ with your own. It should look somethin
 Now we need to actually connect to Flow testnet in order to log in. To do that, add the following code to your `App.js` file:
 
 js
+
 ```
 		
 			import { Magic } from "magic-sdk";
@@ -156,11 +142,13 @@ export default function App() {
 		 
 	
 ```
+
 ### 4. Authenticate
 
 Now we can have users authenticate into our DApp. Letâs modify our `App.js` file a little to include a place for users to type in their email and log in.
 
 js
+
 ```
 		
 			import { Magic } from "magic-sdk";
@@ -232,6 +220,7 @@ Try to click the âLoginâ button and see if it prompts you to log in.
 Now that the user has authenticated in, we want to display a welcome message with their flow address. And allow them to log out.
 
 js
+
 ```
 		
 			import { Magic } from "magic-sdk";
@@ -299,6 +288,7 @@ export default function App() {
 		 
 	
 ```
+
 ### 6. Viewing Your Wallet
 
 We can also add a button so a user can view information about their wallet.
@@ -306,12 +296,14 @@ We can also add a button so a user can view information about their wallet.
 Add the following button below the logout button:
 
 js
+
 ```
 		
 			<button onClick={() => magic.wallet.showUI()}>View Wallet</button>
 		 
 	
 ```
+
 ## 7. Sending Test Transaction
 
 Now that we have completed the authentication user flow, lets try to send a transaction with the userâs account once they are logged in.
@@ -319,6 +311,7 @@ Now that we have completed the authentication user flow, lets try to send a tran
 Letâs write a `sendTransaction` function that simply logs the signerâs address.
 
 js
+
 ```
 		
 			const sendTransaction = async () => {
@@ -362,6 +355,7 @@ js
 We can add this to our `App.js` file, along with a button that the user can click to run the test transction:
 
 js
+
 ```
 		
 			import { Magic } from "magic-sdk";
@@ -475,17 +469,14 @@ To check out a working example, go [here](https://codesandbox.io/p/sandbox/crank
 
 Till next time ~ Jacob Tucker
 
-
 ![User avatar](/avatars/jacob.jpeg)
 
 Author
 
 [Jacob Tucker](https://twitter.com/jacobmtucker)
 
-
-
-
 [Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/tutorials/magic-link-auth/en/readme.md)
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
@@ -494,17 +485,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

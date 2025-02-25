@@ -1,25 +1,14 @@
 # Source: https://academy.ecdao.org/en/cadence-by-example/11-optionals
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -39,6 +28,7 @@ For example, `Int?` means: âThis value is either `Int`, or `nil`.â
 `nil` simply means nothing, or `null` in other languages.
 
 cadence
+
 ```
 		
 			access(all) fun main() {
@@ -61,6 +51,7 @@ cadence
 		 
 	
 ```
+
 # Optionals with Dictionaries
 
 When indexing into dictionaries, we get optional types back.
@@ -68,6 +59,7 @@ When indexing into dictionaries, we get optional types back.
 To get rid of the optional type (âunwrap itâ), we can use the force-unwrap operator `!`, or `panic` (recommended) if we want to provide an explanation for why the value is `nil`.
 
 cadence
+
 ```
 		
 			access(all) fun main() {
@@ -107,10 +99,12 @@ cadence
 	
 ```
 
-
 [Dictionaries](/en/cadence-by-example/10-dictionaries)
 [Optional Binding](/en/cadence-by-example/12-optional-binding)
+
 [Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/cadence-by-example/en/11-optionals.md)
+
+
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
@@ -118,17 +112,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

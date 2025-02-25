@@ -1,22 +1,25 @@
 # Source: https://developers.flow.com/networks/node-ops/access-nodes/access-node-configuration-options
 
-
-
-
 Serving execution data | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
 * [Flow's Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
+
   + [Access Nodes](/networks/node-ops/access-nodes/access-node-setup)
+
     - [Access Node Setup](/networks/node-ops/access-nodes/access-node-setup)
     - [Execution Data](/networks/node-ops/access-nodes/access-node-configuration-options)
   + [EVM Gateway Setup](/networks/node-ops/evm-gateway/evm-gateway-setup)
@@ -26,11 +29,12 @@ Serving execution data | Flow Developer Portal
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
-
 * [Node Ops](/networks/node-ops)
 * Access Nodes
 * Execution Data
+
 On this page
+
 # Serving execution data
 
 Flow chain data comprises of two parts,
@@ -47,7 +51,54 @@ This guide provides an overview of how to use the execution data sync feature of
 
 The access node typically has the following directory structure:
 
- `_12$ tree flow_access_12 flow_access/_12 ├── bootstrap_12 │ ├── private-root-information (with corresponding AN data)_12 │ └── execution-state_12 │ └── public-root-information_12 │ ├── node-id_12 │ └── node-info.pub.NODE_ID.json_12 │ └── root-protocol-state-snapshot.json (the genesis data)_12 └── data (directory used by the node to store block data)_12 │ └── execution-data_12 │ └── execution-state`
+`_12
+
+$ tree flow_access
+
+_12
+
+flow_access/
+
+_12
+
+├── bootstrap
+
+_12
+
+│ ├── private-root-information (with corresponding AN data)
+
+_12
+
+│ └── execution-state
+
+_12
+
+│ └── public-root-information
+
+_12
+
+│ ├── node-id
+
+_12
+
+│ └── node-info.pub.NODE_ID.json
+
+_12
+
+│ └── root-protocol-state-snapshot.json (the genesis data)
+
+_12
+
+└── data (directory used by the node to store block data)
+
+_12
+
+│ └── execution-data
+
+_12
+
+│ └── execution-state`
+
 ## Setup execution data indexing[​](#setup-execution-data-indexing "Direct link to Setup execution data indexing")
 
 First, your node needs to download and index the execution data. There are 3 steps:
@@ -86,7 +137,9 @@ The root checkpoint for each spork is hosted in GCP. You can find the link for t
 
 The URL in that file will point to a file named `root.checkpoint`. This is the base file and is fairly small. There are 17 additional files that make up the actual data, named `root.checkpoint.000`, `root.checkpoint.001`, …, `root.checkpoint.016`. If you have `gsutil` installed, you can download them all easily with the following command.
 
- `_10gsutil -m cp "gs://flow-genesis-bootstrap/[network]-execution/public-root-information/root.checkpoint*" .`
+`_10
+
+gsutil -m cp "gs://flow-genesis-bootstrap/[network]-execution/public-root-information/root.checkpoint*" .`
 
 Where `[network]` is the network you are downloading for. For example, `mainnet-24` or `testnet-49`.
 
@@ -102,7 +155,9 @@ Root checkpoints are periodically generated on Flow Foundation execution nodes a
 a list of available checkpoints [here](https://console.cloud.google.com/storage/browser/flow-genesis-bootstrap/checkpoints),
 or list them using the [gsutil](https://cloud.google.com/storage/docs/gsutil) command
 
- `_10gsutil ls "gs://flow-genesis-bootstrap/checkpoints/"`
+`_10
+
+gsutil ls "gs://flow-genesis-bootstrap/checkpoints/"`
 
 The checkpoint paths are in the format `flow-genesis-bootstrap/checkpoints/[network]/[epoch number]-[block height]/`.
 Where
@@ -116,7 +171,9 @@ Where
 
 Once you have selected the checkpoint to download, you can download the files. If you have `gsutil` installed, you can download them all easily with the following command.
 
- `_10gsutil -m cp "gs://flow-genesis-bootstrap/checkpoints/[network]/[epoch number]-[block height]/root.checkpoint*" .`
+`_10
+
+gsutil -m cp "gs://flow-genesis-bootstrap/checkpoints/[network]/[epoch number]-[block height]/root.checkpoint*" .`
 
 Once the files are downloaded, you can either move them to `/bootstrap/execution-state/` within the node’s bootstrap directory or put them in any mounted directory and reference the location with this cli flag: `--execution-state-checkpoint=/path/to/root.checkpoint`. The naming of files should be `root.checkpoint*`.
 
@@ -127,7 +184,9 @@ It's important to download the snapshot for the correct height, otherwise bootst
 
 You can download the `root-protocol-state-snapshot.json` file generated by the Execution from the same GCP bucket.
 
- `_10gsutil cp "gs://flow-genesis-bootstrap/checkpoints/[network]/[epoch number]-[block height]/root-protocol-state-snapshot.json" .`
+`_10
+
+gsutil cp "gs://flow-genesis-bootstrap/checkpoints/[network]/[epoch number]-[block height]/root-protocol-state-snapshot.json" .`
 
 Alternatively, you can download it directly from a trusted Access node using the `GetProtocolStateSnapshotByHeight` gRPC endpoint
 with the corresponding height. You will get a `base64` encoded snapshot which decodes into a json object. At this time, this endpoint is only support using the grpc API.
@@ -149,7 +208,21 @@ Now that all of the settings to enable indexing are in place, you can start your
 
 At a minimum, you will need the following flags:
 
- `_10--execution-data-indexing-enabled=true_10--execution-state-dir=/data/execution-state_10--execution-data-sync-enabled=true_10--execution-data-dir=/data/execution-data`
+`_10
+
+--execution-data-indexing-enabled=true
+
+_10
+
+--execution-state-dir=/data/execution-state
+
+_10
+
+--execution-data-sync-enabled=true
+
+_10
+
+--execution-data-dir=/data/execution-data`
 
 For better visibility of the process, you can also add
 
@@ -201,10 +274,47 @@ Local data usage for transaction results and events are controlled with the `--t
 * If your node crashes or restarts before the checkpoint finishes loading, you will need to stop the node, delete the `execution-state` directory, and start it again. Resuming is currently not supported.
 * If you see the following message then your `checkpoint` and `root-protocol-state-snapshot` are not for the same height.
 
- `_10{_10 "level":"error",_10 ..._10 "module":"execution_indexer",_10 "sub_module":"job_queue",_10 "error":"could not query processable jobs: could not read job at index 75792641, failed to get execution data for height 75792641: blob QmSZRu2SHN32d9SCkz9KXEtX3M3PozhzksMuYgNdMgmBwH not found",_10 "message":"failed to check processables"_10}`
+`_10
+
+{
+
+_10
+
+"level":"error",
+
+_10
+
+...
+
+_10
+
+"module":"execution_indexer",
+
+_10
+
+"sub_module":"job_queue",
+
+_10
+
+"error":"could not query processable jobs: could not read job at index 75792641, failed to get execution data for height 75792641: blob QmSZRu2SHN32d9SCkz9KXEtX3M3PozhzksMuYgNdMgmBwH not found",
+
+_10
+
+"message":"failed to check processables"
+
+_10
+
+}`
 
 * You can check if the execution sync and index heights are increasing by querying the metrics endpoint:
-   `_10curl localhost:8080/metrics | grep highest_download_height_10curl -s localhost:8080/metrics | grep highest_indexed_height`
+
+  `_10
+
+  curl localhost:8080/metrics | grep highest_download_height
+
+  _10
+
+  curl -s localhost:8080/metrics | grep highest_indexed_height`
 
 # Execution Data Sync
 
@@ -260,7 +370,16 @@ FLIP: <https://github.com/onflow/flips/blob/main/protocol/20230309-accessnode-ev
 
 Protobuf: <https://github.com/onflow/flow/blob/master/protobuf/flow/executiondata/executiondata.proto>
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/access-nodes/access-node-configuration-options.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousAccess Node Setup](/networks/node-ops/access-nodes/access-node-setup)[NextEVM Gateway Setup](/networks/node-ops/evm-gateway/evm-gateway-setup)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/access-nodes/access-node-configuration-options.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Access Node Setup](/networks/node-ops/access-nodes/access-node-setup)[Next
+
+EVM Gateway Setup](/networks/node-ops/evm-gateway/evm-gateway-setup)
+
 ###### Rate this page
 
 😞😐😊
@@ -276,6 +395,7 @@ Protobuf: <https://github.com/onflow/flow/blob/master/protobuf/flow/executiondat
   + [Download the root protocol state snapshot](#download-the-root-protocol-state-snapshot-1)
   + [Setup Local Script Execution](#setup-local-script-execution)
   + [Setup Using Local Data with Transaction Results and Events](#setup-using-local-data-with-transaction-results-and-events)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -288,6 +408,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -297,6 +418,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -304,6 +426,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -313,6 +436,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -320,5 +444,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

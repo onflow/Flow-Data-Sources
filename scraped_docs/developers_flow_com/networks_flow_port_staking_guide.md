@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/networks/flow-port/staking-guide
 
-
-
-
 Flow Port Staking Guide | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
@@ -19,12 +20,14 @@ Flow Port Staking Guide | Flow Developer Portal
 * [Accessing Data](/networks/access-onchain-data)
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
-  + [Flow Port Staking Guide](/networks/flow-port/staking-guide)
 
+  + [Flow Port Staking Guide](/networks/flow-port/staking-guide)
 
 * [Flow Port](/networks/flow-port)
 * Flow Port Staking Guide
+
 On this page
+
 # Flow Port Staking Guide
 
 This guide provides step-by-step instructions for using the Flow Port to stake your FLOW tokens and start earning rewards.
@@ -81,9 +84,7 @@ box confirming your information and click submit to send the transaction that wi
 
 ![Flow Port Staking](/assets/images/port-stake-0-05-c5c93efbe7b4a58126c2afb3b7b6bcd7.png)
 
-**Note:** If your transaction fails, double-check the information you provided.   
-   
-
+**Note:** If your transaction fails, double-check the information you provided.
 
 If you return to the home screen, you'll be able to see your staking request in progress!
 
@@ -118,9 +119,7 @@ Once your transaction is submitted, you can monitor its status from this screen,
 
 ![Flow Port Staking](/assets/images/port-delegate-4-f2cfdf332ed864627842f929e6457e53.png)
 
-**Note:** If you transaction fails, double-check the information you provided.   
-   
-
+**Note:** If you transaction fails, double-check the information you provided.
 
 That's it! You've successfully delegated stake to your chosen node operator!
 
@@ -163,7 +162,14 @@ Input the amount that you want to withdraw to your wallet, acknowledge the trans
 
 Once the transition is processed, you can now see the withdrawn rewards in your balance and you are now free to do other actions with them (send them to other accounts, delegate to a node, etc).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-port/staking-guide.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousFlow Port](/networks/flow-port)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-port/staking-guide.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Flow Port](/networks/flow-port)
+
 ###### Rate this page
 
 😞😐😊
@@ -177,6 +183,7 @@ Once the transition is processed, you can now see the withdrawn rewards in your 
 * [Returning to Port](#returning-to-port)
 * [Re-staking](#re-staking)
 * [Withdraw your Rewards](#withdraw-your-rewards)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -189,6 +196,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -198,6 +206,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -205,6 +214,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -214,6 +224,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -221,5 +232,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

@@ -1,18 +1,21 @@
 # Source: https://cadence-lang.org/docs/tutorial/marketplace-compose
 
-
-
-
 8. Marketplace | Cadence
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)Search
+[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
+
+[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+
+Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
 * [Tutorial](/docs/tutorial/first-steps)
+
   + [First Steps](/docs/tutorial/first-steps)
   + [Hello World](/docs/tutorial/hello-world)
   + [Resources and the Move (<-) Operator](/docs/tutorial/resources)
@@ -36,10 +39,11 @@
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
-
 * Tutorial
 * 8. Marketplace
+
 On this page
+
 # 8. Marketplace
 
 In this tutorial, we're going to create a marketplace that uses both the fungible
@@ -50,7 +54,6 @@ This contract is already deployed to testnet and mainnet and can be used by anyo
 
 ---
 
-
 Action
 
 Open the starter code for this tutorial in the Flow Playground:
@@ -59,7 +62,6 @@ Open the starter code for this tutorial in the Flow Playground:
 
 The tutorial will be asking you to take various actions to interact with this code.
 [The marketplace setup guide](/docs/tutorial/marketplace-setup) shows you how to get the playground set up to do this tutorial.
-
 
 Action
 
@@ -128,21 +130,370 @@ to ensure that the Fungible Token and Non-Fungible Token contracts are deployed 
 
 Your accounts should look like this:
 
-
 ![](https://storage.googleapis.com/flow-resources/documentation-assets/cadence-tuts/accounts-nft-storage.png)
+
 Action
 
 You can run the `1. Check Setup` script to ensure that your accounts are correctly set up:
 
+CheckSetupScript.cdc
 
-CheckSetupScript.cdc `_87// CheckSetupScript.cdc_87_87import ExampleToken from 0x06_87import ExampleNFT from 0x07_87_87/// Allows the script to return the ownership info_87/// of all the accounts_87access(all) struct OwnerInfo {_87 access(all) let acct6Balance: UFix64_87 access(all) let acct7Balance: UFix64_87_87 access(all) let acct6IDs: [UInt64]_87 access(all) let acct7IDs: [UInt64]_87_87 init(balance1: UFix64, balance2: UFix64, acct6IDs: [UInt64], acct7IDs: [UInt64]) {_87 self.acct6Balance = balance1_87 self.acct7Balance = balance2_87 self.acct6IDs = acct6IDs_87 self.acct7IDs = acct7IDs_87 }_87}_87_87// This script checks that the accounts are set up correctly for the marketplace tutorial._87//_87// Account 0x06: Vault Balance = 40, NFT.id = 1_87// Account 0x07: Vault Balance = 20, No NFTs_87access(all) fun main(): OwnerInfo {_87 // Get the accounts' public account objects_87 let acct6 = getAccount(0x06)_87 let acct7 = getAccount(0x07)_87_87 // Get references to the account's receivers_87 // by getting their public capability_87 // and borrowing a reference from the capability_87 let acct6ReceiverRef = acct6.capabilities.get<&{ExampleToken.Balance}>_87 (/public/CadenceFungibleTokenTutorialReceiver)_87 .borrow()_87 ?? panic("Could not borrow a balance reference to "_87 .concat("0x06's ExampleToken.Vault")_87 .concat(". Make sure 0x06 has set up its account ")_87 .concat("with an ExampleToken Vault and valid capability."))_87_87 let acct7ReceiverRef = acct7.capabilities.get<&{ExampleToken.Balance}>_87 (/public/CadenceFungibleTokenTutorialReceiver)_87 .borrow()_87 ?? panic("Could not borrow a balance reference to "_87 .concat("0x07's ExampleToken.Vault")_87 .concat(". Make sure 0x07 has set up its account ")_87 .concat("with an ExampleToken Vault and valid capability."))_87_87 let returnArray: [UFix64] = []_87_87 // verify that the balances are correct_87 if acct6ReceiverRef.balance != 40.0 || acct7ReceiverRef.balance != 20.0 {_87 panic("Wrong balances!")_87 }_87_87 // Find the public Receiver capability for their Collections_87 let acct6Capability = acct6.capabilities.get<&{ExampleNFT.NFTReceiver}>(ExampleNFT.CollectionPublicPath)_87 let acct7Capability = acct7.capabilities.get<&{ExampleNFT.NFTReceiver}>(ExampleNFT.CollectionPublicPath)_87_87 // borrow references from the capabilities_87 let nft1Ref = acct6Capability.borrow()_87 ?? panic("Could not borrow a collection reference to 0x06's ExampleNFT.Collection"_87 .concat(" from the path ")_87 .concat(ExampleNFT.CollectionPublicPath.toString())_87 .concat(". Make sure account 0x06 has set up its account ")_87 .concat("with an ExampleNFT Collection."))_87_87 let nft2Ref = acct7Capability.borrow()_87 ?? panic("Could not borrow a collection reference to 0x07's ExampleNFT.Collection"_87 .concat(" from the path ")_87 .concat(ExampleNFT.CollectionPublicPath.toString())_87 .concat(". Make sure account 0x07 has set up its account ")_87 .concat("with an ExampleNFT Collection."))_87_87 // verify that the collections are correct_87 if nft1Ref.getIDs()[0] != 1 || nft2Ref.getIDs().length != 0 {_87 panic("Wrong Collections!")_87 }_87_87 // Return the struct that shows the account ownership info_87 return OwnerInfo(balance1: acct6ReceiverRef.balance,_87 balance2: acct7ReceiverRef.balance,_87 acct6IDs: nft1Ref.getIDs(),_87 acct7IDs: nft2Ref.getIDs())_87}`
+`_87
+
+// CheckSetupScript.cdc
+
+_87
+
+_87
+
+import ExampleToken from 0x06
+
+_87
+
+import ExampleNFT from 0x07
+
+_87
+
+_87
+
+/// Allows the script to return the ownership info
+
+_87
+
+/// of all the accounts
+
+_87
+
+access(all) struct OwnerInfo {
+
+_87
+
+access(all) let acct6Balance: UFix64
+
+_87
+
+access(all) let acct7Balance: UFix64
+
+_87
+
+_87
+
+access(all) let acct6IDs: [UInt64]
+
+_87
+
+access(all) let acct7IDs: [UInt64]
+
+_87
+
+_87
+
+init(balance1: UFix64, balance2: UFix64, acct6IDs: [UInt64], acct7IDs: [UInt64]) {
+
+_87
+
+self.acct6Balance = balance1
+
+_87
+
+self.acct7Balance = balance2
+
+_87
+
+self.acct6IDs = acct6IDs
+
+_87
+
+self.acct7IDs = acct7IDs
+
+_87
+
+}
+
+_87
+
+}
+
+_87
+
+_87
+
+// This script checks that the accounts are set up correctly for the marketplace tutorial.
+
+_87
+
+//
+
+_87
+
+// Account 0x06: Vault Balance = 40, NFT.id = 1
+
+_87
+
+// Account 0x07: Vault Balance = 20, No NFTs
+
+_87
+
+access(all) fun main(): OwnerInfo {
+
+_87
+
+// Get the accounts' public account objects
+
+_87
+
+let acct6 = getAccount(0x06)
+
+_87
+
+let acct7 = getAccount(0x07)
+
+_87
+
+_87
+
+// Get references to the account's receivers
+
+_87
+
+// by getting their public capability
+
+_87
+
+// and borrowing a reference from the capability
+
+_87
+
+let acct6ReceiverRef = acct6.capabilities.get<&{ExampleToken.Balance}>
+
+_87
+
+(/public/CadenceFungibleTokenTutorialReceiver)
+
+_87
+
+.borrow()
+
+_87
+
+?? panic("Could not borrow a balance reference to "
+
+_87
+
+.concat("0x06's ExampleToken.Vault")
+
+_87
+
+.concat(". Make sure 0x06 has set up its account ")
+
+_87
+
+.concat("with an ExampleToken Vault and valid capability."))
+
+_87
+
+_87
+
+let acct7ReceiverRef = acct7.capabilities.get<&{ExampleToken.Balance}>
+
+_87
+
+(/public/CadenceFungibleTokenTutorialReceiver)
+
+_87
+
+.borrow()
+
+_87
+
+?? panic("Could not borrow a balance reference to "
+
+_87
+
+.concat("0x07's ExampleToken.Vault")
+
+_87
+
+.concat(". Make sure 0x07 has set up its account ")
+
+_87
+
+.concat("with an ExampleToken Vault and valid capability."))
+
+_87
+
+_87
+
+let returnArray: [UFix64] = []
+
+_87
+
+_87
+
+// verify that the balances are correct
+
+_87
+
+if acct6ReceiverRef.balance != 40.0 || acct7ReceiverRef.balance != 20.0 {
+
+_87
+
+panic("Wrong balances!")
+
+_87
+
+}
+
+_87
+
+_87
+
+// Find the public Receiver capability for their Collections
+
+_87
+
+let acct6Capability = acct6.capabilities.get<&{ExampleNFT.NFTReceiver}>(ExampleNFT.CollectionPublicPath)
+
+_87
+
+let acct7Capability = acct7.capabilities.get<&{ExampleNFT.NFTReceiver}>(ExampleNFT.CollectionPublicPath)
+
+_87
+
+_87
+
+// borrow references from the capabilities
+
+_87
+
+let nft1Ref = acct6Capability.borrow()
+
+_87
+
+?? panic("Could not borrow a collection reference to 0x06's ExampleNFT.Collection"
+
+_87
+
+.concat(" from the path ")
+
+_87
+
+.concat(ExampleNFT.CollectionPublicPath.toString())
+
+_87
+
+.concat(". Make sure account 0x06 has set up its account ")
+
+_87
+
+.concat("with an ExampleNFT Collection."))
+
+_87
+
+_87
+
+let nft2Ref = acct7Capability.borrow()
+
+_87
+
+?? panic("Could not borrow a collection reference to 0x07's ExampleNFT.Collection"
+
+_87
+
+.concat(" from the path ")
+
+_87
+
+.concat(ExampleNFT.CollectionPublicPath.toString())
+
+_87
+
+.concat(". Make sure account 0x07 has set up its account ")
+
+_87
+
+.concat("with an ExampleNFT Collection."))
+
+_87
+
+_87
+
+// verify that the collections are correct
+
+_87
+
+if nft1Ref.getIDs()[0] != 1 || nft2Ref.getIDs().length != 0 {
+
+_87
+
+panic("Wrong Collections!")
+
+_87
+
+}
+
+_87
+
+_87
+
+// Return the struct that shows the account ownership info
+
+_87
+
+return OwnerInfo(balance1: acct6ReceiverRef.balance,
+
+_87
+
+balance2: acct7ReceiverRef.balance,
+
+_87
+
+acct6IDs: nft1Ref.getIDs(),
+
+_87
+
+acct7IDs: nft2Ref.getIDs())
+
+_87
+
+}`
 
 You should see something similar to this output if your accounts are set up correctly.
 They are in the same state that they would have been in if you followed
 the [Fungible Tokens](/docs/tutorial/fungible-tokens)
 and [Non-Fungible Tokens](/docs/tutorial/non-fungible-tokens-1) tutorials in succession:
 
- `_10"Account 6 Balance"_1040.00000000_10"Account 7 Balance"_1020.00000000_10"Account 6 NFTs"_10[1]_10"Account 7 NFTs"_10[]`
+`_10
+
+"Account 6 Balance"
+
+_10
+
+40.00000000
+
+_10
+
+"Account 7 Balance"
+
+_10
+
+20.00000000
+
+_10
+
+"Account 6 NFTs"
+
+_10
+
+[1]
+
+_10
+
+"Account 7 NFTs"
+
+_10
+
+[]`
 
 Now that your accounts are in the correct state, we can build a marketplace that enables the sale of NFT's between accounts.
 
@@ -161,7 +512,645 @@ Action
 
 `ExampleMarketplace.cdc` should contain the following contract definition:
 
-ExampleMarketplace.cdc `_175import ExampleToken from 0x06_175import ExampleNFT from 0x07_175_175// ExampleMarketplace.cdc_175//_175// The ExampleMarketplace contract is a very basic sample implementation of an NFT ExampleMarketplace on Flow._175//_175// This contract allows users to put their NFTs up for sale. Other users_175// can purchase these NFTs with fungible tokens._175//_175// Learn more about marketplaces in this tutorial: https://developers.flow.com/cadence/tutorial/marketplace-compose_175//_175// This contract is a learning tool and is not meant to be used in production._175// See the NFTStorefront contract for a generic marketplace smart contract that_175// is used by many different projects on the Flow blockchain:_175//_175// https://github.com/onflow/nft-storefront_175_175access(all) contract ExampleMarketplace {_175_175 // Event that is emitted when a new NFT is put up for sale_175 access(all) event ForSale(id: UInt64, price: UFix64, owner: Address?)_175_175 // Event that is emitted when the price of an NFT changes_175 access(all) event PriceChanged(id: UInt64, newPrice: UFix64, owner: Address?)_175_175 // Event that is emitted when a token is purchased_175 access(all) event TokenPurchased(id: UInt64, price: UFix64, seller: Address?, buyer: Address?)_175_175 // Event that is emitted when a seller withdraws their NFT from the sale_175 access(all) event SaleCanceled(id: UInt64, seller: Address?)_175_175 access(all) entitlement Owner_175_175 // SaleCollection_175 //_175 // NFT Collection object that allows a user to put their NFT up for sale_175 // where others can send fungible tokens to purchase it_175 //_175 access(all) resource SaleCollection {_175_175 /// A capability for the owner's collection_175 access(self) var ownerCollection: Capability<auth(ExampleNFT.Withdraw) &ExampleNFT.Collection>_175_175 // Dictionary of the prices for each NFT by ID_175 access(self) var prices: {UInt64: UFix64}_175_175 // The fungible token vault of the owner of this sale._175 // When someone buys a token, this resource can deposit_175 // tokens into their account._175 access(account) let ownerVault: Capability<&{ExampleToken.Receiver}>_175_175 init (ownerCollection: Capability<auth(ExampleNFT.Withdraw) &ExampleNFT.Collection>,_175 ownerVault: Capability<&{ExampleToken.Receiver}>) {_175_175 pre {_175 // Check that the owner's collection capability is correct_175 ownerCollection.check():_175 "ExampleMarketplace.SaleCollection.init: "_175 .concat("Owner's NFT Collection Capability is invalid! ")_175 .concat("Make sure the owner has set up an `ExampleNFT.Collection` ")_175 .concat("in their account and provided a valid capability")_175_175 // Check that the fungible token vault capability is correct_175 ownerVault.check():_175 "ExampleMarketplace.SaleCollection.init: "_175 .concat("Owner's Receiver Capability is invalid! ")_175 .concat("Make sure the owner has set up an `ExampleToken.Vault` ")_175 .concat("in their account and provided a valid capability")_175 }_175 self.ownerCollection = ownerCollection_175 self.ownerVault = ownerVault_175 self.prices = {}_175 }_175_175 // cancelSale gives the owner the opportunity to cancel a sale in the collection_175 access(Owner) fun cancelSale(tokenID: UInt64) {_175 // remove the price_175 self.prices.remove(key: tokenID)_175 self.prices[tokenID] = nil_175_175 // Nothing needs to be done with the actual token because it is already in the owner's collection_175 }_175_175 // listForSale lists an NFT for sale in this collection_175 access(Owner) fun listForSale(tokenID: UInt64, price: UFix64) {_175 pre {_175 self.ownerCollection.borrow()!.idExists(id: tokenID):_175 "ExampleMarketplace.SaleCollection.listForSale: "_175 .concat("Cannot list token ID ").concat(tokenID.toString())_175 .concat(" . This NFT ID is not owned by the seller.")_175 .concat("Make sure an ID exists in the sellers NFT Collection")_175 .concat(" before trying to list it for sale")_175 }_175 // store the price in the price array_175 self.prices[tokenID] = price_175_175 emit ForSale(id: tokenID, price: price, owner: self.owner?.address)_175 }_175_175 // changePrice changes the price of a token that is currently for sale_175 access(Owner) fun changePrice(tokenID: UInt64, newPrice: UFix64) {_175 self.prices[tokenID] = newPrice_175_175 emit PriceChanged(id: tokenID, newPrice: newPrice, owner: self.owner?.address)_175 }_175_175 // purchase lets a user send tokens to purchase an NFT that is for sale_175 access(all) fun purchase(tokenID: UInt64,_175 recipient: Capability<&ExampleNFT.Collection>, buyTokens: @ExampleToken.Vault) {_175 pre {_175 self.prices[tokenID] != nil:_175 "ExampleMarketplace.SaleCollection.purchase: "_175 .concat("Cannot purchase NFT with ID ")_175 .concat(tokenID.toString())_175 .concat(" There is not an NFT with this ID available for sale! ")_175 .concat("Make sure the ID to purchase is correct.")_175 buyTokens.balance >= (self.prices[tokenID] ?? 0.0):_175 "ExampleMarketplace.SaleCollection.purchase: "_175 .concat(" Cannot purchase NFT with ID ")_175 .concat(tokenID.toString())_175 .concat(" The amount provided to purchase (")_175 .concat(buyTokens.balance.toString())_175 .concat(") is less than the price of the NFT (")_175 .concat(self.prices[tokenID]!.toString())_175 .concat("). Make sure the ID to purchase is correct and ")_175 .concat("the correct amount of tokens have been used to purchase.")_175 recipient.borrow != nil:_175 "ExampleMarketplace.SaleCollection.purchase: "_175 .concat(" Cannot purchase NFT with ID ")_175 .concat(tokenID.toString())_175 .concat(". The buyer's NFT Collection Capability is invalid.")_175 }_175_175 // get the value out of the optional_175 let price = self.prices[tokenID]!_175_175 self.prices[tokenID] = nil_175_175 let vaultRef = self.ownerVault.borrow()_175 ?? panic("Could not borrow reference to owner token vault")_175_175 // deposit the purchasing tokens into the owners vault_175 vaultRef.deposit(from: <-buyTokens)_175_175 // borrow a reference to the object that the receiver capability links to_175 // We can force-cast the result here because it has already been checked in the pre-conditions_175 let receiverReference = recipient.borrow()!_175_175 // deposit the NFT into the buyers collection_175 receiverReference.deposit(token: <-self.ownerCollection.borrow()!.withdraw(withdrawID: tokenID))_175_175 emit TokenPurchased(id: tokenID, price: price, seller: self.owner?.address, buyer: receiverReference.owner?.address)_175 }_175_175 // idPrice returns the price of a specific token in the sale_175 access(all) view fun idPrice(tokenID: UInt64): UFix64? {_175 return self.prices[tokenID]_175 }_175_175 // getIDs returns an array of token IDs that are for sale_175 access(all) view fun getIDs(): [UInt64] {_175 return self.prices.keys_175 }_175 }_175_175 // createCollection returns a new collection resource to the caller_175 access(all) fun createSaleCollection(_175 ownerCollection: Capability<auth(ExampleNFT.Withdraw) &ExampleNFT.Collection>,_175 ownerVault: Capability<&{ExampleToken.Receiver}>_175 ): @SaleCollection_175 {_175 return <- create SaleCollection(ownerCollection: ownerCollection, ownerVault: ownerVault)_175 }_175}`
+ExampleMarketplace.cdc
+
+`_175
+
+import ExampleToken from 0x06
+
+_175
+
+import ExampleNFT from 0x07
+
+_175
+
+_175
+
+// ExampleMarketplace.cdc
+
+_175
+
+//
+
+_175
+
+// The ExampleMarketplace contract is a very basic sample implementation of an NFT ExampleMarketplace on Flow.
+
+_175
+
+//
+
+_175
+
+// This contract allows users to put their NFTs up for sale. Other users
+
+_175
+
+// can purchase these NFTs with fungible tokens.
+
+_175
+
+//
+
+_175
+
+// Learn more about marketplaces in this tutorial: https://developers.flow.com/cadence/tutorial/marketplace-compose
+
+_175
+
+//
+
+_175
+
+// This contract is a learning tool and is not meant to be used in production.
+
+_175
+
+// See the NFTStorefront contract for a generic marketplace smart contract that
+
+_175
+
+// is used by many different projects on the Flow blockchain:
+
+_175
+
+//
+
+_175
+
+// https://github.com/onflow/nft-storefront
+
+_175
+
+_175
+
+access(all) contract ExampleMarketplace {
+
+_175
+
+_175
+
+// Event that is emitted when a new NFT is put up for sale
+
+_175
+
+access(all) event ForSale(id: UInt64, price: UFix64, owner: Address?)
+
+_175
+
+_175
+
+// Event that is emitted when the price of an NFT changes
+
+_175
+
+access(all) event PriceChanged(id: UInt64, newPrice: UFix64, owner: Address?)
+
+_175
+
+_175
+
+// Event that is emitted when a token is purchased
+
+_175
+
+access(all) event TokenPurchased(id: UInt64, price: UFix64, seller: Address?, buyer: Address?)
+
+_175
+
+_175
+
+// Event that is emitted when a seller withdraws their NFT from the sale
+
+_175
+
+access(all) event SaleCanceled(id: UInt64, seller: Address?)
+
+_175
+
+_175
+
+access(all) entitlement Owner
+
+_175
+
+_175
+
+// SaleCollection
+
+_175
+
+//
+
+_175
+
+// NFT Collection object that allows a user to put their NFT up for sale
+
+_175
+
+// where others can send fungible tokens to purchase it
+
+_175
+
+//
+
+_175
+
+access(all) resource SaleCollection {
+
+_175
+
+_175
+
+/// A capability for the owner's collection
+
+_175
+
+access(self) var ownerCollection: Capability<auth(ExampleNFT.Withdraw) &ExampleNFT.Collection>
+
+_175
+
+_175
+
+// Dictionary of the prices for each NFT by ID
+
+_175
+
+access(self) var prices: {UInt64: UFix64}
+
+_175
+
+_175
+
+// The fungible token vault of the owner of this sale.
+
+_175
+
+// When someone buys a token, this resource can deposit
+
+_175
+
+// tokens into their account.
+
+_175
+
+access(account) let ownerVault: Capability<&{ExampleToken.Receiver}>
+
+_175
+
+_175
+
+init (ownerCollection: Capability<auth(ExampleNFT.Withdraw) &ExampleNFT.Collection>,
+
+_175
+
+ownerVault: Capability<&{ExampleToken.Receiver}>) {
+
+_175
+
+_175
+
+pre {
+
+_175
+
+// Check that the owner's collection capability is correct
+
+_175
+
+ownerCollection.check():
+
+_175
+
+"ExampleMarketplace.SaleCollection.init: "
+
+_175
+
+.concat("Owner's NFT Collection Capability is invalid! ")
+
+_175
+
+.concat("Make sure the owner has set up an `ExampleNFT.Collection` ")
+
+_175
+
+.concat("in their account and provided a valid capability")
+
+_175
+
+_175
+
+// Check that the fungible token vault capability is correct
+
+_175
+
+ownerVault.check():
+
+_175
+
+"ExampleMarketplace.SaleCollection.init: "
+
+_175
+
+.concat("Owner's Receiver Capability is invalid! ")
+
+_175
+
+.concat("Make sure the owner has set up an `ExampleToken.Vault` ")
+
+_175
+
+.concat("in their account and provided a valid capability")
+
+_175
+
+}
+
+_175
+
+self.ownerCollection = ownerCollection
+
+_175
+
+self.ownerVault = ownerVault
+
+_175
+
+self.prices = {}
+
+_175
+
+}
+
+_175
+
+_175
+
+// cancelSale gives the owner the opportunity to cancel a sale in the collection
+
+_175
+
+access(Owner) fun cancelSale(tokenID: UInt64) {
+
+_175
+
+// remove the price
+
+_175
+
+self.prices.remove(key: tokenID)
+
+_175
+
+self.prices[tokenID] = nil
+
+_175
+
+_175
+
+// Nothing needs to be done with the actual token because it is already in the owner's collection
+
+_175
+
+}
+
+_175
+
+_175
+
+// listForSale lists an NFT for sale in this collection
+
+_175
+
+access(Owner) fun listForSale(tokenID: UInt64, price: UFix64) {
+
+_175
+
+pre {
+
+_175
+
+self.ownerCollection.borrow()!.idExists(id: tokenID):
+
+_175
+
+"ExampleMarketplace.SaleCollection.listForSale: "
+
+_175
+
+.concat("Cannot list token ID ").concat(tokenID.toString())
+
+_175
+
+.concat(" . This NFT ID is not owned by the seller.")
+
+_175
+
+.concat("Make sure an ID exists in the sellers NFT Collection")
+
+_175
+
+.concat(" before trying to list it for sale")
+
+_175
+
+}
+
+_175
+
+// store the price in the price array
+
+_175
+
+self.prices[tokenID] = price
+
+_175
+
+_175
+
+emit ForSale(id: tokenID, price: price, owner: self.owner?.address)
+
+_175
+
+}
+
+_175
+
+_175
+
+// changePrice changes the price of a token that is currently for sale
+
+_175
+
+access(Owner) fun changePrice(tokenID: UInt64, newPrice: UFix64) {
+
+_175
+
+self.prices[tokenID] = newPrice
+
+_175
+
+_175
+
+emit PriceChanged(id: tokenID, newPrice: newPrice, owner: self.owner?.address)
+
+_175
+
+}
+
+_175
+
+_175
+
+// purchase lets a user send tokens to purchase an NFT that is for sale
+
+_175
+
+access(all) fun purchase(tokenID: UInt64,
+
+_175
+
+recipient: Capability<&ExampleNFT.Collection>, buyTokens: @ExampleToken.Vault) {
+
+_175
+
+pre {
+
+_175
+
+self.prices[tokenID] != nil:
+
+_175
+
+"ExampleMarketplace.SaleCollection.purchase: "
+
+_175
+
+.concat("Cannot purchase NFT with ID ")
+
+_175
+
+.concat(tokenID.toString())
+
+_175
+
+.concat(" There is not an NFT with this ID available for sale! ")
+
+_175
+
+.concat("Make sure the ID to purchase is correct.")
+
+_175
+
+buyTokens.balance >= (self.prices[tokenID] ?? 0.0):
+
+_175
+
+"ExampleMarketplace.SaleCollection.purchase: "
+
+_175
+
+.concat(" Cannot purchase NFT with ID ")
+
+_175
+
+.concat(tokenID.toString())
+
+_175
+
+.concat(" The amount provided to purchase (")
+
+_175
+
+.concat(buyTokens.balance.toString())
+
+_175
+
+.concat(") is less than the price of the NFT (")
+
+_175
+
+.concat(self.prices[tokenID]!.toString())
+
+_175
+
+.concat("). Make sure the ID to purchase is correct and ")
+
+_175
+
+.concat("the correct amount of tokens have been used to purchase.")
+
+_175
+
+recipient.borrow != nil:
+
+_175
+
+"ExampleMarketplace.SaleCollection.purchase: "
+
+_175
+
+.concat(" Cannot purchase NFT with ID ")
+
+_175
+
+.concat(tokenID.toString())
+
+_175
+
+.concat(". The buyer's NFT Collection Capability is invalid.")
+
+_175
+
+}
+
+_175
+
+_175
+
+// get the value out of the optional
+
+_175
+
+let price = self.prices[tokenID]!
+
+_175
+
+_175
+
+self.prices[tokenID] = nil
+
+_175
+
+_175
+
+let vaultRef = self.ownerVault.borrow()
+
+_175
+
+?? panic("Could not borrow reference to owner token vault")
+
+_175
+
+_175
+
+// deposit the purchasing tokens into the owners vault
+
+_175
+
+vaultRef.deposit(from: <-buyTokens)
+
+_175
+
+_175
+
+// borrow a reference to the object that the receiver capability links to
+
+_175
+
+// We can force-cast the result here because it has already been checked in the pre-conditions
+
+_175
+
+let receiverReference = recipient.borrow()!
+
+_175
+
+_175
+
+// deposit the NFT into the buyers collection
+
+_175
+
+receiverReference.deposit(token: <-self.ownerCollection.borrow()!.withdraw(withdrawID: tokenID))
+
+_175
+
+_175
+
+emit TokenPurchased(id: tokenID, price: price, seller: self.owner?.address, buyer: receiverReference.owner?.address)
+
+_175
+
+}
+
+_175
+
+_175
+
+// idPrice returns the price of a specific token in the sale
+
+_175
+
+access(all) view fun idPrice(tokenID: UInt64): UFix64? {
+
+_175
+
+return self.prices[tokenID]
+
+_175
+
+}
+
+_175
+
+_175
+
+// getIDs returns an array of token IDs that are for sale
+
+_175
+
+access(all) view fun getIDs(): [UInt64] {
+
+_175
+
+return self.prices.keys
+
+_175
+
+}
+
+_175
+
+}
+
+_175
+
+_175
+
+// createCollection returns a new collection resource to the caller
+
+_175
+
+access(all) fun createSaleCollection(
+
+_175
+
+ownerCollection: Capability<auth(ExampleNFT.Withdraw) &ExampleNFT.Collection>,
+
+_175
+
+ownerVault: Capability<&{ExampleToken.Receiver}>
+
+_175
+
+): @SaleCollection
+
+_175
+
+{
+
+_175
+
+return <- create SaleCollection(ownerCollection: ownerCollection, ownerVault: ownerVault)
+
+_175
+
+}
+
+_175
+
+}`
 
 This marketplace contract has resources that function similarly to the NFT `Collection`
 that was explained in [Non-Fungible Tokens](/docs/tutorial/non-fungible-tokens-1), with a few differences and additions:
@@ -179,7 +1168,43 @@ that was explained in [Non-Fungible Tokens](/docs/tutorial/non-fungible-tokens-1
 * This marketplace contract includes events. Cadence supports defining events within contracts
   that can be emitted when important actions happen. External apps can monitor these events to know the state of the smart contract.
 
- `_11 // Event that is emitted when a new NFT is put up for sale_11 access(all) event ForSale(id: UInt64, price: UFix64, owner: Address?)_11_11 // Event that is emitted when the price of an NFT changes_11 access(all) event PriceChanged(id: UInt64, newPrice: UFix64, owner: Address?)_11_11 // Event that is emitted when a token is purchased_11 access(all) event TokenPurchased(id: UInt64, price: UFix64, seller: Address?, buyer: Address?)_11_11 // Event that is emitted when a seller withdraws their NFT from the sale_11 access(all) event SaleCanceled(id: UInt64, seller: Address?)`
+`_11
+
+// Event that is emitted when a new NFT is put up for sale
+
+_11
+
+access(all) event ForSale(id: UInt64, price: UFix64, owner: Address?)
+
+_11
+
+_11
+
+// Event that is emitted when the price of an NFT changes
+
+_11
+
+access(all) event PriceChanged(id: UInt64, newPrice: UFix64, owner: Address?)
+
+_11
+
+_11
+
+// Event that is emitted when a token is purchased
+
+_11
+
+access(all) event TokenPurchased(id: UInt64, price: UFix64, seller: Address?, buyer: Address?)
+
+_11
+
+_11
+
+// Event that is emitted when a seller withdraws their NFT from the sale
+
+_11
+
+access(all) event SaleCanceled(id: UInt64, seller: Address?)`
 
 This contract has a few new features and concepts that are important to cover:
 
@@ -196,13 +1221,17 @@ when getting information about their users' accounts or generating analytics.
 Events are declared by indicating [the access level](/docs/language/access-control), `event`,
 and the name and parameters of the event, like a function declaration:
 
- `_10access(all) event ForSale(id: UInt64, price: UFix64, owner: Address?)`
+`_10
+
+access(all) event ForSale(id: UInt64, price: UFix64, owner: Address?)`
 
 Events cannot modify state at all; they indicate when important actions happen in the smart contract.
 
 Events are emitted with the `emit` keyword followed by the invocation of the event as if it were a function call.
 
- `_10emit ForSale(id: tokenID, price: price, owner: self.owner?.address)`
+`_10
+
+emit ForSale(id: tokenID, price: price, owner: self.owner?.address)`
 
 External applications can monitor the blockchain to take action when certain events are emitted.
 
@@ -218,16 +1247,76 @@ a subset of the resource they are linked to.
 To create a capability, a user typically uses [the `account.capabilities.storage.issue`](/docs/language/accounts)
 method to create a link to a resource in their private storage, specifying a type to link the capability as:
 
- `_10let cap = acct.capabilities.storage.issue<&ExampleNFT.Collection>(ExampleNFT.CollectionStoragePath)`
+`_10
+
+let cap = acct.capabilities.storage.issue<&ExampleNFT.Collection>(ExampleNFT.CollectionStoragePath)`
 
 After that, the owner can publish the capability to a public path in their account:
 
- `_10acct.capabilities.publish(cap, at: ExampleNFT.CollectionPublicPath)`
+`_10
+
+acct.capabilities.publish(cap, at: ExampleNFT.CollectionPublicPath)`
 
 Then, users can get that capability from [the public path](/docs/language/accounts/paths),
 borrow it, and access the functionality that the owner specified.
 
- `_16// Get the account object for address 0x06_16let publicAccount = getAccount(0x06)_16_16// Retrieve a Vault Receiver Capability from the account's public storage_16let acct6Capability = acct.capabilities.get<&{ExampleToken.Receiver}>(_16 ExampleToken.VaultPublicPath_16 )_16_16// Borrow a reference_16let acct6ReceiverRef = acct6Capability.borrow()_16 ?? panic("Account 0x06's Receiver Capability is invalid! ")_16 .concat("Make sure the owner has set up an `ExampleToken.Vault` ")_16 .concat("in their account and provided a valid capability")_16_16// Deposit tokens_16acct6ReceiverRef.deposit(from: <-tokens)`
+`_16
+
+// Get the account object for address 0x06
+
+_16
+
+let publicAccount = getAccount(0x06)
+
+_16
+
+_16
+
+// Retrieve a Vault Receiver Capability from the account's public storage
+
+_16
+
+let acct6Capability = acct.capabilities.get<&{ExampleToken.Receiver}>(
+
+_16
+
+ExampleToken.VaultPublicPath
+
+_16
+
+)
+
+_16
+
+_16
+
+// Borrow a reference
+
+_16
+
+let acct6ReceiverRef = acct6Capability.borrow()
+
+_16
+
+?? panic("Account 0x06's Receiver Capability is invalid! ")
+
+_16
+
+.concat("Make sure the owner has set up an `ExampleToken.Vault` ")
+
+_16
+
+.concat("in their account and provided a valid capability")
+
+_16
+
+_16
+
+// Deposit tokens
+
+_16
+
+acct6ReceiverRef.deposit(from: <-tokens)`
 
 With the marketplace contract, we are utilizing a new feature of capabilities.
 Capabilities can be stored anywhere! Lots of functionality is contained within resources,
@@ -235,7 +1324,31 @@ and developers will sometimes want to be able to access some of the functionalit
 
 We store two different capabilities in the marketplace sale collection:
 
- `_10/// A capability for the owner's collection_10access(self) var ownerCollection: Capability<auth(ExampleNFT.Withdraw) &ExampleNFT.Collection>_10_10// The fungible token vault of the owner of this sale._10// When someone buys a token, this resource can deposit_10// tokens into their account._10access(account) let ownerVault: Capability<&{ExampleToken.Receiver}>`
+`_10
+
+/// A capability for the owner's collection
+
+_10
+
+access(self) var ownerCollection: Capability<auth(ExampleNFT.Withdraw) &ExampleNFT.Collection>
+
+_10
+
+_10
+
+// The fungible token vault of the owner of this sale.
+
+_10
+
+// When someone buys a token, this resource can deposit
+
+_10
+
+// tokens into their account.
+
+_10
+
+access(account) let ownerVault: Capability<&{ExampleToken.Receiver}>`
 
 If an object like a contract or resource owns a capability, they can borrow a reference to that capability at any time
 to access that functionality without having to get it from the owner's account every time.
@@ -256,7 +1369,71 @@ to be used, they can revoke it by getting the controller for the capability
 from their account with the `getControllers` method and delete the capability with `delete`.
 Here is an example that deletes all the controllers for a specified storage path:
 
- `_18let controllers = self.account.capabilities.storage.getControllers(forPath: storagePath)_18for controller in controllers {_18 controller.delete()_18}_18After this, any capabilities that use that storage path are rendered invalid._18_18One last piece to consider about capabilities is the decision about_18when to use them instead of storing the resource directly._18This tutorial used to have the `SaleCollection` directly store the NFTs that were for sale, like so:_18_18```cadence_18access(all) resource SaleCollection {_18_18 /// Dictionary of NFT objects for sale_18 /// Maps ID to NFT resource object_18 /// Not recommended_18 access(self) var forSale: @{UInt64: ExampleNFT.NFT}_18}`
+`_18
+
+let controllers = self.account.capabilities.storage.getControllers(forPath: storagePath)
+
+_18
+
+for controller in controllers {
+
+_18
+
+controller.delete()
+
+_18
+
+}
+
+_18
+
+After this, any capabilities that use that storage path are rendered invalid.
+
+_18
+
+_18
+
+One last piece to consider about capabilities is the decision about
+
+_18
+
+when to use them instead of storing the resource directly.
+
+_18
+
+This tutorial used to have the `SaleCollection` directly store the NFTs that were for sale, like so:
+
+_18
+
+_18
+
+```cadence
+
+_18
+
+access(all) resource SaleCollection {
+
+_18
+
+_18
+
+/// Dictionary of NFT objects for sale
+
+_18
+
+/// Maps ID to NFT resource object
+
+_18
+
+/// Not recommended
+
+_18
+
+access(self) var forSale: @{UInt64: ExampleNFT.NFT}
+
+_18
+
+}`
 
 This is a logical way to do it, and illustrates another important concept in Cadence, that resources can own other resources!
 Check out the [Kitty Hats tutorial](/docs/tutorial/resources-compose) for a little more exploration of this concept.
@@ -283,7 +1460,135 @@ Action
 1. Open Transaction 4, `Create Sale`
 2. Select account `0x06` as the only signer and click the `Send` button to submit the transaction.
 
-Transaction4.cdc `_37// CreateSale.cdc_37_37import ExampleToken from 0x06_37import ExampleNFT from 0x07_37import ExampleMarketplace from 0x08_37_37// This transaction creates a new Sale Collection object,_37// lists an NFT for sale, puts it in account storage,_37// and creates a public capability to the sale so that others can buy the token._37transaction {_37_37 prepare(acct: auth(SaveValue, StorageCapabilities) &Account) {_37_37 // Borrow a reference to the stored Vault_37 let receiver = acct.capabilities.get<&{ExampleToken.Receiver}>(ExampleToken.VaultPublicPath)_37_37 // Create an entitled capability to the NFT Collection_37 let collectionCapability = acct.capabilities.storage.issue_37 <auth(ExampleNFT.Withdraw) &ExampleNFT.Collection>_37 (ExampleNFT.CollectionStoragePath)_37_37 // Create a new Sale object,_37 // initializing it with the reference to the owner's vault_37 let sale <- ExampleMarketplace.createSaleCollection(ownerCollection: collectionCapability, ownerVault: receiver)_37_37 // List the token for sale by moving it into the sale object_37 sale.listForSale(tokenID: 1, price: 10.0)_37_37 // Store the sale object in the account storage_37 acct.storage.save(<-sale, to: /storage/NFTSale)_37_37 // Create a public capability to the sale so that others can call its methods_37 acct.capabilities.storage.issue<&ExampleMarketplace.SaleCollection>(/public/NFTSale, target: /storage/NFTSale)_37_37 log("Sale Created for account 6. Selling NFT 1 for 10 tokens")_37 }_37}`
+Transaction4.cdc
+
+`_37
+
+// CreateSale.cdc
+
+_37
+
+_37
+
+import ExampleToken from 0x06
+
+_37
+
+import ExampleNFT from 0x07
+
+_37
+
+import ExampleMarketplace from 0x08
+
+_37
+
+_37
+
+// This transaction creates a new Sale Collection object,
+
+_37
+
+// lists an NFT for sale, puts it in account storage,
+
+_37
+
+// and creates a public capability to the sale so that others can buy the token.
+
+_37
+
+transaction {
+
+_37
+
+_37
+
+prepare(acct: auth(SaveValue, StorageCapabilities) &Account) {
+
+_37
+
+_37
+
+// Borrow a reference to the stored Vault
+
+_37
+
+let receiver = acct.capabilities.get<&{ExampleToken.Receiver}>(ExampleToken.VaultPublicPath)
+
+_37
+
+_37
+
+// Create an entitled capability to the NFT Collection
+
+_37
+
+let collectionCapability = acct.capabilities.storage.issue
+
+_37
+
+<auth(ExampleNFT.Withdraw) &ExampleNFT.Collection>
+
+_37
+
+(ExampleNFT.CollectionStoragePath)
+
+_37
+
+_37
+
+// Create a new Sale object,
+
+_37
+
+// initializing it with the reference to the owner's vault
+
+_37
+
+let sale <- ExampleMarketplace.createSaleCollection(ownerCollection: collectionCapability, ownerVault: receiver)
+
+_37
+
+_37
+
+// List the token for sale by moving it into the sale object
+
+_37
+
+sale.listForSale(tokenID: 1, price: 10.0)
+
+_37
+
+_37
+
+// Store the sale object in the account storage
+
+_37
+
+acct.storage.save(<-sale, to: /storage/NFTSale)
+
+_37
+
+_37
+
+// Create a public capability to the sale so that others can call its methods
+
+_37
+
+acct.capabilities.storage.issue<&ExampleMarketplace.SaleCollection>(/public/NFTSale, target: /storage/NFTSale)
+
+_37
+
+_37
+
+log("Sale Created for account 6. Selling NFT 1 for 10 tokens")
+
+_37
+
+}
+
+_37
+
+}`
 
 This transaction:
 
@@ -298,11 +1603,98 @@ Let's run a script to ensure that the sale was created correctly.
 1. Open Script 2: `GetSaleIDs.cdc`
 2. Click the `Execute` button to print the ID and price of the NFT that account `0x06` has for sale.
 
-GetSaleIDs.cdc `_23// GetSaleIDs.cdc_23_23import ExampleToken from 0x06_23import ExampleNFT from 0x07_23import ExampleMarketplace from 0x08_23_23// This script returns the NFTs that account 0x06 has for sale._23access(all)_23fun main(): [UInt64] {_23 // Get the public account object for account 0x06_23 let account1 = getAccount(0x06)_23_23 // Find the public Sale reference to their Collection_23 let acct6saleRef = account1.capabilities.get<&ExampleMarketplace.SaleCollection>(/public/NFTSale)>_23 .borrow()_23 ?? panic("Could not borrow a reference to the SaleCollection capability for account 0x06 ")_23 .concat("at path /public/NFTSale. ")_23 .concat("Make sure the owner has set up the SaleCollection ")_23 .concat("in their account with the Create Sale transaction")_23_23 // Return the NFT IDs that are for sale_23 return acct6saleRef.getIDs()_23}`
+GetSaleIDs.cdc
+
+`_23
+
+// GetSaleIDs.cdc
+
+_23
+
+_23
+
+import ExampleToken from 0x06
+
+_23
+
+import ExampleNFT from 0x07
+
+_23
+
+import ExampleMarketplace from 0x08
+
+_23
+
+_23
+
+// This script returns the NFTs that account 0x06 has for sale.
+
+_23
+
+access(all)
+
+_23
+
+fun main(): [UInt64] {
+
+_23
+
+// Get the public account object for account 0x06
+
+_23
+
+let account1 = getAccount(0x06)
+
+_23
+
+_23
+
+// Find the public Sale reference to their Collection
+
+_23
+
+let acct6saleRef = account1.capabilities.get<&ExampleMarketplace.SaleCollection>(/public/NFTSale)>
+
+_23
+
+.borrow()
+
+_23
+
+?? panic("Could not borrow a reference to the SaleCollection capability for account 0x06 ")
+
+_23
+
+.concat("at path /public/NFTSale. ")
+
+_23
+
+.concat("Make sure the owner has set up the SaleCollection ")
+
+_23
+
+.concat("in their account with the Create Sale transaction")
+
+_23
+
+_23
+
+// Return the NFT IDs that are for sale
+
+_23
+
+return acct6saleRef.getIDs()
+
+_23
+
+}`
 
 This script should complete and print something like this:
 
- `_10[1]`
+`_10
+
+[1]`
+
 ## Purchasing an NFT[​](#purchasing-an-nft "Direct link to Purchasing an NFT")
 
 ---
@@ -314,7 +1706,185 @@ Action
 1. Open Transaction 5: `PurchaseSale.cdc` file
 2. Select account `0x07` as the only signer and click the `Send` button
 
-PurchaseSale.cdc `_50// PurchaseSale.cdc_50_50import ExampleToken from 0x06_50import ExampleNFT from 0x07_50import ExampleMarketplace from 0x08_50_50// This transaction uses the signers Vault tokens to purchase an NFT_50// from the Sale collection of account 0x06._50transaction {_50_50 // Capability to the buyer's NFT collection where they_50 // will store the bought NFT_50 let collectionCapability: Capability<&ExampleNFT.Collection>_50_50 // Vault that will hold the tokens that will be used to_50 // but the NFT_50 let temporaryVault: @ExampleToken.Vault_50_50 prepare(acct: auth(BorrowValue) &Account) {_50_50 // get the references to the buyer's fungible token Vault and NFT Collection Receiver_50 self.collectionCapability = acct.capabilities.get<&ExampleNFT.Collection>(ExampleNFT.CollectionPublicPath)_50_50 let vaultRef = acct.storage.borrow<&ExampleToken.Vault>(from: /storage/CadenceFungibleTokenTutorialVault)_50 ?? panic("Could not borrow a reference to "_50 .concat("0x07's ExampleToken.Vault")_50 .concat(". Make sure 0x07 has set up its account ")_50 .concat("with an ExampleToken Vault and valid capability."))_50_50 // withdraw tokens from the buyers Vault_50 self.temporaryVault <- vaultRef.withdraw(amount: 10.0)_50 }_50_50 execute {_50 // get the read-only account storage of the seller_50 let seller = getAccount(0x06)_50_50 // get the reference to the seller's sale_50 let saleRef = seller.capabilities.get<&ExampleMarketplace.SaleCollection>(/public/NFTSale)_50 .borrow()_50 ?? panic("Could not borrow a reference to "_50 .concat("0x06's ExampleMarketplace.SaleCollection")_50 .concat(". Make sure 0x06 has set up its account ")_50 .concat("with an ExampleMarketplace SaleCollection and valid capability."))_50_50 // purchase the NFT the seller is selling, giving them the capability_50 // to your NFT collection and giving them the tokens to buy it_50 saleRef.purchase(tokenID: 1, recipient: self.collectionCapability, buyTokens: <-self.temporaryVault)_50 }_50}`
+PurchaseSale.cdc
+
+`_50
+
+// PurchaseSale.cdc
+
+_50
+
+_50
+
+import ExampleToken from 0x06
+
+_50
+
+import ExampleNFT from 0x07
+
+_50
+
+import ExampleMarketplace from 0x08
+
+_50
+
+_50
+
+// This transaction uses the signers Vault tokens to purchase an NFT
+
+_50
+
+// from the Sale collection of account 0x06.
+
+_50
+
+transaction {
+
+_50
+
+_50
+
+// Capability to the buyer's NFT collection where they
+
+_50
+
+// will store the bought NFT
+
+_50
+
+let collectionCapability: Capability<&ExampleNFT.Collection>
+
+_50
+
+_50
+
+// Vault that will hold the tokens that will be used to
+
+_50
+
+// but the NFT
+
+_50
+
+let temporaryVault: @ExampleToken.Vault
+
+_50
+
+_50
+
+prepare(acct: auth(BorrowValue) &Account) {
+
+_50
+
+_50
+
+// get the references to the buyer's fungible token Vault and NFT Collection Receiver
+
+_50
+
+self.collectionCapability = acct.capabilities.get<&ExampleNFT.Collection>(ExampleNFT.CollectionPublicPath)
+
+_50
+
+_50
+
+let vaultRef = acct.storage.borrow<&ExampleToken.Vault>(from: /storage/CadenceFungibleTokenTutorialVault)
+
+_50
+
+?? panic("Could not borrow a reference to "
+
+_50
+
+.concat("0x07's ExampleToken.Vault")
+
+_50
+
+.concat(". Make sure 0x07 has set up its account ")
+
+_50
+
+.concat("with an ExampleToken Vault and valid capability."))
+
+_50
+
+_50
+
+// withdraw tokens from the buyers Vault
+
+_50
+
+self.temporaryVault <- vaultRef.withdraw(amount: 10.0)
+
+_50
+
+}
+
+_50
+
+_50
+
+execute {
+
+_50
+
+// get the read-only account storage of the seller
+
+_50
+
+let seller = getAccount(0x06)
+
+_50
+
+_50
+
+// get the reference to the seller's sale
+
+_50
+
+let saleRef = seller.capabilities.get<&ExampleMarketplace.SaleCollection>(/public/NFTSale)
+
+_50
+
+.borrow()
+
+_50
+
+?? panic("Could not borrow a reference to "
+
+_50
+
+.concat("0x06's ExampleMarketplace.SaleCollection")
+
+_50
+
+.concat(". Make sure 0x06 has set up its account ")
+
+_50
+
+.concat("with an ExampleMarketplace SaleCollection and valid capability."))
+
+_50
+
+_50
+
+// purchase the NFT the seller is selling, giving them the capability
+
+_50
+
+// to your NFT collection and giving them the tokens to buy it
+
+_50
+
+saleRef.purchase(tokenID: 1, recipient: self.collectionCapability, buyTokens: <-self.temporaryVault)
+
+_50
+
+}
+
+_50
+
+}`
 
 This transaction:
 
@@ -342,11 +1912,359 @@ Action
 
 `VerifyAfterPurchase.cdc` should contain the following code:
 
-Script3.cdc `_86// VerifyAfterPurchase_86import ExampleToken from 0x06_86import ExampleNFT from 0x07_86_86/// Allows the script to return the ownership info_86/// of all the accounts_86access(all) struct OwnerInfo {_86 access(all) let acct6Balance: UFix64_86 access(all) let acct7Balance: UFix64_86_86 access(all) let acct6IDs: [UInt64]_86 access(all) let acct7IDs: [UInt64]_86_86 init(balance1: UFix64, balance2: UFix64, acct6IDs: [UInt64], acct7IDs: [UInt64]) {_86 self.acct6Balance = balance1_86 self.acct7Balance = balance2_86 self.acct6IDs = acct6IDs_86 self.acct7IDs = acct7IDs_86 }_86}_86_86// This script checks that the accounts are in the correct state after purchasing a listing._86//_86// Account 0x06: Vault Balance = 50, No NFTs_86// Account 0x07: Vault Balance = 10, NFT.id = 1_86access(all) fun main(): OwnerInfo {_86 // Get the accounts' public account objects_86 let acct6 = getAccount(0x06)_86 let acct7 = getAccount(0x07)_86_86 // Get references to the account's receivers_86 // by getting their public capability_86 // and borrowing a reference from the capability_86 let acct6ReceiverRef = acct6.capabilities.get<&{ExampleToken.Balance}>_86 (/public/CadenceFungibleTokenTutorialReceiver)_86 .borrow()_86 ?? panic("Could not borrow a balance reference to "_86 .concat("0x06's ExampleToken.Vault")_86 .concat(". Make sure 0x06 has set up its account ")_86 .concat("with an ExampleToken Vault and valid capability."))_86_86 let acct7ReceiverRef = acct7.capabilities.get<&{ExampleToken.Balance}>_86 (/public/CadenceFungibleTokenTutorialReceiver)_86 .borrow()_86 ?? panic("Could not borrow a balance reference to "_86 .concat("0x07's ExampleToken.Vault")_86 .concat(". Make sure 0x07 has set up its account ")_86 .concat("with an ExampleToken Vault and valid capability."))_86_86 let returnArray: [UFix64] = []_86_86 // verify that the balances are correct_86 if acct6ReceiverRef.balance != 50.0 || acct7ReceiverRef.balance != 10.0 {_86 panic("Wrong balances! Account 6 Balance should be 50 and Account 7 balance should be 10.")_86 }_86_86 // Find the public Receiver capability for their Collections_86 let acct6Capability = acct6.capabilities.get<&ExampleNFT.Collection>(ExampleNFT.CollectionPublicPath)_86 let acct7Capability = acct7.capabilities.get<&ExampleNFT.Collection>(ExampleNFT.CollectionPublicPath)_86_86 // borrow references from the capabilities_86 let nft1Ref = acct6Capability.borrow()_86 ?? panic("Could not borrow a collection reference to 0x06's ExampleNFT.Collection"_86 .concat(" from the path ")_86 .concat(ExampleNFT.CollectionPublicPath.toString())_86 .concat(". Make sure account 0x06 has set up its account ")_86 .concat("with an ExampleNFT Collection."))_86_86 let nft2Ref = acct7Capability.borrow()_86 ?? panic("Could not borrow a collection reference to 0x07's ExampleNFT.Collection"_86 .concat(" from the path ")_86 .concat(ExampleNFT.CollectionPublicPath.toString())_86 .concat(". Make sure account 0x07 has set up its account ")_86 .concat("with an ExampleNFT Collection."))_86_86 // verify that the collections are correct_86 if nft2Ref.getIDs()[0] != 1 || nft1Ref.getIDs().length != 0 {_86 panic("Wrong Collections! Account 6 should own zero NFTs and account 7 should own one.")_86 }_86_86 // Return the struct that shows the account ownership info_86 return OwnerInfo(balance1: acct6ReceiverRef.balance,_86 balance2: acct7ReceiverRef.balance,_86 acct6IDs: nft1Ref.getIDs(),_86 acct7IDs: nft2Ref.getIDs())_86}`
+Script3.cdc
+
+`_86
+
+// VerifyAfterPurchase
+
+_86
+
+import ExampleToken from 0x06
+
+_86
+
+import ExampleNFT from 0x07
+
+_86
+
+_86
+
+/// Allows the script to return the ownership info
+
+_86
+
+/// of all the accounts
+
+_86
+
+access(all) struct OwnerInfo {
+
+_86
+
+access(all) let acct6Balance: UFix64
+
+_86
+
+access(all) let acct7Balance: UFix64
+
+_86
+
+_86
+
+access(all) let acct6IDs: [UInt64]
+
+_86
+
+access(all) let acct7IDs: [UInt64]
+
+_86
+
+_86
+
+init(balance1: UFix64, balance2: UFix64, acct6IDs: [UInt64], acct7IDs: [UInt64]) {
+
+_86
+
+self.acct6Balance = balance1
+
+_86
+
+self.acct7Balance = balance2
+
+_86
+
+self.acct6IDs = acct6IDs
+
+_86
+
+self.acct7IDs = acct7IDs
+
+_86
+
+}
+
+_86
+
+}
+
+_86
+
+_86
+
+// This script checks that the accounts are in the correct state after purchasing a listing.
+
+_86
+
+//
+
+_86
+
+// Account 0x06: Vault Balance = 50, No NFTs
+
+_86
+
+// Account 0x07: Vault Balance = 10, NFT.id = 1
+
+_86
+
+access(all) fun main(): OwnerInfo {
+
+_86
+
+// Get the accounts' public account objects
+
+_86
+
+let acct6 = getAccount(0x06)
+
+_86
+
+let acct7 = getAccount(0x07)
+
+_86
+
+_86
+
+// Get references to the account's receivers
+
+_86
+
+// by getting their public capability
+
+_86
+
+// and borrowing a reference from the capability
+
+_86
+
+let acct6ReceiverRef = acct6.capabilities.get<&{ExampleToken.Balance}>
+
+_86
+
+(/public/CadenceFungibleTokenTutorialReceiver)
+
+_86
+
+.borrow()
+
+_86
+
+?? panic("Could not borrow a balance reference to "
+
+_86
+
+.concat("0x06's ExampleToken.Vault")
+
+_86
+
+.concat(". Make sure 0x06 has set up its account ")
+
+_86
+
+.concat("with an ExampleToken Vault and valid capability."))
+
+_86
+
+_86
+
+let acct7ReceiverRef = acct7.capabilities.get<&{ExampleToken.Balance}>
+
+_86
+
+(/public/CadenceFungibleTokenTutorialReceiver)
+
+_86
+
+.borrow()
+
+_86
+
+?? panic("Could not borrow a balance reference to "
+
+_86
+
+.concat("0x07's ExampleToken.Vault")
+
+_86
+
+.concat(". Make sure 0x07 has set up its account ")
+
+_86
+
+.concat("with an ExampleToken Vault and valid capability."))
+
+_86
+
+_86
+
+let returnArray: [UFix64] = []
+
+_86
+
+_86
+
+// verify that the balances are correct
+
+_86
+
+if acct6ReceiverRef.balance != 50.0 || acct7ReceiverRef.balance != 10.0 {
+
+_86
+
+panic("Wrong balances! Account 6 Balance should be 50 and Account 7 balance should be 10.")
+
+_86
+
+}
+
+_86
+
+_86
+
+// Find the public Receiver capability for their Collections
+
+_86
+
+let acct6Capability = acct6.capabilities.get<&ExampleNFT.Collection>(ExampleNFT.CollectionPublicPath)
+
+_86
+
+let acct7Capability = acct7.capabilities.get<&ExampleNFT.Collection>(ExampleNFT.CollectionPublicPath)
+
+_86
+
+_86
+
+// borrow references from the capabilities
+
+_86
+
+let nft1Ref = acct6Capability.borrow()
+
+_86
+
+?? panic("Could not borrow a collection reference to 0x06's ExampleNFT.Collection"
+
+_86
+
+.concat(" from the path ")
+
+_86
+
+.concat(ExampleNFT.CollectionPublicPath.toString())
+
+_86
+
+.concat(". Make sure account 0x06 has set up its account ")
+
+_86
+
+.concat("with an ExampleNFT Collection."))
+
+_86
+
+_86
+
+let nft2Ref = acct7Capability.borrow()
+
+_86
+
+?? panic("Could not borrow a collection reference to 0x07's ExampleNFT.Collection"
+
+_86
+
+.concat(" from the path ")
+
+_86
+
+.concat(ExampleNFT.CollectionPublicPath.toString())
+
+_86
+
+.concat(". Make sure account 0x07 has set up its account ")
+
+_86
+
+.concat("with an ExampleNFT Collection."))
+
+_86
+
+_86
+
+// verify that the collections are correct
+
+_86
+
+if nft2Ref.getIDs()[0] != 1 || nft1Ref.getIDs().length != 0 {
+
+_86
+
+panic("Wrong Collections! Account 6 should own zero NFTs and account 7 should own one.")
+
+_86
+
+}
+
+_86
+
+_86
+
+// Return the struct that shows the account ownership info
+
+_86
+
+return OwnerInfo(balance1: acct6ReceiverRef.balance,
+
+_86
+
+balance2: acct7ReceiverRef.balance,
+
+_86
+
+acct6IDs: nft1Ref.getIDs(),
+
+_86
+
+acct7IDs: nft2Ref.getIDs())
+
+_86
+
+}`
 
 If you did everything correctly, the transaction should succeed and it should print something similar to this:
 
- `_10"account 6 Vault Balance"_1050_10"account 7 Vault Balance"_1010_10"account 6 NFTs"_10[]_10"account 7 NFTs"_10[1]`
+`_10
+
+"account 6 Vault Balance"
+
+_10
+
+50
+
+_10
+
+"account 7 Vault Balance"
+
+_10
+
+10
+
+_10
+
+"account 6 NFTs"
+
+_10
+
+[]
+
+_10
+
+"account 7 NFTs"
+
+_10
+
+[1]`
 
 Congratulations, you have successfully implemented a simple marketplace in Cadence and used it to allow one account to buy an NFT from another!
 
@@ -358,7 +2276,99 @@ A user can hold a sale in their account with these resources and transactions.
 Support for a central marketplace where users can discover sales is relatively easy to implement and can build on what we already have.
 If we wanted to build a central marketplace on-chain, we could use a contract that looks something like this:
 
-CentralMarketplace.cdc `_25// Marketplace would be the central contract where people can post their sale_25// references so that anyone can access them_25access(all) contract Marketplace {_25 // Data structure to store active sales_25 access(all) var tokensForSale: {Address: Capability<&SaleCollection>)}_25_25 // listSaleCollection lists a users sale reference in the array_25 // and returns the index of the sale so that users can know_25 // how to remove it from the marketplace_25 access(all) fun listSaleCollection(collection: Capability<&SaleCollection>) {_25 let saleRef = collection.borrow()_25 ?? panic("Could not borrow a reference to the SaleCollection capability ")_25 .concat("Make sure the owner has set up the SaleCollection ")_25 .concat("in their account and provided a valid capability")_25_25 self.tokensForSale[saleRef.owner!.address] = collection_25 }_25_25 // removeSaleCollection removes a user's sale from the array_25 // of sale references_25 access(all) fun removeSaleCollection(owner: Address) {_25 self.tokensForSale[owner] = nil_25 }_25_25}`
+CentralMarketplace.cdc
+
+`_25
+
+// Marketplace would be the central contract where people can post their sale
+
+_25
+
+// references so that anyone can access them
+
+_25
+
+access(all) contract Marketplace {
+
+_25
+
+// Data structure to store active sales
+
+_25
+
+access(all) var tokensForSale: {Address: Capability<&SaleCollection>)}
+
+_25
+
+_25
+
+// listSaleCollection lists a users sale reference in the array
+
+_25
+
+// and returns the index of the sale so that users can know
+
+_25
+
+// how to remove it from the marketplace
+
+_25
+
+access(all) fun listSaleCollection(collection: Capability<&SaleCollection>) {
+
+_25
+
+let saleRef = collection.borrow()
+
+_25
+
+?? panic("Could not borrow a reference to the SaleCollection capability ")
+
+_25
+
+.concat("Make sure the owner has set up the SaleCollection ")
+
+_25
+
+.concat("in their account and provided a valid capability")
+
+_25
+
+_25
+
+self.tokensForSale[saleRef.owner!.address] = collection
+
+_25
+
+}
+
+_25
+
+_25
+
+// removeSaleCollection removes a user's sale from the array
+
+_25
+
+// of sale references
+
+_25
+
+access(all) fun removeSaleCollection(owner: Address) {
+
+_25
+
+self.tokensForSale[owner] = nil
+
+_25
+
+}
+
+_25
+
+_25
+
+}`
 
 This contract isn't meant to be a working or production-ready contract, but it could be extended to make a complete central marketplace by having:
 
@@ -391,7 +2401,14 @@ There are a few good examples of generic marketplaces on Flow right now.
 Now that you have an understanding of how composable smart contracts and the marketplace work on Flow, you're ready to play with composable resources!
 Check out the [Kitty Hats tutorial!](/docs/tutorial/resources-compose)
 
-[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/tutorial/08-marketplace-compose.md)[Previous7. Marketplace Setup](/docs/tutorial/marketplace-setup)[Next9. Voting Contract](/docs/tutorial/voting)
+[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/tutorial/08-marketplace-compose.md)
+
+[Previous
+
+7. Marketplace Setup](/docs/tutorial/marketplace-setup)[Next
+
+9. Voting Contract](/docs/tutorial/voting)
+
 ###### Rate this page
 
 😞😐😊
@@ -406,9 +2423,10 @@ Check out the [Kitty Hats tutorial!](/docs/tutorial/resources-compose)
 * [Scaling the Marketplace](#scaling-the-marketplace)
 * [Creating a **Marketplace for Any Generic NFT**](#creating-a-marketplace-for-any-generic-nft)
 * [Composable Resources on Flow](#composable-resources-on-flow)
-Got suggestions for this site? 
+
+Got suggestions for this site?
 
 * [It's open-source!](https://github.com/onflow/cadence-lang.org)
+
 The source code of this site is licensed under the Apache License, Version 2.0.
 Content is licensed under the Creative Commons Attribution 4.0 International License.
-

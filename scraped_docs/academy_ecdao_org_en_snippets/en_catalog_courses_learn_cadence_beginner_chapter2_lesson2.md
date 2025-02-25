@@ -1,30 +1,14 @@
 # Source: https://academy.ecdao.org/en/catalog/courses/learn-cadence-beginner/chapter2/lesson2
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -48,7 +32,6 @@ Connect
 
 Course Overview
 
-
 [Catalog](/en/catalog)
 [Course](/en/catalog/courses/learn-cadence-beginner)
 Learn Cadence Beginner
@@ -66,11 +49,13 @@ If you donât know what that is (we canât be friends if you donât)
 Weâre going to be making our own Pokemon and leveling them up for fun to demonstrate resources!
 
 ![](https://i.imgur.com/BMy7XNT.png)
+
 ## Resources
 
 What is a resource? Itâs always helpful to look at code, so letâs do that first:
 
 cadence
+
 ```
 		
 			access(all) resource Pokemon {
@@ -98,6 +83,7 @@ In Cadence, structs are merely containers of data. You can copy them, overwrite 
 Letâs look at some code below to figure out resources:
 
 cadence
+
 ```
 		
 			access(all) contract Game {
@@ -166,6 +152,7 @@ Now that we have a super cool smart contract, we should write a transaction to a
 Make sure to deploy the Game contract to your local emulator before running this transaction.
 
 cadence
+
 ```
 		
 			import Game from "./Game.cdc"
@@ -193,21 +180,18 @@ Hey, you made it! In todayâs lesson, you learned what resources are and how
 
 That wasnât so bad right? I think youâre all gonna do just fine. Letâs end things there for today, and tomorrow, Iâll make it impossible for you. Just kiddinâ ;)
 
-
 ![User avatar](/avatars/jacob.jpeg)
 
 Author
 
 [Jacob Tucker](https://twitter.com/jacobmtucker)
 
-
-
-
 [Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/learn-cadence-beginner/en/chapter2/lesson2.md)
-
 
 [Basic Structs](/en/catalog/courses/learn-cadence-beginner/chapter2/lesson1)
 [Contract State](/en/catalog/courses/learn-cadence-beginner/chapter2/lesson3)
+
+
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
@@ -215,17 +199,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

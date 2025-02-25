@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/evm/fees
 
-
-
-
 Fees | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Why EVM on Flow](/evm/about)
 * [How it Works](/evm/how-it-works)
@@ -25,11 +26,11 @@ Fees | Flow Developer Portal
 * [Clients](/evm/clients/ethers)
 * [Using EVM with Cadence](/evm/cadence/interacting-with-coa)
 
-
 * Fees
-On this page
-# Fees
 
+On this page
+
+# Fees
 
 info
 
@@ -41,7 +42,9 @@ EVM transactions are ultra low-cost and use the native FLOW token as gas. [Exter
 
 With Flow EVM, EVM operations can now be called within Cadence transactions. EVM operations also have an associated effort measured in gas which needs to be factored into the execution effort calculation in addition to the Flow computation for any EVM transaction.
 
- `_10Transaction fee on EVM = surge x [inclusion fee + (execution effort * unit cost)]`
+`_10
+
+Transaction fee on EVM = surge x [inclusion fee + (execution effort * unit cost)]`
 
 * `Surge' factor` dynamically accounts for network pressure and market conditions. This is currently constant at 1.0 but subject to change with community approval.
 * `Inclusion fee` accounts for the resources required to process a transaction due to its core properties (byte size, signatures). This is currently constant at 1E-6 FLOW, but subject to change with community approval.
@@ -51,13 +54,42 @@ With Flow EVM, EVM operations can now be called within Cadence transactions. EVM
 
 ### Calculation of Execution Effort
 
- `_10Execution Effort (computation) =_10 0.00478 * function_or_loop_call +_10 0.00246 * GetValue +_10 0.00234 * SetValue +_10 8.65988 * CreateAccount +_10 EVMGasUsageCost * EVMGasUsage`
+`_10
+
+Execution Effort (computation) =
+
+_10
+
+0.00478 * function_or_loop_call +
+
+_10
+
+0.00246 * GetValue +
+
+_10
+
+0.00234 * SetValue +
+
+_10
+
+8.65988 * CreateAccount +
+
+_10
+
+EVMGasUsageCost * EVMGasUsage`
 
 where
 
- `_10`EVMGasUsage` is reported by EVM as the cost in gas for executing the transaction within the EVM, for instance, 21K gas for a simple send transaction.` `_10`EVMGasUsageCost` - The ratio that converts EVM gas into Flow computation units (execution effort) is currently set at `1/5000` but subject to revision by community approval`
+`_10
+
+`EVMGasUsage` is reported by EVM as the cost in gas for executing the transaction within the EVM, for instance, 21K gas for a simple send transaction.`
+
+`_10
+
+`EVMGasUsageCost` - The ratio that converts EVM gas into Flow computation units (execution effort) is currently set at `1/5000` but subject to revision by community approval`
 
 **Note**: The weights and unit cost mentioned above have been updated recently to accommodate an increased computation limit on Flow, which now supports the deployment of larger EVM contracts. For detailed information, refer to the relevant [FLIP](https://github.com/onflow/flips/blob/main/governance/20240508-computation-limit-hike.md) and join the ongoing discussion on the community [forum post](https://forum.flow.com/t/proposing-transaction-fee-changes-and-flow-evm-gas-charges-for-flow-crescendo-launch/5817). These values may be adjusted in the future based on community feedback and evolving requirements.
+
 
 
 ## Demonstration of Transaction Fees on EVM
@@ -71,24 +103,34 @@ Assume a simple NFT transfer transaction that makes 31 cadence loop calls, reads
 
 **Scenario 1 - Cadence-only Transaction**
 
- `_10Execution Effort = 0.00478 * (31) + 0.00246 * (5668) + 0.00234 *(1668) + 8.65988 *(0) + EVMGasUsageCost * EVMGasUsage`
+`_10
+
+Execution Effort = 0.00478 * (31) + 0.00246 * (5668) + 0.00234 *(1668) + 8.65988 *(0) + EVMGasUsageCost * EVMGasUsage`
 
 But since `EVMGasUsage` is 0 for a Cadence transaction,
 
- `_10Execution Effort = 18.04378`
+`_10
+
+Execution Effort = 18.04378`
 
 Thus
 
- `_10Transaction fee = [1E-6 FLOW + (18.04378 * 2.49E-07 FLOW)] x 1 = 5.5E-06 FLOW`
+`_10
+
+Transaction fee = [1E-6 FLOW + (18.04378 * 2.49E-07 FLOW)] x 1 = 5.5E-06 FLOW`
 
 **Scenario 2 - EVM Transaction**
 If the EVMGasUsage can be assumed to be 21,000 gas (typical for a simple transfer),
 
- `_10Execution Effort = 0.00478 * (31) + 0.00246 * (5668) + 0.00234 *(1668) + 8.65988 *(0) + 1/5000 * 21000 = 22.24378`
+`_10
+
+Execution Effort = 0.00478 * (31) + 0.00246 * (5668) + 0.00234 *(1668) + 8.65988 *(0) + 1/5000 * 21000 = 22.24378`
 
 Thus
 
- `_10Transaction fee = [1E-6 FLOW + (110.97 * 2.49E-07 FLOW)] x 1 = 6.55E-06 FLOW`
+`_10
+
+Transaction fee = [1E-6 FLOW + (110.97 * 2.49E-07 FLOW)] x 1 = 6.55E-06 FLOW`
 
 **Note**: Please be aware that this example serves solely for illustrative purposes to elucidate the calculations. Actual transaction fees may differ due to various factors, including the byte size of the transaction.
 
@@ -98,12 +140,22 @@ Fees needed to execute transactions on a Web3 app are often a major challenge fo
 
 To learn more about storage fee and transaction fee, visit [Flow Tokenomics page](https://flow.com/flow-tokenomics/technical-overview).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/fees.md)Last updated on **Feb 18, 2025** by **Brian Doyle**[PreviousNetworks](/evm/networks)[NextAccounts](/evm/accounts)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/fees.md)
+
+Last updated on **Feb 19, 2025** by **bz**
+
+[Previous
+
+Networks](/evm/networks)[Next
+
+Accounts](/evm/accounts)
+
 ###### Rate this page
 
 😞😐😊
 
 * [Gasless Transactions](#gasless-transactions)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -116,6 +168,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -125,6 +178,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -132,6 +186,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -141,6 +196,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -148,5 +204,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

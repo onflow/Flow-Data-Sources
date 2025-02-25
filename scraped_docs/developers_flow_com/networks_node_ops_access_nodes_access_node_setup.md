@@ -1,22 +1,25 @@
 # Source: https://developers.flow.com/networks/node-ops/access-nodes/access-node-setup
 
-
-
-
 Setting Up a Flow Access Node | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
 * [Flow's Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
+
   + [Access Nodes](/networks/node-ops/access-nodes/access-node-setup)
+
     - [Access Node Setup](/networks/node-ops/access-nodes/access-node-setup)
     - [Execution Data](/networks/node-ops/access-nodes/access-node-configuration-options)
   + [EVM Gateway Setup](/networks/node-ops/evm-gateway/evm-gateway-setup)
@@ -26,12 +29,14 @@ Setting Up a Flow Access Node | Flow Developer Portal
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
-
 * [Node Ops](/networks/node-ops)
 * Access Nodes
 * Access Node Setup
+
 On this page
+
 # Setting Up a Flow Access Node
+
 
 
 This guide is for running a permissonless Access node on Flow. If you are planning to run a different type of staked node then see [node bootstrap](/networks/node-ops/node-operation/node-bootstrap).
@@ -97,23 +102,153 @@ If you want to run multiple access nodes, you will have to run through these ste
 
 ### Download the Bootstrapping Kit[​](#download-the-bootstrapping-kit "Direct link to Download the Bootstrapping Kit")
 
- `_10curl -sL -O storage.googleapis.com/flow-genesis-bootstrap/boot-tools.tar_10tar -xvf boot-tools.tar`
-CheckSHA256 `_10sha256sum ./boot-tools/bootstrap_10460cfcfeb52b40d8b8b0c4641bc4e423bcc90f82068e95f4267803ed32c26d60 ./boot-tools/bootstrap`
+`_10
+
+curl -sL -O storage.googleapis.com/flow-genesis-bootstrap/boot-tools.tar
+
+_10
+
+tar -xvf boot-tools.tar`
+
+CheckSHA256
+
+`_10
+
+sha256sum ./boot-tools/bootstrap
+
+_10
+
+460cfcfeb52b40d8b8b0c4641bc4e423bcc90f82068e95f4267803ed32c26d60 ./boot-tools/bootstrap`
+
 > If you have downloaded the bootstrapping kit previously, ensure the SHA256 hash for it still matches. If not, re-download to ensure you are using the most up-to-date version.
 
 ### Generate Your Node Identity[​](#generate-your-node-identity "Direct link to Generate Your Node Identity")
 
- `_10#########################################################_10# Generate Keys_10$ mkdir ./bootstrap_10# YOUR_NODE_ADDRESS: FQDN associated to your instance_10$ ./boot-tools/bootstrap key --address "<YOUR_NODE_ADDRESS_GOES_HERE>:3569" --role access -o ./bootstrap`
-Example `_25$./boot-tools/bootstrap key --address "flowaccess.mycompany.com:3569" --role access -o ./bootstrap_25<nil> DBG will generate networking key_25<nil> INF generated networking key_25<nil> DBG will generate staking key_25<nil> INF generated staking key_25<nil> DBG will generate db encryption key_25<nil> INF generated db encryption key_25<nil> DBG assembling node information address=flowaccess.mycompany.com:3569_25<nil> DBG encoded public staking and network keys networkPubKey=f493a74704f6961ae7903e062ecd58d990672858eff99aece7bfbccf3aa02de8f1a624ecbf21a01e8b2f4a5854c231fbe218edd7762a34fea881f3958a215305 stakingPubKey=ae8dcf81f3a70d72036b7ba2c586ed37ed0eb82b9c0a4aab998a8420f98894f94c14f84fa716e93654d3940fc0c8ff4d19b504c90a5b4918b28f421e9d3659dc2b7e246025ebeffea0d83cceefe315d7ed346dbe412fdac51b64997d97d29f7e_25<nil> INF wrote file bootstrap/public-root-information/node-id_25<nil> INF wrote file bootstrap/private-root-information/private-node-info_e737ec6efbd26ef43bf676911cdc5a11ba15fc6562d05413e6589fccdd6c06d5/node-info.priv.json_25<nil> INF wrote file bootstrap/private-root-information/private-node-info_e737ec6efbd26ef43bf676911cdc5a11ba15fc6562d05413e6589fccdd6c06d5/secretsdb-key_25<nil> INF wrote file bootstrap/public-root-information/node-info.pub.e737ec6efbd26ef43bf676911cdc5a11ba15fc6562d05413e6589fccdd6c06d5.json_25_25$tree ./bootstrap/_25./bootstrap/_25├── private-root-information_25│ └── private-node-info_e737ec6efbd26ef43bf676911cdc5a11ba15fc6562d05413e6589fccdd6c06d5_25│ ├── node-info.priv.json_25│ └── secretsdb-key_25└── public-root-information_25 ├── node-id_25 └── node-info.pub.e737ec6efbd26ef43bf676911cdc5a11ba15fc6562d05413e6589fccdd6c06d5.json_25_253 directories, 4 files`
+`_10
+
+#########################################################
+
+_10
+
+# Generate Keys
+
+_10
+
+$ mkdir ./bootstrap
+
+_10
+
+# YOUR_NODE_ADDRESS: FQDN associated to your instance
+
+_10
+
+$ ./boot-tools/bootstrap key --address "<YOUR_NODE_ADDRESS_GOES_HERE>:3569" --role access -o ./bootstrap`
+
+Example
+
+`_25
+
+$./boot-tools/bootstrap key --address "flowaccess.mycompany.com:3569" --role access -o ./bootstrap
+
+_25
+
+<nil> DBG will generate networking key
+
+_25
+
+<nil> INF generated networking key
+
+_25
+
+<nil> DBG will generate staking key
+
+_25
+
+<nil> INF generated staking key
+
+_25
+
+<nil> DBG will generate db encryption key
+
+_25
+
+<nil> INF generated db encryption key
+
+_25
+
+<nil> DBG assembling node information address=flowaccess.mycompany.com:3569
+
+_25
+
+<nil> DBG encoded public staking and network keys networkPubKey=f493a74704f6961ae7903e062ecd58d990672858eff99aece7bfbccf3aa02de8f1a624ecbf21a01e8b2f4a5854c231fbe218edd7762a34fea881f3958a215305 stakingPubKey=ae8dcf81f3a70d72036b7ba2c586ed37ed0eb82b9c0a4aab998a8420f98894f94c14f84fa716e93654d3940fc0c8ff4d19b504c90a5b4918b28f421e9d3659dc2b7e246025ebeffea0d83cceefe315d7ed346dbe412fdac51b64997d97d29f7e
+
+_25
+
+<nil> INF wrote file bootstrap/public-root-information/node-id
+
+_25
+
+<nil> INF wrote file bootstrap/private-root-information/private-node-info_e737ec6efbd26ef43bf676911cdc5a11ba15fc6562d05413e6589fccdd6c06d5/node-info.priv.json
+
+_25
+
+<nil> INF wrote file bootstrap/private-root-information/private-node-info_e737ec6efbd26ef43bf676911cdc5a11ba15fc6562d05413e6589fccdd6c06d5/secretsdb-key
+
+_25
+
+<nil> INF wrote file bootstrap/public-root-information/node-info.pub.e737ec6efbd26ef43bf676911cdc5a11ba15fc6562d05413e6589fccdd6c06d5.json
+
+_25
+
+_25
+
+$tree ./bootstrap/
+
+_25
+
+./bootstrap/
+
+_25
+
+├── private-root-information
+
+_25
+
+│ └── private-node-info_e737ec6efbd26ef43bf676911cdc5a11ba15fc6562d05413e6589fccdd6c06d5
+
+_25
+
+│ ├── node-info.priv.json
+
+_25
+
+│ └── secretsdb-key
+
+_25
+
+└── public-root-information
+
+_25
+
+├── node-id
+
+_25
+
+└── node-info.pub.e737ec6efbd26ef43bf676911cdc5a11ba15fc6562d05413e6589fccdd6c06d5.json
+
+_25
+
+_25
+
+3 directories, 4 files`
+
 warning
 
 *Use a fully qualified domain name for the network address. Please also include the port number in the network address e.g. `flowaccess.mycompany.com:3569`*
 
-
 warning
 
 *Do not include the prefix `http://` in the network address.*
-
 
 tip
 
@@ -121,7 +256,16 @@ If you would like to stake multiple access nodes, please ensure you generate a u
 
 Your node identity has now been generated. Your **node ID** can be found in the file `./bootstrap/public-root-information/node-id`.
 
-Example `_10$cat ./bootstrap/public-root-information/node-id_10e737ec6efbd26ef43bf676911cdc5a11ba15fc6562d05413e6589fccdd6c06d5`
+Example
+
+`_10
+
+$cat ./bootstrap/public-root-information/node-id
+
+_10
+
+e737ec6efbd26ef43bf676911cdc5a11ba15fc6562d05413e6589fccdd6c06d5`
+
 info
 
 All your private keys should be in the `bootstrap` folder created earlier. Please take a back up of the entire folder.
@@ -143,7 +287,44 @@ On the next screen, provide the node details of you node.
 
 Those node details (`Node ID`, `Network Address`, `Networking Key` and `Staking Key`) can be found in the file: `./bootstrap/public-root-information/node-info.pub.<node-id>.json`.
 
-Example `_10$cat ./bootstrap/public-root-information/node-info.pub. e737ec6efbd26ef43bf676911cdc5a11ba15fc6562d05413e6589fccdd6c06d5.json_10{_10 "Role": "access",_10 "Address": "flowaccess.mycompany.com:3569",_10 "NodeID": "e737ec6efbd26ef43bf676911cdc5a11ba15fc6562d05413e6589fccdd6c06d5",_10 "Weight": 0,_10 "NetworkPubKey": "f493a74704f6961ae7903e062ecd58d990672858eff99aece7bfbccf3aa02de8f1a624ecbf21a01e8b2f4a5854c231fbe218edd7762a34fea881f3958a215305",_10 "StakingPubKey": "ae8dcf81f3a70d72036b7ba2c586ed37ed0eb82b9c0a4aab998a8420f98894f94c14f84fa716e93654d3940fc0c8ff4d19b504c90a5b4918b28f421e9d3659dc2b7e246025ebeffea0d83cceefe315d7ed346dbe412fdac51b64997d97d29f7e"_10}`
+Example
+
+`_10
+
+$cat ./bootstrap/public-root-information/node-info.pub. e737ec6efbd26ef43bf676911cdc5a11ba15fc6562d05413e6589fccdd6c06d5.json
+
+_10
+
+{
+
+_10
+
+"Role": "access",
+
+_10
+
+"Address": "flowaccess.mycompany.com:3569",
+
+_10
+
+"NodeID": "e737ec6efbd26ef43bf676911cdc5a11ba15fc6562d05413e6589fccdd6c06d5",
+
+_10
+
+"Weight": 0,
+
+_10
+
+"NetworkPubKey": "f493a74704f6961ae7903e062ecd58d990672858eff99aece7bfbccf3aa02de8f1a624ecbf21a01e8b2f4a5854c231fbe218edd7762a34fea881f3958a215305",
+
+_10
+
+"StakingPubKey": "ae8dcf81f3a70d72036b7ba2c586ed37ed0eb82b9c0a4aab998a8420f98894f94c14f84fa716e93654d3940fc0c8ff4d19b504c90a5b4918b28f421e9d3659dc2b7e246025ebeffea0d83cceefe315d7ed346dbe412fdac51b64997d97d29f7e"
+
+_10
+
+}`
+
 #### Example[​](#example "Direct link to Example")
 
 ![node_details_permissionless_an](/assets/images/node_details_permissionless_an-14d8b6ff5e900551986f937cac9bd738.png)
@@ -189,11 +370,76 @@ Instead, if you see that your token balance is under the Unstaked Amount, then y
 
 You can also check these balance using [Flow Cli](https://github.com/onflow/flow-cli). Once you have downloaded and installed Flow Cli, you can query the account balance using the command,
 
- `_10flow accounts staking-info <your account address> -n mainnet`
+`_10
+
+flow accounts staking-info <your account address> -n mainnet`
 
 For Example, the following node was chosen as Tokens staked is 100.
 
-Example `_16$ flow accounts staking-info 0xefdfb20806315bfa -n testnet_16_16Account staking info:_16 ID: "e737ec6efbd26ef43bf676911cdc5a11ba15fc6562d05413e6589fccdd6c06d5"_16 Initial Weight: 100_16 Networking Address: "flowaccess.mycompany.com:3569"_16 Networking Key: "f493a74704f6961ae7903e062ecd58d990672858eff99aece7bfbccf3aa02de8f1a624ecbf21a01e8b2f4a5854c231fbe218edd7762a34fea881f3958a215305"_16 Role: 5_16 Staking Key: "ae8dcf81f3a70d72036b7ba2c586ed37ed0eb82b9c0a4aab998a8420f98894f94c14f84fa716e93654d3940fc0c8ff4d19b504c90a5b4918b28f421e9d3659dc2b7e246025ebeffea0d83cceefe315d7ed346dbe412fdac51b64997d97d29f7e"_16 Tokens Committed: 0.00000000_16 Tokens To Unstake: 100.00000000_16 Tokens Rewarded: 0.00000000_16 Tokens Staked: 100.00000000_16 Tokens Unstaked: 0.00000000_16 Tokens Unstaking: 0.00000000_16 Node Total Stake (including delegators): 0.00000000`
+Example
+
+`_16
+
+$ flow accounts staking-info 0xefdfb20806315bfa -n testnet
+
+_16
+
+_16
+
+Account staking info:
+
+_16
+
+ID: "e737ec6efbd26ef43bf676911cdc5a11ba15fc6562d05413e6589fccdd6c06d5"
+
+_16
+
+Initial Weight: 100
+
+_16
+
+Networking Address: "flowaccess.mycompany.com:3569"
+
+_16
+
+Networking Key: "f493a74704f6961ae7903e062ecd58d990672858eff99aece7bfbccf3aa02de8f1a624ecbf21a01e8b2f4a5854c231fbe218edd7762a34fea881f3958a215305"
+
+_16
+
+Role: 5
+
+_16
+
+Staking Key: "ae8dcf81f3a70d72036b7ba2c586ed37ed0eb82b9c0a4aab998a8420f98894f94c14f84fa716e93654d3940fc0c8ff4d19b504c90a5b4918b28f421e9d3659dc2b7e246025ebeffea0d83cceefe315d7ed346dbe412fdac51b64997d97d29f7e"
+
+_16
+
+Tokens Committed: 0.00000000
+
+_16
+
+Tokens To Unstake: 100.00000000
+
+_16
+
+Tokens Rewarded: 0.00000000
+
+_16
+
+Tokens Staked: 100.00000000
+
+_16
+
+Tokens Unstaked: 0.00000000
+
+_16
+
+Tokens Unstaking: 0.00000000
+
+_16
+
+Node Total Stake (including delegators): 0.00000000`
+
 ### Epoch Setup Event[​](#epoch-setup-event "Direct link to Epoch Setup Event")
 
 Alternatively, if you can monitor events, look for [the epoch setup event](/networks/staking/epoch-scripts-events#flowepochepochsetup) that gets emitted by the epoch contract. That event is emitted at the end of epoch N's staking auction and contains a list of node IDs that are confirmed for the next epoch.
@@ -211,11 +457,238 @@ Be sure to set `$VERSION` below to the version tag (e.g. `v1.2.3`) corresponding
 * Mainnet
 * Testnet
 
- `_19docker run --rm \_19-v $PWD/bootstrap:/bootstrap:ro \_19-v $PWD/data:/data:rw \_19--name flow-go \_19--network host \_19gcr.io/flow-container-registry/access:$VERSION \_19--nodeid=$NODEID \_19--bootstrapdir=/bootstrap \_19--datadir=/data/protocol \_19--secretsdir=/data/secrets \_19--rpc-addr=0.0.0.0:9000 \_19--http-addr=0.0.0.0:8000 \_19--rest-addr=0.0.0.0:80 \_19--rpc-metrics-enabled=true \_19--bind 0.0.0.0:3569 \_19--dynamic-startup-access-address=secure.mainnet.nodes.onflow.org:9001 \_19--dynamic-startup-access-publickey=28a0d9edd0de3f15866dfe4aea1560c4504fe313fc6ca3f63a63e4f98d0e295144692a58ebe7f7894349198613f65b2d960abf99ec2625e247b1c78ba5bf2eae \_19--dynamic-startup-epoch-phase=EpochPhaseStaking \_19--loglevel=error` `_19docker run --rm \_19-v $PWD/bootstrap:/bootstrap:ro \_19-v $PWD/data:/data:rw \_19--name flow-go \_19--network host \_19gcr.io/flow-container-registry/access:$VERSION \_19--nodeid=$NODEID \_19--bootstrapdir=/bootstrap \_19--datadir=/data/protocol \_19--secretsdir=/data/secrets \_19--rpc-addr=0.0.0.0:9000 \_19--http-addr=0.0.0.0:8000 \_19--rest-addr=0.0.0.0:80 \_19--rpc-metrics-enabled=true \_19--bind 0.0.0.0:3569 \_19--dynamic-startup-access-address=secure.testnet.nodes.onflow.org:9001 \_19--dynamic-startup-access-publickey=ba69f7d2e82b9edf25b103c195cd371cf0cc047ef8884a9bbe331e62982d46daeebf836f7445a2ac16741013b192959d8ad26998aff12f2adc67a99e1eb2988d \_19--dynamic-startup-epoch-phase=EpochPhaseStaking \_19--loglevel=error`
+`_19
+
+docker run --rm \
+
+_19
+
+-v $PWD/bootstrap:/bootstrap:ro \
+
+_19
+
+-v $PWD/data:/data:rw \
+
+_19
+
+--name flow-go \
+
+_19
+
+--network host \
+
+_19
+
+gcr.io/flow-container-registry/access:$VERSION \
+
+_19
+
+--nodeid=$NODEID \
+
+_19
+
+--bootstrapdir=/bootstrap \
+
+_19
+
+--datadir=/data/protocol \
+
+_19
+
+--secretsdir=/data/secrets \
+
+_19
+
+--rpc-addr=0.0.0.0:9000 \
+
+_19
+
+--http-addr=0.0.0.0:8000 \
+
+_19
+
+--rest-addr=0.0.0.0:80 \
+
+_19
+
+--rpc-metrics-enabled=true \
+
+_19
+
+--bind 0.0.0.0:3569 \
+
+_19
+
+--dynamic-startup-access-address=secure.mainnet.nodes.onflow.org:9001 \
+
+_19
+
+--dynamic-startup-access-publickey=28a0d9edd0de3f15866dfe4aea1560c4504fe313fc6ca3f63a63e4f98d0e295144692a58ebe7f7894349198613f65b2d960abf99ec2625e247b1c78ba5bf2eae \
+
+_19
+
+--dynamic-startup-epoch-phase=EpochPhaseStaking \
+
+_19
+
+--loglevel=error`
+
+`_19
+
+docker run --rm \
+
+_19
+
+-v $PWD/bootstrap:/bootstrap:ro \
+
+_19
+
+-v $PWD/data:/data:rw \
+
+_19
+
+--name flow-go \
+
+_19
+
+--network host \
+
+_19
+
+gcr.io/flow-container-registry/access:$VERSION \
+
+_19
+
+--nodeid=$NODEID \
+
+_19
+
+--bootstrapdir=/bootstrap \
+
+_19
+
+--datadir=/data/protocol \
+
+_19
+
+--secretsdir=/data/secrets \
+
+_19
+
+--rpc-addr=0.0.0.0:9000 \
+
+_19
+
+--http-addr=0.0.0.0:8000 \
+
+_19
+
+--rest-addr=0.0.0.0:80 \
+
+_19
+
+--rpc-metrics-enabled=true \
+
+_19
+
+--bind 0.0.0.0:3569 \
+
+_19
+
+--dynamic-startup-access-address=secure.testnet.nodes.onflow.org:9001 \
+
+_19
+
+--dynamic-startup-access-publickey=ba69f7d2e82b9edf25b103c195cd371cf0cc047ef8884a9bbe331e62982d46daeebf836f7445a2ac16741013b192959d8ad26998aff12f2adc67a99e1eb2988d \
+
+_19
+
+--dynamic-startup-epoch-phase=EpochPhaseStaking \
+
+_19
+
+--loglevel=error`
 
 For example, if your Node ID is `e737ec6efbd26ef43bf676911cdc5a11ba15fc6562d05413e6589fccdd6c06d5` and the software version is `v1.2.3`, the Docker command would be the following:
 
-Example `_19docker run --rm \_19 -v $PWD/bootstrap:/bootstrap:ro \_19 -v $PWD/data:/data:rw \_19 --name flow-go \_19 --network host \_19 gcr.io/flow-container-registry/access:v1.2.3 \_19 --nodeid=e737ec6efbd26ef43bf676911cdc5a11ba15fc6562d05413e6589fccdd6c06d5 \_19 --bootstrapdir=/bootstrap \_19 --datadir=/data/protocol \_19 --secretsdir=/data/secrets \_19 --rpc-addr=0.0.0.0:9000 \_19 --http-addr=0.0.0.0:8000 \_19 --rest-addr=0.0.0.0:80 \_19 --rpc-metrics-enabled=true \_19 --bind 0.0.0.0:3569 \_19 --dynamic-startup-access-address=secure.mainnet.nodes.onflow.org:9001 \_19 --dynamic-startup-access-publickey=28a0d9edd0de3f15866dfe4aea1560c4504fe313fc6ca3f63a63e4f98d0e295144692a58ebe7f7894349198613f65b2d960abf99ec2625e247b1c78ba5bf2eae \_19 --dynamic-startup-epoch-phase=EpochPhaseStaking \_19 --loglevel=error`
+Example
+
+`_19
+
+docker run --rm \
+
+_19
+
+-v $PWD/bootstrap:/bootstrap:ro \
+
+_19
+
+-v $PWD/data:/data:rw \
+
+_19
+
+--name flow-go \
+
+_19
+
+--network host \
+
+_19
+
+gcr.io/flow-container-registry/access:v1.2.3 \
+
+_19
+
+--nodeid=e737ec6efbd26ef43bf676911cdc5a11ba15fc6562d05413e6589fccdd6c06d5 \
+
+_19
+
+--bootstrapdir=/bootstrap \
+
+_19
+
+--datadir=/data/protocol \
+
+_19
+
+--secretsdir=/data/secrets \
+
+_19
+
+--rpc-addr=0.0.0.0:9000 \
+
+_19
+
+--http-addr=0.0.0.0:8000 \
+
+_19
+
+--rest-addr=0.0.0.0:80 \
+
+_19
+
+--rpc-metrics-enabled=true \
+
+_19
+
+--bind 0.0.0.0:3569 \
+
+_19
+
+--dynamic-startup-access-address=secure.mainnet.nodes.onflow.org:9001 \
+
+_19
+
+--dynamic-startup-access-publickey=28a0d9edd0de3f15866dfe4aea1560c4504fe313fc6ca3f63a63e4f98d0e295144692a58ebe7f7894349198613f65b2d960abf99ec2625e247b1c78ba5bf2eae \
+
+_19
+
+--dynamic-startup-epoch-phase=EpochPhaseStaking \
+
+_19
+
+--loglevel=error`
+
 > If you would like your node to sync from the start of the last network upgrade, then please see the instructions [here](https://developers.flow.com/networks/node-ops/node-operation/spork)
 
 Alternatively, you can build a binary for the access node to run it without using Docker.
@@ -225,14 +698,166 @@ Please make sure to git checkout the latest release tag before building the bina
 * Mainnet
 * Testnet
 
- `_18$PWD/flow-go/flow_access_node \_18--nodeid=e1a8b231156ab6f2a5c6f862c933baf5e5c2e7cf019b509c7c91f4ddb0a13398 \_18--bootstrapdir=$PWD/bootstrap \_18--datadir=$PWD/data/protocol \_18--secretsdir=$PWD/data/secrets \_18--execution-data-dir=$PWD/data/execution_data \_18--rpc-addr=0.0.0.0:9000 \_18--secure-rpc-addr=0.0.0.0:9001 \_18--http-addr=0.0.0.0:8000 \_18--rest-addr=0.0.0.0:8070 \_18--admin-addr=localhost:9002 \_18--bind=0.0.0.0:3569 \_18--dht-enabled=false \_18--grpc-compressor=gzip \_18--profiler-dir=$PWD/data/profiler \_18--dynamic-startup-access-address=secure.mainnet.nodes.onflow.org:9001 \_18--dynamic-startup-access-publickey=28a0d9edd0de3f15866dfe4aea1560c4504fe313fc6ca3f63a63e4f98d0e295144692a58ebe7f7894349198613f65b2d960abf99ec2625e247b1c78ba5bf2eae \_18--dynamic-startup-epoch-phase=EpochPhaseStaking` `_18$PWD/flow-go/flow_access_node \_18--nodeid=e1a8b231156ab6f2a5c6f862c933baf5e5c2e7cf019b509c7c91f4ddb0a13398 \_18--bootstrapdir=$PWD/bootstrap \_18--datadir=$PWD/data/protocol \_18--secretsdir=$PWD/data/secrets \_18--execution-data-dir=$PWD/data/execution_data \_18--rpc-addr=0.0.0.0:9000 \_18--secure-rpc-addr=0.0.0.0:9001 \_18--http-addr=0.0.0.0:8000 \_18--rest-addr=0.0.0.0:8070 \_18--admin-addr=localhost:9002 \_18--bind=0.0.0.0:3569 \_18--dht-enabled=false \_18--grpc-compressor=gzip \_18--profiler-dir=$PWD/data/profiler \_18--dynamic-startup-access-address=secure.testnet.nodes.onflow.org:9001 \_18--dynamic-startup-access-publickey=ba69f7d2e82b9edf25b103c195cd371cf0cc047ef8884a9bbe331e62982d46daeebf836f7445a2ac16741013b192959d8ad26998aff12f2adc67a99e1eb2988d \_18--dynamic-startup-epoch-phase=EpochPhaseStaking`
+`_18
+
+$PWD/flow-go/flow_access_node \
+
+_18
+
+--nodeid=e1a8b231156ab6f2a5c6f862c933baf5e5c2e7cf019b509c7c91f4ddb0a13398 \
+
+_18
+
+--bootstrapdir=$PWD/bootstrap \
+
+_18
+
+--datadir=$PWD/data/protocol \
+
+_18
+
+--secretsdir=$PWD/data/secrets \
+
+_18
+
+--execution-data-dir=$PWD/data/execution_data \
+
+_18
+
+--rpc-addr=0.0.0.0:9000 \
+
+_18
+
+--secure-rpc-addr=0.0.0.0:9001 \
+
+_18
+
+--http-addr=0.0.0.0:8000 \
+
+_18
+
+--rest-addr=0.0.0.0:8070 \
+
+_18
+
+--admin-addr=localhost:9002 \
+
+_18
+
+--bind=0.0.0.0:3569 \
+
+_18
+
+--dht-enabled=false \
+
+_18
+
+--grpc-compressor=gzip \
+
+_18
+
+--profiler-dir=$PWD/data/profiler \
+
+_18
+
+--dynamic-startup-access-address=secure.mainnet.nodes.onflow.org:9001 \
+
+_18
+
+--dynamic-startup-access-publickey=28a0d9edd0de3f15866dfe4aea1560c4504fe313fc6ca3f63a63e4f98d0e295144692a58ebe7f7894349198613f65b2d960abf99ec2625e247b1c78ba5bf2eae \
+
+_18
+
+--dynamic-startup-epoch-phase=EpochPhaseStaking`
+
+`_18
+
+$PWD/flow-go/flow_access_node \
+
+_18
+
+--nodeid=e1a8b231156ab6f2a5c6f862c933baf5e5c2e7cf019b509c7c91f4ddb0a13398 \
+
+_18
+
+--bootstrapdir=$PWD/bootstrap \
+
+_18
+
+--datadir=$PWD/data/protocol \
+
+_18
+
+--secretsdir=$PWD/data/secrets \
+
+_18
+
+--execution-data-dir=$PWD/data/execution_data \
+
+_18
+
+--rpc-addr=0.0.0.0:9000 \
+
+_18
+
+--secure-rpc-addr=0.0.0.0:9001 \
+
+_18
+
+--http-addr=0.0.0.0:8000 \
+
+_18
+
+--rest-addr=0.0.0.0:8070 \
+
+_18
+
+--admin-addr=localhost:9002 \
+
+_18
+
+--bind=0.0.0.0:3569 \
+
+_18
+
+--dht-enabled=false \
+
+_18
+
+--grpc-compressor=gzip \
+
+_18
+
+--profiler-dir=$PWD/data/profiler \
+
+_18
+
+--dynamic-startup-access-address=secure.testnet.nodes.onflow.org:9001 \
+
+_18
+
+--dynamic-startup-access-publickey=ba69f7d2e82b9edf25b103c195cd371cf0cc047ef8884a9bbe331e62982d46daeebf836f7445a2ac16741013b192959d8ad26998aff12f2adc67a99e1eb2988d \
+
+_18
+
+--dynamic-startup-epoch-phase=EpochPhaseStaking`
 
 For a more mature setup, it is recommended that you run the container using systemd as described [here](/networks/node-ops/node-operation/node-setup#systemd)
 
 > 🚀 The access node should now be up and running, and you should be able to query the node using Flow CLI or curl,
 
-Example `_10flow blocks get latest --host localhost:9000`
-Example `_10curl http://localhost/v1/blocks?height=sealed`
+Example
+
+`_10
+
+flow blocks get latest --host localhost:9000`
+
+Example
+
+`_10
+
+curl http://localhost/v1/blocks?height=sealed`
+
 ## Monitoring and Metrics[​](#monitoring-and-metrics "Direct link to Monitoring and Metrics")
 
 The node publishes several Prometheus metrics. See [Monitoring Node Health](/networks/node-ops/node-operation/monitoring-nodes) to setup node monitoring.
@@ -241,7 +866,24 @@ The node publishes several Prometheus metrics. See [Monitoring Node Health](/net
 
 The metrics for the node should be able to provide a good overview of the status of the node. If we want to get a quick snapshot of the status of the node, and if it's properly participating in the network, you can check the `consensus_compliance_finalized_height` or `consensus_compliance_sealed_height` metric, and ensure that it is not zero and strictly increasing.
 
- `_10curl localhost:8080/metrics | grep consensus_compliance_sealed_height_10_10# HELP consensus_compliance_sealed_height the last sealed height_10# TYPE consensus_compliance_sealed_height gauge_10consensus_compliance_sealed_height 1.132054e+06`
+`_10
+
+curl localhost:8080/metrics | grep consensus_compliance_sealed_height
+
+_10
+
+_10
+
+# HELP consensus_compliance_sealed_height the last sealed height
+
+_10
+
+# TYPE consensus_compliance_sealed_height gauge
+
+_10
+
+consensus_compliance_sealed_height 1.132054e+06`
+
 ## FAQs[​](#faqs "Direct link to FAQs")
 
 ### Will the access node receive rewards?[​](#will-the-access-node-receive-rewards "Direct link to Will the access node receive rewards?")
@@ -262,18 +904,38 @@ Yes, like any other staked node, the Access node can be unstaked. The staked tok
 When the nodes are initially staked, they are all added to the candidate list of nodes before the end of the epoch staking phase.
 The list can be retrieved from the chain by executing the [get\_candidate\_nodes](https://github.com/onflow/flow-core-contracts/blob/48ba17d3386023d70817197a20effbc5d16339b3/transactions/idTableStaking/scripts/get_candidate_nodes.cdc) script which returns the candidate list for the current epoch.
 
- `_10$ flow scripts execute ./transactions/idTableStaking/scripts/get_candidate_nodes.cdc -n mainnet`
+`_10
+
+$ flow scripts execute ./transactions/idTableStaking/scripts/get_candidate_nodes.cdc -n mainnet`
+
 ### How to check the availability of open access nodes slots for the next epoch?[​](#how-to-check-the-availability-of-open-access-nodes-slots-for-the-next-epoch "Direct link to How to check the availability of open access nodes slots for the next epoch?")
 
 The limits for the open slots are defined in the staking contract and can be queried from the chain by executing the [get\_slot\_limits](https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_slot_limits.cdc) script.
 
 Node types are defined [here](https://github.com/onflow/flow-core-contracts/blob/5696ec5e3e6aa5fc10762cbfeb42b9c5c0b8ddbe/contracts/FlowIDTableStaking.cdc#L114-L119)
 
- `_10_10$ flow scripts execute ./transactions/idTableStaking/scripts/get_slot_limits.cdc --args-json '[{ "type":"UInt8", "value":"5"}]' -n mainnet_10Result: 118`
+`_10
+
+_10
+
+$ flow scripts execute ./transactions/idTableStaking/scripts/get_slot_limits.cdc --args-json '[{ "type":"UInt8", "value":"5"}]' -n mainnet
+
+_10
+
+Result: 118`
 
 Example: there are 115 access nodes already part of the network. Hence, the total number of new nodes that can join are 118 - 115 = 3.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/access-nodes/access-node-setup.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousNode Operations](/networks/node-ops)[NextExecution Data](/networks/node-ops/access-nodes/access-node-configuration-options)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/access-nodes/access-node-setup.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Node Operations](/networks/node-ops)[Next
+
+Execution Data](/networks/node-ops/access-nodes/access-node-configuration-options)
+
 ###### Rate this page
 
 😞😐😊
@@ -299,6 +961,7 @@ Example: there are 115 access nodes already part of the network. Hence, the tota
   + [Can the Access node be unstaked?](#can-the-access-node-be-unstaked)
   + [How to see all the access nodes that have staked?](#how-to-see-all-the-access-nodes-that-have-staked)
   + [How to check the availability of open access nodes slots for the next epoch?](#how-to-check-the-availability-of-open-access-nodes-slots-for-the-next-epoch)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -311,6 +974,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -320,6 +984,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -327,6 +992,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -336,6 +1002,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -343,5 +1010,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

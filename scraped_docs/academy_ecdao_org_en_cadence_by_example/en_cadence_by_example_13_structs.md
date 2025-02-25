@@ -1,25 +1,14 @@
 # Source: https://academy.ecdao.org/en/cadence-by-example/13-structs
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -39,6 +28,7 @@ They are useful for grouping together related data.
 Structs can be defined inside contracts or scripts. A struct defined in a contract can be created anywhere.
 
 cadence
+
 ```
 		
 			// Contract file: Art.cdc
@@ -85,6 +75,7 @@ access(all) contract Art {
 ```
 
 cadence
+
 ```
 		
 			// Transaction file: create_art_piece.cdc
@@ -103,6 +94,7 @@ transaction(name: String, artLink: String, hoursWorkedOn: Int) {
 ```
 
 cadence
+
 ```
 		
 			// Script file: read_art_piece.cdc
@@ -117,10 +109,12 @@ access(all) fun main(id: Int): Art.ArtPiece? {
 	
 ```
 
-
 [Optional Binding](/en/cadence-by-example/12-optional-binding)
 [Resources](/en/cadence-by-example/14-resources)
+
 [Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/cadence-by-example/en/13-structs.md)
+
+
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
@@ -128,17 +122,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

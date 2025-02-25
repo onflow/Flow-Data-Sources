@@ -1,21 +1,23 @@
 # Source: https://developers.flow.com/networks/node-ops
 
-
-
-
 Node Operations | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
 * [Flow's Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
+
   + [Access Nodes](/networks/node-ops/access-nodes/access-node-setup)
   + [EVM Gateway Setup](/networks/node-ops/evm-gateway/evm-gateway-setup)
   + [Light Nodes](/networks/node-ops/light-nodes/observer-node)
@@ -24,9 +26,10 @@ Node Operations | Flow Developer Portal
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
-
 * Node Ops
+
 On this page
+
 # Hello Node Operator!
 
 Flow nodes are vital components of the Flow blockchain. These nodes are responsible for a variety of network operations to maintain the distributed ledger.
@@ -91,11 +94,9 @@ Launch an access node using QuickNode
 
 <https://www.quicknode.com/chains/flow>
 
-
 info
 
 To run a self-hosted access node, follow this [guide](/networks/node-ops/access-nodes/access-node-setup)
-
 
 tip
 
@@ -130,7 +131,17 @@ To set up a new staked node after it has been authorized by the Flow governance 
 1. [Provision](/networks/node-ops/node-operation/node-setup) the machine on which your node will run.
 2. [Generate and register](/networks/node-ops/node-operation/node-bootstrap) your node identity.
 3. [Start](/networks/node-ops/node-operation/node-bootstrap#step-3---start-your-flow-node) your node!
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/index.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousBasic Staking Guide (Deprecated)](/networks/staking/staking-guide)[NextAccess Node Setup](/networks/node-ops/access-nodes/access-node-setup)
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/index.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Basic Staking Guide (Deprecated)](/networks/staking/staking-guide)[Next
+
+Access Node Setup](/networks/node-ops/access-nodes/access-node-setup)
+
 ###### Rate this page
 
 😞😐😊
@@ -142,6 +153,7 @@ To set up a new staked node after it has been authorized by the Flow governance 
   + [Access Node](#access-node)
   + [Validator Node](#validator-node)
   + [Running a Staked Node](#running-a-staked-node)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -154,6 +166,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -163,6 +176,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -170,6 +184,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -179,6 +194,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -186,5 +202,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

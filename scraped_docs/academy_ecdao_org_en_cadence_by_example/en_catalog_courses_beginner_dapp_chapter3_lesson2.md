@@ -1,30 +1,14 @@
 # Source: https://academy.ecdao.org/en/catalog/courses/beginner-dapp/chapter3/lesson2
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -56,7 +40,6 @@ Connect
 
 Course Overview
 
-
 [Catalog](/en/catalog)
 [Course](/en/catalog/courses/beginner-dapp)
 Beginner Dapp
@@ -70,6 +53,7 @@ Hey there you crazy Cadence people! We are BACK for another lesson of content, a
 Transactions and scripts are both essential to any blockchain application. Without them, we wouldnât be able to interact with the blockchain at all. On Flow, they are even more special because *they are both separate from the contract.* If you have coded on Ethereum before, you know that transactions are just functions you call inside the contract itself (if you donât know that, thatâs okay!). However, on Flow, transactions and scripts act as a sort of âmiddlemanâ between the person interacting with the blockchain and the smart contracts. It looks something like this:
 
 ![drawing](/courses/beginner-dapp/sctsworkflow.png)
+
 ## Transactions vs. Scripts
 
 Now, what is the difference between transactions and scripts? Well, the biggest difference is that transactions **modify the data** on the blockchain, and scripts **view the data** on the blockchain. Here is a helpful diagram to understand the differences:
@@ -85,6 +69,7 @@ During the last lesson, we actually implemented our first script on the Flow pla
 > Load up the flow playground (<https://play.onflow.org>), copy this contract into the `0x01` account, and click âDeployâ:
 
 cadence
+
 ```
 		
 			pub contract HelloWorld {
@@ -98,9 +83,11 @@ cadence
 		 
 	
 ```
+
 > Then, go to the Script tab on the left hand side and bring back our script from yesterday:
 
 cadence
+
 ```
 		
 			import HelloWorld from 0x01
@@ -111,6 +98,7 @@ pub fun main(): String {
 		 
 	
 ```
+
 > If you click âExecute,â you should see âHello, World!â in the console.
 
 Great! What you just did is run a script. Notice there was no payment needed and we **viewed** the data in our smart contract.
@@ -128,6 +116,7 @@ Okay, cool. Now, we want to modify the data on the blockchain. In order to do th
 > We can do that by putting this code into the page:
 
 cadence
+
 ```
 		
 			transaction() {
@@ -154,6 +143,7 @@ Alright, so we want to change our `greeting` field to be something other than â
 > Go back to account `0x01` and add this function inside the contract:
 
 cadence
+
 ```
 		
 			pub fun changeGreeting(newGreeting: String) {
@@ -171,6 +161,7 @@ In order to keep things simple, we are using `pub` as our access modifier. `pub`
 But wait! Thereâs an error in the contract. It says âcannot assign to constant member: `greeting`.â Why is it saying that? Remember, we made our greeting be `let`. `let` means itâs a constant, so if we want to change our `greeting`, we must change it to `var`. Make sure to hit âDeployâ again. Your code should now look like this:
 
 cadence
+
 ```
 		
 			pub contract HelloWorld {
@@ -198,6 +189,7 @@ Then, we must decide: where do we want to call `changeGreeting`? In the `prepare
 > We can do that by adding this line in the `execute` phase:
 
 cadence
+
 ```
 		
 			HelloWorld.changeGreeting(newGreeting: myNewGreeting)
@@ -210,6 +202,7 @@ When you call a function in Cadence, you pass in parameters by doing `(argumentL
 > So letâs add a parameter called `myNewGreeting` to our transaction so we can pass in a value for a new greeting. We can do that like so:
 
 cadence
+
 ```
 		
 			import HelloWorld from 0x01
@@ -254,7 +247,7 @@ Please answer in the language of your choice.
 4. This is the hardest quest so far, so if it takes you some time, do not worry! I can help you in the Discord if you have questions.
 
 * Add two new things inside your contract:
-  
+
   + A variable named `myNumber` that has type `Int` (set it to 0 when the contract is deployed)
   + A function named `updateMyNumber` that takes in a new number named `newNumber` as a parameter that has type `Int` and updates `myNumber` to be `newNumber`
 * Add a script that reads `myNumber` from the contract
@@ -266,16 +259,15 @@ Author
 
 [Jacob Tucker](https://twitter.com/jacobmtucker)
 
-
-
-
 [Video lesson](#)
 [Quests](#quests)
-[Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/beginner-dapp/en/chapter3/lesson2.md)
 
+[Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/beginner-dapp/en/chapter3/lesson2.md)
 
 [Our First Smart Contract](/en/catalog/courses/beginner-dapp/chapter3/lesson1)
 [Bringing Cadence to our DApp & Deploying our Contract](/en/catalog/courses/beginner-dapp/chapter3/lesson3)
+
+
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
@@ -283,17 +275,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

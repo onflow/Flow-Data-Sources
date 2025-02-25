@@ -1,20 +1,23 @@
 # Source: https://cadence-lang.org/docs/cadence-migration-guide/improvements
 
-
-
-
 Cadence 1.0 Improvements & New Features | Cadence
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)Search
+[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
+
+[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+
+Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
 * [Tutorial](/docs/tutorial/first-steps)
 * [Language Reference](/docs/language/)
 * [Cadence 1.0 Migration Guide](/docs/cadence-migration-guide/)
+
   + [Improvements & New Features](/docs/cadence-migration-guide/improvements)
   + [NFT Cadence 1.0 Guide](/docs/cadence-migration-guide/nft-guide)
   + [FT Cadence 1.0 Guide](/docs/cadence-migration-guide/ft-guide)
@@ -29,15 +32,17 @@ Cadence 1.0 Improvements & New Features | Cadence
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
-
 * [Cadence 1.0 Migration Guide](/docs/cadence-migration-guide/)
 * Improvements & New Features
+
 On this page
+
 # Cadence 1.0 Improvements & New Features
 
 ## 💫 New features[​](#-new-features "Direct link to 💫 New features")
 
 View Functions added ([FLIP 1056](https://github.com/onflow/flips/blob/main/cadence/20220715-cadence-purity-analysis.md))
+
 #### 💡 Motivation[​](#-motivation "Direct link to 💡 Motivation")
 
 View functions enable developers to enhance the reliability and safety of their programs, facilitating a clearer understanding of the impacts of their own code and that of others.
@@ -68,13 +73,87 @@ You can adopt view functions by adding the `view` modifier to all functions th
 Before:
 The function `getCount` of a hypothetical NFT collection returns the number of NFTs in the collection.
 
- `_17access(all)_17resource Collection {_17_17 access(all)_17 var ownedNFTs: @{UInt64: NonFungibleToken.NFT}_17_17 init () {_17 self.ownedNFTs <- {}_17 }_17_17 access(all)_17 fun getCount(): Int {_17 returnself.ownedNFTs.length_17 }_17_17 /* ... rest of implementation ... */_17}`
+`_17
+
+access(all)
+
+_17
+
+resource Collection {
+
+_17
+
+_17
+
+access(all)
+
+_17
+
+var ownedNFTs: @{UInt64: NonFungibleToken.NFT}
+
+_17
+
+_17
+
+init () {
+
+_17
+
+self.ownedNFTs <- {}
+
+_17
+
+}
+
+_17
+
+_17
+
+access(all)
+
+_17
+
+fun getCount(): Int {
+
+_17
+
+returnself.ownedNFTs.length
+
+_17
+
+}
+
+_17
+
+_17
+
+/* ... rest of implementation ... */
+
+_17
+
+}`
 
 After:
 The function `getCount` does not perform any state changes, it only reads the length of the collection and returns it. Therefore it can be marked as `view.`
 
- `_10 access(all)_10 view fun getCount(): Int {_10// ^^^^ addedreturnself.ownedNFTs.length_10 }`
+`_10
+
+access(all)
+
+_10
+
+view fun getCount(): Int {
+
+_10
+
+// ^^^^ addedreturnself.ownedNFTs.length
+
+_10
+
+}`
+
 Interface Inheritance Added ([FLIP 40](https://github.com/onflow/flips/blob/main/cadence/20221024-interface-inheritance.md))
+
 #### 💡 Motivation[​](#-motivation-1 "Direct link to 💡 Motivation")
 
 Previously, interfaces could not inherit from other interfaces, which required developers to repeat code.
@@ -89,11 +168,85 @@ For example, suppose there are two resource interfaces `Receiver` and `Vault`
 Previously, there was no way to enforce this. Anyone who implements the `Vault` would have to explicitly specify that their concrete type also implements the `Receiver`. But it was not always guaranteed that all implementations would follow this informal agreement.
 With interface inheritance, the `Vault` interface can now inherit/conform to the `Receiver` interface.
 
- `_11access(all)_11resource interface Receiver {_11 access(all)_11 fun deposit(_ something:@AnyResource)_11}_11_11access(all)_11resource interface Vault: Receiver {_11 access(all)_11 fun withdraw(_ amount: Int):@Vault_11}`
+`_11
+
+access(all)
+
+_11
+
+resource interface Receiver {
+
+_11
+
+access(all)
+
+_11
+
+fun deposit(_ something:@AnyResource)
+
+_11
+
+}
+
+_11
+
+_11
+
+access(all)
+
+_11
+
+resource interface Vault: Receiver {
+
+_11
+
+access(all)
+
+_11
+
+fun withdraw(_ amount: Int):@Vault
+
+_11
+
+}`
 
 Thus, anyone implementing the `Vault` interface would also have to implement the `Receiver` interface as well.
 
- `_10access(all)_10resource MyVault: Vault {_10 // Required!_10 access(all)_10 fun withdraw(_ amount: Int):@Vault {}_10 // Required!_10 access(all)_10 fun deposit(_ something:@AnyResource) {}_10}`
+`_10
+
+access(all)
+
+_10
+
+resource MyVault: Vault {
+
+_10
+
+// Required!
+
+_10
+
+access(all)
+
+_10
+
+fun withdraw(_ amount: Int):@Vault {}
+
+_10
+
+// Required!
+
+_10
+
+access(all)
+
+_10
+
+fun deposit(_ something:@AnyResource) {}
+
+_10
+
+}`
 
 This feature was proposed in [FLIP 40](https://github.com/onflow/flips/blob/main/cadence/20221024-interface-inheritance.md). To learn more, please consult the FLIP and documentation.
 
@@ -133,6 +286,7 @@ This capability has the following properties:
 * Have a runtime type that is the same as the type requested in the type argument of `capabilities.get<T>`.
 
   
+
 #### 🔄 Adoption[​](#-adoption-1 "Direct link to 🔄 Adoption")
 
 If you have not updated your code to Cadence 1.0 yet, you will need to follow the same guidelines for updating to the Capability Controller API as you would have before, but will need to handle the new invalid capability type instead of an optional capability.
@@ -143,11 +297,40 @@ If you have already updated your code to use `capabilities.get<T>`, and are hand
 
 **Before:**
 
- `_10let capability = account.capabilities.get<&MyNFT.Collection>(/public/NFTCollection)_10if capability == nil {_10 // Handle the case where the capability is nil_10}`
+`_10
+
+let capability = account.capabilities.get<&MyNFT.Collection>(/public/NFTCollection)
+
+_10
+
+if capability == nil {
+
+_10
+
+// Handle the case where the capability is nil
+
+_10
+
+}`
 
 **After:**
 
- `_10let capability = account.capabilities.get<&MyNFT.Collection>(/public/NFTCollection)_10if !capability.check() {_10 // Handle the case where the capability is invalid_10}`
+`_10
+
+let capability = account.capabilities.get<&MyNFT.Collection>(/public/NFTCollection)
+
+_10
+
+if !capability.check() {
+
+_10
+
+// Handle the case where the capability is invalid
+
+_10
+
+}`
+
 **2024-04-23** Matching Access Modifiers for Interface Implementation Members are now Required ([FLIP 262](https://github.com/onflow/flips/blob/main/cadence/20240415-remove-non-public-entitled-interface-members.md))
 
 **Note** This is a recent change that may not be reflected in emulated migrations or all tools yet. Likewise, this may affect existing staged contracts which do not conform to this new requirement. Please ensure your contracts are updated and re-staged, if necessary, to match this new requirement.
@@ -178,12 +361,94 @@ Update the access modifiers of members in composite types that conform to / impl
 
 **Before:**
 
- `_11access(all)_11resource interface I {_11 access(account)_11 fun foo()_11}_11_11access(all)_11resource R: I {_11 access(all)_11 fun foo() {}_11}`
+`_11
+
+access(all)
+
+_11
+
+resource interface I {
+
+_11
+
+access(account)
+
+_11
+
+fun foo()
+
+_11
+
+}
+
+_11
+
+_11
+
+access(all)
+
+_11
+
+resource R: I {
+
+_11
+
+access(all)
+
+_11
+
+fun foo() {}
+
+_11
+
+}`
 
 **After:**
 
- `_11access(all)_11resource interface I {_11 access(account)_11 fun foo()_11}_11_11access(all)_11resource R: I {_11 access(account)_11 fun foo() {}_11}`
+`_11
+
+access(all)
+
+_11
+
+resource interface I {
+
+_11
+
+access(account)
+
+_11
+
+fun foo()
+
+_11
+
+}
+
+_11
+
+_11
+
+access(all)
+
+_11
+
+resource R: I {
+
+_11
+
+access(account)
+
+_11
+
+fun foo() {}
+
+_11
+
+}`
+
 Conditions No Longer Allow State Changes ([FLIP 1056](https://github.com/onflow/flips/blob/main/cadence/20220715-cadence-purity-analysis.md))
+
 #### 💡 Motivation[​](#-motivation-4 "Direct link to 💡 Motivation")
 
 In the current version of Cadence, pre-conditions and post-conditions may perform state changes, e.g. by calling a function that performs a mutation. This may result in unexpected behavior, which might lead to bugs.
@@ -213,7 +478,59 @@ The condition may be considered mutating, because it calls a mutating, i.e. non-
 
 The function `withdraw` of a hypothetical NFT collection interface allows the withdrawal of an NFT with a specific ID. In its post-condition, the function states that at the end of the function, the collection should have exactly one fewer item than at the beginning of the function.
 
- `_15access(all)_15resource interface Collection {_15_15 access(all)_15 fun getCount(): Int_15_15 access(all)_15 fun withdraw(id: UInt64):@NFT {_15 post {_15 getCount() == before(getCount()) - 1_15 }_15 }_15_15 /* ... rest of interface ... */_15}`
+`_15
+
+access(all)
+
+_15
+
+resource interface Collection {
+
+_15
+
+_15
+
+access(all)
+
+_15
+
+fun getCount(): Int
+
+_15
+
+_15
+
+access(all)
+
+_15
+
+fun withdraw(id: UInt64):@NFT {
+
+_15
+
+post {
+
+_15
+
+getCount() == before(getCount()) - 1
+
+_15
+
+}
+
+_15
+
+}
+
+_15
+
+_15
+
+/* ... rest of interface ... */
+
+_15
+
+}`
 
 **After:**
 
@@ -221,8 +538,20 @@ The calls to `getCount` in the post-condition are not allowed and result in th
 
 Here, as the `getCount` function only performs a read-only operation and does not change any state, it can be marked as `view`.
 
- `_10 access(all)_10 view fun getCount(): Int_10// ^^^^`
+`_10
+
+access(all)
+
+_10
+
+view fun getCount(): Int
+
+_10
+
+// ^^^^`
+
 Missing or Incorrect Argument Labels Get Reported
+
 #### 💡 Motivation[​](#-motivation-5 "Direct link to 💡 Motivation")
 
 Previously, missing or incorrect argument labels of function calls were not reported. This had the potential to confuse developers or readers of programs, and could potentially lead to bugs.
@@ -240,7 +569,69 @@ Function calls with missing argument labels are now reported with the error mess
 
 Contract `TestContract` deployed at address `0x1`:
 
- `_18access(all)_18contract TestContract {_18_18 access(all)_18 structTestStruct {_18_18 access(all)_18 let a: Int_18_18 access(all)_18 let b: String_18_18 init(first: Int, second: String) {_18 self.a = first_18 self.b = second_18 }_18 }_18}`
+`_18
+
+access(all)
+
+_18
+
+contract TestContract {
+
+_18
+
+_18
+
+access(all)
+
+_18
+
+structTestStruct {
+
+_18
+
+_18
+
+access(all)
+
+_18
+
+let a: Int
+
+_18
+
+_18
+
+access(all)
+
+_18
+
+let b: String
+
+_18
+
+_18
+
+init(first: Int, second: String) {
+
+_18
+
+self.a = first
+
+_18
+
+self.b = second
+
+_18
+
+}
+
+_18
+
+}
+
+_18
+
+}`
 
 **Incorrect program**:
 
@@ -248,20 +639,108 @@ The initializer of `TestContract.TestStruct` expects the argument labels `fir
 
 However, the call of the initializer provides the incorrect argument label `wrong` for the first argument, and is missing the label for the second argument.
 
- `_10// Script_10import TestContract from 0x1_10_10access(all)_10fun main() {_10 TestContract.TestStruct(wrong: 123, "abc")_10}`
+`_10
+
+// Script
+
+_10
+
+import TestContract from 0x1
+
+_10
+
+_10
+
+access(all)
+
+_10
+
+fun main() {
+
+_10
+
+TestContract.TestStruct(wrong: 123, "abc")
+
+_10
+
+}`
 
 This now results in the following errors:
 
- `_11error: incorrect argument label_11 --> script:4:34_11 |_11 4 | TestContract.TestStruct(wrong: 123, "abc")_11 | ^^^^^ expected `first`, got `wrong`_11_11error: missing argument label: `second`_11 --> script:4:46_11 |_11 4 | TestContract.TestStruct(wrong: 123, "abc")_11 | ^^^^^`
+`_11
+
+error: incorrect argument label
+
+_11
+
+--> script:4:34
+
+_11
+
+|
+
+_11
+
+4 | TestContract.TestStruct(wrong: 123, "abc")
+
+_11
+
+| ^^^^^ expected `first`, got `wrong`
+
+_11
+
+_11
+
+error: missing argument label: `second`
+
+_11
+
+--> script:4:46
+
+_11
+
+|
+
+_11
+
+4 | TestContract.TestStruct(wrong: 123, "abc")
+
+_11
+
+| ^^^^^`
 
 **Corrected program**:
 
- `_10// Script_10import TestContract from 0x1_10_10access(all)_10fun main() {_10 TestContract.TestStruct(first: 123, second: "abc")_10}`
+`_10
+
+// Script
+
+_10
+
+import TestContract from 0x1
+
+_10
+
+_10
+
+access(all)
+
+_10
+
+fun main() {
+
+_10
+
+TestContract.TestStruct(first: 123, second: "abc")
+
+_10
+
+}`
 
 We would like to thank community member @justjoolz for reporting this bug.
 
-
 Incorrect Operators In Reference Expressions Get Reported ([FLIP 941](https://github.com/onflow/flips/blob/main/cadence/20220516-reference-creation-semantics.md))
+
 #### 💡 Motivation[​](#-motivation-6 "Direct link to 💡 Motivation")
 
 Previously, incorrect operators in reference expressions were not reported.
@@ -292,25 +771,65 @@ In cases where the type is already explicit, the static type assertion (`as &T`)
 **Incorrect program**:
 The reference expression uses the incorrect operator `as!`.
 
- `_10let number = 1_10let ref = &number as! &Int`
+`_10
+
+let number = 1
+
+_10
+
+let ref = &number as! &Int`
 
 This now results in the following error:
 
- `_10error: cannot infer type from reference expression: requires an explicit type annotation_10 --> test:3:17_10 |_103 |let ref = &number as! &Int_10 | ^`
+`_10
+
+error: cannot infer type from reference expression: requires an explicit type annotation
+
+_10
+
+--> test:3:17
+
+_10
+
+|
+
+_10
+
+3 |let ref = &number as! &Int
+
+_10
+
+| ^`
 
 **Corrected program**:
 
- `_10let number = 1_10let ref = &number as &Int`
+`_10
+
+let number = 1
+
+_10
+
+let ref = &number as &Int`
 
 Alternatively, the same code can now also be written as follows:
 
- `_10let number = 1_10let ref: &Int = &number`
+`_10
+
+let number = 1
+
+_10
+
+let ref: &Int = &number`
+
 Tightening Of Naming Rules
+
 #### 💡 Motivation[​](#-motivation-7 "Direct link to 💡 Motivation")
 
 Previously, Cadence allowed language keywords (e.g. `continue`, `for`, etc.) to be used as names. For example, the following program was allowed:
 
- `_10fun continue(import: Int, break: String) { ... }`
+`_10
+
+fun continue(import: Int, break: String) { ... }`
 
 This had the potential to confuse developers or readers of programs, and could potentially lead to bugs.
 
@@ -325,7 +844,14 @@ Some keywords are still allowed to be used as names, as they have limited signif
 * `view`: used as modifier for function declarations and expressions `view fun foo()...`, let `f = view fun () ...`
   Any other keywords will raise an error during parsing, such as:
 
- `_10let break: Int = 0_10// ^ error: expected identifier after start of variable declaration, got keyword break`
+`_10
+
+let break: Int = 0
+
+_10
+
+// ^ error: expected identifier after start of variable declaration, got keyword break`
+
 #### 🔄 Adoption[​](#-adoption-6 "Direct link to 🔄 Adoption")
 
 Names which use language keywords must be renamed.
@@ -335,13 +861,23 @@ Names which use language keywords must be renamed.
 **Before:**
 A variable is named after a language keyword.
 
- `_10let contract = signer.borrow<&MyContract>(name: "MyContract")_10// ^ error: expected identifier after start of variable declaration, got keyword contract`
+`_10
+
+let contract = signer.borrow<&MyContract>(name: "MyContract")
+
+_10
+
+// ^ error: expected identifier after start of variable declaration, got keyword contract`
 
 **After:**
 The variable is renamed to avoid the clash with the language keyword.
 
- `_10let myContract = signer.borrow<&MyContract>(name: "MyContract")`
+`_10
+
+let myContract = signer.borrow<&MyContract>(name: "MyContract")`
+
 Result of `toBigEndianBytes()` for `U?Int(128|256)` Fixed
+
 #### 💡 Motivation[​](#-motivation-8 "Direct link to 💡 Motivation")
 
 Previously, the implementation of `.toBigEndianBytes()` was incorrect for the large integer types `Int128`, `Int256`, `UInt128`, and `UInt256`.
@@ -358,15 +894,50 @@ To fix this inconsistency, `Int128` and `UInt128` now always return arrays o
 
 #### ✨ Example[​](#-example-7 "Direct link to ✨ Example")
 
- `_10let someNum: UInt128 = 123456789_10let someBytes: [UInt8] = someNum.toBigEndianBytes()_10// OLD behavior;_10// someBytes = [7, 91, 205, 21]_10// NEW behavior:_10// someBytes = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 91, 205, 21]`
+`_10
+
+let someNum: UInt128 = 123456789
+
+_10
+
+let someBytes: [UInt8] = someNum.toBigEndianBytes()
+
+_10
+
+// OLD behavior;
+
+_10
+
+// someBytes = [7, 91, 205, 21]
+
+_10
+
+// NEW behavior:
+
+_10
+
+// someBytes = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 91, 205, 21]`
+
 #### 🔄 Adoption[​](#-adoption-7 "Direct link to 🔄 Adoption")
 
 Programs that use `toBigEndianBytes` directly, or indirectly by depending on other programs, should be checked for how the result of the function is used. It might be necessary to adjust the code to restore existing behavior.
 
 If a program relied on the previous behavior of truncating the leading zeros, then the old behavior can be recovered by first converting to a variable-length type, `Int` or `UInt`, as the `toBigEndianBytes` function retains the variable-length byte representations, i.e. the result has no padding bytes.
 
- `_10let someNum: UInt128 = 123456789_10let someBytes: [UInt8] = UInt(someNum).toBigEndianBytes()_10// someBytes = [7, 91, 205, 21]`
+`_10
+
+let someNum: UInt128 = 123456789
+
+_10
+
+let someBytes: [UInt8] = UInt(someNum).toBigEndianBytes()
+
+_10
+
+// someBytes = [7, 91, 205, 21]`
+
 Syntax for Function Types Improved ([FLIP 43](https://github.com/onflow/flips/blob/main/cadence/20221018-change-fun-type-syntax.md))
+
 #### 💡 Motivation[​](#-motivation-9 "Direct link to 💡 Motivation")
 
 Previously, function types were expressed using a different syntax from function declarations or expressions. The previous syntax was unintuitive for developers, making it hard to write and read code that used function types.
@@ -377,20 +948,92 @@ Function types are now expressed using the `fun` keyword, just like expression
 
 For example, given the following function declaration:
 
- `_10fun foo(n: Int8, s: String): Int16 { /* ... */ }`
+`_10
+
+fun foo(n: Int8, s: String): Int16 { /* ... */ }`
 
 The function `foo` now has the type `fun(Int8, String): Int16`.
 The `:` token is right-associative, so functions that return other functions can have their types written without nested parentheses:
 
- `_10fun curriedAdd(_ x: Int): fun(Int): Int {_10 return fun(_ y: Int): Int {_10 return x+ y_10 }_10}_10// function `curriedAdd` has the type `fun(Int): fun(Int): Int``
+`_10
+
+fun curriedAdd(_ x: Int): fun(Int): Int {
+
+_10
+
+return fun(_ y: Int): Int {
+
+_10
+
+return x+ y
+
+_10
+
+}
+
+_10
+
+}
+
+_10
+
+// function `curriedAdd` has the type `fun(Int): fun(Int): Int``
 
 To further bring the syntax for function types closer to the syntax of function declarations expressions, it is now possible to omit the return type, in which case the return type defaults to `Void`.
 
- `_10fun logTwice(_ value: AnyStruct) {// Return type is implicitly `Void`_10 log(value)_10 log(value)_10}_10_10// The function types of these variables are equivalent_10let logTwice1: fun(AnyStruct): Void = logTwice_10let logTwice2: fun(AnyStruct) = logTwice`
+`_10
+
+fun logTwice(_ value: AnyStruct) {// Return type is implicitly `Void`
+
+_10
+
+log(value)
+
+_10
+
+log(value)
+
+_10
+
+}
+
+_10
+
+_10
+
+// The function types of these variables are equivalent
+
+_10
+
+let logTwice1: fun(AnyStruct): Void = logTwice
+
+_10
+
+let logTwice2: fun(AnyStruct) = logTwice`
 
 As a bonus consequence, it is now allowed for any type to be parenthesized. This is useful for complex type signatures, or for expressing optional functions:
 
- `_10// A function that returns an optional Int16_10let optFun1: fun (Int8): Int16? =_10 fun (_: Int8): Int? { return nil }_10_10// An optional function that returns an Int16_10let optFun2: (fun (Int8): Int16)? = nil`
+`_10
+
+// A function that returns an optional Int16
+
+_10
+
+let optFun1: fun (Int8): Int16? =
+
+_10
+
+fun (_: Int8): Int? { return nil }
+
+_10
+
+_10
+
+// An optional function that returns an Int16
+
+_10
+
+let optFun2: (fun (Int8): Int16)? = nil`
 
 This improvement was proposed in [FLIP 43](https://github.com/onflow/flips/blob/main/cadence/20221018-change-fun-type-syntax.md).
 
@@ -400,12 +1043,26 @@ Programs that use the old function type syntax need to be updated by replacing t
 
 **Before:**
 
- `_10let baz: ((Int8, String): Int16) = foo_10 // ^ ^_10 // surrounding parentheses of function type`
+`_10
+
+let baz: ((Int8, String): Int16) = foo
+
+_10
+
+// ^ ^
+
+_10
+
+// surrounding parentheses of function type`
 
 **After:**
 
- `_10let baz: fun (Int8, String): Int16 = foo`
+`_10
+
+let baz: fun (Int8, String): Int16 = foo`
+
 Entitlements and Safe Down-casting ([FLIP 54](https://github.com/onflow/flips/blob/main/cadence/20221214-auth-remodel.md) & [FLIP 94](https://github.com/onflow/flips/blob/main/cadence/20230623-entitlement-improvements.md))
+
 #### 💡 Motivation[​](#-motivation-10 "Direct link to 💡 Motivation")
 
 Previously, Cadence’s main access-control mechanism, restricted reference types, has been a source of confusion and mistakes for contract developers.
@@ -432,7 +1089,19 @@ Members can be made to require entitlements using the access modifier syntax `a
 
 For example:
 
- `_10entitlement Withdraw_10_10access(Withdraw)_10fun withdraw(amount: UFix64): @Vault`
+`_10
+
+entitlement Withdraw
+
+_10
+
+_10
+
+access(Withdraw)
+
+_10
+
+fun withdraw(amount: UFix64): @Vault`
 
 References can now always be down-casted, the standalone `auth` modifier is not necessary anymore, and got removed.
 
@@ -453,19 +1122,195 @@ When creating a `Capability` or a reference to a value, **it must be carefully
 **Before:**
 The `Vault` resource was originally written like so:
 
- `_23access(all)_23resource interface Provider {_23 access(all)_23 funwithdraw(amount:UFix64): @Vault {_23 // ..._23 }_23}_23_23access(all)_23resource Vault: Provider, Receiver, Balance {_23 access(all)_23 fun withdraw(amount:UFix64): @Vault {_23 // ..._23 }_23_23 access(all)_23 fun deposit(from: @Vault) {_23 // ..._23 }_23_23 access(all)_23 var balance: UFix64_23}`
+`_23
+
+access(all)
+
+_23
+
+resource interface Provider {
+
+_23
+
+access(all)
+
+_23
+
+funwithdraw(amount:UFix64): @Vault {
+
+_23
+
+// ...
+
+_23
+
+}
+
+_23
+
+}
+
+_23
+
+_23
+
+access(all)
+
+_23
+
+resource Vault: Provider, Receiver, Balance {
+
+_23
+
+access(all)
+
+_23
+
+fun withdraw(amount:UFix64): @Vault {
+
+_23
+
+// ...
+
+_23
+
+}
+
+_23
+
+_23
+
+access(all)
+
+_23
+
+fun deposit(from: @Vault) {
+
+_23
+
+// ...
+
+_23
+
+}
+
+_23
+
+_23
+
+access(all)
+
+_23
+
+var balance: UFix64
+
+_23
+
+}`
 
 **After:**
 The `Vault` resource might now be written like this:
 
- `_26access(all) entitlement Withdraw_26_26access(all)_26resource interface Provider {_26 access(Withdraw)_26 funwithdraw(amount:UFix64): @Vault {_26 // ..._26 }_26}_26_26access(all)_26resource Vault: Provider, Receiver, Balance {_26_26 access(Withdraw)// withdrawal requires permission_26 fun withdraw(amount:UFix64): @Vault {_26 // ..._26 }_26_26 access(all)_26 fun deposit(from: @Vault) {_26 // ..._26 }_26_26 access(all)_26 var balance: UFix64_26}`
+`_26
+
+access(all) entitlement Withdraw
+
+_26
+
+_26
+
+access(all)
+
+_26
+
+resource interface Provider {
+
+_26
+
+access(Withdraw)
+
+_26
+
+funwithdraw(amount:UFix64): @Vault {
+
+_26
+
+// ...
+
+_26
+
+}
+
+_26
+
+}
+
+_26
+
+_26
+
+access(all)
+
+_26
+
+resource Vault: Provider, Receiver, Balance {
+
+_26
+
+_26
+
+access(Withdraw)// withdrawal requires permission
+
+_26
+
+fun withdraw(amount:UFix64): @Vault {
+
+_26
+
+// ...
+
+_26
+
+}
+
+_26
+
+_26
+
+access(all)
+
+_26
+
+fun deposit(from: @Vault) {
+
+_26
+
+// ...
+
+_26
+
+}
+
+_26
+
+_26
+
+access(all)
+
+_26
+
+var balance: UFix64
+
+_26
+
+}`
 
 Here, the `access(Withdraw)` syntax means that a reference to `Vault` must possess the `Withdraw` entitlement in order to be allowed to call the `withdraw` function, which can be given when a reference or `Capability` is created by using a new syntax: `auth(Withdraw) &Vault`.
 
 This would allow developers to safely downcast `&{Provider}` references to `&Vault` references if they want to access functions like `deposit` and `balance`, without enabling them to call `withdraw`.
 
-
 Removal of `pub` and `priv` Access Modifiers ([FLIP 84](https://github.com/onflow/flips/blob/main/cadence/20230505-remove-priv-and-pub.md))
+
 #### 💡 Motivation[​](#-motivation-11 "Direct link to 💡 Motivation")
 
 With the previously mentioned entitlements feature, which uses `access(E)` syntax to denote entitled access, the `pub`, `priv` and `pub(set)` modifiers became the only access modifiers that did not use the `access` syntax.
@@ -493,13 +1338,103 @@ Fields that were defined as `pub(set)` will no longer be publicly assignable, 
 **Before:**
 Types and members could be declared with `pub` and `priv`:
 
- `_10pub resource interface Collection {_10 pub fun getCount(): Int_10_10 priv fun myPrivateFunction()_10_10 pub(set) let settableInt: Int_10_10 /* ... rest of interface ... */_10}`
+`_10
+
+pub resource interface Collection {
+
+_10
+
+pub fun getCount(): Int
+
+_10
+
+_10
+
+priv fun myPrivateFunction()
+
+_10
+
+_10
+
+pub(set) let settableInt: Int
+
+_10
+
+_10
+
+/* ... rest of interface ... */
+
+_10
+
+}`
 
 **After:**
 The same behavior can be achieved with `access(all)` and `access(self)`
 
- `_18access(all)_18resource interface Collection {_18_18 access(all)_18 fun getCount(): Int_18_18 access(self)_18 fun myPrivateFunction()_18_18 access(all)_18 let settableInt: Int_18_18 // Add a public setter method, replacing pub(set)_18 access(all)_18 fun setIntValue(_ i:Int): Int_18_18 /* ... rest of interface ... */_18}`
+`_18
+
+access(all)
+
+_18
+
+resource interface Collection {
+
+_18
+
+_18
+
+access(all)
+
+_18
+
+fun getCount(): Int
+
+_18
+
+_18
+
+access(self)
+
+_18
+
+fun myPrivateFunction()
+
+_18
+
+_18
+
+access(all)
+
+_18
+
+let settableInt: Int
+
+_18
+
+_18
+
+// Add a public setter method, replacing pub(set)
+
+_18
+
+access(all)
+
+_18
+
+fun setIntValue(_ i:Int): Int
+
+_18
+
+_18
+
+/* ... rest of interface ... */
+
+_18
+
+}`
+
 Replacement of Restricted Types with Intersection Types ([FLIP 85](https://github.com/onflow/flips/blob/main/cadence/20230505-remove-restricted-types.md))
+
 #### 💡 Motivation[​](#-motivation-12 "Direct link to 💡 Motivation")
 
 With the improvements to access control enabled by entitlements and safe down-casting, the restricted type feature is redundant.
@@ -524,17 +1459,255 @@ Code that uses `AnyStruct` or `AnyResource` explicitly as the restricted typ
 
 This function accepted a reference to a `T` value, but restricted what functions were allowed to be called on it to those defined on the `X`, `Y`, and `Z` interfaces.
 
- `_32access(all)_32resource interface X {_32 access(all)_32 fun foo()_32}_32_32access(all)_32resource interface Y {_32 access(all)_32 fun bar()_32}_32_32access(all)_32resource interface Z {_32 access(all)_32 fun baz()_32}_32_32access(all)_32resource T: X, Y, Z {_32 // implement interfaces_32 access(all)_32 fun qux() {_32 // ..._32 }_32}_32_32access(all)_32fun exampleFun(param: &T{X, Y, Z}) {_32 // `param` cannot call `qux` here, because it is restricted to_32 // `X`, `Y` and `Z`._32}`
+`_32
+
+access(all)
+
+_32
+
+resource interface X {
+
+_32
+
+access(all)
+
+_32
+
+fun foo()
+
+_32
+
+}
+
+_32
+
+_32
+
+access(all)
+
+_32
+
+resource interface Y {
+
+_32
+
+access(all)
+
+_32
+
+fun bar()
+
+_32
+
+}
+
+_32
+
+_32
+
+access(all)
+
+_32
+
+resource interface Z {
+
+_32
+
+access(all)
+
+_32
+
+fun baz()
+
+_32
+
+}
+
+_32
+
+_32
+
+access(all)
+
+_32
+
+resource T: X, Y, Z {
+
+_32
+
+// implement interfaces
+
+_32
+
+access(all)
+
+_32
+
+fun qux() {
+
+_32
+
+// ...
+
+_32
+
+}
+
+_32
+
+}
+
+_32
+
+_32
+
+access(all)
+
+_32
+
+fun exampleFun(param: &T{X, Y, Z}) {
+
+_32
+
+// `param` cannot call `qux` here, because it is restricted to
+
+_32
+
+// `X`, `Y` and `Z`.
+
+_32
+
+}`
 
 **After:**
 This function can be safely rewritten as:
 
- `_33access(all)_33resource interface X {_33 access(all)_33 fun foo()_33}_33_33access(all)_33resource interface Y {_33 access(all)_33 fun bar()_33}_33_33resource interface Z {_33 access(all)_33 fun baz()_33}_33_33access(all)_33entitlement Q_33_33access(all)_33resource T: X, Y, Z {_33 // implement interfaces_33 access(Q)_33 fun qux() {_33 // ..._33 }_33}_33_33access(all)_33fun exampleFun(param: &T) {_33 // `param` still cannot call `qux` here, because it lacks entitlement `Q`_33}`
+`_33
+
+access(all)
+
+_33
+
+resource interface X {
+
+_33
+
+access(all)
+
+_33
+
+fun foo()
+
+_33
+
+}
+
+_33
+
+_33
+
+access(all)
+
+_33
+
+resource interface Y {
+
+_33
+
+access(all)
+
+_33
+
+fun bar()
+
+_33
+
+}
+
+_33
+
+_33
+
+resource interface Z {
+
+_33
+
+access(all)
+
+_33
+
+fun baz()
+
+_33
+
+}
+
+_33
+
+_33
+
+access(all)
+
+_33
+
+entitlement Q
+
+_33
+
+_33
+
+access(all)
+
+_33
+
+resource T: X, Y, Z {
+
+_33
+
+// implement interfaces
+
+_33
+
+access(Q)
+
+_33
+
+fun qux() {
+
+_33
+
+// ...
+
+_33
+
+}
+
+_33
+
+}
+
+_33
+
+_33
+
+access(all)
+
+_33
+
+fun exampleFun(param: &T) {
+
+_33
+
+// `param` still cannot call `qux` here, because it lacks entitlement `Q`
+
+_33
+
+}`
 
 Any functions on `T` that the author of `T` does not want users to be able to call publicly should be defined with entitlements, and thus will not be accessible to the unauthorized `param` reference, like with `qux` above.
 
-
 Account Access Got Improved ([FLIP 92](https://github.com/onflow/flips/blob/main/cadence/20230525-account-type.md))
+
 #### 💡 Motivation[​](#-motivation-13 "Direct link to 💡 Motivation")
 
 Previously, access to accounts was granted wholesale: Users would sign a transaction, authorizing the code of the transaction to perform any kind of operation, for example, write to storage, but also add keys or contracts.
@@ -571,18 +1744,82 @@ For example, if the `save` function of `AuthAccount` was used before, the fu
 
 The transactions wants to save a value to storage. It must request access to the whole account, even though it does not need access beyond writing to storage.
 
- `_10transaction {_10 prepare(signer: AuthAccount) {_10 signer.save("Test", to: /storage/test)_10 }_10}`
+`_10
+
+transaction {
+
+_10
+
+prepare(signer: AuthAccount) {
+
+_10
+
+signer.save("Test", to: /storage/test)
+
+_10
+
+}
+
+_10
+
+}`
 
 **After:**
 
 The transaction requests the fine-grained account entitlement `SaveValue`, which allows the transaction to call the `save` function.
 
- `_10transaction {_10 prepare(signer: auth(SaveValue)&Account) {_10 signer.storage.save("Test", to: /storage/test)_10 }_10}`
+`_10
+
+transaction {
+
+_10
+
+prepare(signer: auth(SaveValue)&Account) {
+
+_10
+
+signer.storage.save("Test", to: /storage/test)
+
+_10
+
+}
+
+_10
+
+}`
 
 If the transaction attempts to perform other operations, such as adding a new key, it is rejected:
 
- `_10transaction {_10 prepare(signer: auth(SaveValue)&Account) {_10 signer.storage.save("Test", to: /storage/test)_10 signer.keys.add(/* ... */)_10 // ^^^ Error: Cannot call function, requires `AddKey` or `Keys` entitlement_10 }_10}`
+`_10
+
+transaction {
+
+_10
+
+prepare(signer: auth(SaveValue)&Account) {
+
+_10
+
+signer.storage.save("Test", to: /storage/test)
+
+_10
+
+signer.keys.add(/* ... */)
+
+_10
+
+// ^^^ Error: Cannot call function, requires `AddKey` or `Keys` entitlement
+
+_10
+
+}
+
+_10
+
+}`
+
 Deprecated Key Management API Got Removed
+
 #### 💡 Motivation[​](#-motivation-14 "Direct link to 💡 Motivation")
 
 Cadence provides two key management APIs:
@@ -612,12 +1849,78 @@ To learn more, please refer to the [documentation](https://developers.flow.com/
 
 **Before:**
 
- `_10transaction(encodedPublicKey: [UInt8]) {_10 prepare(signer: AuthAccount) {_10 signer.addPublicKey(encodedPublicKey)_10 }_10}`
+`_10
+
+transaction(encodedPublicKey: [UInt8]) {
+
+_10
+
+prepare(signer: AuthAccount) {
+
+_10
+
+signer.addPublicKey(encodedPublicKey)
+
+_10
+
+}
+
+_10
+
+}`
 
 **After:**
 
- `_12transaction(publicKey: [UInt8]) {_12 prepare(signer: auth(Keys) &Account) {_12 signer.keys.add(_12 publicKey: PublicKey(_12 publicKey: publicKey,_12 signatureAlgorithm: SignatureAlgorithm.ECDSA_P256_12 ),_12 hashAlgorithm: HashAlgorithm.SHA3_256,_12 weight: 100.0_12 )_12 }_12}`
+`_12
+
+transaction(publicKey: [UInt8]) {
+
+_12
+
+prepare(signer: auth(Keys) &Account) {
+
+_12
+
+signer.keys.add(
+
+_12
+
+publicKey: PublicKey(
+
+_12
+
+publicKey: publicKey,
+
+_12
+
+signatureAlgorithm: SignatureAlgorithm.ECDSA_P256
+
+_12
+
+),
+
+_12
+
+hashAlgorithm: HashAlgorithm.SHA3_256,
+
+_12
+
+weight: 100.0
+
+_12
+
+)
+
+_12
+
+}
+
+_12
+
+}`
+
 Resource Tracking for Optional Bindings Improved
+
 #### 💡 Motivation[​](#-motivation-15 "Direct link to 💡 Motivation")
 
 Previously, resource tracking for optional bindings (”if-let statements”) was implemented incorrectly, leading to errors for valid code.
@@ -629,7 +1932,51 @@ Resource tracking for optional bindings (”if-let statements”) was fixed.
 
 For example, the following program used to be invalid, reporting a resource loss error for `optR`:
 
- `_12resource R {}_12fun asOpt(_ r: @R): @R? {_12 return <-r_12}_12_12fun test() {_12 let r <- create R()_12 let optR <- asOpt(<-r)_12 if let r2 <- optR {_12 destroy r2_12 }_12}`
+`_12
+
+resource R {}
+
+_12
+
+fun asOpt(_ r: @R): @R? {
+
+_12
+
+return <-r
+
+_12
+
+}
+
+_12
+
+_12
+
+fun test() {
+
+_12
+
+let r <- create R()
+
+_12
+
+let optR <- asOpt(<-r)
+
+_12
+
+if let r2 <- optR {
+
+_12
+
+destroy r2
+
+_12
+
+}
+
+_12
+
+}`
 
 This program is now considered valid.
 
@@ -639,12 +1986,50 @@ New programs do not need workarounds anymore, and can be written naturally.
 
 Programs that previously resolved the incorrect resource loss error with a workaround, for example by invalidating the resource also in the else-branch or after the if-statement, are now invalid:
 
- `_10fun test() {_10 let r <- createR()_10 let optR <-asOpt(<-r)_10 if let r2 <- optR {_10 destroy r2_10 } else {_10 destroy optR_10 // unnecessary, but added to avoid error_10 }_10}`
+`_10
+
+fun test() {
+
+_10
+
+let r <- createR()
+
+_10
+
+let optR <-asOpt(<-r)
+
+_10
+
+if let r2 <- optR {
+
+_10
+
+destroy r2
+
+_10
+
+} else {
+
+_10
+
+destroy optR
+
+_10
+
+// unnecessary, but added to avoid error
+
+_10
+
+}
+
+_10
+
+}`
 
 The unnecessary workaround needs to be removed.
 
-
 Definite Return Analysis Got Improved
+
 #### 💡 Motivation[​](#-motivation-16 "Direct link to 💡 Motivation")
 
 Definite return analysis determines if a function always exits, in all possible execution paths, e.g. through a `return` statement, or by calling a function that never returns, like `panic`.
@@ -657,7 +2042,39 @@ The definite return analysis got significantly improved.
 
 This means that the following program is now accepted: both branches of the if-statement exit, one using a `return` statement, the other using a function that never returns, `panic`:
 
- `_10resource R {}_10_10fun mint(id: UInt64):@R {_10 if id > 100 {_10 return <- create R()_10 } else {_10 panic("bad id")_10 }_10}`
+`_10
+
+resource R {}
+
+_10
+
+_10
+
+fun mint(id: UInt64):@R {
+
+_10
+
+if id > 100 {
+
+_10
+
+return <- create R()
+
+_10
+
+} else {
+
+_10
+
+panic("bad id")
+
+_10
+
+}
+
+_10
+
+}`
 
 The program above was previously rejected with a “missing return statement” error – even though we can convince ourselves that the function will exit in both branches of the if-statement, and that any code after the if-statement is unreachable, the type checker was not able to detect that – it now does.
 
@@ -666,16 +2083,80 @@ The program above was previously rejected with a “missing return statement” 
 New programs do not need workarounds anymore, and can be written naturally.
 Programs that previously resolved the incorrect error with a workaround, for example by adding an additional exit at the end of the function, are now invalid:
 
- `_12resource R {}_12_12fun mint(id: UInt64):@R {_12 if id > 100 {_12 return <- create R()_12 } else {_12 panic("bad id")_12 }_12_12 // unnecessary, but added to avoid error_12 panic("unreachable")_12}`
+`_12
+
+resource R {}
+
+_12
+
+_12
+
+fun mint(id: UInt64):@R {
+
+_12
+
+if id > 100 {
+
+_12
+
+return <- create R()
+
+_12
+
+} else {
+
+_12
+
+panic("bad id")
+
+_12
+
+}
+
+_12
+
+_12
+
+// unnecessary, but added to avoid error
+
+_12
+
+panic("unreachable")
+
+_12
+
+}`
 
 The improved type checker now detects and reports the unreachable code after the if-statement as an error:
 
- `_10error: unreachable statement_10--> test.cdc:12:4_10 |_1012| panic("unreachable")_10 | ^^^^^^^^^^^^^^^^^^^^_10exit status 1`
+`_10
+
+error: unreachable statement
+
+_10
+
+--> test.cdc:12:4
+
+_10
+
+|
+
+_10
+
+12| panic("unreachable")
+
+_10
+
+| ^^^^^^^^^^^^^^^^^^^^
+
+_10
+
+exit status 1`
 
 To make the code valid, simply remove the unreachable code.
 
-
 Semantics for Variables in For-Loop Statements Got Improved ([FLIP 13](https://github.com/onflow/flips/blob/main/cadence/20221011-for-loop-semantics.md))
+
 #### 💡 Motivation[​](#-motivation-17 "Direct link to 💡 Motivation")
 
 Previously, the iteration variable of `for-in` loops was re-assigned on each iteration.
@@ -696,8 +2177,62 @@ This improvement was proposed in [FLIP 13](https://github.com/onflow/flips/blob
 
 Previously, `values` would result in `[3, 3, 3]`, which might be surprising and unexpected. This is because `x` was *reassigned* the current array element on each iteration, leading to each function in `fs` returning the last element of the array.
 
- `_14// Capture the values of the array [1, 2, 3]_14let fs: [((): Int)] = []_14for x in [1, 2, 3] {_14 // Create a list of functions that return the array value_14 fs.append(fun (): Int {_14 return x_14 })_14}_14_14// Evaluate each function and gather all array values_14let values: [Int] = []_14for f in fs {_14 values.append(f())_14}`
+`_14
+
+// Capture the values of the array [1, 2, 3]
+
+_14
+
+let fs: [((): Int)] = []
+
+_14
+
+for x in [1, 2, 3] {
+
+_14
+
+// Create a list of functions that return the array value
+
+_14
+
+fs.append(fun (): Int {
+
+_14
+
+return x
+
+_14
+
+})
+
+_14
+
+}
+
+_14
+
+_14
+
+// Evaluate each function and gather all array values
+
+_14
+
+let values: [Int] = []
+
+_14
+
+for f in fs {
+
+_14
+
+values.append(f())
+
+_14
+
+}`
+
 References to Resource-Kinded Values Get Invalidated When the Referenced Values Are Moved ([FLIP 1043](https://github.com/onflow/flips/blob/main/cadence/20220708-resource-reference-invalidation.md))
+
 #### 💡 Motivation[​](#-motivation-18 "Direct link to 💡 Motivation")
 
 Previously, when a reference is taken to a resource, that reference remains valid even if the resource was moved, for example when created and moved into an account, or moved from one account into another.
@@ -712,19 +2247,85 @@ This feature was proposed in [FLIP 1043](https://github.com/onflow/flips/blob/m
 
 #### ✨ Example[​](#-example-14 "Direct link to ✨ Example")
 
- `_11// Create a resource._11let r <-createR()_11_11// And take a reference._11let ref = &r as &R_11_11// Then move the resource into an account._11account.save(<-r, to: /storage/r)_11_11// Update the reference._11ref.id = 2`
+`_11
+
+// Create a resource.
+
+_11
+
+let r <-createR()
+
+_11
+
+_11
+
+// And take a reference.
+
+_11
+
+let ref = &r as &R
+
+_11
+
+_11
+
+// Then move the resource into an account.
+
+_11
+
+account.save(<-r, to: /storage/r)
+
+_11
+
+_11
+
+// Update the reference.
+
+_11
+
+ref.id = 2`
 
 Old behavior:
 
- `_10_10// This will also update the referenced resource in the account._10ref.id = 2`
+`_10
+
+_10
+
+// This will also update the referenced resource in the account.
+
+_10
+
+ref.id = 2`
 
 The above operation will now result in a static error.
 
- `_10_10// Trying to update/access the reference will produce a static error:_10// "invalid reference: referenced resource may have been moved or destroyed"_10ref.id = 2`
+`_10
+
+_10
+
+// Trying to update/access the reference will produce a static error:
+
+_10
+
+// "invalid reference: referenced resource may have been moved or destroyed"
+
+_10
+
+ref.id = 2`
 
 However, not all scenarios can be detected statically. e.g:
 
- `_10fun test(ref: &R) {_10 ref.id = 2_10}`
+`_10
+
+fun test(ref: &R) {
+
+_10
+
+ref.id = 2
+
+_10
+
+}`
 
 In the above function, it is not possible to determine whether the resource to which the reference was taken has been moved or not. Therefore, such cases are checked at run-time, and a run-time error will occur if the resource has been moved.
 
@@ -732,8 +2333,8 @@ In the above function, it is not possible to determine whether the resource to w
 
 Review code that uses references to resources, and check for cases where the referenced resource is moved. Such code may now be reported as invalid, or result in the program being aborted with an error when a reference to a moved resource is de-referenced.
 
-
 Capability Controller API Replaced Existing Linking-based Capability API ([FLIP 798](https://github.com/onflow/flips/blob/main/cadence/20220203-capability-controllers.md))
+
 #### 💡 Motivation[​](#-motivation-19 "Direct link to 💡 Motivation")
 
 Cadence encourages a capability-based security model. Capabilities are themselves a new concept that most Cadence programmers need to understand.
@@ -766,24 +2367,224 @@ Existing uses of the linking-based capability API must be replaced with the new 
 
 Assume there is a `Counter` resource which stores a count, and it implements an interface `HasCount` which is used to allow read access to the count.
 
- `_15access(all)_15resource interface HasCount {_15 access(all)_15 count: Int_15}_15_15access(all)_15resource Counter: HasCount {_15 access(all)_15 var count: Int_15_15 init(count: Int) {_15 self.count = count_15 }_15}`
+`_15
+
+access(all)
+
+_15
+
+resource interface HasCount {
+
+_15
+
+access(all)
+
+_15
+
+count: Int
+
+_15
+
+}
+
+_15
+
+_15
+
+access(all)
+
+_15
+
+resource Counter: HasCount {
+
+_15
+
+access(all)
+
+_15
+
+var count: Int
+
+_15
+
+_15
+
+init(count: Int) {
+
+_15
+
+self.count = count
+
+_15
+
+}
+
+_15
+
+}`
 
 Granting access, before:
 
- `_12transaction {_12 prepare(signer: AuthAccount) {_12 signer.save(_12 <-create Counter(count: 42),_12 to: /storage/counter_12 )_12 signer.link<&{HasCount}>(_12 /public/hasCount,_12 target: /storage/counter_12 )_12 }_12}`
+`_12
+
+transaction {
+
+_12
+
+prepare(signer: AuthAccount) {
+
+_12
+
+signer.save(
+
+_12
+
+<-create Counter(count: 42),
+
+_12
+
+to: /storage/counter
+
+_12
+
+)
+
+_12
+
+signer.link<&{HasCount}>(
+
+_12
+
+/public/hasCount,
+
+_12
+
+target: /storage/counter
+
+_12
+
+)
+
+_12
+
+}
+
+_12
+
+}`
 
 Granting access, after:
 
- `_12transaction {_12 prepare(signer: auth(Storage, Capabilities)&Account) {_12 signer.save(_12 <-create Counter(count: 42),_12 to: /storage/counter_12 )_12 let cap = signer.capabilities.storage.issue<&{HasCount}>(_12 /storage/counter_12 )_12 signer.capabilities.publish(cap, at: /public/hasCount)_12 }_12}`
+`_12
+
+transaction {
+
+_12
+
+prepare(signer: auth(Storage, Capabilities)&Account) {
+
+_12
+
+signer.save(
+
+_12
+
+<-create Counter(count: 42),
+
+_12
+
+to: /storage/counter
+
+_12
+
+)
+
+_12
+
+let cap = signer.capabilities.storage.issue<&{HasCount}>(
+
+_12
+
+/storage/counter
+
+_12
+
+)
+
+_12
+
+signer.capabilities.publish(cap, at: /public/hasCount)
+
+_12
+
+}
+
+_12
+
+}`
 
 Getting access, before:
 
- `_10access(all)_10fun main(): Int {_10 let counterRef = getAccount(0x1)_10 .getCapabilities<&{HasCount}>(/public/hasCount)_10 .borrow()!_10 return counterRef.count_10}`
+`_10
+
+access(all)
+
+_10
+
+fun main(): Int {
+
+_10
+
+let counterRef = getAccount(0x1)
+
+_10
+
+.getCapabilities<&{HasCount}>(/public/hasCount)
+
+_10
+
+.borrow()!
+
+_10
+
+return counterRef.count
+
+_10
+
+}`
 
 Getting access, after:
 
- `_10access(all)_10fun main(): Int {_10 let counterRef = getAccount(0x1)_10 .capabilities_10 .borrow<&{HasCount}>(/public/hasCount)!_10 return counterRef.count_10}`
+`_10
+
+access(all)
+
+_10
+
+fun main(): Int {
+
+_10
+
+let counterRef = getAccount(0x1)
+
+_10
+
+.capabilities
+
+_10
+
+.borrow<&{HasCount}>(/public/hasCount)!
+
+_10
+
+return counterRef.count
+
+_10
+
+}`
+
 External Mutation Improvement ([FLIP 89](https://github.com/onflow/flips/blob/main/cadence/20230517-member-access-semnatics.md) & [FLIP 86](https://github.com/onflow/flips/blob/main/cadence/20230519-built-in-mutability-entitlements.md))
+
 #### 💡 Motivation[​](#-motivation-20 "Direct link to 💡 Motivation")
 
 A previous version of Cadence (“Secure Cadence”), attempted to prevent a common safety foot-gun: Developers might use the `let` keyword for a container-typed field, assuming it would be immutable.
@@ -811,28 +2612,305 @@ As mentioned in the previous section, the most notable change in this improvemen
 * Use proper entitlements for fields when they declare their own `struct` and `resource` types.
 
   
+
 #### ✨ Example[​](#-example-16 "Direct link to ✨ Example")
 
 Consider the below resource collection:
 
- `_15pub resource MasterCollection {_15 pub let kittyCollection: @Collection_15 pub let topshotCollection: @Collection_15}_15_15pub resource Collection {_15 pub(set)_15 var id: String_15_15 access(all)_15 var ownedNFTs: @{UInt64: NonFungibleToken.NFT}_15_15 access(all)_15 fun deposit(token:@NonFungibleToken.NFT) {... }_15}`
+`_15
+
+pub resource MasterCollection {
+
+_15
+
+pub let kittyCollection: @Collection
+
+_15
+
+pub let topshotCollection: @Collection
+
+_15
+
+}
+
+_15
+
+_15
+
+pub resource Collection {
+
+_15
+
+pub(set)
+
+_15
+
+var id: String
+
+_15
+
+_15
+
+access(all)
+
+_15
+
+var ownedNFTs: @{UInt64: NonFungibleToken.NFT}
+
+_15
+
+_15
+
+access(all)
+
+_15
+
+fun deposit(token:@NonFungibleToken.NFT) {... }
+
+_15
+
+}`
 
 Earlier, it was possible to mutate the inner collections, even if someone only had a reference to the `MasterCollection`. e.g:
 
- `_10var masterCollectionRef:&MasterCollection =... // Directly updating the field_10masterCollectionRef.kittyCollection.id = "NewID"_10_10// Calling a mutating function_10masterCollectionRef.kittyCollection.deposit(<-nft)_10_10// Updating via the referencelet ownedNFTsRef=&masterCollectionRef.kittyCollection.ownedNFTs as &{UInt64: NonFungibleToken.NFT}_10destroy ownedNFTsRef.insert(key: 1234, <-nft)`
+`_10
+
+var masterCollectionRef:&MasterCollection =... // Directly updating the field
+
+_10
+
+masterCollectionRef.kittyCollection.id = "NewID"
+
+_10
+
+_10
+
+// Calling a mutating function
+
+_10
+
+masterCollectionRef.kittyCollection.deposit(<-nft)
+
+_10
+
+_10
+
+// Updating via the referencelet ownedNFTsRef=&masterCollectionRef.kittyCollection.ownedNFTs as &{UInt64: NonFungibleToken.NFT}
+
+_10
+
+destroy ownedNFTsRef.insert(key: 1234, <-nft)`
 
 Once this change is introduced, the above collection can be re-written as below:
 
- `_36pub resource MasterCollection {_36 access(KittyCollectorMapping)_36 let kittyCollection: @Collection_36_36 access(TopshotCollectorMapping)_36 let topshotCollection: @Collection_36}_36_36pub resource Collection {_36 pub(set)_36 var id: String_36_36 access(Identity)_36 var ownedNFTs: @{UInt64: NonFungibleToken.NFT}_36_36 access(Insert)_36 fun deposit(token:@NonFungibleToken.NFT) { /* ... */ }_36}_36_36// Entitlements and mappings for `kittyCollection`_36_36entitlement KittyCollector_36_36entitlement mapping KittyCollectorMapping {_36 KittyCollector -> Insert_36 KittyCollector -> Remove_36}_36_36// Entitlements and mappings for `topshotCollection`_36_36entitlement TopshotCollector_36_36entitlement mapping TopshotCollectorMapping {_36 TopshotCollector -> Insert_36 TopshotCollector -> Remove_36}`
+`_36
+
+pub resource MasterCollection {
+
+_36
+
+access(KittyCollectorMapping)
+
+_36
+
+let kittyCollection: @Collection
+
+_36
+
+_36
+
+access(TopshotCollectorMapping)
+
+_36
+
+let topshotCollection: @Collection
+
+_36
+
+}
+
+_36
+
+_36
+
+pub resource Collection {
+
+_36
+
+pub(set)
+
+_36
+
+var id: String
+
+_36
+
+_36
+
+access(Identity)
+
+_36
+
+var ownedNFTs: @{UInt64: NonFungibleToken.NFT}
+
+_36
+
+_36
+
+access(Insert)
+
+_36
+
+fun deposit(token:@NonFungibleToken.NFT) { /* ... */ }
+
+_36
+
+}
+
+_36
+
+_36
+
+// Entitlements and mappings for `kittyCollection`
+
+_36
+
+_36
+
+entitlement KittyCollector
+
+_36
+
+_36
+
+entitlement mapping KittyCollectorMapping {
+
+_36
+
+KittyCollector -> Insert
+
+_36
+
+KittyCollector -> Remove
+
+_36
+
+}
+
+_36
+
+_36
+
+// Entitlements and mappings for `topshotCollection`
+
+_36
+
+_36
+
+entitlement TopshotCollector
+
+_36
+
+_36
+
+entitlement mapping TopshotCollectorMapping {
+
+_36
+
+TopshotCollector -> Insert
+
+_36
+
+TopshotCollector -> Remove
+
+_36
+
+}`
 
 Then for a reference with no entitlements, none of the previously mentioned operations would be allowed:
 
- `_13var masterCollectionRef:&MasterCollection <- ... // Error: Cannot update the field. Doesn't have sufficient entitlements._13masterCollectionRef.kittyCollection.id = "NewID"_13_13// Error: Cannot directly update the dictionary. Doesn't have sufficient entitlements._13destroy masterCollectionRef.kittyCollection.ownedNFTs.insert(key: 1234,<-nft)_13destroy masterCollectionRef.ownedNFTs.remove(key: 1234)_13_13// Error: Cannot call mutating function. Doesn't have sufficient entitlements._13masterCollectionRef.kittyCollection.deposit(<-nft)_13_13// Error: `masterCollectionRef.kittyCollection.ownedNFTs` is already a non-auth reference.// Thus cannot update the dictionary. Doesn't have sufficient entitlements._13let ownedNFTsRef = &masterCollectionRef.kittyCollection.ownedNFTsas&{UInt64: NonFungibleToken.NFT}_13destroy ownedNFTsRef.insert(key: 1234, <-nft)`
+`_13
+
+var masterCollectionRef:&MasterCollection <- ... // Error: Cannot update the field. Doesn't have sufficient entitlements.
+
+_13
+
+masterCollectionRef.kittyCollection.id = "NewID"
+
+_13
+
+_13
+
+// Error: Cannot directly update the dictionary. Doesn't have sufficient entitlements.
+
+_13
+
+destroy masterCollectionRef.kittyCollection.ownedNFTs.insert(key: 1234,<-nft)
+
+_13
+
+destroy masterCollectionRef.ownedNFTs.remove(key: 1234)
+
+_13
+
+_13
+
+// Error: Cannot call mutating function. Doesn't have sufficient entitlements.
+
+_13
+
+masterCollectionRef.kittyCollection.deposit(<-nft)
+
+_13
+
+_13
+
+// Error: `masterCollectionRef.kittyCollection.ownedNFTs` is already a non-auth reference.// Thus cannot update the dictionary. Doesn't have sufficient entitlements.
+
+_13
+
+let ownedNFTsRef = &masterCollectionRef.kittyCollection.ownedNFTsas&{UInt64: NonFungibleToken.NFT}
+
+_13
+
+destroy ownedNFTsRef.insert(key: 1234, <-nft)`
 
 To perform these operations on the reference, one would need to have obtained a reference with proper entitlements:
 
- `_10var masterCollectionRef: auth{KittyCollector} &MasterCollection <- ... // Directly updating the field_10masterCollectionRef.kittyCollection.id = "NewID"_10_10// Updating the dictionary_10destroy masterCollectionRef.kittyCollection.ownedNFTs.insert(key: 1234, <-nft)_10destroy masterCollectionRef.kittyCollection.ownedNFTs.remove(key: 1234)_10_10// Calling a mutating function_10masterCollectionRef.kittyCollection.deposit(<-nft)`
+`_10
+
+var masterCollectionRef: auth{KittyCollector} &MasterCollection <- ... // Directly updating the field
+
+_10
+
+masterCollectionRef.kittyCollection.id = "NewID"
+
+_10
+
+_10
+
+// Updating the dictionary
+
+_10
+
+destroy masterCollectionRef.kittyCollection.ownedNFTs.insert(key: 1234, <-nft)
+
+_10
+
+destroy masterCollectionRef.kittyCollection.ownedNFTs.remove(key: 1234)
+
+_10
+
+_10
+
+// Calling a mutating function
+
+_10
+
+masterCollectionRef.kittyCollection.deposit(<-nft)`
+
 Removal Of Nested Type Requirements ([FLIP 118](https://github.com/onflow/flips/blob/main/cadence/20230711-remove-type-requirements.md))
+
 #### 💡 Motivation[​](#-motivation-21 "Direct link to 💡 Motivation")
 
 [Nested Type Requirements 3](https://docs.onflow.org/cadence/language/interfaces/#nested-type-requirements) were a fairly advanced concept of the language.
@@ -853,8 +2931,8 @@ This improvement was proposed in [FLIP 118](https://github.com/onflow/flips/blo
 
 Any existing code that made use of the type requirements feature should be rewritten not to use this feature.
 
-
 Event Definition And Emission In Interfaces ([FLIP 111](https://github.com/onflow/flips/blob/main/cadence/20230417-events-emitted-from-interfaces.md))
+
 #### 💡 Motivation[​](#-motivation-22 "Direct link to 💡 Motivation")
 
 In order to support the removal of nested type requirements, events have been made define-able and emit-able from contract interfaces, as events were among the only common uses of the type requirements feature.
@@ -875,14 +2953,108 @@ Contract interfaces that previously used type requirements to enforce that concr
 
 A contract interface like the one below (`SomeInterface`) used a type requirement to enforce that contracts which implement the interface also define a certain event (`Foo`):
 
- `_16contract interface SomeInterface {_16 event Foo()_16//^^^^^^^^^^^ type requirement_16_16 fun inheritedFunction()_16}_16_16contract MyContract: SomeInterface {_16 event Foo()_16//^^^^^^^^^^^ type definition to satisfy type requirement_16_16 fun inheritedFunction() {_16// ..._16 emit Foo()_16 }_16}`
+`_16
+
+contract interface SomeInterface {
+
+_16
+
+event Foo()
+
+_16
+
+//^^^^^^^^^^^ type requirement
+
+_16
+
+_16
+
+fun inheritedFunction()
+
+_16
+
+}
+
+_16
+
+_16
+
+contract MyContract: SomeInterface {
+
+_16
+
+event Foo()
+
+_16
+
+//^^^^^^^^^^^ type definition to satisfy type requirement
+
+_16
+
+_16
+
+fun inheritedFunction() {
+
+_16
+
+// ...
+
+_16
+
+emit Foo()
+
+_16
+
+}
+
+_16
+
+}`
 
 **After:**
 
 This can be rewritten to emit the event directly from the interface, so that any contracts that implement `Intf` will always emit `Foo` when `inheritedFunction` is called:
 
- `_10contract interface Intf {_10 event Foo()_10//^^^^^^^^^^^ type definition_10_10 fun inheritedFunction() {_10 pre {_10 emit Foo()_10 }_10 }_10}`
+`_10
+
+contract interface Intf {
+
+_10
+
+event Foo()
+
+_10
+
+//^^^^^^^^^^^ type definition
+
+_10
+
+_10
+
+fun inheritedFunction() {
+
+_10
+
+pre {
+
+_10
+
+emit Foo()
+
+_10
+
+}
+
+_10
+
+}
+
+_10
+
+}`
+
 Force Destruction of Resources ([FLIP 131](https://github.com/onflow/flips/pull/131))
+
 #### 💡 Motivation[​](#-motivation-23 "Direct link to 💡 Motivation")
 
 It was previously possible to panic in the body of a resource or attachment’s `destroy` method, effectively preventing the destruction or removal of that resource from an account. This could be used as an attack vector by handing people undesirable resources or hydrating resources to make them extremely large or otherwise contain undesirable content.
@@ -901,12 +3073,154 @@ Contracts that previously used destroy methods will need to remove them, and pot
 
 A pair of resources previously written as:
 
- `_24event E(id: Int)_24_24resource SubResource {_24 let id: Int_24 init(id: Int) {_24 self.id = id_24 }_24_24 destroy() {_24 emit E(id: self.id)_24 }_24}_24_24resource R {_24 let subR: @SubResource_24_24 init(id: Int) {_24 self.subR <- create SubResource(id: id)_24 }_24_24 destroy() {_24 destroy self.subR_24 }_24}`
+`_24
+
+event E(id: Int)
+
+_24
+
+_24
+
+resource SubResource {
+
+_24
+
+let id: Int
+
+_24
+
+init(id: Int) {
+
+_24
+
+self.id = id
+
+_24
+
+}
+
+_24
+
+_24
+
+destroy() {
+
+_24
+
+emit E(id: self.id)
+
+_24
+
+}
+
+_24
+
+}
+
+_24
+
+_24
+
+resource R {
+
+_24
+
+let subR: @SubResource
+
+_24
+
+_24
+
+init(id: Int) {
+
+_24
+
+self.subR <- create SubResource(id: id)
+
+_24
+
+}
+
+_24
+
+_24
+
+destroy() {
+
+_24
+
+destroy self.subR
+
+_24
+
+}
+
+_24
+
+}`
 
 can now be equivalently written as:
 
- `_16resource SubResource {_16 event ResourceDestroyed(id: Int = self.id)_16 let id: Int_16_16 init(id: Int) {_16 self.id = id_16 }_16}_16_16resource R {_16 let subR: @SubResource_16_16 init(id: Int) {_16 self.subR <- create SubResource(id: id)_16 }_16}`
+`_16
+
+resource SubResource {
+
+_16
+
+event ResourceDestroyed(id: Int = self.id)
+
+_16
+
+let id: Int
+
+_16
+
+_16
+
+init(id: Int) {
+
+_16
+
+self.id = id
+
+_16
+
+}
+
+_16
+
+}
+
+_16
+
+_16
+
+resource R {
+
+_16
+
+let subR: @SubResource
+
+_16
+
+_16
+
+init(id: Int) {
+
+_16
+
+self.subR <- create SubResource(id: id)
+
+_16
+
+}
+
+_16
+
+}`
+
 New `domainSeparationTag` parameter added to `Crypto.KeyList.verify`
+
 #### 💡 Motivation[​](#-motivation-24 "Direct link to 💡 Motivation")
 
 `KeyList`’s `verify` function used to hardcode the domain separation tag (`"FLOW-V0.0-user"`) used to verify each signature from the list. This forced users to use the same domain tag and didn’t allow them to scope their signatures to specific use-cases and applications. Moreover, the `verify` function didn’t mirror the `PublicKey` signature verification behaviour which accepts a domain tag parameter.
@@ -923,11 +3237,43 @@ Contracts that use `KeyList` need to update the calls to `verify` by adding 
 
 A previous call to `KeyList`’s `verify` is written as:
 
- `_10let isValid = keyList.verify(_10 signatureSet: signatureSet,_10 signedData: signedData_10)`
+`_10
+
+let isValid = keyList.verify(
+
+_10
+
+signatureSet: signatureSet,
+
+_10
+
+signedData: signedData
+
+_10
+
+)`
 
 can now be equivalently written as:
 
- `_10let isValid = keyList.verify(_10 signatureSet: signatureSet,_10 signedData: signedData,_10 domainSeparationTag: "FLOW-V0.0-user"_10)`
+`_10
+
+let isValid = keyList.verify(
+
+_10
+
+signatureSet: signatureSet,
+
+_10
+
+signedData: signedData,
+
+_10
+
+domainSeparationTag: "FLOW-V0.0-user"
+
+_10
+
+)`
 
 Instead of the existing hardcoded domain separation tag, a new domain tag can be defined, but it has to be also used when generating valid signatures, e.g. `"my_app_custom_domain_tag"`.
 
@@ -954,7 +3300,14 @@ If you have any questions or need help with the upgrade, feel free to reach out 
 
 Help is also available during the [Cadence 1.0 Office Hours](https://calendar.google.com/calendar/ical/c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0%40group.calendar.google.com/public/basic.ics) each week at 10:00am PST on the Flow Developer Discord.
 
-[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/cadence-migration-guide/improvements.md)[PreviousCadence 1.0 Migration Guide](/docs/cadence-migration-guide/)[NextNFT Cadence 1.0 Guide](/docs/cadence-migration-guide/nft-guide)
+[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/cadence-migration-guide/improvements.md)
+
+[Previous
+
+Cadence 1.0 Migration Guide](/docs/cadence-migration-guide/)[Next
+
+NFT Cadence 1.0 Guide](/docs/cadence-migration-guide/nft-guide)
+
 ###### Rate this page
 
 😞😐😊
@@ -963,9 +3316,10 @@ Help is also available during the [Cadence 1.0 Office Hours](https://calendar.go
 * [⚡ Breaking Improvements](#-breaking-improvements)
 * [FT / NFT Standard changes](#ft--nft-standard-changes)
 * [More Resources](#more-resources)
-Got suggestions for this site? 
+
+Got suggestions for this site?
 
 * [It's open-source!](https://github.com/onflow/cadence-lang.org)
+
 The source code of this site is licensed under the Apache License, Version 2.0.
 Content is licensed under the Creative Commons Attribution 4.0 International License.
-

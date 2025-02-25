@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/build/smart-contracts/best-practices/project-development-tips
 
-
-
-
 Flow Smart Contract Project Development Standards | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -17,11 +18,13 @@ Flow Smart Contract Project Development Standards | Flow Developer Portal
 * [Flow Protocol](/build/basics/blocks)
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
+
   + [Learn Cadence ↗️](/build/learn-cadence)
   + [Smart Contracts on Flow](/build/smart-contracts/overview)
   + [Deploying Contracts](/build/smart-contracts/deploying)
   + [Testing Your Contracts](/build/smart-contracts/testing)
   + [Best Practices](/build/smart-contracts/best-practices/security-best-practices)
+
     - [Security Best Practices](/build/smart-contracts/best-practices/security-best-practices)
     - [Contract Upgrades with Incompatible Changes](/build/smart-contracts/best-practices/contract-upgrades)
     - [Development Standards](/build/smart-contracts/best-practices/project-development-tips)
@@ -30,11 +33,12 @@ Flow Smart Contract Project Development Standards | Flow Developer Portal
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
-
 * Writing and Deploying Smart Contracts
 * Best Practices
 * Development Standards
+
 On this page
+
 # Smart Contract Project Development Standards
 
 ## Context[​](#context "Direct link to Context")
@@ -324,7 +328,16 @@ and documenting their projects. (Documentation for these topics coming soon)
 
 If you have any feedback about these guidelines, please create an issue in the onflow/cadence-style-guide repo or make a PR updating the guidelines so we can start a discussion.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/best-practices/project-development-tips.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousContract Upgrades with Incompatible Changes](/build/smart-contracts/best-practices/contract-upgrades)[NextAccount Abstraction](/build/advanced-concepts/account-abstraction)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/best-practices/project-development-tips.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Contract Upgrades with Incompatible Changes](/build/smart-contracts/best-practices/contract-upgrades)[Next
+
+Account Abstraction](/build/advanced-concepts/account-abstraction)
+
 ###### Rate this page
 
 😞😐😊
@@ -345,6 +358,7 @@ If you have any feedback about these guidelines, please create an issue in the o
   + [Projects should have thorough documentation](#projects-should-have-thorough-documentation)
   + [Projects should engage with and respond to their own Community](#projects-should-engage-with-and-respond-to-their-own-community)
   + [Projects should contribute to the greater Flow and Cadence community](#projects-should-contribute-to-the-greater-flow-and-cadence-community)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -357,6 +371,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -366,6 +381,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -373,6 +389,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -382,6 +399,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -389,5 +407,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

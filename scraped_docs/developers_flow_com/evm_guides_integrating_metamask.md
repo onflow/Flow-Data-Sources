@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/evm/guides/integrating-metamask
 
-
-
-
 Integrating Metamask | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Why EVM on Flow](/evm/about)
 * [How it Works](/evm/how-it-works)
@@ -22,6 +23,7 @@ Integrating Metamask | Flow Developer Portal
 * [Faucets ↙](/evm/faucets)
 * [Block Explorers ↙](/evm/block-explorers)
 * [Guides](/evm/guides/integrating-metamask)
+
   + [Integrating Metamask](/evm/guides/integrating-metamask)
   + [Hardhat](/evm/guides/hardhat)
   + [Remix](/evm/guides/remix)
@@ -32,9 +34,9 @@ Integrating Metamask | Flow Developer Portal
 * [Clients](/evm/clients/ethers)
 * [Using EVM with Cadence](/evm/cadence/interacting-with-coa)
 
-
 * Guides
 * Integrating Metamask
+
 On this page
 
 # Wallets & Configurations
@@ -55,12 +57,101 @@ Integrating additional networks into MetaMask can pose challenges for users who 
 
 To add the Flow Testnet network to Metamask, add the following network confgiuration:
 
- `_11export const TESTNET_PARAMS = {_11 chainId: '0x221',_11 chainName: 'Flow',_11 rpcUrls: ['https://testnet.evm.nodes.onflow.org'],_11 nativeCurrency: {_11 name: 'Flow',_11 symbol: 'FLOW',_11 decimals: 18,_11 },_11 blockExplorerUrls: ['https://evm-testnet.flowscan.io/']_11};`
+`_11
+
+export const TESTNET_PARAMS = {
+
+_11
+
+chainId: '0x221',
+
+_11
+
+chainName: 'Flow',
+
+_11
+
+rpcUrls: ['https://testnet.evm.nodes.onflow.org'],
+
+_11
+
+nativeCurrency: {
+
+_11
+
+name: 'Flow',
+
+_11
+
+symbol: 'FLOW',
+
+_11
+
+decimals: 18,
+
+_11
+
+},
+
+_11
+
+blockExplorerUrls: ['https://evm-testnet.flowscan.io/']
+
+_11
+
+};`
+
 ### Adding Flow Network[​](#adding-flow-network "Direct link to Adding Flow Network")
 
 To add this configuration to MetaMask, call the `wallet_addEthereumChain` method which is exposed by the web3 provider.
 
- `_12function addFlowTestnet() {_12 injected.getProvider().then((provider) => {_12 provider_12 .request({_12 method: 'wallet_addEthereumChain',_12 params: [TESTNET_PARAMS],_12 })_12 .catch((error: any) => {_12 console.log(error);_12 });_12 });_12}`
+`_12
+
+function addFlowTestnet() {
+
+_12
+
+injected.getProvider().then((provider) => {
+
+_12
+
+provider
+
+_12
+
+.request({
+
+_12
+
+method: 'wallet_addEthereumChain',
+
+_12
+
+params: [TESTNET_PARAMS],
+
+_12
+
+})
+
+_12
+
+.catch((error: any) => {
+
+_12
+
+console.log(error);
+
+_12
+
+});
+
+_12
+
+});
+
+_12
+
+}`
 
 The variable, `injected`, is initialized as a `web3-react/injected-connector` used to interface with MetaMask APIs. Usage for other popular web frameworks is similar.
 
@@ -76,7 +167,16 @@ After they approve, your app will be connected to the Flow network.
 
 By using this approach to add the Flow network to Metamask, you can avoid manual user data entry and ensure that users are ready to interact with your dApp!
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/integrating-metamask.mdx)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousBlock Explorers ↙](/evm/block-explorers)[NextHardhat](/evm/guides/hardhat)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/integrating-metamask.mdx)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Block Explorers ↙](/evm/block-explorers)[Next
+
+Hardhat](/evm/guides/hardhat)
+
 ###### Rate this page
 
 😞😐😊
@@ -86,6 +186,7 @@ By using this approach to add the Flow network to Metamask, you can avoid manual
   + [Flow Network configuration](#flow-network-configuration)
   + [Adding Flow Network](#adding-flow-network)
   + [User Experience](#user-experience)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -98,6 +199,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -107,6 +209,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -114,6 +217,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -123,6 +227,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -130,5 +235,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

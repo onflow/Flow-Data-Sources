@@ -1,30 +1,14 @@
 # Source: https://academy.ecdao.org/en/catalog/courses/beginner-dapp/chapter5/lesson1
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -56,7 +40,6 @@ Connect
 
 Course Overview
 
-
 [Catalog](/en/catalog)
 [Course](/en/catalog/courses/beginner-dapp)
 Beginner Dapp
@@ -78,6 +61,7 @@ First of all, weâre going to restructure our `./pages/index.js` file before
 Replace the `<main>` tag and everything inside of it with this code:
 
 html
+
 ```
 		
 			<div className="{styles.welcome}">
@@ -105,6 +89,7 @@ Boom! Weâre done with that part. Now onto the styling.
 > In `./styles/globals.css`, under the `html, body` selector, add these lines of code:
 
 css
+
 ```
 		
 			background-color: #011d30;
@@ -118,6 +103,7 @@ Right away, youâll notice this changes the background color of your DApp an
 > Then, at the bottom of the file, add this:
 
 css
+
 ```
 		
 			button {
@@ -135,11 +121,13 @@ css
 		 
 	
 ```
+
 ### ./styles/Home.module.css
 
 Replace your `./styles/Home.module.css` file with this code:
 
 css
+
 ```
 		
 			.welcome {
@@ -207,6 +195,7 @@ css
 Your DApp should now look like this:
 
 ![](/courses/beginner-dapp/almost-done-dapp.png)
+
 ## Transaction Loading State
 
 Your DApp is now looking super cool, and weâre almost done.
@@ -216,6 +205,7 @@ The only main issue now is that, when we run our transaction, we donât info
 In our `runTransaction` function, at the bottom, we have the following code:
 
 javascript
+
 ```
 		
 			console.log('Here is the transactionId: ' + transactionId);
@@ -246,6 +236,7 @@ Now, go back to your `runTransaction` function. After we `console.log` the `tran
 > To do this, add this piece of code after the `console.log`:
 
 javascript
+
 ```
 		
 			fcl.tx(transactionId).subscribe((res) => {
@@ -262,6 +253,7 @@ Go back to your webpage and run a transaction with the developer console open. L
 > Now, to actually update the value of `txStatus` properly, letâs add some stuff:
 
 javascript
+
 ```
 		
 			fcl.tx(transactionId).subscribe((res) => {
@@ -287,6 +279,7 @@ Notice that we are changing the value of `txStatus` using `setTxStatus`, and doi
 If you go back to your webpage and run another transaction, you will notice that the button text remains as âSealed!â even after we are done. To change this, we can add one more line of code to our `subscribe` function:
 
 javascript
+
 ```
 		
 			fcl.tx(transactionId).subscribe((res) => {
@@ -328,15 +321,14 @@ Author
 
 [Jacob Tucker](https://twitter.com/jacobmtucker)
 
-
-
-
 [Quests](#quests)
-[Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/beginner-dapp/en/chapter5/lesson1.md)
 
+[Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/beginner-dapp/en/chapter5/lesson1.md)
 
 [Finishing the Skeleton](/en/catalog/courses/beginner-dapp/chapter4/lesson4)
 [Deploying our DApp](/en/catalog/courses/beginner-dapp/chapter5/lesson2)
+
+
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
@@ -344,17 +336,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

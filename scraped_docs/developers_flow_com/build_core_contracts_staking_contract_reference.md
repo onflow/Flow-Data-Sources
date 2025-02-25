@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/build/core-contracts/staking-contract-reference
 
-
-
-
 Flow Staking Contract Reference | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -20,6 +21,7 @@ Flow Staking Contract Reference | Flow Developer Portal
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
 * [Guides](/build/guides/account-linking)
 * [Core Smart Contracts](/build/core-contracts)
+
   + [Fungible Token](/build/core-contracts/fungible-token)
   + [Flow Token](/build/core-contracts/flow-token)
   + [Service Account](/build/core-contracts/service-account)
@@ -35,10 +37,11 @@ Flow Staking Contract Reference | Flow Developer Portal
   + [Burner](/build/core-contracts/burner)
 * [Explore More](/build/explore-more)
 
-
 * [Core Smart Contracts](/build/core-contracts)
 * Staking Table
+
 On this page
+
 # Flow Staking Contract Reference
 
 ## Contract[​](#contract "Direct link to Contract")
@@ -88,7 +91,186 @@ for [the staking collection](/networks/staking/staking-collection)
 The `FlowIDTableStaking` contract emits an event whenever an important action occurs.
 See the [staking events Documentation](/networks/staking/staking-scripts-events) for more information about each event.
 
- `_44 /// Epoch_44 access(all) event NewEpoch(_44 totalStaked: UFix64,_44 totalRewardPayout: UFix64,_44 newEpochCounter: UInt64_44 )_44 access(all) event EpochTotalRewardsPaid(_44 total: UFix64,_44 fromFees: UFix64,_44 minted: UFix64,_44 feesBurned: UFix64,_44 epochCounterForRewards: UInt64_44 )_44_44 /// Node_44 access(all) event NewNodeCreated(nodeID: String, role: UInt8, amountCommitted: UFix64)_44 access(all) event TokensCommitted(nodeID: String, amount: UFix64)_44 access(all) event TokensStaked(nodeID: String, amount: UFix64)_44 access(all) event NodeTokensRequestedToUnstake(nodeID: String, amount: UFix64)_44 access(all) event TokensUnstaking(nodeID: String, amount: UFix64)_44 access(all) event TokensUnstaked(nodeID: String, amount: UFix64)_44 access(all) event NodeRemovedAndRefunded(nodeID: String, amount: UFix64)_44 access(all) event RewardsPaid(nodeID: String, amount: UFix64, epochCounter: UInt64)_44 access(all) event UnstakedTokensWithdrawn(nodeID: String, amount: UFix64)_44 access(all) event RewardTokensWithdrawn(nodeID: String, amount: UFix64)_44 access(all) event NetworkingAddressUpdated(nodeID: String, newAddress: String)_44 access(all) event NodeWeightChanged(nodeID: String, newWeight: UInt64)_44_44 /// Delegator_44 access(all) event NewDelegatorCreated(nodeID: String, delegatorID: UInt32)_44 access(all) event DelegatorTokensCommitted(nodeID: String, delegatorID: UInt32, amount: UFix64)_44 access(all) event DelegatorTokensStaked(nodeID: String, delegatorID: UInt32, amount: UFix64)_44 access(all) event DelegatorTokensRequestedToUnstake(nodeID: String, delegatorID: UInt32, amount: UFix64)_44 access(all) event DelegatorTokensUnstaking(nodeID: String, delegatorID: UInt32, amount: UFix64)_44 access(all) event DelegatorTokensUnstaked(nodeID: String, delegatorID: UInt32, amount: UFix64)_44 access(all) event DelegatorRewardsPaid(nodeID: String, delegatorID: UInt32, amount: UFix64, epochCounter: UInt64)_44 access(all) event DelegatorUnstakedTokensWithdrawn(nodeID: String, delegatorID: UInt32, amount: UFix64)_44 access(all) event DelegatorRewardTokensWithdrawn(nodeID: String, delegatorID: UInt32, amount: UFix64)_44_44 /// Contract Fields_44 access(all) event NewDelegatorCutPercentage(newCutPercentage: UFix64)_44 access(all) event NewWeeklyPayout(newPayout: UFix64)_44 access(all) event NewStakingMinimums(newMinimums: {UInt8: UFix64})_44 access(all) event NewDelegatorStakingMinimum(newMinimum: UFix64)`[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/06-staking-contract-reference.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousFlow Fees](/build/core-contracts/flow-fees)[NextEpoch Contracts](/build/core-contracts/epoch-contract-reference)
+`_44
+
+/// Epoch
+
+_44
+
+access(all) event NewEpoch(
+
+_44
+
+totalStaked: UFix64,
+
+_44
+
+totalRewardPayout: UFix64,
+
+_44
+
+newEpochCounter: UInt64
+
+_44
+
+)
+
+_44
+
+access(all) event EpochTotalRewardsPaid(
+
+_44
+
+total: UFix64,
+
+_44
+
+fromFees: UFix64,
+
+_44
+
+minted: UFix64,
+
+_44
+
+feesBurned: UFix64,
+
+_44
+
+epochCounterForRewards: UInt64
+
+_44
+
+)
+
+_44
+
+_44
+
+/// Node
+
+_44
+
+access(all) event NewNodeCreated(nodeID: String, role: UInt8, amountCommitted: UFix64)
+
+_44
+
+access(all) event TokensCommitted(nodeID: String, amount: UFix64)
+
+_44
+
+access(all) event TokensStaked(nodeID: String, amount: UFix64)
+
+_44
+
+access(all) event NodeTokensRequestedToUnstake(nodeID: String, amount: UFix64)
+
+_44
+
+access(all) event TokensUnstaking(nodeID: String, amount: UFix64)
+
+_44
+
+access(all) event TokensUnstaked(nodeID: String, amount: UFix64)
+
+_44
+
+access(all) event NodeRemovedAndRefunded(nodeID: String, amount: UFix64)
+
+_44
+
+access(all) event RewardsPaid(nodeID: String, amount: UFix64, epochCounter: UInt64)
+
+_44
+
+access(all) event UnstakedTokensWithdrawn(nodeID: String, amount: UFix64)
+
+_44
+
+access(all) event RewardTokensWithdrawn(nodeID: String, amount: UFix64)
+
+_44
+
+access(all) event NetworkingAddressUpdated(nodeID: String, newAddress: String)
+
+_44
+
+access(all) event NodeWeightChanged(nodeID: String, newWeight: UInt64)
+
+_44
+
+_44
+
+/// Delegator
+
+_44
+
+access(all) event NewDelegatorCreated(nodeID: String, delegatorID: UInt32)
+
+_44
+
+access(all) event DelegatorTokensCommitted(nodeID: String, delegatorID: UInt32, amount: UFix64)
+
+_44
+
+access(all) event DelegatorTokensStaked(nodeID: String, delegatorID: UInt32, amount: UFix64)
+
+_44
+
+access(all) event DelegatorTokensRequestedToUnstake(nodeID: String, delegatorID: UInt32, amount: UFix64)
+
+_44
+
+access(all) event DelegatorTokensUnstaking(nodeID: String, delegatorID: UInt32, amount: UFix64)
+
+_44
+
+access(all) event DelegatorTokensUnstaked(nodeID: String, delegatorID: UInt32, amount: UFix64)
+
+_44
+
+access(all) event DelegatorRewardsPaid(nodeID: String, delegatorID: UInt32, amount: UFix64, epochCounter: UInt64)
+
+_44
+
+access(all) event DelegatorUnstakedTokensWithdrawn(nodeID: String, delegatorID: UInt32, amount: UFix64)
+
+_44
+
+access(all) event DelegatorRewardTokensWithdrawn(nodeID: String, delegatorID: UInt32, amount: UFix64)
+
+_44
+
+_44
+
+/// Contract Fields
+
+_44
+
+access(all) event NewDelegatorCutPercentage(newCutPercentage: UFix64)
+
+_44
+
+access(all) event NewWeeklyPayout(newPayout: UFix64)
+
+_44
+
+access(all) event NewStakingMinimums(newMinimums: {UInt8: UFix64})
+
+_44
+
+access(all) event NewDelegatorStakingMinimum(newMinimum: UFix64)`
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/06-staking-contract-reference.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Flow Fees](/build/core-contracts/flow-fees)[Next
+
+Epoch Contracts](/build/core-contracts/epoch-contract-reference)
+
 ###### Rate this page
 
 😞😐😊
@@ -98,6 +280,7 @@ See the [staking events Documentation](/networks/staking/staking-scripts-events)
   + [Getting Staking Info with Scripts](#getting-staking-info-with-scripts)
   + [Delegator Transactions](#delegator-transactions)
 * [Events](#events)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -110,6 +293,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -119,6 +303,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -126,6 +311,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -135,6 +321,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -142,5 +329,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

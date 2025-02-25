@@ -1,18 +1,21 @@
 # Source: https://cadence-lang.org/docs/tutorial/first-steps
 
-
-
-
 First Steps | Cadence
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)Search
+[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
+
+[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+
+Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
 * [Tutorial](/docs/tutorial/first-steps)
+
   + [First Steps](/docs/tutorial/first-steps)
   + [Hello World](/docs/tutorial/hello-world)
   + [Resources and the Move (<-) Operator](/docs/tutorial/resources)
@@ -36,10 +39,11 @@ First Steps | Cadence
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
-
 * Tutorial
 * First Steps
+
 On this page
+
 # First Steps
 
 Welcome to our series of guides that will get you up to speed on [Cadence](/docs/) as quickly as possible! In this program, you'll jump right into making meaningful projects. Don't worry, we'll point you to the important parts of the language reference as each concept is introduced!
@@ -75,8 +79,7 @@ The playground comes pre-loaded with contract and transaction templates that cor
 
 Action
 
-Open the starter code for this tutorial in the Flow Playground:   
-
+Open the starter code for this tutorial in the Flow Playground:
 
 [<https://play.flow.com/367d1462-f291-481f-aa14-02bb5ce3e897>](https://play.flow.com/367d1462-f291-481f-aa14-02bb5ce3e897)
 
@@ -182,12 +185,21 @@ Now that you have completed the tutorial, you can:
 * Select and utilize accounts in the Flow Playground.
 * Run Cadence transactions and scripts from the playground.
 * Explore the contracts and storage associated with test accounts.
+
 **Tags:**
 
 * [reference](/docs/tags/reference)
 * [cadence](/docs/tags/cadence)
 * [tutorial](/docs/tags/tutorial)
-[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/tutorial/01-first-steps.md)[PreviousWhy Use Cadence?](/docs/why)[NextHello World](/docs/tutorial/hello-world)
+
+[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/tutorial/01-first-steps.md)
+
+[Previous
+
+Why Use Cadence?](/docs/why)[Next
+
+Hello World](/docs/tutorial/hello-world)
+
 ###### Rate this page
 
 😞😐😊
@@ -200,9 +212,10 @@ Now that you have completed the tutorial, you can:
 * [Scripts](#scripts)
 * [Transactions](#transactions)
 * [Say Hello, World!](#say-hello-world)
-Got suggestions for this site? 
+
+Got suggestions for this site?
 
 * [It's open-source!](https://github.com/onflow/cadence-lang.org)
+
 The source code of this site is licensed under the Apache License, Version 2.0.
 Content is licensed under the Creative Commons Attribution 4.0 International License.
-

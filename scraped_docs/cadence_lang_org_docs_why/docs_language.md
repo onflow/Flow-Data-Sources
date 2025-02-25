@@ -1,19 +1,22 @@
 # Source: https://cadence-lang.org/docs/language
 
-
-
-
 The Cadence Programming Language | Cadence
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)Search
+[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
+
+[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+
+Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
 * [Tutorial](/docs/tutorial/first-steps)
 * [Language Reference](/docs/language/)
+
   + [Syntax](/docs/language/syntax)
   + [Constants and Variable Declarations](/docs/language/constants-and-variables)
   + [Type Annotations](/docs/language/type-annotations)
@@ -57,9 +60,10 @@ The Cadence Programming Language | Cadence
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
-
 * Language Reference
+
 On this page
+
 # The Cadence Programming Language
 
 ## Introduction[​](#introduction "Direct link to Introduction")
@@ -104,7 +108,14 @@ Events are inspired by Solidity.
 must be declared and contained in [contracts](/docs/language/contracts) or [transactions](/docs/language/transactions),
 but we omit these containers in examples for simplicity.
 
-[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/index.md)[Previous10. Composable Resources](/docs/tutorial/resources-compose)[NextSyntax](/docs/language/syntax)
+[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/index.md)
+
+[Previous
+
+10. Composable Resources](/docs/tutorial/resources-compose)[Next
+
+Syntax](/docs/language/syntax)
+
 ###### Rate this page
 
 😞😐😊
@@ -112,9 +123,10 @@ but we omit these containers in examples for simplicity.
 * [Introduction](#introduction)
 * [Terminology](#terminology)
 * [Syntax and Behavior](#syntax-and-behavior)
-Got suggestions for this site? 
+
+Got suggestions for this site?
 
 * [It's open-source!](https://github.com/onflow/cadence-lang.org)
+
 The source code of this site is licensed under the Apache License, Version 2.0.
 Content is licensed under the Creative Commons Attribution 4.0 International License.
-

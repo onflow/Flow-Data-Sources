@@ -1,30 +1,14 @@
 # Source: https://academy.ecdao.org/en/catalog/courses/beginner-dapp/chapter4/lesson1
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -56,7 +40,6 @@ Connect
 
 Course Overview
 
-
 [Catalog](/en/catalog)
 [Course](/en/catalog/courses/beginner-dapp)
 Beginner Dapp
@@ -72,11 +55,13 @@ FCL, or the Flow Client Library, is something that will allow us to do tons of b
 > Go to your project directory in your terminal and type `npm install @onflow/fcl`. This will install the dependency:
 
 ![](/courses/beginner-dapp/install-fcl.png)
+
 ## Importing & Connecting FCL
 
 > Go to your `flow` folder and create a file called `config.js`. Inside that file, put the following code:
 
 javascript
+
 ```
 		
 			import { config } from '@onflow/fcl';
@@ -99,6 +84,7 @@ Now that we have connected our DApp to the blockchain, letâs try logging in
 > Go to `./components/Nav.jsx` and at the top, add three more imports:
 
 javascript
+
 ```
 		
 			import * as fcl from '@onflow/fcl';
@@ -113,6 +99,7 @@ First, we import `fcl` so that we can call some functions to log in and log out.
 > Inside of our `Nav` component, letâs add a variable called `user` using `useState`:
 
 javascript
+
 ```
 		
 			const [user, setUser] = useState({ loggedIn: false });
@@ -125,6 +112,7 @@ Note that when we put something inside the `useState` parenthesis (in this case:
 > Next, right below that, add this piece of code:
 
 javascript
+
 ```
 		
 			useEffect(() => {
@@ -141,6 +129,7 @@ Lastly, we want to be able to actually log in. Letâs create a function to d
 > Right below our `useEffect`, make a new function called `handleAuthentication`:
 
 javascript
+
 ```
 		
 			function handleAuthentication() {}
@@ -156,6 +145,7 @@ Inside the function, weâre going to implement this logic:
 We can do that by doing this:
 
 javascript
+
 ```
 		
 			function handleAuthentication() {
@@ -176,12 +166,14 @@ Now we want to be able to call this function when we click the âLog Inâ�
 Your button should now look like this:
 
 html
+
 ```
 		
 			<button onClick="{handleAuthentication}">Log In</button>
 		 
 	
 ```
+
 > Save your changes and go to your webpage. Click the log in button and see what happens! You should see this:
 
 ![](/courses/beginner-dapp/logging-in-iframe.png)
@@ -189,6 +181,7 @@ html
 Isnât this just so cool? Or am I a boring nerd. Your `Nav.jsx` file should now look like this:
 
 javascript
+
 ```
 		
 			import styles from '../styles/Nav.module.css';
@@ -221,6 +214,7 @@ export default function Nav() {
 		 
 	
 ```
+
 ### Making our Button Respond
 
 The problem now is that, even when we log in with Blocto, there is no indication to the user that we are logged in.
@@ -228,6 +222,7 @@ The problem now is that, even when we log in with Blocto, there is no indication
 > To change that, letâs make our button look like this:
 
 html
+
 ```
 		
 			<button onClick="{handleAuthentication}">{user.loggedIn ? user.addr : "Log In"}</button>
@@ -266,15 +261,14 @@ Author
 
 [Jacob Tucker](https://twitter.com/jacobmtucker)
 
-
-
-
 [Quests](#quests)
-[Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/beginner-dapp/en/chapter4/lesson1.md)
 
+[Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/beginner-dapp/en/chapter4/lesson1.md)
 
 [Bringing Cadence to our DApp & Deploying our Contract](/en/catalog/courses/beginner-dapp/chapter3/lesson3)
 [Running a Script](/en/catalog/courses/beginner-dapp/chapter4/lesson2)
+
+
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
@@ -282,17 +276,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

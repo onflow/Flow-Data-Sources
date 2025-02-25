@@ -1,20 +1,22 @@
 # Source: https://developers.flow.com/build/basics/fees
 
-
-
-
 Fees | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
 * [Getting Started](/build/getting-started/contract-interaction)
 * [Flow Protocol](/build/basics/blocks)
+
   + [Blocks](/build/basics/blocks)
   + [Collections](/build/basics/collections)
   + [Accounts](/build/basics/accounts)
@@ -31,14 +33,14 @@ Fees | Flow Developer Portal
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
-
 * Flow Protocol
 * Fees
+
 On this page
+
 info
 
 Are you an EVM developer looking for information about EVM Accounts on Flow? If so, check out the EVM specific documentation [here](/evm/fees)
-
 
 # Fees
 
@@ -151,18 +153,57 @@ Data stored on the Flow blockchain is stored in a key-value ledger. Each item's 
 
 Due to the storage restrictions, there is a maximum available balance that user can withdraw from the wallet. The core contract [`FlowStorageFees`](/build/core-contracts/flow-fees#flowstoragefees) provides a function to retrieve that value:
 
- `_10import "FlowStorageFees"_10_10access(all) fun main(accountAddress: Address): UFix64 {_10 return FlowStorageFees.defaultTokenAvailableBalance(accountAddress)_10}`
+`_10
+
+import "FlowStorageFees"
+
+_10
+
+_10
+
+access(all) fun main(accountAddress: Address): UFix64 {
+
+_10
+
+return FlowStorageFees.defaultTokenAvailableBalance(accountAddress)
+
+_10
+
+}`
 
 Alternatively developers can use `availableBalance` property of the `Account`
 
- `_10access(all) fun main(address: Address): UFix64 {_10 let acc = getAccount(address)_10 let balance = acc.availableBalance_10_10 return balance_10}`
+`_10
+
+access(all) fun main(address: Address): UFix64 {
+
+_10
+
+let acc = getAccount(address)
+
+_10
+
+let balance = acc.availableBalance
+
+_10
+
+_10
+
+return balance
+
+_10
+
+}`
+
 ## Practical Understanding of Fees[​](#practical-understanding-of-fees "Direct link to Practical Understanding of Fees")
 
 **Using Flow Emulator**
 
 You can start the [emulator using the Flow CLI](/tools/emulator#running-the-emulator-with-the-flow-cli). Run your transaction and take a look at the events emitted:
 
- `_100|emulator | time="2022-04-06T17:13:22-07:00" level=info msg="⭐ Transaction executed" computationUsed=3 txID=a782c2210c0c1f2a6637b20604d37353346bd5389005e4bff6ec7bcf507fac06`
+`_10
+
+0|emulator | time="2022-04-06T17:13:22-07:00" level=info msg="⭐ Transaction executed" computationUsed=3 txID=a782c2210c0c1f2a6637b20604d37353346bd5389005e4bff6ec7bcf507fac06`
 
 You should see the `computationUsed` field. Take a note of the value, you will use it in the next step.
 
@@ -186,11 +227,64 @@ The cost for transactions can be calculated using the following FCL scripts on m
 
 **On mainnet**
 
- `_10import FlowFees from 0xf919ee77447b7497_10access(all) fun main(_10 inclusionEffort: UFix64,_10 executionEffort: UFix64_10): UFix64 {_10 return FlowFees.computeFees(inclusionEffort: inclusionEffort, executionEffort: executionEffort)_10}`
+`_10
+
+import FlowFees from 0xf919ee77447b7497
+
+_10
+
+access(all) fun main(
+
+_10
+
+inclusionEffort: UFix64,
+
+_10
+
+executionEffort: UFix64
+
+_10
+
+): UFix64 {
+
+_10
+
+return FlowFees.computeFees(inclusionEffort: inclusionEffort, executionEffort: executionEffort)
+
+_10
+
+}`
 
 **On testnet**
 
- `_10import FlowFees from 0x912d5440f7e3769e_10access(all) fun main(_10 inclusionEffort: UFix64,_10 executionEffort: UFix64_10): UFix64 {_10 return FlowFees.computeFees(inclusionEffort: inclusionEffort, executionEffort: executionEffort)_10}`
+`_10
+
+import FlowFees from 0x912d5440f7e3769e
+
+_10
+
+access(all) fun main(
+
+_10
+
+inclusionEffort: UFix64,
+
+_10
+
+executionEffort: UFix64
+
+_10
+
+): UFix64 {
+
+_10
+
+return FlowFees.computeFees(inclusionEffort: inclusionEffort, executionEffort: executionEffort)
+
+_10
+
+}`
+
 ## Configuring execution limits[​](#configuring-execution-limits "Direct link to Configuring execution limits")
 
 FCL SDKs allow you to set the execution effort limit for each transaction. Based on the execution effort limit determined in the previous step, you should set a reasonable maximum to avoid unexpected behavior and protect your users. The final transaction fee is computed from the actual execution effort used up to this maximum.
@@ -203,13 +297,134 @@ It is important to set a limit that isn't too high or too low. If it is set too 
 
 You need to set the `limit` parameter for the `mutate` function, for example:
 
- `_17import * as fcl from "@onflow/fcl"_17_17const transactionId = await fcl.mutate({_17 cadence: `_17 transaction {_17 execute {_17 log("Hello from execute")_17 }_17 }_17 `,_17 proposer: fcl.currentUser,_17 payer: fcl.currentUser,_17 limit: 100_17})_17_17const transaction = await fcl.tx(transactionId).onceSealed();_17console.log(transaction;)`
+`_17
+
+import * as fcl from "@onflow/fcl"
+
+_17
+
+_17
+
+const transactionId = await fcl.mutate({
+
+_17
+
+cadence: `
+
+_17
+
+transaction {
+
+_17
+
+execute {
+
+_17
+
+log("Hello from execute")
+
+_17
+
+}
+
+_17
+
+}
+
+_17
+
+`,
+
+_17
+
+proposer: fcl.currentUser,
+
+_17
+
+payer: fcl.currentUser,
+
+_17
+
+limit: 100
+
+_17
+
+})
+
+_17
+
+_17
+
+const transaction = await fcl.tx(transactionId).onceSealed();
+
+_17
+
+console.log(transaction;)`
 
 **Using FCL Go SDK**
 
 You need to call the `SetComputeLimit` method to set the fee limit, for example:
 
- `_16import (_16 "github.com/onflow/flow-go-sdk"_16 "github.com/onflow/flow-go-sdk/crypto"_16)_16_16var (_16 myAddress flow.Address_16 myAccountKey flow.AccountKey_16 myPrivateKey crypto.PrivateKey_16)_16_16tx := flow.NewTransaction()._16 SetScript([]byte("transaction { execute { log(\"Hello, World!\") } }"))._16 SetComputeLimit(100)._16 SetProposalKey(myAddress, myAccountKey.Index, myAccountKey.SequenceNumber)._16 SetPayer(myAddress)`
+`_16
+
+import (
+
+_16
+
+"github.com/onflow/flow-go-sdk"
+
+_16
+
+"github.com/onflow/flow-go-sdk/crypto"
+
+_16
+
+)
+
+_16
+
+_16
+
+var (
+
+_16
+
+myAddress flow.Address
+
+_16
+
+myAccountKey flow.AccountKey
+
+_16
+
+myPrivateKey crypto.PrivateKey
+
+_16
+
+)
+
+_16
+
+_16
+
+tx := flow.NewTransaction().
+
+_16
+
+SetScript([]byte("transaction { execute { log(\"Hello, World!\") } }")).
+
+_16
+
+SetComputeLimit(100).
+
+_16
+
+SetProposalKey(myAddress, myAccountKey.Index, myAccountKey.SequenceNumber).
+
+_16
+
+SetPayer(myAddress)`
+
 ### Maximum transaction fees of a transaction[​](#maximum-transaction-fees-of-a-transaction "Direct link to Maximum transaction fees of a transaction")
 
 The maximum possible fee imposed on the payer for a transaction can be calculated as the **inclusion cost plus the execution cost**. The execution cost is the fee calculated for running the transaction based on the [execution effort limit maximum specified](#configuring-execution-limits).
@@ -224,25 +439,224 @@ Several optimizations can lead to reduced execution time of transactions. Below 
 
 Whenever you make function calls, make sure these are absolutely required. In some cases, you might be able to check prerequisites and avoid additional calls:
 
- `_10for obj in sampleList {_10 /// check if call is required_10 if obj.id != nil {_10 functionCall(obj)_10 }_10}`
+`_10
+
+for obj in sampleList {
+
+_10
+
+/// check if call is required
+
+_10
+
+if obj.id != nil {
+
+_10
+
+functionCall(obj)
+
+_10
+
+}
+
+_10
+
+}`
 
 **Limit loops and iterations**
 
 Whenever you want to iterate over a list, make sure it is necessary to iterate through all elements as opposed to a subset. Avoid loops to grow in size too much over time. Limit loops when possible.
 
- `_20// Iterating over long lists can be costly_20access(all) fun sum(list: [Int]): Int {_20 var total = 0_20 var i = 0_20 // if list grows too large, this might not be possible anymore_20 while i < list.length {_20 total = total + list[i]_20 }_20 return total_20}_20_20// Consider designing transactions (and scripts) in a way where work can be "chunked" into smaller pieces_20access(all) fun partialSum(list: [Int], start: Int, end: Int): Int {_20 var partialTotal = 0_20 var i = start_20 while i < end {_20 partialTotal = partialTotal + list[i]_20 }_20 return partialTotal_20}`
+`_20
+
+// Iterating over long lists can be costly
+
+_20
+
+access(all) fun sum(list: [Int]): Int {
+
+_20
+
+var total = 0
+
+_20
+
+var i = 0
+
+_20
+
+// if list grows too large, this might not be possible anymore
+
+_20
+
+while i < list.length {
+
+_20
+
+total = total + list[i]
+
+_20
+
+}
+
+_20
+
+return total
+
+_20
+
+}
+
+_20
+
+_20
+
+// Consider designing transactions (and scripts) in a way where work can be "chunked" into smaller pieces
+
+_20
+
+access(all) fun partialSum(list: [Int], start: Int, end: Int): Int {
+
+_20
+
+var partialTotal = 0
+
+_20
+
+var i = start
+
+_20
+
+while i < end {
+
+_20
+
+partialTotal = partialTotal + list[i]
+
+_20
+
+}
+
+_20
+
+return partialTotal
+
+_20
+
+}`
 
 **Understand the impact of function calls**
 
 Some functions will require more execution efforts than others. You should carefully review what function calls are made and what execution they involve.
 
- `_15// be aware functions that call a lot of other functions_15// (or call themselves) might cost a lot_15access(all) fun fib(_ x: Int): Int {_15 if x == 1 || x== 0 {_15 return x_15 }_15 // + 2 function calls each recursion_15 return fib(x-1) + fib(x-2)_15}_15_15// consider inlining functions with single statements, to reduce costs_15access(all) fun add(_ a: Int, _ b: Int): Int {_15 // single statement; worth inlining_15 return a + b_15}`
+`_15
+
+// be aware functions that call a lot of other functions
+
+_15
+
+// (or call themselves) might cost a lot
+
+_15
+
+access(all) fun fib(_ x: Int): Int {
+
+_15
+
+if x == 1 || x== 0 {
+
+_15
+
+return x
+
+_15
+
+}
+
+_15
+
+// + 2 function calls each recursion
+
+_15
+
+return fib(x-1) + fib(x-2)
+
+_15
+
+}
+
+_15
+
+_15
+
+// consider inlining functions with single statements, to reduce costs
+
+_15
+
+access(all) fun add(_ a: Int, _ b: Int): Int {
+
+_15
+
+// single statement; worth inlining
+
+_15
+
+return a + b
+
+_15
+
+}`
 
 **Avoid excessive load and save operations**
 
 Avoid costly loading and storage operations and [borrow references](https://cadence-lang.org/docs/design-patterns#avoid-excessive-load-and-save-storage-operations-prefer-in-place-mutations) where possible, for example:
 
- `_14transaction {_14_14 prepare(acct: auth(BorrowValue) &Account) {_14_14 // Borrows a reference to the stored vault, much less costly operation that removing the vault from storage_14 let vault <- acct.storage.borrow<&ExampleToken.Vault>(from: /storage/exampleToken)_14_14 let burnVault <- vault.withdraw(amount: 10)_14_14 destroy burnVault_14_14 // No `save` required because we only used a reference_14 }_14}`
+`_14
+
+transaction {
+
+_14
+
+_14
+
+prepare(acct: auth(BorrowValue) &Account) {
+
+_14
+
+_14
+
+// Borrows a reference to the stored vault, much less costly operation that removing the vault from storage
+
+_14
+
+let vault <- acct.storage.borrow<&ExampleToken.Vault>(from: /storage/exampleToken)
+
+_14
+
+_14
+
+let burnVault <- vault.withdraw(amount: 10)
+
+_14
+
+_14
+
+destroy burnVault
+
+_14
+
+_14
+
+// No `save` required because we only used a reference
+
+_14
+
+}
+
+_14
+
+}`
+
 > **Note**: If the requested resource does not exist, no reading costs are charged.
 
 **Limit accounts created per transaction**
@@ -326,7 +740,17 @@ Additional Details:
 * Because it's a tree, the cost of reads and writes grows with log(n), but does scale.
 * atree has an update queued up for [Crescendo](https://flow.com/upgrade/crescendo) that will improve this. The previous version erred on the side of adding new levels to the tree (to keep the code simple), while the new version tries to pack more data at each level. This should result in fewer levels for the same byte size. Additionally, it includes a more compact encoding leading to a reduction in the byte size of most accounts.
 * Even with these improvements, this relationship is likely to remain indefinitely. The bigger the account, the more bookkeeping the nodes have to do, which will result in somewhat larger tx fees.
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/fees.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousScripts](/build/basics/scripts)[NextEvents](/build/basics/events)
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/fees.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Scripts](/build/basics/scripts)[Next
+
+Events](/build/basics/events)
+
 ###### Rate this page
 
 😞😐😊
@@ -346,6 +770,7 @@ Additional Details:
 * [Educating users](#educating-users)
 * [How to learn more](#how-to-learn-more)
 * [FAQs](#faqs)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -358,6 +783,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -367,6 +793,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -374,6 +801,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -383,6 +811,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -390,5 +819,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

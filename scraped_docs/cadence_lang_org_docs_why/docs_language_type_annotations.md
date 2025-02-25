@@ -1,19 +1,22 @@
 # Source: https://cadence-lang.org/docs/language/type-annotations
 
-
-
-
 Type Annotations | Cadence
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)Search
+[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
+
+[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+
+Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
 * [Tutorial](/docs/tutorial/first-steps)
 * [Language Reference](/docs/language/)
+
   + [Syntax](/docs/language/syntax)
   + [Constants and Variable Declarations](/docs/language/constants-and-variables)
   + [Type Annotations](/docs/language/type-annotations)
@@ -57,9 +60,9 @@ Type Annotations | Cadence
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
-
 * [Language Reference](/docs/language/)
 * Type Annotations
+
 # Type Annotations
 
 When declaring a constant or variable,
@@ -71,15 +74,141 @@ If no type annotation is provided, the type of the declaration is
 
 For function parameters a type annotation must be provided.
 
- `_20// Declare a variable named `boolVarWithAnnotation`, which has an explicit type annotation._20//_20// `Bool` is the type of booleans._20//_20var boolVarWithAnnotation: Bool = false_20_20// Declare a constant named `integerWithoutAnnotation`, which has no type annotation_20// and for which the type is inferred to be `Int`, the type of arbitrary-precision integers._20//_20// This is based on the initial value which is an integer literal._20// Integer literals are always inferred to be of type `Int`._20//_20let integerWithoutAnnotation = 1_20_20// Declare a constant named `smallIntegerWithAnnotation`, which has an explicit type annotation._20// Because of the explicit type annotation, the type is not inferred._20// This declaration is valid because the integer literal `1` fits into the range of the type `Int8`,_20// the type of 8-bit signed integers._20//_20let smallIntegerWithAnnotation: Int8 = 1`
+`_20
+
+// Declare a variable named `boolVarWithAnnotation`, which has an explicit type annotation.
+
+_20
+
+//
+
+_20
+
+// `Bool` is the type of booleans.
+
+_20
+
+//
+
+_20
+
+var boolVarWithAnnotation: Bool = false
+
+_20
+
+_20
+
+// Declare a constant named `integerWithoutAnnotation`, which has no type annotation
+
+_20
+
+// and for which the type is inferred to be `Int`, the type of arbitrary-precision integers.
+
+_20
+
+//
+
+_20
+
+// This is based on the initial value which is an integer literal.
+
+_20
+
+// Integer literals are always inferred to be of type `Int`.
+
+_20
+
+//
+
+_20
+
+let integerWithoutAnnotation = 1
+
+_20
+
+_20
+
+// Declare a constant named `smallIntegerWithAnnotation`, which has an explicit type annotation.
+
+_20
+
+// Because of the explicit type annotation, the type is not inferred.
+
+_20
+
+// This declaration is valid because the integer literal `1` fits into the range of the type `Int8`,
+
+_20
+
+// the type of 8-bit signed integers.
+
+_20
+
+//
+
+_20
+
+let smallIntegerWithAnnotation: Int8 = 1`
 
 If a type annotation is provided, the initial value must be of this type.
 All new values assigned to variables must match its type.
 This type safety is explained in more detail in a [separate section](/docs/language/type-safety).
 
- `_12// Invalid: declare a variable with an explicit type `Bool`,_12// but the initial value has type `Int`._12//_12let booleanConstant: Bool = 1_12_12// Declare a variable that has the inferred type `Bool`._12//_12var booleanVariable = false_12_12// Invalid: assign a value with type `Int` to a variable which has the inferred type `Bool`._12//_12booleanVariable = 1`[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/type-annotations.md)[PreviousConstants and Variable Declarations](/docs/language/constants-and-variables)[NextValues and Types](/docs/language/values-and-types)Got suggestions for this site? 
+`_12
+
+// Invalid: declare a variable with an explicit type `Bool`,
+
+_12
+
+// but the initial value has type `Int`.
+
+_12
+
+//
+
+_12
+
+let booleanConstant: Bool = 1
+
+_12
+
+_12
+
+// Declare a variable that has the inferred type `Bool`.
+
+_12
+
+//
+
+_12
+
+var booleanVariable = false
+
+_12
+
+_12
+
+// Invalid: assign a value with type `Int` to a variable which has the inferred type `Bool`.
+
+_12
+
+//
+
+_12
+
+booleanVariable = 1`
+
+[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/type-annotations.md)
+
+[Previous
+
+Constants and Variable Declarations](/docs/language/constants-and-variables)[Next
+
+Values and Types](/docs/language/values-and-types)
+
+Got suggestions for this site?
 
 * [It's open-source!](https://github.com/onflow/cadence-lang.org)
+
 The source code of this site is licensed under the Apache License, Version 2.0.
 Content is licensed under the Creative Commons Attribution 4.0 International License.
-

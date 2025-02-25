@@ -1,19 +1,6 @@
 # Source: https://github.com/orgs/onflow/discussions/1225
 
-
-
-
-
-
-
-
-
 VSCode extension doesn't resolve non-public function access properly · onflow · Discussion #1225 · GitHub
-
-
-
-
-
 
 
 
@@ -22,82 +9,80 @@ VSCode extension doesn't resolve non-public function access properly · onflow �
 
 
 
+
+
+
 ## Navigation Menu
 
 Toggle navigation
 
- 
-
-
-
-
-
-
 [Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Forgs%2Fonflow%2Fdiscussions%2F1225)
-
 
 [onflow](/onflow)
 
 * Product
-  
-  
-  
+
   + [GitHub Copilot
+
     Write better code with AI](https://github.com/features/copilot)
   + [Security
+
     Find and fix vulnerabilities](https://github.com/features/security)
   + [Actions
+
     Automate any workflow](https://github.com/features/actions)
   + [Codespaces
+
     Instant dev environments](https://github.com/features/codespaces)
   + [Issues
+
     Plan and track work](https://github.com/features/issues)
   + [Code Review
+
     Manage code changes](https://github.com/features/code-review)
   + [Discussions
+
     Collaborate outside of code](https://github.com/features/discussions)
   + [Code Search
+
     Find more, search less](https://github.com/features/code-search)
-  
+
   Explore
   + [All features](https://github.com/features)
   + [Documentation](https://docs.github.com)
   + [GitHub Skills](https://skills.github.com)
   + [Blog](https://github.blog)
 * Solutions
-  
-  
-  
+
   By company size
   + [Enterprises](https://github.com/enterprise)
   + [Small and medium teams](https://github.com/team)
   + [Startups](https://github.com/enterprise/startups)
   + [Nonprofits](/solutions/industry/nonprofits)
+
   By use case
   + [DevSecOps](/solutions/use-case/devsecops)
   + [DevOps](/solutions/use-case/devops)
   + [CI/CD](/solutions/use-case/ci-cd)
   + [View all use cases](/solutions/use-case)
-  
+
   By industry
   + [Healthcare](/solutions/industry/healthcare)
   + [Financial services](/solutions/industry/financial-services)
   + [Manufacturing](/solutions/industry/manufacturing)
   + [Government](/solutions/industry/government)
   + [View all industries](/solutions/industry)
-  
+
   [View all solutions](/solutions)
 * Resources
-  
-  
-  
+
   Topics
   + [AI](/resources/articles/ai)
   + [DevOps](/resources/articles/devops)
   + [Security](/resources/articles/security)
   + [Software Development](/resources/articles/software-development)
   + [View all](/resources/articles)
-  
+
   Explore
   + [Learning Pathways](https://resources.github.com/learn/pathways)
   + [Events & Webinars](https://resources.github.com)
@@ -106,117 +91,59 @@ Toggle navigation
   + [Partners](https://partner.github.com)
   + [Executive Insights](https://github.com/solutions/executive-insights)
 * Open Source
-  
-  
-  
+
   + [GitHub Sponsors
+
     Fund open source developers](/sponsors)
+
   + [The ReadME Project
+
     GitHub community articles](https://github.com/readme)
+
   Repositories
   + [Topics](https://github.com/topics)
   + [Trending](https://github.com/trending)
   + [Collections](https://github.com/collections)
 * Enterprise
-  
-  
-  
+
   + [Enterprise platform
+
     AI-powered developer platform](/enterprise)
+
   Available add-ons
   + [Advanced Security
+
     Enterprise-grade security features](https://github.com/enterprise/advanced-security)
   + [GitHub Copilot
+
     Enterprise-grade AI features](/features/copilot#enterprise)
   + [Premium Support
+
     Enterprise-grade 24/7 support](/premium-support)
 * [Pricing](https://github.com/pricing)
-
-
 
 Search or jump to...
 
 
-
-
 # Search code, repositories, users, issues, pull requests...
 
- 
 Search
 
-
-
-
 Clear
- 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-[Search syntax tips](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax) 
-
-
-
-
-
-
+[Search syntax tips](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax)
 
 # Provide feedback
-
-
-
-
-
- 
 
 We read every piece of feedback, and take your input very seriously.
 
 
-
 Include my email address so I can be contacted
 
-
-  Cancel
-
+Cancel
  Submit feedback
+
+
 
 
 
@@ -224,43 +151,19 @@ Include my email address so I can be contacted
 
 ## Use saved searches to filter your results more quickly
 
-
-
-
-
- 
-
 Name
-
-
-
 
 Query
 
 To see all available qualifiers, see our [documentation](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax).
 
- 
-
-
-
-
-  Cancel
-
+Cancel
  Create saved search
-
-
-
-
-
 
 [Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Forgs%2Fonflow%2Fdiscussions%2F1225)
 
-[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Fdiscussions%2Fshow&source=header-repo&source_repo=onflow%2Fflow)
+[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Fvoltron%2Fdiscussions_fragments%2Fdiscussion_layout&source=header-repo&source_repo=onflow%2Fflow)
 Reseting focus
-
-
-
-
 
 You signed in with another tab or window. Reload to refresh your session.
 You signed out in another tab or window. Reload to refresh your session.
@@ -270,16 +173,9 @@ You switched accounts on another tab or window. Reload to refresh your session.
 
 Dismiss alert
 
-
-
 {{ message }}
 
-
-
-
-
 # [@onflow Flow](/onflow)
-
 
 * [Overview](/onflow)
 * [Repositories](/orgs/onflow/repositories)
@@ -287,13 +183,11 @@ Dismiss alert
 * [Projects](/orgs/onflow/projects)
 * [Packages](/orgs/onflow/packages)
 * [People](/orgs/onflow/people)
-
- 
-
 
 More
 
 
+
 * [Overview](/onflow)
 * [Repositories](/orgs/onflow/repositories)
 * [Discussions](/orgs/onflow/discussions)
@@ -301,129 +195,63 @@ More
 * [Packages](/orgs/onflow/packages)
 * [People](/orgs/onflow/people)
 
-
-
-
-
-
-
 # VSCode extension doesn't resolve non-public function access properly #1225
-
 
 [Answered](#discussioncomment-4607620)
 by
 [btspoony](/btspoony "btspoony")
- 
+
 [austinkline](/austinkline)
 asked this question in
 [Developer Tooling](/orgs/onflow/discussions/categories/developer-tooling)
-
-
-
-
-
-
 
 [VSCode extension doesn't resolve non-public function access properly](#top)
 #1225
 
 [![@austinkline](https://avatars.githubusercontent.com/u/8711160?s=40&v=4)
+
 austinkline](/austinkline)
 
 Jan 5, 2023
 ·
 1 comment
 
-
-
-
-
 [Answered](#discussioncomment-4607620)
+
 by
 [btspoony](/btspoony "btspoony")
-
-
  [Return to top](#top)
-
-
-
-
-
-
-
- 
-
 
 Discussion options
 
 
 
 
-
-
 # {{title}}
-
-
-
-
-
- 
-
-
-
 
 Something went wrong.
 
-
-
-
-
-
-
- 
 Quote reply
-
-
-
-
-
 
 ## [austinkline](/austinkline) [Jan 5, 2023](#discussion-4727686)
 
+-
 
-
- -
- 
-
-
-| If I make a function in one contract that is imported by another with `access(account)` instead of `pub`, VSCode doesn't think I have access and shows an error instead |
+|  |
 | --- |
+| If I make a function in one contract that is imported by another with `access(account)` instead of `pub`, VSCode doesn't think I have access and shows an error instead |
 
 Beta
 Was this translation helpful?
 [Give feedback.](#)
 
-
- 
-
-
 3
  You must be logged in to vote
 
-
-
- 
 All reactions
-
-
-
-
-
-
 
 Answered by
 [btspoony](/btspoony)
-
 [Jan 6, 2023](https://github.com/orgs/onflow/discussions/1225#discussioncomment-4607620)
 
 Related Issues:
@@ -431,167 +259,72 @@ Related Issues:
 * <https://github.com/onflow/vscode-cadence/issues/75>
 * <https://github.com/onflow/vscode-cadence/issues/199>
 
-
 [View full answer](#discussioncomment-4607620)
 
-
-
-
-
-
-
-
-
 ## Replies: 1 comment
-
 
 * [Oldest](/orgs/onflow/discussions/1225?sort=old)
 * [Newest](/orgs/onflow/discussions/1225?sort=new)
 * [Top](/orgs/onflow/discussions/1225?sort=top)
-
-
-
- 
-
 
 Comment options
 
 
 
 
-
-
 # {{title}}
-
-
-
-
-
- 
-
-
-
 
 Something went wrong.
 
-
-
-
-
-
-
- 
 Quote reply
 
-
-
-
-
-
- 
 edited by justinbarry
 
 
 
 
 
-
 # {{editor}}'s edit
 
-
-
-
-
- {{actor}} deleted this content
+{{actor}} deleted this content
 .
 
 
 
 
+
 # {{editor}}'s edit
-
-
-
-
-
- 
-
-
-
 
 Something went wrong.
 
-
-
-
-
-
-
-
 ### [btspoony](/btspoony) [Jan 6, 2023](#discussioncomment-4607620) Collaborator
 
+-
 
-
- -
- 
-
-
-| Related Issues:   * <https://github.com/onflow/vscode-cadence/issues/75> * <https://github.com/onflow/vscode-cadence/issues/199> |
+|  |
 | --- |
+| Related Issues:   * <https://github.com/onflow/vscode-cadence/issues/75> * <https://github.com/onflow/vscode-cadence/issues/199> |
 
 Beta
 Was this translation helpful?
 [Give feedback.](#)
 
-
- 
-
 Marked as answer
-
-
- 
-
 
 1
  You must be logged in to vote
 
-
-
- 
 All reactions
-
-
-
-
 
 0 replies
 
-
-
-
-
-
-
-
 Answer selected by
 [turbolent](/turbolent)
-
-
-
-
-
-
-
-
-
 
 [Sign up for free](/join?source=comment-repo)
 **to join this conversation on GitHub**.
 Already have an account?
 [Sign in to comment](/login?return_to=https%3A%2F%2Fgithub.com%2Forgs%2Fonflow%2Fdiscussions%2F1225)
-
-
-
 
 Category
 
@@ -599,92 +332,48 @@ Category
 
 Developer Tooling](/orgs/onflow/discussions/categories/developer-tooling)
 
-
-
 Labels
 
 [VSCode Extension](/orgs/onflow/discussions?discussions_q=label%3A%22VSCode+Extension%22)
 [Solved!](/orgs/onflow/discussions?discussions_q=label%3ASolved%21)
 
-
 2 participants
 
-[![@austinkline](https://avatars.githubusercontent.com/u/8711160?s=48&v=4)](/austinkline) [![@btspoony](https://avatars.githubusercontent.com/u/707025?s=48&v=4)](/btspoony) 
-
-
-
- 
-
+[![@austinkline](https://avatars.githubusercontent.com/u/8711160?s=48&v=4)](/austinkline) [![@btspoony](https://avatars.githubusercontent.com/u/707025?s=48&v=4)](/btspoony)
 
 Heading
 
- 
-
-
 Bold
-
- 
-
 
 Italic
 
- 
-
-
 Quote
 
- 
-
-
 Code
-
- 
-
 
 Link
 
 ---
 
-
- 
-
-
 Numbered list
 
- 
-
-
 Unordered list
-
- 
-
 
 Task list
 
 ---
 
-
- 
-
-
 Attach files
 
- 
-
-
 Mention
-
- 
-
 
 Reference
 
  
- 
 
 
 Menu
- 
+
 
 * Heading
 * Bold
@@ -699,25 +388,15 @@ Menu
 * Mention
 * Reference
 
-
  
+
+
 
 # Select a reply
 
+Loading
 
-
-
-
- 
-
-
- Loading
-
-
-
-
-  [Create a new saved reply](/settings/replies?return_to=1)
-
+[Create a new saved reply](/settings/replies?return_to=1)
 
 
  👍
@@ -752,15 +431,9 @@ Menu
 1
   reacted with eyes emoji
 
-
-
-
-
-
 ## Footer
 
 © 2025 GitHub, Inc.
-
 
 ### Footer navigation
 
@@ -775,20 +448,4 @@ Menu
 
 
 
-
 You can’t perform that action at this time.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

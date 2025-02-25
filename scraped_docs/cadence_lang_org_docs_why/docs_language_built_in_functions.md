@@ -1,19 +1,22 @@
 # Source: https://cadence-lang.org/docs/language/built-in-functions
 
-
-
-
 Built-in Functions | Cadence
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)Search
+[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
+
+[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+
+Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
 * [Tutorial](/docs/tutorial/first-steps)
 * [Language Reference](/docs/language/)
+
   + [Syntax](/docs/language/syntax)
   + [Constants and Variable Declarations](/docs/language/constants-and-variables)
   + [Type Annotations](/docs/language/type-annotations)
@@ -57,25 +60,33 @@ Built-in Functions | Cadence
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
-
 * [Language Reference](/docs/language/)
 * Built-in Functions
+
 On this page
+
 # Built-in Functions
 
 ## `panic`[​](#panic "Direct link to panic")
 
 # 
 
- `_10view fun panic(_ message: String): Never`
+`_10
+
+view fun panic(_ message: String): Never`
 
 Terminates the program unconditionally
 and reports a message which explains why the unrecoverable error occurred.
 
- `_10panic("something went wrong: ...")`
+`_10
+
+panic("something went wrong: ...")`
+
 ## `assert`[​](#assert "Direct link to assert")
 
- `_10view fun assert(_ condition: Bool, message: String)`
+`_10
+
+view fun assert(_ condition: Bool, message: String)`
 
 Terminates the program if the given condition is false,
 and reports a message which explains how the condition is false.
@@ -85,7 +96,9 @@ The message argument is optional.
 
 ## `revertibleRandom`[​](#revertiblerandom "Direct link to revertiblerandom")
 
- `_10view fun revertibleRandom<T: FixedSizeUnsignedInteger>(modulo: T): T`
+`_10
+
+view fun revertibleRandom<T: FixedSizeUnsignedInteger>(modulo: T): T`
 
 Returns a pseudo-random integer.
 
@@ -137,7 +150,9 @@ Cadence provides RLP decoding functions in the built-in `RLP` contract, which do
 
 ### `decodeString`[​](#decodestring "Direct link to decodestring")
 
- `_10view fun decodeString(_ input: [UInt8]): [UInt8]`
+`_10
+
+view fun decodeString(_ input: [UInt8]): [UInt8]`
 
 Decodes an RLP-encoded byte array. RLP calls this a "string."
 The byte array should only contain of a single encoded value for a string.
@@ -146,7 +161,9 @@ If the function encounters any error while decoding, the program aborts.
 
 ### `decodeList`[​](#decodelist "Direct link to decodelist")
 
- `_10view fun decodeList(_ input: [UInt8]): [[UInt8]]``
+`_10
+
+view fun decodeList(_ input: [UInt8]): [[UInt8]]``
 
 Decodes an RLP-encoded list into an array of RLP-encoded items.
 
@@ -155,7 +172,14 @@ The byte array should only contain of a single encoded value for a list.
 If the encoded value type does not match, or it has trailing unnecessary bytes, the program aborts.
 If the function encounters any error while decoding, the program aborts.
 
-[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/built-in-functions.mdx)[PreviousRun-time Types](/docs/language/run-time-types)[NextEnvironment Information](/docs/language/environment-information)
+[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/built-in-functions.mdx)
+
+[Previous
+
+Run-time Types](/docs/language/run-time-types)[Next
+
+Environment Information](/docs/language/environment-information)
+
 ###### Rate this page
 
 😞😐😊
@@ -166,9 +190,10 @@ If the function encounters any error while decoding, the program aborts.
 * [`RLP`](#rlp)
   + [`decodeString`](#decodestring)
   + [`decodeList`](#decodelist)
-Got suggestions for this site? 
+
+Got suggestions for this site?
 
 * [It's open-source!](https://github.com/onflow/cadence-lang.org)
+
 The source code of this site is licensed under the Apache License, Version 2.0.
 Content is licensed under the Creative Commons Attribution 4.0 International License.
-

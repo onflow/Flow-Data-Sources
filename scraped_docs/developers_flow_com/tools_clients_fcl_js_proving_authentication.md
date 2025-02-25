@@ -1,22 +1,25 @@
 # Source: https://developers.flow.com/tools/clients/fcl-js/proving-authentication
 
-
-
-
 Proving Ownership of a Flow Account | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
 * [Flow CLI](/tools/flow-cli)
 * [Flow Emulator](/tools/emulator)
 * [Clients](/tools/clients)
+
   + [Flow Client Library (FCL)](/tools/clients/fcl-js)
+
     - [FCL Reference](/tools/clients/fcl-js/api)
     - [SDK Reference](/tools/clients/fcl-js/sdk-guidelines)
     - [Authentication](/tools/clients/fcl-js/authentication)
@@ -34,11 +37,12 @@ Proving Ownership of a Flow Account | Flow Developer Portal
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 
-
 * [Clients](/tools/clients)
 * [Flow Client Library (FCL)](/tools/clients/fcl-js)
 * Proving Ownership of a Flow Account
+
 On this page
+
 # Proving Ownership of a Flow Account
 
 ## Proving Ownership of a Flow Account[​](#proving-ownership-of-a-flow-account "Direct link to Proving Ownership of a Flow Account")
@@ -87,7 +91,57 @@ continue the authentication process with the wallet but will not request an acco
 
 > In the case of a network or server error FCL will cancel the authentication process and return a rejected promise.
 
- `_15import {config} from "@onflow/fcl"_15_15type AccountProofData {_15 // e.g. "Awesome App (v0.0)" - A human readable string to identify your application during signing_15 appIdentifier: string; _15_15 // e.g. "75f8587e5bd5f9dcc9909d0dae1f0ac5814458b2ae129620502cb936fde7120a" - minimum 32-byte random nonce as hex string_15 nonce: string; _15}_15_15type AccountProofDataResolver = () => Promise<AccountProofData | null>;_15_15config({_15 "fcl.accountProof.resolver": accountProofDataResolver_15})`
+`_15
+
+import {config} from "@onflow/fcl"
+
+_15
+
+_15
+
+type AccountProofData {
+
+_15
+
+// e.g. "Awesome App (v0.0)" - A human readable string to identify your application during signing
+
+_15
+
+appIdentifier: string;
+
+_15
+
+_15
+
+// e.g. "75f8587e5bd5f9dcc9909d0dae1f0ac5814458b2ae129620502cb936fde7120a" - minimum 32-byte random nonce as hex string
+
+_15
+
+nonce: string;
+
+_15
+
+}
+
+_15
+
+_15
+
+type AccountProofDataResolver = () => Promise<AccountProofData | null>;
+
+_15
+
+_15
+
+config({
+
+_15
+
+"fcl.accountProof.resolver": accountProofDataResolver
+
+_15
+
+})`
 
 Here is the suggested order of operations of how your application might use the
 `account-proof` service:
@@ -106,14 +160,82 @@ Here is the suggested order of operations of how your application might use the
 
 The data within the `account-proof` service will look like this:
 
- `_19{_19 f_type: "Service", // Its a service!_19 f_vsn: "1.0.0", // Follows the v1.0.0 spec for the service_19 type: "account-proof", // The type of service it is_19 method: "DATA", // Its data!_19 uid: "awesome-wallet#account-proof", // A unique identifier for the service_19 data: {_19 f_type: "account-proof",_19 f_vsn: "2.0.0"_19_19 // The user's address (8 bytes, i.e 16 hex characters)_19 address: "0xf8d6e0586b0a20c7", _19_19 // Nonce signed by the current account-proof (minimum 32 bytes in total, i.e 64 hex characters)_19 nonce: "75f8587e5bd5f9dcc9909d0dae1f0ac5814458b2ae129620502cb936fde7120a",_19_19 signatures: [CompositeSignature],_19 }_19}`
+`_19
+
+{
+
+_19
+
+f_type: "Service", // Its a service!
+
+_19
+
+f_vsn: "1.0.0", // Follows the v1.0.0 spec for the service
+
+_19
+
+type: "account-proof", // The type of service it is
+
+_19
+
+method: "DATA", // Its data!
+
+_19
+
+uid: "awesome-wallet#account-proof", // A unique identifier for the service
+
+_19
+
+data: {
+
+_19
+
+f_type: "account-proof",
+
+_19
+
+f_vsn: "2.0.0"
+
+_19
+
+_19
+
+// The user's address (8 bytes, i.e 16 hex characters)
+
+_19
+
+address: "0xf8d6e0586b0a20c7",
+
+_19
+
+_19
+
+// Nonce signed by the current account-proof (minimum 32 bytes in total, i.e 64 hex characters)
+
+_19
+
+nonce: "75f8587e5bd5f9dcc9909d0dae1f0ac5814458b2ae129620502cb936fde7120a",
+
+_19
+
+_19
+
+signatures: [CompositeSignature],
+
+_19
+
+}
+
+_19
+
+}`
 
 * Your application client initiates a secure channel with your application server
   to relay the `account-proof` data and authenticate the user with your server.
   Subsequent exchanges between the client and server will happen over this channel.
 * Your application server receives the `account-proof` data structure, and can then
   begin the verification process.
-  
+
   + The server checks if the Flow address corresponds to an existing application
     account and determines whether it needs to sign in a returning user or create
     a new account. It is up to your application to decide how to manage
@@ -132,7 +254,52 @@ The data within the `account-proof` service will look like this:
 Your application can verify the signature against the data from `account-proof`
 data using FCL's provided utility:
 
- `_13_13import { AppUtils } from "@onflow/fcl"_13_13 const accountProofData = {_13 accountProof.address, // address of the user authenticating_13 accountProof.nonce, // nonce_13 accountProof.signatures // signatures_13 }_13 _13 const isValid = await AppUtils.verifyAccountProof(_13 appIdentifier,_13 accountProofData_13 )`
+`_13
+
+_13
+
+import { AppUtils } from "@onflow/fcl"
+
+_13
+
+_13
+
+const accountProofData = {
+
+_13
+
+accountProof.address, // address of the user authenticating
+
+_13
+
+accountProof.nonce, // nonce
+
+_13
+
+accountProof.signatures // signatures
+
+_13
+
+}
+
+_13
+
+_13
+
+const isValid = await AppUtils.verifyAccountProof(
+
+_13
+
+appIdentifier,
+
+_13
+
+accountProofData
+
+_13
+
+)`
+
 ## Implementation considerations:[​](#implementation-considerations "Direct link to Implementation considerations:")
 
 * The authentication assumes the Flow address is the identifier of the user's application account.
@@ -163,7 +330,17 @@ data using FCL's provided utility:
 * A successful FCL authentication proves the user fully controls a Flow account. This means the user
   controls one or many account keys with weights that add up to the full account weight. The authentication
   would fail if the user doesn't control keys that add up to a full weight.
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/proving-authentication.mdx)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousInteraction Templates](/tools/clients/fcl-js/interaction-templates)[NextScripts](/tools/clients/fcl-js/scripts)
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/proving-authentication.mdx)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Interaction Templates](/tools/clients/fcl-js/interaction-templates)[Next
+
+Scripts](/tools/clients/fcl-js/scripts)
+
 ###### Rate this page
 
 😞😐😊
@@ -171,6 +348,7 @@ data using FCL's provided utility:
 * [Proving Ownership of a Flow Account](#proving-ownership-of-a-flow-account)
   + [Authenticating a user using `account-proof`](#authenticating-a-user-using-account-proof)
 * [Implementation considerations:](#implementation-considerations)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -183,6 +361,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -192,6 +371,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -199,6 +379,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -208,6 +389,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -215,5 +397,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

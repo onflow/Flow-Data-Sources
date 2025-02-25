@@ -1,24 +1,27 @@
 # Source: https://developers.flow.com/tools/flow-cli/deployment/emulator-snapshot
 
-
-
-
 Create Emulator Snapshot | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
 * [Flow CLI](/tools/flow-cli)
+
   + [Install Instructions](/tools/flow-cli/install)
   + [Super Commands](/tools/flow-cli/super-commands)
   + [Accounts](/tools/flow-cli/accounts/get-accounts)
   + [Keys](/tools/flow-cli/keys/generate-keys)
   + [Deploy Project](/tools/flow-cli/deployment/start-emulator)
+
     - [Start Emulator](/tools/flow-cli/deployment/start-emulator)
     - [Add Project Contracts](/tools/flow-cli/deployment/project-contracts)
     - [Deploy a Project](/tools/flow-cli/deployment/deploy-project-contracts)
@@ -40,11 +43,12 @@ Create Emulator Snapshot | Flow Developer Portal
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 
-
 * [Flow CLI](/tools/flow-cli)
 * Deploy Project
 * Create Emulator Snapshot
+
 On this page
+
 # Create Emulator Snapshot
 
 The Flow CLI provides a command to create emulator snapshots, which are points in blockchain
@@ -53,24 +57,35 @@ establish a begining state, run tests and after revert back to the initial state
 
 The command syntax is:
 
- `_10flow emulator snapshot create|load|list {name}`
+`_10
+
+flow emulator snapshot create|load|list {name}`
+
 ## Example Usage[​](#example-usage "Direct link to Example Usage")
 
 ### Create a new snapshot[​](#create-a-new-snapshot "Direct link to Create a new snapshot")
 
 Create a new emulator snapshot at the current block with a name of `myInitialState`.
 
- `_10> flow emulator snapshot create myInitialState`
+`_10
+
+> flow emulator snapshot create myInitialState`
+
 ### Load an existing snapshot[​](#load-an-existing-snapshot "Direct link to Load an existing snapshot")
 
 To jump to a previously created snapshot we use the load command in combination with the name.
 
- `_10> flow emulator snapshot load myInitialState`
+`_10
+
+> flow emulator snapshot load myInitialState`
+
 ### List all existing snapshots[​](#list-all-existing-snapshots "Direct link to List all existing snapshots")
 
 To list all the existing snapshots we previously created and can load to we run the following command:
 
- `_10> flow emulator list`
+`_10
+
+> flow emulator list`
 
 To learn more about using the Emulator, have a look at the [README of the repository](https://github.com/onflow/flow-emulator).
 
@@ -96,7 +111,16 @@ files by using `-f` flag multiple times.
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/deployment/emulator-snapshot.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousDeploy a Project](/tools/flow-cli/deployment/deploy-project-contracts)[NextExecute a Script](/tools/flow-cli/scripts/execute-scripts)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/deployment/emulator-snapshot.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Deploy a Project](/tools/flow-cli/deployment/deploy-project-contracts)[Next
+
+Execute a Script](/tools/flow-cli/scripts/execute-scripts)
+
 ###### Rate this page
 
 😞😐😊
@@ -109,6 +133,7 @@ Skip version check during start up to speed up process for slow connections.
   + [Emulator Flags](#emulator-flags)
   + [Configuration](#configuration)
   + [Version Check](#version-check)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -121,6 +146,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -130,6 +156,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -137,6 +164,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -146,6 +174,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -153,5 +182,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

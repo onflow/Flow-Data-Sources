@@ -1,25 +1,14 @@
 # Source: https://academy.ecdao.org/en/cadence-by-example/21-capability-controllers
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -39,6 +28,7 @@ To make data stored at a storage path available to a public path, we can issue (
 We can restrict capabilities by restricting certain access, so we only share certain data / functions we want the accessor of our capability to have.
 
 cadence
+
 ```
 		
 			// Contract file: Test.cdc
@@ -72,6 +62,7 @@ access(all) contract Test {
 ```
 
 cadence
+
 ```
 		
 			// Transaction file: store_nft.cdc
@@ -99,6 +90,7 @@ transaction(name: String) {
 ```
 
 cadence
+
 ```
 		
 			// Script file: read_nft.cdc
@@ -141,10 +133,12 @@ access(all) struct NFTData {
 	
 ```
 
-
 [Entitlements](/en/cadence-by-example/20-entitlements)
 [Random](/en/cadence-by-example/22-random)
+
 [Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/cadence-by-example/en/21-capability-controllers.md)
+
+
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
@@ -152,17 +146,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

@@ -1,30 +1,14 @@
 # Source: https://academy.ecdao.org/en/catalog/courses/beginner-dapp/chapter4/lesson4
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -55,7 +39,6 @@ Connect
 [5.1 Finishing our DApp](/en/catalog/courses/beginner-dapp/chapter5/lesson1)[5.2 Deploying our DApp](/en/catalog/courses/beginner-dapp/chapter5/lesson2)
 
 Course Overview
-
 
 [Catalog](/en/catalog)
 [Course](/en/catalog/courses/beginner-dapp)
@@ -90,6 +73,7 @@ The good news is we already have the `runTransaction` function, we just need to 
 Here is *something similar* to what your `./pages/index.js` file should be right now, after completing the quests from the previous few lessons:
 
 javascript
+
 ```
 		
 			import Head from 'next/head';
@@ -157,6 +141,7 @@ export default function Home() {
 		 
 	
 ```
+
 ## Sending Transactions Using FCL
 
 > Lets implement the `runTransaction` function by sending a transaction to change our greeting using FCL.
@@ -164,6 +149,7 @@ export default function Home() {
 I will show you the default code to send a transaction, and then explain how it works:
 
 javascript
+
 ```
 		
 			async function runTransaction() {
@@ -200,6 +186,7 @@ The cool thing is that all of this ends up being pretty easy in the end. In our 
 > Letâs implement our function fully nowâ¦
 
 javascript
+
 ```
 		
 			async function runTransaction() {
@@ -261,6 +248,7 @@ A transactionId can help you find information about your transaction. More speci
 > Copy + paste that transactionId, go to <https://testnet.flowdiver.io>, and paste it into the search bar. You should be able to discover your transaction!
 
 ![](/courses/beginner-dapp/testnet-flowscan.png)
+
 ## Updating the Displayed Greeting After Transaction
 
 Now that we are changing the greeting, we want to make sure our frontend reflects this change. The problem is, right now, the greeting on our frontend only updates if the page refreshes. So lets add a simple call to `executeScript` after our transaction is done!
@@ -268,6 +256,7 @@ Now that we are changing the greeting, we want to make sure our frontend reflect
 > Inside of `runTransaction`, after the `console.log`, add these lines:
 
 javascript
+
 ```
 		
 			await fcl.tx(transactionId).onceSealed();
@@ -293,22 +282,20 @@ There are two lovely quests for today.
 
 Submit all the code you used to send the transaction, and the result of the script.
 
-
 ![User avatar](/avatars/jacob.jpeg)
 
 Author
 
 [Jacob Tucker](https://twitter.com/jacobmtucker)
 
-
-
-
 [Quests](#quests)
-[Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/beginner-dapp/en/chapter4/lesson4.md)
 
+[Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/beginner-dapp/en/chapter4/lesson4.md)
 
 [Passing in Arguments to a Script](/en/catalog/courses/beginner-dapp/chapter4/lesson3)
 [Finishing our DApp](/en/catalog/courses/beginner-dapp/chapter5/lesson1)
+
+
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
@@ -316,17 +303,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

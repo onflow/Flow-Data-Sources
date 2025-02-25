@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/tools/vscode-extension/cursor
 
-
-
-
 Use Flow Knowledge Base in Cursor | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
@@ -18,17 +19,18 @@ Use Flow Knowledge Base in Cursor | Flow Developer Portal
 * [Clients](/tools/clients)
 * [Flow Dev Wallet](/tools/flow-dev-wallet)
 * [Cadence VS Code Extension](/tools/vscode-extension)
+
   + [Use Cursor AI](/tools/vscode-extension/cursor)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 
-
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * Use Cursor AI
+
 On this page
+
 # Use Flow Knowledge Base in Cursor
 
 [Cursor](https://www.cursor.com/) is an AI code editor that makes it easy to write code while building Flow apps.  
-
 Let's walk through how to setup Cursor for the best possible experience when writing applications on Flow.
 
 ## Installation[​](#installation "Direct link to Installation")
@@ -51,16 +53,25 @@ Adding Flow docs lets you interact with our docs directly and get the most accur
 ## Using Flow Docs in Cursor[​](#using-flow-docs-in-cursor "Direct link to Using Flow Docs in Cursor")
 
 You can then reference the Flow docs in your prompt with the `@Flow` symbol or `@Cadence` for the Cadence docs.  
-
 ![Cursor Settings](/assets/images/use-cursor-3-ee338cc36953ea4ae1fe236ba9c1a9a5.png)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/vscode-extension/cursor/index.md)Last updated on **Feb 18, 2025** by **Brian Doyle**[PreviousCadence VS Code Extension](/tools/vscode-extension)[NextWallet Provider Spec](/tools/wallet-provider-spec)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/vscode-extension/cursor/index.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Cadence VS Code Extension](/tools/vscode-extension)[Next
+
+Wallet Provider Spec](/tools/wallet-provider-spec)
+
 ###### Rate this page
 
 😞😐😊
 
 * [Installation](#installation)
 * [Using Flow Docs in Cursor](#using-flow-docs-in-cursor)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -73,6 +84,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -82,6 +94,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -89,6 +102,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -98,6 +112,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -105,5 +120,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

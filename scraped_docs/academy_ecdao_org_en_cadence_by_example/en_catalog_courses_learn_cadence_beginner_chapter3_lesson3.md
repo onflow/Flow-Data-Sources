@@ -1,30 +1,14 @@
 # Source: https://academy.ecdao.org/en/catalog/courses/learn-cadence-beginner/chapter3/lesson3
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -48,7 +32,6 @@ Connect
 
 Course Overview
 
-
 [Catalog](/en/catalog)
 [Course](/en/catalog/courses/learn-cadence-beginner)
 Learn Cadence Beginner
@@ -64,6 +47,7 @@ In Lesson 2, I showed you how to create a Pokemon inside of a transaction and sa
 Letâs see an example of the problem right now:
 
 cadence
+
 ```
 		
 			import Game from "./Game.cdc"
@@ -94,6 +78,7 @@ Isâ¦ this okay? Right now, anyone can create their own Pokemon, level it up 
 They can even continue to level it up later:
 
 cadence
+
 ```
 		
 			import Game from "./Game.cdc"
@@ -126,6 +111,7 @@ How can we make it so that only the `battle` function inside the smart contract 
 Well, itâs actually very simple. Just change:
 
 cadence
+
 ```
 		
 			access(all) fun levelUp() {
@@ -138,6 +124,7 @@ cadence
 toâ¦
 
 cadence
+
 ```
 		
 			access(contract) fun levelUp() {
@@ -152,6 +139,7 @@ Now this function can only ever be called in the smart contract. Or more specifi
 Your final contract should look like this:
 
 cadence
+
 ```
 		
 			access(all) contract Game {
@@ -234,11 +222,13 @@ cadence
 		 
 	
 ```
+
 ## Further Reading
 
 This topic is intermediate-level, so I will leave it to the next course. But here is a really nice diagram outlining all of the different access modifiers and their associated read/write permissions:
 
 ![](/tutorials/access-control.png)
+
 ## Conclusion
 
 Wellâ¦ WOW! I am so proud of you. You completed the **Learn Cadence: Beginner** course!
@@ -247,20 +237,16 @@ Please reach out to Jacob Tucker in the [ð Emerald City Discord](https://
 
 Stay tuned for the **Learn Cadence: Intermediate** course where we will dive into capabilities.
 
-
 ![User avatar](/avatars/jacob.jpeg)
 
 Author
 
 [Jacob Tucker](https://twitter.com/jacobmtucker)
 
-
-
-
 [Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/learn-cadence-beginner/en/chapter3/lesson3.md)
 
-
 [Account Storage](/en/catalog/courses/learn-cadence-beginner/chapter3/lesson2)
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
@@ -269,17 +255,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

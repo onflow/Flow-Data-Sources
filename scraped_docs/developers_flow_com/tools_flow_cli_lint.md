@@ -1,19 +1,21 @@
 # Source: https://developers.flow.com/tools/flow-cli/lint
 
-
-
-
 Cadence Linter | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
 * [Flow CLI](/tools/flow-cli)
+
   + [Install Instructions](/tools/flow-cli/install)
   + [Super Commands](/tools/flow-cli/super-commands)
   + [Accounts](/tools/flow-cli/accounts/get-accounts)
@@ -36,34 +38,66 @@ Cadence Linter | Flow Developer Portal
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 
-
 * [Flow CLI](/tools/flow-cli)
 * Cadence Linter
+
 On this page
+
 # Cadence Linter
 
 The Cadence Linter is a static-analysis tool for finding potential issues in Cadence code. It is available in the Flow CLI & is designed to help developers write better code by identifying common mistakes and potential issues before they become problems.
 
 The linter will also check your code for any syntax or semantic errors, and provide suggestions for how to fix them.
 
- `_10flow cadence lint [files]`
+`_10
+
+flow cadence lint [files]`
+
 ## Example Usage[​](#example-usage "Direct link to Example Usage")
 
- `_10flow cadence lint **/*.cdc`
+`_10
+
+flow cadence lint **/*.cdc`
+
 ## Example Output[​](#example-output "Direct link to Example Output")
 
- `_10test.cdc:27:6: semantic-error: cannot find variable in this scope: `abc`_10_10test.cdc:35:6: removal-hint: unnecessary force operator_10_102 problems (1 error, 1 warning)`
+`_10
+
+test.cdc:27:6: semantic-error: cannot find variable in this scope: `abc`
+
+_10
+
+_10
+
+test.cdc:35:6: removal-hint: unnecessary force operator
+
+_10
+
+_10
+
+2 problems (1 error, 1 warning)`
+
 info
 
 The Cadence Linter is also available in the [Cadence VSCode extension](/tools/vscode-extension), which provides real-time feedback as you write your code.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/lint.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousRunning Cadence Tests](/tools/flow-cli/tests)[NextFlow Interaction Templates (FLIX)](/tools/flow-cli/flix)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/lint.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Running Cadence Tests](/tools/flow-cli/tests)[Next
+
+Flow Interaction Templates (FLIX)](/tools/flow-cli/flix)
+
 ###### Rate this page
 
 😞😐😊
 
 * [Example Usage](#example-usage)
 * [Example Output](#example-output)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -76,6 +110,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -85,6 +120,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -92,6 +128,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -101,6 +138,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -108,5 +146,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

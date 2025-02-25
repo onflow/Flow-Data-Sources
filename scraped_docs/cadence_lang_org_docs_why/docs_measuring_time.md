@@ -1,14 +1,16 @@
 # Source: https://cadence-lang.org/docs/measuring-time
 
-
-
-
 Measuring Time In Cadence | Cadence
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)Search
+[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
+
+[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+
+Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
@@ -25,9 +27,10 @@ Measuring Time In Cadence | Cadence
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
-
 * Measuring Time
+
 On this page
+
 # Measuring Time In Cadence
 
 ## Accessing Time From Cadence[​](#accessing-time-from-cadence "Direct link to Accessing Time From Cadence")
@@ -83,7 +86,24 @@ very likely to be the correct minute, and may well be within ten seconds of the 
 Which of these scales is tolerable for your use case depends on how long the events you need to represent will take.
 In an auction lasting several days, you are probably safe with any scale above ten seconds.
 
- `_10// To get the timestamp of the block that the code is being executed in_10getCurrentBlock().timestamp_10_10// To get the timestamp of a known previous block, if available_10getBlock(at: 70001)?.timestamp`
+`_10
+
+// To get the timestamp of the block that the code is being executed in
+
+_10
+
+getCurrentBlock().timestamp
+
+_10
+
+_10
+
+// To get the timestamp of a known previous block, if available
+
+_10
+
+getBlock(at: 70001)?.timestamp`
+
 ### Using The Block Height[​](#using-the-block-height "Direct link to Using The Block Height")
 
 In theory block numbers are more reliable than timestamps,
@@ -94,7 +114,24 @@ This can vary due to factors other than attacks.
 Given that block time targets will vary as Flow development continues,
 this will affect any calculations you may make in order to relate block numbers to calendar time.
 
- `_10// To get the block number of the block that the code is being executed in_10getCurrentBlock().height_10_10// To get the block number of a known previous block, if available_10getBlock(at: 70001)?.height`
+`_10
+
+// To get the block number of the block that the code is being executed in
+
+_10
+
+getCurrentBlock().height
+
+_10
+
+_10
+
+// To get the block number of a known previous block, if available
+
+_10
+
+getBlock(at: 70001)?.height`
+
 ## Recommendations[​](#recommendations "Direct link to Recommendations")
 
 If your contract code can tolerate the limitations described above, use block timestamps.
@@ -110,7 +147,14 @@ the end time for the auction extends (if necessary) to N minutes past the last b
 (10 minutes, 30 minutes, an hour). As N increases, this becomes more secure:
 N=5 should be more than enough. with the current parameters of the Flow blockchain.
 
-[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/measuring-time.mdx)[PreviousJSON-Cadence format](/docs/json-cadence-spec)[NextTesting](/docs/testing-framework)
+[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/measuring-time.mdx)
+
+[Previous
+
+JSON-Cadence format](/docs/json-cadence-spec)[Next
+
+Testing](/docs/testing-framework)
+
 ###### Rate this page
 
 😞😐😊
@@ -120,9 +164,10 @@ N=5 should be more than enough. with the current parameters of the Flow blockcha
   + [Using The Timestamp](#using-the-timestamp)
   + [Using The Block Height](#using-the-block-height)
 * [Recommendations](#recommendations)
-Got suggestions for this site? 
+
+Got suggestions for this site?
 
 * [It's open-source!](https://github.com/onflow/cadence-lang.org)
+
 The source code of this site is licensed under the Apache License, Version 2.0.
 Content is licensed under the Creative Commons Attribution 4.0 International License.
-

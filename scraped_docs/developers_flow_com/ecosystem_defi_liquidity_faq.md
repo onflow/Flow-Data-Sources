@@ -1,21 +1,23 @@
 # Source: https://developers.flow.com/ecosystem/defi-liquidity/faq
 
-
-
-
 Stablecoins & Bridges on Flow FAQ | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Ecosystem](/ecosystem)
 * [Wallets](/ecosystem/wallets)
 * [Flow Block Explorers](/ecosystem/block-explorers)
 * [Developer Profile](/ecosystem/developer-profile)
 * [DeFi & Liquidity](/ecosystem/defi-liquidity)
+
   + [DeFi Contracts](/ecosystem/defi-liquidity/defi-contracts)
   + [Stablecoins & Bridges FAQ](/ecosystem/defi-liquidity/faq)
 * [Bridges](/ecosystem/bridges)
@@ -27,10 +29,11 @@ Stablecoins & Bridges on Flow FAQ | Flow Developer Portal
 * [Auditors](/ecosystem/auditors)
 * [Ecosystem Overview](/ecosystem/overview)
 
-
 * [DeFi & Liquidity](/ecosystem/defi-liquidity)
 * Stablecoins & Bridges FAQ
+
 On this page
+
 # DeFi & Liquidity FAQ
 
 Below are common questions regarding stablecoins, liquidity, and bridging on Flow. Click on each question to expand and view the answer.
@@ -45,13 +48,10 @@ USDT (Tether USD) - Issued by Tether
 
 USDF (USD Flow) - Backed by PYUSD (PayPal USD) issued by PayPal
 
-
 What are the smart contract addresses for the stablecoins and bridges on Flow?
 
 You can find all the contract addresses for the stablecoins and bridges on Flow here:  
-
 [DeFi Contracts on Flow](/ecosystem/defi-liquidity/defi-contracts)
-
 
 Where can I trade stablecoins on Flow?
 
@@ -97,39 +97,34 @@ Flow’s transaction fees are extremely low (typically less than $0.000179 per t
 
 In many cases, Flow Wallet or Flow-based apps sponsor the gas fees, meaning users can transact stablecoins without paying any gas. This makes Flow an ideal chain for cost-efficient DeFi transactions.
 
-
 Can I use stablecoins for payments on Flow?
 
 Stablecoins can be used for payments on Flow with services like:
 
 [Beezie](https://beezie.io/), [Flowty](https://www.flowty.io/), [Flowverse](https://nft.flowverse.co/) and many other platforms.
 
-
 What are some upcoming innovations in stablecoins on Flow?
 
 * DeFi integrations with RWAs (Real World Assets).
 * Stay tuned on [Flow X account](https://x.com/flow_blockchain) or via the community [Flowverse](https://x.com/flowverse_)
+
 ## Stargate and LayerZero on Flow[​](#stargate-and-layerzero-on-flow "Direct link to Stargate and LayerZero on Flow")
 
 What is LayerZero?
 
 LayerZero is an omnichain interoperability protocol that enables seamless cross-chain communication between different blockchains. It allows assets, messages, and data to move securely between chains without relying on traditional bridges.
 
-
 What is Stargate?
 
 Stargate is a liquidity transfer protocol built on LayerZero that allows users to bridge assets across multiple blockchains with minimal slippage and deep liquidity.
-
 
 How does Stargate support Flow?
 
 With Stargate now supporting Flow, users can bridge assets to and from Flow blockchain via [Stargate Finance](https://stargate.finance/bridge). This enables Flow to interact with other major chains like Ethereum, Base, Arbitrum One, and BNB Chain, unlocking global onchain liquidity for Flow-based apps and DeFi protocols.
 
-
 What assets can be bridged to Flow via Stargate?
 
 Currently, Stargate supports bridging USDC, USDT, and ETH between Flow and other chains. Additional assets may be added in the future.
-
 
 What are the fees for bridging USDC/USDT/ETH with Stargate?
 
@@ -154,7 +149,6 @@ Stargate is built on LayerZero, a well-audited and widely used interoperability 
 
 Tip: Always verify official links to ensure a safe bridging experience.
 
-
 What are the benefits of LayerZero on Flow?
 
 * Direct USDC transfers between Flow and other blockchains.
@@ -164,7 +158,6 @@ What are the benefits of LayerZero on Flow?
 Can I use Stargate to bridge NFTs or other tokens to Flow?
 
 Currently, Stargate only supports stablecoins like USDC and USDT, but NFT and asset bridging may be possible in the future via LayerZero-based messaging.
-
 
 What are some use cases for LayerZero on Flow?
 
@@ -177,15 +170,12 @@ What wallets support LayerZero bridging on Flow?
 
 You can use any EVM wallet such as Metamask, Coinbase Wallet, and Flow Wallet.
 
-
 What stablecoins are currently live on Flow EVM?
 
 You can see a full list of stablecoins here:  
-
 [DeFi Contracts on Flow](/ecosystem/defi-liquidity/defi-contracts)
 
 Trading pools for USDF and stgUSDC (USDC via Stargate) are already live and available for immediate use on Flow EVM and can be seamlessly transferred to any Flow Cadence address.
-
 
 Should Cadence applications switch to USDF or stgUSDC?
 
@@ -210,7 +200,17 @@ Where can I get updates or ask questions?
 
 * **Flow Twitter/X:** <https://x.com/flow_blockchain>
 * **Flow Discord**: <https://discord.gg/flow>
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/faq.md)Last updated on **Feb 14, 2025** by **bz**[PreviousDeFi Contracts](/ecosystem/defi-liquidity/defi-contracts)[NextBridges](/ecosystem/bridges)
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/faq.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+DeFi Contracts](/ecosystem/defi-liquidity/defi-contracts)[Next
+
+Bridges](/ecosystem/bridges)
+
 ###### Rate this page
 
 😞😐😊
@@ -219,6 +219,7 @@ Where can I get updates or ask questions?
   + [Step-by-step example USDC to Flow](#step-by-step-example-usdc-to-flow)
 * [Stargate and LayerZero on Flow](#stargate-and-layerzero-on-flow)
 * [Support and Additional Resources](#support-and-additional-resources)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -231,6 +232,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -240,6 +242,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -247,6 +250,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -256,6 +260,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -263,5 +268,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

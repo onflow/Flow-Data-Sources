@@ -1,30 +1,14 @@
 # Source: https://academy.ecdao.org/en/catalog/courses/learn-cadence-beginner/chapter2/lesson1
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -48,7 +32,6 @@ Connect
 
 Course Overview
 
-
 [Catalog](/en/catalog)
 [Course](/en/catalog/courses/learn-cadence-beginner)
 Learn Cadence Beginner
@@ -62,6 +45,7 @@ Hello peoples. Today is your lesson to learn Structs! The good news is structs a
 What are structs? Structs are containers of other types. Letâs look at an example:
 
 cadence
+
 ```
 		
 			access(all) struct ArtPiece {
@@ -101,6 +85,7 @@ Letâs start off by actually deploying a new smart contract.
 Create a new file called `Art.cdc` and add it to your `flow.json` file by making a new entry under the âcontractsâ object just like you did for `HelloWorld` earlier in the course. Then, paste the following code in your new `Art.cdc` file:
 
 cadence
+
 ```
 		
 			access(all) contract Art {
@@ -160,6 +145,7 @@ Now that weâve defined a new Struct, letâs see why it can be helpful.
 Letâs create a new transaction and copy and paste this boilerplate transaction code:
 
 cadence
+
 ```
 		
 			import Art from "./Art.cdc"
@@ -179,6 +165,7 @@ transaction() {
 Cool! Now, we want to add a new art piece to the `artPieces` dictionary in the `Art` contract. How can we do this? Well, letâs call the `uploadArt` function with all the arguments we need like so:
 
 cadence
+
 ```
 		
 			Art.uploadArt(name: name, artLink: artLink, hoursWorkedOn: hoursWorkedOn)
@@ -189,6 +176,7 @@ cadence
 But wait, we need to get these arguments from somewhere first! We can do that by providing them to the transaction as arguments, like so:
 
 cadence
+
 ```
 		
 			import Art from "./Art.cdc"
@@ -209,17 +197,20 @@ transaction(name: String, artLink: String, hoursWorkedOn: Int) {
 Bam! Letâs run this transaction with some test data by pasting the following into our terminal:
 
 bash
+
 ```
 		
 			flow transactions send ./upload_art.cdc "Jacob" "https://i.imgur.com/mdDB58Z.png" 10
 		 
 	
 ```
+
 ### Read our Art Piece
 
 To read our new Art Piece, letâs create a script and copy and paste the boilerplate script code:
 
 cadence
+
 ```
 		
 			import Art from "./Art.cdc"
@@ -234,6 +225,7 @@ access(all) fun main() {
 Now, letâs try to read our stored art piece. Our goal is to go into the dictionary that stores all of the art pieces and return a specific one back. We can do this by providing the `id` of the art piece we want since we mapped `id` -> `ArtPiece` in our `artPieces` dictionary. We can then return the `ArtPiece` type we get from that dictionary, like so:
 
 cadence
+
 ```
 		
 			import Art from "./Art.cdc"
@@ -250,6 +242,7 @@ But wait! How do we know which `id` to provide?
 Letâs create another script to fetch all of the ids of the art pieces stored in the contract:
 
 cadence
+
 ```
 		
 			import Art from "./Art.cdc"
@@ -264,6 +257,7 @@ access(all) fun main(): [Int] {
 When you run this script, you will get back a list of ids (depending on how many you made) that are stored in the `artPieces` dictionary. Pick one id and run the following script that fetches a specific art piece, providing the id to it:
 
 cadence
+
 ```
 		
 			import Art from "./Art.cdc"
@@ -285,21 +279,18 @@ In todayâs lesson, we learned how to make our own type by creating a struct
 
 Thatâs all! See you tomorrow folks ;)
 
-
 ![User avatar](/avatars/jacob.jpeg)
 
 Author
 
 [Jacob Tucker](https://twitter.com/jacobmtucker)
 
-
-
-
 [Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/learn-cadence-beginner/en/chapter2/lesson1.md)
-
 
 [Types](/en/catalog/courses/learn-cadence-beginner/chapter1/lesson3)
 [Resources](/en/catalog/courses/learn-cadence-beginner/chapter2/lesson2)
+
+
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
@@ -307,17 +298,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

@@ -1,22 +1,25 @@
 # Source: https://developers.flow.com/tools/flow-cli/accounts/create-accounts
 
-
-
-
 Create an Account | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
 * [Flow CLI](/tools/flow-cli)
+
   + [Install Instructions](/tools/flow-cli/install)
   + [Super Commands](/tools/flow-cli/super-commands)
   + [Accounts](/tools/flow-cli/accounts/get-accounts)
+
     - [Get an Account](/tools/flow-cli/accounts/get-accounts)
     - [Create an Account](/tools/flow-cli/accounts/create-accounts)
     - [Deploy a Contract](/tools/flow-cli/accounts/account-add-contract)
@@ -43,11 +46,12 @@ Create an Account | Flow Developer Portal
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 
-
 * [Flow CLI](/tools/flow-cli)
 * Accounts
 * Create an Account
+
 On this page
+
 # Create an Account
 
 The Flow CLI provides a command to submit an account creation
@@ -64,18 +68,138 @@ which will also be put in `.gitignore`. You can [read more about key security he
 
 💡 *Please note that the account creation process can take up to a minute so please be patient.*
 
- `_11flow accounts create_11_11Enter an account name: mike_11✔ Testnet_11_11🎉 New account created with address 0x77e6ae4c8c2f1dd6 and name mike on Testnet network._11_11Here’s a summary of all the actions that were taken:_11 - Added the new account to flow.json._11 - Saved the private key to mike.pkey._11 - Added mike.pkey to .gitignore.`
+`_11
+
+flow accounts create
+
+_11
+
+_11
+
+Enter an account name: mike
+
+_11
+
+✔ Testnet
+
+_11
+
+_11
+
+🎉 New account created with address 0x77e6ae4c8c2f1dd6 and name mike on Testnet network.
+
+_11
+
+_11
+
+Here’s a summary of all the actions that were taken:
+
+_11
+
+- Added the new account to flow.json.
+
+_11
+
+- Saved the private key to mike.pkey.
+
+_11
+
+- Added mike.pkey to .gitignore.`
+
 ## Manual Mode[​](#manual-mode "Direct link to Manual Mode")
 
 Manual mode requires you to have a pre-existing account on the network which you will have to provide as a signer.
 That account must be added to `flow.json` for the command to work. You also have to generate a key pair, we
 suggest using the `flow keys generate` command, [which you can read more about here](/tools/flow-cli/keys/generate-keys).
 
- `_15# Create an account on Flow Testnet_15> flow accounts create \_15 --key a69c6986e846ba6d0....1397f5904cd319c3e01e96375d5777f1a47010 \_15 --signer my-testnet-account _15_15Address 0x01cf0e2f2f715450_15Balance 10000000_15Keys 1_15_15Key 0 Public Key a69c6986e846ba6d0....1397f5904cd319c3e01e96375d5777f1a47010_15 Weight 1000_15 Signature Algorithm ECDSA_P256_15 Hash Algorithm SHA3_256_15_15Contracts Deployed: 0`
+`_15
+
+# Create an account on Flow Testnet
+
+_15
+
+> flow accounts create \
+
+_15
+
+--key a69c6986e846ba6d0....1397f5904cd319c3e01e96375d5777f1a47010 \
+
+_15
+
+--signer my-testnet-account
+
+_15
+
+_15
+
+Address 0x01cf0e2f2f715450
+
+_15
+
+Balance 10000000
+
+_15
+
+Keys 1
+
+_15
+
+_15
+
+Key 0 Public Key a69c6986e846ba6d0....1397f5904cd319c3e01e96375d5777f1a47010
+
+_15
+
+Weight 1000
+
+_15
+
+Signature Algorithm ECDSA_P256
+
+_15
+
+Hash Algorithm SHA3_256
+
+_15
+
+_15
+
+Contracts Deployed: 0`
 
 In the above example, the `flow.json` file would look something like this:
 
- `_10{_10 "accounts": {_10 "my-testnet-account": {_10 "address": "a2c4941b5f3c7151",_10 "key": "12c5dfde...bb2e542f1af710bd1d40b2"_10 }_10 }_10}`
+`_10
+
+{
+
+_10
+
+"accounts": {
+
+_10
+
+"my-testnet-account": {
+
+_10
+
+"address": "a2c4941b5f3c7151",
+
+_10
+
+"key": "12c5dfde...bb2e542f1af710bd1d40b2"
+
+_10
+
+}
+
+_10
+
+}
+
+_10
+
+}`
+
 ## Flags[​](#flags "Direct link to Flags")
 
 ### Public Key[​](#public-key "Direct link to Public Key")
@@ -218,7 +342,16 @@ several configuration files.
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/create-accounts.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousGet an Account](/tools/flow-cli/accounts/get-accounts)[NextDeploy a Contract](/tools/flow-cli/accounts/account-add-contract)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/create-accounts.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Get an Account](/tools/flow-cli/accounts/get-accounts)[Next
+
+Deploy a Contract](/tools/flow-cli/accounts/account-add-contract)
+
 ###### Rate this page
 
 😞😐😊
@@ -242,6 +375,7 @@ Skip version check during start up to speed up process for slow connections.
   + [Log](#log)
   + [Configuration](#configuration)
   + [Version Check](#version-check)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -254,6 +388,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -263,6 +398,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -270,6 +406,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -279,6 +416,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -286,5 +424,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

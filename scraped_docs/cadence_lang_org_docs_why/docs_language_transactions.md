@@ -1,19 +1,22 @@
 # Source: https://cadence-lang.org/docs/language/transactions
 
-
-
-
 Transactions | Cadence
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)Search
+[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
+
+[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+
+Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
 * [Tutorial](/docs/tutorial/first-steps)
 * [Language Reference](/docs/language/)
+
   + [Syntax](/docs/language/syntax)
   + [Constants and Variable Declarations](/docs/language/constants-and-variables)
   + [Type Annotations](/docs/language/type-annotations)
@@ -57,10 +60,11 @@ Transactions | Cadence
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
-
 * [Language Reference](/docs/language/)
 * Transactions
+
 On this page
+
 # Transactions
 
 Transactions are objects that are signed with keys of one or more [accounts](/docs/language/accounts/)
@@ -68,7 +72,9 @@ and are sent to the chain to interact with it and perform state changes.
 
 Transaction can [import](/docs/language/imports) any number of types from any account using the import syntax.
 
- `_10import FungibleToken from 0x01`
+`_10
+
+import FungibleToken from 0x01`
 
 A transaction is declared using the `transaction` keyword
 and its contents are contained in curly braces.
@@ -76,7 +82,28 @@ and its contents are contained in curly braces.
 The body of the transaction can declare local variables
 that are valid throughout the whole of the transaction.
 
- `_10transaction {_10 // transaction contents_10 let localVar: Int_10_10 // ..._10}`
+`_10
+
+transaction {
+
+_10
+
+// transaction contents
+
+_10
+
+let localVar: Int
+
+_10
+
+_10
+
+// ...
+
+_10
+
+}`
+
 ## Transaction parameters[​](#transaction-parameters "Direct link to Transaction parameters")
 
 Transactions can have parameters.
@@ -85,7 +112,28 @@ The arguments for the transaction are passed along with the transaction.
 
 Transaction parameters are accessible throughout the whole of the transaction.
 
- `_10// Declare a transaction which has one parameter named `amount`_10// that has the type `UFix64`_10//_10transaction(amount: UFix64) {_10_10}`
+`_10
+
+// Declare a transaction which has one parameter named `amount`
+
+_10
+
+// that has the type `UFix64`
+
+_10
+
+//
+
+_10
+
+transaction(amount: UFix64) {
+
+_10
+
+_10
+
+}`
+
 ## Transaction phases[​](#transaction-phases "Direct link to Transaction phases")
 
 Transactions are executed in four phases:
@@ -97,7 +145,67 @@ The pre-conditions and post-condition are just like
 The following empty Cadence transaction has no logic,
 but demonstrates the syntax for each phase, in the order these phases are executed:
 
- `_17transaction {_17 prepare(signer1: &Account, signer2: &Account) {_17 // ..._17 }_17_17 pre {_17 // ..._17 }_17_17 execute {_17 // ..._17 }_17_17 post {_17 // ..._17 }_17}`
+`_17
+
+transaction {
+
+_17
+
+prepare(signer1: &Account, signer2: &Account) {
+
+_17
+
+// ...
+
+_17
+
+}
+
+_17
+
+_17
+
+pre {
+
+_17
+
+// ...
+
+_17
+
+}
+
+_17
+
+_17
+
+execute {
+
+_17
+
+// ...
+
+_17
+
+}
+
+_17
+
+_17
+
+post {
+
+_17
+
+// ...
+
+_17
+
+}
+
+_17
+
+}`
 
 Although optional, each phase serves a specific purpose when executing a transaction
 and it is recommended that developers use these phases when creating their transactions.
@@ -116,12 +224,32 @@ The reference may be authorized, requesting certain [access to the account](/doc
 For example, if the transaction has two signers,
 the prepare **must** have two parameters of type `&Account`.
 
- `_10prepare(signer1: &Account, signer2: &Account) {_10 // ..._10}`
+`_10
+
+prepare(signer1: &Account, signer2: &Account) {
+
+_10
+
+// ...
+
+_10
+
+}`
 
 For instance, to request write access to an [account's storage](/docs/language/accounts/storage),
 the transaction can request an authorized reference:
 
- `_10prepare(signer: auth(Storage) &Account) {_10 // ..._10}`
+`_10
+
+prepare(signer: auth(Storage) &Account) {
+
+_10
+
+// ...
+
+_10
+
+}`
 
 As a best practice, only use the `prepare` phase to define and execute logic
 that requires [write access](/docs/language/accounts/#performing-write-operations) to the signing accounts,
@@ -150,7 +278,17 @@ The block can have zero or more conditions.
 
 For example, a pre-condition might check the balance before transferring tokens between accounts.
 
- `_10pre {_10 sendingAccount.balance > 0_10}`
+`_10
+
+pre {
+
+_10
+
+sendingAccount.balance > 0
+
+_10
+
+}`
 
 If any of the pre-conditions fail,
 then the remainder of the transaction is not executed and it is completely reverted.
@@ -163,7 +301,50 @@ so it is explicit.
 
 It is impossible to access the references to the transaction's signing accounts in the `execute` phase.
 
- `_12transaction {_12 prepare(signer: auth(LoadValue) &Account) {}_12_12 execute {_12 // Invalid: Cannot access the `signer` account reference, as it is not in scope_12 let resource <- signer.storage.load<@Resource>(from: /storage/resource)_12 destroy resource_12_12 // Valid: Can obtain an unauthorized reference to any account_12 let otherAccount = getAccount(0x3)_12 }_12}`
+`_12
+
+transaction {
+
+_12
+
+prepare(signer: auth(LoadValue) &Account) {}
+
+_12
+
+_12
+
+execute {
+
+_12
+
+// Invalid: Cannot access the `signer` account reference, as it is not in scope
+
+_12
+
+let resource <- signer.storage.load<@Resource>(from: /storage/resource)
+
+_12
+
+destroy resource
+
+_12
+
+_12
+
+// Valid: Can obtain an unauthorized reference to any account
+
+_12
+
+let otherAccount = getAccount(0x3)
+
+_12
+
+}
+
+_12
+
+}`
+
 ### Post-conditions[​](#post-conditions "Direct link to Post-conditions")
 
 Transaction post-conditions are just like
@@ -176,7 +357,17 @@ The block can have zero or more conditions.
 
 For example, a token transfer transaction can ensure that the final balance has a certain value:
 
- `_10post {_10 signer.balance == 30.0: "Balance after transaction is incorrect!"_10}`
+`_10
+
+post {
+
+_10
+
+signer.balance == 30.0: "Balance after transaction is incorrect!"
+
+_10
+
+}`
 
 If any of the post-conditions fail,
 then the transaction fails and is completely reverted.
@@ -203,7 +394,140 @@ to prevent the transaction from running, or reverting changes made by the transa
 The following is a brief summary of how to use the `prepare`, `pre`, `execute`,
 and `post` blocks in a transaction to implement the transaction's phases:
 
- `_33transaction {_33 prepare(signer1: &Account) {_33 // Access signing accounts of the transaction._33 //_33 // Avoid logic that does not need access to the signing accounts._33 //_33 // The signing accounts can't be accessed anywhere else in the transaction._33 }_33_33 pre {_33 // Define conditions that must be true_33 // for the transaction to execute._33 //_33 // Define the expected state of things_33 // as they should be before the transaction is executed._33 }_33_33 execute {_33 // The main transaction logic goes here, but you can access_33 // any public information or resources published by any account._33 }_33_33 post {_33 // Define conditions that must be true_33 // for the transaction to be committed._33 //_33 // Define the expected state of things_33 // as they should be after the transaction executed._33 //_33 // Also used to provide information about what changes_33 // the transaction will make to the signing accounts._33 }_33}`[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/transactions.md)[PreviousContract Updatability](/docs/language/contract-updatability)[NextEvents](/docs/language/events)
+`_33
+
+transaction {
+
+_33
+
+prepare(signer1: &Account) {
+
+_33
+
+// Access signing accounts of the transaction.
+
+_33
+
+//
+
+_33
+
+// Avoid logic that does not need access to the signing accounts.
+
+_33
+
+//
+
+_33
+
+// The signing accounts can't be accessed anywhere else in the transaction.
+
+_33
+
+}
+
+_33
+
+_33
+
+pre {
+
+_33
+
+// Define conditions that must be true
+
+_33
+
+// for the transaction to execute.
+
+_33
+
+//
+
+_33
+
+// Define the expected state of things
+
+_33
+
+// as they should be before the transaction is executed.
+
+_33
+
+}
+
+_33
+
+_33
+
+execute {
+
+_33
+
+// The main transaction logic goes here, but you can access
+
+_33
+
+// any public information or resources published by any account.
+
+_33
+
+}
+
+_33
+
+_33
+
+post {
+
+_33
+
+// Define conditions that must be true
+
+_33
+
+// for the transaction to be committed.
+
+_33
+
+//
+
+_33
+
+// Define the expected state of things
+
+_33
+
+// as they should be after the transaction executed.
+
+_33
+
+//
+
+_33
+
+// Also used to provide information about what changes
+
+_33
+
+// the transaction will make to the signing accounts.
+
+_33
+
+}
+
+_33
+
+}`
+
+[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/transactions.md)
+
+[Previous
+
+Contract Updatability](/docs/language/contract-updatability)[Next
+
+Events](/docs/language/events)
+
 ###### Rate this page
 
 😞😐😊
@@ -216,9 +540,10 @@ and `post` blocks in a transaction to implement the transaction's phases:
   + [Post-conditions](#post-conditions)
   + [Pre-conditions and post-conditions](#pre-conditions-and-post-conditions)
 * [Summary](#summary)
-Got suggestions for this site? 
+
+Got suggestions for this site?
 
 * [It's open-source!](https://github.com/onflow/cadence-lang.org)
+
 The source code of this site is licensed under the Apache License, Version 2.0.
 Content is licensed under the Creative Commons Attribution 4.0 International License.
-

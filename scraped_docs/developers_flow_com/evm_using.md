@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/evm/using
 
-
-
-
 Using Flow EVM | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Why EVM on Flow](/evm/about)
 * [How it Works](/evm/how-it-works)
@@ -25,9 +26,10 @@ Using Flow EVM | Flow Developer Portal
 * [Clients](/evm/clients/ethers)
 * [Using EVM with Cadence](/evm/cadence/interacting-with-coa)
 
-
 * Using Flow EVM
+
 On this page
+
 # Using Flow
 
 ## EVM Wallets[​](#evm-wallets "Direct link to EVM Wallets")
@@ -145,7 +147,16 @@ To use the Flow Wallet Chrome extension:
 
 Read more about the [EVM Gateway](https://github.com/onflow/flow-evm-gateway) on Flow and how it implements the Ethereum JSON-RPC API.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/using.mdx)Last updated on **Feb 22, 2025** by **bz**[PreviousHow it Works](/evm/how-it-works)[NextNetworks](/evm/networks)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/using.mdx)
+
+Last updated on **Feb 22, 2025** by **bz**
+
+[Previous
+
+How it Works](/evm/how-it-works)[Next
+
+Networks](/evm/networks)
+
 ###### Rate this page
 
 😞😐😊
@@ -156,6 +167,7 @@ Read more about the [EVM Gateway](https://github.com/onflow/flow-evm-gateway) on
   + [Flow Wallet](#flow-wallet)
 * [EVM Specification](#evm-specification)
 * [JSON-RPC Methods](#json-rpc-methods)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -168,6 +180,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -177,6 +190,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -184,6 +198,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -193,6 +208,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -200,5 +216,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

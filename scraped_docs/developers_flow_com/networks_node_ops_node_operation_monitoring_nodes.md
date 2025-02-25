@@ -1,25 +1,28 @@
 # Source: https://developers.flow.com/networks/node-ops/node-operation/monitoring-nodes
 
-
-
-
 Monitoring Node Health | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
 * [Flow's Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
+
   + [Access Nodes](/networks/node-ops/access-nodes/access-node-setup)
   + [EVM Gateway Setup](/networks/node-ops/evm-gateway/evm-gateway-setup)
   + [Light Nodes](/networks/node-ops/light-nodes/observer-node)
   + [Participating in the Network](/networks/node-ops/node-operation/faq)
+
     - [Operator FAQ](/networks/node-ops/node-operation/faq)
     - [Byzantine Attack Response](/networks/node-ops/node-operation/byzantine-node-attack-response)
     - [Database Encryption for Existing Node Operators](/networks/node-ops/node-operation/db-encryption-existing-operator)
@@ -44,11 +47,12 @@ Monitoring Node Health | Flow Developer Portal
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
-
 * [Node Ops](/networks/node-ops)
 * Participating in the Network
 * Node Monitoring
+
 On this page
+
 # Monitoring Node Health
 
 A Flow node generates logs and publishes metrics as it runs. These logs and metrics can be used to gain insights into the health of the node.
@@ -66,11 +70,69 @@ If you wish to make use of these metrics, you'll need to set up a Prometheus ser
 > The flow-go application doesn't expose any metrics from the underlying host such as CPU, network, or disk usages. It is recommended you collect these metrics in addition to the ones provided by flow using a tool like node exporter (<https://github.com/prometheus/node_exporter>)
 
 1. Copy the following Prometheus configuration into your current flow node
-   
-    `_12 global:_12 scrape_interval: 15s # By default, scrape targets every 15 seconds._12_12 scrape_configs:_12 # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config._12 - job_name: 'prometheus'_12_12 # Override the global default and scrape targets from this job every 5 seconds._12 scrape_interval: 5s_12_12 static_configs:_12 - targets: ['localhost:8080']`
+
+   `_12
+
+   global:
+
+   _12
+
+   scrape_interval: 15s # By default, scrape targets every 15 seconds.
+
+   _12
+
+   _12
+
+   scrape_configs:
+
+   _12
+
+   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+
+   _12
+
+   - job_name: 'prometheus'
+
+   _12
+
+   _12
+
+   # Override the global default and scrape targets from this job every 5 seconds.
+
+   _12
+
+   scrape_interval: 5s
+
+   _12
+
+   _12
+
+   static_configs:
+
+   _12
+
+   - targets: ['localhost:8080']`
 2. Start Prometheus server
-   
-    `_10 docker run \_10 --network=host \_10 -p 9090:9090 \_10 -v /path/to/prometheus.yml:/etc/prometheus/prometheus.yml \_10 prom/prometheus"`
+
+   `_10
+
+   docker run \
+
+   _10
+
+   --network=host \
+
+   _10
+
+   -p 9090:9090 \
+
+   _10
+
+   -v /path/to/prometheus.yml:/etc/prometheus/prometheus.yml \
+
+   _10
+
+   prom/prometheus"`
 3. (optional) Port forward to the node if you are not able to access port 9090 directly via the browser
    `ssh -L 9090:127.0.0.1:9090 YOUR_NODE`
 4. Open your browser and go to the URL `http://localhost:9090/graph` to load the Prometheus Dashboard
@@ -103,15 +165,40 @@ To be notified when your node's machine account needs to be refilled or has a co
 
 When the machine account balance needs to be refilled:
 
- `_10machine_account_balance < machine_account_recommended_min_balance`
+`_10
+
+machine_account_balance < machine_account_recommended_min_balance`
 
 When the machine account has a configuration error:
 
- `_10machine_account_is_misconfigured > 0`
+`_10
+
+machine_account_is_misconfigured > 0`
 
 The metrics include the account address of the machine account (`acct_address` label) for convenience:
 
- `_10# HELP machine_account_balance the last observed balance of this node's machine account, in units of FLOW_10# TYPE machine_account_balance gauge_10machine_account_balance{acct_address="7b16b57ae0a3c6aa"} 9.99464935`[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/monitoring-nodes.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousMachine Accounts for Existing Node Operators](/networks/node-ops/node-operation/machine-existing-operator)[NextNode Bootstrapping](/networks/node-ops/node-operation/node-bootstrap)
+`_10
+
+# HELP machine_account_balance the last observed balance of this node's machine account, in units of FLOW
+
+_10
+
+# TYPE machine_account_balance gauge
+
+_10
+
+machine_account_balance{acct_address="7b16b57ae0a3c6aa"} 9.99464935`
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/monitoring-nodes.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Machine Accounts for Existing Node Operators](/networks/node-ops/node-operation/machine-existing-operator)[Next
+
+Node Bootstrapping](/networks/node-ops/node-operation/node-bootstrap)
+
 ###### Rate this page
 
 😞😐😊
@@ -120,6 +207,7 @@ The metrics include the account address of the machine account (`acct_address` l
 * [Metrics](#metrics)
   + [Key Metric Overview](#key-metric-overview)
   + [Machine Account](#machine-account)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -132,6 +220,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -141,6 +230,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -148,6 +238,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -157,6 +248,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -164,5 +256,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

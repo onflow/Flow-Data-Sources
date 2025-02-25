@@ -1,28 +1,14 @@
 # Source: https://academy.ecdao.org/en/quickstarts/0-hello-world-unity
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -35,14 +21,11 @@ Hello World
 
 # Hello World
 
-
 Quickstart
 
 Unity
 
 Change and read a greeting field on Flow Testnet.
-
-
 
 ## ð© Quickstart 0: Hello Flow UnitySDK
 
@@ -58,6 +41,7 @@ We will be making a Unity project that will allow us to create a new greeting, m
 ## ð¦ Checkpoint 0: Install
 
 sh
+
 ```
 		
 			git clone https://github.com/memxor/FlowGreetingsUnity.git
@@ -91,18 +75,15 @@ Now that we have updated our greeting, click the âRead Greetingâ butto
 
 ![image](https://github.com/memxor/FlowGreetingsUnity/assets/48633453/cb832301-d747-45fa-8f58-613a7c7e26f1)
 
-
 ![User avatar](https://i.imgur.com/Nfww3sn.png)
 
 Author
 
 [Memxor](https://twitter.com/memxor_)
 
-
-
-
 [Fork Quickstart](https://github.com/memxor/FlowGreetingsUnity//fork)
 [Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/quickstarts/0-hello-world-unity/en/readme.md)
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
@@ -111,17 +92,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

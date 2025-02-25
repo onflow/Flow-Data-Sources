@@ -1,28 +1,14 @@
 # Source: https://academy.ecdao.org/en/quickstarts/6-groups-next
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -35,15 +21,13 @@ Groups
 
 # Groups
 
-
 Quickstart
 
 Next.js
+
 React.js
 
 A Next.js DApp that allows users to create Groups, join & leave them, discover Groups, and chat inside of them.
-
-
 
 ## ð© Quickstart 5: Groups
 
@@ -66,15 +50,18 @@ Required:
 * [Flow CLI](https://docs.onflow.org/flow-cli/install/) (ð§¨ Make sure to install the correct link for your system ð§¨). You know you have installed it if you type `flow version` in your terminal and it prints a version.
 
 sh
+
 ```
 		
 			git clone https://github.com/emerald-dao/6-groups.git
 		 
 	
 ```
+
 > in a terminal window, ð± install the dependencies start your frontend:
 
 sh
+
 ```
 		
 			cd 6-groups
@@ -83,9 +70,11 @@ npm run dev
 		 
 	
 ```
+
 > in a second terminal window, start your ð·â local emulator:
 
 bash
+
 ```
 		
 			cd 6-groups
@@ -99,6 +88,7 @@ flow emulator start -v
 > in a third terminal window, ð¾ deploy your contract and ð¸ start your local wallet:
 
 bash
+
 ```
 		
 			cd 6-groups
@@ -107,6 +97,7 @@ flow dev-wallet
 		 
 	
 ```
+
 > You can `flow project deploy --update` to deploy a new contract any time.
 
 ð± Open http://localhost:3000 to see the app
@@ -176,6 +167,7 @@ A popup will appear to create your new proposal. This is a transaction that will
 After clicking âApproveâ, you will be taken back to the main dashboard. You should now see your group:
 
 ![see your new group]()
+
 ## ð¾ Checkpoint 6: Deploy it to testnet!
 
 ð Ready to deploy to a public testnet?!?
@@ -191,6 +183,7 @@ After clicking âApproveâ, you will be taken back to the main dashboard
 > â½ï¸ Add your new testnet account to your `flow.json` by modifying the following lines of code. Paste your address you copied above to where it says âYOUR GENERATED ADDRESSâ, and paste your private key where it says âYOUR PRIVATE KEYâ.
 
 json
+
 ```
 		
 			"accounts": {
@@ -224,9 +217,11 @@ json
 		 
 	
 ```
+
 > ð Deploy your Vote smart contract:
 
 sh
+
 ```
 		
 			flow project deploy --network=testnet
@@ -269,6 +264,7 @@ This is how simple it is to store images on IPFS in your code:
 4. Added the following code in our `/pages/create.js` file:
 
 jsx
+
 ```
 		
 			import { NFTStorage } from 'nft.storage';
@@ -307,16 +303,15 @@ async function uploadToIPFS(file) {
 
 > ð Problems, questions, comments on the stack? Post them to the [ð Emerald City Discord](https://discord.gg/emerald-city-906264258189332541).
 
-
 ![User avatar](https://avatars.githubusercontent.com/u/100654804?v=4)
 
 Author
 
 [Emerald City](https://twitter.com/emerald_dao)
 
-
 [Fork Quickstart](https://github.com/emerald-dao/6-groups/fork)
 [Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/quickstarts/6-groups-next/en/readme.md)
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
@@ -325,17 +320,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

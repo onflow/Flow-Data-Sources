@@ -1,30 +1,14 @@
 # Source: https://academy.ecdao.org/en/catalog/courses/learn-cadence-beginner/chapter2/lesson3
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -48,7 +32,6 @@ Connect
 
 Course Overview
 
-
 [Catalog](/en/catalog)
 [Course](/en/catalog/courses/learn-cadence-beginner)
 Learn Cadence Beginner
@@ -62,6 +45,7 @@ Now that we have learned what a resource is, we are going to add some extra data
 Letâs go back to the Pokemon contract we used in Chapter 2 Lesson 2:
 
 cadence
+
 ```
 		
 			access(all) contract Game {
@@ -112,11 +96,13 @@ cadence
 		 
 	
 ```
+
 ### Adding Contract State
 
 Wouldnât it be cool if we added a tracker to see how many Pokemon were created? To do this, lets add a new contract state variable called `totalPokemonCreated`.
 
 cadence
+
 ```
 		
 			access(all) contract Game {
@@ -183,6 +169,7 @@ Every resource in Cadence also has a built-in unique identifier that is unique t
 This makes for a perfect âidâ system. Letâs give our `PokemonDetails` an `id` using the built in `uuid` field to every resource:
 
 cadence
+
 ```
 		
 			access(all) contract Game {
@@ -234,11 +221,13 @@ cadence
 		 
 	
 ```
+
 ## Saving Pokemon in our Contract
 
 In Chapter 3, we will learn how to choose our own Pokemon and save it directly to our own accounts. Before then, letâs make a dictionary in the contract that stores `Pokemon` by their `id`.
 
 cadence
+
 ```
 		
 			access(all) contract Game {
@@ -324,6 +313,7 @@ Few things to note here:
 If you want to handle the case where there is an existing Pokemon, an alternative way to write `storePokemon` would be:
 
 cadence
+
 ```
 		
 			access(all) fun storePokemon(pokemon: @Pokemon) {
@@ -335,6 +325,7 @@ cadence
 		 
 	
 ```
+
 ## Testing it Out
 
 Letâs write some fun transactions and scripts to actually use our new contract! Make sure to re-deploy your `Game` contract first. Remember, you can do this simply by stopping the emulator, restarting it, and deploying again.
@@ -344,6 +335,7 @@ Letâs write some fun transactions and scripts to actually use our new contr
 Here is a transaction to create & save a Pokemon to the contract. Run this one in your terminal:
 
 cadence
+
 ```
 		
 			import Game from "./Game.cdc"
@@ -362,11 +354,13 @@ transaction(name: String, type: String) {
 		 
 	
 ```
+
 ### Read Total # of Pokemon
 
 Next, letâs check to see that our Pokemon actually got created. The `totalPokemonCreated` count should have gone up:
 
 cadence
+
 ```
 		
 			import Game from "./Game.cdc"
@@ -377,11 +371,13 @@ access(all) fun main(): Int {
 		 
 	
 ```
+
 ### Read Pokemon IDs
 
 Next, letâs get all of the Pokemon ids that exist in the contract:
 
 cadence
+
 ```
 		
 			import Game from "./Game.cdc"
@@ -392,11 +388,13 @@ access(all) fun main(): [UInt64] {
 		 
 	
 ```
+
 ### Read Pokemon Details
 
 Lastly, take one of the ids that you saw in the previous step and pass that into the following script:
 
 cadence
+
 ```
 		
 			import Game from "./Game.cdc"
@@ -414,21 +412,18 @@ Try to also pass in an âidâ that you know doesnât exist, and make
 
 In todayâs lesson, we learned a lot. We expanded our Pokemon contract to store Pokemon directly inside the smart contract. And some getter functions to read all the data stored in our contract, as well as how to execute scripts to return data using those functions.
 
-
 ![User avatar](/avatars/jacob.jpeg)
 
 Author
 
 [Jacob Tucker](https://twitter.com/jacobmtucker)
 
-
-
-
 [Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/learn-cadence-beginner/en/chapter2/lesson3.md)
-
 
 [Resources](/en/catalog/courses/learn-cadence-beginner/chapter2/lesson2)
 [References](/en/catalog/courses/learn-cadence-beginner/chapter3/lesson1)
+
+
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
@@ -436,17 +431,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

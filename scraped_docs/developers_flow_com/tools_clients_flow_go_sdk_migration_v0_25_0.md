@@ -1,33 +1,37 @@
 # Source: https://developers.flow.com/tools/clients/flow-go-sdk/migration-v0.25.0
 
-
-
-
 Migration Guide v0.25.0 | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
 * [Flow CLI](/tools/flow-cli)
 * [Flow Emulator](/tools/emulator)
 * [Clients](/tools/clients)
+
   + [Flow Client Library (FCL)](/tools/clients/fcl-js)
   + [Flow Go SDK](/tools/clients/flow-go-sdk)
+
     - [Migration Guide v0.25.0](/tools/clients/flow-go-sdk/migration-v0.25.0)
 * [Flow Dev Wallet](/tools/flow-dev-wallet)
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 
-
 * [Clients](/tools/clients)
 * [Flow Go SDK](/tools/clients/flow-go-sdk)
 * Migration Guide v0.25.0
+
 On this page
+
 # Migration Guide v0.25.0
 
 The Go SDK version 0.25.0 introduced breaking changes in the API and package naming.
@@ -59,11 +63,44 @@ to pick and choose between HTTP and gRPC communication protocols.
 
 *Previous versions:*
 
- `_10// initialize a gRPC emulator client_10flowClient, err := client.New("127.0.0.1:3569", grpc.WithInsecure())`
+`_10
+
+// initialize a gRPC emulator client
+
+_10
+
+flowClient, err := client.New("127.0.0.1:3569", grpc.WithInsecure())`
 
 *Version 0.25.0*:
 
- `_10// common client interface_10var flowClient access.Client_10_10// initialize an http emulator client_10flowClient, err := http.NewClient(http.EmulatorHost)_10_10// initialize a gPRC emulator client_10flowClient, err = grpc.NewClient(grpc.EmulatorHost)`
+`_10
+
+// common client interface
+
+_10
+
+var flowClient access.Client
+
+_10
+
+_10
+
+// initialize an http emulator client
+
+_10
+
+flowClient, err := http.NewClient(http.EmulatorHost)
+
+_10
+
+_10
+
+// initialize a gPRC emulator client
+
+_10
+
+flowClient, err = grpc.NewClient(grpc.EmulatorHost)`
+
 #### Using the gRPC Client with Options[​](#using-the-grpc-client-with-options "Direct link to Using the gRPC Client with Options")
 
 Using the client is in most cases the same except for the advance case of passing additional
@@ -72,16 +109,60 @@ network specific client as shown in the advanced example:
 
 *Previous versions:*
 
- `_10// initialize a gRPC emulator client_10flowClient, err := client.New("127.0.0.1:3569", grpc.WithInsecure())_10latestBlock, err := flowClient.GetLatestBlock(ctx, true, MaxCallSendMsgSize(100))`
+`_10
+
+// initialize a gRPC emulator client
+
+_10
+
+flowClient, err := client.New("127.0.0.1:3569", grpc.WithInsecure())
+
+_10
+
+latestBlock, err := flowClient.GetLatestBlock(ctx, true, MaxCallSendMsgSize(100))`
 
 *Version 0.25.0:*
 
- `_10// initialize a grpc network specific client_10flowClient, err := NewBaseClient(_10 grpc.EmulatorHost, _10 grpc.WithTransportCredentials(insecure.NewCredentials()),_10)_10latestBlock, err := flowClient.GetLatestBlock(ctx, true, MaxCallSendMsgSize(100))`[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/flow-go-sdk/migration-v0.25.0.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousFlow Go SDK](/tools/clients/flow-go-sdk)[NextFlow Dev Wallet](/tools/flow-dev-wallet)
+`_10
+
+// initialize a grpc network specific client
+
+_10
+
+flowClient, err := NewBaseClient(
+
+_10
+
+grpc.EmulatorHost,
+
+_10
+
+grpc.WithTransportCredentials(insecure.NewCredentials()),
+
+_10
+
+)
+
+_10
+
+latestBlock, err := flowClient.GetLatestBlock(ctx, true, MaxCallSendMsgSize(100))`
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/flow-go-sdk/migration-v0.25.0.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Flow Go SDK](/tools/clients/flow-go-sdk)[Next
+
+Flow Dev Wallet](/tools/flow-dev-wallet)
+
 ###### Rate this page
 
 😞😐😊
 
 * [Migration](#migration)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -94,6 +175,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -103,6 +185,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -110,6 +193,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -119,6 +203,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -126,5 +211,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

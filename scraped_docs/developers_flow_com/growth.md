@@ -1,15 +1,19 @@
 # Source: https://developers.flow.com/growth
 
-
-
-
 Growth | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)SearchOn this page
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+On this page
+
 # Growth
 
 At each stage of your project, you can get advice, support, and resources from the Flow ecosystem. Here's a breakdown of *what you are doing* and *what support we offer* at each stage:
@@ -79,7 +83,11 @@ You've got an app and are meeting the needs of regular customers. Core features 
 * Fundraising support (intros to investor network)
 * Grants tied to bigger ecosystem milestones
 * DevRel
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/growth/index.md)Last updated on **Feb 11, 2025** by **Chase Fleming**
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/growth/index.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
 ###### Rate this page
 
 😞😐😊
@@ -96,6 +104,7 @@ You've got an app and are meeting the needs of regular customers. Core features 
 * [Product market fit](#product-market-fit)
   + [What you are doing](#what-you-are-doing-3)
   + [What support we offer](#what-support-we-offer-3)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -108,6 +117,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -117,6 +127,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -124,6 +135,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -133,6 +145,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -140,5 +153,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

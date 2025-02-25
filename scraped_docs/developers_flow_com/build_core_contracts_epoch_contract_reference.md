@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/build/core-contracts/epoch-contract-reference
 
-
-
-
 Flow Epoch Contracts Reference | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -20,6 +21,7 @@ Flow Epoch Contracts Reference | Flow Developer Portal
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
 * [Guides](/build/guides/account-linking)
 * [Core Smart Contracts](/build/core-contracts)
+
   + [Fungible Token](/build/core-contracts/fungible-token)
   + [Flow Token](/build/core-contracts/flow-token)
   + [Service Account](/build/core-contracts/service-account)
@@ -35,10 +37,11 @@ Flow Epoch Contracts Reference | Flow Developer Portal
   + [Burner](/build/core-contracts/burner)
 * [Explore More](/build/explore-more)
 
-
 * [Core Smart Contracts](/build/core-contracts)
 * Epoch Contracts
+
 On this page
+
 # Contract
 
 The `FlowEpoch` contract is the state machine that manages Epoch phases and emits service events.
@@ -101,7 +104,16 @@ These scripts are read-only and get info about the current state of the epoch co
 See the [epoch documentation](/networks/staking/epoch-scripts-events)
 for a list and documentation for important `FlowEpoch` events.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/07-epoch-contract-reference.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousStaking Table](/build/core-contracts/staking-contract-reference)[NextNon-Fungible Token](/build/core-contracts/non-fungible-token)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/07-epoch-contract-reference.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Staking Table](/build/core-contracts/staking-contract-reference)[Next
+
+Non-Fungible Token](/build/core-contracts/non-fungible-token)
+
 ###### Rate this page
 
 😞😐😊
@@ -109,6 +121,7 @@ for a list and documentation for important `FlowEpoch` events.
 * [Getting Epoch Info](#getting-epoch-info)
 * [Quorum Certificate Transactions and Scripts](#quorum-certificate-transactions-and-scripts)
 * [DKG Transactions and Scripts](#dkg-transactions-and-scripts)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -121,6 +134,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -130,6 +144,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -137,6 +152,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -146,6 +162,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -153,5 +170,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

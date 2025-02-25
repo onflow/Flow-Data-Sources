@@ -1,20 +1,22 @@
 # Source: https://developers.flow.com/networks/staking/epoch-preparation
 
-
-
-
 Epoch Preparation Protocol | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
 * [Flow's Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
+
   + [Epoch and Staking Terminology](/networks/staking/epoch-terminology)
   + [Epoch and Reward Schedule](/networks/staking/schedule)
   + [Epoch Preparation Protocol](/networks/staking/epoch-preparation)
@@ -35,21 +37,21 @@ Epoch Preparation Protocol | Flow Developer Portal
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
-
 * [Staking and Epochs](/networks/staking)
 * Epoch Preparation Protocol
-On this pagewarning
+
+On this page
+
+warning
 
 If you haven't read the staking introduction, please read that
 first. That document provides a non-technical overview of staking on Flow for
 all users and is a necessary prerequisite to this document.
 
-
 warning
 
 This document assumes you have some technical knowledge about the Flow
 blockchain and programming environment.
-
 
 # Epochs
 
@@ -251,7 +253,7 @@ Consensus:
   When this block is propagated, all staked nodes will know about the participants
   in the next epoch and can communicate with them.
 * Based on the `RandSeed` field in the `EpochSetup` event, all nodes compute:
-  
+
   + The seed to initialize the consensus node's primary selection algorithm for the next epoch
   + The seeds to initialize the collector clusters' primary selection algorithm for the next epoch
 * The collector nodes generate the root block for their respective clusters
@@ -300,7 +302,16 @@ Consensus
 See the [epoch scripts and events document](/networks/staking/epoch-scripts-events#introduction) for detailed documentation about
 you can use scripts events to learn information about the state of the epoch contracts.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/04-epoch-preparation.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousEpoch and Reward Schedule](/networks/staking/schedule)[NextStake Slashing](/networks/staking/stake-slashing)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/04-epoch-preparation.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Epoch and Reward Schedule](/networks/staking/schedule)[Next
+
+Stake Slashing](/networks/staking/stake-slashing)
+
 ###### Rate this page
 
 😞😐😊
@@ -314,6 +325,7 @@ you can use scripts events to learn information about the state of the epoch con
   + [**Protocol Directives:**](#protocol-directives-1)
 * [Phase 2: Epoch Committed](#phase-2-epoch-committed)
   + [**Protocol Directives:**](#protocol-directives-2)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -326,6 +338,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -335,6 +348,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -342,6 +356,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -351,6 +366,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -358,5 +374,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

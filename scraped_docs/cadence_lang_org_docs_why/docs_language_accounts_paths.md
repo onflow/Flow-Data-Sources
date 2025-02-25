@@ -1,19 +1,22 @@
 # Source: https://cadence-lang.org/docs/language/accounts/paths
 
-
-
-
 Paths | Cadence
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)Search
+[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
+
+[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+
+Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
 * [Tutorial](/docs/tutorial/first-steps)
 * [Language Reference](/docs/language/)
+
   + [Syntax](/docs/language/syntax)
   + [Constants and Variable Declarations](/docs/language/constants-and-variables)
   + [Type Annotations](/docs/language/type-annotations)
@@ -34,6 +37,7 @@ Paths | Cadence
   + [References](/docs/language/references)
   + [Imports](/docs/language/imports)
   + [Accounts](/docs/language/accounts/)
+
     - [Paths](/docs/language/accounts/paths)
     - [Storage](/docs/language/accounts/storage)
     - [Capabilities](/docs/language/accounts/capabilities)
@@ -63,11 +67,12 @@ Paths | Cadence
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
-
 * [Language Reference](/docs/language/)
 * [Accounts](/docs/language/accounts/)
 * Paths
+
 On this page
+
 # Paths
 
 Account storage stores objects under paths.
@@ -92,27 +97,59 @@ which are accessible by anyone.
 
 ## Path functions[​](#path-functions "Direct link to Path functions")
 
- `_10fun toString(): String`
+`_10
+
+fun toString(): String`
 
 Returns the string representation of the path.
 
- `_10let storagePath = /storage/path_10_10storagePath.toString() // is "/storage/path"`
+`_10
+
+let storagePath = /storage/path
+
+_10
+
+_10
+
+storagePath.toString() // is "/storage/path"`
 
 There are also utilities to produce paths from strings:
 
- `_10fun PublicPath(identifier: string): PublicPath?_10fun StoragePath(identifier: string): StoragePath?`
+`_10
+
+fun PublicPath(identifier: string): PublicPath?
+
+_10
+
+fun StoragePath(identifier: string): StoragePath?`
 
 Each of these functions take an identifier and produce a path of the appropriate domain:
 
- `_10let pathID = "foo"_10let path = PublicPath(identifier: pathID) // is /public/foo`[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/accounts/paths.mdx)[PreviousAccounts](/docs/language/accounts/)[NextStorage](/docs/language/accounts/storage)
+`_10
+
+let pathID = "foo"
+
+_10
+
+let path = PublicPath(identifier: pathID) // is /public/foo`
+
+[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/accounts/paths.mdx)
+
+[Previous
+
+Accounts](/docs/language/accounts/)[Next
+
+Storage](/docs/language/accounts/storage)
+
 ###### Rate this page
 
 😞😐😊
 
 * [Path functions](#path-functions)
-Got suggestions for this site? 
+
+Got suggestions for this site?
 
 * [It's open-source!](https://github.com/onflow/cadence-lang.org)
+
 The source code of this site is licensed under the Apache License, Version 2.0.
 Content is licensed under the Creative Commons Attribution 4.0 International License.
-

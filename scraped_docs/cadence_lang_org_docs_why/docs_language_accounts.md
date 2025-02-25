@@ -1,19 +1,22 @@
-# Source: https://cadence-lang.org/docs/language/accounts
-
-
-
+# Source: https://cadence-lang.org/docs/language/accounts/
 
 Accounts | Cadence
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)Search
+[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
+
+[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+
+Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
 * [Tutorial](/docs/tutorial/first-steps)
 * [Language Reference](/docs/language/)
+
   + [Syntax](/docs/language/syntax)
   + [Constants and Variable Declarations](/docs/language/constants-and-variables)
   + [Type Annotations](/docs/language/type-annotations)
@@ -34,6 +37,7 @@ Accounts | Cadence
   + [References](/docs/language/references)
   + [Imports](/docs/language/imports)
   + [Accounts](/docs/language/accounts/)
+
     - [Paths](/docs/language/accounts/paths)
     - [Storage](/docs/language/accounts/storage)
     - [Capabilities](/docs/language/accounts/capabilities)
@@ -63,10 +67,11 @@ Accounts | Cadence
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
-
 * [Language Reference](/docs/language/)
 * Accounts
+
 On this page
+
 # Accounts
 
 The type `Account` provides access to accounts,
@@ -78,7 +83,210 @@ different aspects of the account, such as [account storage](/docs/language/accou
 [keys](/docs/language/accounts/keys), [contracts](/docs/language/accounts/contracts),
 and [capabilities](/docs/language/accounts/capabilities).
 
- `_58access(all)_58struct Account {_58_58 /// The address of the account._58 access(all)_58 let address: Address_58_58 /// The FLOW balance of the default vault of this account._58 access(all)_58 let balance: UFix64_58_58 /// The FLOW balance of the default vault of this account that is available to be moved._58 access(all)_58 let availableBalance: UFix64_58_58 /// The storage of the account._58 access(mapping AccountMapping)_58 let storage: Account.Storage_58_58 /// The contracts deployed to the account._58 access(mapping AccountMapping)_58 let contracts: Account.Contracts_58_58 /// The keys assigned to the account._58 access(mapping AccountMapping)_58 let keys: Account.Keys_58_58 /// The inbox allows bootstrapping (sending and receiving) capabilities._58 access(mapping AccountMapping)_58 let inbox: Account.Inbox_58_58 /// The capabilities of the account._58 access(mapping AccountMapping)_58 let capabilities: Account.Capabilities_58}_58_58entitlement mapping AccountMapping {_58 include Identity_58_58 Storage -> SaveValue_58 Storage -> LoadValue_58 Storage -> CopyValue_58 Storage -> BorrowValue_58_58 Contracts -> AddContract_58 Contracts -> UpdateContract_58 Contracts -> RemoveContract_58_58 Keys -> AddKey_58 Keys -> RevokeKey_58_58 Inbox -> PublishInboxCapability_58 Inbox -> UnpublishInboxCapability_58 Inbox -> ClaimInboxCapability_58_58 Capabilities -> StorageCapabilities_58 Capabilities -> AccountCapabilities_58}`
+`_58
+
+access(all)
+
+_58
+
+struct Account {
+
+_58
+
+_58
+
+/// The address of the account.
+
+_58
+
+access(all)
+
+_58
+
+let address: Address
+
+_58
+
+_58
+
+/// The FLOW balance of the default vault of this account.
+
+_58
+
+access(all)
+
+_58
+
+let balance: UFix64
+
+_58
+
+_58
+
+/// The FLOW balance of the default vault of this account that is available to be moved.
+
+_58
+
+access(all)
+
+_58
+
+let availableBalance: UFix64
+
+_58
+
+_58
+
+/// The storage of the account.
+
+_58
+
+access(mapping AccountMapping)
+
+_58
+
+let storage: Account.Storage
+
+_58
+
+_58
+
+/// The contracts deployed to the account.
+
+_58
+
+access(mapping AccountMapping)
+
+_58
+
+let contracts: Account.Contracts
+
+_58
+
+_58
+
+/// The keys assigned to the account.
+
+_58
+
+access(mapping AccountMapping)
+
+_58
+
+let keys: Account.Keys
+
+_58
+
+_58
+
+/// The inbox allows bootstrapping (sending and receiving) capabilities.
+
+_58
+
+access(mapping AccountMapping)
+
+_58
+
+let inbox: Account.Inbox
+
+_58
+
+_58
+
+/// The capabilities of the account.
+
+_58
+
+access(mapping AccountMapping)
+
+_58
+
+let capabilities: Account.Capabilities
+
+_58
+
+}
+
+_58
+
+_58
+
+entitlement mapping AccountMapping {
+
+_58
+
+include Identity
+
+_58
+
+_58
+
+Storage -> SaveValue
+
+_58
+
+Storage -> LoadValue
+
+_58
+
+Storage -> CopyValue
+
+_58
+
+Storage -> BorrowValue
+
+_58
+
+_58
+
+Contracts -> AddContract
+
+_58
+
+Contracts -> UpdateContract
+
+_58
+
+Contracts -> RemoveContract
+
+_58
+
+_58
+
+Keys -> AddKey
+
+_58
+
+Keys -> RevokeKey
+
+_58
+
+_58
+
+Inbox -> PublishInboxCapability
+
+_58
+
+Inbox -> UnpublishInboxCapability
+
+_58
+
+Inbox -> ClaimInboxCapability
+
+_58
+
+_58
+
+Capabilities -> StorageCapabilities
+
+_58
+
+Capabilities -> AccountCapabilities
+
+_58
+
+}`
+
 ## Account access[​](#account-access "Direct link to Account access")
 
 ### Performing read operations[​](#performing-read-operations "Direct link to Performing read operations")
@@ -91,7 +299,10 @@ and the fields are read-only.
 Any code can get a "read-only" reference to an account (`&Account`)
 at a given address by using the built-in `getAccount` function:
 
- `_10view fun getAccount(_ address: Address): &Account`
+`_10
+
+view fun getAccount(_ address: Address): &Account`
+
 ### Performing write operations[​](#performing-write-operations "Direct link to Performing write operations")
 
 Access to an authorized account reference (`auth(...) &Account`)
@@ -120,7 +331,25 @@ it needs to perform its work.
 
 For example, a transaction that deploys a contract to an account can be written as follows:
 
- `_10transaction {_10 prepare(signer: auth(AddContract) &Account) {_10 signer.contracts.add(name: "MyContract", code: [/* code */])_10 }_10}`
+`_10
+
+transaction {
+
+_10
+
+prepare(signer: auth(AddContract) &Account) {
+
+_10
+
+signer.contracts.add(name: "MyContract", code: [/* code */])
+
+_10
+
+}
+
+_10
+
+}`
 
 Here, the transaction requests an authorized reference with the `AddContract` entitlement.
 That means that the transaction is entitled to add a contract to the account,
@@ -128,7 +357,9 @@ but is not able to add another key to the account, for example.
 
 Script can get any kind of access to any account, using the built-in `getAuthAccount` function:
 
- `_10view fun getAuthAccount<T: &Account>(_ address: Address): T`
+`_10
+
+view fun getAuthAccount<T: &Account>(_ address: Address): T`
 
 This function is only available in scripts.
 Though scripts can perform write operations,
@@ -152,12 +383,45 @@ which has all coarse-grained account entitlements
 This provides write access to all parts fo the new account,
 for example, storage, contracts, and keys.
 
- `_10fun Account(payer: auth(BorrowValue | Storage) &Account):_10 auth(Storage, Contracts, Keys, Inbox, Capabilities) &Account`
+`_10
+
+fun Account(payer: auth(BorrowValue | Storage) &Account):
+
+_10
+
+auth(Storage, Contracts, Keys, Inbox, Capabilities) &Account`
 
 For example, the following transaction creates a new account
 and has the signer of the transaction pay for it:
 
- `_10transaction {_10 prepare(signer: auth(BorrowValue) &Account) {_10 let account = Account(payer: signer)_10 }_10}`[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/accounts/index.mdx)[PreviousImports](/docs/language/imports)[NextPaths](/docs/language/accounts/paths)
+`_10
+
+transaction {
+
+_10
+
+prepare(signer: auth(BorrowValue) &Account) {
+
+_10
+
+let account = Account(payer: signer)
+
+_10
+
+}
+
+_10
+
+}`
+
+[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/accounts/index.mdx)
+
+[Previous
+
+Imports](/docs/language/imports)[Next
+
+Paths](/docs/language/accounts/paths)
+
 ###### Rate this page
 
 😞😐😊
@@ -166,9 +430,10 @@ and has the signer of the transaction pay for it:
   + [Performing read operations](#performing-read-operations)
   + [Performing write operations](#performing-write-operations)
 * [Creating an account](#creating-an-account)
-Got suggestions for this site? 
+
+Got suggestions for this site?
 
 * [It's open-source!](https://github.com/onflow/cadence-lang.org)
+
 The source code of this site is licensed under the Apache License, Version 2.0.
 Content is licensed under the Creative Commons Attribution 4.0 International License.
-

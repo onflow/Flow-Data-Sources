@@ -1,19 +1,22 @@
 # Source: https://cadence-lang.org/docs/language/attachments
 
-
-
-
 Attachments | Cadence
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)Search
+[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
+
+[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+
+Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
 * [Tutorial](/docs/tutorial/first-steps)
 * [Language Reference](/docs/language/)
+
   + [Syntax](/docs/language/syntax)
   + [Constants and Variable Declarations](/docs/language/constants-and-variables)
   + [Type Annotations](/docs/language/type-annotations)
@@ -57,10 +60,11 @@ Attachments | Cadence
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
-
 * [Language Reference](/docs/language/)
 * Attachments
+
 On this page
+
 # Attachments
 
 Attachments are a feature of Cadence designed to allow developers to extend a struct or resource type
@@ -73,7 +77,49 @@ Attachments are declared with the `attachment` keyword, which would be declared 
 `attachment <Name> for <Type>: <Conformances> { ... }`, where the attachment functions and fields are declared in the body.
 As such, the following would be examples of legal declarations of attachments:
 
- `_12access(all)_12attachment Foo for MyStruct {_12 // ..._12}_12_12attachment Bar for MyResource: MyResourceInterface {_12 // ..._12}_12_12attachment Baz for MyInterface: MyOtherInterface {_12 // ..._12}`
+`_12
+
+access(all)
+
+_12
+
+attachment Foo for MyStruct {
+
+_12
+
+// ...
+
+_12
+
+}
+
+_12
+
+_12
+
+attachment Bar for MyResource: MyResourceInterface {
+
+_12
+
+// ...
+
+_12
+
+}
+
+_12
+
+_12
+
+attachment Baz for MyInterface: MyOtherInterface {
+
+_12
+
+// ...
+
+_12
+
+}`
 
 Like all other type declarations, attachments may only be declared with `all` access.
 
@@ -104,7 +150,107 @@ So, for an attachment declared `access(all) attachment Foo for Bar`, the `base` 
 
 So, for example, this would be a valid declaration of an attachment:
 
- `_29access(all)_29resource R {_29_29 access(all)_29 let x: Int_29_29 init (_ x: Int) {_29 self.x = x_29 }_29_29 access(all)_29 fun foo() { ... }_29}_29_29access(all)_29attachment A for R {_29 _29 access(all)_29 let derivedX: Int_29_29 init (_ scalar: Int) {_29 self.derivedX = base.x * scalar_29 }_29_29 access(all)_29 fun foo() {_29 base.foo()_29 }_29}`
+`_29
+
+access(all)
+
+_29
+
+resource R {
+
+_29
+
+_29
+
+access(all)
+
+_29
+
+let x: Int
+
+_29
+
+_29
+
+init (_ x: Int) {
+
+_29
+
+self.x = x
+
+_29
+
+}
+
+_29
+
+_29
+
+access(all)
+
+_29
+
+fun foo() { ... }
+
+_29
+
+}
+
+_29
+
+_29
+
+access(all)
+
+_29
+
+attachment A for R {
+
+_29
+
+_29
+
+access(all)
+
+_29
+
+let derivedX: Int
+
+_29
+
+_29
+
+init (_ scalar: Int) {
+
+_29
+
+self.derivedX = base.x * scalar
+
+_29
+
+}
+
+_29
+
+_29
+
+access(all)
+
+_29
+
+fun foo() {
+
+_29
+
+base.foo()
+
+_29
+
+}
+
+_29
+
+}`
 
 For the purposes of external mutation checks or [access control](/docs/language/access-control),
 the attachment is considered a separate declaration from its base type.
@@ -112,17 +258,235 @@ A developer cannot, therefore, access any `access(self)` fields
 (or `access(contract)` fields if the base was defined in a different contract to the attachment)
 on the `base` value, nor can they mutate any array or dictionary typed fields.
 
- `_31access(all)_31resource interface SomeInterface {_31_31 access(all)_31 let b: Bool_31_31 access(self)_31 let i: Int_31_31 access(all)_31 let a: [String]_31}_31access(all)_31attachment SomeAttachment for SomeContract.SomeStruct {_31_31 access(all)_31 let i: Int_31_31 init(i: Int) {_31 if base.b {_31 self.i = base.i // cannot access `i` on the `base` value_31 } else {_31 self.i = i_31 }_31 }_31_31 access(all)_31 fun foo() {_31 base.a.append("hello") // cannot mutate `a` outside of the composite where it was defined_31 }_31}`
+`_31
+
+access(all)
+
+_31
+
+resource interface SomeInterface {
+
+_31
+
+_31
+
+access(all)
+
+_31
+
+let b: Bool
+
+_31
+
+_31
+
+access(self)
+
+_31
+
+let i: Int
+
+_31
+
+_31
+
+access(all)
+
+_31
+
+let a: [String]
+
+_31
+
+}
+
+_31
+
+access(all)
+
+_31
+
+attachment SomeAttachment for SomeContract.SomeStruct {
+
+_31
+
+_31
+
+access(all)
+
+_31
+
+let i: Int
+
+_31
+
+_31
+
+init(i: Int) {
+
+_31
+
+if base.b {
+
+_31
+
+self.i = base.i // cannot access `i` on the `base` value
+
+_31
+
+} else {
+
+_31
+
+self.i = i
+
+_31
+
+}
+
+_31
+
+}
+
+_31
+
+_31
+
+access(all)
+
+_31
+
+fun foo() {
+
+_31
+
+base.a.append("hello") // cannot mutate `a` outside of the composite where it was defined
+
+_31
+
+}
+
+_31
+
+}`
 
 Within an attachment's member function, the `base` and `self` references are entitled to the same entitlements that the function's access modifier specifies.
 E.g., in an attachment declared as `access(all) attachment A for R`, within a definition of a function `access(E) fun foo()`,
 the type of `base` would be `auth(E) &R`, and the type of `self` would be `auth(E) &A`. Thus the following definition would work:
 
- `_14resource R {_14 access(E)_14 fun foo() {_14 //..._14 }_14}_14_14access(all)_14attachment A for R {_14 access(E)_14 fun bar() {_14 base.foo() // available because `E` is required above, and thus `base` is type `auth(E) &R`._14 }_14}`
+`_14
+
+resource R {
+
+_14
+
+access(E)
+
+_14
+
+fun foo() {
+
+_14
+
+//...
+
+_14
+
+}
+
+_14
+
+}
+
+_14
+
+_14
+
+access(all)
+
+_14
+
+attachment A for R {
+
+_14
+
+access(E)
+
+_14
+
+fun bar() {
+
+_14
+
+base.foo() // available because `E` is required above, and thus `base` is type `auth(E) &R`.
+
+_14
+
+}
+
+_14
+
+}`
 
 while this would not:
 
- `_16resource R {_16 access(E)_16 fun foo() {_16 //..._16 }_16}_16_16access(all)_16attachment A for R {_16_16 access(self)_16 fun bar() {_16 base.foo() // unavailable because this function has `self` access, and thus `base` only is type `&R`._16 }_16_16}`
+`_16
+
+resource R {
+
+_16
+
+access(E)
+
+_16
+
+fun foo() {
+
+_16
+
+//...
+
+_16
+
+}
+
+_16
+
+}
+
+_16
+
+_16
+
+access(all)
+
+_16
+
+attachment A for R {
+
+_16
+
+_16
+
+access(self)
+
+_16
+
+fun bar() {
+
+_16
+
+base.foo() // unavailable because this function has `self` access, and thus `base` only is type `&R`.
+
+_16
+
+}
+
+_16
+
+_16
+
+}`
 
 Note that as a result of how entitlements are propagated to the `self` and `base` values here, attachment definitions can only support
 the same entitlements that their base values support; i.e. some attachment `A` defined for `R` can only use an entitlement `E` in its definition
@@ -151,7 +515,53 @@ An attach expression consists of the `attach` keyword, a constructor call for th
 the `to` keyword, and an expression that evaluates to the base value for that attachment.
 Any arguments required by the attachment's initializer are provided in its constructor call.
 
- `_13access(all)_13resource R {}_13_13access(all)_13attachment A for R {_13 init(x: Int) {_13 //..._13 }_13}_13_13// ..._13let r <- create R()_13let r2 <- attach A(x: 3) to <-r`
+`_13
+
+access(all)
+
+_13
+
+resource R {}
+
+_13
+
+_13
+
+access(all)
+
+_13
+
+attachment A for R {
+
+_13
+
+init(x: Int) {
+
+_13
+
+//...
+
+_13
+
+}
+
+_13
+
+}
+
+_13
+
+_13
+
+// ...
+
+_13
+
+let r <- create R()
+
+_13
+
+let r2 <- attach A(x: 3) to <-r`
 
 The expression on the right-hand side of the `to` keyword must evaluate to a composite value whose type is a subtype of the attachment's base,
 and is evaluated before the call to the constructor on the left side of `to`.
@@ -159,7 +569,47 @@ This means that the `base` value is available inside of the attachment's initial
 but it is important to note that the attachment being created will not be accessible on the `base`
 (see the accessing attachments section below) until after the constructor finishes executing.
 
- `_12access(all)_12resource interface I {}_12_12access(all)_12resource R: I {}_12_12access(all)_12attachment A for I {}_12_12// ..._12let r <- create R() // has type @R_12let r2 <- attach A() to <-r // ok, because `R` is a subtype of `I`, still has type @R`
+`_12
+
+access(all)
+
+_12
+
+resource interface I {}
+
+_12
+
+_12
+
+access(all)
+
+_12
+
+resource R: I {}
+
+_12
+
+_12
+
+access(all)
+
+_12
+
+attachment A for I {}
+
+_12
+
+_12
+
+// ...
+
+_12
+
+let r <- create R() // has type @R
+
+_12
+
+let r2 <- attach A() to <-r // ok, because `R` is a subtype of `I`, still has type @R`
 
 Because attachments are stored on their bases by type, there can only be one attachment of each type present on a value at a time.
 Cadence will raise a runtime error if a user attempts to add an attachment to a value when one it already exists on that value.
@@ -172,7 +622,9 @@ Attachments are accessed on composites via type-indexing:
 composite values function like a dictionary where the keys are types and the values are attachments.
 So given a composite value `v`, one can look up the attachment named `A` on `v` using indexing syntax:
 
- `_10let a = v[A] // has type `&A?``
+`_10
+
+let a = v[A] // has type `&A?``
 
 This syntax requires that `A` is a nominal attachment type,
 and that `v` has a composite type that is a subtype of `A`'s declared base type.
@@ -183,7 +635,95 @@ If the attachment with the given type does not exist on `v`, this expression ret
 The set of entitlements to which the result of an attachment access is authorized is the same as the set of entitlements to which the base
 value is authorized. So, for example, given the following definition for `A`:
 
- `_25entitlement E _25entitlement F _25_25resource R {_25 access(E)_25 fun foo() {_25 // ... _25 }_25_25 access(F)_25 fun bar() { _25 // ... _25 }_25}_25_25attachment A for R {_25 access(E | F)_25 fun qux() { _25 // ... _25 }_25}_25_25// ... _25_25let a = v[A]!`
+`_25
+
+entitlement E
+
+_25
+
+entitlement F
+
+_25
+
+_25
+
+resource R {
+
+_25
+
+access(E)
+
+_25
+
+fun foo() {
+
+_25
+
+// ...
+
+_25
+
+}
+
+_25
+
+_25
+
+access(F)
+
+_25
+
+fun bar() {
+
+_25
+
+// ...
+
+_25
+
+}
+
+_25
+
+}
+
+_25
+
+_25
+
+attachment A for R {
+
+_25
+
+access(E | F)
+
+_25
+
+fun qux() {
+
+_25
+
+// ...
+
+_25
+
+}
+
+_25
+
+}
+
+_25
+
+_25
+
+// ...
+
+_25
+
+_25
+
+let a = v[A]!`
 
 When `v` has type `&R`, the resulting type of `a` will be an unauthorized `&A`.
 Contrarily, if `v` has type `auth(E) &R`, then the type of `a` will be authorized to the same: `auth(E) &A`.
@@ -203,7 +743,9 @@ The value on the right-hand side of `from` must be a composite value whose type 
 
 E.g., to remove an `A` attachment from some resource `r` whose type supports that attachment:
 
- `_10remove A from r`
+`_10
+
+remove A from r`
 
 After the statement executes, the composite value on the right-hand side of `from` will no longer contain the attachment.
 If the value does not contain the attachment that appears after the `remove` keyword, this statement has no effect.
@@ -214,7 +756,14 @@ as there is no to require that an attachment depend on another or to require tha
 
 If a resource containing attachments is `destroy`ed, all its attachments will be `destroy`ed in an arbitrary order.
 
-[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/attachments.mdx)[PreviousInbox](/docs/language/accounts/inbox)[NextContracts](/docs/language/contracts)
+[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/attachments.mdx)
+
+[Previous
+
+Inbox](/docs/language/accounts/inbox)[Next
+
+Contracts](/docs/language/contracts)
+
 ###### Rate this page
 
 😞😐😊
@@ -224,9 +773,10 @@ If a resource containing attachments is `destroy`ed, all its attachments will be
 * [Creating Attachments](#creating-attachments)
 * [Accessing Attachments](#accessing-attachments)
 * [Removing Attachments](#removing-attachments)
-Got suggestions for this site? 
+
+Got suggestions for this site?
 
 * [It's open-source!](https://github.com/onflow/cadence-lang.org)
+
 The source code of this site is licensed under the Apache License, Version 2.0.
 Content is licensed under the Creative Commons Attribution 4.0 International License.
-

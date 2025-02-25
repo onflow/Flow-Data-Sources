@@ -1,20 +1,23 @@
 # Source: https://cadence-lang.org/docs/cadence-migration-guide/nft-guide
 
-
-
-
 Non-Fungible Token Cadence 1.0 Migration Guide | Cadence
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)Search
+[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
+
+[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+
+Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
 * [Tutorial](/docs/tutorial/first-steps)
 * [Language Reference](/docs/language/)
 * [Cadence 1.0 Migration Guide](/docs/cadence-migration-guide/)
+
   + [Improvements & New Features](/docs/cadence-migration-guide/improvements)
   + [NFT Cadence 1.0 Guide](/docs/cadence-migration-guide/nft-guide)
   + [FT Cadence 1.0 Guide](/docs/cadence-migration-guide/ft-guide)
@@ -29,10 +32,11 @@ Non-Fungible Token Cadence 1.0 Migration Guide | Cadence
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
-
 * [Cadence 1.0 Migration Guide](/docs/cadence-migration-guide/)
 * NFT Cadence 1.0 Guide
+
 On this page
+
 # Non-Fungible Tokens in Cadence 1.0
 
 On September 4th, 2024 the Flow Mainnet upgraded to Cadence 1.0.
@@ -143,13 +147,37 @@ From now on, any project that doesn't want to do anything unique with their coll
 can just import `UniversalCollection` and call it from their `createEmptyCollection`
 function:
 
- `_10access(all) fun createEmptyCollection(nftType: Type): @{NonFungibleToken.Collection} {_10 return <- UniversalCollection.createEmptyCollection(identifier: "flowBasicNFTCollection", type: Type<@BasicNFT.NFT>())_10}`
+`_10
+
+access(all) fun createEmptyCollection(nftType: Type): @{NonFungibleToken.Collection} {
+
+_10
+
+return <- UniversalCollection.createEmptyCollection(identifier: "flowBasicNFTCollection", type: Type<@BasicNFT.NFT>())
+
+_10
+
+}`
 
 All they have to provide is a type and an identifier for the collection.
 `UniversalCollection.Collection` will enforce that only NFTs of the given type
 can be accepted by the collection:
 
- `_10access(all) fun deposit(token: @{NonFungibleToken.NFT}) {_10 if self.supportedType != token.getType() {_10 panic("Cannot deposit an NFT of the given type")_10 }`
+`_10
+
+access(all) fun deposit(token: @{NonFungibleToken.NFT}) {
+
+_10
+
+if self.supportedType != token.getType() {
+
+_10
+
+panic("Cannot deposit an NFT of the given type")
+
+_10
+
+}`
 
 It also constructs standard paths based on the identifier provided.
 
@@ -199,7 +227,14 @@ This guide covered the most important changes that are required for the Cadence 
 upgrades to NFT contracts. Please ask any questions about the migrations
 in the #developer-questions channel in discord and good luck with your upgrades!
 
-[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/cadence-migration-guide/nft-guide.mdx)[PreviousImprovements & New Features](/docs/cadence-migration-guide/improvements)[NextFT Cadence 1.0 Guide](/docs/cadence-migration-guide/ft-guide)
+[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/cadence-migration-guide/nft-guide.mdx)
+
+[Previous
+
+Improvements & New Features](/docs/cadence-migration-guide/improvements)[Next
+
+FT Cadence 1.0 Guide](/docs/cadence-migration-guide/ft-guide)
+
 ###### Rate this page
 
 😞😐😊
@@ -210,9 +245,10 @@ in the #developer-questions channel in discord and good luck with your upgrades!
   + [NonFungibleToken.NFT](#nonfungibletokennft)
   + [NonFungibleToken.Collection](#nonfungibletokencollection)
 * [Conclusion](#conclusion)
-Got suggestions for this site? 
+
+Got suggestions for this site?
 
 * [It's open-source!](https://github.com/onflow/cadence-lang.org)
+
 The source code of this site is licensed under the Apache License, Version 2.0.
 Content is licensed under the Creative Commons Attribution 4.0 International License.
-

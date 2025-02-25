@@ -1,22 +1,25 @@
 # Source: https://developers.flow.com/tools/clients/fcl-js/api
 
-
-
-
 Flow Client Library (FCL) API Reference | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
 * [Flow CLI](/tools/flow-cli)
 * [Flow Emulator](/tools/emulator)
 * [Clients](/tools/clients)
+
   + [Flow Client Library (FCL)](/tools/clients/fcl-js)
+
     - [FCL Reference](/tools/clients/fcl-js/api)
     - [SDK Reference](/tools/clients/fcl-js/sdk-guidelines)
     - [Authentication](/tools/clients/fcl-js/authentication)
@@ -34,11 +37,12 @@ Flow Client Library (FCL) API Reference | Flow Developer Portal
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 
-
 * [Clients](/tools/clients)
 * [Flow Client Library (FCL)](/tools/clients/fcl-js)
 * FCL Reference
+
 On this page
+
 # Flow Client Library (FCL) API Reference
 
 > For release updates, [see the repo](https://github.com/onflow/fcl-js/releases)
@@ -55,12 +59,106 @@ Values only need to be set once. We recommend doing this once and as early in th
 
 Alternatively, you can set the config by passing a JSON object directly.
 
- `_13import * as fcl from '@onflow/fcl';_13_13fcl_13 .config() // returns the config instance_13 .put('foo', 'bar') // configures "foo" to be "bar"_13 .put('baz', 'buz'); // configures "baz" to be "buz"_13_13// OR_13_13fcl.config({_13 foo: 'bar',_13 baz: 'buz',_13});`
+`_13
+
+import * as fcl from '@onflow/fcl';
+
+_13
+
+_13
+
+fcl
+
+_13
+
+.config() // returns the config instance
+
+_13
+
+.put('foo', 'bar') // configures "foo" to be "bar"
+
+_13
+
+.put('baz', 'buz'); // configures "baz" to be "buz"
+
+_13
+
+_13
+
+// OR
+
+_13
+
+_13
+
+fcl.config({
+
+_13
+
+foo: 'bar',
+
+_13
+
+baz: 'buz',
+
+_13
+
+});`
+
 ### Getting Configuration Values[​](#getting-configuration-values "Direct link to Getting Configuration Values")
 
 The `config` instance has an **asynchronous** `get` method. You can also pass it a fallback value.
 
- `_15import * as fcl from '@onflow/fcl';_15_15fcl.config().put('foo', 'bar').put('woot', 5).put('rawr', 7);_15_15const FALLBACK = 1;_15_15async function addStuff() {_15 var woot = await fcl.config().get('woot', FALLBACK); // will be 5 -- set in the config before_15 var rawr = await fcl.config().get('rawr', FALLBACK); // will be 7 -- set in the config before_15 var hmmm = await fcl.config().get('hmmm', FALLBACK); // will be 1 -- uses fallback because this isnt in the config_15_15 return woot + rawr + hmmm;_15}_15_15addStuff().then((d) => console.log(d)); // 13 (5 + 7 + 1)`
+`_15
+
+import * as fcl from '@onflow/fcl';
+
+_15
+
+_15
+
+fcl.config().put('foo', 'bar').put('woot', 5).put('rawr', 7);
+
+_15
+
+_15
+
+const FALLBACK = 1;
+
+_15
+
+_15
+
+async function addStuff() {
+
+_15
+
+var woot = await fcl.config().get('woot', FALLBACK); // will be 5 -- set in the config before
+
+_15
+
+var rawr = await fcl.config().get('rawr', FALLBACK); // will be 7 -- set in the config before
+
+_15
+
+var hmmm = await fcl.config().get('hmmm', FALLBACK); // will be 1 -- uses fallback because this isnt in the config
+
+_15
+
+_15
+
+return woot + rawr + hmmm;
+
+_15
+
+}
+
+_15
+
+_15
+
+addStuff().then((d) => console.log(d)); // 13 (5 + 7 + 1)`
+
 ### Common Configuration Keys[​](#common-configuration-keys "Direct link to Common Configuration Keys")
 
 | Name | Example | Description |
@@ -85,10 +183,160 @@ The `config` instance has an **asynchronous** `get` method. You can also pass it
 
 Configuration keys that start with `0x` will be replaced in FCL scripts and transactions, this allows you to write your script or transaction Cadence code once and not have to change it when you point your application at a difference instance of the Flow Blockchain.
 
- `_27import * as fcl from '@onflow/fcl';_27_27fcl.config().put('0xFungibleToken', '0xf233dcee88fe0abe');_27_27async function myScript() {_27 return fcl_27 .send([_27 fcl.script`_27 import FungibleToken from 0xFungibleToken // will be replaced with 0xf233dcee88fe0abe because of the configuration_27_27 access(all) fun main() { /* Rest of the script goes here */ }_27 `,_27 ])_27 .then(fcl.decode);_27}_27_27async function myTransaction() {_27 return fcl_27 .send([_27 fcl.transaction`_27 import FungibleToken from 0xFungibleToken // will be replaced with 0xf233dcee88fe0abe because of the configuration_27_27 transaction { /* Rest of the transaction goes here */ }_27 `,_27 ])_27 .then(fcl.decode);_27}`
+`_27
+
+import * as fcl from '@onflow/fcl';
+
+_27
+
+_27
+
+fcl.config().put('0xFungibleToken', '0xf233dcee88fe0abe');
+
+_27
+
+_27
+
+async function myScript() {
+
+_27
+
+return fcl
+
+_27
+
+.send([
+
+_27
+
+fcl.script`
+
+_27
+
+import FungibleToken from 0xFungibleToken // will be replaced with 0xf233dcee88fe0abe because of the configuration
+
+_27
+
+_27
+
+access(all) fun main() { /* Rest of the script goes here */ }
+
+_27
+
+`,
+
+_27
+
+])
+
+_27
+
+.then(fcl.decode);
+
+_27
+
+}
+
+_27
+
+_27
+
+async function myTransaction() {
+
+_27
+
+return fcl
+
+_27
+
+.send([
+
+_27
+
+fcl.transaction`
+
+_27
+
+import FungibleToken from 0xFungibleToken // will be replaced with 0xf233dcee88fe0abe because of the configuration
+
+_27
+
+_27
+
+transaction { /* Rest of the transaction goes here */ }
+
+_27
+
+`,
+
+_27
+
+])
+
+_27
+
+.then(fcl.decode);
+
+_27
+
+}`
+
 #### Example[​](#example "Direct link to Example")
 
- `_14import * as fcl from '@onflow/fcl';_14_14fcl_14 .config()_14 .put('flow.network', 'testnet')_14 .put('walletconnect.projectId', 'YOUR_PROJECT_ID')_14 .put('accessNode.api', 'https://rest-testnet.onflow.org')_14 .put('discovery.wallet', 'https://fcl-discovery.onflow.org/testnet/authn')_14 .put('app.detail.title', 'Test Harness')_14 .put('app.detail.icon', 'https://i.imgur.com/r23Zhvu.png')_14 .put('app.detail.description', 'A test harness for FCL')_14 .put('app.detail.url', 'https://myapp.com')_14 .put('service.OpenID.scopes', 'email email_verified name zoneinfo')_14 .put('0xFlowToken', '0x7e60df042a9c0868');`
+`_14
+
+import * as fcl from '@onflow/fcl';
+
+_14
+
+_14
+
+fcl
+
+_14
+
+.config()
+
+_14
+
+.put('flow.network', 'testnet')
+
+_14
+
+.put('walletconnect.projectId', 'YOUR_PROJECT_ID')
+
+_14
+
+.put('accessNode.api', 'https://rest-testnet.onflow.org')
+
+_14
+
+.put('discovery.wallet', 'https://fcl-discovery.onflow.org/testnet/authn')
+
+_14
+
+.put('app.detail.title', 'Test Harness')
+
+_14
+
+.put('app.detail.icon', 'https://i.imgur.com/r23Zhvu.png')
+
+_14
+
+.put('app.detail.description', 'A test harness for FCL')
+
+_14
+
+.put('app.detail.url', 'https://myapp.com')
+
+_14
+
+.put('service.OpenID.scopes', 'email email_verified name zoneinfo')
+
+_14
+
+.put('0xFlowToken', '0x7e60df042a9c0868');`
+
 ### Using `flow.json` for Contract Imports[​](#using-flowjson-for-contract-imports "Direct link to using-flowjson-for-contract-imports")
 
 A simpler and more flexible way to manage contract imports in scripts and transactions is by using the `config.load` method in FCL. This lets you load contract configurations from a `flow.json` file, keeping your import syntax clean and allowing FCL to pick the correct contract addresses based on the network you're using.
@@ -99,7 +347,49 @@ A simpler and more flexible way to manage contract imports in scripts and transa
 
 Here’s an example of a `flow.json` file with aliases for multiple networks:
 
- `_11{_11 "contracts": {_11 "HelloWorld": {_11 "source": "./cadence/contracts/HelloWorld.cdc",_11 "aliases": {_11 "testnet": "0x1cf0e2f2f715450",_11 "mainnet": "0xf8d6e0586b0a20c7"_11 }_11 }_11 }_11}`
+`_11
+
+{
+
+_11
+
+"contracts": {
+
+_11
+
+"HelloWorld": {
+
+_11
+
+"source": "./cadence/contracts/HelloWorld.cdc",
+
+_11
+
+"aliases": {
+
+_11
+
+"testnet": "0x1cf0e2f2f715450",
+
+_11
+
+"mainnet": "0xf8d6e0586b0a20c7"
+
+_11
+
+}
+
+_11
+
+}
+
+_11
+
+}
+
+_11
+
+}`
 
 * **`source`**: Points to the contract file in your project.
 * **`aliases`**: Maps each network to the correct contract address.
@@ -108,7 +398,35 @@ Here’s an example of a `flow.json` file with aliases for multiple networks:
 
 Load the `flow.json` file and set up FCL to use it:
 
- `_10import { config } from '@onflow/fcl';_10import flowJSON from '../flow.json';_10_10config({_10 'flow.network': 'testnet', // Choose your network, e.g., testnet or mainnet_10 'accessNode.api': 'https://rest-testnet.onflow.org', // Access node for the network_10 'discovery.wallet': `https://fcl-discovery.onflow.org/testnet/authn`, // Wallet discovery_10}).load({ flowJSON });`
+`_10
+
+import { config } from '@onflow/fcl';
+
+_10
+
+import flowJSON from '../flow.json';
+
+_10
+
+_10
+
+config({
+
+_10
+
+'flow.network': 'testnet', // Choose your network, e.g., testnet or mainnet
+
+_10
+
+'accessNode.api': 'https://rest-testnet.onflow.org', // Access node for the network
+
+_10
+
+'discovery.wallet': `https://fcl-discovery.onflow.org/testnet/authn`, // Wallet discovery
+
+_10
+
+}).load({ flowJSON });`
 
 With this setup, FCL will automatically use the correct contract address based on the selected network (e.g., `testnet` or `mainnet`).
 
@@ -116,7 +434,23 @@ With this setup, FCL will automatically use the correct contract address based o
 
 After setting up `flow.json`, you can import contracts by name in your Cadence scripts or transactions:
 
- `_10import "HelloWorld"_10_10access(all) fun main(): String {_10 return HelloWorld.sayHello()_10}`
+`_10
+
+import "HelloWorld"
+
+_10
+
+_10
+
+access(all) fun main(): String {
+
+_10
+
+return HelloWorld.sayHello()
+
+_10
+
+}`
 
 FCL replaces `"HelloWorld"` with the correct address from the `flow.json` configuration.
 
@@ -144,7 +478,34 @@ Calling this method will authenticate the current user via any wallet that suppo
 
 #### Usage[​](#usage "Direct link to Usage")
 
- `_10import * as fcl from '@onflow/fcl';_10fcl_10 .config()_10 .put('accessNode.api', 'https://rest-testnet.onflow.org')_10 .put('discovery.wallet', 'https://fcl-discovery.onflow.org/testnet/authn');_10// anywhere on the page_10fcl.authenticate();`
+`_10
+
+import * as fcl from '@onflow/fcl';
+
+_10
+
+fcl
+
+_10
+
+.config()
+
+_10
+
+.put('accessNode.api', 'https://rest-testnet.onflow.org')
+
+_10
+
+.put('discovery.wallet', 'https://fcl-discovery.onflow.org/testnet/authn');
+
+_10
+
+// anywhere on the page
+
+_10
+
+fcl.authenticate();`
+
 #### Note[​](#note-1 "Direct link to Note")
 
 ⚠️ `authenticate` can also take a service returned from [discovery](#discovery) with `fcl.authenticate({ service })`.
@@ -163,7 +524,33 @@ Logs out the current user and sets the values on the [current user](#currentuser
 
 #### Usage[​](#usage-1 "Direct link to Usage")
 
- `_10import * as fcl from '@onflow/fcl';_10fcl.config().put('accessNode.api', 'https://rest-testnet.onflow.org');_10// first authenticate to set current user_10fcl.authenticate();_10// ... somewhere else & sometime later_10fcl.unauthenticate();_10// fcl.currentUser.loggedIn === null`
+`_10
+
+import * as fcl from '@onflow/fcl';
+
+_10
+
+fcl.config().put('accessNode.api', 'https://rest-testnet.onflow.org');
+
+_10
+
+// first authenticate to set current user
+
+_10
+
+fcl.authenticate();
+
+_10
+
+// ... somewhere else & sometime later
+
+_10
+
+fcl.unauthenticate();
+
+_10
+
+// fcl.currentUser.loggedIn === null`
 
 ---
 
@@ -179,7 +566,29 @@ A **convenience method** that calls [`fcl.unauthenticate()`](#unauthenticate) an
 
 #### Usage[​](#usage-2 "Direct link to Usage")
 
- `_10import * as fcl from '@onflow/fcl';_10// first authenticate to set current user_10fcl.authenticate();_10// ... somewhere else & sometime later_10fcl.reauthenticate();_10// logs out user and opens up login/sign-up flow`
+`_10
+
+import * as fcl from '@onflow/fcl';
+
+_10
+
+// first authenticate to set current user
+
+_10
+
+fcl.authenticate();
+
+_10
+
+// ... somewhere else & sometime later
+
+_10
+
+fcl.reauthenticate();
+
+_10
+
+// logs out user and opens up login/sign-up flow`
 
 ---
 
@@ -215,7 +624,89 @@ A **convenience method** that produces the needed authorization details for the 
 
 **Note:** The default values for `proposer`, `payer`, and `authorizations` are already `fcl.authz` so there is no need to include these parameters, it is shown only for example purposes. See more on [signing roles](/build/basics/transactions).
 
- `_22import * as fcl from '@onflow/fcl';_22// login somewhere before_22fcl.authenticate();_22// once logged in authz will produce values_22console.log(fcl.authz);_22// prints {addr, signingFunction, keyId, sequenceNum} from the current authenticated user._22_22const txId = await fcl.mutate({_22 cadence: `_22 import Profile from 0xba1132bc08f82fe2_22 _22 transaction(name: String) {_22 prepare(account: auth(BorrowValue) &Account) {_22 account.storage.borrow<&{Profile.Owner}>(from: Profile.privatePath)!.setName(name)_22 }_22 }_22 `,_22 args: (arg, t) => [arg('myName', t.String)],_22 proposer: fcl.authz, // optional - default is fcl.authz_22 payer: fcl.authz, // optional - default is fcl.authz_22 authorizations: [fcl.authz], // optional - default is [fcl.authz]_22});`
+`_22
+
+import * as fcl from '@onflow/fcl';
+
+_22
+
+// login somewhere before
+
+_22
+
+fcl.authenticate();
+
+_22
+
+// once logged in authz will produce values
+
+_22
+
+console.log(fcl.authz);
+
+_22
+
+// prints {addr, signingFunction, keyId, sequenceNum} from the current authenticated user.
+
+_22
+
+_22
+
+const txId = await fcl.mutate({
+
+_22
+
+cadence: `
+
+_22
+
+import Profile from 0xba1132bc08f82fe2
+
+_22
+
+_22
+
+transaction(name: String) {
+
+_22
+
+prepare(account: auth(BorrowValue) &Account) {
+
+_22
+
+account.storage.borrow<&{Profile.Owner}>(from: Profile.privatePath)!.setName(name)
+
+_22
+
+}
+
+_22
+
+}
+
+_22
+
+`,
+
+_22
+
+args: (arg, t) => [arg('myName', t.String)],
+
+_22
+
+proposer: fcl.authz, // optional - default is fcl.authz
+
+_22
+
+payer: fcl.authz, // optional - default is fcl.authz
+
+_22
+
+authorizations: [fcl.authz], // optional - default is [fcl.authz]
+
+_22
+
+});`
 
 ---
 
@@ -239,7 +730,97 @@ The callback passed to subscribe will be called when the user authenticates and 
 
 #### Usage[​](#usage-4 "Direct link to Usage")
 
- `_24import React, { useState, useEffect } from 'react';_24import * as fcl from '@onflow/fcl';_24_24export function AuthCluster() {_24 const [user, setUser] = useState({ loggedIn: null });_24 useEffect(() => fcl.currentUser.subscribe(setUser), []); // sets the callback for FCL to use_24_24 if (user.loggedIn) {_24 return (_24 <div>_24 <span>{user?.addr ?? 'No Address'}</span>_24 <button onClick={fcl.unauthenticate}>Log Out</button> {/* once logged out in setUser(user) will be called */}_24 </div>_24 );_24 } else {_24 return (_24 <div>_24 <button onClick={fcl.logIn}>Log In</button>{' '}_24 {/* once logged in setUser(user) will be called */}_24 <button onClick={fcl.signUp}>Sign Up</button> {/* once signed up, setUser(user) will be called */}_24 </div>_24 );_24 }_24}`
+`_24
+
+import React, { useState, useEffect } from 'react';
+
+_24
+
+import * as fcl from '@onflow/fcl';
+
+_24
+
+_24
+
+export function AuthCluster() {
+
+_24
+
+const [user, setUser] = useState({ loggedIn: null });
+
+_24
+
+useEffect(() => fcl.currentUser.subscribe(setUser), []); // sets the callback for FCL to use
+
+_24
+
+_24
+
+if (user.loggedIn) {
+
+_24
+
+return (
+
+_24
+
+<div>
+
+_24
+
+<span>{user?.addr ?? 'No Address'}</span>
+
+_24
+
+<button onClick={fcl.unauthenticate}>Log Out</button> {/* once logged out in setUser(user) will be called */}
+
+_24
+
+</div>
+
+_24
+
+);
+
+_24
+
+} else {
+
+_24
+
+return (
+
+_24
+
+<div>
+
+_24
+
+<button onClick={fcl.logIn}>Log In</button>{' '}
+
+_24
+
+{/* once logged in setUser(user) will be called */}
+
+_24
+
+<button onClick={fcl.signUp}>Sign Up</button> {/* once signed up, setUser(user) will be called */}
+
+_24
+
+</div>
+
+_24
+
+);
+
+_24
+
+}
+
+_24
+
+}`
 
 ---
 
@@ -249,7 +830,23 @@ Returns the [current user](#currentuserobject) object. This is the same object t
 
 #### Usage[​](#usage-5 "Direct link to Usage")
 
- `_10// returns the current user object_10const user = fcl.currentUser.snapshot();_10_10// subscribes to the current user object and logs to console on changes_10fcl.currentUser.subscribe(console.log);`
+`_10
+
+// returns the current user object
+
+_10
+
+const user = fcl.currentUser.snapshot();
+
+_10
+
+_10
+
+// subscribes to the current user object and logs to console on changes
+
+_10
+
+fcl.currentUser.subscribe(console.log);`
 
 ---
 
@@ -291,7 +888,43 @@ A method to use allowing the user to personally sign data via FCL Compatible Wal
 
 #### Usage[​](#usage-6 "Direct link to Usage")
 
- `_10import * as fcl from '@onflow/fcl';_10_10export const signMessage = async () => {_10 const MSG = Buffer.from('FOO').toString('hex');_10 try {_10 return await currentUser.signUserMessage(MSG);_10 } catch (error) {_10 console.log(error);_10 }_10};`
+`_10
+
+import * as fcl from '@onflow/fcl';
+
+_10
+
+_10
+
+export const signMessage = async () => {
+
+_10
+
+const MSG = Buffer.from('FOO').toString('hex');
+
+_10
+
+try {
+
+_10
+
+return await currentUser.signUserMessage(MSG);
+
+_10
+
+} catch (error) {
+
+_10
+
+console.log(error);
+
+_10
+
+}
+
+_10
+
+};`
 
 ---
 
@@ -320,14 +953,129 @@ If the Discovery endpoint is set in config, then you can iterate through authn s
 
 #### Usage[​](#usage-7 "Direct link to Usage")
 
- `_24import './config';_24import { useState, useEffect } from 'react';_24import * as fcl from '@onflow/fcl';_24_24function Component() {_24 const [wallets, setWallets] = useState([]);_24 useEffect(_24 () => fcl.discovery.authn.subscribe((res) => setWallets(res.results)),_24 [],_24 );_24_24 return (_24 <div>_24 {wallets.map((wallet) => (_24 <button_24 key={wallet.provider.address}_24 onClick={() => fcl.authenticate({ service: wallet })}_24 >_24 Login with {wallet.provider.name}_24 </button>_24 ))}_24 </div>_24 );_24}`
+`_24
+
+import './config';
+
+_24
+
+import { useState, useEffect } from 'react';
+
+_24
+
+import * as fcl from '@onflow/fcl';
+
+_24
+
+_24
+
+function Component() {
+
+_24
+
+const [wallets, setWallets] = useState([]);
+
+_24
+
+useEffect(
+
+_24
+
+() => fcl.discovery.authn.subscribe((res) => setWallets(res.results)),
+
+_24
+
+[],
+
+_24
+
+);
+
+_24
+
+_24
+
+return (
+
+_24
+
+<div>
+
+_24
+
+{wallets.map((wallet) => (
+
+_24
+
+<button
+
+_24
+
+key={wallet.provider.address}
+
+_24
+
+onClick={() => fcl.authenticate({ service: wallet })}
+
+_24
+
+>
+
+_24
+
+Login with {wallet.provider.name}
+
+_24
+
+</button>
+
+_24
+
+))}
+
+_24
+
+</div>
+
+_24
+
+);
+
+_24
+
+}`
+
 ### authn[​](#authn "Direct link to authn")
 
 #### More Configuration[​](#more-configuration "Direct link to More Configuration")
 
 By default, limited functionality services or services that require developer registration, like Ledger or Dapper Wallet, require apps to opt-in in order to display to users. To enable opt-in services in an application, use the `discovery.authn.include` property in your configuration with a value of an array of services you'd like your app to opt-in to displaying for users.
 
- `_10import { config } from '@onflow/fcl';_10_10config({_10 'discovery.authn.endpoint':_10 'https://fcl-discovery.onflow.org/api/testnet/authn', // Endpoint set to Testnet_10 'discovery.authn.include': ['0x9d2e44203cb13051'], // Ledger wallet address on Testnet set to be included_10});`
+`_10
+
+import { config } from '@onflow/fcl';
+
+_10
+
+_10
+
+config({
+
+_10
+
+'discovery.authn.endpoint':
+
+_10
+
+'https://fcl-discovery.onflow.org/api/testnet/authn', // Endpoint set to Testnet
+
+_10
+
+'discovery.authn.include': ['0x9d2e44203cb13051'], // Ledger wallet address on Testnet set to be included
+
+_10
+
+});`
 
 **Opt-In Wallet Addresses on Testnet and Mainnet**
 
@@ -384,7 +1132,68 @@ Allows you to submit scripts to query the blockchain.
 
 #### Usage[​](#usage-8 "Direct link to Usage")
 
- `_16import * as fcl from '@onflow/fcl';_16_16const result = await fcl.query({_16 cadence: `_16 access(all) fun main(a: Int, b: Int, addr: Address): Int {_16 log(addr)_16 return a + b_16 }_16 `,_16 args: (arg, t) => [_16 arg(7, t.Int), // a: Int_16 arg(6, t.Int), // b: Int_16 arg('0xba1132bc08f82fe2', t.Address), // addr: Address_16 ],_16});_16console.log(result); // 13`
+`_16
+
+import * as fcl from '@onflow/fcl';
+
+_16
+
+_16
+
+const result = await fcl.query({
+
+_16
+
+cadence: `
+
+_16
+
+access(all) fun main(a: Int, b: Int, addr: Address): Int {
+
+_16
+
+log(addr)
+
+_16
+
+return a + b
+
+_16
+
+}
+
+_16
+
+`,
+
+_16
+
+args: (arg, t) => [
+
+_16
+
+arg(7, t.Int), // a: Int
+
+_16
+
+arg(6, t.Int), // b: Int
+
+_16
+
+arg('0xba1132bc08f82fe2', t.Address), // addr: Address
+
+_16
+
+],
+
+_16
+
+});
+
+_16
+
+console.log(result); // 13`
+
 #### Examples[​](#examples "Direct link to Examples")
 
 * [Additional Explanation](https://gist.github.com/orodio/3bf977a0bd45b990d16fdc1459b129a2)
@@ -416,7 +1225,66 @@ Allows you to submit transactions to the blockchain to potentially mutate the st
 
 #### Usage[​](#usage-9 "Direct link to Usage")
 
- `_16import * as fcl from '@onflow/fcl';_16// login somewhere before_16fcl.authenticate();_16_16const txId = await fcl.mutate({_16 cadence: `_16 import Profile from 0xba1132bc08f82fe2_16 _16 transaction(name: String) {_16 prepare(account: auth(BorrowValue) &Account) {_16 account.storage.borrow<&{Profile.Owner}>(from: Profile.privatePath)!.setName(name)_16 }_16 }_16 `,_16 args: (arg, t) => [arg('myName', t.String)],_16});`
+`_16
+
+import * as fcl from '@onflow/fcl';
+
+_16
+
+// login somewhere before
+
+_16
+
+fcl.authenticate();
+
+_16
+
+_16
+
+const txId = await fcl.mutate({
+
+_16
+
+cadence: `
+
+_16
+
+import Profile from 0xba1132bc08f82fe2
+
+_16
+
+_16
+
+transaction(name: String) {
+
+_16
+
+prepare(account: auth(BorrowValue) &Account) {
+
+_16
+
+account.storage.borrow<&{Profile.Owner}>(from: Profile.privatePath)!.setName(name)
+
+_16
+
+}
+
+_16
+
+}
+
+_16
+
+`,
+
+_16
+
+args: (arg, t) => [arg('myName', t.String)],
+
+_16
+
+});`
+
 #### Examples[​](#examples-1 "Direct link to Examples")
 
 * [Additional explanation](https://gist.github.com/orodio/3bf977a0bd45b990d16fdc1459b129a2)
@@ -454,7 +1322,64 @@ A method allowing applications to cryptographically verify a message was signed 
 
 #### Usage[​](#usage-10 "Direct link to Usage")
 
- `_15import * as fcl from '@onflow/fcl';_15_15const isValid = await fcl.AppUtils.verifyUserSignatures(_15 Buffer.from('FOO').toString('hex'),_15 [_15 {_15 f_type: 'CompositeSignature',_15 f_vsn: '1.0.0',_15 addr: '0x123',_15 keyId: 0,_15 signature: 'abc123',_15 },_15 ],_15 { fclCryptoContract },_15);`
+`_15
+
+import * as fcl from '@onflow/fcl';
+
+_15
+
+_15
+
+const isValid = await fcl.AppUtils.verifyUserSignatures(
+
+_15
+
+Buffer.from('FOO').toString('hex'),
+
+_15
+
+[
+
+_15
+
+{
+
+_15
+
+f_type: 'CompositeSignature',
+
+_15
+
+f_vsn: '1.0.0',
+
+_15
+
+addr: '0x123',
+
+_15
+
+keyId: 0,
+
+_15
+
+signature: 'abc123',
+
+_15
+
+},
+
+_15
+
+],
+
+_15
+
+{ fclCryptoContract },
+
+_15
+
+);`
+
 #### Examples[​](#examples-2 "Direct link to Examples")
 
 * [fcl-next-harness](https://github.com/onflow/fcl-next-harness)
@@ -484,7 +1409,54 @@ See [proving-authentication](https://github.com/onflow/fcl-js/blob/master/docs/r
 
 #### Usage[​](#usage-11 "Direct link to Usage")
 
- `_13import * as fcl from "@onflow/fcl"_13_13const accountProofData = {_13 address: "0x123",_13 nonce: "F0123"_13 signatures: [{f_type: "CompositeSignature", f_vsn: "1.0.0", addr: "0x123", keyId: 0, signature: "abc123"}],_13}_13_13const isValid = await fcl.AppUtils.verifyAccountProof(_13 "AwesomeAppId",_13 accountProofData,_13 {fclCryptoContract}_13)`
+`_13
+
+import * as fcl from "@onflow/fcl"
+
+_13
+
+_13
+
+const accountProofData = {
+
+_13
+
+address: "0x123",
+
+_13
+
+nonce: "F0123"
+
+_13
+
+signatures: [{f_type: "CompositeSignature", f_vsn: "1.0.0", addr: "0x123", keyId: 0, signature: "abc123"}],
+
+_13
+
+}
+
+_13
+
+_13
+
+const isValid = await fcl.AppUtils.verifyAccountProof(
+
+_13
+
+"AwesomeAppId",
+
+_13
+
+accountProofData,
+
+_13
+
+{fclCryptoContract}
+
+_13
+
+)`
+
 #### Examples[​](#examples-3 "Direct link to Examples")
 
 * [fcl-next-harness](https://github.com/onflow/fcl-next-harness)
@@ -521,7 +1493,73 @@ This method consumes an array of [builders](#builders) that are to be resolved a
 
 #### Usage[​](#usage-12 "Direct link to Usage")
 
- `_18import * as fcl from '@onflow/fcl';_18_18// a script only needs to resolve the arguments to the script_18const response = await fcl.send([fcl.script`${script}`, fcl.args(args)]);_18// note: response values are encoded, call await fcl.decode(response) to get JSON_18_18// a transaction requires multiple 'builders' that need to be resolved prior to being sent to the chain - such as setting the authorizations._18const response = await fcl.send([_18 fcl.transaction`_18 ${transaction}_18 `,_18 fcl.args(args),_18 fcl.proposer(proposer),_18 fcl.authorizations(authorizations),_18 fcl.payer(payer),_18 fcl.limit(9999),_18]);_18// note: response contains several values (Cad)`
+`_18
+
+import * as fcl from '@onflow/fcl';
+
+_18
+
+_18
+
+// a script only needs to resolve the arguments to the script
+
+_18
+
+const response = await fcl.send([fcl.script`${script}`, fcl.args(args)]);
+
+_18
+
+// note: response values are encoded, call await fcl.decode(response) to get JSON
+
+_18
+
+_18
+
+// a transaction requires multiple 'builders' that need to be resolved prior to being sent to the chain - such as setting the authorizations.
+
+_18
+
+const response = await fcl.send([
+
+_18
+
+fcl.transaction`
+
+_18
+
+${transaction}
+
+_18
+
+`,
+
+_18
+
+fcl.args(args),
+
+_18
+
+fcl.proposer(proposer),
+
+_18
+
+fcl.authorizations(authorizations),
+
+_18
+
+fcl.payer(payer),
+
+_18
+
+fcl.limit(9999),
+
+_18
+
+]);
+
+_18
+
+// note: response contains several values (Cad)`
 
 ---
 
@@ -547,7 +1585,63 @@ Decodes the response from `fcl.send()` into the appropriate JSON representation 
 
 #### Usage[​](#usage-13 "Direct link to Usage")
 
- `_16import * as fcl from '@onflow/fcl';_16_16// simple script to add 2 numbers_16const response = await fcl.send([_16 fcl.script`_16 access(all) fun main(int1: Int, int2: Int): Int {_16 return int1 + int2_16 }_16 `,_16 fcl.args([fcl.arg(1, fcl.t.Int), fcl.arg(2, fcl.t.Int)]),_16]);_16_16const decoded = await fcl.decode(response);_16_16assert(3 === decoded);_16assert(typeof decoded === 'number');`
+`_16
+
+import * as fcl from '@onflow/fcl';
+
+_16
+
+_16
+
+// simple script to add 2 numbers
+
+_16
+
+const response = await fcl.send([
+
+_16
+
+fcl.script`
+
+_16
+
+access(all) fun main(int1: Int, int2: Int): Int {
+
+_16
+
+return int1 + int2
+
+_16
+
+}
+
+_16
+
+`,
+
+_16
+
+fcl.args([fcl.arg(1, fcl.t.Int), fcl.arg(2, fcl.t.Int)]),
+
+_16
+
+]);
+
+_16
+
+_16
+
+const decoded = await fcl.decode(response);
+
+_16
+
+_16
+
+assert(3 === decoded);
+
+_16
+
+assert(typeof decoded === 'number');`
 
 ---
 
@@ -580,7 +1674,35 @@ A builder function that returns the interaction to get an account by address.
 
 #### Usage[​](#usage-14 "Direct link to Usage")
 
- `_10import * as fcl from '@onflow/fcl';_10_10// somewhere in an async function_10// fcl.account is the same as this function_10const getAccount = async (address) => {_10 const account = await fcl.send([fcl.getAccount(address)]).then(fcl.decode);_10 return account;_10};`
+`_10
+
+import * as fcl from '@onflow/fcl';
+
+_10
+
+_10
+
+// somewhere in an async function
+
+_10
+
+// fcl.account is the same as this function
+
+_10
+
+const getAccount = async (address) => {
+
+_10
+
+const account = await fcl.send([fcl.getAccount(address)]).then(fcl.decode);
+
+_10
+
+return account;
+
+_10
+
+};`
 
 ---
 
@@ -606,7 +1728,31 @@ A builder function that returns the interaction to get the latest block.
 
 #### Usage[​](#usage-15 "Direct link to Usage")
 
- `_10import * as fcl from '@onflow/fcl';_10_10const latestSealedBlock = await fcl_10 .send([_10 fcl.getBlock(true), // isSealed = true_10 ])_10 .then(fcl.decode);`
+`_10
+
+import * as fcl from '@onflow/fcl';
+
+_10
+
+_10
+
+const latestSealedBlock = await fcl
+
+_10
+
+.send([
+
+_10
+
+fcl.getBlock(true), // isSealed = true
+
+_10
+
+])
+
+_10
+
+.then(fcl.decode);`
 
 ---
 
@@ -630,7 +1776,15 @@ A builder function that returns a partial interaction to a block at a specific h
 
 #### Usage[​](#usage-16 "Direct link to Usage")
 
- `_10import * as fcl from '@onflow/fcl';_10_10await fcl.send([fcl.getBlock(), fcl.atBlockHeight(123)]).then(fcl.decode);`
+`_10
+
+import * as fcl from '@onflow/fcl';
+
+_10
+
+_10
+
+await fcl.send([fcl.getBlock(), fcl.atBlockHeight(123)]).then(fcl.decode);`
 
 ---
 
@@ -654,7 +1808,15 @@ A builder function that returns a partial interaction to a block at a specific b
 
 #### Usage[​](#usage-17 "Direct link to Usage")
 
- `_10import * as fcl from '@onflow/fcl';_10_10await fcl.send([fcl.getBlock(), fcl.atBlockId('23232323232')]).then(fcl.decode);`
+`_10
+
+import * as fcl from '@onflow/fcl';
+
+_10
+
+_10
+
+await fcl.send([fcl.getBlock(), fcl.atBlockId('23232323232')]).then(fcl.decode);`
 
 ---
 
@@ -672,7 +1834,24 @@ A builder function that returns the interaction to get a block header.
 
 #### Usage[​](#usage-18 "Direct link to Usage")
 
- `_10import * as fcl from '@onflow/fcl';_10_10const latestBlockHeader = await fcl_10 .send([fcl.getBlockHeader()])_10 .then(fcl.decode);`
+`_10
+
+import * as fcl from '@onflow/fcl';
+
+_10
+
+_10
+
+const latestBlockHeader = await fcl
+
+_10
+
+.send([fcl.getBlockHeader()])
+
+_10
+
+.then(fcl.decode);`
+
 ### `getEventsAtBlockHeightRange`[​](#geteventsatblockheightrange "Direct link to geteventsatblockheightrange")
 
 A builder function that returns all instances of a particular event (by name) within a height range.
@@ -697,7 +1876,47 @@ A builder function that returns all instances of a particular event (by name) wi
 
 #### Usage[​](#usage-19 "Direct link to Usage")
 
- `_11import * as fcl from '@onflow/fcl';_11_11const events = await fcl_11 .send([_11 fcl.getEventsAtBlockHeightRange(_11 'A.7e60df042a9c0868.FlowToken.TokensWithdrawn',_11 35580624,_11 35580624,_11 ),_11 ])_11 .then(fcl.decode);`
+`_11
+
+import * as fcl from '@onflow/fcl';
+
+_11
+
+_11
+
+const events = await fcl
+
+_11
+
+.send([
+
+_11
+
+fcl.getEventsAtBlockHeightRange(
+
+_11
+
+'A.7e60df042a9c0868.FlowToken.TokensWithdrawn',
+
+_11
+
+35580624,
+
+_11
+
+35580624,
+
+_11
+
+),
+
+_11
+
+])
+
+_11
+
+.then(fcl.decode);`
 
 ---
 
@@ -722,7 +1941,43 @@ A builder function that returns all instances of a particular event (by name) wi
 
 #### Usage[​](#usage-20 "Direct link to Usage")
 
- `_10import * as fcl from '@onflow/fcl';_10_10const events = await fcl_10 .send([_10 fcl.getEventsAtBlockIds('A.7e60df042a9c0868.FlowToken.TokensWithdrawn', [_10 'c4f239d49e96d1e5fbcf1f31027a6e582e8c03fcd9954177b7723fdb03d938c7',_10 '5dbaa85922eb194a3dc463c946cc01c866f2ff2b88f3e59e21c0d8d00113273f',_10 ]),_10 ])_10 .then(fcl.decode);`
+`_10
+
+import * as fcl from '@onflow/fcl';
+
+_10
+
+_10
+
+const events = await fcl
+
+_10
+
+.send([
+
+_10
+
+fcl.getEventsAtBlockIds('A.7e60df042a9c0868.FlowToken.TokensWithdrawn', [
+
+_10
+
+'c4f239d49e96d1e5fbcf1f31027a6e582e8c03fcd9954177b7723fdb03d938c7',
+
+_10
+
+'5dbaa85922eb194a3dc463c946cc01c866f2ff2b88f3e59e21c0d8d00113273f',
+
+_10
+
+]),
+
+_10
+
+])
+
+_10
+
+.then(fcl.decode);`
 
 ---
 
@@ -746,7 +2001,39 @@ A builder function that returns all a collection containing a list of transactio
 
 #### Usage[​](#usage-21 "Direct link to Usage")
 
- `_10import * as fcl from '@onflow/fcl';_10_10const collection = await fcl_10 .send([_10 fcl.getCollection(_10 'cccdb0c67d015dc7f6444e8f62a3244ed650215ed66b90603006c70c5ef1f6e5',_10 ),_10 ])_10 .then(fcl.decode);`
+`_10
+
+import * as fcl from '@onflow/fcl';
+
+_10
+
+_10
+
+const collection = await fcl
+
+_10
+
+.send([
+
+_10
+
+fcl.getCollection(
+
+_10
+
+'cccdb0c67d015dc7f6444e8f62a3244ed650215ed66b90603006c70c5ef1f6e5',
+
+_10
+
+),
+
+_10
+
+])
+
+_10
+
+.then(fcl.decode);`
 
 ---
 
@@ -774,7 +2061,39 @@ A builder function that returns the status of transaction in the form of a [Tran
 
 #### Usage[​](#usage-22 "Direct link to Usage")
 
- `_10import * as fcl from '@onflow/fcl';_10_10const status = await fcl_10 .send([_10 fcl.getTransactionStatus(_10 '9dda5f281897389b99f103a1c6b180eec9dac870de846449a302103ce38453f3',_10 ),_10 ])_10 .then(fcl.decode);`
+`_10
+
+import * as fcl from '@onflow/fcl';
+
+_10
+
+_10
+
+const status = await fcl
+
+_10
+
+.send([
+
+_10
+
+fcl.getTransactionStatus(
+
+_10
+
+'9dda5f281897389b99f103a1c6b180eec9dac870de846449a302103ce38453f3',
+
+_10
+
+),
+
+_10
+
+])
+
+_10
+
+.then(fcl.decode);`
 
 ---
 
@@ -802,7 +2121,39 @@ A builder function that returns a [transaction object](#transactionobject) once 
 
 #### Usage[​](#usage-23 "Direct link to Usage")
 
- `_10import * as fcl from '@onflow/fcl';_10_10const tx = await fcl_10 .send([_10 fcl.getTransaction(_10 '9dda5f281897389b99f103a1c6b180eec9dac870de846449a302103ce38453f3',_10 ),_10 ])_10 .then(fcl.decode);`
+`_10
+
+import * as fcl from '@onflow/fcl';
+
+_10
+
+_10
+
+const tx = await fcl
+
+_10
+
+.send([
+
+_10
+
+fcl.getTransaction(
+
+_10
+
+'9dda5f281897389b99f103a1c6b180eec9dac870de846449a302103ce38453f3',
+
+_10
+
+),
+
+_10
+
+])
+
+_10
+
+.then(fcl.decode);`
 
 ---
 
@@ -836,7 +2187,101 @@ A build that returns a [event stream connection](#eventstream) once decoded. It 
 
 #### Usage[​](#usage-24 "Direct link to Usage")
 
- `_27import * as fcl from '@onflow/fcl';_27_27const eventStream = await fcl_27 .send([_27 fcl.subscribeEvents({_27 eventTypes: 'A.7e60df042a9c0868.FlowToken.TokensWithdrawn',_27 }),_27 ])_27 .then(fcl.decode);_27_27eventStream.on('heartbeat', (heartbeat) => {_27 console.log(heartbeat);_27});_27_27eventStream.on('events', (event) => {_27 console.log(event);_27});_27_27eventStream.on('error', (error) => {_27 console.log(error);_27});_27_27eventStream.on('end', () => {_27 console.log('Connection closed');_27});_27_27eventStream.close();`
+`_27
+
+import * as fcl from '@onflow/fcl';
+
+_27
+
+_27
+
+const eventStream = await fcl
+
+_27
+
+.send([
+
+_27
+
+fcl.subscribeEvents({
+
+_27
+
+eventTypes: 'A.7e60df042a9c0868.FlowToken.TokensWithdrawn',
+
+_27
+
+}),
+
+_27
+
+])
+
+_27
+
+.then(fcl.decode);
+
+_27
+
+_27
+
+eventStream.on('heartbeat', (heartbeat) => {
+
+_27
+
+console.log(heartbeat);
+
+_27
+
+});
+
+_27
+
+_27
+
+eventStream.on('events', (event) => {
+
+_27
+
+console.log(event);
+
+_27
+
+});
+
+_27
+
+_27
+
+eventStream.on('error', (error) => {
+
+_27
+
+console.log(error);
+
+_27
+
+});
+
+_27
+
+_27
+
+eventStream.on('end', () => {
+
+_27
+
+console.log('Connection closed');
+
+_27
+
+});
+
+_27
+
+_27
+
+eventStream.close();`
 
 ---
 
@@ -889,7 +2334,63 @@ A utility builder to be used with `fcl.args[...]` to create FCL supported argume
 
 #### Usage[​](#usage-25 "Direct link to Usage")
 
- `_15import * as fcl from '@onflow/fcl';_15_15await fcl_15 .send([_15 fcl.script`_15 access(all) fun main(a: Int, b: Int): Int {_15 return a + b_15 }_15 `,_15 fcl.args([_15 fcl.arg(5, fcl.t.Int), // a_15 fcl.arg(4, fcl.t.Int), // b_15 ]),_15 ])_15 .then(fcl.decode);`
+`_15
+
+import * as fcl from '@onflow/fcl';
+
+_15
+
+_15
+
+await fcl
+
+_15
+
+.send([
+
+_15
+
+fcl.script`
+
+_15
+
+access(all) fun main(a: Int, b: Int): Int {
+
+_15
+
+return a + b
+
+_15
+
+}
+
+_15
+
+`,
+
+_15
+
+fcl.args([
+
+_15
+
+fcl.arg(5, fcl.t.Int), // a
+
+_15
+
+fcl.arg(4, fcl.t.Int), // b
+
+_15
+
+]),
+
+_15
+
+])
+
+_15
+
+.then(fcl.decode);`
 
 ---
 
@@ -911,7 +2412,63 @@ A utility builder to be used with other builders to pass in arguments with a val
 
 #### Usage[​](#usage-26 "Direct link to Usage")
 
- `_15import * as fcl from '@onflow/fcl';_15_15await fcl_15 .send([_15 fcl.script`_15 access(all) fun main(a: Int, b: Int): Int {_15 return a + b_15 }_15 `,_15 fcl.args([_15 fcl.arg(5, fcl.t.Int), // a_15 fcl.arg(4, fcl.t.Int), // b_15 ]),_15 ])_15 .then(fcl.decode); // 9`
+`_15
+
+import * as fcl from '@onflow/fcl';
+
+_15
+
+_15
+
+await fcl
+
+_15
+
+.send([
+
+_15
+
+fcl.script`
+
+_15
+
+access(all) fun main(a: Int, b: Int): Int {
+
+_15
+
+return a + b
+
+_15
+
+}
+
+_15
+
+`,
+
+_15
+
+fcl.args([
+
+_15
+
+fcl.arg(5, fcl.t.Int), // a
+
+_15
+
+fcl.arg(4, fcl.t.Int), // b
+
+_15
+
+]),
+
+_15
+
+])
+
+_15
+
+.then(fcl.decode); // 9`
 
 ---
 
@@ -939,7 +2496,39 @@ A template builder to use a Cadence script for an interaction.
 
 #### Usage[​](#usage-27 "Direct link to Usage")
 
- `_10import * as fcl from '@onflow/fcl';_10_10const code = `_10 access(all) fun main(): Int {_10 return 5 + 4_10 }_10`;_10const answer = await fcl.send([fcl.script(code)]).then(fcl.decode);_10console.log(answer); // 9`
+`_10
+
+import * as fcl from '@onflow/fcl';
+
+_10
+
+_10
+
+const code = `
+
+_10
+
+access(all) fun main(): Int {
+
+_10
+
+return 5 + 4
+
+_10
+
+}
+
+_10
+
+`;
+
+_10
+
+const answer = await fcl.send([fcl.script(code)]).then(fcl.decode);
+
+_10
+
+console.log(answer); // 9`
 
 ---
 
@@ -965,7 +2554,39 @@ A template builder to use a Cadence transaction for an interaction.
 
 #### Usage[​](#usage-28 "Direct link to Usage")
 
- `_10import * as fcl from '@onflow/fcl';_10_10const code = `_10 access(all) fun main(): Int {_10 return 5 + 4_10 }_10`;_10const answer = await fcl.send([fcl.script(code)]).then(fcl.decode);_10console.log(answer); // 9`
+`_10
+
+import * as fcl from '@onflow/fcl';
+
+_10
+
+_10
+
+const code = `
+
+_10
+
+access(all) fun main(): Int {
+
+_10
+
+return 5 + 4
+
+_10
+
+}
+
+_10
+
+`;
+
+_10
+
+const answer = await fcl.send([fcl.script(code)]).then(fcl.decode);
+
+_10
+
+console.log(answer); // 9`
 
 ---
 
@@ -991,7 +2612,13 @@ A pre-built interaction that returns the details of an account from their public
 
 #### Usage[​](#usage-29 "Direct link to Usage")
 
- `_10import * as fcl from '@onflow/fcl';_10const account = await fcl.account('0x1d007d755706c469');`
+`_10
+
+import * as fcl from '@onflow/fcl';
+
+_10
+
+const account = await fcl.account('0x1d007d755706c469');`
 
 ---
 
@@ -1015,7 +2642,33 @@ A pre-built interaction that returns the latest block (optionally sealed or not)
 
 #### Usage[​](#usage-30 "Direct link to Usage")
 
- `_10import * as fcl from '@onflow/fcl';_10await fcl.block(); // get latest finalized block_10await fcl.block({ sealed: true }); // get latest sealed block_10await fcl.block({_10 id: '0b1bdfa9ddaaf31d53c584f208313557d622d1fedee1586ffc38fb5400979faa',_10}); // get block by id_10await fcl.block({ height: 56481953 }); // get block by height`
+`_10
+
+import * as fcl from '@onflow/fcl';
+
+_10
+
+await fcl.block(); // get latest finalized block
+
+_10
+
+await fcl.block({ sealed: true }); // get latest sealed block
+
+_10
+
+await fcl.block({
+
+_10
+
+id: '0b1bdfa9ddaaf31d53c584f208313557d622d1fedee1586ffc38fb5400979faa',
+
+_10
+
+}); // get block by id
+
+_10
+
+await fcl.block({ height: 56481953 }); // get block by height`
 
 ---
 
@@ -1037,7 +2690,13 @@ A pre-built interaction that returns the latest block (optionally sealed or not)
 
 #### Usage[​](#usage-31 "Direct link to Usage")
 
- `_10import * as fcl from '@onflow/fcl';_10const latestBlock = await fcl.latestBlock();`
+`_10
+
+import * as fcl from '@onflow/fcl';
+
+_10
+
+const latestBlock = await fcl.latestBlock();`
 
 ---
 
@@ -1066,7 +2725,19 @@ A utility function that lets you set the transaction to get subsequent status up
 
 #### Usage[​](#usage-32 "Direct link to Usage")
 
- `_10import * as fcl from '@onflow/fcl';_10_10const [txStatus, setTxStatus] = useState(null);_10useEffect(() => fcl.tx(txId).subscribe(setTxStatus));`
+`_10
+
+import * as fcl from '@onflow/fcl';
+
+_10
+
+_10
+
+const [txStatus, setTxStatus] = useState(null);
+
+_10
+
+useEffect(() => fcl.tx(txId).subscribe(setTxStatus));`
 
 ---
 
@@ -1094,7 +2765,26 @@ Note:
 
 #### Usage[​](#usage-33 "Direct link to Usage")
 
- `_10import * as fcl from '@onflow/fcl';_10// in some react component_10fcl.events(eventName).subscribe((event) => {_10 console.log(event);_10});`
+`_10
+
+import * as fcl from '@onflow/fcl';
+
+_10
+
+// in some react component
+
+_10
+
+fcl.events(eventName).subscribe((event) => {
+
+_10
+
+console.log(event);
+
+_10
+
+});`
+
 #### Examples[​](#examples-4 "Direct link to Examples")
 
 * [Flow-view-source example](https://github.com/orodio/flow-view-source/blob/master/src/pages/event.comp.js)
@@ -1230,8 +2920,81 @@ An authorization function must produce the information of the user that is going
 
 ---
 
+`_19
 
- `_19const authorizationFunction = async (account) => {_19 // authorization function need to return an account_19 const { address, keys } = account_19 const tempId = `${address}-${keys[process.env.minterAccountIndex]}`;_19 const keyId = Number(KEY_ID);_19 let signingFunction = async signable => {_19 return {_19 keyId,_19 addr: fcl.withPrefix(address),_19 signature: sign(process.env.FLOW_MINTER_PRIVATE_KEY, signable.message), // signing function, read below_19 }_19 }_19 return {_19 ...account,_19 address,_19 keyId,_19 tempId,_19 signingFunction,_19 }`
+const authorizationFunction = async (account) => {
+
+_19
+
+// authorization function need to return an account
+
+_19
+
+const { address, keys } = account
+
+_19
+
+const tempId = `${address}-${keys[process.env.minterAccountIndex]}`;
+
+_19
+
+const keyId = Number(KEY_ID);
+
+_19
+
+let signingFunction = async signable => {
+
+_19
+
+return {
+
+_19
+
+keyId,
+
+_19
+
+addr: fcl.withPrefix(address),
+
+_19
+
+signature: sign(process.env.FLOW_MINTER_PRIVATE_KEY, signable.message), // signing function, read below
+
+_19
+
+}
+
+_19
+
+}
+
+_19
+
+return {
+
+_19
+
+...account,
+
+_19
+
+address,
+
+_19
+
+keyId,
+
+_19
+
+tempId,
+
+_19
+
+signingFunction,
+
+_19
+
+}`
 
 * [Detailed explanation](https://github.com/onflow/fcl-js/blob/master/packages/fcl-core/src/wallet-provider-spec/authorization-function.md)
 
@@ -1265,7 +3028,126 @@ Note: These values are destructed from the payload object in the first argument.
 
 #### Usage[​](#usage-35 "Direct link to Usage")
 
- `_31import * as fcl from '@onflow/fcl';_31import { ec as EC } from 'elliptic';_31import { SHA3 } from 'sha3';_31const ec: EC = new EC('p256');_31_31const produceSignature = (privateKey, msg) => {_31 const key = ec.keyFromPrivate(Buffer.from(privateKey, 'hex'));_31 const sig = key.sign(this.hashMsg(msg));_31 const n = 32;_31 const r = sig.r.toArrayLike(Buffer, 'be', n);_31 const s = sig.s.toArrayLike(Buffer, 'be', n);_31 return Buffer.concat([r, s]).toString('hex');_31};_31_31const signingFunction = ({_31 message, // The encoded string which needs to be used to produce the signature._31 addr, // The address of the Flow Account this signature is to be produced for._31 keyId, // The keyId of the key which is to be used to produce the signature._31 roles: {_31 proposer, // A Boolean representing if this signature to be produced for a proposer._31 authorizer, // A Boolean representing if this signature to be produced for a authorizer._31 payer, // A Boolean representing if this signature to be produced for a payer._31 },_31 voucher, // The raw transactions information, can be used to create the message for additional safety and lack of trust in the supplied message._31}) => {_31 return {_31 addr, // The address of the Flow Account this signature was produced for._31 keyId, // The keyId for which key was used to produce the signature._31 signature: produceSignature(message), // The hex encoded string representing the signature of the message._31 };_31};`
+`_31
+
+import * as fcl from '@onflow/fcl';
+
+_31
+
+import { ec as EC } from 'elliptic';
+
+_31
+
+import { SHA3 } from 'sha3';
+
+_31
+
+const ec: EC = new EC('p256');
+
+_31
+
+_31
+
+const produceSignature = (privateKey, msg) => {
+
+_31
+
+const key = ec.keyFromPrivate(Buffer.from(privateKey, 'hex'));
+
+_31
+
+const sig = key.sign(this.hashMsg(msg));
+
+_31
+
+const n = 32;
+
+_31
+
+const r = sig.r.toArrayLike(Buffer, 'be', n);
+
+_31
+
+const s = sig.s.toArrayLike(Buffer, 'be', n);
+
+_31
+
+return Buffer.concat([r, s]).toString('hex');
+
+_31
+
+};
+
+_31
+
+_31
+
+const signingFunction = ({
+
+_31
+
+message, // The encoded string which needs to be used to produce the signature.
+
+_31
+
+addr, // The address of the Flow Account this signature is to be produced for.
+
+_31
+
+keyId, // The keyId of the key which is to be used to produce the signature.
+
+_31
+
+roles: {
+
+_31
+
+proposer, // A Boolean representing if this signature to be produced for a proposer.
+
+_31
+
+authorizer, // A Boolean representing if this signature to be produced for a authorizer.
+
+_31
+
+payer, // A Boolean representing if this signature to be produced for a payer.
+
+_31
+
+},
+
+_31
+
+voucher, // The raw transactions information, can be used to create the message for additional safety and lack of trust in the supplied message.
+
+_31
+
+}) => {
+
+_31
+
+return {
+
+_31
+
+addr, // The address of the Flow Account this signature was produced for.
+
+_31
+
+keyId, // The keyId for which key was used to produce the signature.
+
+_31
+
+signature: produceSignature(message), // The hex encoded string representing the signature of the message.
+
+_31
+
+};
+
+_31
+
+};`
+
 #### Examples:[​](#examples-5 "Direct link to Examples:")
 
 * [Detailed explanation](https://github.com/onflow/fcl-js/blob/master/packages/fcl-core/src/wallet-provider-spec/authorization-function.md)
@@ -1479,24 +3361,232 @@ FCL arguments must specify one of the following support types for each value pas
 
 A stream connection is an object for subscribing to generic data from any WebSocket data stream. This is the base type for all stream connections. Two channels, `close` and `error`, are always available, as they are used to signal the end of the stream and any errors that occur.
 
- `_20interface StreamConnection<ChannelMap extends { [name: string]: any }> {_20 // Subscribe to a channel_20 on<C extends keyof ChannelMap>(_20 channel: C,_20 listener: (data: ChannelMap[C]) => void,_20 ): this;_20 on(event: 'close', listener: () => void): this;_20 on(event: 'error', listener: (err: any) => void): this;_20_20 // Unsubscribe from a channel_20 off<C extends keyof ChannelMap>(_20 event: C,_20 listener: (data: ChannelMap[C]) => void,_20 ): this;_20 off(event: 'close', listener: () => void): this;_20 off(event: 'error', listener: (err: any) => void): this;_20_20 // Close the connection_20 close(): void;_20}`
+`_20
+
+interface StreamConnection<ChannelMap extends { [name: string]: any }> {
+
+_20
+
+// Subscribe to a channel
+
+_20
+
+on<C extends keyof ChannelMap>(
+
+_20
+
+channel: C,
+
+_20
+
+listener: (data: ChannelMap[C]) => void,
+
+_20
+
+): this;
+
+_20
+
+on(event: 'close', listener: () => void): this;
+
+_20
+
+on(event: 'error', listener: (err: any) => void): this;
+
+_20
+
+_20
+
+// Unsubscribe from a channel
+
+_20
+
+off<C extends keyof ChannelMap>(
+
+_20
+
+event: C,
+
+_20
+
+listener: (data: ChannelMap[C]) => void,
+
+_20
+
+): this;
+
+_20
+
+off(event: 'close', listener: () => void): this;
+
+_20
+
+off(event: 'error', listener: (err: any) => void): this;
+
+_20
+
+_20
+
+// Close the connection
+
+_20
+
+close(): void;
+
+_20
+
+}`
+
 #### Usage[​](#usage-36 "Direct link to Usage")
 
- `_13import { StreamConnection } from "@onflow/typedefs"_13_13const stream: StreamConnection = ..._13_13stream.on("close", () => {_13 // Handle close_13})_13_13stream.on("error", (err) => {_13 // Handle error_13})_13_13stream.close()`
+`_13
+
+import { StreamConnection } from "@onflow/typedefs"
+
+_13
+
+_13
+
+const stream: StreamConnection = ...
+
+_13
+
+_13
+
+stream.on("close", () => {
+
+_13
+
+// Handle close
+
+_13
+
+})
+
+_13
+
+_13
+
+stream.on("error", (err) => {
+
+_13
+
+// Handle error
+
+_13
+
+})
+
+_13
+
+_13
+
+stream.close()`
+
 ### `EventStream`[​](#eventstream "Direct link to eventstream")
 
 An event stream is a stream connection that emits events and block heartbeats. Based on the connection parameters, heartbeats will be emitted at least as often as some fixed block height interval. It is a specific variant of a [StreamConnection](#streamconnection).
 
- `_10type EventStream = StreamConnection<{_10 events: Event[];_10 heartbeat: BlockHeartbeat;_10}>;`
+`_10
+
+type EventStream = StreamConnection<{
+
+_10
+
+events: Event[];
+
+_10
+
+heartbeat: BlockHeartbeat;
+
+_10
+
+}>;`
+
 #### Usage[​](#usage-37 "Direct link to Usage")
 
- `_14import { EventStream } from "@onflow/typedefs"_14_14const stream: EventStream = ..._14_14stream.on("events", (events) => {_14 // Handle events_14})_14_14stream.on("heartbeat", (heartbeat) => {_14 // Handle heartbeat_14})_14_14// Close the stream_14stream.close()`
+`_14
+
+import { EventStream } from "@onflow/typedefs"
+
+_14
+
+_14
+
+const stream: EventStream = ...
+
+_14
+
+_14
+
+stream.on("events", (events) => {
+
+_14
+
+// Handle events
+
+_14
+
+})
+
+_14
+
+_14
+
+stream.on("heartbeat", (heartbeat) => {
+
+_14
+
+// Handle heartbeat
+
+_14
+
+})
+
+_14
+
+_14
+
+// Close the stream
+
+_14
+
+stream.close()`
+
 ### `BlockHeartbeat`[​](#blockheartbeat "Direct link to blockheartbeat")
 
- `_10export interface BlockHeartbeat {_10 blockId: string;_10 blockHeight: number;_10 timestamp: string;_10}`
+`_10
+
+export interface BlockHeartbeat {
+
+_10
+
+blockId: string;
+
+_10
+
+blockHeight: number;
+
+_10
+
+timestamp: string;
+
+_10
+
+}`
+
 #### Usage[​](#usage-38 "Direct link to Usage")
 
- `_10import { BlockHeartbeat } from "@onflow/typedefs"_10_10const heartbeat: BlockHeartbeat = ...`
+`_10
+
+import { BlockHeartbeat } from "@onflow/typedefs"
+
+_10
+
+_10
+
+const heartbeat: BlockHeartbeat = ...`
+
 ### SignatureObject[​](#signatureobject "Direct link to SignatureObject")
 
 Signature objects are used to represent a signature for a particular message as well as the account and keyId which signed for this message.
@@ -1507,7 +3597,16 @@ Signature objects are used to represent a signature for a particular message as 
 | `keyId` | number | The index of the key to use during authorization. (Multiple keys on an account is possible). |
 | `signature` | string | a hexidecimal-encoded string representation of the generated signature |
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/api.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousFlow Client Library (FCL)](/tools/clients/fcl-js)[NextSDK Reference](/tools/clients/fcl-js/sdk-guidelines)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/api.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Flow Client Library (FCL)](/tools/clients/fcl-js)[Next
+
+SDK Reference](/tools/clients/fcl-js/sdk-guidelines)
+
 ###### Rate this page
 
 😞😐😊
@@ -1614,6 +3713,7 @@ Signature objects are used to represent a signature for a particular message as 
   + [`EventStream`](#eventstream)
   + [`BlockHeartbeat`](#blockheartbeat)
   + [SignatureObject](#signatureobject)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -1626,6 +3726,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -1635,6 +3736,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -1642,6 +3744,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -1651,6 +3754,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -1658,5 +3762,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

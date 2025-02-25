@@ -1,30 +1,14 @@
 # Source: https://academy.ecdao.org/en/catalog/courses/beginner-dapp-ios/chapter3/lesson3
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -52,7 +36,6 @@ Connect
 
 Course Overview
 
-
 [Catalog](/en/catalog)
 [Course](/en/catalog/courses/beginner-dapp-ios)
 Beginner Dapp Ios
@@ -72,6 +55,7 @@ Now that weâre no longer on the playground, we want to be able to have erro
 > Click on the following extension and press âInstallâ:
 
 ![](https://i.imgur.com/SG5vHHo.png)
+
 ## Installing the Flow CLI & flow.json
 
 The Flow CLI will allow us to run transactions & scripts from the terminal, and allow us to do other Flow stuff like creating `flow.json` (coming soonâ¦)
@@ -93,6 +77,7 @@ Inside the `cadence` folder, letâs make a `contracts` folder, a `transactio
 Inside the `contracts` folder, add a new file called `HelloWorld.cdc`. In that file, put our contract code from yesterday:
 
 cadence
+
 ```
 		
 			pub contract HelloWorld {
@@ -116,6 +101,7 @@ cadence
 Inside the transactions folder, make a new file called `changeGreeting.cdc` and put our transaction code from yesterday:
 
 cadence
+
 ```
 		
 			import HelloWorld from 0x01 // THIS IS NO LONGER CORRECT
@@ -135,6 +121,7 @@ transaction(myNewGreeting: String) {
 Notice that the import is now wrong. We arenât importing from `0x01` anymore, that was just a playground thing. In this case, we are importing from a local contract that exists in our project. So change it to:
 
 cadence
+
 ```
 		
 			import HelloWorld from "../contracts/HelloWorld.cdc"
@@ -147,6 +134,7 @@ cadence
 Inside the scripts folder, add a new file called `readGreeting.cdc` and put in our script code from yesterday:
 
 cadence
+
 ```
 		
 			import HelloWorld from "../contracts/HelloWorld.cdc"
@@ -161,6 +149,7 @@ pub fun main(): String {
 Your project directory should now look like this:
 
 ![](https://i.imgur.com/rgYpVEY.png)
+
 
 ---
 
@@ -181,6 +170,7 @@ Sweet! Now letâs deploy our contract to TestNet so that we can start intera
 > Inside of your `flow.json` file, make the âcontractsâ object look like this:
 
 json
+
 ```
 		
 			"contracts": {
@@ -205,6 +195,7 @@ This will allow your `flow.json` to know where your contracts live.
 > â½ï¸ Add your new testnet account to your `flow.json` by modifying the following lines of code. Paste your address you copied above to where it says âYOUR GENERATED ADDRESSâ, and paste your private key where it says âYOUR PRIVATE KEYâ.
 
 json
+
 ```
 		
 			"accounts": {
@@ -233,9 +224,11 @@ json
 		 
 	
 ```
+
 > ð Deploy your HelloWorld smart contract:
 
 sh
+
 ```
 		
 			flow project deploy --network=testnet
@@ -244,6 +237,7 @@ sh
 ```
 
 ![deploy contract to testnet](https://i.imgur.com/m1zMisW.png)
+
 ## Interacting with our Contract
 
 Now that we deployed our contract to testnet, we can interact with it in our terminal using the Flow CLI.
@@ -257,6 +251,7 @@ Now that we have deployed our contract to testnet, we can configure our `flow.js
 Inside your `flow.jsonâ, change the âcontractsâ object to look like this:
 
 json
+
 ```
 		
 			"contracts": {
@@ -278,6 +273,7 @@ Now, when you run your script, it will automatically replace the local import pa
 To run our `readGreeting.cdc` script from the terminal, go to your project directory and type:
 
 bash
+
 ```
 		
 			flow scripts execute ./flow/cadence/scripts/readGreeting.cdc --network=testnet
@@ -296,6 +292,7 @@ Boom! It returned âHello, World!â, which is exactly what our `greeting
 To run our `changeGreeting.cdc` transaction from the terminal, go to your project directory and type:
 
 bash
+
 ```
 		
 			flow transactions send ./flow/cadence/transactions/changeGreeting.cdc "Goodbye, Loser" --network=testnet --signer=testnet-account
@@ -339,15 +336,14 @@ Author
 
 [BoiseITGuru](https://twitter.com/boise_it_guru)
 
-
-
-
 [Quests](#quests)
-[Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/beginner-dapp-ios/en/chapter3/lesson3.md)
 
+[Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/beginner-dapp-ios/en/chapter3/lesson3.md)
 
 [Transactions and Scripts](/en/catalog/courses/beginner-dapp-ios/chapter3/lesson2)
 [Connecting the Blockchain](/en/catalog/courses/beginner-dapp-ios/chapter4/lesson1)
+
+
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
@@ -355,17 +351,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

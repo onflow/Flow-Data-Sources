@@ -1,20 +1,22 @@
 # Source: https://developers.flow.com/build/basics/scripts
 
-
-
-
 Scripts | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
 * [Getting Started](/build/getting-started/contract-interaction)
 * [Flow Protocol](/build/basics/blocks)
+
   + [Blocks](/build/basics/blocks)
   + [Collections](/build/basics/collections)
   + [Accounts](/build/basics/accounts)
@@ -31,10 +33,11 @@ Scripts | Flow Developer Portal
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
-
 * Flow Protocol
 * Scripts
+
 On this page
+
 # Scripts
 
 A script provides a light-weight method to query chain data.
@@ -48,19 +51,69 @@ Scripts are currently executed on either the Access Nodes or the Execution Nodes
 
 Scripts are defined by the following the Cadence code:
 
- `_10// The 'main' function is the entry point function and every script needs to have one._10access(all) fun main() {_10 // Cadence statements to be executed go here_10}`
+`_10
+
+// The 'main' function is the entry point function and every script needs to have one.
+
+_10
+
+access(all) fun main() {
+
+_10
+
+// Cadence statements to be executed go here
+
+_10
+
+}`
 
 Scripts can return a typed value:
 
- `_10access(all) fun main(): Int {_10 return 1 + 2_10}`
+`_10
+
+access(all) fun main(): Int {
+
+_10
+
+return 1 + 2
+
+_10
+
+}`
 
 Scripts can also accept arguments:
 
- `_10access(all) fun main(arg: String): String {_10 return "Hello ".concat(arg)_10}`
+`_10
+
+access(all) fun main(arg: String): String {
+
+_10
+
+return "Hello ".concat(arg)
+
+_10
+
+}`
 
 Scripts can call contract functions and query the state of a contract. To call a function on another contract, import it from its address and invoke the function:
 
- `_10import World from 0x01_10_10access(all) fun main(): String {_10 return World.hello()_10}`
+`_10
+
+import World from 0x01
+
+_10
+
+_10
+
+access(all) fun main(): String {
+
+_10
+
+return World.hello()
+
+_10
+
+}`
 
 Scripts can also be run against previous blocks, allowing you to query historic data from the Flow network. This is particularly useful for retrieving historical states of contracts or tracking changes over time.
 
@@ -95,7 +148,9 @@ Find a list of all SDKs [here](/tools/clients)
 
 You can also execute a script by using the [Flow CLI](/tools/flow-cli/scripts/execute-scripts):
 
- `_10flow scripts execute ./helloWorld.cdc`
+`_10
+
+flow scripts execute ./helloWorld.cdc`
 
 A user can define their own scripts or can use already defined scripts by the contract authors that can be found by using the [FLIX](/tools/flow-cli/flix) service.
 
@@ -113,10 +168,20 @@ Following are some recommendations on how to write efficient scripts:
 1. **Rate limit** - Script execution is subjected to API rate-limits imposed by the Access nodes and the Execution nodes. The rate limits for the Public Access nodes hosted by QuickNode are outlined [here](https://www.quicknode.com/docs/flow#endpoint-rate-limits).
 2. **Computation limit** - Similar to a transaction, each script is also subjected to a computation limit. The specific value can be configured by individual Access and Execution node operators. Currently, the default compute (gas) limit for a script is 100,000.
 3. **Historic block data limit**
-   
+
    1. Script execution on execution nodes is restricted to approximately the last 100 blocks. Any request for script execution on an execution node on a past block (specified by block ID or block height) will fail if that block is more than 100 blocks in the past.
    2. Script execution on an access node can go much beyond the last 100 blocks but is restricted to the height when the [last](https://developers.flow.com/networks/node-ops/node-operation/past-sporks) network upgrade ([HCU](https://developers.flow.com/networks/node-ops/node-operation/hcu) or spork) occurred.
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/scripts.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousTransactions](/build/basics/transactions)[NextFees](/build/basics/fees)
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/scripts.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Transactions](/build/basics/transactions)[Next
+
+Fees](/build/basics/fees)
+
 ###### Rate this page
 
 😞😐😊
@@ -127,6 +192,7 @@ Following are some recommendations on how to write efficient scripts:
   + [Flow CLI](#flow-cli)
 * [Best Practices](#best-practices)
 * [Limitations](#limitations)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -139,6 +205,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -148,6 +215,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -155,6 +223,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -164,6 +233,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -171,5 +241,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

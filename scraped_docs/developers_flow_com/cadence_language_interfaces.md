@@ -1,19 +1,22 @@
 # Source: https://developers.flow.com/cadence/language/interfaces
 
-
-
-
 Interfaces | Cadence
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)Search
+[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
+
+[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+
+Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
 * [Tutorial](/docs/tutorial/first-steps)
 * [Language Reference](/docs/language/)
+
   + [Syntax](/docs/language/syntax)
   + [Constants and Variable Declarations](/docs/language/constants-and-variables)
   + [Type Annotations](/docs/language/type-annotations)
@@ -57,10 +60,11 @@ Interfaces | Cadence
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
-
 * [Language Reference](/docs/language/)
 * Interfaces
+
 On this page
+
 # Interfaces
 
 An interface is an abstract type that specifies the behavior of types
@@ -126,7 +130,315 @@ Interfaces can be used in types.
 This is explained in detail in the section [Interfaces in Types](#interfaces-in-types).
 For now, the syntax `{I}` can be read as the type of any value that implements the interface `I`.
 
- `_81// Declare a resource interface for a fungible token._81// Only resources can implement this resource interface._81//_81access(all)_81resource interface FungibleToken {_81_81 // Require the implementing type to provide a field for the balance_81 // that is readable in all scopes (`access(all)`)._81 //_81 // Neither the `var` keyword, nor the `let` keyword is used,_81 // so the field may be implemented as either a variable_81 // or as a constant field._81 //_81 access(all)_81 balance: Int_81_81 // Require the implementing type to provide an initializer that_81 // given the initial balance, must initialize the balance field._81 //_81 init(balance: Int) {_81 pre {_81 balance >= 0:_81 "Balances are always non-negative"_81 }_81 post {_81 self.balance == balance:_81 "the balance must be initialized to the initial balance"_81 }_81_81 // NOTE: The declaration contains no implementation code._81 }_81_81 // Require the implementing type to provide a function that is_81 // callable in all scopes, which withdraws an amount from_81 // this fungible token and returns the withdrawn amount as_81 // a new fungible token._81 //_81 // The given amount must be positive and the function implementation_81 // must add the amount to the balance._81 //_81 // The function must return a new fungible token._81 // The type `{FungibleToken}` is the type of any resource_81 // that implements the resource interface `FungibleToken`._81 //_81 access(all)_81 fun withdraw(amount: Int): @{FungibleToken} {_81 pre {_81 amount > 0:_81 "the amount must be positive"_81 amount <= self.balance:_81 "insufficient funds: the amount must be smaller or equal to the balance"_81 }_81 post {_81 self.balance == before(self.balance) - amount:_81 "the amount must be deducted from the balance"_81 }_81_81 // NOTE: The declaration contains no implementation code._81 }_81_81 // Require the implementing type to provide a function that is_81 // callable in all scopes, which deposits a fungible token_81 // into this fungible token._81 //_81 // No precondition is required to check the given token's balance_81 // is positive, as this condition is already ensured by_81 // the field requirement._81 //_81 // The parameter type `{FungibleToken}` is the type of any resource_81 // that implements the resource interface `FungibleToken`._81 //_81 access(all)_81 fun deposit(_ token: @{FungibleToken}) {_81 post {_81 self.balance == before(self.balance) + token.balance:_81 "the amount must be added to the balance"_81 }_81_81 // NOTE: The declaration contains no implementation code._81 }_81}`
+`_81
+
+// Declare a resource interface for a fungible token.
+
+_81
+
+// Only resources can implement this resource interface.
+
+_81
+
+//
+
+_81
+
+access(all)
+
+_81
+
+resource interface FungibleToken {
+
+_81
+
+_81
+
+// Require the implementing type to provide a field for the balance
+
+_81
+
+// that is readable in all scopes (`access(all)`).
+
+_81
+
+//
+
+_81
+
+// Neither the `var` keyword, nor the `let` keyword is used,
+
+_81
+
+// so the field may be implemented as either a variable
+
+_81
+
+// or as a constant field.
+
+_81
+
+//
+
+_81
+
+access(all)
+
+_81
+
+balance: Int
+
+_81
+
+_81
+
+// Require the implementing type to provide an initializer that
+
+_81
+
+// given the initial balance, must initialize the balance field.
+
+_81
+
+//
+
+_81
+
+init(balance: Int) {
+
+_81
+
+pre {
+
+_81
+
+balance >= 0:
+
+_81
+
+"Balances are always non-negative"
+
+_81
+
+}
+
+_81
+
+post {
+
+_81
+
+self.balance == balance:
+
+_81
+
+"the balance must be initialized to the initial balance"
+
+_81
+
+}
+
+_81
+
+_81
+
+// NOTE: The declaration contains no implementation code.
+
+_81
+
+}
+
+_81
+
+_81
+
+// Require the implementing type to provide a function that is
+
+_81
+
+// callable in all scopes, which withdraws an amount from
+
+_81
+
+// this fungible token and returns the withdrawn amount as
+
+_81
+
+// a new fungible token.
+
+_81
+
+//
+
+_81
+
+// The given amount must be positive and the function implementation
+
+_81
+
+// must add the amount to the balance.
+
+_81
+
+//
+
+_81
+
+// The function must return a new fungible token.
+
+_81
+
+// The type `{FungibleToken}` is the type of any resource
+
+_81
+
+// that implements the resource interface `FungibleToken`.
+
+_81
+
+//
+
+_81
+
+access(all)
+
+_81
+
+fun withdraw(amount: Int): @{FungibleToken} {
+
+_81
+
+pre {
+
+_81
+
+amount > 0:
+
+_81
+
+"the amount must be positive"
+
+_81
+
+amount <= self.balance:
+
+_81
+
+"insufficient funds: the amount must be smaller or equal to the balance"
+
+_81
+
+}
+
+_81
+
+post {
+
+_81
+
+self.balance == before(self.balance) - amount:
+
+_81
+
+"the amount must be deducted from the balance"
+
+_81
+
+}
+
+_81
+
+_81
+
+// NOTE: The declaration contains no implementation code.
+
+_81
+
+}
+
+_81
+
+_81
+
+// Require the implementing type to provide a function that is
+
+_81
+
+// callable in all scopes, which deposits a fungible token
+
+_81
+
+// into this fungible token.
+
+_81
+
+//
+
+_81
+
+// No precondition is required to check the given token's balance
+
+_81
+
+// is positive, as this condition is already ensured by
+
+_81
+
+// the field requirement.
+
+_81
+
+//
+
+_81
+
+// The parameter type `{FungibleToken}` is the type of any resource
+
+_81
+
+// that implements the resource interface `FungibleToken`.
+
+_81
+
+//
+
+_81
+
+access(all)
+
+_81
+
+fun deposit(_ token: @{FungibleToken}) {
+
+_81
+
+post {
+
+_81
+
+self.balance == before(self.balance) + token.balance:
+
+_81
+
+"the amount must be added to the balance"
+
+_81
+
+}
+
+_81
+
+_81
+
+// NOTE: The declaration contains no implementation code.
+
+_81
+
+}
+
+_81
+
+}`
 
 Note that the required initializer and functions do not have any executable code.
 
@@ -157,7 +469,417 @@ but leaves it to the implementation what kind the field is.
 The function implementations must match the function requirements in the interface
 in terms of name, parameter argument labels, parameter types, and the return type.
 
- `_108// Declare a resource named `ExampleToken` that has to implement_108// the `FungibleToken` interface._108//_108// It has a variable field named `balance`, that can be written_108// by functions of the type, but outer scopes can only read it._108//_108access(all)_108resource ExampleToken: FungibleToken {_108_108 // Implement the required field `balance` for the `FungibleToken` interface._108 // The interface does not specify if the field must be variable, constant,_108 // so in order for this type (`ExampleToken`) to be able to write to the field,_108 // but limit outer scopes to only read from the field, it is declared variable,_108 // and only has public access (non-settable)._108 //_108 access(all)_108 var balance: Int_108_108 // Implement the required initializer for the `FungibleToken` interface:_108 // accept an initial balance and initialize the `balance` field._108 //_108 // This implementation satisfies the required postcondition._108 //_108 // NOTE: the postcondition declared in the interface_108 // does not have to be repeated here in the implementation._108 //_108 init(balance: Int) {_108 self.balance = balance_108 }_108_108 // Implement the required function named `withdraw` of the interface_108 // `FungibleToken`, that withdraws an amount from the token's balance._108 //_108 // The function must be public._108 //_108 // This implementation satisfies the required postcondition._108 //_108 // NOTE: neither the precondition nor the postcondition declared_108 // in the interface have to be repeated here in the implementation._108 //_108 access(all)_108 fun withdraw(amount: Int): @ExampleToken {_108 self.balance = self.balance - amount_108 return create ExampleToken(balance: amount)_108 }_108_108 // Implement the required function named `deposit` of the interface_108 // `FungibleToken`, that deposits the amount from the given token_108 // to this token._108 //_108 // The function must be public._108 //_108 // NOTE: the type of the parameter is `{FungibleToken}`,_108 // i.e., any resource that implements the resource interface `FungibleToken`,_108 // so any other token – however, we want to ensure that only tokens_108 // of the same type can be deposited._108 //_108 // This implementation satisfies the required postconditions._108 //_108 // NOTE: neither the precondition nor the postcondition declared_108 // in the interface have to be repeated here in the implementation._108 //_108 access(all)_108 fun deposit(_ token: @{FungibleToken}) {_108 if let exampleToken <- token as? ExampleToken {_108 self.balance = self.balance + exampleToken.balance_108 destroy exampleToken_108 } else {_108 panic("cannot deposit token which is not an example token")_108 }_108 }_108}_108_108// Declare a constant which has type `ExampleToken`,_108// and is initialized with such an example token._108//_108let token <- create ExampleToken(balance: 100)_108_108// Withdraw 10 units from the token._108//_108// The amount satisfies the precondition of the `withdraw` function_108// in the `FungibleToken` interface._108//_108// Invoking a function of a resource does not destroy the resource,_108// so the resource `token` is still valid after the call of `withdraw`._108//_108let withdrawn <- token.withdraw(amount: 10)_108_108// The postcondition of the `withdraw` function in the `FungibleToken`_108// interface ensured the balance field of the token was updated properly._108//_108// `token.balance` is `90`_108// `withdrawn.balance` is `10`_108_108// Deposit the withdrawn token into another one._108let receiver: @ExampleToken <- // ..._108receiver.deposit(<-withdrawn)_108_108// Run-time error: The precondition of function `withdraw` in interface_108// `FungibleToken` fails, the program aborts: the parameter `amount`_108// is larger than the field `balance` (100 > 90)._108//_108token.withdraw(amount: 100)_108_108// Withdrawing tokens so that the balance is zero does not destroy the resource._108// The resource has to be destroyed explicitly._108//_108token.withdraw(amount: 90)`
+`_108
+
+// Declare a resource named `ExampleToken` that has to implement
+
+_108
+
+// the `FungibleToken` interface.
+
+_108
+
+//
+
+_108
+
+// It has a variable field named `balance`, that can be written
+
+_108
+
+// by functions of the type, but outer scopes can only read it.
+
+_108
+
+//
+
+_108
+
+access(all)
+
+_108
+
+resource ExampleToken: FungibleToken {
+
+_108
+
+_108
+
+// Implement the required field `balance` for the `FungibleToken` interface.
+
+_108
+
+// The interface does not specify if the field must be variable, constant,
+
+_108
+
+// so in order for this type (`ExampleToken`) to be able to write to the field,
+
+_108
+
+// but limit outer scopes to only read from the field, it is declared variable,
+
+_108
+
+// and only has public access (non-settable).
+
+_108
+
+//
+
+_108
+
+access(all)
+
+_108
+
+var balance: Int
+
+_108
+
+_108
+
+// Implement the required initializer for the `FungibleToken` interface:
+
+_108
+
+// accept an initial balance and initialize the `balance` field.
+
+_108
+
+//
+
+_108
+
+// This implementation satisfies the required postcondition.
+
+_108
+
+//
+
+_108
+
+// NOTE: the postcondition declared in the interface
+
+_108
+
+// does not have to be repeated here in the implementation.
+
+_108
+
+//
+
+_108
+
+init(balance: Int) {
+
+_108
+
+self.balance = balance
+
+_108
+
+}
+
+_108
+
+_108
+
+// Implement the required function named `withdraw` of the interface
+
+_108
+
+// `FungibleToken`, that withdraws an amount from the token's balance.
+
+_108
+
+//
+
+_108
+
+// The function must be public.
+
+_108
+
+//
+
+_108
+
+// This implementation satisfies the required postcondition.
+
+_108
+
+//
+
+_108
+
+// NOTE: neither the precondition nor the postcondition declared
+
+_108
+
+// in the interface have to be repeated here in the implementation.
+
+_108
+
+//
+
+_108
+
+access(all)
+
+_108
+
+fun withdraw(amount: Int): @ExampleToken {
+
+_108
+
+self.balance = self.balance - amount
+
+_108
+
+return create ExampleToken(balance: amount)
+
+_108
+
+}
+
+_108
+
+_108
+
+// Implement the required function named `deposit` of the interface
+
+_108
+
+// `FungibleToken`, that deposits the amount from the given token
+
+_108
+
+// to this token.
+
+_108
+
+//
+
+_108
+
+// The function must be public.
+
+_108
+
+//
+
+_108
+
+// NOTE: the type of the parameter is `{FungibleToken}`,
+
+_108
+
+// i.e., any resource that implements the resource interface `FungibleToken`,
+
+_108
+
+// so any other token – however, we want to ensure that only tokens
+
+_108
+
+// of the same type can be deposited.
+
+_108
+
+//
+
+_108
+
+// This implementation satisfies the required postconditions.
+
+_108
+
+//
+
+_108
+
+// NOTE: neither the precondition nor the postcondition declared
+
+_108
+
+// in the interface have to be repeated here in the implementation.
+
+_108
+
+//
+
+_108
+
+access(all)
+
+_108
+
+fun deposit(_ token: @{FungibleToken}) {
+
+_108
+
+if let exampleToken <- token as? ExampleToken {
+
+_108
+
+self.balance = self.balance + exampleToken.balance
+
+_108
+
+destroy exampleToken
+
+_108
+
+} else {
+
+_108
+
+panic("cannot deposit token which is not an example token")
+
+_108
+
+}
+
+_108
+
+}
+
+_108
+
+}
+
+_108
+
+_108
+
+// Declare a constant which has type `ExampleToken`,
+
+_108
+
+// and is initialized with such an example token.
+
+_108
+
+//
+
+_108
+
+let token <- create ExampleToken(balance: 100)
+
+_108
+
+_108
+
+// Withdraw 10 units from the token.
+
+_108
+
+//
+
+_108
+
+// The amount satisfies the precondition of the `withdraw` function
+
+_108
+
+// in the `FungibleToken` interface.
+
+_108
+
+//
+
+_108
+
+// Invoking a function of a resource does not destroy the resource,
+
+_108
+
+// so the resource `token` is still valid after the call of `withdraw`.
+
+_108
+
+//
+
+_108
+
+let withdrawn <- token.withdraw(amount: 10)
+
+_108
+
+_108
+
+// The postcondition of the `withdraw` function in the `FungibleToken`
+
+_108
+
+// interface ensured the balance field of the token was updated properly.
+
+_108
+
+//
+
+_108
+
+// `token.balance` is `90`
+
+_108
+
+// `withdrawn.balance` is `10`
+
+_108
+
+_108
+
+// Deposit the withdrawn token into another one.
+
+_108
+
+let receiver: @ExampleToken <- // ...
+
+_108
+
+receiver.deposit(<-withdrawn)
+
+_108
+
+_108
+
+// Run-time error: The precondition of function `withdraw` in interface
+
+_108
+
+// `FungibleToken` fails, the program aborts: the parameter `amount`
+
+_108
+
+// is larger than the field `balance` (100 > 90).
+
+_108
+
+//
+
+_108
+
+token.withdraw(amount: 100)
+
+_108
+
+_108
+
+// Withdrawing tokens so that the balance is zero does not destroy the resource.
+
+_108
+
+// The resource has to be destroyed explicitly.
+
+_108
+
+//
+
+_108
+
+token.withdraw(amount: 90)`
 
 The access level for variable fields in an implementation
 may be less restrictive than the interface requires.
@@ -166,7 +888,90 @@ at least contract-accessible (i.e. the `access(contract)` modifier is used),
 and an implementation may provide a variable field which is public,
 (the `access(all)` modifier is used).
 
- `_22access(all)_22struct interface AnInterface {_22 // Require the implementing type to provide a contract-readable_22 // field named `a` that has type `Int`. It may be a variable_22 // or a constant field._22 //_22 access(contract)_22 a: Int_22}_22_22access(all)_22struct AnImplementation: AnInterface {_22 // Declare a public variable field named `a` that has type `Int`._22 // This implementation satisfies the requirement for interface `AnInterface`:_22 //_22 access(all)_22 var a: Int_22_22 init(a: Int) {_22 self.a = a_22 }_22}`
+`_22
+
+access(all)
+
+_22
+
+struct interface AnInterface {
+
+_22
+
+// Require the implementing type to provide a contract-readable
+
+_22
+
+// field named `a` that has type `Int`. It may be a variable
+
+_22
+
+// or a constant field.
+
+_22
+
+//
+
+_22
+
+access(contract)
+
+_22
+
+a: Int
+
+_22
+
+}
+
+_22
+
+_22
+
+access(all)
+
+_22
+
+struct AnImplementation: AnInterface {
+
+_22
+
+// Declare a public variable field named `a` that has type `Int`.
+
+_22
+
+// This implementation satisfies the requirement for interface `AnInterface`:
+
+_22
+
+//
+
+_22
+
+access(all)
+
+_22
+
+var a: Int
+
+_22
+
+_22
+
+init(a: Int) {
+
+_22
+
+self.a = a
+
+_22
+
+}
+
+_22
+
+}`
+
 ## Interfaces in Types[​](#interfaces-in-types "Direct link to Interfaces in Types")
 
 Interfaces can be used in types: The type `{I}` is the type of all objects
@@ -176,17 +981,418 @@ This is called a [intersection type](/docs/language/intersection-types):
 Only the functionality (members and functions) of the interface can be used
 when accessing a value of such a type.
 
- `_88// Declare an interface named `Shape`._88//_88// Require implementing types to provide a field which returns the area,_88// and a function which scales the shape by a given factor._88//_88access(all)_88struct interface Shape {_88_88 access(all)_88 fun getArea(): Int_88_88 access(all)_88 fun scale(factor: Int)_88}_88_88// Declare a structure named `Square` the implements the `Shape` interface._88//_88access(all)_88struct Square: Shape {_88 // In addition to the required fields from the interface,_88 // the type can also declare additional fields._88 //_88 access(all)_88 var length: Int_88_88 // Provided the field `area` which is required to conform_88 // to the interface `Shape`._88 //_88 // Since `area` was not declared as a constant, variable,_88 // field in the interface, it can be declared._88 //_88 access(all)_88 fun getArea(): Int {_88 return self.length * self.length_88 }_88_88 access(all)_88 init(length: Int) {_88 self.length = length_88 }_88_88 // Provided the implementation of the function `scale`_88 // which is required to conform to the interface `Shape`._88 //_88 access(all)_88 fun scale(factor: Int) {_88 self.length = self.length * factor_88 }_88}_88_88// Declare a structure named `Rectangle` that also implements the `Shape` interface._88//_88access(all)_88struct Rectangle: Shape {_88_88 access(all)_88 var width: Int_88_88 access(all)_88 var height: Int_88_88 // Provided the field `area which is required to conform_88 // to the interface `Shape`._88 //_88 access(all)_88 fun getArea(): Int {_88 return self.width * self.height_88 }_88_88 access(all)_88 init(width: Int, height: Int) {_88 self.width = width_88 self.height = height_88 }_88_88 // Provided the implementation of the function `scale`_88 // which is required to conform to the interface `Shape`._88 //_88 access(all)_88 fun scale(factor: Int) {_88 self.width = self.width * factor_88 self.height = self.height * factor_88 }_88}_88_88// Declare a constant that has type `Shape`, which has a value that has type `Rectangle`._88//_88var shape: {Shape} = Rectangle(width: 10, height: 20)`
+`_88
+
+// Declare an interface named `Shape`.
+
+_88
+
+//
+
+_88
+
+// Require implementing types to provide a field which returns the area,
+
+_88
+
+// and a function which scales the shape by a given factor.
+
+_88
+
+//
+
+_88
+
+access(all)
+
+_88
+
+struct interface Shape {
+
+_88
+
+_88
+
+access(all)
+
+_88
+
+fun getArea(): Int
+
+_88
+
+_88
+
+access(all)
+
+_88
+
+fun scale(factor: Int)
+
+_88
+
+}
+
+_88
+
+_88
+
+// Declare a structure named `Square` the implements the `Shape` interface.
+
+_88
+
+//
+
+_88
+
+access(all)
+
+_88
+
+struct Square: Shape {
+
+_88
+
+// In addition to the required fields from the interface,
+
+_88
+
+// the type can also declare additional fields.
+
+_88
+
+//
+
+_88
+
+access(all)
+
+_88
+
+var length: Int
+
+_88
+
+_88
+
+// Provided the field `area` which is required to conform
+
+_88
+
+// to the interface `Shape`.
+
+_88
+
+//
+
+_88
+
+// Since `area` was not declared as a constant, variable,
+
+_88
+
+// field in the interface, it can be declared.
+
+_88
+
+//
+
+_88
+
+access(all)
+
+_88
+
+fun getArea(): Int {
+
+_88
+
+return self.length * self.length
+
+_88
+
+}
+
+_88
+
+_88
+
+access(all)
+
+_88
+
+init(length: Int) {
+
+_88
+
+self.length = length
+
+_88
+
+}
+
+_88
+
+_88
+
+// Provided the implementation of the function `scale`
+
+_88
+
+// which is required to conform to the interface `Shape`.
+
+_88
+
+//
+
+_88
+
+access(all)
+
+_88
+
+fun scale(factor: Int) {
+
+_88
+
+self.length = self.length * factor
+
+_88
+
+}
+
+_88
+
+}
+
+_88
+
+_88
+
+// Declare a structure named `Rectangle` that also implements the `Shape` interface.
+
+_88
+
+//
+
+_88
+
+access(all)
+
+_88
+
+struct Rectangle: Shape {
+
+_88
+
+_88
+
+access(all)
+
+_88
+
+var width: Int
+
+_88
+
+_88
+
+access(all)
+
+_88
+
+var height: Int
+
+_88
+
+_88
+
+// Provided the field `area which is required to conform
+
+_88
+
+// to the interface `Shape`.
+
+_88
+
+//
+
+_88
+
+access(all)
+
+_88
+
+fun getArea(): Int {
+
+_88
+
+return self.width * self.height
+
+_88
+
+}
+
+_88
+
+_88
+
+access(all)
+
+_88
+
+init(width: Int, height: Int) {
+
+_88
+
+self.width = width
+
+_88
+
+self.height = height
+
+_88
+
+}
+
+_88
+
+_88
+
+// Provided the implementation of the function `scale`
+
+_88
+
+// which is required to conform to the interface `Shape`.
+
+_88
+
+//
+
+_88
+
+access(all)
+
+_88
+
+fun scale(factor: Int) {
+
+_88
+
+self.width = self.width * factor
+
+_88
+
+self.height = self.height * factor
+
+_88
+
+}
+
+_88
+
+}
+
+_88
+
+_88
+
+// Declare a constant that has type `Shape`, which has a value that has type `Rectangle`.
+
+_88
+
+//
+
+_88
+
+var shape: {Shape} = Rectangle(width: 10, height: 20)`
 
 Values implementing an interface are assignable to variables that have the interface as their type.
 
- `_10// Assign a value of type `Square` to the variable `shape` that has type `Shape`._10//_10shape = Square(length: 30)_10_10// Invalid: cannot initialize a constant that has type `Rectangle`._10// with a value that has type `Square`._10//_10let rectangle: Rectangle = Square(length: 10)`
+`_10
+
+// Assign a value of type `Square` to the variable `shape` that has type `Shape`.
+
+_10
+
+//
+
+_10
+
+shape = Square(length: 30)
+
+_10
+
+_10
+
+// Invalid: cannot initialize a constant that has type `Rectangle`.
+
+_10
+
+// with a value that has type `Square`.
+
+_10
+
+//
+
+_10
+
+let rectangle: Rectangle = Square(length: 10)`
 
 Fields declared in an interface can be accessed
 and functions declared in an interface
 can be called on values of a type that implements the interface.
 
- `_14// Declare a constant which has the type `Shape`._14// and is initialized with a value that has type `Rectangle`._14//_14let shape: {Shape} = Rectangle(width: 2, height: 3)_14_14// Access the field `area` declared in the interface `Shape`._14//_14shape.area // is `6`_14_14// Call the function `scale` declared in the interface `Shape`._14//_14shape.scale(factor: 3)_14_14shape.area // is `54``
+`_14
+
+// Declare a constant which has the type `Shape`.
+
+_14
+
+// and is initialized with a value that has type `Rectangle`.
+
+_14
+
+//
+
+_14
+
+let shape: {Shape} = Rectangle(width: 2, height: 3)
+
+_14
+
+_14
+
+// Access the field `area` declared in the interface `Shape`.
+
+_14
+
+//
+
+_14
+
+shape.area // is `6`
+
+_14
+
+_14
+
+// Call the function `scale` declared in the interface `Shape`.
+
+_14
+
+//
+
+_14
+
+shape.scale(factor: 3)
+
+_14
+
+_14
+
+shape.area // is `54``
+
 ## Interface Nesting[​](#interface-nesting "Direct link to Interface Nesting")
 
 🚧 Status
@@ -197,13 +1403,200 @@ Interfaces can be arbitrarily nested.
 Declaring an interface inside another does not require implementing types
 of the outer interface to provide an implementation of the inner interfaces.
 
- `_23// Declare a resource interface `OuterInterface`, which declares_23// a nested structure interface named `InnerInterface`._23//_23// Resources implementing `OuterInterface` do not need to provide_23// an implementation of `InnerInterface`._23//_23// Structures may just implement `InnerInterface`._23//_23resource interface OuterInterface {_23_23 struct interface InnerInterface {}_23}_23_23// Declare a resource named `SomeOuter` that implements the interface `OuterInterface`._23//_23// The resource is not required to implement `OuterInterface.InnerInterface`._23//_23resource SomeOuter: OuterInterface {}_23_23// Declare a structure named `SomeInner` that implements `InnerInterface`,_23// which is nested in interface `OuterInterface`._23//_23struct SomeInner: OuterInterface.InnerInterface {}`
+`_23
+
+// Declare a resource interface `OuterInterface`, which declares
+
+_23
+
+// a nested structure interface named `InnerInterface`.
+
+_23
+
+//
+
+_23
+
+// Resources implementing `OuterInterface` do not need to provide
+
+_23
+
+// an implementation of `InnerInterface`.
+
+_23
+
+//
+
+_23
+
+// Structures may just implement `InnerInterface`.
+
+_23
+
+//
+
+_23
+
+resource interface OuterInterface {
+
+_23
+
+_23
+
+struct interface InnerInterface {}
+
+_23
+
+}
+
+_23
+
+_23
+
+// Declare a resource named `SomeOuter` that implements the interface `OuterInterface`.
+
+_23
+
+//
+
+_23
+
+// The resource is not required to implement `OuterInterface.InnerInterface`.
+
+_23
+
+//
+
+_23
+
+resource SomeOuter: OuterInterface {}
+
+_23
+
+_23
+
+// Declare a structure named `SomeInner` that implements `InnerInterface`,
+
+_23
+
+// which is nested in interface `OuterInterface`.
+
+_23
+
+//
+
+_23
+
+struct SomeInner: OuterInterface.InnerInterface {}`
 
 Contract interfaces may also declare [events](/docs/language/events),
 which also do not require implementing types of the outer interface to "implement" the event.
 The event can be emitted in the declaring interface, in a condition or in a default implementation of a function. E.g.
 
- `_27// Declare a contract interface_27//_27contract interface ContractInterface {_27 // some event declaration_27 //_27 event SomeEvent()_27_27 // some function that emits `SomeEvent` when called_27 //_27 fun eventEmittingFunction() {_27 pre {_27 emit SomeEvent()_27 }_27 }_27}_27_27// A contract implementing `ContractInterface`_27// Note that no declaration of `SomeEvent` is required_27//_27contract ImplementingContract: ContractInterface {_27 // implementation of `eventEmittingFunction`;_27 // this will emit `SomeEvent` when called_27 //_27 fun eventEmittingFunction() {_27 // ..._27 }_27}`
+`_27
+
+// Declare a contract interface
+
+_27
+
+//
+
+_27
+
+contract interface ContractInterface {
+
+_27
+
+// some event declaration
+
+_27
+
+//
+
+_27
+
+event SomeEvent()
+
+_27
+
+_27
+
+// some function that emits `SomeEvent` when called
+
+_27
+
+//
+
+_27
+
+fun eventEmittingFunction() {
+
+_27
+
+pre {
+
+_27
+
+emit SomeEvent()
+
+_27
+
+}
+
+_27
+
+}
+
+_27
+
+}
+
+_27
+
+_27
+
+// A contract implementing `ContractInterface`
+
+_27
+
+// Note that no declaration of `SomeEvent` is required
+
+_27
+
+//
+
+_27
+
+contract ImplementingContract: ContractInterface {
+
+_27
+
+// implementation of `eventEmittingFunction`;
+
+_27
+
+// this will emit `SomeEvent` when called
+
+_27
+
+//
+
+_27
+
+fun eventEmittingFunction() {
+
+_27
+
+// ...
+
+_27
+
+}
+
+_27
+
+}`
+
 ## Interface Default Functions[​](#interface-default-functions "Direct link to Interface Default Functions")
 
 Interfaces can provide default functions:
@@ -211,7 +1604,103 @@ If the concrete type implementing the interface does not provide an implementati
 for the function required by the interface,
 then the interface's default function is used in the implementation.
 
- `_27// Declare a struct interface `Container`,_27// which declares a default function `getCount`._27//_27struct interface Container {_27_27 let items: [AnyStruct]_27_27 fun getCount(): Int {_27 return self.items.length_27 }_27}_27_27// Declare a concrete struct named `Numbers` that implements the interface `Container`._27//_27// The struct does not implement the function `getCount` of the interface `Container`,_27// so the default function for `getCount` is used._27//_27struct Numbers: Container {_27 let items: [AnyStruct]_27_27 init() {_27 self.items = []_27 }_27}_27_27let numbers = Numbers()_27numbers.getCount() // is 0`
+`_27
+
+// Declare a struct interface `Container`,
+
+_27
+
+// which declares a default function `getCount`.
+
+_27
+
+//
+
+_27
+
+struct interface Container {
+
+_27
+
+_27
+
+let items: [AnyStruct]
+
+_27
+
+_27
+
+fun getCount(): Int {
+
+_27
+
+return self.items.length
+
+_27
+
+}
+
+_27
+
+}
+
+_27
+
+_27
+
+// Declare a concrete struct named `Numbers` that implements the interface `Container`.
+
+_27
+
+//
+
+_27
+
+// The struct does not implement the function `getCount` of the interface `Container`,
+
+_27
+
+// so the default function for `getCount` is used.
+
+_27
+
+//
+
+_27
+
+struct Numbers: Container {
+
+_27
+
+let items: [AnyStruct]
+
+_27
+
+_27
+
+init() {
+
+_27
+
+self.items = []
+
+_27
+
+}
+
+_27
+
+}
+
+_27
+
+_27
+
+let numbers = Numbers()
+
+_27
+
+numbers.getCount() // is 0`
 
 Interfaces cannot provide default initializers.
 
@@ -224,12 +1713,91 @@ For example, a resource interface can inherit from another resource interface, b
 When an interface inherits from another, all the fields, functions, and types of the parent interface are implicitly
 available to the inheriting interface.
 
- `_12access(all)_12resource interface Receiver {_12 access(all)_12 fun deposit(_ something: @AnyResource)_12}_12_12// `Vault` interface inherits from `Receiver` interface._12access(all)_12resource interface Vault: Receiver {_12 access(all)_12 fun withdraw(_ amount: Int): @Vault_12}`
+`_12
+
+access(all)
+
+_12
+
+resource interface Receiver {
+
+_12
+
+access(all)
+
+_12
+
+fun deposit(_ something: @AnyResource)
+
+_12
+
+}
+
+_12
+
+_12
+
+// `Vault` interface inherits from `Receiver` interface.
+
+_12
+
+access(all)
+
+_12
+
+resource interface Vault: Receiver {
+
+_12
+
+access(all)
+
+_12
+
+fun withdraw(_ amount: Int): @Vault
+
+_12
+
+}`
 
 In the example above, `Vault` inherits `Receiver`. Anyone implementing the `Vault` interface would also have to
 implement the `Receiver` interface.
 
- `_10access(all)_10resource MyVault: Vault {_10 _10 // Must implement all the methods coming from both `Vault` and `Receiver` interfaces._10 access(all)_10 fun deposit(_ something: @AnyResource) {}_10_10 access(all)_10 fun withdraw(_ amount: Int): @Vault {}_10}`
+`_10
+
+access(all)
+
+_10
+
+resource MyVault: Vault {
+
+_10
+
+_10
+
+// Must implement all the methods coming from both `Vault` and `Receiver` interfaces.
+
+_10
+
+access(all)
+
+_10
+
+fun deposit(_ something: @AnyResource) {}
+
+_10
+
+_10
+
+access(all)
+
+_10
+
+fun withdraw(_ amount: Int): @Vault {}
+
+_10
+
+}`
+
 ### Duplicate interface members[​](#duplicate-interface-members "Direct link to Duplicate interface members")
 
 When an interface implements another interface, it is possible for the two interfaces to have members with the same name.
@@ -239,20 +1807,210 @@ The following sections explain how these ambiguities are resolved for different 
 
 If two fields with identical names have identical types, then it will be valid.
 
- `_12access(all)_12resource interface Receiver {_12 access(all)_12 var id: UInt64_12}_12_12access(all)_12resource interface Vault: Receiver {_12 // `id` field has the same type as the `Receiver.id`. Hence this is valid._12 access(all)_12 var id: UInt64_12}`
+`_12
+
+access(all)
+
+_12
+
+resource interface Receiver {
+
+_12
+
+access(all)
+
+_12
+
+var id: UInt64
+
+_12
+
+}
+
+_12
+
+_12
+
+access(all)
+
+_12
+
+resource interface Vault: Receiver {
+
+_12
+
+// `id` field has the same type as the `Receiver.id`. Hence this is valid.
+
+_12
+
+access(all)
+
+_12
+
+var id: UInt64
+
+_12
+
+}`
 
 Otherwise, interface conformance is not valid.
 
- `_12access(all)_12resource interface Receiver {_12 access(all)_12 var id: Int_12}_12_12access(all)_12resource interface Vault: Receiver {_12 // `id` field has a different type than the `Receiver.id`. Hence this is invalid._12 access(all)_12 var id: UInt64_12}`
+`_12
+
+access(all)
+
+_12
+
+resource interface Receiver {
+
+_12
+
+access(all)
+
+_12
+
+var id: Int
+
+_12
+
+}
+
+_12
+
+_12
+
+access(all)
+
+_12
+
+resource interface Vault: Receiver {
+
+_12
+
+// `id` field has a different type than the `Receiver.id`. Hence this is invalid.
+
+_12
+
+access(all)
+
+_12
+
+var id: UInt64
+
+_12
+
+}`
+
 #### Functions[​](#functions "Direct link to Functions")
 
 If two functions with identical names also have identical signatures, that is valid.
 
- `_14access(all)_14resource interface Receiver {_14 access(all)_14 fun deposit(_ something: @AnyResource)_14}_14_14access(all)_14resource interface Vault: Receiver {_14 // `deposit` function has the same signature as the `Receiver.deposit`._14 // Also none of them have any default implementations._14 // Hence this is valid._14 access(all)_14 fun deposit(_ something: @AnyResource)_14}`
+`_14
+
+access(all)
+
+_14
+
+resource interface Receiver {
+
+_14
+
+access(all)
+
+_14
+
+fun deposit(_ something: @AnyResource)
+
+_14
+
+}
+
+_14
+
+_14
+
+access(all)
+
+_14
+
+resource interface Vault: Receiver {
+
+_14
+
+// `deposit` function has the same signature as the `Receiver.deposit`.
+
+_14
+
+// Also none of them have any default implementations.
+
+_14
+
+// Hence this is valid.
+
+_14
+
+access(all)
+
+_14
+
+fun deposit(_ something: @AnyResource)
+
+_14
+
+}`
 
 If the signatures of the two functions are different, then the interface conformance is not valid.
 
- `_13access(all)_13resource interface Receiver {_13 access(all)_13 fun deposit(_ something: @AnyResource)_13}_13_13access(all)_13resource interface Vault: Receiver {_13 // Error: `deposit` function has a different signature compared to the `Receiver.deposit`._13 // So these two cannot co-exist._13 access(all)_13 fun deposit()_13}`
+`_13
+
+access(all)
+
+_13
+
+resource interface Receiver {
+
+_13
+
+access(all)
+
+_13
+
+fun deposit(_ something: @AnyResource)
+
+_13
+
+}
+
+_13
+
+_13
+
+access(all)
+
+_13
+
+resource interface Vault: Receiver {
+
+_13
+
+// Error: `deposit` function has a different signature compared to the `Receiver.deposit`.
+
+_13
+
+// So these two cannot co-exist.
+
+_13
+
+access(all)
+
+_13
+
+fun deposit()
+
+_13
+
+}`
+
 #### Functions with conditions[​](#functions-with-conditions "Direct link to Functions with conditions")
 
 If the two functions with identical names and signatures have pre/post conditions, then it will still be valid.
@@ -260,25 +2018,340 @@ However, the pre/post conditions are linearized (refer to the [linearizing condi
 to determine the order of the execution of the conditions.
 Given the pre/post conditions are `view` only, the order of execution would not have an impact on the conditions.
 
- `_18access(all)_18resource interface Receiver {_18 access(all)_18 fun deposit(_ something: @AnyResource) {_18 pre{ self.balance > 100 }_18 }_18}_18_18access(all)_18resource interface Vault: Receiver {_18 // `deposit` function has the same signature as the `Receiver.deposit`._18 // Having pre/post condition is valid._18 // Both conditions would be executed, in a pre-determined order._18 access(all)_18 fun deposit(_ something: @AnyResource) {_18 pre{ self.balance > 50 }_18 }_18}`
+`_18
+
+access(all)
+
+_18
+
+resource interface Receiver {
+
+_18
+
+access(all)
+
+_18
+
+fun deposit(_ something: @AnyResource) {
+
+_18
+
+pre{ self.balance > 100 }
+
+_18
+
+}
+
+_18
+
+}
+
+_18
+
+_18
+
+access(all)
+
+_18
+
+resource interface Vault: Receiver {
+
+_18
+
+// `deposit` function has the same signature as the `Receiver.deposit`.
+
+_18
+
+// Having pre/post condition is valid.
+
+_18
+
+// Both conditions would be executed, in a pre-determined order.
+
+_18
+
+access(all)
+
+_18
+
+fun deposit(_ something: @AnyResource) {
+
+_18
+
+pre{ self.balance > 50 }
+
+_18
+
+}
+
+_18
+
+}`
+
 #### Default functions[​](#default-functions "Direct link to Default functions")
 
 An interface can provide a default implementation to an inherited function.
 
- `_14access(all)_14resource interface Receiver {_14 access(all)_14 fun log(_ message: String)_14}_14_14access(all)_14resource interface Vault: Receiver {_14 // Valid: Provides the implementation for `Receiver.log` method._14 access(all)_14 fun log(_ message: String) {_14 log(message.append("from Vault"))_14 }_14}`
+`_14
+
+access(all)
+
+_14
+
+resource interface Receiver {
+
+_14
+
+access(all)
+
+_14
+
+fun log(_ message: String)
+
+_14
+
+}
+
+_14
+
+_14
+
+access(all)
+
+_14
+
+resource interface Vault: Receiver {
+
+_14
+
+// Valid: Provides the implementation for `Receiver.log` method.
+
+_14
+
+access(all)
+
+_14
+
+fun log(_ message: String) {
+
+_14
+
+log(message.append("from Vault"))
+
+_14
+
+}
+
+_14
+
+}`
 
 However, an interface cannot override an inherited default implementation of a function.
 
- `_16access(all)_16resource interface Receiver {_16 access(all)_16 fun log(_ message: String) {_16 log(message.append("from Receiver"))_16 }_16}_16_16access(all)_16resource interface Vault: Receiver {_16 // Invalid: Cannot override the `Receiver.log` method._16 access(all)_16 fun log(_ message: String) {_16 log(message.append("from Vault"))_16 }_16}`
+`_16
+
+access(all)
+
+_16
+
+resource interface Receiver {
+
+_16
+
+access(all)
+
+_16
+
+fun log(_ message: String) {
+
+_16
+
+log(message.append("from Receiver"))
+
+_16
+
+}
+
+_16
+
+}
+
+_16
+
+_16
+
+access(all)
+
+_16
+
+resource interface Vault: Receiver {
+
+_16
+
+// Invalid: Cannot override the `Receiver.log` method.
+
+_16
+
+access(all)
+
+_16
+
+fun log(_ message: String) {
+
+_16
+
+log(message.append("from Vault"))
+
+_16
+
+}
+
+_16
+
+}`
 
 It is also invalid to have two or more inherited default implementations for an interface.
 
- `_19access(all)_19resource interface Receiver {_19 access(all)_19 fun log(_ message: String) {_19 log(message.append("from Receiver"))_19 }_19}_19_19access(all)_19resource interface Provider {_19 access(all)_19 fun log(_ message: String) {_19 log(message.append("from Provider"))_19 }_19}_19_19// Invalid: Two default functions from two interfaces._19access(all)_19resource interface Vault: Receiver, Provider {}`
+`_19
+
+access(all)
+
+_19
+
+resource interface Receiver {
+
+_19
+
+access(all)
+
+_19
+
+fun log(_ message: String) {
+
+_19
+
+log(message.append("from Receiver"))
+
+_19
+
+}
+
+_19
+
+}
+
+_19
+
+_19
+
+access(all)
+
+_19
+
+resource interface Provider {
+
+_19
+
+access(all)
+
+_19
+
+fun log(_ message: String) {
+
+_19
+
+log(message.append("from Provider"))
+
+_19
+
+}
+
+_19
+
+}
+
+_19
+
+_19
+
+// Invalid: Two default functions from two interfaces.
+
+_19
+
+access(all)
+
+_19
+
+resource interface Vault: Receiver, Provider {}`
 
 Having said that, there can be situations where the same default function can be available via different
 inheritance paths.
 
- `_18access(all)_18resource interface Logger {_18 access(all)_18 fun log(_ message: String) {_18 log(message.append("from Logger"))_18 }_18}_18_18access(all)_18resource interface Receiver: Logger {}_18_18access(all)_18resource interface Provider: Logger {}_18_18// Valid: `Logger.log()` default function is visible to the `Vault` interface_18// via both `Receiver` and `Provider`._18access(all)_18resource interface Vault: Receiver, Provider {}`
+`_18
+
+access(all)
+
+_18
+
+resource interface Logger {
+
+_18
+
+access(all)
+
+_18
+
+fun log(_ message: String) {
+
+_18
+
+log(message.append("from Logger"))
+
+_18
+
+}
+
+_18
+
+}
+
+_18
+
+_18
+
+access(all)
+
+_18
+
+resource interface Receiver: Logger {}
+
+_18
+
+_18
+
+access(all)
+
+_18
+
+resource interface Provider: Logger {}
+
+_18
+
+_18
+
+// Valid: `Logger.log()` default function is visible to the `Vault` interface
+
+_18
+
+// via both `Receiver` and `Provider`.
+
+_18
+
+access(all)
+
+_18
+
+resource interface Vault: Receiver, Provider {}`
 
 In the above example, `Logger.log()` default function is visible to the `Vault` interface via both `Receiver` and `Provider`.
 Even though it is available from two different interfaces, they are both referring to the same
@@ -290,7 +2363,77 @@ Therefore, the above code is valid.
 A more complex situation is where a default function is available via one inheritance path and a pre/post condition
 is available via another inheritance path.
 
- `_19access(all)_19resource interface Receiver {_19 access(all)_19 fun log(_ message: String) {_19 log(message.append("from Receiver"))_19 }_19}_19_19access(all)_19resource interface Provider {_19 access(all)_19 fun log(_ message: String) {_19 pre{ message != "" }_19 }_19}_19_19// Valid: Both the default function and the condition would be available._19access(all)_19resource interface Vault: Receiver, Provider {}`
+`_19
+
+access(all)
+
+_19
+
+resource interface Receiver {
+
+_19
+
+access(all)
+
+_19
+
+fun log(_ message: String) {
+
+_19
+
+log(message.append("from Receiver"))
+
+_19
+
+}
+
+_19
+
+}
+
+_19
+
+_19
+
+access(all)
+
+_19
+
+resource interface Provider {
+
+_19
+
+access(all)
+
+_19
+
+fun log(_ message: String) {
+
+_19
+
+pre{ message != "" }
+
+_19
+
+}
+
+_19
+
+}
+
+_19
+
+_19
+
+// Valid: Both the default function and the condition would be available.
+
+_19
+
+access(all)
+
+_19
+
+resource interface Vault: Receiver, Provider {}`
 
 In such situations, all rules applicable for default functions inheritance as well as condition inheritance
 would be applied.
@@ -302,19 +2445,199 @@ interface would be made available for the inherited interface.
 Type and event definitions would also behave similarly to the default functions.
 Inherited interfaces can override type definitions and event definitions.
 
- `_19access(all)_19contract interface Token {_19 access(all)_19 struct Foo {}_19}_19_19access(all)_19contract interface NonFungibleToken: Token {_19 access(all)_19 struct Foo {}_19}_19_19access(all)_19contract MyToken: NonFungibleToken {_19 access(all)_19 fun test() {_19 let foo: Foo // This will refer to the `NonFungibleToken.Foo`_19 }_19}`
+`_19
+
+access(all)
+
+_19
+
+contract interface Token {
+
+_19
+
+access(all)
+
+_19
+
+struct Foo {}
+
+_19
+
+}
+
+_19
+
+_19
+
+access(all)
+
+_19
+
+contract interface NonFungibleToken: Token {
+
+_19
+
+access(all)
+
+_19
+
+struct Foo {}
+
+_19
+
+}
+
+_19
+
+_19
+
+access(all)
+
+_19
+
+contract MyToken: NonFungibleToken {
+
+_19
+
+access(all)
+
+_19
+
+fun test() {
+
+_19
+
+let foo: Foo // This will refer to the `NonFungibleToken.Foo`
+
+_19
+
+}
+
+_19
+
+}`
 
 If a user needed to access the `Foo` struct coming from the super interface `Token`, then they can
 access it using the fully qualified name. e.g: `let foo: Token.Foo`.
 
 However, it is not allowed to have two or more inherited type/events definitions with identical names for an interface.
 
- `_16access(all)_16contract interface Token {_16 access(all)_16 struct Foo {}_16}_16_16access(all)_16contract interface Collectible {_16 access(all)_16 struct Foo {}_16}_16_16// Invalid: Two type definitions with the same name from two interfaces._16access(all)_16contract NonFungibleToken: Token, Collectible {_16}`
+`_16
+
+access(all)
+
+_16
+
+contract interface Token {
+
+_16
+
+access(all)
+
+_16
+
+struct Foo {}
+
+_16
+
+}
+
+_16
+
+_16
+
+access(all)
+
+_16
+
+contract interface Collectible {
+
+_16
+
+access(all)
+
+_16
+
+struct Foo {}
+
+_16
+
+}
+
+_16
+
+_16
+
+// Invalid: Two type definitions with the same name from two interfaces.
+
+_16
+
+access(all)
+
+_16
+
+contract NonFungibleToken: Token, Collectible {
+
+_16
+
+}`
 
 Similar to default functions, there can be situations where the same type/event definition can be available
 via different inheritance paths.
 
- `_15access(all)_15contract interface Logger {_15 access(all)_15 struct Foo {}_15}_15_15access(all)_15contract interface Token: Logger {}_15_15access(all)_15contract interface Collectible: Logger {}_15_15// Valid: `Logger.Foo` struct is visible to the `NonFungibleToken` interface via both `Token` and `Collectible`._15access(all)_15contract interface NonFungibleToken: Token, Collectible {}`
+`_15
+
+access(all)
+
+_15
+
+contract interface Logger {
+
+_15
+
+access(all)
+
+_15
+
+struct Foo {}
+
+_15
+
+}
+
+_15
+
+_15
+
+access(all)
+
+_15
+
+contract interface Token: Logger {}
+
+_15
+
+_15
+
+access(all)
+
+_15
+
+contract interface Collectible: Logger {}
+
+_15
+
+_15
+
+// Valid: `Logger.Foo` struct is visible to the `NonFungibleToken` interface via both `Token` and `Collectible`.
+
+_15
+
+access(all)
+
+_15
+
+contract interface NonFungibleToken: Token, Collectible {}`
 
 In the above example, `Logger.Foo` type definition is visible to the `NonFungibleToken` interface via both `Token`
 and `Collectible`.
@@ -325,7 +2648,84 @@ Therefore, the above code is valid.
 However, if at least one of the interfaces in the middle of the chain also overrides the type definition `Foo`,
 then the code becomes invalid, as there are multiple implementations present now, which leads to ambiguity.
 
- `_21access(all)_21contract interface Logger {_21 access(all)_21 struct Foo {}_21}_21_21access(all)_21contract interface Token: Logger {_21 access(all)_21 struct Foo {}_21}_21_21access(all)_21contract interface Collectible: Logger {}_21_21// Invalid: The default implementation of the `Foo` struct by the `Logger`_21// interface is visible to the `NonFungibleToken` via the `Collectible` interface._21// Another implementation of `Foo` struct is visible to the `NonFungibleToken` via the `Token` interface._21// This creates ambiguity._21access(all)_21resource interface NonFungibleToken: Token, Provider {}`
+`_21
+
+access(all)
+
+_21
+
+contract interface Logger {
+
+_21
+
+access(all)
+
+_21
+
+struct Foo {}
+
+_21
+
+}
+
+_21
+
+_21
+
+access(all)
+
+_21
+
+contract interface Token: Logger {
+
+_21
+
+access(all)
+
+_21
+
+struct Foo {}
+
+_21
+
+}
+
+_21
+
+_21
+
+access(all)
+
+_21
+
+contract interface Collectible: Logger {}
+
+_21
+
+_21
+
+// Invalid: The default implementation of the `Foo` struct by the `Logger`
+
+_21
+
+// interface is visible to the `NonFungibleToken` via the `Collectible` interface.
+
+_21
+
+// Another implementation of `Foo` struct is visible to the `NonFungibleToken` via the `Token` interface.
+
+_21
+
+// This creates ambiguity.
+
+_21
+
+access(all)
+
+_21
+
+resource interface NonFungibleToken: Token, Provider {}`
+
 ### Linearizing Conditions[​](#linearizing-conditions "Direct link to Linearizing Conditions")
 
 As mentioned in the [functions with conditions](#functions-with-conditions) section, it would be required to linearize
@@ -334,37 +2734,288 @@ This is done by linearizing the interfaces, and hence conditions, in a **depth-f
 
 For example, consider an interface inheritance hierarchy as below:
 
- `_10 A_10 / \_10 B C_10 / \ /_10 D E_10where an edge from A (top) to B (bottom) means A inherits B.`
+`_10
+
+A
+
+_10
+
+/ \
+
+_10
+
+B C
+
+_10
+
+/ \ /
+
+_10
+
+D E
+
+_10
+
+where an edge from A (top) to B (bottom) means A inherits B.`
 
 This would convert to a Cadence implementation similar to:
 
- `_34struct interface A: B, C {_34 access(all)_34 fun test() {_34 pre { print("A") }_34 }_34}_34_34struct interface B: D, E {_34 access(all)_34 fun test() {_34 pre { print("B") }_34 }_34}_34_34struct interface C: E {_34 access(all)_34 fun test() {_34 pre { print("C") }_34 }_34}_34_34struct interface D {_34 access(all)_34 fun test() {_34 pre { print("D") }_34 }_34}_34_34struct interface E {_34 access(all)_34 fun test() {_34 pre { print("E") }_34 }_34}`
+`_34
+
+struct interface A: B, C {
+
+_34
+
+access(all)
+
+_34
+
+fun test() {
+
+_34
+
+pre { print("A") }
+
+_34
+
+}
+
+_34
+
+}
+
+_34
+
+_34
+
+struct interface B: D, E {
+
+_34
+
+access(all)
+
+_34
+
+fun test() {
+
+_34
+
+pre { print("B") }
+
+_34
+
+}
+
+_34
+
+}
+
+_34
+
+_34
+
+struct interface C: E {
+
+_34
+
+access(all)
+
+_34
+
+fun test() {
+
+_34
+
+pre { print("C") }
+
+_34
+
+}
+
+_34
+
+}
+
+_34
+
+_34
+
+struct interface D {
+
+_34
+
+access(all)
+
+_34
+
+fun test() {
+
+_34
+
+pre { print("D") }
+
+_34
+
+}
+
+_34
+
+}
+
+_34
+
+_34
+
+struct interface E {
+
+_34
+
+access(all)
+
+_34
+
+fun test() {
+
+_34
+
+pre { print("E") }
+
+_34
+
+}
+
+_34
+
+}`
 
 Any concrete type implementing interface `A` would be equivalent to implementing all interfaces from `A` to `E`, linearized.
 
- `_10struct Foo: A {_10 access(all)_10 fun test() {_10 pre { print("Foo") }_10 }_10}`
+`_10
+
+struct Foo: A {
+
+_10
+
+access(all)
+
+_10
+
+fun test() {
+
+_10
+
+pre { print("Foo") }
+
+_10
+
+}
+
+_10
+
+}`
 
 The linearized interface order would be: [A, B, D, E, C].
 
 i.e: same as having:
 
- `_10struct Foo: A, B, D, C, E {_10 access(all)_10 fun test() {_10 pre { print("Foo") }_10 }_10}`
+`_10
+
+struct Foo: A, B, D, C, E {
+
+_10
+
+access(all)
+
+_10
+
+fun test() {
+
+_10
+
+pre { print("Foo") }
+
+_10
+
+}
+
+_10
+
+}`
 
 Thus, invoking `test` method of `Foo` would first invoke the pre-conditions of [A, B, D, E, C], in that particular order,
 and eventually runs the pre-condition of the concrete implementation `Foo`.
 
- `_10let foo = Foo()_10foo.test()`
+`_10
+
+let foo = Foo()
+
+_10
+
+foo.test()`
 
 Above will print:
 
- `_10A_10B_10D_10E_10C_10Foo`
+`_10
+
+A
+
+_10
+
+B
+
+_10
+
+D
+
+_10
+
+E
+
+_10
+
+C
+
+_10
+
+Foo`
 
 Similarly, for post-conditions, the same linearization of interfaces would be used, and the post-conditions are executed
 in the reverse order.
 For example, replacing the `pre` conditions in the above example with `post` conditions with the exact same content would
 result in an output similar to:
 
- `_10Foo_10C_10E_10D_10B_10A`[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/interfaces.mdx)[PreviousCapabilities](/docs/language/capabilities)[NextEnumerations](/docs/language/enumerations)
+`_10
+
+Foo
+
+_10
+
+C
+
+_10
+
+E
+
+_10
+
+D
+
+_10
+
+B
+
+_10
+
+A`
+
+[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/interfaces.mdx)
+
+[Previous
+
+Capabilities](/docs/language/capabilities)[Next
+
+Enumerations](/docs/language/enumerations)
+
 ###### Rate this page
 
 😞😐😊
@@ -377,9 +3028,10 @@ result in an output similar to:
 * [Interface inheritance](#interface-inheritance)
   + [Duplicate interface members](#duplicate-interface-members)
   + [Linearizing Conditions](#linearizing-conditions)
-Got suggestions for this site? 
+
+Got suggestions for this site?
 
 * [It's open-source!](https://github.com/onflow/cadence-lang.org)
+
 The source code of this site is licensed under the Apache License, Version 2.0.
 Content is licensed under the Creative Commons Attribution 4.0 International License.
-

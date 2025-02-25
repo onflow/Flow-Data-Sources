@@ -1,29 +1,33 @@
 # Source: https://developers.flow.com/networks/node-ops/node-operation/guides/genesis-bootstrap
 
-
-
-
 Genesis Bootstrapping | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
 * [Flow's Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
+
   + [Access Nodes](/networks/node-ops/access-nodes/access-node-setup)
   + [EVM Gateway Setup](/networks/node-ops/evm-gateway/evm-gateway-setup)
   + [Light Nodes](/networks/node-ops/light-nodes/observer-node)
   + [Participating in the Network](/networks/node-ops/node-operation/faq)
+
     - [Operator FAQ](/networks/node-ops/node-operation/faq)
     - [Byzantine Attack Response](/networks/node-ops/node-operation/byzantine-node-attack-response)
     - [Database Encryption for Existing Node Operators](/networks/node-ops/node-operation/db-encryption-existing-operator)
     - [Node Operations Guide](/networks/node-ops/node-operation/guides/genesis-bootstrap)
+
       * [Genesis Bootstrapping](/networks/node-ops/node-operation/guides/genesis-bootstrap)
       * [Spork Practice](/networks/node-ops/node-operation/guides/spork-practice)
       * [Starting Your Nodes](/networks/node-ops/node-operation/guides/starting-nodes)
@@ -47,14 +51,14 @@ Genesis Bootstrapping | Flow Developer Portal
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
-
 * [Node Ops](/networks/node-ops)
 * Participating in the Network
 * Node Operations Guide
 * Genesis Bootstrapping
-On this page
-# Genesis Bootstrapping
 
+On this page
+
+# Genesis Bootstrapping
 
 Genesis Only
 
@@ -80,19 +84,39 @@ The bootstrapping process deals with a number of different keys. Make sure you u
 
 Both phases of the bootstrapping are automated with scripts. Pull a copy onto each of your nodes and extract it.
 
-Pull-boot-tools `_10~ $ curl -sL -O storage.googleapis.com/flow-genesis-bootstrap/boot-tools.tar_10~ $ tar -xvf boot-tools.tar`
+Pull-boot-tools
+
+`_10
+
+~ $ curl -sL -O storage.googleapis.com/flow-genesis-bootstrap/boot-tools.tar
+
+_10
+
+~ $ tar -xvf boot-tools.tar`
+
 ## Generate Your Node Keys[​](#generate-your-node-keys "Direct link to Generate Your Node Keys")
 
 Start the bootstrapping process by generating your Staking Key and Networking Key. Use your Node Address that you generated in [Setting Up a Node](/networks/node-ops/node-operation/node-setup) in the `--address` flag, and the node role.
 
-Node AddressYour Node Address must be a publicly routable IPv4 address or valid DNS name that points to your node. This is how other nodes in the network will communicate with you.
-Generate-bootstrap-keys" `_10~ $ mkdir ./bootstrap_10~ $ ./boot-tools/bootstrap key --address \"${YOUR_NODE_ADDRESS}:3569\" --role ${YOUR_NODE_ROLE} -o ./bootstrap`
+Node Address
+
+Your Node Address must be a publicly routable IPv4 address or valid DNS name that points to your node. This is how other nodes in the network will communicate with you.
+
+Generate-bootstrap-keys"
+
+`_10
+
+~ $ mkdir ./bootstrap
+
+_10
+
+~ $ ./boot-tools/bootstrap key --address \"${YOUR_NODE_ADDRESS}:3569\" --role ${YOUR_NODE_ROLE} -o ./bootstrap`
+
 BYO Entropy
 
 By default, the bootstrap script uses the kernel entropy source, either via a `getrandom` syscall or `/dev/urandom`. If you have a more secure source of entropy, like a hardware device, you can specify `--staking-seed` and `--networking-seed`, to provide your own seeds.
 
 Run the `bootstrap` command with no flags to print usage information."
-
 
 Protect your keys!
 
@@ -106,7 +130,24 @@ For more details around all the keys that are needed to run nodes and their usag
 
 The bootstrapping process will create a file structure similar to the following
 
-bootstrap-directory `_10~_10└──bootstrap_10 ├──{id}.node-info.priv.json_10 └──{id}.node-info.pub.json",`
+bootstrap-directory
+
+`_10
+
+~
+
+_10
+
+└──bootstrap
+
+_10
+
+├──{id}.node-info.priv.json
+
+_10
+
+└──{id}.node-info.pub.json",`
+
 ## Upload Public Keys[​](#upload-public-keys "Direct link to Upload Public Keys")
 
 To mint the Genesis Block, the Flow team will need the public Staking and Network keys from all your nodes.
@@ -121,8 +162,36 @@ Token Needed
 
 The transit script here need a `-t` token parameter flag. This token will have been provided to you by the Flow team out of band. Reach out to your contact if you don't have your token.
 
+Upload-public-keys
 
-Upload-public-keys `_10# If you joined our network previously, make sure to take a backup!_10cp /path/to/bootstrap /path/to/bootstrap.bak_10$ ./boot-tools/transit push -d ./bootstrap -t ${TOKEN} -role ${YOUR_NODE_ROLE}_10Running push_10Generating keypair_10Uploading ..._10Uploaded 400 bytes`
+`_10
+
+# If you joined our network previously, make sure to take a backup!
+
+_10
+
+cp /path/to/bootstrap /path/to/bootstrap.bak
+
+_10
+
+$ ./boot-tools/transit push -d ./bootstrap -t ${TOKEN} -role ${YOUR_NODE_ROLE}
+
+_10
+
+Running push
+
+_10
+
+Generating keypair
+
+_10
+
+Uploading ...
+
+_10
+
+Uploaded 400 bytes`
+
 One and Done!
 
 Once you've run the bootstrap and are confident in your setup, run the transit push command only once. If you bootstrap again and transit push again with a new node ID, it will count against your quota of Nodes. Exceeding your quota will result in a long back and forth with the Flow team to see which node is the extra one.
@@ -149,12 +218,105 @@ For more details on staking check the guide on [Staking and Rewards](/networks/s
 
 When the Flow team gives the go-ahead, your Random Beacon keys will be available for retrieval. Each Node will need to pull their own keys down individually.
 
-Pull-beacon-keys `_10~ $ ./boot-tools/transit pull -d ./bootstrap -t ${TOKEN} -role ${YOUR_NODE_ROLE}_10Fetching keys for node ID FEF5CCFD-DC66-4EF6-8ADB-C93D9B6AE5A4_10Decrypting Keys_10Keys available`
+Pull-beacon-keys
+
+`_10
+
+~ $ ./boot-tools/transit pull -d ./bootstrap -t ${TOKEN} -role ${YOUR_NODE_ROLE}
+
+_10
+
+Fetching keys for node ID FEF5CCFD-DC66-4EF6-8ADB-C93D9B6AE5A4
+
+_10
+
+Decrypting Keys
+
+_10
+
+Keys available`
 
 Pulling your keys will also pull a bunch of additional metadata needed for the bootstrapping process.
 In the end, your bootstrap directory should look like this:
 
-bootstrap-directory `_19~_19bootstrap/_19├── private-genesis-information_19│ └── private-node-info_{node id}_19│ ├── node-info.priv.json_19│ └── random-beacon.priv.json_19├── public-genesis-information_19│ ├── dkg-data.pub.json_19│ ├── genesis-block.json_19│ ├── genesis-cluster-block.{cid}.json_19│ ├── genesis-cluster-block.{cid}.json_19│ ├── genesis-cluster-qc.{cid}.json_19│ ├── genesis-cluster-qc.{cid}.json_19│ ├── genesis-commit.json_19│ ├── genesis-qc.json_19│ ├── node-id_19│ ├── node-info.pub.{node id}.json_19│ └── node-infos.pub.json_19├── <additional files...>`
+bootstrap-directory
+
+`_19
+
+~
+
+_19
+
+bootstrap/
+
+_19
+
+├── private-genesis-information
+
+_19
+
+│ └── private-node-info_{node id}
+
+_19
+
+│ ├── node-info.priv.json
+
+_19
+
+│ └── random-beacon.priv.json
+
+_19
+
+├── public-genesis-information
+
+_19
+
+│ ├── dkg-data.pub.json
+
+_19
+
+│ ├── genesis-block.json
+
+_19
+
+│ ├── genesis-cluster-block.{cid}.json
+
+_19
+
+│ ├── genesis-cluster-block.{cid}.json
+
+_19
+
+│ ├── genesis-cluster-qc.{cid}.json
+
+_19
+
+│ ├── genesis-cluster-qc.{cid}.json
+
+_19
+
+│ ├── genesis-commit.json
+
+_19
+
+│ ├── genesis-qc.json
+
+_19
+
+│ ├── node-id
+
+_19
+
+│ ├── node-info.pub.{node id}.json
+
+_19
+
+│ └── node-infos.pub.json
+
+_19
+
+├── <additional files...>`
+
 Why are we generating the beacon keys for you?
 
 Unlike staking and account keys, the beacon keys are not randomly generated, and depend on inputs from all consensus nodes on the network. In typical Flow network operation, these keys will be dynamically generated on demand by the consensus nodes communicating. However for genesis, as the consensus nodes aren't communicating yet, the Flow team will generate and distribute them to kickstart the process.
@@ -177,7 +339,16 @@ Make sure you're part of the [Discord Chat](https://chat.onflow.org). Once all n
 
 Start your systems, let's make some blocks!
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/guides/genesis-bootstrap.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousDatabase Encryption for Existing Node Operators](/networks/node-ops/node-operation/db-encryption-existing-operator)[NextSpork Practice](/networks/node-ops/node-operation/guides/spork-practice)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/guides/genesis-bootstrap.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Database Encryption for Existing Node Operators](/networks/node-ops/node-operation/db-encryption-existing-operator)[Next
+
+Spork Practice](/networks/node-ops/node-operation/guides/spork-practice)
+
 ###### Rate this page
 
 😞😐😊
@@ -193,6 +364,7 @@ Start your systems, let's make some blocks!
 * [Move Genesis Data](#move-genesis-data)
 * [New Images](#new-images)
 * [Start Your Nodes](#start-your-nodes)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -205,6 +377,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -214,6 +387,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -221,6 +395,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -230,6 +405,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -237,5 +413,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

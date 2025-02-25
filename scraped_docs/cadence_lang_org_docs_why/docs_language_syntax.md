@@ -1,19 +1,22 @@
 # Source: https://cadence-lang.org/docs/language/syntax
 
-
-
-
 Syntax | Cadence
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)Search
+[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
+
+[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+
+Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
 * [Tutorial](/docs/tutorial/first-steps)
 * [Language Reference](/docs/language/)
+
   + [Syntax](/docs/language/syntax)
   + [Constants and Variable Declarations](/docs/language/constants-and-variables)
   + [Type Annotations](/docs/language/type-annotations)
@@ -57,10 +60,11 @@ Syntax | Cadence
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
-
 * [Language Reference](/docs/language/)
 * Syntax
+
 On this page
+
 # Syntax
 
 ## Comments[​](#comments "Direct link to Comments")
@@ -71,20 +75,43 @@ A comment is text that is not executed.
 *Single-line comments* start with two slashes (`//`).
 These comments can go on a line by themselves or they can go directly after a line of code.
 
- `_10// This is a comment on a single line._10// Another comment line that is not executed._10_10let x = 1 // Here is another comment after a line of code.`
+`_10
+
+// This is a comment on a single line.
+
+_10
+
+// Another comment line that is not executed.
+
+_10
+
+_10
+
+let x = 1 // Here is another comment after a line of code.`
 
 *Multi-line comments* start with a slash and an asterisk (`/*`)
 and end with an asterisk and a slash (`*/`):
 
- `_10/* This is a comment which_10spans multiple lines. */`
+`_10
+
+/* This is a comment which
+
+_10
+
+spans multiple lines. */`
 
 Comments may be nested.
 
- `_10/* /* this */ is a valid comment */`
+`_10
+
+/* /* this */ is a valid comment */`
 
 Multi-line comments are balanced.
 
- `_10/* this is a // comment up to here */ this is not part of the comment */`
+`_10
+
+/* this is a // comment up to here */ this is not part of the comment */`
+
 ### Documentation Comments[​](#documentation-comments "Direct link to Documentation Comments")
 
 Documentation comments (also known as "doc-strings" or "doc-comment") are a special set of comments that can be
@@ -93,8 +120,36 @@ processed by tools, for example to generate human-readable documentation, or pro
 Doc-comments either start with three slashes (`///`) on each line,
 or are surrounded by `/**` and `**/`.
 
- `_10/// This is a documentation comment for `x`._10/// It spans multiple lines._10_10let x = 1`
- `_10/**_10 This is a documentation comment_10 which also spans multiple lines._10**/`
+`_10
+
+/// This is a documentation comment for `x`.
+
+_10
+
+/// It spans multiple lines.
+
+_10
+
+_10
+
+let x = 1`
+
+`_10
+
+/**
+
+_10
+
+This is a documentation comment
+
+_10
+
+which also spans multiple lines.
+
+_10
+
+**/`
+
 ## Identifiers[​](#identifiers "Direct link to Identifiers")
 
 Identifiers may start with any upper or lowercase letter (A-Z, a-z)
@@ -103,7 +158,108 @@ This may be followed by zero or more upper and lower case letters,
 underscores, and numbers (0-9).
 Identifiers may not begin with a number.
 
- `_29// Valid: title-case_29//_29PersonID_29_29// Valid: with underscore_29//_29token_name_29_29// Valid: leading underscore and characters_29//_29_balance_29_29// Valid: leading underscore and numbers_29_8264_29_29// Valid: characters and number_29//_29account2_29_29// Invalid: leading number_29//_291something_29_29// Invalid: invalid character #_29_#1_29_29// Invalid: various invalid characters_29//_29!@#$%^&*`
+`_29
+
+// Valid: title-case
+
+_29
+
+//
+
+_29
+
+PersonID
+
+_29
+
+_29
+
+// Valid: with underscore
+
+_29
+
+//
+
+_29
+
+token_name
+
+_29
+
+_29
+
+// Valid: leading underscore and characters
+
+_29
+
+//
+
+_29
+
+_balance
+
+_29
+
+_29
+
+// Valid: leading underscore and numbers
+
+_29
+
+_8264
+
+_29
+
+_29
+
+// Valid: characters and number
+
+_29
+
+//
+
+_29
+
+account2
+
+_29
+
+_29
+
+// Invalid: leading number
+
+_29
+
+//
+
+_29
+
+1something
+
+_29
+
+_29
+
+// Invalid: invalid character #
+
+_29
+
+_#1
+
+_29
+
+_29
+
+// Invalid: various invalid characters
+
+_29
+
+//
+
+_29
+
+!@#$%^&*`
+
 ### Reserved identifiers[​](#reserved-identifiers "Direct link to Reserved identifiers")
 
 The following identifiers are reserved, as they are keywords of the language:
@@ -138,7 +294,54 @@ but can be omitted between declarations and if only one statement appears on the
 
 Semicolons must be used to separate multiple statements if they appear on the same line.
 
- `_11// Declare a constant, without a semicolon._11//_11let a = 1_11_11// Declare a variable, with a semicolon._11//_11var b = 2;_11_11// Declare a constant and a variable on a single line, separated by semicolons._11//_11let d = 1; var e = 2`[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/syntax.md)[PreviousLanguage Reference](/docs/language/)[NextConstants and Variable Declarations](/docs/language/constants-and-variables)
+`_11
+
+// Declare a constant, without a semicolon.
+
+_11
+
+//
+
+_11
+
+let a = 1
+
+_11
+
+_11
+
+// Declare a variable, with a semicolon.
+
+_11
+
+//
+
+_11
+
+var b = 2;
+
+_11
+
+_11
+
+// Declare a constant and a variable on a single line, separated by semicolons.
+
+_11
+
+//
+
+_11
+
+let d = 1; var e = 2`
+
+[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/syntax.md)
+
+[Previous
+
+Language Reference](/docs/language/)[Next
+
+Constants and Variable Declarations](/docs/language/constants-and-variables)
+
 ###### Rate this page
 
 😞😐😊
@@ -149,9 +352,10 @@ Semicolons must be used to separate multiple statements if they appear on the sa
   + [Reserved identifiers](#reserved-identifiers)
   + [Conventions](#conventions)
 * [Semicolons](#semicolons)
-Got suggestions for this site? 
+
+Got suggestions for this site?
 
 * [It's open-source!](https://github.com/onflow/cadence-lang.org)
+
 The source code of this site is licensed under the Apache License, Version 2.0.
 Content is licensed under the Creative Commons Attribution 4.0 International License.
-

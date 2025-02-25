@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/ecosystem/hackathons
 
-
-
-
 Hackathons | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Ecosystem](/ecosystem)
 * [Wallets](/ecosystem/wallets)
@@ -25,9 +26,10 @@ Hackathons | Flow Developer Portal
 * [Auditors](/ecosystem/auditors)
 * [Ecosystem Overview](/ecosystem/overview)
 
-
 * Hackathons
+
 On this page
+
 # Flow World Tour Hackathons
 
 Some of the most groundbreaking blockchain projects began as hackathon ideas—CryptoKitties, the game that revolutionized NFTs, was first built at the ETHGlobal Waterloo hackathon. Your project could be next.
@@ -54,7 +56,16 @@ With substantial prize pools, industry recognition, and the chance to launch you
 
 Stay ahead of upcoming hackathons and exclusive announcements. [Join Flow World Tour on Telegram](https://t.me/flow_world_tour).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/hackathons.md)Last updated on **Feb 14, 2025** by **bz**[PreviousGrants](/ecosystem/grants)[NextAuditors](/ecosystem/auditors)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/hackathons.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Grants](/ecosystem/grants)[Next
+
+Auditors](/ecosystem/auditors)
+
 ###### Rate this page
 
 😞😐😊
@@ -62,6 +73,7 @@ Stay ahead of upcoming hackathons and exclusive announcements. [Join Flow World 
 * [Flow World Tour](#flow-world-tour)
   + [Why Join?](#why-join)
 * [Find Your Flow State](#find-your-flow-state)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -74,6 +86,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -83,6 +96,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -90,6 +104,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -99,6 +114,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -106,5 +122,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

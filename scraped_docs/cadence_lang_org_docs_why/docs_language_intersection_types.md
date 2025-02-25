@@ -1,19 +1,22 @@
 # Source: https://cadence-lang.org/docs/language/intersection-types
 
-
-
-
 Intersection Types | Cadence
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)Search
+[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
+
+[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+
+Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
 * [Tutorial](/docs/tutorial/first-steps)
 * [Language Reference](/docs/language/)
+
   + [Syntax](/docs/language/syntax)
   + [Constants and Variable Declarations](/docs/language/constants-and-variables)
   + [Type Annotations](/docs/language/type-annotations)
@@ -57,9 +60,9 @@ Intersection Types | Cadence
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
-
 * [Language Reference](/docs/language/)
 * Intersection Types
+
 # Intersection Types
 
 Interface types cannot be used in type annotations directly;
@@ -78,14 +81,308 @@ The value is restricted to the functionality of the intersection;
 if the function accidentally attempts to access other functionality,
 this is prevented by the static checker.
 
- `_50access(all)_50struct interface HasID {_50 access(all)_50 let id: String_50}_50_50access(all)_50struct A: HasID {_50_50 access(all)_50 let id: String_50_50 init(id: String) {_50 self.id = id_50 }_50}_50_50access(all)_50struct B: HasID {_50_50 access(all)_50 let id: String_50_50 init(id: String) {_50 self.id = id_50 }_50}_50_50// Create two instances, one of type `A`, and one of type `B`._50// Both types conform to interface `HasID`, so the structs can be assigned_50// to variables with type `{HasID}`: Some resource type which only allows_50// access to the functionality of resource interface `HasID`_50_50let hasID1: {HasID} = A(id: "1")_50let hasID2: {HasID} = B(id: "2")_50_50// Declare a function named `getID` which has one parameter with type `{HasID}`._50// The type `{HasID}` is a short-hand for `AnyStruct{HasID}`:_50// Some structure which only allows access to the functionality of interface `HasID`._50//_50access(all)_50fun getID(_ value: {HasID}): String {_50 return value.id_50}_50_50let id1 = getID(hasID1)_50// `id1` is "1"_50_50let id2 = getID(hasID2)_50// `id2` is "2"`
+`_50
+
+access(all)
+
+_50
+
+struct interface HasID {
+
+_50
+
+access(all)
+
+_50
+
+let id: String
+
+_50
+
+}
+
+_50
+
+_50
+
+access(all)
+
+_50
+
+struct A: HasID {
+
+_50
+
+_50
+
+access(all)
+
+_50
+
+let id: String
+
+_50
+
+_50
+
+init(id: String) {
+
+_50
+
+self.id = id
+
+_50
+
+}
+
+_50
+
+}
+
+_50
+
+_50
+
+access(all)
+
+_50
+
+struct B: HasID {
+
+_50
+
+_50
+
+access(all)
+
+_50
+
+let id: String
+
+_50
+
+_50
+
+init(id: String) {
+
+_50
+
+self.id = id
+
+_50
+
+}
+
+_50
+
+}
+
+_50
+
+_50
+
+// Create two instances, one of type `A`, and one of type `B`.
+
+_50
+
+// Both types conform to interface `HasID`, so the structs can be assigned
+
+_50
+
+// to variables with type `{HasID}`: Some resource type which only allows
+
+_50
+
+// access to the functionality of resource interface `HasID`
+
+_50
+
+_50
+
+let hasID1: {HasID} = A(id: "1")
+
+_50
+
+let hasID2: {HasID} = B(id: "2")
+
+_50
+
+_50
+
+// Declare a function named `getID` which has one parameter with type `{HasID}`.
+
+_50
+
+// The type `{HasID}` is a short-hand for `AnyStruct{HasID}`:
+
+_50
+
+// Some structure which only allows access to the functionality of interface `HasID`.
+
+_50
+
+//
+
+_50
+
+access(all)
+
+_50
+
+fun getID(_ value: {HasID}): String {
+
+_50
+
+return value.id
+
+_50
+
+}
+
+_50
+
+_50
+
+let id1 = getID(hasID1)
+
+_50
+
+// `id1` is "1"
+
+_50
+
+_50
+
+let id2 = getID(hasID2)
+
+_50
+
+// `id2` is "2"`
 
 If more than two interfaces are present in an intersection type,
 any concrete value of that type must implement both of them:
 
- `_31access(all)_31struct interface HasMetadata {_31 access(all)_31 var metadata: AnyStruct_31}_31_31access(all)_31struct C: HasID, HasMetadata {_31_31 access(all)_31 let id: String_31 _31 access(all)_31 var metadata: AnyStruct_31_31 init(id: String) {_31 self.id = id_31 self.metadata = []_31 }_31_31 access(all)_31 fun setMetadata(_ data: AnyStruct) {_31 self.metadata = data_31 }_31}_31_31// valid, because `C` implements both `HasID` and `HasMetadata`._31let hasID3: {HasID, HasMetadata} = C(id: "3")_31_31// Invalid, because `A` implements only `HasID`._31let hasID4: {HasID, HasMetadata} = A(id: "4")`[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/intersection-types.md)[PreviousEnumerations](/docs/language/enumerations)[NextReferences](/docs/language/references)Got suggestions for this site? 
+`_31
+
+access(all)
+
+_31
+
+struct interface HasMetadata {
+
+_31
+
+access(all)
+
+_31
+
+var metadata: AnyStruct
+
+_31
+
+}
+
+_31
+
+_31
+
+access(all)
+
+_31
+
+struct C: HasID, HasMetadata {
+
+_31
+
+_31
+
+access(all)
+
+_31
+
+let id: String
+
+_31
+
+_31
+
+access(all)
+
+_31
+
+var metadata: AnyStruct
+
+_31
+
+_31
+
+init(id: String) {
+
+_31
+
+self.id = id
+
+_31
+
+self.metadata = []
+
+_31
+
+}
+
+_31
+
+_31
+
+access(all)
+
+_31
+
+fun setMetadata(_ data: AnyStruct) {
+
+_31
+
+self.metadata = data
+
+_31
+
+}
+
+_31
+
+}
+
+_31
+
+_31
+
+// valid, because `C` implements both `HasID` and `HasMetadata`.
+
+_31
+
+let hasID3: {HasID, HasMetadata} = C(id: "3")
+
+_31
+
+_31
+
+// Invalid, because `A` implements only `HasID`.
+
+_31
+
+let hasID4: {HasID, HasMetadata} = A(id: "4")`
+
+[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/intersection-types.md)
+
+[Previous
+
+Enumerations](/docs/language/enumerations)[Next
+
+References](/docs/language/references)
+
+Got suggestions for this site?
 
 * [It's open-source!](https://github.com/onflow/cadence-lang.org)
+
 The source code of this site is licensed under the Apache License, Version 2.0.
 Content is licensed under the Creative Commons Attribution 4.0 International License.
-

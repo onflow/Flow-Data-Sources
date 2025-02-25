@@ -1,18 +1,21 @@
 # Source: https://cadence-lang.org/docs/tutorial/capabilities
 
-
-
-
 Capabilities | Cadence
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)Search
+[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
+
+[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+
+Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
 * [Tutorial](/docs/tutorial/first-steps)
+
   + [First Steps](/docs/tutorial/first-steps)
   + [Hello World](/docs/tutorial/hello-world)
   + [Resources and the Move (<-) Operator](/docs/tutorial/resources)
@@ -36,10 +39,11 @@ Capabilities | Cadence
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
-
 * Tutorial
 * Capabilities
+
 On this page
+
 # Capabilities
 
 This tutorial will build on your understanding of [accounts](/docs/language/accounts/) and [resources](/docs/language/resources). You'll learn how to interact with resources using [capabilities](/docs/language/capabilities) and [entitlements](/docs/language/access-control#entitlements).
@@ -51,6 +55,7 @@ In Cadence, resources are a composite type like a struct or a class, but with so
 * Each instance of a resource can only exist in exactly one location and cannot be copied.
 * Resources must be explicitly moved from one location to another when accessed.
 * Resources also cannot go out of scope at the end of function execution, they must be explicitly stored somewhere or destroyed.
+
 ## Objectives[​](#objectives "Direct link to Objectives")
 
 After completing this tutorial, you'll be able to:
@@ -86,6 +91,7 @@ Action
 Continue working with your code from the previous tutorial. Alternately, open a fresh copy here:
 
 [<https://play.flow.com/64287da4-50c4-4580-8b9f-5792b78d77c3>](https://play.flow.com/64287da4-50c4-4580-8b9f-5792b78d77c3)
+
 Action
 
 If you started with a fresh playground, be sure to deploy the `HelloWorld` contract with account `0x06` and call the `Create Hello` transaction, also with `0x06`.
@@ -98,19 +104,81 @@ Create a new transaction called `Create Link`.
 
 Import `HelloWorld` and stub out a `transaction` with a `prepare` phase.
 
-
 tip
 
 Cadence allows for static analysis of imported contracts. You'll get errors in the transactions and scripts that import `HelloWorld` from `0x06` if you haven't deployed that contract.
 
+create\_link.cdc
 
-create\_link.cdc `_10import HelloWorld from 0x06_10_10transaction {_10 prepare() {_10 // TODO_10 }_10}`
+`_10
+
+import HelloWorld from 0x06
+
+_10
+
+_10
+
+transaction {
+
+_10
+
+prepare() {
+
+_10
+
+// TODO
+
+_10
+
+}
+
+_10
+
+}`
+
 Action
 
 Next, pass an `&Account` reference into `prepare` with the capabilities needed to give the `transaction` the ability to create and publish a capability.
 
+create\_link.cdc
 
-create\_link.cdc `_10import HelloWorld from 0x06_10_10transaction {_10 prepare(account: auth(_10 IssueStorageCapabilityController,_10 PublishCapability_10 ) &Account) {_10 // TODO_10 }_10}`
+`_10
+
+import HelloWorld from 0x06
+
+_10
+
+_10
+
+transaction {
+
+_10
+
+prepare(account: auth(
+
+_10
+
+IssueStorageCapabilityController,
+
+_10
+
+PublishCapability
+
+_10
+
+) &Account) {
+
+_10
+
+// TODO
+
+_10
+
+}
+
+_10
+
+}`
 
 The [`IssueStorageCapabilityController`](/docs/language/accounts/capabilities#accountstoragecapabilities-and-accountaccountcapabilities) allows the transaction to [issue](/docs/language/accounts/capabilities#issuing-capabilities) a new capability, which includes storing that capability to the user's account. [`PublishCapability`](/docs/language/accounts/capabilities#accountcapabilities) allows the transaction to [publish](/docs/language/accounts/capabilities#publishing-capabilities) a capability and make it available to other users - in this case, we'll make it public.
 
@@ -136,8 +204,22 @@ Action
 
 Issue a capability to allow access to the instance of the `HelloAsset` [resource](/docs/language/resources) the `Create Hello` transaction saved in `/storage/HelloAssetTutorial`.
 
+`_10
 
- `_10let capability = account_10 .capabilities_10 .storage_10 .issue<&HelloWorld.HelloAsset>(/storage/HelloAssetTutorial)`
+let capability = account
+
+_10
+
+.capabilities
+
+_10
+
+.storage
+
+_10
+
+.issue<&HelloWorld.HelloAsset>(/storage/HelloAssetTutorial)`
+
 danger
 
 In our example capability, we had the user sign a transaction that gave public access to **everything** found in the `HelloAsset` resource!
@@ -146,8 +228,21 @@ When you're writing real transactions, follow the principle of giving minimal ac
 
 For example, if you added a function to allow the owner of the resource to change the greeting message, this code would open that function up to anyone and everyone!
 
+`_10
 
- `_10let capability = account_10 .capabilities_10 .storage_10 .issue<&HelloWorld.HelloAsset>(/storage/HelloAssetTutorial)`
+let capability = account
+
+_10
+
+.capabilities
+
+_10
+
+.storage
+
+_10
+
+.issue<&HelloWorld.HelloAsset>(/storage/HelloAssetTutorial)`
 
 The capability says that whoever borrows a reference from this capability has access to the fields and methods that are specified by the type and entitlements in `<>`. The specified type has to be a subtype of the type of the object being linked to, meaning that it cannot contain any fields or functions that the linked object doesn't have.
 
@@ -166,12 +261,78 @@ Action
 
 Use [publish](/docs/language/accounts/capabilities#publishing-capabilities) function to publish the `capability` at `/public/HelloAssetTutorial`.
 
+`_10
 
- `_10account.capabilities.publish(capability, at: /public/HelloAssetTutorial)`
+account.capabilities.publish(capability, at: /public/HelloAssetTutorial)`
 
 You should end up with a transaction similar to:
 
-Create `_17import HelloWorld from 0x06_17_17transaction {_17 prepare(account: auth(_17 IssueStorageCapabilityController,_17 PublishCapability_17 ) &Account) {_17 let capability = account_17 .capabilities_17 .storage_17 .issue<&HelloWorld.HelloAsset>(/storage/HelloAssetTutorial)_17_17 account_17 .capabilities_17 .publish(capability, at: /public/HelloAssetTutorial)_17 }_17}`
+Create
+
+`_17
+
+import HelloWorld from 0x06
+
+_17
+
+_17
+
+transaction {
+
+_17
+
+prepare(account: auth(
+
+_17
+
+IssueStorageCapabilityController,
+
+_17
+
+PublishCapability
+
+_17
+
+) &Account) {
+
+_17
+
+let capability = account
+
+_17
+
+.capabilities
+
+_17
+
+.storage
+
+_17
+
+.issue<&HelloWorld.HelloAsset>(/storage/HelloAssetTutorial)
+
+_17
+
+_17
+
+account
+
+_17
+
+.capabilities
+
+_17
+
+.publish(capability, at: /public/HelloAssetTutorial)
+
+_17
+
+}
+
+_17
+
+}`
+
 ### Execute the Transaction to Publish the Capability[​](#execute-the-transaction-to-publish-the-capability "Direct link to Execute the Transaction to Publish the Capability")
 
 Action
@@ -179,7 +340,6 @@ Action
 Ensure account `0x06` is still selected as a transaction signer.
 
 Click the `Send` button to send the transaction. Then, send it a second time.
-
 
 warning
 
@@ -199,8 +359,25 @@ Action
 
 Create a script called `GetGreeting`. Import `HelloWorld` and give it public `access`.
 
+GetGreeting.cdc
 
-GetGreeting.cdc `_10import HelloWorld from 0x06_10_10access(all) fun main(): String {_10 // TODO_10}`
+`_10
+
+import HelloWorld from 0x06
+
+_10
+
+_10
+
+access(all) fun main(): String {
+
+_10
+
+// TODO
+
+_10
+
+}`
 
 You'll need a reference to the public account object for the `0x06` account to be able to access public capabilities within it.
 
@@ -208,12 +385,13 @@ Action
 
 Use `getAccount` to get a reference to account `0x06`. Hardcode it for now.
 
+`_10
 
- `_10let helloAccount = getAccount(0x06)`
+let helloAccount = getAccount(0x06)`
+
 warning
 
 Addresses are **not** strings and thus do **not** have quotes around them.
-
 
 Action
 
@@ -225,7 +403,50 @@ You've already borrowed something before. Try to implement this on your own. **H
 
 You should end up with a script similar to:
 
-GetGreeting.cdc `_12import HelloWorld from 0x06_12_12access(all) fun main(): String {_12 let helloAccount = getAccount(0x06)_12_12 let helloReference = helloAccount_12 .capabilities_12 .borrow<&HelloWorld.HelloAsset>(/public/HelloAssetTutorial)_12 ?? panic("Could not borrow a reference to the HelloAsset capability")_12_12 return helloReference.hello()_12}`
+GetGreeting.cdc
+
+`_12
+
+import HelloWorld from 0x06
+
+_12
+
+_12
+
+access(all) fun main(): String {
+
+_12
+
+let helloAccount = getAccount(0x06)
+
+_12
+
+_12
+
+let helloReference = helloAccount
+
+_12
+
+.capabilities
+
+_12
+
+.borrow<&HelloWorld.HelloAsset>(/public/HelloAssetTutorial)
+
+_12
+
+?? panic("Could not borrow a reference to the HelloAsset capability")
+
+_12
+
+_12
+
+return helloReference.hello()
+
+_12
+
+}`
+
 Action
 
 `Execute` your script.
@@ -267,7 +488,15 @@ You're on the right track to building more complex applications with Cadence. No
 * [reference](/docs/tags/reference)
 * [cadence](/docs/tags/cadence)
 * [tutorial](/docs/tags/tutorial)
-[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/tutorial/04-capabilities.md)[PreviousResources and the Move (<-) Operator](/docs/tutorial/resources)[NextBasic NFT](/docs/tutorial/non-fungible-tokens-1)
+
+[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/tutorial/04-capabilities.md)
+
+[Previous
+
+Resources and the Move (<-) Operator](/docs/tutorial/resources)[Next
+
+Basic NFT](/docs/tutorial/non-fungible-tokens-1)
+
 ###### Rate this page
 
 😞😐😊
@@ -284,9 +513,10 @@ You're on the right track to building more complex applications with Cadence. No
 * [Using the Capability in a Script](#using-the-capability-in-a-script)
 * [Deleting Capabilities](#deleting-capabilities)
 * [Reviewing Capabilities](#reviewing-capabilities)
-Got suggestions for this site? 
+
+Got suggestions for this site?
 
 * [It's open-source!](https://github.com/onflow/cadence-lang.org)
+
 The source code of this site is licensed under the Apache License, Version 2.0.
 Content is licensed under the Creative Commons Attribution 4.0 International License.
-

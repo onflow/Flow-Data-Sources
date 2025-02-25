@@ -1,18 +1,21 @@
 # Source: https://cadence-lang.org/docs/tutorial/voting
 
-
-
-
 9. Voting Contract | Cadence
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)Search
+[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
+
+[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+
+Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
 * [Tutorial](/docs/tutorial/first-steps)
+
   + [First Steps](/docs/tutorial/first-steps)
   + [Hello World](/docs/tutorial/hello-world)
   + [Resources and the Move (<-) Operator](/docs/tutorial/resources)
@@ -36,16 +39,16 @@
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
-
 * Tutorial
 * 9. Voting Contract
+
 On this page
+
 # 9. Voting Contract
 
 In this tutorial, we're going to deploy a contract that allows users to vote on multiple proposals that a voting administrator controls.
 
 ---
-
 
 info
 
@@ -54,7 +57,6 @@ Open the starter code for this tutorial in the Flow Playground:
 [<https://play.flow.com/e8e2af39-370d-4a52-9f0b-bfb3b12c7eff>](https://play.flow.com/e8e2af39-370d-4a52-9f0b-bfb3b12c7eff)
 
 The tutorial will be asking you to take various actions to interact with this code.
-
 
 Action
 
@@ -98,7 +100,229 @@ Action
 
 The contract should have the following contents:
 
-ApprovalVoting.cdc `_61/*_61*_61* In this example, we want to create a simple approval voting contract_61* where a polling place issues ballots to addresses._61*_61* The run a vote, the Admin deploys the smart contract,_61* then initializes the proposals_61* using the initialize_proposals.cdc transaction._61* The array of proposals cannot be modified after it has been initialized._61*_61* Then they will give ballots to users by_61* using the issue_ballot.cdc transaction._61*_61* Every user with a ballot is allowed to approve any number of proposals._61* A user can choose their votes and cast them_61* with the cast_vote.cdc transaction._61*_61*. See if you can code it yourself!_61*_61*/_61_61access(all)_61contract ApprovalVoting {_61_61 // Field: An array of strings representing proposals to be approved_61_61 // Field: A dictionary mapping the proposal index to the number of votes per proposal_61_61 // Entitlement: Admin entitlement that restricts the privileged fields_61 // of the Admin resource_61_61 // Resource: Ballot resource that is issued to users._61 // When a user gets a Ballot object, they call the `vote` function_61 // to include their votes for each proposal, and then cast it in the smart contract_61 // using the `cast` function to have their vote included in the polling_61 // Remember to track which proposals a user has voted yes for in the Ballot resource_61 // and remember to include proper pre and post conditions to ensure that no mistakes are made_61 // when a user submits their vote_61 access(all) resource Ballot {_61_61 }_61_61 // Resource: Administrator of the voting process_61 // initialize the proposals and to provide a function for voters_61 // to get a ballot resource_61 // Remember to include proper conditions for each function!_61 // Also make sure that the privileged fields are secured with entitlements!_61 access(all) resource Administrator {_61 _61 }_61_61 // Public function: A user can create a capability to their ballot resource_61 // and send it to this function so its votes are tallied_61 // Remember to include a provision so that a ballot can only be cast once!_61_61 // initialize the contract fields by setting the proposals and votes to empty_61 // and create a new Admin resource to put in storage_61 init() {_61 _61 }_61}`
+ApprovalVoting.cdc
+
+`_61
+
+/*
+
+_61
+
+*
+
+_61
+
+* In this example, we want to create a simple approval voting contract
+
+_61
+
+* where a polling place issues ballots to addresses.
+
+_61
+
+*
+
+_61
+
+* The run a vote, the Admin deploys the smart contract,
+
+_61
+
+* then initializes the proposals
+
+_61
+
+* using the initialize_proposals.cdc transaction.
+
+_61
+
+* The array of proposals cannot be modified after it has been initialized.
+
+_61
+
+*
+
+_61
+
+* Then they will give ballots to users by
+
+_61
+
+* using the issue_ballot.cdc transaction.
+
+_61
+
+*
+
+_61
+
+* Every user with a ballot is allowed to approve any number of proposals.
+
+_61
+
+* A user can choose their votes and cast them
+
+_61
+
+* with the cast_vote.cdc transaction.
+
+_61
+
+*
+
+_61
+
+*. See if you can code it yourself!
+
+_61
+
+*
+
+_61
+
+*/
+
+_61
+
+_61
+
+access(all)
+
+_61
+
+contract ApprovalVoting {
+
+_61
+
+_61
+
+// Field: An array of strings representing proposals to be approved
+
+_61
+
+_61
+
+// Field: A dictionary mapping the proposal index to the number of votes per proposal
+
+_61
+
+_61
+
+// Entitlement: Admin entitlement that restricts the privileged fields
+
+_61
+
+// of the Admin resource
+
+_61
+
+_61
+
+// Resource: Ballot resource that is issued to users.
+
+_61
+
+// When a user gets a Ballot object, they call the `vote` function
+
+_61
+
+// to include their votes for each proposal, and then cast it in the smart contract
+
+_61
+
+// using the `cast` function to have their vote included in the polling
+
+_61
+
+// Remember to track which proposals a user has voted yes for in the Ballot resource
+
+_61
+
+// and remember to include proper pre and post conditions to ensure that no mistakes are made
+
+_61
+
+// when a user submits their vote
+
+_61
+
+access(all) resource Ballot {
+
+_61
+
+_61
+
+}
+
+_61
+
+_61
+
+// Resource: Administrator of the voting process
+
+_61
+
+// initialize the proposals and to provide a function for voters
+
+_61
+
+// to get a ballot resource
+
+_61
+
+// Remember to include proper conditions for each function!
+
+_61
+
+// Also make sure that the privileged fields are secured with entitlements!
+
+_61
+
+access(all) resource Administrator {
+
+_61
+
+_61
+
+}
+
+_61
+
+_61
+
+// Public function: A user can create a capability to their ballot resource
+
+_61
+
+// and send it to this function so its votes are tallied
+
+_61
+
+// Remember to include a provision so that a ballot can only be cast once!
+
+_61
+
+_61
+
+// initialize the contract fields by setting the proposals and votes to empty
+
+_61
+
+// and create a new Admin resource to put in storage
+
+_61
+
+init() {
+
+_61
+
+_61
+
+}
+
+_61
+
+}`
 
 Now is your chance to write some of your own Cadence code!
 See if you can follow the instructions in the comments of the contract
@@ -112,6 +336,7 @@ Action
 
 1. In the bottom right deployment modal, press the arrow to expand and make sure account `0x06` is selected as the signer.
 2. Click the Deploy button to deploy it to account `0x06`
+
 ## Perform Voting[​](#perform-voting "Direct link to Perform Voting")
 
 Performing the common actions in this voting contract only takes three types of transactions.
@@ -128,7 +353,97 @@ Action
 1. Open Transaction 1 which should have `Create Proposals`
 2. Submit the transaction with account `0x06` selected as the only signer.
 
-CreateProposals.cdc `_26import ApprovalVoting from 0x06_26_26// This transaction allows the administrator of the Voting contract_26// to create new proposals for voting and save them to the smart contract_26_26transaction {_26 // Fill in auth() with the correct entitlements you need!_26 prepare(admin: auth()) {_26_26 // borrow a reference to the admin Resource_26 // remember to use descriptive error messages!_26_26 // Call the initializeProposals function_26 // to create the proposals array as an array of strings_26 // Maybe we could create two proposals for the local basketball league:_26 // ["Longer Shot Clock", "Trampolines instead of hardwood floors"]_26_26 // Issue and public a public capability to the Administrator resource_26 // so that voters can get their ballots!_26 }_26_26 post {_26 // Verify that the proposals were initialized properly_26 }_26_26}`
+CreateProposals.cdc
+
+`_26
+
+import ApprovalVoting from 0x06
+
+_26
+
+_26
+
+// This transaction allows the administrator of the Voting contract
+
+_26
+
+// to create new proposals for voting and save them to the smart contract
+
+_26
+
+_26
+
+transaction {
+
+_26
+
+// Fill in auth() with the correct entitlements you need!
+
+_26
+
+prepare(admin: auth()) {
+
+_26
+
+_26
+
+// borrow a reference to the admin Resource
+
+_26
+
+// remember to use descriptive error messages!
+
+_26
+
+_26
+
+// Call the initializeProposals function
+
+_26
+
+// to create the proposals array as an array of strings
+
+_26
+
+// Maybe we could create two proposals for the local basketball league:
+
+_26
+
+// ["Longer Shot Clock", "Trampolines instead of hardwood floors"]
+
+_26
+
+_26
+
+// Issue and public a public capability to the Administrator resource
+
+_26
+
+// so that voters can get their ballots!
+
+_26
+
+}
+
+_26
+
+_26
+
+post {
+
+_26
+
+// Verify that the proposals were initialized properly
+
+_26
+
+}
+
+_26
+
+_26
+
+}`
 
 This transaction allows the `Administrator` of the contract to create new proposals for voting and save them to the smart contract. They do this by calling the `initializeProposals` function on their stored `Administrator` resource, giving it two new proposals to vote on.
 We use the `post` block to ensure that there were two proposals created, like we wished for.
@@ -153,7 +468,79 @@ Action
 2. Select account `0x07` as a signer.
 3. Submit the transaction by clicking the `Send` button
 
-CreateBallot.cdc `_21_21import ApprovalVoting from 0x06_21_21// This transaction allows a user_21// to create a new ballot and store it in their account_21// by calling the public function on the Admin resource_21// through its public capability_21_21transaction {_21 // fill in the correct entitlements!_21 prepare(voter: auth() &Account) {_21_21 // Get the administrator's public account object_21 // and borrow a reference to their Administrator resource_21_21 // create a new Ballot by calling the issueBallot_21 // function of the admin Reference_21_21 // store that ballot in the voter's account storage_21 }_21}`
+CreateBallot.cdc
+
+`_21
+
+_21
+
+import ApprovalVoting from 0x06
+
+_21
+
+_21
+
+// This transaction allows a user
+
+_21
+
+// to create a new ballot and store it in their account
+
+_21
+
+// by calling the public function on the Admin resource
+
+_21
+
+// through its public capability
+
+_21
+
+_21
+
+transaction {
+
+_21
+
+// fill in the correct entitlements!
+
+_21
+
+prepare(voter: auth() &Account) {
+
+_21
+
+_21
+
+// Get the administrator's public account object
+
+_21
+
+// and borrow a reference to their Administrator resource
+
+_21
+
+_21
+
+// create a new Ballot by calling the issueBallot
+
+_21
+
+// function of the admin Reference
+
+_21
+
+_21
+
+// store that ballot in the voter's account storage
+
+_21
+
+}
+
+_21
+
+}`
 
 After this transaction, account `0x07` should now have a `Ballot` resource
 object in its account storage. You can confirm this by selecting `0x07`
@@ -171,7 +558,85 @@ Action
 2. Select account `0x07` as the only transaction signer.
 3. Click the `send` button to submit the transaction.
 
-CastBallot.cdc `_23import ApprovalVoting from 0x06_23_23// This transaction allows a voter to select the votes they would like to make_23// and cast that vote by using the cast vote function_23// of the ApprovalVoting smart contract_23_23transaction {_23 // fill in the correct entitlements!_23 prepare(voter: auth() &Account) {_23_23 // Borrow a reference to the Ballot resource in the Voter's storage_23 _23 // Vote on the proposal_23_23 // Issue a capability to the Ballot resource in the voter's storage_23_23 // Cast the vote by submitting it to the smart contract_23 }_23_23 post {_23 // verify that the votes were cast properly_23 }_23}`
+CastBallot.cdc
+
+`_23
+
+import ApprovalVoting from 0x06
+
+_23
+
+_23
+
+// This transaction allows a voter to select the votes they would like to make
+
+_23
+
+// and cast that vote by using the cast vote function
+
+_23
+
+// of the ApprovalVoting smart contract
+
+_23
+
+_23
+
+transaction {
+
+_23
+
+// fill in the correct entitlements!
+
+_23
+
+prepare(voter: auth() &Account) {
+
+_23
+
+_23
+
+// Borrow a reference to the Ballot resource in the Voter's storage
+
+_23
+
+_23
+
+// Vote on the proposal
+
+_23
+
+_23
+
+// Issue a capability to the Ballot resource in the voter's storage
+
+_23
+
+_23
+
+// Cast the vote by submitting it to the smart contract
+
+_23
+
+}
+
+_23
+
+_23
+
+post {
+
+_23
+
+// verify that the votes were cast properly
+
+_23
+
+}
+
+_23
+
+}`
 
 In this transaction, the user votes for one of the proposals by submitting
 their votes on their own ballot and then sending the capability.
@@ -185,7 +650,61 @@ Action
 1. Open the `Get Votes` script.
 2. Click the `execute` button to run the script.
 
-GetVotes.cdc `_16import ApprovalVoting from 0x06_16_16// This script allows anyone to read the tallied votes for each proposal_16//_16_16// Fill in a return type that can properly represent the number of votes_16// for each proposal_16// This might need a custom struct to represent the data_16access(all) fun main(): {_16_16 // Access the public fields of the contract to get_16 // the proposal names and vote counts_16_16 // return them to the calling context_16_16}`
+GetVotes.cdc
+
+`_16
+
+import ApprovalVoting from 0x06
+
+_16
+
+_16
+
+// This script allows anyone to read the tallied votes for each proposal
+
+_16
+
+//
+
+_16
+
+_16
+
+// Fill in a return type that can properly represent the number of votes
+
+_16
+
+// for each proposal
+
+_16
+
+// This might need a custom struct to represent the data
+
+_16
+
+access(all) fun main(): {
+
+_16
+
+_16
+
+// Access the public fields of the contract to get
+
+_16
+
+// the proposal names and vote counts
+
+_16
+
+_16
+
+// return them to the calling context
+
+_16
+
+_16
+
+}`
 
 The return type should reflect the number of votes that were cast for each proposal
 with the `Cast Vote` transaction.
@@ -196,7 +715,14 @@ This contract was a very simple example of voting in Cadence.
 It clearly couldn't be used for a real-world voting situation,
 but hopefully you can see what kind of features could be added to it to ensure practicality and security.
 
-[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/tutorial/09-voting.md)[Previous8. Marketplace](/docs/tutorial/marketplace-compose)[Next10. Composable Resources](/docs/tutorial/resources-compose)
+[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/tutorial/09-voting.md)
+
+[Previous
+
+8. Marketplace](/docs/tutorial/marketplace-compose)[Next
+
+10. Composable Resources](/docs/tutorial/resources-compose)
+
 ###### Rate this page
 
 😞😐😊
@@ -209,9 +735,10 @@ but hopefully you can see what kind of features could be added to it to ensure p
 * [Casting a Vote](#casting-a-vote)
 * [Reading the result of the vote](#reading-the-result-of-the-vote)
 * [Other Voting possibilities](#other-voting-possibilities)
-Got suggestions for this site? 
+
+Got suggestions for this site?
 
 * [It's open-source!](https://github.com/onflow/cadence-lang.org)
+
 The source code of this site is licensed under the Apache License, Version 2.0.
 Content is licensed under the Creative Commons Attribution 4.0 International License.
-

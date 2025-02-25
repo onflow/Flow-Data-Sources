@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/tools/wallet-provider-spec/provable-authn
 
-
-
-
 Provable Authn | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
@@ -19,15 +20,17 @@ Provable Authn | Flow Developer Portal
 * [Flow Dev Wallet](/tools/flow-dev-wallet)
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
+
   + [Authorization Function](/tools/wallet-provider-spec/authorization-function)
   + [Introduction](/tools/wallet-provider-spec/custodial)
   + [Provable Authn](/tools/wallet-provider-spec/provable-authn)
   + [User Signature](/tools/wallet-provider-spec/user-signature)
 
-
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 * Provable Authn
+
 On this page
+
 # Provable Authn
 
 In order to improve UX/DX and encourage seamless integration with App backends and services, `fcl.authenticate` has been upgraded.
@@ -54,7 +57,33 @@ For example, it can be sent to the App’s backend and after validating the sign
 
 The account proof message is encoded as follows:
 
- `_10MESSAGE = _10 USER_DOMAIN_TAG ||_10 RLP_ENCODE([_10 APP_IDENTIFIER, _10 ADDRESS, _10 NONCE_10 ])`
+`_10
+
+MESSAGE =
+
+_10
+
+USER_DOMAIN_TAG ||
+
+_10
+
+RLP_ENCODE([
+
+_10
+
+APP_IDENTIFIER,
+
+_10
+
+ADDRESS,
+
+_10
+
+NONCE
+
+_10
+
+])`
 
 with the following values:
 
@@ -67,8 +96,156 @@ with the following values:
 
 ### JavaScript Signing Example[​](#javascript-signing-example "Direct link to JavaScript Signing Example")
 
- `_20// Using WalletUtils_20import {WalletUtils} from "@onflow/fcl"_20_20const message = WalletUtils.encodeAccountProof(_20 appIdentifier, // A human readable string to identify your application during signing_20 address, // Flow address of the user authenticating_20 nonce, // minimum 32-btye nonce_20)_20_20sign(privateKey, message)_20_20// Without using FCL WalletUtils_20const ACCOUNT_PROOF_DOMAIN_TAG = rightPaddedHexBuffer(_20 Buffer.from("FCL-ACCOUNT-PROOF-V0.0").toString("hex"),_20 32_20)_20const message = rlp([appIdentifier, address, nonce])_20const prependUserDomainTag = (message) => ACCOUNT_PROOF_DOMAIN_TAG + message_20_20sign(privateKey, prependUserDomainTag(message))`
- `_17// Authentication Proof Service_17{_17 f_type: "Service", // Its a service!_17 f_vsn: "1.0.0", // Follows the v1.0.0 spec for the service_17 type: "account-proof", // the type of service it is_17 method: "DATA", // Its data!_17 uid: "awesome-wallet#account-proof", // A unique identifier for the service _17 data: {_17 f_type: "account-proof",_17 f_vsn: "1.0.0"_17 // The user's address (8 bytes, i.e 16 hex characters)_17 address: "0xf8d6e0586b0a20c7", _17 // Nonce signed by the current account-proof (minimum 32 bytes in total, i.e 64 hex characters)_17 nonce: "75f8587e5bd5f9dcc9909d0dae1f0ac5814458b2ae129620502cb936fde7120a",_17 signatures: [CompositeSignature],_17 }_17}`[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/provable-authn.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousIntroduction](/tools/wallet-provider-spec/custodial)[NextUser Signature](/tools/wallet-provider-spec/user-signature)
+`_20
+
+// Using WalletUtils
+
+_20
+
+import {WalletUtils} from "@onflow/fcl"
+
+_20
+
+_20
+
+const message = WalletUtils.encodeAccountProof(
+
+_20
+
+appIdentifier, // A human readable string to identify your application during signing
+
+_20
+
+address, // Flow address of the user authenticating
+
+_20
+
+nonce, // minimum 32-btye nonce
+
+_20
+
+)
+
+_20
+
+_20
+
+sign(privateKey, message)
+
+_20
+
+_20
+
+// Without using FCL WalletUtils
+
+_20
+
+const ACCOUNT_PROOF_DOMAIN_TAG = rightPaddedHexBuffer(
+
+_20
+
+Buffer.from("FCL-ACCOUNT-PROOF-V0.0").toString("hex"),
+
+_20
+
+32
+
+_20
+
+)
+
+_20
+
+const message = rlp([appIdentifier, address, nonce])
+
+_20
+
+const prependUserDomainTag = (message) => ACCOUNT_PROOF_DOMAIN_TAG + message
+
+_20
+
+_20
+
+sign(privateKey, prependUserDomainTag(message))`
+
+`_17
+
+// Authentication Proof Service
+
+_17
+
+{
+
+_17
+
+f_type: "Service", // Its a service!
+
+_17
+
+f_vsn: "1.0.0", // Follows the v1.0.0 spec for the service
+
+_17
+
+type: "account-proof", // the type of service it is
+
+_17
+
+method: "DATA", // Its data!
+
+_17
+
+uid: "awesome-wallet#account-proof", // A unique identifier for the service
+
+_17
+
+data: {
+
+_17
+
+f_type: "account-proof",
+
+_17
+
+f_vsn: "1.0.0"
+
+_17
+
+// The user's address (8 bytes, i.e 16 hex characters)
+
+_17
+
+address: "0xf8d6e0586b0a20c7",
+
+_17
+
+// Nonce signed by the current account-proof (minimum 32 bytes in total, i.e 64 hex characters)
+
+_17
+
+nonce: "75f8587e5bd5f9dcc9909d0dae1f0ac5814458b2ae129620502cb936fde7120a",
+
+_17
+
+signatures: [CompositeSignature],
+
+_17
+
+}
+
+_17
+
+}`
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/provable-authn.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Introduction](/tools/wallet-provider-spec/custodial)[Next
+
+User Signature](/tools/wallet-provider-spec/user-signature)
+
 ###### Rate this page
 
 😞😐😊
@@ -76,6 +253,7 @@ with the following values:
 * [TL;DR Wallet Provider](#tldr-wallet-provider)
   + [Account Proof Message Encoding](#account-proof-message-encoding)
   + [JavaScript Signing Example](#javascript-signing-example)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -88,6 +266,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -97,6 +276,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -104,6 +284,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -113,6 +294,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -120,5 +302,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

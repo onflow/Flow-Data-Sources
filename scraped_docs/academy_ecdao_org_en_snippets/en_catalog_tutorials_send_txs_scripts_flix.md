@@ -1,29 +1,14 @@
 # Source: https://academy.ecdao.org/en/catalog/tutorials/send-txs-scripts-flix
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -36,14 +21,11 @@ Send Transactions and Scripts using FLIX
 
 # Send Transactions and Scripts using FLIX
 
-
 Tutorial
 
 Beginner
 
 20 minutes
-
-
 
 This tutorial will help you use FLIX - a way to send transactions & scripts from a frontend without having to know Cadence.
 
@@ -64,6 +46,7 @@ Open up a terminal on your computer. Paste and run the command based on your sys
 * Mac:
 
 bash
+
 ```
 		
 			sh -ci "$(curl -fsSL https://raw.githubusercontent.com/onflow/flow-cli/master/install.sh)"
@@ -74,6 +57,7 @@ bash
 * Linux:
 
 bash
+
 ```
 		
 			sh -ci "$(curl -fsSL https://raw.githubusercontent.com/onflow/flow-cli/master/install.sh)"
@@ -84,6 +68,7 @@ bash
 * Windows:
 
 bash
+
 ```
 		
 			iex "& { $(irm 'https://raw.githubusercontent.com/onflow/flow-cli/master/install.ps1') }"
@@ -100,6 +85,7 @@ In your terminal, go to the main directory of your project. Type `flow init`. Th
 Next, inside your flow.json file, add a âcontractsâ object that looks something like this:
 
 json
+
 ```
 		
 			"contracts": {
@@ -124,6 +110,7 @@ Now we can actually create a template from our Cadence code.
 To do that, run the following command in your terminal from the main directory:
 
 bash
+
 ```
 		
 			flow flix generate ./cadence/scripts/ReadHelloWorld.cdc --save ./cadence/templates/ReadHelloWorld.template.json      
@@ -140,6 +127,7 @@ You can actually run your script/tx template using the Flow CLI.
 To do that, run the following command in your terminal from the main directory:
 
 bash
+
 ```
 		
 			flow flix execute ./cadence/templates/ReadHelloWorld.template.json --network testnet
@@ -162,6 +150,7 @@ A package file is simply an auto-generated file in Javascript or Typescript that
 To create one, run the following command in your terminal from the main directory:
 
 bash
+
 ```
 		
 			flow flix package https://raw.githubusercontent.com/onflow/hello-world-flix/main/cadence/templates/ReadHelloWorld.template.json --lang ts --save ./app/cadence/readHelloWorld.ts
@@ -174,6 +163,7 @@ The first link in that command is a link to the template file. The last file pat
 If you go to your `readHelloWorld.ts` file, you should see it looks something like this:
 
 typescript
+
 ```
 		
 			/**
@@ -212,17 +202,14 @@ Thanks so much to Tom Haile for not only creating FLIX, but helping me learn abo
 
 Till next time ~ Jacob Tucker
 
-
 ![User avatar](/avatars/jacob.jpeg)
 
 Author
 
 [Jacob Tucker](https://twitter.com/jacobmtucker)
 
-
-
-
 [Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/tutorials/send-txs-scripts-flix/en/readme.md)
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
@@ -231,17 +218,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

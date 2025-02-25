@@ -1,30 +1,14 @@
 # Source: https://academy.ecdao.org/en/catalog/courses/learn-cadence-beginner/chapter1/lesson2
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -48,7 +32,6 @@ Connect
 
 Course Overview
 
-
 [Catalog](/en/catalog)
 [Course](/en/catalog/courses/learn-cadence-beginner)
 Learn Cadence Beginner
@@ -66,6 +49,7 @@ Transactions and scripts are both essential to any blockchain application. Witho
 If you have coded in Solidity before, you know that transactions are just functions you call inside the contract itself. However, in Cadence transactions and scripts act as a sort of âmiddlemanâ between the account interacting with the blockchain and the smart contracts. It looks something like this:
 
 ![transactions and script picture](/courses/beginner-cadence/sctsworkflow.png)
+
 ## Transactions vs. Scripts
 
 The biggest difference between the two is that transactions **modify the data** on the blockchain and scripts **view the data** on the blockchain. Here is a helpful diagram to understand the differences:
@@ -81,6 +65,7 @@ During the last lesson, we actually implemented our first contract, transaction,
 Load up your project and redeploy your contract:
 
 cadence
+
 ```
 		
 			access(all) contract HelloWorld {
@@ -98,6 +83,7 @@ cadence
 Re-run your script as well:
 
 cadence
+
 ```
 		
 			import HelloWorld from "./HelloWorld.cdc"
@@ -118,6 +104,7 @@ Now letâs do an example of a transaction. Create another file called `chang
 Okay cool. Now we want to modify the data on the blockchain. In order to do that, letâs set up our transaction. We can do that by pasting this code:
 
 cadence
+
 ```
 		
 			transaction() {
@@ -144,6 +131,7 @@ Alright, so we want to change our `greeting` field to be something other than â
 Go back to your contract and add the following function:
 
 cadence
+
 ```
 		
 			access(all) fun changeGreeting(newGreeting: String) {
@@ -162,6 +150,7 @@ We just added a new function that:
 But wait! Thereâs an error in the contract. It says âcannot assign to constant member: `greeting`.â Why is it saying that? Remember, we made our greeting be `let`. `let` means itâs a constant, so if we want to change our `greeting`, we must change it to `var`. Your code should now look like this:
 
 cadence
+
 ```
 		
 			access(all) contract HelloWorld {
@@ -187,6 +176,7 @@ Make sure to deploy your contract again by stopping your emulator, restarting it
 Go back to your `change_greeting.cdc` file and add the following code:
 
 cadence
+
 ```
 		
 			import HelloWorld from "./HelloWorld.cdc"
@@ -213,6 +203,7 @@ To provide an argument to a transaction, you simply add it to the end of the com
 So in your terminal, run this transaction like so:
 
 bash
+
 ```
 		
 			flow transactions send ./change_greeting.cdc "Hey there, Jacob!"
@@ -232,21 +223,18 @@ Today we learned how to send a transaction in Cadence. This is for modifying dat
 
 We also learned how to execute a script in Cadence. This is for reading data.
 
-
 ![User avatar](/avatars/jacob.jpeg)
 
 Author
 
 [Jacob Tucker](https://twitter.com/jacobmtucker)
 
-
-
-
 [Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/learn-cadence-beginner/en/chapter1/lesson2.md)
-
 
 [Our First Smart Contract](/en/catalog/courses/learn-cadence-beginner/chapter1/lesson1)
 [Types](/en/catalog/courses/learn-cadence-beginner/chapter1/lesson3)
+
+
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
@@ -254,17 +242,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

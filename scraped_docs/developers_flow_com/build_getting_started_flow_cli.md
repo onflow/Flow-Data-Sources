@@ -1,19 +1,21 @@
 # Source: https://developers.flow.com/build/getting-started/flow-cli
 
-
-
-
 Local Development with Flow CLI | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
 * [Getting Started](/build/getting-started/contract-interaction)
+
   + [Contract Interaction](/build/getting-started/contract-interaction)
   + [Local Development](/build/getting-started/flow-cli)
   + [Simple Frontend](/build/getting-started/fcl-quickstart)
@@ -25,10 +27,11 @@ Local Development with Flow CLI | Flow Developer Portal
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
-
 * Getting Started
 * Local Development
+
 On this page
+
 # Local Development
 
 The [Flow Command Line Interface](/tools/flow-cli) (CLI) is a set of tools that developers can use to interact with the Flow blockchain by managing accounts, sending transactions, deploying smart contracts, running the emulator, and more. This quickstart will get you familiar with its main concepts and functionality.
@@ -47,7 +50,9 @@ After completing this guide, you'll be able to:
 
 The first thing you'll need to do is install the Flow CLI. If you have [homebrew](https://brew.sh/) installed you can run:
 
- `_10brew install flow-cli`
+`_10
+
+brew install flow-cli`
 
 For other ways of installing, please refer to the [installation guide](/tools/flow-cli/install).
 
@@ -55,7 +60,9 @@ For other ways of installing, please refer to the [installation guide](/tools/fl
 
 To create a new project, navigate to the directory where you want to create your project and run:
 
- `_10flow init`
+`_10
+
+flow init`
 
 Upon running this command, you'll be prompted to enter a project name. Enter a name and press `Enter`.
 
@@ -80,7 +87,10 @@ For additional details on how `flow.json` is configured, review the [configurati
 
 To run the example test for the `Counter` contract located in `cadence/tests`, you can run:
 
- `_10flow test`
+`_10
+
+flow test`
+
 tip
 
 For a more detailed guide on running Cadence tests, check out the [tests documentation](/tools/flow-cli/tests).
@@ -91,7 +101,9 @@ The emulator is a local version of the Flow blockchain that you can use to test 
 
 Before we deploy, let's open a new terminal window and run the emulator. From the root of your project directory, where your `emulator-account.pkey` and `flow.json` files are located, run:
 
- `_10flow emulator start`
+`_10
+
+flow emulator start`
 
 Your emulator should now be running.
 
@@ -103,7 +115,9 @@ When you created a project you'll see that a `Counter` contract was added to you
 
 With your emulator running, run the following command:
 
- `_10flow accounts create`
+`_10
+
+flow accounts create`
 
 When prompted, give your account the name `test-account` and select `Emulator` as the network. You'll now see this account in your `flow.json`.
 
@@ -113,7 +127,9 @@ When prompted, give your account the name `test-account` and select `Emulator` a
 
 To deploy the `Counter` contract to the emulator, you'll need to add it to your project configuration. You can do this by running:
 
- `_10flow config add deployment`
+`_10
+
+flow config add deployment`
 
 You'll be prompted to select the contract you want to deploy. Select `Counter` and then select the account you want to deploy it to. For this example, select `emulator-account`.
 
@@ -121,7 +137,9 @@ You'll be prompted to select the contract you want to deploy. Select `Counter` a
 
 To deploy the `Counter` contract to the emulator, run:
 
- `_10flow project deploy`
+`_10
+
+flow project deploy`
 
 That's it! You've just deployed your first contract to the Flow Emulator.
 
@@ -131,13 +149,17 @@ Scripts are used to read data from the Flow blockchain. There is no state modifi
 
 If we wanted to generate a new script, we could run:
 
- `_10flow generate script ScriptName`
+`_10
+
+flow generate script ScriptName`
 
 But the default project already has a `GetCounter` script for reading the count of the `Counter` contract. Open `cadence/scripts/GetCounter.cdc` in your editor to see the script.
 
 To run the script, you can run:
 
- `_10flow scripts execute cadence/scripts/GetCounter.cdc`
+`_10
+
+flow scripts execute cadence/scripts/GetCounter.cdc`
 
 You should see zero as the result since the `Counter` contract initializes the count to zero and we haven't run any transactions to increment it.
 
@@ -151,7 +173,9 @@ Transactions are used to modify the state of the blockchain. In our case, we wan
 
 To run the transaction, you can run:
 
- `_10flow transactions send cadence/transactions/IncrementCounter.cdc`
+`_10
+
+flow transactions send cadence/transactions/IncrementCounter.cdc`
 
 By default, this uses the `emulator-account` to sign the transaction and the emulator network. If you want to use your `test-account` account, you can specify the `--signer` flag with the account name.
 
@@ -167,7 +191,9 @@ For example, let's say we want to format the result of our `GetCounter` script s
 
 To grab it, run:
 
- `_10flow dependencies install testnet://8a4dce54554b225d.NumberFormatter`
+`_10
+
+flow dependencies install testnet://8a4dce54554b225d.NumberFormatter`
 
 When prompted for the account to deploy the contract to, select any account and ignore the prompt for an alias. This is if you wanted to configure a `mainnet` address for the contract.
 
@@ -177,11 +203,61 @@ You should then see the `NumberFormatter` in your deployments for emulator in yo
 
 Now we can deploy the `NumberFormatter` contract to the emulator by running:
 
- `_10flow project deploy`
+`_10
+
+flow project deploy`
 
 Now that we have the `NumberFormatter` contract deployed, we can update our `GetCounter` script to format the result. Open `cadence/scripts/GetCounter.cdc` and update it to use the following code:
 
- `_14import "Counter"_14import "NumberFormatter"_14_14access(all)_14fun main(): String {_14 // Retrieve the count from the Counter contract_14 let count: Int = Counter.getCount()_14_14 // Format the count using NumberFormatter_14 let formattedCount = NumberFormatter.formatWithCommas(number: count)_14_14 // Return the formatted count_14 return formattedCount_14}`
+`_14
+
+import "Counter"
+
+_14
+
+import "NumberFormatter"
+
+_14
+
+_14
+
+access(all)
+
+_14
+
+fun main(): String {
+
+_14
+
+// Retrieve the count from the Counter contract
+
+_14
+
+let count: Int = Counter.getCount()
+
+_14
+
+_14
+
+// Format the count using NumberFormatter
+
+_14
+
+let formattedCount = NumberFormatter.formatWithCommas(number: count)
+
+_14
+
+_14
+
+// Return the formatted count
+
+_14
+
+return formattedCount
+
+_14
+
+}`
 
 The things to note here are:
 
@@ -191,7 +267,9 @@ The things to note here are:
 
 Now, to run the updated script, you can run:
 
- `_10flow scripts execute cadence/scripts/GetCounter.cdc`
+`_10
+
+flow scripts execute cadence/scripts/GetCounter.cdc`
 
 You should now see the result. You won't see the commas unless the number is greater than 999.
 
@@ -201,7 +279,16 @@ If you want to continue on generating your own contracts, you can also use the t
 
 After that, it's easy to add your contract to your project configuration using the Flow CLI [`config` commands](/tools/flow-cli/flow.json/manage-configuration).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/flow-cli.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousContract Interaction](/build/getting-started/contract-interaction)[NextSimple Frontend](/build/getting-started/fcl-quickstart)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/flow-cli.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Contract Interaction](/build/getting-started/contract-interaction)[Next
+
+Simple Frontend](/build/getting-started/fcl-quickstart)
+
 ###### Rate this page
 
 😞😐😊
@@ -216,6 +303,7 @@ After that, it's easy to add your contract to your project configuration using t
 * [Executing Transactions](#executing-transactions)
 * [Installing & Interacting With External Dependencies](#installing--interacting-with-external-dependencies)
 * [More](#more)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -228,6 +316,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -237,6 +326,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -244,6 +334,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -253,6 +344,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -260,5 +352,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

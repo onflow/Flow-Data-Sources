@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/evm/about
 
-
-
-
 Why EVM on Flow | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Why EVM on Flow](/evm/about)
 * [How it Works](/evm/how-it-works)
@@ -25,9 +26,10 @@ Why EVM on Flow | Flow Developer Portal
 * [Clients](/evm/clients/ethers)
 * [Using EVM with Cadence](/evm/cadence/interacting-with-coa)
 
-
 * Why EVM on Flow
+
 On this page
+
 # Why EVM on Flow
 
 Flow is an L1 that now supports EVM-equivalency. This means that all of Flow's protocol benefits, such as fast transactions, low costs, and mainstream scalability, are natively available without any additional code changes to solidity contracts. With EVM, solidity devs and builders can now easily tap into Flow's user base and unique IPs without any implementation risk.
@@ -76,7 +78,15 @@ Those wishing to understand the technical specifics of how Flow EVM works we rec
 * Exploring the [Flow VM Bridge](https://github.com/onflow/flips/pull/233/files/d5bc46c4b13f0b9b168a94f994c77a5a689f6b24..122e938b7acae7e774246b1b66aaf5979ca21444)
 * Insights into the [Flow EVM Gateway](https://github.com/onflow/flips/pull/235/files)
 * Integration of the [Cadence Interface](https://github.com/onflow/flips/blob/f646491ec895442dcccdb24d80080bab1c56188e/protocol/20231116-evm-support.md)
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/about.md)Last updated on **Feb 18, 2025** by **Brian Doyle**[NextHow it Works](/evm/how-it-works)
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/about.md)
+
+Last updated on **Feb 19, 2025** by **bz**
+
+[Next
+
+How it Works](/evm/how-it-works)
+
 ###### Rate this page
 
 😞😐😊
@@ -89,6 +99,7 @@ Those wishing to understand the technical specifics of how Flow EVM works we rec
 * [Join the Community](#join-the-community)
 * [Further Reading and Discussions](#further-reading-and-discussions)
 * [Flow Improvement Proposals (FLIPs)](#flow-improvement-proposals-flips)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -101,6 +112,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -110,6 +122,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -117,6 +130,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -126,6 +140,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -133,5 +148,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

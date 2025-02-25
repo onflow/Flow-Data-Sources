@@ -1,29 +1,14 @@
 # Source: https://academy.ecdao.org/en/catalog/tutorials/capability-controllers
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -36,22 +21,18 @@ Capability Controllers (new capability system)
 
 # Capability Controllers (new capability system)
 
-
 Tutorial
 
 Beginner
 
 20 minutes
 
-
-
 The old Cadence capability system is being deprecated. Namely, `link` and `getCapability` are not what you should use anymore to create capabilities.
 
 This tutorial will walk through the new mechanism: **Capability Controllers** (âCap Consâ).
 
-  
-
 Follow along in a video format.
+
 # Example Overview
 
 In order to showcase the new Capability Controllers system, letâs create an example contract so we can compare how you would create, manage, and get the old vs. new capabilities side by side. We will have to define 2 different contracts - one in old Cadence, and one using Cadence 1.0 to properly show examples.
@@ -59,6 +40,7 @@ In order to showcase the new Capability Controllers system, letâs create an
 Old Cadence Contract:
 
 cadence
+
 ```
 		
 			pub contract HelloWorld {
@@ -91,6 +73,7 @@ cadence
 Cadence 1.0 Contract:
 
 cadence
+
 ```
 		
 			access(all) contract HelloWorld {
@@ -127,6 +110,7 @@ First we want to save the greeting resource in a userâs storage, and then a
 Here is the old way of doing that:
 
 cadence
+
 ```
 		
 			import HelloWorld from 0x01
@@ -146,6 +130,7 @@ transaction(greeting: String) {
 Here is the new way of doing that:
 
 cadence
+
 ```
 		
 			import HelloWorld from 0x01
@@ -176,6 +161,7 @@ Now letâs walk through how you would actually get the capability from a use
 Here is the old way of doing that:
 
 cadence
+
 ```
 		
 			import HelloWorld from 0x01
@@ -193,6 +179,7 @@ pub fun main(user: Address): String {
 Here is the new way of doing that:
 
 cadence
+
 ```
 		
 			import HelloWorld from 0x01
@@ -213,6 +200,7 @@ access(all) fun main(user: Address): String {
 OR, you can use a more simplified version using the new `borrow` conveniance function:
 
 cadence
+
 ```
 		
 			import HelloWorld from 0x01
@@ -227,11 +215,13 @@ access(all) fun main(user: Address): String {
 		 
 	
 ```
+
 ## Old vs. New: Removing a Public Capability
 
 Here is the old way of doing that:
 
 cadence
+
 ```
 		
 			import HelloWorld from 0x01
@@ -248,6 +238,7 @@ transaction(greeting: String) {
 Here is the new way of doing that:
 
 cadence
+
 ```
 		
 			import HelloWorld from 0x01
@@ -260,6 +251,7 @@ transaction(greeting: String) {
 		 
 	
 ```
+
 ## Old vs. New: Creating & Getting a Storage (âPrivateâ) Capability
 
 As youâve seen above, public capabilities are pretty similar. It is just different syntax.
@@ -269,6 +261,7 @@ However, private capabilities are very different now.
 Here is the old way of creating a private capability:
 
 cadence
+
 ```
 		
 			import HelloWorld from 0x01
@@ -293,6 +286,7 @@ transaction(greeting: String) {
 Here is the new way of creating a private capability:
 
 cadence
+
 ```
 		
 			import HelloWorld from 0x01
@@ -315,6 +309,7 @@ Note that private paths do not exist anymore. You are instead just issuing stora
 Here is how youâd do that:
 
 cadence
+
 ```
 		
 			import HelloWorld from 0x01
@@ -330,6 +325,7 @@ access(all) fun main(user: Address, storagePath: StoragePath): [&StorageCapabili
 Here is what the `&StorageCapabilityController` type looks like:
 
 cadence
+
 ```
 		
 			access(all) struct StorageCapabilityController {
@@ -380,6 +376,7 @@ The most important thing to note here is the `capabilityID`. Each capability now
 Here is the old way of getting a private capability:
 
 cadence
+
 ```
 		
 			import HelloWorld from 0x01
@@ -397,6 +394,7 @@ transaction() {
 To get a private capability in the new way, it is a bit trickier. There is no such thing as a private path anymore, and your storage capabilities are not able to be fetched directly after they are created. You would either have to create a new one, or do some complicated looping like this:
 
 cadence
+
 ```
 		
 			import HelloWorld from 0x01
@@ -428,6 +426,7 @@ transaction() {
 Instead, it is much easier to simply save your storage capability at a storage path when it is created, and fetch it back that way. Here is an example:
 
 cadence
+
 ```
 		
 			import HelloWorld from 0x01
@@ -448,6 +447,7 @@ transaction(greeting: String) {
 Now at a later point, we can easily access that storage capability like so:
 
 cadence
+
 ```
 		
 			import HelloWorld from 0x01
@@ -465,11 +465,13 @@ transaction(greeting: String) {
 		 
 	
 ```
+
 ## Old vs. New: Removing a Storage (âPrivateâ) Capability
 
 Here is the old way of doing that:
 
 cadence
+
 ```
 		
 			import HelloWorld from 0x01
@@ -486,6 +488,7 @@ transaction(greeting: String) {
 Here is the new way of doing that:
 
 cadence
+
 ```
 		
 			import HelloWorld from 0x01
@@ -512,19 +515,16 @@ Also, if youâd like to view the official changes for Cap Cons by the Cadenc
 
 Till next time ~ Jacob Tucker
 
-
 ![User avatar](/avatars/jacob.jpeg)
 
 Author
 
 [Jacob Tucker](https://twitter.com/jacobmtucker)
 
-
-
-
 [Video lesson](#)
 
 [Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/tutorials/capability-controllers/en/readme.md)
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
@@ -533,17 +533,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

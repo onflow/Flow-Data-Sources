@@ -1,18 +1,21 @@
 # Source: https://cadence-lang.org/docs/tutorial/fungible-tokens
 
-
-
-
 Fungible Tokens | Cadence
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)Search
+[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
+
+[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+
+Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
 * [Tutorial](/docs/tutorial/first-steps)
+
   + [First Steps](/docs/tutorial/first-steps)
   + [Hello World](/docs/tutorial/hello-world)
   + [Resources and the Move (<-) Operator](/docs/tutorial/resources)
@@ -36,10 +39,11 @@ Fungible Tokens | Cadence
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
-
 * Tutorial
 * Fungible Tokens
+
 On this page
+
 # Fungible Tokens
 
 Some of the most popular contract classes on blockchains today are fungible tokens.
@@ -47,7 +51,55 @@ These contracts create homogeneous tokens that can be transferred to other users
 
 In traditional software and smart contracts, balances for each user are tracked by a central ledger, such as a dictionary:
 
- `_13// BAD CODE EXAMPLE. DO NOT USE THIS CODE FOR YOUR PROJECT_13contract LedgerToken {_13 // Tracks every user's balance_13 access(contract) let balances: {Address: UFix64}_13_13 // Transfer tokens from one user to the other_13 // by updating their balances in the central ledger_13 access(all)_13 fun transfer(from: Address, to: Address, amount: UFix64) {_13 balances[from] = balances[from] - amount_13 balances[to] = balances[to] + amount_13 }_13}`
+`_13
+
+// BAD CODE EXAMPLE. DO NOT USE THIS CODE FOR YOUR PROJECT
+
+_13
+
+contract LedgerToken {
+
+_13
+
+// Tracks every user's balance
+
+_13
+
+access(contract) let balances: {Address: UFix64}
+
+_13
+
+_13
+
+// Transfer tokens from one user to the other
+
+_13
+
+// by updating their balances in the central ledger
+
+_13
+
+access(all)
+
+_13
+
+fun transfer(from: Address, to: Address, amount: UFix64) {
+
+_13
+
+balances[from] = balances[from] - amount
+
+_13
+
+balances[to] = balances[to] + amount
+
+_13
+
+}
+
+_13
+
+}`
 
 With Cadence, we use the new resource-oriented paradigm to implement fungible tokens and avoid using a central ledger, because there are inherent problems with using a central ledger that are detailed in [the Fungible Tokens section below].
 
@@ -93,7 +145,61 @@ Flow implements fungible tokens differently than other programming languages. As
 
 The example below showcases how Solidity (the smart contract language for the Ethereum Blockchain, among others) implements fungible tokens, with only the code for storage and transferring tokens shown for brevity.
 
-ERC20.sol `_15contract ERC20 {_15 // Maps user addresses to balances, similar to a dictionary in Cadence_15 mapping (address => uint256) private _balances;_15_15 function _transfer(address sender, address recipient, uint256 amount) {_15 // ensure the sender has a valid balance_15 require(_balances[sender] >= amount);_15_15 // subtract the amount from the senders ledger balance_15 _balances[sender] = _balances[sender] - amount;_15_15 // add the amount to the recipient's ledger balance_15 _balances[recipient] = _balances[recipient] + amount_15 }_15}`
+ERC20.sol
+
+`_15
+
+contract ERC20 {
+
+_15
+
+// Maps user addresses to balances, similar to a dictionary in Cadence
+
+_15
+
+mapping (address => uint256) private _balances;
+
+_15
+
+_15
+
+function _transfer(address sender, address recipient, uint256 amount) {
+
+_15
+
+// ensure the sender has a valid balance
+
+_15
+
+require(_balances[sender] >= amount);
+
+_15
+
+_15
+
+// subtract the amount from the senders ledger balance
+
+_15
+
+_balances[sender] = _balances[sender] - amount;
+
+_15
+
+_15
+
+// add the amount to the recipient's ledger balance
+
+_15
+
+_balances[recipient] = _balances[recipient] + amount
+
+_15
+
+}
+
+_15
+
+}`
 
 As you can see, Solidity uses a central ledger system for its fungible tokens. There is one contract that manages the state of the tokens and every time that a user wants to do anything with their tokens, they have to interact with the central ERC20 contract. This contract handles access control for all functionality, implements all of its own correctness checks, and enforces rules for all of its users.
 
@@ -121,7 +227,51 @@ Open the starter code for this tutorial in the Flow Playground:
 
 In `ExampleToken.cdc`, you'll see:
 
-ExampleToken.cdc `_13access(all) contract ExampleToken {_13_13 access(all) entitlement Withdraw_13_13 access(all) let VaultStoragePath: StoragePath_13 access(all) let VaultPublicPath: PublicPath_13_13 _13 init() {_13 self.VaultStoragePath = /storage/CadenceFungibleTokenTutorialVault_13 self.VaultPublicPath = /public/CadenceFungibleTokenTutorialReceiver_13 }_13}`
+ExampleToken.cdc
+
+`_13
+
+access(all) contract ExampleToken {
+
+_13
+
+_13
+
+access(all) entitlement Withdraw
+
+_13
+
+_13
+
+access(all) let VaultStoragePath: StoragePath
+
+_13
+
+access(all) let VaultPublicPath: PublicPath
+
+_13
+
+_13
+
+_13
+
+init() {
+
+_13
+
+self.VaultStoragePath = /storage/CadenceFungibleTokenTutorialVault
+
+_13
+
+self.VaultPublicPath = /public/CadenceFungibleTokenTutorialReceiver
+
+_13
+
+}
+
+_13
+
+}`
 
 Before you can add your vault, you'll need to implement the various pieces it will depend on.
 
@@ -135,8 +285,10 @@ Action
 
 Implement a contract-level [fixed-point number](/docs/language/values-and-types#fixed-point-numbers) to track the `totalSupply` of the token.
 
+`_10
 
- `_10access(all) var totalSupply: UFix64`
+access(all) var totalSupply: UFix64`
+
 ### Interfaces[​](#interfaces "Direct link to Interfaces")
 
 You'll also need a place to store the `balance` of any given user's vault. You **could** simply add a variable in the vault [resource](/docs/language/resources) definition to do this and it would work just fine.
@@ -155,8 +307,17 @@ Action
 
 First, create a `Balance` interface, requiring a public `UFix64` called `balance`. It should be public.
 
+`_10
 
- `_10access(all) resource interface Balance {_10 access(all) var balance: UFix64_10}`
+access(all) resource interface Balance {
+
+_10
+
+access(all) var balance: UFix64
+
+_10
+
+}`
 
 This one is pretty simple. It just defines the type of variable anything implementing it will need to have to keep track of a token balance.
 
@@ -166,8 +327,23 @@ Next, create the `Provider` `interface`. In it, define a `withdraw` function. It
 
 To prevent an error, stub out the `Vault` resource as well.
 
+`_10
 
- `_10access(all) resource interface Provider {_10 access(Withdraw) fun withdraw(amount: UFix64): @Vault {}_10}_10_10access(all) resource Vault {}`
+access(all) resource interface Provider {
+
+_10
+
+access(Withdraw) fun withdraw(amount: UFix64): @Vault {}
+
+_10
+
+}
+
+_10
+
+_10
+
+access(all) resource Vault {}`
 
 This [interface] will require resources implementing it to have a `withdraw` function, but it doesn't provide any limitations to how that function works. For example, it could be implemented such that the amount of tokens returned is double the withdrawn amount. While there might be a use case for that effect, it's not what you want for a normal token standard.
 
@@ -179,8 +355,41 @@ Action
 
 Add a `post` condition that returns a descriptive and nicely formatted error if the amount returned in the vault from the function doesn't match the `amount` passed into the function.
 
+`_10
 
- `_10access(Withdraw) fun withdraw(amount: UFix64): @Vault {_10 post {_10 result.balance == amount:_10 "ExampleToken.Provider.withdraw: Cannot withdraw tokens!"_10 .concat("The balance of the withdrawn tokens (").concat(result.balance.toString())_10 .concat(") is not equal to the amount requested to be withdrawn (")_10 .concat(amount.toString()).concat(")")_10 }_10}`
+access(Withdraw) fun withdraw(amount: UFix64): @Vault {
+
+_10
+
+post {
+
+_10
+
+result.balance == amount:
+
+_10
+
+"ExampleToken.Provider.withdraw: Cannot withdraw tokens!"
+
+_10
+
+.concat("The balance of the withdrawn tokens (").concat(result.balance.toString())
+
+_10
+
+.concat(") is not equal to the amount requested to be withdrawn (")
+
+_10
+
+.concat(amount.toString()).concat(")")
+
+_10
+
+}
+
+_10
+
+}`
 
 This `post` condition will be added automatically to the `withdraw` function in a resource implementing `Provider`.
 
@@ -190,7 +399,18 @@ Finally, implement an [interface] called `Receiver`, containing a function calle
 
 ::
 
- `_10access(all) resource interface Receiver {_10 access(all) fun deposit(from: @Vault)_10}`
+`_10
+
+access(all) resource interface Receiver {
+
+_10
+
+access(all) fun deposit(from: @Vault)
+
+_10
+
+}`
+
 ## Implementing the Vault[​](#implementing-the-vault "Direct link to Implementing the Vault")
 
 You're finally ready to implement the vault.
@@ -199,12 +419,23 @@ Action
 
 Start by declaring a type for a `Vault` that implements `Balance`, `Provider`, and `Receiver`.
 
+`_10
 
- `_10access(all) resource Vault: Balance, Provider, Receiver {_10 // TODO_10}`
+access(all) resource Vault: Balance, Provider, Receiver {
+
+_10
+
+// TODO
+
+_10
+
+}`
 
 You'll get errors:
 
- `_10resource `ExampleToken.Vault` does not conform to resource interface `ExampleToken.Balance`. `ExampleToken.Vault` is missing definitions for members: Balance`
+`_10
+
+resource `ExampleToken.Vault` does not conform to resource interface `ExampleToken.Balance`. `ExampleToken.Vault` is missing definitions for members: Balance`
 
 And similar errors for `Provider` and `Receiver`. Similar to inheriting from a virtual class in other languages, implementing the interfaces requires you to implement the properties from those interfaces in your resource.
 
@@ -216,20 +447,93 @@ The pattern we're setting up here let's us create vaults and give them a `balanc
 
 For example, you might want to set up a conditional transaction that `deposit`s the balance in the vaults in different addresses based on whether or not a part of the transaction is successful.
 
- `_10access(all) var balance: UFix64_10_10init(balance: UFix64) {_10 self.balance = balance_10}`
+`_10
+
+access(all) var balance: UFix64
+
+_10
+
+_10
+
+init(balance: UFix64) {
+
+_10
+
+self.balance = balance
+
+_10
+
+}`
+
 Action
 
 Next, implement `withdraw` function. It should contain a precondition that validates that the user actually possesses equal to or greater the number of tokens they are withdrawing.
 
 While this functionality is probably something we'd want in every vault, we can't put the requirement in the [interface], because the interface doesn't have access to the `balance`.
 
- `_11access(Withdraw) fun withdraw(amount: UFix64): @Vault {_11 pre {_11 self.balance >= amount:_11 "ExampleToken.Vault.withdraw: Cannot withdraw tokens! "_11 .concat("The amount requested to be withdrawn (").concat(amount.toString())_11 .concat(") is greater than the balance of the Vault (")_11 .concat(self.balance.toString()).concat(").")_11 }_11 self.balance = self.balance - amount_11 return <-create Vault(balance: amount)_11}`
+`_11
+
+access(Withdraw) fun withdraw(amount: UFix64): @Vault {
+
+_11
+
+pre {
+
+_11
+
+self.balance >= amount:
+
+_11
+
+"ExampleToken.Vault.withdraw: Cannot withdraw tokens! "
+
+_11
+
+.concat("The amount requested to be withdrawn (").concat(amount.toString())
+
+_11
+
+.concat(") is greater than the balance of the Vault (")
+
+_11
+
+.concat(self.balance.toString()).concat(").")
+
+_11
+
+}
+
+_11
+
+self.balance = self.balance - amount
+
+_11
+
+return <-create Vault(balance: amount)
+
+_11
+
+}`
+
 Action
 
 Finally, implement the `deposit` function. Depositing should move the entire balance from the provided vault, and then `destroy` it.
 
+`_10
 
- `_10access(all) fun deposit(from: @Vault) {_10 self.balance = self.balance + from.balance_10 destroy from_10}`
+access(all) fun deposit(from: @Vault) {
+
+_10
+
+self.balance = self.balance + from.balance
+
+_10
+
+destroy from
+
+_10
+
+}`
 
 You **must** do something with the `Vault` resource after it's moved into the function. You can `destroy` it, because it's now empty, and you don't need it anymore.
 
@@ -241,8 +545,17 @@ Action
 
 Add a function to `create` an empty `Vault`.
 
+`_10
 
- `_10access(all) fun createEmptyVault(): @Vault {_10 return <-create Vault(balance: 0.0)_10}`
+access(all) fun createEmptyVault(): @Vault {
+
+_10
+
+return <-create Vault(balance: 0.0)
+
+_10
+
+}`
 
 We'll use this when we create a transaction to set up new users.
 
@@ -254,8 +567,42 @@ Action
 
 Add a function to generate a helpful error if an attempt to borrow a `Vault` fails.
 
+`_10
 
- `_10access(all) fun vaultNotConfiguredError(address: Address): String {_10 return "Could not borrow a collection reference to recipient's ExampleToken.Vault"_10 .concat(" from the path ")_10 .concat(ExampleToken.VaultPublicPath.toString())_10 .concat(". Make sure account ")_10 .concat(address.toString())_10 .concat(" has set up its account ")_10 .concat("with an ExampleToken Vault.")_10}`
+access(all) fun vaultNotConfiguredError(address: Address): String {
+
+_10
+
+return "Could not borrow a collection reference to recipient's ExampleToken.Vault"
+
+_10
+
+.concat(" from the path ")
+
+_10
+
+.concat(ExampleToken.VaultPublicPath.toString())
+
+_10
+
+.concat(". Make sure account ")
+
+_10
+
+.concat(address.toString())
+
+_10
+
+.concat(" has set up its account ")
+
+_10
+
+.concat("with an ExampleToken Vault.")
+
+_10
+
+}`
+
 ## Minting[​](#minting "Direct link to Minting")
 
 Next, you need a way to actually create, or mint, tokens. For this example, we'll define a `VaultMinter` resource that has the power to mint and airdrop tokens to any address that possesses a vault, or at least something with the `Receiver` [interface] for this token.
@@ -267,8 +614,40 @@ Action
 
 Define a public [resource](/docs/language/resources) with a public function `mintTokens` that accepts an `amount` of tokens to mint, and a `recipient` that must possess the `Receiver` [capability](/docs/language/capabilities).
 
+`_10
 
- `_10access(all) resource VaultMinter {_10 access(all) fun mintTokens(amount: UFix64, recipient: Capability<&{Receiver}>) {_10 let recipientRef = recipient.borrow()_10 ?? panic(ExampleToken.vaultNotConfiguredError(address: recipient.address))_10_10 ExampleToken.totalSupply = ExampleToken.totalSupply + UFix64(amount)_10 recipientRef.deposit(from: <-create Vault(balance: amount))_10 }_10}`
+access(all) resource VaultMinter {
+
+_10
+
+access(all) fun mintTokens(amount: UFix64, recipient: Capability<&{Receiver}>) {
+
+_10
+
+let recipientRef = recipient.borrow()
+
+_10
+
+?? panic(ExampleToken.vaultNotConfiguredError(address: recipient.address))
+
+_10
+
+_10
+
+ExampleToken.totalSupply = ExampleToken.totalSupply + UFix64(amount)
+
+_10
+
+recipientRef.deposit(from: <-create Vault(balance: amount))
+
+_10
+
+}
+
+_10
+
+}`
+
 ## Final Contract Setup[​](#final-contract-setup "Direct link to Final Contract Setup")
 
 The last task with the contract is to update the `init` function in your contract to save yourself a little bit of time and create and create a `VaultMinter` in your account.
@@ -277,12 +656,406 @@ Action
 
 Update the contract `init` function to `create` and `save` an instance of `VaultMinter`:
 
+`_10
 
- `_10self_10.account_10.storage_10.save(<-create VaultMinter(),_10 to: /storage/CadenceFungibleTokenTutorialMinter_10)`
+self
+
+_10
+
+.account
+
+_10
+
+.storage
+
+_10
+
+.save(<-create VaultMinter(),
+
+_10
+
+to: /storage/CadenceFungibleTokenTutorialMinter
+
+_10
+
+)`
 
 After doing all of this, your contract should be similar to:
 
- `_103access(all) contract ExampleToken {_103_103 access(all) entitlement Withdraw_103_103 access(all) let VaultStoragePath: StoragePath_103 access(all) let VaultPublicPath: PublicPath_103_103 access(all) var totalSupply: UFix64_103_103 access(all) resource interface Balance {_103 access(all) var balance: UFix64_103 }_103_103 access(all) resource interface Provider {_103 ///_103 /// @param amount the amount of tokens to withdraw from the resource_103 /// @return The Vault with the withdrawn tokens_103 ///_103 access(Withdraw) fun withdraw(amount: UFix64): @Vault {_103 post {_103 // `result` refers to the return value_103 result.balance == amount:_103 "ExampleToken.Provider.withdraw: Cannot withdraw tokens!"_103 .concat("The balance of the withdrawn tokens (").concat(result.balance.toString())_103 .concat(") is not equal to the amount requested to be withdrawn (")_103 .concat(amount.toString()).concat(")")_103 }_103 }_103 }_103_103 access(all) resource interface Receiver {_103_103 /// deposit takes a Vault and deposits it into the implementing resource type_103 ///_103 /// @param from the Vault that contains the tokens to deposit_103 ///_103 access(all) fun deposit(from: @Vault)_103 }_103_103 access(all) resource Vault: Balance, Provider, Receiver {_103_103 access(all) var balance: UFix64_103_103 init(balance: UFix64) {_103 self.balance = balance_103 }_103_103 access(Withdraw) fun withdraw(amount: UFix64): @Vault {_103 pre {_103 self.balance >= amount:_103 "ExampleToken.Vault.withdraw: Cannot withdraw tokens! "_103 .concat("The amount requested to be withdrawn (").concat(amount.toString())_103 .concat(") is greater than the balance of the Vault (")_103 .concat(self.balance.toString()).concat(").")_103 }_103 self.balance = self.balance - amount_103 return <-create Vault(balance: amount)_103 }_103_103 access(all) fun deposit(from: @Vault) {_103 self.balance = self.balance + from.balance_103 destroy from_103 }_103 }_103_103 access(all) fun createEmptyVault(): @Vault {_103 return <-create Vault(balance: 0.0)_103 }_103_103 access(all) resource VaultMinter {_103 access(all) fun mintTokens(amount: UFix64, recipient: Capability<&{Receiver}>) {_103 let recipientRef = recipient.borrow()_103 ?? panicpanic(ExampleToken.vaultNotConfiguredError(address: recipient.address))_103_103 ExampleToken.totalSupply = ExampleToken.totalSupply + UFix64(amount)_103 recipientRef.deposit(from: <-create Vault(balance: amount))_103 }_103 }_103_103 access(all) fun vaultNotConfiguredError(address: Address): String {_103 return "Could not borrow a collection reference to recipient's ExampleToken.Vault"_103 .concat(" from the path ")_103 .concat(ExampleToken.VaultPublicPath.toString())_103 .concat(". Make sure account ")_103 .concat(address.toString())_103 .concat(" has set up its account ")_103 .concat("with an ExampleToken Vault.")_103 }_103_103 init() {_103 self.VaultStoragePath = /storage/CadenceFungibleTokenTutorialVault_103 self.VaultPublicPath = /public/CadenceFungibleTokenTutorialReceiver_103_103 self.totalSupply = 30.0_103_103 self_103 .account_103 .storage_103 .save(<-create VaultMinter(),_103 to: /storage/CadenceFungibleTokenTutorialMinter_103 )_103 }_103}`
+`_103
+
+access(all) contract ExampleToken {
+
+_103
+
+_103
+
+access(all) entitlement Withdraw
+
+_103
+
+_103
+
+access(all) let VaultStoragePath: StoragePath
+
+_103
+
+access(all) let VaultPublicPath: PublicPath
+
+_103
+
+_103
+
+access(all) var totalSupply: UFix64
+
+_103
+
+_103
+
+access(all) resource interface Balance {
+
+_103
+
+access(all) var balance: UFix64
+
+_103
+
+}
+
+_103
+
+_103
+
+access(all) resource interface Provider {
+
+_103
+
+///
+
+_103
+
+/// @param amount the amount of tokens to withdraw from the resource
+
+_103
+
+/// @return The Vault with the withdrawn tokens
+
+_103
+
+///
+
+_103
+
+access(Withdraw) fun withdraw(amount: UFix64): @Vault {
+
+_103
+
+post {
+
+_103
+
+// `result` refers to the return value
+
+_103
+
+result.balance == amount:
+
+_103
+
+"ExampleToken.Provider.withdraw: Cannot withdraw tokens!"
+
+_103
+
+.concat("The balance of the withdrawn tokens (").concat(result.balance.toString())
+
+_103
+
+.concat(") is not equal to the amount requested to be withdrawn (")
+
+_103
+
+.concat(amount.toString()).concat(")")
+
+_103
+
+}
+
+_103
+
+}
+
+_103
+
+}
+
+_103
+
+_103
+
+access(all) resource interface Receiver {
+
+_103
+
+_103
+
+/// deposit takes a Vault and deposits it into the implementing resource type
+
+_103
+
+///
+
+_103
+
+/// @param from the Vault that contains the tokens to deposit
+
+_103
+
+///
+
+_103
+
+access(all) fun deposit(from: @Vault)
+
+_103
+
+}
+
+_103
+
+_103
+
+access(all) resource Vault: Balance, Provider, Receiver {
+
+_103
+
+_103
+
+access(all) var balance: UFix64
+
+_103
+
+_103
+
+init(balance: UFix64) {
+
+_103
+
+self.balance = balance
+
+_103
+
+}
+
+_103
+
+_103
+
+access(Withdraw) fun withdraw(amount: UFix64): @Vault {
+
+_103
+
+pre {
+
+_103
+
+self.balance >= amount:
+
+_103
+
+"ExampleToken.Vault.withdraw: Cannot withdraw tokens! "
+
+_103
+
+.concat("The amount requested to be withdrawn (").concat(amount.toString())
+
+_103
+
+.concat(") is greater than the balance of the Vault (")
+
+_103
+
+.concat(self.balance.toString()).concat(").")
+
+_103
+
+}
+
+_103
+
+self.balance = self.balance - amount
+
+_103
+
+return <-create Vault(balance: amount)
+
+_103
+
+}
+
+_103
+
+_103
+
+access(all) fun deposit(from: @Vault) {
+
+_103
+
+self.balance = self.balance + from.balance
+
+_103
+
+destroy from
+
+_103
+
+}
+
+_103
+
+}
+
+_103
+
+_103
+
+access(all) fun createEmptyVault(): @Vault {
+
+_103
+
+return <-create Vault(balance: 0.0)
+
+_103
+
+}
+
+_103
+
+_103
+
+access(all) resource VaultMinter {
+
+_103
+
+access(all) fun mintTokens(amount: UFix64, recipient: Capability<&{Receiver}>) {
+
+_103
+
+let recipientRef = recipient.borrow()
+
+_103
+
+?? panicpanic(ExampleToken.vaultNotConfiguredError(address: recipient.address))
+
+_103
+
+_103
+
+ExampleToken.totalSupply = ExampleToken.totalSupply + UFix64(amount)
+
+_103
+
+recipientRef.deposit(from: <-create Vault(balance: amount))
+
+_103
+
+}
+
+_103
+
+}
+
+_103
+
+_103
+
+access(all) fun vaultNotConfiguredError(address: Address): String {
+
+_103
+
+return "Could not borrow a collection reference to recipient's ExampleToken.Vault"
+
+_103
+
+.concat(" from the path ")
+
+_103
+
+.concat(ExampleToken.VaultPublicPath.toString())
+
+_103
+
+.concat(". Make sure account ")
+
+_103
+
+.concat(address.toString())
+
+_103
+
+.concat(" has set up its account ")
+
+_103
+
+.concat("with an ExampleToken Vault.")
+
+_103
+
+}
+
+_103
+
+_103
+
+init() {
+
+_103
+
+self.VaultStoragePath = /storage/CadenceFungibleTokenTutorialVault
+
+_103
+
+self.VaultPublicPath = /public/CadenceFungibleTokenTutorialReceiver
+
+_103
+
+_103
+
+self.totalSupply = 30.0
+
+_103
+
+_103
+
+self
+
+_103
+
+.account
+
+_103
+
+.storage
+
+_103
+
+.save(<-create VaultMinter(),
+
+_103
+
+to: /storage/CadenceFungibleTokenTutorialMinter
+
+_103
+
+)
+
+_103
+
+}
+
+_103
+
+}`
+
 ## Set Up Account Transaction[​](#set-up-account-transaction "Direct link to Set Up Account Transaction")
 
 We'll now need to create several transactions and scripts to manage interactions with the vault. The first of these is one to set up a user's account. It needs to:
@@ -300,7 +1073,64 @@ Implement the `Set Up Account` transaction.
 
 You should end up with something similar to:
 
- `_17import ExampleToken from 0x06_17_17transaction {_17 prepare(signer: auth(BorrowValue, IssueStorageCapabilityController, PublishCapability, SaveValue) &Account) {_17 // You may wish to check if a vault already exists here_17_17 let vaultA <- ExampleToken.createEmptyVault()_17_17 signer.storage.save(<-vaultA, to: ExampleToken.VaultStoragePath)_17_17 let receiverCap = signer.capabilities.storage.issue<&ExampleToken.Vault>(_17 ExampleToken.VaultStoragePath_17 )_17_17 signer.capabilities.publish(receiverCap, at: ExampleToken.VaultPublicPath)_17 }_17}`
+`_17
+
+import ExampleToken from 0x06
+
+_17
+
+_17
+
+transaction {
+
+_17
+
+prepare(signer: auth(BorrowValue, IssueStorageCapabilityController, PublishCapability, SaveValue) &Account) {
+
+_17
+
+// You may wish to check if a vault already exists here
+
+_17
+
+_17
+
+let vaultA <- ExampleToken.createEmptyVault()
+
+_17
+
+_17
+
+signer.storage.save(<-vaultA, to: ExampleToken.VaultStoragePath)
+
+_17
+
+_17
+
+let receiverCap = signer.capabilities.storage.issue<&ExampleToken.Vault>(
+
+_17
+
+ExampleToken.VaultStoragePath
+
+_17
+
+)
+
+_17
+
+_17
+
+signer.capabilities.publish(receiverCap, at: ExampleToken.VaultPublicPath)
+
+_17
+
+}
+
+_17
+
+}`
+
 ## Minting Tokens[​](#minting-tokens "Direct link to Minting Tokens")
 
 The next transaction is another one that you should be able to implement on your own. Give it a try, and check the solution if you need to. Your transaction should:
@@ -317,7 +1147,96 @@ Implement the `Mint Tokens` transaction.
 
 You should end up with something similar to:
 
- `_26import ExampleToken from 0x06_26_26transaction(recipient: Address, amount: UFix64) {_26 let mintingRef: &ExampleToken.VaultMinter_26 var receiver: Capability<&{ExampleToken.Receiver}>_26_26 prepare(signer: auth(BorrowValue) &Account) {_26 self.mintingRef = signer.storage.borrow<&ExampleToken.VaultMinter>(from: /storage/CadenceFungibleTokenTutorialMinter)_26 ?? panic(ExampleToken.vaultNotConfiguredError(address: recipient))_26_26 let recipient = getAccount(recipient)_26_26 // Consider further error handling if this fails_26 self.receiver = recipient.capabilities.get<&{ExampleToken.Receiver}>_26 (ExampleToken.VaultPublicPath)_26_26 }_26_26 execute {_26 // Mint 30 tokens and deposit them into the recipient's Vault_26 self.mintingRef.mintTokens(amount: 30.0, recipient: self.receiver)_26_26 log("30 tokens minted and deposited to account "_26 .concat(self.receiver.address.toString()))_26 }_26}`
+`_26
+
+import ExampleToken from 0x06
+
+_26
+
+_26
+
+transaction(recipient: Address, amount: UFix64) {
+
+_26
+
+let mintingRef: &ExampleToken.VaultMinter
+
+_26
+
+var receiver: Capability<&{ExampleToken.Receiver}>
+
+_26
+
+_26
+
+prepare(signer: auth(BorrowValue) &Account) {
+
+_26
+
+self.mintingRef = signer.storage.borrow<&ExampleToken.VaultMinter>(from: /storage/CadenceFungibleTokenTutorialMinter)
+
+_26
+
+?? panic(ExampleToken.vaultNotConfiguredError(address: recipient))
+
+_26
+
+_26
+
+let recipient = getAccount(recipient)
+
+_26
+
+_26
+
+// Consider further error handling if this fails
+
+_26
+
+self.receiver = recipient.capabilities.get<&{ExampleToken.Receiver}>
+
+_26
+
+(ExampleToken.VaultPublicPath)
+
+_26
+
+_26
+
+}
+
+_26
+
+_26
+
+execute {
+
+_26
+
+// Mint 30 tokens and deposit them into the recipient's Vault
+
+_26
+
+self.mintingRef.mintTokens(amount: 30.0, recipient: self.receiver)
+
+_26
+
+_26
+
+log("30 tokens minted and deposited to account "
+
+_26
+
+.concat(self.receiver.address.toString()))
+
+_26
+
+}
+
+_26
+
+}`
+
 Action
 
 Test out your minting function by attempting to mint tokens to accounts that do and do not have vaults.
@@ -332,7 +1251,60 @@ Write a script to check the balance of an address. It should accept an argument 
 
 You should end up with something similar to:
 
- `_15import ExampleToken from 0x06_15_15access(all)_15fun main(address: Address): String {_15 let account = getAccount(address)_15_15 let accountReceiverRef = account.capabilities.get<&{ExampleToken.Balance}>(ExampleToken.VaultPublicPath)_15 .borrow()_15 ?? panic(ExampleToken.vaultNotConfiguredError(address: address))_15_15 return("Balance for "_15 .concat(address.toString())_15 .concat(": ").concat(accountReceiverRef.balance.toString())_15 )_15}`
+`_15
+
+import ExampleToken from 0x06
+
+_15
+
+_15
+
+access(all)
+
+_15
+
+fun main(address: Address): String {
+
+_15
+
+let account = getAccount(address)
+
+_15
+
+_15
+
+let accountReceiverRef = account.capabilities.get<&{ExampleToken.Balance}>(ExampleToken.VaultPublicPath)
+
+_15
+
+.borrow()
+
+_15
+
+?? panic(ExampleToken.vaultNotConfiguredError(address: address))
+
+_15
+
+_15
+
+return("Balance for "
+
+_15
+
+.concat(address.toString())
+
+_15
+
+.concat(": ").concat(accountReceiverRef.balance.toString())
+
+_15
+
+)
+
+_15
+
+}`
+
 ## Transferring Tokens[​](#transferring-tokens "Direct link to Transferring Tokens")
 
 Transferring tokens from one account to another takes a little more coordination and a more complex contract. When an account wants to send tokens to a different account, the sending account calls their own withdraw function first, which subtracts tokens from their resource's balance and temporarily creates a new resource object that holds this balance.
@@ -341,8 +1313,51 @@ Action
 
 Initialize a transaction-level variable to hold a temporary vault. Borrow a reference for the sender's vault with the `Withdraw` entitlement and send it to the temporary vault.
 
+`_13
 
- `_13import ExampleToken from 0x06_13_13transaction(recipient: Address, amount: UFix64) {_13 var temporaryVault: @ExampleToken.Vault_13_13 prepare(signer: auth(BorrowValue) &Account) {_13 let vaultRef = signer.storage.borrow<auth(ExampleToken.Withdraw) &ExampleToken.Vault>_13 from: ExampleToken.VaultStoragePath)_13 ?? panic(ExampleToken.vaultNotConfiguredError(address: signer.address))_13_13 self.temporaryVault <- vaultRef.withdraw(amount: amount)_13 }_13}`
+import ExampleToken from 0x06
+
+_13
+
+_13
+
+transaction(recipient: Address, amount: UFix64) {
+
+_13
+
+var temporaryVault: @ExampleToken.Vault
+
+_13
+
+_13
+
+prepare(signer: auth(BorrowValue) &Account) {
+
+_13
+
+let vaultRef = signer.storage.borrow<auth(ExampleToken.Withdraw) &ExampleToken.Vault>
+
+_13
+
+from: ExampleToken.VaultStoragePath)
+
+_13
+
+?? panic(ExampleToken.vaultNotConfiguredError(address: signer.address))
+
+_13
+
+_13
+
+self.temporaryVault <- vaultRef.withdraw(amount: amount)
+
+_13
+
+}
+
+_13
+
+}`
 
 The sending account then gets a reference to the recipients published capability and calls the recipient account's deposit function, which literally moves the resource instance to the other account, adds it to their balance, and then destroys the used resource.
 
@@ -350,8 +1365,47 @@ Action
 
 Use the `execute` phase to `deposit` the tokens in the `temporaryVault` into the recipient's vault.
 
+`_12
 
- `_12execute{_12 let receiverAccount = getAccount(recipient)_12_12 let receiverRef = receiverAccount_12 .capabilities_12 .borrow<&ExampleToken.Vault>(ExampleToken.VaultPublicPath)_12 ?? panic(ExampleToken.vaultNotConfiguredError(address: recipient))_12_12 receiverRef.deposit(from: <-self.temporaryVault)_12_12 log("Withdraw/Deposit succeeded!")_12}`
+execute{
+
+_12
+
+let receiverAccount = getAccount(recipient)
+
+_12
+
+_12
+
+let receiverRef = receiverAccount
+
+_12
+
+.capabilities
+
+_12
+
+.borrow<&ExampleToken.Vault>(ExampleToken.VaultPublicPath)
+
+_12
+
+?? panic(ExampleToken.vaultNotConfiguredError(address: recipient))
+
+_12
+
+_12
+
+receiverRef.deposit(from: <-self.temporaryVault)
+
+_12
+
+_12
+
+log("Withdraw/Deposit succeeded!")
+
+_12
+
+}`
 
 The resource is destroyed by the `deposit` function. It needs to be destroyed because Cadence enforces strict rules around resource interactions. A resource can never be left hanging in a piece of code. It either needs to be explicitly destroyed or stored in an account's storage.
 
@@ -359,7 +1413,9 @@ This rule ensures that resources, which often represent real value, do not get l
 
 You'll notice that the arithmetic operations aren't explicitly protected against overflow or underflow.
 
- `_10self.balance = self.balance - amount`
+`_10
+
+self.balance = self.balance - amount`
 
 Cadence has built-in overflow and underflow protection, so it is not a risk. We are also using unsigned numbers in this example, so as mentioned earlier, the vault`s balance cannot go below 0.
 
@@ -397,7 +1453,15 @@ In the next tutorial, you'll combine the techniques and patterns you've learned 
 * [Fungible Token](/docs/tags/fungible-token)
 * [cadence](/docs/tags/cadence)
 * [tutorial](/docs/tags/tutorial)
-[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/tutorial/06-fungible-tokens.md)[PreviousIntermediate NFTs](/docs/tutorial/non-fungible-tokens-2)[Next7. Marketplace Setup](/docs/tutorial/marketplace-setup)
+
+[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/tutorial/06-fungible-tokens.md)
+
+[Previous
+
+Intermediate NFTs](/docs/tutorial/non-fungible-tokens-2)[Next
+
+7. Marketplace Setup](/docs/tutorial/marketplace-setup)
+
 ###### Rate this page
 
 😞😐😊
@@ -420,9 +1484,10 @@ In the next tutorial, you'll combine the techniques and patterns you've learned 
 * [Checking Account Balances](#checking-account-balances)
 * [Transferring Tokens](#transferring-tokens)
 * [Reviewing Fungible Tokens](#reviewing-fungible-tokens)
-Got suggestions for this site? 
+
+Got suggestions for this site?
 
 * [It's open-source!](https://github.com/onflow/cadence-lang.org)
+
 The source code of this site is licensed under the Apache License, Version 2.0.
 Content is licensed under the Creative Commons Attribution 4.0 International License.
-

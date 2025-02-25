@@ -1,14 +1,16 @@
 # Source: https://cadence-lang.org/docs/design-patterns
 
-
-
-
 Cadence Design Patterns | Cadence
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)Search
+[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
+
+[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+
+Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
@@ -25,8 +27,8 @@ Cadence Design Patterns | Cadence
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
-
 * Design Patterns
+
 On this page
 
 This is a selection of software design patterns developed by core Flow developers
@@ -60,7 +62,119 @@ Refer to that value via this public field rather than specifying it manually.
 
 Example Snippet:
 
- `_32_32// BAD Practice: Do not hard code storage paths_32access(all)_32contract NamedFields {_32_32 access(all)_32 resource Test {}_32_32 init() {_32 // BAD: Hard-coded storage path_32 self.account.storage.save(<-create Test(), to: /storage/testStorage)_32 }_32}_32_32// GOOD practice: Instead, use a field_32//_32access(all)_32contract NamedFields {_32_32 access(all)_32 resource Test {}_32_32 // GOOD: field storage path_32 access(all)_32 let testStoragePath: StoragePath_32_32 init() {_32 // assign and access the field here and in transactions_32 self.testStoragePath = /storage/testStorage_32 self.account.storage.save(<-create Test(), to: self.TestStoragePath)_32 }_32}`
+`_32
+
+_32
+
+// BAD Practice: Do not hard code storage paths
+
+_32
+
+access(all)
+
+_32
+
+contract NamedFields {
+
+_32
+
+_32
+
+access(all)
+
+_32
+
+resource Test {}
+
+_32
+
+_32
+
+init() {
+
+_32
+
+// BAD: Hard-coded storage path
+
+_32
+
+self.account.storage.save(<-create Test(), to: /storage/testStorage)
+
+_32
+
+}
+
+_32
+
+}
+
+_32
+
+_32
+
+// GOOD practice: Instead, use a field
+
+_32
+
+//
+
+_32
+
+access(all)
+
+_32
+
+contract NamedFields {
+
+_32
+
+_32
+
+access(all)
+
+_32
+
+resource Test {}
+
+_32
+
+_32
+
+// GOOD: field storage path
+
+_32
+
+access(all)
+
+_32
+
+let testStoragePath: StoragePath
+
+_32
+
+_32
+
+init() {
+
+_32
+
+// assign and access the field here and in transactions
+
+_32
+
+self.testStoragePath = /storage/testStorage
+
+_32
+
+self.account.storage.save(<-create Test(), to: self.TestStoragePath)
+
+_32
+
+}
+
+_32
+
+}`
 
 [Example Code](https://github.com/onflow/flow-core-contracts/blob/71ea0dfe843da873d52c6a983e7c8f44a4677b26/contracts/LockedTokens.cdc#L779)
 
@@ -84,7 +198,32 @@ Be careful not to expose any data or functionality that should be kept private w
 
 Example:
 
- `_10// BAD: Field is private, so it cannot be read by the public_10access(self)_10let totalSupply: UFix64_10_10// GOOD: Field is public, so it can be read and used by anyone_10access(all)_10let totalSupply: UFix64`
+`_10
+
+// BAD: Field is private, so it cannot be read by the public
+
+_10
+
+access(self)
+
+_10
+
+let totalSupply: UFix64
+
+_10
+
+_10
+
+// GOOD: Field is public, so it can be read and used by anyone
+
+_10
+
+access(all)
+
+_10
+
+let totalSupply: UFix64`
+
 ## Script-Accessible report[​](#script-accessible-report "Direct link to Script-Accessible report")
 
 ### Problem[​](#problem-2 "Direct link to Problem")
@@ -107,7 +246,290 @@ See [Script-Accessible public field/function](#script-accessible-public-fieldfun
 
 ### Example[​](#example "Direct link to Example")
 
- `_79access(all)_79contract AContract {_79_79 access(all)_79 let BResourceStoragePath: StoragePath_79_79 access(all)_79 let BResourcePublicPath: PublicPath_79_79 init() {_79 self.BResourceStoragePath = /storage/BResource_79 self.BResourcePublicPath = /public/BResource_79 }_79_79 // Resource definition_79 access(all)_79 resource BResource {_79_79 access(all)_79 var c: UInt64_79_79 access(all)_79 var d: String_79_79_79 // Generate a struct with the same fields_79 // to return when a script wants to see the fields of the resource_79 // without having to return the actual resource_79 access(all)_79 fun generateReport(): BReportStruct {_79 return BReportStruct(c: self.c, d: self.d)_79 }_79_79 init(c: UInt64, d: String) {_79 self.c = c_79 self.d = d_79 }_79 }_79_79 // Define a struct with the same fields as the resource_79 access(all)_79 struct BReportStruct {_79_79 access(all)_79 var c: UInt64_79_79 access(all)_79 var d: String_79_79 init(c: UInt64, d: String) {_79 self.c = c_79 self.d = d_79 }_79_79 }_79}_79..._79// Transaction_79import AContract from 0xAContract_79_79transaction {_79 prepare(acct: auth(IssueStorageCapabilityController, PublishCapability) &Account) {_79 //..._79 let cap = acct.capabilities.storage.issue<&AContract.BResource>(AContract.BResourceStoragePath)_79 acct.capabilities.publish(cap, at: AContract.BResourcePublicPath)_79 }_79}_79// Script_79import AContract from 0xAContract_79_79// Return the struct with a script_79access(all)_79fun main(account: Address): AContract.BReportStruct {_79 // borrow the resource_79 let b = getAccount(account).capabilities_79 .borrow<&AContract.BResource>(AContract.BResourcePublicPath)_79 // return the struct_79 return b.generateReport()_79}`
+`_79
+
+access(all)
+
+_79
+
+contract AContract {
+
+_79
+
+_79
+
+access(all)
+
+_79
+
+let BResourceStoragePath: StoragePath
+
+_79
+
+_79
+
+access(all)
+
+_79
+
+let BResourcePublicPath: PublicPath
+
+_79
+
+_79
+
+init() {
+
+_79
+
+self.BResourceStoragePath = /storage/BResource
+
+_79
+
+self.BResourcePublicPath = /public/BResource
+
+_79
+
+}
+
+_79
+
+_79
+
+// Resource definition
+
+_79
+
+access(all)
+
+_79
+
+resource BResource {
+
+_79
+
+_79
+
+access(all)
+
+_79
+
+var c: UInt64
+
+_79
+
+_79
+
+access(all)
+
+_79
+
+var d: String
+
+_79
+
+_79
+
+_79
+
+// Generate a struct with the same fields
+
+_79
+
+// to return when a script wants to see the fields of the resource
+
+_79
+
+// without having to return the actual resource
+
+_79
+
+access(all)
+
+_79
+
+fun generateReport(): BReportStruct {
+
+_79
+
+return BReportStruct(c: self.c, d: self.d)
+
+_79
+
+}
+
+_79
+
+_79
+
+init(c: UInt64, d: String) {
+
+_79
+
+self.c = c
+
+_79
+
+self.d = d
+
+_79
+
+}
+
+_79
+
+}
+
+_79
+
+_79
+
+// Define a struct with the same fields as the resource
+
+_79
+
+access(all)
+
+_79
+
+struct BReportStruct {
+
+_79
+
+_79
+
+access(all)
+
+_79
+
+var c: UInt64
+
+_79
+
+_79
+
+access(all)
+
+_79
+
+var d: String
+
+_79
+
+_79
+
+init(c: UInt64, d: String) {
+
+_79
+
+self.c = c
+
+_79
+
+self.d = d
+
+_79
+
+}
+
+_79
+
+_79
+
+}
+
+_79
+
+}
+
+_79
+
+...
+
+_79
+
+// Transaction
+
+_79
+
+import AContract from 0xAContract
+
+_79
+
+_79
+
+transaction {
+
+_79
+
+prepare(acct: auth(IssueStorageCapabilityController, PublishCapability) &Account) {
+
+_79
+
+//...
+
+_79
+
+let cap = acct.capabilities.storage.issue<&AContract.BResource>(AContract.BResourceStoragePath)
+
+_79
+
+acct.capabilities.publish(cap, at: AContract.BResourcePublicPath)
+
+_79
+
+}
+
+_79
+
+}
+
+_79
+
+// Script
+
+_79
+
+import AContract from 0xAContract
+
+_79
+
+_79
+
+// Return the struct with a script
+
+_79
+
+access(all)
+
+_79
+
+fun main(account: Address): AContract.BReportStruct {
+
+_79
+
+// borrow the resource
+
+_79
+
+let b = getAccount(account).capabilities
+
+_79
+
+.borrow<&AContract.BResource>(AContract.BResourcePublicPath)
+
+_79
+
+// return the struct
+
+_79
+
+return b.generateReport()
+
+_79
+
+}`
+
 ## Init singleton[​](#init-singleton "Direct link to Init singleton")
 
 ### Problem[​](#problem-3 "Direct link to Problem")
@@ -148,7 +570,140 @@ All fields, functions, types, variables, etc., need to have names that clearly d
 
 ### Example[​](#example-1 "Direct link to Example")
 
- `_37// BAD: Unclear naming_37//_37access(all)_37contract Tax {_37_37 // Do not use abbreviations unless absolutely necessary_37 access(all)_37 var pcnt: UFix64_37_37 // Not clear what the function is calculating or what the parameter should be_37 access(all)_37 fun calculate(num: UFix64): UFix64 {_37 // What total is this referring to?_37 let total = num + (num * self.pcnt)_37_37 return total_37 }_37}_37_37// GOOD: Clear naming_37//_37access(all)_37contract TaxUtilities {_37_37 // Clearly states what the field is for_37 access(all)_37 var taxPercentage: UFix64_37_37 // Clearly states that this function calculates the_37 // total cost after tax_37 access(all)_37 fun calculateTotalCostPlusTax(preTaxCost: UFix64): UFix64 {_37 let postTaxCost = preTaxCost + (preTaxCost * self.taxPercentage)_37_37 return postTaxCost_37 }_37}`
+`_37
+
+// BAD: Unclear naming
+
+_37
+
+//
+
+_37
+
+access(all)
+
+_37
+
+contract Tax {
+
+_37
+
+_37
+
+// Do not use abbreviations unless absolutely necessary
+
+_37
+
+access(all)
+
+_37
+
+var pcnt: UFix64
+
+_37
+
+_37
+
+// Not clear what the function is calculating or what the parameter should be
+
+_37
+
+access(all)
+
+_37
+
+fun calculate(num: UFix64): UFix64 {
+
+_37
+
+// What total is this referring to?
+
+_37
+
+let total = num + (num * self.pcnt)
+
+_37
+
+_37
+
+return total
+
+_37
+
+}
+
+_37
+
+}
+
+_37
+
+_37
+
+// GOOD: Clear naming
+
+_37
+
+//
+
+_37
+
+access(all)
+
+_37
+
+contract TaxUtilities {
+
+_37
+
+_37
+
+// Clearly states what the field is for
+
+_37
+
+access(all)
+
+_37
+
+var taxPercentage: UFix64
+
+_37
+
+_37
+
+// Clearly states that this function calculates the
+
+_37
+
+// total cost after tax
+
+_37
+
+access(all)
+
+_37
+
+fun calculateTotalCostPlusTax(preTaxCost: UFix64): UFix64 {
+
+_37
+
+let postTaxCost = preTaxCost + (preTaxCost * self.taxPercentage)
+
+_37
+
+_37
+
+return postTaxCost
+
+_37
+
+}
+
+_37
+
+}`
+
 ## Plural names for arrays and maps are preferable[​](#plural-names-for-arrays-and-maps-are-preferable "Direct link to Plural names for arrays and maps are preferable")
 
 For example, use `accounts` rather than `account` for an array of accounts.
@@ -171,7 +726,82 @@ It is usually safe to include post-conditions in transactions to verify the inte
 
 This could be used when purchasing an NFT to verify that the NFT was deposited in your account's collection.
 
- `_22// Pseudo-code_22_22transaction {_22_22 access(all)_22 let buyerCollectionRef: &NonFungibleToken.Collection_22_22 prepare(acct: auth(BorrowValue) &Account) {_22_22 // Get tokens to buy and a collection to deposit the bought NFT to_22 let temporaryVault <- vaultRef.withdraw(amount: 10.0)_22 let self.buyerCollectionRef = acct.storage.borrow(from: /storage/Collection)_22_22 // purchase, supplying the buyers collection reference_22 saleRef.purchase(tokenID: 1, recipient: self.buyerCollectionRef, buyTokens: <-temporaryVault)_22_22 }_22 post {_22 // verify that the buyer now owns the NFT_22 self.buyerCollectionRef.idExists(1) == true: "Bought NFT ID was not deposited into the buyers collection"_22 }_22}`
+`_22
+
+// Pseudo-code
+
+_22
+
+_22
+
+transaction {
+
+_22
+
+_22
+
+access(all)
+
+_22
+
+let buyerCollectionRef: &NonFungibleToken.Collection
+
+_22
+
+_22
+
+prepare(acct: auth(BorrowValue) &Account) {
+
+_22
+
+_22
+
+// Get tokens to buy and a collection to deposit the bought NFT to
+
+_22
+
+let temporaryVault <- vaultRef.withdraw(amount: 10.0)
+
+_22
+
+let self.buyerCollectionRef = acct.storage.borrow(from: /storage/Collection)
+
+_22
+
+_22
+
+// purchase, supplying the buyers collection reference
+
+_22
+
+saleRef.purchase(tokenID: 1, recipient: self.buyerCollectionRef, buyTokens: <-temporaryVault)
+
+_22
+
+_22
+
+}
+
+_22
+
+post {
+
+_22
+
+// verify that the buyer now owns the NFT
+
+_22
+
+self.buyerCollectionRef.idExists(1) == true: "Bought NFT ID was not deposited into the buyers collection"
+
+_22
+
+}
+
+_22
+
+}`
+
 ## Avoid unnecessary load and save storage operations, prefer in-place mutations[​](#avoid-unnecessary-load-and-save-storage-operations-prefer-in-place-mutations "Direct link to Avoid unnecessary load and save storage operations, prefer in-place mutations")
 
 ### Problem[​](#problem-6 "Direct link to Problem")
@@ -204,7 +834,126 @@ can be borrowed using a reference expression (`&v as &T`).
 
 ### Example[​](#example-3 "Direct link to Example")
 
- `_36// BAD: Loads and stores a resource to use it_36//_36transaction {_36_36 prepare(acct: auth(LoadValue, SaveValue) &Account) {_36_36 // Removes the vault from storage, a costly operation_36 let vault <- acct.storage.load<@ExampleToken.Vault>(from: /storage/exampleToken)_36_36 // Withdraws tokens_36 let burnVault <- vault.withdraw(amount: 10)_36_36 destroy burnVault_36_36 // Saves the used vault back to storage, another costly operation_36 acct.storage.save(to: /storage/exampleToken)_36_36 }_36}_36_36// GOOD: Uses borrow instead to avoid costly operations_36//_36transaction {_36_36 prepare(acct: auth(BorrowValue) &Account) {_36_36 // Borrows a reference to the stored vault, much less costly operation_36 let vault <- acct.storage.borrow<&ExampleToken.Vault>(from: /storage/exampleToken)_36_36 let burnVault <- vault.withdraw(amount: 10)_36_36 destroy burnVault_36_36 // No `save` required because we only used a reference_36 }_36}`
+`_36
+
+// BAD: Loads and stores a resource to use it
+
+_36
+
+//
+
+_36
+
+transaction {
+
+_36
+
+_36
+
+prepare(acct: auth(LoadValue, SaveValue) &Account) {
+
+_36
+
+_36
+
+// Removes the vault from storage, a costly operation
+
+_36
+
+let vault <- acct.storage.load<@ExampleToken.Vault>(from: /storage/exampleToken)
+
+_36
+
+_36
+
+// Withdraws tokens
+
+_36
+
+let burnVault <- vault.withdraw(amount: 10)
+
+_36
+
+_36
+
+destroy burnVault
+
+_36
+
+_36
+
+// Saves the used vault back to storage, another costly operation
+
+_36
+
+acct.storage.save(to: /storage/exampleToken)
+
+_36
+
+_36
+
+}
+
+_36
+
+}
+
+_36
+
+_36
+
+// GOOD: Uses borrow instead to avoid costly operations
+
+_36
+
+//
+
+_36
+
+transaction {
+
+_36
+
+_36
+
+prepare(acct: auth(BorrowValue) &Account) {
+
+_36
+
+_36
+
+// Borrows a reference to the stored vault, much less costly operation
+
+_36
+
+let vault <- acct.storage.borrow<&ExampleToken.Vault>(from: /storage/exampleToken)
+
+_36
+
+_36
+
+let burnVault <- vault.withdraw(amount: 10)
+
+_36
+
+_36
+
+destroy burnVault
+
+_36
+
+_36
+
+// No `save` required because we only used a reference
+
+_36
+
+}
+
+_36
+
+}`
+
 # Capabilities
 
 ## Capability bootstrapping[​](#capability-bootstrapping "Direct link to Capability bootstrapping")
@@ -257,8 +1006,136 @@ or limit the type with which the capability is authorized
 in order to only give recipients access to the functionality
 that the provider is willing to allow them to copy.
 
- `_20import "BasicNFT"_20_20transaction(receiver: Address, name: String) {_20_20 prepare(signer: auth(IssueStorageCapabilityController, PublishInboxCapability) &Account) {_20_20 // Issue a capability controller for the storage path_20 let capability = signer.capabilities.storage.issue<&BasicNFT.Minter>(BasicNFT.minterPath)_20_20 // Set the name as tag so it is easy for us to remember its purpose_20 let controller = signer.capabilities.storage.getController(byCapabilityID: capability.id)_20 ?? panic("Cannot get the storage capability controller with ID "_20 .concat(capabilityID.toString())_20 .concat(" from the signer's account! Make sure the ID belongs to a capability that the owner controls and that it is a storage capability.")_20 controller.setTag(name)_20_20 // Publish the capability, so it can be later claimed by the receiver_20 signer.inbox.publish(capability, name: name, recipient: receiver)_20 }_20}`
- `_17import "BasicNFT"_17_17transaction(provider: Address, name: String) {_17_17 prepare(signer: auth(ClaimInboxCapability, SaveValue) &Account) {_17_17 // Claim the capability from our inbox_17 let capability = signer.inbox.claim<&BasicNFT.Minter>(name, provider: provider)_17 ?? panic("Cannot claim the storage capability controller with name "_17 .concat(name).concat(" from the provider account (").concat(provider.toString())_17 .concat("! Make sure the provider address is correct and that they have published "_17 .concat(" a capability with the desired name.")_17_17 // Save the capability to our storage so we can later retrieve and use it_17 signer.storage.save(capability, to: BasicNFT.minterPath)_17 }_17}`
+`_20
+
+import "BasicNFT"
+
+_20
+
+_20
+
+transaction(receiver: Address, name: String) {
+
+_20
+
+_20
+
+prepare(signer: auth(IssueStorageCapabilityController, PublishInboxCapability) &Account) {
+
+_20
+
+_20
+
+// Issue a capability controller for the storage path
+
+_20
+
+let capability = signer.capabilities.storage.issue<&BasicNFT.Minter>(BasicNFT.minterPath)
+
+_20
+
+_20
+
+// Set the name as tag so it is easy for us to remember its purpose
+
+_20
+
+let controller = signer.capabilities.storage.getController(byCapabilityID: capability.id)
+
+_20
+
+?? panic("Cannot get the storage capability controller with ID "
+
+_20
+
+.concat(capabilityID.toString())
+
+_20
+
+.concat(" from the signer's account! Make sure the ID belongs to a capability that the owner controls and that it is a storage capability.")
+
+_20
+
+controller.setTag(name)
+
+_20
+
+_20
+
+// Publish the capability, so it can be later claimed by the receiver
+
+_20
+
+signer.inbox.publish(capability, name: name, recipient: receiver)
+
+_20
+
+}
+
+_20
+
+}`
+
+`_17
+
+import "BasicNFT"
+
+_17
+
+_17
+
+transaction(provider: Address, name: String) {
+
+_17
+
+_17
+
+prepare(signer: auth(ClaimInboxCapability, SaveValue) &Account) {
+
+_17
+
+_17
+
+// Claim the capability from our inbox
+
+_17
+
+let capability = signer.inbox.claim<&BasicNFT.Minter>(name, provider: provider)
+
+_17
+
+?? panic("Cannot claim the storage capability controller with name "
+
+_17
+
+.concat(name).concat(" from the provider account (").concat(provider.toString())
+
+_17
+
+.concat("! Make sure the provider address is correct and that they have published "
+
+_17
+
+.concat(" a capability with the desired name.")
+
+_17
+
+_17
+
+// Save the capability to our storage so we can later retrieve and use it
+
+_17
+
+signer.storage.save(capability, to: BasicNFT.minterPath)
+
+_17
+
+}
+
+_17
+
+}`
+
 ## Check for existing capability before publishing new one[​](#check-for-existing-capability-before-publishing-new-one "Direct link to Check for existing capability before publishing new one")
 
 ### Problem[​](#problem-8 "Direct link to Problem")
@@ -271,7 +1148,54 @@ Check if a capability is already published at the given path.
 
 ### Example[​](#example-4 "Direct link to Example")
 
- `_13transaction {_13 prepare(signer: auth(Capabilities) &Account) {_13 let capability = signer.capabilities.storage_13 .issue<&ExampleToken.Vault>(/storage/exampleTokenVault)_13_13 let publicPath = /public/exampleTokenReceiver_13_13 if signer.capabilities.exits(publicPath) {_13 signer.capabilities.unpublish(publicPath)_13 }_13 signer.capabilities.publish(capability, at: publicPath)_13 }_13}`
+`_13
+
+transaction {
+
+_13
+
+prepare(signer: auth(Capabilities) &Account) {
+
+_13
+
+let capability = signer.capabilities.storage
+
+_13
+
+.issue<&ExampleToken.Vault>(/storage/exampleTokenVault)
+
+_13
+
+_13
+
+let publicPath = /public/exampleTokenReceiver
+
+_13
+
+_13
+
+if signer.capabilities.exits(publicPath) {
+
+_13
+
+signer.capabilities.unpublish(publicPath)
+
+_13
+
+}
+
+_13
+
+signer.capabilities.publish(capability, at: publicPath)
+
+_13
+
+}
+
+_13
+
+}`
+
 ## Capability Revocation[​](#capability-revocation "Direct link to Capability Revocation")
 
 ### Problem[​](#problem-9 "Direct link to Problem")
@@ -283,11 +1207,96 @@ by the first account without the co-operation of the second.
 
 If the capability is a storage capability:
 
- `_10transaction(capabilityID: UInt64) {_10 prepare(signer: auth(StorageCapabilities) &Account) {_10 let controller = signer.capabilities.storage_10 .getController(byCapabilityID: capabilityID)_10 ?? panic("Cannot get the storage capability controller with ID "_10 .concat(capabilityID.toString())_10 .concat(" from the signer's account! Make sure the ID belongs to a capability that the owner controls and that it is a storage capability.")_10 controller.delete()_10 }_10}`
+`_10
+
+transaction(capabilityID: UInt64) {
+
+_10
+
+prepare(signer: auth(StorageCapabilities) &Account) {
+
+_10
+
+let controller = signer.capabilities.storage
+
+_10
+
+.getController(byCapabilityID: capabilityID)
+
+_10
+
+?? panic("Cannot get the storage capability controller with ID "
+
+_10
+
+.concat(capabilityID.toString())
+
+_10
+
+.concat(" from the signer's account! Make sure the ID belongs to a capability that the owner controls and that it is a storage capability.")
+
+_10
+
+controller.delete()
+
+_10
+
+}
+
+_10
+
+}`
 
 If the capability is an account capability:
 
- `_10transaction(capabilityID: UInt64) {_10 prepare(signer: auth(AccountCapabilities) &Account) {_10 let controller = signer.capabilities.account_10 .getController(byCapabilityID: capabilityID)_10 ?? panic("Cannot get the account capability controller with ID "_10 .concat(capabilityID.toString())_10 .concat(" from the signer's account! Make sure the ID belongs to a capability that the owner controls and that it is an account capability.")_10 controller.delete()_10 }_10}`[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/design-patterns.md)[PreviousCore Contracts Guide](/docs/cadence-migration-guide/core-contracts-guide)[NextAnti-Patterns](/docs/anti-patterns)
+`_10
+
+transaction(capabilityID: UInt64) {
+
+_10
+
+prepare(signer: auth(AccountCapabilities) &Account) {
+
+_10
+
+let controller = signer.capabilities.account
+
+_10
+
+.getController(byCapabilityID: capabilityID)
+
+_10
+
+?? panic("Cannot get the account capability controller with ID "
+
+_10
+
+.concat(capabilityID.toString())
+
+_10
+
+.concat(" from the signer's account! Make sure the ID belongs to a capability that the owner controls and that it is an account capability.")
+
+_10
+
+controller.delete()
+
+_10
+
+}
+
+_10
+
+}`
+
+[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/design-patterns.md)
+
+[Previous
+
+Core Contracts Guide](/docs/cadence-migration-guide/core-contracts-guide)[Next
+
+Anti-Patterns](/docs/anti-patterns)
+
 ###### Rate this page
 
 😞😐😊
@@ -328,9 +1337,10 @@ If the capability is an account capability:
 * [Capability Revocation](#capability-revocation)
   + [Problem](#problem-9)
   + [Solution](#solution-9)
-Got suggestions for this site? 
+
+Got suggestions for this site?
 
 * [It's open-source!](https://github.com/onflow/cadence-lang.org)
+
 The source code of this site is licensed under the Apache License, Version 2.0.
 Content is licensed under the Creative Commons Attribution 4.0 International License.
-

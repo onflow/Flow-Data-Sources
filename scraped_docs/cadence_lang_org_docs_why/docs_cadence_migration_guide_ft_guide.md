@@ -1,20 +1,23 @@
 # Source: https://cadence-lang.org/docs/cadence-migration-guide/ft-guide
 
-
-
-
 Fungible Token Cadence 1.0 Migration Guide | Cadence
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)Search
+[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
+
+[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+
+Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
 * [Tutorial](/docs/tutorial/first-steps)
 * [Language Reference](/docs/language/)
 * [Cadence 1.0 Migration Guide](/docs/cadence-migration-guide/)
+
   + [Improvements & New Features](/docs/cadence-migration-guide/improvements)
   + [NFT Cadence 1.0 Guide](/docs/cadence-migration-guide/nft-guide)
   + [FT Cadence 1.0 Guide](/docs/cadence-migration-guide/ft-guide)
@@ -29,10 +32,11 @@ Fungible Token Cadence 1.0 Migration Guide | Cadence
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
-
 * [Cadence 1.0 Migration Guide](/docs/cadence-migration-guide/)
 * FT Cadence 1.0 Guide
+
 On this page
+
 # Fungible Tokens in Cadence 1.0
 
 On September 4th, 2024 the Flow Mainnet upgraded to Cadence 1.0.
@@ -121,19 +125,33 @@ that refers to `@FungibleToken.Vault` or `&FungibleToken.Vault` to
 that it is now an interface specification instead of a concrete type specification.
 Example in `deposit()`:
 
- `_10/// deposit now accepts a resource that implements the `FungibleToken.Vault` interface type_10access(all) fun deposit(from: @{FungibleToken.Vault})`
+`_10
+
+/// deposit now accepts a resource that implements the `FungibleToken.Vault` interface type
+
+_10
+
+access(all) fun deposit(from: @{FungibleToken.Vault})`
 
 If you have any more questions, please ask in discord and the Flow team will be happy to assist!
 
-[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/cadence-migration-guide/ft-guide.mdx)[PreviousNFT Cadence 1.0 Guide](/docs/cadence-migration-guide/nft-guide)[NextCore Contracts Guide](/docs/cadence-migration-guide/core-contracts-guide)
+[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/cadence-migration-guide/ft-guide.mdx)
+
+[Previous
+
+NFT Cadence 1.0 Guide](/docs/cadence-migration-guide/nft-guide)[Next
+
+Core Contracts Guide](/docs/cadence-migration-guide/core-contracts-guide)
+
 ###### Rate this page
 
 😞😐😊
 
 * [`Vault` implements `FungibleToken.Vault`](#vault-implements-fungibletokenvault)
-Got suggestions for this site? 
+
+Got suggestions for this site?
 
 * [It's open-source!](https://github.com/onflow/cadence-lang.org)
+
 The source code of this site is licensed under the Apache License, Version 2.0.
 Content is licensed under the Creative Commons Attribution 4.0 International License.
-

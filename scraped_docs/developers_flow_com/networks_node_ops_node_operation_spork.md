@@ -1,25 +1,28 @@
 # Source: https://developers.flow.com/networks/node-ops/node-operation/spork
 
-
-
-
 Network Upgrade (Spork) Process | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
 * [Flow's Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
+
   + [Access Nodes](/networks/node-ops/access-nodes/access-node-setup)
   + [EVM Gateway Setup](/networks/node-ops/evm-gateway/evm-gateway-setup)
   + [Light Nodes](/networks/node-ops/light-nodes/observer-node)
   + [Participating in the Network](/networks/node-ops/node-operation/faq)
+
     - [Operator FAQ](/networks/node-ops/node-operation/faq)
     - [Byzantine Attack Response](/networks/node-ops/node-operation/byzantine-node-attack-response)
     - [Database Encryption for Existing Node Operators](/networks/node-ops/node-operation/db-encryption-existing-operator)
@@ -44,11 +47,12 @@ Network Upgrade (Spork) Process | Flow Developer Portal
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
-
 * [Node Ops](/networks/node-ops)
 * Participating in the Network
 * Network Upgrade (Spork) Process
+
 On this page
+
 # Network Upgrade (Spork) Process
 
 ## Overview[​](#overview "Direct link to Overview")
@@ -88,7 +92,7 @@ If you had set the [dynamic bootstrap arguments](https://developers.flow.com/net
    `./boot-tools/transit pull -b ./bootstrap -t ${PULL_TOKEN} -r ${YOUR_NODE_TYPE} --concurrency 10 --timeout 15m`
 
 * `PULL_TOKEN` will be provided by the Flow team.
-  
+
   + For `collection`, `consensus`, `verification` node type it will generally be `testnet-x` or `mainnet-x` where x is the latest number of respective network upgrade. e.g. `testnet-52`, `mainnet-26`.
   + For `execution` node type it will generally be `testnet-x-execution` or `mainnet-x-execution`.
   + For `access` node:
@@ -96,7 +100,81 @@ If you had set the [dynamic bootstrap arguments](https://developers.flow.com/net
     - It will generally be `testnet-x-execution` or `mainnet-x-execution` if execution data indexing is enabled.
 * `YOUR_NODE_TYPE` should be one of `collection`, `consensus`, `execution`, `verification`, `access` based on the node(s) that you are running.
 
-Example `_19$ ./boot-tools/transit pull -b ./bootstrap -t mainnet-16 -r consensus_19Transit script Commit: a9f6522855e119ad832a97f8b7bce555a163e490_192020/11/25 01:02:53 Running pull_192020/11/25 01:02:53 Downloading bootstrap/public-root-information/node-infos.pub.json_192020/11/25 01:02:54 Downloading bootstrap/public-root-information/root-protocol-snapshot.json_192020/11/25 01:02:54 Downloading bootstrap/random-beacon.priv.json.39fa54984b8eaa463e129919464f61c8cec3a4389478df79c44eb9bfbf30799a.enc_192020/11/25 01:02:54 SHA256 of the root block is: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855_19_19$ tree ./bootstrap/_19 ./bootstrap/_19 ├── private-root-information_19 │ └── private-node-info_39fa54984b8eaa463e129919464f61c8cec3a4389478df79c44eb9bfbf30799a_19 │ └── node-info.priv.json_19 ├── public-root-information_19 │ ├── node-id_19 │ ├── node-info.pub.39fa54984b8eaa463e129919464f61c8cec3a4389478df79c44eb9bfbf30799a.json_19 │ ├── node-infos.pub.json_19 │ └── root-protocol-snapshot.json_19 └── random-beacon.priv.json.39fa54984b8eaa463e129919464f61c8cec3a4389478df79c44eb9bfbf30799a`
+Example
+
+`_19
+
+$ ./boot-tools/transit pull -b ./bootstrap -t mainnet-16 -r consensus
+
+_19
+
+Transit script Commit: a9f6522855e119ad832a97f8b7bce555a163e490
+
+_19
+
+2020/11/25 01:02:53 Running pull
+
+_19
+
+2020/11/25 01:02:53 Downloading bootstrap/public-root-information/node-infos.pub.json
+
+_19
+
+2020/11/25 01:02:54 Downloading bootstrap/public-root-information/root-protocol-snapshot.json
+
+_19
+
+2020/11/25 01:02:54 Downloading bootstrap/random-beacon.priv.json.39fa54984b8eaa463e129919464f61c8cec3a4389478df79c44eb9bfbf30799a.enc
+
+_19
+
+2020/11/25 01:02:54 SHA256 of the root block is: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+
+_19
+
+_19
+
+$ tree ./bootstrap/
+
+_19
+
+./bootstrap/
+
+_19
+
+├── private-root-information
+
+_19
+
+│ └── private-node-info_39fa54984b8eaa463e129919464f61c8cec3a4389478df79c44eb9bfbf30799a
+
+_19
+
+│ └── node-info.priv.json
+
+_19
+
+├── public-root-information
+
+_19
+
+│ ├── node-id
+
+_19
+
+│ ├── node-info.pub.39fa54984b8eaa463e129919464f61c8cec3a4389478df79c44eb9bfbf30799a.json
+
+_19
+
+│ ├── node-infos.pub.json
+
+_19
+
+│ └── root-protocol-snapshot.json
+
+_19
+
+└── random-beacon.priv.json.39fa54984b8eaa463e129919464f61c8cec3a4389478df79c44eb9bfbf30799a`
 
 2. Pull the latest changes from [flow-go repository](https://github.com/onflow/flow-go)
 3. Get your `node-id`, you can find it at `/path/to/bootstrap/public-genesis-information/node-id`
@@ -109,11 +187,30 @@ See [Node Bootstrap](/networks/node-ops/node-operation/node-bootstrap) for detai
 
 ### Error: cannot create connection[​](#error-cannot-create-connection "Direct link to Error: cannot create connection")
 
- `_1020T18:34:21Z","message":"could not create connection"}_10{"level":"error","node_role":"consensus","node_id":"6d3fac8675a1df96f4bb7a27305ae531b6f4d0d2bc13a233e37bb07ab6b852dc","target":"QmVcSQaCdhmk1CMeMN7HTgGiUY1i2KqgVE2vvEmQXK4gAA","error":"failed to dial : all dials failed_10 * [/ip4/155.138.151.101/tcp/3569] dial tcp4 155.138.151.101:3569: connect: connection refused","retry_attempt":2,"time":"2020-05-20T18:34:21Z","message":"could not create connection"}`
+`_10
+
+20T18:34:21Z","message":"could not create connection"}
+
+_10
+
+{"level":"error","node_role":"consensus","node_id":"6d3fac8675a1df96f4bb7a27305ae531b6f4d0d2bc13a233e37bb07ab6b852dc","target":"QmVcSQaCdhmk1CMeMN7HTgGiUY1i2KqgVE2vvEmQXK4gAA","error":"failed to dial : all dials failed
+
+_10
+
+* [/ip4/155.138.151.101/tcp/3569] dial tcp4 155.138.151.101:3569: connect: connection refused","retry_attempt":2,"time":"2020-05-20T18:34:21Z","message":"could not create connection"}`
 
 This error is OK. Your fellow node operators have not turned on/joined the network yet. So no need to worry about it!
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/spork.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousPast Spork Info](/networks/node-ops/node-operation/past-sporks)[NextUpcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/spork.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Past Spork Info](/networks/node-ops/node-operation/past-sporks)[Next
+
+Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
+
 ###### Rate this page
 
 😞😐😊
@@ -123,6 +220,7 @@ This error is OK. Your fellow node operators have not turned on/joined the netwo
 * [Step 2 - Start Your Node](#step-2---start-your-node)
 * [Common Issues](#common-issues)
   + [Error: cannot create connection](#error-cannot-create-connection)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -135,6 +233,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -144,6 +243,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -151,6 +251,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -160,6 +261,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -167,5 +269,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

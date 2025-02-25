@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/networks/flow-port
 
-
-
-
 Flow Port | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
@@ -19,11 +20,13 @@ Flow Port | Flow Developer Portal
 * [Accessing Data](/networks/access-onchain-data)
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
+
   + [Flow Port Staking Guide](/networks/flow-port/staking-guide)
 
-
 * Flow Port
+
 On this page
+
 # Flow Port
 
 Flow Port is an account management tool for Flow. Flow Port allows you to create an account using a wallet provider, manage your account and assets across Flow's VMs and perform staking and delegating actions on Flow.
@@ -48,7 +51,7 @@ In order to access Flow Port, you must have a valid Flow address. If you do not 
 #### Before You Start[​](#before-you-start "Direct link to Before You Start")
 
 1. Ensure you have:
-   
+
    * a.) [Ledger Live](https://www.ledger.com/ledger-live) installed on your computer
    * b.) [Initialized](https://support.ledger.com/hc/en-us/articles/360017362160-Flow-FLOW-?support=true) your Ledger Device.
 
@@ -56,11 +59,11 @@ In order to access Flow Port, you must have a valid Flow address. If you do not 
 
 1. Connect your Ledger Device to your computer and open Ledger Live.
 2. Make sure your Ledger device firmware is up to date. You can check this by clicking on **‘Manager’** from the side navigation bar. Choose to install the update if one is available
-   
+
    * a.) NOTE: Sometimes the install option doesn't show up, or it is not clickable. If this is the case, wait for a little bit of time to see if it appears, or restart the ledger live app if necessary.
 3. On the Manager screen in Ledger Live and search for ‘Flow’.
 4. You should see the Flow App. Install it and follow the instructions on the device.
-   
+
    * a.) NOTE: If the Flow App does not appear, it may be because you are on an outdated version. Please ensure you are on the most updated version.
 
 #### Navigate to Flow Port to Create an Address[​](#navigate-to-flow-port-to-create-an-address "Direct link to Navigate to Flow Port to Create an Address")
@@ -132,32 +135,42 @@ Please see a list [here](https://github.com/onflow/flow/blob/master/nodeoperator
 ## FAQs[​](#faqs "Direct link to FAQs")
 
 1. Why do I have multiple 'Keys' on my account?
-   
+
    If you created your account with Blocto, you will see that you have multiple keys that exist on your account in the 'Dashboard':
-   
+
    1 with weight 1 (device key): This is generated on Blocto and sent to users' device when they login with email.
    1 with weight 999 (Blocto service key): This is kept in Blocto's secure key management service and is used to sign transaction.
    1 with weight 1000 (recovery key): This is kept in Blocto's secure key management service and is only used when user wants to switch to non-custodial mode.
-   
+
    Normally if a user wants to send a Flow transaction, it requires signature from both the key on users' device and a key from Blocto service. Making it harder for hackers to steal your assets.
 2. Where can I find a list of node operators to delegate to?
-   
+
    * a.) Please see a list [here](https://github.com/onflow/flow/blob/master/nodeoperators/NodeOperatorList.md) for all node operators that you can delegate to. This list will be updated as new node operators are onboarded onto the network.
 3. I am currently running a node on the network already and have already gone through the staking process once. Do I need to execute a new stake every time there is a new epoch?
-   
+
    * a.) Once you successfully stake your node and become part of the network, you do not need to submit a new staking request each and every epoch. Your node will be automatically staked from epoch to epoch. This also means that your Node ID will remain the same from epoch to epoch. If you want to unstake your node from the network, then you will follow the process of unstaking your node.
 4. I have a Blocto account and I see that I can stake both in Flow Port and in Blocto's mobile app. What is the difference?
-   
+
    * a.) If you go through Flow Port, you can choose any node operator within the Flow network to delegate any amount of your Flow Tokens to. If you go through Blocto's mobile site, you will only be able to stake to Blocto run nodes. You can read more about Blocto's staking process by referencing [here](https://guide.blocto.app/article/stake-flow-tokens-step-by-step-with-blocto).
 5. Do I need to use my Ledger device to view information about my account (e.g. my balance and current staked or delegated FLOW)?
-   
+
    * a.) No you do not! You only need your Ledger device to sign transactions. If you want to view your account, you can do so without your Ledger. You can do this by navigating directly to the appropriate desired page URL, while inputting your address into the URL itself. For quick reference, below is a list of these URLs and where you would input your address:
    * Dashboard: [https://port.onflow.org/account/[AccountAddress](https://port.onflow.org/account/%5BAccountAddress)]
    * Stake & Delegate: [https://port.onflow.org/stake-delegate/[AccountAddress](https://port.onflow.org/stake-delegate/%5BAccountAddress)]
 6. I am clicking 'submit' to execute a transaction, but nothing is happening. How can I unblock myself?
-   
+
    * a.) Please disable any pop-up blockers and ad blockers you have and refresh the page. If you are still experiencing issues, please reach out via [Discord](https://discord.gg/flow) in the appropriate channel.
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-port/index.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousGovernance](/networks/governance)[NextFlow Port Staking Guide](/networks/flow-port/staking-guide)
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-port/index.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Governance](/networks/governance)[Next
+
+Flow Port Staking Guide](/networks/flow-port/staking-guide)
+
 ###### Rate this page
 
 😞😐😊
@@ -175,6 +188,7 @@ Please see a list [here](https://github.com/onflow/flow/blob/master/nodeoperator
 * [I Have Successfully Executed a Stake Transaction, Now What?](#i-have-successfully-executed-a-stake-transaction-now-what)
 * [What Else Can I Do?](#what-else-can-i-do)
 * [FAQs](#faqs)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -187,6 +201,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -196,6 +211,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -203,6 +219,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -212,6 +229,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -219,5 +237,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

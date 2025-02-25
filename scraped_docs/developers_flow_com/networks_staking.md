@@ -1,20 +1,22 @@
 # Source: https://developers.flow.com/networks/staking
 
-
-
-
 Epochs, Staking & Delegating on Flow | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
 * [Flow's Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
+
   + [Epoch and Staking Terminology](/networks/staking/epoch-terminology)
   + [Epoch and Reward Schedule](/networks/staking/schedule)
   + [Epoch Preparation Protocol](/networks/staking/epoch-preparation)
@@ -35,9 +37,10 @@ Epochs, Staking & Delegating on Flow | Flow Developer Portal
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
-
 * Staking and Epochs
+
 On this page
+
 # Epochs, Staking & Delegating on Flow
 
 This document provides an introduction to staking FLOW tokens on the Flow network
@@ -194,7 +197,16 @@ the various methods for staking, and how you can participate safely and reliably
 See the [staking technical overview](/networks/staking/technical-overview) first
 for information about technical integration.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/index.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousUser safety](/networks/network-architecture/user-safety)[NextEpoch and Staking Terminology](/networks/staking/epoch-terminology)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/index.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+User safety](/networks/network-architecture/user-safety)[Next
+
+Epoch and Staking Terminology](/networks/staking/epoch-terminology)
+
 ###### Rate this page
 
 😞😐😊
@@ -208,6 +220,7 @@ for information about technical integration.
   + [Staking using Flow Port](#staking-using-flow-port)
   + [Staking via a Custody Provider](#staking-via-a-custody-provider)
   + [Manual Staking or Building your own Staking Integration](#manual-staking-or-building-your-own-staking-integration)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -220,6 +233,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -229,6 +243,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -236,6 +251,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -245,6 +261,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -252,5 +269,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

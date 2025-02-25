@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/build/core-contracts/staking-collection
 
-
-
-
 Flow Staking Collection Contract Reference | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -20,6 +21,7 @@ Flow Staking Collection Contract Reference | Flow Developer Portal
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
 * [Guides](/build/guides/account-linking)
 * [Core Smart Contracts](/build/core-contracts)
+
   + [Fungible Token](/build/core-contracts/fungible-token)
   + [Flow Token](/build/core-contracts/flow-token)
   + [Service Account](/build/core-contracts/service-account)
@@ -35,10 +37,11 @@ Flow Staking Collection Contract Reference | Flow Developer Portal
   + [Burner](/build/core-contracts/burner)
 * [Explore More](/build/explore-more)
 
-
 * [Core Smart Contracts](/build/core-contracts)
 * Staking Collection
+
 On this page
+
 # Contract
 
 The `FlowStakingCollection` contract is a contract that manages a resource containing a user's stake and delegation objects.
@@ -117,7 +120,40 @@ to be interacted with using the Staking Collection API.
 
 The `StakingCollection` contract emits an event whenever an important action occurs.
 
- `_10 access(all) event NodeAddedToStakingCollection(nodeID: String, role: UInt8, amountCommitted: UFix64, address: Address?)_10 access(all) event DelegatorAddedToStakingCollection(nodeID: String, delegatorID: UInt32, amountCommitted: UFix64, address: Address?)_10_10 access(all) event NodeRemovedFromStakingCollection(nodeID: String, role: UInt8, address: Address?)_10 access(all) event DelegatorRemovedFromStakingCollection(nodeID: String, delegatorID: UInt32, address: Address?)_10_10 access(all) event MachineAccountCreated(nodeID: String, role: UInt8, address: Address)`[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/11-staking-collection.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousNFT Storefront](/build/core-contracts/nft-storefront)[NextAccount Linking](/build/core-contracts/hybrid-custody)
+`_10
+
+access(all) event NodeAddedToStakingCollection(nodeID: String, role: UInt8, amountCommitted: UFix64, address: Address?)
+
+_10
+
+access(all) event DelegatorAddedToStakingCollection(nodeID: String, delegatorID: UInt32, amountCommitted: UFix64, address: Address?)
+
+_10
+
+_10
+
+access(all) event NodeRemovedFromStakingCollection(nodeID: String, role: UInt8, address: Address?)
+
+_10
+
+access(all) event DelegatorRemovedFromStakingCollection(nodeID: String, delegatorID: UInt32, address: Address?)
+
+_10
+
+_10
+
+access(all) event MachineAccountCreated(nodeID: String, role: UInt8, address: Address)`
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/11-staking-collection.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+NFT Storefront](/build/core-contracts/nft-storefront)[Next
+
+Account Linking](/build/core-contracts/hybrid-custody)
+
 ###### Rate this page
 
 😞😐😊
@@ -126,6 +162,7 @@ The `StakingCollection` contract emits an event whenever an important action occ
 * [Scripts](#scripts)
 * [Setup Transaction](#setup-transaction)
 * [Events](#events)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -138,6 +175,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -147,6 +185,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -154,6 +193,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -163,6 +203,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -170,5 +211,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

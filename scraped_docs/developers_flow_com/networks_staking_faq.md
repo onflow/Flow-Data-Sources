@@ -1,20 +1,22 @@
 # Source: https://developers.flow.com/networks/staking/faq
 
-
-
-
 Staking FAQ | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
 * [Flow's Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
+
   + [Epoch and Staking Terminology](/networks/staking/epoch-terminology)
   + [Epoch and Reward Schedule](/networks/staking/schedule)
   + [Epoch Preparation Protocol](/networks/staking/epoch-preparation)
@@ -35,10 +37,11 @@ Staking FAQ | Flow Developer Portal
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
-
 * [Staking and Epochs](/networks/staking)
 * FAQs
+
 On this page
+
 # Staking FAQ
 
 ### Where will users receive their staking reward for each staking option?[​](#where-will-users-receive-their-staking-reward-for-each-staking-option "Direct link to Where will users receive their staking reward for each staking option?")
@@ -113,7 +116,16 @@ and they can be moved to different accounts if the owner chooses.
 It is possible to query the information about a node that an address runs though, by using the
 `get_node_info_from_address.cdc` script.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/12-faq.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousMachine Account](/networks/staking/machine-account)[NextTechnical Staking Options](/networks/staking/staking-options)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/12-faq.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Machine Account](/networks/staking/machine-account)[Next
+
+Technical Staking Options](/networks/staking/staking-options)
+
 ###### Rate this page
 
 😞😐😊
@@ -128,6 +140,7 @@ It is possible to query the information about a node that an address runs though
 * [How can I reach the Consensus node minimum stake of 500K FLOW](#how-can-i-reach-the-consensus-node-minimum-stake-of-500k-flow)
 * [Is rewards payout another spork?](#is-rewards-payout-another-spork)
 * [Can I query an account address of a node ID or delegator ID?](#can-i-query-an-account-address-of-a-node-id-or-delegator-id)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -140,6 +153,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -149,6 +163,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -156,6 +171,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -165,6 +181,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -172,5 +189,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

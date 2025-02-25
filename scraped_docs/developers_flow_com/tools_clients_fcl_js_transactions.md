@@ -1,22 +1,25 @@
 # Source: https://developers.flow.com/tools/clients/fcl-js/transactions
 
-
-
-
 Transactions | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
 * [Flow CLI](/tools/flow-cli)
 * [Flow Emulator](/tools/emulator)
 * [Clients](/tools/clients)
+
   + [Flow Client Library (FCL)](/tools/clients/fcl-js)
+
     - [FCL Reference](/tools/clients/fcl-js/api)
     - [SDK Reference](/tools/clients/fcl-js/sdk-guidelines)
     - [Authentication](/tools/clients/fcl-js/authentication)
@@ -34,10 +37,10 @@ Transactions | Flow Developer Portal
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 
-
 * [Clients](/tools/clients)
 * [Flow Client Library (FCL)](/tools/clients/fcl-js)
 * Transactions
+
 # Transactions
 
 Transactions let you send Cadence code to the Flow blockchain that permanently alters its state.
@@ -60,7 +63,70 @@ If these are not set, FCL defaults to using the current user for all roles.
 
 `fcl.mutate` will return a `transactionId`. We can pass the response directly to `fcl.tx` and then use the `onceSealed` method which resolves a promise when the transaction is sealed.
 
- `_17import * as fcl from "@onflow/fcl"_17_17const transactionId = await fcl.mutate({_17 cadence: `_17 transaction {_17 execute {_17 log("Hello from execute")_17 }_17 }_17 `,_17 proposer: fcl.currentUser,_17 payer: fcl.currentUser,_17 limit: 50_17})_17_17const transaction = await fcl.tx(transactionId).onceSealed()_17console.log(transaction) // The transactions status and events after being sealed`
+`_17
+
+import * as fcl from "@onflow/fcl"
+
+_17
+
+_17
+
+const transactionId = await fcl.mutate({
+
+_17
+
+cadence: `
+
+_17
+
+transaction {
+
+_17
+
+execute {
+
+_17
+
+log("Hello from execute")
+
+_17
+
+}
+
+_17
+
+}
+
+_17
+
+`,
+
+_17
+
+proposer: fcl.currentUser,
+
+_17
+
+payer: fcl.currentUser,
+
+_17
+
+limit: 50
+
+_17
+
+})
+
+_17
+
+_17
+
+const transaction = await fcl.tx(transactionId).onceSealed()
+
+_17
+
+console.log(transaction) // The transactions status and events after being sealed`
+
 # Authorizing a transaction
 
 The below code snippet is the same as the above one, except for one extremely important difference.
@@ -71,11 +137,99 @@ Four authorizations means four `&Account`s as arguments passed to `prepare`. In 
 
 These authorizations are important as you can only access/modify an accounts storage if you have the said accounts authorization.
 
- `_21import * as fcl from "@onflow/fcl"_21_21const transactionId = await fcl.mutate({_21 cadence: `_21 transaction {_21 prepare(acct: &Account) {_21 log("Hello from prepare")_21 }_21 execute {_21 log("Hello from execute")_21 }_21 }_21 `,_21 proposer: fcl.currentUser,_21 payer: fcl.currentUser,_21 authorizations: [fcl.currentUser],_21 limit: 50_21})_21_21const transaction = await fcl.tx(transactionId).onceSealed()_21console.log(transaction) // The transactions status and events after being sealed`
+`_21
+
+import * as fcl from "@onflow/fcl"
+
+_21
+
+_21
+
+const transactionId = await fcl.mutate({
+
+_21
+
+cadence: `
+
+_21
+
+transaction {
+
+_21
+
+prepare(acct: &Account) {
+
+_21
+
+log("Hello from prepare")
+
+_21
+
+}
+
+_21
+
+execute {
+
+_21
+
+log("Hello from execute")
+
+_21
+
+}
+
+_21
+
+}
+
+_21
+
+`,
+
+_21
+
+proposer: fcl.currentUser,
+
+_21
+
+payer: fcl.currentUser,
+
+_21
+
+authorizations: [fcl.currentUser],
+
+_21
+
+limit: 50
+
+_21
+
+})
+
+_21
+
+_21
+
+const transaction = await fcl.tx(transactionId).onceSealed()
+
+_21
+
+console.log(transaction) // The transactions status and events after being sealed`
 
 To learn more about `mutate`, check out the [API documentation](/tools/clients/fcl-js/api#mutate).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/transactions.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousScripts](/tools/clients/fcl-js/scripts)[NextSigning and Verifying Arbitrary Data](/tools/clients/fcl-js/user-signatures)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/transactions.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Scripts](/tools/clients/fcl-js/scripts)[Next
+
+Signing and Verifying Arbitrary Data](/tools/clients/fcl-js/user-signatures)
+
+Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)
@@ -87,6 +241,7 @@ To learn more about `mutate`, check out the [API documentation](/tools/clients/f
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -96,6 +251,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -103,6 +259,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -112,6 +269,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -119,5 +277,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

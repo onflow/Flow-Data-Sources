@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/build/guides/account-linking/child-accounts
 
-
-
-
 Building Walletless Applications Using Child Accounts | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -19,7 +20,9 @@ Building Walletless Applications Using Child Accounts | Flow Developer Portal
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
 * [Guides](/build/guides/account-linking)
+
   + [Account Linking (FLIP 72)](/build/guides/account-linking)
+
     - [Building Walletless Applications Using Child Accounts](/build/guides/account-linking/child-accounts)
     - [Working With Parent Accounts](/build/guides/account-linking/parent-accounts)
   + [Account Linking With NBA Top Shot](/build/guides/account-linking-with-dapper)
@@ -30,11 +33,12 @@ Building Walletless Applications Using Child Accounts | Flow Developer Portal
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
-
 * Guides
 * [Account Linking (FLIP 72)](/build/guides/account-linking)
 * Building Walletless Applications Using Child Accounts
+
 On this page
+
 # Building Walletless Applications Using Child Accounts
 
 In this doc, we'll dive into a progressive onboarding flow, including the Cadence scripts & transactions that go into
@@ -74,7 +78,45 @@ Below is an example demonstrating how to issue an `&Account` Capability from a s
 
 transaction:
 
-link\_account.cdc `_10#allowAccountLinking_10_10transaction(linkPathSuffix: String) {_10 prepare(signer: auth(IssueAccountCapabilityController) &Account) {_10 // Issues a fully-entitled Account Capability_10 let accountCapability = signer.capabilities_10 .account_10 .issue<auth(Storage, Contracts, Keys, Inbox, Capabilities) &Account>()_10 }_10}`
+link\_account.cdc
+
+`_10
+
+#allowAccountLinking
+
+_10
+
+_10
+
+transaction(linkPathSuffix: String) {
+
+_10
+
+prepare(signer: auth(IssueAccountCapabilityController) &Account) {
+
+_10
+
+// Issues a fully-entitled Account Capability
+
+_10
+
+let accountCapability = signer.capabilities
+
+_10
+
+.account
+
+_10
+
+.issue<auth(Storage, Contracts, Keys, Inbox, Capabilities) &Account>()
+
+_10
+
+}
+
+_10
+
+}`
 
 From there, the signing account can retrieve the privately linked `&Account` Capability and delegate it to another
 account, revoking the Capability if they wish to revoke delegated access.
@@ -140,7 +182,123 @@ cast to `Capability<&NonFungibleToken.Collection>` for example.
 
 Here's how you would configure an `AllowlistFilter` and add allowed types to it:
 
-setup\_allow\_all\_filter.cdc `_31import "CapabilityFilter"_31_31transaction(identifiers: [String]) {_31 prepare(acct: auth(BorrowValue, SaveValue, StorageCapabilities, PublishCapability, UnpublishCapability) &Account) {_31 // Setup the AllowlistFilter_31 if acct.storage.borrow<&AnyResource>(from: CapabilityFilter.StoragePath) == nil {_31 acct.storage.save(_31 <-CapabilityFilter.createFilter(Type<@CapabilityFilter.AllowlistFilter>()),_31 to: CapabilityFilter.StoragePath)_31 }_31_31 // Ensure the AllowlistFilter is linked to the expected PublicPath_31 acct.capabilities.unpublish(CapabilityFilter.PublicPath)_31 acct.capabilities.publish(_31 acct.capabilities.storage.issue<&{CapabilityFilter.Filter}>(CapabilityFilter.StoragePath),_31 at: CapabilityFilter.PublicPath_31 )_31_31 // Get a reference to the filter_31 let filter = acct.storage.borrow<auth(CapabilityFilter.Add) &CapabilityFilter.AllowlistFilter>(_31 from: CapabilityFilter.StoragePath_31 ) ?? panic("filter does not exist")_31_31 // Add the given type identifiers to the AllowlistFilter_31 // **Note:** the whole transaction fails if any of the given identifiers are malformed_31 for identifier in identifiers {_31 let c = CompositeType(identifier)!_31 filter.addType(c)_31 }_31 }_31}`
+setup\_allow\_all\_filter.cdc
+
+`_31
+
+import "CapabilityFilter"
+
+_31
+
+_31
+
+transaction(identifiers: [String]) {
+
+_31
+
+prepare(acct: auth(BorrowValue, SaveValue, StorageCapabilities, PublishCapability, UnpublishCapability) &Account) {
+
+_31
+
+// Setup the AllowlistFilter
+
+_31
+
+if acct.storage.borrow<&AnyResource>(from: CapabilityFilter.StoragePath) == nil {
+
+_31
+
+acct.storage.save(
+
+_31
+
+<-CapabilityFilter.createFilter(Type<@CapabilityFilter.AllowlistFilter>()),
+
+_31
+
+to: CapabilityFilter.StoragePath)
+
+_31
+
+}
+
+_31
+
+_31
+
+// Ensure the AllowlistFilter is linked to the expected PublicPath
+
+_31
+
+acct.capabilities.unpublish(CapabilityFilter.PublicPath)
+
+_31
+
+acct.capabilities.publish(
+
+_31
+
+acct.capabilities.storage.issue<&{CapabilityFilter.Filter}>(CapabilityFilter.StoragePath),
+
+_31
+
+at: CapabilityFilter.PublicPath
+
+_31
+
+)
+
+_31
+
+_31
+
+// Get a reference to the filter
+
+_31
+
+let filter = acct.storage.borrow<auth(CapabilityFilter.Add) &CapabilityFilter.AllowlistFilter>(
+
+_31
+
+from: CapabilityFilter.StoragePath
+
+_31
+
+) ?? panic("filter does not exist")
+
+_31
+
+_31
+
+// Add the given type identifiers to the AllowlistFilter
+
+_31
+
+// **Note:** the whole transaction fails if any of the given identifiers are malformed
+
+_31
+
+for identifier in identifiers {
+
+_31
+
+let c = CompositeType(identifier)!
+
+_31
+
+filter.addType(c)
+
+_31
+
+}
+
+_31
+
+}
+
+_31
+
+}`
 
 And the following transaction configures a `CapabilityFactory.Manager`, adding NFT-related `Factory` objects:
 
@@ -150,8 +308,151 @@ Note that the Manager configured here enables retrieval of castable Capabilities
 Factory resource definitions to support any NFT Collections related with the use of your application so that users can
 retrieve Typed Capabilities from accounts linked from your app.
 
+setup\_factory.cdc
 
-setup\_factory.cdc `_39import "NonFungibleToken"_39_39import "CapabilityFactory"_39import "NFTCollectionPublicFactory"_39import "NFTProviderAndCollectionFactory"_39import "NFTProviderFactory"_39import "NFTCollectionFactory"_39_39transaction {_39 prepare(acct: auth(BorrowValue, SaveValue, StorageCapabilities, PublishCapability, UnpublishCapability) &Account) {_39 // Check for a stored Manager, saving if not found_39 if acct.storage.borrow<&AnyResource>(from: CapabilityFactory.StoragePath) == nil {_39 let f <- CapabilityFactory.createFactoryManager()_39 acct.storage.save(<-f, to: CapabilityFactory.StoragePath)_39 }_39_39 // Check for Capabilities where expected, linking if not found_39 acct.capabilities.unpublish(CapabilityFactory.PublicPath)_39 acct.capabilities.publish(_39 acct.capabilities.storage.issue<&CapabilityFactory.Manager>(CapabilityFactory.StoragePath),_39 at: CapabilityFactory.PublicPath_39 )_39_39 assert(_39 acct.capabilities.get<&CapabilityFactory.Manager>(CapabilityFactory.PublicPath).check(),_39 message: "CapabilityFactory is not setup properly"_39 )_39_39 let manager = acct.storage.borrow<auth(CapabilityFactory.Add) &CapabilityFactory.Manager>(from: CapabilityFactory.StoragePath)_39 ?? panic("manager not found")_39_39 /// Add generic NFT-related Factory implementations to enable castable Capabilities from this Manager_39 manager.updateFactory(Type<&{NonFungibleToken.CollectionPublic}>(), NFTCollectionPublicFactory.Factory())_39 manager.updateFactory(Type<auth(NonFungibleToken.Withdraw) &{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(), NFTProviderAndCollectionFactory.Factory())_39 manager.updateFactory(Type<auth(NonFungibleToken.Withdraw) &{NonFungibleToken.Provider}>(), NFTProviderFactory.Factory())_39 manager.updateFactory(Type<auth(NonFungibleToken.Withdraw) &{NonFungibleToken.Collection}>(), NFTCollectionFactory.WithdrawFactory())_39 manager.updateFactory(Type<&{NonFungibleToken.Collection}>(), NFTCollectionFactory.Factory())_39 }_39}`
+`_39
+
+import "NonFungibleToken"
+
+_39
+
+_39
+
+import "CapabilityFactory"
+
+_39
+
+import "NFTCollectionPublicFactory"
+
+_39
+
+import "NFTProviderAndCollectionFactory"
+
+_39
+
+import "NFTProviderFactory"
+
+_39
+
+import "NFTCollectionFactory"
+
+_39
+
+_39
+
+transaction {
+
+_39
+
+prepare(acct: auth(BorrowValue, SaveValue, StorageCapabilities, PublishCapability, UnpublishCapability) &Account) {
+
+_39
+
+// Check for a stored Manager, saving if not found
+
+_39
+
+if acct.storage.borrow<&AnyResource>(from: CapabilityFactory.StoragePath) == nil {
+
+_39
+
+let f <- CapabilityFactory.createFactoryManager()
+
+_39
+
+acct.storage.save(<-f, to: CapabilityFactory.StoragePath)
+
+_39
+
+}
+
+_39
+
+_39
+
+// Check for Capabilities where expected, linking if not found
+
+_39
+
+acct.capabilities.unpublish(CapabilityFactory.PublicPath)
+
+_39
+
+acct.capabilities.publish(
+
+_39
+
+acct.capabilities.storage.issue<&CapabilityFactory.Manager>(CapabilityFactory.StoragePath),
+
+_39
+
+at: CapabilityFactory.PublicPath
+
+_39
+
+)
+
+_39
+
+_39
+
+assert(
+
+_39
+
+acct.capabilities.get<&CapabilityFactory.Manager>(CapabilityFactory.PublicPath).check(),
+
+_39
+
+message: "CapabilityFactory is not setup properly"
+
+_39
+
+)
+
+_39
+
+_39
+
+let manager = acct.storage.borrow<auth(CapabilityFactory.Add) &CapabilityFactory.Manager>(from: CapabilityFactory.StoragePath)
+
+_39
+
+?? panic("manager not found")
+
+_39
+
+_39
+
+/// Add generic NFT-related Factory implementations to enable castable Capabilities from this Manager
+
+_39
+
+manager.updateFactory(Type<&{NonFungibleToken.CollectionPublic}>(), NFTCollectionPublicFactory.Factory())
+
+_39
+
+manager.updateFactory(Type<auth(NonFungibleToken.Withdraw) &{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>(), NFTProviderAndCollectionFactory.Factory())
+
+_39
+
+manager.updateFactory(Type<auth(NonFungibleToken.Withdraw) &{NonFungibleToken.Provider}>(), NFTProviderFactory.Factory())
+
+_39
+
+manager.updateFactory(Type<auth(NonFungibleToken.Withdraw) &{NonFungibleToken.Collection}>(), NFTCollectionFactory.WithdrawFactory())
+
+_39
+
+manager.updateFactory(Type<&{NonFungibleToken.Collection}>(), NFTCollectionFactory.Factory())
+
+_39
+
+}
+
+_39
+
+}`
 
 ![resources/hybrid_custody_high_level](/assets/images/hybrid_custody_high_level-0fdf5d00b8b4545c3c587ba78a817fd9.png)
 
@@ -187,13 +488,327 @@ those NFTs so the user can easily transfer them between their linked accounts.
 Here, the account delegating access to itself links its `&Account` Capability, and publishes it to be claimed by the
 designated parent account.
 
-publish\_to\_parent.cdc `_32import "HybridCustody"_32import "CapabilityFactory"_32import "CapabilityFilter"_32import "CapabilityDelegator"_32_32transaction(parent: Address, factoryAddress: Address, filterAddress: Address) {_32 prepare(acct: auth(BorrowValue) &Account) {_32 // NOTE: The resources and Capabilities needed for this transaction are assumed to have be pre-configured_32_32 // Borrow the OwnedAccount resource_32 let owned = acct.storage.borrow<auth(HybridCustody.Owner) &HybridCustody.OwnedAccount>(_32 from: HybridCustody.OwnedAccountStoragePath_32 ) ?? panic("owned account not found")_32_32 // Get a CapabilityFactory.Manager Capability_32 let factory = getAccount(factoryAddress).capabilities_32 .get<&CapabilityFactory.Manager>(_32 CapabilityFactory.PublicPath_32 )_32 assert(factory.check(), message: "factory address is not configured properly")_32_32 // Get a CapabilityFilter.Filter Capability_32 let filter = getAccount(filterAddress).capabilities_32 .get<&{CapabilityFilter.Filter}>(_32 CapabilityFilter.PublicPath_32 )_32 assert(filter.check(), message: "capability filter is not configured properly")_32_32 // Publish the OwnedAccount to the designated parent account_32 owned.publishToParent(parentAddress: parent, factory: factory, filter: filter)_32 }_32}`
+publish\_to\_parent.cdc
+
+`_32
+
+import "HybridCustody"
+
+_32
+
+import "CapabilityFactory"
+
+_32
+
+import "CapabilityFilter"
+
+_32
+
+import "CapabilityDelegator"
+
+_32
+
+_32
+
+transaction(parent: Address, factoryAddress: Address, filterAddress: Address) {
+
+_32
+
+prepare(acct: auth(BorrowValue) &Account) {
+
+_32
+
+// NOTE: The resources and Capabilities needed for this transaction are assumed to have be pre-configured
+
+_32
+
+_32
+
+// Borrow the OwnedAccount resource
+
+_32
+
+let owned = acct.storage.borrow<auth(HybridCustody.Owner) &HybridCustody.OwnedAccount>(
+
+_32
+
+from: HybridCustody.OwnedAccountStoragePath
+
+_32
+
+) ?? panic("owned account not found")
+
+_32
+
+_32
+
+// Get a CapabilityFactory.Manager Capability
+
+_32
+
+let factory = getAccount(factoryAddress).capabilities
+
+_32
+
+.get<&CapabilityFactory.Manager>(
+
+_32
+
+CapabilityFactory.PublicPath
+
+_32
+
+)
+
+_32
+
+assert(factory.check(), message: "factory address is not configured properly")
+
+_32
+
+_32
+
+// Get a CapabilityFilter.Filter Capability
+
+_32
+
+let filter = getAccount(filterAddress).capabilities
+
+_32
+
+.get<&{CapabilityFilter.Filter}>(
+
+_32
+
+CapabilityFilter.PublicPath
+
+_32
+
+)
+
+_32
+
+assert(filter.check(), message: "capability filter is not configured properly")
+
+_32
+
+_32
+
+// Publish the OwnedAccount to the designated parent account
+
+_32
+
+owned.publishToParent(parentAddress: parent, factory: factory, filter: filter)
+
+_32
+
+}
+
+_32
+
+}`
+
 #### Claim[​](#claim "Direct link to Claim")
 
 On the other side, the receiving account claims the published `ChildAccount` Capability, adding it to the signer's
 `HybridCustody.Manager.childAccounts` indexed on the child account's Address.
 
-redeem\_account.cdc `_53import "MetadataViews"_53import "ViewResolver"_53_53import "HybridCustody"_53import "CapabilityFilter"_53_53transaction(childAddress: Address, filterAddress: Address?, filterPath: PublicPath?) {_53 prepare(acct: auth(Storage, Capabilities, Inbox) &Account) {_53 // Get a Manager filter if a path is provided_53 var filter: Capability<&{CapabilityFilter.Filter}>? = nil_53 if filterAddress != nil && filterPath != nil {_53 filter = getAccount(filterAddress!).capabilities_53 .get<&{CapabilityFilter.Filter}>(_53 filterPath!_53 )_53 }_53_53 // Configure a Manager if not already configured_53 if acct.storage.borrow<&HybridCustody.Manager>(from: HybridCustody.ManagerStoragePath) == nil {_53 let m <- HybridCustody.createManager(filter: filter)_53 acct.storage.save(<- m, to: HybridCustody.ManagerStoragePath)_53_53 for c in acct.capabilities.storage.getControllers(forPath: HybridCustody.ManagerStoragePath) {_53 c.delete()_53 }_53_53 acct.capabilities.unpublish(HybridCustody.ManagerPublicPath)_53_53 acct.capabilities.publish(_53 acct.capabilities.storage.issue<&{HybridCustody.ManagerPublic}>(_53 HybridCustody.ManagerStoragePath_53 ),_53 at: HybridCustody.ManagerPublicPath_53 )_53_53 acct.capabilities_53 .storage_53 .issue<auth(HybridCustody.Manage) &{HybridCustody.ManagerPrivate, HybridCustody.ManagerPublic}>(_53 HybridCustody.ManagerStoragePath_53 )_53 }_53_53 // Claim the published ChildAccount Capability_53 let inboxName = HybridCustody.getChildAccountIdentifier(acct.address)_53 let cap = acct.inbox.claim<auth(HybridCustody.Child) &{HybridCustody.AccountPrivate, HybridCustody.AccountPublic, ViewResolver.Resolver}>(inboxName, provider: childAddress)_53 ?? panic("child account cap not found")_53_53 // Get a reference to the Manager and add the account & add the child account_53 let manager = acct.storage.borrow<auth(HybridCustody.Manage) &HybridCustody.Manager>(from: HybridCustody.ManagerStoragePath)_53 ?? panic("manager no found")_53 manager.addAccount(cap: cap)_53 }_53}`
+redeem\_account.cdc
+
+`_53
+
+import "MetadataViews"
+
+_53
+
+import "ViewResolver"
+
+_53
+
+_53
+
+import "HybridCustody"
+
+_53
+
+import "CapabilityFilter"
+
+_53
+
+_53
+
+transaction(childAddress: Address, filterAddress: Address?, filterPath: PublicPath?) {
+
+_53
+
+prepare(acct: auth(Storage, Capabilities, Inbox) &Account) {
+
+_53
+
+// Get a Manager filter if a path is provided
+
+_53
+
+var filter: Capability<&{CapabilityFilter.Filter}>? = nil
+
+_53
+
+if filterAddress != nil && filterPath != nil {
+
+_53
+
+filter = getAccount(filterAddress!).capabilities
+
+_53
+
+.get<&{CapabilityFilter.Filter}>(
+
+_53
+
+filterPath!
+
+_53
+
+)
+
+_53
+
+}
+
+_53
+
+_53
+
+// Configure a Manager if not already configured
+
+_53
+
+if acct.storage.borrow<&HybridCustody.Manager>(from: HybridCustody.ManagerStoragePath) == nil {
+
+_53
+
+let m <- HybridCustody.createManager(filter: filter)
+
+_53
+
+acct.storage.save(<- m, to: HybridCustody.ManagerStoragePath)
+
+_53
+
+_53
+
+for c in acct.capabilities.storage.getControllers(forPath: HybridCustody.ManagerStoragePath) {
+
+_53
+
+c.delete()
+
+_53
+
+}
+
+_53
+
+_53
+
+acct.capabilities.unpublish(HybridCustody.ManagerPublicPath)
+
+_53
+
+_53
+
+acct.capabilities.publish(
+
+_53
+
+acct.capabilities.storage.issue<&{HybridCustody.ManagerPublic}>(
+
+_53
+
+HybridCustody.ManagerStoragePath
+
+_53
+
+),
+
+_53
+
+at: HybridCustody.ManagerPublicPath
+
+_53
+
+)
+
+_53
+
+_53
+
+acct.capabilities
+
+_53
+
+.storage
+
+_53
+
+.issue<auth(HybridCustody.Manage) &{HybridCustody.ManagerPrivate, HybridCustody.ManagerPublic}>(
+
+_53
+
+HybridCustody.ManagerStoragePath
+
+_53
+
+)
+
+_53
+
+}
+
+_53
+
+_53
+
+// Claim the published ChildAccount Capability
+
+_53
+
+let inboxName = HybridCustody.getChildAccountIdentifier(acct.address)
+
+_53
+
+let cap = acct.inbox.claim<auth(HybridCustody.Child) &{HybridCustody.AccountPrivate, HybridCustody.AccountPublic, ViewResolver.Resolver}>(inboxName, provider: childAddress)
+
+_53
+
+?? panic("child account cap not found")
+
+_53
+
+_53
+
+// Get a reference to the Manager and add the account & add the child account
+
+_53
+
+let manager = acct.storage.borrow<auth(HybridCustody.Manage) &HybridCustody.Manager>(from: HybridCustody.ManagerStoragePath)
+
+_53
+
+?? panic("manager no found")
+
+_53
+
+manager.addAccount(cap: cap)
+
+_53
+
+}
+
+_53
+
+}`
+
 ### Multi-Signed Transaction[​](#multi-signed-transaction "Direct link to Multi-Signed Transaction")
 
 We can combine the two transactions in [Publish](#publish) and [Claim](#claim) into a single multi-signed transaction to
@@ -204,8 +819,334 @@ info
 Note that while the following code links both accounts in a single transaction, in practicality you may find it easier
 to execute publish and claim transactions separately depending on your custodial infrastructure.
 
+setup\_multi\_sig.cdc
 
-setup\_multi\_sig.cdc `_92#allowAccountLinking_92_92import "HybridCustody"_92_92import "CapabilityFactory"_92import "CapabilityDelegator"_92import "CapabilityFilter"_92_92import "MetadataViews"_92import "ViewResolver"_92_92transaction(parentFilterAddress: Address?, childAccountFactoryAddress: Address, childAccountFilterAddress: Address) {_92 prepare(childAcct: auth(Storage, Capabilities) &Account, parentAcct: auth(Storage, Capabilities, Inbox) &Account) {_92 // --------------------- Begin setup of child account ---------------------_92 var optCap: Capability<auth(Storage, Contracts, Keys, Inbox, Capabilities) &Account>? = nil_92 let t = Type<auth(Storage, Contracts, Keys, Inbox, Capabilities) &Account>()_92 for c in childAcct.capabilities.account.getControllers() {_92 if c.borrowType.isSubtype(of: t) {_92 optCap = c.capability as! Capability<auth(Storage, Contracts, Keys, Inbox, Capabilities) &Account>_92 break_92 }_92 }_92_92 if optCap == nil {_92 optCap = childAcct.capabilities.account.issue<auth(Storage, Contracts, Keys, Inbox, Capabilities) &Account>()_92 }_92 let acctCap = optCap ?? panic("failed to get account capability")_92_92 if childAcct.storage.borrow<&HybridCustody.OwnedAccount>(from: HybridCustody.OwnedAccountStoragePath) == nil {_92 let ownedAccount <- HybridCustody.createOwnedAccount(acct: acctCap)_92 childAcct.storage.save(<-ownedAccount, to: HybridCustody.OwnedAccountStoragePath)_92 }_92_92 for c in childAcct.capabilities.storage.getControllers(forPath: HybridCustody.OwnedAccountStoragePath) {_92 c.delete()_92 }_92_92 // configure capabilities_92 childAcct.capabilities.storage.issue<&{HybridCustody.BorrowableAccount, HybridCustody.OwnedAccountPublic, ViewResolver.Resolver}>(HybridCustody.OwnedAccountStoragePath)_92 childAcct.capabilities.publish(_92 childAcct.capabilities.storage.issue<&{HybridCustody.OwnedAccountPublic, ViewResolver.Resolver}>(HybridCustody.OwnedAccountStoragePath),_92 at: HybridCustody.OwnedAccountPublicPath_92 )_92_92 // --------------------- End setup of child account ---------------------_92_92 // --------------------- Begin setup of parent account ---------------------_92 var filter: Capability<&{CapabilityFilter.Filter}>? = nil_92 if parentFilterAddress != nil {_92 filter = getAccount(parentFilterAddress!).capabilities.get<&{CapabilityFilter.Filter}>(CapabilityFilter.PublicPath)_92 }_92_92 if parentAcct.storage.borrow<&HybridCustody.Manager>(from: HybridCustody.ManagerStoragePath) == nil {_92 let m <- HybridCustody.createManager(filter: filter)_92 parentAcct.storage.save(<- m, to: HybridCustody.ManagerStoragePath)_92 }_92_92 for c in parentAcct.capabilities.storage.getControllers(forPath: HybridCustody.ManagerStoragePath) {_92 c.delete()_92 }_92_92 parentAcct.capabilities.publish(_92 parentAcct.capabilities.storage.issue<&{HybridCustody.ManagerPublic}>(HybridCustody.ManagerStoragePath),_92 at: HybridCustody.ManagerPublicPath_92 )_92 parentAcct.capabilities.storage.issue<auth(HybridCustody.Manage) &{HybridCustody.ManagerPrivate, HybridCustody.ManagerPublic}>(HybridCustody.ManagerStoragePath)_92_92 // --------------------- End setup of parent account ---------------------_92_92 // Publish account to parent_92 let owned = childAcct.storage.borrow<auth(HybridCustody.Owner) &HybridCustody.OwnedAccount>(from: HybridCustody.OwnedAccountStoragePath)_92 ?? panic("owned account not found")_92_92 let factory = getAccount(childAccountFactoryAddress).capabilities.get<&CapabilityFactory.Manager>(CapabilityFactory.PublicPath)_92 assert(factory.check(), message: "factory address is not configured properly")_92_92 let filterForChild = getAccount(childAccountFilterAddress).capabilities.get<&{CapabilityFilter.Filter}>(CapabilityFilter.PublicPath)_92 assert(filterForChild.check(), message: "capability filter is not configured properly")_92_92 owned.publishToParent(parentAddress: parentAcct.address, factory: factory, filter: filterForChild)_92_92 // claim the account on the parent_92 let inboxName = HybridCustody.getChildAccountIdentifier(parentAcct.address)_92 let cap = parentAcct.inbox.claim<auth(HybridCustody.Child) &{HybridCustody.AccountPrivate, HybridCustody.AccountPublic, ViewResolver.Resolver}>(inboxName, provider: childAcct.address)_92 ?? panic("child account cap not found")_92_92 let manager = parentAcct.storage.borrow<auth(HybridCustody.Manage) &HybridCustody.Manager>(from: HybridCustody.ManagerStoragePath)_92 ?? panic("manager no found")_92_92 manager.addAccount(cap: cap)_92 }_92}`
+`_92
+
+#allowAccountLinking
+
+_92
+
+_92
+
+import "HybridCustody"
+
+_92
+
+_92
+
+import "CapabilityFactory"
+
+_92
+
+import "CapabilityDelegator"
+
+_92
+
+import "CapabilityFilter"
+
+_92
+
+_92
+
+import "MetadataViews"
+
+_92
+
+import "ViewResolver"
+
+_92
+
+_92
+
+transaction(parentFilterAddress: Address?, childAccountFactoryAddress: Address, childAccountFilterAddress: Address) {
+
+_92
+
+prepare(childAcct: auth(Storage, Capabilities) &Account, parentAcct: auth(Storage, Capabilities, Inbox) &Account) {
+
+_92
+
+// --------------------- Begin setup of child account ---------------------
+
+_92
+
+var optCap: Capability<auth(Storage, Contracts, Keys, Inbox, Capabilities) &Account>? = nil
+
+_92
+
+let t = Type<auth(Storage, Contracts, Keys, Inbox, Capabilities) &Account>()
+
+_92
+
+for c in childAcct.capabilities.account.getControllers() {
+
+_92
+
+if c.borrowType.isSubtype(of: t) {
+
+_92
+
+optCap = c.capability as! Capability<auth(Storage, Contracts, Keys, Inbox, Capabilities) &Account>
+
+_92
+
+break
+
+_92
+
+}
+
+_92
+
+}
+
+_92
+
+_92
+
+if optCap == nil {
+
+_92
+
+optCap = childAcct.capabilities.account.issue<auth(Storage, Contracts, Keys, Inbox, Capabilities) &Account>()
+
+_92
+
+}
+
+_92
+
+let acctCap = optCap ?? panic("failed to get account capability")
+
+_92
+
+_92
+
+if childAcct.storage.borrow<&HybridCustody.OwnedAccount>(from: HybridCustody.OwnedAccountStoragePath) == nil {
+
+_92
+
+let ownedAccount <- HybridCustody.createOwnedAccount(acct: acctCap)
+
+_92
+
+childAcct.storage.save(<-ownedAccount, to: HybridCustody.OwnedAccountStoragePath)
+
+_92
+
+}
+
+_92
+
+_92
+
+for c in childAcct.capabilities.storage.getControllers(forPath: HybridCustody.OwnedAccountStoragePath) {
+
+_92
+
+c.delete()
+
+_92
+
+}
+
+_92
+
+_92
+
+// configure capabilities
+
+_92
+
+childAcct.capabilities.storage.issue<&{HybridCustody.BorrowableAccount, HybridCustody.OwnedAccountPublic, ViewResolver.Resolver}>(HybridCustody.OwnedAccountStoragePath)
+
+_92
+
+childAcct.capabilities.publish(
+
+_92
+
+childAcct.capabilities.storage.issue<&{HybridCustody.OwnedAccountPublic, ViewResolver.Resolver}>(HybridCustody.OwnedAccountStoragePath),
+
+_92
+
+at: HybridCustody.OwnedAccountPublicPath
+
+_92
+
+)
+
+_92
+
+_92
+
+// --------------------- End setup of child account ---------------------
+
+_92
+
+_92
+
+// --------------------- Begin setup of parent account ---------------------
+
+_92
+
+var filter: Capability<&{CapabilityFilter.Filter}>? = nil
+
+_92
+
+if parentFilterAddress != nil {
+
+_92
+
+filter = getAccount(parentFilterAddress!).capabilities.get<&{CapabilityFilter.Filter}>(CapabilityFilter.PublicPath)
+
+_92
+
+}
+
+_92
+
+_92
+
+if parentAcct.storage.borrow<&HybridCustody.Manager>(from: HybridCustody.ManagerStoragePath) == nil {
+
+_92
+
+let m <- HybridCustody.createManager(filter: filter)
+
+_92
+
+parentAcct.storage.save(<- m, to: HybridCustody.ManagerStoragePath)
+
+_92
+
+}
+
+_92
+
+_92
+
+for c in parentAcct.capabilities.storage.getControllers(forPath: HybridCustody.ManagerStoragePath) {
+
+_92
+
+c.delete()
+
+_92
+
+}
+
+_92
+
+_92
+
+parentAcct.capabilities.publish(
+
+_92
+
+parentAcct.capabilities.storage.issue<&{HybridCustody.ManagerPublic}>(HybridCustody.ManagerStoragePath),
+
+_92
+
+at: HybridCustody.ManagerPublicPath
+
+_92
+
+)
+
+_92
+
+parentAcct.capabilities.storage.issue<auth(HybridCustody.Manage) &{HybridCustody.ManagerPrivate, HybridCustody.ManagerPublic}>(HybridCustody.ManagerStoragePath)
+
+_92
+
+_92
+
+// --------------------- End setup of parent account ---------------------
+
+_92
+
+_92
+
+// Publish account to parent
+
+_92
+
+let owned = childAcct.storage.borrow<auth(HybridCustody.Owner) &HybridCustody.OwnedAccount>(from: HybridCustody.OwnedAccountStoragePath)
+
+_92
+
+?? panic("owned account not found")
+
+_92
+
+_92
+
+let factory = getAccount(childAccountFactoryAddress).capabilities.get<&CapabilityFactory.Manager>(CapabilityFactory.PublicPath)
+
+_92
+
+assert(factory.check(), message: "factory address is not configured properly")
+
+_92
+
+_92
+
+let filterForChild = getAccount(childAccountFilterAddress).capabilities.get<&{CapabilityFilter.Filter}>(CapabilityFilter.PublicPath)
+
+_92
+
+assert(filterForChild.check(), message: "capability filter is not configured properly")
+
+_92
+
+_92
+
+owned.publishToParent(parentAddress: parentAcct.address, factory: factory, filter: filterForChild)
+
+_92
+
+_92
+
+// claim the account on the parent
+
+_92
+
+let inboxName = HybridCustody.getChildAccountIdentifier(parentAcct.address)
+
+_92
+
+let cap = parentAcct.inbox.claim<auth(HybridCustody.Child) &{HybridCustody.AccountPrivate, HybridCustody.AccountPublic, ViewResolver.Resolver}>(inboxName, provider: childAcct.address)
+
+_92
+
+?? panic("child account cap not found")
+
+_92
+
+_92
+
+let manager = parentAcct.storage.borrow<auth(HybridCustody.Manage) &HybridCustody.Manager>(from: HybridCustody.ManagerStoragePath)
+
+_92
+
+?? panic("manager no found")
+
+_92
+
+_92
+
+manager.addAccount(cap: cap)
+
+_92
+
+}
+
+_92
+
+}`
+
 ## Onboarding Flows[​](#onboarding-flows "Direct link to Onboarding Flows")
 
 Given the ability to establish an account and later delegate access to a user, apps are freed from the constraints of
@@ -222,7 +1163,202 @@ notice this transaction is pretty much your standard account creation. The magic
 for this account (locally, KMS, wallet service, etc.) in a manner that allows your app to mediate onchain interactions
 on behalf of your user.
 
-walletless\_onboarding `_51import "FungibleToken"_51import "FlowToken"_51_51transaction(pubKey: String, initialFundingAmt: UFix64) {_51_51 prepare(signer: auth(BorrowValue) &Account) {_51_51 /* --- Account Creation --- */_51 // **NOTE:** your app may choose to separate creation depending on your custodial model)_51 //_51 // Create the child account, funding via the signer_51 let newAccount = Account(payer: signer)_51 // Create a public key for the new account from string value in the provided arg_51 // **NOTE:** You may want to specify a different signature algo for your use case_51 let key = PublicKey(_51 publicKey: pubKey.decodeHex(),_51 signatureAlgorithm: SignatureAlgorithm.ECDSA_P256_51 )_51 // Add the key to the new account_51 // **NOTE:** You may want to specify a different hash algo & weight best for your use case_51 newAccount.keys.add(_51 publicKey: key,_51 hashAlgorithm: HashAlgorithm.SHA3_256,_51 weight: 1000.0_51 )_51_51 /* --- (Optional) Additional Account Funding --- */_51 //_51 // Fund the new account if specified_51 if initialFundingAmt > 0.0 {_51 // Get a vault to fund the new account_51 let fundingProvider = signer.storage.borrow<auth(FungibleToken.Withdraw) &FlowToken.Vault>(_51 from: /storage/flowTokenVault_51 )!_51 // Fund the new account with the initialFundingAmount specified_51 let receiver = newAccount.capabilities.get<&FlowToken.Vault>(_51 /public/flowTokenReceiver_51 ).borrow()!_51 let fundingVault <-fundingProvider.withdraw(_51 amount: initialFundingAmt_51 )_51 receiver.deposit(from: <-fundingVault)_51 }_51_51 /* --- Continue with use case specific setup --- */_51 //_51 // At this point, the newAccount can further be configured as suitable for_51 // use in your app (e.g. Setup a Collection, Mint NFT, Configure Vault, etc.)_51 // ..._51 }_51}`
+walletless\_onboarding
+
+`_51
+
+import "FungibleToken"
+
+_51
+
+import "FlowToken"
+
+_51
+
+_51
+
+transaction(pubKey: String, initialFundingAmt: UFix64) {
+
+_51
+
+_51
+
+prepare(signer: auth(BorrowValue) &Account) {
+
+_51
+
+_51
+
+/* --- Account Creation --- */
+
+_51
+
+// **NOTE:** your app may choose to separate creation depending on your custodial model)
+
+_51
+
+//
+
+_51
+
+// Create the child account, funding via the signer
+
+_51
+
+let newAccount = Account(payer: signer)
+
+_51
+
+// Create a public key for the new account from string value in the provided arg
+
+_51
+
+// **NOTE:** You may want to specify a different signature algo for your use case
+
+_51
+
+let key = PublicKey(
+
+_51
+
+publicKey: pubKey.decodeHex(),
+
+_51
+
+signatureAlgorithm: SignatureAlgorithm.ECDSA_P256
+
+_51
+
+)
+
+_51
+
+// Add the key to the new account
+
+_51
+
+// **NOTE:** You may want to specify a different hash algo & weight best for your use case
+
+_51
+
+newAccount.keys.add(
+
+_51
+
+publicKey: key,
+
+_51
+
+hashAlgorithm: HashAlgorithm.SHA3_256,
+
+_51
+
+weight: 1000.0
+
+_51
+
+)
+
+_51
+
+_51
+
+/* --- (Optional) Additional Account Funding --- */
+
+_51
+
+//
+
+_51
+
+// Fund the new account if specified
+
+_51
+
+if initialFundingAmt > 0.0 {
+
+_51
+
+// Get a vault to fund the new account
+
+_51
+
+let fundingProvider = signer.storage.borrow<auth(FungibleToken.Withdraw) &FlowToken.Vault>(
+
+_51
+
+from: /storage/flowTokenVault
+
+_51
+
+)!
+
+_51
+
+// Fund the new account with the initialFundingAmount specified
+
+_51
+
+let receiver = newAccount.capabilities.get<&FlowToken.Vault>(
+
+_51
+
+/public/flowTokenReceiver
+
+_51
+
+).borrow()!
+
+_51
+
+let fundingVault <-fundingProvider.withdraw(
+
+_51
+
+amount: initialFundingAmt
+
+_51
+
+)
+
+_51
+
+receiver.deposit(from: <-fundingVault)
+
+_51
+
+}
+
+_51
+
+_51
+
+/* --- Continue with use case specific setup --- */
+
+_51
+
+//
+
+_51
+
+// At this point, the newAccount can further be configured as suitable for
+
+_51
+
+// use in your app (e.g. Setup a Collection, Mint NFT, Configure Vault, etc.)
+
+_51
+
+// ...
+
+_51
+
+}
+
+_51
+
+}`
+
 ### Blockchain-Native Onboarding[​](#blockchain-native-onboarding "Direct link to Blockchain-Native Onboarding")
 
 This onboarding flow is really a single-transaction composition of the steps covered above. This is a testament to the
@@ -235,6 +1371,7 @@ Recall the [prerequisites](#prerequisites) needed to be satisfied before linking
 1. CapabilityFilter Filter saved and linked
 2. CapabilityFactory Manager saved and linked as well as Factory implementations supporting the Capability Types you'll
    want accessible from linked child accounts as Typed Capabilities.
+
 #### Account Creation & Linking[​](#account-creation--linking "Direct link to Account Creation & Linking")
 
 Compared to walletless onboarding where a user does not have a Flow account, blockchain-native onboarding assumes a user
@@ -246,7 +1383,462 @@ After this transaction, both the custodial party (presumably the client/app) and
 access to the newly created account - the custodial party via key access and the parent account via their
 `HybridCustody.Manager` maintaining the new account's `ChildAccount` Capability.
 
-blockchain\_native\_onboarding.cdc `_123#allowAccountLinking_123_123import "FungibleToken"_123import "FlowToken"_123import "MetadataViews"_123import "ViewResolver"_123_123import "HybridCustody"_123import "CapabilityFactory"_123import "CapabilityFilter"_123import "CapabilityDelegator"_123_123transaction(_123 pubKey: String,_123 initialFundingAmt: UFix64,_123 factoryAddress: Address,_123 filterAddress: Address_123) {_123_123 prepare(parent: auth(Storage, Capabilities, Inbox) &Account, app: auth(Storage, Capabilities) &Account) {_123 /* --- Account Creation --- */_123 //_123 // Create the child account, funding via the signing app account_123 let newAccount = Account(payer: app)_123 // Create a public key for the child account from string value in the provided arg_123 // **NOTE:** You may want to specify a different signature algo for your use case_123 let key = PublicKey(_123 publicKey: pubKey.decodeHex(),_123 signatureAlgorithm: SignatureAlgorithm.ECDSA_P256_123 )_123 // Add the key to the new account_123 // **NOTE:** You may want to specify a different hash algo & weight best for your use case_123 newAccount.keys.add(_123 publicKey: key,_123 hashAlgorithm: HashAlgorithm.SHA3_256,_123 weight: 1000.0_123 )_123_123 /* --- (Optional) Additional Account Funding --- */_123 //_123 // Fund the new account if specified_123 if initialFundingAmt > 0.0 {_123 // Get a vault to fund the new account_123 let fundingProvider = app.storage.borrow<auth(FungibleToken.Withdraw) &{FungibleToken.Provider}>(from: /storage/flowTokenVault)!_123 // Fund the new account with the initialFundingAmount specified_123 newAccount.capabilities.get<&{FungibleToken.Receiver}>(/public/flowTokenReceiver)!_123 .borrow()!_123 .deposit(_123 from: <-fundingProvider.withdraw(_123 amount: initialFundingAmt_123 )_123 )_123 }_123_123 /* Continue with use case specific setup */_123 //_123 // At this point, the newAccount can further be configured as suitable for_123 // use in your dapp (e.g. Setup a Collection, Mint NFT, Configure Vault, etc.)_123 // ..._123_123 /* --- Link the AuthAccount Capability --- */_123 //_123 let acctCap = newAccount.capabilities.account.issue<auth(Storage, Contracts, Keys, Inbox, Capabilities) &Account>()_123_123 // Create a OwnedAccount & link Capabilities_123 let ownedAccount <- HybridCustody.createOwnedAccount(acct: acctCap)_123 newAccount.storage.save(<-ownedAccount, to: HybridCustody.OwnedAccountStoragePath)_123_123 newAccount.capabilities.storage.issue<&{HybridCustody.BorrowableAccount, HybridCustody.OwnedAccountPublic, ViewResolver.Resolver}>(HybridCustody.OwnedAccountStoragePath)_123 newAccount.capabilities.publish(_123 newAccount.capabilities.storage.issue<&{HybridCustody.OwnedAccountPublic, ViewResolver.Resolver}>(HybridCustody.OwnedAccountStoragePath),_123 at: HybridCustody.OwnedAccountPublicPath_123 )_123_123 // Get a reference to the OwnedAccount resource_123 let owned = newAccount.storage.borrow<auth(HybridCustody.Owner) &HybridCustody.OwnedAccount>(from: HybridCustody.OwnedAccountStoragePath)!_123_123 // Get the CapabilityFactory.Manager Capability_123 let factory = getAccount(factoryAddress).capabilities.get<&CapabilityFactory.Manager>(CapabilityFactory.PublicPath)_123 assert(factory.check(), message: "factory address is not configured properly")_123_123 // Get the CapabilityFilter.Filter Capability_123 let filter = getAccount(filterAddress).capabilities.get<&{CapabilityFilter.Filter}>(CapabilityFilter.PublicPath)_123 assert(filter.check(), message: "capability filter is not configured properly")_123_123 // Configure access for the delegatee parent account_123 owned.publishToParent(parentAddress: parent.address, factory: factory, filter: filter)_123_123 /* --- Add delegation to parent account --- */_123 //_123 // Configure HybridCustody.Manager if needed_123 if parent.storage.borrow<&AnyResource>(from: HybridCustody.ManagerStoragePath) == nil {_123 let m <- HybridCustody.createManager(filter: filter)_123 parent.storage.save(<- m, to: HybridCustody.ManagerStoragePath)_123_123 for c in parent.capabilities.storage.getControllers(forPath: HybridCustody.ManagerStoragePath) { _123 c.delete()_123 }_123_123 // configure Capabilities_123 parent.capabilities.storage.issue<&{HybridCustody.ManagerPrivate, HybridCustody.ManagerPublic}>(HybridCustody.ManagerStoragePath)_123 parent.capabilities.publish(_123 parent.capabilities.storage.issue<&{HybridCustody.ManagerPublic}>(HybridCustody.ManagerStoragePath),_123 at: HybridCustody.ManagerPublicPath_123 )_123 }_123_123 _123 // Claim the ChildAccount Capability_123 let inboxName = HybridCustody.getChildAccountIdentifier(parent.address)_123 let cap = parent_123 .inbox_123 .claim<auth(HybridCustody.Child) &{HybridCustody.AccountPrivate, HybridCustody.AccountPublic, ViewResolver.Resolver}>(_123 inboxName,_123 provider: newAccount.address_123 ) ?? panic("child account cap not found")_123 _123 // Get a reference to the Manager and add the account_123 let managerRef = parent.storage.borrow<auth(HybridCustody.Manage) &HybridCustody.Manager>(from: HybridCustody.ManagerStoragePath)_123 ?? panic("manager not found")_123 managerRef.addAccount(cap: cap)_123 }_123}`
+blockchain\_native\_onboarding.cdc
+
+`_123
+
+#allowAccountLinking
+
+_123
+
+_123
+
+import "FungibleToken"
+
+_123
+
+import "FlowToken"
+
+_123
+
+import "MetadataViews"
+
+_123
+
+import "ViewResolver"
+
+_123
+
+_123
+
+import "HybridCustody"
+
+_123
+
+import "CapabilityFactory"
+
+_123
+
+import "CapabilityFilter"
+
+_123
+
+import "CapabilityDelegator"
+
+_123
+
+_123
+
+transaction(
+
+_123
+
+pubKey: String,
+
+_123
+
+initialFundingAmt: UFix64,
+
+_123
+
+factoryAddress: Address,
+
+_123
+
+filterAddress: Address
+
+_123
+
+) {
+
+_123
+
+_123
+
+prepare(parent: auth(Storage, Capabilities, Inbox) &Account, app: auth(Storage, Capabilities) &Account) {
+
+_123
+
+/* --- Account Creation --- */
+
+_123
+
+//
+
+_123
+
+// Create the child account, funding via the signing app account
+
+_123
+
+let newAccount = Account(payer: app)
+
+_123
+
+// Create a public key for the child account from string value in the provided arg
+
+_123
+
+// **NOTE:** You may want to specify a different signature algo for your use case
+
+_123
+
+let key = PublicKey(
+
+_123
+
+publicKey: pubKey.decodeHex(),
+
+_123
+
+signatureAlgorithm: SignatureAlgorithm.ECDSA_P256
+
+_123
+
+)
+
+_123
+
+// Add the key to the new account
+
+_123
+
+// **NOTE:** You may want to specify a different hash algo & weight best for your use case
+
+_123
+
+newAccount.keys.add(
+
+_123
+
+publicKey: key,
+
+_123
+
+hashAlgorithm: HashAlgorithm.SHA3_256,
+
+_123
+
+weight: 1000.0
+
+_123
+
+)
+
+_123
+
+_123
+
+/* --- (Optional) Additional Account Funding --- */
+
+_123
+
+//
+
+_123
+
+// Fund the new account if specified
+
+_123
+
+if initialFundingAmt > 0.0 {
+
+_123
+
+// Get a vault to fund the new account
+
+_123
+
+let fundingProvider = app.storage.borrow<auth(FungibleToken.Withdraw) &{FungibleToken.Provider}>(from: /storage/flowTokenVault)!
+
+_123
+
+// Fund the new account with the initialFundingAmount specified
+
+_123
+
+newAccount.capabilities.get<&{FungibleToken.Receiver}>(/public/flowTokenReceiver)!
+
+_123
+
+.borrow()!
+
+_123
+
+.deposit(
+
+_123
+
+from: <-fundingProvider.withdraw(
+
+_123
+
+amount: initialFundingAmt
+
+_123
+
+)
+
+_123
+
+)
+
+_123
+
+}
+
+_123
+
+_123
+
+/* Continue with use case specific setup */
+
+_123
+
+//
+
+_123
+
+// At this point, the newAccount can further be configured as suitable for
+
+_123
+
+// use in your dapp (e.g. Setup a Collection, Mint NFT, Configure Vault, etc.)
+
+_123
+
+// ...
+
+_123
+
+_123
+
+/* --- Link the AuthAccount Capability --- */
+
+_123
+
+//
+
+_123
+
+let acctCap = newAccount.capabilities.account.issue<auth(Storage, Contracts, Keys, Inbox, Capabilities) &Account>()
+
+_123
+
+_123
+
+// Create a OwnedAccount & link Capabilities
+
+_123
+
+let ownedAccount <- HybridCustody.createOwnedAccount(acct: acctCap)
+
+_123
+
+newAccount.storage.save(<-ownedAccount, to: HybridCustody.OwnedAccountStoragePath)
+
+_123
+
+_123
+
+newAccount.capabilities.storage.issue<&{HybridCustody.BorrowableAccount, HybridCustody.OwnedAccountPublic, ViewResolver.Resolver}>(HybridCustody.OwnedAccountStoragePath)
+
+_123
+
+newAccount.capabilities.publish(
+
+_123
+
+newAccount.capabilities.storage.issue<&{HybridCustody.OwnedAccountPublic, ViewResolver.Resolver}>(HybridCustody.OwnedAccountStoragePath),
+
+_123
+
+at: HybridCustody.OwnedAccountPublicPath
+
+_123
+
+)
+
+_123
+
+_123
+
+// Get a reference to the OwnedAccount resource
+
+_123
+
+let owned = newAccount.storage.borrow<auth(HybridCustody.Owner) &HybridCustody.OwnedAccount>(from: HybridCustody.OwnedAccountStoragePath)!
+
+_123
+
+_123
+
+// Get the CapabilityFactory.Manager Capability
+
+_123
+
+let factory = getAccount(factoryAddress).capabilities.get<&CapabilityFactory.Manager>(CapabilityFactory.PublicPath)
+
+_123
+
+assert(factory.check(), message: "factory address is not configured properly")
+
+_123
+
+_123
+
+// Get the CapabilityFilter.Filter Capability
+
+_123
+
+let filter = getAccount(filterAddress).capabilities.get<&{CapabilityFilter.Filter}>(CapabilityFilter.PublicPath)
+
+_123
+
+assert(filter.check(), message: "capability filter is not configured properly")
+
+_123
+
+_123
+
+// Configure access for the delegatee parent account
+
+_123
+
+owned.publishToParent(parentAddress: parent.address, factory: factory, filter: filter)
+
+_123
+
+_123
+
+/* --- Add delegation to parent account --- */
+
+_123
+
+//
+
+_123
+
+// Configure HybridCustody.Manager if needed
+
+_123
+
+if parent.storage.borrow<&AnyResource>(from: HybridCustody.ManagerStoragePath) == nil {
+
+_123
+
+let m <- HybridCustody.createManager(filter: filter)
+
+_123
+
+parent.storage.save(<- m, to: HybridCustody.ManagerStoragePath)
+
+_123
+
+_123
+
+for c in parent.capabilities.storage.getControllers(forPath: HybridCustody.ManagerStoragePath) {
+
+_123
+
+c.delete()
+
+_123
+
+}
+
+_123
+
+_123
+
+// configure Capabilities
+
+_123
+
+parent.capabilities.storage.issue<&{HybridCustody.ManagerPrivate, HybridCustody.ManagerPublic}>(HybridCustody.ManagerStoragePath)
+
+_123
+
+parent.capabilities.publish(
+
+_123
+
+parent.capabilities.storage.issue<&{HybridCustody.ManagerPublic}>(HybridCustody.ManagerStoragePath),
+
+_123
+
+at: HybridCustody.ManagerPublicPath
+
+_123
+
+)
+
+_123
+
+}
+
+_123
+
+_123
+
+_123
+
+// Claim the ChildAccount Capability
+
+_123
+
+let inboxName = HybridCustody.getChildAccountIdentifier(parent.address)
+
+_123
+
+let cap = parent
+
+_123
+
+.inbox
+
+_123
+
+.claim<auth(HybridCustody.Child) &{HybridCustody.AccountPrivate, HybridCustody.AccountPublic, ViewResolver.Resolver}>(
+
+_123
+
+inboxName,
+
+_123
+
+provider: newAccount.address
+
+_123
+
+) ?? panic("child account cap not found")
+
+_123
+
+_123
+
+// Get a reference to the Manager and add the account
+
+_123
+
+let managerRef = parent.storage.borrow<auth(HybridCustody.Manage) &HybridCustody.Manager>(from: HybridCustody.ManagerStoragePath)
+
+_123
+
+?? panic("manager not found")
+
+_123
+
+managerRef.addAccount(cap: cap)
+
+_123
+
+}
+
+_123
+
+}`
+
 ## Funding & Custody Patterns[​](#funding--custody-patterns "Direct link to Funding & Custody Patterns")
 
 Aside from implementing onboarding flows & account linking, you'll want to also consider the account funding & custodial
@@ -298,7 +1890,16 @@ While perhaps not useful for most apps, this pattern may be desirable for advanc
 access account themselves. The user funds account creation, adding keys they custody, and delegates secondary access to
 some other account.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking/child-accounts.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousAccount Linking (FLIP 72)](/build/guides/account-linking)[NextWorking With Parent Accounts](/build/guides/account-linking/parent-accounts)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking/child-accounts.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Account Linking (FLIP 72)](/build/guides/account-linking)[Next
+
+Working With Parent Accounts](/build/guides/account-linking/parent-accounts)
+
 ###### Rate this page
 
 😞😐😊
@@ -320,6 +1921,7 @@ some other account.
   + [App-Funded, User-Custodied](#app-funded-user-custodied)
   + [User-Funded, App-Custodied](#user-funded-app-custodied)
   + [User-Funded, User-Custodied](#user-funded-user-custodied)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -332,6 +1934,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -341,6 +1944,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -348,6 +1952,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -357,6 +1962,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -364,5 +1970,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

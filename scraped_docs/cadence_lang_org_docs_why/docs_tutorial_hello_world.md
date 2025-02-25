@@ -1,18 +1,21 @@
 # Source: https://cadence-lang.org/docs/tutorial/hello-world
 
-
-
-
 Hello World | Cadence
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)Search
+[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
+
+[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+
+Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
 * [Tutorial](/docs/tutorial/first-steps)
+
   + [First Steps](/docs/tutorial/first-steps)
   + [Hello World](/docs/tutorial/hello-world)
   + [Resources and the Move (<-) Operator](/docs/tutorial/resources)
@@ -36,10 +39,11 @@ Hello World | Cadence
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
-
 * Tutorial
 * Hello World
+
 On this page
+
 # Hello World
 
 It's time to write your own "Hello World" contract. In this instance, the contract will:
@@ -73,8 +77,18 @@ Action
 
 Begin by declaring your contract.
 
+`_10
 
- `_10access(all) contract HelloWorld {_10 // Todo_10}`
+access(all) contract HelloWorld {
+
+_10
+
+// Todo
+
+_10
+
+}`
+
 ### Declare a Contract-Level Constant[​](#declare-a-contract-level-constant "Direct link to Declare a Contract-Level Constant")
 
 The line `access(all) contract HelloWorld`  declares a contract with [Access Control](/docs/language/access-control) that is accessible in all scopes - or public.
@@ -83,8 +97,24 @@ Action
 
 Add a public constant `String` field to store your greeting.
 
+`_10
 
- `_10// Incomplete code example_10// An error is expected here, see below_10_10// Declare a public (access(all)) field of type String._10access(all) let greeting: String`
+// Incomplete code example
+
+_10
+
+// An error is expected here, see below
+
+_10
+
+_10
+
+// Declare a public (access(all)) field of type String.
+
+_10
+
+access(all) let greeting: String`
+
 warning
 
 Cadence follows the same pattern as Swift where the `let` keyword is used to declare a constant. The `var` keyword is used to declare a variable.
@@ -99,8 +129,22 @@ Action
 
 Add an initializer and initialize your `greeting`.
 
+`_10
 
- `_10// The initializer is required if the contract contains any fields._10init() {_10 self.greeting = "Hello, World!"_10}`
+// The initializer is required if the contract contains any fields.
+
+_10
+
+init() {
+
+_10
+
+self.greeting = "Hello, World!"
+
+_10
+
+}`
+
 ### Add a View Function[​](#add-a-view-function "Direct link to Add a View Function")
 
 You've created a contract and initialized the `"Hello, World!"` `String`. The next step is to:
@@ -109,8 +153,21 @@ Action
 
 Implement a `view` function to return the `greeting` constant.
 
+`_10
 
- `_10// Public function that returns our friendly greeting!_10access(all) view fun hello(): String {_10 return self.greeting_10}`
+// Public function that returns our friendly greeting!
+
+_10
+
+access(all) view fun hello(): String {
+
+_10
+
+return self.greeting
+
+_10
+
+}`
 
 Once again, the access level is public. Anyone who imports this contract into their own contract, transaction, or script can read the public fields, use the public types, and call the public contract functions - the ones that have `access(all)` specified.
 
@@ -178,7 +235,9 @@ Click the deploy button to deploy the contents of the editor to account `0x06`.
 
 You should see a log in the output area indicating that the deployment succeeded.
 
- `_10Deployed Contract To: 0x06`
+`_10
+
+Deployed Contract To: 0x06`
 
 You'll also see the name of the contract in the selected account tab underneath the number for the account. This indicates that the `HelloWorld` contract has been deployed to the account.
 
@@ -206,14 +265,25 @@ Action
 
 Add an `import` at the top of the file.
 
+`_10
 
- `_10import HelloWorld from 0x06`
+import HelloWorld from 0x06`
 
 This imports the entire contract code from `HelloWorld`, including type definitions and public functions, so that the transaction can use them to interact with the `HelloWorld` contract in account `0x06`.
 
 To import any smart contract from any account, you can use this format:
 
- `_10// Replace {ContractName} with the name of the contract you want to import_10// and {Address} with the account you want to import it from_10import {ContractName} from {Address}`
+`_10
+
+// Replace {ContractName} with the name of the contract you want to import
+
+_10
+
+// and {Address} with the account you want to import it from
+
+_10
+
+import {ContractName} from {Address}`
 
 Transactions are written in Cadence and are declared with the `transaction` keyword.
 
@@ -221,8 +291,18 @@ Action
 
 Declare an empty `transaction`.
 
+`_10
 
- `_10transaction {_10 // TODO_10}`
+transaction {
+
+_10
+
+// TODO
+
+_10
+
+}`
+
 ### Transaction Process[​](#transaction-process "Direct link to Transaction Process")
 
 Transactions are divided into two main phases, `prepare` and `execute`.
@@ -233,8 +313,17 @@ Action
 
 Add an empty `prepare` statement to your transaction.
 
+`_10
 
- `_10prepare(acct: &Account) {_10 // Nothing is needed here for now_10}`
+prepare(acct: &Account) {
+
+_10
+
+// Nothing is needed here for now
+
+_10
+
+}`
 
 The `execute` phase is the main body of a transaction. It can call functions on external contracts and objects and perform operations on data that was initialized in the transaction.
 
@@ -242,8 +331,17 @@ Action
 
 Add an `execute` block to your transaction and use it to `log` the output of the `hello()` function from the imported `HelloWorld` contract to the console.
 
+`_10
 
- `_10execute {_10 log(HelloWorld.hello())_10}`
+execute {
+
+_10
+
+log(HelloWorld.hello())
+
+_10
+
+}`
 
 In this example, the `execute` phase calls `HelloWorld.hello()`. This executes the `hello()` function in the `HelloWorld` contract
 and logs the result(`log(HelloWorld.hello())`) to the console.
@@ -256,7 +354,21 @@ Click the `Send` button to submit the transaction
 
 You should see something like this in the transaction results at the bottom of the screen:
 
- `_1016:46:56_10Simple Transaction_10[1]_10Cadence log: "Hello, World!"`
+`_10
+
+16:46:56
+
+_10
+
+Simple Transaction
+
+_10
+
+[1]
+
+_10
+
+Cadence log: "Hello, World!"`
 
 Congratulations, you just executed your first Cadence transaction with the account `0x06` as the signer!
 
@@ -274,12 +386,21 @@ Now that you have completed the tutorial, you can:
 * Initialize a public `String` variable.
 * Write simple transactions in Cadence.
 * Describe the role of signers in a Cadence transaction.
+
 **Tags:**
 
 * [reference](/docs/tags/reference)
 * [cadence](/docs/tags/cadence)
 * [tutorial](/docs/tags/tutorial)
-[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/tutorial/02-hello-world.md)[PreviousFirst Steps](/docs/tutorial/first-steps)[NextResources and the Move (<-) Operator](/docs/tutorial/resources)
+
+[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/tutorial/02-hello-world.md)
+
+[Previous
+
+First Steps](/docs/tutorial/first-steps)[Next
+
+Resources and the Move (<-) Operator](/docs/tutorial/resources)
+
 ###### Rate this page
 
 😞😐😊
@@ -297,9 +418,10 @@ Now that you have completed the tutorial, you can:
 * [Transactions](#transactions)
   + [Transaction Process](#transaction-process)
 * [Conclusion](#conclusion)
-Got suggestions for this site? 
+
+Got suggestions for this site?
 
 * [It's open-source!](https://github.com/onflow/cadence-lang.org)
+
 The source code of this site is licensed under the Apache License, Version 2.0.
 Content is licensed under the Creative Commons Attribution 4.0 International License.
-

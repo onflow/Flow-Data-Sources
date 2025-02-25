@@ -1,30 +1,14 @@
 # Source: https://academy.ecdao.org/en/catalog/courses/beginner-dapp/chapter2/lesson1
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -55,7 +39,6 @@ Connect
 [5.1 Finishing our DApp](/en/catalog/courses/beginner-dapp/chapter5/lesson1)[5.2 Deploying our DApp](/en/catalog/courses/beginner-dapp/chapter5/lesson2)
 
 Course Overview
-
 
 [Catalog](/en/catalog)
 [Course](/en/catalog/courses/beginner-dapp)
@@ -187,6 +170,7 @@ A repository is basically like a project.
 You will now be taken to a page with no files inside of it. It should look like this:
 
 ![](/courses/beginner-dapp/empty-github.png)
+
 ### Pushing to Our Repository
 
 Letâs now add (or âpushâ) our code to GitHub. Open up a terminal on your computer and make sure youâre in the base directory of your project.
@@ -194,6 +178,7 @@ Letâs now add (or âpushâ) our code to GitHub. Open up a terminal 
 > Run the following lines of code:
 
 bash
+
 ```
 		
 			git init
@@ -205,9 +190,11 @@ git push -u origin main
 		 
 	
 ```
+
 > Then, copy and paste the URL of the GitHub repository and insert it into the command below, and then run it:
 
 bash
+
 ```
 		
 			git remote add origin [THE URL GOES HERE]
@@ -219,6 +206,7 @@ git push -u origin main
 If this is your first time pushing to GitHub, it may ask you to log in. Then, if you go back to your GitHub repository, it should all be there!
 
 ![](/courses/beginner-dapp/uploaded-code.png)
+
 ### Making Changes
 
 Now, what if we make changes to our code? How to we put it on GitHub?
@@ -226,6 +214,7 @@ Now, what if we make changes to our code? How to we put it on GitHub?
 When you make a change in your code and save the file, you can push it to GitHub by running:
 
 bash
+
 ```
 		
 			git add .
@@ -234,6 +223,7 @@ git push origin main
 		 
 	
 ```
+
 ## Conclusion
 
 All we wanted you to do today was install a Next.js project and run the project. If you could successfully do that, wooooohoooo! You will have no problem with the Quest.
@@ -255,15 +245,14 @@ Author
 
 [Jacob Tucker](https://twitter.com/jacobmtucker)
 
-
-
-
 [Quests](#quests)
-[Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/beginner-dapp/en/chapter2/lesson1.md)
 
+[Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/beginner-dapp/en/chapter2/lesson1.md)
 
 [The Flow Blockchain & Cadence](/en/catalog/courses/beginner-dapp/chapter1/lesson2)
 [Learning Frontend Code](/en/catalog/courses/beginner-dapp/chapter2/lesson2)
+
+
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
@@ -271,17 +260,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

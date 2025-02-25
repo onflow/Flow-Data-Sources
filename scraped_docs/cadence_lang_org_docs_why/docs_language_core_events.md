@@ -1,19 +1,22 @@
 # Source: https://cadence-lang.org/docs/language/core-events
 
-
-
-
 Core Events | Cadence
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)Search
+[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
+
+[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+
+Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
 * [Tutorial](/docs/tutorial/first-steps)
 * [Language Reference](/docs/language/)
+
   + [Syntax](/docs/language/syntax)
   + [Constants and Variable Declarations](/docs/language/constants-and-variables)
   + [Type Annotations](/docs/language/type-annotations)
@@ -57,10 +60,11 @@ Core Events | Cadence
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
-
 * [Language Reference](/docs/language/)
 * Core Events
+
 On this page
+
 # Core Events
 
 Core events are events emitted directly from the FVM (Flow Virtual Machine).
@@ -74,7 +78,13 @@ Event that is emitted when a new account gets created.
 
 Event name: `flow.AccountCreated`
 
- `_10access(all)_10event AccountCreated(address: Address)`
+`_10
+
+access(all)
+
+_10
+
+event AccountCreated(address: Address)`
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -86,7 +96,37 @@ Event that is emitted when a key gets added to an account.
 
 Event name: `flow.AccountKeyAdded`
 
- `_10access(all)_10event AccountKeyAdded(_10 address: Address,_10 publicKey: PublicKey,_10 weight: UFix64,_10 hashAlgorithm: HashAlgorithm,_10 keyIndex: Int_10)`
+`_10
+
+access(all)
+
+_10
+
+event AccountKeyAdded(
+
+_10
+
+address: Address,
+
+_10
+
+publicKey: PublicKey,
+
+_10
+
+weight: UFix64,
+
+_10
+
+hashAlgorithm: HashAlgorithm,
+
+_10
+
+keyIndex: Int
+
+_10
+
+)`
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -102,7 +142,25 @@ Event that is emitted when a key gets removed from an account.
 
 Event name: `flow.AccountKeyRemoved`
 
- `_10access(all)_10event AccountKeyRemoved(_10 address: Address,_10 publicKey: PublicKey_10)`
+`_10
+
+access(all)
+
+_10
+
+event AccountKeyRemoved(
+
+_10
+
+address: Address,
+
+_10
+
+publicKey: PublicKey
+
+_10
+
+)`
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -115,7 +173,29 @@ Event that is emitted when a contract gets deployed to an account.
 
 Event name: `flow.AccountContractAdded`
 
- `_10access(all)_10event AccountContractAdded(_10 address: Address,_10 codeHash: [UInt8],_10 contract: String_10)`
+`_10
+
+access(all)
+
+_10
+
+event AccountContractAdded(
+
+_10
+
+address: Address,
+
+_10
+
+codeHash: [UInt8],
+
+_10
+
+contract: String
+
+_10
+
+)`
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -129,7 +209,29 @@ Event that is emitted when a contract gets updated on an account.
 
 Event name: `flow.AccountContractUpdated`
 
- `_10access(all)_10event AccountContractUpdated(_10 address: Address,_10 codeHash: [UInt8],_10 contract: String_10)`
+`_10
+
+access(all)
+
+_10
+
+event AccountContractUpdated(
+
+_10
+
+address: Address,
+
+_10
+
+codeHash: [UInt8],
+
+_10
+
+contract: String
+
+_10
+
+)`
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -143,7 +245,29 @@ Event that is emitted when a contract gets removed from an account.
 
 Event name: `flow.AccountContractRemoved`
 
- `_10access(all)_10event AccountContractRemoved(_10 address: Address,_10 codeHash: [UInt8],_10 contract: String_10)`
+`_10
+
+access(all)
+
+_10
+
+event AccountContractRemoved(
+
+_10
+
+address: Address,
+
+_10
+
+codeHash: [UInt8],
+
+_10
+
+contract: String
+
+_10
+
+)`
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -157,7 +281,13 @@ Event that is emitted when a Capability is published from an account.
 
 Event name: `flow.InboxValuePublished`
 
- `_10access(all)_10event InboxValuePublished(provider: Address, recipient: Address, name: String, type: Type)`
+`_10
+
+access(all)
+
+_10
+
+event InboxValuePublished(provider: Address, recipient: Address, name: String, type: Type)`
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -176,7 +306,13 @@ Event that is emitted when a Capability is unpublished from an account.
 
 Event name: `flow.InboxValueUnpublished`
 
- `_10access(all)_10event InboxValueUnpublished(provider: Address, name: String)`
+`_10
+
+access(all)
+
+_10
+
+event InboxValueUnpublished(provider: Address, name: String)`
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -193,7 +329,13 @@ Event that is emitted when a Capability is claimed by an account.
 
 Event name: `flow.InboxValueClaimed`
 
- `_10access(all)_10event InboxValueClaimed(provider: Address, recipient: Address, name: String)`
+`_10
+
+access(all)
+
+_10
+
+event InboxValueClaimed(provider: Address, recipient: Address, name: String)`
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -205,7 +347,14 @@ To reduce the potential for spam,
 we recommend that user agents that display events do not display this event as-is to their users,
 and allow users to restrict whom they see events from.
 
-[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/core-events.md)[PreviousEvents](/docs/language/events)[NextRun-time Types](/docs/language/run-time-types)
+[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/core-events.md)
+
+[Previous
+
+Events](/docs/language/events)[Next
+
+Run-time Types](/docs/language/run-time-types)
+
 ###### Rate this page
 
 😞😐😊
@@ -219,9 +368,10 @@ and allow users to restrict whom they see events from.
 * [Inbox Value Published](#inbox-value-published)
 * [Inbox Value Unpublished](#inbox-value-unpublished)
 * [Inbox Value Claimed](#inbox-value-claimed)
-Got suggestions for this site? 
+
+Got suggestions for this site?
 
 * [It's open-source!](https://github.com/onflow/cadence-lang.org)
+
 The source code of this site is licensed under the Apache License, Version 2.0.
 Content is licensed under the Creative Commons Attribution 4.0 International License.
-

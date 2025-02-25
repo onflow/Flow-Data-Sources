@@ -1,19 +1,21 @@
 # Source: https://developers.flow.com/tools/flow-cli/get-flow-data/get-blocks
 
-
-
-
 Get Block | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
 * [Flow CLI](/tools/flow-cli)
+
   + [Install Instructions](/tools/flow-cli/install)
   + [Super Commands](/tools/flow-cli/super-commands)
   + [Accounts](/tools/flow-cli/accounts/get-accounts)
@@ -23,6 +25,7 @@ Get Block | Flow Developer Portal
   + [Transactions](/tools/flow-cli/transactions/send-transactions)
   + [Flow.json](/tools/flow-cli/flow.json/initialize-configuration)
   + [Flow Entities](/tools/flow-cli/get-flow-data/get-blocks)
+
     - [Get Block](/tools/flow-cli/get-flow-data/get-blocks)
     - [Get Events](/tools/flow-cli/get-flow-data/get-events)
     - [Get Collection](/tools/flow-cli/get-flow-data/get-collections)
@@ -40,22 +43,136 @@ Get Block | Flow Developer Portal
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 
-
 * [Flow CLI](/tools/flow-cli)
 * Flow Entities
 * Get Block
+
 On this page
+
 # Get Block
 
 The Flow CLI provides a command to fetch any block from the Flow network.
 
- `_10flow blocks get <block_id|latest|block_height>`
+`_10
+
+flow blocks get <block_id|latest|block_height>`
+
 ## Example Usage[​](#example-usage "Direct link to Example Usage")
 
- `_10flow blocks get 12884163 --host access.mainnet.nodes.onflow.org:9000 --include transactions`
+`_10
+
+flow blocks get 12884163 --host access.mainnet.nodes.onflow.org:9000 --include transactions`
+
 ### Example response[​](#example-response "Direct link to Example response")
 
- `_27Block ID 2fb7571a6ccf02f3ac42f27c14ce0a4cb119060e4fbd7af36fd51894465e7002_27Prent ID 1c5a6267ba9512e141e4e90630cb326cecfbf6113818487449efeb37fc98ca18_27Timestamp 2021-03-19 17:46:15.973305066 +0000 UTC_27Height 12884163_27Status Sealed_27Total Seals 2_27Total Collections 8_27 Collection 0: 3e694588e789a72489667a36dd73104dea4579bcd400959d47aedccd7f930eeb_27 Transaction 0: acc2ae1ff6deb2f4d7663d24af6ab1baf797ec264fd76a745a30792f6882093b_27 Transaction 1: ae8bfbc85ce994899a3f942072bfd3455823b1f7652106ac102d161c17fcb55c_27 Transaction 2: 70c4d39d34e654173c5c2746e7bb3a6cdf1f5e6963538d62bad2156fc02ea1b2_27 Transaction 3: 2466237b5eafb469c01e2e5f929a05866de459df3bd768cde748e068c81c57bf_27 Collection 1: e93f2bd988d66288c7e1ad991dec227c6c74b8039a430e43896ad94cf8feccce_27 Transaction 0: 4d790300722b646e7ed3e2c52675430d7ccf2efd1d93f106b53bc348df601af6_27 Collection 2: c7d93b80ae55809b1328c686f6a8332e8e15083ab32f8b3105c4d910646f54bf_27 Transaction 0: 95c4efbb30f86029574d6acd7df04afe6108f6fd610d823dfd398c80cfa5e842_27 Collection 3: 1a4f563b48aaa38f3a7e867c89422e0bd84887de125e8f48ba147f4ee58ddf0d_27 Transaction 0: fbcc99326336d4dbb4cbc01a3b9b85cfcdcdc071b3d0e01ee88ecd144444600b_27 Collection 4: 01000c7773cc3c22cba6d8917a2486dc7a1a1842dd7fb7c0e87e63c22bb14abe_27 Transaction 0: a75097639b434044de0122d3a28620e093f277fa715001e80a035568e118c59f_27 Collection 5: 6f2b08f9673545a2e61e954feb8d55d2a3ef2b3cef7a8d2f8de527bc42d92c28_27 Transaction 0: 8ea63d397bd07a25db3f06fb9785dbf09bc652159f68a84c55ea2be606ada1e9_27 Collection 6: 13b5c48252930824a8c6e846470763582cacdacb772c1e9c584adefced6724b2_27 Transaction 0: 8ba57a92311367189a89a59bcb3c32192387fefca9bde493e087bc0d479186a8_27 Transaction 1: 8ab1d99702ccf31b6f4b3acd2580dddd440f08bc07acab4884337c0c593a8f69_27 Collection 7: bf90fdd2761b8f37565af60fc38165dd09edf0671fdd35b37f718a7eb45e804f_27 Transaction 0: b92a14c0802183719efed00363d31076d7e50f41a6207781cf34d39c822bbacb`
+`_27
+
+Block ID 2fb7571a6ccf02f3ac42f27c14ce0a4cb119060e4fbd7af36fd51894465e7002
+
+_27
+
+Prent ID 1c5a6267ba9512e141e4e90630cb326cecfbf6113818487449efeb37fc98ca18
+
+_27
+
+Timestamp 2021-03-19 17:46:15.973305066 +0000 UTC
+
+_27
+
+Height 12884163
+
+_27
+
+Status Sealed
+
+_27
+
+Total Seals 2
+
+_27
+
+Total Collections 8
+
+_27
+
+Collection 0: 3e694588e789a72489667a36dd73104dea4579bcd400959d47aedccd7f930eeb
+
+_27
+
+Transaction 0: acc2ae1ff6deb2f4d7663d24af6ab1baf797ec264fd76a745a30792f6882093b
+
+_27
+
+Transaction 1: ae8bfbc85ce994899a3f942072bfd3455823b1f7652106ac102d161c17fcb55c
+
+_27
+
+Transaction 2: 70c4d39d34e654173c5c2746e7bb3a6cdf1f5e6963538d62bad2156fc02ea1b2
+
+_27
+
+Transaction 3: 2466237b5eafb469c01e2e5f929a05866de459df3bd768cde748e068c81c57bf
+
+_27
+
+Collection 1: e93f2bd988d66288c7e1ad991dec227c6c74b8039a430e43896ad94cf8feccce
+
+_27
+
+Transaction 0: 4d790300722b646e7ed3e2c52675430d7ccf2efd1d93f106b53bc348df601af6
+
+_27
+
+Collection 2: c7d93b80ae55809b1328c686f6a8332e8e15083ab32f8b3105c4d910646f54bf
+
+_27
+
+Transaction 0: 95c4efbb30f86029574d6acd7df04afe6108f6fd610d823dfd398c80cfa5e842
+
+_27
+
+Collection 3: 1a4f563b48aaa38f3a7e867c89422e0bd84887de125e8f48ba147f4ee58ddf0d
+
+_27
+
+Transaction 0: fbcc99326336d4dbb4cbc01a3b9b85cfcdcdc071b3d0e01ee88ecd144444600b
+
+_27
+
+Collection 4: 01000c7773cc3c22cba6d8917a2486dc7a1a1842dd7fb7c0e87e63c22bb14abe
+
+_27
+
+Transaction 0: a75097639b434044de0122d3a28620e093f277fa715001e80a035568e118c59f
+
+_27
+
+Collection 5: 6f2b08f9673545a2e61e954feb8d55d2a3ef2b3cef7a8d2f8de527bc42d92c28
+
+_27
+
+Transaction 0: 8ea63d397bd07a25db3f06fb9785dbf09bc652159f68a84c55ea2be606ada1e9
+
+_27
+
+Collection 6: 13b5c48252930824a8c6e846470763582cacdacb772c1e9c584adefced6724b2
+
+_27
+
+Transaction 0: 8ba57a92311367189a89a59bcb3c32192387fefca9bde493e087bc0d479186a8
+
+_27
+
+Transaction 1: 8ab1d99702ccf31b6f4b3acd2580dddd440f08bc07acab4884337c0c593a8f69
+
+_27
+
+Collection 7: bf90fdd2761b8f37565af60fc38165dd09edf0671fdd35b37f718a7eb45e804f
+
+_27
+
+Transaction 0: b92a14c0802183719efed00363d31076d7e50f41a6207781cf34d39c822bbacb`
+
 ## Arguments[​](#arguments "Direct link to Arguments")
 
 ### Query[​](#query "Direct link to Query")
@@ -175,7 +292,16 @@ several configuration files.
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/get-flow-data/get-blocks.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousSecurity](/tools/flow-cli/flow.json/security)[NextGet Events](/tools/flow-cli/get-flow-data/get-events)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/get-flow-data/get-blocks.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Security](/tools/flow-cli/flow.json/security)[Next
+
+Get Events](/tools/flow-cli/get-flow-data/get-events)
+
 ###### Rate this page
 
 😞😐😊
@@ -199,6 +325,7 @@ Skip version check during start up to speed up process for slow connections.
   + [Log](#log)
   + [Configuration](#configuration)
   + [Version Check](#version-check)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -211,6 +338,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -220,6 +348,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -227,6 +356,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -236,6 +366,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -243,5 +374,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

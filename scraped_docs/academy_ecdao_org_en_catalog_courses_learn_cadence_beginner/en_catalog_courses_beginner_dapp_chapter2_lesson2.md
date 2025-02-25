@@ -1,30 +1,14 @@
 # Source: https://academy.ecdao.org/en/catalog/courses/beginner-dapp/chapter2/lesson2
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -55,7 +39,6 @@ Connect
 [5.1 Finishing our DApp](/en/catalog/courses/beginner-dapp/chapter5/lesson1)[5.2 Deploying our DApp](/en/catalog/courses/beginner-dapp/chapter5/lesson2)
 
 Course Overview
-
 
 [Catalog](/en/catalog)
 [Course](/en/catalog/courses/beginner-dapp)
@@ -88,6 +71,7 @@ Letâs remove some boilerplate code (code that is there at the start that ju
 > Open up your `./pages/index.js` file and replace everything in the file with this code:
 
 javascript
+
 ```
 		
 			import Head from 'next/head';
@@ -116,9 +100,11 @@ export default function Home() {
 		 
 	
 ```
+
 > Then, open up your `./styles/Home.module.css` file and replace everything with this code:
 
 css
+
 ```
 		
 			.main {
@@ -139,11 +125,13 @@ css
 		 
 	
 ```
+
 > Navigate back to http://localhost:3000/ and look at the changes. God Jacob, you are so talented. Our DApp looks SICK! I know, I know. Iâm the best.
 
 It should look something like this:
 
 ![](/courses/beginner-dapp/base-emerald-dapp.png)
+
 ## Understanding What We Just Did
 
 > If you already understand all of that, skip this section.
@@ -151,6 +139,7 @@ It should look something like this:
 Letâs understand what the heck we just did. First, letâs start in the `./pages/index.js` fileâ¦
 
 javascript
+
 ```
 		
 			import Head from 'next/head';
@@ -166,8 +155,8 @@ import styles from '../styles/Home.module.css';
 
 ---
 
-
 javascript
+
 ```
 		
 			export default function Home() {}
@@ -181,8 +170,8 @@ javascript
 
 ---
 
-
 javascript
+
 ```
 		
 			return <div></div>;
@@ -197,8 +186,8 @@ javascript
 
 ---
 
-
 javascript
+
 ```
 		
 			<Head>
@@ -215,10 +204,11 @@ javascript
 
 ![](/courses/beginner-dapp/emerald-dapp-tab.png)
 
+
 ---
 
-
 javascript
+
 ```
 		
 			<main className={styles.main}>
@@ -258,6 +248,7 @@ Now letâs walk through the styling, or in other words, the CSS code. CSS is
 Go to `./styles/Home.module.css` and letâs break up the code just like we did before:
 
 css
+
 ```
 		
 			.main {
@@ -276,8 +267,8 @@ css
 
 ---
 
-
 css
+
 ```
 		
 			.title {
@@ -291,8 +282,8 @@ css
 
 ---
 
-
 css
+
 ```
 		
 			.title a {
@@ -333,10 +324,10 @@ The box model for Quest #4 looks like this:
 
 ![](/courses/beginner-dapp/quest-box-model.png)
 
+
 ---
 
 Take a screenshot of your changes (both the code and the result) and upload it to your quests
-
 
 ![User avatar](/avatars/jacob.jpeg)
 
@@ -344,15 +335,14 @@ Author
 
 [Jacob Tucker](https://twitter.com/jacobmtucker)
 
-
-
-
 [Quests](#quests)
-[Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/beginner-dapp/en/chapter2/lesson2.md)
 
+[Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/beginner-dapp/en/chapter2/lesson2.md)
 
 [Creating our DApp](/en/catalog/courses/beginner-dapp/chapter2/lesson1)
 [Adding Javascript Code](/en/catalog/courses/beginner-dapp/chapter2/lesson3)
+
+
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
@@ -360,17 +350,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

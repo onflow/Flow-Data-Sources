@@ -1,30 +1,14 @@
 # Source: https://academy.ecdao.org/en/catalog/courses/niftory/chapter1/lesson4
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -39,7 +23,6 @@ Connect
 [1.1 Why Niftory?](/en/catalog/courses/niftory/chapter1/lesson1)[1.2 Admin Portal](/en/catalog/courses/niftory/chapter1/lesson2)[1.3 Basic Niftory App](/en/catalog/courses/niftory/chapter1/lesson3)[1.4 Authentication](/en/catalog/courses/niftory/chapter1/lesson4)
 
 Course Overview
-
 
 [Catalog](/en/catalog)
 [Course](/en/catalog/courses/niftory)
@@ -60,6 +43,7 @@ In our SDK samples, youâll usually see us creating a separate client for si
 If you look at the client declaration below, youâll see we only pass the client our public API key and our public client ID. None of this is particularly sensitive info.
 
 js
+
 ```
 		
 			import { EnvironmentName, NiftoryClient, NiftoryProvider } from "@niftory/sdk"
@@ -80,11 +64,13 @@ export const NiftoryClientProvider = ({ children }) => {
 		 
 	
 ```
+
 ### Privileged Niftory SDK Client (API Key + Client Secret)
 
 Some operations require more privileged authentication â for example, if any user could invoke the [transfer](https://app.gitbook.com/o/ShoAj2x7X0erlYafyocL/s/1itXKRjyFqqWGYkUXFnP/core-concepts/nfts/transferring-nfts) mutation, they would be able to transfer as many NFTs as they wanted to themselves, so we probably only want the application to be able to initiate that operation!
 
 js
+
 ```
 		
 			import { EnvironmentName, NiftoryClient } from "@niftory/sdk"
@@ -139,12 +125,12 @@ Author
 
 [Team Niftory](https://twitter.com/niftory)
 
-
 [Quests](#quests)
+
 [Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/niftory/en/chapter1/lesson4.md)
 
-
 [Basic Niftory App](/en/catalog/courses/niftory/chapter1/lesson3)
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
@@ -153,17 +139,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

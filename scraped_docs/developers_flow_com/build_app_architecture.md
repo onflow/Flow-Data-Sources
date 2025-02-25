@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/build/app-architecture
 
-
-
-
 App Architecture | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -22,9 +23,10 @@ App Architecture | Flow Developer Portal
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
-
 * App Architecture
+
 On this page
+
 # App Architecture on Flow Blockchain
 
 The Flow blockchain, with its focus on scalability and user-centric design, offers a unique environment for app development. Designed from the ground up, Flow prioritizes user experience, aiming to bridge the gap to mainstream adoption without compromising on decentralization or security.
@@ -96,7 +98,16 @@ App custody on Flow offers a unique approach to key management and user experien
 
 Selecting the right architecture is crucial when developing an app on the Flow blockchain. Your choice will influence not only the technical aspects but also the user experience and overall trust in your application. While Flow offers the tools and flexibility to cater to various needs, it's up to developers to harness these capabilities effectively. Whether you opt for a self-custody or app custody approach, ensure that your decision aligns with the core objectives of your app and the expectations of your users. Making informed architectural decisions will lay a strong foundation for your app's success.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/app-architecture/index.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousSmart Contracts ↙](/build/basics/smart-contracts)[NextLearn Cadence ↗️](/build/learn-cadence)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/app-architecture/index.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Smart Contracts ↙](/build/basics/smart-contracts)[Next
+
+Learn Cadence ↗️](/build/learn-cadence)
+
 ###### Rate this page
 
 😞😐😊
@@ -104,6 +115,7 @@ Selecting the right architecture is crucial when developing an app on the Flow b
 * [Self-Custody Architecture](#self-custody-architecture)
 * [App Custody Architecture](#app-custody-architecture)
 * [Wrapping Up](#wrapping-up)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -116,6 +128,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -125,6 +138,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -132,6 +146,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -141,6 +156,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -148,5 +164,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

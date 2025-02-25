@@ -1,20 +1,22 @@
 # Source: https://developers.flow.com/networks/staking/staking-collection
 
-
-
-
 Manage a Staking Collection | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
 * [Flow's Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
+
   + [Epoch and Staking Terminology](/networks/staking/epoch-terminology)
   + [Epoch and Reward Schedule](/networks/staking/schedule)
   + [Epoch Preparation Protocol](/networks/staking/epoch-preparation)
@@ -35,9 +37,9 @@ Manage a Staking Collection | Flow Developer Portal
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
-
 * [Staking and Epochs](/networks/staking)
 * Staking Collection Guide
+
 On this page
 
 This document outlines the steps a token holder can take to stake
@@ -75,7 +77,13 @@ to other accounts without interrupting the staking process!
 
 The staking collection resource has two main fields,
 
- `_10access(self) var nodeStakers: @{String: FlowIDTableStaking.NodeStaker}_10access(self) var nodeDelegators: @{String: FlowIDTableStaking.NodeDelegator}`
+`_10
+
+access(self) var nodeStakers: @{String: FlowIDTableStaking.NodeStaker}
+
+_10
+
+access(self) var nodeDelegators: @{String: FlowIDTableStaking.NodeDelegator}`
 
 These dictionaries store the staking objects that are managed by the staking collection.
 Access to these dictionaries are mediated by the staking methods.
@@ -88,7 +96,27 @@ call to the correct staking object and performs the specified operation.
 The staking collection also has a field that stores a capability for
 the unlocked FLOW Vault and locked FLOW vault (if applicable)
 
- `_10/// unlocked vault_10access(self) var unlockedVault: Capability<&FlowToken.Vault>_10_10/// locked vault_10/// will be nil if the account has no corresponding locked account_10access(self) var lockedVault: Capability<&FlowToken.Vault>?`
+`_10
+
+/// unlocked vault
+
+_10
+
+access(self) var unlockedVault: Capability<&FlowToken.Vault>
+
+_10
+
+_10
+
+/// locked vault
+
+_10
+
+/// will be nil if the account has no corresponding locked account
+
+_10
+
+access(self) var lockedVault: Capability<&FlowToken.Vault>?`
 
 When a user performs staking operations like staking new tokens,
 the staking collection tracks the number of unlocked tokens
@@ -130,7 +158,31 @@ about an account's staking collection. You can simply call one of these methods 
 providing the account address, and the contract will retrieve
 the relevant info for you, like so:
 
- `_10import FlowStakingCollection from 0xSTAKINGCOLLECTIONADDRESS_10import FlowIDTableStaking from 0xIDENTITYTABLEADDRESS_10_10/// Gets an array of all the delegator metadata for delegators stored in the staking collection_10access(all) fun main(address: Address): [FlowIDTableStaking.DelegatorInfo] {_10 return FlowStakingCollection.getAllDelegatorInfo(address: address)_10}`
+`_10
+
+import FlowStakingCollection from 0xSTAKINGCOLLECTIONADDRESS
+
+_10
+
+import FlowIDTableStaking from 0xIDENTITYTABLEADDRESS
+
+_10
+
+_10
+
+/// Gets an array of all the delegator metadata for delegators stored in the staking collection
+
+_10
+
+access(all) fun main(address: Address): [FlowIDTableStaking.DelegatorInfo] {
+
+_10
+
+return FlowStakingCollection.getAllDelegatorInfo(address: address)
+
+_10
+
+}`
 
 Remember: A Staking Collection does not require an account
 to have a secondary locked account or locked FLOW.
@@ -578,7 +630,16 @@ can use the **Get Machine Account Info** ([SCO.21](/build/core-contracts/staking
 This script returns a `{String: FlowStakingCollection.MachineAccountInfo}`,
 which is a mapping of nodeIDs to the `FlowStakingCollection.MachineAccountInfo` struct.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/14-staking-collection.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousTechnical Staking Options](/networks/staking/staking-options)[NextBasic Staking Guide (Deprecated)](/networks/staking/staking-guide)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/14-staking-collection.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Technical Staking Options](/networks/staking/staking-options)[Next
+
+Basic Staking Guide (Deprecated)](/networks/staking/staking-guide)
+
 ###### Rate this page
 
 😞😐😊
@@ -614,6 +675,7 @@ which is a mapping of nodeIDs to the `FlowStakingCollection.MachineAccountInfo` 
   + [Get Unlocked Tokens Used](#get-unlocked-tokens-used)
   + [Get Does Node Exist](#get-does-node-exist)
   + [Get Machine Account Info](#get-machine-account-info)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -626,6 +688,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -635,6 +698,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -642,6 +706,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -651,6 +716,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -658,5 +724,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

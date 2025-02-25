@@ -1,30 +1,14 @@
 # Source: https://academy.ecdao.org/en/catalog/courses/beginner-dapp-ios/chapter4/lesson1
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -52,7 +36,6 @@ Connect
 
 Course Overview
 
-
 [Catalog](/en/catalog)
 [Course](/en/catalog/courses/beginner-dapp-ios)
 Beginner Dapp Ios
@@ -74,6 +57,7 @@ FCL, or the Flow Client Library, is something that will allow us to interact wit
 4. Allow the confirmation window to fetch and verify the package, the select `Add Package` once completed.
 
 ![](https://i.imgur.com/Tgi2oSJ.gif)
+
 ## Importing & Configuring FCL
 
 To take full advantage of Swift and SwiftUIâs features, we will be creating a âServiceâ so we can interact with the Flow blockchain. We wonât be going deep into the philosophy of using services or the design model we are using, but the important thing to know is that by using an `ObservableObjectâ class and SwiftUIâs Property Wrappers we can implement a service for our DApp that can programmatically update our SwiftUI views.
@@ -83,6 +67,7 @@ Start by creating a new group in your EmeraldDApp directory named `Flow`, inside
 Add the following code:
 
 swift
+
 ```
 		
 			import FCL
@@ -148,6 +133,7 @@ Now that we have connected our DApp to the blockchain, letâs try signing in
 First, we need to import the FCL library again
 
 swift
+
 ```
 		
 			import SwiftUI
@@ -159,6 +145,7 @@ import FCL
 Go to our `SignInView` and remove the login variable
 
 swift
+
 ```
 		
 			@Binding var loggedIn: Bool
@@ -171,6 +158,7 @@ Isnât getting to delete code you no longer need one of the best feelings as
 Now update your `ButtonView` to open the FCL Discovery wallet selector.
 
 swift
+
 ```
 		
 			ButtonView(title: "Sign In", action: {
@@ -183,6 +171,7 @@ swift
 Your `SignInView` file should look like this
 
 swift
+
 ```
 		
 			import SwiftUI
@@ -228,6 +217,7 @@ Next, letâs update our `RouterView` so that we can automatically detect whe
 Import `FCL` and add the following modifier to the `ZStack`
 
 swift
+
 ```
 		
 			.onReceive(fcl.$currentUser) { user in
@@ -242,6 +232,7 @@ This observes changes to the `currentUser` property of the FCL library and updat
 The last thing we need to do is update our `ContentView` so the Sign Out `ButtonView` signs us out. Once again you need to import `FCL` and then replace our sign-out `ButtonView` with the following changes.
 
 swift
+
 ```
 		
 			ButtonView(title: "Sign Out: \(fcl.currentUser?.address.hex ?? "")") {
@@ -271,6 +262,7 @@ Letâs test these changes out on the simulator!
 > Note that at this point you will need to use Blocto Wallet, we need to configure something called âWallet Connectâ before we can use Lilico Wallet which we will setup in the next lesson.
 
 ![](https://i.imgur.com/v1PUfvY.gif)
+
 ## Conclusion
 
 Congratulations on completing this important step in our journey! You have successfully learned the process of logging in to our application.
@@ -292,15 +284,14 @@ Author
 
 [BoiseITGuru](https://twitter.com/boise_it_guru)
 
-
-
-
 [Quests](#quests)
-[Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/beginner-dapp-ios/en/chapter4/lesson1.md)
 
+[Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/beginner-dapp-ios/en/chapter4/lesson1.md)
 
 [Bringing Cadence to our DApp & Deploying our Contract](/en/catalog/courses/beginner-dapp-ios/chapter3/lesson3)
 [Integrating WalletConnect and Lilco Wallet](/en/catalog/courses/beginner-dapp-ios/chapter4/lesson2)
+
+
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
@@ -308,17 +299,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

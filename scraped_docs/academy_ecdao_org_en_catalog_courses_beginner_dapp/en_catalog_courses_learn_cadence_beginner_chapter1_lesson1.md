@@ -1,30 +1,14 @@
 # Source: https://academy.ecdao.org/en/catalog/courses/learn-cadence-beginner/chapter1/lesson1
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -48,7 +32,6 @@ Connect
 
 Course Overview
 
-
 [Catalog](/en/catalog)
 [Course](/en/catalog/courses/learn-cadence-beginner)
 Learn Cadence Beginner
@@ -63,10 +46,8 @@ If you enjoy learning in video format, this video covers everything in this less
 
 It is also very helpful if you have never coded before. It will walk you through setting up everything you need to start your coding career.
 
-
-  
-
 How to write smart contracts for people who have never coded before.
+
 ## Quick Note
 
 Cadence is a smart contract language.
@@ -93,6 +74,7 @@ After you do that, type `flow version` in your terminal and make sure a version 
 Next, you will need a code editor so you can start writing code. I highly recommend installing [Visual Studio Code](https://code.visualstudio.com/Download). Once you install VSCode, create a folder on your computer and open it up in VSCode. On the left side, click the âExtensionsâ button and search âCadenceâ. Install the one that looks like this:
 
 ![vscode cadence extension](https://i.imgur.com/BthLlAu.png)
+
 ### Setting Up our Project
 
 Open your project in VSCode by launching the app, going to File > Open > the folder that you want to work in.
@@ -120,6 +102,7 @@ When you want to interact with a contract, you would have to know both the name 
 Letâs make our contract now. In our `HelloWorld.cdc` file, type the following:
 
 cadence
+
 ```
 		
 			access(all) contract HelloWorld {
@@ -143,6 +126,7 @@ Letâs make our contract store a `greeting` variable.
 Modify your contract code so it looks like this:
 
 cadence
+
 ```
 		
 			access(all) contract HelloWorld {
@@ -172,6 +156,7 @@ In the `init` function we put `self.greeting = "Hello, World!"`. Remember, the `
 To deploy this contract, change your `flow.json` to the following code:
 
 json
+
 ```
 		
 			{
@@ -212,6 +197,7 @@ Letâs make sure that our `greeting` variable actually got set to âHell
 Create another file called `read_greeting.cdc`. Next, write the following code:
 
 cadence
+
 ```
 		
 			import HelloWorld from "./HelloWorld.cdc"
@@ -226,6 +212,7 @@ access(all) fun main(): String {
 Then, go to your terminal and run:
 
 bash
+
 ```
 		
 			flow scripts execute ./read_greeting.cdc
@@ -245,22 +232,19 @@ Soâ¦ what did we just do?! Well, we just executed a **script**. Scripts are 
 
 Today, we learned how to deploy our first contract, declare a variable, write a function, and execute a script. Wow! Thatâs a lot. But it wasnât too bad, right?
 
-
 ![User avatar](/avatars/jacob.jpeg)
 
 Author
 
 [Jacob Tucker](https://twitter.com/jacobmtucker)
 
-
-
-
 [Video lesson](#)
 
 [Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/learn-cadence-beginner/en/chapter1/lesson1.md)
 
-
 [Transactions and Scripts](/en/catalog/courses/learn-cadence-beginner/chapter1/lesson2)
+
+
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
@@ -268,17 +252,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

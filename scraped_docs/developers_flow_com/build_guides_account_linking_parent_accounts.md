@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/build/guides/account-linking/parent-accounts
 
-
-
-
 Working With Parent Accounts | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -19,7 +20,9 @@ Working With Parent Accounts | Flow Developer Portal
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
 * [Guides](/build/guides/account-linking)
+
   + [Account Linking (FLIP 72)](/build/guides/account-linking)
+
     - [Building Walletless Applications Using Child Accounts](/build/guides/account-linking/child-accounts)
     - [Working With Parent Accounts](/build/guides/account-linking/parent-accounts)
   + [Account Linking With NBA Top Shot](/build/guides/account-linking-with-dapper)
@@ -30,11 +33,12 @@ Working With Parent Accounts | Flow Developer Portal
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
-
 * Guides
 * [Account Linking (FLIP 72)](/build/guides/account-linking)
 * Working With Parent Accounts
+
 On this page
+
 # Working With Parent Accounts
 
 In this doc, we'll continue from the perspective of a wallet or marketplace app seeking to facilitate a unified account
@@ -175,13 +179,79 @@ And with respect to acting on the assets of child accounts and managing child ac
 
 This script will return `true` if a `HybridCustody.Manager` is stored and `false` otherwise
 
-has\_child\_accounts.cdc `_10import "HybridCustody"_10_10access(all) fun main(parent: Address): Bool {_10 let acct = getAuthAccount<auth(BorrowValue) &Account>(parent)_10 if let manager = acct.storage.borrow<&HybridCustody.Manager>(from: HybridCustody.ManagerStoragePath) {_10 return manager.getChildAddresses().length > 0_10 }_10 return false_10}`
+has\_child\_accounts.cdc
+
+`_10
+
+import "HybridCustody"
+
+_10
+
+_10
+
+access(all) fun main(parent: Address): Bool {
+
+_10
+
+let acct = getAuthAccount<auth(BorrowValue) &Account>(parent)
+
+_10
+
+if let manager = acct.storage.borrow<&HybridCustody.Manager>(from: HybridCustody.ManagerStoragePath) {
+
+_10
+
+return manager.getChildAddresses().length > 0
+
+_10
+
+}
+
+_10
+
+return false
+
+_10
+
+}`
+
 ### Query All Accounts Associated with Address[​](#query-all-accounts-associated-with-address "Direct link to Query All Accounts Associated with Address")
 
 The following script will return an array of addresses associated with a given account's address, inclusive of the
 provided address. If a `HybridCustody.Manager` is not found, the script will revert.
 
-get\_child\_addresses.cdc `_10import "HybridCustody"_10_10access(all) fun main(parent: Address): [Address] {_10 let acct = getAuthAccount<auth(Storage) &Account>(parent)_10 let manager = acct.storage.borrow<&HybridCustody.Manager>(from: HybridCustody.ManagerStoragePath)_10 ?? panic("manager not found")_10 return manager.getChildAddresses()_10}`
+get\_child\_addresses.cdc
+
+`_10
+
+import "HybridCustody"
+
+_10
+
+_10
+
+access(all) fun main(parent: Address): [Address] {
+
+_10
+
+let acct = getAuthAccount<auth(Storage) &Account>(parent)
+
+_10
+
+let manager = acct.storage.borrow<&HybridCustody.Manager>(from: HybridCustody.ManagerStoragePath)
+
+_10
+
+?? panic("manager not found")
+
+_10
+
+return manager.getChildAddresses()
+
+_10
+
+}`
+
 ### Query All Owned NFT Metadata[​](#query-all-owned-nft-metadata "Direct link to Query All Owned NFT Metadata")
 
 While it is possible to iterate over the storage of all associated accounts in a single script, memory limits prevent
@@ -197,7 +267,223 @@ number of NFTs held.
 For simplicity, we'll show a condensed query, returning NFT display views from all accounts associated with a given
 address for a specified NFT Collection path.
 
-get\_nft\_display\_view\_from\_public.cdc `_59import "NonFungibleToken"_59import "MetadataViews"_59import "HybridCustody"_59_59/// Returns resolved Display from given address at specified path for each ID or nil if ResolverCollection is not found_59///_59access(all)_59fun getViews(_ address: Address, _ resolverCollectionPath: PublicPath): {UInt64: MetadataViews.Display} {_59 _59 let account: PublicAccount = getAccount(address)_59 let views: {UInt64: MetadataViews.Display} = {}_59_59 // Borrow the Collection_59 if let collection = account.capabilities.borrow<&{NonFungibleToken.Collection}>(resolverCollectionPath) {_59 // Iterate over IDs & resolve the view_59 for id in collection.getIDs() {_59 if let nft = collection.borrowNFT(id) {_59 if let display = nft.resolveView(Type<MetadataViews.Display>()) as? MetadataViews.Display {_59 views.insert(key: id, display)_59 }_59 }_59 }_59 }_59_59 return views_59}_59_59/// Queries for MetadataViews.Display each NFT across all associated accounts from Collections at the provided_59/// PublicPath_59///_59access(all)_59fun main(address: Address, resolverCollectionPath: PublicPath): {Address: {UInt64: MetadataViews.Display}} {_59_59 let allViews: {Address: {UInt64: MetadataViews.Display}} = {_59 address: getViews(address, resolverCollectionPath)_59 }_59 _59 /* Iterate over any associated accounts */ _59 //_59 let seen: [Address] = [address]_59 if let managerRef = getAuthAccount<auth(BorrowValue) &Account>(address)_59 .storage_59 .borrow<&HybridCustody.Manager>(from: HybridCustody.ManagerStoragePath) {_59 _59 for childAccount in managerRef.getChildAddresses() {_59 allViews.insert(key: childAccount, getViews(address, resolverCollectionPath))_59 seen.append(childAccount)_59 }_59_59 for ownedAccount in managerRef.getOwnedAddresses() {_59 if seen.contains(ownedAccount) == false {_59 allViews.insert(key: ownedAccount, getViews(address, resolverCollectionPath))_59 seen.append(ownedAccount)_59 }_59 }_59 }_59_59 return allViews _59}`
+get\_nft\_display\_view\_from\_public.cdc
+
+`_59
+
+import "NonFungibleToken"
+
+_59
+
+import "MetadataViews"
+
+_59
+
+import "HybridCustody"
+
+_59
+
+_59
+
+/// Returns resolved Display from given address at specified path for each ID or nil if ResolverCollection is not found
+
+_59
+
+///
+
+_59
+
+access(all)
+
+_59
+
+fun getViews(_ address: Address, _ resolverCollectionPath: PublicPath): {UInt64: MetadataViews.Display} {
+
+_59
+
+_59
+
+let account: PublicAccount = getAccount(address)
+
+_59
+
+let views: {UInt64: MetadataViews.Display} = {}
+
+_59
+
+_59
+
+// Borrow the Collection
+
+_59
+
+if let collection = account.capabilities.borrow<&{NonFungibleToken.Collection}>(resolverCollectionPath) {
+
+_59
+
+// Iterate over IDs & resolve the view
+
+_59
+
+for id in collection.getIDs() {
+
+_59
+
+if let nft = collection.borrowNFT(id) {
+
+_59
+
+if let display = nft.resolveView(Type<MetadataViews.Display>()) as? MetadataViews.Display {
+
+_59
+
+views.insert(key: id, display)
+
+_59
+
+}
+
+_59
+
+}
+
+_59
+
+}
+
+_59
+
+}
+
+_59
+
+_59
+
+return views
+
+_59
+
+}
+
+_59
+
+_59
+
+/// Queries for MetadataViews.Display each NFT across all associated accounts from Collections at the provided
+
+_59
+
+/// PublicPath
+
+_59
+
+///
+
+_59
+
+access(all)
+
+_59
+
+fun main(address: Address, resolverCollectionPath: PublicPath): {Address: {UInt64: MetadataViews.Display}} {
+
+_59
+
+_59
+
+let allViews: {Address: {UInt64: MetadataViews.Display}} = {
+
+_59
+
+address: getViews(address, resolverCollectionPath)
+
+_59
+
+}
+
+_59
+
+_59
+
+/* Iterate over any associated accounts */
+
+_59
+
+//
+
+_59
+
+let seen: [Address] = [address]
+
+_59
+
+if let managerRef = getAuthAccount<auth(BorrowValue) &Account>(address)
+
+_59
+
+.storage
+
+_59
+
+.borrow<&HybridCustody.Manager>(from: HybridCustody.ManagerStoragePath) {
+
+_59
+
+_59
+
+for childAccount in managerRef.getChildAddresses() {
+
+_59
+
+allViews.insert(key: childAccount, getViews(address, resolverCollectionPath))
+
+_59
+
+seen.append(childAccount)
+
+_59
+
+}
+
+_59
+
+_59
+
+for ownedAccount in managerRef.getOwnedAddresses() {
+
+_59
+
+if seen.contains(ownedAccount) == false {
+
+_59
+
+allViews.insert(key: ownedAccount, getViews(address, resolverCollectionPath))
+
+_59
+
+seen.append(ownedAccount)
+
+_59
+
+}
+
+_59
+
+}
+
+_59
+
+}
+
+_59
+
+_59
+
+return allViews
+
+_59
+
+}`
 
 At the end of this query, the caller will have a mapping of `Display` views indexed on the NFT ID and grouped by account
 Address. Note that this script does not take batching into consideration and assumes that each NFT resolves the
@@ -212,7 +498,257 @@ Similar to the previous example, we recommend breaking up this task due to memor
 
 However, we'll condense both of these steps down into one script for simplicity:
 
-get\_all\_vault\_bal\_from\_storage.cdc `_66import "FungibleToken"_66import "MetadataViews"_66import "HybridCustody"_66_66/// Returns a mapping of balances indexed on the Type of resource containing the balance_66///_66access(all)_66fun getAllBalancesInStorage(_ address: Address): {Type: UFix64} {_66 // Get the account_66 let account = getAuthAccount<auth(BorrowValue) &Account>(address)_66 // Init for return value_66 let balances: {Type: UFix64} = {}_66 // Track seen Types in array_66 let seen: [Type] = []_66 // Assign the type we'll need_66 let balanceType: Type = Type<@{FungibleToken.Balance}>()_66 // Iterate over all stored items & get the path if the type is what we're looking for_66 account.forEachStored(fun (path: StoragePath, type: Type): Bool {_66 if (type.isInstance(balanceType) || type.isSubtype(of: balanceType)) && !type.isRecovered {_66 // Get a reference to the resource & its balance_66 let vaultRef = account.borrow<&{FungibleToken.Balance}>(from: path)!_66 // Insert a new values if it's the first time we've seen the type_66 if !seen.contains(type) {_66 balances.insert(key: type, vaultRef.balance)_66 } else {_66 // Otherwise just update the balance of the vault (unlikely we'll see the same type twice in_66 // the same account, but we want to cover the case)_66 balances[type] = balances[type]! + vaultRef.balance_66 }_66 }_66 return true_66 })_66 return balances_66}_66_66/// Queries for FT.Vault balance of all FT.Vaults in the specified account and all of its associated accounts_66///_66access(all)_66fun main(address: Address): {Address: {Type: UFix64}} {_66_66 // Get the balance for the given address_66 let balances: {Address: {Type: UFix64}} = { address: getAllBalancesInStorage(address) }_66 // Tracking Addresses we've come across to prevent overwriting balances (more efficient than checking dict entries (?))_66 let seen: [Address] = [address]_66_66 /* Iterate over any associated accounts */_66 //_66 if let managerRef = getAuthAccount<auth(BorrowValue) &Account>(address)_66 .storage_66 .borrow<&HybridCustody.Manager>(from: HybridCustody.ManagerStoragePath) {_66 _66 for childAccount in managerRef.getChildAddresses() {_66 balances.insert(key: childAccount, getAllBalancesInStorage(address))_66 seen.append(childAccount)_66 }_66_66 for ownedAccount in managerRef.getOwnedAddresses() {_66 if seen.contains(ownedAccount) == false {_66 balances.insert(key: ownedAccount, getAllBalancesInStorage(address))_66 seen.append(ownedAccount)_66 }_66 }_66 }_66_66 return balances _66}`
+get\_all\_vault\_bal\_from\_storage.cdc
+
+`_66
+
+import "FungibleToken"
+
+_66
+
+import "MetadataViews"
+
+_66
+
+import "HybridCustody"
+
+_66
+
+_66
+
+/// Returns a mapping of balances indexed on the Type of resource containing the balance
+
+_66
+
+///
+
+_66
+
+access(all)
+
+_66
+
+fun getAllBalancesInStorage(_ address: Address): {Type: UFix64} {
+
+_66
+
+// Get the account
+
+_66
+
+let account = getAuthAccount<auth(BorrowValue) &Account>(address)
+
+_66
+
+// Init for return value
+
+_66
+
+let balances: {Type: UFix64} = {}
+
+_66
+
+// Track seen Types in array
+
+_66
+
+let seen: [Type] = []
+
+_66
+
+// Assign the type we'll need
+
+_66
+
+let balanceType: Type = Type<@{FungibleToken.Balance}>()
+
+_66
+
+// Iterate over all stored items & get the path if the type is what we're looking for
+
+_66
+
+account.forEachStored(fun (path: StoragePath, type: Type): Bool {
+
+_66
+
+if (type.isInstance(balanceType) || type.isSubtype(of: balanceType)) && !type.isRecovered {
+
+_66
+
+// Get a reference to the resource & its balance
+
+_66
+
+let vaultRef = account.borrow<&{FungibleToken.Balance}>(from: path)!
+
+_66
+
+// Insert a new values if it's the first time we've seen the type
+
+_66
+
+if !seen.contains(type) {
+
+_66
+
+balances.insert(key: type, vaultRef.balance)
+
+_66
+
+} else {
+
+_66
+
+// Otherwise just update the balance of the vault (unlikely we'll see the same type twice in
+
+_66
+
+// the same account, but we want to cover the case)
+
+_66
+
+balances[type] = balances[type]! + vaultRef.balance
+
+_66
+
+}
+
+_66
+
+}
+
+_66
+
+return true
+
+_66
+
+})
+
+_66
+
+return balances
+
+_66
+
+}
+
+_66
+
+_66
+
+/// Queries for FT.Vault balance of all FT.Vaults in the specified account and all of its associated accounts
+
+_66
+
+///
+
+_66
+
+access(all)
+
+_66
+
+fun main(address: Address): {Address: {Type: UFix64}} {
+
+_66
+
+_66
+
+// Get the balance for the given address
+
+_66
+
+let balances: {Address: {Type: UFix64}} = { address: getAllBalancesInStorage(address) }
+
+_66
+
+// Tracking Addresses we've come across to prevent overwriting balances (more efficient than checking dict entries (?))
+
+_66
+
+let seen: [Address] = [address]
+
+_66
+
+_66
+
+/* Iterate over any associated accounts */
+
+_66
+
+//
+
+_66
+
+if let managerRef = getAuthAccount<auth(BorrowValue) &Account>(address)
+
+_66
+
+.storage
+
+_66
+
+.borrow<&HybridCustody.Manager>(from: HybridCustody.ManagerStoragePath) {
+
+_66
+
+_66
+
+for childAccount in managerRef.getChildAddresses() {
+
+_66
+
+balances.insert(key: childAccount, getAllBalancesInStorage(address))
+
+_66
+
+seen.append(childAccount)
+
+_66
+
+}
+
+_66
+
+_66
+
+for ownedAccount in managerRef.getOwnedAddresses() {
+
+_66
+
+if seen.contains(ownedAccount) == false {
+
+_66
+
+balances.insert(key: ownedAccount, getAllBalancesInStorage(address))
+
+_66
+
+seen.append(ownedAccount)
+
+_66
+
+}
+
+_66
+
+}
+
+_66
+
+}
+
+_66
+
+_66
+
+return balances
+
+_66
+
+}`
 
 The above script returns a dictionary of balances indexed on the type and further grouped by account Address.
 
@@ -229,7 +765,199 @@ A user with NFTs in their child accounts will likely want to utilize said NFTs. 
 transaction with their authenticated account that retrieves a reference to a child account's
 `NonFungibleToken.Provider`, enabling withdrawal from the child account having signed as the parent account.
 
-withdraw\_nft\_from\_child.cdc `_52import "NonFungibleToken"_52import "FlowToken"_52import "HybridCustody"_52_52transaction(_52 childAddress: Address, // Address of the child account_52 storagePath: StoragePath, // Path to the Collection in the child account_52 collectionType: Type, // Type of the requested Collection from which to withdraw_52 withdrawID: UInt64 // ID of the NFT to withdraw_52 ) {_52_52 let providerRef: auth(NonFungibleToken.Withdraw) &{NonFungibleToken.Provider}_52_52 prepare(signer: auth(BorrowValue) &Account) {_52 // Get a reference to the signer's HybridCustody.Manager from storage_52 let managerRef = signer.storage.borrow<auth(HybridCustody.Manage) &HybridCustody.Manager>(_52 from: HybridCustody.ManagerStoragePath_52 ) ?? panic("Could not borrow reference to HybridCustody.Manager in signer's account at expected path!")_52_52 // Borrow a reference to the signer's specified child account_52 let account = managerRef_52 .borrowAccount(addr: childAddress)_52 ?? panic("Signer does not have access to specified child account")_52_52 // Get the Capability Controller ID for the requested collection type_52 let controllerID = account.getControllerIDForType(_52 type: collectionType,_52 forPath: storagePath_52 ) ?? panic("Could not find Capability controller ID for collection type ".concat(collectionType.identifier)_52 .concat(" at path ").concat(storagePath.toString()))_52_52 // Get a reference to the child NFT Provider and assign to the transaction scope variable_52 let cap = account.getCapability(_52 controllerID: controllerID,_52 type: Type<auth(NonFungibleToken.Withdraw) &{NonFungibleToken.Provider}>()_52 ) ?? panic("Cannot access NonFungibleToken.Provider from this child account")_52_52 // We'll need to cast the Capability - this is possible thanks to CapabilityFactory, though we'll rely on the relevant_52 // Factory having been configured for this Type or it won't be castable_52 let providerCap = cap as! Capability<auth(NonFungibleToken.Withdraw) &{NonFungibleToken.Provider}>_52 self.providerRef = providerCap.borrow() ?? panic("Provider capability is invalid - cannot borrow reference")_52 }_52_52 execute {_52 // Withdraw the NFT from the Collection_52 let nft <- self.providerRef.withdraw(withdrawID: withdrawID)_52 // Do stuff with the NFT_52 // NOTE: Without storing or burning the NFT before scope closure, this transaction will fail. You'll want to_52 // fill in the rest of the transaction with the necessary logic to handle the NFT_52 // ..._52 }_52}`
+withdraw\_nft\_from\_child.cdc
+
+`_52
+
+import "NonFungibleToken"
+
+_52
+
+import "FlowToken"
+
+_52
+
+import "HybridCustody"
+
+_52
+
+_52
+
+transaction(
+
+_52
+
+childAddress: Address, // Address of the child account
+
+_52
+
+storagePath: StoragePath, // Path to the Collection in the child account
+
+_52
+
+collectionType: Type, // Type of the requested Collection from which to withdraw
+
+_52
+
+withdrawID: UInt64 // ID of the NFT to withdraw
+
+_52
+
+) {
+
+_52
+
+_52
+
+let providerRef: auth(NonFungibleToken.Withdraw) &{NonFungibleToken.Provider}
+
+_52
+
+_52
+
+prepare(signer: auth(BorrowValue) &Account) {
+
+_52
+
+// Get a reference to the signer's HybridCustody.Manager from storage
+
+_52
+
+let managerRef = signer.storage.borrow<auth(HybridCustody.Manage) &HybridCustody.Manager>(
+
+_52
+
+from: HybridCustody.ManagerStoragePath
+
+_52
+
+) ?? panic("Could not borrow reference to HybridCustody.Manager in signer's account at expected path!")
+
+_52
+
+_52
+
+// Borrow a reference to the signer's specified child account
+
+_52
+
+let account = managerRef
+
+_52
+
+.borrowAccount(addr: childAddress)
+
+_52
+
+?? panic("Signer does not have access to specified child account")
+
+_52
+
+_52
+
+// Get the Capability Controller ID for the requested collection type
+
+_52
+
+let controllerID = account.getControllerIDForType(
+
+_52
+
+type: collectionType,
+
+_52
+
+forPath: storagePath
+
+_52
+
+) ?? panic("Could not find Capability controller ID for collection type ".concat(collectionType.identifier)
+
+_52
+
+.concat(" at path ").concat(storagePath.toString()))
+
+_52
+
+_52
+
+// Get a reference to the child NFT Provider and assign to the transaction scope variable
+
+_52
+
+let cap = account.getCapability(
+
+_52
+
+controllerID: controllerID,
+
+_52
+
+type: Type<auth(NonFungibleToken.Withdraw) &{NonFungibleToken.Provider}>()
+
+_52
+
+) ?? panic("Cannot access NonFungibleToken.Provider from this child account")
+
+_52
+
+_52
+
+// We'll need to cast the Capability - this is possible thanks to CapabilityFactory, though we'll rely on the relevant
+
+_52
+
+// Factory having been configured for this Type or it won't be castable
+
+_52
+
+let providerCap = cap as! Capability<auth(NonFungibleToken.Withdraw) &{NonFungibleToken.Provider}>
+
+_52
+
+self.providerRef = providerCap.borrow() ?? panic("Provider capability is invalid - cannot borrow reference")
+
+_52
+
+}
+
+_52
+
+_52
+
+execute {
+
+_52
+
+// Withdraw the NFT from the Collection
+
+_52
+
+let nft <- self.providerRef.withdraw(withdrawID: withdrawID)
+
+_52
+
+// Do stuff with the NFT
+
+_52
+
+// NOTE: Without storing or burning the NFT before scope closure, this transaction will fail. You'll want to
+
+_52
+
+// fill in the rest of the transaction with the necessary logic to handle the NFT
+
+_52
+
+// ...
+
+_52
+
+}
+
+_52
+
+}`
 
 At the end of this transaction, you withdrew an NFT from the specified account using an NFT `Provider` Capability. A
 similar approach could get you any allowable Capabilities from a signer's child account.
@@ -253,7 +981,45 @@ As mentioned above, if a user no longer wishes to share access with another part
 be transferred from that account to either their main account or other linked accounts and the linked account be removed
 from their `HybridCustody.Manager`. Let's see how to complete that removal.
 
-remove\_child\_account.cdc `_10import "HybridCustody"_10_10transaction(child: Address) {_10 prepare (acct: auth(BorrowValue) &Account) {_10 let manager = acct.storage.borrow<auth(HybridCustody.Manage) &HybridCustody.Manager>(_10 from: HybridCustody.ManagerStoragePath_10 ) ?? panic("manager not found")_10 manager.removeChild(addr: child)_10 }_10}`
+remove\_child\_account.cdc
+
+`_10
+
+import "HybridCustody"
+
+_10
+
+_10
+
+transaction(child: Address) {
+
+_10
+
+prepare (acct: auth(BorrowValue) &Account) {
+
+_10
+
+let manager = acct.storage.borrow<auth(HybridCustody.Manage) &HybridCustody.Manager>(
+
+_10
+
+from: HybridCustody.ManagerStoragePath
+
+_10
+
+) ?? panic("manager not found")
+
+_10
+
+manager.removeChild(addr: child)
+
+_10
+
+}
+
+_10
+
+}`
 
 After removal, the signer no longer has delegated access to the removed account via their `Manager` and the caller is
 removed as a parent of the removed child.
@@ -261,7 +1027,16 @@ removed as a parent of the removed child.
 Note also that it's possible for a child account to remove a parent. This is necessary to give application developers
 and ultimately the owners of these child accounts the ability to revoke secondary access on owned accounts.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking/parent-accounts.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousBuilding Walletless Applications Using Child Accounts](/build/guides/account-linking/child-accounts)[NextAccount Linking With NBA Top Shot](/build/guides/account-linking-with-dapper)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking/parent-accounts.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Building Walletless Applications Using Child Accounts](/build/guides/account-linking/child-accounts)[Next
+
+Account Linking With NBA Top Shot](/build/guides/account-linking-with-dapper)
+
 ###### Rate this page
 
 😞😐😊
@@ -279,6 +1054,7 @@ and ultimately the owners of these child accounts the ability to revoke secondar
   + [Access NFT in Child Account from Parent Account](#access-nft-in-child-account-from-parent-account)
   + [Revoking Secondary Access on a Linked Account](#revoking-secondary-access-on-a-linked-account)
   + [Remove a Child Account](#remove-a-child-account)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -291,6 +1067,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -300,6 +1077,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -307,6 +1085,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -316,6 +1095,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -323,5 +1103,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

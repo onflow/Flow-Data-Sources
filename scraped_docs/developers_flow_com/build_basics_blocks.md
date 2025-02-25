@@ -1,20 +1,22 @@
 # Source: https://developers.flow.com/build/basics/blocks
 
-
-
-
 Blocks | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
 * [Getting Started](/build/getting-started/contract-interaction)
 * [Flow Protocol](/build/basics/blocks)
+
   + [Blocks](/build/basics/blocks)
   + [Collections](/build/basics/collections)
   + [Accounts](/build/basics/accounts)
@@ -31,10 +33,11 @@ Blocks | Flow Developer Portal
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
-
 * Flow Protocol
 * Blocks
+
 On this page
+
 # Blocks
 
 ## Overview[​](#overview "Direct link to Overview")
@@ -88,7 +91,9 @@ In summary, a block can be either **finalized** which guarantees transactions in
 
 You can use the Flow CLI to get the block data by running:
 
- `_10flow blocks get latest -network mainnet`
+`_10
+
+flow blocks get latest -network mainnet`
 
 Find [more about the command in the CLI docs](/tools/flow-cli/get-flow-data/get-blocks).
 
@@ -106,7 +111,16 @@ There are multiple SDKs implementing the above APIs for different languages:
 
 Find a list of all SDKs [here](/tools/clients)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/blocks.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousSimple Frontend](/build/getting-started/fcl-quickstart)[NextCollections](/build/basics/collections)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/blocks.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Simple Frontend](/build/getting-started/fcl-quickstart)[Next
+
+Collections](/build/basics/collections)
+
 ###### Rate this page
 
 😞😐😊
@@ -116,6 +130,7 @@ Find a list of all SDKs [here](/tools/clients)
   + [Block Payload](#block-payload)
 * [Lifecycle and Status](#lifecycle-and-status)
 * [Block Retrieval](#block-retrieval)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -128,6 +143,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -137,6 +153,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -144,6 +161,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -153,6 +171,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -160,5 +179,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

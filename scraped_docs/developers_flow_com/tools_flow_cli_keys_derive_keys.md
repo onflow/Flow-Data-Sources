@@ -1,23 +1,26 @@
 # Source: https://developers.flow.com/tools/flow-cli/keys/derive-keys
 
-
-
-
 Derive Public Key | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
 * [Flow CLI](/tools/flow-cli)
+
   + [Install Instructions](/tools/flow-cli/install)
   + [Super Commands](/tools/flow-cli/super-commands)
   + [Accounts](/tools/flow-cli/accounts/get-accounts)
   + [Keys](/tools/flow-cli/keys/generate-keys)
+
     - [Generate Keys](/tools/flow-cli/keys/generate-keys)
     - [Decode Public Keys](/tools/flow-cli/keys/decode-keys)
     - [Derive Public Key](/tools/flow-cli/keys/derive-keys)
@@ -39,24 +42,48 @@ Derive Public Key | Flow Developer Portal
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 
-
 * [Flow CLI](/tools/flow-cli)
 * Keys
 * Derive Public Key
+
 On this page
+
 # Derive Public Key
 
 The Flow CLI provides a command to derive Public Key from a Private Key.
 
- `_10flow keys derive <private key>`
+`_10
+
+flow keys derive <private key>`
+
 ## Example Usage[​](#example-usage "Direct link to Example Usage")
 
 ### Derive Public Key from a Private Key[​](#derive-public-key-from-a-private-key "Direct link to Derive Public Key from a Private Key")
 
- `_10> flow keys derive c778170793026a9a7a3815dabed68ded445bde7f40a8c66889908197412be89f`
+`_10
+
+> flow keys derive c778170793026a9a7a3815dabed68ded445bde7f40a8c66889908197412be89f`
+
 ### Example response[​](#example-response "Direct link to Example response")
 
- `_10> flow keys generate_10_10🔴️ Store Private Key safely and don't share with anyone! _10Private Key c778170793026a9a7a3815dabed68ded445bde7f40a8c66889908197412be89f _10Public Key 584245c57e5316d6606c53b1ce46dae29f5c9bd26e9e8...aaa5091b2eebcb2ac71c75cf70842878878a2d650f7`
+`_10
+
+> flow keys generate
+
+_10
+
+_10
+
+🔴️ Store Private Key safely and don't share with anyone!
+
+_10
+
+Private Key c778170793026a9a7a3815dabed68ded445bde7f40a8c66889908197412be89f
+
+_10
+
+Public Key 584245c57e5316d6606c53b1ce46dae29f5c9bd26e9e8...aaa5091b2eebcb2ac71c75cf70842878878a2d650f7`
+
 ## Arguments[​](#arguments "Direct link to Arguments")
 
 ### Private Key[​](#private-key "Direct link to Private Key")
@@ -99,7 +126,16 @@ Specify the format of the command results.
 
 Specify the filename where you want the result to be saved
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/keys/derive-keys.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousDecode Public Keys](/tools/flow-cli/keys/decode-keys)[NextStart Emulator](/tools/flow-cli/deployment/start-emulator)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/keys/derive-keys.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Decode Public Keys](/tools/flow-cli/keys/decode-keys)[Next
+
+Start Emulator](/tools/flow-cli/deployment/start-emulator)
+
 ###### Rate this page
 
 😞😐😊
@@ -114,6 +150,7 @@ Specify the filename where you want the result to be saved
   + [Filter](#filter)
   + [Output](#output)
   + [Save](#save)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -126,6 +163,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -135,6 +173,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -142,6 +181,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -151,6 +191,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -158,5 +199,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

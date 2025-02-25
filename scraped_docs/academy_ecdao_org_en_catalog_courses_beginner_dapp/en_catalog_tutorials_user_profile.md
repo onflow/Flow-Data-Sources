@@ -1,29 +1,14 @@
 # Source: https://academy.ecdao.org/en/catalog/tutorials/user-profile
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -36,14 +21,11 @@ Create a User Profile using Cadence
 
 # Create a User Profile using Cadence
 
-
 Tutorial
 
 Beginner
 
 10 mins
-
-
 
 # Tutorial - Making a User Profile using Cadence
 
@@ -82,6 +64,7 @@ In this step, we will focus on writing the Cadence smart contract responsible fo
 Letâs start by defining the structure of the contract and we will learn what itâs doing along the way.
 
 cadence
+
 ```
 		
 			access(all) contract Profile
@@ -107,7 +90,7 @@ cadence
 2. `access(contract) var totalUsersCount: UInt64;`: This line declares a variable named `totalUsersCount` of type `UInt64` (an unsigned 64-bit integer). The variable has the `access(contract)` access type, which means it can only be accessed within the same contract.
 3. `access(all) var publicProfileStoragePath: PublicPath;` and `access(all) var storageProfileStoragePath: StoragePath;`: These lines declare two variables, `publicProfileStoragePath` and `storageProfileStoragePath`. Both variables have the `access(all)` access type. These are the storage paths, if youâre not sure what they are please refer to the [Beginner Candence Course](https://academy.ecdao.org/en/catalog/courses/beginner-cadence/chapter4/lesson1).
 4. `init()`: This is the initialization function for the contract. It is called when the contract is created. In this function, the following actions are performed:
-   
+
    * `self.totalUsersCount = 0;`: Sets the initial value of `totalUsersCount` to 0. This variable will be used to keep track of the total number of users.
    * `self.publicProfileStoragePath = /public/userProfile;` and `self.storageProfileStoragePath = /storage/userProfile;`: Assigns the paths to the `publicProfileStoragePath` and `storageProfileStoragePath` variables. These paths represent the storage locations where user profile information will be stored.
 
@@ -116,6 +99,7 @@ Feel free to copy and paste the code snippet and modify to your needs.
 Now letâs go ahead abit and define the `UserProfileInfo` struct that will be returned by `getUserProfileInfo()` in our next step.
 
 cadence
+
 ```
 		
 			    access(all) struct UserProfileInfo
@@ -142,6 +126,7 @@ cadence
 Now, we will add our `UserProfile` resource. If youâre not sure what resources are please refer to the [Beginner Cadence Course](https://academy.ecdao.org/en/catalog/courses/beginner-cadence/chapter3/lesson1).
 
 cadence
+
 ```
 		
 			    access(all) resource UserProfile : IUserProfilePublic
@@ -182,6 +167,7 @@ Feel free to copy and paste the code snippet and modify to your needs.
 Going ahead we will define the `IUserProfilePublic` interface first, then we will talk about why we need it! If youâre not sure what interfaces are please chec out the [Beginner Cadence Course](https://academy.ecdao.org/en/catalog/courses/beginner-cadence/chapter5/lesson2)
 
 cadence
+
 ```
 		
 			    access(all) resource interface IUserProfilePublic
@@ -207,6 +193,7 @@ Another thing youâll notice is that the interface doesnât contain the 
 And finally, we will define a function in the contract that we will be able to call from outside the contract from a trasaction, that will help us to create a user profile.
 
 cadence
+
 ```
 		
 			    access(all) fun createUserProfile(_ name: String, _ address: String): @UserProfile
@@ -229,6 +216,7 @@ All right! Thatâs our whole contract. Wasnât that easy? I hope it was.
 The whole contract in action might look something like this
 
 cadence
+
 ```
 		
 			access(all) contract Profile
@@ -315,6 +303,7 @@ We will write 2 transactions, 1 for creating a userProfile and 1 for updating th
 ### Creating a User Profile
 
 cadence
+
 ```
 		
 			import Profile from 0x01;
@@ -346,6 +335,7 @@ Wanna give it a spin? Type you name in the box below and hit Send. As shown in t
 ### Updating the name in a User Profile
 
 cadence
+
 ```
 		
 			import Profile from 0x01;
@@ -379,6 +369,7 @@ Type the new name, and hit Send. As shown in the example below!
 We are in the final stretch now! We will make a script that will be able to read from the storage and show us information stored there.
 
 cadence
+
 ```
 		
 			import Profile from 0x01;
@@ -405,17 +396,14 @@ Fire it up! Put in the account address as `0x01` in the box and hit Execute. And
 
 WOW! You did it! Congratulations! Give yourself a pat in the back and buy ourself something nice to eat (please stop with those Doritos)!
 
-
 ![User avatar](https://i.imgur.com/Nfww3sn.png)
 
 Author
 
 [Memxor](https://twitter.com/memxor_)
 
-
-
-
 [Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/tutorials/user-profile/en/readme.md)
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
@@ -424,17 +412,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

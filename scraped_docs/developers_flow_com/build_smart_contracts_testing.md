@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/build/smart-contracts/testing
 
-
-
-
 Testing Your Contracts | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -17,6 +18,7 @@ Testing Your Contracts | Flow Developer Portal
 * [Flow Protocol](/build/basics/blocks)
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
+
   + [Learn Cadence ↗️](/build/learn-cadence)
   + [Smart Contracts on Flow](/build/smart-contracts/overview)
   + [Deploying Contracts](/build/smart-contracts/deploying)
@@ -27,10 +29,11 @@ Testing Your Contracts | Flow Developer Portal
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
-
 * Writing and Deploying Smart Contracts
 * Testing Your Contracts
+
 On this page
+
 # Testing Your Contracts
 
 Testing is an essential part of smart contract development to ensure the correctness and reliability of your code. The Cadence Testing Framework provides a convenient way to write tests for your contracts, scripts and transactions which allows you to verify the functionality and correctness of your smart contracts.
@@ -45,17 +48,139 @@ If you haven't installed the Flow CLI yet and have [homebrew](https://brew.sh/) 
 
 In your preferred code editor, create a new directory for your project and navigate to it in the terminal. Then initialize a new Flow project by running the command `flow init`. This will create a `flow.json` config file that contains the [project's configuration](/tools/flow-cli/flow.json/configuration).
 
- `_10mkdir test-cadence_10cd test-cadence_10flow init`
+`_10
+
+mkdir test-cadence
+
+_10
+
+cd test-cadence
+
+_10
+
+flow init`
+
 ## Write a simple smart contract[​](#write-a-simple-smart-contract "Direct link to Write a simple smart contract")
 
 In your code editor, create a new file called `calculator.cdc` and add the following code:
 
-calculator.cdc `_16access(all) contract Calculator {_16 access(all)_16 fun add(a: Int, b: Int): Int {_16 return a + b_16 }_16_16 access(all)_16 fun subtract(a: Int, b: Int): Int {_16 return a - b_16 }_16_16 access(all)_16 fun multiply(a: Int, b: Int): Int {_16 return a * b_16 }_16}`
+calculator.cdc
+
+`_16
+
+access(all) contract Calculator {
+
+_16
+
+access(all)
+
+_16
+
+fun add(a: Int, b: Int): Int {
+
+_16
+
+return a + b
+
+_16
+
+}
+
+_16
+
+_16
+
+access(all)
+
+_16
+
+fun subtract(a: Int, b: Int): Int {
+
+_16
+
+return a - b
+
+_16
+
+}
+
+_16
+
+_16
+
+access(all)
+
+_16
+
+fun multiply(a: Int, b: Int): Int {
+
+_16
+
+return a * b
+
+_16
+
+}
+
+_16
+
+}`
+
 ## Add the smart contract to the config[​](#add-the-smart-contract-to-the-config "Direct link to Add the smart contract to the config")
 
 Next up, we need to add our new contract in the `contracts` key in the `flow.json` config file. More specifically, we need to add the contract name, location and an address alias for the `testing` environment.
 
- `_13{_13 "contracts": {_13 "Calculator": {_13 "source": "./calculator.cdc",_13 "aliases": {_13 "testing": "0x0000000000000007"_13 }_13 }_13 },_13 "networks": {...},_13 "accounts": {...},_13 "deployments": {...}_13}`
+`_13
+
+{
+
+_13
+
+"contracts": {
+
+_13
+
+"Calculator": {
+
+_13
+
+"source": "./calculator.cdc",
+
+_13
+
+"aliases": {
+
+_13
+
+"testing": "0x0000000000000007"
+
+_13
+
+}
+
+_13
+
+}
+
+_13
+
+},
+
+_13
+
+"networks": {...},
+
+_13
+
+"accounts": {...},
+
+_13
+
+"deployments": {...}
+
+_13
+
+}`
 
 For the time being, the address for the `testing` alias, can be one of:
 
@@ -76,7 +201,89 @@ In the next release, there will be `20` addresses for contract deployment during
 
 In the same directory, create a new file called `calculator_test.cdc` and add the following code:
 
-calculator\_test.cdc `_22import Test_22import "Calculator" // contract name from the previous step_22_22access(all)_22fun setup() {_22 let err = Test.deployContract(_22 name: "Calculator",_22 path: "./calculator.cdc",_22 arguments: []_22 )_22 Test.expect(err, Test.beNil())_22}_22_22access(all)_22fun testAdd() {_22 Test.assertEqual(5, Calculator.add(a: 2, b: 3))_22}_22_22access(all)_22fun testSubtract() {_22 Test.assertEqual(2, Calculator.subtract(a: 5, b: 3))_22}`
+calculator\_test.cdc
+
+`_22
+
+import Test
+
+_22
+
+import "Calculator" // contract name from the previous step
+
+_22
+
+_22
+
+access(all)
+
+_22
+
+fun setup() {
+
+_22
+
+let err = Test.deployContract(
+
+_22
+
+name: "Calculator",
+
+_22
+
+path: "./calculator.cdc",
+
+_22
+
+arguments: []
+
+_22
+
+)
+
+_22
+
+Test.expect(err, Test.beNil())
+
+_22
+
+}
+
+_22
+
+_22
+
+access(all)
+
+_22
+
+fun testAdd() {
+
+_22
+
+Test.assertEqual(5, Calculator.add(a: 2, b: 3))
+
+_22
+
+}
+
+_22
+
+_22
+
+access(all)
+
+_22
+
+fun testSubtract() {
+
+_22
+
+Test.assertEqual(2, Calculator.subtract(a: 5, b: 3))
+
+_22
+
+}`
 
 This code:
 
@@ -89,29 +296,156 @@ This code:
 
 To run the test cases, use the following command in the terminal:
 
- `_10flow test --cover --covercode="contracts" calculator_test.cdc`
+`_10
+
+flow test --cover --covercode="contracts" calculator_test.cdc`
 
 This command uses the Flow CLI to run the test cases and display the output. You should see the following output:
 
- `_10Test results: "calculator_test.cdc"_10- PASS: testAdd_10- PASS: testSubtract_10Coverage: 66.7% of statements`
+`_10
+
+Test results: "calculator_test.cdc"
+
+_10
+
+- PASS: testAdd
+
+_10
+
+- PASS: testSubtract
+
+_10
+
+Coverage: 66.7% of statements`
 
 This output indicates that both test cases ran successfully, and the two smart contract methods are functioning as expected. With the supplied flags (`--cover` & `--covercode="contracts"`), we also get code coverage insights for the contracts under testing. The code coverage percentage is `66.7%`, because we have not added a test case for the `multiply` method. By viewing the auto-generated `coverage.json` file, we see:
 
- `_16{_16 "coverage": {_16 "A.0000000000000007.Calculator": {_16 "line_hits": {_16 "14": 0,_16 "4": 1,_16 "9": 1_16 },_16 "missed_lines": [_16 14_16 ],_16 "statements": 3,_16 "percentage": "66.7%"_16 }_16 }_16}`
+`_16
+
+{
+
+_16
+
+"coverage": {
+
+_16
+
+"A.0000000000000007.Calculator": {
+
+_16
+
+"line_hits": {
+
+_16
+
+"14": 0,
+
+_16
+
+"4": 1,
+
+_16
+
+"9": 1
+
+_16
+
+},
+
+_16
+
+"missed_lines": [
+
+_16
+
+14
+
+_16
+
+],
+
+_16
+
+"statements": 3,
+
+_16
+
+"percentage": "66.7%"
+
+_16
+
+}
+
+_16
+
+}
+
+_16
+
+}`
 
 Line 14 from the `Calculator` smart contract is marked as missed. This is the line:
 
- `_10return a * b`
+`_10
+
+return a * b`
 
 which is the `multiply` method.
 
 By adding a test case for the above method:
 
-calculator\_test.cdc `_10..._10_10access(all)_10fun testMultiply() {_10 Test.assertEqual(10, Calculator.multiply(a: 2, b: 5))_10}`
+calculator\_test.cdc
+
+`_10
+
+...
+
+_10
+
+_10
+
+access(all)
+
+_10
+
+fun testMultiply() {
+
+_10
+
+Test.assertEqual(10, Calculator.multiply(a: 2, b: 5))
+
+_10
+
+}`
 
 our code coverage percentage goes to `100%`:
 
- `_10flow test --cover --covercode="contracts" calculator_test.cdc_10_10Test results: "calculator_test.cdc"_10- PASS: testAdd_10- PASS: testSubtract_10- PASS: testMultiply_10Coverage: 100.0% of statements`
+`_10
+
+flow test --cover --covercode="contracts" calculator_test.cdc
+
+_10
+
+_10
+
+Test results: "calculator_test.cdc"
+
+_10
+
+- PASS: testAdd
+
+_10
+
+- PASS: testSubtract
+
+_10
+
+- PASS: testMultiply
+
+_10
+
+Coverage: 100.0% of statements`
+
 ## Advanced Testing Techniques[​](#advanced-testing-techniques "Direct link to Advanced Testing Techniques")
 
 The Cadence testing framework provides various features and techniques for writing comprehensive test scenarios. Some of these include:
@@ -201,7 +535,17 @@ Get familiar with the [Cadence anti-patterns](https://cadence-lang.org/docs/anti
   + [hybrid-custody](https://github.com/onflow/hybrid-custody/tree/main/test),
   + [flow-nft](https://github.com/onflow/flow-nft/tree/master/tests),
   + [flow-ft](https://github.com/onflow/flow-ft/tree/master/tests).
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/testing.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousDeploying Contracts](/build/smart-contracts/deploying)[NextSecurity Best Practices](/build/smart-contracts/best-practices/security-best-practices)
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/testing.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Deploying Contracts](/build/smart-contracts/deploying)[Next
+
+Security Best Practices](/build/smart-contracts/best-practices/security-best-practices)
+
 ###### Rate this page
 
 😞😐😊
@@ -221,6 +565,7 @@ Get familiar with the [Cadence anti-patterns](https://cadence-lang.org/docs/anti
   + [Automated Testing of Contract Code](#automated-testing-of-contract-code)
   + [Stress Testing Live Applications Before Mainnet](#stress-testing-live-applications-before-mainnet)
 * [References](#references)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -233,6 +578,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -242,6 +588,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -249,6 +596,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -258,6 +606,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -265,5 +614,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

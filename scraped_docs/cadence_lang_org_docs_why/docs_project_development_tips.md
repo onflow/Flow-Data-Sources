@@ -1,14 +1,16 @@
 # Source: https://cadence-lang.org/docs/project-development-tips
 
-
-
-
 Flow Smart Contract Project Development Standards | Cadence
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)Search
+[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
+
+[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+
+Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
@@ -25,9 +27,10 @@ Flow Smart Contract Project Development Standards | Cadence
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
-
 * Development Standards
+
 On this page
+
 # Smart Contract Project Development Standards
 
 ## Context[​](#context "Direct link to Context")
@@ -319,7 +322,14 @@ and documenting their projects. (Documentation for these topics coming soon)
 
 If you have any feedback about these guidelines, please create an issue in the `cadence-lang.org` repo or make a PR updating the guidelines so we can start a discussion.
 
-[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/project-development-tips.md)[PreviousAnti-Patterns](/docs/anti-patterns)[NextSecurity Best Practices](/docs/security-best-practices)
+[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/project-development-tips.md)
+
+[Previous
+
+Anti-Patterns](/docs/anti-patterns)[Next
+
+Security Best Practices](/docs/security-best-practices)
+
 ###### Rate this page
 
 😞😐😊
@@ -340,9 +350,10 @@ If you have any feedback about these guidelines, please create an issue in the `
   + [Projects should have thorough documentation](#projects-should-have-thorough-documentation)
   + [Projects should engage with and respond to their own Community](#projects-should-engage-with-and-respond-to-their-own-community)
   + [Projects should contribute to the greater Flow and Cadence community](#projects-should-contribute-to-the-greater-flow-and-cadence-community)
-Got suggestions for this site? 
+
+Got suggestions for this site?
 
 * [It's open-source!](https://github.com/onflow/cadence-lang.org)
+
 The source code of this site is licensed under the Apache License, Version 2.0.
 Content is licensed under the Creative Commons Attribution 4.0 International License.
-

@@ -1,25 +1,28 @@
 # Source: https://developers.flow.com/networks/node-ops/node-operation/protocol-state-bootstrap
 
-
-
-
 Protocol State Bootstrapping | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
 * [Flow's Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
+
   + [Access Nodes](/networks/node-ops/access-nodes/access-node-setup)
   + [EVM Gateway Setup](/networks/node-ops/evm-gateway/evm-gateway-setup)
   + [Light Nodes](/networks/node-ops/light-nodes/observer-node)
   + [Participating in the Network](/networks/node-ops/node-operation/faq)
+
     - [Operator FAQ](/networks/node-ops/node-operation/faq)
     - [Byzantine Attack Response](/networks/node-ops/node-operation/byzantine-node-attack-response)
     - [Database Encryption for Existing Node Operators](/networks/node-ops/node-operation/db-encryption-existing-operator)
@@ -44,11 +47,12 @@ Protocol State Bootstrapping | Flow Developer Portal
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
-
 * [Node Ops](/networks/node-ops)
 * Participating in the Network
 * Protocol State Bootstrapping
+
 On this page
+
 # Protocol State Bootstrapping
 
 When a node joins the network, it bootstraps its local database using a trusted initialization file, called a Root Snapshot.
@@ -116,11 +120,16 @@ Replace `$DATADIR` with the value passed to the `--datadir` flag. You can specif
 
 Retrieve the snapshot for the latest finalized block:
 
- `_10util read-protocol-state snapshot -d $DATADIR --final > latest-finalized-snapshot.json`
+`_10
+
+util read-protocol-state snapshot -d $DATADIR --final > latest-finalized-snapshot.json`
 
 Retrieve the snapshot for a specific finalized block height:
 
- `_10util read-protocol-state snapshot -d $DATADIR --height 12345 > specific-height-snapshot.json`
+`_10
+
+util read-protocol-state snapshot -d $DATADIR --height 12345 > specific-height-snapshot.json`
+
 ## Using Dynamic Startup[​](#using-dynamic-startup "Direct link to Using Dynamic Startup")
 
 Dynamic Startup is a startup configuration where your node will download a Root Snapshot and use it to bootstrap its local database.
@@ -152,7 +161,20 @@ Select an Access Node you operate or trust to provide the Root Snapshot, and pop
 
 For example, to use the Access Node maintained by the Flow Foundation for Dynamic Startup, specify the following flags:
 
-ExampleDynamicStartupFlags `_10 ... \_10 --dynamic-startup-access-address=secure.mainnet.nodes.onflow.org:9001 \_10 --dynamic-startup-access-publickey=28a0d9edd0de3f15866dfe4aea1560c4504fe313fc6ca3f63a63e4f98d0e295144692a58ebe7f7894349198613f65b2d960abf99ec2625e247b1c78ba5bf2eae`
+ExampleDynamicStartupFlags
+
+`_10
+
+... \
+
+_10
+
+--dynamic-startup-access-address=secure.mainnet.nodes.onflow.org:9001 \
+
+_10
+
+--dynamic-startup-access-publickey=28a0d9edd0de3f15866dfe4aea1560c4504fe313fc6ca3f63a63e4f98d0e295144692a58ebe7f7894349198613f65b2d960abf99ec2625e247b1c78ba5bf2eae`
+
 ### Specifying an Epoch Phase[​](#specifying-an-epoch-phase "Direct link to Specifying an Epoch Phase")
 
 Two flags are used to specify when to bootstrap:
@@ -166,7 +188,15 @@ Two flags are used to specify when to bootstrap:
 
 If you would like to bootstrap immediately, using the first Root Snapshot you receive, then specify a past epoch counter:
 
-ExampleDynamicStartupFlags `_10 ... \_10 --dynamic-startup-epoch-phase=1`
+ExampleDynamicStartupFlags
+
+`_10
+
+... \
+
+_10
+
+--dynamic-startup-epoch-phase=1`
 
 You may omit the `--dynamic-startup-epoch-phase` flag.
 
@@ -180,7 +210,17 @@ Use Dynamic Startup to bootstrap your node at the `Epoch Setup Phase` of the cur
 2. Add necessary flags to node startup command.
    For example, using the Flow Foundation Access Node:
 
- `_10 ... \_10 --dynamic-startup-access-address=secure.mainnet.nodes.onflow.org:9001 \_10 --dynamic-startup-access-publickey=28a0d9edd0de3f15866dfe4aea1560c4504fe313fc6ca3f63a63e4f98d0e295144692a58ebe7f7894349198613f65b2d960abf99ec2625e247b1c78ba5bf2eae`
+`_10
+
+... \
+
+_10
+
+--dynamic-startup-access-address=secure.mainnet.nodes.onflow.org:9001 \
+
+_10
+
+--dynamic-startup-access-publickey=28a0d9edd0de3f15866dfe4aea1560c4504fe313fc6ca3f63a63e4f98d0e295144692a58ebe7f7894349198613f65b2d960abf99ec2625e247b1c78ba5bf2eae`
 
 3. Start your node.
 
@@ -192,10 +232,34 @@ Use Dynamic Startup to bootstrap your node immediately, using the most recent Ro
 2. Add necessary flags to node startup command.
    For example, using the Flow Foundation Access Node:
 
- `_10 ... \_10 --dynamic-startup-access-address=secure.mainnet.nodes.onflow.org:9001 \_10 --dynamic-startup-access-publickey=28a0d9edd0de3f15866dfe4aea1560c4504fe313fc6ca3f63a63e4f98d0e295144692a58ebe7f7894349198613f65b2d960abf99ec2625e247b1c78ba5bf2eae \_10 --dynamic-startup-epoch=1`
+`_10
+
+... \
+
+_10
+
+--dynamic-startup-access-address=secure.mainnet.nodes.onflow.org:9001 \
+
+_10
+
+--dynamic-startup-access-publickey=28a0d9edd0de3f15866dfe4aea1560c4504fe313fc6ca3f63a63e4f98d0e295144692a58ebe7f7894349198613f65b2d960abf99ec2625e247b1c78ba5bf2eae \
+
+_10
+
+--dynamic-startup-epoch=1`
 
 3. Start your node.
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/protocol-state-bootstrap.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousHeight coordinated upgrade](/networks/node-ops/node-operation/hcu)[NextManaging disk space](/networks/node-ops/node-operation/reclaim-disk)
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/protocol-state-bootstrap.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Height coordinated upgrade](/networks/node-ops/node-operation/hcu)[Next
+
+Managing disk space](/networks/node-ops/node-operation/reclaim-disk)
+
 ###### Rate this page
 
 😞😐😊
@@ -209,6 +273,7 @@ Use Dynamic Startup to bootstrap your node immediately, using the most recent Ro
   + [Specifying an Access Node](#specifying-an-access-node)
   + [Specifying an Epoch Phase](#specifying-an-epoch-phase)
   + [Instructions](#instructions-1)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -221,6 +286,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -230,6 +296,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -237,6 +304,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -246,6 +314,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -253,5 +322,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

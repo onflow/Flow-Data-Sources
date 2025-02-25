@@ -1,22 +1,25 @@
 # Source: https://developers.flow.com/tools/flow-cli/accounts/account-staking-info
 
-
-
-
 Account Staking Info | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
 * [Flow CLI](/tools/flow-cli)
+
   + [Install Instructions](/tools/flow-cli/install)
   + [Super Commands](/tools/flow-cli/super-commands)
   + [Accounts](/tools/flow-cli/accounts/get-accounts)
+
     - [Get an Account](/tools/flow-cli/accounts/get-accounts)
     - [Create an Account](/tools/flow-cli/accounts/create-accounts)
     - [Deploy a Contract](/tools/flow-cli/accounts/account-add-contract)
@@ -43,19 +46,120 @@ Account Staking Info | Flow Developer Portal
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 
-
 * [Flow CLI](/tools/flow-cli)
 * Accounts
 * Account Staking Info
+
 On this page
+
 # Account Staking Info
 
 Retrieve staking information for the account on the Flow network using Flow CLI.
 
- `_10flow accounts staking-info <address>`
+`_10
+
+flow accounts staking-info <address>`
+
 ## Example Usage[​](#example-usage "Direct link to Example Usage")
 
- `_26> accounts staking-info 535b975637fb6bee --host access.testnet.nodes.onflow.org:9000_26_26Account Staking Info:_26 ID: "ca00101101010100001011010101010101010101010101011010101010101010"_26 Initial Weight: 100_26 Networking Address: "ca00101101010100001011010101010101010101010101011010101010101010"_26 Networking Key: "ca00101101010100001011010101010101010101010101011010101010101010ca00101101010100001011010101010101010101010101011010101010101010"_26 Role: 1_26 Staking Key: "ca00101101010100001011010101010101010101010101011010101010101010ca00101101010100001011010101010101010101010101011010101010101010ca00101101010100001011010101010101010101010101011010101010101010"_26 Tokens Committed: 0.00000000_26 Tokens To Unstake: 0.00000000_26 Tokens Rewarded: 82627.77000000_26 Tokens Staked: 250000.00000000_26 Tokens Unstaked: 0.00000000_26 Tokens Unstaking: 0.00000000_26 Node Total Stake (including delegators): 250000.00000000_26_26_26Account Delegation Info:_26 ID: 7_26 Tokens Committed: 0.00000000_26 Tokens To Unstake: 0.00000000_26 Tokens Rewarded: 30397.81936000_26 Tokens Staked: 100000.00000000_26 Tokens Unstaked: 0.00000000_26 Tokens Unstaking: 0.00000000`
+`_26
+
+> accounts staking-info 535b975637fb6bee --host access.testnet.nodes.onflow.org:9000
+
+_26
+
+_26
+
+Account Staking Info:
+
+_26
+
+ID: "ca00101101010100001011010101010101010101010101011010101010101010"
+
+_26
+
+Initial Weight: 100
+
+_26
+
+Networking Address: "ca00101101010100001011010101010101010101010101011010101010101010"
+
+_26
+
+Networking Key: "ca00101101010100001011010101010101010101010101011010101010101010ca00101101010100001011010101010101010101010101011010101010101010"
+
+_26
+
+Role: 1
+
+_26
+
+Staking Key: "ca00101101010100001011010101010101010101010101011010101010101010ca00101101010100001011010101010101010101010101011010101010101010ca00101101010100001011010101010101010101010101011010101010101010"
+
+_26
+
+Tokens Committed: 0.00000000
+
+_26
+
+Tokens To Unstake: 0.00000000
+
+_26
+
+Tokens Rewarded: 82627.77000000
+
+_26
+
+Tokens Staked: 250000.00000000
+
+_26
+
+Tokens Unstaked: 0.00000000
+
+_26
+
+Tokens Unstaking: 0.00000000
+
+_26
+
+Node Total Stake (including delegators): 250000.00000000
+
+_26
+
+_26
+
+_26
+
+Account Delegation Info:
+
+_26
+
+ID: 7
+
+_26
+
+Tokens Committed: 0.00000000
+
+_26
+
+Tokens To Unstake: 0.00000000
+
+_26
+
+Tokens Rewarded: 30397.81936000
+
+_26
+
+Tokens Staked: 100000.00000000
+
+_26
+
+Tokens Unstaked: 0.00000000
+
+_26
+
+Tokens Unstaking: 0.00000000`
+
 ## Arguments[​](#arguments "Direct link to Arguments")
 
 ### Address[​](#address "Direct link to Address")
@@ -152,7 +256,16 @@ several configuration files.
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/account-staking-info.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousRemove a Contract](/tools/flow-cli/accounts/account-remove-contract)[NextFunding a Testnet Account](/tools/flow-cli/accounts/account-fund)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/account-staking-info.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Remove a Contract](/tools/flow-cli/accounts/account-remove-contract)[Next
+
+Funding a Testnet Account](/tools/flow-cli/accounts/account-fund)
+
 ###### Rate this page
 
 😞😐😊
@@ -171,6 +284,7 @@ Skip version check during start up to speed up process for slow connections.
   + [Log](#log)
   + [Configuration](#configuration)
   + [Version Check](#version-check)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -183,6 +297,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -192,6 +307,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -199,6 +315,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -208,6 +325,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -215,5 +333,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

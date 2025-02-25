@@ -1,30 +1,14 @@
 # Source: https://academy.ecdao.org/en/catalog/courses/learn-cadence-beginner/chapter1/lesson3
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -48,7 +32,6 @@ Connect
 
 Course Overview
 
-
 [Catalog](/en/catalog)
 [Course](/en/catalog/courses/learn-cadence-beginner)
 Learn Cadence Beginner
@@ -64,6 +47,7 @@ To start playing around with types, letâs create a new file called `test.cd
 In Cadence, the code you write can often infer what type something is. For example, if you write:
 
 cadence
+
 ```
 		
 			var jacob = "isCool"
@@ -74,6 +58,7 @@ cadence
 Cadence will automatically realize you have initialized a String. However, if we want to be more explicit about our types, we can include the type in the declaration, like so:
 
 cadence
+
 ```
 		
 			var jacob: String = "isCool"
@@ -84,6 +69,7 @@ cadence
 Itâs often helpful to include the type of something so we can reason about where we went wrong in our programs. Cadence will also tell you straight up that youâve made a mistake if you intended a variable to be of different type. For example, try typing:
 
 cadence
+
 ```
 		
 			var jacob: String = 3
@@ -96,6 +82,7 @@ Cadence will say âHey! These types donât match.â Or something lik
 ## Common Types
 
 cadence
+
 ```
 		
 			var number: Int = 2
@@ -104,11 +91,13 @@ var text: String = "Hey!"
 		 
 	
 ```
+
 ## Arrays
 
 An array is a list of elements. Letâs look at a very basic array in Cadence:
 
 cadence
+
 ```
 		
 			var people: [String] = ["Jacob", "Alice", "Damian"]
@@ -119,6 +108,7 @@ cadence
 This is a list of Strings. We declare an array type like so: `[Type]`. Letâs do another example. If we wanted a list of addresses, well, itâs very similar:
 
 cadence
+
 ```
 		
 			var addresses: [Address] = [0x1, 0x2, 0x3]
@@ -129,6 +119,7 @@ cadence
 We can also index into arrays to see what the elements are. This is exactly like Javascript or similar languages.
 
 cadence
+
 ```
 		
 			var addresses: [Address] = [0x1, 0x2, 0x3]
@@ -138,6 +129,7 @@ log(addresses[2]) // 0x3
 		 
 	
 ```
+
 ### Helpful Array Functions that I Use All the Time
 
 The things we looked at above are all fixed arrays. We can also do some cool things with arrays, and Iâll list some of them here.
@@ -151,6 +143,7 @@ Adds an element to the end of the array.
 ex.
 
 cadence
+
 ```
 		
 			var people: [String] = ["Jacob", "Alice", "Damian"]
@@ -167,6 +160,7 @@ Checks to see if an array contains an element.
 ex.
 
 cadence
+
 ```
 		
 			var people: [String] = ["Jacob", "Alice", "Damian"]
@@ -183,6 +177,7 @@ Removes an element at the given index (index starts from 0, meaning the first el
 ex.
 
 cadence
+
 ```
 		
 			var people: [String] = ["Jacob", "Alice", "Damian"]
@@ -199,6 +194,7 @@ Returns the length of the array.
 ex.
 
 cadence
+
 ```
 		
 			var people: [String] = ["Jacob", "Alice", "Damian"]
@@ -206,11 +202,13 @@ log(people.length) // 3
 		 
 	
 ```
+
 ## Dictionaries
 
 Nice! Thatâs arrays for ya. Time for dictionaries. Well, what is this thing?! A dictionary is something that maps a `key` to a `value`. Letâs look at a simple example below.
 
 cadence
+
 ```
 		
 			var names: {String: String} = {"Jacob": "Tucker", "Bob": "Vance", "Ochako": "Unaraka"} // anyone watch The Office?
@@ -221,6 +219,7 @@ cadence
 In the above example, we mapped `String`s to `String`s. More specifically, we mapped someoneâs first name to their last name. We did this with the dictionary type, which is `{Type: Type}`. We can use this dictionary to get peoplesâ last names like so:
 
 cadence
+
 ```
 		
 			var names: {String: String} = {"Jacob": "Tucker", "Bob": "Vance", "Ochako": "Unaraka"}
@@ -234,6 +233,7 @@ log(names["Ochako"]) // "Unaraka"
 Letâs look at an example of mapping `String`s to `Int`s. Weâll map someoneâs name to their favourite number.
 
 cadence
+
 ```
 		
 			var favouriteNums: {String: Int} = {"Jacob": 13, "Bob": 0, "Ochako": 1000100103}
@@ -253,6 +253,7 @@ This is cool. But thereâs more. We will get into why dictionaries are more 
 ex.
 
 cadence
+
 ```
 		
 			var favouriteNums: {String: Int} = {"Jacob": 13, "Bob": 0, "Ochako": 1000100103}
@@ -269,6 +270,7 @@ Removes the `key` and the value associated with it, and returns that value.
 ex.
 
 cadence
+
 ```
 		
 			var favouriteNums: {String: Int} = {"Jacob": 13, "Bob": 0, "Ochako": 1000100103}
@@ -286,6 +288,7 @@ Returns an array of all the keys in the dictionary.
 ex.
 
 cadence
+
 ```
 		
 			var favouriteNums: {String: Int} = {"Jacob": 13, "Bob": 0, "Ochako": 1000100103}
@@ -301,6 +304,7 @@ Returns an array of all the values in the dictionary.
 ex.
 
 cadence
+
 ```
 		
 			var favouriteNums: {String: Int} = {"Jacob": 13, "Bob": 0, "Ochako": 1000100103}
@@ -308,6 +312,7 @@ log(favouriteNums.values) // [13, 0, 1000100103]
 		 
 	
 ```
+
 ## Optionals
 
 Okay, so now weâre on optionals. Crap. Optionals are SO important, but can be tricky. You will probably encounter optionals in everything you do in Cadence. Most of the time, it will be because of dictionaries.
@@ -315,6 +320,7 @@ Okay, so now weâre on optionals. Crap. Optionals are SO important, but can 
 An `optional type` in Cadence is represented with a `?`. It means: âIt is either the type itâs saying, or `nil`â. Letâs take a look:
 
 cadence
+
 ```
 		
 			var name: String? = "Jacob"
@@ -325,6 +331,7 @@ cadence
 Notice the `?` after the `String`. That means: âthe variable `name` is either a `String`, or it is `nil`.â Obviously, we know itâs a `String` because itâs equal to âJacobâ. But we can also have something like this:
 
 cadence
+
 ```
 		
 			var name: String? = nil
@@ -341,6 +348,7 @@ Not too bad right? Man, Iâm the best teacher ever. Youâre all so lucky
 This gets us into the force-unwrap operator, `!`. This operator âunwrapsâ an optional type by saying: âIf this thing is nil, PANIC! If itâs not nil, weâre fine, but get rid of the optional type.â Well what the heck does THIS mean!? Letâs look:
 
 cadence
+
 ```
 		
 			var name1: String? = "Jacob"
@@ -351,6 +359,7 @@ var unwrappedName2: String = name2! // PANICS! The entire program will abort bec
 		 
 	
 ```
+
 ## Optionals and Dictionaries
 
 Alright so this is where we will combine everything we know to talk about Optionals and Dictionaries. Before, when I explained dictionaries, I left out a key (no pun intended) piece of information: When you access elements of a dictionary, it returns the value as an **optional**.
@@ -358,6 +367,7 @@ Alright so this is where we will combine everything we know to talk about Option
 Letâs make a new script that looks like this:
 
 cadence
+
 ```
 		
 			access(all) fun main(): Int {
@@ -371,6 +381,7 @@ cadence
 This will give us an ERROR! The error says: âMismatched types. expected `Int`, got `Int?`â. Well, we know what `Int?` means now! It means it is an optional, so it may be `Int` or it may be `nil`. In order to fix this error, we have to use the force-unwrap operator `!` like so:
 
 cadence
+
 ```
 		
 			access(all) fun main(): Int {
@@ -388,6 +399,7 @@ Now, there are no errors :D
 You may be asking, âis there ever a case where I want to return an optional instead of force-unwrapping the optional? The answer is yes. In fact, most times, it is preferred to return an optional instead of unwrapping. For example, looking at this code:
 
 cadence
+
 ```
 		
 			access(all) fun main(): Int {
@@ -401,6 +413,7 @@ cadence
 â¦ this will `panic` and abort the program if there is no value at the âBonjourâ key. Instead, we can write the code like this:
 
 cadence
+
 ```
 		
 			access(all) fun main(): Int? { // notice the return value is an optional type
@@ -417,21 +430,18 @@ This way, the client/caller can handle the case where the return value is `nil`,
 
 In todayâs lesson, we learned the basic types in Cadence. We will be using all of these throughout the next 2 chapters, so you will get quite familiar with them. Great work!
 
-
 ![User avatar](/avatars/jacob.jpeg)
 
 Author
 
 [Jacob Tucker](https://twitter.com/jacobmtucker)
 
-
-
-
 [Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/learn-cadence-beginner/en/chapter1/lesson3.md)
-
 
 [Transactions and Scripts](/en/catalog/courses/learn-cadence-beginner/chapter1/lesson2)
 [Basic Structs](/en/catalog/courses/learn-cadence-beginner/chapter2/lesson1)
+
+
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
@@ -439,17 +449,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

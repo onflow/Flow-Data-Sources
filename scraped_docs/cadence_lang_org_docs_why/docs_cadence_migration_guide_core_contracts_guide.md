@@ -1,20 +1,23 @@
 # Source: https://cadence-lang.org/docs/cadence-migration-guide/core-contracts-guide
 
-
-
-
 Protocol Smart Contracts 1.0 Changes Guide | Cadence
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)Search
+[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
+
+[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+
+Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
 * [Tutorial](/docs/tutorial/first-steps)
 * [Language Reference](/docs/language/)
 * [Cadence 1.0 Migration Guide](/docs/cadence-migration-guide/)
+
   + [Improvements & New Features](/docs/cadence-migration-guide/improvements)
   + [NFT Cadence 1.0 Guide](/docs/cadence-migration-guide/nft-guide)
   + [FT Cadence 1.0 Guide](/docs/cadence-migration-guide/ft-guide)
@@ -29,10 +32,11 @@ Protocol Smart Contracts 1.0 Changes Guide | Cadence
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
-
 * [Cadence 1.0 Migration Guide](/docs/cadence-migration-guide/)
 * Core Contracts Guide
+
 On this page
+
 # Protocol Smart Contracts 1.0 Changes Guide
 
 ## Protocol Smart Contracts in Cadence 1.0[​](#protocol-smart-contracts-in-cadence-10 "Direct link to Protocol Smart Contracts in Cadence 1.0")
@@ -94,7 +98,14 @@ to be compatible with Cadence 1.0 and the token standard changes.
 If you have questions about the core contracts changes for Cadence 1.0,
 please reach out to the Flow team in Discord and we will be happy to help.
 
-[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/cadence-migration-guide/core-contracts-guide.mdx)[PreviousFT Cadence 1.0 Guide](/docs/cadence-migration-guide/ft-guide)[NextDesign Patterns](/docs/design-patterns)
+[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/cadence-migration-guide/core-contracts-guide.mdx)
+
+[Previous
+
+FT Cadence 1.0 Guide](/docs/cadence-migration-guide/ft-guide)[Next
+
+Design Patterns](/docs/design-patterns)
+
 ###### Rate this page
 
 😞😐😊
@@ -102,9 +113,10 @@ please reach out to the Flow team in Discord and we will be happy to help.
 * [Protocol Smart Contracts in Cadence 1.0](#protocol-smart-contracts-in-cadence-10)
 * [Important Info](#important-info)
 * [Upgrade Guide](#upgrade-guide)
-Got suggestions for this site? 
+
+Got suggestions for this site?
 
 * [It's open-source!](https://github.com/onflow/cadence-lang.org)
+
 The source code of this site is licensed under the Apache License, Version 2.0.
 Content is licensed under the Creative Commons Attribution 4.0 International License.
-

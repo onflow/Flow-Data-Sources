@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/build/advanced-concepts/randomness
 
-
-
-
 Flow On-chain Randomness in Cadence | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -18,6 +19,7 @@ Flow On-chain Randomness in Cadence | Flow Developer Portal
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
+
   + [Account Abstraction](/build/advanced-concepts/account-abstraction)
   + [FLIX (Flow Interaction Templates)](/build/advanced-concepts/flix)
   + [NFT Metadata Views](/build/advanced-concepts/metadata-views)
@@ -27,10 +29,11 @@ Flow On-chain Randomness in Cadence | Flow Developer Portal
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
-
 * Advanced Concepts
 * VRF (Randomness) in Cadence
+
 On this page
+
 # Randomness on FLOW
 
 Flow enhances blockchain functionality and eliminates reliance on external oracles by providing native onchain randomness at the protocol level. This secure, decentralized feature empowers developers to build a variety of applications with truly unpredictable, transparent, and fair outcomes, achieved with greater efficiency.
@@ -69,7 +72,37 @@ warning
 
 For usage of randomness where result abortion is not an issue, it is recommended to use the Cadence built-in function `revertibleRandom.` `revertibleRandom` returns a pseudo-random number and is based on the Distributed Randomness Beacon.
 
- `_10// Language reference:_10// https://cadence-lang.org/docs/language/built-in-functions#revertiblerandom_10// Run the snippet here: https://academy.ecdao.org/en/snippets/cadence-random_10access(all) fun main(): UInt64 {_10 // Simple assignment using revertibleRandom - keep reading docs for safe usage! _10 let rand: UInt64 = revertibleRandom()_10 return rand_10}`
+`_10
+
+// Language reference:
+
+_10
+
+// https://cadence-lang.org/docs/language/built-in-functions#revertiblerandom
+
+_10
+
+// Run the snippet here: https://academy.ecdao.org/en/snippets/cadence-random
+
+_10
+
+access(all) fun main(): UInt64 {
+
+_10
+
+// Simple assignment using revertibleRandom - keep reading docs for safe usage!
+
+_10
+
+let rand: UInt64 = revertibleRandom()
+
+_10
+
+return rand
+
+_10
+
+}`
 
 It is notable that the random number generation process is unpredictable (for miners unpredictable at block construction time and for cadence logic unpredictable at time of call), verifiable, uniform, as well as safe from bias by miners and previously-running Cadence code.
 
@@ -128,7 +161,202 @@ A commit-reveal scheme can be implemented as follows. The coin toss example desc
 
 The following lines of code illustrate a random coin toss that cannot be gamed or biased. The reveal-and-commit scheme prevent clients from post-selecting favorable outcomes.
 
- `_54// The code below is taken from the example CoinToss contract found in this project repo_54// Source: https://github.com/onflow/random-coin-toss _54_54/// --- Commit ---_54/// In this method, the caller commits a bet. The contract takes note of the_54/// block height and bet amount, returning a Receipt resource which is used_54/// by the better to reveal the coin toss result and determine their winnings._54access(all) fun commitCoinToss(bet: @FungibleToken.Vault): @Receipt {_54 let receipt <- create Receipt(_54 betAmount: bet.balance_54 )_54 // commit the bet_54 // `self.reserve` is a `@FungibleToken.Vault` field defined on the app contract_54 // and represents a pool of funds_54 self.reserve.deposit(from: <-bet)_54 _54 emit CoinTossBet(betAmount: receipt.betAmount, commitBlock: receipt.commitBlock, receiptID: receipt.uuid)_54 _54 return <- receipt_54}_54_54/// --- Reveal ---_54/// Here the caller provides the Receipt given to them at commitment. The contract_54/// then "flips a coin" with randomCoin(), providing the committed block height_54/// and salting with the Receipts unique identifier._54/// If result is 1, user loses, if it's 0 the user doubles their bet._54/// Note that the caller could condition the revealing transaction, but they've_54/// already provided their bet amount so there's no loss for the contract if_54/// they do_54access(all) fun revealCoinToss(receipt: @Receipt): @FungibleToken.Vault {_54 pre {_54 receipt.commitBlock <= getCurrentBlock().height: "Cannot reveal before commit block"_54 }_54_54 let betAmount = receipt.betAmount_54 let commitBlock = receipt.commitBlock_54 let receiptID = receipt.uuid_54 // self.randomCoin() errors if commitBlock <= current block height in call to_54 // RandomBeaconHistory.sourceOfRandomness()_54 let coin = self.randomCoin(atBlockHeight: receipt.commitBlock, salt: receipt.uuid)_54_54 destroy receipt_54_54 if coin == 1 {_54 emit CoinTossReveal(betAmount: betAmount, winningAmount: 0.0, commitBlock: commitBlock, receiptID: receiptID)_54 return <- FlowToken.createEmptyVault()_54 }_54 _54 let reward <- self.reserve.withdraw(amount: betAmount * 2.0)_54 _54 emit CoinTossReveal(betAmount: betAmount, winningAmount: reward.balance, commitBlock: commitBlock, receiptID: receiptID)_54 _54 return <- reward_54}`
+`_54
+
+// The code below is taken from the example CoinToss contract found in this project repo
+
+_54
+
+// Source: https://github.com/onflow/random-coin-toss
+
+_54
+
+_54
+
+/// --- Commit ---
+
+_54
+
+/// In this method, the caller commits a bet. The contract takes note of the
+
+_54
+
+/// block height and bet amount, returning a Receipt resource which is used
+
+_54
+
+/// by the better to reveal the coin toss result and determine their winnings.
+
+_54
+
+access(all) fun commitCoinToss(bet: @FungibleToken.Vault): @Receipt {
+
+_54
+
+let receipt <- create Receipt(
+
+_54
+
+betAmount: bet.balance
+
+_54
+
+)
+
+_54
+
+// commit the bet
+
+_54
+
+// `self.reserve` is a `@FungibleToken.Vault` field defined on the app contract
+
+_54
+
+// and represents a pool of funds
+
+_54
+
+self.reserve.deposit(from: <-bet)
+
+_54
+
+_54
+
+emit CoinTossBet(betAmount: receipt.betAmount, commitBlock: receipt.commitBlock, receiptID: receipt.uuid)
+
+_54
+
+_54
+
+return <- receipt
+
+_54
+
+}
+
+_54
+
+_54
+
+/// --- Reveal ---
+
+_54
+
+/// Here the caller provides the Receipt given to them at commitment. The contract
+
+_54
+
+/// then "flips a coin" with randomCoin(), providing the committed block height
+
+_54
+
+/// and salting with the Receipts unique identifier.
+
+_54
+
+/// If result is 1, user loses, if it's 0 the user doubles their bet.
+
+_54
+
+/// Note that the caller could condition the revealing transaction, but they've
+
+_54
+
+/// already provided their bet amount so there's no loss for the contract if
+
+_54
+
+/// they do
+
+_54
+
+access(all) fun revealCoinToss(receipt: @Receipt): @FungibleToken.Vault {
+
+_54
+
+pre {
+
+_54
+
+receipt.commitBlock <= getCurrentBlock().height: "Cannot reveal before commit block"
+
+_54
+
+}
+
+_54
+
+_54
+
+let betAmount = receipt.betAmount
+
+_54
+
+let commitBlock = receipt.commitBlock
+
+_54
+
+let receiptID = receipt.uuid
+
+_54
+
+// self.randomCoin() errors if commitBlock <= current block height in call to
+
+_54
+
+// RandomBeaconHistory.sourceOfRandomness()
+
+_54
+
+let coin = self.randomCoin(atBlockHeight: receipt.commitBlock, salt: receipt.uuid)
+
+_54
+
+_54
+
+destroy receipt
+
+_54
+
+_54
+
+if coin == 1 {
+
+_54
+
+emit CoinTossReveal(betAmount: betAmount, winningAmount: 0.0, commitBlock: commitBlock, receiptID: receiptID)
+
+_54
+
+return <- FlowToken.createEmptyVault()
+
+_54
+
+}
+
+_54
+
+_54
+
+let reward <- self.reserve.withdraw(amount: betAmount * 2.0)
+
+_54
+
+_54
+
+emit CoinTossReveal(betAmount: betAmount, winningAmount: reward.balance, commitBlock: commitBlock, receiptID: receiptID)
+
+_54
+
+_54
+
+return <- reward
+
+_54
+
+}`
+
 ### Which random function should be used:[​](#which-random-function-should-be-used "Direct link to Which random function should be used:")
 
 While both are backed by Flow's Randomness Beacon it is important for developers to mindfully choose between `revertibleRandom` or
@@ -163,7 +391,17 @@ If you'd like to dive deeper into Flow's onchain randomness, here's a list of re
   + **[FLIP 120: Update unsafeRandom function](https://github.com/onflow/flips/blob/main/cadence/20230713-random-function.md#flip-120-update-unsaferandom-function)**
   + **[FLIP 123: On-chain Random beacon history for commit-reveal schemes](https://github.com/onflow/flips/blob/main/protocol/20230728-commit-reveal.md#flip-123-on-chain-random-beacon-history-for-commit-reveal-schemes)**
 * To see working Cadence code, explore the [coin toss example on GitHub](https://github.com/onflow/random-coin-toss).
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/randomness.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousNFT Metadata Views](/build/advanced-concepts/metadata-views)[NextScaling Transactions from a Single Account](/build/advanced-concepts/scaling)
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/randomness.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+NFT Metadata Views](/build/advanced-concepts/metadata-views)[Next
+
+Scaling Transactions from a Single Account](/build/advanced-concepts/scaling)
+
 ###### Rate this page
 
 😞😐😊
@@ -177,6 +415,7 @@ If you'd like to dive deeper into Flow's onchain randomness, here's a list of re
   + [Which random function should be used:](#which-random-function-should-be-used)
 * [An Invitation to Build](#an-invitation-to-build)
 * [Learn More](#learn-more)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -189,6 +428,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -198,6 +438,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -205,6 +446,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -214,6 +456,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -221,5 +464,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

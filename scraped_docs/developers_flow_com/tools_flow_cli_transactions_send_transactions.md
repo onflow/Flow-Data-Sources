@@ -1,19 +1,21 @@
 # Source: https://developers.flow.com/tools/flow-cli/transactions/send-transactions
 
-
-
-
 Send a Transaction | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
 * [Flow CLI](/tools/flow-cli)
+
   + [Install Instructions](/tools/flow-cli/install)
   + [Super Commands](/tools/flow-cli/super-commands)
   + [Accounts](/tools/flow-cli/accounts/get-accounts)
@@ -21,6 +23,7 @@ Send a Transaction | Flow Developer Portal
   + [Deploy Project](/tools/flow-cli/deployment/start-emulator)
   + [Scripts](/tools/flow-cli/scripts/execute-scripts)
   + [Transactions](/tools/flow-cli/transactions/send-transactions)
+
     - [Send a Transaction](/tools/flow-cli/transactions/send-transactions)
     - [Get a Transaction](/tools/flow-cli/transactions/get-transactions)
     - [Build a Transaction](/tools/flow-cli/transactions/build-transactions)
@@ -43,36 +46,157 @@ Send a Transaction | Flow Developer Portal
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 
-
 * [Flow CLI](/tools/flow-cli)
 * Transactions
 * Send a Transaction
+
 On this page
+
 # Send a Transaction
 
 The Flow CLI provides a command to sign and send transactions to
 any Flow Access API.
 
- `_10flow transactions send <code filename> [<argument> <argument>...] [flags]`
+`_10
+
+flow transactions send <code filename> [<argument> <argument>...] [flags]`
+
 ## Example Usage[​](#example-usage "Direct link to Example Usage")
 
- `_22> flow transactions send ./tx.cdc "Hello"_22 _22Status ✅ SEALED_22ID b04b6bcc3164f5ee6b77fa502c3a682e0db57fc47e5b8a8ef3b56aae50ad49c8_22Payer f8d6e0586b0a20c7_22Authorizers [f8d6e0586b0a20c7]_22_22Proposal Key: _22 Address f8d6e0586b0a20c7_22 Index 0_22 Sequence 0_22_22No Payload Signatures_22_22Envelope Signature 0: f8d6e0586b0a20c7_22Signatures (minimized, use --include signatures)_22_22Events: None_22_22Code (hidden, use --include code)_22_22Payload (hidden, use --include payload)`
+`_22
+
+> flow transactions send ./tx.cdc "Hello"
+
+_22
+
+_22
+
+Status ✅ SEALED
+
+_22
+
+ID b04b6bcc3164f5ee6b77fa502c3a682e0db57fc47e5b8a8ef3b56aae50ad49c8
+
+_22
+
+Payer f8d6e0586b0a20c7
+
+_22
+
+Authorizers [f8d6e0586b0a20c7]
+
+_22
+
+_22
+
+Proposal Key:
+
+_22
+
+Address f8d6e0586b0a20c7
+
+_22
+
+Index 0
+
+_22
+
+Sequence 0
+
+_22
+
+_22
+
+No Payload Signatures
+
+_22
+
+_22
+
+Envelope Signature 0: f8d6e0586b0a20c7
+
+_22
+
+Signatures (minimized, use --include signatures)
+
+_22
+
+_22
+
+Events: None
+
+_22
+
+_22
+
+Code (hidden, use --include code)
+
+_22
+
+_22
+
+Payload (hidden, use --include payload)`
 
 Multiple arguments example:
 
- `_10> flow transactions send tx1.cdc Foo 1 2 10.9 0x1 '[123,222]' '["a","b"]'`
+`_10
+
+> flow transactions send tx1.cdc Foo 1 2 10.9 0x1 '[123,222]' '["a","b"]'`
 
 Transaction code:
 
- `_10transaction(a: String, b: Int, c: UInt16, d: UFix64, e: Address, f: [Int], g: [String]) {_10 prepare(authorizer: &Account) {}_10}`
+`_10
+
+transaction(a: String, b: Int, c: UInt16, d: UFix64, e: Address, f: [Int], g: [String]) {
+
+_10
+
+prepare(authorizer: &Account) {}
+
+_10
+
+}`
 
 In the above example, the `flow.json` file would look something like this:
 
- `_10{_10 "accounts": {_10 "my-testnet-account": {_10 "address": "a2c4941b5f3c7151",_10 "key": "12c5dfde...bb2e542f1af710bd1d40b2"_10 }_10 }_10}`
+`_10
+
+{
+
+_10
+
+"accounts": {
+
+_10
+
+"my-testnet-account": {
+
+_10
+
+"address": "a2c4941b5f3c7151",
+
+_10
+
+"key": "12c5dfde...bb2e542f1af710bd1d40b2"
+
+_10
+
+}
+
+_10
+
+}
+
+_10
+
+}`
 
 JSON arguments from a file example:
 
- `_10> flow transactions send tx1.cdc --args-json "$(cat args.json)"`
+`_10
+
+> flow transactions send tx1.cdc --args-json "$(cat args.json)"`
+
 ## Arguments[​](#arguments "Direct link to Arguments")
 
 ### Code Filename[​](#code-filename "Direct link to Code Filename")
@@ -244,7 +368,16 @@ several configuration files.
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/send-transactions.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousExecute a Script](/tools/flow-cli/scripts/execute-scripts)[NextGet a Transaction](/tools/flow-cli/transactions/get-transactions)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/send-transactions.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Execute a Script](/tools/flow-cli/scripts/execute-scripts)[Next
+
+Get a Transaction](/tools/flow-cli/transactions/get-transactions)
+
 ###### Rate this page
 
 😞😐😊
@@ -273,6 +406,7 @@ Skip version check during start up to speed up process for slow connections.
   + [Log](#log)
   + [Configuration](#configuration)
   + [Version Check](#version-check)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -285,6 +419,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -294,6 +429,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -301,6 +437,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -310,6 +447,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -317,5 +455,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

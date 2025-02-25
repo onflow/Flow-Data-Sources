@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/evm/how-it-works
 
-
-
-
 How Flow EVM Works | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Why EVM on Flow](/evm/about)
 * [How it Works](/evm/how-it-works)
@@ -25,9 +26,10 @@ How Flow EVM Works | Flow Developer Portal
 * [Clients](/evm/clients/ethers)
 * [Using EVM with Cadence](/evm/cadence/interacting-with-coa)
 
-
 * How it Works
+
 On this page
+
 # How Flow EVM Works
 
 ## Introduction[​](#introduction "Direct link to Introduction")
@@ -114,7 +116,36 @@ Functions currently available on the Cadence Arch smart contract are:
 
 Here is a sample demonstrating how to call the Cadence Arch.
 
- `_10 address constant public cadenceArch = 0x0000000000000000000000010000000000000001;_10_10 function flowBlockHeight() public view returns (uint64){_10 (bool ok, bytes memory data) = cadenceArch.staticcall(abi.encodeWithSignature("flowBlockHeight()"));_10 require(ok, "failed to fetch the flow block height through cadence arch");_10 uint64 output = abi.decode(data, (uint64));_10 return output;_10 }`
+`_10
+
+address constant public cadenceArch = 0x0000000000000000000000010000000000000001;
+
+_10
+
+_10
+
+function flowBlockHeight() public view returns (uint64){
+
+_10
+
+(bool ok, bytes memory data) = cadenceArch.staticcall(abi.encodeWithSignature("flowBlockHeight()"));
+
+_10
+
+require(ok, "failed to fetch the flow block height through cadence arch");
+
+_10
+
+uint64 output = abi.decode(data, (uint64));
+
+_10
+
+return output;
+
+_10
+
+}`
+
 ## Special Addresses[​](#special-addresses "Direct link to Special Addresses")
 
 ### Native Token Bridge[​](#native-token-bridge "Direct link to Native Token Bridge")
@@ -152,7 +183,16 @@ Another type of proof that EVM environments provide is proof for the state of ac
 
 Flow’s state system provides ways to construct inclusion and non-inclusion proofs and one can construct proofs for EVM account’s meta data (account balances, nonce, … ). A less common proof type is proof over the storage state of an account (mostly used for smart contracts). The first release of Flow EVM won’t support these type of proofs.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/how-it-works.md)Last updated on **Feb 18, 2025** by **Brian Doyle**[PreviousWhy EVM on Flow](/evm/about)[NextUsing Flow EVM](/evm/using)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/how-it-works.md)
+
+Last updated on **Feb 19, 2025** by **bz**
+
+[Previous
+
+Why EVM on Flow](/evm/about)[Next
+
+Using Flow EVM](/evm/using)
+
 ###### Rate this page
 
 😞😐😊
@@ -171,6 +211,7 @@ Flow’s state system provides ways to construct inclusion and non-inclusion pro
   + [Native Token Bridge](#native-token-bridge)
   + [Cadence-Owned Accounts (COAs)](#cadence-owned-accounts-coas)
 * [Proofs](#proofs)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -183,6 +224,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -192,6 +234,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -199,6 +242,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -208,6 +252,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -215,5 +260,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

@@ -1,22 +1,25 @@
 # Source: https://developers.flow.com/tools/flow-cli/accounts/get-accounts
 
-
-
-
 Get an Account | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
 * [Flow CLI](/tools/flow-cli)
+
   + [Install Instructions](/tools/flow-cli/install)
   + [Super Commands](/tools/flow-cli/super-commands)
   + [Accounts](/tools/flow-cli/accounts/get-accounts)
+
     - [Get an Account](/tools/flow-cli/accounts/get-accounts)
     - [Create an Account](/tools/flow-cli/accounts/create-accounts)
     - [Deploy a Contract](/tools/flow-cli/accounts/account-add-contract)
@@ -43,22 +46,84 @@ Get an Account | Flow Developer Portal
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 
-
 * [Flow CLI](/tools/flow-cli)
 * Accounts
 * Get an Account
+
 On this page
+
 # Get an Account
 
 The Flow CLI provides a command to fetch any account by its address from the Flow network.
 
- `_10flow accounts get <address>`
+`_10
+
+flow accounts get <address>`
+
 ## Example Usage[​](#example-usage "Direct link to Example Usage")
 
- `_10flow accounts get 0xf8d6e0586b0a20c7`
+`_10
+
+flow accounts get 0xf8d6e0586b0a20c7`
+
 ### Example response[​](#example-response "Direct link to Example response")
 
- `_15Address 0xf8d6e0586b0a20c7_15Balance 99999999999.70000000_15Keys 1_15_15Key 0 Public Key 640a5a359bf3536d15192f18d872d57c98a96cb871b92b70cecb0739c2d5c37b4be12548d3526933c2cda9b0b9c69412f45ffb6b85b6840d8569d969fe84e5b7_15 Weight 1000_15 Signature Algorithm ECDSA_P256_15 Hash Algorithm SHA3_256_15 Revoked false_15 Sequence Number 6_15 Index 0_15_15Contracts Deployed: 2_15Contract: 'FlowServiceAccount'_15Contract: 'FlowStorageFees'`
+`_15
+
+Address 0xf8d6e0586b0a20c7
+
+_15
+
+Balance 99999999999.70000000
+
+_15
+
+Keys 1
+
+_15
+
+_15
+
+Key 0 Public Key 640a5a359bf3536d15192f18d872d57c98a96cb871b92b70cecb0739c2d5c37b4be12548d3526933c2cda9b0b9c69412f45ffb6b85b6840d8569d969fe84e5b7
+
+_15
+
+Weight 1000
+
+_15
+
+Signature Algorithm ECDSA_P256
+
+_15
+
+Hash Algorithm SHA3_256
+
+_15
+
+Revoked false
+
+_15
+
+Sequence Number 6
+
+_15
+
+Index 0
+
+_15
+
+_15
+
+Contracts Deployed: 2
+
+_15
+
+Contract: 'FlowServiceAccount'
+
+_15
+
+Contract: 'FlowStorageFees'`
+
 ## Arguments[​](#arguments "Direct link to Arguments")
 
 ### Address[​](#address "Direct link to Address")
@@ -155,7 +220,16 @@ several configuration files.
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/get-accounts.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousSuper Commands](/tools/flow-cli/super-commands)[NextCreate an Account](/tools/flow-cli/accounts/create-accounts)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/get-accounts.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Super Commands](/tools/flow-cli/super-commands)[Next
+
+Create an Account](/tools/flow-cli/accounts/create-accounts)
+
 ###### Rate this page
 
 😞😐😊
@@ -175,6 +249,7 @@ Skip version check during start up to speed up process for slow connections.
   + [Log](#log)
   + [Configuration](#configuration)
   + [Version Check](#version-check)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -187,6 +262,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -196,6 +272,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -203,6 +280,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -212,6 +290,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -219,5 +298,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

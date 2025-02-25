@@ -1,19 +1,22 @@
 # Source: https://cadence-lang.org/docs/language/accounts/inbox
 
-
-
-
 Inbox | Cadence
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)Search
+[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
+
+[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+
+Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
 * [Tutorial](/docs/tutorial/first-steps)
 * [Language Reference](/docs/language/)
+
   + [Syntax](/docs/language/syntax)
   + [Constants and Variable Declarations](/docs/language/constants-and-variables)
   + [Type Annotations](/docs/language/type-annotations)
@@ -34,6 +37,7 @@ Inbox | Cadence
   + [References](/docs/language/references)
   + [Imports](/docs/language/imports)
   + [Accounts](/docs/language/accounts/)
+
     - [Paths](/docs/language/accounts/paths)
     - [Storage](/docs/language/accounts/storage)
     - [Capabilities](/docs/language/accounts/capabilities)
@@ -63,11 +67,12 @@ Inbox | Cadence
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
-
 * [Language Reference](/docs/language/)
 * [Accounts](/docs/language/accounts/)
 * Inbox
+
 On this page
+
 # Inbox
 
 Accounts have an inbox,
@@ -81,13 +86,132 @@ which has the type `Account.Inbox`.
 
 ## `Account.Inbox`[​](#accountinbox "Direct link to accountinbox")
 
- `_31access(all)_31struct Inbox {_31_31 /// Publishes a new Capability under the given name,_31 /// to be claimed by the specified recipient._31 access(Inbox | PublishInboxCapability)_31 fun publish(_ value: Capability, name: String, recipient: Address)_31_31 /// Unpublishes a Capability previously published by this account._31 ///_31 /// Returns `nil` if no Capability is published under the given name._31 ///_31 /// Errors if the Capability under that name does not match the provided type._31 access(Inbox | UnpublishInboxCapability)_31 fun unpublish<T: &Any>(_ name: String): Capability<T>?_31_31 /// Claims a Capability previously published by the specified provider._31 ///_31 /// Returns `nil` if no Capability is published under the given name,_31 /// or if this account is not its intended recipient._31 ///_31 /// Errors if the Capability under that name does not match the provided type._31 access(Inbox | ClaimInboxCapability)_31 fun claim<T: &Any>(_ name: String, provider: Address): Capability<T>?_31}_31_31entitlement Inbox_31_31entitlement PublishInboxCapability_31entitlement UnpublishInboxCapability_31entitlement ClaimInboxCapability`
+`_31
+
+access(all)
+
+_31
+
+struct Inbox {
+
+_31
+
+_31
+
+/// Publishes a new Capability under the given name,
+
+_31
+
+/// to be claimed by the specified recipient.
+
+_31
+
+access(Inbox | PublishInboxCapability)
+
+_31
+
+fun publish(_ value: Capability, name: String, recipient: Address)
+
+_31
+
+_31
+
+/// Unpublishes a Capability previously published by this account.
+
+_31
+
+///
+
+_31
+
+/// Returns `nil` if no Capability is published under the given name.
+
+_31
+
+///
+
+_31
+
+/// Errors if the Capability under that name does not match the provided type.
+
+_31
+
+access(Inbox | UnpublishInboxCapability)
+
+_31
+
+fun unpublish<T: &Any>(_ name: String): Capability<T>?
+
+_31
+
+_31
+
+/// Claims a Capability previously published by the specified provider.
+
+_31
+
+///
+
+_31
+
+/// Returns `nil` if no Capability is published under the given name,
+
+_31
+
+/// or if this account is not its intended recipient.
+
+_31
+
+///
+
+_31
+
+/// Errors if the Capability under that name does not match the provided type.
+
+_31
+
+access(Inbox | ClaimInboxCapability)
+
+_31
+
+fun claim<T: &Any>(_ name: String, provider: Address): Capability<T>?
+
+_31
+
+}
+
+_31
+
+_31
+
+entitlement Inbox
+
+_31
+
+_31
+
+entitlement PublishInboxCapability
+
+_31
+
+entitlement UnpublishInboxCapability
+
+_31
+
+entitlement ClaimInboxCapability`
+
 ## Publishing a capability to the account inbox[​](#publishing-a-capability-to-the-account-inbox "Direct link to Publishing a capability to the account inbox")
 
 An account (the provider) that would like to provide a capability to another account (the recipient)
 can do so using the `publish` function:
 
- `_10access(Inbox | PublishInboxCapability)_10fun publish(_ value: Capability, name: String, recipient: Address)`
+`_10
+
+access(Inbox | PublishInboxCapability)
+
+_10
+
+fun publish(_ value: Capability, name: String, recipient: Address)`
 
 Calling the `publish` function requires access to an account via a reference which is authorized
 with the coarse-grained `Inbox` entitlement (`auth(Inbox) &Account`),
@@ -105,7 +229,13 @@ Refer to the [Core Events page](/docs/language/core-events#inbox-value-published
 
 The intended recipient of a capability can claim a capability from the provider using the `claim` function:
 
- `_10access(Inbox | ClaimInboxCapability)_10fun claim<T: &Any>(_ name: String, provider: Address): Capability<T>?`
+`_10
+
+access(Inbox | ClaimInboxCapability)
+
+_10
+
+fun claim<T: &Any>(_ name: String, provider: Address): Capability<T>?`
 
 Calling the `claim` function requires access to an account via a reference which is authorized
 with the coarse-grained `Inbox` entitlement (`auth(Inbox) &Account`),
@@ -136,7 +266,13 @@ Refer to the [Core Events page](/docs/language/core-events#inbox-value-claimed) 
 If the provider no longer wishes to publish a capability for some reason,
 they can unpublish the capability using the `unpublish` function:
 
- `_10access(Inbox | UnpublishInboxCapability)_10fun unpublish<T: &Any>(_ name: String): Capability<T>?`
+`_10
+
+access(Inbox | UnpublishInboxCapability)
+
+_10
+
+fun unpublish<T: &Any>(_ name: String): Capability<T>?`
 
 Calling the `unpublish` function requires access to an account via a reference which is authorized
 with the coarse-grained `Inbox` entitlement (`auth(Inbox) &Account`),
@@ -155,7 +291,14 @@ Calling the `unpublish` function emits an event, `InboxValueUnpublished`,
 that includes the address of the provider, and the name of the unpublished capability.
 Refer to the [Core Events page](/docs/language/core-events#inbox-value-unpublished) for more details on this event.
 
-[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/accounts/inbox.mdx)[PreviousContracts](/docs/language/accounts/contracts)[NextAttachments](/docs/language/attachments)
+[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/accounts/inbox.mdx)
+
+[Previous
+
+Contracts](/docs/language/accounts/contracts)[Next
+
+Attachments](/docs/language/attachments)
+
 ###### Rate this page
 
 😞😐😊
@@ -164,9 +307,10 @@ Refer to the [Core Events page](/docs/language/core-events#inbox-value-unpublish
 * [Publishing a capability to the account inbox](#publishing-a-capability-to-the-account-inbox)
 * [Claiming a capability from the account inbox](#claiming-a-capability-from-the-account-inbox)
 * [Unpublishing a capability from the account inbox](#unpublishing-a-capability-from-the-account-inbox)
-Got suggestions for this site? 
+
+Got suggestions for this site?
 
 * [It's open-source!](https://github.com/onflow/cadence-lang.org)
+
 The source code of this site is licensed under the Apache License, Version 2.0.
 Content is licensed under the Creative Commons Attribution 4.0 International License.
-

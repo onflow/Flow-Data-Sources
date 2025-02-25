@@ -1,19 +1,22 @@
 # Source: https://cadence-lang.org/docs/1.0/language/access-control
 
-
-
-
 Access control | Cadence
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)Search
+[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
+
+[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+
+Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
 * [Tutorial](/docs/tutorial/first-steps)
 * [Language Reference](/docs/language/)
+
   + [Syntax](/docs/language/syntax)
   + [Constants and Variable Declarations](/docs/language/constants-and-variables)
   + [Type Annotations](/docs/language/type-annotations)
@@ -57,10 +60,11 @@ Access control | Cadence
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
-
 * [Language Reference](/docs/language/)
 * Access control
+
 On this page
+
 # Access control
 
 Access control allows making certain parts of a program accessible/visible
@@ -97,49 +101,55 @@ Fields can only be assigned to and mutated from within the same or inner scope.
 
 For example, to make a function publicly accessible (`access(all)` is explained below):
 
- `_10access(all)_10fun test() {}`
+`_10
+
+access(all)
+
+_10
+
+fun test() {}`
 
 There are five levels of access control:
 
 * **Public access** means the declaration is accessible/visible in all scopes.
   This includes the current scope, inner scopes, and the outer scopes.
-  
+
   A declaration is made publicly accessible using the `access(all)` modifier.
-  
+
   For example, a public field in a type can be accessed
   on an instance of the type in an outer scope.
 * **Entitled access** means the declaration is only accessible/visible
   to the owner of the object, or to [references](/docs/language/references)
   that are authorized to the required [entitlements](#entitlements).
-  
+
   A declaration is made accessible through entitlements by using the `access(E)` syntax,
   where `E` is a set of one or more entitlements,
   or a single [entitlement mapping](#entitlement-mappings).
-  
+
   A reference is considered authorized to an entitlement
   if that entitlement appears in the `auth` portion of the reference type.
-  
+
   For example, an `access(E, F)` field on a resource `R` can only be accessed by an owned (`@R`-typed) value,
   or a reference to `R` that is authorized to the `E` and `F` entitlements (`auth(E, F) &R`).
 * **Account access** means the declaration is only accessible/visible
   in the scope of the entire account where it is defined.
   This means that other contracts in the account are able to access it.
-  
+
   A declaration is made accessible by code in the same account,
   for example other contracts, by using the `access(account)` keyword.
 * **Contract access** means the declaration is only accessible/visible
   in the scope of the contract that defined it.
   This means that other declarations that are defined in the same contract can access it,
   but not other contracts in the same account.
-  
+
   A declaration is made accessible by code in the same contract
   by using the `access(contract)` keyword.
 * **Private access** means the declaration is only accessible/visible
   in the current and inner scopes.
-  
+
   A declaration is made accessible by code in the same containing type
   by using the `access(self)` keyword.
-  
+
   For example, an `access(self)` field can only be accessed
   by functions of the type is part of, not by code in an outer scope.
 
@@ -163,8 +173,392 @@ However, even though the declarations/types are publicly visible,
 resources can only be created, and events can only be emitted
 from inside the contract they are declared in.
 
- `_10// Declare a private constant, inaccessible/invisible in outer scope._10//_10access(self)_10let a = 1_10_10// Declare a public constant, accessible/visible in all scopes._10//_10access(all)_10let b = 2`
- `_99// Declare a public struct, accessible/visible in all scopes._99//_99access(all)_99struct SomeStruct {_99_99 // Declare a private constant field which is only readable_99 // in the current and inner scopes._99 //_99 access(self)_99 let a: Int_99_99 // Declare a public constant field which is readable in all scopes._99 //_99 access(all)_99 let b: Int_99_99 // Declare a private variable field which is only readable_99 // and writable in the current and inner scopes._99 //_99 access(self)_99 var c: Int_99_99 // Declare a public variable field which is not settable,_99 // so it is only writable in the current and inner scopes,_99 // and readable in all scopes._99 //_99 access(all)_99 var d: Int_99_99 // Arrays and dictionaries declared without (set) cannot be_99 // mutated in external scopes_99 access(all)_99 let arr: [Int]_99_99 // The initializer is omitted for brevity._99_99 // Declare a private function which is only callable_99 // in the current and inner scopes._99 //_99 access(self)_99 fun privateTest() {_99 // ..._99 }_99_99 // Declare a public function which is callable in all scopes._99 //_99 access(all)_99 fun publicTest() {_99 // ..._99 }_99_99 // The initializer is omitted for brevity._99_99}_99_99let some = SomeStruct()_99_99// Invalid: cannot read private constant field in outer scope._99//_99some.a_99_99// Invalid: cannot set private constant field in outer scope._99//_99some.a = 1_99_99// Valid: can read public constant field in outer scope._99//_99some.b_99_99// Invalid: cannot set public constant field in outer scope._99//_99some.b = 2_99_99// Invalid: cannot read private variable field in outer scope._99//_99some.c_99_99// Invalid: cannot set private variable field in outer scope._99//_99some.c = 3_99_99// Valid: can read public variable field in outer scope._99//_99some.d_99_99// Invalid: cannot set public variable field in outer scope._99//_99some.d = 4_99_99// Invalid: cannot mutate a public field in outer scope._99//_99some.f.append(0)_99_99// Invalid: cannot mutate a public field in outer scope._99//_99some.f[3] = 1_99_99// Valid: can call non-mutating methods on a public field in outer scope_99some.f.contains(0)`
+`_10
+
+// Declare a private constant, inaccessible/invisible in outer scope.
+
+_10
+
+//
+
+_10
+
+access(self)
+
+_10
+
+let a = 1
+
+_10
+
+_10
+
+// Declare a public constant, accessible/visible in all scopes.
+
+_10
+
+//
+
+_10
+
+access(all)
+
+_10
+
+let b = 2`
+
+`_99
+
+// Declare a public struct, accessible/visible in all scopes.
+
+_99
+
+//
+
+_99
+
+access(all)
+
+_99
+
+struct SomeStruct {
+
+_99
+
+_99
+
+// Declare a private constant field which is only readable
+
+_99
+
+// in the current and inner scopes.
+
+_99
+
+//
+
+_99
+
+access(self)
+
+_99
+
+let a: Int
+
+_99
+
+_99
+
+// Declare a public constant field which is readable in all scopes.
+
+_99
+
+//
+
+_99
+
+access(all)
+
+_99
+
+let b: Int
+
+_99
+
+_99
+
+// Declare a private variable field which is only readable
+
+_99
+
+// and writable in the current and inner scopes.
+
+_99
+
+//
+
+_99
+
+access(self)
+
+_99
+
+var c: Int
+
+_99
+
+_99
+
+// Declare a public variable field which is not settable,
+
+_99
+
+// so it is only writable in the current and inner scopes,
+
+_99
+
+// and readable in all scopes.
+
+_99
+
+//
+
+_99
+
+access(all)
+
+_99
+
+var d: Int
+
+_99
+
+_99
+
+// Arrays and dictionaries declared without (set) cannot be
+
+_99
+
+// mutated in external scopes
+
+_99
+
+access(all)
+
+_99
+
+let arr: [Int]
+
+_99
+
+_99
+
+// The initializer is omitted for brevity.
+
+_99
+
+_99
+
+// Declare a private function which is only callable
+
+_99
+
+// in the current and inner scopes.
+
+_99
+
+//
+
+_99
+
+access(self)
+
+_99
+
+fun privateTest() {
+
+_99
+
+// ...
+
+_99
+
+}
+
+_99
+
+_99
+
+// Declare a public function which is callable in all scopes.
+
+_99
+
+//
+
+_99
+
+access(all)
+
+_99
+
+fun publicTest() {
+
+_99
+
+// ...
+
+_99
+
+}
+
+_99
+
+_99
+
+// The initializer is omitted for brevity.
+
+_99
+
+_99
+
+}
+
+_99
+
+_99
+
+let some = SomeStruct()
+
+_99
+
+_99
+
+// Invalid: cannot read private constant field in outer scope.
+
+_99
+
+//
+
+_99
+
+some.a
+
+_99
+
+_99
+
+// Invalid: cannot set private constant field in outer scope.
+
+_99
+
+//
+
+_99
+
+some.a = 1
+
+_99
+
+_99
+
+// Valid: can read public constant field in outer scope.
+
+_99
+
+//
+
+_99
+
+some.b
+
+_99
+
+_99
+
+// Invalid: cannot set public constant field in outer scope.
+
+_99
+
+//
+
+_99
+
+some.b = 2
+
+_99
+
+_99
+
+// Invalid: cannot read private variable field in outer scope.
+
+_99
+
+//
+
+_99
+
+some.c
+
+_99
+
+_99
+
+// Invalid: cannot set private variable field in outer scope.
+
+_99
+
+//
+
+_99
+
+some.c = 3
+
+_99
+
+_99
+
+// Valid: can read public variable field in outer scope.
+
+_99
+
+//
+
+_99
+
+some.d
+
+_99
+
+_99
+
+// Invalid: cannot set public variable field in outer scope.
+
+_99
+
+//
+
+_99
+
+some.d = 4
+
+_99
+
+_99
+
+// Invalid: cannot mutate a public field in outer scope.
+
+_99
+
+//
+
+_99
+
+some.f.append(0)
+
+_99
+
+_99
+
+// Invalid: cannot mutate a public field in outer scope.
+
+_99
+
+//
+
+_99
+
+some.f[3] = 1
+
+_99
+
+_99
+
+// Valid: can call non-mutating methods on a public field in outer scope
+
+_99
+
+some.f.contains(0)`
+
 ## Entitlements[​](#entitlements "Direct link to Entitlements")
 
 Entitlements provide granular access control to each member of a composite.
@@ -173,12 +567,28 @@ where `E` is the name of the entitlement.
 
 For example, the following code declares two entitlements called `E` and `F`:
 
- `_10entitlement E_10entitlement F`
+`_10
+
+entitlement E
+
+_10
+
+entitlement F`
 
 Entitlements can be imported from other contracts and used the same way as other types.
 When using entitlements defined in another contract, the same qualified name syntax is used as for other types:
 
- `_10contract C {_10 entitlement E_10}`
+`_10
+
+contract C {
+
+_10
+
+entitlement E
+
+_10
+
+}`
 
 Outside of `C`, `E` is used with `C.E` syntax.
 
@@ -195,16 +605,222 @@ The two kinds of separators cannot be combined in the same set.
 
 For example:
 
- `_18access(all)_18resource SomeResource {_18_18 // requires a reference to have an `E` entitlement to read this field_18 access(E)_18 let a: Int_18_18 // requires a reference to have either an `E` OR an `F` entitlement to read this field._18 access(E | F)_18 let b: Int_18_18 // requires a reference to have both an `E` AND an `F` entitlement to read this field_18 access(E, F)_18 let c: Int_18_18 // intializers omitted for brevity_18 // ..._18}`
+`_18
+
+access(all)
+
+_18
+
+resource SomeResource {
+
+_18
+
+_18
+
+// requires a reference to have an `E` entitlement to read this field
+
+_18
+
+access(E)
+
+_18
+
+let a: Int
+
+_18
+
+_18
+
+// requires a reference to have either an `E` OR an `F` entitlement to read this field.
+
+_18
+
+access(E | F)
+
+_18
+
+let b: Int
+
+_18
+
+_18
+
+// requires a reference to have both an `E` AND an `F` entitlement to read this field
+
+_18
+
+access(E, F)
+
+_18
+
+let c: Int
+
+_18
+
+_18
+
+// intializers omitted for brevity
+
+_18
+
+// ...
+
+_18
+
+}`
 
 Assuming the following constants exist,
 which have owned or [reference](/docs/language/references) types:
 
- `_10let r: @SomeResource = // ..._10let refE: auth(E) &SomeResource = // ..._10let refF: auth(F) &SomeResource = // ..._10let refEF: auth(E, F) &SomeResource = // ..._10let refEOrF: auth(E | F) &SomeResource = // ...`
+`_10
+
+let r: @SomeResource = // ...
+
+_10
+
+let refE: auth(E) &SomeResource = // ...
+
+_10
+
+let refF: auth(F) &SomeResource = // ...
+
+_10
+
+let refEF: auth(E, F) &SomeResource = // ...
+
+_10
+
+let refEOrF: auth(E | F) &SomeResource = // ...`
 
 The references can be used as follows:
 
- `_34// valid, because `r` is owned and thus is "fully entitled"_34r.a_34// valid, because `r` is owned and thus is "fully entitled"_34r.b_34// valid, because `r` is owned and thus is "fully entitled"_34r.c_34_34// valid, because `refE` has an `E` entitlement as required_34refE.a_34// valid, because `refE` has one of the two required entitlements_34refE.b_34// invalid, because `refE` only has one of the two required entitlements_34refE.c_34_34// invalid, because `refF` has an `E` entitlement, not an `F`_34refF.a_34// valid, because `refF` has one of the two required entitlements_34refF.b_34// invalid, because `refF` only has one of the two required entitlements_34refF.c_34_34// valid, because `refEF` has an `E` entitlement_34refEF.a_34// valid, because `refEF` has both of the two required entitlements_34refEF.b_34// valid, because `refEF` has both of the two required entitlements_34refEF.c_34_34// invalid, because `refEOrF` might not have an `E` entitlement (it may have `F` instead)_34refEOrF.a_34// valid, because `refEOrF` has one of the two entitlements necessary_34refEOrF.b_34// invalid, because `refEOrF` is only known to have one of the two required entitlements_34refEOrF.c`
+`_34
+
+// valid, because `r` is owned and thus is "fully entitled"
+
+_34
+
+r.a
+
+_34
+
+// valid, because `r` is owned and thus is "fully entitled"
+
+_34
+
+r.b
+
+_34
+
+// valid, because `r` is owned and thus is "fully entitled"
+
+_34
+
+r.c
+
+_34
+
+_34
+
+// valid, because `refE` has an `E` entitlement as required
+
+_34
+
+refE.a
+
+_34
+
+// valid, because `refE` has one of the two required entitlements
+
+_34
+
+refE.b
+
+_34
+
+// invalid, because `refE` only has one of the two required entitlements
+
+_34
+
+refE.c
+
+_34
+
+_34
+
+// invalid, because `refF` has an `E` entitlement, not an `F`
+
+_34
+
+refF.a
+
+_34
+
+// valid, because `refF` has one of the two required entitlements
+
+_34
+
+refF.b
+
+_34
+
+// invalid, because `refF` only has one of the two required entitlements
+
+_34
+
+refF.c
+
+_34
+
+_34
+
+// valid, because `refEF` has an `E` entitlement
+
+_34
+
+refEF.a
+
+_34
+
+// valid, because `refEF` has both of the two required entitlements
+
+_34
+
+refEF.b
+
+_34
+
+// valid, because `refEF` has both of the two required entitlements
+
+_34
+
+refEF.c
+
+_34
+
+_34
+
+// invalid, because `refEOrF` might not have an `E` entitlement (it may have `F` instead)
+
+_34
+
+refEOrF.a
+
+_34
+
+// valid, because `refEOrF` has one of the two entitlements necessary
+
+_34
+
+refEOrF.b
+
+_34
+
+// invalid, because `refEOrF` is only known to have one of the two required entitlements
+
+_34
+
+refEOrF.c`
 
 Note particularly in this example how the owned value `r` can access all entitled members on `SomeResource`.
 Owned values are not affected by entitled declarations.
@@ -223,7 +839,161 @@ to grant access to the inner object based on the entitlements of the reference t
 Consider the following example,
 which uses entitlements to control access to an inner resource:
 
- `_43entitlement OuterEntitlement_43entitlement InnerEntitlement_43_43resource InnerResource {_43_43 access(all)_43 fun foo() { ... }_43_43 access(InnerEntitlement)_43 fun bar() { ... }_43}_43_43resource OuterResource {_43 access(self)_43 let childResource: @InnerResource_43_43 init(childResource: @InnerResource) {_43 self.childResource <- childResource_43 }_43_43 // The parent resource has to provide two accessor functions_43 // which return a reference to the inner resource._43 //_43 // If the reference to the outer resource is unauthorized_43 // and does not have the OuterEntitlement entitlement,_43 // the outer resource allows getting an unauthorized reference_43 // to the inner resource._43 //_43 // If the reference to the outer resource is authorized_43 // and it has the OuterEntitlement entitlement,_43 // the outer resource allows getting an authorized reference_43 // to the inner resource._43_43 access(all)_43 fun getPubRef(): &InnerResource {_43 return &self.childResource as &InnerResource_43 }_43_43 access(OuterEntitlement)_43 fun getEntitledRef(): auth(InnerEntitlement) &InnerResource {_43 return &self.childResource as auth(InnerEntitlement) &InnerResource_43 }_43}`
+`_43
+
+entitlement OuterEntitlement
+
+_43
+
+entitlement InnerEntitlement
+
+_43
+
+_43
+
+resource InnerResource {
+
+_43
+
+_43
+
+access(all)
+
+_43
+
+fun foo() { ... }
+
+_43
+
+_43
+
+access(InnerEntitlement)
+
+_43
+
+fun bar() { ... }
+
+_43
+
+}
+
+_43
+
+_43
+
+resource OuterResource {
+
+_43
+
+access(self)
+
+_43
+
+let childResource: @InnerResource
+
+_43
+
+_43
+
+init(childResource: @InnerResource) {
+
+_43
+
+self.childResource <- childResource
+
+_43
+
+}
+
+_43
+
+_43
+
+// The parent resource has to provide two accessor functions
+
+_43
+
+// which return a reference to the inner resource.
+
+_43
+
+//
+
+_43
+
+// If the reference to the outer resource is unauthorized
+
+_43
+
+// and does not have the OuterEntitlement entitlement,
+
+_43
+
+// the outer resource allows getting an unauthorized reference
+
+_43
+
+// to the inner resource.
+
+_43
+
+//
+
+_43
+
+// If the reference to the outer resource is authorized
+
+_43
+
+// and it has the OuterEntitlement entitlement,
+
+_43
+
+// the outer resource allows getting an authorized reference
+
+_43
+
+// to the inner resource.
+
+_43
+
+_43
+
+access(all)
+
+_43
+
+fun getPubRef(): &InnerResource {
+
+_43
+
+return &self.childResource as &InnerResource
+
+_43
+
+}
+
+_43
+
+_43
+
+access(OuterEntitlement)
+
+_43
+
+fun getEntitledRef(): auth(InnerEntitlement) &InnerResource {
+
+_43
+
+return &self.childResource as auth(InnerEntitlement) &InnerResource
+
+_43
+
+}
+
+_43
+
+}`
 
 With this pattern, it is possible to store a `InnerResource` in an `OuterResource`,
 and create different ways to access that nested resource depending on the entitlement one possesses.
@@ -243,7 +1013,17 @@ Entitlement mappings should be used to avoid this duplication.
 
 Entitlement mappings are declared using the syntax:
 
- `_10entitlement mapping M {_10 // ..._10}`
+`_10
+
+entitlement mapping M {
+
+_10
+
+// ...
+
+_10
+
+}`
 
 Where `M` is the name of the mapping.
 
@@ -257,7 +1037,187 @@ to an output set (called the range or the image).
 
 Using entitlement mappings, the above example could be more concisely written as:
 
- `_51entitlement OuterEntitlement_51entitlement InnerEntitlement_51_51// Specify a mapping for entitlements called `OuterToInnerMap`,_51// which maps the entitlement `OuterEntitlement` to the entitlement `InnerEntitlement`._51entitlement mapping OuterToInnerMap {_51 OuterEntitlement -> InnerEntitlement_51}_51_51resource InnerResource {_51 _51 access(all)_51 fun foo() { ... }_51_51 access(InnerEntitlement)_51 fun bar() { ... }_51}_51_51resource OuterResource {_51 // Use the entitlement mapping `OuterToInnerMap`._51 //_51 // This declares that when the field `childResource` is accessed_51 // using a reference authorized with the entitlement `OuterEntitlement`,_51 // then a reference with the entitlement `InnerEntitlement` is returned._51 //_51 // This is equivalent to the two accessor functions_51 // that were necessary in the previous example._51 //_51 access(mapping OuterToInnerMap)_51 let childResource: @InnerResource_51_51 init(childResource: @InnerResource) {_51 self.childResource <- childResource_51 }_51_51 // No accessor functions are needed._51}_51_51// given some value `r` of type `@OuterResource`_51_51let pubRef = &r as &OuterResource_51let pubInnerRef = pubRef.childResource // has type `&InnerResource`_51_51let entitledRef = &r as auth(OuterEntitlement) &OuterResource_51let entitledInnerRef = entitledRef.childResource // has type `auth(InnerEntitlement) &InnerResource`,_51 // as `OuterEntitlement` is defined to map to `InnerEntitlement`._51_51// `r` is an owned value, and is thus considered "fully-entitled" to `OuterResource`,_51// so this access yields a value authorized to the entire image of `OuterToInnerMap`,_51// in this case `InnerEntitlement`, and thus can call `bar`_51r.childResource.bar()`
+`_51
+
+entitlement OuterEntitlement
+
+_51
+
+entitlement InnerEntitlement
+
+_51
+
+_51
+
+// Specify a mapping for entitlements called `OuterToInnerMap`,
+
+_51
+
+// which maps the entitlement `OuterEntitlement` to the entitlement `InnerEntitlement`.
+
+_51
+
+entitlement mapping OuterToInnerMap {
+
+_51
+
+OuterEntitlement -> InnerEntitlement
+
+_51
+
+}
+
+_51
+
+_51
+
+resource InnerResource {
+
+_51
+
+_51
+
+access(all)
+
+_51
+
+fun foo() { ... }
+
+_51
+
+_51
+
+access(InnerEntitlement)
+
+_51
+
+fun bar() { ... }
+
+_51
+
+}
+
+_51
+
+_51
+
+resource OuterResource {
+
+_51
+
+// Use the entitlement mapping `OuterToInnerMap`.
+
+_51
+
+//
+
+_51
+
+// This declares that when the field `childResource` is accessed
+
+_51
+
+// using a reference authorized with the entitlement `OuterEntitlement`,
+
+_51
+
+// then a reference with the entitlement `InnerEntitlement` is returned.
+
+_51
+
+//
+
+_51
+
+// This is equivalent to the two accessor functions
+
+_51
+
+// that were necessary in the previous example.
+
+_51
+
+//
+
+_51
+
+access(mapping OuterToInnerMap)
+
+_51
+
+let childResource: @InnerResource
+
+_51
+
+_51
+
+init(childResource: @InnerResource) {
+
+_51
+
+self.childResource <- childResource
+
+_51
+
+}
+
+_51
+
+_51
+
+// No accessor functions are needed.
+
+_51
+
+}
+
+_51
+
+_51
+
+// given some value `r` of type `@OuterResource`
+
+_51
+
+_51
+
+let pubRef = &r as &OuterResource
+
+_51
+
+let pubInnerRef = pubRef.childResource // has type `&InnerResource`
+
+_51
+
+_51
+
+let entitledRef = &r as auth(OuterEntitlement) &OuterResource
+
+_51
+
+let entitledInnerRef = entitledRef.childResource // has type `auth(InnerEntitlement) &InnerResource`,
+
+_51
+
+// as `OuterEntitlement` is defined to map to `InnerEntitlement`.
+
+_51
+
+_51
+
+// `r` is an owned value, and is thus considered "fully-entitled" to `OuterResource`,
+
+_51
+
+// so this access yields a value authorized to the entire image of `OuterToInnerMap`,
+
+_51
+
+// in this case `InnerEntitlement`, and thus can call `bar`
+
+_51
+
+r.childResource.bar()`
 
 Entitlement mappings can be used either in accessor functions (as in the example above),
 or in fields whose types are either references, or containers (composite types, dictionaries, and arrays).
@@ -275,7 +1235,25 @@ attempting to map disjunction ("or") sets through certain complex mappings can r
 
 For example, given the following entitlement mapping:
 
- `_10entitlement mapping M {_10 A -> B_10 A -> C_10 D -> E_10}`
+`_10
+
+entitlement mapping M {
+
+_10
+
+A -> B
+
+_10
+
+A -> C
+
+_10
+
+D -> E
+
+_10
+
+}`
 
 Attempting to map `(A | D)` through `M` will fail,
 since `A` should map to `(B, C)` and `D` should map to `E`,
@@ -290,7 +1268,91 @@ Any entitlement set passed through the `Identity` map will come out unchanged in
 
 For instance:
 
- `_24entitlement X_24_24resource InnerResource {_24 // ..._24}_24_24resource OuterResource {_24 access(mapping Identity)_24 let childResource: @InnerResource_24_24 access(mapping Identity)_24 getChildResource(): auth(mapping Identity) &InnerResource {_24 return &self.childResource_24 }_24_24 init(childResource: @InnerResource) {_24 self.childResource <- childResource_24 }_24}_24_24fun example(outerRef: auth(X) &OuterResource) {_24 let innerRef = outerRef.childResource // `innerRef` has type `auth(X) &InnerResource`,_24 // as `outerRef` was authorized with entitlement `X`_24}`
+`_24
+
+entitlement X
+
+_24
+
+_24
+
+resource InnerResource {
+
+_24
+
+// ...
+
+_24
+
+}
+
+_24
+
+_24
+
+resource OuterResource {
+
+_24
+
+access(mapping Identity)
+
+_24
+
+let childResource: @InnerResource
+
+_24
+
+_24
+
+access(mapping Identity)
+
+_24
+
+getChildResource(): auth(mapping Identity) &InnerResource {
+
+_24
+
+return &self.childResource
+
+_24
+
+}
+
+_24
+
+_24
+
+init(childResource: @InnerResource) {
+
+_24
+
+self.childResource <- childResource
+
+_24
+
+}
+
+_24
+
+}
+
+_24
+
+_24
+
+fun example(outerRef: auth(X) &OuterResource) {
+
+_24
+
+let innerRef = outerRef.childResource // `innerRef` has type `auth(X) &InnerResource`,
+
+_24
+
+// as `outerRef` was authorized with entitlement `X`
+
+_24
+
+}`
 
 One important point to note about the `Identity` mapping, however,
 is that its full output range is unknown, and theoretically infinite.
@@ -317,7 +1379,57 @@ Support for `include` is provided primarily to reduce code-reuse and promote com
 
 For example:
 
- `_14entitlement mapping M {_14 X -> Y_14 Y -> Z_14}_14_14entitlement mapping N {_14 E -> F_14}_14_14entitlement mapping P {_14 include M_14 include N_14 F -> G_14}`
+`_14
+
+entitlement mapping M {
+
+_14
+
+X -> Y
+
+_14
+
+Y -> Z
+
+_14
+
+}
+
+_14
+
+_14
+
+entitlement mapping N {
+
+_14
+
+E -> F
+
+_14
+
+}
+
+_14
+
+_14
+
+entitlement mapping P {
+
+_14
+
+include M
+
+_14
+
+include N
+
+_14
+
+F -> G
+
+_14
+
+}`
 
 The entitlement mapping `P` includes all of the relations defined in `M` and `N`,
 along with the additional relations defined in its own definition.
@@ -329,7 +1441,21 @@ or in other included mappings.
 
 For instance:
 
- `_10entitlement mapping M {_10 include Identity_10 X -> Y_10}`
+`_10
+
+entitlement mapping M {
+
+_10
+
+include Identity
+
+_10
+
+X -> Y
+
+_10
+
+}`
 
 The mapping `M` maps the entitlement set `(X)` to `(X, Y)`,
 and `(Y)` to `(Y)`.
@@ -357,7 +1483,14 @@ While Cadence does not support entitlement composition or inheritance,
 the `Mutate` entitlement is intended to be used as an equivalent form
 to the conjunction of the `(Insert, Remove)` entitlement set.
 
-[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/access-control.md)[PreviousResources](/docs/language/resources)[NextCapabilities](/docs/language/capabilities)
+[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/access-control.md)
+
+[Previous
+
+Resources](/docs/language/resources)[Next
+
+Capabilities](/docs/language/capabilities)
+
 ###### Rate this page
 
 😞😐😊
@@ -367,9 +1500,10 @@ to the conjunction of the `(Insert, Remove)` entitlement set.
   + [The `Identity` entitlement mapping](#the-identity-entitlement-mapping)
   + [Mapping composition](#mapping-composition)
   + [Built-in mutability entitlements](#built-in-mutability-entitlements)
-Got suggestions for this site? 
+
+Got suggestions for this site?
 
 * [It's open-source!](https://github.com/onflow/cadence-lang.org)
+
 The source code of this site is licensed under the Apache License, Version 2.0.
 Content is licensed under the Creative Commons Attribution 4.0 International License.
-

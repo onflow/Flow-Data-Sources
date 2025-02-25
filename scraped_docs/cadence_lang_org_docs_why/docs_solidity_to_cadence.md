@@ -1,14 +1,16 @@
 # Source: https://cadence-lang.org/docs/solidity-to-cadence
 
-
-
-
 Cadence Guide for Solidity Developers | Cadence
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)Search
+[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
+
+[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+
+Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
@@ -25,8 +27,8 @@ Cadence Guide for Solidity Developers | Cadence
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
-
 * Cadence Guide for Solidity Developers
+
 On this page
 
 Cadence introduces a different way to approach smart contract development which may feel unfamiliar to Solidity
@@ -316,7 +318,53 @@ components, with scripts or transactions becoming the dapp-specific API interfac
 Scripts are read-only in nature, requiring only a `main` function declaration and which perform
 [queries](https://github.com/onflow/flow-ft/blob/master/transactions/scripts/get_balance.cdc) against chain state, eg:
 
- `_13// This script reads the balance field of an account's ExampleToken Balance_13import FungibleToken from "../../contracts/FungibleToken.cdc"_13import ExampleToken from "../../contracts/ExampleToken.cdc"_13_13access(all)_13fun main(account: Address): UFix64 {_13 let acct = getAccount(account)_13 let vaultRef = acct.capabilities_13 .borrow<&ExampleToken.Vault>(ExampleToken.VaultPublicPath)_13 ?? panic("Could not borrow Balance reference to the Vault")_13_13 return vaultRef.balance_13}`
+`_13
+
+// This script reads the balance field of an account's ExampleToken Balance
+
+_13
+
+import FungibleToken from "../../contracts/FungibleToken.cdc"
+
+_13
+
+import ExampleToken from "../../contracts/ExampleToken.cdc"
+
+_13
+
+_13
+
+access(all)
+
+_13
+
+fun main(account: Address): UFix64 {
+
+_13
+
+let acct = getAccount(account)
+
+_13
+
+let vaultRef = acct.capabilities
+
+_13
+
+.borrow<&ExampleToken.Vault>(ExampleToken.VaultPublicPath)
+
+_13
+
+?? panic("Could not borrow Balance reference to the Vault")
+
+_13
+
+_13
+
+return vaultRef.balance
+
+_13
+
+}`
 
 [Transactions](https://github.com/onflow/flow-ft/tree/master/transactions) are an ACID (Atomic, Consistent, Isolated and
 Durable) version of scripts having only `prepare` and `execute` functions that either succeed in full and mutate chain
@@ -324,7 +372,143 @@ state as described, or otherwise fail and mutate nothing. They also support sett
 the example transaction below `ExampleToken`s are deposited into multiple `receiver` vaults for each address in the
 input map.
 
- `_40import FungibleToken from "../contracts/FungibleToken.cdc"_40import ExampleToken from "../contracts/ExampleToken.cdc"_40_40/// Transfers tokens to a list of addresses specified in the `addressAmountMap` parameter_40transaction(addressAmountMap: {Address: UFix64}) {_40_40 // The Vault resource that holds the tokens that are being transferred_40 let vaultRef: auth(FungibleToken.Withdraw) &ExampleToken.Vault_40_40 prepare(signer: auth(BorrowValue) &Account) {_40_40 // Get a reference to the signer's stored ExampleToken vault_40 self.vaultRef = signer.storage.borrow<auth(FungibleToken.Withdraw) &ExampleToken.Vault>(_40 from: ExampleToken.VaultStoragePath_40 ) ?? panic("The signer does not store an ExampleToken.Vault object at the path "_40 .concat(ExampleToken.VaultStoragePath.toString())_40 .concat(". The signer must initialize their account with this vault first!"))_40 }_40_40 execute {_40_40 for address in addressAmountMap.keys {_40_40 // Withdraw tokens from the signer's stored vault_40 let sentVault <- self.vaultRef.withdraw(amount: addressAmountMap[address]!)_40_40 // Get the recipient's public account object_40 let recipient = getAccount(address)_40_40 // Get a reference to the recipient's Receiver_40 let receiverRef = recipient.capabilities_40 .borrow<&{FungibleToken.Receiver}>(ExampleToken.ReceiverPublicPath)_40 ?? panic("Could not borrow receiver reference to the recipient's Vault")_40_40 // Deposit the withdrawn tokens in the recipient's receiver_40 receiverRef.deposit(from: <-sentVault)_40_40 }_40 }_40}`
+`_40
+
+import FungibleToken from "../contracts/FungibleToken.cdc"
+
+_40
+
+import ExampleToken from "../contracts/ExampleToken.cdc"
+
+_40
+
+_40
+
+/// Transfers tokens to a list of addresses specified in the `addressAmountMap` parameter
+
+_40
+
+transaction(addressAmountMap: {Address: UFix64}) {
+
+_40
+
+_40
+
+// The Vault resource that holds the tokens that are being transferred
+
+_40
+
+let vaultRef: auth(FungibleToken.Withdraw) &ExampleToken.Vault
+
+_40
+
+_40
+
+prepare(signer: auth(BorrowValue) &Account) {
+
+_40
+
+_40
+
+// Get a reference to the signer's stored ExampleToken vault
+
+_40
+
+self.vaultRef = signer.storage.borrow<auth(FungibleToken.Withdraw) &ExampleToken.Vault>(
+
+_40
+
+from: ExampleToken.VaultStoragePath
+
+_40
+
+) ?? panic("The signer does not store an ExampleToken.Vault object at the path "
+
+_40
+
+.concat(ExampleToken.VaultStoragePath.toString())
+
+_40
+
+.concat(". The signer must initialize their account with this vault first!"))
+
+_40
+
+}
+
+_40
+
+_40
+
+execute {
+
+_40
+
+_40
+
+for address in addressAmountMap.keys {
+
+_40
+
+_40
+
+// Withdraw tokens from the signer's stored vault
+
+_40
+
+let sentVault <- self.vaultRef.withdraw(amount: addressAmountMap[address]!)
+
+_40
+
+_40
+
+// Get the recipient's public account object
+
+_40
+
+let recipient = getAccount(address)
+
+_40
+
+_40
+
+// Get a reference to the recipient's Receiver
+
+_40
+
+let receiverRef = recipient.capabilities
+
+_40
+
+.borrow<&{FungibleToken.Receiver}>(ExampleToken.ReceiverPublicPath)
+
+_40
+
+?? panic("Could not borrow receiver reference to the recipient's Vault")
+
+_40
+
+_40
+
+// Deposit the withdrawn tokens in the recipient's receiver
+
+_40
+
+receiverRef.deposit(from: <-sentVault)
+
+_40
+
+_40
+
+}
+
+_40
+
+}
+
+_40
+
+}`
 
 Transactions can encompass an arbitrary number withdrawals/deposits, across multiple FTs, sending to multiple addresses,
 or other more complex variations, all of which will succeed or fail in their entirety given their ACID properties.
@@ -393,7 +577,9 @@ Flow supports limited upgradability of Cadence contracts which is most helpful d
 function shows how an account owner can update a contract. Upgrades are analyzed for prohibited changes once uploaded
 for upgrade. Upgradeability is still an early phase feature, which will continue to improve over time.
 
- `_10fun update(name: String, code: [UInt8]): DeployedContract`
+`_10
+
+fun update(name: String, code: [UInt8]): DeployedContract`
 
 To enforce immutability once a contract is tested and ready to deploy, account owners can optionally revoke keys from
 the account containing the contract.
@@ -487,7 +673,15 @@ Solidity.
   Club](https://flow.com/post/implementing-the-bored-ape-yacht-club-smart-contract-in-cadence) smart contract in Cadence
 * Quicknode's Account Abstraction on the Flow Blockchain: [Comparing AA on Ethereum vs
   Flow](https://www.quicknode.com/guides/other-chains/flow/account-abstraction-on-flow#account-abstraction-on-ethereum-vs-flow)
-[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/solidity-to-cadence.md)[PreviousSecurity Best Practices](/docs/security-best-practices)[NextContract Upgrades with Incompatible Changes](/docs/contract-upgrades)
+
+[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/solidity-to-cadence.md)
+
+[Previous
+
+Security Best Practices](/docs/security-best-practices)[Next
+
+Contract Upgrades with Incompatible Changes](/docs/contract-upgrades)
+
 ###### Rate this page
 
 😞😐😊
@@ -523,9 +717,10 @@ Solidity.
 * [Rich support for type utility functions](#rich-support-for-type-utility-functions)
 * [Argument labelling](#argument-labelling)
 * [Additional resources](#additional-resources)
-Got suggestions for this site? 
+
+Got suggestions for this site?
 
 * [It's open-source!](https://github.com/onflow/cadence-lang.org)
+
 The source code of this site is licensed under the Apache License, Version 2.0.
 Content is licensed under the Creative Commons Attribution 4.0 International License.
-

@@ -1,28 +1,14 @@
 # Source: https://academy.ecdao.org/en/quickstarts/1-non-fungible-token-next
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -35,15 +21,13 @@ Non Fungible Token (NFT)
 
 # Non Fungible Token (NFT)
 
-
 Quickstart
 
 Next.js
+
 React.js
 
 Mint NFTs and transfer them to another account on Flow Testnet.
-
-
 
 ## ð© Quickstart 1: NonFungibleToken
 
@@ -61,8 +45,6 @@ Mint NFTs and transfer them to another account on Flow Testnet.
 
 Want a video walkthrough? Check out Jacob Tuckerâs walkthrough here:
 
-  
-
 ## ð¦ Checkpoint 0: Install
 
 Required:
@@ -72,15 +54,18 @@ Required:
 * [Flow CLI](https://docs.onflow.org/flow-cli/install/) (ð§¨ Make sure to install the correct link for your system ð§¨). You know you have installed it if you type `flow version` in your terminal and it prints a version.
 
 sh
+
 ```
 		
 			git clone https://github.com/emerald-dao/1-non-fungible-token.git
 		 
 	
 ```
+
 > in a terminal window, ð± install the dependencies start your frontend:
 
 sh
+
 ```
 		
 			cd 1-non-fungible-token
@@ -89,9 +74,11 @@ npm run dev
 		 
 	
 ```
+
 > in a second terminal window, start your ð·â local emulator:
 
 bash
+
 ```
 		
 			cd 1-non-fungible-token
@@ -105,6 +92,7 @@ flow emulator start -v
 > in a third terminal window, ð¾ deploy your contract and ð¸ start your local wallet:
 
 bash
+
 ```
 		
 			cd 1-non-fungible-token
@@ -113,6 +101,7 @@ flow dev-wallet
 		 
 	
 ```
+
 > You can `flow project deploy --update` to deploy a new contract any time.
 
 ð± Open http://localhost:3000 to see the app
@@ -152,6 +141,7 @@ This will mint 3 NFTs to the supplied address (`0xf8d6e0586b0a20c7`).
 > Go back to your application and click `Get NFTs` again. Notice that 3 NFTs appear! Woooohoooo.
 
 ![NFTs now appear on the frontend](https://i.imgur.com/CZSwxxJ.png)
+
 ## ð Checkpoint 4: Setup empty user Collection
 
 > Log out of the current account and login to another account. Click `Get NFTs` again. You will see an error appear:
@@ -189,6 +179,7 @@ This will transfer an NFT to the `0x179b6b1cb6755e31` account. Log in to that ac
 > â½ï¸ Add your new testnet account to your `flow.json` by modifying the following lines of code. Paste your address you copied above to where it says âYOUR GENERATED ADDRESSâ, and paste your private key where it says âYOUR PRIVATE KEYâ.
 
 json
+
 ```
 		
 			"accounts": {
@@ -230,6 +221,7 @@ Notice that we do not want to re-deploy NonFungibleToken or MetadataViews. That 
 > ð Deploy your ExampleNFT smart contract:
 
 sh
+
 ```
 		
 			flow project deploy --network=testnet
@@ -278,16 +270,15 @@ Letâs try out our DApp on testnet:
 
 > ð Problems, questions, comments on the stack? Post them to the [ð Emerald City Discord](https://discord.gg/emerald-city-906264258189332541).
 
-
 ![User avatar](https://avatars.githubusercontent.com/u/100654804?v=4)
 
 Author
 
 [Emerald City](https://twitter.com/emerald_dao)
 
-
 [Fork Quickstart](https://github.com/emerald-dao/1-non-fungible-token/fork)
 [Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/quickstarts/1-non-fungible-token-next/en/readme.md)
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
@@ -296,17 +287,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

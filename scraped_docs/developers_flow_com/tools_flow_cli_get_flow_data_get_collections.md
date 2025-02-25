@@ -1,19 +1,21 @@
 # Source: https://developers.flow.com/tools/flow-cli/get-flow-data/get-collections
 
-
-
-
 Get Collection | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
 * [Flow CLI](/tools/flow-cli)
+
   + [Install Instructions](/tools/flow-cli/install)
   + [Super Commands](/tools/flow-cli/super-commands)
   + [Accounts](/tools/flow-cli/accounts/get-accounts)
@@ -23,6 +25,7 @@ Get Collection | Flow Developer Portal
   + [Transactions](/tools/flow-cli/transactions/send-transactions)
   + [Flow.json](/tools/flow-cli/flow.json/initialize-configuration)
   + [Flow Entities](/tools/flow-cli/get-flow-data/get-blocks)
+
     - [Get Block](/tools/flow-cli/get-flow-data/get-blocks)
     - [Get Events](/tools/flow-cli/get-flow-data/get-events)
     - [Get Collection](/tools/flow-cli/get-flow-data/get-collections)
@@ -40,22 +43,52 @@ Get Collection | Flow Developer Portal
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 
-
 * [Flow CLI](/tools/flow-cli)
 * Flow Entities
 * Get Collection
+
 On this page
+
 # Get Collection
 
 The Flow CLI provides a command to fetch any collection from the Flow network.
 
- `_10flow collections get <collection_id>`
+`_10
+
+flow collections get <collection_id>`
+
 ## Example Usage[​](#example-usage "Direct link to Example Usage")
 
- `_10flow collections get 3e694588e789a72489667a36dd73104dea4579bcd400959d47aedccd7f930eeb \_10--host access.mainnet.nodes.onflow.org:9000`
+`_10
+
+flow collections get 3e694588e789a72489667a36dd73104dea4579bcd400959d47aedccd7f930eeb \
+
+_10
+
+--host access.mainnet.nodes.onflow.org:9000`
+
 ### Example response[​](#example-response "Direct link to Example response")
 
- `_10Collection ID 3e694588e789a72489667a36dd73104dea4579bcd400959d47aedccd7f930eeb:_10acc2ae1ff6deb2f4d7663d24af6ab1baf797ec264fd76a745a30792f6882093b_10ae8bfbc85ce994899a3f942072bfd3455823b1f7652106ac102d161c17fcb55c_1070c4d39d34e654173c5c2746e7bb3a6cdf1f5e6963538d62bad2156fc02ea1b2_102466237b5eafb469c01e2e5f929a05866de459df3bd768cde748e068c81c57bf`
+`_10
+
+Collection ID 3e694588e789a72489667a36dd73104dea4579bcd400959d47aedccd7f930eeb:
+
+_10
+
+acc2ae1ff6deb2f4d7663d24af6ab1baf797ec264fd76a745a30792f6882093b
+
+_10
+
+ae8bfbc85ce994899a3f942072bfd3455823b1f7652106ac102d161c17fcb55c
+
+_10
+
+70c4d39d34e654173c5c2746e7bb3a6cdf1f5e6963538d62bad2156fc02ea1b2
+
+_10
+
+2466237b5eafb469c01e2e5f929a05866de459df3bd768cde748e068c81c57bf`
+
 ## Arguments[​](#arguments "Direct link to Arguments")
 
 ### Collection ID[​](#collection-id "Direct link to Collection ID")
@@ -145,7 +178,16 @@ several configuration files.
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/get-flow-data/get-collections.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousGet Events](/tools/flow-cli/get-flow-data/get-events)[NextNetwork Status](/tools/flow-cli/get-flow-data/get-status)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/get-flow-data/get-collections.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Get Events](/tools/flow-cli/get-flow-data/get-events)[Next
+
+Network Status](/tools/flow-cli/get-flow-data/get-status)
+
 ###### Rate this page
 
 😞😐😊
@@ -165,6 +207,7 @@ Skip version check during start up to speed up process for slow connections.
   + [Log](#log)
   + [Configuration](#configuration)
   + [Version Check](#version-check)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -177,6 +220,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -186,6 +230,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -193,6 +238,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -202,6 +248,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -209,5 +256,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

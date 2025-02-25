@@ -1,20 +1,22 @@
 # Source: https://developers.flow.com/networks/staking/qc-dkg-scripts-events
 
-
-
-
 Query QC/DKG Info with Scripts or Events | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
 * [Flow's Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
+
   + [Epoch and Staking Terminology](/networks/staking/epoch-terminology)
   + [Epoch and Reward Schedule](/networks/staking/schedule)
   + [Epoch Preparation Protocol](/networks/staking/epoch-preparation)
@@ -35,10 +37,11 @@ Query QC/DKG Info with Scripts or Events | Flow Developer Portal
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
-
 * [Staking and Epochs](/networks/staking)
 * QC/DKG Scripts and Events
+
 On this page
+
 # Introduction
 
 The Cluster Quorum Certificate (QC) and Distributed Key Generation (DKG) protocol smart contracts
@@ -121,7 +124,44 @@ can use the **Get Node Has Submitted** ([DKG.08](/build/core-contracts/epoch-con
 
 ## DKG Events[​](#dkg-events "Direct link to DKG Events")
 
- `_10/// Emitted when the admin enables the DKG_10access(all) event StartDKG()_10_10/// Emitted when the admin ends the DKG after enough submissions have been recorded_10access(all) event EndDKG(finalSubmission: [String?]?)_10_10/// Emitted when a consensus node has posted a message to the DKG whiteboard_10access(all) event BroadcastMessage(nodeID: String, content: String)`[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/10-qc-dkg-scripts-events.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousQC and DKG](/networks/staking/qc-dkg)[NextMachine Account](/networks/staking/machine-account)
+`_10
+
+/// Emitted when the admin enables the DKG
+
+_10
+
+access(all) event StartDKG()
+
+_10
+
+_10
+
+/// Emitted when the admin ends the DKG after enough submissions have been recorded
+
+_10
+
+access(all) event EndDKG(finalSubmission: [String?]?)
+
+_10
+
+_10
+
+/// Emitted when a consensus node has posted a message to the DKG whiteboard
+
+_10
+
+access(all) event BroadcastMessage(nodeID: String, content: String)`
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/10-qc-dkg-scripts-events.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+QC and DKG](/networks/staking/qc-dkg)[Next
+
+Machine Account](/networks/staking/machine-account)
+
 ###### Rate this page
 
 😞😐😊
@@ -139,6 +179,7 @@ can use the **Get Node Has Submitted** ([DKG.08](/build/core-contracts/epoch-con
   + [Get Final Submissions](#get-final-submissions)
   + [Get Node Has Submitted](#get-node-has-submitted)
 * [DKG Events](#dkg-events)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -151,6 +192,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -160,6 +202,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -167,6 +210,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -176,6 +220,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -183,5 +228,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

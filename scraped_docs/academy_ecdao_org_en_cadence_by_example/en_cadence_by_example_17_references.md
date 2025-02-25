@@ -1,25 +1,14 @@
 # Source: https://academy.ecdao.org/en/cadence-by-example/17-references
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -41,6 +30,7 @@ Reference types are prefixed with `&`.
 When creating a reference, you must follow it with a casting expression.
 
 cadence
+
 ```
 		
 			// Contract file: Test.cdc
@@ -86,6 +76,7 @@ access(all) contract Test {
 ```
 
 cadence
+
 ```
 		
 			// Transaction file: change_nft_name.cdc
@@ -106,6 +97,7 @@ transaction(id: UInt64, newName: String) {
 ```
 
 cadence
+
 ```
 		
 			// Script file: read_nft.cdc
@@ -132,10 +124,12 @@ access(all) struct NFTData {
 	
 ```
 
-
 [Storing Resources](/en/cadence-by-example/16-storing-resources)
 [Access Control](/en/cadence-by-example/18-access-control)
+
 [Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/cadence-by-example/en/17-references.md)
+
+
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
@@ -143,17 +137,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

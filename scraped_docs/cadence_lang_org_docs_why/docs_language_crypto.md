@@ -1,19 +1,22 @@
 # Source: https://cadence-lang.org/docs/language/crypto
 
-
-
-
 Crypto | Cadence
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)Search
+[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
+
+[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+
+Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
 * [Tutorial](/docs/tutorial/first-steps)
 * [Language Reference](/docs/language/)
+
   + [Syntax](/docs/language/syntax)
   + [Constants and Variable Declarations](/docs/language/constants-and-variables)
   + [Type Annotations](/docs/language/type-annotations)
@@ -57,10 +60,11 @@ Crypto | Cadence
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
-
 * [Language Reference](/docs/language/)
 * Crypto
+
 On this page
+
 # Crypto
 
 ## Hash algorithms[​](#hash-algorithms "Direct link to Hash algorithms")
@@ -68,7 +72,155 @@ On this page
 The built-in [enumeration](/docs/language/enumerations) `HashAlgorithm`
 provides the set of supported hashing algorithms.
 
- `_41access(all)_41enum HashAlgorithm: UInt8 {_41 /// SHA2_256 is SHA-2 with a 256-bit digest (also referred to as SHA256)._41 access(all)_41 case SHA2_256 = 1_41_41 /// SHA2_384 is SHA-2 with a 384-bit digest (also referred to as SHA384)._41 access(all)_41 case SHA2_384 = 2_41_41 /// SHA3_256 is SHA-3 with a 256-bit digest._41 access(all)_41 case SHA3_256 = 3_41_41 /// SHA3_384 is SHA-3 with a 384-bit digest._41 access(all)_41 case SHA3_384 = 4_41_41 /// KMAC128_BLS_BLS12_381 is an instance of KECCAK Message Authentication Code (KMAC128) mac algorithm._41 /// Although this is a MAC algorithm, KMAC is included in this list as it can be used hash_41 /// when the key is used a non-public customizer._41 /// KMAC128_BLS_BLS12_381 is used in particular as the hashing algorithm for the BLS signature scheme on the curve BLS12-381._41 /// It is a customized version of KMAC128 that is compatible with the hashing to curve_41 /// used in BLS signatures._41 /// It is the same hasher used by signatures in the internal Flow protocol._41 access(all)_41 case KMAC128_BLS_BLS12_381 = 5_41_41 /// KECCAK_256 is the legacy Keccak algorithm with a 256-bits digest, as per the original submission to the NIST SHA3 competition._41 /// KECCAK_256 is different than SHA3 and is used by Ethereum._41 access(all)_41 case KECCAK_256 = 6_41_41 /// Returns the hash of the given data_41 access(all)_41 view fun hash(_ data: [UInt8]): [UInt8]_41_41 /// Returns the hash of the given data and tag_41 access(all)_41 view fun hashWithTag(_ data: [UInt8], tag: string): [UInt8]_41}`
+`_41
+
+access(all)
+
+_41
+
+enum HashAlgorithm: UInt8 {
+
+_41
+
+/// SHA2_256 is SHA-2 with a 256-bit digest (also referred to as SHA256).
+
+_41
+
+access(all)
+
+_41
+
+case SHA2_256 = 1
+
+_41
+
+_41
+
+/// SHA2_384 is SHA-2 with a 384-bit digest (also referred to as SHA384).
+
+_41
+
+access(all)
+
+_41
+
+case SHA2_384 = 2
+
+_41
+
+_41
+
+/// SHA3_256 is SHA-3 with a 256-bit digest.
+
+_41
+
+access(all)
+
+_41
+
+case SHA3_256 = 3
+
+_41
+
+_41
+
+/// SHA3_384 is SHA-3 with a 384-bit digest.
+
+_41
+
+access(all)
+
+_41
+
+case SHA3_384 = 4
+
+_41
+
+_41
+
+/// KMAC128_BLS_BLS12_381 is an instance of KECCAK Message Authentication Code (KMAC128) mac algorithm.
+
+_41
+
+/// Although this is a MAC algorithm, KMAC is included in this list as it can be used hash
+
+_41
+
+/// when the key is used a non-public customizer.
+
+_41
+
+/// KMAC128_BLS_BLS12_381 is used in particular as the hashing algorithm for the BLS signature scheme on the curve BLS12-381.
+
+_41
+
+/// It is a customized version of KMAC128 that is compatible with the hashing to curve
+
+_41
+
+/// used in BLS signatures.
+
+_41
+
+/// It is the same hasher used by signatures in the internal Flow protocol.
+
+_41
+
+access(all)
+
+_41
+
+case KMAC128_BLS_BLS12_381 = 5
+
+_41
+
+_41
+
+/// KECCAK_256 is the legacy Keccak algorithm with a 256-bits digest, as per the original submission to the NIST SHA3 competition.
+
+_41
+
+/// KECCAK_256 is different than SHA3 and is used by Ethereum.
+
+_41
+
+access(all)
+
+_41
+
+case KECCAK_256 = 6
+
+_41
+
+_41
+
+/// Returns the hash of the given data
+
+_41
+
+access(all)
+
+_41
+
+view fun hash(_ data: [UInt8]): [UInt8]
+
+_41
+
+_41
+
+/// Returns the hash of the given data and tag
+
+_41
+
+access(all)
+
+_41
+
+view fun hashWithTag(_ data: [UInt8], tag: string): [UInt8]
+
+_41
+
+}`
 
 The hash algorithms provide two ways to hash input data into digests, `hash` and `hashWithTag`.
 
@@ -80,7 +232,14 @@ and configured with specific parameters (detailed in [KMAC128 for BLS](#KMAC128-
 
 For example, to compute a SHA3-256 digest:
 
- `_10let data: [UInt8] = [1, 2, 3]_10let digest = HashAlgorithm.SHA3_256.hash(data)`
+`_10
+
+let data: [UInt8] = [1, 2, 3]
+
+_10
+
+let digest = HashAlgorithm.SHA3_256.hash(data)`
+
 ## Hashing with a domain tag[​](#hashing-with-a-domain-tag "Direct link to Hashing with a domain tag")
 
 `hashWithTag` hashes the input data along with an input tag.
@@ -117,12 +276,179 @@ To define the MAC instance, `KMAC128(customizer, key, data, length)` is instanti
 The built-in [enumeration](/docs/language/enumerations) `SignatureAlgorithm`
 provides the set of supported signature algorithms.
 
- `_16access(all)_16enum SignatureAlgorithm: UInt8 {_16 /// ECDSA_P256 is ECDSA on the NIST P-256 curve._16 access(all)_16 case ECDSA_P256 = 1_16_16 /// ECDSA_secp256k1 is ECDSA on the secp256k1 curve._16 access(all)_16 case ECDSA_secp256k1 = 2_16_16 /// BLS_BLS12_381 is BLS signature scheme on the BLS12-381 curve._16 /// The scheme is set-up so that signatures are in G_1 (subgroup of the curve over the prime field)_16 /// while public keys are in G_2 (subgroup of the curve over the prime field extension)._16 access(all)_16 case BLS_BLS12_381 = 3_16}`
+`_16
+
+access(all)
+
+_16
+
+enum SignatureAlgorithm: UInt8 {
+
+_16
+
+/// ECDSA_P256 is ECDSA on the NIST P-256 curve.
+
+_16
+
+access(all)
+
+_16
+
+case ECDSA_P256 = 1
+
+_16
+
+_16
+
+/// ECDSA_secp256k1 is ECDSA on the secp256k1 curve.
+
+_16
+
+access(all)
+
+_16
+
+case ECDSA_secp256k1 = 2
+
+_16
+
+_16
+
+/// BLS_BLS12_381 is BLS signature scheme on the BLS12-381 curve.
+
+_16
+
+/// The scheme is set-up so that signatures are in G_1 (subgroup of the curve over the prime field)
+
+_16
+
+/// while public keys are in G_2 (subgroup of the curve over the prime field extension).
+
+_16
+
+access(all)
+
+_16
+
+case BLS_BLS12_381 = 3
+
+_16
+
+}`
+
 ## Public keys[​](#public-keys "Direct link to Public keys")
 
 `PublicKey` is a built-in structure that represents a cryptographic public key of a signature scheme.
 
- `_30access(all)_30struct PublicKey {_30_30 access(all)_30 let publicKey: [UInt8]_30_30 access(all)_30 let signatureAlgorithm: SignatureAlgorithm_30_30 /// Verifies a signature under the given tag, data and public key._30 /// It uses the given hash algorithm to hash the tag and data._30 access(all)_30 view fun verify(_30 signature: [UInt8],_30 signedData: [UInt8],_30 domainSeparationTag: String,_30 hashAlgorithm: HashAlgorithm_30 ): Bool_30_30 /// Verifies the proof of possession of the private key._30 /// This function is only implemented if the signature algorithm_30 /// of the public key is BLS (BLS_BLS12_381)._30 /// If called with any other signature algorithm, the program aborts_30 access(all)_30 view fun verifyPoP(_ proof: [UInt8]): Bool_30_30 // creating a PublicKey is a view operation_30 access(all)_30 view init()_30}`
+`_30
+
+access(all)
+
+_30
+
+struct PublicKey {
+
+_30
+
+_30
+
+access(all)
+
+_30
+
+let publicKey: [UInt8]
+
+_30
+
+_30
+
+access(all)
+
+_30
+
+let signatureAlgorithm: SignatureAlgorithm
+
+_30
+
+_30
+
+/// Verifies a signature under the given tag, data and public key.
+
+_30
+
+/// It uses the given hash algorithm to hash the tag and data.
+
+_30
+
+access(all)
+
+_30
+
+view fun verify(
+
+_30
+
+signature: [UInt8],
+
+_30
+
+signedData: [UInt8],
+
+_30
+
+domainSeparationTag: String,
+
+_30
+
+hashAlgorithm: HashAlgorithm
+
+_30
+
+): Bool
+
+_30
+
+_30
+
+/// Verifies the proof of possession of the private key.
+
+_30
+
+/// This function is only implemented if the signature algorithm
+
+_30
+
+/// of the public key is BLS (BLS_BLS12_381).
+
+_30
+
+/// If called with any other signature algorithm, the program aborts
+
+_30
+
+access(all)
+
+_30
+
+view fun verifyPoP(_ proof: [UInt8]): Bool
+
+_30
+
+_30
+
+// creating a PublicKey is a view operation
+
+_30
+
+access(all)
+
+_30
+
+view init()
+
+_30
+
+}`
 
 `PublicKey` supports two methods `verify` and `verifyPoP`.
 `verify` is the [signature verification](#signature-verification) function, while `verifyPoP` is covered under [BLS multi-signature](#proof-of-possession-pop).
@@ -131,7 +457,21 @@ provides the set of supported signature algorithms.
 
 A `PublicKey` can be constructed using the raw key and the signing algorithm.
 
- `_10let publicKey = PublicKey(_10 publicKey: "010203".decodeHex(),_10 signatureAlgorithm: SignatureAlgorithm.ECDSA_P256_10)`
+`_10
+
+let publicKey = PublicKey(
+
+_10
+
+publicKey: "010203".decodeHex(),
+
+_10
+
+signatureAlgorithm: SignatureAlgorithm.ECDSA_P256
+
+_10
+
+)`
 
 The raw key value depends on the supported signature scheme:
 
@@ -161,7 +501,19 @@ The validation of the public key depends on the supported signature scheme:
 
 Since the validation happens only at the time of creation, public keys are immutable.
 
- `_10publicKey.signatureAlgorithm = SignatureAlgorithm.ECDSA_secp256k1 // Not allowed_10publicKey.publicKey = [] // Not allowed_10_10publicKey.publicKey[2] = 4 // No effect`
+`_10
+
+publicKey.signatureAlgorithm = SignatureAlgorithm.ECDSA_secp256k1 // Not allowed
+
+_10
+
+publicKey.publicKey = [] // Not allowed
+
+_10
+
+_10
+
+publicKey.publicKey[2] = 4 // No effect`
 
 Invalid public keys cannot be constructed so public keys are always valid.
 
@@ -169,7 +521,61 @@ Invalid public keys cannot be constructed so public keys are always valid.
 
 A signature can be verified using the `verify` function of the `PublicKey`:
 
- `_15let pk = PublicKey(_15 publicKey: "96142CE0C5ECD869DC88C8960E286AF1CE1B29F329BA4964213934731E65A1DE480FD43EF123B9633F0A90434C6ACE0A98BB9A999231DB3F477F9D3623A6A4ED".decodeHex(),_15 signatureAlgorithm: SignatureAlgorithm.ECDSA_P256_15)_15_15let signature = "108EF718F153CFDC516D8040ABF2C8CC7AECF37C6F6EF357C31DFE1F7AC79C9D0145D1A2F08A48F1A2489A84C725D6A7AB3E842D9DC5F8FE8E659FFF5982310D".decodeHex()_15let message : [UInt8] = [1, 2, 3]_15_15let isValid = pk.verify(_15 signature: signature,_15 signedData: message,_15 domainSeparationTag: "",_15 hashAlgorithm: HashAlgorithm.SHA2_256_15)_15// `isValid` is false`
+`_15
+
+let pk = PublicKey(
+
+_15
+
+publicKey: "96142CE0C5ECD869DC88C8960E286AF1CE1B29F329BA4964213934731E65A1DE480FD43EF123B9633F0A90434C6ACE0A98BB9A999231DB3F477F9D3623A6A4ED".decodeHex(),
+
+_15
+
+signatureAlgorithm: SignatureAlgorithm.ECDSA_P256
+
+_15
+
+)
+
+_15
+
+_15
+
+let signature = "108EF718F153CFDC516D8040ABF2C8CC7AECF37C6F6EF357C31DFE1F7AC79C9D0145D1A2F08A48F1A2489A84C725D6A7AB3E842D9DC5F8FE8E659FFF5982310D".decodeHex()
+
+_15
+
+let message : [UInt8] = [1, 2, 3]
+
+_15
+
+_15
+
+let isValid = pk.verify(
+
+_15
+
+signature: signature,
+
+_15
+
+signedData: message,
+
+_15
+
+domainSeparationTag: "",
+
+_15
+
+hashAlgorithm: HashAlgorithm.SHA2_256
+
+_15
+
+)
+
+_15
+
+// `isValid` is false`
 
 The inputs to `verify` depend on the signature scheme used:
 
@@ -235,7 +641,9 @@ The PoP can only be verified using the `PublicKey` method `verifyPoP`.
 
 ### BLS signature aggregation[​](#bls-signature-aggregation "Direct link to BLS signature aggregation")
 
- `_10view fun aggregateSignatures(_ signatures: [[UInt8]]): [UInt8]?`
+`_10
+
+view fun aggregateSignatures(_ signatures: [[UInt8]]): [UInt8]?`
 
 Aggregates multiple BLS signatures into one.
 Signatures could be generated from the same or distinct messages, they
@@ -250,7 +658,9 @@ verify multiple signatures of the same message.
 
 ### BLS public key aggregation[​](#bls-public-key-aggregation "Direct link to BLS public key aggregation")
 
- `_10view fun aggregatePublicKeys(_ publicKeys: [PublicKey]): PublicKey?`
+`_10
+
+view fun aggregatePublicKeys(_ publicKeys: [PublicKey]): PublicKey?`
 
 Aggregates multiple BLS public keys into one.
 
@@ -293,11 +703,460 @@ are considered valid.
 
 For example, to verify two signatures with equal weights for some signed data:
 
- `_50import Crypto_50_50access(all)_50fun test main() {_50 let keyList = Crypto.KeyList()_50_50 let publicKeyA = PublicKey(_50 publicKey:_50 "db04940e18ec414664ccfd31d5d2d4ece3985acb8cb17a2025b2f1673427267968e52e2bbf3599059649d4b2cce98fdb8a3048e68abf5abe3e710129e90696ca".decodeHex(),_50 signatureAlgorithm: SignatureAlgorithm.ECDSA_P256_50 )_50 keyList.add(_50 publicKeyA,_50 hashAlgorithm: HashAlgorithm.SHA3_256,_50 weight: 0.5_50 )_50_50 let publicKeyB = PublicKey(_50 publicKey:_50 "df9609ee588dd4a6f7789df8d56f03f545d4516f0c99b200d73b9a3afafc14de5d21a4fc7a2a2015719dc95c9e756cfa44f2a445151aaf42479e7120d83df956".decodeHex(),_50 signatureAlgorithm: SignatureAlgorithm.ECDSA_P256_50 )_50 keyList.add(_50 publicKeyB,_50 hashAlgorithm: HashAlgorithm.SHA3_256,_50 weight: 0.5_50 )_50_50 let signatureSet = [_50 Crypto.KeyListSignature(_50 keyIndex: 0,_50 signature:_50 "8870a8cbe6f44932ba59e0d15a706214cc4ad2538deb12c0cf718d86f32c47765462a92ce2da15d4a29eb4e2b6fa05d08c7db5d5b2a2cd8c2cb98ded73da31f6".decodeHex()_50 ),_50 Crypto.KeyListSignature(_50 keyIndex: 1,_50 signature:_50 "bbdc5591c3f937a730d4f6c0a6fde61a0a6ceaa531ccb367c3559335ab9734f4f2b9da8adbe371f1f7da913b5a3fdd96a871e04f078928ca89a83d841c72fadf".decodeHex()_50 )_50 ]_50_50 // "foo", encoded as UTF-8, in hex representation_50 let signedData = "666f6f".decodeHex()_50_50 let isValid = keyList.verify(_50 signatureSet: signatureSet,_50 signedData: signedData,_50 domainSeparationTag: "FLOW-V0.0-user",_50 )_50}`
+`_50
+
+import Crypto
+
+_50
+
+_50
+
+access(all)
+
+_50
+
+fun test main() {
+
+_50
+
+let keyList = Crypto.KeyList()
+
+_50
+
+_50
+
+let publicKeyA = PublicKey(
+
+_50
+
+publicKey:
+
+_50
+
+"db04940e18ec414664ccfd31d5d2d4ece3985acb8cb17a2025b2f1673427267968e52e2bbf3599059649d4b2cce98fdb8a3048e68abf5abe3e710129e90696ca".decodeHex(),
+
+_50
+
+signatureAlgorithm: SignatureAlgorithm.ECDSA_P256
+
+_50
+
+)
+
+_50
+
+keyList.add(
+
+_50
+
+publicKeyA,
+
+_50
+
+hashAlgorithm: HashAlgorithm.SHA3_256,
+
+_50
+
+weight: 0.5
+
+_50
+
+)
+
+_50
+
+_50
+
+let publicKeyB = PublicKey(
+
+_50
+
+publicKey:
+
+_50
+
+"df9609ee588dd4a6f7789df8d56f03f545d4516f0c99b200d73b9a3afafc14de5d21a4fc7a2a2015719dc95c9e756cfa44f2a445151aaf42479e7120d83df956".decodeHex(),
+
+_50
+
+signatureAlgorithm: SignatureAlgorithm.ECDSA_P256
+
+_50
+
+)
+
+_50
+
+keyList.add(
+
+_50
+
+publicKeyB,
+
+_50
+
+hashAlgorithm: HashAlgorithm.SHA3_256,
+
+_50
+
+weight: 0.5
+
+_50
+
+)
+
+_50
+
+_50
+
+let signatureSet = [
+
+_50
+
+Crypto.KeyListSignature(
+
+_50
+
+keyIndex: 0,
+
+_50
+
+signature:
+
+_50
+
+"8870a8cbe6f44932ba59e0d15a706214cc4ad2538deb12c0cf718d86f32c47765462a92ce2da15d4a29eb4e2b6fa05d08c7db5d5b2a2cd8c2cb98ded73da31f6".decodeHex()
+
+_50
+
+),
+
+_50
+
+Crypto.KeyListSignature(
+
+_50
+
+keyIndex: 1,
+
+_50
+
+signature:
+
+_50
+
+"bbdc5591c3f937a730d4f6c0a6fde61a0a6ceaa531ccb367c3559335ab9734f4f2b9da8adbe371f1f7da913b5a3fdd96a871e04f078928ca89a83d841c72fadf".decodeHex()
+
+_50
+
+)
+
+_50
+
+]
+
+_50
+
+_50
+
+// "foo", encoded as UTF-8, in hex representation
+
+_50
+
+let signedData = "666f6f".decodeHex()
+
+_50
+
+_50
+
+let isValid = keyList.verify(
+
+_50
+
+signatureSet: signatureSet,
+
+_50
+
+signedData: signedData,
+
+_50
+
+domainSeparationTag: "FLOW-V0.0-user",
+
+_50
+
+)
+
+_50
+
+}`
 
 Below are the implementation details of the key list and the signature list:
 
- `_72access(all)_72struct KeyListEntry {_72_72 access(all)_72 let keyIndex: Int_72_72 access(all)_72 let publicKey: PublicKey_72_72 access(all)_72 let hashAlgorithm: HashAlgorithm_72_72 access(all)_72 let weight: UFix64_72_72 access(all)_72 let isRevoked: Bool_72_72 init(_72 keyIndex: Int,_72 publicKey: PublicKey,_72 hashAlgorithm: HashAlgorithm,_72 weight: UFix64,_72 isRevoked: Bool_72 )_72}_72_72access(all)_72struct KeyList {_72_72 init()_72_72 /// Adds a new key with the given weight_72 access(all)_72 fun add(_72 _ publicKey: PublicKey,_72 hashAlgorithm: HashAlgorithm,_72 weight: UFix64_72 )_72_72 /// Returns the key at the given index, if it exists._72 /// Revoked keys are always returned, but they have `isRevoked` field set to true_72 access(all)_72 fun get(keyIndex: Int): KeyListEntry?_72_72 /// Marks the key at the given index revoked, but does not delete it_72 access(all)_72 fun revoke(keyIndex: Int)_72_72 /// Returns true if the given signatures are valid for the given signed data_72 /// `domainSeparationTag` is used to specify a scope for each signature,_72 /// and is implemented the same way as `PublicKey`'s verify function._72 access(all)_72 fun verify(_72 signatureSet: [KeyListSignature],_72 signedData: [UInt8],_72 domainSeparationTag: String_72 ): Bool_72}_72_72access(all)_72struct KeyListSignature {_72_72 access(all)_72 let keyIndex: Int_72 _72 access(all)_72 let signature: [UInt8]_72_72 access(all)_72 init(keyIndex: Int, signature: [UInt8])_72}`[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/crypto.mdx)[PreviousEnvironment Information](/docs/language/environment-information)[NextType Hierarchy](/docs/language/type-hierarchy)
+`_72
+
+access(all)
+
+_72
+
+struct KeyListEntry {
+
+_72
+
+_72
+
+access(all)
+
+_72
+
+let keyIndex: Int
+
+_72
+
+_72
+
+access(all)
+
+_72
+
+let publicKey: PublicKey
+
+_72
+
+_72
+
+access(all)
+
+_72
+
+let hashAlgorithm: HashAlgorithm
+
+_72
+
+_72
+
+access(all)
+
+_72
+
+let weight: UFix64
+
+_72
+
+_72
+
+access(all)
+
+_72
+
+let isRevoked: Bool
+
+_72
+
+_72
+
+init(
+
+_72
+
+keyIndex: Int,
+
+_72
+
+publicKey: PublicKey,
+
+_72
+
+hashAlgorithm: HashAlgorithm,
+
+_72
+
+weight: UFix64,
+
+_72
+
+isRevoked: Bool
+
+_72
+
+)
+
+_72
+
+}
+
+_72
+
+_72
+
+access(all)
+
+_72
+
+struct KeyList {
+
+_72
+
+_72
+
+init()
+
+_72
+
+_72
+
+/// Adds a new key with the given weight
+
+_72
+
+access(all)
+
+_72
+
+fun add(
+
+_72
+
+_ publicKey: PublicKey,
+
+_72
+
+hashAlgorithm: HashAlgorithm,
+
+_72
+
+weight: UFix64
+
+_72
+
+)
+
+_72
+
+_72
+
+/// Returns the key at the given index, if it exists.
+
+_72
+
+/// Revoked keys are always returned, but they have `isRevoked` field set to true
+
+_72
+
+access(all)
+
+_72
+
+fun get(keyIndex: Int): KeyListEntry?
+
+_72
+
+_72
+
+/// Marks the key at the given index revoked, but does not delete it
+
+_72
+
+access(all)
+
+_72
+
+fun revoke(keyIndex: Int)
+
+_72
+
+_72
+
+/// Returns true if the given signatures are valid for the given signed data
+
+_72
+
+/// `domainSeparationTag` is used to specify a scope for each signature,
+
+_72
+
+/// and is implemented the same way as `PublicKey`'s verify function.
+
+_72
+
+access(all)
+
+_72
+
+fun verify(
+
+_72
+
+signatureSet: [KeyListSignature],
+
+_72
+
+signedData: [UInt8],
+
+_72
+
+domainSeparationTag: String
+
+_72
+
+): Bool
+
+_72
+
+}
+
+_72
+
+_72
+
+access(all)
+
+_72
+
+struct KeyListSignature {
+
+_72
+
+_72
+
+access(all)
+
+_72
+
+let keyIndex: Int
+
+_72
+
+_72
+
+access(all)
+
+_72
+
+let signature: [UInt8]
+
+_72
+
+_72
+
+access(all)
+
+_72
+
+init(keyIndex: Int, signature: [UInt8])
+
+_72
+
+}`
+
+[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/crypto.mdx)
+
+[Previous
+
+Environment Information](/docs/language/environment-information)[Next
+
+Type Hierarchy](/docs/language/type-hierarchy)
+
 ###### Rate this page
 
 😞😐😊
@@ -317,9 +1176,10 @@ Below are the implementation details of the key list and the signature list:
   + [BLS public key aggregation](#bls-public-key-aggregation)
 * [Crypto Contract](#crypto-contract)
   + [Key Lists](#key-lists)
-Got suggestions for this site? 
+
+Got suggestions for this site?
 
 * [It's open-source!](https://github.com/onflow/cadence-lang.org)
+
 The source code of this site is licensed under the Apache License, Version 2.0.
 Content is licensed under the Creative Commons Attribution 4.0 International License.
-

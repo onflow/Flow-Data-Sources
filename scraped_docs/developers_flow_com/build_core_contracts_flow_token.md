@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/build/core-contracts/flow-token
 
-
-
-
 Flow Token Contract | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -20,6 +21,7 @@ Flow Token Contract | Flow Developer Portal
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
 * [Guides](/build/guides/account-linking)
 * [Core Smart Contracts](/build/core-contracts)
+
   + [Fungible Token](/build/core-contracts/fungible-token)
   + [Flow Token](/build/core-contracts/flow-token)
   + [Service Account](/build/core-contracts/service-account)
@@ -35,9 +37,9 @@ Flow Token Contract | Flow Developer Portal
   + [Burner](/build/core-contracts/burner)
 * [Explore More](/build/explore-more)
 
-
 * [Core Smart Contracts](/build/core-contracts)
 * Flow Token
+
 On this page
 
 The `FlowToken` contract defines the FLOW network token.
@@ -66,7 +68,9 @@ and view their source code and event definitions.
 
 Events emitted from core contracts follow a standard format:
 
- `_10A.{contract address}.{contract name}.{event name}`
+`_10
+
+A.{contract address}.{contract name}.{event name}`
 
 The components of the format are:
 
@@ -89,7 +93,9 @@ Event that is emitted when the contract gets created.
 * Mainnet event: `A.1654653399040a61.FlowToken.TokensInitialized`
 * Testnet event: `A.7e60df042a9c0868.FlowToken.TokensInitialized`
 
- `_10access(all) event TokensInitialized(initialSupply: UFix64)`
+`_10
+
+access(all) event TokensInitialized(initialSupply: UFix64)`
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -103,7 +109,9 @@ Event that is emitted when tokens get withdrawn from a Vault.
 * Mainnet event: `A.1654653399040a61.FlowToken.TokensWithdrawn`
 * Testnet event: `A.7e60df042a9c0868.FlowToken.TokensWithdrawn`
 
- `_10access(all) event TokensWithdrawn(amount: UFix64, from: Address?)`
+`_10
+
+access(all) event TokensWithdrawn(amount: UFix64, from: Address?)`
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -118,7 +126,9 @@ Event that is emitted when tokens get deposited to a Vault.
 * Mainnet event: `A.1654653399040a61.FlowToken.TokensDeposited`
 * Testnet event: `A.7e60df042a9c0868.FlowToken.TokensDeposited`
 
- `_10access(all) event TokensDeposited(amount: UFix64, to: Address?)`
+`_10
+
+access(all) event TokensDeposited(amount: UFix64, to: Address?)`
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -133,7 +143,9 @@ Event that is emitted when new tokens gets minted.
 * Mainnet event: `A.1654653399040a61.FlowToken.TokensMinted`
 * Testnet event: `A.7e60df042a9c0868.FlowToken.TokensMinted`
 
- `_10access(all) event TokensMinted(amount: UFix64)`
+`_10
+
+access(all) event TokensMinted(amount: UFix64)`
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -147,7 +159,9 @@ Event that is emitted when tokens get destroyed.
 * Mainnet event: `A.1654653399040a61.FlowToken.TokensBurned`
 * Testnet event: `A.7e60df042a9c0868.FlowToken.TokensBurned`
 
- `_10access(all) event TokensBurned(amount: UFix64)`
+`_10
+
+access(all) event TokensBurned(amount: UFix64)`
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -161,7 +175,9 @@ Event that is emitted when a new minter resource gets created.
 * Mainnet event: `A.1654653399040a61.FlowToken.MinterCreated`
 * Testnet event: `A.7e60df042a9c0868.FlowToken.MinterCreated`
 
- `_10access(all) event MinterCreated(allowedAmount: UFix64)`
+`_10
+
+access(all) event MinterCreated(allowedAmount: UFix64)`
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -175,12 +191,24 @@ Event that is emitted when a new burner Resource gets created.
 * Mainnet event: `A.1654653399040a61.FlowToken.BurnerCreated`
 * Testnet event: `A.7e60df042a9c0868.FlowToken.BurnerCreated`
 
- `_10access(all) event BurnerCreated()`
+`_10
+
+access(all) event BurnerCreated()`
+
 ### Staking Events[​](#staking-events "Direct link to Staking Events")
 
 To learn more about staking events, read [staking/events/](/networks/staking/staking-scripts-events)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/03-flow-token.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousFungible Token](/build/core-contracts/fungible-token)[NextService Account](/build/core-contracts/service-account)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/03-flow-token.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Fungible Token](/build/core-contracts/fungible-token)[Next
+
+Service Account](/build/core-contracts/service-account)
+
 ###### Rate this page
 
 😞😐😊
@@ -194,6 +222,7 @@ To learn more about staking events, read [staking/events/](/networks/staking/sta
 * [Minter Created](#minter-created)
 * [Burner Created](#burner-created)
 * [Staking Events](#staking-events)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -206,6 +235,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -215,6 +245,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -222,6 +253,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -231,6 +263,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -238,5 +271,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

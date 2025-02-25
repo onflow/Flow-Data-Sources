@@ -1,30 +1,14 @@
 # Source: https://academy.ecdao.org/en/catalog/courses/beginner-dapp-ios/chapter2/lesson4
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -52,7 +36,6 @@ Connect
 
 Course Overview
 
-
 [Catalog](/en/catalog)
 [Course](/en/catalog/courses/beginner-dapp-ios)
 Beginner Dapp Ios
@@ -75,6 +58,7 @@ What is a mobile app without a sign-in view? Letâs go ahead and create one:
 Replace the boilerplate code with the below:
 
 swift
+
 ```
 		
 			import SwiftUI
@@ -126,6 +110,7 @@ struct SignInView_Previews: PreviewProvider {
 Assuming you completed all of the above steps, it should look like this:
 
 ![](https://i.imgur.com/n2gvsoV.png)
+
 ## Keeping Our Code DRY
 
 This looks great, but you may notice we had to rewrite the exact same code for the button as we have in our `ContentView`â¦ Ok so we replicated more code than just the button, but we will make further changes to our `ContentView` removing the other code later in this lesson.
@@ -135,6 +120,7 @@ DRY coding stands for âDonât Repeat Yourself.â Itâs a princi
 Using the same steps as we used for creating the `SignInView`, create a new SwiftUI file named `ButtonView` inside of the Views directory. Replace the boilerplate code with the following:
 
 swift
+
 ```
 		
 			import SwiftUI
@@ -173,6 +159,7 @@ Now letâs update the Button in our `ContentView` and `SignInView` files, re
 `SignInView`:
 
 swift
+
 ```
 		
 			ButtonView(title: "Sign In", action: {
@@ -185,6 +172,7 @@ swift
 `ContentView`:
 
 swift
+
 ```
 		
 			ButtonView(title: "Hello", action: {
@@ -193,11 +181,13 @@ swift
 		 
 	
 ```
+
 ## Creating A View Router
 
 Now that our main views are set up, we need to create a view router to programmatically navigate between them. Create another new SwiftUI file in our Views directory called `RouterView`, and replace the boilerplate with the following code:
 
 swift
+
 ```
 		
 			import SwiftUI
@@ -241,6 +231,7 @@ Here is what it looks like in Xcode:
 As you can see, while the above code works, there is now too much horizontal padding. Remember from our earlier lesson that modifiers are applied in hierarchical order, this also applies to modifiers used across views. To fix this we need to remove the horizontal padding from our VStacks in `SignInView` and `ContentView`. Once completed you can check to ensure everything looks good by changing the value of `loggedIn` from `false` to `true` and watching the preview update.
 
 ![](https://i.imgur.com/5hEPCo4.gif)
+
 ### Linking It All Together
 
 Great work! Now we have a view router that can switch between the `SignInView` and `ContentView` based on the `loggedIn` status in our DApp. But how do we update this variable from our other views?
@@ -248,6 +239,7 @@ Great work! Now we have a view router that can switch between the `SignInView` a
 One option is to use another property wrapper called `@Binding`. Just like the `$` we added to our TextField variable in a previous lesson, the `@Binding` property wrapper binds a variable across views so either view can read or write to the contents of a variable. To see how this works letâs add a new variable to our `SignInView`, add the following just above the `body`
 
 swift
+
 ```
 		
 			@Binding var loggedIn: Bool
@@ -258,6 +250,7 @@ swift
 We also need to update our `ButtonView` action to update the variable.
 
 swift
+
 ```
 		
 			ButtonView(title: "Sign In", action: {
@@ -266,9 +259,11 @@ swift
 		 
 	
 ```
+
 > Note: Passing a binding value to a struct in the preview content can be difficult. The easiest way to to avoid erros is to change the view listed in the preview to our `RouterView` like so:
 
 swift
+
 ```
 		
 			struct SignInView_Previews: PreviewProvider {
@@ -283,6 +278,7 @@ swift
 We also need to update the `SignInView` initialization inside our `RouterView` so that it includes the loggedIn variable.
 
 swift
+
 ```
 		
 			...
@@ -297,6 +293,7 @@ Group {
 		 
 	
 ```
+
 > Fun Fact: We can actually test this directly within preview without needing to run the simulator. Go ahead and press the âSign Inâ button in the preview and see what happensâ¦
 
 ![](https://i.imgur.com/3xsqQme.gif)
@@ -306,6 +303,7 @@ To reset the view, simply open another file and then go back to our `SignInView`
 The last thing we need to do is update our `EmeraldDAppApp` file to load the `RouterView` directly:
 
 swift
+
 ```
 		
 			struct EmeraldDAppApp: App {
@@ -318,6 +316,7 @@ swift
 		 
 	
 ```
+
 ## Making It Less Ugly
 
 Our DApp Skeleton is really starting to come together!! The only problem is that it is kind of ugly! Letâs start making it look nice by changing the colors and refactoring the `ContentView`
@@ -345,6 +344,7 @@ While we can access these colors by passing the name as a parameter to the `Colo
 Create a new SwiftUI file called `Colors` and replace the boilerplate with the following code:
 
 swift
+
 ```
 		
 			import SwiftUI
@@ -366,6 +366,7 @@ Now we can access our custom colors using the âdotâ notation `Color`.d
 Rather than adding a background color to each view, we can use our `ZStack` in the `RouterView` to apply the background to the entire app. Add the following code above the `Group` view:
 
 swift
+
 ```
 		
 			...
@@ -378,11 +379,13 @@ ZStack {
 		 
 	
 ```
+
 ### Refactoring `ContentView`
 
 The DApp we are building is one where you can change a âGreetingâ value inside our contract, and then display it to the public. Letâs refactor our code in `ContentView` to provide a display for this data. Replace the code in `ContentView` with the following code:
 
 swift
+
 ```
 		
 			import SwiftUI
@@ -469,22 +472,20 @@ In Chapter 3, we will start exploring some blockchain code.
 
 To upload your quests, show us your code for the modified files.
 
-
 ![User avatar](https://avatars.githubusercontent.com/u/3641594?s=400&u=044fd05bc61270527c4da99212f143595d6fa4a1&v=4)
 
 Author
 
 [BoiseITGuru](https://twitter.com/boise_it_guru)
 
-
-
-
 [Quests](#quests)
-[Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/beginner-dapp-ios/en/chapter2/lesson4.md)
 
+[Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/beginner-dapp-ios/en/chapter2/lesson4.md)
 
 [Adding Interactivity To Our DApp](/en/catalog/courses/beginner-dapp-ios/chapter2/lesson3)
 [Our First Smart Contract](/en/catalog/courses/beginner-dapp-ios/chapter3/lesson1)
+
+
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
@@ -492,17 +493,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

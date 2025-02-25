@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/build/smart-contracts/overview
 
-
-
-
 Smart Contracts on Flow | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -17,6 +18,7 @@ Smart Contracts on Flow | Flow Developer Portal
 * [Flow Protocol](/build/basics/blocks)
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
+
   + [Learn Cadence ↗️](/build/learn-cadence)
   + [Smart Contracts on Flow](/build/smart-contracts/overview)
   + [Deploying Contracts](/build/smart-contracts/deploying)
@@ -27,10 +29,11 @@ Smart Contracts on Flow | Flow Developer Portal
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
-
 * Writing and Deploying Smart Contracts
 * Smart Contracts on Flow
+
 On this page
+
 # Smart Contracts on Flow
 
 At its core, a decentralized application is defined by the [smart contracts](https://en.wikipedia.org/wiki/Smart_contract) it uses on the blockchain. Rather than relying on centralized application servers and databases, apps model their core application logic using smart contracts, often referred to as the "on-chain" code.
@@ -65,9 +68,7 @@ Permanence is a key property of blockchains; users trust that the data they stor
 ### Storage Limits & Fees[​](#storage-limits--fees "Direct link to Storage Limits & Fees")
 
 However, there are practical constraints to storing data on a blockchain. Developer and user accounts must retain a small amount of FLOW tokens, known as the storage fee, for bytes of data stored in their accounts. The minimum storage fee will grant each account a minimum storage amount. If an account holds assets that demand more bytes of storage, the account will need to retain more FLOW tokens to increase the storage amount according to Flow's [fee schedule](/build/basics/fees#storage). A more compact data model can keep storage needs down.   
-
   
-
 Furthermore, a single Flow transaction has a size limit of 4MB, which limits the rate at which large amounts of data can be transferred to the blockchain.
 
 Lastly, a blockchain is not a content delivery network and therefore cannot serve media assets, such as videos, at the speeds expected by modern applications.
@@ -109,7 +110,17 @@ See the [FT Guide](/build/guides/fungible-token) for a guide on how to create a 
 contract that conforms to the standard.
 
 * [Fungible Token contract interface](/build/core-contracts/fungible-token)
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/overview.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousLearn Cadence ↗️](/build/learn-cadence)[NextDeploying Contracts](/build/smart-contracts/deploying)
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/overview.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Learn Cadence ↗️](/build/learn-cadence)[Next
+
+Deploying Contracts](/build/smart-contracts/deploying)
+
 ###### Rate this page
 
 😞😐😊
@@ -125,6 +136,7 @@ contract that conforms to the standard.
   + [Non-Fungible Tokens (NFTs)](#non-fungible-tokens-nfts)
   + [NFT Sales and Trading](#nft-sales-and-trading)
   + [Fungible Tokens](#fungible-tokens)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -137,6 +149,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -146,6 +159,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -153,6 +167,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -162,6 +177,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -169,5 +185,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

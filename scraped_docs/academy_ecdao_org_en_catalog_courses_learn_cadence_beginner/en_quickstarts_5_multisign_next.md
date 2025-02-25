@@ -1,28 +1,14 @@
 # Source: https://academy.ecdao.org/en/quickstarts/5-multisign-next
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -35,15 +21,13 @@ Multisign
 
 # Multisign
 
-
 Quickstart
 
 Next.js
+
 React.js
 
 A Next.js DApp that allows anyone to deposit $FLOW to a DAO Treasury, of which admins must multisign actions to withdraw that $FLOW from the Treasury.
-
-
 
 ## ð© Quickstart 5: Multisign
 
@@ -66,15 +50,18 @@ Required:
 * [Flow CLI](https://docs.onflow.org/flow-cli/install/) (ð§¨ Make sure to install the correct link for your system ð§¨). You know you have installed it if you type `flow version` in your terminal and it prints a version.
 
 sh
+
 ```
 		
 			git clone https://github.com/emerald-dao/5-multisign.git
 		 
 	
 ```
+
 > in a terminal window, ð± install the dependencies start your frontend:
 
 sh
+
 ```
 		
 			cd 5-multisign
@@ -83,9 +70,11 @@ npm run dev
 		 
 	
 ```
+
 > in a second terminal window, start your ð·â local emulator:
 
 bash
+
 ```
 		
 			cd 5-multisign
@@ -99,6 +88,7 @@ flow emulator start -v
 > in a third terminal window, ð¾ deploy your contract and ð¸ start your local wallet:
 
 bash
+
 ```
 		
 			cd 5-multisign
@@ -107,6 +97,7 @@ flow dev-wallet
 		 
 	
 ```
+
 > You can `flow project deploy --update` to deploy a new contract any time.
 
 ð± Open http://localhost:3000 to see the app
@@ -133,6 +124,7 @@ After clicking Approve, you will notice the balance in the Treasury get updated.
 > Click on the deposit underneath âTransaction Historyâ. It will show you the details of that transaction:
 
 ![deposit history](https://i.imgur.com/E4bh4E5.png)
+
 ## ðª Checkpoint 3: Withdraw $FLOW
 
 Now that we have deposited $FLOW to the treasury, letâs test out making a withdraw.
@@ -145,6 +137,7 @@ Now that we have deposited $FLOW to the treasury, letâs test out making a w
 After clicking Approve, you will notice that the balance in the Treasury *does not* get updated. This is because Admins of the treasury must all sign the request in order for it to go through. However, a âPendingâ history is shown:
 
 ![pending](https://i.imgur.com/13YPTA5.png)
+
 ## ð Checkpoint 4: Sign Withdraw Request
 
 You can view all the Admins of the treasury on the main page. Initially, only the `0xf8d6e0586b0a20c7` account is an Admin, so if they sign a request, it will go through.
@@ -195,6 +188,7 @@ Now it has officially gone through!
 > â½ï¸ Add your new testnet account to your `flow.json` by modifying the following lines of code. Paste your address you copied above to where it says âYOUR GENERATED ADDRESSâ, and paste your private key where it says âYOUR PRIVATE KEYâ.
 
 json
+
 ```
 		
 			"accounts": {
@@ -228,9 +222,11 @@ json
 		 
 	
 ```
+
 > ð Deploy your Multisign smart contract:
 
 sh
+
 ```
 		
 			flow project deploy --network=testnet
@@ -280,16 +276,15 @@ Letâs try out our application on testnet:
 
 > ð Problems, questions, comments on the stack? Post them to the [ð Emerald City Discord](https://discord.gg/emerald-city-906264258189332541).
 
-
 ![User avatar](https://avatars.githubusercontent.com/u/100654804?v=4)
 
 Author
 
 [Emerald City](https://twitter.com/emerald_dao)
 
-
 [Fork Quickstart](https://github.com/emerald-dao/5-multisign/fork)
 [Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/quickstarts/5-multisign-next/en/readme.md)
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
@@ -298,17 +293,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

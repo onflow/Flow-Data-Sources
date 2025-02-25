@@ -1,25 +1,28 @@
 # Source: https://developers.flow.com/networks/node-ops/node-operation/past-sporks
 
-
-
-
 Past Spork Info | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
 * [Flow's Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
+
   + [Access Nodes](/networks/node-ops/access-nodes/access-node-setup)
   + [EVM Gateway Setup](/networks/node-ops/evm-gateway/evm-gateway-setup)
   + [Light Nodes](/networks/node-ops/light-nodes/observer-node)
   + [Participating in the Network](/networks/node-ops/node-operation/faq)
+
     - [Operator FAQ](/networks/node-ops/node-operation/faq)
     - [Byzantine Attack Response](/networks/node-ops/node-operation/byzantine-node-attack-response)
     - [Database Encryption for Existing Node Operators](/networks/node-ops/node-operation/db-encryption-existing-operator)
@@ -44,11 +47,12 @@ Past Spork Info | Flow Developer Portal
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
-
 * [Node Ops](/networks/node-ops)
 * Participating in the Network
 * Past Spork Info
+
 On this page
+
 # Past Spork Info
 
 A JSON version of the information below can be found in [onflow/flow/sporks.json](https://github.com/onflow/flow/blob/master/sporks.json)
@@ -335,9 +339,7 @@ Releases compatible with Mainnet 6:
 ### Network Implementations[​](#network-implementations "Direct link to Network Implementations")
 
 Flow Go: <https://github.com/onflow/flow-go/releases/tag/v0.14.9>   
-
-Emulator: <https://github.com/onflow/flow-emulator/releases/tag/v0.16.1>  
-
+Emulator: <https://github.com/onflow/flow-emulator/releases/tag/v0.16.1>
 
 Emulator v0.16.1 is distributed in Flow CLI v0.15.0: <https://github.com/onflow/flow-cli/releases/tag/v0.15.0>
 
@@ -346,14 +348,11 @@ Emulator v0.16.1 is distributed in Flow CLI v0.15.0: <https://github.com/onflow/
 #### Flow Go SDK[​](#flow-go-sdk "Direct link to Flow Go SDK")
 
 Minimum version: <https://github.com/onflow/flow-go-sdk/releases/tag/v0.16.1>   
-
-Recommended version: <https://github.com/onflow/flow-go-sdk/releases/tag/v0.16.1>   
-
+Recommended version: <https://github.com/onflow/flow-go-sdk/releases/tag/v0.16.1>
 
 #### FCL (Flow Client Library)[​](#fcl-flow-client-library "Direct link to FCL (Flow Client Library)")
 
 Minimum version: [v0.0.66](https://github.com/onflow/fcl-js/blob/master/packages/fcl/CHANGELOG.md#0066---2020-11-09)   
-
 Recommended version: [v0.0.67](https://github.com/onflow/fcl-js/blob/master/packages/fcl/CHANGELOG.md#0067-alpha0---2020-11-17)
 
 While FCL v0.0.67 is not strictly necessary to use Mainnet 6, we strongly recommend upgrading in order to adapt to wallet improvements that were introduced in v0.0.67.
@@ -965,7 +964,16 @@ While FCL v0.0.67 is not strictly necessary to use Mainnet 6, we strongly recomm
 | **Branch/Tag**: v0.12.1 |
 | **Docker Image Tag**: v0.12.1 |
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/past-sporks.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousNode Setup](/networks/node-ops/node-operation/node-setup)[NextNetwork Upgrade (Spork) Process](/networks/node-ops/node-operation/spork)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/past-sporks.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Node Setup](/networks/node-ops/node-operation/node-setup)[Next
+
+Network Upgrade (Spork) Process](/networks/node-ops/node-operation/spork)
+
 ###### Rate this page
 
 😞😐😊
@@ -1042,6 +1050,7 @@ While FCL v0.0.67 is not strictly necessary to use Mainnet 6, we strongly recomm
 * [Devnet 19](#devnet-19)
 * [Devnet 18](#devnet-18)
 * [Devnet 17](#devnet-17)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -1054,6 +1063,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -1063,6 +1073,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -1070,6 +1081,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -1079,6 +1091,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -1086,5 +1099,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

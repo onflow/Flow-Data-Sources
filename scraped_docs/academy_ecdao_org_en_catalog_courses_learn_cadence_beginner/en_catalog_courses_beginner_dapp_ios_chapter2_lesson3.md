@@ -1,30 +1,14 @@
 # Source: https://academy.ecdao.org/en/catalog/courses/beginner-dapp-ios/chapter2/lesson3
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -52,7 +36,6 @@ Connect
 
 Course Overview
 
-
 [Catalog](/en/catalog)
 [Course](/en/catalog/courses/beginner-dapp-ios)
 Beginner Dapp Ios
@@ -66,6 +49,7 @@ Beginner Dapp Ios
 Open up your `ContentView` file in Xcode and add the code below between the `Image` and `Spacer()` views to add a button to our DApp.
 
 swift
+
 ```
 		
 			Button {
@@ -100,6 +84,7 @@ Here is a breakdown of the code:
 
 ![](https://i.imgur.com/FM6IGOL.png)
 
+
 ---
 
 Cool! Now letâs run our DApp in the simulator to see what happens when you press the button.
@@ -119,6 +104,7 @@ Usually, developers use the console to print error messages or debug their code 
 Now that we have a working button, letâs add a text field so the user can enter a prompt for the button to print instead of the statically defined text we currently have. To add a text field we first need to add a variable that will hold the input text. To do this add the below code just above the `body` of our `ContentView`:
 
 swift
+
 ```
 		
 			@State var inputText = ""
@@ -131,6 +117,7 @@ Overall this is fairly self-explanatory, we create a `var` or variable named `in
 Now letâs add the text field itself, place the below code just above the button we created earlier:
 
 swift
+
 ```
 		
 			TextField("Change Greeting", text: $inputText)
@@ -164,6 +151,7 @@ Notice that we have added the `.padding`(â¦)`modifier twice. It is important
 Now we can make a quick change to the action of our button so it prints the inputted text instead of the static text value. To do this all we need to do is replace the text inside the `print(...)` function with the variable we created like so:
 
 swift
+
 ```
 		
 			Button {
@@ -185,6 +173,7 @@ Since the `print(...)` function only reads from the `inputText` variable there i
 The complete code should look like this:
 
 swift
+
 ```
 		
 			import SwiftUI
@@ -251,6 +240,7 @@ Now press the play button again to run the updated code in the simulator. Note t
 Once the application is launched on the simulator click into the `TextField` to type some text, then press the âHelloâ `Button` to print it to the console. If everything is working correctly it should look like the below:
 
 ![](https://i.imgur.com/6GrWxvh.gif)
+
 ## Conclusion
 
 Thatâs all for today!
@@ -266,22 +256,20 @@ Today, we are making the Quests a little more challenging. We have covered all t
 
 To submit your quests, take a picture of both the screen and the console logs in the developer console.
 
-
 ![User avatar](https://avatars.githubusercontent.com/u/3641594?s=400&u=044fd05bc61270527c4da99212f143595d6fa4a1&v=4)
 
 Author
 
 [BoiseITGuru](https://twitter.com/boise_it_guru)
 
-
-
-
 [Quests](#quests)
-[Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/beginner-dapp-ios/en/chapter2/lesson3.md)
 
+[Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/beginner-dapp-ios/en/chapter2/lesson3.md)
 
 [Learning Frontend Code](/en/catalog/courses/beginner-dapp-ios/chapter2/lesson2)
 [Finishing the Skeleton](/en/catalog/courses/beginner-dapp-ios/chapter2/lesson4)
+
+
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
@@ -289,17 +277,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

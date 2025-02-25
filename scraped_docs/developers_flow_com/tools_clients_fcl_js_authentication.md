@@ -1,22 +1,25 @@
 # Source: https://developers.flow.com/tools/clients/fcl-js/authentication
 
-
-
-
 Authentication | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
 * [Flow CLI](/tools/flow-cli)
 * [Flow Emulator](/tools/emulator)
 * [Clients](/tools/clients)
+
   + [Flow Client Library (FCL)](/tools/clients/fcl-js)
+
     - [FCL Reference](/tools/clients/fcl-js/api)
     - [SDK Reference](/tools/clients/fcl-js/sdk-guidelines)
     - [Authentication](/tools/clients/fcl-js/authentication)
@@ -34,11 +37,12 @@ Authentication | Flow Developer Portal
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 
-
 * [Clients](/tools/clients)
 * [Flow Client Library (FCL)](/tools/clients/fcl-js)
 * Authentication
+
 On this page
+
 # Authentication
 
 The concept of authentication in FCL is tied closely to FCL's concept of `currentUser`. In fact `fcl.authenticate` and `fcl.unauthenticate` are both aliases to `fcl.currentUser.authenticate()` and `fcl.currentUser.unauthenticate()` respectively. So let's look at `currentUser`.
@@ -57,10 +61,44 @@ FCL provides two ways of getting the current users information. One way is a pro
 
 ### Snapshot of Current User[​](#snapshot-of-current-user "Direct link to Snapshot of Current User")
 
- `_10import * as fcl from "@onflow/fcl"_10_10const currentUser = await fcl.currentUser.snapshot()_10console.log("The Current User", currentUser)`
+`_10
+
+import * as fcl from "@onflow/fcl"
+
+_10
+
+_10
+
+const currentUser = await fcl.currentUser.snapshot()
+
+_10
+
+console.log("The Current User", currentUser)`
+
 ### Subscribe to Current User[​](#subscribe-to-current-user "Direct link to Subscribe to Current User")
 
- `_10import * as fcl from "@onflow/fcl"_10_10// Returns an unsubscribe function_10const unsubscribe = fcl.currentUser.subscribe(currentUser => {_10 console.log("The Current User", currentUser)_10})`
+`_10
+
+import * as fcl from "@onflow/fcl"
+
+_10
+
+_10
+
+// Returns an unsubscribe function
+
+_10
+
+const unsubscribe = fcl.currentUser.subscribe(currentUser => {
+
+_10
+
+console.log("The Current User", currentUser)
+
+_10
+
+})`
+
 # Actually Authenticating and Unauthenticating
 
 The TL;DR is to call `fcl.authenticate()` and `fcl.unauthenticate()` respectively.
@@ -72,13 +110,23 @@ The [Quick Start](/build/getting-started/fcl-quickstart) guide will walk you thr
 
 We know this can all be fairly overwhelming, we are committed to help though. If you run into any problems, reach out to us on [Discord](https://discord.gg/flow), we are more than happy to help out.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/authentication.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousSDK Reference](/tools/clients/fcl-js/sdk-guidelines)[NextHow to Configure FCL](/tools/clients/fcl-js/configure-fcl)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/authentication.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+SDK Reference](/tools/clients/fcl-js/sdk-guidelines)[Next
+
+How to Configure FCL](/tools/clients/fcl-js/configure-fcl)
+
 ###### Rate this page
 
 😞😐😊
 
 * [Snapshot of Current User](#snapshot-of-current-user)
 * [Subscribe to Current User](#subscribe-to-current-user)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -91,6 +139,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -100,6 +149,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -107,6 +157,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -116,6 +167,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -123,5 +175,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

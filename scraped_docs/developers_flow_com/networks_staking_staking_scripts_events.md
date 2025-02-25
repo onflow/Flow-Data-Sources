@@ -1,20 +1,22 @@
 # Source: https://developers.flow.com/networks/staking/staking-scripts-events
 
-
-
-
 Query Staking Info with Scripts or Events | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
 * [Flow's Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
+
   + [Epoch and Staking Terminology](/networks/staking/epoch-terminology)
   + [Epoch and Reward Schedule](/networks/staking/schedule)
   + [Epoch Preparation Protocol](/networks/staking/epoch-preparation)
@@ -35,10 +37,11 @@ Query Staking Info with Scripts or Events | Flow Developer Portal
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
-
 * [Staking and Epochs](/networks/staking)
 * Staking Scripts and Events
+
 On this page
+
 # Introduction
 
 The staking contract stores a lot of different state, and the state is constantly changing.
@@ -194,7 +197,9 @@ state of the staking process.
 
 ### NewEpoch[​](#newepoch "Direct link to NewEpoch")
 
- `_10access(all) event NewEpoch(totalStaked: UFix64, totalRewardPayout: UFix64, newEpochCounter: UInt64)`
+`_10
+
+access(all) event NewEpoch(totalStaked: UFix64, totalRewardPayout: UFix64, newEpochCounter: UInt64)`
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -206,7 +211,9 @@ Emitted by `FlowIDTableStaking.Admin.moveTokens()` when the tokens are moved bet
 
 ### NewWeeklyPayout[​](#newweeklypayout "Direct link to NewWeeklyPayout")
 
- `_10access(all) event NewWeeklyPayout(newPayout: UFix64)`
+`_10
+
+access(all) event NewWeeklyPayout(newPayout: UFix64)`
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -222,7 +229,9 @@ These are events that concern the operation of a node.
 
 ### NewNodeCreated[​](#newnodecreated "Direct link to NewNodeCreated")
 
- `_10access(all) event NewNodeCreated(nodeID: String, role: UInt8, amountCommitted: UFix64)`
+`_10
+
+access(all) event NewNodeCreated(nodeID: String, role: UInt8, amountCommitted: UFix64)`
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -236,7 +245,9 @@ After this event is emitted for your node, you can begin to perform staking tran
 
 ### NodeRemovedAndRefunded[​](#noderemovedandrefunded "Direct link to NodeRemovedAndRefunded")
 
- `_10access(all) event NodeRemovedAndRefunded(nodeID: String, amount: UFix64)`
+`_10
+
+access(all) event NodeRemovedAndRefunded(nodeID: String, amount: UFix64)`
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -256,7 +267,9 @@ Events emitted when using delegation are described in the next section.
 
 ### TokensCommitted[​](#tokenscommitted "Direct link to TokensCommitted")
 
- `_10access(all) event TokensCommitted(nodeID: String, amount: UFix64)`
+`_10
+
+access(all) event TokensCommitted(nodeID: String, amount: UFix64)`
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -276,7 +289,9 @@ After this event, the FLOW tokens will be part of the node's `tokensCommitted` b
 
 ### TokensStaked[​](#tokensstaked "Direct link to TokensStaked")
 
- `_10access(all) event TokensStaked(nodeID: String, amount: UFix64)`
+`_10
+
+access(all) event TokensStaked(nodeID: String, amount: UFix64)`
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -289,7 +304,9 @@ After this event, the tokens will be part of the node's staked balance.
 
 ### TokensUnstaking[​](#tokensunstaking "Direct link to TokensUnstaking")
 
- `_10access(all) event TokensUnstaking(nodeID: String, amount: UFix64)`
+`_10
+
+access(all) event TokensUnstaking(nodeID: String, amount: UFix64)`
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -302,7 +319,9 @@ After this event, the tokens will be a part of the node operator's `tokensUnstak
 
 ### TokensUnstaked[​](#tokensunstaked "Direct link to TokensUnstaked")
 
- `_10access(all) event TokensUnstaked(nodeID: String, amount: UFix64)`
+`_10
+
+access(all) event TokensUnstaked(nodeID: String, amount: UFix64)`
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -314,7 +333,9 @@ when tokens are deposited into the `tokensUnstaked` pool:
 
 ### RewardsPaid[​](#rewardspaid "Direct link to RewardsPaid")
 
- `_10access(all) event RewardsPaid(nodeID: String, amount: UFix64)`
+`_10
+
+access(all) event RewardsPaid(nodeID: String, amount: UFix64)`
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -329,7 +350,9 @@ The Delegator rewards are paid at the same time, see `DelegatorRewardsPaid` belo
 
 ### UnstakedTokensWithdrawn[​](#unstakedtokenswithdrawn "Direct link to UnstakedTokensWithdrawn")
 
- `_10access(all) event UnstakedTokensWithdrawn(nodeID: String, amount: UFix64)`
+`_10
+
+access(all) event UnstakedTokensWithdrawn(nodeID: String, amount: UFix64)`
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -343,7 +366,9 @@ After this event, the FLOW tokens will be withdrawn to a newly created `Fungible
 
 ### RewardTokensWithdrawn[​](#rewardtokenswithdrawn "Direct link to RewardTokensWithdrawn")
 
- `_10access(all) event RewardTokensWithdrawn(nodeID: String, amount: UFix64)`
+`_10
+
+access(all) event RewardTokensWithdrawn(nodeID: String, amount: UFix64)`
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -361,7 +386,9 @@ These are events that concern FLOW token delegation.
 
 ### NewDelegatorCreated[​](#newdelegatorcreated "Direct link to NewDelegatorCreated")
 
- `_10access(all) event NewDelegatorCreated(nodeID: String, delegatorID: UInt32)`
+`_10
+
+access(all) event NewDelegatorCreated(nodeID: String, delegatorID: UInt32)`
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -376,7 +403,9 @@ After this event, the new delegator is registered with the node.
 
 ### DelegatorTokensCommitted[​](#delegatortokenscommitted "Direct link to DelegatorTokensCommitted")
 
- `_10access(all) event DelegatorTokensCommitted(nodeID: String, delegatorID: UInt32, amount: UFix64)`
+`_10
+
+access(all) event DelegatorTokensCommitted(nodeID: String, delegatorID: UInt32, amount: UFix64)`
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -397,7 +426,9 @@ After this event, the FLOW tokens will be part of the delegator's `tokensCommitt
 
 ### DelegatorTokensStaked[​](#delegatortokensstaked "Direct link to DelegatorTokensStaked")
 
- `_10access(all) event DelegatorTokensStaked(nodeID: String, delegatorID: UInt32, amount: UFix64)`
+`_10
+
+access(all) event DelegatorTokensStaked(nodeID: String, delegatorID: UInt32, amount: UFix64)`
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -411,7 +442,9 @@ After this event, the tokens will be part of the delegator's staked balance.
 
 ### DelegatorTokensUnstaking[​](#delegatortokensunstaking "Direct link to DelegatorTokensUnstaking")
 
- `_10access(all) event DelegatorTokensUnstaking(nodeID: String, delegatorID: UInt32, amount: UFix64)`
+`_10
+
+access(all) event DelegatorTokensUnstaking(nodeID: String, delegatorID: UInt32, amount: UFix64)`
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -425,7 +458,9 @@ After this event, the tokens will be a part of the delegator's `tokensUnstaking`
 
 ### DelegatorTokensUnstaked[​](#delegatortokensunstaked "Direct link to DelegatorTokensUnstaked")
 
- `_10access(all) event DelegatorTokensUnstaked(nodeID: String, delegatorID: UInt32, amount: UFix64)`
+`_10
+
+access(all) event DelegatorTokensUnstaked(nodeID: String, delegatorID: UInt32, amount: UFix64)`
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -438,7 +473,9 @@ when tokens are deposited into the delegator's `tokensUnstaked` pool:
 
 ### DelegatorRewardsPaid[​](#delegatorrewardspaid "Direct link to DelegatorRewardsPaid")
 
- `_10access(all) event DelegatorRewardsPaid(nodeID: String, delegatorID: UInt32, amount: UFix64)`
+`_10
+
+access(all) event DelegatorRewardsPaid(nodeID: String, delegatorID: UInt32, amount: UFix64)`
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -454,7 +491,9 @@ The Node rewards are paid at the same time, see `RewardsPaid` above.
 
 ### DelegatorUnstakedTokensWithdrawn[​](#delegatorunstakedtokenswithdrawn "Direct link to DelegatorUnstakedTokensWithdrawn")
 
- `_10access(all) event DelegatorUnstakedTokensWithdrawn(nodeID: String, delegatorID: UInt32, amount: UFix64)`
+`_10
+
+access(all) event DelegatorUnstakedTokensWithdrawn(nodeID: String, delegatorID: UInt32, amount: UFix64)`
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -469,7 +508,9 @@ After this event, the FLOW tokens will be withdrawn to a newly created `Fungible
 
 ### DelegatorRewardTokensWithdrawn[​](#delegatorrewardtokenswithdrawn "Direct link to DelegatorRewardTokensWithdrawn")
 
- `_10access(all) event DelegatorRewardTokensWithdrawn(nodeID: String, delegatorID: UInt32, amount: UFix64)`
+`_10
+
+access(all) event DelegatorRewardTokensWithdrawn(nodeID: String, delegatorID: UInt32, amount: UFix64)`
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -482,7 +523,16 @@ unstaked tokens balance.
 
 After this event, the FLOW tokens will be withdrawn to a newly created `FungibleToken.Vault` which the caller can deposit to the vault of their choice.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/07-staking-scripts-events.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousStaking Technical Overview](/networks/staking/technical-overview)[NextHow to Query Staking rewards](/networks/staking/staking-rewards)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/07-staking-scripts-events.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Staking Technical Overview](/networks/staking/technical-overview)[Next
+
+How to Query Staking rewards](/networks/staking/staking-rewards)
+
 ###### Rate this page
 
 😞😐😊
@@ -522,6 +572,7 @@ After this event, the FLOW tokens will be withdrawn to a newly created `Fungible
   + [DelegatorRewardsPaid](#delegatorrewardspaid)
   + [DelegatorUnstakedTokensWithdrawn](#delegatorunstakedtokenswithdrawn)
   + [DelegatorRewardTokensWithdrawn](#delegatorrewardtokenswithdrawn)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -534,6 +585,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -543,6 +595,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -550,6 +603,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -559,6 +613,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -566,5 +621,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

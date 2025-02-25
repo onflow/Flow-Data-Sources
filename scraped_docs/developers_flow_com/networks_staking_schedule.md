@@ -1,20 +1,22 @@
 # Source: https://developers.flow.com/networks/staking/schedule
 
-
-
-
 Epoch and Reward Schedule | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
 * [Flow's Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
+
   + [Epoch and Staking Terminology](/networks/staking/epoch-terminology)
   + [Epoch and Reward Schedule](/networks/staking/schedule)
   + [Epoch Preparation Protocol](/networks/staking/epoch-preparation)
@@ -35,10 +37,11 @@ Epoch and Reward Schedule | Flow Developer Portal
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
-
 * [Staking and Epochs](/networks/staking)
 * Epoch and Reward Schedule
+
 On this page
+
 warning
 
 This information covers the current state of how epoch phases are ran and how
@@ -46,7 +49,6 @@ rewards are calculated and distributed to node operators and delegators.
 All of the information in the document is still being designed and is subject to change
 based on research and discussion by the Flow core team and community.
 If any changes are proposed, the Flow community will be notified in advance.
-
 
 # Schedule
 
@@ -139,7 +141,9 @@ that is proportional to their percentage of all the tokens that are staked by al
 
 The full reward calculation on a per-user basis is equal to:
 
- `_10New Reward(user) = Tr * (Sn / St)`
+`_10
+
+New Reward(user) = Tr * (Sn / St)`
 
 where:
 
@@ -175,7 +179,16 @@ rewards were paid at the end of an epoch and the network transitioned to a new e
 Future rewards payments and epoch switchovers happen automatically via a system chunk transaction,
 which does not create regular transaction IDs.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/03-schedule.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousEpoch and Staking Terminology](/networks/staking/epoch-terminology)[NextEpoch Preparation Protocol](/networks/staking/epoch-preparation)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/03-schedule.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Epoch and Staking Terminology](/networks/staking/epoch-terminology)[Next
+
+Epoch Preparation Protocol](/networks/staking/epoch-preparation)
+
 ###### Rate this page
 
 😞😐😊
@@ -186,6 +199,7 @@ which does not create regular transaction IDs.
 * [Rewards Distribution](#rewards-distribution)
 * [Individual Calculation](#individual-calculation)
 * [Rewards History](#rewards-history)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -198,6 +212,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -207,6 +222,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -214,6 +230,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -223,6 +240,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -230,5 +248,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

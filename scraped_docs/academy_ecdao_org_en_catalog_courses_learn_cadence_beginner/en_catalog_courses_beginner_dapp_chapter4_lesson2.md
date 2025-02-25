@@ -1,30 +1,14 @@
 # Source: https://academy.ecdao.org/en/catalog/courses/beginner-dapp/chapter4/lesson2
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -56,7 +40,6 @@ Connect
 
 Course Overview
 
-
 [Catalog](/en/catalog)
 [Course](/en/catalog/courses/beginner-dapp)
 Beginner Dapp
@@ -78,6 +61,7 @@ In our `./pages/index.js` file, letâs add a function to execute a script on
 > Under the `runTransaction` function you made in the quests of Chapter 2 Lesson 4, make a new function called `executeScript`:
 
 javascript
+
 ```
 		
 			async function executeScript() {}
@@ -92,6 +76,7 @@ Inside your function, letâs actually execute a script using FCL by doing tw
 1. Importing `fcl` at the top of the file so we can call the `fcl.query` function:
 
 javascript
+
 ```
 		
 			import * as fcl from '@onflow/fcl';
@@ -102,6 +87,7 @@ javascript
 2. Adding this code inside the `executeScript` function:
 
 javascript
+
 ```
 		
 			async function executeScript() {
@@ -127,6 +113,7 @@ In this case, we want to read the `greeting` variable from our contract. Well, w
 > Go to your `./flow/cadence/scripts/readGreeting.cdc` function and copy everything in that file into your `cadence` string. It should look like this:
 
 javascript
+
 ```
 		
 			async function executeScript() {
@@ -154,6 +141,7 @@ In Chapter 3 Lesson 3, you deployed your contract to a testnet account.
 > Get the address for that account (you probably stored it in your `flow.json`) and replace it in the import, like so:
 
 javascript
+
 ```
 		
 			async function executeScript() {
@@ -185,6 +173,7 @@ We learned in Chapter 4 Lesson 1 (yesterday) that we can do this by using `useEf
 1. Adding `useEffect` to our imports:
 
 javascript
+
 ```
 		
 			import { useState, useEffect } from 'react';
@@ -195,6 +184,7 @@ javascript
 2. Putting a `useEffect` underneath our `executeScript` function:
 
 javascript
+
 ```
 		
 			useEffect(() => {
@@ -207,6 +197,7 @@ javascript
 But how do we make sure this happens every time we refresh the page? Remember from Chapter 4 Lesson 1 that you have to add the `[]`:
 
 javascript
+
 ```
 		
 			useEffect(() => {
@@ -227,6 +218,7 @@ Of course, mine is âGoodbye, Loserâ. How sweet of me.
 We did it! We are successfully reading from the blockchain. Here is what your `./pages/index.js` page should now look like:
 
 javascript
+
 ```
 		
 			import Head from 'next/head';
@@ -292,6 +284,7 @@ export default function Home() {
 		 
 	
 ```
+
 ## Quests
 
 You have a lot of tools under your belt now, in fact much more than you think you do. Letâs see what youâre capable ofâ¦
@@ -313,23 +306,21 @@ Submit all the code you used to call the script, and the result of the script.
 
 Submit all the code you used to do this.
 
-
 ![User avatar](/avatars/jacob.jpeg)
 
 Author
 
 [Jacob Tucker](https://twitter.com/jacobmtucker)
 
-
-
-
 [Video lesson](#)
 [Quests](#quests)
-[Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/beginner-dapp/en/chapter4/lesson2.md)
 
+[Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/beginner-dapp/en/chapter4/lesson2.md)
 
 [Connecting the Blockchain](/en/catalog/courses/beginner-dapp/chapter4/lesson1)
 [Passing in Arguments to a Script](/en/catalog/courses/beginner-dapp/chapter4/lesson3)
+
+
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
@@ -337,17 +328,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

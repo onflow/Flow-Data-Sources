@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/build/guides/account-linking
 
-
-
-
 Account Linking (FLIP 72) | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -19,7 +20,9 @@ Account Linking (FLIP 72) | Flow Developer Portal
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
 * [Guides](/build/guides/account-linking)
+
   + [Account Linking (FLIP 72)](/build/guides/account-linking)
+
     - [Building Walletless Applications Using Child Accounts](/build/guides/account-linking/child-accounts)
     - [Working With Parent Accounts](/build/guides/account-linking/parent-accounts)
   + [Account Linking With NBA Top Shot](/build/guides/account-linking-with-dapper)
@@ -30,10 +33,11 @@ Account Linking (FLIP 72) | Flow Developer Portal
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
-
 * Guides
 * Account Linking (FLIP 72)
+
 On this page
+
 # Account Linking
 
 Account linking is a unique Flow concept that enables sharing ownership over [accounts](/build/basics/accounts). In
@@ -100,13 +104,128 @@ These two steps are implemented in Cadence as two transactions:
 
 The account B creates and publishes the `&Account` Capability to the account A at the address `0x01`
 
- `_12#allowAccountLinking_12_12transaction {_12 prepare(signer: auth(IssueAccountCapabilityController, PublishInboxCapability) &Account) {_12 // Issue a fully-entitled account capability_12 let capability = signer.capabilities_12 .account_12 .issue<auth(Storage, Contracts, Keys, Inbox, Capabilities) &Account>()_12 // Publish the capability for the specified recipient_12 signer.inbox.publish(capability, name: "accountCapA", recipient: 0x1)_12 }_12}`
+`_12
+
+#allowAccountLinking
+
+_12
+
+_12
+
+transaction {
+
+_12
+
+prepare(signer: auth(IssueAccountCapabilityController, PublishInboxCapability) &Account) {
+
+_12
+
+// Issue a fully-entitled account capability
+
+_12
+
+let capability = signer.capabilities
+
+_12
+
+.account
+
+_12
+
+.issue<auth(Storage, Contracts, Keys, Inbox, Capabilities) &Account>()
+
+_12
+
+// Publish the capability for the specified recipient
+
+_12
+
+signer.inbox.publish(capability, name: "accountCapA", recipient: 0x1)
+
+_12
+
+}
+
+_12
+
+}`
 
 ****************************Claim capability****************************
 
 The account A claims the Capability published by account B.
 
- `_18transaction {_18 prepare(signer: auth(ClaimInboxCapability) &Account) {_18 let capabilityName = "accountCapB"_18 let providerAddress = 0x2_18 // Claim the capability published by the account 0x2_18 let capability = signer.inbox_18 .claim<auth(Storage, Contracts, Keys, Inbox, Capabilities) &Account>(_18 capabilityName,_18 provider: providerAddress_18 ) ?? panic(_18 "Capability with name ".concat(capabilityName)_18 .concat(" from provider ").concat(providerAddress.toString())_18 .concat(" not found")_18 )_18 // Simply borrowing an Account reference here for demonstration purposes_18 let accountRef = capability.borrow()!_18 }_18}`
+`_18
+
+transaction {
+
+_18
+
+prepare(signer: auth(ClaimInboxCapability) &Account) {
+
+_18
+
+let capabilityName = "accountCapB"
+
+_18
+
+let providerAddress = 0x2
+
+_18
+
+// Claim the capability published by the account 0x2
+
+_18
+
+let capability = signer.inbox
+
+_18
+
+.claim<auth(Storage, Contracts, Keys, Inbox, Capabilities) &Account>(
+
+_18
+
+capabilityName,
+
+_18
+
+provider: providerAddress
+
+_18
+
+) ?? panic(
+
+_18
+
+"Capability with name ".concat(capabilityName)
+
+_18
+
+.concat(" from provider ").concat(providerAddress.toString())
+
+_18
+
+.concat(" not found")
+
+_18
+
+)
+
+_18
+
+// Simply borrowing an Account reference here for demonstration purposes
+
+_18
+
+let accountRef = capability.borrow()!
+
+_18
+
+}
+
+_18
+
+}`
+
 ## What is account linking most useful for?[​](#what-is-account-linking-most-useful-for "Direct link to What is account linking most useful for?")
 
 Account linking was specifically designed to enable smooth and seamless custodial onboarding of users to your Flow based
@@ -186,7 +305,17 @@ Learn more about it in the [Hybrid Custody documentation](/build/guides/account-
   [Magic](https://magic.link/).
 * [Starter template](https://github.com/Niftory/niftory-samples/tree/main/walletless-onboarding) for
   [Niftory](https://niftory.com/) Account Linking API.
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking/index.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousScaling Transactions from a Single Account](/build/advanced-concepts/scaling)[NextBuilding Walletless Applications Using Child Accounts](/build/guides/account-linking/child-accounts)
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking/index.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Scaling Transactions from a Single Account](/build/advanced-concepts/scaling)[Next
+
+Building Walletless Applications Using Child Accounts](/build/guides/account-linking/child-accounts)
+
 ###### Rate this page
 
 😞😐😊
@@ -199,6 +328,7 @@ Learn more about it in the [Hybrid Custody documentation](/build/guides/account-
 * [Hybrid Custody and Account Linking](#hybrid-custody-and-account-linking)
   + [Guides](#guides)
   + [Resources](#resources)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -211,6 +341,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -220,6 +351,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -227,6 +359,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -236,6 +369,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -243,5 +377,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

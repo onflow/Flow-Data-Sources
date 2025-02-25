@@ -1,19 +1,21 @@
 # Source: https://developers.flow.com/tools/flow-cli/utils/snapshot-save
 
-
-
-
 Snapshot Save | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
 * [Flow CLI](/tools/flow-cli)
+
   + [Install Instructions](/tools/flow-cli/install)
   + [Super Commands](/tools/flow-cli/super-commands)
   + [Accounts](/tools/flow-cli/accounts/get-accounts)
@@ -24,6 +26,7 @@ Snapshot Save | Flow Developer Portal
   + [Flow.json](/tools/flow-cli/flow.json/initialize-configuration)
   + [Flow Entities](/tools/flow-cli/get-flow-data/get-blocks)
   + [Utils](/tools/flow-cli/utils/signature-generate)
+
     - [Generate a Signature](/tools/flow-cli/utils/signature-generate)
     - [Verify Signature](/tools/flow-cli/utils/signature-verify)
     - [Snapshot Save](/tools/flow-cli/utils/snapshot-save)
@@ -40,22 +43,32 @@ Snapshot Save | Flow Developer Portal
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 
-
 * [Flow CLI](/tools/flow-cli)
 * Utils
 * Snapshot Save
+
 On this page
+
 # Snapshot Save
 
 The FLOW CLI provides a command to save the latest finalized protocol state snapshot
 
- `_10flow snapshot save <output path>`
+`_10
+
+flow snapshot save <output path>`
+
 ## Example Usage[​](#example-usage "Direct link to Example Usage")
 
- `_10flow snapshot save /tmp/snapshot.json --network testnet`
+`_10
+
+flow snapshot save /tmp/snapshot.json --network testnet`
+
 ### Example response[​](#example-response "Direct link to Example response")
 
- `_10snapshot saved: /tmp/snapshot.json`
+`_10
+
+snapshot saved: /tmp/snapshot.json`
+
 ## Arguments[​](#arguments "Direct link to Arguments")
 
 ### Output Path[​](#output-path "Direct link to Output Path")
@@ -116,7 +129,16 @@ Specify in which format you want to display the result.
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/utils/snapshot-save.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousVerify Signature](/tools/flow-cli/utils/signature-verify)[NextDevelopment Tools](/tools/flow-cli/utils/tools)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/utils/snapshot-save.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Verify Signature](/tools/flow-cli/utils/signature-verify)[Next
+
+Development Tools](/tools/flow-cli/utils/tools)
+
 ###### Rate this page
 
 😞😐😊
@@ -132,6 +154,7 @@ Skip version check during start up to speed up process for slow connections.
   + [Filter](#filter)
   + [Output](#output)
   + [Version Check](#version-check)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -144,6 +167,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -153,6 +177,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -160,6 +185,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -169,6 +195,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -176,5 +203,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

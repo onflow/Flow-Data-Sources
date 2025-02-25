@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/tools/emulator
 
-
-
-
 Flow Emulator | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
@@ -20,9 +21,10 @@ Flow Emulator | Flow Developer Portal
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 
-
 * Flow Emulator
+
 On this page
+
 # Flow Emulator
 
 The Flow Emulator is a lightweight tool that emulates the behaviour of the real Flow network.
@@ -43,7 +45,16 @@ Follow [these steps](/tools/flow-cli/install) to install the Flow CLI on macOS, 
 To learn more about using the Emulator,
 have a look at [the README of the repository](https://github.com/onflow/flow-emulator/#starting-the-server).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/emulator/index.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousData Collection](/tools/flow-cli/data-collection)[NextClients](/tools/clients)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/emulator/index.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Data Collection](/tools/flow-cli/data-collection)[Next
+
+Clients](/tools/clients)
+
 ###### Rate this page
 
 😞😐😊
@@ -51,6 +62,7 @@ have a look at [the README of the repository](https://github.com/onflow/flow-emu
 * [Running the emulator with the Flow CLI](#running-the-emulator-with-the-flow-cli)
   + [Installation](#installation)
 * [Usage](#usage)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -63,6 +75,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -72,6 +85,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -79,6 +93,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -88,6 +103,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -95,5 +111,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

@@ -1,28 +1,14 @@
 # Source: https://academy.ecdao.org/en/quickstarts/3-nft-minting-next
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -35,15 +21,13 @@ NFT Minting
 
 # NFT Minting
 
-
 Quickstart
 
 Next.js
+
 React.js
 
 A Next.js DApp that lets an admin create an NFT Collection and display available NFTs for purchase on a minting site. Users will be able to see their purchased NFTs as well.
-
-
 
 ## ð© Quickstart 3: NFT Minting
 
@@ -66,15 +50,18 @@ Required:
 * [Flow CLI](https://docs.onflow.org/flow-cli/install/) (ð§¨ Make sure to install the correct link for your system ð§¨). You know you have installed it if you type `flow version` in your terminal and it prints a version.
 
 sh
+
 ```
 		
 			git clone https://github.com/emerald-dao/3-nft-minting.git
 		 
 	
 ```
+
 > in a terminal window, ð± install the dependencies start your frontend:
 
 sh
+
 ```
 		
 			cd 3-nft-minting
@@ -83,9 +70,11 @@ npm run dev
 		 
 	
 ```
+
 > in a second terminal window, start your ð·â local emulator:
 
 bash
+
 ```
 		
 			cd 3-nft-minting
@@ -99,6 +88,7 @@ flow emulator start -v
 > in a third terminal window, ð¾ deploy your contract and ð¸ start your local wallet:
 
 bash
+
 ```
 		
 			cd 3-nft-minting
@@ -107,6 +97,7 @@ flow dev-wallet
 		 
 	
 ```
+
 > You can `flow project deploy --update` to deploy a new contract any time.
 
 ð± Open http://localhost:3000 to see the app
@@ -130,6 +121,7 @@ This will mint 3 NFTs and store them in the contract. They will be ready for pur
 > Go back to your application and refresh the page. You will now see some NFTs available for purchase!
 
 ![NFTs now appear on the frontend](https://i.imgur.com/s5uAUMW.png)
+
 ## ð Checkpoint 3: Purchase NFTs
 
 Now that there are NFTs available for purchase, we can go ahead and buy some NFTs.
@@ -143,6 +135,7 @@ Now that there are NFTs available for purchase, we can go ahead and buy some NFT
 If you click approve, you will see that the NFT successfully gets taken off the market and put under the âPurchased NFTsâ category:
 
 ![nft is now purchased](https://i.imgur.com/aMv2KOI.png)
+
 ## ð¾ Checkpoint 4: Fund an Account
 
 Before we try to purchase with another account, we have to make sure they have enough Flow Tokens to buy with.
@@ -173,6 +166,7 @@ After buying an NFT, you should notice the balance of the account decrease.
 > â½ï¸ Add your new testnet account to your `flow.json` by modifying the following lines of code. Paste your address you copied above to where it says âYOUR GENERATED ADDRESSâ, and paste your private key where it says âYOUR PRIVATE KEYâ.
 
 json
+
 ```
 		
 			"accounts": {
@@ -214,6 +208,7 @@ Notice that we do not want to re-deploy NonFungibleToken or MetadataViews. That 
 > ð Deploy your ExampleNFT smart contract:
 
 sh
+
 ```
 		
 			flow project deploy --network=testnet
@@ -265,16 +260,15 @@ Letâs try out our DApp on testnet:
 
 > ð Problems, questions, comments on the stack? Post them to the [ð Emerald City Discord](https://discord.gg/emerald-city-906264258189332541).
 
-
 ![User avatar](https://avatars.githubusercontent.com/u/100654804?v=4)
 
 Author
 
 [Emerald City](https://twitter.com/emerald_dao)
 
-
 [Fork Quickstart](https://github.com/emerald-dao/3-nft-minting/fork)
 [Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/quickstarts/3-nft-minting-next/en/readme.md)
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
@@ -283,17 +277,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

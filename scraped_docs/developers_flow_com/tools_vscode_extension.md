@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/tools/vscode-extension
 
-
-
-
 Cadence VS Code Extension | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
@@ -18,12 +19,14 @@ Cadence VS Code Extension | Flow Developer Portal
 * [Clients](/tools/clients)
 * [Flow Dev Wallet](/tools/flow-dev-wallet)
 * [Cadence VS Code Extension](/tools/vscode-extension)
+
   + [Use Cursor AI](/tools/vscode-extension/cursor)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 
-
 * Cadence VS Code Extension
+
 On this page
+
 # Cadence VS Code Extension
 
 This extension integrates [Cadence](https://cadence-lang.org/docs), the resource-oriented smart contract programming language of [Flow](https://www.onflow.org/), into [Visual Studio Code](https://code.visualstudio.com/).
@@ -39,7 +42,6 @@ Note that most editing features (type checking, code completion, etc.) are imple
 ## Installation[​](#installation "Direct link to Installation")
 
 To install the extension, ensure you have the [VS Code IDE installed](https://code.visualstudio.com/docs/setup/mac).  
-
 Then, you can install the Cadence extension from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=onflow.cadence).
 
 ## Developing the Extension[​](#developing-the-extension "Direct link to Developing the Extension")
@@ -56,7 +58,58 @@ Then, you can install the Cadence extension from the [VS Code Marketplace](https
 
 ### Configuration for Extension Host if Missing (`launch.json`):[​](#configuration-for-extension-host-if-missing-launchjson "Direct link to configuration-for-extension-host-if-missing-launchjson")
 
- `_13{_13 "version": "0.2.0",_13 "configurations": [_13 {_13 "type": "extensionHost",_13 "request": "launch",_13 "name": "Launch Extension",_13 "runtimeExecutable": "${execPath}",_13 "args": ["--extensionDevelopmentPath=${workspaceFolder}"],_13 "outFiles": ["${workspaceFolder}/out/**/*.js"]_13 }_13 ]_13}`
+`_13
+
+{
+
+_13
+
+"version": "0.2.0",
+
+_13
+
+"configurations": [
+
+_13
+
+{
+
+_13
+
+"type": "extensionHost",
+
+_13
+
+"request": "launch",
+
+_13
+
+"name": "Launch Extension",
+
+_13
+
+"runtimeExecutable": "${execPath}",
+
+_13
+
+"args": ["--extensionDevelopmentPath=${workspaceFolder}"],
+
+_13
+
+"outFiles": ["${workspaceFolder}/out/**/*.js"]
+
+_13
+
+}
+
+_13
+
+]
+
+_13
+
+}`
+
 ### Building[​](#building "Direct link to Building")
 
 If you are building the extension from source, you need to build both the
@@ -66,21 +119,42 @@ you should use the Flow CLI install option (above). It's much easier!
 
 If you haven't already, install dependencies.
 
-script `_10npm install`
+script
+
+`_10
+
+npm install`
 
 Next, build and package the extension.
 
-script `_10npm run package`
+script
+
+`_10
+
+npm run package`
 
 This will result in a `.vsix` file containing the packaged extension.
 
 Install the packaged extension.
 
-script `_10code --install-extension cadence-*.vsix`
+script
+
+`_10
+
+code --install-extension cadence-*.vsix`
 
 Restart VS Code and the extension should be installed!
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/vscode-extension/index.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousFlow Dev Wallet](/tools/flow-dev-wallet)[NextUse Cursor AI](/tools/vscode-extension/cursor)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/vscode-extension/index.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Flow Dev Wallet](/tools/flow-dev-wallet)[Next
+
+Use Cursor AI](/tools/vscode-extension/cursor)
+
 ###### Rate this page
 
 😞😐😊
@@ -92,6 +166,7 @@ Restart VS Code and the extension should be installed!
   + [Getting Started](#getting-started)
   + [Configuration for Extension Host if Missing (`launch.json`):](#configuration-for-extension-host-if-missing-launchjson)
   + [Building](#building)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -104,6 +179,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -113,6 +189,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -120,6 +197,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -129,6 +207,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -136,5 +215,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

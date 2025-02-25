@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/networks
 
-
-
-
 Networks | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
@@ -20,26 +21,49 @@ Networks | Flow Developer Portal
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
-
 * Networks
+
 # Networks
 
+[## 🗃️ Flow Networks
 
-[## 🗃️Flow Networks
+2 items](/networks/flow-networks)
 
-2 items](/networks/flow-networks)[## 🗃️Flow's Network Architecture
+[## 🗃️ Flow's Network Architecture
 
-3 items](/networks/network-architecture)[## 🗃️Staking and Epochs
+3 items](/networks/network-architecture)
 
-15 items](/networks/staking)[## 🗃️Node Ops
+[## 🗃️ Staking and Epochs
 
-4 items](/networks/node-ops)[## 🗃️Accessing Data
+15 items](/networks/staking)
 
-1 items](/networks/access-onchain-data)[## 🏛️Governance
+[## 🗃️ Node Ops
 
-Learn about Flow's governance model and how it's empowering our community of users and builders.](/networks/governance)[## 🗃️Flow Port
+4 items](/networks/node-ops)
 
-1 items](/networks/flow-port)[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/index.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousTestnet](/networks/flow-networks/accessing-testnet)[NextFlow's Network Architecture](/networks/network-architecture)Documentation
+[## 🗃️ Accessing Data
+
+1 items](/networks/access-onchain-data)
+
+[## 🏛️ Governance
+
+Learn about Flow's governance model and how it's empowering our community of users and builders.](/networks/governance)
+
+[## 🗃️ Flow Port
+
+1 items](/networks/flow-port)
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/index.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Testnet](/networks/flow-networks/accessing-testnet)[Next
+
+Flow's Network Architecture](/networks/network-architecture)
+
+Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)
@@ -51,6 +75,7 @@ Learn about Flow's governance model and how it's empowering our community of use
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -60,6 +85,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -67,6 +93,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -76,6 +103,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -83,5 +111,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

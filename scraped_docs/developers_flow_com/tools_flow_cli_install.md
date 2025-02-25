@@ -1,19 +1,21 @@
 # Source: https://developers.flow.com/tools/flow-cli/install
 
-
-
-
 Install Instructions | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
 * [Flow CLI](/tools/flow-cli)
+
   + [Install Instructions](/tools/flow-cli/install)
   + [Super Commands](/tools/flow-cli/super-commands)
   + [Accounts](/tools/flow-cli/accounts/get-accounts)
@@ -36,10 +38,11 @@ Install Instructions | Flow Developer Portal
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 
-
 * [Flow CLI](/tools/flow-cli)
 * Install Instructions
+
 On this page
+
 # Install Instructions
 
 The Flow CLI can be installed on macOS, Windows (7 or greater) and most Linux systems.
@@ -50,14 +53,19 @@ The Flow CLI can be installed on macOS, Windows (7 or greater) and most Linux sy
 
 ### Homebrew[​](#homebrew "Direct link to Homebrew")
 
- `_10brew install flow-cli`
+`_10
+
+brew install flow-cli`
+
 ### From a pre-built binary[​](#from-a-pre-built-binary "Direct link to From a pre-built binary")
 
 *This installation method only works on x86-64.*
 
 This script downloads and installs the appropriate binary for your system:
 
- `_10sh -ci "$(curl -fsSL https://raw.githubusercontent.com/onflow/flow-cli/master/install.sh)"`
+`_10
+
+sh -ci "$(curl -fsSL https://raw.githubusercontent.com/onflow/flow-cli/master/install.sh)"`
 
 To update, simply re-run the installation command above.
 
@@ -71,7 +79,9 @@ It is currently not possible to install earlier versions of the Flow CLI with Ho
 
 This script downloads and installs the appropriate binary for your system:
 
- `_10sh -ci "$(curl -fsSL https://raw.githubusercontent.com/onflow/flow-cli/master/install.sh)"`
+`_10
+
+sh -ci "$(curl -fsSL https://raw.githubusercontent.com/onflow/flow-cli/master/install.sh)"`
 
 To update, simply re-run the installation command above.
 
@@ -79,7 +89,9 @@ To update, simply re-run the installation command above.
 
 To install a specific version of Flow CLI newer than v0.42.0, append the version tag to the command (e.g. the command below installs CLI version v0.44.0).
 
- `_10sh -ci "$(curl -fsSL https://raw.githubusercontent.com/onflow/flow-cli/master/install.sh)" -- v0.44.0`
+`_10
+
+sh -ci "$(curl -fsSL https://raw.githubusercontent.com/onflow/flow-cli/master/install.sh)" -- v0.44.0`
 
 To install a version older than v0.42.0, refer to [Installing versions before 0.42.0](#installing-versions-before-0420) below.
 
@@ -91,8 +103,10 @@ To install a version older than v0.42.0, refer to [Installing versions before 0.
 
 1. Open PowerShell ([Instructions](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-windows-powershell?view=powershell-7#finding-powershell-in-windows-10-81-80-and-7))
 2. In PowerShell, run:
-   
-    `_10iex "& { $(irm 'https://raw.githubusercontent.com/onflow/flow-cli/master/install.ps1') }"`
+
+   `_10
+
+   iex "& { $(irm 'https://raw.githubusercontent.com/onflow/flow-cli/master/install.ps1') }"`
 
 To update, simply re-run the installation command above.
 
@@ -102,14 +116,20 @@ To update, simply re-run the installation command above.
 
 ### Homebrew[​](#homebrew-1 "Direct link to Homebrew")
 
- `_10brew upgrade flow-cli`
+`_10
+
+brew upgrade flow-cli`
+
 ### From a pre-built binary[​](#from-a-pre-built-binary-3 "Direct link to From a pre-built binary")
 
 *This update method only works on x86-64.*
 
 This script downloads and updates the appropriate binary for your system:
 
- `_10sh -ci "$(curl -fsSL https://raw.githubusercontent.com/onflow/flow-cli/master/install.sh)"`
+`_10
+
+sh -ci "$(curl -fsSL https://raw.githubusercontent.com/onflow/flow-cli/master/install.sh)"`
+
 ## Linux[​](#linux-1 "Direct link to Linux")
 
 ### From a pre-built binary[​](#from-a-pre-built-binary-4 "Direct link to From a pre-built binary")
@@ -118,7 +138,10 @@ This script downloads and updates the appropriate binary for your system:
 
 This script downloads and updates the appropriate binary for your system:
 
- `_10sh -ci "$(curl -fsSL https://raw.githubusercontent.com/onflow/flow-cli/master/install.sh)"`
+`_10
+
+sh -ci "$(curl -fsSL https://raw.githubusercontent.com/onflow/flow-cli/master/install.sh)"`
+
 ## Windows[​](#windows-1 "Direct link to Windows")
 
 ### From a pre-built binary[​](#from-a-pre-built-binary-5 "Direct link to From a pre-built binary")
@@ -127,8 +150,10 @@ This script downloads and updates the appropriate binary for your system:
 
 1. Open PowerShell ([Instructions](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-windows-powershell?view=powershell-7#finding-powershell-in-windows-10-81-80-and-7))
 2. In PowerShell, run:
-   
-    `_10iex "& { $(irm 'https://raw.githubusercontent.com/onflow/flow-cli/master/install.ps1') }"`
+
+   `_10
+
+   iex "& { $(irm 'https://raw.githubusercontent.com/onflow/flow-cli/master/install.ps1') }"`
 
 # Uninstalling Flow CLI
 
@@ -146,11 +171,32 @@ If you want to install versions before v0.42.0 you have to use a different insta
 
 **Linux/macOS**
 
- `_10https://raw.githubusercontent.com/onflow/flow-cli/v0.41.3/install.ps1_10_10sh -ci "$(curl -fsSL https://raw.githubusercontent.com/onflow/flow-cli/v0.41.3/install.sh)" -- v0.41.2`
+`_10
+
+https://raw.githubusercontent.com/onflow/flow-cli/v0.41.3/install.ps1
+
+_10
+
+_10
+
+sh -ci "$(curl -fsSL https://raw.githubusercontent.com/onflow/flow-cli/v0.41.3/install.sh)" -- v0.41.2`
 
 **Windows**
 
- `_10iex "& { $(irm 'https://raw.githubusercontent.com/onflow/flow-cli/master/install.ps1') }"`[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/install.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousFlow CLI](/tools/flow-cli)[NextSuper Commands](/tools/flow-cli/super-commands)
+`_10
+
+iex "& { $(irm 'https://raw.githubusercontent.com/onflow/flow-cli/master/install.ps1') }"`
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/install.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Flow CLI](/tools/flow-cli)[Next
+
+Super Commands](/tools/flow-cli/super-commands)
+
 ###### Rate this page
 
 😞😐😊
@@ -171,6 +217,7 @@ If you want to install versions before v0.42.0 you have to use a different insta
 * [Windows](#windows-1)
   + [From a pre-built binary](#from-a-pre-built-binary-5)
 * [Installing versions before 0.42.0](#installing-versions-before-0420)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -183,6 +230,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -192,6 +240,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -199,6 +248,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -208,6 +258,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -215,5 +266,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

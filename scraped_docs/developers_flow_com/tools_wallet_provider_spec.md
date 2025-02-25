@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/tools/wallet-provider-spec
 
-
-
-
 Wallet Provider Spec | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
@@ -19,14 +20,16 @@ Wallet Provider Spec | Flow Developer Portal
 * [Flow Dev Wallet](/tools/flow-dev-wallet)
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
+
   + [Authorization Function](/tools/wallet-provider-spec/authorization-function)
   + [Introduction](/tools/wallet-provider-spec/custodial)
   + [Provable Authn](/tools/wallet-provider-spec/provable-authn)
   + [User Signature](/tools/wallet-provider-spec/user-signature)
 
-
 * Wallet Provider Spec
+
 On this page
+
 # Wallet Provider Spec
 
 ## Status[​](#status "Direct link to Status")
@@ -93,11 +96,59 @@ In this section we introduce some common definitions that the individual object 
 
 First, let us define the kinds of FCL objects available:
 
- `_10type ObjectType =_10 | 'PollingResponse'_10 | 'Service'_10 | 'Identity'_10 | 'ServiceProvider'_10 | 'AuthnResponse'_10 | 'Signable'_10 | 'CompositeSignature'_10 | 'OpenID'`
+`_10
+
+type ObjectType =
+
+_10
+
+| 'PollingResponse'
+
+_10
+
+| 'Service'
+
+_10
+
+| 'Identity'
+
+_10
+
+| 'ServiceProvider'
+
+_10
+
+| 'AuthnResponse'
+
+_10
+
+| 'Signable'
+
+_10
+
+| 'CompositeSignature'
+
+_10
+
+| 'OpenID'`
 
 The fields common to all FCL objects then can be defined as follows:
 
- `_10interface ObjectBase<Version = '1.0.0'> {_10 f_vsn: Version_10 f_type: ObjectType_10}`
+`_10
+
+interface ObjectBase<Version = '1.0.0'> {
+
+_10
+
+f_vsn: Version
+
+_10
+
+f_type: ObjectType
+
+_10
+
+}`
 
 The `f_vsn` field is usually `1.0.0` for this specification, but some exceptions will be defined by passing a different `Version` type parameter to `ObjectBase`.
 
@@ -109,10 +160,75 @@ In this section we will define the FCL objects with each `ObjectType`.
 
 We also define the union of them to mean any FCL object:
 
- `_10type FclObject =_10 | PollingResponse_10 | Service_10 | Identity_10 | ServiceProvider_10 | AuthnResponse_10 | Signable_10 | CompositeSignature_10 | OpenID`
+`_10
+
+type FclObject =
+
+_10
+
+| PollingResponse
+
+_10
+
+| Service
+
+_10
+
+| Identity
+
+_10
+
+| ServiceProvider
+
+_10
+
+| AuthnResponse
+
+_10
+
+| Signable
+
+_10
+
+| CompositeSignature
+
+_10
+
+| OpenID`
+
 ### `PollingResponse`[​](#pollingresponse "Direct link to pollingresponse")
 
- `_10interface PollingResponse extends ObjectBase {_10 f_type: 'PollingResponse'_10 status: 'APPROVED' | 'DECLINED' | 'PENDING' | 'REDIRECT'_10 reason: string | null_10 data?: FclObject_10 updates?: FclObject_10 local?: FclObject_10}`
+`_10
+
+interface PollingResponse extends ObjectBase {
+
+_10
+
+f_type: 'PollingResponse'
+
+_10
+
+status: 'APPROVED' | 'DECLINED' | 'PENDING' | 'REDIRECT'
+
+_10
+
+reason: string | null
+
+_10
+
+data?: FclObject
+
+_10
+
+updates?: FclObject
+
+_10
+
+local?: FclObject
+
+_10
+
+}`
 
 Each response back to FCL must be "wrapped" in a `PollingResponse`. The `status` field determines the meaning of the response:
 
@@ -127,14 +243,383 @@ See also [PollingResponse](https://github.com/onflow/fcl-js/blob/master/packages
 
 Here are some examples of valid `PollingResponse` objects:
 
- `_55// APPROVED_55{_55 f_type: "PollingResponse",_55 f_vsn: "1.0.0",_55 status: "APPROVED",_55 data: ___, // what the service needs to send to FCL_55}_55_55// Declined_55{_55 f_type: "PollingResponse",_55 f_vsn: "1.0.0",_55 status: "DECLINED",_55 reason: "Declined by user."_55}_55_55// Pending - Simple_55{_55 f_type: "PollingResponse",_55 f_vsn: "1.0.0",_55 status: "PENDING",_55 updates: {_55 f_type: "Service",_55 f_vsn: "1.0.0",_55 type: "back-channel-rpc",_55 endpoint: "https://____", // where post request will be sent_55 method: "HTTP/POST",_55 data: {}, // will be included in the request's body_55 params: {}, // will be included in the request's url_55 }_55}_55_55// Pending - First Time with Local_55{_55 f_type: "PollingResponse",_55 f_vsn: "1.0.0",_55 status: "PENDING",_55 updates: {_55 f_type: "Service",_55 f_vsn: "1.0.0",_55 type: "back-channel-rpc",_55 endpoint: "https://____", // where post request will be sent_55 method: "HTTP/POST",_55 data: {}, // included in body of request_55 params: {}, // included as query params on endpoint_55 },_55 local: {_55 f_type: "Service",_55 f_vsn: "1.0.0",_55 endpoint: "https://____", // the iframe that will be rendered,_55 method: "VIEW/IFRAME",_55 data: {}, // sent to frame when ready_55 params: {}, // included as query params on endpoint_55 }_55}`
+`_55
+
+// APPROVED
+
+_55
+
+{
+
+_55
+
+f_type: "PollingResponse",
+
+_55
+
+f_vsn: "1.0.0",
+
+_55
+
+status: "APPROVED",
+
+_55
+
+data: ___, // what the service needs to send to FCL
+
+_55
+
+}
+
+_55
+
+_55
+
+// Declined
+
+_55
+
+{
+
+_55
+
+f_type: "PollingResponse",
+
+_55
+
+f_vsn: "1.0.0",
+
+_55
+
+status: "DECLINED",
+
+_55
+
+reason: "Declined by user."
+
+_55
+
+}
+
+_55
+
+_55
+
+// Pending - Simple
+
+_55
+
+{
+
+_55
+
+f_type: "PollingResponse",
+
+_55
+
+f_vsn: "1.0.0",
+
+_55
+
+status: "PENDING",
+
+_55
+
+updates: {
+
+_55
+
+f_type: "Service",
+
+_55
+
+f_vsn: "1.0.0",
+
+_55
+
+type: "back-channel-rpc",
+
+_55
+
+endpoint: "https://____", // where post request will be sent
+
+_55
+
+method: "HTTP/POST",
+
+_55
+
+data: {}, // will be included in the request's body
+
+_55
+
+params: {}, // will be included in the request's url
+
+_55
+
+}
+
+_55
+
+}
+
+_55
+
+_55
+
+// Pending - First Time with Local
+
+_55
+
+{
+
+_55
+
+f_type: "PollingResponse",
+
+_55
+
+f_vsn: "1.0.0",
+
+_55
+
+status: "PENDING",
+
+_55
+
+updates: {
+
+_55
+
+f_type: "Service",
+
+_55
+
+f_vsn: "1.0.0",
+
+_55
+
+type: "back-channel-rpc",
+
+_55
+
+endpoint: "https://____", // where post request will be sent
+
+_55
+
+method: "HTTP/POST",
+
+_55
+
+data: {}, // included in body of request
+
+_55
+
+params: {}, // included as query params on endpoint
+
+_55
+
+},
+
+_55
+
+local: {
+
+_55
+
+f_type: "Service",
+
+_55
+
+f_vsn: "1.0.0",
+
+_55
+
+endpoint: "https://____", // the iframe that will be rendered,
+
+_55
+
+method: "VIEW/IFRAME",
+
+_55
+
+data: {}, // sent to frame when ready
+
+_55
+
+params: {}, // included as query params on endpoint
+
+_55
+
+}
+
+_55
+
+}`
 
 A `PollingResponse` can alternatively be constructed using `WalletUtils` when sending `"APPROVED"` or `"DECLINED"` responses.
 
- `_14import {WalletUtils} from "@onflow/fcl"_14_14// Approving a PollingResponse_14// Example using an AuthnResponse as the PollingResponse data_14WalletUtils.approve({_14 f_type: "AuthnResponse",_14 f_vsn: "1.0.0"_14 ..._14})_14_14// Rejecting a PollingResponse_14// Supplies a reason for declining_14const reason = "User declined to authenticate."_14WalletUtils.decline(reason)`
+`_14
+
+import {WalletUtils} from "@onflow/fcl"
+
+_14
+
+_14
+
+// Approving a PollingResponse
+
+_14
+
+// Example using an AuthnResponse as the PollingResponse data
+
+_14
+
+WalletUtils.approve({
+
+_14
+
+f_type: "AuthnResponse",
+
+_14
+
+f_vsn: "1.0.0"
+
+_14
+
+...
+
+_14
+
+})
+
+_14
+
+_14
+
+// Rejecting a PollingResponse
+
+_14
+
+// Supplies a reason for declining
+
+_14
+
+const reason = "User declined to authenticate."
+
+_14
+
+WalletUtils.decline(reason)`
+
 ### `Service`[​](#service "Direct link to service")
 
- `_28type ServiceType =_28 | 'authn'_28 | 'authz'_28 | 'user-signature'_28 | 'pre-authz'_28 | 'open-id'_28 | 'back-channel-rpc'_28 | 'authn-refresh'_28_28type ServiceMethod =_28 | 'HTTP/POST'_28 | 'IFRAME/RPC'_28 | 'POP/RPC'_28 | 'TAB/RPC'_28 | 'EXT/RPC'_28 | 'DATA'_28_28interface Service extends ObjectBase {_28 f_type: 'Service'_28 type: ServiceType_28 method: ServiceMethod_28 uid: string_28 endpoint: string_28 id: string_28 identity: Identity_28 provider?: ServiceProvider_28 data?: FclObject_28}`
+`_28
+
+type ServiceType =
+
+_28
+
+| 'authn'
+
+_28
+
+| 'authz'
+
+_28
+
+| 'user-signature'
+
+_28
+
+| 'pre-authz'
+
+_28
+
+| 'open-id'
+
+_28
+
+| 'back-channel-rpc'
+
+_28
+
+| 'authn-refresh'
+
+_28
+
+_28
+
+type ServiceMethod =
+
+_28
+
+| 'HTTP/POST'
+
+_28
+
+| 'IFRAME/RPC'
+
+_28
+
+| 'POP/RPC'
+
+_28
+
+| 'TAB/RPC'
+
+_28
+
+| 'EXT/RPC'
+
+_28
+
+| 'DATA'
+
+_28
+
+_28
+
+interface Service extends ObjectBase {
+
+_28
+
+f_type: 'Service'
+
+_28
+
+type: ServiceType
+
+_28
+
+method: ServiceMethod
+
+_28
+
+uid: string
+
+_28
+
+endpoint: string
+
+_28
+
+id: string
+
+_28
+
+identity: Identity
+
+_28
+
+provider?: ServiceProvider
+
+_28
+
+data?: FclObject
+
+_28
+
+}`
 
 The meaning of the fields is as follows.
 
@@ -161,7 +646,25 @@ See also:
 
 This object is used to define the identity of the user.
 
- `_10interface Identity extends ObjectBase {_10 f_type: 'Identity'_10 address: string_10 keyId?: number_10}`
+`_10
+
+interface Identity extends ObjectBase {
+
+_10
+
+f_type: 'Identity'
+
+_10
+
+address: string
+
+_10
+
+keyId?: number
+
+_10
+
+}`
 
 The meaning of the fields is as follows.
 
@@ -172,7 +675,45 @@ The meaning of the fields is as follows.
 
 This object is used to communicate information about a wallet.
 
- `_10interface ServiceProvider extends ObjectBase {_10 f_type: 'ServiceProvider'_10 address: string_10 name?: string_10 description?: string_10 icon?: string_10 website?: string_10 supportUrl?: string_10 supportEmail?: string_10}`
+`_10
+
+interface ServiceProvider extends ObjectBase {
+
+_10
+
+f_type: 'ServiceProvider'
+
+_10
+
+address: string
+
+_10
+
+name?: string
+
+_10
+
+description?: string
+
+_10
+
+icon?: string
+
+_10
+
+website?: string
+
+_10
+
+supportUrl?: string
+
+_10
+
+supportEmail?: string
+
+_10
+
+}`
 
 The meaning of the fields is as follows.
 
@@ -188,7 +729,25 @@ The meaning of the fields is as follows.
 
 This object is used to inform FCL about the services a wallet provides.
 
- `_10interface AuthnResponse extends ObjectBase {_10 f_type: 'AuthnResponse'_10 addr: string_10 services: Service[]_10}`
+`_10
+
+interface AuthnResponse extends ObjectBase {
+
+_10
+
+f_type: 'AuthnResponse'
+
+_10
+
+addr: string
+
+_10
+
+services: Service[]
+
+_10
+
+}`
 
 The meaning of the fields is as follows.
 
@@ -197,13 +756,117 @@ The meaning of the fields is as follows.
 
 ### `Signable`[​](#signable "Direct link to signable")
 
- `_21interface Signable extends ObjectBase<'1.0.1'> {_21 f_type: 'Signable'_21 addr: string_21 keyId: number_21 voucher: {_21 cadence: string_21 refBlock: string_21 computeLimit: number_21 arguments: {_21 type: string_21 value: unknown_21 }[]_21 proposalKey: {_21 address: string_21 keyId: number_21 sequenceNum: number_21 }_21 payer: string_21 authorizers: string[]_21 }_21}`
+`_21
+
+interface Signable extends ObjectBase<'1.0.1'> {
+
+_21
+
+f_type: 'Signable'
+
+_21
+
+addr: string
+
+_21
+
+keyId: number
+
+_21
+
+voucher: {
+
+_21
+
+cadence: string
+
+_21
+
+refBlock: string
+
+_21
+
+computeLimit: number
+
+_21
+
+arguments: {
+
+_21
+
+type: string
+
+_21
+
+value: unknown
+
+_21
+
+}[]
+
+_21
+
+proposalKey: {
+
+_21
+
+address: string
+
+_21
+
+keyId: number
+
+_21
+
+sequenceNum: number
+
+_21
+
+}
+
+_21
+
+payer: string
+
+_21
+
+authorizers: string[]
+
+_21
+
+}
+
+_21
+
+}`
 
 The `WalletUtils.encodeMessageFromSignable` function can be used to calculate the message that needs to be signed.
 
 ### `CompositeSignature`[​](#compositesignature "Direct link to compositesignature")
 
- `_10interface CompositeSignature extends ObjectBase {_10 f_type: 'CompositeSignature'_10 addr: string_10 keyId: number_10 signature: string_10}`
+`_10
+
+interface CompositeSignature extends ObjectBase {
+
+_10
+
+f_type: 'CompositeSignature'
+
+_10
+
+addr: string
+
+_10
+
+keyId: number
+
+_10
+
+signature: string
+
+_10
+
+}`
 
 See also [CompositeSignature](https://github.com/onflow/fcl-js/blob/master/packages/fcl-core/src/normalizers/service/composite-signature.js).
 
@@ -215,7 +878,39 @@ TODO
 
 ### `Message`[​](#message "Direct link to message")
 
- `_10type MessageType =_10 | 'FCL:VIEW:READY'_10 | 'FCL:VIEW:READY:RESPONSE'_10 | 'FCL:VIEW:RESPONSE'_10 | 'FCL:VIEW:CLOSE'_10_10type Message = {_10 type: MessageType_10}`
+`_10
+
+type MessageType =
+
+_10
+
+| 'FCL:VIEW:READY'
+
+_10
+
+| 'FCL:VIEW:READY:RESPONSE'
+
+_10
+
+| 'FCL:VIEW:RESPONSE'
+
+_10
+
+| 'FCL:VIEW:CLOSE'
+
+_10
+
+_10
+
+type Message = {
+
+_10
+
+type: MessageType
+
+_10
+
+}`
 
 A message that indicates the status of the protocol invocation.
 
@@ -223,7 +918,17 @@ This type is sometimes used as part of an *intersection type*. For example, the 
 
 ### `ExtensionServiceInitiationMessage`[​](#extensionserviceinitiationmessage "Direct link to extensionserviceinitiationmessage")
 
- `_10type ExtensionServiceInitiationMessage = {_10 service: Service_10}`
+`_10
+
+type ExtensionServiceInitiationMessage = {
+
+_10
+
+service: Service
+
+_10
+
+}`
 
 This object is used to invoke a service when the `EXT/RPC` service method is used.
 
@@ -246,8 +951,99 @@ This object is used to invoke a service when the `EXT/RPC` service method is use
   + If it's approved, the polling response's data field will need to be what FCL is expecting.
   + If it's declined, the polling response's reason field should say why it was declined.
 
- `_19export const WalletUtils.approve = data => {_19 sendMsgToFCL("FCL:VIEW:RESPONSE", {_19 f_type: "PollingResponse",_19 f_vsn: "1.0.0",_19 status: "APPROVED",_19 reason: null,_19 data: data,_19 })_19}_19_19export const WalletUtils.decline = reason => {_19 sendMsgToFCL("FCL:VIEW:RESPONSE", {_19 f_type: "PollingResponse",_19 f_vsn: "1.0.0",_19 status: "DECLINED",_19 reason: reason,_19 data: null,_19 })_19}`
- `_10graph LR_10 Start1(Start)_10 --Bot 启动--> check1[检查群内的非 Authing 用户]_10 --> addUser[添加 Authing 用户并消息提醒绑定手机号]_10 --> End1(End)`
+`_19
+
+export const WalletUtils.approve = data => {
+
+_19
+
+sendMsgToFCL("FCL:VIEW:RESPONSE", {
+
+_19
+
+f_type: "PollingResponse",
+
+_19
+
+f_vsn: "1.0.0",
+
+_19
+
+status: "APPROVED",
+
+_19
+
+reason: null,
+
+_19
+
+data: data,
+
+_19
+
+})
+
+_19
+
+}
+
+_19
+
+_19
+
+export const WalletUtils.decline = reason => {
+
+_19
+
+sendMsgToFCL("FCL:VIEW:RESPONSE", {
+
+_19
+
+f_type: "PollingResponse",
+
+_19
+
+f_vsn: "1.0.0",
+
+_19
+
+status: "DECLINED",
+
+_19
+
+reason: reason,
+
+_19
+
+data: null,
+
+_19
+
+})
+
+_19
+
+}`
+
+`_10
+
+graph LR
+
+_10
+
+Start1(Start)
+
+_10
+
+--Bot 启动--> check1[检查群内的非 Authing 用户]
+
+_10
+
+--> addUser[添加 Authing 用户并消息提醒绑定手机号]
+
+_10
+
+--> End1(End)`
 
 ![IFRAME/RPC Diagram](https://raw.githubusercontent.com/onflow/fcl-js/master/packages/fcl-core/assets/service-method-diagrams/iframe-rpc.png)
 
@@ -306,7 +1102,53 @@ Note that as a consequence of the above restrictions, only single service invoca
 
 Here is a code example for how an extension popup might send its response:
 
- `_12 chrome.tabs.sendMessage(tabs[0].id, {_12 f_type: "PollingResponse",_12 f_vsn: "1.0.0",_12 status: "APPROVED",_12 reason: null,_12 data: {_12 f_type: "AuthnResponse",_12 f_vsn: "1.0.0",_12 addr: address,_12 services: services,_12 },_12 });`
+`_12
+
+chrome.tabs.sendMessage(tabs[0].id, {
+
+_12
+
+f_type: "PollingResponse",
+
+_12
+
+f_vsn: "1.0.0",
+
+_12
+
+status: "APPROVED",
+
+_12
+
+reason: null,
+
+_12
+
+data: {
+
+_12
+
+f_type: "AuthnResponse",
+
+_12
+
+f_vsn: "1.0.0",
+
+_12
+
+addr: address,
+
+_12
+
+services: services,
+
+_12
+
+},
+
+_12
+
+});`
 
 ![EXT/RPC Diagram](https://raw.githubusercontent.com/onflow/fcl-js/master/packages/fcl-core/assets/service-method-diagrams/ext-rpc.png)
 
@@ -325,7 +1167,35 @@ In FCL, wallets are configured by passing in a wallet provider's authentication 
 
 You will need to make and expose a webpage or API hosted at an authentication endpoint that FCL will use.
 
- `_10// IN APPLICATION_10// configuring fcl to point at a wallet looks like this_10import {config} from "@onflow/fcl"_10_10config({_10 "discovery.wallet": "url-or-endpoint-fcl-will-use-for-authentication", // FCL Discovery endpoint, wallet provider's authentication URL or extension endpoint_10 "discovery.wallet.method": "IFRAME/RPC" // Optional. Available methods are "IFRAME/RPC", "POP/RPC", "TAB/RPC", "EXT/RPC" or "HTTP/POST", defaults to "IFRAME/RPC"._10})`
+`_10
+
+// IN APPLICATION
+
+_10
+
+// configuring fcl to point at a wallet looks like this
+
+_10
+
+import {config} from "@onflow/fcl"
+
+_10
+
+_10
+
+config({
+
+_10
+
+"discovery.wallet": "url-or-endpoint-fcl-will-use-for-authentication", // FCL Discovery endpoint, wallet provider's authentication URL or extension endpoint
+
+_10
+
+"discovery.wallet.method": "IFRAME/RPC" // Optional. Available methods are "IFRAME/RPC", "POP/RPC", "TAB/RPC", "EXT/RPC" or "HTTP/POST", defaults to "IFRAME/RPC".
+
+_10
+
+})`
 
 If the method specified is `IFRAME/RPC`, `POP/RPC` or `TAB/RPC`, then the URL specified as `discovery.wallet` will be rendered as a webpage. If the configured method is `EXT/RPC`, `discovery.wallet` should be set to the extension's `authn` `endpoint`. Otherwise, if the method specified is `HTTP/POST`, then the authentication process will happen over HTTP requests. (While authentication can be accomplished using any of those service methods, this example will use the `IFRAME/RPC` service method.)
 
@@ -333,7 +1203,141 @@ Once the Authentication webpage is rendered, the extension popup is enabled, or 
 
 The following example is using the `IFRAME/RPC` method. Your authentication webpage will likely resemble the following code:
 
- `_37// IN WALLET AUTHENTICATION FRAME_37import {WalletUtils} from "@onflow/fcl"_37_37function callback(data) {_37 if (typeof data != "object") return_37 if (data.type !== "FCL:VIEW:READY:RESPONSE") return_37_37 ... // Do authentication things ..._37_37 // Send back AuthnResponse_37 WalletUtils.sendMsgToFCL("FCL:VIEW:RESPONSE", {_37 f_type: "PollingResponse",_37 f_vsn: "1.0.0",_37 status: "APPROVED",_37 data: {_37 f_type: "AuthnResponse",_37 f_vsn: "1.0.0"_37 ..._37 }_37 })_37_37 // Alternatively be sent using WalletUtils.approve (or WalletUtils.decline)_37 // which will wrap AuthnResponse in a PollingResponse_37 WalletUtils.approve({_37 f_type: "AuthnResponse",_37 f_vsn: "1.0.0"_37 ..._37 })_37}_37// add event listener first_37WalletUtils.onMsgFromFCL("FCL:VIEW:READY:RESPONSE", callback)_37_37// tell fcl the wallet is ready_37WalletUtils.sendMsgToFCL("FCL:VIEW:READY")_37_37// alternatively adds "FCL:VIEW:READY:RESPONSE" listener and sends "FCL:VIEW:READY"_37WalletUtils.ready(callback)`
+`_37
+
+// IN WALLET AUTHENTICATION FRAME
+
+_37
+
+import {WalletUtils} from "@onflow/fcl"
+
+_37
+
+_37
+
+function callback(data) {
+
+_37
+
+if (typeof data != "object") return
+
+_37
+
+if (data.type !== "FCL:VIEW:READY:RESPONSE") return
+
+_37
+
+_37
+
+... // Do authentication things ...
+
+_37
+
+_37
+
+// Send back AuthnResponse
+
+_37
+
+WalletUtils.sendMsgToFCL("FCL:VIEW:RESPONSE", {
+
+_37
+
+f_type: "PollingResponse",
+
+_37
+
+f_vsn: "1.0.0",
+
+_37
+
+status: "APPROVED",
+
+_37
+
+data: {
+
+_37
+
+f_type: "AuthnResponse",
+
+_37
+
+f_vsn: "1.0.0"
+
+_37
+
+...
+
+_37
+
+}
+
+_37
+
+})
+
+_37
+
+_37
+
+// Alternatively be sent using WalletUtils.approve (or WalletUtils.decline)
+
+_37
+
+// which will wrap AuthnResponse in a PollingResponse
+
+_37
+
+WalletUtils.approve({
+
+_37
+
+f_type: "AuthnResponse",
+
+_37
+
+f_vsn: "1.0.0"
+
+_37
+
+...
+
+_37
+
+})
+
+_37
+
+}
+
+_37
+
+// add event listener first
+
+_37
+
+WalletUtils.onMsgFromFCL("FCL:VIEW:READY:RESPONSE", callback)
+
+_37
+
+_37
+
+// tell fcl the wallet is ready
+
+_37
+
+WalletUtils.sendMsgToFCL("FCL:VIEW:READY")
+
+_37
+
+_37
+
+// alternatively adds "FCL:VIEW:READY:RESPONSE" listener and sends "FCL:VIEW:READY"
+
+_37
+
+WalletUtils.ready(callback)`
 
 During authentication, the application has a chance to request to you what they would like you to send back to them. These requests are included in the `FCL:VIEW:READY:RESPONSE` message sent to the wallet from FCL.
 
@@ -368,12 +1372,384 @@ Your wallet is like a plugin to FCL, and these details tell FCL how to use you a
 
 Here is an example of an authentication response:
 
- `_94// IN WALLET AUTHENTICATION FRAME_94import {WalletUtils} from "@onflow/fcl"_94_94WalletUtils.approve({_94 f_type: "AuthnResponse",_94 f_vsn: "1.0.0",_94 addr: "0xUSER", // The user's flow address_94_94 services: [ // All the stuff that configures FCL_94_94 // Authentication Service - REQUIRED_94 {_94 f_type: "Service", // It's a service!_94 f_vsn: "1.0.0", // Follows the v1.0.0 spec for the service_94 type: "authn", // the type of service it is_94 method: "DATA", // It's data!_94 uid: "amazing-wallet#authn", // A unique identifier for the service_94 endpoint: "your-url-that-fcl-will-use-for-authentication", // should be the same as was passed into the config_94 id: "0xUSER", // the wallet's internal id for the user, use flow address if you don't have one_94 // The User's Info_94 identity: {_94 f_type: "Identity", // It's an Identity!_94 f_vsn: "1.0.0", // Follows the v1.0.0 spec for an identity_94 address: "0xUSER", // The user's address_94 keyId: 0, // OPTIONAL - The User's KeyId they will use_94 },_94 // The Wallet's Info_94 provider: {_94 f_type: "ServiceProvider", // It's a Service Provider_94 f_vsn: "1.0.0", // Follows the v1.0.0 spec for service providers_94 address: "0xWallet", // A flow address owned by the wallet_94 name: "Amazing Wallet", // OPTIONAL - The name of your wallet. ie: "Dapper Wallet" or "Blocto Wallet"_94 description: "The best wallet", // OPTIONAL - A short description for your wallet_94 icon: "https://___", // OPTIONAL - Image url for your wallet's icon_94 website: "https://___", // OPTIONAL - Your wallet's website_94 supportUrl: "https://___", // OPTIONAL - An url the user can use to get support from you_94 supportEmail: "help@aw.com", // OPTIONAL - An email the user can use to get support from you_94 },_94 },_94_94 // Authorization Service_94 {_94 f_type: "Service",_94 f_vsn: "1.0.0",_94 type: "authz",_94 uid: "amazing-wallet#authz",_94 ..._94 // We will cover this at length in the authorization section of this guide_94 },_94_94 // User Signature Service_94 {_94 f_type: "Service",_94 f_vsn: "1.0.0",_94 type: "user-signature",_94 uid: "amazing-wallet#user-signature",_94 ..._94 // We will cover this at length in the user signature section of this guide_94 },_94_94 // OpenID Service_94 {_94 f_type: "Service",_94 f_vsn: "1.0.0",_94 type: "open-id",_94 uid: "amazing-wallet#open-id",_94 method: "DATA",_94 data: { // only include data that was request, ideally only if the user approves the sharing of data, everything is optional_94 f_type: "OpenID",_94 f_vsn: "1.0.0",_94 profile: {_94 name: "Jeff",_94 family_name: "D", // icky underscored names because of OpenID Connect spec_94 given_name: "Jeffrey",_94 middle_name: "FakeMiddleName",_94 nickname: "JeffJeff",_94 preferred_username: "Jeff",_94 profile: "https://www.jeff.jeff/",_94 picture: "https://avatars.onflow.org/avatar/jeff",_94 website: "https://www.jeff.jeff/",_94 gender: "male",_94 birthday: "1900-01-01", // can use 0000 for year if year is not known_94 zoneinfo: "America/Vancouver",_94 locale: "en",_94 updated_at: "1625588304427"_94 },_94 email: {_94 email: "jeff@jeff.jeff",_94 email_verified: false,_94 }_94 },_94 }_94 ]_94})`
+`_94
+
+// IN WALLET AUTHENTICATION FRAME
+
+_94
+
+import {WalletUtils} from "@onflow/fcl"
+
+_94
+
+_94
+
+WalletUtils.approve({
+
+_94
+
+f_type: "AuthnResponse",
+
+_94
+
+f_vsn: "1.0.0",
+
+_94
+
+addr: "0xUSER", // The user's flow address
+
+_94
+
+_94
+
+services: [ // All the stuff that configures FCL
+
+_94
+
+_94
+
+// Authentication Service - REQUIRED
+
+_94
+
+{
+
+_94
+
+f_type: "Service", // It's a service!
+
+_94
+
+f_vsn: "1.0.0", // Follows the v1.0.0 spec for the service
+
+_94
+
+type: "authn", // the type of service it is
+
+_94
+
+method: "DATA", // It's data!
+
+_94
+
+uid: "amazing-wallet#authn", // A unique identifier for the service
+
+_94
+
+endpoint: "your-url-that-fcl-will-use-for-authentication", // should be the same as was passed into the config
+
+_94
+
+id: "0xUSER", // the wallet's internal id for the user, use flow address if you don't have one
+
+_94
+
+// The User's Info
+
+_94
+
+identity: {
+
+_94
+
+f_type: "Identity", // It's an Identity!
+
+_94
+
+f_vsn: "1.0.0", // Follows the v1.0.0 spec for an identity
+
+_94
+
+address: "0xUSER", // The user's address
+
+_94
+
+keyId: 0, // OPTIONAL - The User's KeyId they will use
+
+_94
+
+},
+
+_94
+
+// The Wallet's Info
+
+_94
+
+provider: {
+
+_94
+
+f_type: "ServiceProvider", // It's a Service Provider
+
+_94
+
+f_vsn: "1.0.0", // Follows the v1.0.0 spec for service providers
+
+_94
+
+address: "0xWallet", // A flow address owned by the wallet
+
+_94
+
+name: "Amazing Wallet", // OPTIONAL - The name of your wallet. ie: "Dapper Wallet" or "Blocto Wallet"
+
+_94
+
+description: "The best wallet", // OPTIONAL - A short description for your wallet
+
+_94
+
+icon: "https://___", // OPTIONAL - Image url for your wallet's icon
+
+_94
+
+website: "https://___", // OPTIONAL - Your wallet's website
+
+_94
+
+supportUrl: "https://___", // OPTIONAL - An url the user can use to get support from you
+
+_94
+
+supportEmail: "help@aw.com", // OPTIONAL - An email the user can use to get support from you
+
+_94
+
+},
+
+_94
+
+},
+
+_94
+
+_94
+
+// Authorization Service
+
+_94
+
+{
+
+_94
+
+f_type: "Service",
+
+_94
+
+f_vsn: "1.0.0",
+
+_94
+
+type: "authz",
+
+_94
+
+uid: "amazing-wallet#authz",
+
+_94
+
+...
+
+_94
+
+// We will cover this at length in the authorization section of this guide
+
+_94
+
+},
+
+_94
+
+_94
+
+// User Signature Service
+
+_94
+
+{
+
+_94
+
+f_type: "Service",
+
+_94
+
+f_vsn: "1.0.0",
+
+_94
+
+type: "user-signature",
+
+_94
+
+uid: "amazing-wallet#user-signature",
+
+_94
+
+...
+
+_94
+
+// We will cover this at length in the user signature section of this guide
+
+_94
+
+},
+
+_94
+
+_94
+
+// OpenID Service
+
+_94
+
+{
+
+_94
+
+f_type: "Service",
+
+_94
+
+f_vsn: "1.0.0",
+
+_94
+
+type: "open-id",
+
+_94
+
+uid: "amazing-wallet#open-id",
+
+_94
+
+method: "DATA",
+
+_94
+
+data: { // only include data that was request, ideally only if the user approves the sharing of data, everything is optional
+
+_94
+
+f_type: "OpenID",
+
+_94
+
+f_vsn: "1.0.0",
+
+_94
+
+profile: {
+
+_94
+
+name: "Jeff",
+
+_94
+
+family_name: "D", // icky underscored names because of OpenID Connect spec
+
+_94
+
+given_name: "Jeffrey",
+
+_94
+
+middle_name: "FakeMiddleName",
+
+_94
+
+nickname: "JeffJeff",
+
+_94
+
+preferred_username: "Jeff",
+
+_94
+
+profile: "https://www.jeff.jeff/",
+
+_94
+
+picture: "https://avatars.onflow.org/avatar/jeff",
+
+_94
+
+website: "https://www.jeff.jeff/",
+
+_94
+
+gender: "male",
+
+_94
+
+birthday: "1900-01-01", // can use 0000 for year if year is not known
+
+_94
+
+zoneinfo: "America/Vancouver",
+
+_94
+
+locale: "en",
+
+_94
+
+updated_at: "1625588304427"
+
+_94
+
+},
+
+_94
+
+email: {
+
+_94
+
+email: "jeff@jeff.jeff",
+
+_94
+
+email_verified: false,
+
+_94
+
+}
+
+_94
+
+},
+
+_94
+
+}
+
+_94
+
+]
+
+_94
+
+})`
+
 ### Stopping an Authentication Process[​](#stopping-an-authentication-process "Direct link to Stopping an Authentication Process")
 
 From any frame, you can send a `FCL:VIEW:CLOSE` post message to FCL, which will halt FCL's current routine and close the frame.
 
- `_10import {WalletUtils} from "@onflow/fcl"_10_10WalletUtils.sendMsgToFCL("FCL:VIEW:CLOSE")`
+`_10
+
+import {WalletUtils} from "@onflow/fcl"
+
+_10
+
+_10
+
+WalletUtils.sendMsgToFCL("FCL:VIEW:CLOSE")`
+
 # Authorization Service
 
 Authorization services are depicted with with a `type: "authz"`, and a `method` of either `HTTP/POST`, `IFRAME/RPC`, `POP/RPC`, `TAB/RPC` or `EXT/RPC`.
@@ -381,7 +1757,69 @@ They are expected to eventually return a `f_type: "CompositeSignature"`.
 
 An authorization service is expected to know the Account and the Key that will be used to sign the transaction at the time the service is sent to FCL (during authentication).
 
- `_16{_16 f_type: "Service",_16 f_vsn: "1.0.0",_16 type: "authz", // say it's an authorization service_16 uid: "amazing-wallet#authz", // standard service uid_16 method: "HTTP/POST", // can also be `IFRAME/RPC` or `POP/RPC`_16 endpoint: "https://____", // where to talk to the service_16 identity: {_16 f_type: "Identity",_16 f_vsn: "1.0.0",_16 address: "0xUser", // the address that the signature will be for_16 keyId: 0, // the key for the address that the signature will be for_16 },_16 data: {},_16 params: {},_16}`
+`_16
+
+{
+
+_16
+
+f_type: "Service",
+
+_16
+
+f_vsn: "1.0.0",
+
+_16
+
+type: "authz", // say it's an authorization service
+
+_16
+
+uid: "amazing-wallet#authz", // standard service uid
+
+_16
+
+method: "HTTP/POST", // can also be `IFRAME/RPC` or `POP/RPC`
+
+_16
+
+endpoint: "https://____", // where to talk to the service
+
+_16
+
+identity: {
+
+_16
+
+f_type: "Identity",
+
+_16
+
+f_vsn: "1.0.0",
+
+_16
+
+address: "0xUser", // the address that the signature will be for
+
+_16
+
+keyId: 0, // the key for the address that the signature will be for
+
+_16
+
+},
+
+_16
+
+data: {},
+
+_16
+
+params: {},
+
+_16
+
+}`
 
 FCL will use the `method` provided to request an array of composite signature from authorization service (Wrapped in a `PollingResponse`).
 The authorization service will be sent a `Signable`.
@@ -390,15 +1828,96 @@ It then needs to hash the encoded message, and prepend a required [transaction d
 Finally it signs the payload with the user/s keys, producing a signature.
 This signature, as a HEX string, is sent back to FCL as part of the `CompositeSignature` which includes the user address and keyID in the data property of a `PollingResponse`.
 
- `_10signature =_10 signable.voucher_10 |> encode_10 |> hash_10 |> tag_10 |> sign_10 |> convert_to_hex`
+`_10
+
+signature =
+
+_10
+
+signable.voucher
+
+_10
+
+|> encode
+
+_10
+
+|> hash
+
+_10
+
+|> tag
+
+_10
+
+|> sign
+
+_10
+
+|> convert_to_hex`
 
 The eventual response back from the authorization service should resolve to something like this:
 
- `_12{_12 f_type: "PollingResponse",_12 f_vsn: "1.0.0",_12 status: "APPROVED",_12 data: {_12 f_type: "CompositeSignature",_12 f_vsn: "1.0.0",_12 addr: "0xUSER",_12 keyId: 0,_12 signature: "signature as hex value"_12 }_12}`
+`_12
+
+{
+
+_12
+
+f_type: "PollingResponse",
+
+_12
+
+f_vsn: "1.0.0",
+
+_12
+
+status: "APPROVED",
+
+_12
+
+data: {
+
+_12
+
+f_type: "CompositeSignature",
+
+_12
+
+f_vsn: "1.0.0",
+
+_12
+
+addr: "0xUSER",
+
+_12
+
+keyId: 0,
+
+_12
+
+signature: "signature as hex value"
+
+_12
+
+}
+
+_12
+
+}`
 
 A `CompositeSignature` can alternatively be constructed using `WalletUtils`
 
- `_10import {WalletUtils} from "@onflow/fcl"_10_10WalletUtils.CompositeSignature(addr: String, keyId: Number, signature: Hex)`
+`_10
+
+import {WalletUtils} from "@onflow/fcl"
+
+_10
+
+_10
+
+WalletUtils.CompositeSignature(addr: String, keyId: Number, signature: Hex)`
+
 # User Signature Service
 
 User Signature services are depicted with a `type: "user-signature"` and a `method` of either `HTTP/POST`, `IFRAME/RPC`, `POP/RPC`, `TAB/RPC` or `EXT/RPC`.
@@ -406,18 +1925,173 @@ They are expected to eventually return an array of `f_type: "CompositeSignature"
 
 The User Signature service is a stock/standard service.
 
- `_10{_10 f_type: "Service",_10 f_vsn: "1.0.0",_10 type: "user-signature", // say it's an user-signature service_10 uid: "amazing-wallet#user-signature", // standard service uid_10 method: "HTTP/POST", // can also be `IFRAME/RPC`_10 endpoint: "https://___", // where to talk to the service_10 data: {},_10 params: {},_10}`
+`_10
+
+{
+
+_10
+
+f_type: "Service",
+
+_10
+
+f_vsn: "1.0.0",
+
+_10
+
+type: "user-signature", // say it's an user-signature service
+
+_10
+
+uid: "amazing-wallet#user-signature", // standard service uid
+
+_10
+
+method: "HTTP/POST", // can also be `IFRAME/RPC`
+
+_10
+
+endpoint: "https://___", // where to talk to the service
+
+_10
+
+data: {},
+
+_10
+
+params: {},
+
+_10
+
+}`
 
 FCL will use the `method` provided to request an array of composite signatures from the user signature service (Wrapped in a `PollingResponse`).
 The user signature service will be sent a `Signable`.
 The service is expected to tag the `Signable.message` and then sign it with enough keys to produce a full weight.
 The signatures need to be sent back to FCL as HEX strings in an array of `CompositeSignatures`.
 
- `_10// Pseudocode:_10// For every required signature_10import {WalletUtils} from "@onflow/fcl"_10_10const encoded = WalletUtils.encodeMessageFromSignable(signable, signerAddress)_10const taggedMessage = tagMessage(encoded) // Tag the message to sign_10const signature = signMessage(taggedMessage) // Sign the message_10const hexSignature = signatureToHex(signature) // Convert the signature to hex, if required._10_10return hexSignature`
+`_10
+
+// Pseudocode:
+
+_10
+
+// For every required signature
+
+_10
+
+import {WalletUtils} from "@onflow/fcl"
+
+_10
+
+_10
+
+const encoded = WalletUtils.encodeMessageFromSignable(signable, signerAddress)
+
+_10
+
+const taggedMessage = tagMessage(encoded) // Tag the message to sign
+
+_10
+
+const signature = signMessage(taggedMessage) // Sign the message
+
+_10
+
+const hexSignature = signatureToHex(signature) // Convert the signature to hex, if required.
+
+_10
+
+_10
+
+return hexSignature`
 
 The eventual response back from the user signature service should resolve to something like this:
 
- `_21{_21 f_type: "PollingResponse",_21 f_vsn: "1.0.0",_21 status: "APPROVED",_21 data: [_21 {_21 f_type: "CompositeSignature",_21 f_vsn: "1.0.0",_21 addr: "0xUSER",_21 keyId: 0,_21 signature: "signature as hex value"_21 },_21 {_21 f_type: "CompositeSignature",_21 f_vsn: "1.0.0",_21 addr: "0xUSER",_21 keyId: 1,_21 signature: "signature as hex value"_21 }_21 ]_21}`
+`_21
+
+{
+
+_21
+
+f_type: "PollingResponse",
+
+_21
+
+f_vsn: "1.0.0",
+
+_21
+
+status: "APPROVED",
+
+_21
+
+data: [
+
+_21
+
+{
+
+_21
+
+f_type: "CompositeSignature",
+
+_21
+
+f_vsn: "1.0.0",
+
+_21
+
+addr: "0xUSER",
+
+_21
+
+keyId: 0,
+
+_21
+
+signature: "signature as hex value"
+
+_21
+
+},
+
+_21
+
+{
+
+_21
+
+f_type: "CompositeSignature",
+
+_21
+
+f_vsn: "1.0.0",
+
+_21
+
+addr: "0xUSER",
+
+_21
+
+keyId: 1,
+
+_21
+
+signature: "signature as hex value"
+
+_21
+
+}
+
+_21
+
+]
+
+_21
+
+}`
+
 # Pre Authz Service
 
 This is a strange one, but extremely powerful. This service should be used when a wallet is responsible for an account that's signing as multiple roles of a transaction, and wants the ability to change the accounts on a per role basis.
@@ -427,7 +2101,45 @@ They are expected to eventually return a `f_type: "PreAuthzResponse"`.
 
 The Pre Authz Service is a stock/standard service.
 
- `_10{_10 f_type: "Service",_10 f_vsn: "1.0.0",_10 type: "pre-authz", // say it's a pre-authz service_10 uid: "amazing-wallet#pre-authz", // standard service uid_10 method: "HTTP/POST", // can also be IFRAME/RPC, POP/RPC, TAB/RPC_10 endpoint: "https://___", // where to talk to the service_10 data: {},_10 params: {},_10}`
+`_10
+
+{
+
+_10
+
+f_type: "Service",
+
+_10
+
+f_vsn: "1.0.0",
+
+_10
+
+type: "pre-authz", // say it's a pre-authz service
+
+_10
+
+uid: "amazing-wallet#pre-authz", // standard service uid
+
+_10
+
+method: "HTTP/POST", // can also be IFRAME/RPC, POP/RPC, TAB/RPC
+
+_10
+
+endpoint: "https://___", // where to talk to the service
+
+_10
+
+data: {},
+
+_10
+
+params: {},
+
+_10
+
+}`
 
 FCL will use the `method` provided to request a `PreAuthzReponse` (Wrapped in a `PollingResponse`).
 The Authorizations service will be sent a `PreSignable`.
@@ -438,7 +2150,130 @@ If a pre-authz service is responsible for multiple roles, but it wants the same 
 
 The eventual response back from the pre-authz service should resolve to something like this:
 
- `_31{_31 f_type: "PollingResponse",_31 f_vsn: "1.0.0",_31 status: "APPROVED",_31 data: {_31 f_type: "PreAuthzResponse",_31 f_vsn: "1.0.0",_31 proposer: { // A single Authz Service_31 f_type: "Service",_31 f_vsn: "1.0.0",_31 type: "authz",_31 ..._31 },_31 payer: [ // An array of Authz Services_31 {_31 f_type: "Service",_31 f_vsn: "1.0.0",_31 type: "authz",_31 ..._31 }_31 ],_31 authorization: [ // An array of Authz Services (it's singular because it only represents a singular authorization)_31 {_31 f_type: "Service",_31 f_vsn: "1.0.0",_31 type: "authz",_31 ..._31 }_31 ],_31 }_31}`
+`_31
+
+{
+
+_31
+
+f_type: "PollingResponse",
+
+_31
+
+f_vsn: "1.0.0",
+
+_31
+
+status: "APPROVED",
+
+_31
+
+data: {
+
+_31
+
+f_type: "PreAuthzResponse",
+
+_31
+
+f_vsn: "1.0.0",
+
+_31
+
+proposer: { // A single Authz Service
+
+_31
+
+f_type: "Service",
+
+_31
+
+f_vsn: "1.0.0",
+
+_31
+
+type: "authz",
+
+_31
+
+...
+
+_31
+
+},
+
+_31
+
+payer: [ // An array of Authz Services
+
+_31
+
+{
+
+_31
+
+f_type: "Service",
+
+_31
+
+f_vsn: "1.0.0",
+
+_31
+
+type: "authz",
+
+_31
+
+...
+
+_31
+
+}
+
+_31
+
+],
+
+_31
+
+authorization: [ // An array of Authz Services (it's singular because it only represents a singular authorization)
+
+_31
+
+{
+
+_31
+
+f_type: "Service",
+
+_31
+
+f_vsn: "1.0.0",
+
+_31
+
+type: "authz",
+
+_31
+
+...
+
+_31
+
+}
+
+_31
+
+],
+
+_31
+
+}
+
+_31
+
+}`
+
 # Authentication Refresh Service
 
 Since synchronization of a user's session is important to provide a seamless user experience when using an app and transacting with the Flow Blockchain, a way to confirm, extend, and refresh a user session can be provided by the wallet.
@@ -452,13 +2287,200 @@ The service is expected to return a `PollingResponse` with a new `AuthnResponse`
 
 The Authentication Refresh Service is a stock/standard service.
 
- `_11 {_11 "f_type": "Service",_11 "f_vsn": "1.0.0",_11 "type": "authn-refresh",_11 "uid": "uniqueDedupeKey",_11 "endpoint": "https://rawr",_11 "method": "HTTP/POST", // "HTTP/POST", // HTTP/POST | IFRAME/RPC | HTTP/RPC_11 "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", // wallet's internal id for the user_11 "data": {}, // included in body of request_11 "params": {}, // included as query params on endpoint url_11 }`
+`_11
+
+{
+
+_11
+
+"f_type": "Service",
+
+_11
+
+"f_vsn": "1.0.0",
+
+_11
+
+"type": "authn-refresh",
+
+_11
+
+"uid": "uniqueDedupeKey",
+
+_11
+
+"endpoint": "https://rawr",
+
+_11
+
+"method": "HTTP/POST", // "HTTP/POST", // HTTP/POST | IFRAME/RPC | HTTP/RPC
+
+_11
+
+"id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", // wallet's internal id for the user
+
+_11
+
+"data": {}, // included in body of request
+
+_11
+
+"params": {}, // included as query params on endpoint url
+
+_11
+
+}`
 
 The provided `data` and `params` should include all the wallet needs to identify and re-authenticate the user if necessary.
 
 The eventual response back from the `authn-refresh` service should resolve to an `AuthnResponse` and look something like this:
 
- `_34{_34 f_type: "PollingResponse",_34 f_vsn: "1.0.0",_34 status: "APPROVED",_34 data: {_34 f_type: "AuthnResponse",_34 f_vsn: "1.0.0",_34 addr: "0xUSER",_34 services: [_34 // Authentication Service - REQUIRED_34 {_34 f_type: "Service",_34 f_vsn: "1.0.0",_34 type: "authn",_34 ..._34 },_34 // Authorization Service_34 {_34 f_type: "Service",_34 f_vsn: "1.0.0",_34 type: "authz",_34 ..._34 },_34 // Authentication Refresh Service_34 {_34 f_type: "Service",_34 f_vsn: "1.0.0",_34 type: "authn-refresh",_34 ..._34 }_34 // Additional Services_34 ],_34 }_34}`[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/index.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousUse Cursor AI](/tools/vscode-extension/cursor)[NextAuthorization Function](/tools/wallet-provider-spec/authorization-function)
+`_34
+
+{
+
+_34
+
+f_type: "PollingResponse",
+
+_34
+
+f_vsn: "1.0.0",
+
+_34
+
+status: "APPROVED",
+
+_34
+
+data: {
+
+_34
+
+f_type: "AuthnResponse",
+
+_34
+
+f_vsn: "1.0.0",
+
+_34
+
+addr: "0xUSER",
+
+_34
+
+services: [
+
+_34
+
+// Authentication Service - REQUIRED
+
+_34
+
+{
+
+_34
+
+f_type: "Service",
+
+_34
+
+f_vsn: "1.0.0",
+
+_34
+
+type: "authn",
+
+_34
+
+...
+
+_34
+
+},
+
+_34
+
+// Authorization Service
+
+_34
+
+{
+
+_34
+
+f_type: "Service",
+
+_34
+
+f_vsn: "1.0.0",
+
+_34
+
+type: "authz",
+
+_34
+
+...
+
+_34
+
+},
+
+_34
+
+// Authentication Refresh Service
+
+_34
+
+{
+
+_34
+
+f_type: "Service",
+
+_34
+
+f_vsn: "1.0.0",
+
+_34
+
+type: "authn-refresh",
+
+_34
+
+...
+
+_34
+
+}
+
+_34
+
+// Additional Services
+
+_34
+
+],
+
+_34
+
+}
+
+_34
+
+}`
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/index.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Use Cursor AI](/tools/vscode-extension/cursor)[Next
+
+Authorization Function](/tools/wallet-provider-spec/authorization-function)
+
 ###### Rate this page
 
 😞😐😊
@@ -487,6 +2509,7 @@ The eventual response back from the `authn-refresh` service should resolve to an
   + [Authenticate your User](#authenticate-your-user)
   + [Once you know who your User is](#once-you-know-who-your-user-is)
   + [Stopping an Authentication Process](#stopping-an-authentication-process)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -499,6 +2522,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -508,6 +2532,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -515,6 +2540,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -524,6 +2550,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -531,5 +2558,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

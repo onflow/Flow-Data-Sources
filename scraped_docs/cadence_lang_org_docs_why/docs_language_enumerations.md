@@ -1,19 +1,22 @@
 # Source: https://cadence-lang.org/docs/language/enumerations
 
-
-
-
 Enumerations | Cadence
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)Search
+[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
+
+[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+
+Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
 * [Tutorial](/docs/tutorial/first-steps)
 * [Language Reference](/docs/language/)
+
   + [Syntax](/docs/language/syntax)
   + [Constants and Variable Declarations](/docs/language/constants-and-variables)
   + [Type Annotations](/docs/language/type-annotations)
@@ -57,10 +60,11 @@ Enumerations | Cadence
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
-
 * [Language Reference](/docs/language/)
 * Enumerations
+
 On this page
+
 # Enumerations
 
 Enumerations are sets of symbolic names bound to unique, constant values,
@@ -90,15 +94,161 @@ if any, or `nil` if no such case exists.
 
 Enum cases can be compared using the equality operators `==` and `!=`.
 
- `_36// Declare an enum named `Color` which has the raw value type `UInt8`,_36// and declare three enum cases: `red`, `green`, and `blue`_36//_36access(all)_36enum Color: UInt8 {_36_36 access(all)_36 case red_36_36 access(all)_36 case green_36 _36 access(all)_36 case blue_36}_36// Declare a variable which has the enum type `Color` and initialize_36// it to the enum case `blue` of the enum_36let blue: Color = Color.blue_36// Get the raw value of the enum case `blue`._36// As it is the third case, so it has index 2_36//_36blue.rawValue // is `2`_36// Get the `green` enum case of the enum `Color` by using the enum_36// constructor and providing the raw value of the enum case `green`, 1,_36// as the enum case `green` is the second case, so it has index 1_36//_36let green: Color? = Color(rawValue: 1) // is `Color.green`_36// Get the enum case of the enum `Color` that has the raw value 5._36// As there are only three cases, the maximum raw value / index is 2._36//_36let nothing = Color(rawValue: 5) // is `nil`_36// Enum cases can be compared_36Color.red == Color.red // is `true`_36Color(rawValue: 1) == Color.green // is `true`_36// Different enum cases are not the same_36Color.red != Color.blue // is `true``[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/enumerations.md)[PreviousInterfaces](/docs/language/interfaces)[NextIntersection Types](/docs/language/intersection-types)
+`_36
+
+// Declare an enum named `Color` which has the raw value type `UInt8`,
+
+_36
+
+// and declare three enum cases: `red`, `green`, and `blue`
+
+_36
+
+//
+
+_36
+
+access(all)
+
+_36
+
+enum Color: UInt8 {
+
+_36
+
+_36
+
+access(all)
+
+_36
+
+case red
+
+_36
+
+_36
+
+access(all)
+
+_36
+
+case green
+
+_36
+
+_36
+
+access(all)
+
+_36
+
+case blue
+
+_36
+
+}
+
+_36
+
+// Declare a variable which has the enum type `Color` and initialize
+
+_36
+
+// it to the enum case `blue` of the enum
+
+_36
+
+let blue: Color = Color.blue
+
+_36
+
+// Get the raw value of the enum case `blue`.
+
+_36
+
+// As it is the third case, so it has index 2
+
+_36
+
+//
+
+_36
+
+blue.rawValue // is `2`
+
+_36
+
+// Get the `green` enum case of the enum `Color` by using the enum
+
+_36
+
+// constructor and providing the raw value of the enum case `green`, 1,
+
+_36
+
+// as the enum case `green` is the second case, so it has index 1
+
+_36
+
+//
+
+_36
+
+let green: Color? = Color(rawValue: 1) // is `Color.green`
+
+_36
+
+// Get the enum case of the enum `Color` that has the raw value 5.
+
+_36
+
+// As there are only three cases, the maximum raw value / index is 2.
+
+_36
+
+//
+
+_36
+
+let nothing = Color(rawValue: 5) // is `nil`
+
+_36
+
+// Enum cases can be compared
+
+_36
+
+Color.red == Color.red // is `true`
+
+_36
+
+Color(rawValue: 1) == Color.green // is `true`
+
+_36
+
+// Different enum cases are not the same
+
+_36
+
+Color.red != Color.blue // is `true``
+
+[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/enumerations.md)
+
+[Previous
+
+Interfaces](/docs/language/interfaces)[Next
+
+Intersection Types](/docs/language/intersection-types)
+
 ###### Rate this page
 
 😞😐😊
 
 * [Enum Declaration](#enum-declaration)
-Got suggestions for this site? 
+
+Got suggestions for this site?
 
 * [It's open-source!](https://github.com/onflow/cadence-lang.org)
+
 The source code of this site is licensed under the Apache License, Version 2.0.
 Content is licensed under the Creative Commons Attribution 4.0 International License.
-

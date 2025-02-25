@@ -1,30 +1,14 @@
 # Source: https://academy.ecdao.org/en/catalog/courses/learn-cadence-beginner/chapter3/lesson1
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -48,7 +32,6 @@ Connect
 
 Course Overview
 
-
 [Catalog](/en/catalog)
 [Course](/en/catalog/courses/learn-cadence-beginner)
 Learn Cadence Beginner
@@ -66,6 +49,7 @@ In simplest terms, a reference is a way for you to interact with a piece of data
 Letâs take a look at our contract from Chapter 2:
 
 cadence
+
 ```
 		
 			access(all) contract Game {
@@ -130,11 +114,13 @@ cadence
 		 
 	
 ```
+
 ### Add Battling
 
 To spice things up, lets add a `levelUp` function to our `Pokemon` resource that adds some `xp`:
 
 cadence
+
 ```
 		
 			access(all) resource Pokemon {
@@ -165,6 +151,7 @@ cadence
 To make things fun, we should also add a function that makes two Pokemon battle. It will level up whoever the winner is, based on a random number:
 
 cadence
+
 ```
 		
 			access(all) fun battle(pokemonId1: UInt64, pokemonId2: UInt64) {
@@ -199,6 +186,7 @@ You can see that in order to level up the winner of `battle`, we had to move the
 Instead, letâs just use references to keep the Pokemon in `storedPokemon`, but be able to call `levelUp` anyway!
 
 cadence
+
 ```
 		
 			access(all) fun battle(pokemonId1: UInt64, pokemonId2: UInt64) {
@@ -229,6 +217,7 @@ Notice that if we had forgotten the `as &Pokemon?`, Cadence would yell at us and
 Our final contract should look like this:
 
 cadence
+
 ```
 		
 			access(all) contract Game {
@@ -315,6 +304,7 @@ cadence
 This is the transaction we would use to actually make two Pokemon battle:
 
 cadence
+
 ```
 		
 			import Game from "./Game.cdc"
@@ -341,21 +331,18 @@ References arenât so bad right? The main two points are:
 
 References are not going to go away, though. They will be very important when we talk about account storage in the next chapter.
 
-
 ![User avatar](/avatars/jacob.jpeg)
 
 Author
 
 [Jacob Tucker](https://twitter.com/jacobmtucker)
 
-
-
-
 [Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/learn-cadence-beginner/en/chapter3/lesson1.md)
-
 
 [Contract State](/en/catalog/courses/learn-cadence-beginner/chapter2/lesson3)
 [Account Storage](/en/catalog/courses/learn-cadence-beginner/chapter3/lesson2)
+
+
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
@@ -363,17 +350,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

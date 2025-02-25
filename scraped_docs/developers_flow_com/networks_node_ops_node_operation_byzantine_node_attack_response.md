@@ -1,25 +1,28 @@
 # Source: https://developers.flow.com/networks/node-ops/node-operation/byzantine-node-attack-response
 
-
-
-
 Byzantine Node Attack Response | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
 * [Flow's Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
+
   + [Access Nodes](/networks/node-ops/access-nodes/access-node-setup)
   + [EVM Gateway Setup](/networks/node-ops/evm-gateway/evm-gateway-setup)
   + [Light Nodes](/networks/node-ops/light-nodes/observer-node)
   + [Participating in the Network](/networks/node-ops/node-operation/faq)
+
     - [Operator FAQ](/networks/node-ops/node-operation/faq)
     - [Byzantine Attack Response](/networks/node-ops/node-operation/byzantine-node-attack-response)
     - [Database Encryption for Existing Node Operators](/networks/node-ops/node-operation/db-encryption-existing-operator)
@@ -44,11 +47,12 @@ Byzantine Node Attack Response | Flow Developer Portal
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
-
 * [Node Ops](/networks/node-ops)
 * Participating in the Network
 * Byzantine Attack Response
+
 On this page
+
 # Byzantine Node Attack Response
 
 Flow, like most blockchains, forms an open decentralized peer-to-peer network between all of the nodes
@@ -83,7 +87,10 @@ To enable to admin server,
 
 1. Add the following option to the node's CLI flags.
 
- `_10--admin-addr=localhost:9002`
+`_10
+
+--admin-addr=localhost:9002`
+
 > Note: The port does not have to be 9002. You can choose any free port.
 
 > ⚠️ Do NOT expose the port outside the machine and always use **localhost**:port
@@ -91,11 +98,15 @@ To enable to admin server,
 2. Reboot the node to apply the new setting. You can then verify it’s working by logging into
    the machine via ssh and running,
 
- `_10curl localhost:9002`
+`_10
+
+curl localhost:9002`
 
 This should return a json response message as below.
 
- `_10{"code":5,"message":"Not Found","details":[]}`
+`_10
+
+{"code":5,"message":"Not Found","details":[]}`
 
 If you instead get a connection rejected message then it’s not configured correctly.
 
@@ -146,7 +157,70 @@ expected log messages are:
 The following is an example of a log message indicating an Access node attempted to send a message it
 is not authorized to send:
 
- `_16{_16 "level": "error",_16 "node_role": "collection",_16 "node_id": "4a6f7264616e20536368616c6d00a875801849f2b5bea9e9d2c9603f00e5d533",_16 "module": "network_slashing_consumer",_16 "peer_id": "QmY2kby3xt3ugu2QqJP5w24rP4HSakYgDFpAJy1ifSRkF7",_16 "networking_offense": "unauthorized_sender",_16 "message_type": "messages.BlockProposal",_16 "channel": "sync-committee",_16 "protocol": "publish",_16 "suspicious": true,_16 "role": "access",_16 "sender_id": "f9237c896507b8d654165c36b61c9a3080e6dd042dea562a4a494fbd73133634",_16 "time": "2023-01-24T21:10:32.74684667Z",_16 "message": "potential slashable offense: sender role not authorized to send message on channel"_16}`
+`_16
+
+{
+
+_16
+
+"level": "error",
+
+_16
+
+"node_role": "collection",
+
+_16
+
+"node_id": "4a6f7264616e20536368616c6d00a875801849f2b5bea9e9d2c9603f00e5d533",
+
+_16
+
+"module": "network_slashing_consumer",
+
+_16
+
+"peer_id": "QmY2kby3xt3ugu2QqJP5w24rP4HSakYgDFpAJy1ifSRkF7",
+
+_16
+
+"networking_offense": "unauthorized_sender",
+
+_16
+
+"message_type": "messages.BlockProposal",
+
+_16
+
+"channel": "sync-committee",
+
+_16
+
+"protocol": "publish",
+
+_16
+
+"suspicious": true,
+
+_16
+
+"role": "access",
+
+_16
+
+"sender_id": "f9237c896507b8d654165c36b61c9a3080e6dd042dea562a4a494fbd73133634",
+
+_16
+
+"time": "2023-01-24T21:10:32.74684667Z",
+
+_16
+
+"message": "potential slashable offense: sender role not authorized to send message on channel"
+
+_16
+
+}`
+
 ### Identifying the Source of Malicious Traffic[​](#identifying-the-source-of-malicious-traffic "Direct link to Identifying the Source of Malicious Traffic")
 
 Most log messages include either the node ID or peer ID. Peer ID is the ID used to identify nodes on
@@ -159,7 +233,17 @@ The two simplest ways to match a node ID to a peer ID:
    the node and peer IDs
 2. The following admin command will return the node info for a given peer ID:
 
- `_10curl localhost:9002/admin/run_command \_10 -H 'Content-Type: application/json' \_10 -d '{"commandName": "get-latest-identity", "data": { "peer_id": "QmY2kby3xt3ugu2QqJP5w24rP4HSakYgDFpAJy1ifSRkF7" }}'`
+`_10
+
+curl localhost:9002/admin/run_command \
+
+_10
+
+-H 'Content-Type: application/json' \
+
+_10
+
+-d '{"commandName": "get-latest-identity", "data": { "peer_id": "QmY2kby3xt3ugu2QqJP5w24rP4HSakYgDFpAJy1ifSRkF7" }}'`
 
 If you cannot find any log messages at the current log level, you may need to enable debug logging.
 See the admin server's [README](https://github.com/onflow/flow-go/blob/master/admin/README.md) for
@@ -178,7 +262,17 @@ appropriate action can be taken.
 Once a consensus is reached about the suspicious node on Discord among the node operators, the
 suspicious node can be blocked using the admin command.
 
- `_10curl localhost: 9002/admin/run_command \_10 -H 'Content-Type: application/json' \_10 -d '{"commandName": "set-config","data": {"network-id-provider-blocklist": ["<suspcious node id>"]}}`
+`_10
+
+curl localhost: 9002/admin/run_command \
+
+_10
+
+-H 'Content-Type: application/json' \
+
+_10
+
+-d '{"commandName": "set-config","data": {"network-id-provider-blocklist": ["<suspcious node id>"]}}`
 
 After blocking the node, all traffic coming from the node will be rejected and you should only see
 logs about reject messages and connections for that node ID.
@@ -191,11 +285,30 @@ specific node ID you want to unblock removed.
 
 The following command returns a list of the currently blocked nodes.
 
- `_10curl localhost: 9002/admin/run_command \_10 -H 'Content-Type: application/json' \_10 -d '{"commandName": "get-config", "data": "network-id-provider-blocklist"}`
+`_10
+
+curl localhost: 9002/admin/run_command \
+
+_10
+
+-H 'Content-Type: application/json' \
+
+_10
+
+-d '{"commandName": "get-config", "data": "network-id-provider-blocklist"}`
 
 After unblocking the node, connections and traffic coming from the node should resume.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/byzantine-node-attack-response.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousOperator FAQ](/networks/node-ops/node-operation/faq)[NextDatabase Encryption for Existing Node Operators](/networks/node-ops/node-operation/db-encryption-existing-operator)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/byzantine-node-attack-response.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Operator FAQ](/networks/node-ops/node-operation/faq)[Next
+
+Database Encryption for Existing Node Operators](/networks/node-ops/node-operation/db-encryption-existing-operator)
+
 ###### Rate this page
 
 😞😐😊
@@ -209,6 +322,7 @@ After unblocking the node, connections and traffic coming from the node should r
 * [Reporting the Byzantine Node](#reporting-the-byzantine-node)
 * [Blocking a Byzantine Node](#blocking-a-byzantine-node)
 * [Unblocking a Node](#unblocking-a-node)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -221,6 +335,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -230,6 +345,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -237,6 +353,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -246,6 +363,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -253,5 +371,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

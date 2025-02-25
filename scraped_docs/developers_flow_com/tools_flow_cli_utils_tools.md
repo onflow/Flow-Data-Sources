@@ -1,19 +1,21 @@
 # Source: https://developers.flow.com/tools/flow-cli/utils/tools
 
-
-
-
 Development Tools | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
 * [Flow CLI](/tools/flow-cli)
+
   + [Install Instructions](/tools/flow-cli/install)
   + [Super Commands](/tools/flow-cli/super-commands)
   + [Accounts](/tools/flow-cli/accounts/get-accounts)
@@ -24,6 +26,7 @@ Development Tools | Flow Developer Portal
   + [Flow.json](/tools/flow-cli/flow.json/initialize-configuration)
   + [Flow Entities](/tools/flow-cli/get-flow-data/get-blocks)
   + [Utils](/tools/flow-cli/utils/signature-generate)
+
     - [Generate a Signature](/tools/flow-cli/utils/signature-generate)
     - [Verify Signature](/tools/flow-cli/utils/signature-verify)
     - [Snapshot Save](/tools/flow-cli/utils/snapshot-save)
@@ -40,11 +43,12 @@ Development Tools | Flow Developer Portal
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 
-
 * [Flow CLI](/tools/flow-cli)
 * Utils
 * Development Tools
+
 On this page
+
 # Development Tools
 
 The Flow CLI integrates different development tools, which can now be easily started
@@ -61,7 +65,9 @@ The Flow Dev Wallet is a mock Flow wallet that simulates the protocols used by F
 **Be sure you have the emulator running before starting this command**
 *You can start it using the `flow emulator` command*.
 
- `_10flow dev-wallet`
+`_10
+
+flow dev-wallet`
 
 *⚠️ This project implements an FCL compatible
 interface, but should **not** be used as a reference for
@@ -69,7 +75,31 @@ building a production grade wallet.*
 
 After starting dev-wallet, you can set your fcl config to use it like below:
 
- `_10import * as fcl from "@onflow/fcl"_10_10fcl.config()_10 // Point App at Emulator_10 .put("accessNode.api", "http://localhost:8080") _10 // Point FCL at dev-wallet (default port)_10 .put("discovery.wallet", "http://localhost:8701/fcl/authn")`
+`_10
+
+import * as fcl from "@onflow/fcl"
+
+_10
+
+_10
+
+fcl.config()
+
+_10
+
+// Point App at Emulator
+
+_10
+
+.put("accessNode.api", "http://localhost:8080")
+
+_10
+
+// Point FCL at dev-wallet (default port)
+
+_10
+
+.put("discovery.wallet", "http://localhost:8701/fcl/authn")`
 
 You can read more about setting up dev-wallet at [Flow Dev Wallet Project](https://github.com/onflow/fcl-dev-wallet)
 
@@ -110,7 +140,16 @@ files by using `-f` flag multiple times.
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/utils/tools.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousSnapshot Save](/tools/flow-cli/utils/snapshot-save)[NextDependency Manager](/tools/flow-cli/dependency-manager)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/utils/tools.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Snapshot Save](/tools/flow-cli/utils/snapshot-save)[Next
+
+Dependency Manager](/tools/flow-cli/dependency-manager)
+
 ###### Rate this page
 
 😞😐😊
@@ -121,6 +160,7 @@ Skip version check during start up to speed up process for slow connections.
   + [Emulator Host](#emulator-host)
   + [Configuration](#configuration)
   + [Version Check](#version-check)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -133,6 +173,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -142,6 +183,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -149,6 +191,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -158,6 +201,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -165,5 +209,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

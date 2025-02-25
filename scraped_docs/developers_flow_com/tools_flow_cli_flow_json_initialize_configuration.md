@@ -1,19 +1,21 @@
 # Source: https://developers.flow.com/tools/flow-cli/flow.json/initialize-configuration
 
-
-
-
 Initialize Configuration | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
 * [Flow CLI](/tools/flow-cli)
+
   + [Install Instructions](/tools/flow-cli/install)
   + [Super Commands](/tools/flow-cli/super-commands)
   + [Accounts](/tools/flow-cli/accounts/get-accounts)
@@ -22,6 +24,7 @@ Initialize Configuration | Flow Developer Portal
   + [Scripts](/tools/flow-cli/scripts/execute-scripts)
   + [Transactions](/tools/flow-cli/transactions/send-transactions)
   + [Flow.json](/tools/flow-cli/flow.json/initialize-configuration)
+
     - [Initialize Configuration](/tools/flow-cli/flow.json/initialize-configuration)
     - [Configuration](/tools/flow-cli/flow.json/configuration)
     - [Manage Configuration](/tools/flow-cli/flow.json/manage-configuration)
@@ -40,28 +43,58 @@ Initialize Configuration | Flow Developer Portal
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 
-
 * [Flow CLI](/tools/flow-cli)
 * Flow.json
 * Initialize Configuration
+
 On this page
+
 # Initialize Configuration
 
 Flow CLI uses a state to operate which is called configuration (usually `flow.json` file).
 Before using commands that require this configuration we must initialize the project by
 using the init command. Read more about [state configuration here](/tools/flow-cli/flow.json/configuration).
 
- `_10flow init`
+`_10
+
+flow init`
+
 ## Example Usage[​](#example-usage "Direct link to Example Usage")
 
- `_10> flow init_10_10Configuration initialized_10Service account: 0xf8d6e0586b0a20c7_10_10Start emulator by running: 'flow emulator' _10Reset configuration using: 'flow init --reset'`
+`_10
+
+> flow init
+
+_10
+
+_10
+
+Configuration initialized
+
+_10
+
+Service account: 0xf8d6e0586b0a20c7
+
+_10
+
+_10
+
+Start emulator by running: 'flow emulator'
+
+_10
+
+Reset configuration using: 'flow init --reset'`
+
 ### Error Handling[​](#error-handling "Direct link to Error Handling")
 
 Existing configuration will cause the error below.
 You should initialize in an empty folder or reset configuration using `--reset` flag
 or by removing the configuration file first.
 
- `_10❌ Command Error: configuration already exists at: flow.json, if you want to reset configuration use the reset flag`
+`_10
+
+❌ Command Error: configuration already exists at: flow.json, if you want to reset configuration use the reset flag`
+
 ## Global Configuration[​](#global-configuration "Direct link to Global Configuration")
 
 Flow supports global configuration which is a `flow.json` file saved in your home
@@ -130,7 +163,16 @@ upon account creation.
 
 Specify the log level. Control how much output you want to see while command execution.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flow.json/initialize-configuration.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousBuild a Complex Transaction](/tools/flow-cli/transactions/decode-transactions)[NextConfiguration](/tools/flow-cli/flow.json/configuration)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flow.json/initialize-configuration.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Build a Complex Transaction](/tools/flow-cli/transactions/decode-transactions)[Next
+
+Configuration](/tools/flow-cli/flow.json/configuration)
+
 ###### Rate this page
 
 😞😐😊
@@ -145,6 +187,7 @@ Specify the log level. Control how much output you want to see while command exe
   + [Service Key Signature Algorithm](#service-key-signature-algorithm)
   + [Service Key Hash Algorithm](#service-key-hash-algorithm)
   + [Log](#log)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -157,6 +200,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -166,6 +210,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -173,6 +218,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -182,6 +228,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -189,5 +236,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

@@ -1,29 +1,14 @@
 # Source: https://academy.ecdao.org/en/catalog/tutorials/entitlements
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -36,22 +21,18 @@ Entitlements (new access control system)
 
 # Entitlements (new access control system)
 
-
 Tutorial
 
 Beginner
 
 10 minutes
 
-
-
 The old way of determining access control based on an objectâs type is going away. This tutorial will walk through the new mechanism: **Entitlements**.
 
 If you would like to learn by video, check this out. Otherwise, the written content below is exactly the same.
 
-  
-
 Follow along in a video format.
+
 # Example Overview
 
 In order to showcase the new Entitlements system, letâs create an example contract so we can compare how you would access an objectâs fields & functions in the old vs. new way side by side. We will have to define 2 different contracts - one in old Cadence, and one using Cadence 1.0 to properly show examples.
@@ -59,6 +40,7 @@ In order to showcase the new Entitlements system, letâs create an example c
 Old Cadence Contract:
 
 cadence
+
 ```
 		
 			pub contract HelloWorld {
@@ -91,6 +73,7 @@ cadence
 Cadence 1.0 Contract:
 
 cadence
+
 ```
 		
 			access(all) contract HelloWorld {
@@ -127,6 +110,7 @@ In the old way of determining access control, you would limit an objectâs a
 Here is how you would have done that:
 
 cadence
+
 ```
 		
 			import HelloWorld from 0x01
@@ -159,6 +143,7 @@ In the new way of determining access control, **access is not determined by the 
 Here is the new way of doing the above (using the new Cadence 1.0 contract):
 
 cadence
+
 ```
 		
 			import HelloWorld from 0x01
@@ -198,19 +183,16 @@ Also, if youâd like to view the official changes for Entitlements, go [here
 
 Till next time ~ Jacob Tucker
 
-
 ![User avatar](/avatars/jacob.jpeg)
 
 Author
 
 [Jacob Tucker](https://twitter.com/jacobmtucker)
 
-
-
-
 [Video lesson](#)
 
 [Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/tutorials/entitlements/en/readme.md)
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
@@ -219,17 +201,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

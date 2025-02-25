@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/build/core-contracts/nft-storefront
 
-
-
-
 NFT Storefront Smart Contract | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -20,6 +21,7 @@ NFT Storefront Smart Contract | Flow Developer Portal
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
 * [Guides](/build/guides/account-linking)
 * [Core Smart Contracts](/build/core-contracts)
+
   + [Fungible Token](/build/core-contracts/fungible-token)
   + [Flow Token](/build/core-contracts/flow-token)
   + [Service Account](/build/core-contracts/service-account)
@@ -35,10 +37,11 @@ NFT Storefront Smart Contract | Flow Developer Portal
   + [Burner](/build/core-contracts/burner)
 * [Explore More](/build/explore-more)
 
-
 * [Core Smart Contracts](/build/core-contracts)
 * NFT Storefront
+
 On this page
+
 # NFT Storefront Smart Contract
 
 The `NFTStorefront` contracts implement a standard way to list NFTs for sale
@@ -126,21 +129,21 @@ The seller can use [sell\_item](https://github.com/onflow/nft-storefront/blob/ma
 `NFTStorefrontV2` offers two different ways of doing it.
 
 * The seller can create a listing and provide the `marketplacesAddress` that it wants to have a listing on using [sell\_item](https://github.com/onflow/nft-storefront/blob/main/transactions/sell_item.cdc) transaction.
-  
+
   Marketplaces can listen to `ListingAvailable` events and check whether their address is included in the `commissionReceivers` list; If yes, the marketplace would be rewarded during the successful fulfilment of the listing.
-  
+
   Example - Bob wants to list on marketplace 0xA, 0xB & 0xC and is willing to offer 10% commission on the sale price of the listing to the marketplaces.
-  
+
   ![scenario_3](https://user-images.githubusercontent.com/14581509/190966834-8eda4ec4-e9bf-49ef-9dec-3c47a236d281.png)
 * Another way to accomplish this is to create separate listings for each marketplace on which a user wants their listing using [sell\_item\_with\_marketplace\_cut](https://github.com/onflow/nft-storefront/blob/main/transactions/sell_item_with_marketplace_cut.cdc) transaction. In this case, the marketplace would be incentivized by earning one of the parts of the [`saleCut`](https://github.com/onflow/nft-storefront/blob/160e97aa802405ad26a3164bcaff0fde7ee52ad2/contracts/NFTStorefrontV2.cdc#L104) by appending marketplace saleCut in `saleCuts` array during the creation of the listing.
 
 ### Considerations[​](#considerations "Direct link to Considerations")
 
 1. **Ghost listings -** *Ghost listings are listings which don't have an underlying NFT in the seller's account. However, the listing is still available for buyers to attempt to purchase*. StorefrontV2 is not immune to ghost listings. Usually, ghost listings will cause a purchaser's transaction to fail, which is annoying but isn't a significant problem. Ghost listings become a problem for the seller when the listed NFT comes back to the seller's account after its original sale. The ghost listing will no longer be invalid when it comes back, and anyone can purchase it even if the seller doesn't want to sell it at that price anymore.
-   
+
    **Note -** *We recommend that marketplaces and p2p dApps create an off-chain notification service that tells their users (i.e., sellers) to remove the listings if they don't hold the NFT anymore in the same account.*
 2. **Expired listings -** `NFTStorefrontV2` introduces a safety measure to specify that a listing will expire after a certain period that can be set during the creation so no one can purchase the listing anymore. It is not a fool-proof safety measure, but it does give some safe ground to the sellers for the ghost listings & stale listings.
-   
+
    **Note -** *We recommended for marketplaces and p2p dApps not to show the expired listings on their dashboards.*
 
 ## Purchasing NFTs[​](#purchasing-nfts "Direct link to Purchasing NFTs")
@@ -152,7 +155,7 @@ During the listing purchase all saleCuts are paid automatically. This also inclu
 ### Considerations[​](#considerations-1 "Direct link to Considerations")
 
 1. **Auto cleanup -** `NFTStorefrontV2` offers a unique ability to do auto cleanup of duplicate listings during a purchase. It comes with a drawback if one NFT has thousands of duplicate listings. It will become the bottleneck during purchasing one of the listings as it will likely trigger an out-of-gas error.
-   
+
    **Note -** *We recommended NOT to have more than 50 (TBD) duplicate listings of any given NFT.*
 2. **Unsupported receiver capability** - A common pitfall during the purchase of an NFT that some saleCut receivers don't have a supported receiver capability because that entitled sale cut would transfer to first valid sale cut receiver. However, it can be partially solved by providing the generic receiver using the [`FungibleTokenSwitchboard`](https://github.com/onflow/flow-ft/blob/master/contracts/FungibleTokenSwitchboard.cdc) contract and adding all the currency capabilities the beneficiary wants to receive. More on the `FungibleTokenSwitchboard` can be read in [Fungible Token Switchboard](https://github.com/onflow/flow-ft#fungible-token-switchboard)
 
@@ -162,7 +165,67 @@ The `NFTStorefrontV2` contract optionally supports paying royalties to the minte
 
 Providing that a seller's NFT supports the [Royalty Metadata View](https://github.com/onflow/flow-nft/blob/21c254438910c8a4b5843beda3df20e4e2559625/contracts/MetadataViews.cdc#L335) standard, then marketplaces can honor royalties payments at time of purchase. `NFTStorefrontV2` dynamically calculates the royalties owed at the time of listing creation and applies it as a saleCut of the listing at the time of purchase.
 
- `_16// Check whether the NFT implements the MetadataResolver or not._16if nft.getViews().contains(Type<MetadataViews.Royalties>()) {_16 // Resolve the royalty view_16 let royaltiesRef = nft.resolveView(Type<MetadataViews.Royalties>())_16 ?? panic("Unable to retrieve the royalties view for the NFT with type "_16 .concat(nft.getType().identifier).concat(" and ID ")_16 .concat(nft.id.toString()).concat(".")_16 // Fetch the royalties._16 let royalties = (royaltiesRef as! MetadataViews.Royalties).getRoyalties()_16_16 // Append the royalties as the salecut_16 for royalty in royalties {_16 self.saleCuts.append(NFTStorefrontV2.SaleCut(receiver: royalty.receiver, amount: royalty.cut * effectiveSaleItemPrice))_16 totalRoyaltyCut = totalRoyaltyCut + royalty.cut * effectiveSaleItemPrice_16 }_16}`
+`_16
+
+// Check whether the NFT implements the MetadataResolver or not.
+
+_16
+
+if nft.getViews().contains(Type<MetadataViews.Royalties>()) {
+
+_16
+
+// Resolve the royalty view
+
+_16
+
+let royaltiesRef = nft.resolveView(Type<MetadataViews.Royalties>())
+
+_16
+
+?? panic("Unable to retrieve the royalties view for the NFT with type "
+
+_16
+
+.concat(nft.getType().identifier).concat(" and ID ")
+
+_16
+
+.concat(nft.id.toString()).concat(".")
+
+_16
+
+// Fetch the royalties.
+
+_16
+
+let royalties = (royaltiesRef as! MetadataViews.Royalties).getRoyalties()
+
+_16
+
+_16
+
+// Append the royalties as the salecut
+
+_16
+
+for royalty in royalties {
+
+_16
+
+self.saleCuts.append(NFTStorefrontV2.SaleCut(receiver: royalty.receiver, amount: royalty.cut * effectiveSaleItemPrice))
+
+_16
+
+totalRoyaltyCut = totalRoyaltyCut + royalty.cut * effectiveSaleItemPrice
+
+_16
+
+}
+
+_16
+
+}`
 
 Complete transaction can be viewed in [sell\_item](https://github.com/onflow/nft-storefront/blob/main/transactions/sell_item.cdc).
 
@@ -180,7 +243,41 @@ For NFT listings in marketplaces which don't require commission, commission rece
 
 ## Resource Interface `ListingPublic`[​](#resource-interface-listingpublic "Direct link to resource-interface-listingpublic")
 
- `_10resource interface ListingPublic {_10 access(all) fun borrowNFT(): &NonFungibleToken.NFT?_10 access(all) fun purchase(_10 payment: @FungibleToken.Vault,_10 commissionRecipient: Capability<&{FungibleToken.Receiver}>?,_10 ): @NonFungibleToken.NFT_10 access(all) fun getDetails(): ListingDetail_10 access(all) fun getAllowedCommissionReceivers(): [Capability<&{FungibleToken.Receiver}>]?_10}`
+`_10
+
+resource interface ListingPublic {
+
+_10
+
+access(all) fun borrowNFT(): &NonFungibleToken.NFT?
+
+_10
+
+access(all) fun purchase(
+
+_10
+
+payment: @FungibleToken.Vault,
+
+_10
+
+commissionRecipient: Capability<&{FungibleToken.Receiver}>?,
+
+_10
+
+): @NonFungibleToken.NFT
+
+_10
+
+access(all) fun getDetails(): ListingDetail
+
+_10
+
+access(all) fun getAllowedCommissionReceivers(): [Capability<&{FungibleToken.Receiver}>]?
+
+_10
+
+}`
 
 An interface providing a useful public interface to a Listing.
 
@@ -188,7 +285,9 @@ An interface providing a useful public interface to a Listing.
 
 #### **fun `borrowNFT()`**[​](#fun-borrownft "Direct link to fun-borrownft")
 
- `_10fun borrowNFT(): &NonFungibleToken.NFT?`
+`_10
+
+fun borrowNFT(): &NonFungibleToken.NFT?`
 
 This will assert in the same way as the NFT standard borrowNFT()
 if the NFT is absent, for example if it has been sold via another listing.
@@ -197,7 +296,9 @@ if the NFT is absent, for example if it has been sold via another listing.
 
 #### **fun `purchase()`**[​](#fun-purchase "Direct link to fun-purchase")
 
- `_10fun purchase(payment FungibleToken.Vault, commissionRecipient Capability<&{FungibleToken.Receiver}>?): NonFungibleToken.NFT`
+`_10
+
+fun purchase(payment FungibleToken.Vault, commissionRecipient Capability<&{FungibleToken.Receiver}>?): NonFungibleToken.NFT`
 
 Facilitates the purchase of the listing by providing the payment vault
 and the commission recipient capability if there is a non-zero commission for the given listing.
@@ -207,7 +308,9 @@ Respective saleCuts are transferred to beneficiaries and funtion return underlyi
 
 #### **fun `getDetails()`**[​](#fun-getdetails "Direct link to fun-getdetails")
 
- `_10fun getDetails(): ListingDetails`
+`_10
+
+fun getDetails(): ListingDetails`
 
 Fetches the details of the listings
 
@@ -215,7 +318,9 @@ Fetches the details of the listings
 
 #### **fun `getAllowedCommissionReceivers()`**[​](#fun-getallowedcommissionreceivers "Direct link to fun-getallowedcommissionreceivers")
 
- `_10fun getAllowedCommissionReceivers(): [Capability<&{FungibleToken.Receiver}>]?`
+`_10
+
+fun getAllowedCommissionReceivers(): [Capability<&{FungibleToken.Receiver}>]?`
 
 Fetches the allowed marketplaces capabilities or commission receivers for the underlying listing.
 If it returns `nil` then commission is up to grab by anyone.
@@ -224,7 +329,77 @@ If it returns `nil` then commission is up to grab by anyone.
 
 ## Resource `Storefront`[​](#resource-storefront "Direct link to resource-storefront")
 
- `_18resource Storefront {_18 access(all) fun createListing(_18 nftProviderCapability: Capability<&{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>,_18 nftType: Type,_18 nftID: UInt64,_18 salePaymentVaultType: Type,_18 saleCuts: [SaleCut],_18 marketplacesCapability: [Capability<&{FungibleToken.Receiver}>]?,_18 customID: String?,_18 commissionAmount: UFix64,_18 expiry: UInt64_18 ): UInt64_18 access(all) fun removeListing(listingResourceID: UInt64)_18 access(all) fun getListingIDs(): [UInt64]_18 access(all) fun getDuplicateListingIDs(nftType: Type, nftID: UInt64, listingID: UInt64): [UInt64]_18 access(all) fun cleanupExpiredListings(fromIndex: UInt64, toIndex: UInt64)_18 access(all) fun borrowListing(listingResourceID: UInt64): &Listing{ListingPublic}?_18}`
+`_18
+
+resource Storefront {
+
+_18
+
+access(all) fun createListing(
+
+_18
+
+nftProviderCapability: Capability<&{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>,
+
+_18
+
+nftType: Type,
+
+_18
+
+nftID: UInt64,
+
+_18
+
+salePaymentVaultType: Type,
+
+_18
+
+saleCuts: [SaleCut],
+
+_18
+
+marketplacesCapability: [Capability<&{FungibleToken.Receiver}>]?,
+
+_18
+
+customID: String?,
+
+_18
+
+commissionAmount: UFix64,
+
+_18
+
+expiry: UInt64
+
+_18
+
+): UInt64
+
+_18
+
+access(all) fun removeListing(listingResourceID: UInt64)
+
+_18
+
+access(all) fun getListingIDs(): [UInt64]
+
+_18
+
+access(all) fun getDuplicateListingIDs(nftType: Type, nftID: UInt64, listingID: UInt64): [UInt64]
+
+_18
+
+access(all) fun cleanupExpiredListings(fromIndex: UInt64, toIndex: UInt64)
+
+_18
+
+access(all) fun borrowListing(listingResourceID: UInt64): &Listing{ListingPublic}?
+
+_18
+
+}`
 
 A resource that allows its owner to manage a list of Listings, and anyone to interact with them
 in order to query their details and purchase the NFTs that they represent.
@@ -236,12 +411,17 @@ Implemented Interfaces:
 
 ### Initializer[​](#initializer "Direct link to Initializer")
 
- `_10fun init()`
+`_10
+
+fun init()`
+
 ### Functions[​](#functions-1 "Direct link to Functions")
 
 #### **fun `createListing()`**[​](#fun-createlisting "Direct link to fun-createlisting")
 
- `_10fun createListing(nftProviderCapability Capability<&{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>, nftType Type, nftID UInt64, salePaymentVaultType Type, saleCuts [SaleCut], marketplacesCapability [Capability<&{FungibleToken.Receiver}>]?, customID String?, commissionAmount UFix64, expiry UInt64): UInt64`
+`_10
+
+fun createListing(nftProviderCapability Capability<&{NonFungibleToken.Provider, NonFungibleToken.CollectionPublic}>, nftType Type, nftID UInt64, salePaymentVaultType Type, saleCuts [SaleCut], marketplacesCapability [Capability<&{FungibleToken.Receiver}>]?, customID String?, commissionAmount UFix64, expiry UInt64): UInt64`
 
 insert
 Create and publish a Listing for an NFT.
@@ -250,7 +430,9 @@ Create and publish a Listing for an NFT.
 
 #### **fun `removeListing()`**[​](#fun-removelisting "Direct link to fun-removelisting")
 
- `_10fun removeListing(listingResourceID UInt64)`
+`_10
+
+fun removeListing(listingResourceID UInt64)`
 
 removeListing
 Remove a Listing that has not yet been purchased from the collection and destroy it.
@@ -259,7 +441,9 @@ Remove a Listing that has not yet been purchased from the collection and destroy
 
 #### **fun `getListingIDs()`**[​](#fun-getlistingids "Direct link to fun-getlistingids")
 
- `_10fun getListingIDs(): [UInt64]`
+`_10
+
+fun getListingIDs(): [UInt64]`
 
 getListingIDs
 Returns an array of the Listing resource IDs that are in the collection
@@ -268,7 +452,9 @@ Returns an array of the Listing resource IDs that are in the collection
 
 #### **fun `getDuplicateListingIDs()`**[​](#fun-getduplicatelistingids "Direct link to fun-getduplicatelistingids")
 
- `_10fun getDuplicateListingIDs(nftType Type, nftID UInt64, listingID UInt64): [UInt64]`
+`_10
+
+fun getDuplicateListingIDs(nftType Type, nftID UInt64, listingID UInt64): [UInt64]`
 
 getDuplicateListingIDs
 Returns an array of listing IDs that are duplicates of the given `nftType` and `nftID`.
@@ -277,7 +463,9 @@ Returns an array of listing IDs that are duplicates of the given `nftType` and `
 
 #### **fun `cleanupExpiredListings()`**[​](#fun-cleanupexpiredlistings "Direct link to fun-cleanupexpiredlistings")
 
- `_10fun cleanupExpiredListings(fromIndex UInt64, toIndex UInt64)`
+`_10
+
+fun cleanupExpiredListings(fromIndex UInt64, toIndex UInt64)`
 
 cleanupExpiredListings
 Cleanup the expired listing by iterating over the provided range of indexes.
@@ -286,7 +474,9 @@ Cleanup the expired listing by iterating over the provided range of indexes.
 
 #### **fun `borrowListing()`**[​](#fun-borrowlisting "Direct link to fun-borrowlisting")
 
- `_10fun borrowListing(listingResourceID: UInt64): &{ListingPublic}?`
+`_10
+
+fun borrowListing(listingResourceID: UInt64): &{ListingPublic}?`
 
 borrowListing
 Returns a read-only view of the listing for the given listingID if it is contained by this collection.
@@ -295,7 +485,37 @@ Returns a read-only view of the listing for the given listingID if it is contain
 
 ## Resource Interface `StorefrontPublic`[​](#resource-interface-storefrontpublic "Direct link to resource-interface-storefrontpublic")
 
- `_10resource interface StorefrontPublic {_10 access(all) fun getListingIDs(): [UInt64]_10 access(all) fun getDuplicateListingIDs(nftType: Type, nftID: UInt64, listingID: UInt64): [UInt64]_10 access(all) fun cleanupExpiredListings(fromIndex: UInt64, toIndex: UInt64)_10 access(all) fun borrowListing(listingResourceID: UInt64): &Listing{ListingPublic}?_10 access(all) fun cleanupPurchasedListings(listingResourceID: UInt64)_10 access(all) fun getExistingListingIDs(nftType: Type, nftID: UInt64): [UInt64]_10}`
+`_10
+
+resource interface StorefrontPublic {
+
+_10
+
+access(all) fun getListingIDs(): [UInt64]
+
+_10
+
+access(all) fun getDuplicateListingIDs(nftType: Type, nftID: UInt64, listingID: UInt64): [UInt64]
+
+_10
+
+access(all) fun cleanupExpiredListings(fromIndex: UInt64, toIndex: UInt64)
+
+_10
+
+access(all) fun borrowListing(listingResourceID: UInt64): &Listing{ListingPublic}?
+
+_10
+
+access(all) fun cleanupPurchasedListings(listingResourceID: UInt64)
+
+_10
+
+access(all) fun getExistingListingIDs(nftType: Type, nftID: UInt64): [UInt64]
+
+_10
+
+}`
 
 StorefrontPublic
 An interface to allow listing and borrowing Listings, and purchasing items via Listings
@@ -305,7 +525,9 @@ in a Storefront.
 
 #### **fun `getListingIDs()`**[​](#fun-getlistingids-1 "Direct link to fun-getlistingids-1")
 
- `_10fun getListingIDs(): [UInt64]`
+`_10
+
+fun getListingIDs(): [UInt64]`
 
 getListingIDs Returns an array of the Listing resource IDs that are in the collection
 
@@ -313,7 +535,9 @@ getListingIDs Returns an array of the Listing resource IDs that are in the colle
 
 #### **fun `getDuplicateListingIDs()`**[​](#fun-getduplicatelistingids-1 "Direct link to fun-getduplicatelistingids-1")
 
- `_10fun getDuplicateListingIDs(nftType Type, nftID UInt64, listingID UInt64): [UInt64]`
+`_10
+
+fun getDuplicateListingIDs(nftType Type, nftID UInt64, listingID UInt64): [UInt64]`
 
 getDuplicateListingIDs Returns an array of listing IDs that are duplicates of the given nftType and nftID.
 
@@ -321,7 +545,9 @@ getDuplicateListingIDs Returns an array of listing IDs that are duplicates of th
 
 #### **fun `borrowListing()`**[​](#fun-borrowlisting-1 "Direct link to fun-borrowlisting-1")
 
- `_10fun borrowListing(listingResourceID UInt64): &Listing{ListingPublic}?`
+`_10
+
+fun borrowListing(listingResourceID UInt64): &Listing{ListingPublic}?`
 
 borrowListing Returns a read-only view of the listing for the given listingID if it is contained by this collection.
 
@@ -329,7 +555,9 @@ borrowListing Returns a read-only view of the listing for the given listingID if
 
 #### **fun `cleanupExpiredListings()`**[​](#fun-cleanupexpiredlistings-1 "Direct link to fun-cleanupexpiredlistings-1")
 
- `_10fun cleanupExpiredListings(fromIndex UInt64, toIndex UInt64)`
+`_10
+
+fun cleanupExpiredListings(fromIndex UInt64, toIndex UInt64)`
 
 cleanupExpiredListings Cleanup the expired listing by iterating over the provided range of indexes.
 
@@ -337,7 +565,9 @@ cleanupExpiredListings Cleanup the expired listing by iterating over the provide
 
 #### **fun `cleanupPurchasedListings()`**[​](#fun-cleanuppurchasedlistings "Direct link to fun-cleanuppurchasedlistings")
 
- `_10fun cleanupPurchasedListings(listingResourceID: UInt64)`
+`_10
+
+fun cleanupPurchasedListings(listingResourceID: UInt64)`
 
 cleanupPurchasedListings
 Allows anyone to remove already purchased listings.
@@ -346,7 +576,9 @@ Allows anyone to remove already purchased listings.
 
 #### **fun `getExistingListingIDs()`**[​](#fun-getexistinglistingids "Direct link to fun-getexistinglistingids")
 
- `_10fun getExistingListingIDs(nftType Type, nftID UInt64): [UInt64]`
+`_10
+
+fun getExistingListingIDs(nftType Type, nftID UInt64): [UInt64]`
 
 getExistingListingIDs
 Returns an array of listing IDs of the given `nftType` and `nftID`.
@@ -357,7 +589,9 @@ Returns an array of listing IDs of the given `nftType` and `nftID`.
 
 **event `StorefrontInitialized`**
 
- `_10event StorefrontInitialized(storefrontResourceID: UInt64)`
+`_10
+
+event StorefrontInitialized(storefrontResourceID: UInt64)`
 
 A Storefront resource has been created. Consumers can now expect events from this Storefront. Note that we do not specify an address: we cannot and should not. Created resources do not have an owner address, and may be moved
 after creation in ways we cannot check. `ListingAvailable` events can be used to determine the address
@@ -367,7 +601,9 @@ of the owner of the Storefront at the time of the listing but only at that preci
 
 **event `StorefrontDestroyed`**
 
- `_10event StorefrontDestroyed(storefrontResourceID: UInt64)`
+`_10
+
+event StorefrontDestroyed(storefrontResourceID: UInt64)`
 
 A Storefront has been destroyed. Event consumers can now stop processing events from this Storefront.
 Note - we do not specify an address.
@@ -376,7 +612,9 @@ Note - we do not specify an address.
 
 **event `ListingAvailable`**
 
- `_10event ListingAvailable(storefrontAddress: Address, listingResourceID: UInt64, nftType: Type, nftUUID: UInt64, nftID: UInt64, salePaymentVaultType: Type, salePrice: UFix64, customID: String?, commissionAmount: UFix64, commissionReceivers: [Address]?, expiry: UInt64)`
+`_10
+
+event ListingAvailable(storefrontAddress: Address, listingResourceID: UInt64, nftType: Type, nftUUID: UInt64, nftID: UInt64, salePaymentVaultType: Type, salePrice: UFix64, customID: String?, commissionAmount: UFix64, commissionReceivers: [Address]?, expiry: UInt64)`
 
 Above event gets emitted when a listing has been created and added to a Storefront resource. The Address values here are valid when the event is emitted, but the state of the accounts they refer to may change outside of the
 `NFTStorefrontV2` workflow, so be careful to check when using them.
@@ -385,7 +623,9 @@ Above event gets emitted when a listing has been created and added to a Storefro
 
 **event `ListingCompleted`**
 
- `_10event ListingCompleted(listingResourceID: UInt64, storefrontResourceID: UInt64, purchased: Bool, nftType: Type, nftUUID: UInt64, nftID: UInt64, salePaymentVaultType: Type, salePrice: UFix64, customID: String?, commissionAmount: UFix64, commissionReceiver: Address?, expiry: UInt64)`
+`_10
+
+event ListingCompleted(listingResourceID: UInt64, storefrontResourceID: UInt64, purchased: Bool, nftType: Type, nftUUID: UInt64, nftID: UInt64, salePaymentVaultType: Type, salePrice: UFix64, customID: String?, commissionAmount: UFix64, commissionReceiver: Address?, expiry: UInt64)`
 
 The listing has been resolved. It has either been purchased, removed or destroyed.
 
@@ -393,7 +633,9 @@ The listing has been resolved. It has either been purchased, removed or destroye
 
 **event `UnpaidReceiver`**
 
- `_10event UnpaidReceiver(receiver: Address, entitledSaleCut: UFix64)`
+`_10
+
+event UnpaidReceiver(receiver: Address, entitledSaleCut: UFix64)`
 
 A entitled receiver has not been paid during the sale of the NFT.
 
@@ -403,7 +645,16 @@ A entitled receiver has not been paid during the sale of the NFT.
 
 ![NFT Storefront Process flow](https://user-images.githubusercontent.com/14581509/191960793-ff153e5d-2934-410c-b724-5c5dffd2c20f.png)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/10-nft-storefront.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousNFT Metadata](/build/core-contracts/nft-metadata)[NextStaking Collection](/build/core-contracts/staking-collection)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/10-nft-storefront.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+NFT Metadata](/build/core-contracts/nft-metadata)[Next
+
+Staking Collection](/build/core-contracts/staking-collection)
+
 ###### Rate this page
 
 😞😐😊
@@ -429,6 +680,7 @@ A entitled receiver has not been paid during the sale of the NFT.
 * [Resource Interface `StorefrontPublic`](#resource-interface-storefrontpublic)
   + [Functions](#functions-2)
 * [Events](#events)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -441,6 +693,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -450,6 +703,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -457,6 +711,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -466,6 +721,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -473,5 +729,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

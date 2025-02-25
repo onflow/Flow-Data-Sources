@@ -1,19 +1,21 @@
 # Source: https://developers.flow.com/tools/flow-cli/super-commands
 
-
-
-
 Super Commands | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
 * [Flow CLI](/tools/flow-cli)
+
   + [Install Instructions](/tools/flow-cli/install)
   + [Super Commands](/tools/flow-cli/super-commands)
   + [Accounts](/tools/flow-cli/accounts/get-accounts)
@@ -36,10 +38,11 @@ Super Commands | Flow Developer Portal
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 
-
 * [Flow CLI](/tools/flow-cli)
 * Super Commands
+
 On this page
+
 # Super Commands
 
 Flow CLI Super commands are set of commands that can be used during development of your dApp to greatly simplify the workflow. The result is you can focus on writing the contracts and the commands will take care of the rest.
@@ -54,7 +57,9 @@ During the initialization process, `flow init` will prompt you if you want to in
 
 Running the command:
 
- `_10> flow init $PROJECT_NAME`
+`_10
+
+> flow init $PROJECT_NAME`
 
 Will create the following folders and files:
 
@@ -69,11 +74,15 @@ Will create the following folders and files:
 Based on the purpose of your project you can select from a list of available scaffolds.
 You can access the scaffolds by simply using the `--scaffold` flag like so:
 
- `_10> flow init $PROJECT_NAME --scaffold`
+`_10
+
+> flow init $PROJECT_NAME --scaffold`
 
 If you'd like to skip the interactive mode of selecting a scaffold, use the `--scaffold-id` flag with a known ID:
 
- `_10> flow init $PROJECT_NAME --scaffold-id=1`
+`_10
+
+> flow init $PROJECT_NAME --scaffold-id=1`
 
 The list of scaffolds will continuously grow, and you are welcome to contribute to that.
 You can contribute by creating your own scaffold repository which can then be added to the scaffold
@@ -89,11 +98,15 @@ You can simply import your contracts by name. We have introducted a new way to i
 
 The new import schema format looks like:
 
- `_10import "{name of the contract}"`
+`_10
+
+import "{name of the contract}"`
 
 Example:
 
- `_10import "HelloWorld"`
+`_10
+
+import "HelloWorld"`
 
 This will automatically import the contract you have created in your project with the same name and
 save the configuration in flow.json. It doesn't matter if the contract has been deployed on a non-default account.
@@ -104,7 +117,17 @@ To learn more about next steps following the initial setup, check out the follow
 
 * [Depedency Manager](/tools/flow-cli/dependency-manager): Lets you install and manage your contract dependencies with CLI commands.
 * [Manage Configuration](/tools/flow-cli/flow.json/manage-configuration): Learn how to manage your project configuration file.
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/super-commands.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousInstall Instructions](/tools/flow-cli/install)[NextGet an Account](/tools/flow-cli/accounts/get-accounts)
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/super-commands.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Install Instructions](/tools/flow-cli/install)[Next
+
+Get an Account](/tools/flow-cli/accounts/get-accounts)
+
 ###### Rate this page
 
 😞😐😊
@@ -114,6 +137,7 @@ To learn more about next steps following the initial setup, check out the follow
 * [Testing](#testing)
 * [Import Schema](#import-schema)
 * [Learn More](#learn-more)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -126,6 +150,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -135,6 +160,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -142,6 +168,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -151,6 +178,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -158,5 +186,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

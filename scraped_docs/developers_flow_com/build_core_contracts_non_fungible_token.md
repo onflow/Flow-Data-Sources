@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/build/core-contracts/non-fungible-token
 
-
-
-
 Non-Fungible Token Contract | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -20,6 +21,7 @@ Non-Fungible Token Contract | Flow Developer Portal
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
 * [Guides](/build/guides/account-linking)
 * [Core Smart Contracts](/build/core-contracts)
+
   + [Fungible Token](/build/core-contracts/fungible-token)
   + [Flow Token](/build/core-contracts/flow-token)
   + [Service Account](/build/core-contracts/service-account)
@@ -35,9 +37,9 @@ Non-Fungible Token Contract | Flow Developer Portal
   + [Burner](/build/core-contracts/burner)
 * [Explore More](/build/explore-more)
 
-
 * [Core Smart Contracts](/build/core-contracts)
 * Non-Fungible Token
+
 On this page
 
 The `NonFungibleToken` contract interface implements the Fungible Token Standard.
@@ -67,7 +69,9 @@ without changing any code besides import addresses on different networks.
 
 Events emitted from all contracts follow a standard format:
 
- `_10A.{contract address}.{contract name}.{event name}`
+`_10
+
+A.{contract address}.{contract name}.{event name}`
 
 The components of the format are:
 
@@ -86,14 +90,46 @@ unless the standard events do not satisfy requirements they have for events.
 
 The `NonFungibleToken` events will have the following format:
 
- `_10A.{contract address}.NonFungibleToken.Deposited_10A.{contract address}.NonFungibleToken.Withdrawn`
+`_10
+
+A.{contract address}.NonFungibleToken.Deposited
+
+_10
+
+A.{contract address}.NonFungibleToken.Withdrawn`
 
 Where the `contract address` is the `NonFungibleToken` address on the network being queried.
 The addresses on the various networks are shown above.
 
 ### NonFungibleToken.Deposited[​](#nonfungibletokendeposited "Direct link to NonFungibleToken.Deposited")
 
- `_10access(all) event Deposited (_10 type: String,_10 id: UInt64,_10 uuid: UInt64,_10 to: Address?,_10 collectionUUID: UInt64_10)`
+`_10
+
+access(all) event Deposited (
+
+_10
+
+type: String,
+
+_10
+
+id: UInt64,
+
+_10
+
+uuid: UInt64,
+
+_10
+
+to: Address?,
+
+_10
+
+collectionUUID: UInt64
+
+_10
+
+)`
 
 Whenever `deposit()` is called on a resource type that implements
 `NonFungibleToken.Collection`, the `NonFungibleToken.Deposited` event is emitted
@@ -113,7 +149,33 @@ with the following arguments:
 
 ### NonFungibleToken.Withdrawn[​](#nonfungibletokenwithdrawn "Direct link to NonFungibleToken.Withdrawn")
 
- `_10access(all) event Withdrawn (_10 type: String,_10 id: UInt64,_10 uuid: UInt64,_10 from: Address?,_10 providerUUID: UInt64_10)`
+`_10
+
+access(all) event Withdrawn (
+
+_10
+
+type: String,
+
+_10
+
+id: UInt64,
+
+_10
+
+uuid: UInt64,
+
+_10
+
+from: Address?,
+
+_10
+
+providerUUID: UInt64
+
+_10
+
+)`
 
 Whenever `withdraw()` is called on a resource type that implements
 `NonFungibleToken.Collection`, the `NonFungibleToken.Withdrawn` event is emitted
@@ -133,7 +195,29 @@ with the following arguments:
 
 ### NonFungibleToken.Updated[​](#nonfungibletokenupdated "Direct link to NonFungibleToken.Updated")
 
- `_10access(all) event Updated(_10 type: String,_10 id: UInt64,_10 uuid: UInt64,_10 owner: Address?_10)`
+`_10
+
+access(all) event Updated(
+
+_10
+
+type: String,
+
+_10
+
+id: UInt64,
+
+_10
+
+uuid: UInt64,
+
+_10
+
+owner: Address?
+
+_10
+
+)`
 
 Whenever a non-fungible token is updated for whatever reason,
 projects should call the `NonFungibleToken.emitNFTUpdated()` function
@@ -149,7 +233,17 @@ the NFT to update any stored information they have about the NFT in their databa
 * `owner: Address?`: The address of the account that owns the Collection that owns
   the token. If the collection is not stored in an account, `to` will be `nil`.
   + Example: `0x4445e7ad11568276`
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/08-non-fungible-token.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousEpoch Contracts](/build/core-contracts/epoch-contract-reference)[NextNFT Metadata](/build/core-contracts/nft-metadata)
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/08-non-fungible-token.md)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Epoch Contracts](/build/core-contracts/epoch-contract-reference)[Next
+
+NFT Metadata](/build/core-contracts/nft-metadata)
+
 ###### Rate this page
 
 😞😐😊
@@ -158,6 +252,7 @@ the NFT to update any stored information they have about the NFT in their databa
   + [NonFungibleToken.Deposited](#nonfungibletokendeposited)
   + [NonFungibleToken.Withdrawn](#nonfungibletokenwithdrawn)
   + [NonFungibleToken.Updated](#nonfungibletokenupdated)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -170,6 +265,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -179,6 +275,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -186,6 +283,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -195,6 +293,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -202,5 +301,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

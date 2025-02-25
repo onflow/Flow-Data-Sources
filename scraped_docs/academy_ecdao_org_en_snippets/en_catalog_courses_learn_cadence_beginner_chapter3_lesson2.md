@@ -1,30 +1,14 @@
 # Source: https://academy.ecdao.org/en/catalog/courses/learn-cadence-beginner/chapter3/lesson2
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -48,7 +32,6 @@ Connect
 
 Course Overview
 
-
 [Catalog](/en/catalog)
 [Course](/en/catalog/courses/learn-cadence-beginner)
 Learn Cadence Beginner
@@ -58,6 +41,7 @@ Learn Cadence Beginner
 So far, we have been storing all of our data inside the smart contract. Today, we will learn how we can store a Pokemon directly in our own account and catch it just like the real show!
 
 ![](https://i.imgur.com/QnB7MW0.png)
+
 ## Accounts on Flow
 
 In Cadence, users can store & own their data. This is *very different* from other languages like Solidity on Ethereum, where your NFT gets stored in the smart contract. In Cadence, if I own an NFT, it gets stored in my account.
@@ -71,6 +55,7 @@ You can think of account storage as a container inside your account that stores 
 In order to store data somewhere, you must save it to a certain storage path. Letâs see an example using our `Game` contract from the last lesson:
 
 cadence
+
 ```
 		
 			import Game from "./Game.cdc"
@@ -98,6 +83,7 @@ We will learn a lot about entitlements in the intermediate course. For now, we w
 Letâs see how to properly save and remove data from our account.
 
 cadence
+
 ```
 		
 			import Game from "./Game.cdc"
@@ -124,6 +110,7 @@ In the example above, I saved `newPokemon` (note the `<-` syntax since itâs
 Now anytime we want to access the new pokemon, we can go to that path. Letâs do that below.
 
 cadence
+
 ```
 		
 			import Game from "./Game.cdc"
@@ -156,6 +143,7 @@ One more important thing is that when you `load` data from storage, it returns a
 Previously, we saved and loaded from our account. But what if we just want to look at something in an account and donât want to move it out of storage to read it? Thatâs where references and the `.borrow()` function comes in.
 
 cadence
+
 ```
 		
 			import Game from "./Game.cdc"
@@ -184,6 +172,7 @@ You may be wonderingâ¦ if we are storing our Pokemon in our account storage,
 It turns out itâs very easy. Scripts allow you to get authorized references to accounts using the `getAuthAccount` function:
 
 cadence
+
 ```
 		
 			access(all) fun main(address: Address) {
@@ -200,6 +189,7 @@ cadence
 Using this function, we can easily get data about our Pokemon inside of our account:
 
 cadence
+
 ```
 		
 			import Game from "./Game.cdc"
@@ -237,14 +227,12 @@ Author
 
 [Jacob Tucker](https://twitter.com/jacobmtucker)
 
-
-
-
 [Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/courses/learn-cadence-beginner/en/chapter3/lesson2.md)
-
 
 [References](/en/catalog/courses/learn-cadence-beginner/chapter3/lesson1)
 [Access Modifiers](/en/catalog/courses/learn-cadence-beginner/chapter3/lesson3)
+
+
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
@@ -252,17 +240,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

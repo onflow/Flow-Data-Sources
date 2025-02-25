@@ -1,29 +1,14 @@
 # Source: https://academy.ecdao.org/en/catalog/tutorials/write-your-first-smart-contract
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Emerald Academy
+
+
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
 Emerald Academy](/en/)
+
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
 
@@ -36,32 +21,30 @@ Write your first smart contract
 
 # Write your first smart contract
 
-
 Tutorial
 
 Beginner
 
 10 minutes
 
-
-
 Our tutorial on writing a smart contract will help you start building on Flow. Specifically, youâll learn Cadence, the smart contract language created by the Flow blockchain. We learn about resources and their ownership through the example of a âCarâ resource.
 
 ## Video
 
-  
-
 Follow along in a video format.
+
 ## Getting Started
 
 The easiest way to start coding a smart contract on Flow **without any installations required** is to load up the [Flow playground](https://play.flow.com).
 
 ![](/tutorials/flow-playground.png)
+
 ## Deploying a Contract
 
 You can start by deploying your own contract that does nothing.
 
 cadence
+
 ```
 		
 			pub contract Race {
@@ -75,6 +58,7 @@ cadence
 		 
 	
 ```
+
 ## Resources
 
 In contract to many other blockchains like Ethereum where storage is maintained in the contract in the form of key-value stores, it is most often in Cadence that an account stores a **resource** in their own storage. We will get to that in a bit.
@@ -86,6 +70,7 @@ Resources are characterized by having the following properties:
 * They have a unique identifier (`uuid`)
 
 cadence
+
 ```
 		
 			pub contract Race {
@@ -126,6 +111,7 @@ A special function called `init` is found in a contract (executing when itâ
 Similarly, `destroy` is found in a resource, and only called when the resource is destroyed.
 
 cadence
+
 ```
 		
 			pub contract Race {
@@ -167,6 +153,7 @@ cadence
 		 
 	
 ```
+
 ## Transactions and Scripts
 
 Transactions (for writing data) and scripts (for reading data), like contracts, are implemented in Cadence. But they are seperate files.
@@ -174,6 +161,7 @@ Transactions (for writing data) and scripts (for reading data), like contracts, 
 Letâs add a variable in the contract that keeps track of the total amount of cars created.
 
 cadence
+
 ```
 		
 			// Race.cdc
@@ -222,6 +210,7 @@ pub contract Race {
 Now letâs run a transaction to mint a car and destroy it.
 
 cadence
+
 ```
 		
 			// create_car.cdc
@@ -249,6 +238,7 @@ transaction() {
 We can also write a script to view the total amount of cars at any point.
 
 cadence
+
 ```
 		
 			// get_total_cars.cdc
@@ -260,11 +250,13 @@ pub fun main(): UInt64 {
 		 
 	
 ```
+
 ## Account Storage
 
 As mentioned earlier, unlike languages like Solidity where user data is stored in a centralized contract, in Cadence we store user data directly in their accounts. Letâs store a Car in a userâs account.
 
 cadence
+
 ```
 		
 			// create_car.cdc
@@ -295,6 +287,7 @@ We can read data about our car in a script. Without the use of **Capabilities** 
 However, because this is just a script and thus modified data will revert after its execution, scripts allow us to use the `getAuthAccount` function to get the type.
 
 cadence
+
 ```
 		
 			// get_car_info.cdc
@@ -328,12 +321,12 @@ pub struct Result {
 		 
 	
 ```
+
 ## Next Steps
 
 Take the [Beginner Cadence Course](https://academy.ecdao.org/en/catalog/courses/beginner-cadence) next if youâd like to master Cadence development.
 
 Till next time ~ Jacob Tucker
-
 
 ![User avatar](/avatars/jacob.jpeg)
 
@@ -341,12 +334,10 @@ Author
 
 [Jacob Tucker](https://twitter.com/jacobmtucker)
 
-
-
-
 [Video lesson](#)
 
 [Edit Content](https://github.com/emerald-dao/emerald-academy-v2/tree/main/src/lib/content/tutorials/write-your-first-smart-contract/en/readme.md)
+
 
 
 [![Emerald DAO Logo](/ea-logo.png)
@@ -355,17 +346,18 @@ Emerald Academy](/en/)
 Built by Emerald City DAO.  
 [Join us](https://discord.gg/emerald-city-906264258189332541) on our mission to build the future #onFlow
 
-
 ##### Pages
 
 [* Catalog](/en/catalog)[* Cadence by Example](/en/cadence-by-example)[* Code Snippets](/en/snippets)[* Quickstarts](/en/quickstarts)[* Flownaut](https://flownaut.ecdao.org)[* Arcade](https://arcade.ecdao.org)
+
+
 ##### Emerald City Tools
 
 [* Emerald Academy](https://academy.ecdao.org/)[* Touchstone](https://touchstone.city/)[* FLOAT](https://floats.city/)[* Emerald Bot](https://bot.ecdao.org/)[* Link](https://link.ecdao.org/)[* Run](https://run.ecdao.org/)
+
+
 ##### 33 Labs Tools
 
 [* Drizzle](https://drizzle33.app/)[* Flowview](https://flowview.app/)[* Bayou](https://bayou33.app/)
+
 [Join the community](https://discord.gg/emerald-city-906264258189332541)
-
-
-

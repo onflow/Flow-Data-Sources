@@ -1,22 +1,25 @@
 # Source: https://developers.flow.com/tools/clients/fcl-js/installation
 
-
-
-
 Installation | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
 * [Flow CLI](/tools/flow-cli)
 * [Flow Emulator](/tools/emulator)
 * [Clients](/tools/clients)
+
   + [Flow Client Library (FCL)](/tools/clients/fcl-js)
+
     - [FCL Reference](/tools/clients/fcl-js/api)
     - [SDK Reference](/tools/clients/fcl-js/sdk-guidelines)
     - [Authentication](/tools/clients/fcl-js/authentication)
@@ -34,11 +37,12 @@ Installation | Flow Developer Portal
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 
-
 * [Clients](/tools/clients)
 * [Flow Client Library (FCL)](/tools/clients/fcl-js)
 * Installation
+
 On this page
+
 # Installation
 
 This chapter explains the installation of the FCL JS library in your system. However, before moving to the installation, let us verify the prerequisite first.
@@ -49,28 +53,52 @@ This chapter explains the installation of the FCL JS library in your system. How
 
 FCL JS depends on Node.js version v12.0.0 or higher. You can check your currently installed version using the below command:
 
- `_10node --version`
+`_10
+
+node --version`
 
 If Node.js is not installed on your system, you can download and install it by visiting [Node.js Download](https://nodejs.org/en/download/).
 
 Install FCL JS using **npm** or **yarn**
 
- `_10npm i -S @onflow/fcl`
- `_10yarn add @onflow/fcl`
+`_10
+
+npm i -S @onflow/fcl`
+
+`_10
+
+yarn add @onflow/fcl`
+
 #### Importing[​](#importing "Direct link to Importing")
 
 **ES6**
 
- `_10import * as fcl from "@onflow/fcl";`
+`_10
+
+import * as fcl from "@onflow/fcl";`
 
 **Node.js**
 
- `_10const fcl = require("@onflow/fcl");`[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/installation.mdx)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousWallet Discovery](/tools/clients/fcl-js/discovery)[NextInteraction Templates](/tools/clients/fcl-js/interaction-templates)
+`_10
+
+const fcl = require("@onflow/fcl");`
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/installation.mdx)
+
+Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+
+[Previous
+
+Wallet Discovery](/tools/clients/fcl-js/discovery)[Next
+
+Interaction Templates](/tools/clients/fcl-js/interaction-templates)
+
 ###### Rate this page
 
 😞😐😊
 
 * [Prerequisite](#prerequisite)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -83,6 +111,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -92,6 +121,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -99,6 +129,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -108,6 +139,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -115,5 +147,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.
