@@ -633,7 +633,7 @@ consensus_compliance_sealed_height 1.132054e+06`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-setup.md)
 
-Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Feb 19, 2025** by **Brian Doyle**
 
 [Previous
 

@@ -169,7 +169,7 @@ By using this approach to add the Flow network to Metamask, you can avoid manual
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/integrating-metamask.mdx)
 
-Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Feb 19, 2025** by **Brian Doyle**
 
 [Previous
 

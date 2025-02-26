@@ -1,19 +1,21 @@
 # Source: https://developers.flow.com/tools/flow-cli/transactions/send-signed-transactions
 
-
-
-
 Send Signed Transaction | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
 * [Flow CLI](/tools/flow-cli)
+
   + [Install Instructions](/tools/flow-cli/install)
   + [Super Commands](/tools/flow-cli/super-commands)
   + [Accounts](/tools/flow-cli/accounts/get-accounts)
@@ -21,6 +23,7 @@ Send Signed Transaction | Flow Developer Portal
   + [Deploy Project](/tools/flow-cli/deployment/start-emulator)
   + [Scripts](/tools/flow-cli/scripts/execute-scripts)
   + [Transactions](/tools/flow-cli/transactions/send-transactions)
+
     - [Send a Transaction](/tools/flow-cli/transactions/send-transactions)
     - [Get a Transaction](/tools/flow-cli/transactions/get-transactions)
     - [Build a Transaction](/tools/flow-cli/transactions/build-transactions)
@@ -43,11 +46,12 @@ Send Signed Transaction | Flow Developer Portal
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 
-
 * [Flow CLI](/tools/flow-cli)
 * Transactions
 * Send Signed Transaction
+
 On this page
+
 # Send Signed Transaction
 
 The Flow CLI provides a command to send signed transactions to
@@ -59,10 +63,86 @@ Use this functionality in the following order:
 2. Use the `sign` command to sign with each account specified in the build process.
 3. Use this command (`send-signed`) to submit the signed transaction to the Flow network.
 
- `_10flow transactions send-signed <signed transaction filename>`
+`_10
+
+flow transactions send-signed <signed transaction filename>`
+
 ## Example Usage[​](#example-usage "Direct link to Example Usage")
 
- `_22> flow transactions send-signed ./signed.rlp_22 _22Status ✅ SEALED_22ID 528332aceb288cdfe4d11d6522aa27bed94fb3266b812cb350eb3526ed489d99_22Payer f8d6e0586b0a20c7_22Authorizers [f8d6e0586b0a20c7]_22_22Proposal Key: _22 Address f8d6e0586b0a20c7_22 Index 0_22 Sequence 0_22_22No Payload Signatures_22_22Envelope Signature 0: f8d6e0586b0a20c7_22Signatures (minimized, use --include signatures)_22_22Events: None_22_22Code (hidden, use --include code)_22_22Payload (hidden, use --include payload)`
+`_22
+
+> flow transactions send-signed ./signed.rlp
+
+_22
+
+_22
+
+Status ✅ SEALED
+
+_22
+
+ID 528332aceb288cdfe4d11d6522aa27bed94fb3266b812cb350eb3526ed489d99
+
+_22
+
+Payer f8d6e0586b0a20c7
+
+_22
+
+Authorizers [f8d6e0586b0a20c7]
+
+_22
+
+_22
+
+Proposal Key:
+
+_22
+
+Address f8d6e0586b0a20c7
+
+_22
+
+Index 0
+
+_22
+
+Sequence 0
+
+_22
+
+_22
+
+No Payload Signatures
+
+_22
+
+_22
+
+Envelope Signature 0: f8d6e0586b0a20c7
+
+_22
+
+Signatures (minimized, use --include signatures)
+
+_22
+
+_22
+
+Events: None
+
+_22
+
+_22
+
+Code (hidden, use --include code)
+
+_22
+
+_22
+
+Payload (hidden, use --include payload)`
+
 ## Arguments[​](#arguments "Direct link to Arguments")
 
 ### Signed Code Filename[​](#signed-code-filename "Direct link to Signed Code Filename")
@@ -167,7 +247,16 @@ several configuration files.
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/send-signed-transactions.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousSign a Transaction](/tools/flow-cli/transactions/sign-transaction)[NextBuild a Complex Transaction](/tools/flow-cli/transactions/decode-transactions)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/send-signed-transactions.md)
+
+Last updated on **Feb 19, 2025** by **Brian Doyle**
+
+[Previous
+
+Sign a Transaction](/tools/flow-cli/transactions/sign-transaction)[Next
+
+Build a Complex Transaction](/tools/flow-cli/transactions/decode-transactions)
+
 ###### Rate this page
 
 😞😐😊
@@ -187,6 +276,7 @@ Skip version check during start up to speed up process for slow connections.
   + [Log](#log)
   + [Configuration](#configuration)
   + [Version Check](#version-check)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -199,6 +289,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -208,6 +299,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -215,6 +307,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -224,6 +317,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -231,5 +325,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

@@ -1,14 +1,16 @@
 # Source: https://developers.flow.com/cadence
 
-
-
-
 Introduction to Cadence | Cadence
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)Search
+[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
+
+[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+
+Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
@@ -25,9 +27,10 @@ Introduction to Cadence | Cadence
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
-
 * Introduction
+
 On this page
+
 # Introduction to Cadence
 
 In a blockchain environment like Flow, programs that are stored on-chain in accounts are commonly referred to as smart contracts.
@@ -215,7 +218,12 @@ but using an interpreter for the first version allows us to refine the language 
 Now that you've learned about the goals and design of Cadence and Flow, you're ready to get started with the Flow emulator and tools!
 Go to the [Getting Started](/docs/tutorial/first-steps) page to work through language fundamentals and tutorials.
 
-[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/index.md)[NextWhy Use Cadence?](/docs/why)
+[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/index.md)
+
+[Next
+
+Why Use Cadence?](/docs/why)
+
 ###### Rate this page
 
 😞😐😊
@@ -229,9 +237,10 @@ Go to the [Getting Started](/docs/tutorial/first-steps) page to work through lan
 * [Intuiting Ownership with Resources](#intuiting-ownership-with-resources)
 * [An Interpreted Language](#an-interpreted-language)
 * [Getting Started with Cadence](#getting-started-with-cadence)
-Got suggestions for this site? 
+
+Got suggestions for this site?
 
 * [It's open-source!](https://github.com/onflow/cadence-lang.org)
+
 The source code of this site is licensed under the Apache License, Version 2.0.
 Content is licensed under the Creative Commons Attribution 4.0 International License.
-

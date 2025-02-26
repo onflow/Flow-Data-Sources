@@ -355,7 +355,7 @@ All networking layer settings are initialized to default values from the [config
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/guides/starting-nodes.md)
 
-Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Feb 19, 2025** by **Brian Doyle**
 
 [Previous
 

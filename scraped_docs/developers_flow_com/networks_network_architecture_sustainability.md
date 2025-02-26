@@ -1,19 +1,21 @@
 # Source: https://developers.flow.com/networks/network-architecture/sustainability
 
-
-
-
 Sustainability | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
 * [Flow's Network Architecture](/networks/network-architecture)
+
   + [Solving the blockchain trilemma](/networks/network-architecture/solving-blockchain-trilemma)
   + [Sustainability](/networks/network-architecture/sustainability)
   + [User safety](/networks/network-architecture/user-safety)
@@ -23,9 +25,9 @@ Sustainability | Flow Developer Portal
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
-
 * [Flow's Network Architecture](/networks/network-architecture)
 * Sustainability
+
 # Sustainability with Flow
 
 It's no secret that Proof of Stake blockchains are better for the environment.
@@ -40,7 +42,17 @@ The overall energy use of the network won’t increase significantly even if the
 
 Read more about it [here](https://flow.com/post/flow-blockchain-sustainability-energy-deloitte-report-nft).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/network-architecture/sustainability.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousSolving the blockchain trilemma](/networks/network-architecture/solving-blockchain-trilemma)[NextUser safety](/networks/network-architecture/user-safety)Documentation
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/network-architecture/sustainability.md)
+
+Last updated on **Feb 19, 2025** by **Brian Doyle**
+
+[Previous
+
+Solving the blockchain trilemma](/networks/network-architecture/solving-blockchain-trilemma)[Next
+
+User safety](/networks/network-architecture/user-safety)
+
+Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
 * [SDK's & Tools](/tools)
@@ -52,6 +64,7 @@ Read more about it [here](https://flow.com/post/flow-blockchain-sustainability-e
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -61,6 +74,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -68,6 +82,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -77,6 +92,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -84,5 +100,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

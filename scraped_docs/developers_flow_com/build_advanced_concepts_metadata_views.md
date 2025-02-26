@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/build/advanced-concepts/metadata-views
 
-
-
-
 NFT Metadata Views | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -18,6 +19,7 @@ NFT Metadata Views | Flow Developer Portal
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
+
   + [Account Abstraction](/build/advanced-concepts/account-abstraction)
   + [FLIX (Flow Interaction Templates)](/build/advanced-concepts/flix)
   + [NFT Metadata Views](/build/advanced-concepts/metadata-views)
@@ -27,10 +29,11 @@ NFT Metadata Views | Flow Developer Portal
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
-
 * Advanced Concepts
 * NFT Metadata Views
+
 On this page
+
 # NFT Metadata Views on Flow
 
 `MetadataViews` on Flow offer a standardized way to represent onchain metadata
@@ -51,11 +54,79 @@ define how they expose it in unique ways.
 A view is a standard Cadence struct that represents a specific type of metadata,
 such as a [Royalty specification](https://github.com/onflow/flow-nft?tab=readme-ov-file#royalty-view):
 
- `_10access(all) struct Royalty {_10 /// Where royalties should be paid to_10 access(all) let receiver: Capability<&{FungibleToken.Receiver}>_10_10 /// The cut of the sale that should be taken for royalties._10 access(all) let cut: UFix64_10_10 /// Optional description of the royalty_10 access(all) let description: String_10}`
+`_10
+
+access(all) struct Royalty {
+
+_10
+
+/// Where royalties should be paid to
+
+_10
+
+access(all) let receiver: Capability<&{FungibleToken.Receiver}>
+
+_10
+
+_10
+
+/// The cut of the sale that should be taken for royalties.
+
+_10
+
+access(all) let cut: UFix64
+
+_10
+
+_10
+
+/// Optional description of the royalty
+
+_10
+
+access(all) let description: String
+
+_10
+
+}`
 
 or a [rarity description](https://github.com/onflow/flow-nft/blob/master/contracts/MetadataViews.cdc#L614):
 
- `_10access(all) struct Rarity {_10 /// The score of the rarity as a number_10 access(all) let score: UFix64?_10_10 /// The maximum value of score_10 access(all) let max: UFix64?_10_10 /// The description of the rarity as a string._10 access(all) let description: String?_10}`
+`_10
+
+access(all) struct Rarity {
+
+_10
+
+/// The score of the rarity as a number
+
+_10
+
+access(all) let score: UFix64?
+
+_10
+
+_10
+
+/// The maximum value of score
+
+_10
+
+access(all) let max: UFix64?
+
+_10
+
+_10
+
+/// The description of the rarity as a string.
+
+_10
+
+access(all) let description: String?
+
+_10
+
+}`
 
 This guide acts as a specification for the correct ways to use each metadata view.
 Many of the standard metadata views do not have built-in requirements
@@ -122,7 +193,34 @@ This function provides a list of supported metadata view types,
 which can be applied either by the contract (in the case of `ViewResolver`)
 or by an individual NFT (in the case of `MetadataViews.Resolver`).
 
- `_10access(all) fun getViews(): [Type] {_10 return [_10 Type<MetadataViews.Display>(),_10 Type<MetadataViews.Royalties>(),_10 ..._10 ]_10}`
+`_10
+
+access(all) fun getViews(): [Type] {
+
+_10
+
+return [
+
+_10
+
+Type<MetadataViews.Display>(),
+
+_10
+
+Type<MetadataViews.Royalties>(),
+
+_10
+
+...
+
+_10
+
+]
+
+_10
+
+}`
+
 ### `resolveView` Function[​](#resolveview-function "Direct link to resolveview-function")
 
 Whether utilized at the contract or NFT level, this function's role
@@ -131,7 +229,37 @@ is to deliver the actual metadata associated with a given view type.
 The caller provides the type of the view they want to query as the only argument,
 and the view is returned if it exists, and `nil` is returned if it doesn't.
 
- `_10access(all) fun resolveView(_ view: Type): AnyStruct? {_10 switch view {_10 case Type<MetadataViews.Display>():_10 ..._10 ..._10 }_10 return nil_10}`
+`_10
+
+access(all) fun resolveView(_ view: Type): AnyStruct? {
+
+_10
+
+switch view {
+
+_10
+
+case Type<MetadataViews.Display>():
+
+_10
+
+...
+
+_10
+
+...
+
+_10
+
+}
+
+_10
+
+return nil
+
+_10
+
+}`
 
 As you can see, the return values of `getViews()` can be used as arguments
 for `resolveView()` if you want to just iterate through all the views
@@ -158,7 +286,41 @@ This facilitates interoperability within the Flow ecosystem
 and assures that the metadata of our NFT can be consistently accessed
 and understood by various platforms and services that interact with NFTs.
 
- `_10access(all) resource NFT: NonFungibleToken.NFT {_10 access(all) let id: UInt64_10 access(all) let name: String_10 access(all) let description: String_10 access(all) let thumbnail: String_10 access(self) let royalties: [MetadataViews.Royalty]_10 access(self) let metadata: {String: AnyStruct}_10 ..._10}`
+`_10
+
+access(all) resource NFT: NonFungibleToken.NFT {
+
+_10
+
+access(all) let id: UInt64
+
+_10
+
+access(all) let name: String
+
+_10
+
+access(all) let description: String
+
+_10
+
+access(all) let thumbnail: String
+
+_10
+
+access(self) let royalties: [MetadataViews.Royalty]
+
+_10
+
+access(self) let metadata: {String: AnyStruct}
+
+_10
+
+...
+
+_10
+
+}`
 
 To make this possible though, it is **vital** that projects
 all use the standard metadata views in the same way, so third-party
@@ -169,7 +331,29 @@ to enforce that these fields are formatted in the correct way, so it is importan
 for projects to be dilligent about how they use them. Take `Traits` for example,
 a commonly misused metadata view:
 
- `_10access(all) struct Trait {_10 // The name of the trait. Like Background, Eyes, Hair, etc._10 access(all) let name: String_10 ..._10 ..._10}`
+`_10
+
+access(all) struct Trait {
+
+_10
+
+// The name of the trait. Like Background, Eyes, Hair, etc.
+
+_10
+
+access(all) let name: String
+
+_10
+
+...
+
+_10
+
+...
+
+_10
+
+}`
 
 The name of the trait should be formatted in a way so that it is easy to display
 on a user-facing website. Many projects will use something like CamelCase for
@@ -193,15 +377,65 @@ suitable for listing or display purposes. When the `Display` type is invoked,
 it dynamically assembles the visual and descriptive information
 that is typically needed for showcasing the NFT in marketplaces or collections.
 
- `_10case Type<MetadataViews.Display>():_10 return MetadataViews.Display(_10 name: self.name,_10 description: self.description,_10 thumbnail: MetadataViews.HTTPFile(_10 url: self.thumbnail_10 )_10 )`
+`_10
+
+case Type<MetadataViews.Display>():
+
+_10
+
+return MetadataViews.Display(
+
+_10
+
+name: self.name,
+
+_10
+
+description: self.description,
+
+_10
+
+thumbnail: MetadataViews.HTTPFile(
+
+_10
+
+url: self.thumbnail
+
+_10
+
+)
+
+_10
+
+)`
 
 If the thumbnail is a HTTP resource:
 
- `_10thumbnail : MetadataViews.HTTPFile(url: *Please put your url here)`
+`_10
+
+thumbnail : MetadataViews.HTTPFile(url: *Please put your url here)`
 
 If the thumbnail is an IPFS resource:
 
- `_10//_10thumbnail : MetadataViews.IPFSFile(_10 cid: thumbnail cid, // Type <String>_10 path: ipfs path // Type <String?> specify path if the cid is a folder hash, otherwise use nil here_10)`
+`_10
+
+//
+
+_10
+
+thumbnail : MetadataViews.IPFSFile(
+
+_10
+
+cid: thumbnail cid, // Type <String>
+
+_10
+
+path: ipfs path // Type <String?> specify path if the cid is a folder hash, otherwise use nil here
+
+_10
+
+)`
 
 ![MetadataViews.Display](/assets/images/display-db0a98f662c5d015e754dfc04ef45c00.png "Display")
 
@@ -210,7 +444,10 @@ info
 Note about SVG files on-chain: SVG field should be sent as `thumbnailURL`,
 should be base64 encoded, and should have a dataURI prefix, like so:
 
- `_10data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InJlZCIvPjwvc3ZnPg==`
+`_10
+
+data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InJlZCIvPjwvc3ZnPg==`
+
 ### Editions[​](#editions "Direct link to Editions")
 
 The `Editions` view provides intricate details regarding the particular release of an NFT
@@ -227,7 +464,34 @@ can hold any number of `Edition` structs in an array.
 For example, if an NFT is number 11 of 30 of an exclusive edition,
 the code to return the `Editions` view would look like this:
 
- `_10case Type<MetadataViews.Editions>():_10 let editionInfo = MetadataViews.Edition(_10 name: "Example NFT Edition",_10 number: 11,_10 max: 30_10 )_10 return MetadataViews.Editions([editionInfo])`
+`_10
+
+case Type<MetadataViews.Editions>():
+
+_10
+
+let editionInfo = MetadataViews.Edition(
+
+_10
+
+name: "Example NFT Edition",
+
+_10
+
+number: 11,
+
+_10
+
+max: 30
+
+_10
+
+)
+
+_10
+
+return MetadataViews.Editions([editionInfo])`
+
 ### Serial Number Metadata[​](#serial-number-metadata "Direct link to Serial Number Metadata")
 
 The `Serial` metadata provides the unique serial number of the NFT,
@@ -239,7 +503,14 @@ Many projects are already using the NFT resource's
 [globally unique UUID]([resource's globally unique UUID](https://cadence-lang.org/docs/language/resources#resource-identifier))
 as the ID already, so they will typically also use that as the serial number.
 
- `_10case Type<MetadataViews.Serial>():_10 return MetadataViews.Serial(self.uuid)`
+`_10
+
+case Type<MetadataViews.Serial>():
+
+_10
+
+return MetadataViews.Serial(self.uuid)`
+
 ### Royalties Metadata[​](#royalties-metadata "Direct link to Royalties Metadata")
 
 Royalty information is vital for the sustainable economics of the creators in the NFT space.
@@ -250,11 +521,79 @@ or other stakeholders on secondary sales.
 
 Each royalty view contains a fungible token receiver capability where royalties should be paid:
 
- `_10access(all) struct Royalty {_10_10 access(all) let receiver: Capability<&{FungibleToken.Receiver}>_10_10 access(all) let cut: UFix64_10}`
+`_10
+
+access(all) struct Royalty {
+
+_10
+
+_10
+
+access(all) let receiver: Capability<&{FungibleToken.Receiver}>
+
+_10
+
+_10
+
+access(all) let cut: UFix64
+
+_10
+
+}`
 
 here is an example of how an NFT might return a `Royalties` view:
 
- `_13case Type<MetadataViews.Royalties>():_13 // Assuming each 'Royalty' in the 'royalties' array has 'cut' and 'description' fields_13 let royalty =_13 MetadataViews.Royalty(_13 // The beneficiary of the royalty: in this case, the contract account_13 receiver: ExampleNFT.account.capabilities.get<&AnyResource{FungibleToken.Receiver}>(/public/GenericFTReceiver),_13 // The percentage cut of each sale_13 cut: 0.05,_13 // A description of the royalty terms _13 description: "Royalty payment to the original creator"_13 )_13 }_13 return MetadataViews.Royalties(detailedRoyalties)`
+`_13
+
+case Type<MetadataViews.Royalties>():
+
+_13
+
+// Assuming each 'Royalty' in the 'royalties' array has 'cut' and 'description' fields
+
+_13
+
+let royalty =
+
+_13
+
+MetadataViews.Royalty(
+
+_13
+
+// The beneficiary of the royalty: in this case, the contract account
+
+_13
+
+receiver: ExampleNFT.account.capabilities.get<&AnyResource{FungibleToken.Receiver}>(/public/GenericFTReceiver),
+
+_13
+
+// The percentage cut of each sale
+
+_13
+
+cut: 0.05,
+
+_13
+
+// A description of the royalty terms
+
+_13
+
+description: "Royalty payment to the original creator"
+
+_13
+
+)
+
+_13
+
+}
+
+_13
+
+return MetadataViews.Royalties(detailedRoyalties)`
 
 If someone wants to make a listing for their NFT on a marketplace,
 the marketplace can check to see if the royalty receiver
@@ -262,7 +601,45 @@ accepts the seller's desired fungible token by calling
 the `receiver.getSupportedVaultTypes(): {Type: Bool}`
 function via the `receiver` reference:
 
- `_10let royaltyReceiverRef = royalty.receiver.borrow()_10 ?? panic("Could not borrow a reference to the receiver")_10let supportedTypes = receiverRef.getSupportedVaultTypes() _10if supportedTypes[**royalty.getType()**] {_10 // The type is supported, so you can deposit_10 recieverRef.deposit(<-royalty)_10} else {_10 // if it is not supported, you can do something else,_10 // like revert, or send the royalty tokens to the seller instead_10}`
+`_10
+
+let royaltyReceiverRef = royalty.receiver.borrow()
+
+_10
+
+?? panic("Could not borrow a reference to the receiver")
+
+_10
+
+let supportedTypes = receiverRef.getSupportedVaultTypes()
+
+_10
+
+if supportedTypes[**royalty.getType()**] {
+
+_10
+
+// The type is supported, so you can deposit
+
+_10
+
+recieverRef.deposit(<-royalty)
+
+_10
+
+} else {
+
+_10
+
+// if it is not supported, you can do something else,
+
+_10
+
+// like revert, or send the royalty tokens to the seller instead
+
+_10
+
+}`
 
 If the desired type is not supported, the marketplace has a few options.
 They could either get the address of the receiver by using the
@@ -298,13 +675,72 @@ providing additional content or information about the NFT.
 This can be a website, social media page, or anything else related to the project
 that uses a URL.
 
- `_10case Type<MetadataViews.ExternalURL>():_10 return MetadataViews.ExternalURL("<https://example-nft.onflow.org/>".concat(self.id.toString()))`
+`_10
+
+case Type<MetadataViews.ExternalURL>():
+
+_10
+
+return MetadataViews.ExternalURL("<https://example-nft.onflow.org/>".concat(self.id.toString()))`
+
 ### Traits Metadata[​](#traits-metadata "Direct link to Traits Metadata")
 
 The [`Trait`](https://github.com/onflow/flow-nft/blob/master/contracts/MetadataViews.cdc#L655) view type encapsulates the unique attributes of an NFT, like any visual aspects or category-defining properties. These can be essential for marketplaces that need to sort or filter NFTs based on these characteristics.
 By returning trait views as recommended, you can fit the data in the places you want.
 
- `_15access(all) struct Trait {_15 // The name of the trait. Like Background, Eyes, Hair, etc._15 access(all) let name: String_15_15 // The underlying value of the trait_15 access(all) let value: AnyStruct_15_15 // displayType is used to show some context about what this name and value represent_15 // for instance, you could set value to a unix timestamp, and specify displayType as "Date" to tell_15 // platforms to consume this trait as a date and not a number_15 access(all) let displayType: String?_15_15 // Rarity can also be used directly on an attribute._15 // This is optional because not all attributes need to contribute to the NFT's rarity._15 access(all) let rarity: Rarity?`
+`_15
+
+access(all) struct Trait {
+
+_15
+
+// The name of the trait. Like Background, Eyes, Hair, etc.
+
+_15
+
+access(all) let name: String
+
+_15
+
+_15
+
+// The underlying value of the trait
+
+_15
+
+access(all) let value: AnyStruct
+
+_15
+
+_15
+
+// displayType is used to show some context about what this name and value represent
+
+_15
+
+// for instance, you could set value to a unix timestamp, and specify displayType as "Date" to tell
+
+_15
+
+// platforms to consume this trait as a date and not a number
+
+_15
+
+access(all) let displayType: String?
+
+_15
+
+_15
+
+// Rarity can also be used directly on an attribute.
+
+_15
+
+// This is optional because not all attributes need to contribute to the NFT's rarity.
+
+_15
+
+access(all) let rarity: Rarity?`
 
 The traits view is extremely important to get right, because many third-party apps
 and marketplaces are heavily reliant on it to properly display the entirety of your NFTs.
@@ -331,7 +767,50 @@ and can be found below the main view definition in the `MetadataViews` contract.
 When resolving the view, the wrapper view should be the returned value,
 instead of returning the single view or just an array of several occurrences of the view.
 
- `_11access(all) fun resolveView(_ view: Type): AnyStruct? {_11 switch view {_11 case Type<MetadataViews.Editions>():_11 let editionInfo = MetadataViews.Edition(name: "Example NFT Edition", number: self.id, max: nil)_11 let editionList: [MetadataViews.Edition] = [editionInfo]_11 // return the wrapped view_11 return MetadataViews.Editions(_11 editionList_11 )_11 }_11}`
+`_11
+
+access(all) fun resolveView(_ view: Type): AnyStruct? {
+
+_11
+
+switch view {
+
+_11
+
+case Type<MetadataViews.Editions>():
+
+_11
+
+let editionInfo = MetadataViews.Edition(name: "Example NFT Edition", number: self.id, max: nil)
+
+_11
+
+let editionList: [MetadataViews.Edition] = [editionInfo]
+
+_11
+
+// return the wrapped view
+
+_11
+
+return MetadataViews.Editions(
+
+_11
+
+editionList
+
+_11
+
+)
+
+_11
+
+}
+
+_11
+
+}`
+
 ## Contract-Level Metadata Implementation[​](#contract-level-metadata-implementation "Direct link to Contract-Level Metadata Implementation")
 
 Contract-level metadata provides a holistic view of an NFT collection,
@@ -342,14 +821,79 @@ These views should still should be queryable via individual NFTs though.
 One can accomplish this by just forwarding the call
 from the NFT's `resolveView()` method to the contract's `resolveView()` method, like so:
 
- `_10/// this line is in `ExampleNFT.NFT.resolveView()`_10case Type<MetadataViews.NFTCollectionDisplay>():_10 return ExampleNFT.getCollectionDisplay(nftType: Type<@ExampleNFT.NFT>())`
+`_10
+
+/// this line is in `ExampleNFT.NFT.resolveView()`
+
+_10
+
+case Type<MetadataViews.NFTCollectionDisplay>():
+
+_10
+
+return ExampleNFT.getCollectionDisplay(nftType: Type<@ExampleNFT.NFT>())`
+
 ### NFTCollectionData[​](#nftcollectiondata "Direct link to NFTCollectionData")
 
 This view provides paths and types related to the NFT collection's storage
 and access within the smart contract. The information in this view
 is critical for understanding how to interact with a collection.
 
- `_14case Type<MetadataViews.NFTCollectionData>():_14 return MetadataViews.NFTCollectionData(_14 // where should the collection be saved?_14 storagePath: ExampleNFT.CollectionStoragePath,_14 // where to borrow public capabilities from?_14 publicPath: ExampleNFT.CollectionPublicPath,_14 // Important types for how the collection should be linked_14 publicCollection: Type<&ExampleNFT.Collection>(),_14 publicLinkedType: Type<&ExampleNFT.Collection>(),_14 // function that can be accessed to create an empty collection for the project_14 createEmptyCollectionFunction: (fun(): @{NonFungibleToken.Collection} {_14 return <-ExampleNFT.createEmptyCollection(nftType: Type<@ExampleNFT.NFT>())_14 })_14 )`
+`_14
+
+case Type<MetadataViews.NFTCollectionData>():
+
+_14
+
+return MetadataViews.NFTCollectionData(
+
+_14
+
+// where should the collection be saved?
+
+_14
+
+storagePath: ExampleNFT.CollectionStoragePath,
+
+_14
+
+// where to borrow public capabilities from?
+
+_14
+
+publicPath: ExampleNFT.CollectionPublicPath,
+
+_14
+
+// Important types for how the collection should be linked
+
+_14
+
+publicCollection: Type<&ExampleNFT.Collection>(),
+
+_14
+
+publicLinkedType: Type<&ExampleNFT.Collection>(),
+
+_14
+
+// function that can be accessed to create an empty collection for the project
+
+_14
+
+createEmptyCollectionFunction: (fun(): @{NonFungibleToken.Collection} {
+
+_14
+
+return <-ExampleNFT.createEmptyCollection(nftType: Type<@ExampleNFT.NFT>())
+
+_14
+
+})
+
+_14
+
+)`
 
 Here, `NFTCollectionData` is specifying several important elements
 related to how the collection is stored and accessed on the Flow blockchain.
@@ -365,7 +909,73 @@ that are useful for display purposes, such as in a marketplace or gallery.
 Many third party apps need this in order to display high-level information
 about an NFT project properly.
 
- `_17case Type<MetadataViews.NFTCollectionDisplay>():_17 let media = MetadataViews.Media(_17 file: MetadataViews.HTTPFile(_17 url: "<https://assets.website-files.com/5f6294c0c7a8cdd643b1c820/5f6294c0c7a8cda55cb1c936_Flow_Wordmark.svg>"_17 ),_17 mediaType: "image/svg+xml"_17 )_17 return MetadataViews.NFTCollectionDisplay(_17 name: "The Example Collection",_17 description: "This collection is used as an example to help you develop your next Flow NFT.",_17 externalURL: MetadataViews.ExternalURL("<https://example-nft.onflow.org>"),_17 squareImage: media,_17 bannerImage: media,_17 socials: {_17 "twitter": MetadataViews.ExternalURL("<https://twitter.com/flow_blockchain>")_17 }_17 )`
+`_17
+
+case Type<MetadataViews.NFTCollectionDisplay>():
+
+_17
+
+let media = MetadataViews.Media(
+
+_17
+
+file: MetadataViews.HTTPFile(
+
+_17
+
+url: "<https://assets.website-files.com/5f6294c0c7a8cdd643b1c820/5f6294c0c7a8cda55cb1c936_Flow_Wordmark.svg>"
+
+_17
+
+),
+
+_17
+
+mediaType: "image/svg+xml"
+
+_17
+
+)
+
+_17
+
+return MetadataViews.NFTCollectionDisplay(
+
+_17
+
+name: "The Example Collection",
+
+_17
+
+description: "This collection is used as an example to help you develop your next Flow NFT.",
+
+_17
+
+externalURL: MetadataViews.ExternalURL("<https://example-nft.onflow.org>"),
+
+_17
+
+squareImage: media,
+
+_17
+
+bannerImage: media,
+
+_17
+
+socials: {
+
+_17
+
+"twitter": MetadataViews.ExternalURL("<https://twitter.com/flow_blockchain>")
+
+_17
+
+}
+
+_17
+
+)`
 
 In the example above, the `NFTCollectionDisplay` not only offers fundamental metadata
 like the collection's name and description but also provides image URLs
@@ -384,11 +994,66 @@ to resolve `NFTCollectionData` and `NFTCollectionDisplay` so that platforms
 do not need to find an NFT that belongs to your contract
 to get information about how to set up or show your collection.
 
- `_15import ViewResolver from 0xf8d6e0586b0a20c7_15import MetadataViews from 0xf8d6e0586b0a20c7_15_15access(all) fun main(addr: Address, name: String): StoragePath? {_15 let t = Type<MetadataViews.NFTCollectionData>()_15 let borrowedContract = getAccount(addr).contracts.borrow<&ViewResolver>(name: name) ?? panic("contract could not be borrowed")_15_15 let view = borrowedContract.resolveView(t)_15 if view == nil {_15 return nil_15 }_15_15 let cd = view! as! MetadataViews.NFTCollectionData_15 return cd.storagePath_15}`
+`_15
+
+import ViewResolver from 0xf8d6e0586b0a20c7
+
+_15
+
+import MetadataViews from 0xf8d6e0586b0a20c7
+
+_15
+
+_15
+
+access(all) fun main(addr: Address, name: String): StoragePath? {
+
+_15
+
+let t = Type<MetadataViews.NFTCollectionData>()
+
+_15
+
+let borrowedContract = getAccount(addr).contracts.borrow<&ViewResolver>(name: name) ?? panic("contract could not be borrowed")
+
+_15
+
+_15
+
+let view = borrowedContract.resolveView(t)
+
+_15
+
+if view == nil {
+
+_15
+
+return nil
+
+_15
+
+}
+
+_15
+
+_15
+
+let cd = view! as! MetadataViews.NFTCollectionData
+
+_15
+
+return cd.storagePath
+
+_15
+
+}`
 
 Will Return
 
- `_10{"domain":"storage","identifier":"exampleNFTCollection"}`
+`_10
+
+{"domain":"storage","identifier":"exampleNFTCollection"}`
+
 ## More[​](#more "Direct link to More")
 
 Understanding `MetadataViews` and the core functions associated with it
@@ -403,7 +1068,17 @@ It provides an introduction to integrating these standards into your NFT contrac
 * See the [API reference for a complete list of Metadata functions](https://developers.flow.com/build/core-contracts/flow-nft/MetdataViews/MetadataViews)
 * Check out [an Example NFT project](https://github.com/onflow/flow-nft/blob/master/contracts/ExampleNFT.cdc) implementing `MetadataViews`
 * Read [the NFT Guide](/build/guides/nft) for an introduction to implementation
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/metadata-views.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousFLIX (Flow Interaction Templates)](/build/advanced-concepts/flix)[NextVRF (Randomness) in Cadence](/build/advanced-concepts/randomness)
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/metadata-views.md)
+
+Last updated on **Feb 19, 2025** by **Brian Doyle**
+
+[Previous
+
+FLIX (Flow Interaction Templates)](/build/advanced-concepts/flix)[Next
+
+VRF (Randomness) in Cadence](/build/advanced-concepts/randomness)
+
 ###### Rate this page
 
 😞😐😊
@@ -427,6 +1102,7 @@ It provides an introduction to integrating these standards into your NFT contrac
   + [NFTCollectionDisplay](#nftcollectiondisplay)
   + [Contract-borrowing Metadata](#contract-borrowing-metadata)
 * [More](#more)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -439,6 +1115,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -448,6 +1125,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -455,6 +1133,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -464,6 +1143,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -471,5 +1151,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

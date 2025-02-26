@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/evm/build/accounts
 
-
-
-
 Accounts | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Why EVM on Flow](/evm/about)
 * [How it Works](/evm/how-it-works)
@@ -25,12 +26,13 @@ Accounts | Flow Developer Portal
 * [Clients](/evm/clients/ethers)
 * [Using EVM with Cadence](/evm/cadence/interacting-with-coa)
 
-
 * Accounts
-On this pageinfo
+
+On this page
+
+info
 
 Are you a Cadence developer looking for information about Accounts on Cadence? If so, check out the Cadence specific documentation [here](/build/basics/accounts)
-
 
 # Accounts
 
@@ -85,7 +87,16 @@ To learn how to create and interact with COAs in Cadence, see the guide for [Int
 
 For more information about Cadence Owned Accounts, see the [Flow EVM Support FLIP](https://github.com/onflow/flips/pull/225/files)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/accounts.md)Last updated on **Feb 18, 2025** by **Brian Doyle**[PreviousFees](/evm/fees)[NextCross-chain Bridges ↙](/evm/cross-chain-bridges)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/accounts.md)
+
+Last updated on **Feb 19, 2025** by **Brian Doyle**
+
+[Previous
+
+Fees](/evm/fees)[Next
+
+Cross-chain Bridges ↙](/evm/cross-chain-bridges)
+
 ###### Rate this page
 
 😞😐😊
@@ -94,6 +105,7 @@ For more information about Cadence Owned Accounts, see the [Flow EVM Support FLI
   + [Why use COAs?](#why-use-coas)
   + [Differences from Traditional EVM Accounts](#differences-from-traditional-evm-accounts)
   + [More Information](#more-information)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -106,6 +118,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -115,6 +128,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -122,6 +136,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -131,6 +146,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -138,5 +154,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

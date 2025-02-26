@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/evm/guides/vrf
 
-
-
-
 VRF (Randomness) in Solidity | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Why EVM on Flow](/evm/about)
 * [How it Works](/evm/how-it-works)
@@ -22,6 +23,7 @@ VRF (Randomness) in Solidity | Flow Developer Portal
 * [Faucets ↙](/evm/faucets)
 * [Block Explorers ↙](/evm/block-explorers)
 * [Guides](/evm/guides/integrating-metamask)
+
   + [Integrating Metamask](/evm/guides/integrating-metamask)
   + [Hardhat](/evm/guides/hardhat)
   + [Remix](/evm/guides/remix)
@@ -32,10 +34,11 @@ VRF (Randomness) in Solidity | Flow Developer Portal
 * [Clients](/evm/clients/ethers)
 * [Using EVM with Cadence](/evm/cadence/interacting-with-coa)
 
-
 * Guides
 * VRF (Randomness) in Solidity
+
 On this page
+
 # VRF (Randomness) in Solidity
 
 ## **Introduction**[​](#introduction "Direct link to introduction")
@@ -94,15 +97,78 @@ Enter your Flow-EVM testnet address, and you’ll receive testnet FLOW tokens to
 
 Below is a simple Solidity contract that interacts with the Cadence Arch contract to retrieve a pseudo-random number.
 
- `_17// SPDX-License-Identifier: GPL-3.0_17pragma solidity >=0.7.0 <0.9.0;_17_17contract CadenceArchCaller {_17 // Address of the Cadence Arch contract_17 address constant public cadenceArch = 0x0000000000000000000000010000000000000001;_17_17 // Function to fetch a pseudo-random value_17 function revertibleRandom() public view returns (uint64) {_17 // Static call to the Cadence Arch contract's revertibleRandom function_17 (bool ok, bytes memory data) = cadenceArch.staticcall(abi.encodeWithSignature("revertibleRandom()"));_17 require(ok, "Failed to fetch a random number through Cadence Arch");_17 uint64 output = abi.decode(data, (uint64));_17 // Return the random value_17 return output;_17 }_17}`
+`_17
+
+// SPDX-License-Identifier: GPL-3.0
+
+_17
+
+pragma solidity >=0.7.0 <0.9.0;
+
+_17
+
+_17
+
+contract CadenceArchCaller {
+
+_17
+
+// Address of the Cadence Arch contract
+
+_17
+
+address constant public cadenceArch = 0x0000000000000000000000010000000000000001;
+
+_17
+
+_17
+
+// Function to fetch a pseudo-random value
+
+_17
+
+function revertibleRandom() public view returns (uint64) {
+
+_17
+
+// Static call to the Cadence Arch contract's revertibleRandom function
+
+_17
+
+(bool ok, bytes memory data) = cadenceArch.staticcall(abi.encodeWithSignature("revertibleRandom()"));
+
+_17
+
+require(ok, "Failed to fetch a random number through Cadence Arch");
+
+_17
+
+uint64 output = abi.decode(data, (uint64));
+
+_17
+
+// Return the random value
+
+_17
+
+return output;
+
+_17
+
+}
+
+_17
+
+}`
+
 ### **Explanation of the Contract**[​](#explanation-of-the-contract "Direct link to explanation-of-the-contract")
 
 1. **Cadence Arch Address**:
-   
+
    The `cadenceArch` variable stores the address of the Cadence Arch precompiled contract
    (`0x0000000000000000000000010000000000000001`), which is constant across Flow EVM.
 2. **Revertible Random**:
-   
+
    The `revertibleRandom()` function makes a static call to the `revertibleRandom<uint64>()` function to fetch a pseudo-random
    number. If the call is successful, it decodes the result as a `uint64` random value.
 
@@ -147,7 +213,67 @@ The result will be a `uint64` random number generated on Flow EVM.
 For use-cases like games and lotteries, it’s useful to generate a random number within a specified range, the following
 example shows how to get a value between a min and max number.
 
- `_17// SPDX-License-Identifier: GPL-3.0_17pragma solidity >=0.7.0 <0.9.0;_17_17contract RandomInRange {_17 address constant public cadenceArch = 0x0000000000000000000000010000000000000001;_17_17 // Generate a random number between min and max_17 function getRandomInRange(uint64 min, uint64 max) public view returns (uint64) {_17 // Static call to the Cadence Arch contract's revertibleRandom function_17 (bool ok, bytes memory data) = cadenceArch.staticcall(abi.encodeWithSignature("revertibleRandom()"));_17 require(ok, "Failed to fetch a random number through Cadence Arch");_17 uint64 randomNumber = abi.decode(data, (uint64));_17_17 // Return the number in the specified range_17 return (randomNumber % (max + 1 - min)) + min;_17 }_17}`
+`_17
+
+// SPDX-License-Identifier: GPL-3.0
+
+_17
+
+pragma solidity >=0.7.0 <0.9.0;
+
+_17
+
+_17
+
+contract RandomInRange {
+
+_17
+
+address constant public cadenceArch = 0x0000000000000000000000010000000000000001;
+
+_17
+
+_17
+
+// Generate a random number between min and max
+
+_17
+
+function getRandomInRange(uint64 min, uint64 max) public view returns (uint64) {
+
+_17
+
+// Static call to the Cadence Arch contract's revertibleRandom function
+
+_17
+
+(bool ok, bytes memory data) = cadenceArch.staticcall(abi.encodeWithSignature("revertibleRandom()"));
+
+_17
+
+require(ok, "Failed to fetch a random number through Cadence Arch");
+
+_17
+
+uint64 randomNumber = abi.decode(data, (uint64));
+
+_17
+
+_17
+
+// Return the number in the specified range
+
+_17
+
+return (randomNumber % (max + 1 - min)) + min;
+
+_17
+
+}
+
+_17
+
+}`
 
 :::warning[The above code is susceptible to the [modulo]
 bias](https://research.kudelskisecurity.com/2020/07/28/the-definitive-guide-to-modulo-bias-and-how-to-avoid-it/),
@@ -181,7 +307,16 @@ implentation](https://github.com/onflow/random-coin-toss) using the VRF.
 
 *This documentation was contributed by [Noah Naizir](https://x.com/noah_overflow), a community developer.*
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/vrf.md)Last updated on **Feb 18, 2025** by **Brian Doyle**[PreviousFoundry](/evm/guides/foundry)[NextEthers](/evm/clients/ethers)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/vrf.md)
+
+Last updated on **Feb 19, 2025** by **Brian Doyle**
+
+[Previous
+
+Foundry](/evm/guides/foundry)[Next
+
+Ethers](/evm/clients/ethers)
+
 ###### Rate this page
 
 😞😐😊
@@ -200,6 +335,7 @@ implentation](https://github.com/onflow/random-coin-toss) using the VRF.
 * [**Generating Random Numbers in a Range**](#generating-random-numbers-in-a-range)
 * [**Secure Randomness with Commit-Reveal Scheme in Solidity**](#secure-randomness-with-commit-reveal-scheme-in-solidity)
 * [Read More](#read-more)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -212,6 +348,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -221,6 +358,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -228,6 +366,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -237,6 +376,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -244,5 +384,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

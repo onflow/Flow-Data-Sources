@@ -142,7 +142,7 @@ To learn more about storage fee and transaction fee, visit [Flow Tokenomics page
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/fees.md)
 
-Last updated on **Feb 19, 2025** by **bz**
+Last updated on **Feb 19, 2025** by **Brian Doyle**
 
 [Previous
 
