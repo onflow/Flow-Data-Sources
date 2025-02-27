@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/evm/cadence/batched-evm-transactions
 
-
-
-
 Batched EVM Transactions Using Cadence | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Why EVM on Flow](/evm/about)
 * [How it Works](/evm/how-it-works)
@@ -24,15 +25,17 @@ Batched EVM Transactions Using Cadence | Flow Developer Portal
 * [Guides](/evm/guides/integrating-metamask)
 * [Clients](/evm/clients/ethers)
 * [Using EVM with Cadence](/evm/cadence/interacting-with-coa)
+
   + [Interacting with COAs](/evm/cadence/interacting-with-coa)
   + [Direct Calls to Flow EVM](/evm/cadence/direct-calls)
   + [Batched EVM Transactions](/evm/cadence/batched-evm-transactions)
   + [Cross-VM Bridge](/evm/cadence/vm-bridge)
 
-
 * Using EVM with Cadence
 * Batched EVM Transactions
+
 On this page
+
 # Batched EVM Transactions Using Cadence
 
 Integrating Cadence into EVM applications on Flow enables developers to leverage the best of both worlds. This guide
@@ -220,7 +223,543 @@ give you a sense of the power of Cadence and the Flow blockchain.
 The transaction below, like all Cadence transactions, is scripted, allowing us to execute a series of actions. It may
 look like a lot at first, but we will break it down step by step in the following sections.
 
-wrap\_and\_mint.cdc `_140// TESTNET IMPORTS_140import FungibleToken from 0x9a0766d93b6608b7_140import FlowToken from 0x7e60df042a9c0868_140import EVM from 0x8c5303eaa26202d6_140_140/// This transaction demonstrates how multiple EVM calls can be batched in a single Cadence transaction via_140/// CadenceOwnedAccount (COA), performing the following actions:_140///_140/// 1. Configures a COA in the signer's account if needed_140/// 2. Funds the signer's COA with enough FLOW to cover the WFLOW cost of minting an ERC721 token_140/// 3. Wraps FLOW as WFLOW - EVM call 1_140/// 4. Approves the example MaybeMintERC721 contract which accepts WFLOW to move the mint amount - EVM call 2_140/// 5. Attempts to mint an ERC721 token - EVM call 3_140///_140/// Importantly, the transaction is reverted if any of the EVM interactions fail returning the account to the original_140/// state before the transaction was executed across Cadence & EVM._140///_140/// For more context, see https://github.com/onflow/batched-evm-exec-example_140///_140/// @param wflowAddressHex: The EVM address hex of the WFLOW contract as a String_140/// @param maybeMintERC721AddressHex: The EVM address hex of the ERC721 contract as a String_140///_140transaction(wflowAddressHex: String, maybeMintERC721AddressHex: String) {_140 _140 let coa: auth(EVM.Call) &EVM.CadenceOwnedAccount_140 let mintCost: UFix64_140 let wflowAddress: EVM.EVMAddress_140 let erc721Address: EVM.EVMAddress_140_140 prepare(signer: auth(SaveValue, BorrowValue, IssueStorageCapabilityController, PublishCapability, UnpublishCapability) &Account) {_140 /* COA configuration & assigment */_140 //_140 let storagePath = /storage/evm_140 let publicPath = /public/evm_140 // Configure a COA if one is not found in storage at the default path_140 if signer.storage.type(at: storagePath) == nil {_140 // Create & save the CadenceOwnedAccount (COA) Resource_140 let newCOA <- EVM.createCadenceOwnedAccount()_140 signer.storage.save(<-newCOA, to: storagePath)_140_140 // Unpublish any existing Capability at the public path if it exists_140 signer.capabilities.unpublish(publicPath)_140 // Issue & publish the public, unentitled COA Capability_140 let coaCapability = signer.capabilities.storage.issue<&EVM.CadenceOwnedAccount>(storagePath)_140 signer.capabilities.publish(coaCapability, at: publicPath)_140 }_140_140 // Assign the COA reference to the transaction's coa field_140 self.coa = signer.storage.borrow<auth(EVM.Call) &EVM.CadenceOwnedAccount>(from: storagePath)_140 ?? panic("A CadenceOwnedAccount (COA) Resource could not be found at path ".concat(storagePath.toString())_140 .concat(" - ensure the COA Resource is created and saved at this path to enable EVM interactions"))_140_140 /* Fund COA with cost of mint */_140 //_140 // Borrow authorized reference to signer's FlowToken Vault_140 let sourceVault = signer.storage.borrow<auth(FungibleToken.Withdraw) &FlowToken.Vault>(_140 from: /storage/flowTokenVault_140 ) ?? panic("The signer does not store a FlowToken Vault object at the path "_140 .concat("/storage/flowTokenVault. ")_140 .concat("The signer must initialize their account with this vault first!"))_140 // Withdraw from the signer's FlowToken Vault_140 self.mintCost = 1.0_140 let fundingVault <- sourceVault.withdraw(amount: self.mintCost) as! @FlowToken.Vault_140 // Deposit the mint cost into the COA_140 self.coa.deposit(from: <-fundingVault)_140_140 /* Set the WFLOW contract address */_140 //_140 // View the cannonical WFLOW contract at:_140 // https://evm-testnet.flowscan.io/address/0xd3bF53DAC106A0290B0483EcBC89d40FcC961f3e_140 self.wflowAddress = EVM.addressFromString(wflowAddressHex)_140_140 /* Assign the ERC721 EVM Address */_140 //_140 // Deserialize the provided ERC721 hex string to an EVM address_140 self.erc721Address = EVM.addressFromString(maybeMintERC721AddressHex)_140 }_140_140 pre {_140 self.coa.balance().inFLOW() >= self.mintCost:_140 "CadenceOwnedAccount holds insufficient FLOW balance to mint - "_140 .concat("Ensure COA has at least ".concat(self.mintCost.toString()).concat(" FLOW"))_140 }_140_140 execute {_140 /* Wrap FLOW in EVM as WFLOW */_140 //_140 // Encode calldata & set value_140 let depositCalldata = EVM.encodeABIWithSignature("deposit()", [])_140 let value = EVM.Balance(attoflow: 0)_140 value.setFLOW(flow: self.mintCost)_140 // Call the WFLOW contract, wrapping the sent FLOW_140 let wrapResult = self.coa.call(_140 to: self.wflowAddress,_140 data: depositCalldata,_140 gasLimit: 15_000_000,_140 value: value_140 )_140 assert(_140 wrapResult.status == EVM.Status.successful,_140 message: "Wrapping FLOW as WFLOW failed: ".concat(wrapResult.errorMessage)_140 )_140_140 /* Approve the ERC721 address for the mint amount */_140 //_140 // Encode calldata approve(address,uint) calldata, providing the ERC721 address & mint amount_140 let approveCalldata = EVM.encodeABIWithSignature(_140 "approve(address,uint256)",_140 [self.erc721Address, UInt256(1_000_000_000_000_000_000)]_140 )_140 // Call the WFLOW contract, approving the ERC721 address to move the mint amount_140 let approveResult = self.coa.call(_140 to: self.wflowAddress,_140 data: approveCalldata,_140 gasLimit: 15_000_000,_140 value: EVM.Balance(attoflow: 0)_140 )_140 assert(_140 approveResult.status == EVM.Status.successful,_140 message: "Approving ERC721 address on WFLOW contract failed: ".concat(approveResult.errorMessage)_140 )_140_140 /* Attempt to mint ERC721 */_140 //_140 // Encode the mint() calldata_140 let mintCalldata = EVM.encodeABIWithSignature("mint()", [])_140 // Call the ERC721 contract, attempting to mint_140 let mintResult = self.coa.call(_140 to: self.erc721Address,_140 data: mintCalldata,_140 gasLimit: 15_000_000,_140 value: EVM.Balance(attoflow: 0)_140 )_140 // If mint fails, all other actions in this transaction are reverted_140 assert(_140 mintResult.status == EVM.Status.successful,_140 message: "Minting ERC721 token failed: ".concat(mintResult.errorMessage)_140 )_140 }_140}`
+wrap\_and\_mint.cdc
+
+`_140
+
+// TESTNET IMPORTS
+
+_140
+
+import FungibleToken from 0x9a0766d93b6608b7
+
+_140
+
+import FlowToken from 0x7e60df042a9c0868
+
+_140
+
+import EVM from 0x8c5303eaa26202d6
+
+_140
+
+_140
+
+/// This transaction demonstrates how multiple EVM calls can be batched in a single Cadence transaction via
+
+_140
+
+/// CadenceOwnedAccount (COA), performing the following actions:
+
+_140
+
+///
+
+_140
+
+/// 1. Configures a COA in the signer's account if needed
+
+_140
+
+/// 2. Funds the signer's COA with enough FLOW to cover the WFLOW cost of minting an ERC721 token
+
+_140
+
+/// 3. Wraps FLOW as WFLOW - EVM call 1
+
+_140
+
+/// 4. Approves the example MaybeMintERC721 contract which accepts WFLOW to move the mint amount - EVM call 2
+
+_140
+
+/// 5. Attempts to mint an ERC721 token - EVM call 3
+
+_140
+
+///
+
+_140
+
+/// Importantly, the transaction is reverted if any of the EVM interactions fail returning the account to the original
+
+_140
+
+/// state before the transaction was executed across Cadence & EVM.
+
+_140
+
+///
+
+_140
+
+/// For more context, see https://github.com/onflow/batched-evm-exec-example
+
+_140
+
+///
+
+_140
+
+/// @param wflowAddressHex: The EVM address hex of the WFLOW contract as a String
+
+_140
+
+/// @param maybeMintERC721AddressHex: The EVM address hex of the ERC721 contract as a String
+
+_140
+
+///
+
+_140
+
+transaction(wflowAddressHex: String, maybeMintERC721AddressHex: String) {
+
+_140
+
+_140
+
+let coa: auth(EVM.Call) &EVM.CadenceOwnedAccount
+
+_140
+
+let mintCost: UFix64
+
+_140
+
+let wflowAddress: EVM.EVMAddress
+
+_140
+
+let erc721Address: EVM.EVMAddress
+
+_140
+
+_140
+
+prepare(signer: auth(SaveValue, BorrowValue, IssueStorageCapabilityController, PublishCapability, UnpublishCapability) &Account) {
+
+_140
+
+/* COA configuration & assigment */
+
+_140
+
+//
+
+_140
+
+let storagePath = /storage/evm
+
+_140
+
+let publicPath = /public/evm
+
+_140
+
+// Configure a COA if one is not found in storage at the default path
+
+_140
+
+if signer.storage.type(at: storagePath) == nil {
+
+_140
+
+// Create & save the CadenceOwnedAccount (COA) Resource
+
+_140
+
+let newCOA <- EVM.createCadenceOwnedAccount()
+
+_140
+
+signer.storage.save(<-newCOA, to: storagePath)
+
+_140
+
+_140
+
+// Unpublish any existing Capability at the public path if it exists
+
+_140
+
+signer.capabilities.unpublish(publicPath)
+
+_140
+
+// Issue & publish the public, unentitled COA Capability
+
+_140
+
+let coaCapability = signer.capabilities.storage.issue<&EVM.CadenceOwnedAccount>(storagePath)
+
+_140
+
+signer.capabilities.publish(coaCapability, at: publicPath)
+
+_140
+
+}
+
+_140
+
+_140
+
+// Assign the COA reference to the transaction's coa field
+
+_140
+
+self.coa = signer.storage.borrow<auth(EVM.Call) &EVM.CadenceOwnedAccount>(from: storagePath)
+
+_140
+
+?? panic("A CadenceOwnedAccount (COA) Resource could not be found at path ".concat(storagePath.toString())
+
+_140
+
+.concat(" - ensure the COA Resource is created and saved at this path to enable EVM interactions"))
+
+_140
+
+_140
+
+/* Fund COA with cost of mint */
+
+_140
+
+//
+
+_140
+
+// Borrow authorized reference to signer's FlowToken Vault
+
+_140
+
+let sourceVault = signer.storage.borrow<auth(FungibleToken.Withdraw) &FlowToken.Vault>(
+
+_140
+
+from: /storage/flowTokenVault
+
+_140
+
+) ?? panic("The signer does not store a FlowToken Vault object at the path "
+
+_140
+
+.concat("/storage/flowTokenVault. ")
+
+_140
+
+.concat("The signer must initialize their account with this vault first!"))
+
+_140
+
+// Withdraw from the signer's FlowToken Vault
+
+_140
+
+self.mintCost = 1.0
+
+_140
+
+let fundingVault <- sourceVault.withdraw(amount: self.mintCost) as! @FlowToken.Vault
+
+_140
+
+// Deposit the mint cost into the COA
+
+_140
+
+self.coa.deposit(from: <-fundingVault)
+
+_140
+
+_140
+
+/* Set the WFLOW contract address */
+
+_140
+
+//
+
+_140
+
+// View the cannonical WFLOW contract at:
+
+_140
+
+// https://evm-testnet.flowscan.io/address/0xd3bF53DAC106A0290B0483EcBC89d40FcC961f3e
+
+_140
+
+self.wflowAddress = EVM.addressFromString(wflowAddressHex)
+
+_140
+
+_140
+
+/* Assign the ERC721 EVM Address */
+
+_140
+
+//
+
+_140
+
+// Deserialize the provided ERC721 hex string to an EVM address
+
+_140
+
+self.erc721Address = EVM.addressFromString(maybeMintERC721AddressHex)
+
+_140
+
+}
+
+_140
+
+_140
+
+pre {
+
+_140
+
+self.coa.balance().inFLOW() >= self.mintCost:
+
+_140
+
+"CadenceOwnedAccount holds insufficient FLOW balance to mint - "
+
+_140
+
+.concat("Ensure COA has at least ".concat(self.mintCost.toString()).concat(" FLOW"))
+
+_140
+
+}
+
+_140
+
+_140
+
+execute {
+
+_140
+
+/* Wrap FLOW in EVM as WFLOW */
+
+_140
+
+//
+
+_140
+
+// Encode calldata & set value
+
+_140
+
+let depositCalldata = EVM.encodeABIWithSignature("deposit()", [])
+
+_140
+
+let value = EVM.Balance(attoflow: 0)
+
+_140
+
+value.setFLOW(flow: self.mintCost)
+
+_140
+
+// Call the WFLOW contract, wrapping the sent FLOW
+
+_140
+
+let wrapResult = self.coa.call(
+
+_140
+
+to: self.wflowAddress,
+
+_140
+
+data: depositCalldata,
+
+_140
+
+gasLimit: 15_000_000,
+
+_140
+
+value: value
+
+_140
+
+)
+
+_140
+
+assert(
+
+_140
+
+wrapResult.status == EVM.Status.successful,
+
+_140
+
+message: "Wrapping FLOW as WFLOW failed: ".concat(wrapResult.errorMessage)
+
+_140
+
+)
+
+_140
+
+_140
+
+/* Approve the ERC721 address for the mint amount */
+
+_140
+
+//
+
+_140
+
+// Encode calldata approve(address,uint) calldata, providing the ERC721 address & mint amount
+
+_140
+
+let approveCalldata = EVM.encodeABIWithSignature(
+
+_140
+
+"approve(address,uint256)",
+
+_140
+
+[self.erc721Address, UInt256(1_000_000_000_000_000_000)]
+
+_140
+
+)
+
+_140
+
+// Call the WFLOW contract, approving the ERC721 address to move the mint amount
+
+_140
+
+let approveResult = self.coa.call(
+
+_140
+
+to: self.wflowAddress,
+
+_140
+
+data: approveCalldata,
+
+_140
+
+gasLimit: 15_000_000,
+
+_140
+
+value: EVM.Balance(attoflow: 0)
+
+_140
+
+)
+
+_140
+
+assert(
+
+_140
+
+approveResult.status == EVM.Status.successful,
+
+_140
+
+message: "Approving ERC721 address on WFLOW contract failed: ".concat(approveResult.errorMessage)
+
+_140
+
+)
+
+_140
+
+_140
+
+/* Attempt to mint ERC721 */
+
+_140
+
+//
+
+_140
+
+// Encode the mint() calldata
+
+_140
+
+let mintCalldata = EVM.encodeABIWithSignature("mint()", [])
+
+_140
+
+// Call the ERC721 contract, attempting to mint
+
+_140
+
+let mintResult = self.coa.call(
+
+_140
+
+to: self.erc721Address,
+
+_140
+
+data: mintCalldata,
+
+_140
+
+gasLimit: 15_000_000,
+
+_140
+
+value: EVM.Balance(attoflow: 0)
+
+_140
+
+)
+
+_140
+
+// If mint fails, all other actions in this transaction are reverted
+
+_140
+
+assert(
+
+_140
+
+mintResult.status == EVM.Status.successful,
+
+_140
+
+message: "Minting ERC721 token failed: ".concat(mintResult.errorMessage)
+
+_140
+
+)
+
+_140
+
+}
+
+_140
+
+}`
 
 You can run the transaction at the following link using the community-developed Flow Runner tool: [`wrap_and_mint.cdc`](https://run.dnz.dev/snippet/c99b25e04a2d1f28).
 
@@ -300,7 +839,85 @@ done by creating a new COA resource and saving it to the signer account's storag
 then issued and published on the signer's account, allowing anyone to deposit FLOW into the COA, affecting its EVM
 balance.
 
- `_21/* COA configuration & assignment */_21//_21let storagePath = /storage/evm_21let publicPath = /public/evm_21// Configure a COA if one is not found in storage at the default path_21if signer.storage.type(at: storagePath) == nil {_21 // Create & save the CadenceOwnedAccount (COA) Resource_21 let newCOA <- EVM.createCadenceOwnedAccount()_21 signer.storage.save(<-newCOA, to: storagePath)_21_21 // Unpublish any existing Capability at the public path if it exists_21 signer.capabilities.unpublish(publicPath)_21 // Issue & publish the public, unentitled COA Capability_21 let coaCapability = signer.capabilities.storage.issue<&EVM.CadenceOwnedAccount>(storagePath)_21 signer.capabilities.publish(coaCapability, at: publicPath)_21}_21_21// Assign the COA reference to the transaction's coa field_21self.coa = signer.storage.borrow<auth(EVM.Call) &EVM.CadenceOwnedAccount>(from: storagePath)_21 ?? panic("A CadenceOwnedAccount (COA) Resource could not be found at path ".concat(storagePath.toString())_21 .concat(" - ensure the COA Resource is created and saved at this path to enable EVM interactions"))`
+`_21
+
+/* COA configuration & assignment */
+
+_21
+
+//
+
+_21
+
+let storagePath = /storage/evm
+
+_21
+
+let publicPath = /public/evm
+
+_21
+
+// Configure a COA if one is not found in storage at the default path
+
+_21
+
+if signer.storage.type(at: storagePath) == nil {
+
+_21
+
+// Create & save the CadenceOwnedAccount (COA) Resource
+
+_21
+
+let newCOA <- EVM.createCadenceOwnedAccount()
+
+_21
+
+signer.storage.save(<-newCOA, to: storagePath)
+
+_21
+
+_21
+
+// Unpublish any existing Capability at the public path if it exists
+
+_21
+
+signer.capabilities.unpublish(publicPath)
+
+_21
+
+// Issue & publish the public, unentitled COA Capability
+
+_21
+
+let coaCapability = signer.capabilities.storage.issue<&EVM.CadenceOwnedAccount>(storagePath)
+
+_21
+
+signer.capabilities.publish(coaCapability, at: publicPath)
+
+_21
+
+}
+
+_21
+
+_21
+
+// Assign the COA reference to the transaction's coa field
+
+_21
+
+self.coa = signer.storage.borrow<auth(EVM.Call) &EVM.CadenceOwnedAccount>(from: storagePath)
+
+_21
+
+?? panic("A CadenceOwnedAccount (COA) Resource could not be found at path ".concat(storagePath.toString())
+
+_21
+
+.concat(" - ensure the COA Resource is created and saved at this path to enable EVM interactions"))`
 
 At the end of this section, the transaction now has an reference authorized with the `EVM.Call` [entitlement](https://cadence-lang.org/docs/language/access-control#entitlements) to use in
 the `execute` block which can be used call into EVM.
@@ -316,12 +933,80 @@ have a COA configured. Simply input your Testnet Flow address and click `Run`.
 Next, we fund the COA with enough FLOW to cover the mint cost. This is done by withdrawing FLOW from the signer's
 FlowToken Vault and depositing it into the COA.
 
- `_13/* Fund COA with cost of mint */_13//_13// Borrow authorized reference to signer's FlowToken Vault_13let sourceVault = signer.storage.borrow<auth(FungibleToken.Withdraw) &FlowToken.Vault>(_13 from: /storage/flowTokenVault_13 ) ?? panic("The signer does not store a FlowToken Vault object at the path "_13 .concat("/storage/flowTokenVault. ")_13 .concat("The signer must initialize their account with this vault first!"))_13// Withdraw from the signer's FlowToken Vault_13self.mintCost = 1.0_13let fundingVault <- sourceVault.withdraw(amount: self.mintCost) as! @FlowToken.Vault_13// Deposit the mint cost into the COA_13self.coa.deposit(from: <-fundingVault)`
+`_13
+
+/* Fund COA with cost of mint */
+
+_13
+
+//
+
+_13
+
+// Borrow authorized reference to signer's FlowToken Vault
+
+_13
+
+let sourceVault = signer.storage.borrow<auth(FungibleToken.Withdraw) &FlowToken.Vault>(
+
+_13
+
+from: /storage/flowTokenVault
+
+_13
+
+) ?? panic("The signer does not store a FlowToken Vault object at the path "
+
+_13
+
+.concat("/storage/flowTokenVault. ")
+
+_13
+
+.concat("The signer must initialize their account with this vault first!"))
+
+_13
+
+// Withdraw from the signer's FlowToken Vault
+
+_13
+
+self.mintCost = 1.0
+
+_13
+
+let fundingVault <- sourceVault.withdraw(amount: self.mintCost) as! @FlowToken.Vault
+
+_13
+
+// Deposit the mint cost into the COA
+
+_13
+
+self.coa.deposit(from: <-fundingVault)`
 
 Taking a look at the full transaction, we can see an explicit check that the COA has enough FLOW to cover the mint cost
 before proceeding into the transaction's `execute` block.
 
- `_10pre {_10 self.coa.balance().inFLOW() >= self.mintCost:_10 "CadenceOwnedAccount holds insufficient FLOW balance to mint - "_10 .concat("Ensure COA has at least ".concat(self.mintCost.toString()).concat(" FLOW"))_10}`
+`_10
+
+pre {
+
+_10
+
+self.coa.balance().inFLOW() >= self.mintCost:
+
+_10
+
+"CadenceOwnedAccount holds insufficient FLOW balance to mint - "
+
+_10
+
+.concat("Ensure COA has at least ".concat(self.mintCost.toString()).concat(" FLOW"))
+
+_10
+
+}`
 
 This isn't absolutely necessary as successive steps would fail on this condition, but helps provide enhanced error
 messages in the event of insufficient funds.
@@ -338,14 +1023,117 @@ COA prior to this walkthrough).
 The last step in our transaction's `prepare` block is to deserialize the provided WFLOW and ERC721 contract addresses
 from hex strings to EVM addresses.
 
- `_10/* Set the WFLOW contract address */_10//_10// View the cannonical WFLOW contract at:_10// https://evm-testnet.flowscan.io/address/0xd3bF53DAC106A0290B0483EcBC89d40FcC961f3e_10self.wflowAddress = EVM.addressFromString(wflowAddressHex)_10_10/* Assign the ERC721 EVM Address */_10//_10// Deserialize the provided ERC721 hex string to an EVM address_10self.erc721Address = EVM.addressFromString(maybeMintERC721AddressHex)`
+`_10
+
+/* Set the WFLOW contract address */
+
+_10
+
+//
+
+_10
+
+// View the cannonical WFLOW contract at:
+
+_10
+
+// https://evm-testnet.flowscan.io/address/0xd3bF53DAC106A0290B0483EcBC89d40FcC961f3e
+
+_10
+
+self.wflowAddress = EVM.addressFromString(wflowAddressHex)
+
+_10
+
+_10
+
+/* Assign the ERC721 EVM Address */
+
+_10
+
+//
+
+_10
+
+// Deserialize the provided ERC721 hex string to an EVM address
+
+_10
+
+self.erc721Address = EVM.addressFromString(maybeMintERC721AddressHex)`
+
 ### Wrapping FLOW as WFLOW[​](#wrapping-flow-as-wflow "Direct link to Wrapping FLOW as WFLOW")
 
 Next, we're on to the first EVM interaction - wrapping FLOW as WFLOW. This is done by encoding the `deposit()` function
 call and setting the call value to the mint cost. The COA then calls the WFLOW contract with the encoded calldata, gas
 limit, and value.
 
- `_17/* Wrap FLOW in EVM as WFLOW */_17//_17// Encode calldata & set value_17let depositCalldata = EVM.encodeABIWithSignature("deposit()", [])_17let value = EVM.Balance(attoflow: 0)_17value.setFLOW(flow: self.mintCost)_17// Call the WFLOW contract, wrapping the sent FLOW_17let wrapResult = self.coa.call(_17 to: self.wflowAddress,_17 data: depositCalldata,_17 gasLimit: 15_000_000,_17 value: value_17)_17assert(_17 wrapResult.status == EVM.Status.successful,_17 message: "Wrapping FLOW as WFLOW failed: ".concat(wrapResult.errorMessage)_17)`
+`_17
+
+/* Wrap FLOW in EVM as WFLOW */
+
+_17
+
+//
+
+_17
+
+// Encode calldata & set value
+
+_17
+
+let depositCalldata = EVM.encodeABIWithSignature("deposit()", [])
+
+_17
+
+let value = EVM.Balance(attoflow: 0)
+
+_17
+
+value.setFLOW(flow: self.mintCost)
+
+_17
+
+// Call the WFLOW contract, wrapping the sent FLOW
+
+_17
+
+let wrapResult = self.coa.call(
+
+_17
+
+to: self.wflowAddress,
+
+_17
+
+data: depositCalldata,
+
+_17
+
+gasLimit: 15_000_000,
+
+_17
+
+value: value
+
+_17
+
+)
+
+_17
+
+assert(
+
+_17
+
+wrapResult.status == EVM.Status.successful,
+
+_17
+
+message: "Wrapping FLOW as WFLOW failed: ".concat(wrapResult.errorMessage)
+
+_17
+
+)`
 
 Setting the value of the call transmits FLOW along with the call to the contract, accessible in solidity as `msg.value`.
 
@@ -381,7 +1169,77 @@ assume this value. You can check a token's decimal places by calling `ERC20.deci
 Once the FLOW is wrapped as WFLOW, we approve the ERC721 contract to move the mint amount. This is done by encoding the
 `approve(address,uint256)` calldata and calling the WFLOW contract with the encoded calldata.
 
- `_18/* Approve the ERC721 address for the mint amount */_18//_18// Encode calldata approve(address,uint) calldata, providing the ERC721 address & mint amount_18let approveCalldata = EVM.encodeABIWithSignature(_18 "approve(address,uint256)",_18 [self.erc721Address, UInt256(1_000_000_000_000_000_000)]_18 )_18// Call the WFLOW contract, approving the ERC721 address to move the mint amount_18let approveResult = self.coa.call(_18 to: self.wflowAddress,_18 data: approveCalldata,_18 gasLimit: 15_000_000,_18 value: EVM.Balance(attoflow: 0)_18)_18assert(_18 approveResult.status == EVM.Status.successful,_18 message: "Approving ERC721 address on WFLOW contract failed: ".concat(approveResult.errorMessage)_18)`
+`_18
+
+/* Approve the ERC721 address for the mint amount */
+
+_18
+
+//
+
+_18
+
+// Encode calldata approve(address,uint) calldata, providing the ERC721 address & mint amount
+
+_18
+
+let approveCalldata = EVM.encodeABIWithSignature(
+
+_18
+
+"approve(address,uint256)",
+
+_18
+
+[self.erc721Address, UInt256(1_000_000_000_000_000_000)]
+
+_18
+
+)
+
+_18
+
+// Call the WFLOW contract, approving the ERC721 address to move the mint amount
+
+_18
+
+let approveResult = self.coa.call(
+
+_18
+
+to: self.wflowAddress,
+
+_18
+
+data: approveCalldata,
+
+_18
+
+gasLimit: 15_000_000,
+
+_18
+
+value: EVM.Balance(attoflow: 0)
+
+_18
+
+)
+
+_18
+
+assert(
+
+_18
+
+approveResult.status == EVM.Status.successful,
+
+_18
+
+message: "Approving ERC721 address on WFLOW contract failed: ".concat(approveResult.errorMessage)
+
+_18
+
+)`
 
 You can run this approval using the transaction, passing the WFLOW address of
 `0xd3bF53DAC106A0290B0483EcBC89d40FcC961f3e` and MaybeMintERC721 address of `0x2E2Ed0Cfd3AD2f1d34481277b3204d807Ca2F8c2`
@@ -399,7 +1257,69 @@ The result is the amount of your WFLOW balance the ERC721 is allowed to transfer
 Finally, we attempt to mint the ERC721 token. This is done by encoding the `mint()` calldata and calling the ERC721
 contract with the encoded calldata. If the mint fails, the entire transaction is reverted.
 
- `_16/* Attempt to mint ERC721 */_16//_16// Encode the mint() calldata_16let mintCalldata = EVM.encodeABIWithSignature("mint()", [])_16// Call the ERC721 contract, attempting to mint_16let mintResult = self.coa.call(_16 to: self.erc721Address,_16 data: mintCalldata,_16 gasLimit: 15_000_000,_16 value: EVM.Balance(attoflow: 0)_16)_16// If mint fails, all other actions in this transaction are reverted_16assert(_16 mintResult.status == EVM.Status.successful,_16 message: "Minting ERC721 token failed: ".concat(mintResult.errorMessage)_16)`
+`_16
+
+/* Attempt to mint ERC721 */
+
+_16
+
+//
+
+_16
+
+// Encode the mint() calldata
+
+_16
+
+let mintCalldata = EVM.encodeABIWithSignature("mint()", [])
+
+_16
+
+// Call the ERC721 contract, attempting to mint
+
+_16
+
+let mintResult = self.coa.call(
+
+_16
+
+to: self.erc721Address,
+
+_16
+
+data: mintCalldata,
+
+_16
+
+gasLimit: 15_000_000,
+
+_16
+
+value: EVM.Balance(attoflow: 0)
+
+_16
+
+)
+
+_16
+
+// If mint fails, all other actions in this transaction are reverted
+
+_16
+
+assert(
+
+_16
+
+mintResult.status == EVM.Status.successful,
+
+_16
+
+message: "Minting ERC721 token failed: ".concat(mintResult.errorMessage)
+
+_16
+
+)`
 
 You can run the minting transaction here, passing the ERC721 address of `0x2E2Ed0Cfd3AD2f1d34481277b3204d807Ca2F8c2`:
 [`mint.cdc`](https://run.dnz.dev/snippet/fd7c4dda536d006e)
@@ -451,7 +1371,16 @@ guides to deepen your understanding:
 
 Ready to level up your Cadence skills? Take a look at [these Cadence tutorials](https://cadence-lang.org/docs/tutorial/first-steps).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/cadence/batched-evm-transactions.md)Last updated on **Feb 18, 2025** by **Brian Doyle**[PreviousDirect Calls to Flow EVM](/evm/cadence/direct-calls)[NextCross-VM Bridge](/evm/cadence/vm-bridge)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/cadence/batched-evm-transactions.md)
+
+Last updated on **Feb 19, 2025** by **Brian Doyle**
+
+[Previous
+
+Direct Calls to Flow EVM](/evm/cadence/direct-calls)[Next
+
+Cross-VM Bridge](/evm/cadence/vm-bridge)
+
 ###### Rate this page
 
 😞😐😊
@@ -476,6 +1405,7 @@ Ready to level up your Cadence skills? Take a look at [these Cadence tutorials](
   + [Recap](#recap-1)
 * [Conclusion](#conclusion)
 * [Further Reading](#further-reading)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -488,6 +1418,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -497,6 +1428,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -504,6 +1436,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -513,6 +1446,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -520,5 +1454,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

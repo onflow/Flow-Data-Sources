@@ -1,19 +1,21 @@
 # Source: https://developers.flow.com/tools/flow-cli/transactions/get-transactions
 
-
-
-
 Get a Transaction | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
 * [Flow CLI](/tools/flow-cli)
+
   + [Install Instructions](/tools/flow-cli/install)
   + [Super Commands](/tools/flow-cli/super-commands)
   + [Accounts](/tools/flow-cli/accounts/get-accounts)
@@ -21,6 +23,7 @@ Get a Transaction | Flow Developer Portal
   + [Deploy Project](/tools/flow-cli/deployment/start-emulator)
   + [Scripts](/tools/flow-cli/scripts/execute-scripts)
   + [Transactions](/tools/flow-cli/transactions/send-transactions)
+
     - [Send a Transaction](/tools/flow-cli/transactions/send-transactions)
     - [Get a Transaction](/tools/flow-cli/transactions/get-transactions)
     - [Build a Transaction](/tools/flow-cli/transactions/build-transactions)
@@ -43,20 +46,179 @@ Get a Transaction | Flow Developer Portal
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 
-
 * [Flow CLI](/tools/flow-cli)
 * Transactions
 * Get a Transaction
+
 On this page
+
 # Get a Transaction
 
 The Flow CLI provides a command to fetch a transaction
 that was previously submitted to an Access API.
 
- `_10flow transactions get <tx_id>`
+`_10
+
+flow transactions get <tx_id>`
+
 ## Example Usage[​](#example-usage "Direct link to Example Usage")
 
- `_44> flow transactions get 40bc4b100c1930c61381c22e0f4c10a7f5827975ee25715527c1061b8d71e5aa --network mainnet _44_44Status ✅ SEALED_44ID 40bc4b100c1930c61381c22e0f4c10a7f5827975ee25715527c1061b8d71e5aa_44Payer 18eb4ee6b3c026d2_44Authorizers [18eb4ee6b3c026d2]_44_44Proposal Key: _44 Address 18eb4ee6b3c026d2_44 Index 11_44 Sequence 17930_44_44Payload Signature 0: 18eb4ee6b3c026d2_44Payload Signature 1: 18eb4ee6b3c026d2_44Envelope Signature 0: 18eb4ee6b3c026d2_44Signatures (minimized, use --include signatures)_44_44Events: _44 Index 0_44 Type A.1654653399040a61.FlowToken.TokensWithdrawn_44 Tx ID 40bc4b100c1930c61381c22e0f4c10a7f5827975ee25715527c1061b8d71e5aa_44 Values_44 - amount (UFix64): 0.00100000_44 - from ({}?): 18eb4ee6b3c026d2_44_44 Index 1_44 Type A.1654653399040a61.FlowToken.TokensDeposited_44 Tx ID 40bc4b100c1930c61381c22e0f4c10a7f5827975ee25715527c1061b8d71e5aa_44 Values_44 - amount (UFix64): 0.00100000_44 - to ({}?): 5068e27f275c546c_44_44 Index 2_44 Type A.18eb4ee6b3c026d2.PrivateReceiverForwarder.PrivateDeposit_44 Tx ID 40bc4b100c1930c61381c22e0f4c10a7f5827975ee25715527c1061b8d71e5aa_44 Values_44 - amount (UFix64): 0.00100000_44 - to ({}?): 5068e27f275c546c_44_44_44_44Code (hidden, use --include code)_44_44Payload (hidden, use --include payload)`
+`_44
+
+> flow transactions get 40bc4b100c1930c61381c22e0f4c10a7f5827975ee25715527c1061b8d71e5aa --network mainnet
+
+_44
+
+_44
+
+Status ✅ SEALED
+
+_44
+
+ID 40bc4b100c1930c61381c22e0f4c10a7f5827975ee25715527c1061b8d71e5aa
+
+_44
+
+Payer 18eb4ee6b3c026d2
+
+_44
+
+Authorizers [18eb4ee6b3c026d2]
+
+_44
+
+_44
+
+Proposal Key:
+
+_44
+
+Address 18eb4ee6b3c026d2
+
+_44
+
+Index 11
+
+_44
+
+Sequence 17930
+
+_44
+
+_44
+
+Payload Signature 0: 18eb4ee6b3c026d2
+
+_44
+
+Payload Signature 1: 18eb4ee6b3c026d2
+
+_44
+
+Envelope Signature 0: 18eb4ee6b3c026d2
+
+_44
+
+Signatures (minimized, use --include signatures)
+
+_44
+
+_44
+
+Events:
+
+_44
+
+Index 0
+
+_44
+
+Type A.1654653399040a61.FlowToken.TokensWithdrawn
+
+_44
+
+Tx ID 40bc4b100c1930c61381c22e0f4c10a7f5827975ee25715527c1061b8d71e5aa
+
+_44
+
+Values
+
+_44
+
+- amount (UFix64): 0.00100000
+
+_44
+
+- from ({}?): 18eb4ee6b3c026d2
+
+_44
+
+_44
+
+Index 1
+
+_44
+
+Type A.1654653399040a61.FlowToken.TokensDeposited
+
+_44
+
+Tx ID 40bc4b100c1930c61381c22e0f4c10a7f5827975ee25715527c1061b8d71e5aa
+
+_44
+
+Values
+
+_44
+
+- amount (UFix64): 0.00100000
+
+_44
+
+- to ({}?): 5068e27f275c546c
+
+_44
+
+_44
+
+Index 2
+
+_44
+
+Type A.18eb4ee6b3c026d2.PrivateReceiverForwarder.PrivateDeposit
+
+_44
+
+Tx ID 40bc4b100c1930c61381c22e0f4c10a7f5827975ee25715527c1061b8d71e5aa
+
+_44
+
+Values
+
+_44
+
+- amount (UFix64): 0.00100000
+
+_44
+
+- to ({}?): 5068e27f275c546c
+
+_44
+
+_44
+
+_44
+
+_44
+
+Code (hidden, use --include code)
+
+_44
+
+_44
+
+Payload (hidden, use --include payload)`
+
 ## Arguments[​](#arguments "Direct link to Arguments")
 
 ### Transaction ID[​](#transaction-id "Direct link to Transaction ID")
@@ -168,7 +330,16 @@ several configuration files.
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/get-transactions.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousSend a Transaction](/tools/flow-cli/transactions/send-transactions)[NextBuild a Transaction](/tools/flow-cli/transactions/build-transactions)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/get-transactions.md)
+
+Last updated on **Feb 19, 2025** by **Brian Doyle**
+
+[Previous
+
+Send a Transaction](/tools/flow-cli/transactions/send-transactions)[Next
+
+Build a Transaction](/tools/flow-cli/transactions/build-transactions)
+
 ###### Rate this page
 
 😞😐😊
@@ -189,6 +360,7 @@ Skip version check during start up to speed up process for slow connections.
   + [Log](#log)
   + [Configuration](#configuration)
   + [Version Check](#version-check)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -201,6 +373,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -210,6 +383,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -217,6 +391,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -226,6 +401,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -233,5 +409,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

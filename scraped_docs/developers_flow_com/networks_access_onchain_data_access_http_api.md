@@ -32,7 +32,7 @@ Go to [HTTP API](/http-api)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/access-http-api.md)
 
-Last updated on **Feb 18, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Feb 19, 2025** by **Brian Doyle**
 
 [Previous
 

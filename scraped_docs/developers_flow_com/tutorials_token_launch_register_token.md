@@ -1,24 +1,27 @@
 # Source: https://developers.flow.com/tutorials/token-launch/register-token
 
-
-
-
 Register Your Token on Flow | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Tutorials](/tutorials)
 * [Token Launch](/tutorials/token-launch)
-  + [Register Token](/tutorials/token-launch/register-token)
 
+  + [Register Token](/tutorials/token-launch/register-token)
 
 * [Token Launch](/tutorials/token-launch)
 * Register Token
+
 On this page
+
 # Register Your Token on Flow
 
 To make your token visible in Flow ecosystem projects like **Flow Wallet** and **IncrementFi**, you need to register it on the Flow Token List. This process will generate JSON files based on Uniswap TokenList Standard and ensures that wallets, explorers, and onchain apps can recognize and display your token correctly.
@@ -61,7 +64,14 @@ For seamless automation, you can integrate token registration into your token de
 
 For any issues, refer to the [Token List GitHub Repository](https://github.com/fixes-world/token-list) or reach out to the [Flow developer community](https://discord.gg/flow).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/token-launch/register-token.md)Last updated on **Jan 29, 2025** by **bz**[PreviousToken Launch](/tutorials/token-launch)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/token-launch/register-token.md)
+
+Last updated on **Jan 29, 2025** by **bz**
+
+[Previous
+
+Token Launch](/tutorials/token-launch)
+
 ###### Rate this page
 
 😞😐😊
@@ -70,6 +80,7 @@ For any issues, refer to the [Token List GitHub Repository](https://github.com/f
 * [Programmatic Registration (~1-2 hrs)](#programmatic-registration-1-2-hrs)
   + [Register ERC-20 Tokens automatically on Flow EVM](#register-erc-20-tokens-automatically-on-flow-evm)
   + [Next Steps](#next-steps)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -82,6 +93,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -91,6 +103,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -98,6 +111,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -107,6 +121,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -114,5 +129,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.
