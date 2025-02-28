@@ -216,11 +216,11 @@ In the dominant Proof-of-Stake (PoS) environment, which includes most chains exc
 | --- | --- | --- | --- |
 | Solana | 100ms | n/a | ~30s |
 | Ethereum | 15s | n/a | ~15m |
-| Flow | bypass | 6s | ~14s |
+| Flow | bypass | 4s | ~10s |
 
 #### Flow[​](#flow "Direct link to Flow")
 
-Flow bypasses preliminary results entirely. It reaches soft finality ("Executed") in about 6 seconds and hard finality ("Sealed") in around 14 seconds. If an Access Node on Flow states a transaction has occurred, it's either correct or cryptographic proof exists that can lead to the node's slashing.
+Flow bypasses preliminary results entirely. It reaches soft finality ("Executed") in about 4 seconds and hard finality ("Sealed") in around 10 seconds. If an Access Node on Flow states a transaction has occurred, it's either correct or cryptographic proof exists that can lead to the node's slashing.
 
 ![transaction-time.png](/assets/images/chain-comparison-ec137713225ffe02ea3dee3c15ba75c8.png)
 
@@ -782,7 +782,7 @@ Find a list of all SDKs [here](/tools/clients)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/transactions.md)
 
-Last updated on **Feb 19, 2025** by **Brian Doyle**
+Last updated on **Feb 27, 2025** by **Chase Fleming**
 
 [Previous
 

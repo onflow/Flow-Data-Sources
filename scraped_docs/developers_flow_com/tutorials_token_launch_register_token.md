@@ -16,6 +16,7 @@ Search
 * [Token Launch](/tutorials/token-launch)
 
   + [Register Token](/tutorials/token-launch/register-token)
+* [Cross-VM App](/tutorials/cross-vm-apps)
 
 * [Token Launch](/tutorials/token-launch)
 * Register Token
@@ -66,11 +67,13 @@ For any issues, refer to the [Token List GitHub Repository](https://github.com/f
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/token-launch/register-token.md)
 
-Last updated on **Jan 29, 2025** by **bz**
+Last updated on **Feb 22, 2025** by **Brian Doyle**
 
 [Previous
 
-Token Launch](/tutorials/token-launch)
+Token Launch](/tutorials/token-launch)[Next
+
+Cross-VM App](/tutorials/cross-vm-apps)
 
 ###### Rate this page
 

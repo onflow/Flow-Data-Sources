@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/build/guides/mobile/ios-quickstart
 
-
-
-
 IOS Development | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -19,12 +20,14 @@ IOS Development | Flow Developer Portal
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
 * [Guides](/build/guides/account-linking)
+
   + [Account Linking (FLIP 72)](/build/guides/account-linking)
   + [Account Linking With NBA Top Shot](/build/guides/account-linking-with-dapper)
   + [More Guides](/build/guides/more-guides)
   + [Creating an NFT Contract](/build/guides/nft)
   + [Creating a Fungible Token](/build/guides/fungible-token)
   + [Building on Mobile](/build/guides/mobile/overview)
+
     - [Overview](/build/guides/mobile/overview)
     - [Build a Walletless Mobile App (PWA)](/build/guides/mobile/walletless-pwa)
     - [IOS Development](/build/guides/mobile/ios-quickstart)
@@ -32,11 +35,12 @@ IOS Development | Flow Developer Portal
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
-
 * Guides
 * Building on Mobile
 * IOS Development
+
 On this page
+
 # Overview
 
 The following documentation aims to educate you on building a native mobile application on Flow. It first presents Monster Maker, a starter project we've built to represent simple Flow mobile concepts. Next it presents various developer resources related to building mobile native Flow applications.
@@ -66,7 +70,7 @@ For run in real device, there are a few steps to deal with signing:
 
 1. Add your apple account to the Xcode which can be accessed from `Xcode Menu -> Settings -> Add account`.
 2. Change the Team to your Personal Apple account from the **Signing & Capabilities** under the project target menu. For more detail, please check the screenshot below.
-   
+
    ![XCode Target Setup](/assets/images/xcode_setup-a21fd8b008f0fc0f04d4b8b4355f064a.png)
 
 ## Connecting to a Wallet[​](#connecting-to-a-wallet "Direct link to Connecting to a Wallet")
@@ -77,7 +81,112 @@ To connect with wallets, there is native wallet discovery in the app. Once you c
 
 To make sure, the wallet can recognise your dApp, there is a few field you will need to config before connect to a wallet. The account proof config is optional. In addition, you will need to create a project id from [walletconnect](https://cloud.walletconnect.com/app) cloud before you can connect to the `WC/RPC` compatible wallet such as [Flow Wallet](https://wallet.flow.com/).
 
- `_29import FCL_29_29// Config the App_29let defaultProvider: FCL.Provider = .dapperPro_29let defaultNetwork: Flow.ChainID = .testnet // or .mainnet_29_29// Optinal: Config for account proof_29let accountProof = FCL.Metadata.AccountProofConfig(appIdentifier: "Monster Maker")_29_29// Config for WC/RPC compatible wallet_29let walletConnect = FCL.Metadata.WalletConnectConfig(urlScheme: "monster-maker://", projectID: "12ed93a2aae83134c4c8473ca97d9399")_29_29// Config basic dApp info_29let metadata = FCL.Metadata(appName: "Monster Maker",_29 appDescription: "Monster Maker Demo App for mobile",_29 appIcon: URL(string: "https://i.imgur.com/jscDmDe.png")!,_29 location: URL(string: "https://monster-maker.vercel.app/")!,_29 accountProof: accountProof,_29 walletConnectConfig: walletConnect)_29fcl.config(metadata: metadata,_29 env: defaultNetwork,_29 provider: defaultProvider)_29_29// Import keywords replacement for cadence query and transaction_29fcl.config_29 .put("0xFungibleToken", value: "0x631e88ae7f1d7c20")_29 .put("0xMonsterMaker", value: "0xfd3d8fe2c8056370")_29 .put("0xMetadataViews", value: "0x631e88ae7f1d7c20")_29 .put("0xTransactionGeneration", value: "0x44051d81c4720882")`
+`_29
+
+import FCL
+
+_29
+
+_29
+
+// Config the App
+
+_29
+
+let defaultProvider: FCL.Provider = .dapperPro
+
+_29
+
+let defaultNetwork: Flow.ChainID = .testnet // or .mainnet
+
+_29
+
+_29
+
+// Optinal: Config for account proof
+
+_29
+
+let accountProof = FCL.Metadata.AccountProofConfig(appIdentifier: "Monster Maker")
+
+_29
+
+_29
+
+// Config for WC/RPC compatible wallet
+
+_29
+
+let walletConnect = FCL.Metadata.WalletConnectConfig(urlScheme: "monster-maker://", projectID: "12ed93a2aae83134c4c8473ca97d9399")
+
+_29
+
+_29
+
+// Config basic dApp info
+
+_29
+
+let metadata = FCL.Metadata(appName: "Monster Maker",
+
+_29
+
+appDescription: "Monster Maker Demo App for mobile",
+
+_29
+
+appIcon: URL(string: "https://i.imgur.com/jscDmDe.png")!,
+
+_29
+
+location: URL(string: "https://monster-maker.vercel.app/")!,
+
+_29
+
+accountProof: accountProof,
+
+_29
+
+walletConnectConfig: walletConnect)
+
+_29
+
+fcl.config(metadata: metadata,
+
+_29
+
+env: defaultNetwork,
+
+_29
+
+provider: defaultProvider)
+
+_29
+
+_29
+
+// Import keywords replacement for cadence query and transaction
+
+_29
+
+fcl.config
+
+_29
+
+.put("0xFungibleToken", value: "0x631e88ae7f1d7c20")
+
+_29
+
+.put("0xMonsterMaker", value: "0xfd3d8fe2c8056370")
+
+_29
+
+.put("0xMetadataViews", value: "0x631e88ae7f1d7c20")
+
+_29
+
+.put("0xTransactionGeneration", value: "0x44051d81c4720882")`
+
 ### Open wallet discovery[​](#open-wallet-discovery "Direct link to Open wallet discovery")
 
 ![In Monster Maker, the Connect button triggers opening of Wallet Discovery](/assets/images/connect-08ebc29173f26df99bcad8a5249451de.png)
@@ -92,7 +201,34 @@ You can open the native wallet discovery to make the selection, but also you can
 
 Here is the code snippet of it:
 
- `_10import FCL_10_10// Open discovery view_10fcl.openDiscovery()_10_10// Or manual connect to specific wallet_10try fcl.changeProvider(provider: provider, env: .testnet)_10try await fcl.authenticate()`
+`_10
+
+import FCL
+
+_10
+
+_10
+
+// Open discovery view
+
+_10
+
+fcl.openDiscovery()
+
+_10
+
+_10
+
+// Or manual connect to specific wallet
+
+_10
+
+try fcl.changeProvider(provider: provider, env: .testnet)
+
+_10
+
+try await fcl.authenticate()`
+
 ## Signing a Transaction[​](#signing-a-transaction "Direct link to Signing a Transaction")
 
 ![In Monster Maker, Initializing the NFT collection with the Initialize button triggers a transaction.](/assets/images/initialize-741f992eddc54e2734901a8fe3954b89.png)
@@ -101,7 +237,94 @@ In Monster Maker, Initializing the NFT collection with the Initialize button tri
 
 Similar to what we have on fcl-js, native sdk also use `query` and `mutate` for on-chain interactions. To request a signature from user, you can simply use `fcl.mutate` method. By default, the user will be the payer, proposer and authorizer, if you want to add custom authorizer please refer to the code from [Server](https://github.com/onflow/monster-maker/blob/main/server/pages/api/signAsMinter/index.ts) and [iOS](https://github.com/onflow/monster-maker/blob/main/iOS/MonsterMaker/Flow/MintHelper.swift) end.
 
- `_23guard let user = fcl.currentUser else {_23 // Not signin_23 return_23}_23_23let txId = try await fcl.mutate(_23 cadence: """_23 transaction(test: String, testInt: Int) {_23 prepare(signer: &Account) {_23 log(signer.address)_23 log(test)_23 log(testInt)_23 }_23 }_23 """,_23 args: [_23 .string("Hello"),_23 .int(10)_23 ],_23 gasLimit: 999,_23 authorizors: [user])_23_23print("txId -> \(txId)")`
+`_23
+
+guard let user = fcl.currentUser else {
+
+_23
+
+// Not signin
+
+_23
+
+return
+
+_23
+
+}
+
+_23
+
+_23
+
+let txId = try await fcl.mutate(
+
+_23
+
+cadence: """
+
+_23
+
+transaction(test: String, testInt: Int) {
+
+_23
+
+prepare(signer: &Account) {
+
+_23
+
+log(signer.address)
+
+_23
+
+log(test)
+
+_23
+
+log(testInt)
+
+_23
+
+}
+
+_23
+
+}
+
+_23
+
+""",
+
+_23
+
+args: [
+
+_23
+
+.string("Hello"),
+
+_23
+
+.int(10)
+
+_23
+
+],
+
+_23
+
+gasLimit: 999,
+
+_23
+
+authorizors: [user])
+
+_23
+
+_23
+
+print("txId -> \(txId)")`
+
 ## View NFT[​](#view-nft "Direct link to View NFT")
 
 ![The View page in Monster Maker exemplifies showing Monster Maker NFTs held by the connected wallet](/assets/images/collection-99cddabc5758e782ca038bb6a6451914.png)
@@ -111,10 +334,311 @@ The View page in Monster Maker exemplifies showing Monster Maker NFTs held by th
 During development, you always can query your NFT with `fcl.query`. Here is an example:
 
 * Query cadence
-  
-   `_79import NonFungibleToken from 0xNonFungibleToken_79 import MonsterMaker from 0xMonsterMaker_79 import MetadataViews from 0xMetadataViews_79_79 access(all) struct Monster {_79 access(all) let name: String_79 access(all) let description: String_79 access(all) let thumbnail: String_79 access(all) let itemID: UInt64_79 access(all) let resourceID: UInt64_79 access(all) let owner: Address_79 access(all) let component: MonsterMaker.MonsterComponent_79_79 init(_79 name: String,_79 description: String,_79 thumbnail: String,_79 itemID: UInt64,_79 resourceID: UInt64,_79 owner: Address,_79 component: MonsterMaker.MonsterComponent_79 ) {_79 self.name = name_79 self.description = description_79 self.thumbnail = thumbnail_79 self.itemID = itemID_79 self.resourceID = resourceID_79 self.owner = owner_79 self.component = component_79 }_79 }_79_79 access(all) fun getMonsterById(address: Address, itemID: UInt64): Monster? {_79_79 if let collection = getAccount(address).capabilities.get<&MonsterMaker.Collection>(MonsterMaker.CollectionPublicPath).borrow() {_79_79 if let item = collection.borrowMonsterMaker(id: itemID) {_79 if let view = item.resolveView(Type<MetadataViews.Display>()) {_79 let display = view as! MetadataViews.Display_79 let owner: Address = item.owner!.address!_79 let thumbnail = display.thumbnail as! MetadataViews.HTTPFile_79_79 return Monster(_79 name: display.name,_79 description: display.description,_79 thumbnail: thumbnail.url,_79 itemID: itemID,_79 resourceID: item.uuid,_79 owner: address,_79 component: item.component_79 )_79 }_79 }_79 }_79_79 return nil_79 }_79_79 access(all) fun main(address: Address): [Monster] {_79 let account = getAccount(address)_79 let collectionRef = account.capabilities.get<&{NonFungibleToken.Collection}>(MonsterMaker.CollectionPublicPath).borrow()_79 ?? panic("The account with address "_79 .concat(address.toString)_79 .concat(" does not have a NonFungibleToken Collection at ")_79 .concat(MonsterMaker.CollectionPublicPath.toString())_79 .concat(". Make sure the account address is correct and is initialized their account with a MonsterMaker Collection!"))_79_79 let ids = collectionRef.getIDs()_79_79 let monsters : [Monster] = []_79_79 for id in ids {_79 if let monster = getMonsterById(address: address, itemID: id) {_79 monsters.append(monster)_79 }_79 }_79_79 return monsters_79 }`
 
- `_10let nftList = try await fcl.query(script: cadenceScript,_10 args: [.address(address)])_10 .decode([NFTModel].self)`
+  `_79
+
+  import NonFungibleToken from 0xNonFungibleToken
+
+  _79
+
+  import MonsterMaker from 0xMonsterMaker
+
+  _79
+
+  import MetadataViews from 0xMetadataViews
+
+  _79
+
+  _79
+
+  access(all) struct Monster {
+
+  _79
+
+  access(all) let name: String
+
+  _79
+
+  access(all) let description: String
+
+  _79
+
+  access(all) let thumbnail: String
+
+  _79
+
+  access(all) let itemID: UInt64
+
+  _79
+
+  access(all) let resourceID: UInt64
+
+  _79
+
+  access(all) let owner: Address
+
+  _79
+
+  access(all) let component: MonsterMaker.MonsterComponent
+
+  _79
+
+  _79
+
+  init(
+
+  _79
+
+  name: String,
+
+  _79
+
+  description: String,
+
+  _79
+
+  thumbnail: String,
+
+  _79
+
+  itemID: UInt64,
+
+  _79
+
+  resourceID: UInt64,
+
+  _79
+
+  owner: Address,
+
+  _79
+
+  component: MonsterMaker.MonsterComponent
+
+  _79
+
+  ) {
+
+  _79
+
+  self.name = name
+
+  _79
+
+  self.description = description
+
+  _79
+
+  self.thumbnail = thumbnail
+
+  _79
+
+  self.itemID = itemID
+
+  _79
+
+  self.resourceID = resourceID
+
+  _79
+
+  self.owner = owner
+
+  _79
+
+  self.component = component
+
+  _79
+
+  }
+
+  _79
+
+  }
+
+  _79
+
+  _79
+
+  access(all) fun getMonsterById(address: Address, itemID: UInt64): Monster? {
+
+  _79
+
+  _79
+
+  if let collection = getAccount(address).capabilities.get<&MonsterMaker.Collection>(MonsterMaker.CollectionPublicPath).borrow() {
+
+  _79
+
+  _79
+
+  if let item = collection.borrowMonsterMaker(id: itemID) {
+
+  _79
+
+  if let view = item.resolveView(Type<MetadataViews.Display>()) {
+
+  _79
+
+  let display = view as! MetadataViews.Display
+
+  _79
+
+  let owner: Address = item.owner!.address!
+
+  _79
+
+  let thumbnail = display.thumbnail as! MetadataViews.HTTPFile
+
+  _79
+
+  _79
+
+  return Monster(
+
+  _79
+
+  name: display.name,
+
+  _79
+
+  description: display.description,
+
+  _79
+
+  thumbnail: thumbnail.url,
+
+  _79
+
+  itemID: itemID,
+
+  _79
+
+  resourceID: item.uuid,
+
+  _79
+
+  owner: address,
+
+  _79
+
+  component: item.component
+
+  _79
+
+  )
+
+  _79
+
+  }
+
+  _79
+
+  }
+
+  _79
+
+  }
+
+  _79
+
+  _79
+
+  return nil
+
+  _79
+
+  }
+
+  _79
+
+  _79
+
+  access(all) fun main(address: Address): [Monster] {
+
+  _79
+
+  let account = getAccount(address)
+
+  _79
+
+  let collectionRef = account.capabilities.get<&{NonFungibleToken.Collection}>(MonsterMaker.CollectionPublicPath).borrow()
+
+  _79
+
+  ?? panic("The account with address "
+
+  _79
+
+  .concat(address.toString)
+
+  _79
+
+  .concat(" does not have a NonFungibleToken Collection at ")
+
+  _79
+
+  .concat(MonsterMaker.CollectionPublicPath.toString())
+
+  _79
+
+  .concat(". Make sure the account address is correct and is initialized their account with a MonsterMaker Collection!"))
+
+  _79
+
+  _79
+
+  let ids = collectionRef.getIDs()
+
+  _79
+
+  _79
+
+  let monsters : [Monster] = []
+
+  _79
+
+  _79
+
+  for id in ids {
+
+  _79
+
+  if let monster = getMonsterById(address: address, itemID: id) {
+
+  _79
+
+  monsters.append(monster)
+
+  _79
+
+  }
+
+  _79
+
+  }
+
+  _79
+
+  _79
+
+  return monsters
+
+  _79
+
+  }`
+
+`_10
+
+let nftList = try await fcl.query(script: cadenceScript,
+
+_10
+
+args: [.address(address)])
+
+_10
+
+.decode([NFTModel].self)`
+
 # External Resources
 
 **FCL Swift**
@@ -142,7 +666,16 @@ The Agile Monkeys has written a very comprehensive guide on how to build a nativ
 [How to Build a Native iOS Dapper](https://dev.to/theagilemonkeys/how-to-buid-a-native-ios-dapp-that-uses-the-flow-blockchain-as-the-backend-n9k)
 [Source Code](https://github.com/jfsagasti/FlowNotes)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/ios-quickstart.md)Last updated on **Feb 22, 2025** by **bz**[PreviousBuild a Walletless Mobile App (PWA)](/build/guides/mobile/walletless-pwa)[NextReact Native Development](/build/guides/mobile/react-native-quickstart)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/ios-quickstart.md)
+
+Last updated on **Feb 22, 2025** by **bz**
+
+[Previous
+
+Build a Walletless Mobile App (PWA)](/build/guides/mobile/walletless-pwa)[Next
+
+React Native Development](/build/guides/mobile/react-native-quickstart)
+
 ###### Rate this page
 
 😞😐😊
@@ -154,6 +687,7 @@ The Agile Monkeys has written a very comprehensive guide on how to build a nativ
   + [Open wallet discovery](#open-wallet-discovery)
 * [Signing a Transaction](#signing-a-transaction)
 * [View NFT](#view-nft)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -166,6 +700,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -175,6 +710,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -182,6 +718,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -191,6 +728,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -198,5 +736,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

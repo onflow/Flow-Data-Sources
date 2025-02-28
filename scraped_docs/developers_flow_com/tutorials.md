@@ -14,20 +14,44 @@ Search
 
 * [Tutorials](/tutorials)
 * [Token Launch](/tutorials/token-launch)
+* [Cross-VM App](/tutorials/cross-vm-apps)
 
 * Tutorials
 
+On this page
+
 # Tutorials
 
-In this section, you'll find our most complicated and advanced tutorials. Check out the list below to find information on how to power up your apps.
+Flow Cadence and Flow EVM are two VMs running on the Flow blockchain. A few months after the release of the Crescendo upgrade, we're seeing more apps that aren't Cadence apps -OR- EVM apps, they're both! Cadence unlocks superpowers such as vast computation and storage, native VRF, a much safer and more secure language for handling digital ownership, and more. Flow EVM unlocks the power of the Ethereum ecosystem, allowing you to bring in traditional tools, assets, and liquidity.
+
+For this grand future, we'll need a new suite of tutorials, guides, and resources to help you build with the best of both worlds. This section is dedicated to those tutorials.
+
+## Token Launch[​](#token-launch "Direct link to Token Launch")
+
+Learn how to launch your own token on Flow using Cadence and EVM.
+
+* [Register a Token](/tutorials/token-launch/register-token)
+
+## Cross-VM Applications[​](#cross-vm-applications "Direct link to Cross-VM Applications")
+
+Learn how to build applications that interact with both Cadence and Flow EVM.
+
+* [Introduction to Cross-VM Applications](/tutorials/cross-vm-apps/introduction)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/index.md)
 
-Last updated on **Jan 29, 2025** by **bz**
+Last updated on **Feb 27, 2025** by **Brian Doyle**
 
 [Next
 
 Token Launch](/tutorials/token-launch)
+
+###### Rate this page
+
+😞😐😊
+
+* [Token Launch](#token-launch)
+* [Cross-VM Applications](#cross-vm-applications)
 
 Documentation
 

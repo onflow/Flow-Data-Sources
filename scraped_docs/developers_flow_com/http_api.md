@@ -1484,6 +1484,7 @@ Copy
 * "commit": "string",
 * "spork_id": "string",
 * "protocol_version": "string",
+* "protocol_state_version": "string",
 * "spork_root_block_height": "string",
 * "node_root_block_height": "string",
 * "compatible_range": {

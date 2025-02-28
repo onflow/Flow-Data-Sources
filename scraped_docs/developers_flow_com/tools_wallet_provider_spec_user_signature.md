@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/tools/wallet-provider-spec/user-signature
 
-
-
-
 User Signature | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
@@ -19,15 +20,17 @@ User Signature | Flow Developer Portal
 * [Flow Dev Wallet](/tools/flow-dev-wallet)
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
+
   + [Authorization Function](/tools/wallet-provider-spec/authorization-function)
   + [Introduction](/tools/wallet-provider-spec/custodial)
   + [Provable Authn](/tools/wallet-provider-spec/provable-authn)
   + [User Signature](/tools/wallet-provider-spec/user-signature)
 
-
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 * User Signature
+
 On this page
+
 # User Signature
 
 ## Status[​](#status "Direct link to Status")
@@ -106,14 +109,89 @@ A domain tag is encoded as **UTF-8 bytes, right padded to a total length of 32 b
 
 The signature can now be verified on the Flow blockchain. The following illustrates an example using `fcl.verifyUserSignatures`
 
- `_17/**_17 * Verify a valid signature/s for an account on Flow._17 *_17 * @param {string} msg - A message string in hexadecimal format_17 * @param {Array} compSigs - An array of Composite Signatures_17 * @param {string} compSigs[].addr - The account address_17 * @param {number} compSigs[].keyId - The account keyId_17 * @param {string} compSigs[].signature - The signature to verify_17 * @return {bool}_17 *_17 * @example_17 *_17 * const isValid = await fcl.verifyUserSignatures(_17 * Buffer.from('FOO').toString("hex"),_17 * [{f_type: "CompositeSignature", f_vsn: "1.0.0", addr: "0x123", keyId: 0, signature: "abc123"}]_17 * )_17 */`
+`_17
+
+/**
+
+_17
+
+* Verify a valid signature/s for an account on Flow.
+
+_17
+
+*
+
+_17
+
+* @param {string} msg - A message string in hexadecimal format
+
+_17
+
+* @param {Array} compSigs - An array of Composite Signatures
+
+_17
+
+* @param {string} compSigs[].addr - The account address
+
+_17
+
+* @param {number} compSigs[].keyId - The account keyId
+
+_17
+
+* @param {string} compSigs[].signature - The signature to verify
+
+_17
+
+* @return {bool}
+
+_17
+
+*
+
+_17
+
+* @example
+
+_17
+
+*
+
+_17
+
+* const isValid = await fcl.verifyUserSignatures(
+
+_17
+
+* Buffer.from('FOO').toString("hex"),
+
+_17
+
+* [{f_type: "CompositeSignature", f_vsn: "1.0.0", addr: "0x123", keyId: 0, signature: "abc123"}]
+
+_17
+
+* )
+
+_17
+
+*/`
+
 ## TL;DR Wallet Provider[​](#tldr-wallet-provider "Direct link to TL;DR Wallet Provider")
 
 * Register with **FCL** and provide signing service endpoint. No further configuration is needed.
 * On receipt of message, prompt user to approve or decline
 * Prepend `UserDomainTag`, hash and sign the message with the signatureAlgorithm specified on user's key
 * Return a standard `PollingResponse` with an array of `CompositeSignatures` as data or `null` and `reason` if declined
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/user-signature.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousProvable Authn](/tools/wallet-provider-spec/provable-authn)
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/user-signature.md)
+
+Last updated on **Feb 22, 2025** by **Brian Doyle**
+
+[Previous
+
+Provable Authn](/tools/wallet-provider-spec/provable-authn)
+
 ###### Rate this page
 
 😞😐😊
@@ -121,6 +199,7 @@ The signature can now be verified on the Flow blockchain. The following illustra
 * [Status](#status)
   + [UserDomainTag](#userdomaintag)
 * [TL;DR Wallet Provider](#tldr-wallet-provider)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -133,6 +212,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -142,6 +222,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -149,6 +230,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -158,6 +240,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -165,5 +248,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

@@ -765,7 +765,7 @@ npx hardhat verify --network testnet DEPLOYED_CONTRACT_ADDRESS "Constructor argu
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/hardhat.md)
 
-Last updated on **Feb 19, 2025** by **bz**
+Last updated on **Feb 22, 2025** by **Brian Doyle**
 
 [Previous
 

@@ -255,121 +255,145 @@ _19
 
 ### Collection[​](#collection "Direct link to Collection")
 
-`_15
+`_18
 
 docker run --rm \
 
-_15
+_18
 
 -v /path/to/bootstrap:/bootstrap:ro \
 
-_15
+_18
 
 -v /path/to/data:/data:rw \
 
-_15
+_18
 
 --name flow-go \
 
-_15
+_18
 
 --network host \
 
-_15
+_18
 
 --ulimit nofile=8192 \
 
-_15
+_18
 
 gcr.io/flow-container-registry/collection:<applicable docker tag> \
 
-_15
+_18
 
 --nodeid=${FLOW_GO_NODE_ID} \
 
-_15
+_18
 
 --bootstrapdir=/bootstrap \
 
-_15
+_18
 
 --datadir=/data/protocol \
 
-_15
+_18
 
 --secretsdir=/data/secrets \
 
-_15
+_18
 
 --ingress-addr=0.0.0.0:9000 \
 
-_15
+_18
 
 --admin-addr=0.0.0.0:9002 \
 
-_15
+_18
 
 --bind 0.0.0.0:3569 \
 
-_15
+_18
+
+--access-node-ids=4e17496619df8bb4dcd579c252d9fb026e54995db0dc6825bdcd27bd3288a990,7e3fe64ccc119f578a7795df8b8c512e05409bdc7de4f74259c6f48351fecb26,416c65782048656e74736368656c009530ef3ab4b8bf83b24df54fe5f81853de,416e647265772042757269616e00d219355d62b9adad8ebd3fab223a1cf84c22 \
+
+_18
+
+--gossipsub-peer-scoring-enabled=false \
+
+_18
+
+--gossipsub-peer-gater-enabled=true \
+
+_18
 
 --loglevel=error`
 
 ### Consensus[​](#consensus "Direct link to Consensus")
 
-`_14
+`_17
 
 docker run --rm \
 
-_14
+_17
 
 -v /path/to/bootstrap:/bootstrap:ro \
 
-_14
+_17
 
 -v /path/to/data:/data:rw \
 
-_14
+_17
 
 --name flow-go \
 
-_14
+_17
 
 --network host \
 
-_14
+_17
 
 --ulimit nofile=8192 \
 
-_14
+_17
 
 gcr.io/flow-container-registry/consensus:<applicable docker tag> \
 
-_14
+_17
 
 --nodeid=${FLOW_GO_NODE_ID} \
 
-_14
+_17
 
 --bootstrapdir=/bootstrap \
 
-_14
+_17
 
 --datadir=/data/protocol \
 
-_14
+_17
 
 --secretsdir=/data/secrets \
 
-_14
+_17
 
 --admin-addr=0.0.0.0:9002 \
 
-_14
+_17
 
 --bind 0.0.0.0:3569 \
 
-_14
+_17
+
+--access-node-ids=4e17496619df8bb4dcd579c252d9fb026e54995db0dc6825bdcd27bd3288a990,7e3fe64ccc119f578a7795df8b8c512e05409bdc7de4f74259c6f48351fecb26,416c65782048656e74736368656c009530ef3ab4b8bf83b24df54fe5f81853de,416e647265772042757269616e00d219355d62b9adad8ebd3fab223a1cf84c22 \
+
+_17
+
+--gossipsub-peer-scoring-enabled=false \
+
+_17
+
+--gossipsub-peer-gater-enabled=true \
+
+_17
 
 --loglevel=error`
 
@@ -633,7 +657,7 @@ consensus_compliance_sealed_height 1.132054e+06`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-setup.md)
 
-Last updated on **Feb 19, 2025** by **Brian Doyle**
+Last updated on **Feb 27, 2025** by **Vishal**
 
 [Previous
 
