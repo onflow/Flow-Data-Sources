@@ -64,7 +64,7 @@ To begin using Alchemy, developers can [sign up for an account](https://www.alch
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/data-indexers.md)
 
-Last updated on **Feb 22, 2025** by **Brian Doyle**
+Last updated on **Feb 22, 2025** by **bz**
 
 [Previous
 

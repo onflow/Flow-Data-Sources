@@ -1022,7 +1022,7 @@ Other useful snippets for interacting with COAs can be found [here](https://fw-i
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/cadence/interacting-with-coa.md)
 
-Last updated on **Feb 22, 2025** by **Brian Doyle**
+Last updated on **Feb 22, 2025** by **bz**
 
 [Previous
 

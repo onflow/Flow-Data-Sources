@@ -24,6 +24,7 @@ Search
     - [SDK Reference](/tools/clients/fcl-js/sdk-guidelines)
     - [Authentication](/tools/clients/fcl-js/authentication)
     - [How to Configure FCL](/tools/clients/fcl-js/configure-fcl)
+    - [Cross VM Packages](/tools/clients/fcl-js/cross-vm)
     - [Wallet Discovery](/tools/clients/fcl-js/discovery)
     - [Installation](/tools/clients/fcl-js/installation)
     - [Interaction Templates](/tools/clients/fcl-js/interaction-templates)
@@ -221,7 +222,7 @@ To learn more about `mutate`, check out the [API documentation](/tools/clients/f
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/transactions.md)
 
-Last updated on **Feb 19, 2025** by **Brian Doyle**
+Last updated on **Feb 22, 2025** by **bz**
 
 [Previous
 

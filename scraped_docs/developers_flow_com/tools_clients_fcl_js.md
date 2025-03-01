@@ -24,6 +24,7 @@ Search
     - [SDK Reference](/tools/clients/fcl-js/sdk-guidelines)
     - [Authentication](/tools/clients/fcl-js/authentication)
     - [How to Configure FCL](/tools/clients/fcl-js/configure-fcl)
+    - [Cross VM Packages](/tools/clients/fcl-js/cross-vm)
     - [Wallet Discovery](/tools/clients/fcl-js/discovery)
     - [Installation](/tools/clients/fcl-js/installation)
     - [Interaction Templates](/tools/clients/fcl-js/interaction-templates)

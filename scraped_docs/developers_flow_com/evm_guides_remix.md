@@ -274,7 +274,7 @@ Follow the steps below to change the greeting and retrieve the new greeting.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/remix.md)
 
-Last updated on **Feb 19, 2025** by **Brian Doyle**
+Last updated on **Feb 22, 2025** by **bz**
 
 [Previous
 

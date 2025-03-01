@@ -36,7 +36,7 @@ Go to [Bridges](/ecosystem/bridges)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/cross-chain-bridges.mdx)
 
-Last updated on **Feb 19, 2025** by **Brian Doyle**
+Last updated on **Feb 22, 2025** by **bz**
 
 [Previous
 

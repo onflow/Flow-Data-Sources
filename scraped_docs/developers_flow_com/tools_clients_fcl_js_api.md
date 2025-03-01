@@ -24,6 +24,7 @@ Search
     - [SDK Reference](/tools/clients/fcl-js/sdk-guidelines)
     - [Authentication](/tools/clients/fcl-js/authentication)
     - [How to Configure FCL](/tools/clients/fcl-js/configure-fcl)
+    - [Cross VM Packages](/tools/clients/fcl-js/cross-vm)
     - [Wallet Discovery](/tools/clients/fcl-js/discovery)
     - [Installation](/tools/clients/fcl-js/installation)
     - [Interaction Templates](/tools/clients/fcl-js/interaction-templates)
@@ -3599,7 +3600,7 @@ Signature objects are used to represent a signature for a particular message as 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/api.md)
 
-Last updated on **Feb 22, 2025** by **Brian Doyle**
+Last updated on **Feb 22, 2025** by **bz**
 
 [Previous
 

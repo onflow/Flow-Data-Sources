@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/evm/guides/rainbowkit
 
-
-
-
 Using Rainbowkit with Flow Wallet | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Why EVM on Flow](/evm/about)
 * [How it Works](/evm/how-it-works)
@@ -22,6 +23,7 @@ Using Rainbowkit with Flow Wallet | Flow Developer Portal
 * [Faucets ↙](/evm/faucets)
 * [Block Explorers ↙](/evm/block-explorers)
 * [Guides](/evm/guides/integrating-metamask)
+
   + [Integrating Metamask](/evm/guides/integrating-metamask)
   + [Hardhat](/evm/guides/hardhat)
   + [Remix](/evm/guides/remix)
@@ -32,10 +34,11 @@ Using Rainbowkit with Flow Wallet | Flow Developer Portal
 * [Clients](/evm/clients/ethers)
 * [Using EVM with Cadence](/evm/cadence/interacting-with-coa)
 
-
 * Guides
 * Rainbowkit
+
 On this page
+
 # Using Rainbowkit with Flow Wallet
 
 Integrating Flow Wallet with [RainbowKit](https://www.rainbowkit.com/) allows users to seamlessly connect their Flow accounts through one of the most popular wallet connection interfaces.
@@ -69,7 +72,17 @@ Once installed, set up your wallet by creating or importing an account. For quic
 
 The RainbowKit starter is built on Next.js, following its standard project structure and conventions. Create a new project or ensure your existing one has the necessary dependencies:
 
- `_10$ npm init @rainbow-me/rainbowkit@latest_10$ cd my-rainbowkit-app_10$ npm run dev`
+`_10
+
+$ npm init @rainbow-me/rainbowkit@latest
+
+_10
+
+$ cd my-rainbowkit-app
+
+_10
+
+$ npm run dev`
 
 The [RainbowKit](https://www.rainbowkit.com/) components will be available throughout your application via the provided wrapper components.
 
@@ -77,12 +90,394 @@ The [RainbowKit](https://www.rainbowkit.com/) components will be available throu
 
 The first major step is defining the Flow Wallet connector. Create a new file called `flowWallet.ts` in `src/flowWallet.ts` to house the wallet configuration:
 
- `_63/* src/flowWallet.ts */ _63import { Wallet, getWalletConnectConnector } from '@rainbow-me/rainbowkit';_63_63export interface MyWalletOptions {_63 projectId: string;_63}_63_63export const flowWallet = ({ projectId }: MyWalletOptions): Wallet => ({_63 id: 'flow-wallet',_63 name: 'Flow Wallet',_63 iconUrl: 'https://lilico.app/logo_mobile.png',_63 iconBackground: '#41CC5D',_63 downloadUrls: {_63 android: 'https://play.google.com/store/apps/details?id=com.flowfoundation.wallet',_63 ios: 'https://apps.apple.com/ca/app/flow-wallet-nfts-and-crypto/id6478996750',_63 chrome: 'https://chromewebstore.google.com/detail/flow-wallet/hpclkefagolihohboafpheddmmgdffjm',_63 qrCode: 'https://link.lilico.app',_63 },_63 mobile: {_63 getUri: (uri: string) => uri,_63 },_63 qrCode: {_63 getUri: (uri: string) => uri,_63 instructions: {_63 learnMoreUrl: 'https://wallet.flow.com',_63 steps: [_63 {_63 description: 'We recommend putting Flow Wallet on your home screen for faster access to your wallet.',_63 step: 'install',_63 title: 'Open the Flow Wallet app',_63 },_63 {_63 description: 'You can find the scan button on home page, a connection prompt will appear for you to connect your wallet.',_63 step: 'scan',_63 title: 'Tap the scan button',_63 },_63 ],_63 },_63 },_63 extension: {_63 instructions: {_63 learnMoreUrl: 'https://wallet.flow.com',_63 steps: [_63 {_63 description: 'We recommend pinning Flow Wallet to your taskbar for quicker access to your wallet.',_63 step: 'install',_63 title: 'Install the Flow Wallet extension',_63 },_63 {_63 description: 'Be sure to back up your wallet using a secure method. Never share your secret phrase with anyone.',_63 step: 'create',_63 title: 'Create or Import a Wallet',_63 },_63 {_63 description: 'Once you set up your wallet, click below to refresh the browser and load up the extension.',_63 step: 'refresh',_63 title: 'Refresh your browser',_63 },_63 ],_63 },_63 },_63 createConnector: getWalletConnectConnector({ projectId }),_63});`
+`_63
+
+/* src/flowWallet.ts */
+
+_63
+
+import { Wallet, getWalletConnectConnector } from '@rainbow-me/rainbowkit';
+
+_63
+
+_63
+
+export interface MyWalletOptions {
+
+_63
+
+projectId: string;
+
+_63
+
+}
+
+_63
+
+_63
+
+export const flowWallet = ({ projectId }: MyWalletOptions): Wallet => ({
+
+_63
+
+id: 'flow-wallet',
+
+_63
+
+name: 'Flow Wallet',
+
+_63
+
+iconUrl: 'https://lilico.app/logo_mobile.png',
+
+_63
+
+iconBackground: '#41CC5D',
+
+_63
+
+downloadUrls: {
+
+_63
+
+android: 'https://play.google.com/store/apps/details?id=com.flowfoundation.wallet',
+
+_63
+
+ios: 'https://apps.apple.com/ca/app/flow-wallet-nfts-and-crypto/id6478996750',
+
+_63
+
+chrome: 'https://chromewebstore.google.com/detail/flow-wallet/hpclkefagolihohboafpheddmmgdffjm',
+
+_63
+
+qrCode: 'https://link.lilico.app',
+
+_63
+
+},
+
+_63
+
+mobile: {
+
+_63
+
+getUri: (uri: string) => uri,
+
+_63
+
+},
+
+_63
+
+qrCode: {
+
+_63
+
+getUri: (uri: string) => uri,
+
+_63
+
+instructions: {
+
+_63
+
+learnMoreUrl: 'https://wallet.flow.com',
+
+_63
+
+steps: [
+
+_63
+
+{
+
+_63
+
+description: 'We recommend putting Flow Wallet on your home screen for faster access to your wallet.',
+
+_63
+
+step: 'install',
+
+_63
+
+title: 'Open the Flow Wallet app',
+
+_63
+
+},
+
+_63
+
+{
+
+_63
+
+description: 'You can find the scan button on home page, a connection prompt will appear for you to connect your wallet.',
+
+_63
+
+step: 'scan',
+
+_63
+
+title: 'Tap the scan button',
+
+_63
+
+},
+
+_63
+
+],
+
+_63
+
+},
+
+_63
+
+},
+
+_63
+
+extension: {
+
+_63
+
+instructions: {
+
+_63
+
+learnMoreUrl: 'https://wallet.flow.com',
+
+_63
+
+steps: [
+
+_63
+
+{
+
+_63
+
+description: 'We recommend pinning Flow Wallet to your taskbar for quicker access to your wallet.',
+
+_63
+
+step: 'install',
+
+_63
+
+title: 'Install the Flow Wallet extension',
+
+_63
+
+},
+
+_63
+
+{
+
+_63
+
+description: 'Be sure to back up your wallet using a secure method. Never share your secret phrase with anyone.',
+
+_63
+
+step: 'create',
+
+_63
+
+title: 'Create or Import a Wallet',
+
+_63
+
+},
+
+_63
+
+{
+
+_63
+
+description: 'Once you set up your wallet, click below to refresh the browser and load up the extension.',
+
+_63
+
+step: 'refresh',
+
+_63
+
+title: 'Refresh your browser',
+
+_63
+
+},
+
+_63
+
+],
+
+_63
+
+},
+
+_63
+
+},
+
+_63
+
+createConnector: getWalletConnectConnector({ projectId }),
+
+_63
+
+});`
+
 ### Configuring Wagmi Integration[​](#configuring-wagmi-integration "Direct link to Configuring Wagmi Integration")
 
 Next, update your Wagmi configuration to include Flow Wallet support. Modify your `wagmi.ts` file:
 
- `_36/* src/wagmi.ts */ _36'use client';_36_36import { connectorsForWallets } from '@rainbow-me/rainbowkit';_36import { createConfig, http } from 'wagmi';_36import { mainnet, flowMainnet } from 'viem/chains';_36import { flowWallet } from './flowWallet';_36_36/*_36We can leave this as is for the tutorial but it should be_36replaced with your own project ID for production use._36*/_36const projectId = 'YOUR_PROJECT_ID'; _36_36const connectors = connectorsForWallets(_36 [_36 {_36 groupName: 'Recommended',_36 wallets: [flowWallet]_36 },_36 ],_36 {_36 appName: 'RainbowKit App',_36 projectId,_36 }_36);_36_36export const config = createConfig({_36 connectors,_36 chains: [flowMainnet, mainnet],_36 ssr: true,_36 transports: {_36 [flowMainnet.id]: http(),_36 [mainnet.id]: http(),_36 },_36});`
+`_36
+
+/* src/wagmi.ts */
+
+_36
+
+'use client';
+
+_36
+
+_36
+
+import { connectorsForWallets } from '@rainbow-me/rainbowkit';
+
+_36
+
+import { createConfig, http } from 'wagmi';
+
+_36
+
+import { mainnet, flowMainnet } from 'viem/chains';
+
+_36
+
+import { flowWallet } from './flowWallet';
+
+_36
+
+_36
+
+/*
+
+_36
+
+We can leave this as is for the tutorial but it should be
+
+_36
+
+replaced with your own project ID for production use.
+
+_36
+
+*/
+
+_36
+
+const projectId = 'YOUR_PROJECT_ID';
+
+_36
+
+_36
+
+const connectors = connectorsForWallets(
+
+_36
+
+[
+
+_36
+
+{
+
+_36
+
+groupName: 'Recommended',
+
+_36
+
+wallets: [flowWallet]
+
+_36
+
+},
+
+_36
+
+],
+
+_36
+
+{
+
+_36
+
+appName: 'RainbowKit App',
+
+_36
+
+projectId,
+
+_36
+
+}
+
+_36
+
+);
+
+_36
+
+_36
+
+export const config = createConfig({
+
+_36
+
+connectors,
+
+_36
+
+chains: [flowMainnet, mainnet],
+
+_36
+
+ssr: true,
+
+_36
+
+transports: {
+
+_36
+
+[flowMainnet.id]: http(),
+
+_36
+
+[mainnet.id]: http(),
+
+_36
+
+},
+
+_36
+
+});`
+
 info
 
 WalletConnect Project ID
@@ -117,7 +512,16 @@ In this tutorial, you learned how to integrate Flow Wallet with [RainbowKit](htt
 
 Now that you've completed this tutorial, you're ready to enhance your dApp with additional Flow blockchain features such as token transfers, NFT minting, and smart contract interactions.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/rainbowkit.md)Last updated on **Feb 20, 2025** by **timothyylim**[PreviousRemix](/evm/guides/remix)[NextViem & Wagmi](/evm/guides/wagmi)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/rainbowkit.md)
+
+Last updated on **Feb 22, 2025** by **bz**
+
+[Previous
+
+Remix](/evm/guides/remix)[Next
+
+Viem & Wagmi](/evm/guides/wagmi)
+
 ###### Rate this page
 
 😞😐😊
@@ -132,6 +536,7 @@ Now that you've completed this tutorial, you're ready to enhance your dApp with 
   + [Configuring Wagmi Integration](#configuring-wagmi-integration)
 * [Testing Your Integration](#testing-your-integration)
 * [Conclusion](#conclusion)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -144,6 +549,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -153,6 +559,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -160,6 +567,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -169,6 +577,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -176,5 +585,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

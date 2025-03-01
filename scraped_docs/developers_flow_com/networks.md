@@ -55,7 +55,7 @@ Learn about Flow's governance model and how it's empowering our community of use
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/index.md)
 
-Last updated on **Feb 22, 2025** by **Brian Doyle**
+Last updated on **Feb 22, 2025** by **bz**
 
 [Previous
 

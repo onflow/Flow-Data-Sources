@@ -1,19 +1,21 @@
 # Source: https://developers.flow.com/build/getting-started/quickstarts/hello-world
 
-
-
-
 Contract Interaction | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
 * [Getting Started](/build/getting-started/contract-interaction)
+
   + [Contract Interaction](/build/getting-started/contract-interaction)
   + [Local Development](/build/getting-started/flow-cli)
   + [Simple Frontend](/build/getting-started/fcl-quickstart)
@@ -25,9 +27,9 @@ Contract Interaction | Flow Developer Portal
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
-
 * Getting Started
 * Contract Interaction
+
 On this page
 
 # Contract Interaction
@@ -60,7 +62,27 @@ The `Counter` contract exposes a public function named `getCount()` that returns
 
 Here's the script:
 
- `_10import Counter from 0x8a4dce54554b225d_10_10access(all)_10fun main(): Int {_10 return Counter.getCount()_10}`
+`_10
+
+import Counter from 0x8a4dce54554b225d
+
+_10
+
+_10
+
+access(all)
+
+_10
+
+fun main(): Int {
+
+_10
+
+return Counter.getCount()
+
+_10
+
+}`
 
 Let's break down what this script does:
 
@@ -77,7 +99,116 @@ Let's break down what this script does:
 
 To fully grasp how the script works, it's important to understand the structure of the `Counter` contract. Below is the source code for the contract:
 
- `_31access(all) contract Counter {_31_31 access(all) var count: Int_31_31 // Event to be emitted when the counter is incremented_31 access(all) event CounterIncremented(newCount: Int)_31_31 // Event to be emitted when the counter is decremented_31 access(all) event CounterDecremented(newCount: Int)_31_31 init() {_31 self.count = 0_31 }_31_31 // Public function to increment the counter_31 access(all) fun increment() {_31 self.count = self.count + 1_31 emit CounterIncremented(newCount: self.count)_31 }_31_31 // Public function to decrement the counter_31 access(all) fun decrement() {_31 self.count = self.count - 1_31 emit CounterDecremented(newCount: self.count)_31 }_31_31 // Public function to get the current count_31 view access(all) fun getCount(): Int {_31 return self.count_31 }_31}`
+`_31
+
+access(all) contract Counter {
+
+_31
+
+_31
+
+access(all) var count: Int
+
+_31
+
+_31
+
+// Event to be emitted when the counter is incremented
+
+_31
+
+access(all) event CounterIncremented(newCount: Int)
+
+_31
+
+_31
+
+// Event to be emitted when the counter is decremented
+
+_31
+
+access(all) event CounterDecremented(newCount: Int)
+
+_31
+
+_31
+
+init() {
+
+_31
+
+self.count = 0
+
+_31
+
+}
+
+_31
+
+_31
+
+// Public function to increment the counter
+
+_31
+
+access(all) fun increment() {
+
+_31
+
+self.count = self.count + 1
+
+_31
+
+emit CounterIncremented(newCount: self.count)
+
+_31
+
+}
+
+_31
+
+_31
+
+// Public function to decrement the counter
+
+_31
+
+access(all) fun decrement() {
+
+_31
+
+self.count = self.count - 1
+
+_31
+
+emit CounterDecremented(newCount: self.count)
+
+_31
+
+}
+
+_31
+
+_31
+
+// Public function to get the current count
+
+_31
+
+view access(all) fun getCount(): Int {
+
+_31
+
+return self.count
+
+_31
+
+}
+
+_31
+
+}`
+
 ### Breakdown of the Contract[​](#breakdown-of-the-contract "Direct link to Breakdown of the Contract")
 
 * **Contract Declaration**: `access(all) contract Counter` declares a new contract named `Counter` that is accessible to everyone.
@@ -110,7 +241,16 @@ By understanding the `Counter` contract and how to interact with it, you're buil
 
 Proceed to the next tutorial to learn how to create your own contracts and deploy them live using the Flow CLI.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/contract-interaction.md)Last updated on **Feb 11, 2025** by **Chase Fleming**[PreviousDifferences vs. EVM](/build/differences-vs-evm)[NextLocal Development](/build/getting-started/flow-cli)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/contract-interaction.md)
+
+Last updated on **Feb 22, 2025** by **bz**
+
+[Previous
+
+Differences vs. EVM](/build/differences-vs-evm)[Next
+
+Local Development](/build/getting-started/flow-cli)
+
 ###### Rate this page
 
 😞😐😊
@@ -122,6 +262,7 @@ Proceed to the next tutorial to learn how to create your own contracts and deplo
   + [Breakdown of the Contract](#breakdown-of-the-contract)
   + [Key Points](#key-points)
   + [What's Next?](#whats-next)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -134,6 +275,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -143,6 +285,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -150,6 +293,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -159,6 +303,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -166,5 +311,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

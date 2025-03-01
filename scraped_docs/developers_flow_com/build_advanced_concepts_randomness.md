@@ -394,7 +394,7 @@ If you'd like to dive deeper into Flow's onchain randomness, here's a list of re
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/randomness.md)
 
-Last updated on **Feb 22, 2025** by **Brian Doyle**
+Last updated on **Feb 22, 2025** by **bz**
 
 [Previous
 
