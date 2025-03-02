@@ -1,15 +1,16 @@
 # Source: https://developers.flow.com/build/guides/mobile/react-native-quickstart
 
-
-
-
 React Native Development | Flow Developer Portal
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build With Cadence](/build/flow)[Build With EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)Connect[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)Search
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
 
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
@@ -19,12 +20,14 @@ React Native Development | Flow Developer Portal
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
 * [Guides](/build/guides/account-linking)
+
   + [Account Linking (FLIP 72)](/build/guides/account-linking)
   + [Account Linking With NBA Top Shot](/build/guides/account-linking-with-dapper)
   + [More Guides](/build/guides/more-guides)
   + [Creating an NFT Contract](/build/guides/nft)
   + [Creating a Fungible Token](/build/guides/fungible-token)
   + [Building on Mobile](/build/guides/mobile/overview)
+
     - [Overview](/build/guides/mobile/overview)
     - [Build a Walletless Mobile App (PWA)](/build/guides/mobile/walletless-pwa)
     - [IOS Development](/build/guides/mobile/ios-quickstart)
@@ -32,11 +35,12 @@ React Native Development | Flow Developer Portal
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
-
 * Guides
 * Building on Mobile
 * React Native Development
+
 On this page
+
 # React Native Development
 
 **Last Updated:** January 11th 2022
@@ -64,15 +68,25 @@ And if you ever have any questions we're always happy to help on [Discord](https
 
 The first step is to generate a React app using Next.js and [create-expo-app](https://docs.expo.dev/get-started/create-a-project/). From your terminal, run the following:
 
- `_10npx create-expo-app flow-react-native_10cd flow-react-native`
+`_10
+
+npx create-expo-app flow-react-native
+
+_10
+
+cd flow-react-native`
 
 Next, install FCL so we can use it in our app.
 
- `_10npm install @onflow/fcl@alpha @react-native-async-storage/async-storage expo-web-browser --save`
+`_10
+
+npm install @onflow/fcl@alpha @react-native-async-storage/async-storage expo-web-browser --save`
 
 Now run the app using the following command in your terminal.
 
- `_10npm run start`
+`_10
+
+npm run start`
 
 You should now see your app running.
 
@@ -84,7 +98,33 @@ Now that your app is running, you can configure FCL. Within the main project dir
 
 > **Create file:** `./flow/config.js`
 
-./flow/config.js `_10import { config } from "@onflow/fcl";_10_10config({_10 "accessNode.api": "https://rest-testnet.onflow.org", // Mainnet: "https://rest-mainnet.onflow.org"_10 "discovery.wallet": "https://fcl-discovery.onflow.org/testnet/authn", // Mainnet: "https://fcl-discovery.onflow.org/authn"_10 "discovery.authn.endpoint": "https://fcl-discovery.onflow.org/api/testnet/authn", // Mainnet: "https://fcl-discovery.onflow.org/api/authn"_10})`
+./flow/config.js
+
+`_10
+
+import { config } from "@onflow/fcl";
+
+_10
+
+_10
+
+config({
+
+_10
+
+"accessNode.api": "https://rest-testnet.onflow.org", // Mainnet: "https://rest-mainnet.onflow.org"
+
+_10
+
+"discovery.wallet": "https://fcl-discovery.onflow.org/testnet/authn", // Mainnet: "https://fcl-discovery.onflow.org/authn"
+
+_10
+
+"discovery.authn.endpoint": "https://fcl-discovery.onflow.org/api/testnet/authn", // Mainnet: "https://fcl-discovery.onflow.org/api/authn"
+
+_10
+
+})`
 
 📣 **Tip**: It's recommend to replace these values with environment variables for easy deployments across different environments like development/production or Testnet/Mainnet.
 
@@ -96,14 +136,124 @@ Now that your app is running, you can configure FCL. Within the main project dir
 > If you are running a Wallet Discovery locally and want to use it in the React Native app, change `https://fcl-discovery.onflow.org/` to `http://<LOCAL_IP_ADDRESS>:<PORT>/`
 > For Example:
 > using local [Wallet Discovery](/tools/clients/fcl-js/discovery) and local [Dev Wallet](/tools/flow-dev-wallet):
-> 
-> ./flow/config.js `_10import { config } from "@onflow/fcl";_10_10config({_10 ..._10 "discovery.wallet": "http://10.0.0.1:3002/local/authn",_10 "discovery.authn.endpoint": "http://10.0.0.1:3002/api/local/authn",_10 ..._10})`
+>
+> ./flow/config.js
+>
+> `_10
+>
+> import { config } from "@onflow/fcl";
+>
+> _10
+>
+> _10
+>
+> config({
+>
+> _10
+>
+> ...
+>
+> _10
+>
+> "discovery.wallet": "http://10.0.0.1:3002/local/authn",
+>
+> _10
+>
+> "discovery.authn.endpoint": "http://10.0.0.1:3002/api/local/authn",
+>
+> _10
+>
+> ...
+>
+> _10
+>
+> })`
 
 The main screen for React Native apps is located in `./App.js` or in `./App.tsx`. So let's finish configuring our dapp by going in the root directory and importing the config file into the top of our `App.js` file. We'll then swap out the default component in `App.js` to look like this:
 
 > **Replace file:** `./App.js`
 
-./App.js `_21import { StatusBar } from 'expo-status-bar';_21import { StyleSheet, Text, View } from 'react-native';_21import "./flow/config";_21_21export default function App() {_21 return (_21 <View style={styles.container}>_21 <Text>Open up App.js to start working on your app!</Text>_21 <StatusBar style="auto" />_21 </View>_21 );_21}_21_21const styles = StyleSheet.create({_21 container: {_21 flex: 1,_21 backgroundColor: '#fff',_21 alignItems: 'center',_21 justifyContent: 'center',_21 },_21});`
+./App.js
+
+`_21
+
+import { StatusBar } from 'expo-status-bar';
+
+_21
+
+import { StyleSheet, Text, View } from 'react-native';
+
+_21
+
+import "./flow/config";
+
+_21
+
+_21
+
+export default function App() {
+
+_21
+
+return (
+
+_21
+
+<View style={styles.container}>
+
+_21
+
+<Text>Open up App.js to start working on your app!</Text>
+
+_21
+
+<StatusBar style="auto" />
+
+_21
+
+</View>
+
+_21
+
+);
+
+_21
+
+}
+
+_21
+
+_21
+
+const styles = StyleSheet.create({
+
+_21
+
+container: {
+
+_21
+
+flex: 1,
+
+_21
+
+backgroundColor: '#fff',
+
+_21
+
+alignItems: 'center',
+
+_21
+
+justifyContent: 'center',
+
+_21
+
+},
+
+_21
+
+});`
 
 Now we're ready to start talking to Flow!
 
@@ -119,7 +269,159 @@ This is what your file should look like now:
 
 > **Replace file:** `./App.js`
 
-./App.js `_42import { Text, View, Button } from 'react-native';_42import "./flow/config";_42_42import { useState, useEffect } from "react";_42import * as fcl from "@onflow/fcl/dist/fcl-react-native";_42_42export default function App() {_42_42 const [user, setUser] = useState({loggedIn: null})_42_42 useEffect(() => fcl.currentUser.subscribe(setUser), [])_42_42 const AuthedState = () => {_42 return (_42 <View>_42 <Text>Address: {user?.addr ?? "No Address"}</Text>_42 <Button onPress={fcl.unauthenticate} title='Log Out'/>_42 </View>_42 )_42 }_42_42 if (user.loggedIn) {_42 return <View style={styles.container}>_42 <Text>Flow App</Text>_42 <AuthedState />_42 <StatusBar style="auto" />_42 </View>_42 }_42_42 return (_42 <fcl.ServiceDiscovery fcl={fcl}/>_42 )_42}_42_42const styles = StyleSheet.create({_42 container: {_42 flex: 1,_42 backgroundColor: '#fff',_42 alignItems: 'center',_42 justifyContent: 'center',_42 },_42});`
+./App.js
+
+`_42
+
+import { Text, View, Button } from 'react-native';
+
+_42
+
+import "./flow/config";
+
+_42
+
+_42
+
+import { useState, useEffect } from "react";
+
+_42
+
+import * as fcl from "@onflow/fcl/dist/fcl-react-native";
+
+_42
+
+_42
+
+export default function App() {
+
+_42
+
+_42
+
+const [user, setUser] = useState({loggedIn: null})
+
+_42
+
+_42
+
+useEffect(() => fcl.currentUser.subscribe(setUser), [])
+
+_42
+
+_42
+
+const AuthedState = () => {
+
+_42
+
+return (
+
+_42
+
+<View>
+
+_42
+
+<Text>Address: {user?.addr ?? "No Address"}</Text>
+
+_42
+
+<Button onPress={fcl.unauthenticate} title='Log Out'/>
+
+_42
+
+</View>
+
+_42
+
+)
+
+_42
+
+}
+
+_42
+
+_42
+
+if (user.loggedIn) {
+
+_42
+
+return <View style={styles.container}>
+
+_42
+
+<Text>Flow App</Text>
+
+_42
+
+<AuthedState />
+
+_42
+
+<StatusBar style="auto" />
+
+_42
+
+</View>
+
+_42
+
+}
+
+_42
+
+_42
+
+return (
+
+_42
+
+<fcl.ServiceDiscovery fcl={fcl}/>
+
+_42
+
+)
+
+_42
+
+}
+
+_42
+
+_42
+
+const styles = StyleSheet.create({
+
+_42
+
+container: {
+
+_42
+
+flex: 1,
+
+_42
+
+backgroundColor: '#fff',
+
+_42
+
+alignItems: 'center',
+
+_42
+
+justifyContent: 'center',
+
+_42
+
+},
+
+_42
+
+});`
 
 You should now be able to log in or sign up a user and unauthenticate them. Upon logging in or signing up your users will see a popup where they can choose between wallet providers. Let's select the [Blocto wallet](https://blocto.portto.io/) for this example to create an account. Upon completing authentication, you'll see the component change and the user's wallet address appear on the screen if you've completed this properly.
 
@@ -129,7 +431,37 @@ One of the main things you'll often need to do when building a dapp is query the
 
 > **Replace file:** `./flow/config.js`
 
-./flow/config.js `_10import { config } from "@onflow/fcl";_10_10config({_10 "accessNode.api": "https://rest-testnet.onflow.org", // Mainnet: "https://rest-mainnet.onflow.org"_10 "discovery.wallet": "https://fcl-discovery.onflow.org/testnet/authn", // Mainnet: "https://fcl-discovery.onflow.org/authn"_10 "discovery.authn.endpoint": "https://fcl-discovery.onflow.org/api/testnet/authn",_10 "0xProfile": "0xba1132bc08f82fe2" // The account address where the Profile smart contract lives on Testnet_10})`
+./flow/config.js
+
+`_10
+
+import { config } from "@onflow/fcl";
+
+_10
+
+_10
+
+config({
+
+_10
+
+"accessNode.api": "https://rest-testnet.onflow.org", // Mainnet: "https://rest-mainnet.onflow.org"
+
+_10
+
+"discovery.wallet": "https://fcl-discovery.onflow.org/testnet/authn", // Mainnet: "https://fcl-discovery.onflow.org/authn"
+
+_10
+
+"discovery.authn.endpoint": "https://fcl-discovery.onflow.org/api/testnet/authn",
+
+_10
+
+"0xProfile": "0xba1132bc08f82fe2" // The account address where the Profile smart contract lives on Testnet
+
+_10
+
+})`
 
 If you want to see the on chain smart contract we'll be speaking with next, you can view the [Profile Contract](https://testnet.flowdiver.io/contract/A.ba1132bc08f82fe2.Profile) source code but again for this tutorial it's not necessary you understand it.
 
@@ -146,13 +478,275 @@ Take a look at the new code. We'll explain each new piece as we go. Remember, th
 
 > **Replace file:** `./App.js`
 
-./App.js `_62import { StatusBar } from 'expo-status-bar';_62import { StyleSheet, Text, View, Button } from 'react-native';_62import { useEffect, useState } from 'react';_62import './flow/config'_62_62import * as fcl from "@onflow/fcl/dist/fcl-react-native";_62_62export default function App() {_62_62 const [user, setUser] = useState({loggedIn: null})_62 const [name, setName] = useState('') // NEW_62_62 useEffect(() => fcl.currentUser.subscribe(setUser), [])_62_62 // NEW_62 const sendQuery = async () => {_62 const profile = await fcl.query({_62 cadence: `_62 import Profile from 0xProfile_62_62 access(all) fun main(address: Address): Profile.ReadOnly? {_62 return Profile.read(address)_62 }_62 `,_62 args: (arg, t) => [arg(user.addr, t.Address)]_62 })_62_62 setName(profile?.name ?? 'No Profile')_62 }_62_62 const AuthedState = () => {_62 return (_62 <View >_62 <Text>Address: {user?.addr ?? "No Address"}</Text>{/* NEW */}_62 <Text>Profile Name: {name ?? "--"}</Text>{/* NEW */}_62 <Button onPress={sendQuery} title='Send Query'/>{/* NEW */}_62 <Button onPress={fcl.unauthenticate} title='Log Out'/>_62 </View>_62 )_62 }_62_62 if (user.loggedIn) {_62 return <View style={styles.container}>_62 <Text>Flow App</Text>_62 <AuthedState />_62 <StatusBar style="auto" />_62 </View>_62 }_62_62 return (_62 <fcl.ServiceDiscovery fcl={fcl}/>_62 )_62}_62_62const styles = StyleSheet.create({_62 container: {_62 flex: 1,_62 backgroundColor: '#fff',_62 alignItems: 'center',_62 justifyContent: 'center',_62 },_62});`
+./App.js
+
+`_62
+
+import { StatusBar } from 'expo-status-bar';
+
+_62
+
+import { StyleSheet, Text, View, Button } from 'react-native';
+
+_62
+
+import { useEffect, useState } from 'react';
+
+_62
+
+import './flow/config'
+
+_62
+
+_62
+
+import * as fcl from "@onflow/fcl/dist/fcl-react-native";
+
+_62
+
+_62
+
+export default function App() {
+
+_62
+
+_62
+
+const [user, setUser] = useState({loggedIn: null})
+
+_62
+
+const [name, setName] = useState('') // NEW
+
+_62
+
+_62
+
+useEffect(() => fcl.currentUser.subscribe(setUser), [])
+
+_62
+
+_62
+
+// NEW
+
+_62
+
+const sendQuery = async () => {
+
+_62
+
+const profile = await fcl.query({
+
+_62
+
+cadence: `
+
+_62
+
+import Profile from 0xProfile
+
+_62
+
+_62
+
+access(all) fun main(address: Address): Profile.ReadOnly? {
+
+_62
+
+return Profile.read(address)
+
+_62
+
+}
+
+_62
+
+`,
+
+_62
+
+args: (arg, t) => [arg(user.addr, t.Address)]
+
+_62
+
+})
+
+_62
+
+_62
+
+setName(profile?.name ?? 'No Profile')
+
+_62
+
+}
+
+_62
+
+_62
+
+const AuthedState = () => {
+
+_62
+
+return (
+
+_62
+
+<View >
+
+_62
+
+<Text>Address: {user?.addr ?? "No Address"}</Text>{/* NEW */}
+
+_62
+
+<Text>Profile Name: {name ?? "--"}</Text>{/* NEW */}
+
+_62
+
+<Button onPress={sendQuery} title='Send Query'/>{/* NEW */}
+
+_62
+
+<Button onPress={fcl.unauthenticate} title='Log Out'/>
+
+_62
+
+</View>
+
+_62
+
+)
+
+_62
+
+}
+
+_62
+
+_62
+
+if (user.loggedIn) {
+
+_62
+
+return <View style={styles.container}>
+
+_62
+
+<Text>Flow App</Text>
+
+_62
+
+<AuthedState />
+
+_62
+
+<StatusBar style="auto" />
+
+_62
+
+</View>
+
+_62
+
+}
+
+_62
+
+_62
+
+return (
+
+_62
+
+<fcl.ServiceDiscovery fcl={fcl}/>
+
+_62
+
+)
+
+_62
+
+}
+
+_62
+
+_62
+
+const styles = StyleSheet.create({
+
+_62
+
+container: {
+
+_62
+
+flex: 1,
+
+_62
+
+backgroundColor: '#fff',
+
+_62
+
+alignItems: 'center',
+
+_62
+
+justifyContent: 'center',
+
+_62
+
+},
+
+_62
+
+});`
 
 A few things happened. In our `AuthedState` component, we added a button to send a query for the user's profile name and a `Text` to display the result above it. The corresponding `useState` initialization can be seen at the top of the component.
 
 The other thing we did is build out the actual query inside of `sendQuery` method. Let's take a look at it more closely:
 
- `_10await fcl.query({_10 cadence: `_10 import Profile from 0xProfile_10_10 access(all) fun main(address: Address): Profile.ReadOnly? {_10 return Profile.read(address)_10 }_10 `,_10 args: (arg, t) => [arg(user.addr, t.Address)]_10});`
+`_10
+
+await fcl.query({
+
+_10
+
+cadence: `
+
+_10
+
+import Profile from 0xProfile
+
+_10
+
+_10
+
+access(all) fun main(address: Address): Profile.ReadOnly? {
+
+_10
+
+return Profile.read(address)
+
+_10
+
+}
+
+_10
+
+`,
+
+_10
+
+args: (arg, t) => [arg(user.addr, t.Address)]
+
+_10
+
+});`
 
 Inside the query you'll see we set two things: `cadence` and `args`. Cadence is Flow's smart contract language we mentioned. For this tutorial, when you look at it you just need to notice that it's importing the `Profile` contract from the account we named `0xProfile` earlier in our config file, then also taking an account address, and reading it. That's it until you're ready to [learn more Cadence](https://cadence-lang.org/docs).
 
@@ -172,7 +766,113 @@ That's where we jump back into FCL code. Instead of `query`, we use `mutate` for
 
 Let's take a look at what our account initialization function looks like:
 
- `_29const initAccount = async () => {_29 const transactionId = await fcl.mutate({_29 cadence: `_29 import Profile from 0xProfile_29_29 transaction {_29 prepare(account: auth(Storage, Capabilities) &Account) {_29 // Only initialize the account if it hasn't already been initialized_29 if (!Profile.check(account.address)) {_29 // This creates and stores the profile in the user's account_29 account.storage.save(<- Profile.new(), to: Profile.privatePath)_29_29 // This creates the public capability that lets applications read the profile's info_29 let newCap = account.capabilities.storage.issue<&Profile.Base>(Profile.privatePath)_29_29 account.capabilities.publish(newCap, at: Profile.publicPath)_29 }_29 }_29 }_29 `,_29 payer: fcl.authz,_29 proposer: fcl.authz,_29 authorizations: [fcl.authz],_29 limit: 50_29 })_29_29 const transaction = await fcl.tx(transactionId).onceSealed()_29 console.log(transaction)_29}`
+`_29
+
+const initAccount = async () => {
+
+_29
+
+const transactionId = await fcl.mutate({
+
+_29
+
+cadence: `
+
+_29
+
+import Profile from 0xProfile
+
+_29
+
+_29
+
+transaction {
+
+_29
+
+prepare(account: auth(Storage, Capabilities) &Account) {
+
+_29
+
+// Only initialize the account if it hasn't already been initialized
+
+_29
+
+if (!Profile.check(account.address)) {
+
+_29
+
+// This creates and stores the profile in the user's account
+
+_29
+
+account.storage.save(<- Profile.new(), to: Profile.privatePath)
+
+_29
+
+_29
+
+// This creates the public capability that lets applications read the profile's info
+
+_29
+
+let newCap = account.capabilities.storage.issue<&Profile.Base>(Profile.privatePath)
+
+_29
+
+_29
+
+account.capabilities.publish(newCap, at: Profile.publicPath)
+
+_29
+
+}
+
+_29
+
+}
+
+_29
+
+}
+
+_29
+
+`,
+
+_29
+
+payer: fcl.authz,
+
+_29
+
+proposer: fcl.authz,
+
+_29
+
+authorizations: [fcl.authz],
+
+_29
+
+limit: 50
+
+_29
+
+})
+
+_29
+
+_29
+
+const transaction = await fcl.tx(transactionId).onceSealed()
+
+_29
+
+console.log(transaction)
+
+_29
+
+}`
 
 You can see the new fields we talked about. You'll also notice `fcl.authz`. That's shorthand for "use the current user to authorize this transaction", (you could also write it as `fcl.currentUser.authorization`). If you want to learn more about transactions and signing transactions, you can [view the docs here](/build/basics/transactions). For this example, we'll keep it simple with the user being each of these roles.
 
@@ -182,7 +882,347 @@ Now your `index.js` file should look like this (we also added a button for calli
 
 > **Replace file:** `./App.js`
 
-./App.js `_93import { StatusBar } from 'expo-status-bar';_93import { StyleSheet, Text, View, Button } from 'react-native';_93import { useEffect, useState } from 'react';_93import './flow/config'_93_93import * as fcl from "@onflow/fcl/dist/fcl-react-native";_93_93export default function App() {_93_93 const [user, setUser] = useState({loggedIn: null})_93 const [name, setName] = useState('')_93_93 useEffect(() => fcl.currentUser.subscribe(setUser), [])_93_93 const sendQuery = async () => {_93 const profile = await fcl.query({_93 cadence: `_93 import Profile from 0xProfile_93_93 access(all) fun main(address: Address): Profile.ReadOnly? {_93 return Profile.read(address)_93 }_93 `,_93 args: (arg, t) => [arg(user.addr, t.Address)]_93 })_93_93 setName(profile?.name ?? 'No Profile')_93 }_93_93 // NEW_93 const initAccount = async () => {_93 const transactionId = await fcl.mutate({_93 cadence: `_93 import Profile from 0xProfile_93 _93 transaction {_93 prepare(account: auth(Storage, Capabilities) &Account) {_93 // Only initialize the account if it hasn't already been initialized_93 if (!Profile.check(account.address)) {_93 // This creates and stores the profile in the user's account_93 account.storage.save(<- Profile.new(), to: Profile.privatePath)_93 _93 // This creates the public capability that lets applications read the profile's info_93 let newCap = account.capabilities.storage.issue<&Profile.Base>(Profile.privatePath)_93_93 account.capabilities.publish(newCap, at: Profile.publicPath)_93 }_93 }_93 }_93 `,_93 payer: fcl.authz,_93 proposer: fcl.authz,_93 authorizations: [fcl.authz],_93 limit: 50_93 })_93 _93 const transaction = await fcl.tx(transactionId).onceSealed()_93 console.log(transaction)_93 }_93_93 const AuthedState = () => {_93 return (_93 <View >_93 <Text>Address: {user?.addr ?? "No Address"}</Text>_93 <Text>Profile Name: {name ?? "--"}</Text>_93 <Button onPress={sendQuery} title='Send Query'/>_93 <Button onPress={initAccount} title='Init Account'/>{/* NEW */}_93 <Button onPress={fcl.unauthenticate} title='Log Out'/>_93 </View>_93 )_93 }_93_93 if (user.loggedIn) {_93 return <View style={styles.container}>_93 <Text>Flow App</Text>_93 <AuthedState />_93 <StatusBar style="auto" />_93 </View>_93 }_93_93 return (_93 <fcl.ServiceDiscovery fcl={fcl}/>_93 )_93}_93_93const styles = StyleSheet.create({_93 container: {_93 flex: 1,_93 backgroundColor: '#fff',_93 alignItems: 'center',_93 justifyContent: 'center',_93 },_93});`
+./App.js
+
+`_93
+
+import { StatusBar } from 'expo-status-bar';
+
+_93
+
+import { StyleSheet, Text, View, Button } from 'react-native';
+
+_93
+
+import { useEffect, useState } from 'react';
+
+_93
+
+import './flow/config'
+
+_93
+
+_93
+
+import * as fcl from "@onflow/fcl/dist/fcl-react-native";
+
+_93
+
+_93
+
+export default function App() {
+
+_93
+
+_93
+
+const [user, setUser] = useState({loggedIn: null})
+
+_93
+
+const [name, setName] = useState('')
+
+_93
+
+_93
+
+useEffect(() => fcl.currentUser.subscribe(setUser), [])
+
+_93
+
+_93
+
+const sendQuery = async () => {
+
+_93
+
+const profile = await fcl.query({
+
+_93
+
+cadence: `
+
+_93
+
+import Profile from 0xProfile
+
+_93
+
+_93
+
+access(all) fun main(address: Address): Profile.ReadOnly? {
+
+_93
+
+return Profile.read(address)
+
+_93
+
+}
+
+_93
+
+`,
+
+_93
+
+args: (arg, t) => [arg(user.addr, t.Address)]
+
+_93
+
+})
+
+_93
+
+_93
+
+setName(profile?.name ?? 'No Profile')
+
+_93
+
+}
+
+_93
+
+_93
+
+// NEW
+
+_93
+
+const initAccount = async () => {
+
+_93
+
+const transactionId = await fcl.mutate({
+
+_93
+
+cadence: `
+
+_93
+
+import Profile from 0xProfile
+
+_93
+
+_93
+
+transaction {
+
+_93
+
+prepare(account: auth(Storage, Capabilities) &Account) {
+
+_93
+
+// Only initialize the account if it hasn't already been initialized
+
+_93
+
+if (!Profile.check(account.address)) {
+
+_93
+
+// This creates and stores the profile in the user's account
+
+_93
+
+account.storage.save(<- Profile.new(), to: Profile.privatePath)
+
+_93
+
+_93
+
+// This creates the public capability that lets applications read the profile's info
+
+_93
+
+let newCap = account.capabilities.storage.issue<&Profile.Base>(Profile.privatePath)
+
+_93
+
+_93
+
+account.capabilities.publish(newCap, at: Profile.publicPath)
+
+_93
+
+}
+
+_93
+
+}
+
+_93
+
+}
+
+_93
+
+`,
+
+_93
+
+payer: fcl.authz,
+
+_93
+
+proposer: fcl.authz,
+
+_93
+
+authorizations: [fcl.authz],
+
+_93
+
+limit: 50
+
+_93
+
+})
+
+_93
+
+_93
+
+const transaction = await fcl.tx(transactionId).onceSealed()
+
+_93
+
+console.log(transaction)
+
+_93
+
+}
+
+_93
+
+_93
+
+const AuthedState = () => {
+
+_93
+
+return (
+
+_93
+
+<View >
+
+_93
+
+<Text>Address: {user?.addr ?? "No Address"}</Text>
+
+_93
+
+<Text>Profile Name: {name ?? "--"}</Text>
+
+_93
+
+<Button onPress={sendQuery} title='Send Query'/>
+
+_93
+
+<Button onPress={initAccount} title='Init Account'/>{/* NEW */}
+
+_93
+
+<Button onPress={fcl.unauthenticate} title='Log Out'/>
+
+_93
+
+</View>
+
+_93
+
+)
+
+_93
+
+}
+
+_93
+
+_93
+
+if (user.loggedIn) {
+
+_93
+
+return <View style={styles.container}>
+
+_93
+
+<Text>Flow App</Text>
+
+_93
+
+<AuthedState />
+
+_93
+
+<StatusBar style="auto" />
+
+_93
+
+</View>
+
+_93
+
+}
+
+_93
+
+_93
+
+return (
+
+_93
+
+<fcl.ServiceDiscovery fcl={fcl}/>
+
+_93
+
+)
+
+_93
+
+}
+
+_93
+
+_93
+
+const styles = StyleSheet.create({
+
+_93
+
+container: {
+
+_93
+
+flex: 1,
+
+_93
+
+backgroundColor: '#fff',
+
+_93
+
+alignItems: 'center',
+
+_93
+
+justifyContent: 'center',
+
+_93
+
+},
+
+_93
+
+});`
 
 Press the "Init Account" button you should see the wallet ask you to approve a transaction. After approving, you will see a transaction response appear in your console (make sure to have that open). It may take a few moments. With the transaction result printed, you can use the `transactionId` to look up the details of the transaction using a [block explorer](https://testnet.flowscan.io/).
 
@@ -194,7 +1234,99 @@ To do that, we are going to write another transaction that adds some Cadence cod
 
 It looks like this:
 
- `_25const executeTransaction = async () => {_25 const transactionId = await fcl.mutate({_25 cadence: `_25 import Profile from 0xProfile_25_25 transaction(name: String) {_25 prepare(account: auth(BorrowValue) &Account) {_25 let profileRef = account.borrow<&Profile.Base>(from: Profile.privatePath)_25 ?? panic("The signer does not store a Profile.Base object at the path "_25 .concat(Profile.privatePath.toString())_25 .concat(". The signer must initialize their account with this object first!"))_25_25 profileRef.setName(name)_25 }_25 }_25 `,_25 args: (arg, t) => [arg("Flow Developer", t.String)],_25 payer: fcl.authz,_25 proposer: fcl.authz,_25 authorizations: [fcl.authz],_25 limit: 50_25 })_25_25 fcl.tx(transactionId).subscribe(res => setTransactionStatus(res.status))_25}`
+`_25
+
+const executeTransaction = async () => {
+
+_25
+
+const transactionId = await fcl.mutate({
+
+_25
+
+cadence: `
+
+_25
+
+import Profile from 0xProfile
+
+_25
+
+_25
+
+transaction(name: String) {
+
+_25
+
+prepare(account: auth(BorrowValue) &Account) {
+
+_25
+
+let profileRef = account.borrow<&Profile.Base>(from: Profile.privatePath)
+
+_25
+
+?? panic("The signer does not store a Profile.Base object at the path "
+
+_25
+
+.concat(Profile.privatePath.toString())
+
+_25
+
+.concat(". The signer must initialize their account with this object first!"))
+
+_25
+
+_25
+
+profileRef.setName(name)
+
+_25
+
+}
+
+_25
+
+}
+
+_25
+
+`,
+
+_25
+
+args: (arg, t) => [arg("Flow Developer", t.String)],
+
+_25
+
+payer: fcl.authz,
+
+_25
+
+proposer: fcl.authz,
+
+_25
+
+authorizations: [fcl.authz],
+
+_25
+
+limit: 50
+
+_25
+
+})
+
+_25
+
+_25
+
+fcl.tx(transactionId).subscribe(res => setTransactionStatus(res.status))
+
+_25
+
+}`
 
 Here you can see our argument is "Flow Developer" and at the bottom we've called the `subscribe` method instead of `onceSealed`.
 
@@ -202,7 +1334,455 @@ Let's see how that works inside our whole `index.js` file. But, let's also set t
 
 > **Replace file:** `./App.js`
 
-./App.js `_122import { StatusBar } from 'expo-status-bar';_122import { StyleSheet, Text, View, Button } from 'react-native';_122import { useEffect, useState } from 'react';_122import './flow/config'_122_122import * as fcl from "@onflow/fcl/dist/fcl-react-native";_122_122export default function App() {_122_122 const [user, setUser] = useState({loggedIn: null})_122 const [name, setName] = useState('')_122 const [transactionStatus, setTransactionStatus] = useState(null) // NEW_122_122 useEffect(() => fcl.currentUser.subscribe(setUser), [])_122_122 const sendQuery = async () => {_122 const profile = await fcl.query({_122 cadence: `_122 import Profile from 0xProfile_122_122 access(all) fun main(address: Address): Profile.ReadOnly? {_122 return Profile.read(address)_122 }_122 `,_122 args: (arg, t) => [arg(user.addr, t.Address)]_122 })_122_122 setName(profile?.name ?? 'No Profile')_122 }_122_122 const initAccount = async () => {_122 const transactionId = await fcl.mutate({_122 cadence: `_122 import Profile from 0xProfile_122 _122 transaction {_122 prepare(account: auth(Storage, Capabilities) &Account) {_122 // Only initialize the account if it hasn't already been initialized_122 if (!Profile.check(account.address)) {_122 // This creates and stores the profile in the user's account_122 account.storage.save(<- Profile.new(), to: Profile.storagePath)_122 _122 // This creates the public capability that lets applications read the profile's info_122 let newCap = account.capabilities.storage.issue<&Profile.Base>(Profile.privatePath)_122_122 account.capabilities.publish(newCap, at: Profile.publicPath)_122 }_122 }_122 }_122 `,_122 payer: fcl.authz,_122 proposer: fcl.authz,_122 authorizations: [fcl.authz],_122 limit: 50_122 })_122 _122 const transaction = await fcl.tx(transactionId).onceSealed()_122 console.log(transaction)_122 }_122_122 // NEW_122 const executeTransaction = async () => {_122 const transactionId = await fcl.mutate({_122 cadence: `_122 import Profile from 0xProfile_122 _122 transaction(name: String) {_122 prepare(account: auth(BorrowValue) &Account) {_122 let profileRef = account.storage.borrow<&Profile.Base>(from: Profile.privatePath)_122 ?? panic("The signer does not store a Profile.Base object at the path "_122 .concat(Profile.privatePath.toString())_122 .concat(". The signer must initialize their account with this object first!"))_122 _122 profileRef.setName(name)_122 }_122 }_122 `,_122 args: (arg, t) => [arg("Flow Developer", t.String)],_122 payer: fcl.authz,_122 proposer: fcl.authz,_122 authorizations: [fcl.authz],_122 limit: 50_122 })_122 _122 fcl.tx(transactionId).subscribe(res => setTransactionStatus(res.status))_122 }_122_122 const AuthedState = () => {_122 return (_122 <View >_122 <Text>Address: {user?.addr ?? "No Address"}</Text>_122 <Text>Profile Name: {name ?? "--"}</Text>_122 <Text>Transaction Status: {transactionStatus ?? "--"}</Text>{/* NEW */}_122 <Button onPress={sendQuery} title='Send Query'/>_122 <Button onPress={initAccount} title='Init Account'/>{/* NEW */}_122 <Button onPress={executeTransaction} title='Execute Transaction'/>{/* NEW */}_122 <Button onPress={fcl.unauthenticate} title='Log Out'/>_122 </View>_122 )_122 }_122_122 if (user.loggedIn) {_122 return <View style={styles.container}>_122 <Text>Flow App</Text>_122 <AuthedState />_122 <StatusBar style="auto" />_122 </View>_122 }_122_122 return (_122 <fcl.ServiceDiscovery fcl={fcl}/>_122 )_122}_122_122const styles = StyleSheet.create({_122 container: {_122 flex: 1,_122 backgroundColor: '#fff',_122 alignItems: 'center',_122 justifyContent: 'center',_122 },_122});`
+./App.js
+
+`_122
+
+import { StatusBar } from 'expo-status-bar';
+
+_122
+
+import { StyleSheet, Text, View, Button } from 'react-native';
+
+_122
+
+import { useEffect, useState } from 'react';
+
+_122
+
+import './flow/config'
+
+_122
+
+_122
+
+import * as fcl from "@onflow/fcl/dist/fcl-react-native";
+
+_122
+
+_122
+
+export default function App() {
+
+_122
+
+_122
+
+const [user, setUser] = useState({loggedIn: null})
+
+_122
+
+const [name, setName] = useState('')
+
+_122
+
+const [transactionStatus, setTransactionStatus] = useState(null) // NEW
+
+_122
+
+_122
+
+useEffect(() => fcl.currentUser.subscribe(setUser), [])
+
+_122
+
+_122
+
+const sendQuery = async () => {
+
+_122
+
+const profile = await fcl.query({
+
+_122
+
+cadence: `
+
+_122
+
+import Profile from 0xProfile
+
+_122
+
+_122
+
+access(all) fun main(address: Address): Profile.ReadOnly? {
+
+_122
+
+return Profile.read(address)
+
+_122
+
+}
+
+_122
+
+`,
+
+_122
+
+args: (arg, t) => [arg(user.addr, t.Address)]
+
+_122
+
+})
+
+_122
+
+_122
+
+setName(profile?.name ?? 'No Profile')
+
+_122
+
+}
+
+_122
+
+_122
+
+const initAccount = async () => {
+
+_122
+
+const transactionId = await fcl.mutate({
+
+_122
+
+cadence: `
+
+_122
+
+import Profile from 0xProfile
+
+_122
+
+_122
+
+transaction {
+
+_122
+
+prepare(account: auth(Storage, Capabilities) &Account) {
+
+_122
+
+// Only initialize the account if it hasn't already been initialized
+
+_122
+
+if (!Profile.check(account.address)) {
+
+_122
+
+// This creates and stores the profile in the user's account
+
+_122
+
+account.storage.save(<- Profile.new(), to: Profile.storagePath)
+
+_122
+
+_122
+
+// This creates the public capability that lets applications read the profile's info
+
+_122
+
+let newCap = account.capabilities.storage.issue<&Profile.Base>(Profile.privatePath)
+
+_122
+
+_122
+
+account.capabilities.publish(newCap, at: Profile.publicPath)
+
+_122
+
+}
+
+_122
+
+}
+
+_122
+
+}
+
+_122
+
+`,
+
+_122
+
+payer: fcl.authz,
+
+_122
+
+proposer: fcl.authz,
+
+_122
+
+authorizations: [fcl.authz],
+
+_122
+
+limit: 50
+
+_122
+
+})
+
+_122
+
+_122
+
+const transaction = await fcl.tx(transactionId).onceSealed()
+
+_122
+
+console.log(transaction)
+
+_122
+
+}
+
+_122
+
+_122
+
+// NEW
+
+_122
+
+const executeTransaction = async () => {
+
+_122
+
+const transactionId = await fcl.mutate({
+
+_122
+
+cadence: `
+
+_122
+
+import Profile from 0xProfile
+
+_122
+
+_122
+
+transaction(name: String) {
+
+_122
+
+prepare(account: auth(BorrowValue) &Account) {
+
+_122
+
+let profileRef = account.storage.borrow<&Profile.Base>(from: Profile.privatePath)
+
+_122
+
+?? panic("The signer does not store a Profile.Base object at the path "
+
+_122
+
+.concat(Profile.privatePath.toString())
+
+_122
+
+.concat(". The signer must initialize their account with this object first!"))
+
+_122
+
+_122
+
+profileRef.setName(name)
+
+_122
+
+}
+
+_122
+
+}
+
+_122
+
+`,
+
+_122
+
+args: (arg, t) => [arg("Flow Developer", t.String)],
+
+_122
+
+payer: fcl.authz,
+
+_122
+
+proposer: fcl.authz,
+
+_122
+
+authorizations: [fcl.authz],
+
+_122
+
+limit: 50
+
+_122
+
+})
+
+_122
+
+_122
+
+fcl.tx(transactionId).subscribe(res => setTransactionStatus(res.status))
+
+_122
+
+}
+
+_122
+
+_122
+
+const AuthedState = () => {
+
+_122
+
+return (
+
+_122
+
+<View >
+
+_122
+
+<Text>Address: {user?.addr ?? "No Address"}</Text>
+
+_122
+
+<Text>Profile Name: {name ?? "--"}</Text>
+
+_122
+
+<Text>Transaction Status: {transactionStatus ?? "--"}</Text>{/* NEW */}
+
+_122
+
+<Button onPress={sendQuery} title='Send Query'/>
+
+_122
+
+<Button onPress={initAccount} title='Init Account'/>{/* NEW */}
+
+_122
+
+<Button onPress={executeTransaction} title='Execute Transaction'/>{/* NEW */}
+
+_122
+
+<Button onPress={fcl.unauthenticate} title='Log Out'/>
+
+_122
+
+</View>
+
+_122
+
+)
+
+_122
+
+}
+
+_122
+
+_122
+
+if (user.loggedIn) {
+
+_122
+
+return <View style={styles.container}>
+
+_122
+
+<Text>Flow App</Text>
+
+_122
+
+<AuthedState />
+
+_122
+
+<StatusBar style="auto" />
+
+_122
+
+</View>
+
+_122
+
+}
+
+_122
+
+_122
+
+return (
+
+_122
+
+<fcl.ServiceDiscovery fcl={fcl}/>
+
+_122
+
+)
+
+_122
+
+}
+
+_122
+
+_122
+
+const styles = StyleSheet.create({
+
+_122
+
+container: {
+
+_122
+
+flex: 1,
+
+_122
+
+backgroundColor: '#fff',
+
+_122
+
+alignItems: 'center',
+
+_122
+
+justifyContent: 'center',
+
+_122
+
+},
+
+_122
+
+});`
 
 Now if you click the "Execute Transaction" button you'll see the statuses update next to "Transaction Status." When you see "4" that means it's sealed! Status code meanings [can be found here](/tools/clients/fcl-js/api#transaction-statuses).
 If you query the account profile again, "Profile Name:" should now display "Flow Developer".
@@ -226,7 +1806,17 @@ That's it! You now have a shippable Flow dapp that can auth, query, init account
 * [More on Transactions](/tools/clients/fcl-js/transactions)
 * [User Signatures](/tools/clients/fcl-js/user-signatures)
 * [Proving Account Ownership](/tools/clients/fcl-js/proving-authentication)
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/react-native-quickstart.md)Last updated on **Feb 7, 2025** by **Josh Hannan**[PreviousIOS Development](/build/guides/mobile/ios-quickstart)[NextCore Smart Contracts](/build/core-contracts)
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/react-native-quickstart.md)
+
+Last updated on **Feb 22, 2025** by **bz**
+
+[Previous
+
+IOS Development](/build/guides/mobile/ios-quickstart)[Next
+
+Core Smart Contracts](/build/core-contracts)
+
 ###### Rate this page
 
 😞😐😊
@@ -238,6 +1828,7 @@ That's it! You now have a shippable Flow dapp that can auth, query, init account
 * [Querying the Blockchain](#querying-the-blockchain)
 * [Initializing an Account](#initializing-an-account)
 * [Mutating the Blockchain](#mutating-the-blockchain)
+
 Documentation
 
 * [Getting Started](/build/getting-started/contract-interaction)
@@ -250,6 +1841,7 @@ Documentation
 * [Emulator](/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
 * [VS Code Extension](/tools/vscode-extension)
+
 Community
 
 * [Ecosystem](/ecosystem)
@@ -259,6 +1851,7 @@ Community
 * [Flowverse](https://www.flowverse.co/)
 * [Emerald Academy](https://academy.ecdao.org/)
 * [FLOATs (Attendance NFTs)](https://floats.city/)
+
 Start Building
 
 * [Flow Playground](https://play.flow.com/)
@@ -266,6 +1859,7 @@ Start Building
 * [Cadence Cookbook](https://open-cadence.onflow.org)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
+
 Network
 
 * [Network Status](https://status.onflow.org/)
@@ -275,6 +1869,7 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
 More
 
 * [GitHub](https://github.com/onflow)
@@ -282,5 +1877,5 @@ More
 * [Forum](https://forum.onflow.org/)
 * [OnFlow](https://onflow.org/)
 * [Blog](https://flow.com/blog)
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
+Copyright © 2025 Flow, Inc. Built with Docusaurus.
