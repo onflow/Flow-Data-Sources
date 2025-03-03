@@ -1,19 +1,22 @@
 # Source: https://developers.flow.com/cadence/language/capabilities
 
-
-
-
 Capabilities | Cadence
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[Skip to main content](#__docusaurus_skipToContent_fallback)[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)Search
+[![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
+
+[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+
+Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
 * [Tutorial](/docs/tutorial/first-steps)
 * [Language Reference](/docs/language/)
+
   + [Syntax](/docs/language/syntax)
   + [Constants and Variable Declarations](/docs/language/constants-and-variables)
   + [Type Annotations](/docs/language/type-annotations)
@@ -57,10 +60,11 @@ Capabilities | Cadence
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
-
 * [Language Reference](/docs/language/)
 * Capabilities
+
 On this page
+
 # Capabilities
 
 Cadence supports [capability-based security](https://en.wikipedia.org/wiki/Capability-based_security)
@@ -100,15 +104,139 @@ They can be used (e.g. borrowed) arbitrarily many times, as long as the target c
 
 ## `Capability`[​](#capability "Direct link to capability")
 
- `_31access(all)_31struct Capability<T: &Any> {_31 _31 /// The address of the account which the capability targets._31 access(all)_31 let address: Address_31_31 /// The ID of the capability._31 access(all)_31 let id: UInt64_31_31 /// Returns a reference to the targeted object._31 ///_31 /// If the capability is revoked, the function returns nil._31 ///_31 /// If the capability targets an object in account storage,_31 /// and and no object is stored at the target storage path,_31 /// the function returns nil._31 ///_31 /// If the targeted object cannot be borrowed using the given type,_31 /// the function panics._31 ///_31 access(all)_31 view fun borrow(): T?_31_31 /// Returns true if the capability currently targets an object_31 /// that satisfies the given type, i.e. could be borrowed using the given type._31 ///_31 access(all)_31 view fun check(): Bool_31}`[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/capabilities.md)[PreviousAccess control](/docs/language/access-control)[NextInterfaces](/docs/language/interfaces)
+`_31
+
+access(all)
+
+_31
+
+struct Capability<T: &Any> {
+
+_31
+
+_31
+
+/// The address of the account which the capability targets.
+
+_31
+
+access(all)
+
+_31
+
+let address: Address
+
+_31
+
+_31
+
+/// The ID of the capability.
+
+_31
+
+access(all)
+
+_31
+
+let id: UInt64
+
+_31
+
+_31
+
+/// Returns a reference to the targeted object.
+
+_31
+
+///
+
+_31
+
+/// If the capability is revoked, the function returns nil.
+
+_31
+
+///
+
+_31
+
+/// If the capability targets an object in account storage,
+
+_31
+
+/// and and no object is stored at the target storage path,
+
+_31
+
+/// the function returns nil.
+
+_31
+
+///
+
+_31
+
+/// If the targeted object cannot be borrowed using the given type,
+
+_31
+
+/// the function panics.
+
+_31
+
+///
+
+_31
+
+access(all)
+
+_31
+
+view fun borrow(): T?
+
+_31
+
+_31
+
+/// Returns true if the capability currently targets an object
+
+_31
+
+/// that satisfies the given type, i.e. could be borrowed using the given type.
+
+_31
+
+///
+
+_31
+
+access(all)
+
+_31
+
+view fun check(): Bool
+
+_31
+
+}`
+
+[Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/capabilities.md)
+
+[Previous
+
+Access control](/docs/language/access-control)[Next
+
+Interfaces](/docs/language/interfaces)
+
 ###### Rate this page
 
 😞😐😊
 
 * [`Capability`](#capability)
-Got suggestions for this site? 
+
+Got suggestions for this site?
 
 * [It's open-source!](https://github.com/onflow/cadence-lang.org)
+
 The source code of this site is licensed under the Apache License, Version 2.0.
 Content is licensed under the Creative Commons Attribution 4.0 International License.
-
