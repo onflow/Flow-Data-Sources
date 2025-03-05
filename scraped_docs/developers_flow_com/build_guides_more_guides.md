@@ -67,7 +67,7 @@ Web3 version of Twitter](https://dev.to/muttoni/lets-build-a-twitter-clone-on-we
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/more-guides.mdx)
 
-Last updated on **Feb 22, 2025** by **bz**
+Last updated on **Feb 24, 2025** by **j pimmel**
 
 [Previous
 

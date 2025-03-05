@@ -1029,7 +1029,7 @@ and ultimately the owners of these child accounts the ability to revoke secondar
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking/parent-accounts.md)
 
-Last updated on **Feb 22, 2025** by **bz**
+Last updated on **Feb 24, 2025** by **j pimmel**
 
 [Previous
 

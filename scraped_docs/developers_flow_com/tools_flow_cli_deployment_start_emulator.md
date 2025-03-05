@@ -127,7 +127,7 @@ To explore advanced features like snapshots, rollbacks, and debugging, visit the
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/deployment/start-emulator.md)
 
-Last updated on **Feb 22, 2025** by **bz**
+Last updated on **Feb 24, 2025** by **j pimmel**
 
 [Previous
 

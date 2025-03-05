@@ -245,7 +245,7 @@ flow project deploy -f main.json -f private.json`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flow.json/security.md)
 
-Last updated on **Feb 22, 2025** by **bz**
+Last updated on **Feb 24, 2025** by **j pimmel**
 
 [Previous
 

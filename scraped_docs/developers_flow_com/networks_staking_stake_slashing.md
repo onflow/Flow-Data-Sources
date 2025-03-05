@@ -73,7 +73,7 @@ at the end of the unstaking period.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/04-stake-slashing.md)
 
-Last updated on **Feb 22, 2025** by **bz**
+Last updated on **Feb 24, 2025** by **j pimmel**
 
 [Previous
 

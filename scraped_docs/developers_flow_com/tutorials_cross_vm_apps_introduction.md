@@ -97,7 +97,7 @@ Click `Send Batch Transaction Example` and approve the transaction. You'll see t
 
 tip
 
-Currently, the Flow wallet sponsors all gas for all transactions on both testnet **and mainnet!**
+Currently, the Flow wallet sponsors all gas for all transactions signed with the wallet on both testnet **and mainnet!**
 
 ### Cadence Parent Transaction[​](#cadence-parent-transaction "Direct link to Cadence Parent Transaction")
 
@@ -447,7 +447,7 @@ Returns the current Cadence VM block number.
 
 Next, we'll update the starter to connect to and call functions in our own contract. For this, we'll use a simple [Button Clicker Contract](https://github.com/briandoyle81/button-clicker-contract/blob/main/contracts/ClickToken.sol). You can deploy your own copy, or use the one deployed at [`0xA7Cf2260e501952c71189D04FAd17c704DFB36e6`](https://evm-testnet.flowscan.io/address/0xA7Cf2260e501952c71189D04FAd17c704DFB36e6?tab=contract).
 
-## Set Up a `useContracts` Hook[​](#set-up-a-usecontracts-hook "Direct link to set-up-a-usecontracts-hook")
+## Set Up Contract Imports[​](#set-up-contract-imports "Direct link to Set Up Contract Imports")
 
 info
 
@@ -455,97 +455,35 @@ The following steps assume deployment with Hardhat Ignition. If you are using a 
 
 In your fork of the app, add a folder called `contracts` to the `src` folder. In it, copy over ['deployed\_addresses.json`] from` ignition/deployments/chain-545`in the Button Clicker repo, and`ignition/deployments/chain-545/ClickTokenModule#ClickToken.json`.
 
-Next, add a file called `useContracts.ts` in the `src/hooks` folder.
+Next, create a folder called `constants` and add a file called `contracts.ts` to it.
 
-In it, import the contract artifact and addresses file, and create a hook to conveniently export them where needed.
+In it, import the contract artifact and addresses file, and create export a constant with this information.
 
-`_24
+`_10
 
 import ClickToken from '../contracts/ClickTokenModule#ClickToken.json';
 
-_24
+_10
 
 import deployedAddresses from '../contracts/deployed_addresses.json';
 
-_24
+_10
 
-_24
+_10
 
-export interface Contract {
+export const clickToken = {
 
-_24
-
-abi: any;
-
-_24
-
-address: string;
-
-_24
-
-}
-
-_24
-
-_24
-
-export type ContractMap = {
-
-_24
-
-[contractName: string]: Contract;
-
-_24
-
-};
-
-_24
-
-_24
-
-export const useContracts = (): ContractMap => {
-
-_24
-
-return {
-
-_24
-
-ClickToken: {
-
-_24
+_10
 
 abi: ClickToken.abi,
 
-_24
+_10
 
-address: deployedAddresses[
+address: deployedAddresses['ClickTokenModule#ClickToken'] as `0x${string}`
 
-_24
+_10
 
-'ClickTokenModule#ClickToken'
-
-_24
-
-] as `0x${string}`,
-
-_24
-
-},
-
-_24
-
-};
-
-_24
-
-};
-
-_24
-
-_24
-
-export default useContracts;`
+};`
 
 ## Build Traditional Functionality[​](#build-traditional-functionality "Direct link to Build Traditional Functionality")
 
@@ -1527,7 +1465,7 @@ Now that you have completed the tutorial, you should be able to:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/introduction.md)
 
-Last updated on **Feb 27, 2025** by **Brian Doyle**
+Last updated on **Mar 4, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -1549,7 +1487,7 @@ Cross-VM App](/tutorials/cross-vm-apps)
   + [EVM Child Transactions](#evm-child-transactions)
 * [Code Evaluator](#code-evaluator)
 * [Calling Your Own Contract](#calling-your-own-contract)
-* [Set Up a `useContracts` Hook](#set-up-a-usecontracts-hook)
+* [Set Up Contract Imports](#set-up-contract-imports)
 * [Build Traditional Functionality](#build-traditional-functionality)
 * [Supercharge your EVM App With Cadence](#supercharge-your-evm-app-with-cadence)
 * [Conclusion](#conclusion)

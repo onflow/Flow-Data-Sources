@@ -163,7 +163,7 @@ Please see a list [here](https://github.com/onflow/flow/blob/master/nodeoperator
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-port/index.md)
 
-Last updated on **Feb 22, 2025** by **bz**
+Last updated on **Feb 24, 2025** by **j pimmel**
 
 [Previous
 

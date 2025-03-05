@@ -149,7 +149,7 @@ latestBlock, err := flowClient.GetLatestBlock(ctx, true, MaxCallSendMsgSize(100)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/flow-go-sdk/migration-v0.25.0.md)
 
-Last updated on **Feb 22, 2025** by **bz**
+Last updated on **Feb 24, 2025** by **j pimmel**
 
 [Previous
 

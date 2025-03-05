@@ -53,7 +53,7 @@ You can see the docs for account linking [here](https://developers.flow.com/buil
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/12-hybrid-custody.md)
 
-Last updated on **Feb 22, 2025** by **bz**
+Last updated on **Feb 24, 2025** by **j pimmel**
 
 [Previous
 

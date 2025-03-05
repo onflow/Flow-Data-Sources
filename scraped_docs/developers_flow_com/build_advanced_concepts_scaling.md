@@ -661,7 +661,7 @@ It takes roughly the time of 1 transaction to run all 420 without any errors.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/scaling.md)
 
-Last updated on **Feb 22, 2025** by **bz**
+Last updated on **Feb 24, 2025** by **j pimmel**
 
 [Previous
 
