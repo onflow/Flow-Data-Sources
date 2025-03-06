@@ -114,9 +114,9 @@ Toggle navigation
   + [Advanced Security
 
     Enterprise-grade security features](https://github.com/enterprise/advanced-security)
-  + [GitHub Copilot
+  + [Copilot for business
 
-    Enterprise-grade AI features](/features/copilot#enterprise)
+    Enterprise-grade AI features](/features/copilot/copilot-business)
   + [Premium Support
 
     Enterprise-grade 24/7 support](/premium-support)
@@ -231,7 +231,7 @@ Quote reply
 
 |  |
 | --- |
-| Hi everyone,  As a node operator, we are currently planning to **migrate our execution node from one cloud provider to another.** Could you kindly provide the full documentation and guidance on the migration process?  Specifically,  **Which files should be copied to the new server? What precautions should be taken during migration? Is there an optimal time to perform the migration, or can it be done at any time? After the migration is completed, are there any actions required from the UI side? In the Flow protocol, are there any conditions that could lead to jailing or slashing during migration? If so, what are the reasons, and how can we avoid these penalties?**  Could you please provide the above information.  Thank you. |
+| Hi everyone,  As a node operator, we are currently planning to **migrate our execution node from one cloud provider to another.** Could you kindly provide the full documentation and guidance on the migration process?  Specifically,  **Which files should be copied to the new server?  What precautions should be taken during migration?  Is there an optimal time to perform the migration, or can it be done at any time?  After the migration is completed, are there any actions required from the UI side?  In the Flow protocol, are there any conditions that could lead to jailing or slashing during migration? If so, what are the reasons, and how can we avoid these penalties?**  Could you please provide the above information.  Thank you. |
 
 Beta
 Was this translation helpful?
@@ -265,7 +265,7 @@ Quote reply
 
 |  |
 | --- |
-| hi - Can you please hit me up on discord? `vishal6200`. Which execution node are you running? |
+| hi - Can you please hit me up on discord? `vishal6200`.  Which execution node are you running? |
 
 Beta
 Was this translation helpful?

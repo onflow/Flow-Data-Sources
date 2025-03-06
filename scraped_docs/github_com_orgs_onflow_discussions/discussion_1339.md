@@ -114,9 +114,9 @@ Toggle navigation
   + [Advanced Security
 
     Enterprise-grade security features](https://github.com/enterprise/advanced-security)
-  + [GitHub Copilot
+  + [Copilot for business
 
-    Enterprise-grade AI features](/features/copilot#enterprise)
+    Enterprise-grade AI features](/features/copilot/copilot-business)
   + [Premium Support
 
     Enterprise-grade 24/7 support](/premium-support)
@@ -253,7 +253,7 @@ Something went wrong.
 
 |  |
 | --- |
-| **GM Builders** 🫡  Passionate about the intersection of Web3 & Mobile? We need YOU for our 🔥 **Flow Blockchain Mobile Working Group** 🔥!  **Perks:** 🤝 Collab with fellow Flow enthusiasts 🛠️ Improve tooling & prioritize solutions 🌍 Make a lasting impact on our community  Join the fun & make waves with us!  **Get involved:** 1️⃣ Sign up: <https://forms.gle/1Mgm9c4TFYaTEiWv8> 📝 2️⃣ Share with your Flow fanatics! 🗣️ 3️⃣ Stay tuned for updates & invites 🚀  Let's shape the future of **Flow Mobile** together! 🌟💙  [Screenshot 2023-04-27 at 2 38 52 PM](https://user-images.githubusercontent.com/44682521/234960254-fd149d89-e846-4b08-af37-d9754d7a4e8e.png) |
+| **GM Builders** 🫡  Passionate about the intersection of Web3 & Mobile? We need YOU for our 🔥 **Flow Blockchain Mobile Working Group** 🔥!  **Perks:**  🤝 Collab with fellow Flow enthusiasts  🛠️ Improve tooling & prioritize solutions  🌍 Make a lasting impact on our community  Join the fun & make waves with us!  **Get involved:**  1️⃣ Sign up: <https://forms.gle/1Mgm9c4TFYaTEiWv8> 📝  2️⃣ Share with your Flow fanatics! 🗣️  3️⃣ Stay tuned for updates & invites 🚀  Let's shape the future of **Flow Mobile** together! 🌟💙  [Screenshot 2023-04-27 at 2 38 52 PM](https://user-images.githubusercontent.com/44682521/234960254-fd149d89-e846-4b08-af37-d9754d7a4e8e.png) |
 
 Beta
 Was this translation helpful?

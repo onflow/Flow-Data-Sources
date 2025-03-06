@@ -1399,7 +1399,7 @@ See [proving-authentication](https://github.com/onflow/fcl-js/blob/master/docs/r
 | Name | Type | Description |
 | --- | --- | --- |
 | `appIdentifier` | string **(required)** | A hexadecimal string |
-| `accountProofData` | Object **(required)** | Object with properties: `address`: `string` - A Flow account address.  `nonce`: `string` - A random string in hexadecimal format (minimum 32 bytes in total, i.e 64 hex characters)  `signatures`: `Object[]` - An array of composite signatures to verify |
+| `accountProofData` | Object **(required)** | Object with properties:  `address`: `string` - A Flow account address.   `nonce`: `string` - A random string in hexadecimal format (minimum 32 bytes in total, i.e 64 hex characters)   `signatures`: `Object[]` - An array of composite signatures to verify |
 | `opts` | Object **(optional)** | `opts.fclCryptoContract` can be provided to overide FCLCryptoContract address for local development |
 
 #### Returns[​](#returns-5 "Direct link to Returns")
@@ -1582,7 +1582,7 @@ Decodes the response from `fcl.send()` into the appropriate JSON representation 
 
 | Type | Description |
 | --- | --- |
-| any | A JSON representation of the raw string response depending on the cadence code executed. The return value can be a single value and type or an object with multiple types. |
+| any | A JSON representation of the raw string response depending on the cadence code executed.  The return value can be a single value and type or an object with multiple types. |
 
 #### Usage[​](#usage-13 "Direct link to Usage")
 
@@ -2865,7 +2865,7 @@ The JSON representation of an account on the Flow blockchain.
 
 | Value Type | Description |
 | --- | --- |
-| string(formatted) | A valid Flow address should be 16 characters in length. A `0x` prefix is optional during inputs. eg. `f8d6e0586b0a20c1` |
+| string(formatted) | A valid Flow address should be 16 characters in length.  A `0x` prefix is optional during inputs.  eg. `f8d6e0586b0a20c1` |
 
 ---
 
@@ -3194,7 +3194,7 @@ For more on what each transaction role means, see [singing roles](/build/basics/
 
 | Value Type | Description |
 | --- | --- |
-| string(formatted) | A event name in Flow must follow the format `A.{AccountAddress}.{ContractName}.{EventName}` eg. `A.ba1132bc08f82fe2.Debug.Log` |
+| string(formatted) | A event name in Flow must follow the format `A.{AccountAddress}.{ContractName}.{EventName}`  eg. `A.ba1132bc08f82fe2.Debug.Log` |
 
 ### `Contract`[​](#contract "Direct link to contract")
 

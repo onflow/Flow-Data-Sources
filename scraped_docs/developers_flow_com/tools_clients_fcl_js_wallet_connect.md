@@ -102,10 +102,10 @@ Initialize WalletConnect `SignClient` and `FclWcServicePlugin` with the followin
 | --- | --- | --- | --- |
 | `projectId` | boolean **(required)** | null | A WalletConnect projectId for public relay server access. Your Project ID can be obtained from [WalletConnect Cloud Dashboard](https://cloud.walletconnect.com/app) |
 | `metadata` | object | `{ }` | Optional dApp metadata to describe your application and define its appearance in a web browser. More details can be found [here](https://docs.walletconnect.com/2.0/swift/sign/dapp-usage) |
-| `includeBaseWC` | boolean | false | Optional configuration to include a generic WalletConnect service in FCL Discovery (UI/API).  ❗ BaseWC Service offers no deeplink support for mobile. |
+| `includeBaseWC` | boolean | false | Optional configuration to include a generic WalletConnect service in FCL Discovery (UI/API).   ❗ BaseWC Service offers no deeplink support for mobile. |
 | `wcRequestHook` | function | null | Optional function is called on all desktop WalletConnect client session proposals and signing requests. Use this to handle alerting user to check wallet for approval. |
-| `pairingModalOverride` | function | null | Optional function called to allow override of included QRCodeModal. Function receives two arguments:  1. Connection `uri` to display QR code or send to wallet to create pairing.  2. Callback function to manually cancel the request. |
-| `wallets` | array | `[ ]` | Optional list of WalletConnect `authn` services to include in FCL Wallet Discovery (UI/API).  ❗ Only available for use on **`testnet`**. These services will be combined with wallets returned from [WalletConnect cloud registry API](https://cloud.walletconnect.com/) and sent to Discovery for display in UI and inclusion in API response. |
+| `pairingModalOverride` | function | null | Optional function called to allow override of included QRCodeModal. Function receives two arguments:   1. Connection `uri` to display QR code or send to wallet to create pairing.   2. Callback function to manually cancel the request. |
+| `wallets` | array | `[ ]` | Optional list of WalletConnect `authn` services to include in FCL Wallet Discovery (UI/API).   ❗ Only available for use on **`testnet`**. These services will be combined with wallets returned from [WalletConnect cloud registry API](https://cloud.walletconnect.com/) and sent to Discovery for display in UI and inclusion in API response. |
 | `disableNotifications` | boolean | false | Optional flag to disable pending WalletConnect request notifications within the application's UI. |
 
 #### Returns[​](#returns "Direct link to Returns")
@@ -295,7 +295,7 @@ FCL tells Wallet Discovery which services are supported by the client (installed
 |  |  |  |
 | --- | --- | --- |
 | **1** | Obtain a WalletConnect `projectId` | Register to receive a `projectId` from the [WalletConnect Cloud Registry](https://cloud.walletconnect.com/). |
-| **2** | Conform to [FCL Wallet Provider Spec](https://github.com/onflow/fcl-js/blob/master/packages/fcl/src/wallet-provider-spec/draft-v4.md) | Compatible wallets must support `flow_authn`, `flow_authz`, and `flow_user_sign` methods and wrap data in the appropriate FCL Response type. Services returned with the `AuthnResponse` of `flow_authn` should set `service.endpoint` to corresponding methods. **ServiceType** `authz` : `flow_authz`  **ServiceType** `user-signature` : `flow_user_sign` |
+| **2** | Conform to [FCL Wallet Provider Spec](https://github.com/onflow/fcl-js/blob/master/packages/fcl/src/wallet-provider-spec/draft-v4.md) | Compatible wallets must support `flow_authn`, `flow_authz`, and `flow_user_sign` methods and wrap data in the appropriate FCL Response type. Services returned with the `AuthnResponse` of `flow_authn` should set `service.endpoint` to corresponding methods.  **ServiceType** `authz` : `flow_authz`   **ServiceType** `user-signature` : `flow_user_sign` |
 | **3** | Add wallet to WalletConnect Cloud Registry API **(optional)** | Submit your wallet to be included in the [WalletConnect Cloud Registry API and Explorer](https://explorer.walletconnect.com/) |
 | **4** | Responses | All responses need to be wrapped in a [`PollingResponse`](https://github.com/onflow/fcl-js/blob/master/packages/fcl/src/wallet-provider-spec/draft-v4.md#pollingresponse) |
 

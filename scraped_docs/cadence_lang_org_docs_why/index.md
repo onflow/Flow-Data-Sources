@@ -14,7 +14,7 @@ Search
 
 Cadence
 
-## Forge the future of decentralized apps.Unleash **utility**, **composability**,and **safety** in smart contracts.
+## Forge the future of decentralized apps. Unleash **utility**, **composability**, and **safety** in smart contracts.
 
 [Get started](/learn)
 

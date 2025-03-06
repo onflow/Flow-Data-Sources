@@ -135,7 +135,8 @@
 		"mainnet": {
 			"mainnet-nft": [
 				"MetadataViews",
-				"NonFungibleToken"
+				"NonFungibleToken",
+				"CrossVMMetadataViews"
 			]
 		}
 	}

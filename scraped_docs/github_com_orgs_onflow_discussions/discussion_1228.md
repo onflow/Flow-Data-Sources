@@ -114,9 +114,9 @@ Toggle navigation
   + [Advanced Security
 
     Enterprise-grade security features](https://github.com/enterprise/advanced-security)
-  + [GitHub Copilot
+  + [Copilot for business
 
-    Enterprise-grade AI features](/features/copilot#enterprise)
+    Enterprise-grade AI features](/features/copilot/copilot-business)
   + [Premium Support
 
     Enterprise-grade 24/7 support](/premium-support)

@@ -2025,7 +2025,7 @@ _13
 | id | SHA3-256 hash of the entire block payload |
 | height | Height of the block in the chain |
 | parent\_id | ID of the previous block in the chain |
-| timestamp | Timestamp of when the proposer claims it constructed the block.  **NOTE**: It is included by the proposer, there are no guarantees on how much the time stamp can deviate from the true time the block was published.  Consider observing blocks' status changes yourself to get a more reliable value |
+| timestamp | Timestamp of when the proposer claims it constructed the block.   **NOTE**: It is included by the proposer, there are no guarantees on how much the time stamp can deviate from the true time the block was published.   Consider observing blocks' status changes yourself to get a more reliable value |
 | collection\_guarantees | List of [collection guarantees](#collection-guarantee) |
 | block\_seals | List of [block seals](#block-seal) |
 | signatures | BLS signatures of consensus nodes |
@@ -2886,8 +2886,8 @@ _10
 
 | Field | Description |
 | --- | --- |
-| event\_type | A list of full event types to include.  Event types have 2 formats: \_ Protocol events: `flow.[event name]` \_ Smart contract events: `A.[contract address].[contract name].[event name]` |
-| contract | A list of contracts who's events should be included. Contracts have the following name formats: \_ Protocol events: `flow` \_ Smart contract events: `A.[contract address].[contract name]` This filter matches on the full contract including its address, not just the contract's name |
+| event\_type | A list of full event types to include.   Event types have 2 formats:  \_ Protocol events: `flow.[event name]`  \_ Smart contract events: `A.[contract address].[contract name].[event name]` |
+| contract | A list of contracts who's events should be included. Contracts have the following name formats:  \_ Protocol events: `flow`  \_ Smart contract events: `A.[contract address].[contract name]`  This filter matches on the full contract including its address, not just the contract's name |
 | address | A list of addresses who's events should be included. Addresses must be Flow account addresses in hex format and valid for the network the node is connected to. i.e. only a mainnet address is valid for a mainnet node. Addresses may optionally include the `0x` prefix |
 
 ## Execution data streaming API[​](#execution-data-streaming-api "Direct link to Execution data streaming API")
