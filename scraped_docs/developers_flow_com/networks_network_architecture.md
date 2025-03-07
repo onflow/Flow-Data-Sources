@@ -97,7 +97,7 @@ In the next section, lets look at how Flow multi-role architecture solves those 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/network-architecture/index.md)
 
-Last updated on **Feb 24, 2025** by **j pimmel**
+Last updated on **Feb 25, 2025** by **Chase Fleming**
 
 [Previous
 

@@ -30,6 +30,12 @@ On this page
 
 # Clients
 
+Flow provides a variety of SDKs and clients for building applications that interact with the Flow network. These SDKs and clients are available in multiple languages and platforms.
+
+## JavaScript (FCL)[​](#javascript-fcl "Direct link to JavaScript (FCL)")
+
+[Flow Client Library (FCL)](/tools/clients/fcl-js) is a package used to interact with user wallets and the Flow blockchain.
+
 ## Go SDK[​](#go-sdk "Direct link to Go SDK")
 
 [Flow Go SDK](/tools/clients/flow-go-sdk) provides a set of packages for Go developers to build applications that interact with the Flow network.
@@ -45,10 +51,6 @@ On this page
 ## JVM[​](#jvm "Direct link to JVM")
 
 [Flow JVM SDK](https://github.com/onflow/flow-jvm-sdk) is a library for JVM-compatible languages, implemented in Kotlin, that provides utilities to interact with the Flow blockchain.
-
-## JavaScript (FCL)[​](#javascript-fcl "Direct link to JavaScript (FCL)")
-
-[Flow Client Library (FCL)](/tools/clients/fcl-js) is a package used to interact with user wallets and the Flow blockchain.
 
 ## Swift[​](#swift "Direct link to Swift")
 
@@ -76,7 +78,7 @@ On this page
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/index.md)
 
-Last updated on **Feb 24, 2025** by **j pimmel**
+Last updated on **Mar 6, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -88,11 +90,11 @@ Flow Client Library (FCL)](/tools/clients/fcl-js)
 
 😞😐😊
 
+* [JavaScript (FCL)](#javascript-fcl)
 * [Go SDK](#go-sdk)
 * [Python SDK](#python-sdk)
 * [Ruby](#ruby)
 * [JVM](#jvm)
-* [JavaScript (FCL)](#javascript-fcl)
 * [Swift](#swift)
 * [.Net](#net)
 * [Rust](#rust)

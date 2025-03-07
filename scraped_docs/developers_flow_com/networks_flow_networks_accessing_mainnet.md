@@ -119,7 +119,7 @@ You can review [all available core contracts](/build/core-contracts) deployed to
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-networks/accessing-mainnet.md)
 
-Last updated on **Feb 24, 2025** by **j pimmel**
+Last updated on **Feb 25, 2025** by **Chase Fleming**
 
 [Previous
 

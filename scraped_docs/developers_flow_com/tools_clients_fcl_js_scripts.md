@@ -54,10 +54,9 @@ They always need to contain a `access(all) fun main()` function as an entry poin
 
 The `cadence` key inside the object sent to the `query` function is a [JavaScript Tagged Template Literal](https://styled-components.com/docs/advanced#tagged-template-literals) that we can pass Cadence code into.
 
-### Sending your first Script[​](#sending-your-first-script "Direct link to Sending your first Script")
+### Sending Your First Script[​](#sending-your-first-script "Direct link to Sending Your First Script")
 
-In the following code snippet we are going to send a script to the Flow blockchain.
-The script is going to add two numbers, and return them.
+The following example demonstrates how to send a script to the Flow blockchain. This script adds two numbers and returns the result.
 
 `_11
 
@@ -99,9 +98,9 @@ _11
 
 console.log(response) // 3`
 
-### A more complicated Script[​](#a-more-complicated-script "Direct link to A more complicated Script")
+### A More Complex Script[​](#a-more-complex-script "Direct link to A More Complex Script")
 
-Things like [Resources](https://cadence-lang.org/docs/language/resources) and [Structs](https://cadence-lang.org/docs/language/composite-types#structures) are fairly common place in Cadence.
+[Resources](https://cadence-lang.org/docs/language/resources) and [Structs](https://cadence-lang.org/docs/language/composite-types#structures) are complex data types that are fairly common place in Cadence.
 
 In the following code snippet, our script defines a struct called `Point`, it then returns a list of them.
 
@@ -183,9 +182,9 @@ _21
 
 console.log(response) // [{x:1, y:1}, {x:2, y:2}]`
 
-### Transforming the data we get back with custom decoders.[​](#transforming-the-data-we-get-back-with-custom-decoders "Direct link to Transforming the data we get back with custom decoders.")
+### Transforming Data with Custom Decoders[​](#transforming-data-with-custom-decoders "Direct link to Transforming Data with Custom Decoders")
 
-In our dapp, we probably have a way of representing these Cadence values internally. In the above example it might be a `Point` class.
+In our app, we probably have a way of representing these Cadence values internally. In the above example it might be a `Point` class.
 
 FCL enables us to provide custom decoders that we can use to transform the data we receive from the Flow blockchain at the edge, before anything else in our dapp gets a chance to look at it.
 
@@ -310,7 +309,7 @@ To learn more about `query`, check out the [API documentation](/tools/clients/fc
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/scripts.md)
 
-Last updated on **Feb 24, 2025** by **j pimmel**
+Last updated on **Mar 6, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -322,9 +321,9 @@ Transactions](/tools/clients/fcl-js/transactions)
 
 😞😐😊
 
-* [Sending your first Script](#sending-your-first-script)
-* [A more complicated Script](#a-more-complicated-script)
-* [Transforming the data we get back with custom decoders.](#transforming-the-data-we-get-back-with-custom-decoders)
+* [Sending Your First Script](#sending-your-first-script)
+* [A More Complex Script](#a-more-complex-script)
+* [Transforming Data with Custom Decoders](#transforming-data-with-custom-decoders)
 
 Documentation
 

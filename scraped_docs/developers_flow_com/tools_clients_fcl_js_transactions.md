@@ -52,7 +52,7 @@ While `query` is used for sending scripts to the chain, `mutate` is used for bui
 
 Unlike scripts, they require a little more information, things like a proposer, authorizations and a payer, which may be a little confusing and overwhelming.
 
-# Sending your first Transaction
+# Sending Your First Transaction
 
 There is a lot to unpack in the following code snippet.
 It sends a transaction to the Flow blockchain. For the transaction, the current user is authorizing it as both the `proposer` and the `payer`.
@@ -128,7 +128,7 @@ _17
 
 console.log(transaction) // The transactions status and events after being sealed`
 
-# Authorizing a transaction
+# Authorizing a Transaction
 
 The below code snippet is the same as the above one, except for one extremely important difference.
 Our Cadence code this time has a prepare statement, and we are using the `fcl.currentUser` when constructing our transaction.
@@ -222,7 +222,7 @@ To learn more about `mutate`, check out the [API documentation](/tools/clients/f
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/transactions.md)
 
-Last updated on **Feb 24, 2025** by **j pimmel**
+Last updated on **Mar 6, 2025** by **Chase Fleming**
 
 [Previous
 
