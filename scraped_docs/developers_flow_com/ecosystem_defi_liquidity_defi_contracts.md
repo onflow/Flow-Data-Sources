@@ -129,7 +129,7 @@ Below is a list of commonly used DeFi contracts on Flow:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/defi-contracts.md)
 
-Last updated on **Feb 22, 2025** by **bz**
+Last updated on **Feb 25, 2025** by **Chase Fleming**
 
 [Previous
 
