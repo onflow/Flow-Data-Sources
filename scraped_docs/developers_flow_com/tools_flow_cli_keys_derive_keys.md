@@ -128,7 +128,7 @@ Specify the filename where you want the result to be saved
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/keys/derive-keys.md)
 
-Last updated on **Feb 24, 2025** by **j pimmel**
+Last updated on **Feb 25, 2025** by **Chase Fleming**
 
 [Previous
 
