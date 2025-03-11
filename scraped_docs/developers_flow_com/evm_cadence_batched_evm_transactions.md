@@ -1373,7 +1373,7 @@ Ready to level up your Cadence skills? Take a look at [these Cadence tutorials](
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/cadence/batched-evm-transactions.md)
 
-Last updated on **Feb 25, 2025** by **Chase Fleming**
+Last updated on **Feb 27, 2025** by **BT.Wood(Tang Bo Hao)**
 
 [Previous
 

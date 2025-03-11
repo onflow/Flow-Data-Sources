@@ -55,6 +55,7 @@ Flow is a fast, decentralized, and developer-friendly blockchain designed to be 
 * **Multi-role architecture:** The [multi-role architecture](https://www.onflow.org/primer) of Flow allows the network to [scale without sharding](https://www.onflow.org/post/flow-blockchain-multi-node-architecture-advantages) to serve billions of users without reducing the decentralization of consensus and verification.
 * **True Fast Finality**: For most other networks, it takes minutes, [a day](https://docs.zksync.io/zk-stack/concepts/finality#finality-on-zksync-era), or even [a week](https://docs.optimism.io/stack/rollup/overview#fault-proofs) to reach hard finality - the point in which a transaction cannot be reversed. On Flow, the median time for finality is [under 10 seconds](/build/basics/transactions#flow), without compromising security.
 * **Native VRF**: Flow provides [onchain randomness](/build/advanced-concepts/randomness) at the protocol level. Instead of implementing a complex setup and [paying $10+ USD per number](https://docs.chain.link/vrf/v2-5/billing), simply call the built-in function.
+* **MEV Resistance**: Flow is designed to [ensure equitable access](/build/basics/mev-resistance) by resisting MEV. Maximum Extractable Value, also know as Miner-Extractable Value (MEV), is a practice common in other blockchains in which the builder of a block can profit at your expense by manipulating where and how your transaction is included.
 * **Consumer Onboarding:** Flow was designed for mainstream consumers, with payment onramps catalyzing a safe and low-friction path from fiat to crypto.
 * **EVM Equivalence**: The [Cadence](https://cadence-lang.org/) Virtual Machine (VM) is powerful enough to allow other VMs to run inside of it, almost like a Docker Container. The first one integrated in this way is [EVM](https://flow.com/upgrade/crescendo/evm.md) and the EVM RPC API.
 * **Efficient Gas Costs**: The Flow blockchain is extremely efficient, allowing apps to do more computation at lower costs.
@@ -71,7 +72,7 @@ Flow is a fast, decentralized, and developer-friendly blockchain designed to be 
 * **Speed, Cost, and Compatibility**: Flow EVM can already run all of your audited Solidity contracts at an average of less than 1 cent per transaction ([usually way less!](https://evm.flowscan.io/stats)). Unlike L2 solutions, Flow EVM reaches true finality in seconds - not in [a week](https://docs.optimism.io/stack/rollup/overview#fault-proofs). 😳
 * **Bridge from Other EVM Networks**: You can [bridge](/ecosystem/bridges) hundreds of assets from dozens of chains to Flow.
 * **VM Token Bridge**: Assets can be bridged between Flow Cadence and Flow EVM easily and atomically with the VM token bridge. Assets can even be bridged **and used** in a **single** transaction, allowing full composability between the EVM and Cadence environments.
-* **Access to Cadence**: Access Cadence features and contracts from Flow EVM to take advantage of native [VRF](/evm/guides/vrf), higher computation for lower cost, and any asset on Cadence Flow.
+* **Access to Cadence**: Access Cadence features and contracts from Flow EVM to take advantage of native [VRF](/evm/guides/vrf), higher computation for lower cost, and any asset on Cadence Flow. You can also build [cross-vm apps](/tutorials/cross-vm-apps) on top of the wagmi/viem/RainbowKit stack, enabling batched transactions and more.
 * **EVM Equivalence:** Flow EVM is truly *EVM Equivalent*, not just *EVM Compatible*. It runs exactly the same as EVM mainnet, which means builders won't run into "minor" variances or endless "quirks" when they try to integrate. If it works on Ethereum Mainnet, it will work with Flow EVM.
 
 ## Learning Shortcuts[​](#learning-shortcuts "Direct link to Learning Shortcuts")
@@ -127,7 +128,7 @@ The [FLOW](/build/core-contracts/flow-token) (or $FLOW) token is the native curr
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/flow.md)
 
-Last updated on **Feb 25, 2025** by **Chase Fleming**
+Last updated on **Mar 7, 2025** by **Brian Doyle**
 
 [Next
 

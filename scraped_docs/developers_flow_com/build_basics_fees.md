@@ -23,6 +23,7 @@ Search
   + [Transactions](/build/basics/transactions)
   + [Scripts](/build/basics/scripts)
   + [Fees](/build/basics/fees)
+  + [MEV Resistance](/build/basics/mev-resistance)
   + [Events](/build/basics/events)
   + [FLOW Coin](/build/basics/flow-token)
   + [Smart Contracts ↙](/build/basics/smart-contracts)
@@ -743,13 +744,13 @@ Additional Details:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/fees.md)
 
-Last updated on **Feb 25, 2025** by **Chase Fleming**
+Last updated on **Feb 27, 2025** by **BT.Wood(Tang Bo Hao)**
 
 [Previous
 
 Scripts](/build/basics/scripts)[Next
 
-Events](/build/basics/events)
+MEV Resistance](/build/basics/mev-resistance)
 
 ###### Rate this page
 

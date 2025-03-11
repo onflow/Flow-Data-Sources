@@ -23,6 +23,7 @@ Search
   + [Transactions](/build/basics/transactions)
   + [Scripts](/build/basics/scripts)
   + [Fees](/build/basics/fees)
+  + [MEV Resistance](/build/basics/mev-resistance)
   + [Events](/build/basics/events)
   + [FLOW Coin](/build/basics/flow-token)
   + [Smart Contracts ↙](/build/basics/smart-contracts)

@@ -113,14 +113,27 @@ Below is a list of commonly used DeFi contracts on Flow:
 | Contract Name | Flow EVM Mainnet Address |
 | --- | --- |
 | [ERC1967Proxy.sol (Pyth)](https://evm.flowscan.io/address/0x2880aB155794e7179c9eE2e38200202908C17B43?tab=contract) | `0x2880aB155794e7179c9eE2e38200202908C17B43` |
+| [ERC1967Proxy.sol (Stork)](https://evm.flowscan.io/address/0xacC0a0cF13571d30B4b8637996F5D6D774d4fd62?tab=contract) | `0xacC0a0cF13571d30B4b8637996F5D6D774d4fd62` |
+
+#### Flow Cadence Testnet[​](#flow-cadence-testnet "Direct link to Flow Cadence Testnet")
+
+| Contract Name | Flow Cadence Mainnet Address |
+| --- | --- |
+| [BandOracle.cdc (Band)](https://contractbrowser.com/A.ec67451f8a58216a.PublicPriceOracle) | `0x2c71de7af78d1adf` |
 
 #### Flow Cadence Mainnet[​](#flow-cadence-mainnet-2 "Direct link to Flow Cadence Mainnet")
 
 | Contract Name | Flow Cadence Mainnet Address |
 | --- | --- |
 | [PublicPriceOracle.cdc (IncrementFi)](https://contractbrowser.com/A.ec67451f8a58216a.PublicPriceOracle) | `0xec67451f8a58216a` |
+| [BandOracle.cdc (Band) Protocol](https://contractbrowser.com/A.ec67451f8a58216a.PublicPriceOracle) | `0x6801a6222ebf784a` |
 
-## Other[​](#other "Direct link to Other")
+## Ethereum Attestation Service[​](#ethereum-attestation-service "Direct link to Ethereum Attestation Service")
+
+More information can be found on the Credora docs site for [EAS on Flow](https://credora.gitbook.io/eas-for-flow).
+
+Mainnet EAS Explorer: [<https://flow.easscan.credora.io>] (<https://flow.easscan.credora.io>)
+Testnet EAS Explorer: [<https://flow-testnet.easscan.credora.io>] (<https://flow-testnet.easscan.credora.io>)
 
 | Contract Name | Flow EVM Mainnet Address |
 | --- | --- |
@@ -129,7 +142,7 @@ Below is a list of commonly used DeFi contracts on Flow:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/defi-contracts.md)
 
-Last updated on **Feb 25, 2025** by **Chase Fleming**
+Last updated on **Mar 10, 2025** by **j pimmel**
 
 [Previous
 
@@ -145,7 +158,7 @@ Stablecoins & Bridges FAQ](/ecosystem/defi-liquidity/faq)
 * [AMMs & DEXs](#amms--dexs)
 * [Bridges & Cross-Chain Messaging](#bridges--cross-chain-messaging)
 * [Oracles](#oracles)
-* [Other](#other)
+* [Ethereum Attestation Service](#ethereum-attestation-service)
 
 Documentation
 
