@@ -405,7 +405,7 @@ To learn more about other possible configurations, check out the following links
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/discovery.md)
 
-Last updated on **Feb 27, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Feb 27, 2025** by **Chase Fleming**
 
 [Previous
 

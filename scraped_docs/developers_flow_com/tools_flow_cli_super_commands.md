@@ -120,7 +120,7 @@ To learn more about next steps following the initial setup, check out the follow
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/super-commands.md)
 
-Last updated on **Feb 27, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Feb 27, 2025** by **Chase Fleming**
 
 [Previous
 

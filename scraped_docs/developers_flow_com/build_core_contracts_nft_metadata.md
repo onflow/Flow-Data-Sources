@@ -68,7 +68,7 @@ To optimize your NFT collections for this catalog, you'll need to:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/09-nft-metadata.md)
 
-Last updated on **Feb 27, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Feb 27, 2025** by **Chase Fleming**
 
 [Previous
 

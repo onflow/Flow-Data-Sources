@@ -1892,7 +1892,7 @@ some other account.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking/child-accounts.md)
 
-Last updated on **Feb 25, 2025** by **Chase Fleming**
+Last updated on **Feb 27, 2025** by **Chase Fleming**
 
 [Previous
 

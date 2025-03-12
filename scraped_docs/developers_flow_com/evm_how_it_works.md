@@ -185,7 +185,7 @@ Flow’s state system provides ways to construct inclusion and non-inclusion pro
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/how-it-works.md)
 
-Last updated on **Feb 27, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Feb 27, 2025** by **Chase Fleming**
 
 [Previous
 

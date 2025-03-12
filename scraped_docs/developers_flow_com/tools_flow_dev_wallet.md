@@ -567,7 +567,7 @@ Additionally, consider exploring these resources:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-dev-wallet/index.md)
 
-Last updated on **Feb 27, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Feb 27, 2025** by **Chase Fleming**
 
 [Previous
 
