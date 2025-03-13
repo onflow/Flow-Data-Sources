@@ -32,7 +32,7 @@ This section covers the process of registering your tokens on Flow.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/token-launch/index.md)
 
-Last updated on **Feb 25, 2025** by **Chase Fleming**
+Last updated on **Feb 27, 2025** by **Chase Fleming**
 
 [Previous
 
