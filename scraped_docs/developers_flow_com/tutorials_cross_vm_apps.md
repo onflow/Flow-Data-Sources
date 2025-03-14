@@ -36,7 +36,7 @@ Stay tuned—more tutorials and advanced guides are on the way!
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/index.md)
 
-Last updated on **Feb 27, 2025** by **Brian Doyle**
+Last updated on **Feb 27, 2025** by **Vishal**
 
 [Previous
 

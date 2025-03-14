@@ -90,7 +90,7 @@ React hooks to interact with Flow blockchain, making development easy and intuit
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/projects.mdx)
 
-Last updated on **Feb 27, 2025** by **Chase Fleming**
+Last updated on **Feb 27, 2025** by **Vishal**
 
 [Previous
 

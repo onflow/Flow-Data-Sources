@@ -236,7 +236,7 @@ the NFT to update any stored information they have about the NFT in their databa
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/08-non-fungible-token.md)
 
-Last updated on **Feb 27, 2025** by **Chase Fleming**
+Last updated on **Feb 27, 2025** by **Vishal**
 
 [Previous
 

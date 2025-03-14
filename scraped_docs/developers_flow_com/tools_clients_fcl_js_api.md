@@ -1052,6 +1052,8 @@ _24
 
 By default, limited functionality services or services that require developer registration, like Ledger or Dapper Wallet, require apps to opt-in in order to display to users. To enable opt-in services in an application, use the `discovery.authn.include` property in your configuration with a value of an array of services you'd like your app to opt-in to displaying for users.
 
+Additionally, you can use the `discovery.authn.exclude` property to exclude any services from being displayed to users.
+
 `_10
 
 import { config } from '@onflow/fcl';
@@ -1073,6 +1075,10 @@ _10
 _10
 
 'discovery.authn.include': ['0x9d2e44203cb13051'], // Ledger wallet address on Testnet set to be included
+
+_10
+
+'discovery.authn.exclude': ['0x123456789abcdef01'], // Example of excluding a wallet by address
 
 _10
 
@@ -3600,7 +3606,7 @@ Signature objects are used to represent a signature for a particular message as 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/api.md)
 
-Last updated on **Feb 27, 2025** by **Chase Fleming**
+Last updated on **Mar 13, 2025** by **Jordan Ribbink**
 
 [Previous
 

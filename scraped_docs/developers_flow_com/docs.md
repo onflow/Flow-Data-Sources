@@ -16,9 +16,7 @@ Search
 
 ### Build
 
-Fire up a new app, add blue-chip features such as tokens and NFTs, or supercharge your user experience.
-
-### Grow
+Fire up a new app, add blue-chip features such as tokens and NFTs, or supercharge your user experience.### Grow
 
 Access builder credits, startup support, and explore funding opportunities.
 
@@ -26,85 +24,57 @@ Access builder credits, startup support, and explore funding opportunities.
 
 ### Getting Started
 
-### Cadence
+[### Cadence
 
-Learn why Dieter Shirley, co-author of the ERC-721 NFT standard, led the development of a new L1.
+Learn why Dieter Shirley, co-author of the ERC-721 NFT standard, led the development of a new L1.](build/flow)[### EVM
 
-### EVM
-
-Deploy your Solidity contracts on Flow to get sub-cent transaction fees, sponsored gas, and the ability to scale to millions of users.
+Deploy your Solidity contracts on Flow to get sub-cent transaction fees, sponsored gas, and the ability to scale to millions of users.](evm/about)
 
 ### Learn Cadence
 
-### Hello World
+[### Hello World
 
-Build and deploy your first contract, connect to it from the frontend, and call your smart contract functions - all in less than 30 minutes.
+Build and deploy your first contract, connect to it from the frontend, and call your smart contract functions - all in less than 30 minutes.](build/getting-started/contract-interaction)[### Cadence 101
 
-### Cadence 101
+Cadence is a resource-oriented programming language that makes it easy to build secure, scalable, and composable applications.](https://cadence-lang.org)[### Launch a Token
 
-Cadence is a resource-oriented programming language that makes it easy to build secure, scalable, and composable applications.
+Learn how to launch a fungible token that's stored in your users' vaults directly in their accounts.](build/guides/fungible-token)[### Create an NFT Collection
 
-### Launch a Token
+Create NFT collections that are stored directly in your users' accounts in a way that makes it nearly impossible to lose them.](build/guides/nft)[### Build your App
 
-Learn how to launch a fungible token that's stored in your users' vaults directly in their accounts.
-
-### Create an NFT Collection
-
-Create NFT collections that are stored directly in your users' accounts in a way that makes it nearly impossible to lose them.
-
-### Build your App
-
-The Flow Client Library (FCL) JS is a package used to interact with user wallets and the Flow blockchain.
+The Flow Client Library (FCL) JS is a package used to interact with user wallets and the Flow blockchain.](tools/clients/fcl-js)
 
 ### Supercharge Your App
 
-### Access Incredible IP
+[### Access Incredible IP
 
-Flow allows you to link wallets together, enabling your apps to use NFTs in a user's embedded wallet from another app.
+Flow allows you to link wallets together, enabling your apps to use NFTs in a user's embedded wallet from another app.](build/guides/account-linking-with-dapper)[### VRF - Cadence
 
-### VRF - Cadence
+VRF is built into Flow at the protocol level to provide secure, verifiable randomness, for free. Learn how to use VRF in Cadence.](build/advanced-concepts/randomness)[### VRF - EVM
 
-VRF is built into Flow at the protocol level to provide secure, verifiable randomness, for free. Learn how to use VRF in Cadence.
+VRF is built into Flow at the protocol level to provide secure, verifiable randomness, for free. Learn how to use VRF in EVM.](evm/guides/vrf)[### Account Abstraction
 
-### VRF - EVM
+Learn how to create child accounts that are linked to a parent account, enabling walletless onboarding and much more.](build/guides/account-linking/child-accounts)[### Cadence + EVM Scaffold
 
-VRF is built into Flow at the protocol level to provide secure, verifiable randomness, for free. Learn how to use VRF in EVM.
+A scaffold for seamlessly integrating Cadence into your Wagmi/RainbowKit app to batch write contract calls, conditionally execute transactions, and more.](https://github.com/jribbink/cross-vm-app)[### Token Interoperability
 
-### Account Abstraction
-
-Learn how to create child accounts that are linked to a parent account, enabling walletless onboarding and much more.
-
-### Cadence + EVM Scaffold
-
-A scaffold for seamlessly integrating Cadence into your Wagmi/RainbowKit app to batch write contract calls, conditionally execute transactions, and more.
-
-### Token Interoperability
-
-Move established EVM tokens to Cadence for more powerful contracts, or move Cadence tokens to EVM to take advantage of established markets.
+Move established EVM tokens to Cadence for more powerful contracts, or move Cadence tokens to EVM to take advantage of established markets.](evm/cadence/vm-bridge)
 
 ## Grow
 
 ### 
 
-### Startup Support
+[### Startup Support
 
-Get comprehensive support including technical guidance, marketing resources, and ecosystem connections.
+Get comprehensive support including technical guidance, marketing resources, and ecosystem connections.](/growth)[### Builder Credits
 
-### Builder Credits
+Access Flow's Builder Credits program to get resources and support for your project development.](https://github.com/orgs/onflow/discussions/1545)[### Dev Office Hours
 
-Access Flow's Builder Credits program to get resources and support for your project development.
+Join our weekly developer office hours to get direct support from the Flow team and connect with other builders.](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)[### VCs & Funds
 
-### Dev Office Hours
+Connect with venture capital firms and investment funds actively supporting Flow projects.](/ecosystem/vcs-and-funds)[### Grants
 
-Join our weekly developer office hours to get direct support from the Flow team and connect with other builders.
-
-### VCs & Funds
-
-Connect with venture capital firms and investment funds actively supporting Flow projects.
-
-### Grants
-
-Discover grant opportunities available to developers and teams building on Flow.
+Discover grant opportunities available to developers and teams building on Flow.](/ecosystem/grants)
 
 Documentation
 

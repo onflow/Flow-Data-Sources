@@ -199,7 +199,7 @@ for information about technical integration.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/index.md)
 
-Last updated on **Feb 27, 2025** by **Chase Fleming**
+Last updated on **Feb 27, 2025** by **Vishal**
 
 [Previous
 

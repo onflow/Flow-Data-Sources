@@ -72,7 +72,7 @@ we have turned off geolocation data reporting to Mixpanel.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/data-collection.md)
 
-Last updated on **Feb 27, 2025** by **Chase Fleming**
+Last updated on **Feb 27, 2025** by **Vishal**
 
 [Previous
 

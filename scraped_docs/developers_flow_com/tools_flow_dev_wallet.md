@@ -126,227 +126,231 @@ Navigate to <http://localhost:8701/harness>
 
 The following code from [Emerald Academy](https://academy.ecdao.org/en/snippets/fcl-authenticate) can be added to your React app to enable Wallet Discovery:
 
-`_59
+`_60
 
 import { config, authenticate, unauthenticate, currentUser } from '@onflow/fcl';
 
-_59
+_60
 
 import { useEffect, useState } from 'react';
 
-_59
+_60
 
-_59
+_60
 
 const fclConfigInfo = {
 
-_59
+_60
 
 emulator: {
 
-_59
+_60
 
 accessNode: 'http://127.0.0.1:8888',
 
-_59
+_60
 
 discoveryWallet: 'http://localhost:8701/fcl/authn',
 
-_59
+_60
 
 discoveryAuthInclude: [],
 
-_59
+_60
 
 },
 
-_59
+_60
 
 testnet: {
 
-_59
+_60
 
 accessNode: 'https://rest-testnet.onflow.org',
 
-_59
+_60
 
 discoveryWallet: 'https://fcl-discovery.onflow.org/testnet/authn',
 
-_59
+_60
 
 discoveryAuthnEndpoint:
 
-_59
+_60
 
 'https://fcl-discovery.onflow.org/api/testnet/authn',
 
-_59
+_60
 
 // Adds in Dapper + Ledger
 
-_59
+_60
 
 discoveryAuthInclude: ['0x82ec283f88a62e65', '0x9d2e44203cb13051'],
 
-_59
+_60
 
 },
 
-_59
+_60
 
 mainnet: {
 
-_59
+_60
 
 accessNode: 'https://rest-mainnet.onflow.org',
 
-_59
+_60
 
 discoveryWallet: 'https://fcl-discovery.onflow.org/authn',
 
-_59
+_60
 
 discoveryAuthnEndpoint: 'https://fcl-discovery.onflow.org/api/authn',
 
-_59
+_60
 
 // Adds in Dapper + Ledger
 
-_59
+_60
 
 discoveryAuthInclude: ['0xead892083b3e2c6c', '0xe5cd26afebe62781'],
 
-_59
+_60
 
 },
 
-_59
+_60
 
 };
 
-_59
+_60
 
-_59
+_60
 
 const network = 'emulator';
 
-_59
+_60
 
-_59
+_60
 
 config({
 
-_59
+_60
 
 'walletconnect.projectId': 'YOUR_PROJECT_ID', // your WalletConnect project ID
 
-_59
+_60
 
 'app.detail.title': 'Emerald Academy', // the name of your DApp
 
-_59
+_60
 
 'app.detail.icon': 'https://academy.ecdao.org/favicon.png', // your DApps icon
 
-_59
+_60
 
 'app.detail.description': 'Emerald Academy is a DApp for learning Flow', // a description of your DApp
 
-_59
+_60
 
 'app.detail.url': 'https://academy.ecdao.org', // the URL of your DApp
 
-_59
+_60
 
 'flow.network': network,
 
-_59
+_60
 
 'accessNode.api': fclConfigInfo[network].accessNode,
 
-_59
+_60
 
 'discovery.wallet': fclConfigInfo[network].discoveryWallet,
 
-_59
+_60
 
 'discovery.authn.endpoint': fclConfigInfo[network].discoveryAuthnEndpoint,
 
-_59
+_60
 
 // adds in opt-in wallets like Dapper and Ledger
 
-_59
+_60
 
 'discovery.authn.include': fclConfigInfo[network].discoveryAuthInclude,
 
-_59
+_60
+
+'discovery.authn.exclude': ['0x1234567890abcdef'], // excludes chosen wallets by address
+
+_60
 
 });
 
-_59
+_60
 
-_59
+_60
 
 export default function App() {
 
-_59
+_60
 
 const [user, setUser] = useState({ loggedIn: false, addr: '' });
 
-_59
+_60
 
-_59
+_60
 
 // So that the user stays logged in
 
-_59
+_60
 
 // even if the page refreshes
 
-_59
+_60
 
 useEffect(() => {
 
-_59
+_60
 
 currentUser.subscribe(setUser);
 
-_59
+_60
 
 }, []);
 
-_59
+_60
 
-_59
+_60
 
 return (
 
-_59
+_60
 
 <div className="App">
 
-_59
+_60
 
 <button onClick={authenticate}>Log In</button>
 
-_59
+_60
 
 <button onClick={unauthenticate}>Log Out</button>
 
-_59
+_60
 
 <p>{user.loggedIn ? `Welcome, ${user.addr}!` : 'Please log in.'}</p>
 
-_59
+_60
 
 </div>
 
-_59
+_60
 
 );
 
-_59
+_60
 
 }`
 
@@ -567,7 +571,7 @@ Additionally, consider exploring these resources:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-dev-wallet/index.md)
 
-Last updated on **Feb 27, 2025** by **Chase Fleming**
+Last updated on **Mar 13, 2025** by **Jordan Ribbink**
 
 [Previous
 

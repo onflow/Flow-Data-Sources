@@ -2473,7 +2473,7 @@ _34
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/index.md)
 
-Last updated on **Feb 27, 2025** by **Chase Fleming**
+Last updated on **Feb 27, 2025** by **Vishal**
 
 [Previous
 
@@ -2483,7 +2483,7 @@ Authorization Function](/tools/wallet-provider-spec/authorization-function)
 
 ###### Rate this page
 
-😞😐😊
+  😞😐😊
 
 * [Status](#status)
 * [Definitions](#definitions)
