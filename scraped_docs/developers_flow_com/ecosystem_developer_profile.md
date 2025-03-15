@@ -19,6 +19,7 @@ Search
 * [DeFi & Liquidity](/ecosystem/defi-liquidity)
 * [Bridges](/ecosystem/bridges)
 * [Community Projects](/ecosystem/projects)
+* [Builder Perks](/ecosystem/builder-perks)
 * [VCs & Funds](/ecosystem/vcs-and-funds)
 * [Faucets](/ecosystem/faucets)
 * [Grants](/ecosystem/grants)
@@ -98,7 +99,7 @@ We'll be updating the Developer Profile with new features and challenges. Check 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/developer-profile.md)
 
-Last updated on **Feb 27, 2025** by **Vishal**
+Last updated on **Mar 4, 2025** by **Brian Doyle**
 
 [Previous
 

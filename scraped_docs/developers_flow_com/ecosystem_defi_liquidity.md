@@ -19,9 +19,11 @@ Search
 * [DeFi & Liquidity](/ecosystem/defi-liquidity)
 
   + [DeFi Contracts](/ecosystem/defi-liquidity/defi-contracts)
+  + [Cross-chain swaps on Flow EVM](/ecosystem/defi-liquidity/cross-chain-swaps)
   + [Stablecoins & Bridges FAQ](/ecosystem/defi-liquidity/faq)
 * [Bridges](/ecosystem/bridges)
 * [Community Projects](/ecosystem/projects)
+* [Builder Perks](/ecosystem/builder-perks)
 * [VCs & Funds](/ecosystem/vcs-and-funds)
 * [Faucets](/ecosystem/faucets)
 * [Grants](/ecosystem/grants)
@@ -48,14 +50,25 @@ Flow is designed for **next-generation DeFi**, enabling developers to build high
 
 **Start integrating DeFi on Flow today.**
 
-**[DeFi Contacts](/ecosystem/defi-liquidity/defi-contracts)**  
+**[DeFi Contracts](/ecosystem/defi-liquidity/defi-contracts)**  
+**[Cross-chain swaps](/ecosystem/defi-liquidity/cross-chain-swaps)**  
 **[Read the FAQ](/ecosystem/defi-liquidity/faq)**
+
+Explore the [FlowVerse DeFi ecosystem](https://www.flowverse.co/?categories=defi) page for more information.
+
+## Securing DeFi on Flow EVM[​](#securing-defi-on-flow-evm "Direct link to Securing DeFi on Flow EVM")
+
+Flow EVM supports secure multi-sig from Safe.Global (formerly Gnosis Safe) or Fireblocks. Both offer robust solutions for
+developers seeking to enhance the security and management of tokenized assets with a focus on institutional-grade practices and scalability.
+
+* [Safe.Global](https://safe.flow.com/)
+* [Fireblocks](https://www.fireblocks.com/)
 
 ---
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/index.md)
 
-Last updated on **Feb 27, 2025** by **Vishal**
+Last updated on **Mar 14, 2025** by **j pimmel**
 
 [Previous
 
@@ -68,6 +81,7 @@ DeFi Contracts](/ecosystem/defi-liquidity/defi-contracts)
 😞😐😊
 
 * [Why DeFi on Flow?](#why-defi-on-flow)
+* [Securing DeFi on Flow EVM](#securing-defi-on-flow-evm)
 
 Documentation
 

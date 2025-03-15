@@ -185,7 +185,7 @@ Use the `--dir` flag only if your project requires a different organizational st
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/boilerplate.md)
 
-Last updated on **Feb 27, 2025** by **Vishal**
+Last updated on **Mar 4, 2025** by **Brian Doyle**
 
 [Previous
 

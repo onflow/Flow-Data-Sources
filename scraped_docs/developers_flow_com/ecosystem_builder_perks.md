@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/ecosystem/grants
+# Source: https://developers.flow.com/ecosystem/builder-perks
 
-Grants | Flow Developer Portal
+Builder Perks | Flow Developer Portal
 
 
 
@@ -27,45 +27,41 @@ Search
 * [Auditors](/ecosystem/auditors)
 * [Ecosystem Overview](/ecosystem/overview)
 
-* Grants
+* Builder Perks
 
-On this page
+# Builder Perks
 
-# Flow Developer Grants
+![flow](/img/ecosystem/flow.svg)
 
-The Flow Foundation provides grants to support developers and teams building tools and products that enhance the Flow ecosystem.
+### Builder Gas Subsidy
 
-## Focus Areas[​](#focus-areas "Direct link to Focus Areas")
+Get enough FLOW to launch on Mainnet and sponsor up to 10,000 transactions for your users.![alchemy](/img/ecosystem/alchemy.svg)
 
-We are particularly interested in projects across these key areas:
+### Alchemy for Startups
 
-* **Telegram Miniapps**: Building integrations and applications for the Telegram ecosystem
-* **DeFi**: Innovative decentralized finance solutions
-* **AI Agents**: Artificial intelligence and autonomous systems
-* **Sports**: Applications and platforms in the sports and gaming sector
+Get free credits, product discounts, and access to an extensive partner network to help accelerate your project's growth.![quicknode](/img/ecosystem/quicknode.svg)
 
-## How to Apply[​](#how-to-apply "Direct link to How to Apply")
+### QuickNode
 
-1. Visit the [Flow Developer Grants Repository](https://github.com/onflow/developer-grants)
-2. Create a new issue using the "Grant Application" template
-3. Fill out all required details about your project
+Power your Web3 journey with QuickNode - the leading end-to-end development platform for Web3 builders. Get $100 credit with our special offer.![thirdweb](/img/ecosystem/thirdweb.svg)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/grants.md)
+### Thirdweb
 
-Last updated on **Mar 4, 2025** by **Brian Doyle**
+Get $99 worth of production-grade tools to build complete web3 apps and games on any platform with 1 month of free Growth & Engine tier access.![olympix-logo](/img/ecosystem/olympix-logo.svg)
+
+### Olympix
+
+State-of-the-art, developer-first security tools for in-house assurance. Get $2000 in credits for your team.
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/builder-perks.md)
+
+Last updated on **Mar 14, 2025** by **Ali Serag**
 
 [Previous
 
-Faucets](/ecosystem/faucets)[Next
+Community Projects](/ecosystem/projects)[Next
 
-Hackathons](/ecosystem/hackathons)
-
-###### Rate this page
-
-😞😐😊
-
-* [Focus Areas](#focus-areas)
-* [How to Apply](#how-to-apply)
+VCs & Funds](/ecosystem/vcs-and-funds)
 
 Documentation
 

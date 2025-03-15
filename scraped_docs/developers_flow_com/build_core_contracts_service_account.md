@@ -195,7 +195,7 @@ access(all) event NodeVersionBoundaryFreezePeriodChanged(freezePeriod: UInt64)`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/04-service-account.md)
 
-Last updated on **Feb 27, 2025** by **Chase Fleming**
+Last updated on **Mar 4, 2025** by **Brian Doyle**
 
 [Previous
 

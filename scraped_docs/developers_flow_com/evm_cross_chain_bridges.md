@@ -28,7 +28,7 @@ Search
 
 * Cross-chain Bridges ↙
 
-# Cross-hain Bridges
+# Cross-chain Bridges
 
 Go to [Bridges](/ecosystem/bridges)
 
@@ -36,7 +36,7 @@ Go to [Bridges](/ecosystem/bridges)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/cross-chain-bridges.mdx)
 
-Last updated on **Feb 27, 2025** by **Vishal**
+Last updated on **Mar 14, 2025** by **j pimmel**
 
 [Previous
 

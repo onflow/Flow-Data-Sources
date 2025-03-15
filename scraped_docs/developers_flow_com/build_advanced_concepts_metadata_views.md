@@ -1071,7 +1071,7 @@ It provides an introduction to integrating these standards into your NFT contrac
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/metadata-views.md)
 
-Last updated on **Feb 27, 2025** by **Vishal**
+Last updated on **Mar 4, 2025** by **Brian Doyle**
 
 [Previous
 

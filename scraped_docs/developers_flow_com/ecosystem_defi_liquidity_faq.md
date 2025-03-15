@@ -19,9 +19,11 @@ Search
 * [DeFi & Liquidity](/ecosystem/defi-liquidity)
 
   + [DeFi Contracts](/ecosystem/defi-liquidity/defi-contracts)
+  + [Cross-chain swaps on Flow EVM](/ecosystem/defi-liquidity/cross-chain-swaps)
   + [Stablecoins & Bridges FAQ](/ecosystem/defi-liquidity/faq)
 * [Bridges](/ecosystem/bridges)
 * [Community Projects](/ecosystem/projects)
+* [Builder Perks](/ecosystem/builder-perks)
 * [VCs & Funds](/ecosystem/vcs-and-funds)
 * [Faucets](/ecosystem/faucets)
 * [Grants](/ecosystem/grants)
@@ -37,6 +39,19 @@ On this page
 # DeFi & Liquidity FAQ
 
 Below are common questions regarding stablecoins, liquidity, and bridging on Flow. Click on each question to expand and view the answer.
+
+## Bridging and Gas[​](#bridging-and-gas "Direct link to Bridging and Gas")
+
+Does Flow use ETH for gas?
+
+No, Flow uses $FLOW as the gas token. [WETH](/ecosystem/defi-liquidity/defi-contracts#stablecoins--wrapped-assets) is supported on Flow EVM when [bridging](/ecosystem/bridges) from another chain. $WFLOW is used as an ERC20 in DeFi apps and not used for gas.
+
+How do I pay for gas when bridging into Flow?
+
+When using Flow EVM for the first time, your EOA will automatically be credited 0.05 FLOW to cover gas costs when bridging into Flow.
+If further top-ups are required you can use [Gas.zip](https://www.gas.zip/). See [Fees](/evm/fees) for information on gas pricing.
+
+Flow Wallet users do not pay for gas since the wallet subsidizes all transaction fees.
 
 ## Stablecoins on Flow[​](#stablecoins-on-flow "Direct link to Stablecoins on Flow")
 
@@ -64,7 +79,7 @@ How can I earn yield on stablecoins on Flow?
 
 You can earn yield through:
 
-* Lending Platforms - Supply stablecoins on [IncrementFi](https://app.increment.fi/dashboard) & [MoreMarkets](https://app.more.markets/) to earn interest.
+* Lending Platforms - Supply stablecoins on [IncrementFi](https://app.increment.fi/dashboard), [Sturdy Finance](https://v2.sturdy.finance/overview) & [MoreMarkets](https://app.more.markets/) to earn interest.
 * Liquidity Pools - Provide liquidity on [IncrementFi](https://app.increment.fi/liquidity) or [KittyPunch](https://www.kittypunch.xyz/) to earn trading fees and farm LP tokens.
 * Yield Aggregators (Coming soon) - Use [KittyPunch](https://app.kittypunch.xyz/) to automate stablecoin yield strategies.
 
@@ -203,11 +218,11 @@ Where can I get updates or ask questions?
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/faq.md)
 
-Last updated on **Feb 27, 2025** by **Vishal**
+Last updated on **Mar 14, 2025** by **j pimmel**
 
 [Previous
 
-DeFi Contracts](/ecosystem/defi-liquidity/defi-contracts)[Next
+Cross-chain swaps on Flow EVM](/ecosystem/defi-liquidity/cross-chain-swaps)[Next
 
 Bridges](/ecosystem/bridges)
 
@@ -215,6 +230,7 @@ Bridges](/ecosystem/bridges)
 
 😞😐😊
 
+* [Bridging and Gas](#bridging-and-gas)
 * [Stablecoins on Flow](#stablecoins-on-flow)
   + [Step-by-step example USDC to Flow](#step-by-step-example-usdc-to-flow)
 * [Stargate and LayerZero on Flow](#stargate-and-layerzero-on-flow)

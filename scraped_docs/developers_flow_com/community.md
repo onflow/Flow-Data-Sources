@@ -19,6 +19,7 @@ Search
 * [DeFi & Liquidity](/ecosystem/defi-liquidity)
 * [Bridges](/ecosystem/bridges)
 * [Community Projects](/ecosystem/projects)
+* [Builder Perks](/ecosystem/builder-perks)
 * [VCs & Funds](/ecosystem/vcs-and-funds)
 * [Faucets](/ecosystem/faucets)
 * [Grants](/ecosystem/grants)
@@ -44,7 +45,7 @@ Learn about Developer Profile - Flow's upcoming developer recognition and learni
 
 [## 💧 DeFi & Liquidity
 
-2 items](/ecosystem/defi-liquidity)
+3 items](/ecosystem/defi-liquidity)
 
 [## ⛓️ Bridges
 
@@ -53,6 +54,10 @@ Mechanisms that connect different blockchain networks, allowing secure and decen
 [## 🏟️ Community Projects
 
 Explore the diverse projects and contributions within the Flow Blockchain community.](/ecosystem/projects)
+
+[## Builder Perks
+
+Exclusive perks and benefits for Flow builders](/ecosystem/builder-perks)
 
 [## 💼 VCs & Funds
 
@@ -88,7 +93,7 @@ Flow Improvement Proposals (FLIPs) serve as a platform for engaging the Flow com
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/index.mdx)
 
-Last updated on **Feb 27, 2025** by **Vishal**
+Last updated on **Mar 4, 2025** by **Brian Doyle**
 
 [Next
 
