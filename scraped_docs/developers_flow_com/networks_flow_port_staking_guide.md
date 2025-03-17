@@ -164,7 +164,7 @@ Once the transition is processed, you can now see the withdrawn rewards in your 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-port/staking-guide.md)
 
-Last updated on **Feb 27, 2025** by **Chase Fleming**
+Last updated on **Mar 4, 2025** by **Brian Doyle**
 
 [Previous
 
