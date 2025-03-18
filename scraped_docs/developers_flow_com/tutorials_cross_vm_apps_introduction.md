@@ -17,6 +17,7 @@ Search
 * [Cross-VM App](/tutorials/cross-vm-apps)
 
   + [Introduction](/tutorials/cross-vm-apps/introduction)
+* [FlowtoBooth Tutorials](/tutorials/flowtobooth)
 
 * [Cross-VM App](/tutorials/cross-vm-apps)
 * Introduction
@@ -1469,7 +1470,9 @@ Last updated on **Mar 4, 2025** by **Brian Doyle**
 
 [Previous
 
-Cross-VM App](/tutorials/cross-vm-apps)
+Cross-VM App](/tutorials/cross-vm-apps)[Next
+
+FlowtoBooth Tutorials](/tutorials/flowtobooth)
 
 ###### Rate this page
 
