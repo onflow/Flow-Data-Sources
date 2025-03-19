@@ -165,7 +165,7 @@ Specify the log level. Control how much output you want to see while command exe
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flow.json/initialize-configuration.md)
 
-Last updated on **Mar 4, 2025** by **Brian Doyle**
+Last updated on **Mar 6, 2025** by **Chase Fleming**
 
 [Previous
 

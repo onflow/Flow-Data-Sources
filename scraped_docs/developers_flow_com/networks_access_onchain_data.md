@@ -2919,7 +2919,7 @@ Below is a list of the available CLI flags to control the behavior of the API
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/index.md)
 
-Last updated on **Mar 4, 2025** by **Brian Doyle**
+Last updated on **Mar 6, 2025** by **Chase Fleming**
 
 [Previous
 

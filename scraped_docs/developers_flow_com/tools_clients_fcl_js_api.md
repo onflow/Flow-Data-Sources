@@ -2176,13 +2176,7 @@ A build that returns a [event stream connection](#eventstream) once decoded. It 
 
 | Name | Type | Description |
 | --- | --- | --- |
-| `opts` | `Object` | An object with the following keys: |
-| `opts.startBlockId` | string | undefined | The block ID to start listening for events. Example: `9dda5f281897389b99f103a1c6b180eec9dac870de846449a302103ce38453f3` |
-| `opts.startHeight` | number | undefined | The block height to start listening for events. Example: `123` |
-| `opts.eventTypes` | string[] | undefined | The event types to listen for. Example: `A.7e60df042a9c0868.FlowToken.TokensWithdrawn` |
-| `opts.addresses` | string[] | undefined | The addresses to listen for. Example: `0x7e60df042a9c0868` |
-| `opts.contracts` | string[] | undefined | The contracts to listen for. Example: `0x7e60df042a9c0868` |
-| `opts.heartbeatInterval` | number | undefined | The interval in milliseconds to send a heartbeat to the Access Node. Example: `10000` |
+| `eventFilter` | [EventFilter](#eventfilter) | The event filter to subscribe to. |
 
 #### Returns after decoding[​](#returns-after-decoding-8 "Direct link to Returns after decoding")
 
@@ -2762,7 +2756,7 @@ Note:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| `eventName` | string | A valid event name. |
+| `eventNameOrFilter` | string | [EventFilter](#eventfilter) | The name of the event or an event filter object. |
 
 #### Returns[​](#returns-21 "Direct link to Returns")
 
@@ -3364,6 +3358,19 @@ FCL arguments must specify one of the following support types for each value pas
 
 ---
 
+### `EventFilter`[​](#eventfilter "Direct link to eventfilter")
+
+An object that contains the parameters to filter events, used for event streaming in the [`fcl.events`](#events) function.
+
+| Name | Value Type | Description |
+| --- | --- | --- |
+| `startBlockId` | string | undefined | The block ID to start listening for events. Example: `9dda5f281897389b99f103a1c6b180eec9dac870de846449a302103ce38453f3` |
+| `startHeight` | number | undefined | The block height to start listening for events. Example: `123` |
+| `eventTypes` | string[] | undefined | The event types to listen for. Example: `A.7e60df042a9c0868.FlowToken.TokensWithdrawn` |
+| `addresses` | string[] | undefined | The addresses to listen for. Example: `0x7e60df042a9c0868` |
+| `contracts` | string[] | undefined | The contracts to listen for. Example: `0x7e60df042a9c0868` |
+| `opts.heartbeatInterval` | number | undefined | The interval in milliseconds to send a heartbeat to the Access Node. Example: `10000` |
+
 ### `StreamConnection`[​](#streamconnection "Direct link to streamconnection")
 
 A stream connection is an object for subscribing to generic data from any WebSocket data stream. This is the base type for all stream connections. Two channels, `close` and `error`, are always available, as they are used to signal the end of the stream and any errors that occur.
@@ -3606,7 +3613,7 @@ Signature objects are used to represent a signature for a particular message as 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/api.md)
 
-Last updated on **Mar 13, 2025** by **Jordan Ribbink**
+Last updated on **Mar 18, 2025** by **Jordan Ribbink**
 
 [Previous
 
@@ -3716,6 +3723,7 @@ SDK Reference](/tools/clients/fcl-js/sdk-guidelines)
   + [`Transaction Statuses`](#transaction-statuses)
   + [`GRPC Statuses`](#grpc-statuses)
   + [`FType`](#ftype)
+  + [`EventFilter`](#eventfilter)
   + [`StreamConnection`](#streamconnection)
   + [`EventStream`](#eventstream)
   + [`BlockHeartbeat`](#blockheartbeat)

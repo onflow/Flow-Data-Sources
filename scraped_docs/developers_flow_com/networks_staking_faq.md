@@ -118,7 +118,7 @@ It is possible to query the information about a node that an address runs though
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/12-faq.md)
 
-Last updated on **Mar 4, 2025** by **Brian Doyle**
+Last updated on **Mar 6, 2025** by **Chase Fleming**
 
 [Previous
 

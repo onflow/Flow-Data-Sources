@@ -19,9 +19,11 @@ Search
 * [DeFi & Liquidity](/ecosystem/defi-liquidity)
 
   + [DeFi Contracts](/ecosystem/defi-liquidity/defi-contracts)
+  + [Cross-chain swaps on Flow EVM](/ecosystem/defi-liquidity/cross-chain-swaps)
   + [Stablecoins & Bridges FAQ](/ecosystem/defi-liquidity/faq)
 * [Bridges](/ecosystem/bridges)
 * [Community Projects](/ecosystem/projects)
+* [Builder Perks](/ecosystem/builder-perks)
 * [VCs & Funds](/ecosystem/vcs-and-funds)
 * [Faucets](/ecosystem/faucets)
 * [Grants](/ecosystem/grants)
@@ -117,23 +119,30 @@ Below is a list of commonly used DeFi contracts on Flow:
 
 #### Flow Cadence Testnet[​](#flow-cadence-testnet "Direct link to Flow Cadence Testnet")
 
-| Contract Name | Flow Cadence Mainnet Address |
+| Contract Name | Flow Cadence Testnet Address |
 | --- | --- |
-| [BandOracle.cdc (Band)](https://contractbrowser.com/A.ec67451f8a58216a.PublicPriceOracle) | `0x2c71de7af78d1adf` |
+| [PublicPriceOracle.cdc (IncrementFi)](https://contractbrowser.com/A.8232ce4a3aff4e94.PublicPriceOracle) | `0x8232ce4a3aff4e94` |
+| [BandOracle.cdc (Band)](https://contractbrowser.com/A.2c71de7af78d1adf.BandOracle) | `0x2c71de7af78d1adf` |
 
 #### Flow Cadence Mainnet[​](#flow-cadence-mainnet-2 "Direct link to Flow Cadence Mainnet")
 
 | Contract Name | Flow Cadence Mainnet Address |
 | --- | --- |
 | [PublicPriceOracle.cdc (IncrementFi)](https://contractbrowser.com/A.ec67451f8a58216a.PublicPriceOracle) | `0xec67451f8a58216a` |
-| [BandOracle.cdc (Band) Protocol](https://contractbrowser.com/A.ec67451f8a58216a.PublicPriceOracle) | `0x6801a6222ebf784a` |
+| [BandOracle.cdc (Band) Protocol](https://contractbrowser.com/A.6801a6222ebf784a.BandOracle) | `0x6801a6222ebf784a` |
 
 ## Ethereum Attestation Service[​](#ethereum-attestation-service "Direct link to Ethereum Attestation Service")
 
 More information can be found on the Credora docs site for [EAS on Flow](https://credora.gitbook.io/eas-for-flow).
 
-Mainnet EAS Explorer: [<https://flow.easscan.credora.io>] (<https://flow.easscan.credora.io>)
 Testnet EAS Explorer: [<https://flow-testnet.easscan.credora.io>] (<https://flow-testnet.easscan.credora.io>)
+
+| Contract Name | Flow EVM Testnet Address |
+| --- | --- |
+| [SchemaRegistry.sol (Ethereum Attestation Service)](https://evm-testnet.flowscan.io/address/0x97900F59828Da4187607Cb8F84f49e3944199d18?tab=contract) | `0x97900F59828Da4187607Cb8F84f49e3944199d18` |
+| [EAS.sol (Ethereum Attestation Service)](https://evm-testnet.flowscan.io/address/0xBCF2dA8f82fb032A2474c92Ec5b70C95A83fc0cc?tab=contract) | `0xBCF2dA8f82fb032A2474c92Ec5b70C95A83fc0cc` |
+
+Mainnet EAS Explorer: [<https://flow.easscan.credora.io>] (<https://flow.easscan.credora.io>)
 
 | Contract Name | Flow EVM Mainnet Address |
 | --- | --- |
@@ -142,13 +151,13 @@ Testnet EAS Explorer: [<https://flow-testnet.easscan.credora.io>] (<https://flow
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/defi-contracts.md)
 
-Last updated on **Mar 10, 2025** by **j pimmel**
+Last updated on **Mar 14, 2025** by **j pimmel**
 
 [Previous
 
 DeFi & Liquidity](/ecosystem/defi-liquidity)[Next
 
-Stablecoins & Bridges FAQ](/ecosystem/defi-liquidity/faq)
+Cross-chain swaps on Flow EVM](/ecosystem/defi-liquidity/cross-chain-swaps)
 
 ###### Rate this page
 
