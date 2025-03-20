@@ -17,6 +17,7 @@ Search
 
   + [Register Token](/tutorials/token-launch/register-token)
 * [Cross-VM App](/tutorials/cross-vm-apps)
+* [FlowtoBooth Tutorials](/tutorials/flowtobooth)
 
 * [Token Launch](/tutorials/token-launch)
 * Register Token
@@ -67,7 +68,7 @@ For any issues, refer to the [Token List GitHub Repository](https://github.com/f
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/token-launch/register-token.md)
 
-Last updated on **Mar 4, 2025** by **Brian Doyle**
+Last updated on **Mar 6, 2025** by **Chase Fleming**
 
 [Previous
 
