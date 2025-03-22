@@ -78,7 +78,7 @@ The process by which the Core Team chooses the updates for each new Protocol Ver
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/governance.md)
 
-Last updated on **Mar 6, 2025** by **Chase Fleming**
+Last updated on **Mar 6, 2025** by **Giovanni Sanchez**
 
 [Previous
 

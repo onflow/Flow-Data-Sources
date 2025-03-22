@@ -384,7 +384,7 @@ FCL is built **on top of the Flow SDK**, making it easier to handle authenticati
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/index.md)
 
-Last updated on **Mar 6, 2025** by **Chase Fleming**
+Last updated on **Mar 6, 2025** by **Giovanni Sanchez**
 
 [Previous
 

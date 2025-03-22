@@ -535,7 +535,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/deployment/deploy-project-contracts.md)
 
-Last updated on **Mar 6, 2025** by **Chase Fleming**
+Last updated on **Mar 6, 2025** by **Giovanni Sanchez**
 
 [Previous
 

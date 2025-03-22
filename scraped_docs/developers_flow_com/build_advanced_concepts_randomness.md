@@ -122,7 +122,7 @@ In other words, transactions submitted by a non-trusted party are able to reject
 
 info
 
-💡 **Post-selection** - the ability for transactions to reject results they don't like - is inherent to any smart contract platform that allows transactions to roll back atomically. See this very similar [Ethereum example](https://consensys.github.io/smart-contract-best-practices/development-recommendations/general/public-data/).
+**Post-selection** - the ability for transactions to reject results they don't like - is inherent to any smart contract platform that allows transactions to roll back atomically. See this very similar [Ethereum example](https://consensys.github.io/smart-contract-best-practices/development-recommendations/general/public-data/).
 
 The central aspect that a contract developer needs to think about is the following scenario:
 
@@ -149,7 +149,7 @@ We recommend this approach as a best-practice example for implementing a commit-
 
 info
 
-💡 While the commit-and-reveal scheme mitigates post-selection of results by adversarial clients, Flow's secure randomness additionally protects against any pre-selection vulnerabilities (like biasing attacks by byzantine miners).
+While the commit-and-reveal scheme mitigates post-selection of results by adversarial clients, Flow's secure randomness additionally protects against any pre-selection vulnerabilities (like biasing attacks by byzantine miners).
 
 A commit-reveal scheme can be implemented as follows. The coin toss example described earlier will be used for illustration:
 
@@ -394,7 +394,7 @@ If you'd like to dive deeper into Flow's onchain randomness, here's a list of re
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/randomness.md)
 
-Last updated on **Mar 6, 2025** by **Chase Fleming**
+Last updated on **Mar 21, 2025** by **Giovanni Sanchez**
 
 [Previous
 

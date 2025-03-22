@@ -275,11 +275,13 @@ _17
 
 }`
 
-:::warning[The above code is susceptible to the [modulo]
+warning
+
+The above code is susceptible to the [modulo
 bias](https://research.kudelskisecurity.com/2020/07/28/the-definitive-guide-to-modulo-bias-and-how-to-avoid-it/),
 particularly if the random number range is not a multiple of your desired range. To avoid this, you can use a more
 complex algorithm like rejection sampling, an example for which is provided in [this
-repository](https://github.com/onflow/random-coin-toss). :::
+repository](https://github.com/onflow/random-coin-toss).
 
 ## **Secure Randomness with Commit-Reveal Scheme in Solidity**[​](#secure-randomness-with-commit-reveal-scheme-in-solidity "Direct link to secure-randomness-with-commit-reveal-scheme-in-solidity")
 
@@ -309,7 +311,7 @@ implentation](https://github.com/onflow/random-coin-toss) using the VRF.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/vrf.md)
 
-Last updated on **Mar 6, 2025** by **Chase Fleming**
+Last updated on **Mar 21, 2025** by **Giovanni Sanchez**
 
 [Previous
 
