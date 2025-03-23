@@ -162,7 +162,7 @@ Cancel
 
 [Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Forgs%2Fonflow%2Fdiscussions%2F1225)
 
-[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Fdiscussions%2Fshow&source=header-repo&source_repo=onflow%2Fflow)
+[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Fvoltron%2Fdiscussions_fragments%2Fdiscussion_layout&source=header-repo&source_repo=onflow%2Fflow)
 Reseting focus
 
 You signed in with another tab or window. Reload to refresh your session.
