@@ -801,7 +801,7 @@ Register Provider with FCL Handshake and implement 5 Endpoints.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/custodial.md)
 
-Last updated on **Mar 6, 2025** by **Chase Fleming**
+Last updated on **Mar 6, 2025** by **Giovanni Sanchez**
 
 [Previous
 
