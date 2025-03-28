@@ -19,12 +19,9 @@ Search
 * [Fees](/evm/fees)
 * [Accounts](/evm/accounts)
 * [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
-* [Data Indexers](/evm/data-indexers)
 * [Faucets ↙](/evm/faucets)
 * [Block Explorers ↙](/evm/block-explorers)
 * [Guides](/evm/guides/integrating-metamask)
-* [Clients](/evm/clients/ethers)
-* [Using EVM with Cadence](/evm/cadence/interacting-with-coa)
 
 * Faucets ↙
 
@@ -36,11 +33,11 @@ Go to [Faucets](/ecosystem/faucets)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/faucets.mdx)
 
-Last updated on **Mar 6, 2025** by **Giovanni Sanchez**
+Last updated on **Mar 13, 2025** by **j pimmel**
 
 [Previous
 
-Data Indexers](/evm/data-indexers)[Next
+Cross-chain Bridges ↙](/evm/cross-chain-bridges)[Next
 
 Block Explorers ↙](/evm/block-explorers)
 

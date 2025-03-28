@@ -15,6 +15,7 @@ Search
 * [Ecosystem](/ecosystem)
 * [Wallets](/ecosystem/wallets)
 * [Flow Block Explorers](/ecosystem/block-explorers)
+* [Data Indexers](/ecosystem/data-indexers)
 * [Developer Profile](/ecosystem/developer-profile)
 * [DeFi & Liquidity](/ecosystem/defi-liquidity)
 * [Bridges](/ecosystem/bridges)
@@ -59,7 +60,7 @@ Stay ahead of upcoming hackathons and exclusive announcements. [Join Flow World 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/hackathons.md)
 
-Last updated on **Mar 6, 2025** by **Giovanni Sanchez**
+Last updated on **Mar 13, 2025** by **j pimmel**
 
 [Previous
 

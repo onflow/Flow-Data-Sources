@@ -19,12 +19,9 @@ Search
 * [Fees](/evm/fees)
 * [Accounts](/evm/accounts)
 * [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
-* [Data Indexers](/evm/data-indexers)
 * [Faucets ↙](/evm/faucets)
 * [Block Explorers ↙](/evm/block-explorers)
 * [Guides](/evm/guides/integrating-metamask)
-* [Clients](/evm/clients/ethers)
-* [Using EVM with Cadence](/evm/cadence/interacting-with-coa)
 
 * Why EVM on Flow
 
@@ -81,7 +78,7 @@ Those wishing to understand the technical specifics of how Flow EVM works we rec
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/about.md)
 
-Last updated on **Mar 6, 2025** by **Giovanni Sanchez**
+Last updated on **Mar 13, 2025** by **j pimmel**
 
 [Next
 

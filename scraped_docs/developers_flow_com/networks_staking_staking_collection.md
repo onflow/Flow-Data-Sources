@@ -632,7 +632,7 @@ which is a mapping of nodeIDs to the `FlowStakingCollection.MachineAccountInfo` 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/14-staking-collection.md)
 
-Last updated on **Mar 6, 2025** by **Giovanni Sanchez**
+Last updated on **Mar 13, 2025** by **j pimmel**
 
 [Previous
 

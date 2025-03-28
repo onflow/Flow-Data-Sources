@@ -1,6 +1,6 @@
 # Source: https://developers.flow.com/tutorials/cross-vm-apps/introduction
 
-Introduction | Flow Developer Portal
+Batched Transactions | Flow Developer Portal
 
 
 
@@ -12,21 +12,27 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 
 Search
 
+* [Secure Randomness with Commit-Reveal in Cadence](/tutorials/commit-reveal-cadence)
 * [Tutorials](/tutorials)
 * [Token Launch](/tutorials/token-launch)
-* [Cross-VM App](/tutorials/cross-vm-apps)
+* [Deploy a Solidity Contract Using Cadence](/tutorials/deploy-solidity-contract)
+* [Cross-VM Apps](/tutorials/cross-vm-apps)
 
-  + [Introduction](/tutorials/cross-vm-apps/introduction)
+  + [Batched Transactions](/tutorials/cross-vm-apps/introduction)
+  + [Interacting with COAs](/tutorials/cross-vm-apps/interacting-with-coa)
+  + [Direct Calls to Flow EVM](/tutorials/cross-vm-apps/direct-calls)
+  + [Batched EVM Transactions](/tutorials/cross-vm-apps/batched-evm-transactions)
+  + [Cross-VM Bridge](/tutorials/cross-vm-apps/vm-bridge)
 * [FlowtoBooth Tutorials](/tutorials/flowtobooth)
 
-* [Cross-VM App](/tutorials/cross-vm-apps)
-* Introduction
+* [Cross-VM Apps](/tutorials/cross-vm-apps)
+* Batched Transactions
 
 On this page
 
-# Introduction
+# Batched Transactions
 
-Ever since the launch of Flow EVM, it's been possible to *supercharge* your EVM apps by using Flow Cadence features and contracts. Some benefits, such as [native VRF](/evm/guides/vrf) and inexpensive gas without compromising security are built in and either easy or automatic to use. Others, such as the ability to use [Cadence](https://cadence-lang.org/docs) to [structure and call EVM transactions](/evm/cadence/batched-evm-transactions), are powerful but complicated to configure and use. They also require developers to manage concurrent connections to both networks.
+Ever since the launch of Flow EVM, it's been possible to *supercharge* your EVM apps by using Flow Cadence features and contracts. Some benefits, such as [native VRF](/evm/guides/vrf) and inexpensive gas without compromising security are built in and either easy or automatic to use. Others, such as the ability to use [Cadence](https://cadence-lang.org/docs) to [structure and call EVM transactions](/tutorials/cross-vm-apps/batched-evm-transactions), are powerful but complicated to configure and use. They also require developers to manage concurrent connections to both networks.
 
 [FLIP 316](https://github.com/onflow/flips/pull/317) improves the [Flow Client Library (FCL)](/tools/clients/fcl-js) to support cross-VM functionality between Flow EVM and Flow Cadence.
 
@@ -480,7 +486,7 @@ abi: ClickToken.abi,
 
 _10
 
-address: deployedAddresses['ClickTokenModule#ClickToken'] as `0x${string}`
+address: deployedAddresses['ClickTokenModule#ClickToken'] as `0x${string}`,
 
 _10
 
@@ -1466,13 +1472,13 @@ Now that you have completed the tutorial, you should be able to:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/introduction.md)
 
-Last updated on **Mar 6, 2025** by **Giovanni Sanchez**
+Last updated on **Mar 26, 2025** by **Brian Doyle**
 
 [Previous
 
-Cross-VM App](/tutorials/cross-vm-apps)[Next
+Cross-VM Apps](/tutorials/cross-vm-apps)[Next
 
-FlowtoBooth Tutorials](/tutorials/flowtobooth)
+Interacting with COAs](/tutorials/cross-vm-apps/interacting-with-coa)
 
 ###### Rate this page
 

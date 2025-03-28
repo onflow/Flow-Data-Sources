@@ -15,6 +15,7 @@ Search
 * [Ecosystem](/ecosystem)
 * [Wallets](/ecosystem/wallets)
 * [Flow Block Explorers](/ecosystem/block-explorers)
+* [Data Indexers](/ecosystem/data-indexers)
 * [Developer Profile](/ecosystem/developer-profile)
 * [DeFi & Liquidity](/ecosystem/defi-liquidity)
 * [Bridges](/ecosystem/bridges)
@@ -99,11 +100,11 @@ We'll be updating the Developer Profile with new features and challenges. Check 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/developer-profile.md)
 
-Last updated on **Mar 6, 2025** by **Giovanni Sanchez**
+Last updated on **Mar 13, 2025** by **j pimmel**
 
 [Previous
 
-Flow Block Explorers](/ecosystem/block-explorers)[Next
+Data Indexers](/ecosystem/data-indexers)[Next
 
 DeFi & Liquidity](/ecosystem/defi-liquidity)
 

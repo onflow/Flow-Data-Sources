@@ -12,9 +12,11 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 
 Search
 
+* [Secure Randomness with Commit-Reveal in Cadence](/tutorials/commit-reveal-cadence)
 * [Tutorials](/tutorials)
 * [Token Launch](/tutorials/token-launch)
-* [Cross-VM App](/tutorials/cross-vm-apps)
+* [Deploy a Solidity Contract Using Cadence](/tutorials/deploy-solidity-contract)
+* [Cross-VM Apps](/tutorials/cross-vm-apps)
 * [FlowtoBooth Tutorials](/tutorials/flowtobooth)
 
   + [Build a Fully-Onchain Image Gallery](/tutorials/flowtobooth/image-gallery)

@@ -15,6 +15,7 @@ Search
 * [Ecosystem](/ecosystem)
 * [Wallets](/ecosystem/wallets)
 * [Flow Block Explorers](/ecosystem/block-explorers)
+* [Data Indexers](/ecosystem/data-indexers)
 * [Developer Profile](/ecosystem/developer-profile)
 * [DeFi & Liquidity](/ecosystem/defi-liquidity)
 * [Bridges](/ecosystem/bridges)

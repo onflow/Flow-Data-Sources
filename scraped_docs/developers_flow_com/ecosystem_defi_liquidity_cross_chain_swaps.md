@@ -15,11 +15,13 @@ Search
 * [Ecosystem](/ecosystem)
 * [Wallets](/ecosystem/wallets)
 * [Flow Block Explorers](/ecosystem/block-explorers)
+* [Data Indexers](/ecosystem/data-indexers)
 * [Developer Profile](/ecosystem/developer-profile)
 * [DeFi & Liquidity](/ecosystem/defi-liquidity)
 
   + [DeFi Contracts](/ecosystem/defi-liquidity/defi-contracts)
   + [Cross-chain swaps on Flow EVM](/ecosystem/defi-liquidity/cross-chain-swaps)
+  + [Add Token To MetaMask](/ecosystem/defi-liquidity/add-token-to-metamask)
   + [Stablecoins & Bridges FAQ](/ecosystem/defi-liquidity/faq)
 * [Bridges](/ecosystem/bridges)
 * [Community Projects](/ecosystem/projects)
@@ -73,7 +75,7 @@ Last updated on **Mar 14, 2025** by **j pimmel**
 
 DeFi Contracts](/ecosystem/defi-liquidity/defi-contracts)[Next
 
-Stablecoins & Bridges FAQ](/ecosystem/defi-liquidity/faq)
+Add Token To MetaMask](/ecosystem/defi-liquidity/add-token-to-metamask)
 
 ###### Rate this page
 

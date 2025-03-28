@@ -12,9 +12,11 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 
 Search
 
+* [Secure Randomness with Commit-Reveal in Cadence](/tutorials/commit-reveal-cadence)
 * [Tutorials](/tutorials)
 * [Token Launch](/tutorials/token-launch)
-* [Cross-VM App](/tutorials/cross-vm-apps)
+* [Deploy a Solidity Contract Using Cadence](/tutorials/deploy-solidity-contract)
+* [Cross-VM Apps](/tutorials/cross-vm-apps)
 * [FlowtoBooth Tutorials](/tutorials/flowtobooth)
 
 * Tutorials
@@ -29,27 +31,32 @@ For this grand future, we'll need a new suite of tutorials, guides, and resource
 
 ## Token Launch[​](#token-launch "Direct link to Token Launch")
 
-Learn how to launch your own token on Flow using Cadence and EVM.
+Learn how to launch your own token on Flow using Cadence and EVM. This guide covers the process of registering and deploying tokens that can be used across both virtual machines.
 
-* [Register a Token](/tutorials/token-launch/register-token)
+* [Register a Token](/tutorials/token-launch/register-token) - Step-by-step guide to registering and deploying your token on Flow
 
 ## Cross-VM Applications[​](#cross-vm-applications "Direct link to Cross-VM Applications")
 
-Learn how to build applications that interact with both Cadence and Flow EVM.
+Learn how to build applications that interact with both Cadence and Flow EVM. These tutorials cover everything from basic integration to advanced features like transaction batching and token bridging.
 
-* [Introduction to Cross-VM Applications](/tutorials/cross-vm-apps/introduction)
+* [Introduction to Cross-VM Applications](/tutorials/cross-vm-apps/introduction) - Learn how to use FCL with Wagmi and RainbowKit to create a cross-VM app
+* [Interacting with COAs](/tutorials/cross-vm-apps/interacting-with-coa) - Learn how to create and interact with Cadence Owned Accounts (COAs) to control EVM accounts from Cadence
+* [Batched EVM Transactions](/tutorials/cross-vm-apps/batched-evm-transactions) - Discover how to batch multiple EVM transactions into a single Cadence transaction
+* [Cross-VM Bridge](/tutorials/cross-vm-apps/vm-bridge) - Explore how to bridge fungible and non-fungible tokens between Cadence and EVM environments
 
 ## FlowtoBooth[​](#flowtobooth "Direct link to FlowtoBooth")
 
-Explore Flow's unique capabilities through fun benchmark applications that showcase what's possible with Flow's efficient gas pricing.
+Explore Flow's unique capabilities through fun benchmark applications that showcase what's possible with Flow's efficient gas pricing. These tutorials demonstrate practical applications of Flow's advanced features.
 
-* [Build a Fully-Onchain Image Gallery](/tutorials/flowtobooth/image-gallery)
+* [Build a Fully-Onchain Image Gallery](/tutorials/flowtobooth/image-gallery) - Create a fully onchain image gallery that demonstrates Flow's efficient storage capabilities
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/index.md)
 
-Last updated on **Mar 15, 2025** by **Brian Doyle**
+Last updated on **Mar 26, 2025** by **Brian Doyle**
 
-[Next
+[Previous
+
+Secure Randomness with Commit-Reveal in Cadence](/tutorials/commit-reveal-cadence)[Next
 
 Token Launch](/tutorials/token-launch)
 

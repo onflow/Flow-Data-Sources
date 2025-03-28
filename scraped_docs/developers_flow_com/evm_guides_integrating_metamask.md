@@ -19,7 +19,6 @@ Search
 * [Fees](/evm/fees)
 * [Accounts](/evm/accounts)
 * [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
-* [Data Indexers](/evm/data-indexers)
 * [Faucets ↙](/evm/faucets)
 * [Block Explorers ↙](/evm/block-explorers)
 * [Guides](/evm/guides/integrating-metamask)
@@ -31,8 +30,8 @@ Search
   + [Viem & Wagmi](/evm/guides/wagmi)
   + [Foundry](/evm/guides/foundry)
   + [VRF (Randomness) in Solidity](/evm/guides/vrf)
-* [Clients](/evm/clients/ethers)
-* [Using EVM with Cadence](/evm/cadence/interacting-with-coa)
+  + [Ethers](/evm/guides/ethers)
+  + [Web3.js](/evm/guides/web3-js)
 
 * Guides
 * Integrating Metamask
@@ -169,7 +168,7 @@ By using this approach to add the Flow network to Metamask, you can avoid manual
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/integrating-metamask.mdx)
 
-Last updated on **Mar 6, 2025** by **Giovanni Sanchez**
+Last updated on **Mar 13, 2025** by **j pimmel**
 
 [Previous
 

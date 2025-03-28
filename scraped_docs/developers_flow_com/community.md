@@ -15,6 +15,7 @@ Search
 * [Ecosystem](/ecosystem)
 * [Wallets](/ecosystem/wallets)
 * [Flow Block Explorers](/ecosystem/block-explorers)
+* [Data Indexers](/ecosystem/data-indexers)
 * [Developer Profile](/ecosystem/developer-profile)
 * [DeFi & Liquidity](/ecosystem/defi-liquidity)
 * [Bridges](/ecosystem/bridges)
@@ -39,13 +40,17 @@ Store, manage, and interact securely with tokens and digital assets on Flow. Dis
 
 User-friendly online tools that provide visual representations of blockchain data, facilitating easy navigation through transactions, blocks, addresses, and smart contracts while ensuring real-time insights and transparency.](/ecosystem/block-explorers)
 
+[## Data Indexers
+
+When building applications that leverage Flow data, developers have multiple Data Indexers to choose from. These platforms offer flexible options, allowing you to index all data on Flow, including information from both the Cadence VM and EVM. Alternatively, if your application doesn't require Cadence, you can opt to index only EVM data. This flexibility ensures that you can tailor your data indexing strategy to fit the specific needs of your application.](/ecosystem/data-indexers)
+
 [## ⭐ Developer Profile
 
 Learn about Developer Profile - Flow's upcoming developer recognition and learning platform. Create your builder profile. In the future, you'll be able to track your learning journey, showcase your projects, and connect with the Flow ecosystem.](/ecosystem/developer-profile)
 
 [## 💧 DeFi & Liquidity
 
-3 items](/ecosystem/defi-liquidity)
+4 items](/ecosystem/defi-liquidity)
 
 [## ⛓️ Bridges
 
@@ -93,7 +98,7 @@ Flow Improvement Proposals (FLIPs) serve as a platform for engaging the Flow com
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/index.mdx)
 
-Last updated on **Mar 6, 2025** by **Giovanni Sanchez**
+Last updated on **Mar 13, 2025** by **j pimmel**
 
 [Next
 

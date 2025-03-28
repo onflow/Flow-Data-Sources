@@ -19,12 +19,9 @@ Search
 * [Fees](/evm/fees)
 * [Accounts](/evm/accounts)
 * [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
-* [Data Indexers](/evm/data-indexers)
 * [Faucets ↙](/evm/faucets)
 * [Block Explorers ↙](/evm/block-explorers)
 * [Guides](/evm/guides/integrating-metamask)
-* [Clients](/evm/clients/ethers)
-* [Using EVM with Cadence](/evm/cadence/interacting-with-coa)
 
 * Accounts
 
@@ -83,13 +80,13 @@ Because COAs are owned by Cadence resources, an EVM transaction is not required 
 
 ### More Information[​](#more-information "Direct link to More Information")
 
-To learn how to create and interact with COAs in Cadence, see the guide for [Interacting with COAs from Cadence](/evm/cadence/interacting-with-coa).
+To learn how to create and interact with COAs in Cadence, see the guide for [Interacting with COAs from Cadence](/tutorials/cross-vm-apps/interacting-with-coa).
 
 For more information about Cadence Owned Accounts, see the [Flow EVM Support FLIP](https://github.com/onflow/flips/pull/225/files)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/accounts.md)
 
-Last updated on **Mar 6, 2025** by **Giovanni Sanchez**
+Last updated on **Mar 26, 2025** by **Brian Doyle**
 
 [Previous
 

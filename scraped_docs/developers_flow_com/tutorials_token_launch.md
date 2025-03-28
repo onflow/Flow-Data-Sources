@@ -12,11 +12,13 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 
 Search
 
+* [Secure Randomness with Commit-Reveal in Cadence](/tutorials/commit-reveal-cadence)
 * [Tutorials](/tutorials)
 * [Token Launch](/tutorials/token-launch)
 
   + [Register Token](/tutorials/token-launch/register-token)
-* [Cross-VM App](/tutorials/cross-vm-apps)
+* [Deploy a Solidity Contract Using Cadence](/tutorials/deploy-solidity-contract)
+* [Cross-VM Apps](/tutorials/cross-vm-apps)
 * [FlowtoBooth Tutorials](/tutorials/flowtobooth)
 
 * Token Launch
@@ -33,7 +35,7 @@ This section covers the process of registering your tokens on Flow.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/token-launch/index.md)
 
-Last updated on **Mar 6, 2025** by **Giovanni Sanchez**
+Last updated on **Mar 13, 2025** by **j pimmel**
 
 [Previous
 

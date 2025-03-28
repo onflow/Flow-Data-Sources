@@ -15,6 +15,7 @@ Search
 * [Ecosystem](/ecosystem)
 * [Wallets](/ecosystem/wallets)
 * [Flow Block Explorers](/ecosystem/block-explorers)
+* [Data Indexers](/ecosystem/data-indexers)
 * [Developer Profile](/ecosystem/developer-profile)
 * [DeFi & Liquidity](/ecosystem/defi-liquidity)
 * [Bridges](/ecosystem/bridges)
@@ -37,7 +38,7 @@ Research shows that warm introductions can increase your chances of securing fun
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/vcs-and-funds.md)
 
-Last updated on **Mar 6, 2025** by **Giovanni Sanchez**
+Last updated on **Mar 13, 2025** by **j pimmel**
 
 [Previous
 

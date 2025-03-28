@@ -185,7 +185,7 @@ about the events that can be emitted by these contracts and scripts you can use 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/09-qc-dkg.md)
 
-Last updated on **Mar 6, 2025** by **Giovanni Sanchez**
+Last updated on **Mar 13, 2025** by **j pimmel**
 
 [Previous
 

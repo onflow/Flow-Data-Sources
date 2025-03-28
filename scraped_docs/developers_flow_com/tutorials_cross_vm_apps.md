@@ -1,6 +1,6 @@
 # Source: https://developers.flow.com/tutorials/cross-vm-apps
 
-Cross-VM App | Flow Developer Portal
+Cross-VM Apps | Flow Developer Portal
 
 
 
@@ -12,14 +12,20 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 
 Search
 
+* [Secure Randomness with Commit-Reveal in Cadence](/tutorials/commit-reveal-cadence)
 * [Tutorials](/tutorials)
 * [Token Launch](/tutorials/token-launch)
-* [Cross-VM App](/tutorials/cross-vm-apps)
+* [Deploy a Solidity Contract Using Cadence](/tutorials/deploy-solidity-contract)
+* [Cross-VM Apps](/tutorials/cross-vm-apps)
 
-  + [Introduction](/tutorials/cross-vm-apps/introduction)
+  + [Batched Transactions](/tutorials/cross-vm-apps/introduction)
+  + [Interacting with COAs](/tutorials/cross-vm-apps/interacting-with-coa)
+  + [Direct Calls to Flow EVM](/tutorials/cross-vm-apps/direct-calls)
+  + [Batched EVM Transactions](/tutorials/cross-vm-apps/batched-evm-transactions)
+  + [Cross-VM Bridge](/tutorials/cross-vm-apps/vm-bridge)
 * [FlowtoBooth Tutorials](/tutorials/flowtobooth)
 
-* Cross-VM App
+* Cross-VM Apps
 
 On this page
 
@@ -29,7 +35,10 @@ This series covers how to build cross-VM applications that integrate Flow EVM wi
 
 ## Tutorials[​](#tutorials "Direct link to Tutorials")
 
-* **[Introduction](/tutorials/cross-vm-apps/introduction)** – Learn how to use FCL with Wagmi and RainbowKit to create a cross-VM app.
+* **[Batched Transactions](/tutorials/cross-vm-apps/introduction)** - Learn how to use FCL with Wagmi and RainbowKit to create a cross-VM app.
+* **[Interacting with COAs](/tutorials/cross-vm-apps/interacting-with-coa)** - Learn how to create and interact with Cadence Owned Accounts (COAs) to control EVM accounts from Cadence.
+* **[Batched EVM Transactions](/tutorials/cross-vm-apps/batched-evm-transactions)** - Discover how to batch multiple EVM transactions into a single Cadence transaction.
+* **[Cross-VM Bridge](/tutorials/cross-vm-apps/vm-bridge)** - Explore how to bridge fungible and non-fungible tokens between Cadence and EVM environments.
 
 ## More Coming Soon[​](#more-coming-soon "Direct link to More Coming Soon")
 
@@ -37,13 +46,13 @@ Stay tuned—more tutorials and advanced guides are on the way!
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/index.md)
 
-Last updated on **Mar 6, 2025** by **Giovanni Sanchez**
+Last updated on **Mar 26, 2025** by **Brian Doyle**
 
 [Previous
 
-Register Token](/tutorials/token-launch/register-token)[Next
+Deploy a Solidity Contract Using Cadence](/tutorials/deploy-solidity-contract)[Next
 
-Introduction](/tutorials/cross-vm-apps/introduction)
+Batched Transactions](/tutorials/cross-vm-apps/introduction)
 
 ###### Rate this page
 

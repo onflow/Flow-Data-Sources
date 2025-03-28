@@ -15,11 +15,13 @@ Search
 * [Ecosystem](/ecosystem)
 * [Wallets](/ecosystem/wallets)
 * [Flow Block Explorers](/ecosystem/block-explorers)
+* [Data Indexers](/ecosystem/data-indexers)
 * [Developer Profile](/ecosystem/developer-profile)
 * [DeFi & Liquidity](/ecosystem/defi-liquidity)
 
   + [DeFi Contracts](/ecosystem/defi-liquidity/defi-contracts)
   + [Cross-chain swaps on Flow EVM](/ecosystem/defi-liquidity/cross-chain-swaps)
+  + [Add Token To MetaMask](/ecosystem/defi-liquidity/add-token-to-metamask)
   + [Stablecoins & Bridges FAQ](/ecosystem/defi-liquidity/faq)
 * [Bridges](/ecosystem/bridges)
 * [Community Projects](/ecosystem/projects)
@@ -60,17 +62,17 @@ Below is a list of commonly used DeFi contracts on Flow:
 
 #### Flow Cadence Mainnet[​](#flow-cadence-mainnet "Direct link to Flow Cadence Mainnet")
 
-| Token Name | Flow Cadence Mainnet Address |
-| --- | --- |
-| [FLOW](https://www.flowscan.io/ft/token/A.1654653399040a61.FlowToken.Vault) | `0x1654653399040a61` |
-| [USDC (stgUSDC)](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_f1815bd50389c46847f0bda824ec8da914045d14.Vault) | `EVMVMBridgedToken_f1815bd50389c46847f0bda824ec8da914045d14` |
-| [USDT (stgUSDT)](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_674843c06ff83502ddb4d37c2e09c01cda38cbc8.Vault) | `EVMVMBridgedToken_674843c06ff83502ddb4d37c2e09c01cda38cbc8` |
-| [USDF (USD Flow)](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_2aabea2058b5ac2d339b163c6ab6f2b6d53aabed.Vault) | `EVMVMBridgedToken_2aabea2058b5ac2d339b163c6ab6f2b6d53aabed` |
-| [USDC.e (Celer)](https://flowscan.io/ft/token/A.f1ab99c82dee3526.USDCFlow.Vault) | `0xf1ab99c82dee3526` |
-| [stFlow (Increment Staked FLOW)](https://flowscan.io/ft/token/A.d6f80565193ad727.stFlowToken.Vault) | `0xd6f80565193ad727` |
-| [ankrFLOWEVM (Ankr Staked FLOW)](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_1b97100ea1d7126c4d60027e231ea4cb25314bdb.Vault) | `EVMVMBridgedToken_1b97100ea1d7126c4d60027e231ea4cb25314bdb` |
-| [WETH](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_2f6f07cdcf3588944bf4c42ac74ff24bf56e7590.Vault) | `EVMVMBridgedToken_2f6f07cdcf3588944bf4c42ac74ff24bf56e7590` |
-| [cbBTC](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_a0197b2044d28b08be34d98b23c9312158ea9a18.Vault) | `EVMVMBridgedToken_a0197b2044d28b08be34d98b23c9312158ea9a18` |
+| Token Name | Flow Cadence Mainnet Address | Flow Cadence Contract Name |
+| --- | --- | --- |
+| [FLOW](https://www.flowscan.io/ft/token/A.1654653399040a61.FlowToken.Vault) | `0x1654653399040a61` | FlowToken |
+| [USDC (stgUSDC)](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_f1815bd50389c46847f0bda824ec8da914045d14.Vault) | `0x1e4aa0b87d10b141` | EVMVMBridgedToken\_f1815bd50389c46847f0bda824ec8da914045d14 |
+| [USDT (stgUSDT)](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_674843c06ff83502ddb4d37c2e09c01cda38cbc8.Vault) | `0x1e4aa0b87d10b141` | EVMVMBridgedToken\_674843c06ff83502ddb4d37c2e09c01cda38cbc8 |
+| [USDF (USD Flow)](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_2aabea2058b5ac2d339b163c6ab6f2b6d53aabed.Vault) | `0x1e4aa0b87d10b141` | EVMVMBridgedToken\_2aabea2058b5ac2d339b163c6ab6f2b6d53aabed |
+| [USDC.e (Celer)](https://flowscan.io/ft/token/A.f1ab99c82dee3526.USDCFlow.Vault) | `0xf1ab99c82dee3526` | USDCFlow |
+| [stFlow (Increment Staked FLOW)](https://flowscan.io/ft/token/A.d6f80565193ad727.stFlowToken.Vault) | `0xd6f80565193ad727` | stFlowToken |
+| [ankrFLOWEVM (Ankr Staked FLOW)](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_1b97100ea1d7126c4d60027e231ea4cb25314bdb.Vault) | `0x1e4aa0b87d10b141` | EVMVMBridgedToken\_1b97100ea1d7126c4d60027e231ea4cb25314bdb |
+| [WETH](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_2f6f07cdcf3588944bf4c42ac74ff24bf56e7590.Vault) | `0x1e4aa0b87d10b141` | EVMVMBridgedToken\_2f6f07cdcf3588944bf4c42ac74ff24bf56e7590 |
+| [cbBTC](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_a0197b2044d28b08be34d98b23c9312158ea9a18.Vault) | `0x1e4aa0b87d10b141` | EVMVMBridgedToken\_a0197b2044d28b08be34d98b23c9312158ea9a18 |
 
 ## AMMs & DEXs[​](#amms--dexs "Direct link to AMMs & DEXs")
 

@@ -135,7 +135,7 @@ Flow Testnet is explicitly for experimentation and testing and should not be use
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/deploying.md)
 
-Last updated on **Mar 6, 2025** by **Giovanni Sanchez**
+Last updated on **Mar 13, 2025** by **j pimmel**
 
 [Previous
 
