@@ -6,20 +6,19 @@ Build a Fully-Onchain Image Gallery | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/clients)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [Secure Randomness with Commit-Reveal in Cadence](/tutorials/commit-reveal-cadence)
 * [Tutorials](/tutorials)
 * [Token Launch](/tutorials/token-launch)
-* [Deploy a Solidity Contract Using Cadence](/tutorials/deploy-solidity-contract)
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
 * [FlowtoBooth Tutorials](/tutorials/flowtobooth)
 
   + [Build a Fully-Onchain Image Gallery](/tutorials/flowtobooth/image-gallery)
+* [Native VRF](/tutorials/native-vrf)
 
 * [FlowtoBooth Tutorials](/tutorials/flowtobooth)
 * Build a Fully-Onchain Image Gallery
@@ -2853,7 +2852,9 @@ Last updated on **Mar 17, 2025** by **Brian Doyle**
 
 [Previous
 
-FlowtoBooth Tutorials](/tutorials/flowtobooth)
+FlowtoBooth Tutorials](/tutorials/flowtobooth)[Next
+
+Native VRF](/tutorials/native-vrf)
 
 ###### Rate this page
 

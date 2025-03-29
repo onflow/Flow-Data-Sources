@@ -6,18 +6,17 @@ Tutorials | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/clients)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [Secure Randomness with Commit-Reveal in Cadence](/tutorials/commit-reveal-cadence)
 * [Tutorials](/tutorials)
 * [Token Launch](/tutorials/token-launch)
-* [Deploy a Solidity Contract Using Cadence](/tutorials/deploy-solidity-contract)
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
 * [FlowtoBooth Tutorials](/tutorials/flowtobooth)
+* [Native VRF](/tutorials/native-vrf)
 
 * Tutorials
 
@@ -44,6 +43,13 @@ Learn how to build applications that interact with both Cadence and Flow EVM. Th
 * [Batched EVM Transactions](/tutorials/cross-vm-apps/batched-evm-transactions) - Discover how to batch multiple EVM transactions into a single Cadence transaction
 * [Cross-VM Bridge](/tutorials/cross-vm-apps/vm-bridge) - Explore how to bridge fungible and non-fungible tokens between Cadence and EVM environments
 
+## Native VRF[​](#native-vrf "Direct link to Native VRF")
+
+Learn how to leverage Flow's native VRF capabilities in both Cadence and Solidity smart contracts. These tutorials demonstrate how to implement secure randomness without relying on external oracles.
+
+* [Secure Randomness with Commit-Reveal in Cadence](/tutorials/native-vrf/commit-reveal-cadence) - Learn how to implement secure randomness in Cadence using Flow's commit-reveal scheme
+* [Deploy a Solidity Contract Using Cadence](/tutorials/native-vrf/deploy-solidity-contract) - Discover how to deploy and interact with Solidity contracts on Flow EVM using Cadence
+
 ## FlowtoBooth[​](#flowtobooth "Direct link to FlowtoBooth")
 
 Explore Flow's unique capabilities through fun benchmark applications that showcase what's possible with Flow's efficient gas pricing. These tutorials demonstrate practical applications of Flow's advanced features.
@@ -52,11 +58,9 @@ Explore Flow's unique capabilities through fun benchmark applications that showc
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/index.md)
 
-Last updated on **Mar 26, 2025** by **Brian Doyle**
+Last updated on **Mar 27, 2025** by **Brian Doyle**
 
-[Previous
-
-Secure Randomness with Commit-Reveal in Cadence](/tutorials/commit-reveal-cadence)[Next
+[Next
 
 Token Launch](/tutorials/token-launch)
 
@@ -66,6 +70,7 @@ Token Launch](/tutorials/token-launch)
 
 * [Token Launch](#token-launch)
 * [Cross-VM Applications](#cross-vm-applications)
+* [Native VRF](#native-vrf)
 * [FlowtoBooth](#flowtobooth)
 
 Documentation

@@ -6,17 +6,13 @@ Transactions | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/clients)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [Tools](/tools)
-* [Error Codes](/tools/error-codes)
-* [Flow CLI](/tools/flow-cli)
-* [Flow Emulator](/tools/emulator)
-* [Clients](/tools/clients)
+* [Client Tools](/tools/clients)
 
   + [Flow Client Library (FCL)](/tools/clients/fcl-js)
 
@@ -34,11 +30,15 @@ Search
     - [Signing and Verifying Arbitrary Data](/tools/clients/fcl-js/user-signatures)
     - [WalletConnect 2.0 Manual Configuration](/tools/clients/fcl-js/wallet-connect)
   + [Flow Go SDK](/tools/clients/flow-go-sdk)
+* [Tools](/tools)
+* [Error Codes](/tools/error-codes)
+* [Flow CLI](/tools/flow-cli)
+* [Flow Emulator](/tools/emulator)
 * [Flow Dev Wallet](/tools/flow-dev-wallet)
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 
-* [Clients](/tools/clients)
+* [Client Tools](/tools/clients)
 * [Flow Client Library (FCL)](/tools/clients/fcl-js)
 * Transactions
 
@@ -62,7 +62,7 @@ The `proposer` acts similar to the `nonce` in Ethereum transactions, and helps p
 The `payer` is who will be paying for the transaction.
 If these are not set, FCL defaults to using the current user for all roles.
 
-`fcl.mutate` will return a `transactionId`. We can pass the response directly to `fcl.tx` and then use the `onceSealed` method which resolves a promise when the transaction is sealed.
+`fcl.mutate` will return a `transactionId`. We can pass the response directly to `fcl.tx` and then use the `onceExecuted` method which resolves a promise when a transaction result is available.
 
 `_17
 
@@ -122,11 +122,11 @@ _17
 
 _17
 
-const transaction = await fcl.tx(transactionId).onceSealed()
+const transaction = await fcl.tx(transactionId).onceExecuted()
 
 _17
 
-console.log(transaction) // The transactions status and events after being sealed`
+console.log(transaction) // The transactions status and events after being executed`
 
 # Authorizing a Transaction
 
@@ -212,17 +212,17 @@ _21
 
 _21
 
-const transaction = await fcl.tx(transactionId).onceSealed()
+const transaction = await fcl.tx(transactionId).onceExecuted()
 
 _21
 
-console.log(transaction) // The transactions status and events after being sealed`
+console.log(transaction) // The transactions status and events after being executed`
 
 To learn more about `mutate`, check out the [API documentation](/tools/clients/fcl-js/api#mutate).
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/transactions.md)
 
-Last updated on **Mar 13, 2025** by **j pimmel**
+Last updated on **Mar 28, 2025** by **Jordan Ribbink**
 
 [Previous
 

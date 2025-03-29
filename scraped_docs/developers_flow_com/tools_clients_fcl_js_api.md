@@ -6,17 +6,13 @@ Flow Client Library (FCL) API Reference | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/clients)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [Tools](/tools)
-* [Error Codes](/tools/error-codes)
-* [Flow CLI](/tools/flow-cli)
-* [Flow Emulator](/tools/emulator)
-* [Clients](/tools/clients)
+* [Client Tools](/tools/clients)
 
   + [Flow Client Library (FCL)](/tools/clients/fcl-js)
 
@@ -34,11 +30,15 @@ Search
     - [Signing and Verifying Arbitrary Data](/tools/clients/fcl-js/user-signatures)
     - [WalletConnect 2.0 Manual Configuration](/tools/clients/fcl-js/wallet-connect)
   + [Flow Go SDK](/tools/clients/flow-go-sdk)
+* [Tools](/tools)
+* [Error Codes](/tools/error-codes)
+* [Flow CLI](/tools/flow-cli)
+* [Flow Emulator](/tools/emulator)
 * [Flow Dev Wallet](/tools/flow-dev-wallet)
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 
-* [Clients](/tools/clients)
+* [Client Tools](/tools/clients)
 * [Flow Client Library (FCL)](/tools/clients/fcl-js)
 * FCL Reference
 
@@ -2110,7 +2110,7 @@ A builder function that returns a [transaction object](#transactionobject) once 
 
 ⚠️The transactionID provided must be from the current spork.
 
-📣 Considering using [`fcl.tx(id).onceSealed()`](#tx) instead of calling this method directly.
+📣 Considering using [`fcl.tx(id).onceExecuted()`](#tx) instead of calling this method directly.
 
 #### Arguments[​](#arguments-14 "Direct link to Arguments")
 
@@ -3613,7 +3613,7 @@ Signature objects are used to represent a signature for a particular message as 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/api.md)
 
-Last updated on **Mar 18, 2025** by **Jordan Ribbink**
+Last updated on **Mar 28, 2025** by **Jordan Ribbink**
 
 [Previous
 

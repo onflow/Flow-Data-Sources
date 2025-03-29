@@ -6,17 +6,17 @@ Tools | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/clients)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
+* [Client Tools](/tools/clients)
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
 * [Flow CLI](/tools/flow-cli)
 * [Flow Emulator](/tools/emulator)
-* [Clients](/tools/clients)
 * [Flow Dev Wallet](/tools/flow-dev-wallet)
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
@@ -24,6 +24,10 @@ Search
 * Tools
 
 # Tools
+
+[## 💼 Client Tools
+
+Diverse programming tools to facilitate seamless interaction with the Flow blockchain network across multiple languages and platforms.](/tools/clients)
 
 [## Error Codes
 
@@ -36,10 +40,6 @@ List of error codes returned from failing transactions and scripts. The error co
 [## Flow Emulator
 
 A development tool that looks, acts and talks like Flow](/tools/emulator)
-
-[## 💼 Clients
-
-Diverse programming tools to facilitate seamless interaction with the Flow blockchain network across multiple languages and platforms.](/tools/clients)
 
 [## Flow Dev Wallet
 
@@ -63,9 +63,11 @@ Overflow is a Go-based DSL for testing and running interactive stories](https://
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/index.mdx)
 
-Last updated on **Mar 13, 2025** by **j pimmel**
+Last updated on **Mar 14, 2025** by **j pimmel**
 
-[Next
+[Previous
+
+Migration Guide v0.25.0](/tools/clients/flow-go-sdk/migration-v0.25.0)[Next
 
 Error Codes](/tools/error-codes)
 

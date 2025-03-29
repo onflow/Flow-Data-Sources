@@ -1,88 +1,154 @@
 # Source: https://developers.flow.com/tools/clients
 
-Clients | Flow Developer Portal
+Client Tools | Flow Developer Portal
 
 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/clients)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
+* [Client Tools](/tools/clients)
+
+  + [Flow Client Library (FCL)](/tools/clients/fcl-js)
+  + [Flow Go SDK](/tools/clients/flow-go-sdk)
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
 * [Flow CLI](/tools/flow-cli)
 * [Flow Emulator](/tools/emulator)
-* [Clients](/tools/clients)
-
-  + [Flow Client Library (FCL)](/tools/clients/fcl-js)
-  + [Flow Go SDK](/tools/clients/flow-go-sdk)
 * [Flow Dev Wallet](/tools/flow-dev-wallet)
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 
-* Clients
+* Client Tools
 
 On this page
 
-# Clients
+# Client Tools
 
-Flow provides a variety of SDKs and clients for building applications that interact with the Flow network. These SDKs and clients are available in multiple languages and platforms.
+Flow provides a comprehensive suite of client tools and SDKs designed to help developers build applications that interact with the Flow blockchain. These tools support various programming languages and platforms, offering different levels of abstraction and functionality.
 
 ## JavaScript (FCL)[​](#javascript-fcl "Direct link to JavaScript (FCL)")
 
-[Flow Client Library (FCL)](/tools/clients/fcl-js) is a package used to interact with user wallets and the Flow blockchain.
+[Flow Client Library (FCL)](/tools/clients/fcl-js) is the primary JavaScript/TypeScript client for Flow. It provides:
+
+* Wallet integration and authentication
+* Transaction and script execution
+* Cross-VM functionality for EVM integration
+* TypeScript support
+* Built-in security features
 
 ## Go SDK[​](#go-sdk "Direct link to Go SDK")
 
-[Flow Go SDK](/tools/clients/flow-go-sdk) provides a set of packages for Go developers to build applications that interact with the Flow network.
+[Flow Go SDK](/tools/clients/flow-go-sdk) offers a robust set of packages for Go developers, including:
+
+* High-performance blockchain interaction
+* Transaction building and signing
+* Account management
+* Event subscription
+* Comprehensive testing utilities
 
 ## Python SDK[​](#python-sdk "Direct link to Python SDK")
 
-[Flow Python SDK](https://github.com/janezpodhostnik/flow-py-sdk) provides a set of packages for Python developers to build applications that interact with the Flow network.
+[Flow Python SDK](https://github.com/janezpodhostnik/flow-py-sdk) provides Python developers with:
+
+* Simple blockchain interaction
+* Transaction management
+* Account handling
+* Event monitoring
+* Easy integration with Python applications
 
 ## Ruby[​](#ruby "Direct link to Ruby")
 
-[FlowClient](https://github.com/glucode/flow_client) is a Ruby gRPC client for Flow (onflow.org).
+[FlowClient](https://github.com/glucode/flow_client) is a Ruby gRPC client that enables:
+
+* Direct blockchain communication
+* Transaction processing
+* Account management
+* Event handling
+* Ruby-native blockchain integration
 
 ## JVM[​](#jvm "Direct link to JVM")
 
-[Flow JVM SDK](https://github.com/onflow/flow-jvm-sdk) is a library for JVM-compatible languages, implemented in Kotlin, that provides utilities to interact with the Flow blockchain.
+[Flow JVM SDK](https://github.com/onflow/flow-jvm-sdk) supports JVM-compatible languages (Java, Kotlin, Scala) with:
+
+* Kotlin-first implementation
+* Transaction management
+* Account handling
+* Event subscription
+* Cross-platform compatibility
 
 ## Swift[​](#swift "Direct link to Swift")
 
-[flow-swift](https://github.com/Outblock/flow-swift) is a tool to build iOS applications in the Flow mobile realm.
+[flow-swift](https://github.com/Outblock/flow-swift) is designed for iOS development, offering:
 
-## .Net[​](#net "Direct link to .Net")
+* Native iOS integration
+* Wallet connectivity
+* Transaction management
+* Account handling
+* SwiftUI support
 
-[flow.net](https://github.com/tyronbrand/flow.net) is a tool for building .Net applications on Flow.
+## .NET[​](#net "Direct link to .NET")
+
+[flow.net](https://github.com/tyronbrand/flow.net) provides .NET developers with:
+
+* C# and .NET Core support
+* Transaction management
+* Account handling
+* Event monitoring
+* Cross-platform compatibility
 
 ## Rust[​](#rust "Direct link to Rust")
 
-[Rust SDK](https://github.com/fee1-dead/flow.rs) for the Flow blockchain network.
+[Rust SDK](https://github.com/fee1-dead/flow.rs) offers Rust developers:
+
+* High-performance blockchain interaction
+* Type-safe transaction handling
+* Account management
+* Event subscription
+* Memory safety guarantees
 
 ## PHP[​](#php "Direct link to PHP")
 
-[PHP SDK](https://github.com/mayvenstudios/flow-php-sdk) for the Flow blockchain.
+[PHP SDK](https://github.com/mayvenstudios/flow-php-sdk) enables PHP developers to:
+
+* Integrate blockchain functionality
+* Handle transactions
+* Manage accounts
+* Monitor events
+* Build web applications
 
 ## Elixir[​](#elixir "Direct link to Elixir")
 
-[OnFlow](https://github.com/nkezhaya/on_flow) is an Elixir client for interacting with the Flow blockchain. Documentation is available [here](https://hexdocs.pm/on_flow).
+[OnFlow](https://github.com/nkezhaya/on_flow) provides Elixir developers with:
+
+* Functional blockchain interaction
+* Transaction management
+* Account handling
+* Event subscription
+* Comprehensive documentation
 
 ## HTTP API[​](#http-api "Direct link to HTTP API")
 
-[Flow OpenAPI](/http-api) specification.
+[Flow OpenAPI](/http-api) specification provides:
+
+* RESTful API endpoints
+* Standardized API documentation
+* Language-agnostic integration
+* Easy API testing
+* Swagger/OpenAPI support
+
+Each client tool is designed with specific use cases and developer needs in mind. Choose the one that best fits your development environment and requirements.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/index.md)
 
-Last updated on **Mar 13, 2025** by **j pimmel**
+Last updated on **Mar 28, 2025** by **Brian Doyle**
 
-[Previous
-
-Flow Emulator](/tools/emulator)[Next
+[Next
 
 Flow Client Library (FCL)](/tools/clients/fcl-js)
 
@@ -96,7 +162,7 @@ Flow Client Library (FCL)](/tools/clients/fcl-js)
 * [Ruby](#ruby)
 * [JVM](#jvm)
 * [Swift](#swift)
-* [.Net](#net)
+* [.NET](#net)
 * [Rust](#rust)
 * [PHP](#php)
 * [Elixir](#elixir)
