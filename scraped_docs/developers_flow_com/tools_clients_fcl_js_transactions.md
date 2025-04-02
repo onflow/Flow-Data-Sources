@@ -34,6 +34,7 @@ Search
 * [Error Codes](/tools/error-codes)
 * [Flow CLI](/tools/flow-cli)
 * [Flow Emulator](/tools/emulator)
+* [Use Cursor AI](/tools/cursor)
 * [Flow Dev Wallet](/tools/flow-dev-wallet)
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
@@ -41,6 +42,8 @@ Search
 * [Client Tools](/tools/clients)
 * [Flow Client Library (FCL)](/tools/clients/fcl-js)
 * Transactions
+
+On this page
 
 # Transactions
 
@@ -52,7 +55,7 @@ While `query` is used for sending scripts to the chain, `mutate` is used for bui
 
 Unlike scripts, they require a little more information, things like a proposer, authorizations and a payer, which may be a little confusing and overwhelming.
 
-# Sending Your First Transaction
+## Sending Your First Transaction[​](#sending-your-first-transaction "Direct link to Sending Your First Transaction")
 
 There is a lot to unpack in the following code snippet.
 It sends a transaction to the Flow blockchain. For the transaction, the current user is authorizing it as both the `proposer` and the `payer`.
@@ -128,7 +131,7 @@ _17
 
 console.log(transaction) // The transactions status and events after being executed`
 
-# Authorizing a Transaction
+## Authorizing a Transaction[​](#authorizing-a-transaction "Direct link to Authorizing a Transaction")
 
 The below code snippet is the same as the above one, except for one extremely important difference.
 Our Cadence code this time has a prepare statement, and we are using the `fcl.currentUser` when constructing our transaction.
@@ -220,15 +223,131 @@ console.log(transaction) // The transactions status and events after being execu
 
 To learn more about `mutate`, check out the [API documentation](/tools/clients/fcl-js/api#mutate).
 
+## Transaction Finality[​](#transaction-finality "Direct link to Transaction Finality")
+
+As of **FCL v1.15.0**, it is now recommended to use use `onceExecuted` in most cases, leading to a 2.5x reduction in latency when waiting for a transaction result. For example, the following code snippet should be updated from:
+
+`_10
+
+import * as fcl from "@onflow/fcl"
+
+_10
+
+const result = await fcl.tx(txId).onceSealed()`
+
+to:
+
+`_10
+
+import * as fcl from "@onflow/fcl"
+
+_10
+
+const result = await fcl.tx(txId).onceExecuted()`
+
+Developers manually subscribing to transaction statuses should update their listeners to treat "executed" as the final status (see the release notes [here](https://github.com/onflow/fcl-js/releases/tag/%40onflow%2Ffcl%401.15.0)). For example, the following code snippet should be updated from:
+
+`_10
+
+import * as fcl from "@onflow/fcl"
+
+_10
+
+import { TransactionExecutionStatus } from "@onflow/typedefs"
+
+_10
+
+_10
+
+fcl.tx(txId).subscribe((txStatus) => {
+
+_10
+
+if (
+
+_10
+
+txStatus.status === TransactionExecutionStatus.SEALED
+
+_10
+
+) {
+
+_10
+
+console.log("Transaction executed!")
+
+_10
+
+}
+
+_10
+
+})`
+
+`_11
+
+import * as fcl from "@onflow/fcl"
+
+_11
+
+import { TransactionExecutionStatus } from "@onflow/typedefs"
+
+_11
+
+_11
+
+fcl.tx(txId).subscribe((txStatus) => {
+
+_11
+
+if (
+
+_11
+
+// SEALED status is no longer necessary
+
+_11
+
+txStatus.status === TransactionExecutionStatus.EXECUTED
+
+_11
+
+) {
+
+_11
+
+console.log("Transaction executed!")
+
+_11
+
+}
+
+_11
+
+})`
+
+The "executed" status corresponds to soft finality, indicating that the transaction has been included in a block and a transaction status is available, backed by a cryptographic proof. Only in rare cases should a developer need to wait for "sealed" status in their applications and you can learn more about the different transaction statuses on Flow [here](/build/basics/transactions#transaction-status).
+
+See the following video for demonstration of how to update your code to wait for "executed" status:
+
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/transactions.md)
 
-Last updated on **Mar 28, 2025** by **Jordan Ribbink**
+Last updated on **Apr 1, 2025** by **Jordan Ribbink**
 
 [Previous
 
 Scripts](/tools/clients/fcl-js/scripts)[Next
 
 Signing and Verifying Arbitrary Data](/tools/clients/fcl-js/user-signatures)
+
+###### Rate this page
+
+😞😐😊
+
+* [Sending Your First Transaction](#sending-your-first-transaction)
+* [Authorizing a Transaction](#authorizing-a-transaction)
+* [Transaction Finality](#transaction-finality)
 
 Documentation
 

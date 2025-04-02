@@ -243,7 +243,7 @@ Proceed to the next tutorial to learn how to create your own contracts and deplo
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/contract-interaction.md)
 
-Last updated on **Mar 14, 2025** by **j pimmel**
+Last updated on **Mar 27, 2025** by **Brian Doyle**
 
 [Previous
 

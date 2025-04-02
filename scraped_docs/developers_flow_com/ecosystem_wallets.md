@@ -72,7 +72,7 @@ Store, manage, and interact securely with tokens and digital assets on Flow. Dis
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/wallets.md)
 
-Last updated on **Mar 14, 2025** by **j pimmel**
+Last updated on **Mar 27, 2025** by **Brian Doyle**
 
 [Previous
 

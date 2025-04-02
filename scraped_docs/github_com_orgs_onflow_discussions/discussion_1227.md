@@ -25,9 +25,9 @@ Toggle navigation
   + [GitHub Copilot
 
     Write better code with AI](https://github.com/features/copilot)
-  + [Security
+  + [GitHub Advanced Security
 
-    Find and fix vulnerabilities](https://github.com/features/security)
+    Find and fix vulnerabilities](https://github.com/security/advanced-security)
   + [Actions
 
     Automate any workflow](https://github.com/features/actions)
@@ -111,9 +111,9 @@ Toggle navigation
     AI-powered developer platform](/enterprise)
 
   Available add-ons
-  + [Advanced Security
+  + [GitHub Advanced Security
 
-    Enterprise-grade security features](https://github.com/enterprise/advanced-security)
+    Enterprise-grade security features](https://github.com/security/advanced-security)
   + [Copilot for business
 
     Enterprise-grade AI features](/features/copilot/copilot-business)
@@ -162,7 +162,7 @@ Cancel
 
 [Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Forgs%2Fonflow%2Fdiscussions%2F1227)
 
-[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Fvoltron%2Fdiscussions_fragments%2Fdiscussion_layout&source=header-repo&source_repo=onflow%2Fflow)
+[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Fdiscussions%2Fshow&source=header-repo&source_repo=onflow%2Fflow)
 Reseting focus
 
 You signed in with another tab or window. Reload to refresh your session.

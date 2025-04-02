@@ -55,11 +55,11 @@ Basic Concepts of Flow Blockchain](/build/basics/blocks)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/explore-more.md)
 
-Last updated on **Mar 14, 2025** by **j pimmel**
+Last updated on **Mar 27, 2025** by **Brian Doyle**
 
 [Previous
 
-Burner](/build/core-contracts/burner)
+VM Bridge](/build/core-contracts/bridge)
 
 Documentation
 

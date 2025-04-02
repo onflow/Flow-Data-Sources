@@ -17,6 +17,7 @@ Search
 * [Error Codes](/tools/error-codes)
 * [Flow CLI](/tools/flow-cli)
 * [Flow Emulator](/tools/emulator)
+* [Use Cursor AI](/tools/cursor)
 * [Flow Dev Wallet](/tools/flow-dev-wallet)
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
@@ -41,13 +42,17 @@ List of error codes returned from failing transactions and scripts. The error co
 
 A development tool that looks, acts and talks like Flow](/tools/emulator)
 
+[## Use Cursor AI
+
+Cursor is an AI code editor that makes it easy to write code while building Flow apps.](/tools/cursor)
+
 [## Flow Dev Wallet
 
 The Flow Dev Wallet is a mock Flow wallet that simulates the protocols used by FCL to interact with the Flow blockchain on behalf of simulated user accounts.](/tools/flow-dev-wallet)
 
-[## 🗃️ Cadence VS Code Extension
+[## Cadence VS Code Extension
 
-1 items](/tools/vscode-extension)
+This extension integrates Cadence, the resource-oriented smart contract programming language of Flow, into Visual Studio Code.](/tools/vscode-extension)
 
 [## 🗃️ Wallet Provider Spec
 
@@ -63,7 +68,7 @@ Overflow is a Go-based DSL for testing and running interactive stories](https://
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/index.mdx)
 
-Last updated on **Mar 14, 2025** by **j pimmel**
+Last updated on **Mar 27, 2025** by **Brian Doyle**
 
 [Previous
 

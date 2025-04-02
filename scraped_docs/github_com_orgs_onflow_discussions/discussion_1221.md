@@ -25,9 +25,9 @@ Toggle navigation
   + [GitHub Copilot
 
     Write better code with AI](https://github.com/features/copilot)
-  + [Security
+  + [GitHub Advanced Security
 
-    Find and fix vulnerabilities](https://github.com/features/security)
+    Find and fix vulnerabilities](https://github.com/security/advanced-security)
   + [Actions
 
     Automate any workflow](https://github.com/features/actions)
@@ -111,9 +111,9 @@ Toggle navigation
     AI-powered developer platform](/enterprise)
 
   Available add-ons
-  + [Advanced Security
+  + [GitHub Advanced Security
 
-    Enterprise-grade security features](https://github.com/enterprise/advanced-security)
+    Enterprise-grade security features](https://github.com/security/advanced-security)
   + [Copilot for business
 
     Enterprise-grade AI features](/features/copilot/copilot-business)

@@ -1792,7 +1792,7 @@ using Cadence.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/interacting-with-coa.md)
 
-Last updated on **Mar 26, 2025** by **Brian Doyle**
+Last updated on **Mar 27, 2025** by **Brian Doyle**
 
 [Previous
 

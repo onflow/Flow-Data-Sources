@@ -35,6 +35,7 @@ Search
   + [Account Linking](/build/core-contracts/hybrid-custody)
   + [EVM](/build/core-contracts/evm)
   + [Burner](/build/core-contracts/burner)
+  + [VM Bridge](/build/core-contracts/bridge)
 * [Explore More](/build/explore-more)
 
 * [Core Smart Contracts](/build/core-contracts)
@@ -647,7 +648,7 @@ A entitled receiver has not been paid during the sale of the NFT.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/10-nft-storefront.md)
 
-Last updated on **Mar 14, 2025** by **j pimmel**
+Last updated on **Mar 27, 2025** by **Brian Doyle**
 
 [Previous
 

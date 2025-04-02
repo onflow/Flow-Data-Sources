@@ -310,7 +310,7 @@ implentation](https://github.com/onflow/random-coin-toss) using the VRF.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/vrf.md)
 
-Last updated on **Mar 21, 2025** by **Giovanni Sanchez**
+Last updated on **Mar 27, 2025** by **Brian Doyle**
 
 [Previous
 

@@ -17,10 +17,9 @@ Search
 * [Error Codes](/tools/error-codes)
 * [Flow CLI](/tools/flow-cli)
 * [Flow Emulator](/tools/emulator)
+* [Use Cursor AI](/tools/cursor)
 * [Flow Dev Wallet](/tools/flow-dev-wallet)
 * [Cadence VS Code Extension](/tools/vscode-extension)
-
-  + [Use Cursor AI](/tools/vscode-extension/cursor)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 
 * Cadence VS Code Extension
@@ -147,13 +146,13 @@ Restart VS Code and the extension should be installed!
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/vscode-extension/index.md)
 
-Last updated on **Mar 14, 2025** by **j pimmel**
+Last updated on **Mar 27, 2025** by **Brian Doyle**
 
 [Previous
 
 Flow Dev Wallet](/tools/flow-dev-wallet)[Next
 
-Use Cursor AI](/tools/vscode-extension/cursor)
+Wallet Provider Spec](/tools/wallet-provider-spec)
 
 ###### Rate this page
 

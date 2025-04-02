@@ -17,6 +17,7 @@ Search
 * [Error Codes](/tools/error-codes)
 * [Flow CLI](/tools/flow-cli)
 * [Flow Emulator](/tools/emulator)
+* [Use Cursor AI](/tools/cursor)
 * [Flow Dev Wallet](/tools/flow-dev-wallet)
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
@@ -571,11 +572,11 @@ Additionally, consider exploring these resources:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-dev-wallet/index.md)
 
-Last updated on **Mar 14, 2025** by **j pimmel**
+Last updated on **Mar 27, 2025** by **Brian Doyle**
 
 [Previous
 
-Flow Emulator](/tools/emulator)[Next
+Use Cursor AI](/tools/cursor)[Next
 
 Cadence VS Code Extension](/tools/vscode-extension)
 
