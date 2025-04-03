@@ -61,7 +61,7 @@ should use `Burner.burn()` when destroying a resource instead of `destroy`.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/14-burner.md)
 
-Last updated on **Mar 27, 2025** by **Brian Doyle**
+Last updated on **Mar 28, 2025** by **Brian Doyle**
 
 [Previous
 

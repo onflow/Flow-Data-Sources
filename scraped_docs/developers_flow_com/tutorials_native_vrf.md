@@ -40,7 +40,7 @@ Stay tuned—more tutorials and advanced guides are on the way!
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/native-vrf/index.md)
 
-Last updated on **Mar 27, 2025** by **Brian Doyle**
+Last updated on **Mar 28, 2025** by **Brian Doyle**
 
 [Previous
 

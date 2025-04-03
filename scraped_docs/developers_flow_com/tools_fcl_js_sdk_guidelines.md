@@ -6,17 +6,13 @@ SDK Reference | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/flow-cli)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/clients)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [Tools](/tools)
-* [Error Codes](/tools/error-codes)
-* [Flow CLI](/tools/flow-cli)
-* [Flow Emulator](/tools/emulator)
-* [Clients](/tools/clients)
+* [Client Tools](/tools/clients)
 
   + [Flow Client Library (FCL)](/tools/clients/fcl-js)
 
@@ -34,11 +30,16 @@ Search
     - [Signing and Verifying Arbitrary Data](/tools/clients/fcl-js/user-signatures)
     - [WalletConnect 2.0 Manual Configuration](/tools/clients/fcl-js/wallet-connect)
   + [Flow Go SDK](/tools/clients/flow-go-sdk)
+* [Tools](/tools)
+* [Error Codes](/tools/error-codes)
+* [Flow CLI](/tools/flow-cli)
+* [Flow Emulator](/tools/emulator)
+* [Use Cursor AI](/tools/cursor)
 * [Flow Dev Wallet](/tools/flow-dev-wallet)
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 
-* [Clients](/tools/clients)
+* [Client Tools](/tools/clients)
 * [Flow Client Library (FCL)](/tools/clients/fcl-js)
 * SDK Reference
 
@@ -1736,7 +1737,7 @@ After a transaction has been **built** and **signed**, it can be sent to the Flo
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/sdk-guidelines.md)
 
-Last updated on **Mar 6, 2025** by **Giovanni Sanchez**
+Last updated on **Mar 28, 2025** by **Brian Doyle**
 
 [Previous
 

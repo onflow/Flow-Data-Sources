@@ -13,9 +13,10 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 Search
 
 * [Why EVM on Flow](/evm/about)
+* [EVM Quickstart](/evm/quickstart)
 * [How it Works](/evm/how-it-works)
 * [Using Flow EVM](/evm/using)
-* [Networks](/evm/networks)
+* [Network Information](/evm/networks)
 * [Fees](/evm/fees)
 * [Accounts](/evm/accounts)
 * [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
@@ -139,11 +140,11 @@ To learn more about storage fee and transaction fee, visit [Flow Tokenomics page
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/fees.md)
 
-Last updated on **Mar 27, 2025** by **Brian Doyle**
+Last updated on **Apr 1, 2025** by **Brian Doyle**
 
 [Previous
 
-Networks](/evm/networks)[Next
+Network Information](/evm/networks)[Next
 
 Accounts](/evm/accounts)
 

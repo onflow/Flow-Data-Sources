@@ -13,9 +13,10 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 Search
 
 * [Why EVM on Flow](/evm/about)
+* [EVM Quickstart](/evm/quickstart)
 * [How it Works](/evm/how-it-works)
 * [Using Flow EVM](/evm/using)
-* [Networks](/evm/networks)
+* [Network Information](/evm/networks)
 * [Fees](/evm/fees)
 * [Accounts](/evm/accounts)
 * [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
@@ -56,7 +57,7 @@ Flow's transaction throughput peaked to 2M daily transactions during 2023 sustai
 
 ## MEV Resilience[​](#mev-resilience "Direct link to MEV Resilience")
 
-The MEV Resilient design on Flow offers DeFi builders improved market efficiency, fairness, trust and long-term viability for their apps. Since Flow EVM transactions are composed and executed within a Cadence transaction, block production is handled by Flow’s [multi-role architecture](https://flow.com/post/flow-blockchain-multi-node-architecture-advantages). This heterogeneity between node roles ensures that visibility into block proposal, assembly, asserting block validity and other correctness checks during the block production cycle exposes limited information to each node type on a need to know basis, observing the Principle of Least Privilege. These differences in node and consensus design results in strong economic disincentives for collusion because no individual node has full visibility into the state of block production for the chain. This robust MEV resilience is a significant difference from other EVM-compatible networks and results in reasonably priced, predictable gas fees. The impracticality of frontrunning or other attacks improves the user experience by eliminating failed transactions and invisible fees.
+The [MEV Resilient](/build/basics/mev-resistance) design on Flow offers DeFi builders improved market efficiency, fairness, trust and long-term viability for their apps. Since Flow EVM transactions are composed and executed within a Cadence transaction, block production is handled by Flow’s [multi-role architecture](https://flow.com/post/flow-blockchain-multi-node-architecture-advantages). This heterogeneity between node roles ensures that visibility into block proposal, assembly, asserting block validity and other correctness checks during the block production cycle exposes limited information to each node type on a need to know basis, observing the Principle of Least Privilege. These differences in node and consensus design results in strong economic disincentives for collusion because no individual node has full visibility into the state of block production for the chain. This robust MEV resilience is a significant difference from other EVM-compatible networks and results in reasonably priced, predictable gas fees. The impracticality of frontrunning or other attacks improves the user experience by eliminating failed transactions and invisible fees.
 
 ## Join the Community[​](#join-the-community "Direct link to Join the Community")
 
@@ -78,11 +79,11 @@ Those wishing to understand the technical specifics of how Flow EVM works we rec
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/about.md)
 
-Last updated on **Mar 27, 2025** by **Brian Doyle**
+Last updated on **Apr 2, 2025** by **Brian Doyle**
 
 [Next
 
-How it Works](/evm/how-it-works)
+EVM Quickstart](/evm/quickstart)
 
 ###### Rate this page
 

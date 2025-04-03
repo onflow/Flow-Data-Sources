@@ -59,7 +59,7 @@ In practice, this means that **the entity responsible for adding your transactio
 
 For example, if a block builder can earn $10 by sandwiching your transaction, it means **you** likely lose $10 in value. This is functionally theft, and the worst part? If your transaction is airtight and offers no MEV opportunities, the block builder has no obligation to include it at all. Pay the toll, or get locked out.
 
-## How Flow Mitigates MEV[​](#how-flow-mitigates-mev "Direct link to How Flow Mitigates MEV")
+## How Flow Accomplishes MEV Resilience[​](#how-flow-accomplishes-mev-resilience "Direct link to How Flow Accomplishes MEV Resilience")
 
 Unlike many blockchains, **Flow was designed from the ground up to minimize MEV** through a unique multi-role architecture. Flow introduces key design choices that break the typical MEV-enabling structure:
 
@@ -110,7 +110,7 @@ This level of protection against MEV is not an afterthought—it has been a fund
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/mev-resistance.md)
 
-Last updated on **Mar 27, 2025** by **Brian Doyle**
+Last updated on **Apr 2, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -124,7 +124,7 @@ Events](/build/basics/events)
 
 * [The Hidden Cost of MEV in Decentralized Systems](#the-hidden-cost-of-mev-in-decentralized-systems)
 * [Why MEV Persists on Most Blockchains](#why-mev-persists-on-most-blockchains)
-* [How Flow Mitigates MEV](#how-flow-mitigates-mev)
+* [How Flow Accomplishes MEV Resilience](#how-flow-accomplishes-mev-resilience)
   + [1. **Separating Transaction Selection from Execution**](#1-separating-transaction-selection-from-execution)
   + [2. **Separating Transaction Ordering from Execution**](#2-separating-transaction-ordering-from-execution)
   + [3. **Strict Transaction Execution Rules**](#3-strict-transaction-execution-rules)

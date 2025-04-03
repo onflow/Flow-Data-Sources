@@ -13,9 +13,10 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 Search
 
 * [Why EVM on Flow](/evm/about)
+* [EVM Quickstart](/evm/quickstart)
 * [How it Works](/evm/how-it-works)
 * [Using Flow EVM](/evm/using)
-* [Networks](/evm/networks)
+* [Network Information](/evm/networks)
 * [Fees](/evm/fees)
 * [Accounts](/evm/accounts)
 * [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
@@ -604,7 +605,7 @@ $DEPLOYER_ADDRESS`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/foundry.md)
 
-Last updated on **Mar 14, 2025** by **j pimmel**
+Last updated on **Mar 28, 2025** by **Brian Doyle**
 
 [Previous
 

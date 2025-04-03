@@ -1,6 +1,6 @@
 # Source: https://developers.flow.com/evm/networks
 
-Networks | Flow Developer Portal
+Network Information | Flow Developer Portal
 
 
 
@@ -13,9 +13,10 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 Search
 
 * [Why EVM on Flow](/evm/about)
+* [EVM Quickstart](/evm/quickstart)
 * [How it Works](/evm/how-it-works)
 * [Using Flow EVM](/evm/using)
-* [Networks](/evm/networks)
+* [Network Information](/evm/networks)
 * [Fees](/evm/fees)
 * [Accounts](/evm/accounts)
 * [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
@@ -23,9 +24,9 @@ Search
 * [Block Explorers ↙](/evm/block-explorers)
 * [Guides](/evm/guides/integrating-metamask)
 
-* Networks
+* Network Information
 
-# Networks
+# Network Information
 
 Flow EVM has the following public RPC nodes available:
 
@@ -53,7 +54,7 @@ Flow EVM has the following public RPC nodes available:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/networks.md)
 
-Last updated on **Mar 14, 2025** by **j pimmel**
+Last updated on **Apr 1, 2025** by **Brian Doyle**
 
 [Previous
 

@@ -314,7 +314,7 @@ At the end of every epoch, tokens are moved between pools in this order:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/06-technical-overview.md)
 
-Last updated on **Mar 14, 2025** by **j pimmel**
+Last updated on **Mar 28, 2025** by **Brian Doyle**
 
 [Previous
 

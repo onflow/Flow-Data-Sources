@@ -372,7 +372,7 @@ Protobuf: <https://github.com/onflow/flow/blob/master/protobuf/flow/executiondat
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/access-nodes/access-node-configuration-options.md)
 
-Last updated on **Mar 14, 2025** by **j pimmel**
+Last updated on **Mar 28, 2025** by **Brian Doyle**
 
 [Previous
 

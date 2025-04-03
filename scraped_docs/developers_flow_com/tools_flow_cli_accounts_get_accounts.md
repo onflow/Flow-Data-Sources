@@ -42,6 +42,7 @@ Search
   + [Cadence Boilerplate](/tools/flow-cli/boilerplate)
   + [Data Collection](/tools/flow-cli/data-collection)
 * [Flow Emulator](/tools/emulator)
+* [Use Cursor AI](/tools/cursor)
 * [Flow Dev Wallet](/tools/flow-dev-wallet)
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
@@ -222,7 +223,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/get-accounts.md)
 
-Last updated on **Mar 14, 2025** by **j pimmel**
+Last updated on **Mar 28, 2025** by **Brian Doyle**
 
 [Previous
 
