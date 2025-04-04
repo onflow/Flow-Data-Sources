@@ -1,6 +1,6 @@
 # Source: https://developers.flow.com/tutorials/flowtobooth
 
-FlowtoBooth Tutorials | Flow Developer Portal
+FlowtoBooth | Flow Developer Portal
 
 
 
@@ -13,14 +13,15 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 Search
 
 * [Tutorials](/tutorials)
+* [AI Plus Flow](/tutorials/ai-plus-flow)
 * [Token Launch](/tutorials/token-launch)
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
-* [FlowtoBooth Tutorials](/tutorials/flowtobooth)
+* [FlowtoBooth](/tutorials/flowtobooth)
 
   + [Build a Fully-Onchain Image Gallery](/tutorials/flowtobooth/image-gallery)
 * [Native VRF](/tutorials/native-vrf)
 
-* FlowtoBooth Tutorials
+* FlowtoBooth
 
 On this page
 
@@ -45,7 +46,7 @@ More FlowtoBooth tutorials are in development, including:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/flowtobooth/index.md)
 
-Last updated on **Mar 28, 2025** by **Brian Doyle**
+Last updated on **Apr 3, 2025** by **Brian Doyle**
 
 [Previous
 

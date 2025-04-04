@@ -202,7 +202,7 @@ To learn more about staking events, read [staking/events/](/networks/staking/sta
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/03-flow-token.md)
 
-Last updated on **Mar 28, 2025** by **Brian Doyle**
+Last updated on **Mar 28, 2025** by **Jordan Ribbink**
 
 [Previous
 

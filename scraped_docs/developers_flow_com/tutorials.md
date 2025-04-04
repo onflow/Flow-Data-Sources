@@ -13,9 +13,10 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 Search
 
 * [Tutorials](/tutorials)
+* [AI Plus Flow](/tutorials/ai-plus-flow)
 * [Token Launch](/tutorials/token-launch)
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
-* [FlowtoBooth Tutorials](/tutorials/flowtobooth)
+* [FlowtoBooth](/tutorials/flowtobooth)
 * [Native VRF](/tutorials/native-vrf)
 
 * Tutorials
@@ -27,6 +28,14 @@ On this page
 Flow Cadence and Flow EVM are two VMs running on the Flow blockchain. A few months after the release of the Crescendo upgrade, we're seeing more apps that aren't Cadence apps -OR- EVM apps, they're both! Cadence unlocks superpowers such as vast computation and storage, native VRF, a much safer and more secure language for handling digital ownership, and more. Flow EVM unlocks the power of the Ethereum ecosystem, allowing you to bring in traditional tools, assets, and liquidity.
 
 For this grand future, we'll need a new suite of tutorials, guides, and resources to help you build with the best of both worlds. This section is dedicated to those tutorials.
+
+## AI Plus Flow[​](#ai-plus-flow "Direct link to AI Plus Flow")
+
+Learn how to leverage AI tools to enhance your Flow development experience. These tutorials show you how to integrate various AI assistants with Flow development to boost productivity and code quality.
+
+* [Use Flow Knowledge Base in Cursor](/tutorials/ai-plus-flow/cursor) - Learn how to set up Cursor with Flow knowledge bases to get intelligent assistance while developing Flow applications
+* [Use Flow Knowledge Base in ChatGPT](/tutorials/ai-plus-flow/chatgpt) - Create a custom GPT that understands Flow and Cadence to provide accurate answers to your development questions
+* [Flow Data Sources](/tutorials/ai-plus-flow/flow-data-sources) - Learn about this comprehensive resource and how to integrate it with various AI platforms
 
 ## Token Launch[​](#token-launch "Direct link to Token Launch")
 
@@ -58,16 +67,17 @@ Explore Flow's unique capabilities through fun benchmark applications that showc
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/index.md)
 
-Last updated on **Mar 28, 2025** by **Brian Doyle**
+Last updated on **Apr 3, 2025** by **Brian Doyle**
 
 [Next
 
-Token Launch](/tutorials/token-launch)
+AI Plus Flow](/tutorials/ai-plus-flow)
 
 ###### Rate this page
 
 😞😐😊
 
+* [AI Plus Flow](#ai-plus-flow)
 * [Token Launch](#token-launch)
 * [Cross-VM Applications](#cross-vm-applications)
 * [Native VRF](#native-vrf)

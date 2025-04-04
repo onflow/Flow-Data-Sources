@@ -1,4 +1,4 @@
-# Source: https://developers.flow.com
+# Source: https://developers.flow.com/
 
 Flow Developer Portal | Flow Developer Portal
 
@@ -30,7 +30,7 @@ Learn why Dieter Shirley, co-author of the ERC-721 NFT standard, led the develop
 
 Deploy your Solidity contracts on Flow to get sub-cent transaction fees, sponsored gas, and the ability to scale to millions of users.](evm/about)[### Build with AI
 
-Feel the vibes, or add new tools to your workflow by configuring Cursor to use the Flow and Cadence knowledge base.](tools/cursor)
+Feel the vibes, or add new tools to your workflow by configuring Cursor to use the Flow and Cadence knowledge base.](tutorials/ai-plus-flow)
 
 ### Learn Cadence
 
