@@ -146,7 +146,7 @@ Each client tool is designed with specific use cases and developer needs in mind
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/index.md)
 
-Last updated on **Mar 28, 2025** by **Jordan Ribbink**
+Last updated on **Mar 31, 2025** by **Josh Hannan**
 
 [Next
 

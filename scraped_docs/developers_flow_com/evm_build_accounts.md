@@ -15,7 +15,8 @@ Search
 * [Why EVM on Flow](/evm/about)
 * [How it Works](/evm/how-it-works)
 * [Using Flow EVM](/evm/using)
-* [Networks](/evm/networks)
+* [Network Information](/evm/networks)
+* [EVM Quickstart](/evm/quickstart)
 * [Fees](/evm/fees)
 * [Accounts](/evm/accounts)
 * [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
@@ -86,7 +87,7 @@ For more information about Cadence Owned Accounts, see the [Flow EVM Support FLI
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/accounts.md)
 
-Last updated on **Mar 27, 2025** by **Brian Doyle**
+Last updated on **Apr 1, 2025** by **Brian Doyle**
 
 [Previous
 

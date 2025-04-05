@@ -42,7 +42,6 @@ Search
   + [Cadence Boilerplate](/tools/flow-cli/boilerplate)
   + [Data Collection](/tools/flow-cli/data-collection)
 * [Flow Emulator](/tools/emulator)
-* [Use Cursor AI](/tools/cursor)
 * [Flow Dev Wallet](/tools/flow-dev-wallet)
 * [Cadence VS Code Extension](/tools/vscode-extension)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
@@ -481,7 +480,7 @@ _26
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/complex-transactions.md)
 
-Last updated on **Mar 27, 2025** by **Brian Doyle**
+Last updated on **Mar 31, 2025** by **Josh Hannan**
 
 [Previous
 

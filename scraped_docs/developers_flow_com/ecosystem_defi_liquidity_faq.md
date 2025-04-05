@@ -220,7 +220,7 @@ Where can I get updates or ask questions?
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/faq.md)
 
-Last updated on **Mar 14, 2025** by **j pimmel**
+Last updated on **Mar 31, 2025** by **Josh Hannan**
 
 [Previous
 

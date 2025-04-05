@@ -332,7 +332,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/get-transactions.md)
 
-Last updated on **Mar 14, 2025** by **j pimmel**
+Last updated on **Mar 31, 2025** by **Josh Hannan**
 
 [Previous
 

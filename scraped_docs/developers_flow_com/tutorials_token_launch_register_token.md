@@ -13,11 +13,12 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 Search
 
 * [Tutorials](/tutorials)
+* [AI Plus Flow](/tutorials/ai-plus-flow)
 * [Token Launch](/tutorials/token-launch)
 
   + [Register Token](/tutorials/token-launch/register-token)
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
-* [FlowtoBooth Tutorials](/tutorials/flowtobooth)
+* [FlowtoBooth](/tutorials/flowtobooth)
 * [Native VRF](/tutorials/native-vrf)
 
 * [Token Launch](/tutorials/token-launch)
@@ -69,7 +70,7 @@ For any issues, refer to the [Token List GitHub Repository](https://github.com/f
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/token-launch/register-token.md)
 
-Last updated on **Mar 28, 2025** by **Brian Doyle**
+Last updated on **Mar 31, 2025** by **Josh Hannan**
 
 [Previous
 

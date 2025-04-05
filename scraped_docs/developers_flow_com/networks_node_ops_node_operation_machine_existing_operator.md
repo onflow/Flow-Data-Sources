@@ -285,7 +285,7 @@ This command will detect and provide information about common misconfigurations,
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/machine-existing-operator.md)
 
-Last updated on **Mar 14, 2025** by **j pimmel**
+Last updated on **Mar 31, 2025** by **Josh Hannan**
 
 [Previous
 

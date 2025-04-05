@@ -17,7 +17,8 @@ Search
 * [Token Launch](/tutorials/token-launch)
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
 
-  + [Batched Transactions](/tutorials/cross-vm-apps/introduction)
+  + [Batched Tx From Scaffold](/tutorials/cross-vm-apps/introduction)
+  + [Update Existing wagmi App](/tutorials/cross-vm-apps/add-to-wagmi)
   + [Interacting with COAs](/tutorials/cross-vm-apps/interacting-with-coa)
   + [Direct Calls to Flow EVM](/tutorials/cross-vm-apps/direct-calls)
   + [Batched EVM Transactions](/tutorials/cross-vm-apps/batched-evm-transactions)
@@ -1367,7 +1368,7 @@ Ready to level up your Cadence skills? Take a look at [these Cadence tutorials](
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/batched-evm-transactions.md)
 
-Last updated on **Mar 28, 2025** by **Jordan Ribbink**
+Last updated on **Mar 31, 2025** by **Josh Hannan**
 
 [Previous
 

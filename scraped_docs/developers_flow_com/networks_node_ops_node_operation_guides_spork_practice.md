@@ -158,7 +158,7 @@ Lastly, if the goal is to practice the entire Sporking procedure, including `tra
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/guides/spork-practice.md)
 
-Last updated on **Mar 14, 2025** by **j pimmel**
+Last updated on **Mar 31, 2025** by **Josh Hannan**
 
 [Previous
 
