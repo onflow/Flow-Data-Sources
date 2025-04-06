@@ -20,6 +20,7 @@ Search
 
   + [Build a Fully-Onchain Image Gallery](/tutorials/flowtobooth/image-gallery)
 * [Native VRF](/tutorials/native-vrf)
+* [AI Guides](/tutorials/AI Guides/agentkit-flow-guide)
 
 * [FlowtoBooth](/tutorials/flowtobooth)
 * Build a Fully-Onchain Image Gallery
@@ -2849,7 +2850,7 @@ Now that you've completed this tutorial, you're ready to explore more complex on
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/flowtobooth/image-gallery.md)
 
-Last updated on **Mar 28, 2025** by **Jordan Ribbink**
+Last updated on **Mar 31, 2025** by **Josh Hannan**
 
 [Previous
 

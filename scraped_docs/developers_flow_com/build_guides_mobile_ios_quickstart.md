@@ -668,7 +668,7 @@ The Agile Monkeys has written a very comprehensive guide on how to build a nativ
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/ios-quickstart.md)
 
-Last updated on **Mar 27, 2025** by **Brian Doyle**
+Last updated on **Mar 31, 2025** by **Josh Hannan**
 
 [Previous
 

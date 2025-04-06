@@ -71,7 +71,7 @@ Find a list of all SDKs [here](/tools/clients)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/collections.md)
 
-Last updated on **Mar 28, 2025** by **Brian Doyle**
+Last updated on **Mar 31, 2025** by **Josh Hannan**
 
 [Previous
 

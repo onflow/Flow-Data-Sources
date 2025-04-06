@@ -942,7 +942,7 @@ The balloon inflation game stands as a testament to the seamless integration of 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/walletless-pwa.md)
 
-Last updated on **Mar 28, 2025** by **Jordan Ribbink**
+Last updated on **Mar 31, 2025** by **Josh Hannan**
 
 [Previous
 

@@ -13,12 +13,14 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 Search
 
 * [Tutorials](/tutorials)
+* [AI Plus Flow](/tutorials/ai-plus-flow)
 * [Token Launch](/tutorials/token-launch)
 
   + [Register Token](/tutorials/token-launch/register-token)
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
-* [FlowtoBooth Tutorials](/tutorials/flowtobooth)
+* [FlowtoBooth](/tutorials/flowtobooth)
 * [Native VRF](/tutorials/native-vrf)
+* [AI Guides](/tutorials/AI Guides/agentkit-flow-guide)
 
 * Token Launch
 
@@ -34,11 +36,11 @@ This section covers the process of registering your tokens on Flow.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/token-launch/index.md)
 
-Last updated on **Mar 28, 2025** by **Brian Doyle**
+Last updated on **Apr 3, 2025** by **Brian Doyle**
 
 [Previous
 
-Tutorials](/tutorials)[Next
+Flow Data Sources](/tutorials/ai-plus-flow/flow-data-sources)[Next
 
 Register Token](/tutorials/token-launch/register-token)
 

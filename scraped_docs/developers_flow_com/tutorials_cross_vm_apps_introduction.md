@@ -1,6 +1,6 @@
 # Source: https://developers.flow.com/tutorials/cross-vm-apps/introduction
 
-Batched Transactions | Flow Developer Portal
+Batched Tx From Scaffold | Flow Developer Portal
 
 
 
@@ -13,23 +13,26 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 Search
 
 * [Tutorials](/tutorials)
+* [AI Plus Flow](/tutorials/ai-plus-flow)
 * [Token Launch](/tutorials/token-launch)
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
 
-  + [Batched Transactions](/tutorials/cross-vm-apps/introduction)
+  + [Batched Tx From Scaffold](/tutorials/cross-vm-apps/introduction)
+  + [Update Existing wagmi App](/tutorials/cross-vm-apps/add-to-wagmi)
   + [Interacting with COAs](/tutorials/cross-vm-apps/interacting-with-coa)
   + [Direct Calls to Flow EVM](/tutorials/cross-vm-apps/direct-calls)
   + [Batched EVM Transactions](/tutorials/cross-vm-apps/batched-evm-transactions)
   + [Cross-VM Bridge](/tutorials/cross-vm-apps/vm-bridge)
-* [FlowtoBooth Tutorials](/tutorials/flowtobooth)
+* [FlowtoBooth](/tutorials/flowtobooth)
 * [Native VRF](/tutorials/native-vrf)
+* [AI Guides](/tutorials/AI Guides/agentkit-flow-guide)
 
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
-* Batched Transactions
+* Batched Tx From Scaffold
 
 On this page
 
-# Batched Transactions
+# Batched Tx From Scaffold
 
 Ever since the launch of Flow EVM, it's been possible to *supercharge* your EVM apps by using Flow Cadence features and contracts. Some benefits, such as [native VRF](/evm/guides/vrf) and inexpensive gas without compromising security are built in and either easy or automatic to use. Others, such as the ability to use [Cadence](https://cadence-lang.org/docs) to [structure and call EVM transactions](/tutorials/cross-vm-apps/batched-evm-transactions), are powerful but complicated to configure and use. They also require developers to manage concurrent connections to both networks.
 
@@ -1471,13 +1474,13 @@ Now that you have completed the tutorial, you should be able to:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/introduction.md)
 
-Last updated on **Mar 28, 2025** by **Brian Doyle**
+Last updated on **Apr 3, 2025** by **Brian Doyle**
 
 [Previous
 
 Cross-VM Apps](/tutorials/cross-vm-apps)[Next
 
-Interacting with COAs](/tutorials/cross-vm-apps/interacting-with-coa)
+Update Existing wagmi App](/tutorials/cross-vm-apps/add-to-wagmi)
 
 ###### Rate this page
 
