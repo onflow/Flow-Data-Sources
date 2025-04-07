@@ -17,13 +17,15 @@ Search
 * [Token Launch](/tutorials/token-launch)
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
 
-  + [Batched Transactions](/tutorials/cross-vm-apps/introduction)
+  + [Batched Tx From Scaffold](/tutorials/cross-vm-apps/introduction)
+  + [Update Existing wagmi App](/tutorials/cross-vm-apps/add-to-wagmi)
   + [Interacting with COAs](/tutorials/cross-vm-apps/interacting-with-coa)
   + [Direct Calls to Flow EVM](/tutorials/cross-vm-apps/direct-calls)
   + [Batched EVM Transactions](/tutorials/cross-vm-apps/batched-evm-transactions)
   + [Cross-VM Bridge](/tutorials/cross-vm-apps/vm-bridge)
 * [FlowtoBooth](/tutorials/flowtobooth)
 * [Native VRF](/tutorials/native-vrf)
+* [AI Guides](/tutorials/AI Guides/agentkit-flow-guide)
 
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
 * Direct Calls to Flow EVM
@@ -194,7 +196,7 @@ For more information and a deeper dive into the `EVMAddress`, `Result`, and `Sta
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/direct-calls.md)
 
-Last updated on **Mar 28, 2025** by **Jordan Ribbink**
+Last updated on **Mar 31, 2025** by **Josh Hannan**
 
 [Previous
 

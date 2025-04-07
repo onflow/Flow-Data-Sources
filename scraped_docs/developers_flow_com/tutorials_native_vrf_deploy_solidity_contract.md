@@ -21,6 +21,7 @@ Search
 
   + [Secure Randomness with Commit-Reveal in Cadence](/tutorials/native-vrf/commit-reveal-cadence)
   + [Deploy a Solidity Contract Using Cadence](/tutorials/native-vrf/deploy-solidity-contract)
+* [AI Guides](/tutorials/AI Guides/agentkit-flow-guide)
 
 * [Native VRF](/tutorials/native-vrf)
 * Deploy a Solidity Contract Using Cadence
@@ -474,7 +475,9 @@ Last updated on **Mar 31, 2025** by **Josh Hannan**
 
 [Previous
 
-Secure Randomness with Commit-Reveal in Cadence](/tutorials/native-vrf/commit-reveal-cadence)
+Secure Randomness with Commit-Reveal in Cadence](/tutorials/native-vrf/commit-reveal-cadence)[Next
+
+Using Agentkit on Flow](/tutorials/AI Guides/agentkit-flow-guide)
 
 ###### Rate this page
 

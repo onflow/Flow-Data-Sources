@@ -20,6 +20,7 @@ Search
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
 * [FlowtoBooth](/tutorials/flowtobooth)
 * [Native VRF](/tutorials/native-vrf)
+* [AI Guides](/tutorials/AI Guides/agentkit-flow-guide)
 
 * [Token Launch](/tutorials/token-launch)
 * Register Token
