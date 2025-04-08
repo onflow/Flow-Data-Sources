@@ -22,6 +22,7 @@ Search
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
 * [FlowtoBooth](/tutorials/flowtobooth)
 * [Native VRF](/tutorials/native-vrf)
+* [AI Guides](/tutorials/AI Guides/agentkit-flow-guide)
 
 * [AI Plus Flow](/tutorials/ai-plus-flow)
 * Flow Data Sources

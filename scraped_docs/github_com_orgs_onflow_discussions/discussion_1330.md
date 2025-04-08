@@ -595,7 +595,7 @@ Something went wrong.
 
 Quote reply
 
-### [franklywatson](/franklywatson) [Apr 24, 2023](#discussioncomment-5711444) Maintainer
+### [franklywatson](/franklywatson) [Apr 24, 2023](#discussioncomment-5711444) Collaborator
 
 -
 
@@ -673,7 +673,7 @@ Something went wrong.
 
 Quote reply
 
-#### [franklywatson](/franklywatson) [Apr 24, 2023](#discussioncomment-5713439) Maintainer
+#### [franklywatson](/franklywatson) [Apr 24, 2023](#discussioncomment-5713439) Collaborator
 
 -
 
