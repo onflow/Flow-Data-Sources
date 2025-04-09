@@ -15,8 +15,9 @@ Search
 * [Why Flow](/build/flow)
 * [Differences vs. EVM](/build/differences-vs-evm)
 * [Getting Started](/build/getting-started/contract-interaction)
-* [Flow Protocol](/build/basics/blocks)
+* [Flow Protocol](/build/basics/network-architecture)
 
+  + [Network Architecture ↗️](/build/basics/network-architecture)
   + [Blocks](/build/basics/blocks)
   + [Collections](/build/basics/collections)
   + [Accounts](/build/basics/accounts)
@@ -175,7 +176,7 @@ Following are some recommendations on how to write efficient scripts:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/scripts.md)
 
-Last updated on **Mar 31, 2025** by **Josh Hannan**
+Last updated on **Apr 1, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -228,7 +229,7 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)

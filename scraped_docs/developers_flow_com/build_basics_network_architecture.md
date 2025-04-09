@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/explore-more
+# Source: https://developers.flow.com/build/basics/network-architecture
 
-Explore More | Flow Developer Portal
+Network Architecture ↗️ | Flow Developer Portal
 
 
 
@@ -16,6 +16,18 @@ Search
 * [Differences vs. EVM](/build/differences-vs-evm)
 * [Getting Started](/build/getting-started/contract-interaction)
 * [Flow Protocol](/build/basics/network-architecture)
+
+  + [Network Architecture ↗️](/build/basics/network-architecture)
+  + [Blocks](/build/basics/blocks)
+  + [Collections](/build/basics/collections)
+  + [Accounts](/build/basics/accounts)
+  + [Transactions](/build/basics/transactions)
+  + [Scripts](/build/basics/scripts)
+  + [Fees](/build/basics/fees)
+  + [MEV Resistance](/build/basics/mev-resistance)
+  + [Events](/build/basics/events)
+  + [FLOW Coin](/build/basics/flow-token)
+  + [Smart Contracts ↙](/build/basics/smart-contracts)
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
@@ -23,43 +35,22 @@ Search
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
-* Explore More
+* Flow Protocol
+* Network Architecture ↗️
 
-# Explore More
+# Network Architecture ↗️
 
-Below are some additional tutorials to help you get started with Flow:
+;
 
-[## Flow App Quickstart Flow Blockchain
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/network-architecture.md)
 
-Simple walkthrough building a web3 app using the Flow Client Library (FCL)](/build/getting-started/fcl-quickstart)
-
-[## Fungible Token Guide Flow Blockchain
-
-Steps to create, deploy, mint, and transfer fungible tokens on Flow](/build/guides/fungible-token)
-
-[## NFT Guide Emerald City DAO
-
-A DApp that lets users create an empty collection, mint some pre-loaded NFTs, and transfer them to another account on Flow testnet.](https://academy.ecdao.org/en/quickstarts/1-non-fungible-token-next)
-
-[## Walkthrough Guides Flow Blockchain
-
-Longer form guides to help you get started with Flow](/build/getting-started/fcl-quickstart)
-
-[## Emerald Academy Emerald City DAO
-
-Quickstart Tutorials for Flow created by Emerald City Dao](https://academy.ecdao.org/en/quickstarts)
-
-[## Basic Concepts Flow Blockchain
-
-Basic Concepts of Flow Blockchain](/build/basics/blocks)
-
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/explore-more.md)
-
-Last updated on **Apr 1, 2025** by **Brian Doyle**
+Last updated on **Apr 8, 2025** by **Brian Doyle**
 
 [Previous
 
-VM Bridge](/build/core-contracts/bridge)
+Simple Frontend](/build/getting-started/fcl-quickstart)[Next
+
+Blocks](/build/basics/blocks)
 
 Documentation
 

@@ -1,4 +1,4 @@
-# Source: https://developers.flow.com
+# Source: https://developers.flow.com/
 
 Flow Developer Portal | Flow Developer Portal
 
@@ -112,7 +112,7 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)

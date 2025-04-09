@@ -765,7 +765,7 @@ npx hardhat verify --network testnet DEPLOYED_CONTRACT_ADDRESS "Constructor argu
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/hardhat.md)
 
-Last updated on **Mar 31, 2025** by **Josh Hannan**
+Last updated on **Apr 1, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -823,7 +823,7 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
