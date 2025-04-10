@@ -16,6 +16,7 @@ Search
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
 * [Flow CLI](/tools/flow-cli)
+* [@onflow/kit](/tools/kit)
 * [Flow Emulator](/tools/emulator)
 * [Flow Dev Wallet](/tools/flow-dev-wallet)
 * [Cadence VS Code Extension](/tools/vscode-extension)
@@ -36,6 +37,10 @@ List of error codes returned from failing transactions and scripts. The error co
 [## 🗃️ Flow CLI
 
 16 items](/tools/flow-cli)
+
+[## @onflow/kit
+
+React hooks for interacting with the Flow blockchain.](/tools/kit)
 
 [## Flow Emulator
 

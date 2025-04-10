@@ -33,6 +33,7 @@ Search
   + [Flow Interaction Templates (FLIX)](/tools/flow-cli/flix)
   + [Cadence Boilerplate](/tools/flow-cli/boilerplate)
   + [Data Collection](/tools/flow-cli/data-collection)
+* [@onflow/kit](/tools/kit)
 * [Flow Emulator](/tools/emulator)
 * [Flow Dev Wallet](/tools/flow-dev-wallet)
 * [Cadence VS Code Extension](/tools/vscode-extension)
@@ -78,7 +79,7 @@ Last updated on **Apr 1, 2025** by **Brian Doyle**
 
 Cadence Boilerplate](/tools/flow-cli/boilerplate)[Next
 
-Flow Emulator](/tools/emulator)
+@onflow/kit](/tools/kit)
 
 ###### Rate this page
 

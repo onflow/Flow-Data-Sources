@@ -33,6 +33,7 @@ Search
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
 * [Flow CLI](/tools/flow-cli)
+* [@onflow/kit](/tools/kit)
 * [Flow Emulator](/tools/emulator)
 * [Flow Dev Wallet](/tools/flow-dev-wallet)
 * [Cadence VS Code Extension](/tools/vscode-extension)

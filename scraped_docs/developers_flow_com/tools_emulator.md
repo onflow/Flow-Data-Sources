@@ -16,6 +16,7 @@ Search
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
 * [Flow CLI](/tools/flow-cli)
+* [@onflow/kit](/tools/kit)
 * [Flow Emulator](/tools/emulator)
 * [Flow Dev Wallet](/tools/flow-dev-wallet)
 * [Cadence VS Code Extension](/tools/vscode-extension)
@@ -51,7 +52,7 @@ Last updated on **Apr 1, 2025** by **Brian Doyle**
 
 [Previous
 
-Data Collection](/tools/flow-cli/data-collection)[Next
+@onflow/kit](/tools/kit)[Next
 
 Flow Dev Wallet](/tools/flow-dev-wallet)
 
