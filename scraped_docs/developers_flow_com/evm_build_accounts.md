@@ -87,7 +87,7 @@ For more information about Cadence Owned Accounts, see the [Flow EVM Support FLI
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/accounts.md)
 
-Last updated on **Apr 1, 2025** by **Brian Doyle**
+Last updated on **Apr 1, 2025** by **Jordan Ribbink**
 
 [Previous
 
@@ -138,7 +138,7 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
