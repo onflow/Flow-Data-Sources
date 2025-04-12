@@ -33,6 +33,7 @@ Search
 * [Tools](/tools)
 * [Error Codes](/tools/error-codes)
 * [Flow CLI](/tools/flow-cli)
+* [@onflow/kit](/tools/kit)
 * [Flow Emulator](/tools/emulator)
 * [Flow Dev Wallet](/tools/flow-dev-wallet)
 * [Cadence VS Code Extension](/tools/vscode-extension)
@@ -1736,7 +1737,7 @@ After a transaction has been **built** and **signed**, it can be sent to the Flo
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/sdk-guidelines.md)
 
-Last updated on **Mar 31, 2025** by **Josh Hannan**
+Last updated on **Apr 1, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -1803,7 +1804,7 @@ Start Building
 Network
 
 * [Network Status](https://status.onflow.org/)
-* [Flowscan Mainnet](https://flowdscan.io/)
+* [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-sporks)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
