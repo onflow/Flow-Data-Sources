@@ -27,6 +27,7 @@ SITES = [
     "https://github.com/onflow/flow-evm-bridge",
     "https://github.com/dapperlabs/nba-smart-contracts",
     "https://github.com/dapperlabs/nfl-smart-contracts",
+    "https://github.com/Outblock/FRW-scripts",
 
     # GitHub Discussions:
     "https://github.com/orgs/onflow/discussions" 

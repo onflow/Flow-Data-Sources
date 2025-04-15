@@ -22,6 +22,7 @@ ESSENTIALS = [
   'github_com_onflow_flow_evm_bridge',
   'github_com_dapperlabs_nba_smart_contracts',
   'github_com_dapperlabs_nfl_smart_contracts',
+  'github_com_outblock_frw_scripts',
 ]
 
 CADENCE_DOCS = [
@@ -34,6 +35,7 @@ CADENCE_DOCS = [
     'github_com_onflow_flow_evm_bridge',
     'github_com_dapperlabs_nba_smart_contracts',
     'github_com_dapperlabs_nfl_smart_contracts',
+    'github_com_outblock_frw_scripts',
 ]
 
 OUTPUT_DIR = os.path.join(BASE_DIR, 'merged_docs')
