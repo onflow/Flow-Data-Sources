@@ -40,7 +40,7 @@ HEADERS = {
 }
 
 # For GitHub repos: only store code files with these extensions or readme
-ALLOWED_EXTENSIONS = {".cdc", ".md", ".json", ".yaml", ".yml", ".toml", ".js", ".ts"}
+ALLOWED_EXTENSIONS = {".cdc", ".md", ".json", ".yaml", ".yml", ".toml", ".js", ".ts", ".sol"}
 
 # For Discussions: how many total discussion threads to scrape
 MAX_DISCUSSION_THREADS = 500
