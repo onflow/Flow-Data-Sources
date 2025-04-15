@@ -40,7 +40,8 @@ HEADERS = {
 }
 
 # For GitHub repos: only store code files with these extensions or readme
-ALLOWED_EXTENSIONS = {".cdc", ".md", ".json", ".yaml", ".yml", ".toml", ".js", ".ts", ".sol"}
+ALLOWED_EXTENSIONS = {".cdc", ".md", ".sol"}
+# I think we dont need to store ".yaml", ".yml", ".toml", ".js", ".ts", ".json" etc.
 
 # For Discussions: how many total discussion threads to scrape
 MAX_DISCUSSION_THREADS = 500
@@ -190,7 +191,11 @@ def scrape_github_file_blob(url: str):
         resp = requests.get(raw_url, headers=HEADERS, timeout=20)
         resp.raise_for_status()
         code_text = resp.text
-        return f"```\n{code_text}\n```"
+        # if the file is not a md file, wrap it in ```
+        if ext != ".md":
+            return f"```\n{code_text}\n```"
+        else:
+            return code_text
     except requests.exceptions.RequestException as e:
         print(f"Error fetching raw content {raw_url}: {e}")
         return None
