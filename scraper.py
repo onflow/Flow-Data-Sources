@@ -16,14 +16,17 @@ SITES = [
     "https://academy.ecdao.org/en/snippets",
     "https://academy.ecdao.org/en/catalog/courses/learn-cadence-beginner",
     "https://academy.ecdao.org/en/catalog/courses/beginner-dapp",
-    "https://cadence-lang.org/docs/why",
-    "https://flow.sift.ing/",
 
     # GitHub repos
+    "https://github.com/onflow/cadence-lang.org/",
+    "https://github.com/onflow/flips"
     "https://github.com/onflow/flow-ft/",
     "https://github.com/onflow/flow-core-contracts/",
     "https://github.com/onflow/flow-nft/",
     "https://github.com/onflow/nft-storefront/",
+    "https://github.com/onflow/flow-evm-bridge",
+    "https://github.com/dapperlabs/nba-smart-contracts",
+    "https://github.com/dapperlabs/nfl-smart-contracts",
 
     # GitHub Discussions:
     "https://github.com/orgs/onflow/discussions" 
