@@ -10,14 +10,30 @@ DATA_DIR = os.path.join(BASE_DIR, 'scraped_docs')
 
 ESSENTIALS = [
   # Docs
-  'cadence_lang_org_docs_why',
   'developers_flow_com',
 
   # GitHub Repos
+  'github_com_onflow_cadence_lang_org',
+  'github_com_onflow_flips',
   'github_com_onflow_flow_core_contracts',
   'github_com_onflow_flow_ft',
   'github_com_onflow_flow_nft',
-  'github_com_onflow_nft_storefront'
+  'github_com_onflow_nft_storefront',
+  'github_com_onflow_flow_evm_bridge',
+  'github_com_dapperlabs_nba_smart_contracts',
+  'github_com_dapperlabs_nfl_smart_contracts',
+]
+
+CADENCE_DOCS = [
+    # GitHub Repos
+    'github_com_onflow_cadence_lang_org',
+    'github_com_onflow_flow_core_contracts',
+    'github_com_onflow_flow_ft',
+    'github_com_onflow_flow_nft',
+    'github_com_onflow_nft_storefront',
+    'github_com_onflow_flow_evm_bridge',
+    'github_com_dapperlabs_nba_smart_contracts',
+    'github_com_dapperlabs_nfl_smart_contracts',
 ]
 
 OUTPUT_DIR = os.path.join(BASE_DIR, 'merged_docs')
@@ -73,6 +89,20 @@ def merge_essentials_md_files(output_path: str):
     with open(output_path, 'w', encoding='utf-8') as f:
         f.write(''.join(merged_content))
 
+def merge_cadence_docs_md_files(output_path: str):
+    """Merge only .md files from CADENCE_DOCS folders"""
+    merged_content = []
+    
+    for cadence_doc in CADENCE_DOCS:
+        cadence_doc_dir = os.path.join(DATA_DIR, cadence_doc)
+        if not os.path.exists(cadence_doc_dir):
+            continue
+        merged_content.append(merge_md_files(cadence_doc_dir))
+    
+    with open(output_path, 'w', encoding='utf-8') as f:
+        f.write(''.join(merged_content))
+
+
 ##############################################################################
 # MAIN
 ##############################################################################
@@ -84,6 +114,11 @@ def main():
     essentials_output = os.path.join(OUTPUT_DIR, 'essentials_merged.md')
     merge_essentials_md_files(essentials_output)
     print(f"Merged essentials to: {essentials_output}")
+
+    # Merge cadence docs only
+    cadence_docs_output = os.path.join(OUTPUT_DIR, 'cadence_docs_merged.md')
+    merge_cadence_docs_md_files(cadence_docs_output)
+    print(f"Merged cadence docs to: {cadence_docs_output}")
 
     # Merge all files
     all_output = os.path.join(OUTPUT_DIR, 'all_merged.md')
