@@ -25,7 +25,6 @@ Search
   + [Cross-VM Bridge](/tutorials/cross-vm-apps/vm-bridge)
 * [FlowtoBooth](/tutorials/flowtobooth)
 * [Native VRF](/tutorials/native-vrf)
-* [AI Guides](/tutorials/AI Guides/agentkit-flow-guide)
 
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
 * Direct Calls to Flow EVM
@@ -196,7 +195,7 @@ For more information and a deeper dive into the `EVMAddress`, `Result`, and `Sta
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/direct-calls.md)
 
-Last updated on **Apr 1, 2025** by **Brian Doyle**
+Last updated on **Apr 3, 2025** by **Brian Doyle**
 
 [Previous
 

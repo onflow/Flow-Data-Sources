@@ -18,11 +18,11 @@ Search
   + [Use Cursor AI](/tutorials/ai-plus-flow/cursor)
   + [Use ChatGPT](/tutorials/ai-plus-flow/chatgpt)
   + [Flow Data Sources](/tutorials/ai-plus-flow/flow-data-sources)
+  + [Using AgentKit on Flow](/tutorials/ai-plus-flow/agentkit-flow-guide)
 * [Token Launch](/tutorials/token-launch)
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
 * [FlowtoBooth](/tutorials/flowtobooth)
 * [Native VRF](/tutorials/native-vrf)
-* [AI Guides](/tutorials/AI Guides/agentkit-flow-guide)
 
 * AI Plus Flow
 
@@ -41,12 +41,14 @@ In this tutorial series, you'll discover how to:
 * Generate Cadence and Solidity code with AI assistance
 * Debug and troubleshoot Flow applications with AI support
 * Leverage AI for testing and optimization
+* Build AI agents that interact with Flow using AgentKit
 
 ## Tutorials[​](#tutorials "Direct link to Tutorials")
 
 * [Use Flow Knowledge Base in Cursor](/tutorials/ai-plus-flow/cursor) - Learn how to set up Cursor with Flow knowledge bases to get intelligent assistance while developing Flow applications.
 * [Use Flow Knowledge Base in ChatGPT](/tutorials/ai-plus-flow/chatgpt) - Create a custom GPT that understands Flow and Cadence to provide accurate answers to your development questions.
 * [Flow Data Sources](/tutorials/ai-plus-flow/flow-data-sources) - Learn about this comprehensive resource and how to integrate it with various AI platforms.
+* [Build AI Agents with AgentKit](/tutorials/ai-plus-flow/agentkit-flow-guide) - Learn how to create AI agents that can interact with Flow using AgentKit.
 
 ## Best Practices[​](#best-practices "Direct link to Best Practices")
 
@@ -57,6 +59,7 @@ When using AI tools with Flow development:
 * Combine AI assistance with your own understanding of Flow architecture
 * Keep your AI tools updated with the latest Flow documentation
 * Test AI-generated code thoroughly before deploying to production
+* Consider the security implications of AI agents interacting with your contracts
 
 ## Next Steps[​](#next-steps "Direct link to Next Steps")
 
@@ -68,7 +71,7 @@ After completing these tutorials, you'll be equipped to leverage AI tools effect
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/index.md)
 
-Last updated on **Apr 3, 2025** by **Brian Doyle**
+Last updated on **Apr 14, 2025** by **Brian Doyle**
 
 [Previous
 

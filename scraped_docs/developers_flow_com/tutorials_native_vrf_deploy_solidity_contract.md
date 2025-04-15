@@ -21,7 +21,6 @@ Search
 
   + [Secure Randomness with Commit-Reveal in Cadence](/tutorials/native-vrf/commit-reveal-cadence)
   + [Deploy a Solidity Contract Using Cadence](/tutorials/native-vrf/deploy-solidity-contract)
-* [AI Guides](/tutorials/AI Guides/agentkit-flow-guide)
 
 * [Native VRF](/tutorials/native-vrf)
 * Deploy a Solidity Contract Using Cadence
@@ -471,13 +470,11 @@ As blockchain technology continues to evolve, adopting these best practices is c
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/native-vrf/deploy-solidity-contract.md)
 
-Last updated on **Apr 1, 2025** by **Brian Doyle**
+Last updated on **Apr 3, 2025** by **Brian Doyle**
 
 [Previous
 
-Secure Randomness with Commit-Reveal in Cadence](/tutorials/native-vrf/commit-reveal-cadence)[Next
-
-Using Agentkit on Flow](/tutorials/AI Guides/agentkit-flow-guide)
+Secure Randomness with Commit-Reveal in Cadence](/tutorials/native-vrf/commit-reveal-cadence)
 
 ###### Rate this page
 

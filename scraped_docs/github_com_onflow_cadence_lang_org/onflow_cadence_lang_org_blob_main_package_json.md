@@ -1,0 +1,62 @@
+# Source: https://github.com/onflow/cadence-lang.org/blob/main/package.json
+
+```
+{
+  "name": "my-website",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "docusaurus": "docusaurus",
+    "start": "docusaurus start",
+    "build": "docusaurus build",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy",
+    "clear": "docusaurus clear",
+    "serve": "docusaurus serve",
+    "write-translations": "docusaurus write-translations",
+    "write-heading-ids": "docusaurus write-heading-ids"
+  },
+  "dependencies": {
+    "@code-hike/mdx": "^0.9.0",
+    "@docusaurus/core": "3.0.0",
+    "@docusaurus/preset-classic": "3.0.0",
+    "@mdx-js/react": "^3.0.0",
+    "clsx": "^1.2.1",
+    "docusaurus-theme-search-typesense": "^0.14.0",
+    "dotenv": "^16.3.1",
+    "lottie-react": "^2.4.0",
+    "next": "^12.0.7",
+    "prism-react-renderer": "^1.3.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.11.0",
+    "react-syntax-highlighter": "^15.5.0",
+    "react-youtube": "^10.1.0",
+    "shiki": "^0.14.5",
+    "web-vitals": "^4.2.4"
+  },
+  "devDependencies": {
+    "@docusaurus/module-type-aliases": "3.0.0",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "typescript": "*"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "engines": {
+    "node": "20.x"
+  }
+}
+
+```

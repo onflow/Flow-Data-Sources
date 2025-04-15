@@ -330,7 +330,7 @@ If you have any feedback about these guidelines, please create an issue in the o
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/best-practices/project-development-tips.md)
 
-Last updated on **Apr 1, 2025** by **Brian Doyle**
+Last updated on **Apr 3, 2025** by **Brian Doyle**
 
 [Previous
 

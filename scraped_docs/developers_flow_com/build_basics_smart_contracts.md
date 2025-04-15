@@ -113,7 +113,7 @@ contract that conforms to the standard.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/overview.md)
 
-Last updated on **Apr 1, 2025** by **Brian Doyle**
+Last updated on **Apr 3, 2025** by **Brian Doyle**
 
 [Previous
 

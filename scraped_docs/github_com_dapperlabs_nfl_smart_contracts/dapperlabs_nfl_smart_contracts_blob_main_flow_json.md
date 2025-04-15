@@ -1,0 +1,105 @@
+# Source: https://github.com/dapperlabs/nfl-smart-contracts/blob/main/flow.json
+
+```
+{
+	"contracts": {
+		"AllDay": {
+			"source": "./contracts/AllDay.cdc",
+			"aliases": {
+				"emulator": "f8d6e0586b0a20c7",
+				"mainnet": "e4cf4bdc1751c65d",
+				"testnet": "4dfd62c88d1b6462"
+			}
+		},
+		"Burner": {
+			"source": "./contracts/imports/Burner.cdc",
+			"aliases": {
+				"emulator": "ee82856bf20e2aa6",
+				"mainnet": "f233dcee88fe0abe",
+				"testnet": "9a0766d93b6608b7"
+			}
+		},
+		"FungibleToken": {
+			"source": "./contracts/imports/FungibleToken.cdc",
+			"aliases": {
+				"emulator": "ee82856bf20e2aa6",
+				"mainnet": "f233dcee88fe0abe",
+				"testnet": "9a0766d93b6608b7"
+			}
+		},
+		"IPackNFT": {
+			"source": "./contracts/imports/IPackNFT.cdc",
+			"aliases": {
+				"mainnet": "18ddf0823a55a0ee",
+				"testnet": "d8f6346999b983f5"
+			}
+		},
+		"MetadataViews": {
+			"source": "./contracts/imports/MetadataViews.cdc",
+			"aliases": {
+				"emulator": "f8d6e0586b0a20c7",
+				"mainnet": "1d7e57aa55817448",
+				"testnet": "631e88ae7f1d7c20"
+			}
+		},
+		"NonFungibleToken": {
+			"source": "./contracts/imports/NonFungibleToken.cdc",
+			"aliases": {
+				"emulator": "f8d6e0586b0a20c7",
+				"mainnet": "1d7e57aa55817448",
+				"testnet": "631e88ae7f1d7c20"
+			}
+		},
+		"PackNFT": {
+			"source": "./contracts/PackNFT.cdc",
+			"aliases": {
+				"mainnet": "e4cf4bdc1751c65d",
+				"testnet": "4dfd62c88d1b6462"
+			}
+		},
+		"ViewResolver": {
+			"source": "./contracts/imports/ViewResolver.cdc",
+			"aliases": {
+				"emulator": "f8d6e0586b0a20c7",
+				"mainnet": "1d7e57aa55817448",
+				"testnet": "631e88ae7f1d7c20"
+			}
+		}
+	},
+	"networks": {
+		"emulator": "127.0.0.1:3569",
+		"mainnet": "access.mainnet.nodes.onflow.org:9000",
+		"migrationtestnet": "access-001.migrationtestnet1.nodes.onflow.org:9000",
+		"previewnet": "access.previewnet.nodes.onflow.org:9000",
+		"testing": "127.0.0.1:3569",
+		"testnet": "access.devnet.nodes.onflow.org:9000"
+	},
+	"accounts": {
+		"emulator-account": {
+			"address": "f8d6e0586b0a20c7",
+			"key": "2e246218fd5daa9dfd61aa0bef71afe8b702258efadcd1778e543a47e7bd4f2e"
+		},
+		"nfl-testnet-account": {
+			"address": "4dfd62c88d1b6462",
+			"key": {
+				"type": "google-kms",
+				"index": 2,
+				"resourceID": "projects/dl-studio-platform-staging/locations/global/keyRings/flow-testnet-cosigners/cryptoKeys/allday-signer/cryptoKeyVersions/1"
+			}
+		}
+	},
+	"deployments": {
+		"mainnet": {
+			"nfl-mainnet-account": [
+				"AllDay"
+			]
+		},
+		"testnet": {
+			"nfl-testnet-account": [
+				"AllDay"
+			]
+		}
+	}
+}
+
+```

@@ -20,7 +20,6 @@ Search
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
 * [FlowtoBooth](/tutorials/flowtobooth)
 * [Native VRF](/tutorials/native-vrf)
-* [AI Guides](/tutorials/AI Guides/agentkit-flow-guide)
 
 * Token Launch
 
@@ -40,7 +39,7 @@ Last updated on **Apr 3, 2025** by **Brian Doyle**
 
 [Previous
 
-Flow Data Sources](/tutorials/ai-plus-flow/flow-data-sources)[Next
+Using AgentKit on Flow](/tutorials/ai-plus-flow/agentkit-flow-guide)[Next
 
 Register Token](/tutorials/token-launch/register-token)
 

@@ -18,11 +18,11 @@ Search
   + [Use Cursor AI](/tutorials/ai-plus-flow/cursor)
   + [Use ChatGPT](/tutorials/ai-plus-flow/chatgpt)
   + [Flow Data Sources](/tutorials/ai-plus-flow/flow-data-sources)
+  + [Using AgentKit on Flow](/tutorials/ai-plus-flow/agentkit-flow-guide)
 * [Token Launch](/tutorials/token-launch)
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
 * [FlowtoBooth](/tutorials/flowtobooth)
 * [Native VRF](/tutorials/native-vrf)
-* [AI Guides](/tutorials/AI Guides/agentkit-flow-guide)
 
 * [AI Plus Flow](/tutorials/ai-plus-flow)
 * Flow Data Sources
@@ -82,7 +82,7 @@ Last updated on **Apr 3, 2025** by **Brian Doyle**
 
 Use ChatGPT](/tutorials/ai-plus-flow/chatgpt)[Next
 
-Token Launch](/tutorials/token-launch)
+Using AgentKit on Flow](/tutorials/ai-plus-flow/agentkit-flow-guide)
 
 ###### Rate this page
 
