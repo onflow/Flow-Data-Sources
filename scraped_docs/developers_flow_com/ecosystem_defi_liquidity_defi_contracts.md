@@ -107,6 +107,8 @@ Below is a list of commonly used DeFi contracts on Flow:
 | Hyperlane Bridge ([trump.hyperlane.xyz](https://trump.hyperlane.xyz/)) | [Mainnet Contracts](https://docs.hyperlane.xyz/docs/reference/addresses/mailbox-addresses) |
 | Flow Bridge ([bridge.flow.com](https://bridge.flow.com/)) | [Superbridge Docs](https://docs.superbridge.app/) |
 | Celer cBridge ([cbridge.celer.network](https://cbridge.celer.network/1/747/USDC-intermediary)) | [Celer cBridge Docs](https://cbridge-docs.celer.network/tutorial/flow-cadence-bridging-guide) |
+| DeBridge ([app.debridge.finance](https://app.debridge.finance/)) | [DeBridge Contracts](https://docs.debridge.finance/dln-the-debridge-liquidity-network-protocol/deployed-contracts) |
+| Relay ([relay.link](https://relay.link/bridge)) | [Relay Contracts](https://docs.relay.link/resources/contract-addresses) |
 | LayerZero | [Mainnet Contracts](https://docs.layerzero.network/v1/developers/evm/technical-reference/deployed-contracts?chains=flow) |
 | Axelar | [Axelar Docs](https://docs.axelar.dev/validator/external-chains/flow/) |
 
@@ -153,7 +155,7 @@ Mainnet EAS Explorer: [<https://flow.easscan.credora.io>] (<https://flow.easscan
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/defi-contracts.md)
 
-Last updated on **Apr 1, 2025** by **Brian Doyle**
+Last updated on **Apr 14, 2025** by **j pimmel**
 
 [Previous
 

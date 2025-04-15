@@ -83,10 +83,6 @@ Internal Server Error
 
 get/blocks
 
-Flow Canary
-
-https://rest-canary.onflow.org/v1/blocks
-
 Flow Testnet
 
 https://rest-testnet.onflow.org/v1/blocks
@@ -205,10 +201,6 @@ Not Found
 Internal Server Error
 
 get/blocks/{id}
-
-Flow Canary
-
-https://rest-canary.onflow.org/v1/blocks/{id}
 
 Flow Testnet
 
@@ -329,10 +321,6 @@ Internal Server Error
 
 get/blocks/{id}/payload
 
-Flow Canary
-
-https://rest-canary.onflow.org/v1/blocks/{id}/payload
-
 Flow Testnet
 
 https://rest-testnet.onflow.org/v1/blocks/{id}/payload
@@ -418,10 +406,6 @@ Not Found
 Internal Server Error
 
 get/transactions/{id}
-
-Flow Canary
-
-https://rest-canary.onflow.org/v1/transactions/{id}
 
 Flow Testnet
 
@@ -534,10 +518,6 @@ Internal Server Error
 
 get/transaction\_results/{transaction\_id}
 
-Flow Canary
-
-https://rest-canary.onflow.org/v1/transaction\_results/{transaction\_id}
-
 Flow Testnet
 
 https://rest-testnet.onflow.org/v1/transaction\_results/{transaction\_id}
@@ -617,10 +597,6 @@ Bad Request
 Internal Server Error
 
 post/transactions
-
-Flow Canary
-
-https://rest-canary.onflow.org/v1/transactions
 
 Flow Testnet
 
@@ -771,10 +747,6 @@ Internal Server Error
 
 get/collections/{id}
 
-Flow Canary
-
-https://rest-canary.onflow.org/v1/collections/{id}
-
 Flow Testnet
 
 https://rest-testnet.onflow.org/v1/collections/{id}
@@ -888,10 +860,6 @@ Internal Server Error
 
 get/execution\_results
 
-Flow Canary
-
-https://rest-canary.onflow.org/v1/execution\_results
-
 Flow Testnet
 
 https://rest-testnet.onflow.org/v1/execution\_results
@@ -978,10 +946,6 @@ Not Found
 Internal Server Error
 
 get/execution\_results/{id}
-
-Flow Canary
-
-https://rest-canary.onflow.org/v1/execution\_results/{id}
 
 Flow Testnet
 
@@ -1073,10 +1037,6 @@ Internal Server Error
 
 get/accounts/{address}
 
-Flow Canary
-
-https://rest-canary.onflow.org/v1/accounts/{address}
-
 Flow Testnet
 
 https://rest-testnet.onflow.org/v1/accounts/{address}
@@ -1163,10 +1123,6 @@ Internal Server Error
 
 get/accounts/{address}/keys/{index}
 
-Flow Canary
-
-https://rest-canary.onflow.org/v1/accounts/{address}/keys/{index}
-
 Flow Testnet
 
 https://rest-testnet.onflow.org/v1/accounts/{address}/keys/{index}
@@ -1237,10 +1193,6 @@ Bad Request
 Internal Server Error
 
 post/scripts
-
-Flow Canary
-
-https://rest-canary.onflow.org/v1/scripts
 
 Flow Testnet
 
@@ -1324,10 +1276,6 @@ Internal Server Error
 
 get/events
 
-Flow Canary
-
-https://rest-canary.onflow.org/v1/events
-
 Flow Testnet
 
 https://rest-testnet.onflow.org/v1/events
@@ -1394,10 +1342,6 @@ Internal Server Error
 
 get/network/parameters
 
-Flow Canary
-
-https://rest-canary.onflow.org/v1/network/parameters
-
 Flow Testnet
 
 https://rest-testnet.onflow.org/v1/network/parameters
@@ -1450,10 +1394,6 @@ Not Found
 Internal Server Error
 
 get/node\_version\_info
-
-Flow Canary
-
-https://rest-canary.onflow.org/v1/node\_version\_info
 
 Flow Testnet
 
@@ -1543,10 +1483,6 @@ Service Unavailable
 As OpenAPI does not support WebSocket description, this error code (1013) is actually returned in a close message instead of (503).
 
 get/subscribe\_events
-
-Flow Canary
-
-https://rest-canary.onflow.org/v1/subscribe\_events
 
 Flow Testnet
 

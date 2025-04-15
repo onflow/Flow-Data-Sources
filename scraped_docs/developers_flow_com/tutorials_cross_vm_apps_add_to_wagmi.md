@@ -25,7 +25,6 @@ Search
   + [Cross-VM Bridge](/tutorials/cross-vm-apps/vm-bridge)
 * [FlowtoBooth](/tutorials/flowtobooth)
 * [Native VRF](/tutorials/native-vrf)
-* [AI Guides](/tutorials/AI Guides/agentkit-flow-guide)
 
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
 * Update Existing wagmi App

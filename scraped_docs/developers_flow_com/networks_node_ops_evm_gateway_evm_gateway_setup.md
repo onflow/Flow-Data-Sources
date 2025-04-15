@@ -51,7 +51,7 @@ to Access Nodes. It does not participate in the block production process and req
 
 The EVM Gateway can serve as a dedicated private RPC, a performance scaling solution, and a free gas provider offering similar capabilities
 to centralized middleware providers like Infura, Alchemy, etc. at a fraction of the cost. EVM Gateway nodes connect directly to the Flow network
-with no middleware giving you full control.
+with no middleware, giving you full control.
 
 If you are just getting started building your application, you can use the [public EVM Gateway](https://developers.flow.com/evm/networks).
 Applications generating high call volumes to the JSON-RPC may have hit rate limits on Flow public EVM Gateway and may benefit from running their
@@ -582,8 +582,13 @@ If keys are added while the gateway is running it will need to be restarted to m
 note
 
 If you are operating your EVM Gateway(s) to relay traffic for Flow EVM, or if you otherwise anticipate high volumes of
-transactions we recommend configuring at least 200 signing keys or more. Signing key utilization increases proportionately
-with transaction throughput growth. You can track signing key utilization as a metric, see `evm_gateway_available_signing_keys` below.
+transactions we recommend configuring 2000 signing keys or more. Signing key utilization increases proportionately
+with transaction throughput growth.
+
+A large number of keys are recommended for live networks because keys have a lengthy cool down period of 600 blocks (approx 10 minutes)
+before they are re-used. This is to avoid nonce collisions from re-using the key too soon.
+
+You can track signing key utilization as a metric, see `evm_gateway_available_signing_keys` below.
 
 #### KMS Configuration[​](#kms-configuration "Direct link to KMS Configuration")
 
@@ -604,7 +609,7 @@ _10
 
 _10
 
---coa-cloud-kms-key=example-gcp-kms1@1,example-gcp-kms2@1 \`
+--coa-cloud-kms-key=example-gcp-kms@1 \`
 
 ### Monitoring and Metrics[​](#monitoring-and-metrics "Direct link to Monitoring and Metrics")
 
@@ -690,6 +695,14 @@ _10
 Join our [Discord](https://discord.com/invite/J6fFnh2xx6) and use the `#flow-evm` channel to ask any questions you may have about
 EVM Gateway.
 
+### No signing keys available[​](#no-signing-keys-available "Direct link to No signing keys available")
+
+`_10
+
+Failed to send transaction: no signing keys available`
+
+This message indicates that the GW has used all its available signing keys. Please refer to the [Account and Key Management](/networks/node-ops/evm-gateway/evm-gateway-setup#account-and-key-management) documentation to add more signing keys to your COA.
+
 ### Database version inconsistency/corruption[​](#database-version-inconsistencycorruption "Direct link to Database version inconsistency/corruption")
 
 If you see a similar message to this from an aborted startup the gateway database directory is not compatible with the schema versions of the runtime, or there may be corruption. In this instance we recommend that you delete the contents of the EVM GW data directory.
@@ -700,7 +713,7 @@ Jan 16 17:00:57 nodename docker[6552]: {"level":"error","error":"failed to open 
 
 ### State stream configuration[​](#state-stream-configuration "Direct link to State stream configuration")
 
-If you are running an Access Node on the same logical host as the EVM Gateway you may see ehe following log entries.
+If you are running an Access Node on the same logical host as the EVM Gateway you may see the following log entries.
 
 `_10
 
@@ -723,7 +736,7 @@ failure in event subscription at height ${INIT-CADENCE-HEIGHT}, with: recoverabl
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/evm-gateway/evm-gateway-setup.md)
 
-Last updated on **Apr 1, 2025** by **Brian Doyle**
+Last updated on **Apr 14, 2025** by **j pimmel**
 
 [Previous
 
@@ -751,6 +764,7 @@ Light Node Setup](/networks/node-ops/light-nodes/observer-node)
   + [Monitoring and Metrics](#monitoring-and-metrics)
   + [Node Status](#node-status)
 * [Troubleshooting](#troubleshooting)
+  + [No signing keys available](#no-signing-keys-available)
   + [Database version inconsistency/corruption](#database-version-inconsistencycorruption)
   + [State stream configuration](#state-stream-configuration)
   + [Access Node not fully synced](#access-node-not-fully-synced)

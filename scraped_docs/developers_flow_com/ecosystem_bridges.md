@@ -60,9 +60,17 @@ Bridges are mechanisms that connect different blockchain networks, enabling secu
 
 [Axelar](https://www.axelar.network/) is a decentralized cross-chain network connecting over 55 blockchains, facilitating asset transfers and smart contract programmability. It features a proof-of-stake consensus for security and supports cross-chain applications through General Message Passing (GMP). Integrations with platforms like [Squid](https://www.squidrouter.com/) enable easy token swaps across networks like Ethereum and Polygon.
 
+## DeBridge[​](#debridge "Direct link to DeBridge")
+
+[DeBridge](https://app.debridge.finance/) is a decentralized cross-chain network supporting hundreds of tokens over 75 blockchains. DeBridge runs on its generic messaging protocol and operates cross-chain validator infrastructure to achieve a high level cross-chain interoperability for quick, low-cost bridging. DeBridge's architecture emphasizes security and fault tolerance with robust handling of forks or blockchain outages to mitigate bridging issues.
+
+## Relay[​](#relay "Direct link to Relay")
+
+[Relay](https://relay.link/bridge) is an intent-based bridge enabling high-speed bridging and connecting over 30 blockchains. Unlike consensus validator based decentralized bridges, Relay's permissioned relayer model stores outbound tokens on the origin chain and issues tokens on the destination chain allowing for low-cost, fast bridging of assets.
+
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/bridges.md)
 
-Last updated on **Apr 1, 2025** by **Brian Doyle**
+Last updated on **Apr 14, 2025** by **j pimmel**
 
 [Previous
 
@@ -80,6 +88,8 @@ Community Projects](/ecosystem/projects)
 * [Hyperlane](#hyperlane)
 * [Celer cBridge](#celer-cbridge)
 * [Axelar](#axelar)
+* [DeBridge](#debridge)
+* [Relay](#relay)
 
 Documentation
 

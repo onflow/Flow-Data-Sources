@@ -18,7 +18,6 @@ Search
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
 * [FlowtoBooth](/tutorials/flowtobooth)
 * [Native VRF](/tutorials/native-vrf)
-* [AI Guides](/tutorials/AI Guides/agentkit-flow-guide)
 
 * Tutorials
 
@@ -37,6 +36,7 @@ Learn how to leverage AI tools to enhance your Flow development experience. Thes
 * [Use Flow Knowledge Base in Cursor](/tutorials/ai-plus-flow/cursor) - Learn how to set up Cursor with Flow knowledge bases to get intelligent assistance while developing Flow applications
 * [Use Flow Knowledge Base in ChatGPT](/tutorials/ai-plus-flow/chatgpt) - Create a custom GPT that understands Flow and Cadence to provide accurate answers to your development questions
 * [Flow Data Sources](/tutorials/ai-plus-flow/flow-data-sources) - Learn about this comprehensive resource and how to integrate it with various AI platforms
+* [Build AI Agents with AgentKit](/tutorials/ai-plus-flow/agentkit-flow-guide) - Learn how to create AI agents that can interact with Flow using AgentKit
 
 ## Token Launch[​](#token-launch "Direct link to Token Launch")
 
@@ -69,7 +69,7 @@ Explore Flow's unique capabilities through fun benchmark applications that showc
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/index.md)
 
-Last updated on **Apr 4, 2025** by **Brian Doyle**
+Last updated on **Apr 14, 2025** by **Brian Doyle**
 
 [Next
 

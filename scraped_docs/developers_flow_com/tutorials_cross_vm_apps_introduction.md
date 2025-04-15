@@ -25,7 +25,6 @@ Search
   + [Cross-VM Bridge](/tutorials/cross-vm-apps/vm-bridge)
 * [FlowtoBooth](/tutorials/flowtobooth)
 * [Native VRF](/tutorials/native-vrf)
-* [AI Guides](/tutorials/AI Guides/agentkit-flow-guide)
 
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
 * Batched Tx From Scaffold
@@ -38,9 +37,11 @@ Ever since the launch of Flow EVM, it's been possible to *supercharge* your EVM 
 
 [FLIP 316](https://github.com/onflow/flips/pull/317) improves the [Flow Client Library (FCL)](/tools/clients/fcl-js) to support cross-VM functionality between Flow EVM and Flow Cadence.
 
-For EVM developers, this means that you can use the familiar [wagmi](https://wagmi.sh/), [viem](https://viem.sh/), and [rainbowkit](https://www.rainbowkit.com/) stack you're used to, add FCL, and get features like **multi-call write** with one signature for users with a Cadence-compatible [wallet](/ecosystem/wallets).
+For EVM developers, this means that you can use the familiar [wagmi](https://wagmi.sh/), [viem](https://viem.sh/), and [RainbowKit](https://www.rainbowkit.com/) stack you're used to, add FCL, and get features like **multi-call write** with one signature for users with a Cadence-compatible [wallet](/ecosystem/wallets).
 
-In this tutorial, you'll learn how to create a hybrid application and use some basic cross-VM features.
+In this tutorial, you'll learn how to create [Click to Mint](https://clicktomint.vercel.app/), a simple game that allows players to mint an ERC-20 token by clicking a button. With the power of Flow, they can also click a button, and **complete 10 separate transactions with just one approval!**
+
+![Click to Mint](/assets/images/click-to-mint-89f90591b2006954bf4b6b1ff5546e4c.png)
 
 warning
 
@@ -66,7 +67,7 @@ Apps using the hybrid approach can interact with both [Cadence](https://cadence-
 
 ### Onchain App Frontends[​](#onchain-app-frontends "Direct link to Onchain App Frontends")
 
-We're assuming you're familiar with [wagmi](https://wagmi.sh/), [viem](https://viem.sh/), and [rainbowkit](https://www.rainbowkit.com/). If you're coming from the Cadence, you might want to take a quick look at the getting started guides for these platforms. They're all excellent and will rapidly get you up to speed on how the EVM world commonly connects their apps to their contracts.
+We're assuming you're familiar with [wagmi](https://wagmi.sh/), [viem](https://viem.sh/), and [RainbowKit](https://www.rainbowkit.com/). If you're coming from the Cadence, you might want to take a quick look at the getting started guides for these platforms. They're all excellent and will rapidly get you up to speed on how the EVM world commonly connects their apps to their contracts.
 
 ## Getting Started[​](#getting-started "Direct link to Getting Started")
 
@@ -1462,6 +1463,646 @@ Click the button again and **manually** refresh page once the transaction hashes
 
 **You just minted 10 tokens from 10 transactions with one signature!**
 
+## Improve the UI/UX[​](#improve-the-uiux "Direct link to Improve the UI/UX")
+
+While we've got the batched transactions feature working, we've got a few flaws in the user experience that we'll need to resolve, and we should make this a bit nicer looking.
+
+### Install Tailwind[​](#install-tailwind "Direct link to Install Tailwind")
+
+warning
+
+We initially tried getting an AI friend to install this for us and it got very confused. Next.js and Tailwind have both had a lot of change recently. As a result, the LLMs don't seem to have caught up just yet.
+
+Do this part the old-fashioned way.
+
+The components we borrowed already use [Tailwind](https://tailwindcss.com/), so install it:
+
+`_10
+
+npm install tailwindcss @tailwindcss/postcss postcss`
+
+Then, in the root of the project, add `postcss.config.mjs` and add:
+
+`_10
+
+const config = {
+
+_10
+
+plugins: {
+
+_10
+
+'@tailwindcss/postcss': {},
+
+_10
+
+},
+
+_10
+
+};
+
+_10
+
+export default config;`
+
+Then, add the following to the top of `src/styles/global.css`:
+
+`_10
+
+@import 'tailwindcss';`
+
+Run the app and make sure you see some styling. It won't look nice yet. We'll help you reorganize the components and hook up state monitoring, but it will be up to you to style the app how you'd like. You can check out the [reference repo](https://github.com/briandoyle81/cross-vm-app-1/tree/main) for inspiration, but it's far from perfect or beautiful.
+
+### Update State Display[​](#update-state-display "Direct link to Update State Display")
+
+The first thing we'll need to fix is that the user has to refresh the window manually to see the results of the batched transaction in the scoreboard. Start by moving the functionality in `page.tsx` into a new component, called `SuperButton.tsx`. Note that we're mimicking the pattern in `TheButton.tsx` where the blockchain state is managed in `Content.tsx` and we're passing in the relevant information and functions as props:
+
+`_76
+
+'use client';
+
+_76
+
+_76
+
+import { useAccount } from 'wagmi';
+
+_76
+
+import { clickToken } from '../constants/contracts';
+
+_76
+
+import { CallOutcome, EVMBatchCall } from '../hooks/useBatchTransaction';
+
+_76
+
+import { Abi } from 'viem';
+
+_76
+
+_76
+
+interface SuperButtonProps {
+
+_76
+
+flowAddress: string | null;
+
+_76
+
+awaitingResponse: boolean;
+
+_76
+
+setAwaitingResponse: (value: boolean) => void;
+
+_76
+
+sendBatchTransaction: (calls: EVMBatchCall[]) => void;
+
+_76
+
+isPending: boolean;
+
+_76
+
+isError: boolean;
+
+_76
+
+txId: string;
+
+_76
+
+results: CallOutcome[];
+
+_76
+
+}
+
+_76
+
+_76
+
+export default function SuperButton({
+
+_76
+
+flowAddress,
+
+_76
+
+awaitingResponse,
+
+_76
+
+setAwaitingResponse,
+
+_76
+
+sendBatchTransaction,
+
+_76
+
+isPending,
+
+_76
+
+isError,
+
+_76
+
+txId,
+
+_76
+
+results,
+
+_76
+
+}: SuperButtonProps) {
+
+_76
+
+const account = useAccount();
+
+_76
+
+_76
+
+const calls: EVMBatchCall[] = Array.from({ length: 10 }, () => ({
+
+_76
+
+address: clickToken.address,
+
+_76
+
+abi: clickToken.abi as Abi,
+
+_76
+
+functionName: 'mintTo',
+
+_76
+
+args: [account?.address],
+
+_76
+
+}));
+
+_76
+
+_76
+
+function handleClick() {
+
+_76
+
+setAwaitingResponse(true);
+
+_76
+
+sendBatchTransaction(calls);
+
+_76
+
+}
+
+_76
+
+_76
+
+return (
+
+_76
+
+<div className="bg-blue-500 text-white p-4 m-4 rounded">
+
+_76
+
+<div>
+
+_76
+
+With the{' '}
+
+_76
+
+<a
+
+_76
+
+href="https://wallet.flow.com/"
+
+_76
+
+target="_blank"
+
+_76
+
+rel="noopener noreferrer"
+
+_76
+
+>
+
+_76
+
+Flow Wallet
+
+_76
+
+</a>
+
+_76
+
+, you can sign 10 mint transactions at once!
+
+_76
+
+</div>
+
+_76
+
+{!awaitingResponse && (
+
+_76
+
+<button
+
+_76
+
+disabled={!flowAddress}
+
+_76
+
+onClick={handleClick}
+
+_76
+
+className="w-full py-4 px-8 text-2xl font-bold text-white bg-blue-600 hover:bg-blue-700 rounded-lg shadow-lg transition-transform transform active:scale-95 disabled:bg-gray-400 disabled:cursor-not-allowed"
+
+_76
+
+>
+
+_76
+
+{flowAddress ? 'Mint 10 at Once!' : 'Requires Flow Wallet'}
+
+_76
+
+</button>
+
+_76
+
+)}
+
+_76
+
+{awaitingResponse && (
+
+_76
+
+<button
+
+_76
+
+className="w-full py-4 px-8 text-2xl font-bold text-white bg-gray-500 rounded-lg shadow-lg disabled:cursor-not-allowed"
+
+_76
+
+disabled
+
+_76
+
+>
+
+_76
+
+Please Wait...
+
+_76
+
+</button>
+
+_76
+
+)}
+
+_76
+
+{<p>{JSON.stringify({ isPending, isError, txId, results })}</p>}
+
+_76
+
+</div>
+
+_76
+
+);
+
+_76
+
+}`
+
+You should end up with a vastly simplified `page.tsx`:
+
+`_11
+
+import Content from '../components/Content';
+
+_11
+
+_11
+
+function Page() {
+
+_11
+
+return (
+
+_11
+
+<>
+
+_11
+
+<Content />
+
+_11
+
+</>
+
+_11
+
+);
+
+_11
+
+}
+
+_11
+
+_11
+
+export default Page;`
+
+Next, update `Content.tsx`. First, add the decomposition of the `useBatchTransactions` hook that used to be in `page.tsx`. You'll keep blockchain-state-related code here, in a similar pattern to `useWriteTransaction`.
+
+`_10
+
+import { useBatchTransaction } from '../hooks/useBatchTransaction';`
+
+`_10
+
+const { sendBatchTransaction, isPending, isError, txId, results } =
+
+_10
+
+useBatchTransaction();`
+
+You'll also need to move the `useEffect` that subscribes to the current user on the Cadence side:
+
+`_10
+
+useEffect(() => {
+
+_10
+
+const unsub = fcl.currentUser().subscribe((user: CurrentUser) => {
+
+_10
+
+setFlowAddress(user.addr ?? null);
+
+_10
+
+});
+
+_10
+
+return () => unsub();
+
+_10
+
+}, []);`
+
+Then, update the `useEffect` that waits for a `receipt` to also trigger if `results` is updated with the result of a batched transaction:
+
+`_10
+
+useEffect(() => {
+
+_10
+
+if (receipt || results.length > 0) {
+
+_10
+
+console.log('Transaction receipt:', receipt);
+
+_10
+
+setReload(true);
+
+_10
+
+setAwaitingResponse(false);
+
+_10
+
+}
+
+_10
+
+}, [receipt, results]);`
+
+Finally, reorganize the `return` into two side-by-side cards and put the new component in the right card:
+
+`_35
+
+return (
+
+_35
+
+<div>
+
+_35
+
+<div className="flex justify-end p-3">
+
+_35
+
+<ConnectButton />
+
+_35
+
+</div>
+
+_35
+
+<h3>Flow Address: {flowAddress}</h3>
+
+_35
+
+<h3>EVM Address: {account?.address}</h3>
+
+_35
+
+<br />
+
+_35
+
+<div className="flex flex-row items-center justify-center">
+
+_35
+
+<div className="bg-green-500 text-white p-4 m-4 rounded">
+
+_35
+
+{account.address && (
+
+_35
+
+<div className="mb-4">
+
+_35
+
+<TheButton
+
+_35
+
+writeContract={writeContract}
+
+_35
+
+awaitingResponse={awaitingResponse}
+
+_35
+
+setAwaitingResponse={setAwaitingResponse}
+
+_35
+
+/>
+
+_35
+
+</div>
+
+_35
+
+)}
+
+_35
+
+<br />
+
+_35
+
+</div>
+
+_35
+
+<SuperButton
+
+_35
+
+flowAddress={flowAddress}
+
+_35
+
+awaitingResponse={awaitingResponse}
+
+_35
+
+setAwaitingResponse={setAwaitingResponse}
+
+_35
+
+sendBatchTransaction={sendBatchTransaction}
+
+_35
+
+isPending={isPending}
+
+_35
+
+isError={isError}
+
+_35
+
+txId={txId}
+
+_35
+
+results={results}
+
+_35
+
+/>
+
+_35
+
+</div>
+
+_35
+
+{<TopTenDisplay reloadScores={reload} setReloadScores={setReload} />}
+
+_35
+
+</div>
+
+_35
+
+);`
+
+### Testing[​](#testing "Direct link to Testing")
+
+Run the app and make sure it's working as expected, even if in a rather ugly fashion.
+
+### Add UI Hints[​](#add-ui-hints "Direct link to Add UI Hints")
+
+With this kind of app, you're likely to have two types of users. Those that have upgraded to the [Flow Wallet] can take advantage of advanced features such as batched transactions, and those who haven't cannot.
+
+It's up to you do design a comprehensive strategy for your app, but here, we can at least let users know what's going on. Add some explainer text, and configure the button to show an appropriate message and disable itself if the wallet won't support it.
+
+`_10
+
+<div>
+
+_10
+
+With the <a href="https://flow.com/wallet" target="_blank" rel="noopener noreferrer">Flow Wallet</a>, you can sign 10 mint transactions at once!
+
+_10
+
+</div>
+
+_10
+
+<button disabled={!flowAddress} onClick={() => sendBatchTransaction(calls)}>
+
+_10
+
+{flowAddress ? 'Mint 10 at Once!' : 'Requires Flow Wallet'}
+
+_10
+
+</button>`
+
+### Styling[​](#styling "Direct link to Styling")
+
+It's up to you to make the app pretty. If you need inspiration, you can always check the [reference repo](https://github.com/briandoyle81/cross-vm-app-1/tree/main).
+
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
 In this tutorial, you reviewed the demo starter for building hybrid applications that utilize a common EVM stack and integrate with Flow Cadence. You then added functionality to interface with another contract that mints ERC-20 tokens. Finally, you supercharged your app by using the power of Cadence for EVM multi-call contract writes.
@@ -1474,7 +2115,7 @@ Now that you have completed the tutorial, you should be able to:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/introduction.md)
 
-Last updated on **Apr 3, 2025** by **Brian Doyle**
+Last updated on **Apr 14, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -1501,6 +2142,12 @@ Update Existing wagmi App](/tutorials/cross-vm-apps/add-to-wagmi)
 * [Set Up Contract Imports](#set-up-contract-imports)
 * [Build Traditional Functionality](#build-traditional-functionality)
 * [Supercharge your EVM App With Cadence](#supercharge-your-evm-app-with-cadence)
+* [Improve the UI/UX](#improve-the-uiux)
+  + [Install Tailwind](#install-tailwind)
+  + [Update State Display](#update-state-display)
+  + [Testing](#testing)
+  + [Add UI Hints](#add-ui-hints)
+  + [Styling](#styling)
 * [Conclusion](#conclusion)
 
 Documentation
