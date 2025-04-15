@@ -19,7 +19,7 @@ SITES = [
 
     # GitHub repos
     "https://github.com/onflow/cadence-lang.org/",
-    "https://github.com/onflow/flips"
+    "https://github.com/onflow/flips",
     "https://github.com/onflow/flow-ft/",
     "https://github.com/onflow/flow-core-contracts/",
     "https://github.com/onflow/flow-nft/",
