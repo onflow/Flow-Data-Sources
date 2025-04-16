@@ -2059,7 +2059,7 @@ Congrats, you did it! You're now ready to launch the next fun NFT project on Flo
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/nft.md)
 
-Last updated on **Apr 3, 2025** by **Brian Doyle**
+Last updated on **Apr 4, 2025** by **Brian Doyle**
 
 [Previous
 

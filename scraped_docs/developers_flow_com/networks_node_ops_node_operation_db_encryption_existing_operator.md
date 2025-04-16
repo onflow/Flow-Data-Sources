@@ -145,7 +145,7 @@ _15
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/db-encryption-existing-operator.md)
 
-Last updated on **Apr 3, 2025** by **Brian Doyle**
+Last updated on **Apr 4, 2025** by **Brian Doyle**
 
 [Previous
 

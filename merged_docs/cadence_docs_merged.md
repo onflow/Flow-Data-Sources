@@ -15460,6 +15460,32 @@ f()  // is `2`
 
 
 
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_stake_requirements.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script returns the balance of staked tokens of a node
+
+access(all) fun main(role: UInt8): UFix64 {
+    let req = FlowIDTableStaking.getMinimumStakeRequirements()
+
+    return req[role]!
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/lockedTokens/admin/admin_deploy_contract.cdc
 
 ```
@@ -15500,6 +15526,90 @@ access(all) fun main(): UFix64 {
     return FlowStorageFees.minimumStorageReservation
 }
 
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/admin/remove_node.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This transaction removes an existing node from the identity table
+
+transaction(id: String) {
+
+    // Local variable for a reference to the ID Table Admin object
+    let adminRef: &FlowIDTableStaking.Admin
+
+    prepare(acct: auth(BorrowValue) &Account) {
+        // borrow a reference to the admin object
+        self.adminRef = acct.storage.borrow<&FlowIDTableStaking.Admin>(from: FlowIDTableStaking.StakingAdminStoragePath)
+            ?? panic("Could not borrow reference to staking admin")
+    }
+
+    execute {
+        self.adminRef.removeAndRefundNodeRecord(id)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/admin/end_epoch_change_payout.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This transaction effectively ends the epoch and starts a new one.
+//
+// It combines the end_staking and move_tokens transactions
+// which ends the staking auction, which refunds nodes with insufficient stake
+// and moves tokens between buckets
+
+transaction(ids: {String: Bool}, newPayout: UFix64) {
+
+    // Local variable for a reference to the ID Table Admin object
+    let adminRef: &FlowIDTableStaking.Admin
+
+    prepare(acct: auth(BorrowValue) &Account) {
+        // borrow a reference to the admin object
+        self.adminRef = acct.storage.borrow<&FlowIDTableStaking.Admin>(from: FlowIDTableStaking.StakingAdminStoragePath)
+            ?? panic("Could not borrow reference to staking admin")
+    }
+
+    execute {
+
+        self.adminRef.setEpochTokenPayout(newPayout)
+
+        self.adminRef.setApprovedList(ids)
+
+        self.adminRef.endStakingAuction()
+
+        self.adminRef.moveTokens(newEpochCounter: 2)
+    }
+}
 
 ```
 
@@ -15557,6 +15667,80 @@ access(all) fun main(backfillerAddress: Address): UInt64? {
     let backfiller = getAuthAccount<auth(BorrowValue) &Account>(backfillerAddress).storage.borrow<&RandomBeaconHistory.Backfiller>(from: /storage/randomBeaconHistoryBackfiller)
     return backfiller?.getMaxEntriesPerCall() ?? nil
 }
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/admin/set_open_access_node_slots.cdc
+
+```
+import "FlowIDTableStaking"
+
+/// This transaction sets the open node slots for access nodes
+/// Open node slots are the number of slots that are open
+/// each epoch, regardless of how many nodes joined in the previous epoch.
+/// They are refreshed each epoch
+
+transaction(openAccessSlots: UInt16) {
+
+    // Local variable for a reference to the ID Table Admin object
+    let adminRef: &FlowIDTableStaking.Admin
+
+    prepare(acct: auth(BorrowValue) &Account) {
+        // borrow a reference to the admin object
+        self.adminRef = acct.storage.borrow<&FlowIDTableStaking.Admin>(from: FlowIDTableStaking.StakingAdminStoragePath)
+            ?? panic("Could not borrow reference to staking admin")
+    }
+
+    execute {
+
+        var openSlotDictionary: {UInt8: UInt16} = {}
+
+        openSlotDictionary.insert(key: 5, openAccessSlots)
+
+        self.adminRef.setOpenNodeSlots(openSlots: openSlotDictionary)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/delegation/get_delegator_info_from_address.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script gets all the info about a delegator and returns it
+
+access(all) fun main(address: Address): FlowIDTableStaking.DelegatorInfo {
+
+    let delegator = getAccount(address)
+        .capabilities.borrow<&{FlowIDTableStaking.NodeDelegatorPublic}>(/public/flowStakingDelegator)
+        ?? panic("Could not borrow reference to delegator object")
+
+    return FlowIDTableStaking.DelegatorInfo(nodeID: delegator.nodeID, delegatorID: delegator.id)
+}
+
 ```
 
 
@@ -15956,6 +16140,43 @@ transaction {
 
 
 
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_approved_but_not_staked_nodes.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script returns the list of nodes that are on the approved list but do not currently have tokens staked above the minimum requirement.
+access(all) fun main(): [String] {
+    let approvedIDs = FlowIDTableStaking.getApprovedList()
+    let stakedIDs = FlowIDTableStaking.getStakedNodeIDs()
+
+    let stakedIDsMap: {String: Bool} = {}
+    for stakedID in stakedIDs {
+        stakedIDsMap[stakedID] = true
+    }
+
+    let extraNodeIDs: [String] = []
+    for approvedID in approvedIDs {
+        if stakedIDsMap[approvedID] != true {
+            extraNodeIDs.append(approvedID)
+        }
+    }
+    return extraNodeIDs
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/nodeVersionBeacon/scripts/get_next_version_update_sequence.cdc
 
 ```
@@ -15991,6 +16212,44 @@ transaction(newNumClusters: UInt16) {
             ?? panic("Could not borrow admin from storage path")
 
         epochAdmin.updateNumCollectorClusters(newNumClusters)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/delegation/register_delegator.cdc
+
+```
+import "FlowIDTableStaking"
+import "FlowToken"
+import "FungibleToken"
+
+transaction(nodeID: String, amount: UFix64) {
+
+    prepare(acct: auth(Storage, Capabilities) &Account) {
+
+        let flowTokenRef = acct.storage.borrow<auth(FungibleToken.Withdraw) &FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow reference to FLOW Vault")
+
+        // Create a new delegator object for the node
+        let newDelegator <- FlowIDTableStaking.registerNewDelegator(nodeID: nodeID, tokensCommitted: <-flowTokenRef.withdraw(amount: amount))
+
+        // Store the delegator object
+        acct.storage.save(<-newDelegator, to: FlowIDTableStaking.DelegatorStoragePath)
+
+        let delegatorCap = acct.capabilities.storage.issue<&{FlowIDTableStaking.NodeDelegatorPublic}>(FlowIDTableStaking.DelegatorStoragePath)
+        acct.capabilities.publish(delegatorCap, at: /public/flowStakingDelegator)
     }
 }
 ```
@@ -16125,6 +16384,47 @@ transaction(automaticRewardsEnabled: Bool) {
 
 
 
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/admin/scale_rewards_test.cdc
+
+```
+import "FlowIDTableStaking"
+
+transaction {
+
+    prepare(acct: &Account) {
+        let rewardsBreakdown = FlowIDTableStaking.RewardsBreakdown(nodeID: "000000001")
+
+        rewardsBreakdown.setNodeRewards(1000.0)
+        rewardsBreakdown.setDelegatorReward(delegatorID: 1 as UInt32, rewards: 100.0)
+
+        rewardsBreakdown.scaleAllRewards(scalingFactor: 0.5)
+        assert(
+            rewardsBreakdown.nodeRewards == 500.0,
+            message: "wrong node rewards scale"
+        )
+
+        let delegatorRewards = rewardsBreakdown.delegatorRewards[1 as UInt32]!
+
+        assert(
+            delegatorRewards == 50.0,
+            message: "wrong delegator rewards scale"
+        )
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/epoch/scripts/get_epoch_phase.cdc
 
 ```
@@ -16132,6 +16432,68 @@ import "FlowEpoch"
 
 access(all) fun main(): UInt8 {
     return FlowEpoch.currentEpochPhase.rawValue
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/admin/pay_rewards.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This transaction pays rewards to all the staked nodes
+
+transaction {
+
+    // Local variable for a reference to the ID Table Admin object
+    let adminRef: &FlowIDTableStaking.Admin
+
+    prepare(acct: auth(BorrowValue) &Account) {
+        // borrow a reference to the admin object
+        self.adminRef = acct.storage.borrow<&FlowIDTableStaking.Admin>(from: FlowIDTableStaking.StakingAdminStoragePath)
+            ?? panic("Could not borrow reference to staking admin")
+    }
+
+    execute {
+        let summary = self.adminRef.calculateRewards()
+        self.adminRef.payRewards(forEpochCounter: 1, rewardsSummary: summary)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/delegation/get_delegator_unstaking_request.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script returns the balance of unstaking tokens of a delegator
+
+access(all) fun main(nodeID: String, delegatorID: UInt32): UFix64 {
+    let delInfo = FlowIDTableStaking.DelegatorInfo(nodeID: nodeID, delegatorID: delegatorID)
+    return delInfo.tokensRequestedToUnstake
 }
 ```
 
@@ -16161,6 +16523,98 @@ transaction(nodeID: String) {
     }
 }
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/node/stake_new_tokens.cdc
+
+```
+import "FlowIDTableStaking"
+import "FlowToken"
+import "FungibleToken"
+
+transaction(amount: UFix64) {
+
+    // Local variable for a reference to the node object
+    let stakerRef: auth(FlowIDTableStaking.NodeOperator) &FlowIDTableStaking.NodeStaker
+
+    let flowTokenRef: auth(FungibleToken.Withdraw) &FlowToken.Vault
+
+    prepare(acct: auth(BorrowValue) &Account) {
+        // borrow a reference to the node object
+        self.stakerRef = acct.storage.borrow<auth(FlowIDTableStaking.NodeOperator) &FlowIDTableStaking.NodeStaker>(from: FlowIDTableStaking.NodeStakerStoragePath)
+            ?? panic("Could not borrow reference to staking admin")
+
+        self.flowTokenRef = acct.storage.borrow<auth(FungibleToken.Withdraw) &FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow reference to FLOW Vault")
+    }
+
+    execute {
+        self.stakerRef.stakeNewTokens(<-self.flowTokenRef.withdraw(amount: amount))
+    }
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_node_role.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script returns the role of a node
+
+access(all) fun main(nodeID: String): UInt8 {
+    let nodeInfo = FlowIDTableStaking.NodeInfo(nodeID: nodeID)
+    return nodeInfo.role
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_node_unstaking_request.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script returns the requested unstaking amount for a node
+
+access(all) fun main(nodeID: String): UFix64 {
+    let nodeInfo = FlowIDTableStaking.NodeInfo(nodeID: nodeID)
+    return nodeInfo.tokensRequestedToUnstake
+}
 ```
 
 
@@ -16287,6 +16741,30 @@ access(all) fun main(): UInt64 {
 
 
 
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_table.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script returns the current identity table length
+
+access(all) fun main(): [String] {
+    return FlowIDTableStaking.getNodeIDs()
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/lockedTokens/admin/check_shared_registration.cdc
 
 ```
@@ -16330,6 +16808,33 @@ import "FlowServiceAccount"
 
 access(all) fun main(): UFix64 {
     return FlowServiceAccount.accountCreationFee
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_slot_limits.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script returns the slot limits for node roles
+
+access(all) fun main(role: UInt8): UInt16 {
+    let slotLimit = FlowIDTableStaking.getRoleSlotLimits()[role]
+        ?? panic("Could not find slot limit for the specified role")
+
+    return slotLimit
 }
 ```
 
@@ -16451,6 +16956,44 @@ Thank you for your interest in contributing to the Flow smart contracts!
 
 
 
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/delegation/del_request_unstaking.cdc
+
+```
+import "FlowIDTableStaking"
+
+
+transaction(amount: UFix64) {
+
+    // Local variable for a reference to the Delegator object
+    let delegatorRef: auth(FlowIDTableStaking.DelegatorOwner) &FlowIDTableStaking.NodeDelegator
+
+    prepare(acct: auth(BorrowValue) &Account) {
+        // borrow a reference to the delegator object
+        self.delegatorRef = acct.storage.borrow<auth(FlowIDTableStaking.DelegatorOwner) &FlowIDTableStaking.NodeDelegator>(from: FlowIDTableStaking.DelegatorStoragePath)
+            ?? panic("Could not borrow reference to delegator")
+
+    }
+
+    execute {
+
+        self.delegatorRef.requestUnstaking(amount: amount)
+
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/stakingCollection/create_machine_account.cdc
 
 ```
@@ -16530,6 +17073,96 @@ access(all) fun main(account: Address): UInt32 {
     return lockedAccountInfoRef.getDelegatorID()!
 }
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/admin/add_approved_and_limits.cdc
+
+```
+import "FlowIDTableStaking"
+
+/// This transaction adds node IDs to the list of approved nodes in
+/// the ID table. 
+/// It also increases slot limits
+/// by the number of nodes who are added
+///
+/// If any of the provided nodes already exist in the ID table, this
+/// transaction will not revert (idempotent)
+
+transaction(newApprovedIDs: [String]) {
+
+    // Local variable for a reference to the ID Table Admin object
+    let adminRef: &FlowIDTableStaking.Admin
+
+    prepare(acct: auth(BorrowValue) &Account) {
+        // borrow a reference to the admin object
+        self.adminRef = acct.storage.borrow<&FlowIDTableStaking.Admin>(from: FlowIDTableStaking.StakingAdminStoragePath)
+            ?? panic("Could not borrow reference to staking admin")
+    }
+
+    execute {
+		let existingApprovedIDs = FlowIDTableStaking.getApprovedList()
+			?? panic("Could not load approved list")
+
+		let slotLimits = FlowIDTableStaking.getRoleSlotLimits()
+
+		// add any new node ID which doesn't already exist in the approve list
+		// and increase the candidate node limits and slot limits by 1
+		// for each corresponding node added
+		for newNodeID in newApprovedIDs {
+			if existingApprovedIDs[newNodeID] != nil {
+    			continue
+			}
+
+			let nodeInfo = FlowIDTableStaking.NodeInfo(nodeID: newNodeID)
+
+			slotLimits[nodeInfo.role] = slotLimits[nodeInfo.role]! + 1
+
+			existingApprovedIDs[newNodeID] = true
+		}
+
+		// set the approved list to the union of existing and new node IDs
+        self.adminRef.setApprovedList(existingApprovedIDs)
+
+		// Set new slot limits
+		self.adminRef.setSlotLimits(slotLimits: slotLimits)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_candidate_nodes.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script returns the list of candidate nodes
+// for the upcoming epoch
+access(all) fun main(): {UInt8: {String: Bool}} {
+    return FlowIDTableStaking.getCandidateNodeList()
+}
 ```
 
 
@@ -16627,6 +17260,48 @@ transaction(
     }
 }
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/admin/set_non_operational.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This transaction sets the list of nodes who are non operational
+// and whose rewards will be withheld
+
+transaction(ids: [String]) {
+
+    // Local variable for a reference to the ID Table Admin object
+    let adminRef: &FlowIDTableStaking.Admin
+
+    prepare(acct: auth(BorrowValue) &Account) {
+        // borrow a reference to the admin object
+        self.adminRef = acct.storage.borrow<&FlowIDTableStaking.Admin>(from: FlowIDTableStaking.StakingAdminStoragePath)
+            ?? panic("Could not borrow reference to staking admin")
+    }
+
+    execute {
+        let nodeList: {String: UFix64} = {}
+        for id in ids {
+            nodeList[id] = 0.0
+        }
+
+        self.adminRef.setNonOperationalNodesList(nodeList)
+    }
+}
 ```
 
 
@@ -16926,6 +17601,87 @@ access(all) fun main(address: Address): Bool {
 
 
 
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/admin/capability_end_epoch.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This transaction uses a staking admin capability
+// to pay rewards, end the staking auction, and end the epoch.
+//
+// It combines the pay_rewards, end_staking and move_tokens transactions
+// which ends the staking auction, which refunds nodes with insufficient stake
+// and moves tokens between buckets
+// It also sets a new token payout for the next epoch
+
+transaction(ids: {String: Bool}, newPayout: UFix64) {
+
+    // Local variable for a reference to the ID Table Admin object
+    let adminRef: &FlowIDTableStaking.Admin
+
+    prepare(acct: auth(CopyValue) &Account) {
+        let adminCapability = acct.storage.copy<Capability>(from: FlowIDTableStaking.StakingAdminStoragePath)
+            ?? panic("Could not get capability from account storage")
+
+        // borrow a reference to the admin object
+        self.adminRef = adminCapability.borrow<&FlowIDTableStaking.Admin>()
+            ?? panic("Could not borrow reference to staking admin")
+    }
+
+    execute {
+
+        let rewardsSummary = self.adminRef.calculateRewards()
+        self.adminRef.payRewards(forEpochCounter: 1, rewardsSummary: rewardsSummary)
+
+        self.adminRef.setEpochTokenPayout(newPayout)
+
+        self.adminRef.setApprovedList(ids)
+
+        self.adminRef.endStakingAuction()
+
+        self.adminRef.moveTokens(newEpochCounter: 2)
+    }
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/delegation/get_delegator_staked.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script returns the balance of staked tokens of a delegator
+
+access(all) fun main(nodeID: String, delegatorID: UInt32): UFix64 {
+    let delInfo = FlowIDTableStaking.DelegatorInfo(nodeID: nodeID, delegatorID: delegatorID)
+    return delInfo.tokensStaked
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/quorumCertificate/scripts/get_clusters.cdc
 
 ```
@@ -16987,6 +17743,31 @@ access(all) fun main(clusterIndex: UInt16): FlowClusterQC.Cluster {
 
     return clusters[clusterIndex]
 
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_node_rewarded_tokens.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script returns the balance of rewarded tokens of a node
+
+access(all) fun main(nodeID: String): UFix64 {
+    let nodeInfo = FlowIDTableStaking.NodeInfo(nodeID: nodeID)
+    return nodeInfo.tokensRewarded
 }
 ```
 
@@ -17176,6 +17957,42 @@ transaction() {
 
 
 
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/admin/change_cut.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This transaction changes the flow token reward cut that nodes take from delegators
+
+transaction(newCutPercentage: UFix64) {
+
+    // Local variable for a reference to the ID Table Admin object
+    let adminRef: &FlowIDTableStaking.Admin
+
+    prepare(acct: auth(BorrowValue) &Account) {
+        // borrow a reference to the admin object
+        self.adminRef = acct.storage.borrow<&FlowIDTableStaking.Admin>(from: FlowIDTableStaking.StakingAdminStoragePath)
+            ?? panic("Could not borrow reference to staking admin")
+    }
+
+    execute {
+        self.adminRef.setCutPercentage(newCutPercentage)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/nodeVersionBeacon/scripts/get_current_node_version.cdc
 
 ```
@@ -17200,6 +18017,64 @@ access(all) fun main(): NodeVersionBeacon.Semver {
 
 
 
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/admin/transfer_fees_admin.cdc
+
+```
+import "FlowFees"
+
+transaction {
+
+    prepare(owner: auth(LoadValue) &Account, receiver: auth(SaveValue) &Account) {
+
+        // Link the staking admin capability to a private place
+        let feesAdmin <- owner.storage.load<@FlowFees.Administrator>(from: /storage/flowFeesAdmin)!
+
+        // Save the capability to the receiver's account storage
+        receiver.storage.save(<-feesAdmin, to: /storage/flowFeesAdmin)
+    }
+
+}
+ 
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_node_networking_key.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script returns the networking key of a node
+
+access(all) fun main(nodeID: String): String {
+    let nodeInfo = FlowIDTableStaking.NodeInfo(nodeID: nodeID)
+    return nodeInfo.networkingKey
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/stakingCollection/scripts/get_all_node_info.cdc
 
 ```
@@ -17210,6 +18085,30 @@ import "FlowIDTableStaking"
 
 access(all) fun main(address: Address): [FlowIDTableStaking.NodeInfo] {
     return FlowStakingCollection.getAllNodeInfo(address: address)
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_current_table.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script returns the current identity table length
+
+access(all) fun main(): [String] {
+    return FlowIDTableStaking.getStakedNodeIDs()
 }
 ```
 
@@ -17310,6 +18209,31 @@ access(all) fun main(): FlowFees.FeeParameters {
 
 
 
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_node_staking_key.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script returns the staking Key of a node
+
+access(all) fun main(nodeID: String): String {
+    let nodeInfo = FlowIDTableStaking.NodeInfo(nodeID: nodeID)
+    return nodeInfo.stakingKey
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/epoch/node/register_dkg_participant.cdc
 
 ```
@@ -17328,6 +18252,93 @@ transaction() {
 
         signer.storage.save(<-dkgParticipant, to: FlowDKG.ParticipantStoragePath)
 
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_proposed_table.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script returns the current identity table length
+
+access(all) fun main(): [String] {
+    return FlowIDTableStaking.getProposedNodeIDs()
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_node_info.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script gets all the info about a node and returns it
+
+access(all) fun main(nodeID: String): FlowIDTableStaking.NodeInfo {
+    return FlowIDTableStaking.NodeInfo(nodeID: nodeID)
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/admin/remove_invalid_nodes.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This transaction ends the staking auction, which refunds nodes 
+// with insufficient stake
+
+transaction(ids: {String: Bool}) {
+
+    // Local variable for a reference to the ID Table Admin object
+    let adminRef: &FlowIDTableStaking.Admin
+
+    prepare(acct: auth(BorrowValue) &Account) {
+        // borrow a reference to the admin object
+        self.adminRef = acct.storage.borrow<&FlowIDTableStaking.Admin>(from: FlowIDTableStaking.StakingAdminStoragePath)
+            ?? panic("Could not borrow reference to staking admin")
+    }
+
+    execute {
+        self.adminRef.setApprovedList(ids)
+        self.adminRef.removeInvalidNodes()
     }
 }
 ```
@@ -17394,6 +18405,42 @@ transaction(blockHeightBoundaryToDelete: UInt64) {
   }
 
 }
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/node/request_unstake.cdc
+
+```
+import "FlowIDTableStaking"
+
+
+transaction(amount: UFix64) {
+
+    // Local variable for a reference to the node object
+    let stakerRef: auth(FlowIDTableStaking.NodeOperator) &FlowIDTableStaking.NodeStaker
+
+    prepare(acct: auth(BorrowValue) &Account) {
+        // borrow a reference to the node object
+        self.stakerRef = acct.storage.borrow<auth(FlowIDTableStaking.NodeOperator) &FlowIDTableStaking.NodeStaker>(from: FlowIDTableStaking.NodeStakerStoragePath)
+            ?? panic("Could not borrow reference to staking admin")
+    }
+
+    execute {
+        self.stakerRef.requestUnstaking(amount: amount)
+    }
+}
+
 ```
 
 
@@ -18820,6 +19867,41 @@ transaction(amount: UFix64) {
 
 
 
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/node/update_networking_address.cdc
+
+```
+import "FlowIDTableStaking"
+
+transaction(newAddress: String) {
+
+    // Local variable for a reference to the node object
+    let stakerRef: auth(FlowIDTableStaking.NodeOperator) &FlowIDTableStaking.NodeStaker
+
+    prepare(acct: auth(BorrowValue) &Account) {
+        // borrow a reference to the node object
+        self.stakerRef = acct.storage.borrow<auth(FlowIDTableStaking.NodeOperator) &FlowIDTableStaking.NodeStaker>(from: FlowIDTableStaking.NodeStakerStoragePath)
+            ?? panic("Could not borrow reference to staking admin")
+    }
+
+    execute {
+        self.stakerRef.updateNetworkingAddress(newAddress)
+    }
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/FlowServiceAccount/set_execution_memory_weights.cdc
 
 ```
@@ -18830,6 +19912,85 @@ transaction(newWeights: {UInt64: UInt64}) {
         signer.storage.save(newWeights, to: /storage/executionMemoryWeights)
     }
 }
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_delegators_below_min.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script finds all of a node's delegators who are staked above zero
+// but below the minimum of 50 FLOW and returns information about them
+
+access(all) struct DelegatorBelowMinInfo {
+
+    access(all) var totalStaked: UFix64
+    access(all) var totalBelowMinimumStaked: UFix64
+
+    access(all) var numDelegators: Int
+    access(all) var numDelegatorsBelowMin: Int
+
+    access(all) var delegatorInfoBelowMin: [FlowIDTableStaking.DelegatorInfo]
+
+    init(numDelegators: Int) {
+        self.totalStaked = 0.0
+        self.totalBelowMinimumStaked = 0.0
+        self.numDelegators = numDelegators
+        self.numDelegatorsBelowMin = 0
+        self.delegatorInfoBelowMin = []
+    }
+
+    access(all) fun addTotalStaked(_ stake: UFix64) {
+        self.totalStaked = self.totalStaked + stake
+    }
+
+    access(all) fun addBelowMinStaked(_ stake: UFix64) {
+        self.totalBelowMinimumStaked = self.totalBelowMinimumStaked + stake
+    }
+
+    access(all) fun addDelegatorBelowMin() {
+        self.numDelegatorsBelowMin = self.numDelegatorsBelowMin + 1
+    }
+
+    access(all) fun addDelegatorInfo(_ info: FlowIDTableStaking.DelegatorInfo) {
+        self.delegatorInfoBelowMin.append(info)
+    }
+}
+
+access(all) fun main(nodeID: String): DelegatorBelowMinInfo {
+    let nodeInfo = FlowIDTableStaking.NodeInfo(nodeID: nodeID)
+
+    let delegators = nodeInfo.delegators
+
+    let belowMinimum = DelegatorBelowMinInfo(numDelegators: delegators.length)
+
+    for delegatorID in delegators {
+        let delInfo = FlowIDTableStaking.DelegatorInfo(nodeID: nodeID, delegatorID: delegatorID)
+
+        belowMinimum.addTotalStaked(delInfo.tokensStaked)
+
+        if delInfo.tokensStaked < 50.0 && delInfo.tokensStaked > 0.0 {
+            belowMinimum.addDelegatorInfo(delInfo)
+            belowMinimum.addDelegatorBelowMin()
+            belowMinimum.addBelowMinStaked(delInfo.tokensStaked)
+        }
+    }
+
+    return belowMinimum
+}
+
 ```
 
 
@@ -18911,6 +20072,31 @@ transaction(key: String, signatureAlgorithm: UInt8, hashAlgorithm: UInt8, weight
 
 		signer.keys.add(publicKey: publicKey, hashAlgorithm: HashAlgorithm(rawValue: hashAlgorithm)!, weight: weight)
 	}
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_node_staked_tokens.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script returns the balance of staked tokens of a node
+
+access(all) fun main(nodeID: String): UFix64 {
+    let nodeInfo = FlowIDTableStaking.NodeInfo(nodeID: nodeID)
+    return nodeInfo.tokensStaked
 }
 ```
 
@@ -19289,6 +20475,42 @@ transaction() {
 
 
 
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/admin/start_staking.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This transaction pays rewards to all the staked nodes
+
+transaction {
+
+    // Local variable for a reference to the ID Table Admin object
+    let adminRef: &FlowIDTableStaking.Admin
+
+    prepare(acct: auth(BorrowValue) &Account) {
+        // borrow a reference to the admin object
+        self.adminRef = acct.storage.borrow<&FlowIDTableStaking.Admin>(from: FlowIDTableStaking.StakingAdminStoragePath)
+            ?? panic("Could not borrow reference to staking admin")
+    }
+
+    execute {
+        self.adminRef.startStakingAuction()
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/lockedTokens/admin/admin_remove_delegator.cdc
 
 ```
@@ -19306,6 +20528,51 @@ transaction {
 
         destroy delegator
 
+    }
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/admin/end_epoch.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This transaction effectively ends the epoch and starts a new one.
+//
+// It combines the end_staking and move_tokens transactions
+// which ends the staking auction, which refunds nodes with insufficient stake
+// and moves tokens between buckets
+
+transaction(ids: {String: Bool}) {
+
+    // Local variable for a reference to the ID Table Admin object
+    let adminRef: &FlowIDTableStaking.Admin
+
+    prepare(acct: auth(BorrowValue) &Account) {
+        // borrow a reference to the admin object
+        self.adminRef = acct.storage.borrow<&FlowIDTableStaking.Admin>(from: FlowIDTableStaking.StakingAdminStoragePath)
+            ?? panic("Could not borrow reference to staking admin")
+    }
+
+    execute {
+        self.adminRef.setApprovedList(ids)
+        
+        self.adminRef.endStakingAuction()
+
+        self.adminRef.moveTokens(newEpochCounter: 2)
     }
 }
 
@@ -19433,6 +20700,43 @@ transaction(amount: UFix64) {
 
 
 
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/admin/transfer_admin.cdc
+
+```
+import "FlowIDTableStaking"
+
+transaction {
+  prepare(owner: auth(Capabilities) &Account, receiver: auth(Storage) &Account) {
+
+    // Get a staking admin capability
+    let flowStakingAdmin = owner.capabilities.storage.issue<&FlowIDTableStaking.Admin>(FlowIDTableStaking.StakingAdminStoragePath)
+
+    let capability <- receiver.storage.load<@FlowIDTableStaking.Admin>(from: FlowIDTableStaking.StakingAdminStoragePath)
+
+    log(capability.getType())
+
+    destroy capability
+
+    // Save the capability to the receiver's account storage
+    receiver.storage.save(flowStakingAdmin, to: FlowIDTableStaking.StakingAdminStoragePath)
+  }
+}
+ 
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/epoch/scripts/get_epoch_counter.cdc
 
 ```
@@ -19466,6 +20770,42 @@ access(all) fun main(nodeID: String): Bool {
 
     return FlowClusterQC.voterIsRegistered(nodeID)
 
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/admin/set_approved_nodes.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This transaction sets the list of approved nodes in the ID table
+
+transaction(ids: {String: Bool}) {
+
+    // Local variable for a reference to the ID Table Admin object
+    let adminRef: &FlowIDTableStaking.Admin
+
+    prepare(acct: auth(BorrowValue) &Account) {
+        // borrow a reference to the admin object
+        self.adminRef = acct.storage.borrow<&FlowIDTableStaking.Admin>(from: FlowIDTableStaking.StakingAdminStoragePath)
+            ?? panic("Could not borrow reference to staking admin")
+    }
+
+    execute {
+        self.adminRef.setApprovedList(ids)
+    }
 }
 ```
 
@@ -19658,6 +20998,30 @@ transaction(newAuctionViews: UInt64) {
 
         epochAdmin.updateEpochViews(newAuctionViews)
     }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/delegation/get_delegator_info.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script returns all the info associated with a delegator
+
+access(all) fun main(nodeID: String, delegatorID: UInt32): FlowIDTableStaking.DelegatorInfo {
+    return FlowIDTableStaking.DelegatorInfo(nodeID: nodeID, delegatorID: delegatorID)
 }
 ```
 
@@ -20098,6 +21462,54 @@ transaction() {
 
 
 
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/admin/remove_approved_nodes.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This transaction removes node IDs from the list of approved nodes in
+// the ID table. 
+// If any of the IDs DO NOT exist already in the identity table, this
+// transaction will revert (not idempotent)
+
+transaction(ids: [String]) {
+
+    // Local variable for a reference to the ID Table Admin object
+    let adminRef: &FlowIDTableStaking.Admin
+
+    prepare(acct: auth(BorrowValue) &Account) {
+        // borrow a reference to the admin object
+        self.adminRef = acct.storage.borrow<&FlowIDTableStaking.Admin>(from: FlowIDTableStaking.StakingAdminStoragePath)
+            ?? panic("Could not borrow reference to staking admin")
+    }
+
+    execute {
+	let nodeIDs = FlowIDTableStaking.getApprovedList()
+        ?? panic("Could not read approve list from storage")
+
+	// remove each node 
+	for nodeIDToRemove in ids {
+		nodeIDs[nodeIDToRemove] = nil
+	}
+
+	// set the approved list to the new allow-list
+        self.adminRef.setApprovedList(nodeIDs)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/FlowServiceAccount/set_tx_fee_surge_factor.cdc
 
 ```
@@ -20170,6 +21582,55 @@ import "FlowDKG"
 
 access(all) fun main(): [String] {
     return FlowDKG.getConsensusNodeIDs()
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_cut_percentage.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script returns the balance of staked tokens of a node
+
+access(all) fun main(): UFix64 {
+    return FlowIDTableStaking.getRewardCutPercentage()
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/delegation/get_delegator_committed.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script returns the balance of committed tokens of a delegator
+
+access(all) fun main(nodeID: String, delegatorID: UInt32): UFix64 {
+    let delInfo = FlowIDTableStaking.DelegatorInfo(nodeID: nodeID, delegatorID: delegatorID)
+    return delInfo.tokensCommitted
 }
 ```
 
@@ -20268,6 +21729,42 @@ transaction {
     }
 }
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/admin/change_del_minimums.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This transaction changes the flow token reward cut that nodes take from delegators
+
+transaction(newDelegatorMinimum: UFix64) {
+
+    // Local variable for a reference to the ID Table Admin object
+    let adminRef: &FlowIDTableStaking.Admin
+
+    prepare(acct: auth(BorrowValue) &Account) {
+        // borrow a reference to the admin object
+        self.adminRef = acct.storage.borrow<&FlowIDTableStaking.Admin>(from: FlowIDTableStaking.StakingAdminStoragePath)
+            ?? panic("Could not borrow reference to staking admin")
+    }
+
+    execute {
+        self.adminRef.setDelegatorMinimumStakeRequirement(newDelegatorMinimum)
+    }
+}
 ```
 
 
@@ -20447,6 +21944,89 @@ transaction(groupKey: String, pubKeys: [String], idMapping: {String: Int}) {
 
 
 
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/node/register_many_nodes.cdc
+
+```
+import "FlowIDTableStaking"
+import "FlowToken"
+import "FungibleToken"
+
+transaction(
+    ids: [String],
+    roles: [UInt8],
+    networkingAddresses: [String],
+    networkingKeys: [String],
+    stakingKeys: [String],
+    amounts: [UFix64],
+    paths: [StoragePath]
+) {
+
+    prepare(acct: auth(Storage) &Account) {
+
+        var i = 0
+
+        for path in paths {
+
+            let flowTokenRef = acct.storage.borrow<auth(FungibleToken.Withdraw) &FlowToken.Vault>(from: /storage/flowTokenVault)
+                ?? panic("Could not borrow reference to FLOW Vault")
+
+            let tokensCommitted <- flowTokenRef.withdraw(amount: amounts[i])
+
+            let nodeStaker <- FlowIDTableStaking.addNodeRecord(
+                id: ids[i],
+                role: roles[i],
+                networkingAddress: networkingAddresses[i],
+                networkingKey: networkingKeys[i],
+                stakingKey: stakingKeys[i],
+                tokensCommitted: <-tokensCommitted
+            )
+
+            // Store the node object
+            acct.storage.save(<-nodeStaker, to: path)
+
+            i = i + 1
+        }
+    }
+
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_non_operational.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script returns the list of non-operational nodes
+
+access(all) fun main(): [String] {
+    return FlowIDTableStaking.getNonOperationalNodesList().keys
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/FlowServiceAccount/scripts/get_account_creators.cdc
 
 ```
@@ -20476,6 +22056,42 @@ import "FlowDKG"
 
 access(all) fun main(): [FlowDKG.Message] {
     return FlowDKG.getWhiteBoardMessages() 
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/admin/change_candidate_limits.cdc
+
+```
+import "FlowIDTableStaking"
+
+/// This transaction changes the limit of new nodes that can be candidates
+/// for the next epoch
+transaction(role: UInt8, newCandidateNodeLimit: UInt64) {
+
+    /// Local variable for a reference to the ID Table Admin object
+    let adminRef: &FlowIDTableStaking.Admin
+
+    prepare(acct: auth(BorrowValue) &Account) {
+        // borrow a reference to the admin object
+        self.adminRef = acct.storage.borrow<&FlowIDTableStaking.Admin>(from: FlowIDTableStaking.StakingAdminStoragePath)
+            ?? panic("Could not borrow reference to staking admin")
+    }
+
+    execute {
+        self.adminRef.setCandidateNodeLimit(role: role, newLimit: newCandidateNodeLimit)
+    }
 }
 ```
 
@@ -20580,6 +22196,44 @@ access(all) fun main(account: Address): UFix64 {
     return lockedAccountInfoRef.getLockedAccountBalance()
 }
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/delegation/del_stake_unstaked.cdc
+
+```
+import "FlowIDTableStaking"
+
+
+transaction(amount: UFix64) {
+
+    // Local variable for a reference to the Delegator object
+    let delegatorRef: auth(FlowIDTableStaking.DelegatorOwner) &FlowIDTableStaking.NodeDelegator
+
+    prepare(acct: auth(BorrowValue) &Account) {
+        // borrow a reference to the delegator object
+        self.delegatorRef = acct.storage.borrow<auth(FlowIDTableStaking.DelegatorOwner) &FlowIDTableStaking.NodeDelegator>(from: FlowIDTableStaking.DelegatorStoragePath)
+            ?? panic("Could not borrow reference to delegator")
+
+    }
+
+    execute {
+
+        self.delegatorRef.delegateUnstakedTokens(amount: amount)
+
+    }
+}
 ```
 
 
@@ -20721,6 +22375,48 @@ transaction(amount: UFix64) {
 
 
 
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/node/withdraw_reward_tokens.cdc
+
+```
+import "FlowIDTableStaking"
+import "FlowToken"
+
+
+transaction(amount: UFix64) {
+
+    // Local variable for a reference to the node object
+    let stakerRef: auth(FlowIDTableStaking.NodeOperator) &FlowIDTableStaking.NodeStaker
+
+    let flowTokenRef: &FlowToken.Vault
+
+    prepare(acct: auth(BorrowValue) &Account) {
+        // borrow a reference to the node object
+        self.stakerRef = acct.storage.borrow<auth(FlowIDTableStaking.NodeOperator) &FlowIDTableStaking.NodeStaker>(from: FlowIDTableStaking.NodeStakerStoragePath)
+            ?? panic("Could not borrow reference to staking admin")
+
+        self.flowTokenRef = acct.storage.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow reference to FLOW Vault")
+    }
+
+    execute {
+        self.flowTokenRef.deposit(from: <-self.stakerRef.withdrawRewardedTokens(amount: amount))
+    }
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/stakingCollection/create_new_tokenholder_acct.cdc
 
 ```
@@ -20819,6 +22515,30 @@ transaction(publicKeys: [Crypto.KeyListEntry]) {
 
 
 
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_weekly_payout.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script returns the balance of staked tokens of a node
+
+access(all) fun main(): UFix64 {
+    return FlowIDTableStaking.getEpochTokenPayout()
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/epoch/scripts/get_create_clusters.cdc
 
 ```
@@ -20859,6 +22579,42 @@ transaction(content: String) {
 
     execute {
         self.dkgParticipant.postMessage(content)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/admin/move_tokens.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This transaction moves tokens between buckets
+
+transaction {
+
+    // Local variable for a reference to the ID Table Admin object
+    let adminRef: &FlowIDTableStaking.Admin
+
+    prepare(acct: auth(BorrowValue) &Account) {
+        // borrow a reference to the admin object
+        self.adminRef = acct.storage.borrow<&FlowIDTableStaking.Admin>(from: FlowIDTableStaking.StakingAdminStoragePath)
+            ?? panic("Could not borrow reference to staking admin")
+    }
+
+    execute {
+        self.adminRef.moveTokens(newEpochCounter: 2)
     }
 }
 ```
@@ -20980,6 +22736,31 @@ transaction(newWeights: {UInt64: UInt64}) {
         signer.storage.load<{UInt64: UInt64}>(from: /storage/executionEffortWeights)
         signer.storage.save(newWeights, to: /storage/executionEffortWeights)
     }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_node_committed_tokens.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script returns the balance of staked tokens of a node
+
+access(all) fun main(nodeID: String): UFix64 {
+    let nodeInfo = FlowIDTableStaking.NodeInfo(nodeID: nodeID)
+    return nodeInfo.tokensCommitted
 }
 ```
 
@@ -21156,6 +22937,50 @@ access(all) fun main(clusterIndex: UInt16): UInt64 {
 
 
 
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/delegation/del_withdraw_reward_tokens.cdc
+
+```
+import "FlowIDTableStaking"
+import "FlowToken"
+
+
+transaction(amount: UFix64) {
+
+    // Local variable for a reference to the delegator object
+    let delegatorRef: auth(FlowIDTableStaking.DelegatorOwner) &FlowIDTableStaking.NodeDelegator
+
+    let flowTokenRef: &FlowToken.Vault
+
+    prepare(acct: auth(BorrowValue) &Account) {
+        // borrow a reference to the delegator object
+        self.delegatorRef = acct.storage.borrow<auth(FlowIDTableStaking.DelegatorOwner) &FlowIDTableStaking.NodeDelegator>(from: FlowIDTableStaking.DelegatorStoragePath)
+            ?? panic("Could not borrow reference to staking admin")
+
+        self.flowTokenRef = acct.storage.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow reference to FLOW Vault")
+
+    }
+
+    execute {
+
+        self.flowTokenRef.deposit(from: <-self.delegatorRef.withdrawRewardedTokens(amount: amount))
+
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/stakingProxy/withdraw_unstaked.cdc
 
 ```
@@ -21246,6 +23071,31 @@ transaction {
     }
 }
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_node_initial_weight.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script returns the initial weight of a node
+
+access(all) fun main(nodeID: String): UInt64 {
+    let nodeInfo = FlowIDTableStaking.NodeInfo(nodeID: nodeID)
+    return nodeInfo.initialWeight
+}
 ```
 
 
@@ -21593,6 +23443,39 @@ transaction(name: String,
             clusterQCs: [] as [FlowClusterQC.ClusterQC],
             dkgPubKeys: [] as [String])
   }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_total_staked.cdc
+
+```
+import "FlowIDTableStaking"
+
+access(all) fun main(): UFix64 {
+    let stakedTokens = FlowIDTableStaking.getTotalTokensStakedByNodeType()
+
+    // calculate the total number of tokens staked
+    var totalStaked: UFix64 = 0.0
+    for nodeType in stakedTokens.keys {
+        // Do not count access nodes
+        if nodeType != UInt8(5) {
+            totalStaked = totalStaked + stakedTokens[nodeType]!
+        }
+    }
+
+    return totalStaked
 }
 ```
 
@@ -22118,6 +24001,31 @@ transaction(
 
 
 
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_node_unstaked_tokens.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script returns the balance of unstaked tokens of a node
+
+access(all) fun main(nodeID: String): UFix64 {
+    let nodeInfo = FlowIDTableStaking.NodeInfo(nodeID: nodeID)
+    return nodeInfo.tokensUnstaked
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/nodeVersionBeacon/scripts/get_version_boundary_freeze_period.cdc
 
 ```
@@ -22128,6 +24036,42 @@ import "NodeVersionBeacon"
 /// boundary
 access(all) fun main(): UInt64 {
     return NodeVersionBeacon.getVersionBoundaryFreezePeriod()
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/admin/change_payout.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This transaction changes the flow token weekly payout
+
+transaction(newPayout: UFix64) {
+
+    // Local variable for a reference to the ID Table Admin object
+    let adminRef: &FlowIDTableStaking.Admin
+
+    prepare(acct: auth(BorrowValue) &Account) {
+        // borrow a reference to the admin object
+        self.adminRef = acct.storage.borrow<&FlowIDTableStaking.Admin>(from: FlowIDTableStaking.StakingAdminStoragePath)
+            ?? panic("Could not borrow reference to staking admin")
+    }
+
+    execute {
+        self.adminRef.setEpochTokenPayout(newPayout)
+    }
 }
 ```
 
@@ -22160,6 +24104,31 @@ transaction(id: String, role: UInt8, networkingAddress: String, networkingKey: S
     }
 }
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_node_unstaking_tokens.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script returns the balance of unstaking tokens of a node
+
+access(all) fun main(nodeID: String): UFix64 {
+    let nodeInfo = FlowIDTableStaking.NodeInfo(nodeID: nodeID)
+    return nodeInfo.tokensUnstaking
+}
 ```
 
 
@@ -22296,6 +24265,97 @@ transaction(nodeID: String) {
 
 
 
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/delegation/register_many_delegators.cdc
+
+```
+import "FlowIDTableStaking"
+import "FlowToken"
+
+transaction(nodeIDs: [String], paths: [StoragePath]) {
+
+    prepare(acct: auth(SaveValue) &Account) {
+
+        var i = 0
+
+        for path in paths {
+            // Create a new delegator object for the node
+            let newDelegator <- FlowIDTableStaking.registerNewDelegator(nodeID: nodeIDs[i], tokensCommitted: <-FlowToken.createEmptyVault(vaultType: Type<@FlowToken.Vault>()))
+
+            // Store the delegator object
+            acct.storage.save(<-newDelegator, to: path)
+
+            i = i + 1
+            if i == nodeIDs.length {
+                i = 0
+            }
+        }
+    }
+
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/delegation/get_delegator_unstaking.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script returns the balance of unstaking tokens of a delegator
+
+access(all) fun main(nodeID: String, delegatorID: UInt32): UFix64 {
+    let delInfo = FlowIDTableStaking.DelegatorInfo(nodeID: nodeID, delegatorID: delegatorID)
+    return delInfo.tokensUnstaking
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_node_networking_addr.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script returns the networking Address of a node
+
+access(all) fun main(nodeID: String): String {
+    let nodeInfo = FlowIDTableStaking.NodeInfo(nodeID: nodeID)
+    return nodeInfo.networkingAddress
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/create_participant.cdc
 
 ```
@@ -22314,6 +24374,146 @@ transaction(address: Address, nodeID: String) {
         signer.storage.save(<-dkgParticipant, to: FlowDKG.ParticipantStoragePath)
     }
 
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/node/unstake_all.cdc
+
+```
+import "FlowIDTableStaking"
+
+
+transaction {
+
+    // Local variable for a reference to the node object
+    let stakerRef: auth(FlowIDTableStaking.NodeOperator) &FlowIDTableStaking.NodeStaker
+
+    prepare(acct: auth(BorrowValue) &Account) {
+        // borrow a reference to the node object
+        self.stakerRef = acct.storage.borrow<auth(FlowIDTableStaking.NodeOperator) &FlowIDTableStaking.NodeStaker>(from: FlowIDTableStaking.NodeStakerStoragePath)
+            ?? panic("Could not borrow reference to staking admin")
+    }
+
+    execute {
+        self.stakerRef.unstakeAll()
+    }
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/admin/transfer_minter_deploy.cdc
+
+```
+import Crypto
+import "FlowToken"
+
+transaction(publicKeys: [Crypto.KeyListEntry], contractName: String, code: String, rewardAmount: UFix64, rewardCut: UFix64, candidateNodeLimits: [UInt64]) {
+
+  prepare(signer: auth(AddKey, SaveValue, BorrowValue) &Account) {
+
+    let acct = Account(payer: signer)
+    
+    for key in publicKeys {
+        acct.keys.add(publicKey: key.publicKey, hashAlgorithm: key.hashAlgorithm, weight: key.weight)
+    }
+
+    /// Borrow a reference to the Flow Token Admin in the account storage
+    let flowTokenAdmin = signer.storage.borrow<&FlowToken.Administrator>(from: /storage/flowTokenAdmin)
+        ?? panic("Could not borrow a reference to the Flow Token Admin resource")
+
+    /// Create a flowTokenMinterResource
+    let flowTokenMinter <- flowTokenAdmin.createNewMinter(allowedAmount: 1000000000.0)
+
+    acct.storage.save(<-flowTokenMinter, to: /storage/flowTokenMinter)
+
+    assert(candidateNodeLimits.length == 5,
+           message: "Candidate Node Limit list but have a length of 5")
+
+    let candidateNodeLimitsDict: {UInt8: UInt64} = {}
+    var role: UInt8 = 1
+
+    for limit in candidateNodeLimits {
+      candidateNodeLimitsDict[role] = limit
+      role = role + 1
+    }
+
+    acct.contracts.add(name: contractName, code: code.utf8, rewardAmount, rewardCut, candidateNodeLimitsDict)
+  }
+
+}
+ 
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/admin/add_approved_nodes.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This transaction adds node IDs to the list of approved nodes in
+// the ID table. 
+// If any of the provided nodes already exist in the ID table, this
+// transaction will not revert (idempotent)
+
+transaction(ids: [String]) {
+
+    // Local variable for a reference to the ID Table Admin object
+    let adminRef: &FlowIDTableStaking.Admin
+
+    prepare(acct: auth(BorrowValue) &Account) {
+        // borrow a reference to the admin object
+        self.adminRef = acct.storage.borrow<&FlowIDTableStaking.Admin>(from: FlowIDTableStaking.StakingAdminStoragePath)
+            ?? panic("Could not borrow reference to staking admin")
+    }
+
+    execute {
+		let nodeIDs = FlowIDTableStaking.getApprovedList()
+            ?? panic("Could not read approve list from storage")
+
+		// add any new node ID which doesn't already exist
+		for newNodeID in ids {
+			nodeIDs[newNodeID] = true
+		}
+
+		// set the approved list to the union of existing and new node IDs
+        self.adminRef.setApprovedList(nodeIDs)
+    }
 }
 ```
 
@@ -22412,6 +24612,33 @@ transaction(amount: UFix64) {
     }
 }
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_approved_nodes.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script returns the current approved list
+
+access(all) fun main(): [String] {
+    let approveList = FlowIDTableStaking.getApprovedList()
+        ?? panic("Could not read approved list from storage")
+
+    return approveList.keys
+}
 ```
 
 
@@ -22589,6 +24816,49 @@ transaction(phase: String) {
         } else if phase == "BLOCK" {
             heartbeat.advanceBlock()
         }
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/admin/change_minimums.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This transaction changes the staking minumums for node operators
+
+transaction(newMinimums: [UFix64]) {
+
+    // Local variable for a reference to the ID Table Admin object
+    let adminRef: &FlowIDTableStaking.Admin
+
+    prepare(acct: auth(BorrowValue) &Account) {
+        // borrow a reference to the admin object
+        self.adminRef = acct.storage.borrow<&FlowIDTableStaking.Admin>(from: FlowIDTableStaking.StakingAdminStoragePath)
+            ?? panic("Could not borrow reference to staking admin")
+    }
+
+    execute {
+        let minimums: {UInt8: UFix64} = {}
+        var i: UInt8 = 1
+        for min in newMinimums {
+            minimums[i] = min
+            i = i + UInt8(1)
+        }
+
+        self.adminRef.setMinimumStakeRequirements(minimums)
     }
 }
 ```
@@ -22836,6 +25106,42 @@ transaction(amount: UFix64) {
 
 
 
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/node/stake_unstaked_tokens.cdc
+
+```
+import "FlowIDTableStaking"
+
+
+transaction(amount: UFix64) {
+
+    // Local variable for a reference to the node object
+    let stakerRef: auth(FlowIDTableStaking.NodeOperator) &FlowIDTableStaking.NodeStaker
+
+    prepare(acct: auth(BorrowValue) &Account) {
+        // borrow a reference to the node object
+        self.stakerRef = acct.storage.borrow<auth(FlowIDTableStaking.NodeOperator) &FlowIDTableStaking.NodeStaker>(from: /storage/flowStaker)
+            ?? panic("Could not borrow reference to staking admin")
+    }
+
+    execute {
+        self.stakerRef.stakeUnstakedTokens(amount: amount)
+    }
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/stakingCollection/register_multiple_delegators.cdc
 
 ```
@@ -22977,6 +25283,55 @@ import "FlowServiceAccount"
 
 access(all) fun main(): {UInt64: UInt64} {
     return FlowServiceAccount.getExecutionMemoryWeights()
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/delegation/get_delegator_unstaked.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script returns the balance of unlocked tokens of a delegator
+
+access(all) fun main(nodeID: String, delegatorID: UInt32): UFix64 {
+    let delInfo = FlowIDTableStaking.DelegatorInfo(nodeID: nodeID, delegatorID: delegatorID)
+    return delInfo.tokensUnstaked
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_role_counts.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script returns the slot limits for node roles
+
+access(all) fun main(): {UInt8: UInt16} {
+    return FlowIDTableStaking.getCurrentRoleNodeCounts()
 }
 ```
 
@@ -23313,6 +25668,44 @@ transaction(dkgPhaseLen: UInt64, stakingLen: UInt64, epochLen: UInt64) {
 
 
 
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/admin/set_claimed.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This transaction pays rewards to all the staked nodes
+
+transaction {
+
+    // Local variable for a reference to the ID Table Admin object
+    let adminRef: &FlowIDTableStaking.Admin
+
+    prepare(acct: auth(BorrowValue) &Account) {
+
+        // borrow a reference to the admin object
+        self.adminRef = acct.storage.borrow<&FlowIDTableStaking.Admin>(from: FlowIDTableStaking.StakingAdminStoragePath)
+            ?? panic("Could not borrow reference to staking admin")
+    }
+
+    execute {
+        self.adminRef.setClaimed()
+        self.adminRef.startStakingAuction()
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/epoch/scripts/get_randomize.cdc
 
 ```
@@ -23484,6 +25877,72 @@ transaction(mainAccount: Address) {
 
 
 
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/node/register_node.cdc
+
+```
+import "FlowIDTableStaking"
+import "FlowToken"
+import "FungibleToken"
+
+// This transaction creates a new node struct object
+// and updates the proposed Identity Table
+
+transaction(
+    id: String,
+    role: UInt8,
+    networkingAddress: String,
+    networkingKey: String,
+    stakingKey: String,
+    amount: UFix64
+) {
+
+    let flowTokenRef: auth(FungibleToken.Withdraw) &FlowToken.Vault
+
+    prepare(acct: auth(Storage, Capabilities) &Account) {
+
+        self.flowTokenRef = acct.storage.borrow<auth(FungibleToken.Withdraw) &FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow reference to FLOW Vault")
+
+        let nodeStaker <- FlowIDTableStaking.addNodeRecord(
+            id: id,
+            role: role,
+            networkingAddress: networkingAddress,
+            networkingKey: networkingKey,
+            stakingKey: stakingKey,
+            tokensCommitted: <-self.flowTokenRef.withdraw(amount: amount)
+        )
+
+        if acct.storage.borrow<auth(FlowIDTableStaking.NodeOperator) &FlowIDTableStaking.NodeStaker>(from: FlowIDTableStaking.NodeStakerStoragePath) == nil {
+
+            acct.storage.save(<-nodeStaker, to: FlowIDTableStaking.NodeStakerStoragePath)
+
+            let nodeStakerCap = acct.capabilities.storage.issue<&{FlowIDTableStaking.NodeStakerPublic}>(
+                FlowIDTableStaking.NodeStakerStoragePath
+            )
+
+            acct.capabilities.publish(
+                nodeStakerCap,
+                at: FlowIDTableStaking.NodeStakerPublicPath
+            )
+        } else {
+            destroy nodeStaker
+        }
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/epoch/node/register_qc_voter.cdc
 
 ```
@@ -23502,6 +25961,41 @@ transaction() {
 
         signer.storage.save(<-qcVoter, to: FlowClusterQC.VoterStoragePath)
 
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/admin/set_node_weight.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This transaction sets the initialWeight of an existing node
+transaction(id: String, weight: UInt64) {
+
+    // Local variable for a reference to the ID Table Admin object
+    let adminRef: &FlowIDTableStaking.Admin
+
+    prepare(acct: auth(BorrowValue) &Account) {
+        // borrow a reference to the admin object
+        self.adminRef = acct.storage.borrow<&FlowIDTableStaking.Admin>(from: FlowIDTableStaking.StakingAdminStoragePath)
+            ?? panic("Could not borrow reference to staking admin")
+    }
+
+    execute {
+        self.adminRef.setNodeWeight(nodeID: id, weight: weight)
     }
 }
 ```
@@ -23554,6 +26048,42 @@ import "FlowStakingCollection"
 access(all) fun main(address: Address): [FlowStakingCollection.DelegatorIDs] {
     return FlowStakingCollection.getDelegatorIDs(address: address)
 }
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/node/stake_rewarded_tokens.cdc
+
+```
+import "FlowIDTableStaking"
+
+
+transaction(amount: UFix64) {
+
+    // Local variable for a reference to the node object
+    let stakerRef: auth(FlowIDTableStaking.NodeOperator) &FlowIDTableStaking.NodeStaker
+
+    prepare(acct: auth(BorrowValue) &Account) {
+        // borrow a reference to the node object
+        self.stakerRef = acct.storage.borrow<auth(FlowIDTableStaking.NodeOperator) &FlowIDTableStaking.NodeStaker>(from: FlowIDTableStaking.NodeStakerStoragePath)
+            ?? panic("Could not borrow reference to staking admin")
+    }
+
+    execute {
+        self.stakerRef.stakeRewardedTokens(amount: amount)
+    }
+}
+
 ```
 
 
@@ -23838,6 +26368,31 @@ assignees: ''
 
 
 
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/delegation/get_delegator_request.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script returns the requested unstaking balance of a delegator
+
+access(all) fun main(nodeID: String, delegatorID: UInt32): UFix64 {
+    let delInfo = FlowIDTableStaking.DelegatorInfo(nodeID: nodeID, delegatorID: delegatorID)
+    return delInfo.tokensRequestedToUnstake
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/stakingCollection/register_multiple_nodes.cdc
 
 ```
@@ -24053,6 +26608,70 @@ transaction(nodeID: String, amount: UFix64) {
 
 
 
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/admin/end_staking.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This transaction ends the staking auction, which refunds nodes 
+// with insufficient stake
+
+transaction(ids: {String: Bool}) {
+
+    // Local variable for a reference to the ID Table Admin object
+    let adminRef: &FlowIDTableStaking.Admin
+
+    prepare(acct: auth(BorrowValue) &Account) {
+        // borrow a reference to the admin object
+        self.adminRef = acct.storage.borrow<&FlowIDTableStaking.Admin>(from: FlowIDTableStaking.StakingAdminStoragePath)
+            ?? panic("Could not borrow reference to staking admin")
+    }
+
+    execute {
+
+        self.adminRef.setApprovedList(ids)
+
+        self.adminRef.endStakingAuction()
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_moves_pending.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script returns the current moves pending list
+
+access(all) fun main(): {String: {UInt32: Bool}} {
+    return FlowIDTableStaking.getMovesPendingList()!
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/stakingCollection/scripts/does_account_have_staking_collection.cdc
 
 ```
@@ -24062,6 +26681,30 @@ import "FlowStakingCollection"
 
 access(all) fun main(address: Address): Bool {
     return FlowStakingCollection.doesAccountHaveStakingCollection(address: address)
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_candidate_limits.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script returns the limits for candidate nodes for each role
+access(all) fun main(): {UInt8: UInt64} {
+    return FlowIDTableStaking.getCandidateNodeLimits()
+        ?? panic("Could not load candidate limits")
 }
 ```
 
@@ -24108,6 +26751,30 @@ transaction(nodeID: String, amount: UFix64) {
 
 
 
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_del_stake_requirements.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script returns the minimum stake requirement for delegators
+
+access(all) fun main(): UFix64 {
+    return FlowIDTableStaking.getDelegatorMinimumStakeRequirement()
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/scripts/get_latest_whiteboard_messages.cdc
 
 ```
@@ -24123,6 +26790,36 @@ access(all) fun main(fromIndex: Int): [FlowDKG.Message] {
     }
     return latestMessages
 }
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_node_info_from_address.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script gets all the info about a node and returns it
+
+access(all) fun main(address: Address): FlowIDTableStaking.NodeInfo {
+
+    let nodeStaker = getAccount(address)
+        .capabilities.borrow<&{FlowIDTableStaking.NodeStakerPublic}>(FlowIDTableStaking.NodeStakerPublicPath)
+        ?? panic("Could not borrow reference to node staker object")
+
+    return FlowIDTableStaking.NodeInfo(nodeID: nodeStaker.id)
+}
+
 ```
 
 
@@ -24455,6 +27152,250 @@ transaction(keyIndex: Int) {
 
 
 
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_node_total_commitment_without_delegators.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script returns the balance of staked tokens of a node
+
+access(all) fun main(nodeID: String): UFix64 {
+    let nodeInfo = FlowIDTableStaking.NodeInfo(nodeID: nodeID)
+    return nodeInfo.totalCommittedWithoutDelegators()
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/admin/upgrade_staking.cdc
+
+```
+
+transaction(code: [UInt8]) {
+
+    prepare(acct: auth(UpdateContract) &Account) {
+        acct.contracts.update(name: "FlowIDTableStaking", code: code)
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/node/withdraw_unstaked_tokens.cdc
+
+```
+import "FlowIDTableStaking"
+import "FlowToken"
+
+
+transaction(amount: UFix64) {
+
+    // Local variable for a reference to the node object
+    let stakerRef: auth(FlowIDTableStaking.NodeOperator) &FlowIDTableStaking.NodeStaker
+
+    let flowTokenRef: &FlowToken.Vault
+
+    prepare(acct: auth(BorrowValue) &Account) {
+        // borrow a reference to the node object
+        self.stakerRef = acct.storage.borrow<auth(FlowIDTableStaking.NodeOperator) &FlowIDTableStaking.NodeStaker>(from: FlowIDTableStaking.NodeStakerStoragePath)
+            ?? panic("Could not borrow reference to staking admin")
+
+        self.flowTokenRef = acct.storage.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow reference to FLOW Vault")
+    }
+
+    execute {
+        self.flowTokenRef.deposit(from: <-self.stakerRef.withdrawUnstakedTokens(amount: amount))
+    }
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/delegation/del_stake_new_tokens.cdc
+
+```
+import "FlowIDTableStaking"
+import "FlowToken"
+import "FungibleToken"
+
+
+transaction(amount: UFix64) {
+
+    // Local variable for a reference to the delegator object
+    let delegatorRef: auth(FlowIDTableStaking.DelegatorOwner) &FlowIDTableStaking.NodeDelegator
+
+    let flowTokenRef: auth(FungibleToken.Withdraw) &FlowToken.Vault
+
+    prepare(acct: auth(BorrowValue) &Account) {
+        // borrow a reference to the delegator object
+        self.delegatorRef = acct.storage.borrow<auth(FlowIDTableStaking.DelegatorOwner) &FlowIDTableStaking.NodeDelegator>(from: FlowIDTableStaking.DelegatorStoragePath)
+            ?? panic("Could not borrow reference to delegator")
+
+        self.flowTokenRef = acct.storage.borrow<auth(FungibleToken.Withdraw) &FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow reference to FLOW Vault")
+
+    }
+
+    execute {
+
+        self.delegatorRef.delegateNewTokens(from: <-self.flowTokenRef.withdraw(amount: amount))
+
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/delegation/del_stake_rewarded.cdc
+
+```
+import "FlowIDTableStaking"
+
+
+transaction(amount: UFix64) {
+
+    // Local variable for a reference to the Delegator object
+    let delegatorRef: auth(FlowIDTableStaking.DelegatorOwner) &FlowIDTableStaking.NodeDelegator
+
+    prepare(acct: auth(BorrowValue) &Account) {
+        // borrow a reference to the delegator object
+        self.delegatorRef = acct.storage.borrow<auth(FlowIDTableStaking.DelegatorOwner) &FlowIDTableStaking.NodeDelegator>(from: FlowIDTableStaking.DelegatorStoragePath)
+            ?? panic("Could not borrow reference to delegator")
+
+    }
+
+    execute {
+
+        self.delegatorRef.delegateRewardedTokens(amount: amount)
+
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/delegation/del_withdraw_unstaked_tokens.cdc
+
+```
+import "FlowIDTableStaking"
+import "FlowToken"
+
+
+transaction(amount: UFix64) {
+
+    // Local variable for a reference to the delegator object
+    let delegatorRef: auth(FlowIDTableStaking.DelegatorOwner) &FlowIDTableStaking.NodeDelegator
+
+    let flowTokenRef: &FlowToken.Vault
+
+    prepare(acct: auth(BorrowValue) &Account) {
+        // borrow a reference to the delegator object
+        self.delegatorRef = acct.storage.borrow<auth(FlowIDTableStaking.DelegatorOwner) &FlowIDTableStaking.NodeDelegator>(from: FlowIDTableStaking.DelegatorStoragePath)
+            ?? panic("Could not borrow reference to staking admin")
+
+        self.flowTokenRef = acct.storage.borrow<&FlowToken.Vault>(from: /storage/flowTokenVault)
+            ?? panic("Could not borrow reference to FLOW Vault")
+
+    }
+
+    execute {
+
+        self.flowTokenRef.deposit(from: <-self.delegatorRef.withdrawUnstakedTokens(amount: amount))
+
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/delegation/get_delegator_rewarded.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script returns the balance of rewarded tokens of a delegator
+
+access(all) fun main(nodeID: String, delegatorID: UInt32): UFix64 {
+    let delInfo = FlowIDTableStaking.DelegatorInfo(nodeID: nodeID, delegatorID: delegatorID)
+    return delInfo.tokensRewarded
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/randomBeaconHistory/transactions/set_backfiller_max_entries.cdc
 
 ```
@@ -24484,6 +27425,45 @@ transaction(maxEntries: UInt64) {
 
 
 
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/admin/upgrade_set_claimed.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This transaction pays rewards to all the staked nodes
+
+transaction(code: [UInt8]) {
+
+    // Local variable for a reference to the ID Table Admin object
+    let adminRef: &FlowIDTableStaking.Admin
+
+    prepare(acct: auth(UpdateContract, BorrowValue) &Account) {
+
+        acct.contracts.update(name: "FlowIDTableStaking", code: code)
+
+        // borrow a reference to the admin object
+        self.adminRef = acct.storage.borrow<&FlowIDTableStaking.Admin>(from: FlowIDTableStaking.StakingAdminStoragePath)
+            ?? panic("Could not borrow reference to staking admin")
+    }
+
+    execute {
+        self.adminRef.setClaimed()
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/randomBeaconHistory/scripts/get_source_of_randomness.cdc
 
 ```
@@ -24495,6 +27475,32 @@ access(all) fun main(atBlockHeight: UInt64): RandomBeaconHistory.RandomSource {
     return RandomBeaconHistory.sourceOfRandomness(atBlockHeight: atBlockHeight)
 }
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_node_type_ratio.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script returns the balance of staked tokens of a node
+
+access(all) fun main(role: UInt8): UFix64 {
+    let ratios = FlowIDTableStaking.getRewardRatios()
+
+    return ratios[role]!
+}
 ```
 
 
@@ -24539,6 +27545,32 @@ transaction {
 
 
 
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_total_staked_by_type.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script returns the balance of staked tokens of a node
+
+access(all) fun main(role: UInt8): UFix64 {
+    let staked = FlowIDTableStaking.getTotalTokensStakedByNodeType()
+
+    return staked[role]!
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/dkg/scripts/get_final_submissions.cdc
 
 ```
@@ -24546,6 +27578,65 @@ import "FlowDKG"
 
 access(all) fun main(): [FlowDKG.ResultSubmission] {
     return FlowDKG.getFinalSubmissions()
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/admin/set_slot_limits.cdc
+
+```
+import "FlowIDTableStaking"
+
+/// This transaction sets the slot limits for each node type 
+
+/// slotLimits is a UInt16 array that contains the limit for
+/// each node type in order from 0-4. It is used to populate
+/// a dictionary that has keys shifted +1 so that they align
+/// with the enumerated node types from 1-5
+
+/// There is another mechanism which allows for a specified
+/// number of slots for each node role per epoch.
+/// If that mechanism has a value set for a node role, it will override
+/// whatever has been set with this transaction.
+
+transaction(slotLimits: [UInt16]) {
+
+    // Local variable for a reference to the ID Table Admin object
+    let adminRef: &FlowIDTableStaking.Admin
+
+    prepare(acct: auth(BorrowValue) &Account) {
+        // borrow a reference to the admin object
+        self.adminRef = acct.storage.borrow<&FlowIDTableStaking.Admin>(from: FlowIDTableStaking.StakingAdminStoragePath)
+            ?? panic("Could not borrow reference to staking admin")
+    }
+
+    execute {
+        // panic if we do not specify exactly one slot limit per node role
+        if slotLimits.length != 5 {
+            panic("transaction argument must specify one slot limit per node role")
+        }
+
+        var slotLimitDictionary: {UInt8: UInt16} = {}
+        var dictionaryKey: UInt8 = 1
+
+        for slotLimit in slotLimits {
+            slotLimitDictionary.insert(key: dictionaryKey, slotLimit)
+            dictionaryKey = dictionaryKey + 1
+        }
+
+        self.adminRef.setSlotLimits(slotLimits: slotLimitDictionary)
+    }
 }
 ```
 
@@ -24603,6 +27694,32 @@ transaction(newLimit: UInt64) {
         signer.storage.save(newLimit, to: /storage/executionMemoryLimit)
     }
 }
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-core-contracts/blob/master/transactions/idTableStaking/scripts/get_node_total_commitment.cdc
+
+```
+import "FlowIDTableStaking"
+
+// This script returns the balance of staked tokens of a node
+
+access(all) fun main(nodeID: String): UFix64 {
+    let nodeInfo = FlowIDTableStaking.NodeInfo(nodeID: nodeID)
+    return nodeInfo.totalCommittedWithDelegators()
+}
+
 ```
 
 
@@ -58396,6 +61513,80 @@ access(all) fun main(evmAddressHex: String): Bool? {
 
 
 
+# Source: https://github.com/onflow/flow-evm-bridge/blob/main/solidity/src/interfaces/CrossVMBridgeCallable.sol
+
+```
+// SPDX-License-Identifier: Unlicense
+pragma solidity 0.8.24;
+
+import {ICrossVMBridgeCallable} from "./ICrossVMBridgeCallable.sol";
+import {Context} from "@openzeppelin/contracts/utils/Context.sol";
+import {ERC165} from "@openzeppelin/contracts/utils/introspection/ERC165.sol";
+
+/**
+ * @title CrossVMBridgeCallable
+ * @dev A base contract intended for use in implementations on Flow, allowing a contract to define
+ * access to the Cadence X EVM bridge on certain methods.
+ */
+abstract contract CrossVMBridgeCallable is ICrossVMBridgeCallable, Context, ERC165 {
+
+    address private _vmBridgeAddress;
+
+    /**
+     * @dev Sets the bridge EVM address such that only the bridge COA can call the privileged methods
+     */
+    constructor(address vmBridgeAddress_) {
+        if (vmBridgeAddress_ == address(0)) {
+            revert CrossVMBridgeCallableZeroInitialization();
+        }
+        _vmBridgeAddress = vmBridgeAddress_;
+    }
+
+    /**
+     * @dev Modifier restricting access to the designated VM bridge EVM address 
+     */
+    modifier onlyVMBridge() {
+        _checkVMBridgeAddress();
+        _;
+    }
+
+    /**
+     * @dev Returns the designated VM bridge’s EVM address
+     */
+    function vmBridgeAddress() public view virtual returns (address) {
+        return _vmBridgeAddress;
+    }
+
+    /**
+     * @dev Checks that msg.sender is the designated VM bridge address
+     */
+    function _checkVMBridgeAddress() internal view virtual {
+        if (_vmBridgeAddress != _msgSender()) {
+            revert CrossVMBridgeCallableUnauthorizedAccount(_msgSender());
+        }
+    }
+
+    /**
+     * @dev Allows a caller to determine the contract conforms to the `ICrossVMFulfillment` interface
+     */
+    function supportsInterface(bytes4 interfaceId) public view virtual override(ERC165) returns (bool) {
+        return interfaceId == type(ICrossVMBridgeCallable).interfaceId || super.supportsInterface(interfaceId);
+    }
+}
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-evm-bridge/blob/main/cadence/transactions/bridge/tokens/bridge_tokens_to_any_evm_address.cdc
 
 ```
@@ -59468,6 +62659,43 @@ access(all) fun main(
     }
 }
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-evm-bridge/blob/main/solidity/src/interfaces/ICrossVMBridgeCallable.sol
+
+```
+// SPDX-License-Identifier: Unlicense
+pragma solidity 0.8.24;
+
+/**
+ * @title ICrossVMBridgeCallable
+ * @dev An interface intended for use by implementations on Flow EVM, allowing a contract to define
+ * access to the Cadence X EVM bridge on certain methods.
+ */
+interface ICrossVMBridgeCallable {
+
+    /// @dev Should encounter when the vmBridgeAddress is initialized to 0x0
+    error CrossVMBridgeCallableZeroInitialization();
+    /// @dev Should encounter when a VM bridge privileged method is triggered by unauthorized caller
+    error CrossVMBridgeCallableUnauthorizedAccount(address account);
+
+    /**
+     * @dev Returns the designated VM bridge’s EVM address
+     */
+    function vmBridgeAddress() external view returns (address);
+}
 ```
 
 
@@ -62286,6 +65514,207 @@ access(all) contract ArrayUtils {
 
 
 
+# Source: https://github.com/onflow/flow-evm-bridge/blob/main/solidity/test/FlowBridgeFactory.t.sol
+
+```
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.8.17;
+
+import {Test} from "forge-std/Test.sol";
+
+import {FlowBridgeDeploymentRegistry} from "../src/FlowBridgeDeploymentRegistry.sol";
+import {FlowEVMBridgedERC721Deployer} from "../src/FlowEVMBridgedERC721Deployer.sol";
+import {FlowEVMBridgedERC20Deployer} from "../src/FlowEVMBridgedERC20Deployer.sol";
+import {FlowBridgeFactory} from "../src/FlowBridgeFactory.sol";
+import {FlowEVMBridgedERC721} from "../src/templates/FlowEVMBridgedERC721.sol";
+import {FlowEVMBridgedERC20} from "../src/templates/FlowEVMBridgedERC20.sol";
+
+contract FlowBridgeFactoryTest is Test {
+    FlowBridgeFactory internal factory;
+    FlowBridgeDeploymentRegistry internal registry;
+    FlowEVMBridgedERC20Deployer internal erc20Deployer;
+    FlowEVMBridgedERC721Deployer internal erc721Deployer;
+    FlowEVMBridgedERC20 internal deployedERC20Contract;
+    FlowEVMBridgedERC721 internal deployedERC721Contract;
+
+    string name;
+    string symbol;
+    string cadenceNFTAddress;
+    string cadenceNFTIdentifier;
+    string cadenceTokenAddress;
+    string cadenceTokenIdentifier;
+    string contractURI;
+    address deployedERC20Address;
+    address deployedERC721Address;
+
+    function setUp() public virtual {
+        name = "name";
+        symbol = "symbol";
+        cadenceNFTAddress = "cadenceNFTAddress";
+        cadenceNFTIdentifier = "cadenceNFTIdentifier";
+        cadenceTokenAddress = "cadenceTokenAddress";
+        cadenceTokenIdentifier = "cadenceTokenIdentifier";
+        contractURI = "contractURI";
+
+        factory = new FlowBridgeFactory();
+
+        registry = new FlowBridgeDeploymentRegistry();
+        erc20Deployer = new FlowEVMBridgedERC20Deployer();
+        erc721Deployer = new FlowEVMBridgedERC721Deployer();
+
+        factory.setDeploymentRegistry(address(registry));
+        registry.setRegistrar(address(factory));
+
+        erc20Deployer.setDelegatedDeployer(address(factory));
+        erc721Deployer.setDelegatedDeployer(address(factory));
+
+        factory.addDeployer("ERC20", address(erc20Deployer));
+        factory.addDeployer("ERC721", address(erc721Deployer));
+
+        deployedERC20Address = factory.deploy("ERC20", name, symbol, cadenceTokenAddress, cadenceTokenIdentifier, contractURI);
+        deployedERC721Address = factory.deploy("ERC721", name, symbol, cadenceNFTAddress, cadenceNFTIdentifier, contractURI);
+
+        deployedERC20Contract = FlowEVMBridgedERC20(deployedERC20Address);
+        deployedERC721Contract = FlowEVMBridgedERC721(deployedERC721Address);
+    }
+
+    function test_RegistryIsNonZero() public view {
+        address registryAddress = factory.getRegistry();
+        assertNotEq(registryAddress, address(0));
+    }
+
+    function test_GetERC20Deployer() public view {
+        address erc20DeployerAddress = factory.getDeployer("ERC20");
+        assertEq(erc20DeployerAddress, address(erc20Deployer));
+    }
+
+    function test_GetERC721Deployer() public view {
+        address erc721DeployerAddress = factory.getDeployer("ERC721");
+        assertEq(erc721DeployerAddress, address(erc721Deployer));
+    }
+
+    function test_DeployERC721() public view {
+        bool isBridgeDeployed = factory.isBridgeDeployed(deployedERC721Address);
+        assertEq(isBridgeDeployed, true);
+    }
+
+    function test_IsERC721True() public view {
+        bool isERC721 = factory.isERC721(deployedERC721Address);
+        assertEq(isERC721, true);
+    }
+
+    function test_IsERC721False() public view {
+        bool isERC721 = factory.isERC721(deployedERC20Address);
+        assertEq(isERC721, false);
+    }
+
+    function test_DeployERC20() public view {
+        bool isBridgeDeployed = factory.isBridgeDeployed(deployedERC20Address);
+        assertEq(isBridgeDeployed, true);
+    }
+
+    function test_IsERC20True() public view {
+        bool isERC20 = factory.isERC20(deployedERC20Address);
+        assertEq(isERC20, true);
+    }
+
+    function test_IsERC20False() public view {
+        bool isERC20 = factory.isERC20(deployedERC721Address);
+        assertEq(isERC20, false);
+    }
+
+    function test_ValidateDeployedERC721Address() public view {
+        string memory _name = deployedERC721Contract.name();
+        string memory _symbol = deployedERC721Contract.symbol();
+        string memory _cadenceNFTAddress = deployedERC721Contract.getCadenceAddress();
+        string memory _cadenceNFTIdentifier = deployedERC721Contract.getCadenceIdentifier();
+        string memory _contractURI = deployedERC721Contract.contractURI();
+
+        assertEq(_name, name);
+        assertEq(_symbol, symbol);
+        assertEq(_cadenceNFTAddress, cadenceNFTAddress);
+        assertEq(_cadenceNFTIdentifier, cadenceNFTIdentifier);
+        assertEq(_contractURI, contractURI);
+
+        address factoryOwner = factory.owner();
+        address erc721Owner = deployedERC721Contract.owner();
+        assertEq(factoryOwner, erc721Owner);
+    }
+
+    function test_ValidateDeployedERC20Address() public view {
+        string memory _name = deployedERC20Contract.name();
+        string memory _symbol = deployedERC20Contract.symbol();
+        string memory _cadenceTokenAddress = deployedERC20Contract.getCadenceAddress();
+        string memory _cadenceTokenIdentifier = deployedERC20Contract.getCadenceIdentifier();
+        string memory _contractURI = deployedERC20Contract.contractURI();
+
+        assertEq(_name, name);
+        assertEq(_symbol, symbol);
+        assertEq(_cadenceTokenAddress, cadenceTokenAddress);
+        assertEq(_cadenceTokenIdentifier, cadenceTokenIdentifier);
+        assertEq(_contractURI, contractURI);
+
+        address factoryOwner = factory.owner();
+        address erc20Owner = deployedERC20Contract.owner();
+        assertEq(factoryOwner, erc20Owner);
+    }
+
+    function test_MintERC721() public {
+        address recipient = address(27);
+        uint256 tokenId = 42;
+        string memory uri = "MOCK_URI";
+        deployedERC721Contract.safeMint(recipient, tokenId, uri);
+
+        address owner = deployedERC721Contract.ownerOf(tokenId);
+        assertEq(owner, recipient);
+    }
+
+    function test_MintERC20() public {
+        address recipient = address(27);
+        uint256 amount = 100e18;
+        deployedERC20Contract.mint(recipient, amount);
+
+        uint256 balance = deployedERC20Contract.balanceOf(recipient);
+        assertEq(balance, amount);
+    }
+
+    function test_UpdateERC721Symbol() public {
+        string memory _symbol = deployedERC721Contract.symbol();
+        assertEq(_symbol, symbol);
+
+        string memory newSymbol = "NEW_SYMBOL";
+        deployedERC721Contract.setSymbol(newSymbol);
+
+        _symbol = deployedERC721Contract.symbol();
+        assertEq(_symbol, newSymbol);
+    }
+
+    function test_UpdateERC20Symbol() public {
+        string memory _symbol = deployedERC20Contract.symbol();
+        assertEq(_symbol, symbol);
+
+        string memory newSymbol = "NEW_SYMBOL";
+        deployedERC20Contract.setSymbol(newSymbol);
+
+        _symbol = deployedERC20Contract.symbol();
+        assertEq(_symbol, newSymbol);
+    }
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-evm-bridge/blob/main/cadence/transactions/flow-token/dynamic_vm_transfer.cdc
 
 ```
@@ -62821,6 +66250,65 @@ contract FlowEVMBridgedERC721Deployer is ERC165, IFlowEVMBridgeDeployer, Ownable
 
         emit DeployerAuthorized(_delegatedDeployer);
     }
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-evm-bridge/blob/main/solidity/src/interfaces/IFlowEVMDeploymentRegistry.sol
+
+```
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.24;
+
+import {IERC165} from "@openzeppelin/contracts/utils/introspection/IERC165.sol";
+
+/**
+ * @title IFlowEVMDeploymentRegistry
+ * @dev Interface for the FlowEVMDeploymentRegistry contract, intended to be used for contracts that need to manage
+ * associations between Flow EVM contracts and Cadence contracts.
+ */
+interface IFlowEVMDeploymentRegistry is IERC165 {
+    /**
+     * @dev Event emitted when a new entity is authorized to register deployments
+     */
+    event RegistrarAuthorized(address indexed registrar);
+
+    /**
+     * @dev Event emitted when a new deployment is registered
+     */
+    event DeploymentRegistered(address indexed contractAddr, string cadenceIdentifier);
+
+    /**
+     * @dev Get the Cadence type identifier associated with a contract address
+     */
+    function getCadenceIdentifier(address contractAddr) external view returns (string memory);
+
+    /**
+     * @dev Get the contract address associated with a Cadence type identifier
+     */
+    function getContractAddress(string memory cadenceIdentifier) external view returns (address);
+
+    /**
+     * @dev Check if a contract address is associated with a Cadence type identifier
+     */
+    function isRegisteredDeployment(address contractAddr) external view returns (bool);
+
+    /**
+     * @dev Check if a Cadence type identifier is associated with a contract address
+     */
+    function isRegisteredDeployment(string memory cadenceIdentifier) external view returns (bool);
 }
 
 ```
@@ -65461,6 +68949,125 @@ access(all) contract SerializeMetadata {
             }
         }
         return upper
+    }
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-evm-bridge/blob/main/solidity/src/templates/FlowEVMBridgedERC721.sol
+
+```
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.24;
+
+import {IERC721} from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import {IERC721Metadata} from "@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol";
+import {ERC721} from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import {ERC721URIStorage} from "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+import {ERC721Enumerable} from "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
+import {IERC721Enumerable} from "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
+import {ERC721Burnable} from "@openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol";
+import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
+import {ICrossVM} from "../interfaces/ICrossVM.sol";
+import {IERC165} from "@openzeppelin/contracts/utils/introspection/IERC165.sol";
+import {ERC165} from "@openzeppelin/contracts/utils/introspection/ERC165.sol";
+
+contract FlowEVMBridgedERC721 is ERC721, ERC721URIStorage, ERC721Burnable, ERC721Enumerable, Ownable, ICrossVM {
+    string public cadenceNFTAddress;
+    string public cadenceNFTIdentifier;
+    string public contractMetadata;
+
+    string private _customSymbol;
+
+    constructor(
+        address owner,
+        string memory name_,
+        string memory symbol_,
+        string memory _cadenceNFTAddress,
+        string memory _cadenceNFTIdentifier,
+        string memory _contractMetadata
+    ) ERC721(name_, symbol_) Ownable(owner) {
+        _customSymbol = symbol_;
+        cadenceNFTAddress = _cadenceNFTAddress;
+        cadenceNFTIdentifier = _cadenceNFTIdentifier;
+        contractMetadata = _contractMetadata;
+    }
+
+    function getCadenceAddress() external view returns (string memory) {
+        return cadenceNFTAddress;
+    }
+
+    function getCadenceIdentifier() external view returns (string memory) {
+        return cadenceNFTIdentifier;
+    }
+
+    function symbol() public view override returns (string memory) {
+        return _customSymbol;
+    }
+
+    function safeMint(address to, uint256 tokenId, string memory uri) public onlyOwner {
+        _safeMint(to, tokenId);
+        _setTokenURI(tokenId, uri);
+    }
+
+    function updateTokenURI(uint256 tokenId, string memory uri) public onlyOwner {
+        _setTokenURI(tokenId, uri);
+    }
+
+    function setSymbol(string memory newSymbol) public onlyOwner {
+        _setSymbol(newSymbol);
+    }
+
+    function contractURI() public view returns (string memory) {
+        return contractMetadata;
+    }
+
+    function tokenURI(uint256 tokenId) public view override(ERC721, ERC721URIStorage) returns (string memory) {
+        return super.tokenURI(tokenId);
+    }
+
+    function supportsInterface(bytes4 interfaceId)
+        public
+        view
+        override(ERC721, ERC721Enumerable, ERC721URIStorage)
+        returns (bool)
+    {
+        return interfaceId == type(IERC165).interfaceId || interfaceId == type(IERC721Metadata).interfaceId
+            || interfaceId == type(IERC721Enumerable).interfaceId || interfaceId == type(ERC721Burnable).interfaceId
+            || interfaceId == type(Ownable).interfaceId || interfaceId == type(ICrossVM).interfaceId
+            || super.supportsInterface(interfaceId);
+    }
+
+    function exists(uint256 tokenId) public view returns (bool) {
+        return _ownerOf(tokenId) != address(0);
+    }
+
+    function _setSymbol(string memory newSymbol) internal {
+        _customSymbol = newSymbol;
+    }
+
+    function _update(address to, uint256 tokenId, address auth)
+        internal
+        override(ERC721, ERC721Enumerable)
+        returns (address)
+    {
+        return super._update(to, tokenId, auth);
+    }
+
+    function _increaseBalance(address account, uint128 value) internal override(ERC721, ERC721Enumerable) {
+        super._increaseBalance(account, value);
     }
 }
 
@@ -73129,6 +76736,146 @@ transaction(registryEVMAddressHex: String) {
 
 
 
+# Source: https://github.com/onflow/flow-evm-bridge/blob/main/solidity/src/interfaces/FlowEVMDeploymentRegistry.sol
+
+```
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.24;
+
+import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
+import {IERC165} from "@openzeppelin/contracts/utils/introspection/IERC165.sol";
+import {ERC165} from "@openzeppelin/contracts/utils/introspection/ERC165.sol";
+import {IFlowEVMDeploymentRegistry} from "./IFlowEVMDeploymentRegistry.sol";
+
+/**
+ * @title FlowEVMDeploymentRegistry
+ * @dev A contract to manage the deployment of Flow EVM contracts and their association with Cadence contracts. Only the
+ * registrar can register new deployments.
+ */
+abstract contract FlowEVMDeploymentRegistry is IFlowEVMDeploymentRegistry, ERC165 {
+    // The address of the registrar who can register new deployments
+    address public registrar;
+    // Association between Cadence type identifiers and deployed contract addresses
+    mapping(string => address) private cadenceIdentifierToContract;
+    // Reverse association between deployed contract addresses and Cadence type identifiers
+    mapping(address => string) private contractToCadenceIdentifier;
+
+    modifier onlyRegistrar() {
+        require(msg.sender == registrar, "FlowBridgeDeploymentRegistry: Only registrar can register association");
+        _;
+    }
+
+    /**
+     * @dev ERC165 introspection
+     */
+    function supportsInterface(bytes4 interfaceId) public view override(IERC165, ERC165) returns (bool) {
+        return interfaceId == type(IFlowEVMDeploymentRegistry).interfaceId || super.supportsInterface(interfaceId);
+    }
+
+    /**
+     * @dev Get the Cadence type identifier associated with a contract address
+     *
+     * @param contractAddr The address of the deployed contract
+     *
+     * @return The Cadence type identifier
+     */
+    function getCadenceIdentifier(address contractAddr) external view returns (string memory) {
+        return contractToCadenceIdentifier[contractAddr];
+    }
+
+    /**
+     * @dev Get the contract address associated with a Cadence type identifier
+     *
+     * @param cadenceIdentifier The Cadence type identifier
+     *
+     * @return The address of the associated contract
+     */
+    function getContractAddress(string memory cadenceIdentifier) external view returns (address) {
+        return cadenceIdentifierToContract[cadenceIdentifier];
+    }
+
+    /**
+     * @dev Check if a contract address is a registered deployment
+     *
+     * @param cadenceIdentifier The Cadence type identifier in question
+     *
+     * @return True if the contract address is associated with a Cadence type identifier as a registered deployment
+     */
+    function isRegisteredDeployment(string memory cadenceIdentifier) external view returns (bool) {
+        return cadenceIdentifierToContract[cadenceIdentifier] != address(0);
+    }
+
+    /**
+     * @dev Check if a Cadence type identifier is associated with a registered deployment
+     *
+     * @param contractAddr The address of the contract in question
+     *
+     * @return True if the contract address is associated with a Cadence type identifier as a registered deployment
+     */
+    function isRegisteredDeployment(address contractAddr) external view returns (bool) {
+        return bytes(contractToCadenceIdentifier[contractAddr]).length != 0;
+    }
+
+    /**
+     * @dev Register a new deployment address with the given Cadence type identifier. Can only be called by the
+     * current registrar.
+     *
+     * @param cadenceIdentifier The Cadence type identifier
+     * @param contractAddr The address of the deployed contract
+     */
+    function registerDeployment(string memory cadenceIdentifier, address contractAddr) external onlyRegistrar {
+        _registerDeployment(cadenceIdentifier, contractAddr);
+    }
+
+    /**
+     * @dev Internal function to register a new deployment address with the given Cadence type identifier
+     *
+     * @param cadenceIdentifier The Cadence type identifier
+     * @param contractAddr The address of the deployed contract
+     */
+    function _registerDeployment(string memory cadenceIdentifier, address contractAddr) internal {
+        require(contractAddr != address(0), "FlowEVMDeploymentRegistry: Contract address cannot be 0");
+        require(bytes(cadenceIdentifier).length != 0, "FlowEVMDeploymentRegistry: Cadence identifier cannot be empty");
+        require(
+            cadenceIdentifierToContract[cadenceIdentifier] == address(0),
+            "FlowEVMDeploymentRegistry: Cadence identifier already registered"
+        );
+        require(
+            bytes(contractToCadenceIdentifier[contractAddr]).length == 0,
+            "FlowEVMDeploymentRegistry: Contract address already registered"
+        );
+
+        cadenceIdentifierToContract[cadenceIdentifier] = contractAddr;
+        contractToCadenceIdentifier[contractAddr] = cadenceIdentifier;
+
+        emit DeploymentRegistered(contractAddr, cadenceIdentifier);
+    }
+
+    /**
+     * @dev Set the registrar address as the entity that can register new deployments. Only the owner can execute this.
+     */
+    function _setRegistrar(address _registrar) internal {
+        require(_registrar != address(0), "FlowEVMDeploymentRegistry: Registrar cannot be 0");
+        registrar = _registrar;
+
+        emit RegistrarAuthorized(_registrar);
+    }
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://github.com/onflow/flow-evm-bridge/blob/main/solidity/src/example-assets/ExampleERC721.sol
 
 ```
@@ -74648,6 +78395,208 @@ contract FlowEVMBridgeUtils {
     }
 }
 
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-evm-bridge/blob/main/solidity/test/CrossVMBridgeERC721Fulfillment.t.sol
+
+```
+pragma solidity 0.8.24;
+
+import {Test} from "forge-std/Test.sol";
+
+import {IERC721Errors} from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import {IERC721} from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
+import {ERC721} from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import {ICrossVMBridgeCallable} from "../src/interfaces/ICrossVMBridgeCallable.sol";
+import {ICrossVMBridgeERC721Fulfillment} from "../src/interfaces/ICrossVMBridgeERC721Fulfillment.sol";
+import {ICrossVMBridgeERC721Fulfillment} from "../src/interfaces/ICrossVMBridgeERC721Fulfillment.sol";
+import {CadenceNativeERC721} from "../src/example-assets/CadenceNativeERC721.sol";
+
+contract CrossVMBridgeERC721FulfillmentTest is Test {
+    CadenceNativeERC721 internal erc721Impl;
+
+    string name;
+    string symbol;
+    address vmBridge;
+
+    address recipient;
+
+    uint256 fulfilledId;
+    bytes emptyBytes;
+
+    function setUp() public {
+        name = "name";
+        symbol = "symbol";
+
+        vmBridge = address(100);
+        recipient = address(101);
+
+        fulfilledId = 42;
+        emptyBytes = new bytes(0);
+
+        erc721Impl = new CadenceNativeERC721(name, symbol, vmBridge);
+    }
+
+    function test_VMBridgeAddressMatches() public view {
+        address actualVMBridge = erc721Impl.vmBridgeAddress();
+        assertEq(vmBridge, actualVMBridge);
+    }
+
+    function test_FulfillToEVMAsUnauthorizedFails() public {
+        vm.prank(recipient);
+        vm.expectRevert(
+            abi.encodeWithSelector(ICrossVMBridgeCallable.CrossVMBridgeCallableUnauthorizedAccount.selector, recipient)
+        );
+        ICrossVMBridgeERC721Fulfillment(erc721Impl).fulfillToEVM(recipient, fulfilledId, emptyBytes);
+    }
+
+    function test_FulfillToEVMMintSucceeds() public {
+        bool exists = erc721Impl.exists(fulfilledId);
+        assertFalse(exists);
+
+        // Ensure fulfilledId is nonexistent
+        vm.expectRevert(
+            abi.encodeWithSelector(IERC721Errors.ERC721NonexistentToken.selector, fulfilledId)
+        );
+        erc721Impl.ownerOf(fulfilledId);
+
+        // Check current counter values
+        uint256 beforeCounter = erc721Impl.beforeCounter();
+        uint256 afterCounter = erc721Impl.afterCounter();
+
+        // Call fulfillToEVM minting fulfilledId & incrementing before and after counters
+        vm.expectEmit();
+        emit ICrossVMBridgeERC721Fulfillment.FulfilledToEVM(recipient, fulfilledId);
+
+        vm.prank(vmBridge);
+        ICrossVMBridgeERC721Fulfillment(erc721Impl).fulfillToEVM(recipient, fulfilledId, emptyBytes);
+
+        // Confirm id was fulfilled to recipient
+        address ownerOf = erc721Impl.ownerOf(fulfilledId);
+        exists = erc721Impl.exists(fulfilledId);
+        assertEq(recipient, ownerOf);
+        assertTrue(exists);
+
+        // Confirm overridden before & after hooks executed
+        uint256 postFulfillmentBeforeCounter = erc721Impl.beforeCounter();
+        uint256 postFulfillmentAfterCounter = erc721Impl.afterCounter();
+        assertEq(postFulfillmentBeforeCounter, beforeCounter + 1);
+        assertEq(postFulfillmentAfterCounter, afterCounter + 1);
+    }
+
+    function test_FulfillToEVMUnescrowedFails() public {
+        // Ensure fulfilledId is nonexistent
+        vm.expectRevert(
+            abi.encodeWithSelector(IERC721Errors.ERC721NonexistentToken.selector, fulfilledId)
+        );
+        erc721Impl.ownerOf(fulfilledId);
+
+        // Check current counter values
+        uint256 beforeCounter = erc721Impl.beforeCounter();
+        uint256 afterCounter = erc721Impl.afterCounter();
+
+        // Call fulfillToEVM minting fulfilledId & incrementing before and after counters
+        vm.expectEmit();
+        emit ICrossVMBridgeERC721Fulfillment.FulfilledToEVM(recipient, fulfilledId);
+
+        vm.prank(vmBridge);
+        ICrossVMBridgeERC721Fulfillment(erc721Impl).fulfillToEVM(recipient, fulfilledId, emptyBytes);
+
+        // Confirm id was fulfilled to recipient
+        address ownerOf = erc721Impl.ownerOf(fulfilledId);
+        assertEq(recipient, ownerOf);
+
+        // Confirm overridden before & after hooks executed
+        uint256 postFulfillmentBeforeCounter = erc721Impl.beforeCounter();
+        uint256 postFulfillmentAfterCounter = erc721Impl.afterCounter();
+        assertEq(postFulfillmentBeforeCounter, beforeCounter + 1);
+        assertEq(postFulfillmentAfterCounter, afterCounter + 1);
+
+        // Ensure call fails without token in escrow
+        vm.prank(vmBridge);
+        vm.expectRevert(
+            abi.encodeWithSelector(ICrossVMBridgeERC721Fulfillment.FulfillmentFailedTokenNotEscrowed.selector, fulfilledId, vmBridge)
+        );
+        ICrossVMBridgeERC721Fulfillment(erc721Impl).fulfillToEVM(recipient, fulfilledId, emptyBytes);
+    }
+
+    function test_FulfillToEVMFromEscrowSucceeds() public {
+        // Ensure fulfilledId is nonexistent
+        vm.expectRevert(
+            abi.encodeWithSelector(IERC721Errors.ERC721NonexistentToken.selector, fulfilledId)
+        );
+        erc721Impl.ownerOf(fulfilledId);
+
+        // Check current counter values
+        uint256 beforeCounter = erc721Impl.beforeCounter();
+        uint256 afterCounter = erc721Impl.afterCounter();
+
+        // Call fulfillToEVM minting fulfilledId & incrementing before and after counters
+        vm.expectEmit();
+        emit ICrossVMBridgeERC721Fulfillment.FulfilledToEVM(recipient, fulfilledId);
+
+        vm.prank(vmBridge);
+        ICrossVMBridgeERC721Fulfillment(erc721Impl).fulfillToEVM(recipient, fulfilledId, emptyBytes);
+
+        // Confirm id was fulfilled to recipient
+        address ownerOf = erc721Impl.ownerOf(fulfilledId);
+        assertEq(recipient, ownerOf);
+
+        // Confirm overridden before & after hooks executed
+        uint256 postFulfillmentBeforeCounter = erc721Impl.beforeCounter();
+        uint256 postFulfillmentAfterCounter = erc721Impl.afterCounter();
+        assertEq(postFulfillmentBeforeCounter, beforeCounter + 1);
+        assertEq(postFulfillmentAfterCounter, afterCounter + 1);
+
+        // Confirm escrow status
+        bool isEscrowed = ICrossVMBridgeERC721Fulfillment(erc721Impl).isEscrowed(fulfilledId);
+        assertFalse(isEscrowed);
+        
+        // Transfer from recipient to escrow & confirm escrow status
+        vm.prank(recipient);
+        erc721Impl.safeTransferFrom(recipient, vmBridge, fulfilledId);
+
+        address currentOwner = erc721Impl.ownerOf(fulfilledId);
+        isEscrowed = ICrossVMBridgeERC721Fulfillment(erc721Impl).isEscrowed(fulfilledId);
+        assertEq(vmBridge, currentOwner);
+        assertTrue(isEscrowed);
+ 
+        // Call fulfillToEVM minting fulfilledId & incrementing before and after counters
+        vm.expectEmit();
+        emit ICrossVMBridgeERC721Fulfillment.FulfilledToEVM(recipient, fulfilledId);
+
+        vm.prank(vmBridge);
+        ICrossVMBridgeERC721Fulfillment(erc721Impl).fulfillToEVM(recipient, fulfilledId, emptyBytes);
+
+        // Confirm id was fulfilled to recipient
+        ownerOf = erc721Impl.ownerOf(fulfilledId);
+        assertEq(recipient, ownerOf);
+
+        // Confirm overridden before & after hooks executed
+        postFulfillmentBeforeCounter = erc721Impl.beforeCounter();
+        postFulfillmentAfterCounter = erc721Impl.afterCounter();
+        assertEq(postFulfillmentBeforeCounter, beforeCounter + 2);
+        assertEq(postFulfillmentAfterCounter, afterCounter + 2);
+    }
+
+    function test_SupportsAllExpectedInterfacesSucceeds() public view {
+        assertTrue(erc721Impl.supportsInterface(type(IERC721).interfaceId));
+        assertTrue(erc721Impl.supportsInterface(type(ICrossVMBridgeERC721Fulfillment).interfaceId));
+        assertTrue(erc721Impl.supportsInterface(type(ICrossVMBridgeCallable).interfaceId));
+    }
+}
 ```
 
 
@@ -76329,6 +80278,95 @@ access(all) contract FlowEVMBridgeTokenEscrow {
         access(FungibleToken.Withdraw) fun withdraw(amount: UFix64): @{FungibleToken.Vault} {
             return <-self.lockedVault.withdraw(amount: amount)
         }
+    }
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-evm-bridge/blob/main/solidity/src/templates/FlowEVMBridgedERC20.sol
+
+```
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.24;
+
+import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import {ERC20Burnable} from "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
+import {ERC20Permit} from "@openzeppelin/contracts/token/ERC20/extensions/ERC20Permit.sol";
+import {IERC165} from "@openzeppelin/contracts/utils/introspection/IERC165.sol";
+import {ERC165} from "@openzeppelin/contracts/utils/introspection/ERC165.sol";
+import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
+import {ICrossVM} from "../interfaces/ICrossVM.sol";
+
+contract FlowEVMBridgedERC20 is ERC165, ERC20, ERC20Burnable, ERC20Permit, Ownable, ICrossVM {
+    string public cadenceTokenAddress;
+    string public cadenceTokenIdentifier;
+    string public contractMetadata;
+
+    string private _customSymbol;
+
+    constructor(
+        address owner,
+        string memory name_,
+        string memory symbol_,
+        string memory _cadenceTokenAddress,
+        string memory _cadenceTokenIdentifier,
+        string memory _contractMetadata
+    ) ERC20(name_, symbol_) Ownable(owner) ERC20Permit(name_) {
+        _customSymbol = symbol_;
+        cadenceTokenAddress = _cadenceTokenAddress;
+        cadenceTokenIdentifier = _cadenceTokenIdentifier;
+        contractMetadata = _contractMetadata;
+    }
+
+    function getCadenceAddress() external view returns (string memory) {
+        return cadenceTokenAddress;
+    }
+
+    function getCadenceIdentifier() external view returns (string memory) {
+        return cadenceTokenIdentifier;
+    }
+
+    function symbol() public view override returns (string memory) {
+        return _customSymbol;
+    }
+
+    function contractURI() public view returns (string memory) {
+        return contractMetadata;
+    }
+
+    function mint(address to, uint256 amount) public onlyOwner {
+        _mint(to, amount);
+    }
+
+    function setSymbol(string memory newSymbol) public onlyOwner {
+        _setSymbol(newSymbol);
+    }
+
+    function setContractURI(string memory newContractURI) public onlyOwner {
+        contractMetadata = newContractURI;
+    }
+
+    function supportsInterface(bytes4 interfaceId) public view override(ERC165) returns (bool) {
+        return interfaceId == type(IERC20).interfaceId || interfaceId == type(ERC20Burnable).interfaceId
+            || interfaceId == type(Ownable).interfaceId || interfaceId == type(ERC20Permit).interfaceId
+            || interfaceId == type(ICrossVM).interfaceId || super.supportsInterface(interfaceId);
+    }
+
+    function _setSymbol(string memory newSymbol) internal {
+        _customSymbol = newSymbol;
     }
 }
 
@@ -78371,6 +82409,358 @@ import "FlowEVMBridge"
 access(all) fun main(nftTypeIdentifier: String, id: UInt64): [Type]? {
     let type = CompositeType(nftTypeIdentifier) ?? panic("Malformed NFT type identifier=".concat(nftTypeIdentifier))
     return FlowEVMBridgeNFTEscrow.getViews(nftType: type, id: id)
+}
+
+```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flow-evm-bridge/blob/main/solidity/src/FlowBridgeFactory.sol
+
+```
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.24;
+
+import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
+import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import {ERC165} from "@openzeppelin/contracts/utils/introspection/ERC165.sol";
+import {IBridgePermissions} from "./interfaces/IBridgePermissions.sol";
+import {IFlowEVMBridgeDeployer} from "./interfaces/IFlowEVMBridgeDeployer.sol";
+import {IFlowEVMDeploymentRegistry} from "./interfaces/IFlowEVMDeploymentRegistry.sol";
+import {FlowEVMDeploymentRegistry} from "./interfaces/FlowEVMDeploymentRegistry.sol";
+
+/**
+ * @title FlowBridgeFactory
+ * @dev Factory contract to deploy new FlowEVM bridge contracts, defining Cadence-native assets in EVM. Cadence & EVM
+ * contract associations are maintained in a deployment registry. This factory is enabled to deploy contracts via
+ * registered deployer implementations, each of which handle the deployment of a single templated contract indexed by
+ * a human-readable deployer tag. This setup modularizes each key component of the EVM side of the Flow EVM VM bridge,
+ * allowing new asset types to be added by simply adding a new deployer implementation or updated factory contract
+ * to be swapped out without affecting the underlying associations between Cadence and EVM contracts.
+ */
+contract FlowBridgeFactory is Ownable {
+    // Address of the deployment registry where deployed contract associations are registered. Note that this is a
+    // registry for EVM contracts deployed by the bridge factory and does not include those EVM-native contracts that
+    // have been onboarded to the bridge via Cadence contracts. The global source of truth is found in the Cadence
+    // side of the bridge, however this registry and publicly accessible methods can serve as a source of truth
+    // within EVM. Given some EVM contract, its bridge-supported Cadence type association can be found (and vice-versa)
+    // by querying this contract, thus preventing impersonation attacks.
+    address private deploymentRegistry;
+    // Mapping of deployer tags to their implementation addresses
+    mapping(string => address) private deployers;
+
+    /**
+     * @dev Emitted when a deployer is added to the factory
+     */
+    event DeployerAdded(string indexed tag, address deployerAddress);
+    /**
+     * @dev Emitted when a deployer is updated in the factory
+     */
+    event DeployerUpdated(string indexed tag, address oldAddress, address newAddress);
+    /**
+     * @dev Emitted when a deployer is removed from the factory
+     */
+    event DeployerRemoved(string indexed tag, address oldAddress);
+    /**
+     * @dev Emitted when the deployment registry is updated
+     */
+    event DeploymentRegistryUpdated(address indexed oldAddress, address indexed newAddress);
+
+    constructor() Ownable(msg.sender) {}
+
+    /**
+     * @dev Deploys a new asset contract via a registered deployer
+     *
+     * @param deployerTag The tag of the deployer to use as set by the owner
+     * @param name The name of the asset
+     * @param symbol The symbol of the asset
+     * @param cadenceAddress The Flow account address of the Cadence implementation
+     * @param cadenceIdentifier The Cadence identifier of the asset type
+     * @param contractURI The URI of the contract metadata for the asset
+     *
+     * @return The address of the newly deployed contract
+     */
+    function deploy(
+        string memory deployerTag,
+        string memory name,
+        string memory symbol,
+        string memory cadenceAddress,
+        string memory cadenceIdentifier,
+        string memory contractURI
+    ) public onlyOwner returns (address) {
+        address deployerAddress = deployers[deployerTag];
+        _requireIsValidDeployer(deployerAddress);
+        IFlowEVMBridgeDeployer deployer = IFlowEVMBridgeDeployer(deployerAddress);
+
+        address newContract = deployer.deploy(name, symbol, cadenceAddress, cadenceIdentifier, contractURI);
+
+        _registerDeployment(cadenceIdentifier, newContract);
+
+        return newContract;
+    }
+
+    /**
+     * @dev Retrieves the Cadence type identifier associated with the bridge-deployed contract
+     *
+     * @param contractAddr The address of the deployed contract
+     *
+     * @return The Cadence identifier of the contract
+     */
+    function getCadenceIdentifier(address contractAddr) public view returns (string memory) {
+        return FlowEVMDeploymentRegistry(deploymentRegistry).getCadenceIdentifier(contractAddr);
+    }
+
+    /**
+     * @dev Retrieves the address of a bridge-deployed contract by its associated Cadence type identifier
+     *
+     * @param cadenceIdentifier The Cadence type identifier of the contract
+     *
+     * @return The address of the deployed contract
+     */
+    function getContractAddress(string memory cadenceIdentifier) public view returns (address) {
+        return FlowEVMDeploymentRegistry(deploymentRegistry).getContractAddress(cadenceIdentifier);
+    }
+
+    /**
+     * @dev Checks if a contract address is associated with a registered deployment
+     *
+     * @param contractAddr The address of the deployed contract
+     *
+     * @return True if the contract is a registered deployment, false otherwise
+     */
+    function isBridgeDeployed(address contractAddr) public view returns (bool) {
+        return FlowEVMDeploymentRegistry(deploymentRegistry).isRegisteredDeployment(contractAddr);
+    }
+
+    /**
+     * @dev Makes a best guess if the contract address is an ERC20 token by calling the publicly accessible ERC20
+     * interface methods on the contract via staticcall to prevent reverts. Note, since ERC20 does not implement
+     * ERC165, this is a best guess and may result in false positives.
+     *
+     * @param contractAddr The address of the contract to check
+     *
+     * @return True if the contract is an ERC20 token, false otherwise
+     */
+    function isERC20(address contractAddr) public view returns (bool) {
+        (bool success, bytes memory data) = contractAddr.staticcall(abi.encodeWithSignature("totalSupply()"));
+        if (!success || data.length == 0) {
+            return false;
+        }
+        (success, data) = contractAddr.staticcall(abi.encodeWithSignature("balanceOf(address)", address(0)));
+        if (!success || data.length == 0) {
+            return false;
+        }
+        (success, data) =
+            contractAddr.staticcall(abi.encodeWithSignature("allowance(address,address)", address(0), address(0)));
+        if (!success || data.length == 0) {
+            return false;
+        }
+        (success, data) = contractAddr.staticcall(abi.encodeWithSignature("name()"));
+        if (!success || data.length == 0) {
+            return false;
+        }
+        (success, data) = contractAddr.staticcall(abi.encodeWithSignature("symbol()"));
+        if (!success || data.length == 0) {
+            return false;
+        }
+        (success, data) = contractAddr.staticcall(abi.encodeWithSignature("decimals()"));
+        if (!success || data.length == 0) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * @dev Determines if a contract is an ERC721 token by checking if it implements the ERC721 interface via ERC165
+     * supportsInterface call.
+     *
+     * @param contractAddr The address of the contract to check
+     *
+     * @return True if the contract is an ERC721 token, false otherwise
+     */
+    function isERC721(address contractAddr) public view returns (bool) {
+        try ERC165(contractAddr).supportsInterface(0x80ac58cd) returns (bool support) {
+            return support;
+        } catch {
+            return false;
+        }
+    }
+
+    /**
+     * @dev Determines if a contract is a valid asset by checking if it is either an ERC20 or ERC721 implementation
+     *
+     * @param contractAddr The address of the contract to check
+     *
+     * @return True if the contract is a valid asset, false otherwise
+     */
+    function isValidAsset(address contractAddr) public view returns (bool) {
+        return isERC20(contractAddr) != isERC721(contractAddr);
+    }
+
+    /**
+     * @dev Retrieves the address of the deployment registry
+     *
+     * @return The address of the deployment registry
+     */
+    function getRegistry() public view returns (address) {
+        return deploymentRegistry;
+    }
+
+    /**
+     * @dev Retrieves the address of a deployer by its tag
+     *
+     * @param tag The tag of the deployer
+     *
+     * @return The address of the deployer
+     */
+    function getDeployer(string memory tag) public view returns (address) {
+        return deployers[tag];
+    }
+
+    /**
+     * @dev Sets the address of the deployment registry
+     *
+     * @param _deploymentRegistry The address of the deployment registry
+     */
+    function setDeploymentRegistry(address _deploymentRegistry) public onlyOwner {
+        _requireIsValidRegistry(_deploymentRegistry);
+
+        emit DeploymentRegistryUpdated(deploymentRegistry, _deploymentRegistry);
+
+        deploymentRegistry = _deploymentRegistry;
+    }
+
+    /**
+     * @dev Adds a new deployer to the factory
+     *
+     * @param tag The tag of the deployer
+     * @param deployerAddress The address of the deployer
+     *
+     * emits a {DeployerAdded} event
+     */
+    function addDeployer(string memory tag, address deployerAddress) public onlyOwner {
+        _requireIsValidDeployer(deployerAddress);
+        require(deployers[tag] == address(0), "FlowBridgeFactory: Deployer already registered");
+        deployers[tag] = deployerAddress;
+
+        emit DeployerAdded(tag, deployerAddress);
+    }
+
+    /**
+     * @dev Adds a deployer to the factory, or updates the address of an existing deployer
+     *
+     * @param tag The tag of the deployer
+     *
+     * emits a {DeployerUpdated} event if the deployer already exists otherwise a {DeployerAdded} event
+     */
+    function upsertDeployer(string memory tag, address deployerAddress) public onlyOwner {
+        _requireIsValidDeployer(deployerAddress);
+
+        address oldAddress = deployers[tag];
+        if (oldAddress == address(0)) {
+            addDeployer(tag, deployerAddress);
+            return;
+        }
+
+        deployers[tag] = deployerAddress;
+
+        emit DeployerUpdated(tag, oldAddress, deployerAddress);
+    }
+
+    /**
+     * @dev Removes a deployer from the factory
+     *
+     * @param tag The tag of the deployer
+     *
+     * emits a {DeployerRemoved} event
+     */
+    function removeDeployer(string memory tag) public onlyOwner {
+        address oldAddress = deployers[tag];
+        require(oldAddress != address(0), "FlowBridgeFactory: Deployer not registered");
+
+        delete deployers[tag];
+
+        emit DeployerRemoved(tag, oldAddress);
+    }
+
+    /**
+     * @dev Overrides Ownable.renounceOwnership function to prevent ownership renouncement as it is required to retain
+     * bridge functionality
+     */
+    function renounceOwnership() public virtual override onlyOwner {
+        revert("FlowBridgeFactory: Ownership cannot be renounced");
+    }
+
+    /**
+     * @dev Registers a new deployment in the deployment registry
+     *
+     * @param cadenceIdentifier The Cadence identifier of the deployed contract
+     * @param contractAddr The address of the deployed contract
+     */
+    function _registerDeployment(string memory cadenceIdentifier, address contractAddr) internal {
+        FlowEVMDeploymentRegistry registry = FlowEVMDeploymentRegistry(deploymentRegistry);
+        registry.registerDeployment(cadenceIdentifier, contractAddr);
+    }
+
+    /**
+     * @dev Asserts that the registry address is non-zero and implements the IFlowEVMDeploymentRegistry interface
+     *
+     * @param registryAddr The address of the registry to check
+     */
+    function _requireIsValidRegistry(address registryAddr) internal view {
+        _requireNotZeroAddress(registryAddr);
+        require(
+            _implementsInterface(registryAddr, type(IFlowEVMDeploymentRegistry).interfaceId),
+            "FlowBridgeFactory: Invalid registry"
+        );
+    }
+
+    /**
+     * @dev Asserts that the contract address is non-zero and implements the IFlowEVMBridgeDeployer interface
+     *
+     * @param contractAddr The address of the contract to check
+     */
+    function _requireIsValidDeployer(address contractAddr) internal view {
+        _requireNotZeroAddress(contractAddr);
+        require(
+            _implementsInterface(contractAddr, type(IFlowEVMBridgeDeployer).interfaceId),
+            "FlowBridgeFactory: Invalid deployer"
+        );
+    }
+
+    /**
+     * @dev Checks if a contract implements a specific interface
+     *
+     * @param contractAddr The address of the contract to check
+     *
+     * @return True if the contract implements the interface, false otherwise
+     */
+    function _implementsInterface(address contractAddr, bytes4 interfaceId) internal view returns (bool) {
+        try ERC165(contractAddr).supportsInterface(interfaceId) returns (bool support) {
+            return support;
+        } catch {
+            return false;
+        }
+    }
+
+    /**
+     * @dev Asserts that the address is non-zero
+     *
+     * @param addr The address to check
+     */
+    function _requireNotZeroAddress(address addr) internal pure {
+        require(addr != address(0), "FlowBridgeFactory: Zero address");
+    }
 }
 
 ```

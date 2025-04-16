@@ -19,6 +19,7 @@ Search
   + [Use ChatGPT](/tutorials/ai-plus-flow/chatgpt)
   + [Flow Data Sources](/tutorials/ai-plus-flow/flow-data-sources)
   + [Using AgentKit on Flow](/tutorials/ai-plus-flow/agentkit-flow-guide)
+  + [Eliza on Flow](/tutorials/ai-plus-flow/eliza)
 * [Token Launch](/tutorials/token-launch)
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
 * [FlowtoBooth](/tutorials/flowtobooth)
@@ -48,6 +49,7 @@ In this tutorial series, you'll discover how to:
 * [Use Flow Knowledge Base in Cursor](/tutorials/ai-plus-flow/cursor) - Learn how to set up Cursor with Flow knowledge bases to get intelligent assistance while developing Flow applications.
 * [Use Flow Knowledge Base in ChatGPT](/tutorials/ai-plus-flow/chatgpt) - Create a custom GPT that understands Flow and Cadence to provide accurate answers to your development questions.
 * [Flow Data Sources](/tutorials/ai-plus-flow/flow-data-sources) - Learn about this comprehensive resource and how to integrate it with various AI platforms.
+* [Eliza on Flow](/tutorials/ai-plus-flow/eliza) - Learn how to build AI Agent on Flow with Eliza
 * [Build AI Agents with AgentKit](/tutorials/ai-plus-flow/agentkit-flow-guide) - Learn how to create AI agents that can interact with Flow using AgentKit.
 
 ## Best Practices[​](#best-practices "Direct link to Best Practices")
@@ -71,7 +73,7 @@ After completing these tutorials, you'll be equipped to leverage AI tools effect
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/index.md)
 
-Last updated on **Apr 14, 2025** by **Brian Doyle**
+Last updated on **Apr 15, 2025** by **Brian Doyle**
 
 [Previous
 

@@ -110,7 +110,7 @@ And below are the bridge escrow's EVM addresses. These addresses are [`CadenceOw
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/15-bridge.md)
 
-Last updated on **Apr 3, 2025** by **Brian Doyle**
+Last updated on **Apr 4, 2025** by **Brian Doyle**
 
 [Previous
 

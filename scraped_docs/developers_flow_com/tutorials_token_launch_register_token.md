@@ -70,7 +70,7 @@ For any issues, refer to the [Token List GitHub Repository](https://github.com/f
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/token-launch/register-token.md)
 
-Last updated on **Apr 3, 2025** by **Brian Doyle**
+Last updated on **Apr 4, 2025** by **Brian Doyle**
 
 [Previous
 
