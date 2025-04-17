@@ -190,7 +190,7 @@ iex "& { $(irm 'https://raw.githubusercontent.com/onflow/flow-cli/master/install
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/install.md)
 
-Last updated on **Apr 4, 2025** by **Brian Doyle**
+Last updated on **Apr 14, 2025** by **Brian Doyle**
 
 [Previous
 

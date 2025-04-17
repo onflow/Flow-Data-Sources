@@ -48,6 +48,7 @@ Toggle navigation
     Find more, search less](https://github.com/features/code-search)
 
   Explore
+  + [Why GitHub](https://github.com/why-github)
   + [All features](https://github.com/features)
   + [Documentation](https://docs.github.com)
   + [GitHub Skills](https://skills.github.com)

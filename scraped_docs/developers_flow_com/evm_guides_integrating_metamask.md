@@ -55,7 +55,7 @@ Integrating additional networks into MetaMask can pose challenges for users who 
 
 ### Flow Network configuration[​](#flow-network-configuration "Direct link to Flow Network configuration")
 
-To add the Flow Testnet network to Metamask, add the following network confgiuration:
+To add the Flow Testnet network to Metamask, add the following network configuration:
 
 `_11
 
@@ -169,7 +169,7 @@ By using this approach to add the Flow network to Metamask, you can avoid manual
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/integrating-metamask.mdx)
 
-Last updated on **Apr 4, 2025** by **Brian Doyle**
+Last updated on **Apr 16, 2025** by **leopardracer**
 
 [Previous
 

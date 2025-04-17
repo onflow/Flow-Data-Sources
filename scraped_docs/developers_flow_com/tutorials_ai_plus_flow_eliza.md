@@ -177,7 +177,7 @@ Edit `.env` and add your values. Do NOT add this file to version control.
 ### Choose Your Model[​](#choose-your-model "Direct link to Choose Your Model")
 
 Eliza supports multiple AI models and you set which model to use inside the character JSON file.
-But remember, once you chosed a model, you need to set up the relevent configuration.
+But remember, once you chosed a model, you need to set up the relevant configuration.
 
 Check full list of supported LLMs in origin Eliza: [Models.ts](https://github.com/elizaOS/eliza/blob/main/packages/core/src/models.ts)
 
@@ -303,7 +303,7 @@ The Eliza framework provides a powerful way to create intelligent agents that ca
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/eliza/index.md)
 
-Last updated on **Apr 8, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 16, 2025** by **leopardracer**
 
 [Previous
 
