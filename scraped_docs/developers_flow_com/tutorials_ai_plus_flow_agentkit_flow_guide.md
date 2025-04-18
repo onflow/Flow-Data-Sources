@@ -19,6 +19,7 @@ Search
   + [Use ChatGPT](/tutorials/ai-plus-flow/chatgpt)
   + [Flow Data Sources](/tutorials/ai-plus-flow/flow-data-sources)
   + [Using AgentKit on Flow](/tutorials/ai-plus-flow/agentkit-flow-guide)
+  + [Eliza on Flow](/tutorials/ai-plus-flow/eliza)
 * [Token Launch](/tutorials/token-launch)
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
 * [FlowtoBooth](/tutorials/flowtobooth)
@@ -583,7 +584,7 @@ Last updated on **Apr 14, 2025** by **Brian Doyle**
 
 Flow Data Sources](/tutorials/ai-plus-flow/flow-data-sources)[Next
 
-Token Launch](/tutorials/token-launch)
+Eliza on Flow](/tutorials/ai-plus-flow/eliza)
 
 ###### Rate this page
 
