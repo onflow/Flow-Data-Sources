@@ -6,7 +6,7 @@ Byzantine Node Attack Response | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/clients)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -35,7 +35,7 @@ Search
     - [Node Provisioning](/networks/node-ops/node-operation/node-provisioning)
     - [Node Roles](/networks/node-ops/node-operation/node-roles)
     - [Node Setup](/networks/node-ops/node-operation/node-setup)
-    - [Past Spork Info](/networks/node-ops/node-operation/past-sporks)
+    - [Past Network Upgrades](/networks/node-ops/node-operation/past-upgrades)
     - [Network Upgrade (Spork) Process](/networks/node-ops/node-operation/spork)
     - [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
     - [Slashing Conditions](/networks/node-ops/node-operation/slashing)
@@ -301,7 +301,7 @@ After unblocking the node, connections and traffic coming from the node should r
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/byzantine-node-attack-response.md)
 
-Last updated on **Apr 14, 2025** by **Brian Doyle**
+Last updated on **Apr 15, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -359,7 +359,7 @@ Network
 * [Network Status](https://status.onflow.org/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/networks/node-ops/node-operation/past-sporks)
+* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)

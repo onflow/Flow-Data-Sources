@@ -6,7 +6,7 @@ Deploying Contracts | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/clients)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -77,7 +77,7 @@ Once all your contracts are deployed, you can visit [flow-view-source](https://f
 
 ### Sporks[​](#sporks "Direct link to Sporks")
 
-Currently, **historical event data is not migrated between sporks,** so you'll need to design your application with this in mind. We recognize the usefulness of historical event data and plan on adding a means of accessing it in the near future. Past spork transactional data is available, [See Previous Spork Access Node Info](/networks/node-ops/node-operation/past-sporks)
+Currently, **historical event data is not migrated between sporks,** so you'll need to design your application with this in mind. We recognize the usefulness of historical event data and plan on adding a means of accessing it in the near future. Past spork transactional data is available, [See Previous Spork Access Node Info](/networks/node-ops/node-operation/past-upgrades)
 
 More Information on [Sporks](/networks/node-ops/node-operation/spork)
 
@@ -135,7 +135,7 @@ Flow Testnet is explicitly for experimentation and testing and should not be use
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/deploying.md)
 
-Last updated on **Apr 14, 2025** by **Brian Doyle**
+Last updated on **Apr 14, 2025** by **vishal**
 
 [Previous
 
@@ -195,7 +195,7 @@ Network
 * [Network Status](https://status.onflow.org/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/networks/node-ops/node-operation/past-sporks)
+* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)

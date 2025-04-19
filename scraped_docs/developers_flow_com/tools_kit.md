@@ -6,21 +6,21 @@
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/clients)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [Client Tools](/tools/clients)
-* [Tools](/tools)
-* [Error Codes](/tools/error-codes)
-* [Flow CLI](/tools/flow-cli)
 * [@onflow/kit](/tools/kit)
 * [Flow Emulator](/tools/emulator)
-* [Flow Dev Wallet](/tools/flow-dev-wallet)
+* [Flow CLI](/tools/flow-cli)
 * [Cadence VS Code Extension](/tools/vscode-extension)
+* [Flow Dev Wallet](/tools/flow-dev-wallet)
+* [Client Tools](/tools/clients)
+* [Error Codes](/tools/error-codes)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
+* [Tools](/tools)
 
 * @onflow/kit
 
@@ -36,14 +36,14 @@ warning
 
 ## 🔌 Included React Hooks[​](#-included-react-hooks "Direct link to 🔌 Included React Hooks")
 
-* [`useCurrentFlowUser`](#usecurrentflowuser) – Authenticate and manage the current Flow user
-* [`useFlowAccount`](#useflowaccount) – Fetch Flow account details by address
-* [`useFlowBlock`](#useflowblock) – Query latest or specific Flow blocks
-* [`useFlowConfig`](#useflowconfig) – Access the current Flow configuration
-* [`useFlowEvents`](#useflowevents) – Subscribe to Flow events in real-time
-* [`useFlowQuery`](#useflowquery) – Execute Cadence scripts with optional arguments
-* [`useFlowMutate`](#useflowmutate) – Send transactions to the Flow blockchain
-* [`useFlowTransaction`](#useflowtransaction) – Track transaction status updates
+* [`useCurrentFlowUser`](#usecurrentflowuser) - Authenticate and manage the current Flow user
+* [`useFlowAccount`](#useflowaccount) - Fetch Flow account details by address
+* [`useFlowBlock`](#useflowblock) - Query latest or specific Flow blocks
+* [`useFlowConfig`](#useflowconfig) - Access the current Flow configuration
+* [`useFlowEvents`](#useflowevents) - Subscribe to Flow events in real-time
+* [`useFlowQuery`](#useflowquery) - Execute Cadence scripts with optional arguments
+* [`useFlowMutate`](#useflowmutate) - Send transactions to the Flow blockchain
+* [`useFlowTransaction`](#useflowtransaction) - Track transaction status updates
 
 ## Installation[​](#installation "Direct link to Installation")
 
@@ -59,19 +59,19 @@ Begin by wrapping your application with the `FlowProvider` to initialize FCL con
 
 `_25
 
-import React from "react"
+import React from 'react';
 
 _25
 
-import App from "./App"
+import App from './App';
 
 _25
 
-import { FlowProvider } from "@onflow/kit"
+import { FlowProvider } from '@onflow/kit';
 
 _25
 
-import flowJSON from "../flow.json"
+import flowJSON from '../flow.json';
 
 _25
 
@@ -93,27 +93,27 @@ config={{
 
 _25
 
-accessNodeUrl: "https://access-mainnet.onflow.org",
+accessNodeUrl: 'https://access-mainnet.onflow.org',
 
 _25
 
-flowNetwork: "mainnet",
+flowNetwork: 'mainnet',
 
 _25
 
-appDetailTitle: "My On Chain App",
+appDetailTitle: 'My On Chain App',
 
 _25
 
-appDetailIcon: "https://example.com/icon.png",
+appDetailIcon: 'https://example.com/icon.png',
 
 _25
 
-appDetailDescription: "A decentralized app on Flow",
+appDetailDescription: 'A decentralized app on Flow',
 
 _25
 
-appDetailUrl: "https://myonchainapp.com",
+appDetailUrl: 'https://myonchainapp.com',
 
 _25
 
@@ -141,7 +141,7 @@ _25
 
 _25
 
-)
+);
 
 _25
 
@@ -151,7 +151,7 @@ _25
 
 _25
 
-export default Root`
+export default Root;`
 
 If you're using [Next.js], put this in `layout.tsx`. Adapt as appropriate for other frontend frameworks.
 
@@ -167,13 +167,13 @@ Many of these hooks are built using [`@tanstack/react-query`](https://tanstack.c
 
 `_10
 
-import { useCurrentFlowUser } from "@onflow/kit"`
+import { useCurrentFlowUser } from '@onflow/kit';`
 
 #### Returns:[​](#returns "Direct link to Returns:")
 
-* `user: CurrentUser` – The current user object from FCL
-* `authenticate: () => Promise<CurrentUser>` – Triggers wallet authentication
-* `unauthenticate: () => void` – Logs the user out
+* `user: CurrentUser` - The current user object from FCL
+* `authenticate: () => Promise<CurrentUser>` - Triggers wallet authentication
+* `unauthenticate: () => void` - Logs the user out
 
 `_16
 
@@ -181,7 +181,7 @@ function AuthComponent() {
 
 _16
 
-const { user, authenticate, unauthenticate } = useCurrentFlowUser()
+const { user, authenticate, unauthenticate } = useCurrentFlowUser();
 
 _16
 
@@ -231,7 +231,7 @@ _16
 
 _16
 
-)
+);
 
 _16
 
@@ -243,71 +243,91 @@ _16
 
 `_10
 
-import { useFlowAccount } from "@onflow/kit"`
+import { useFlowAccount } from '@onflow/kit';`
 
 #### Parameters:[​](#parameters "Direct link to Parameters:")
 
-* `address?: string` – Flow address (with or without `0x` prefix)
+* `address?: string` - Flow address (with or without `0x` prefix)
 
 #### Returns: `UseQueryResult<Account | null, Error>`[​](#returns-usequeryresultaccount--null-error "Direct link to returns-usequeryresultaccount--null-error")
 
-`_16
+`_21
 
 function AccountDetails() {
 
-_16
+_21
 
-const { data: account, isLoading, error, refetch } = useFlowAccount("0x1cf0e2f2f715450")
+const {
 
-_16
+_21
 
-_16
+data: account,
 
-if (isLoading) return <p>Loading account...</p>
+_21
 
-_16
+isLoading,
 
-if (error) return <p>Error fetching account: {error.message}</p>
+_21
 
-_16
+error,
 
-if (!account) return <p>No account data</p>
+_21
 
-_16
+refetch,
 
-_16
+_21
+
+} = useFlowAccount('0x1cf0e2f2f715450');
+
+_21
+
+_21
+
+if (isLoading) return <p>Loading account...</p>;
+
+_21
+
+if (error) return <p>Error fetching account: {error.message}</p>;
+
+_21
+
+if (!account) return <p>No account data</p>;
+
+_21
+
+_21
 
 return (
 
-_16
+_21
 
 <div>
 
-_16
+_21
 
 <h2>Account: {account.address}</h2>
 
-_16
+_21
 
 <p>Balance: {account.balance}</p>
 
-_16
+_21
 
 <pre>{account.code}</pre>
 
-_16
+_21
 
 <button onClick={refetch}>Refetch</button>
 
-_16
+_21
 
 </div>
 
-_16
+_21
 
-)
+);
 
-_16
+_21
 
 }`
 
@@ -317,14 +337,14 @@ _16
 
 `_10
 
-import { useFlowBlock } from "@onflow/kit"`
+import { useFlowBlock } from '@onflow/kit';`
 
 #### Parameters (mutually exclusive):[​](#parameters-mutually-exclusive "Direct link to Parameters (mutually exclusive):")
 
-* `{}` – Latest block (default)
-* `{ sealed: true }` – Latest sealed block
-* `{ id: string }` – Block by ID
-* `{ height: number }` – Block by height
+* `{}` - Latest block (default)
+* `{ sealed: true }` - Latest sealed block
+* `{ id: string }` - Block by ID
+* `{ height: number }` - Block by height
 
 #### Returns: `UseQueryResult<Block | null, Error>`[​](#returns-usequeryresultblock--null-error "Direct link to returns-usequeryresultblock--null-error")
 
@@ -334,19 +354,19 @@ function LatestBlock() {
 
 _13
 
-const { data: block, isLoading, error } = useFlowBlock()
+const { data: block, isLoading, error } = useFlowBlock();
 
 _13
 
-if (isLoading) return <p>Loading...</p>
+if (isLoading) return <p>Loading...</p>;
 
 _13
 
-if (error) return <p>Error: {error.message}</p>
+if (error) return <p>Error: {error.message}</p>;
 
 _13
 
-if (!block) return <p>No block data.</p>
+if (!block) return <p>No block data.</p>;
 
 _13
 
@@ -372,7 +392,7 @@ _13
 
 _13
 
-)
+);
 
 _13
 
@@ -384,7 +404,7 @@ _13
 
 `_10
 
-import { useFlowConfig } from "@onflow/kit"`
+import { useFlowConfig } from '@onflow/kit';`
 
 #### Returns: `FlowConfig`[​](#returns-flowconfig "Direct link to returns-flowconfig")
 
@@ -394,7 +414,7 @@ function MyComponent() {
 
 _10
 
-const config = useFlowConfig()
+const config = useFlowConfig();
 
 _10
 
@@ -420,7 +440,7 @@ _10
 
 _10
 
-)
+);
 
 _10
 
@@ -432,7 +452,7 @@ _10
 
 `_10
 
-import { useFlowEvents } from "@onflow/kit"`
+import { useFlowEvents } from '@onflow/kit';`
 
 #### Parameters:[​](#parameters-1 "Direct link to Parameters:")
 
@@ -447,25 +467,25 @@ function EventListener() {
 
 _10
 
-useFlowEvents("A.0xDeaDBeef.SomeContract.SomeEvent", {
+useFlowEvents('A.0xDeaDBeef.SomeContract.SomeEvent', {
 
 _10
 
-onEvent: (event) => console.log("New event:", event),
+onEvent: (event) => console.log('New event:', event),
 
 _10
 
-onError: (error) => console.error("Error:", error),
+onError: (error) => console.error('Error:', error),
 
 _10
 
-})
+});
 
 _10
 
 _10
 
-return <div>Listening for events...</div>
+return <div>Listening for events...</div>;
 
 _10
 
@@ -477,13 +497,13 @@ _10
 
 `_10
 
-import { useFlowQuery } from "@onflow/kit"`
+import { useFlowQuery } from '@onflow/kit';`
 
 #### Parameters:[​](#parameters-2 "Direct link to Parameters:")
 
-* `cadence: string` – Cadence script to run
-* `args?: (arg, t) => unknown[]` – Function returning FCL arguments
-* `enabled?: boolean` – Defaults to `true`
+* `cadence: string` - Cadence script to run
+* `args?: (arg, t) => unknown[]` - Function returning FCL arguments
+* `enabled?: boolean` - Defaults to `true`
 
 #### Returns: `UseQueryResult<unknown, Error>`[​](#returns-usequeryresultunknown-error "Direct link to returns-usequeryresultunknown-error")
 
@@ -521,17 +541,17 @@ args: (arg, t) => [arg(1, t.Int), arg(2, t.Int)],
 
 _20
 
-})
+});
 
 _20
 
 _20
 
-if (isLoading) return <p>Loading query...</p>
+if (isLoading) return <p>Loading query...</p>;
 
 _20
 
-if (error) return <p>Error: {error.message}</p>
+if (error) return <p>Error: {error.message}</p>;
 
 _20
 
@@ -557,7 +577,7 @@ _20
 
 _20
 
-)
+);
 
 _20
 
@@ -569,7 +589,7 @@ _20
 
 `_10
 
-import { useFlowMutate } from "@onflow/kit"`
+import { useFlowMutate } from '@onflow/kit';`
 
 #### Returns: `UseMutationResult<string, Error, FCLMutateParams>`[​](#returns-usemutationresultstring-error-fclmutateparams "Direct link to returns-usemutationresultstring-error-fclmutateparams")
 
@@ -584,7 +604,7 @@ function CreatePage() {
 
 _29
 
-const { mutate, isPending, error, data: txId } = useFlowMutate()
+const { mutate, isPending, error, data: txId } = useFlowMutate();
 
 _29
 
@@ -638,11 +658,11 @@ limit: 100,
 
 _29
 
-})
+});
 
 _29
 
-}
+};
 
 _29
 
@@ -684,7 +704,7 @@ _29
 
 _29
 
-)
+);
 
 _29
 
@@ -696,68 +716,50 @@ _29
 
 `_10
 
-import { useFlowTransaction } from "@onflow/kit"`
+import { useFlowTransaction } from '@onflow/kit';`
 
 #### Parameters:[​](#parameters-3 "Direct link to Parameters:")
 
-* `txId: string` – Transaction ID to subscribe to
+* `txId: string` - Transaction ID to subscribe to
 
 #### Returns:[​](#returns-1 "Direct link to Returns:")
 
 * `transactionStatus: TransactionStatus | null`
 * `error: Error | null`
 
-`_12
+`_10
 
 function TransactionComponent() {
 
-_12
+_10
 
-const txId = "your-transaction-id-here"
+const txId = 'your-transaction-id-here';
 
-_12
+_10
 
-const { transactionStatus, error } = useFlowTransaction(txId)
+const { transactionStatus, error } = useFlowTransaction(txId);
 
-_12
+_10
 
-_12
+_10
 
-if (error) return <div>Error: {error.message}</div>
+if (error) return <div>Error: {error.message}</div>;
 
-_12
+_10
 
-_12
+_10
 
-return (
+return <div>Status: {transactionStatus?.statusString}</div>;
 
-_12
-
-<div>
-
-_12
-
-Status: {transactionStatus?.statusString}
-
-_12
-
-</div>
-
-_12
-
-)
-
-_12
+_10
 
 }`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/kit/index.md)
 
-Last updated on **Apr 14, 2025** by **Brian Doyle**
+Last updated on **Apr 18, 2025** by **Brian Doyle**
 
-[Previous
-
-Data Collection](/tools/flow-cli/data-collection)[Next
+[Next
 
 Flow Emulator](/tools/emulator)
 
@@ -815,7 +817,7 @@ Network
 * [Network Status](https://status.onflow.org/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/networks/node-ops/node-operation/past-sporks)
+* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)

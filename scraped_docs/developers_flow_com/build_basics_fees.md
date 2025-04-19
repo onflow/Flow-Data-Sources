@@ -6,7 +6,7 @@ Fees | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/clients)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -701,7 +701,7 @@ There are several places to learn more about transaction fees:
 
 **When will the fee update go into effect?**
 
-The updates were rolled out with the [Spork on April 6, 2022](/networks/node-ops/node-operation/past-sporks#mainnet-17), and were enabled on [June 1st](https://forum.onflow.org/t/permissionless-contract-deployment-progress/2981) during the [weekly epoch transition](https://github.com/onflow/service-account/tree/main/transactions/set-execution-effort-weights/2022/jun-1).
+The updates were rolled out with the [Spork on April 6, 2022](/networks/node-ops/node-operation/past-upgrades#mainnet-17), and were enabled on [June 1st](https://forum.onflow.org/t/permissionless-contract-deployment-progress/2981) during the [weekly epoch transition](https://github.com/onflow/service-account/tree/main/transactions/set-execution-effort-weights/2022/jun-1).
 
 **Why are fees collected even when transactions fail?**
 
@@ -745,7 +745,7 @@ Additional Details:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/fees.md)
 
-Last updated on **Apr 14, 2025** by **Brian Doyle**
+Last updated on **Apr 14, 2025** by **vishal**
 
 [Previous
 
@@ -809,7 +809,7 @@ Network
 * [Network Status](https://status.onflow.org/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/networks/node-ops/node-operation/past-sporks)
+* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)

@@ -1,4 +1,4 @@
-# Source: https://developers.flow.com
+# Source: https://developers.flow.com/
 
 Flow Developer Portal | Flow Developer Portal
 
@@ -6,7 +6,7 @@ Flow Developer Portal | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/clients)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -34,7 +34,7 @@ Feel the vibes, or add new tools to your workflow by configuring Cursor to use t
 
 ### Learn Cadence
 
-[### Hello World
+[### Getting Started
 
 Build and deploy your first contract, connect to it from the frontend, and call your smart contract functions - all in less than 30 minutes.](build/getting-started/contract-interaction)[### Cadence 101
 
@@ -44,7 +44,7 @@ Learn how to launch a fungible token that's stored in your users' vaults directl
 
 Create NFT collections that are stored directly in your users' accounts in a way that makes it nearly impossible to lose them.](build/guides/nft)[### Build your App
 
-The Flow Client Library (FCL) JS is a package used to interact with user wallets and the Flow blockchain.](tools/clients/fcl-js)
+Build a modern frontend for your Flow Cadence app using React Hooks with `@onflow/kit`. Easily and conveniently access user accounts, sign transactions, and more.](tools/kit)
 
 ### Supercharge Your App
 
@@ -114,7 +114,7 @@ Network
 * [Network Status](https://status.onflow.org/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/networks/node-ops/node-operation/past-sporks)
+* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)

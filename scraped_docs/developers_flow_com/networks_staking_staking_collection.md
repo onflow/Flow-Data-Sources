@@ -6,7 +6,7 @@ Manage a Staking Collection | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/clients)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -336,7 +336,7 @@ transaction with the following arguments:
 
 info
 
-To stake unstaked tokens for an active node, leave the **delegatorID** arguement as **nil**.
+To stake unstaked tokens for an active node, leave the **delegatorID** argument as **nil**.
 
 If staking for a delegator, **delegatorID** should be the delegator ID you are staking for.
 
@@ -356,7 +356,7 @@ transaction with the following arguments:
 
 info
 
-To stake rewarded tokens for an active node, leave the **delegatorID** arguement as **nil**.
+To stake rewarded tokens for an active node, leave the **delegatorID** argument as **nil**.
 
 ### Request to Unstake Tokens at the end of the Epoch[​](#request-to-unstake-tokens-at-the-end-of-the-epoch "Direct link to Request to Unstake Tokens at the end of the Epoch")
 
@@ -378,7 +378,7 @@ transaction with the following arguments:
 
 info
 
-To unstake tokens from an active node, leave the **delegatorID** arguement as **nil**.
+To unstake tokens from an active node, leave the **delegatorID** argument as **nil**.
 
 ### Unstake All Tokens[​](#unstake-all-tokens "Direct link to Unstake All Tokens")
 
@@ -406,7 +406,7 @@ transaction with the following arguments:
 
 info
 
-To withdraw unstaked tokens from an active node, leave the **delegatorID** arguement as **nil**.
+To withdraw unstaked tokens from an active node, leave the **delegatorID** argument as **nil**.
 
 ### Withdraw Rewarded Tokens[​](#withdraw-rewarded-tokens "Direct link to Withdraw Rewarded Tokens")
 
@@ -423,7 +423,7 @@ transaction with the following arguments:
 
 info
 
-To withdraw rewarded tokens from an active node, leave the **delegatorID** arguement as **nil**.
+To withdraw rewarded tokens from an active node, leave the **delegatorID** argument as **nil**.
 
 ## Staking Collection Modification[​](#staking-collection-modification "Direct link to Staking Collection Modification")
 
@@ -448,7 +448,7 @@ transaction with the following arguments:
 
 info
 
-To close an active node, leave the **delegatorID** arguement as **nil**.
+To close an active node, leave the **delegatorID** argument as **nil**.
 
 ### Transfer a Node[​](#transfer-a-node "Direct link to Transfer a Node")
 
@@ -615,7 +615,7 @@ This script returns a `Bool`.
 
 info
 
-To query if a Node is managed by an accounts Staking Collection, leave the **delegatorID** arguement as **nil**.
+To query if a Node is managed by an accounts Staking Collection, leave the **delegatorID** argument as **nil**.
 Otherwise, fill it in with the **delegatorID** of the Delegator.
 
 ### Get Machine Account Info[​](#get-machine-account-info "Direct link to Get Machine Account Info")
@@ -632,7 +632,7 @@ which is a mapping of nodeIDs to the `FlowStakingCollection.MachineAccountInfo` 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/14-staking-collection.md)
 
-Last updated on **Apr 14, 2025** by **Brian Doyle**
+Last updated on **Apr 17, 2025** by **leopardracer**
 
 [Previous
 
@@ -712,7 +712,7 @@ Network
 * [Network Status](https://status.onflow.org/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/networks/node-ops/node-operation/past-sporks)
+* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)

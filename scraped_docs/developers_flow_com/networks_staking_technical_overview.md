@@ -6,7 +6,7 @@ Staking Technical Overview | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/clients)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -154,7 +154,7 @@ This also returns a special node operator object that is stored in the node oper
 This object is used for staking, unstaking, and withdrawing rewards.
 
 Consensus and Collection nodes also need to create a separate machine account
-for use in the DKG and QC proccesses, respectively. This machine account creation
+for use in the DKG and QC processes, respectively. This machine account creation
 is handled automatically by the staking collection smart contract.
 More information is in the [machine account documentation](/networks/staking/machine-account#creation).
 
@@ -314,7 +314,7 @@ At the end of every epoch, tokens are moved between pools in this order:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/06-technical-overview.md)
 
-Last updated on **Apr 14, 2025** by **Brian Doyle**
+Last updated on **Apr 17, 2025** by **leopardracer**
 
 [Previous
 
@@ -373,7 +373,7 @@ Network
 * [Network Status](https://status.onflow.org/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/networks/node-ops/node-operation/past-sporks)
+* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)

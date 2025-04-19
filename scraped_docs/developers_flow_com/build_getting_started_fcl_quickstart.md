@@ -6,7 +6,7 @@ Building a Simple Frontend with "@onflow/kit" | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/clients)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -41,10 +41,10 @@ Building on the `Counter` contract you deployed in [Step 1: Contract Interaction
 After finishing this guide, you will be able to:
 
 * Wrap your Next.js app with a Flow provider using [**@onflow/kit**](/tools/kit).
-* Read data from a Cadence smart contract (`Counter`) using kit’s query hook.
-* Send a transaction to update the smart contract’s state using kit’s mutation hook.
-* Monitor a transaction’s status in real time using kit’s transaction hook.
-* Authenticate with the Flow blockchain using kit’s built-in hooks and the local [Dev Wallet](/tools/flow-dev-wallet).
+* Read data from a Cadence smart contract (`Counter`) using kit's query hook.
+* Send a transaction to update the smart contract's state using kit's mutation hook.
+* Monitor a transaction's status in real time using kit's transaction hook.
+* Authenticate with the Flow blockchain using kit's built-in hooks and the local [Dev Wallet](/tools/flow-dev-wallet).
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
@@ -70,11 +70,15 @@ During setup, choose the following options:
 * **Use src directory**: **Yes**
 * **Use App Router**: **Yes**
 
-This command creates a new Next.js project named `kit-app-quickstart` inside your current directory. We’re generating the frontend in a subdirectory so we can next move it into our existing project structure from the previous steps.
+This command creates a new Next.js project named `kit-app-quickstart` inside your current directory. We're generating the frontend in a subdirectory so we can next move it into our existing project structure from the previous steps (you can't create an app in a non-empty directory).
 
 ### Step 2: Move the Next.js App Up a Directory[​](#step-2-move-the-nextjs-app-up-a-directory "Direct link to Step 2: Move the Next.js App Up a Directory")
 
-Move the contents of the `kit-app-quickstart` directory into your project root. For example:
+Move the contents of the `kit-app-quickstart` directory into your project root. You can use the gui in your editor, or the console.
+
+warning
+
+You'll want to consolidate both `.gitignore` files, keeping the contents of both in the file that ends up in the root.
 
 On macOS/Linux:
 
@@ -140,101 +144,117 @@ In another terminal window, run:
 
 flow dev-wallet`
 
-This will start the [Dev Wallet](/tools/flow-dev-wallet) on `http://localhost:8701`, which you’ll use for authentication during development.
+This will start the [Dev Wallet](/tools/flow-dev-wallet) on `http://localhost:8701`, which you'll use for authentication during development.
 
 ## Wrapping Your App with FlowProvider[​](#wrapping-your-app-with-flowprovider "Direct link to Wrapping Your App with FlowProvider")
 
 [**@onflow/kit**](/tools/kit) provides a `FlowProvider` component that sets up the Flow Client Library configuration. In Next.js using the App Router, add or update your `src/app/layout.tsx` as follows:
 
-`_24
+`_28
 
 // src/app/layout.tsx
 
-_24
+_28
 
-"use client";
+'use client';
 
-_24
+_28
 
-_24
+_28
 
-import { FlowProvider } from "@onflow/kit";
+import { FlowProvider } from '@onflow/kit';
 
-_24
+_28
 
-import flowJSON from "../../flow.json";
+import flowJSON from '../../flow.json';
 
-_24
+_28
 
-_24
+_28
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
 
-_24
+_28
+
+children,
+
+_28
+
+}: {
+
+_28
+
+children: React.ReactNode;
+
+_28
+
+}) {
+
+_28
 
 return (
 
-_24
+_28
 
 <html>
 
-_24
+_28
 
 <body>
 
-_24
+_28
 
 <FlowProvider
 
-_24
+_28
 
 config={{
 
-_24
+_28
 
-accessNodeUrl: "http://localhost:8888",
+accessNodeUrl: 'http://localhost:8888',
 
-_24
+_28
 
-flowNetwork: "emulator",
+flowNetwork: 'emulator',
 
-_24
+_28
 
-discoveryWallet: "https://fcl-discovery.onflow.org/emulator/authn",
+discoveryWallet: 'https://fcl-discovery.onflow.org/emulator/authn',
 
-_24
+_28
 
 }}
 
-_24
+_28
 
 flowJson={flowJSON}
 
-_24
+_28
 
 >
 
-_24
+_28
 
 {children}
 
-_24
+_28
 
 </FlowProvider>
 
-_24
+_28
 
 </body>
 
-_24
+_28
 
 </html>
 
-_24
+_28
 
 );
 
-_24
+_28
 
 }`
 
@@ -248,11 +268,11 @@ Now that we've set our provider, lets start interacting with the chain.
 
 ### Querying the Chain[​](#querying-the-chain "Direct link to Querying the Chain")
 
-First, use the kit’s [`useFlowQuery`](/tools/kit#useflowquery) hook to read the current counter value from the blockchain.
+First, use the kit's [`useFlowQuery`](/tools/kit#useflowquery) hook to read the current counter value from the blockchain.
 
 `_18
 
-import { useFlowQuery } from "@onflow/kit";
+import { useFlowQuery } from '@onflow/kit';
 
 _18
 
@@ -320,16 +340,16 @@ This script fetches the counter value, formats it via the `NumberFormatter`, and
 
 info
 
-* **Import Syntax:** The imports (`import "Counter"` and `import "NumberFormatter"`) don’t include addresses because those are automatically resolved using the `flow.json` file configured in your `FlowProvider`. This keeps your Cadence scripts portable and environment-independent.
+* **Import Syntax:** The imports (`import "Counter"` and `import "NumberFormatter"`) don't include addresses because those are automatically resolved using the `flow.json` file configured in your `FlowProvider`. This keeps your Cadence scripts portable and environment-independent.
 * **`enabled` Flag:** This controls whether the query should run automatically. Set it to `true` to run on mount, or pass a condition (e.g. `!!user?.addr`) to delay execution until the user is available. This is useful for queries that depend on authentication or other asynchronous data.
 
 ### Sending a Transaction[​](#sending-a-transaction "Direct link to Sending a Transaction")
 
-Next, use the kit’s [`useFlowMutate`](/tools/kit#useflowmutate) hook to send a transaction that increments the counter.
+Next, use the kit's [`useFlowMutate`](/tools/kit#useflowmutate) hook to send a transaction that increments the counter.
 
 `_27
 
-import { useFlowMutate } from "@onflow/kit";
+import { useFlowMutate } from '@onflow/kit';
 
 _27
 
@@ -435,7 +455,7 @@ This sends a Cadence transaction to the blockchain using the `mutate` function. 
 
 ### Subscribing to Transaction Status[​](#subscribing-to-transaction-status "Direct link to Subscribing to Transaction Status")
 
-Use the kit’s [`useFlowTransaction`] hook to monitor and display the transaction status in real time.
+Use the kit's [`useFlowTransaction`] hook to monitor and display the transaction status in real time.
 
 `_11
 
@@ -443,7 +463,7 @@ const { transactionStatus, error: txStatusError } = useFlowTransaction(
 
 _11
 
-txId || "",
+txId || '',
 
 _11
 
@@ -933,6 +953,10 @@ In this complete page:
 * **Step 3** subscribes to transaction status updates using the stored transaction ID and uses a `useEffect` hook to automatically refetch the updated count when the transaction is sealed (status code 4).
 * **Step 4** integrates authentication via `useCurrentFlowUser` and combines all the pieces into a single user interface.
 
+tip
+
+In this tutorial, we inlined Cadence code for simplicity. For real projects, we recommend storing Cadence in separate `.cdc` files, using the [Cadence VSCode extension](/tools/vscode-extension), and importing them with the [`flow-cadence-plugin`](https://github.com/chasefleming/flow-cadence-plugin) for Next.js or Webpack projects.
+
 ## Running the App[​](#running-the-app "Direct link to Running the App")
 
 Start your development server:
@@ -940,6 +964,12 @@ Start your development server:
 `_10
 
 npm run dev`
+
+warning
+
+If you have the Flow wallet browser extension installed, you might automatically log into the app. Normally this is desirable for your users, but you don't want to use it here.
+
+Log out, and log back in selecting the Dev Wallet instead of the Flow Wallet.
 
 Then visit <http://localhost:3000> in your browser. You should see:
 
@@ -950,7 +980,7 @@ Then visit <http://localhost:3000> in your browser. You should see:
 
 ## Wrapping Up[​](#wrapping-up "Direct link to Wrapping Up")
 
-By following these steps, you’ve built a simple Next.js dApp that interacts with a Flow smart contract using [**@onflow/kit**](/tools/kit). In this guide you learned how to:
+By following these steps, you've built a simple Next.js dApp that interacts with a Flow smart contract using [**@onflow/kit**](/tools/kit). In this guide you learned how to:
 
 * Wrap your application in a `FlowProvider` to configure blockchain connectivity.
 * Use kit hooks such as `useFlowQuery`, `useFlowMutate`, `useFlowTransaction`, and `useCurrentFlowUser` to manage authentication, query on-chain data, submit transactions, and monitor their status.
@@ -960,7 +990,7 @@ For additional details and advanced usage, refer to the [@onflow/kit documentati
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/fcl-quickstart.md)
 
-Last updated on **Apr 16, 2025** by **Chase Fleming**
+Last updated on **Apr 18, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -1026,7 +1056,7 @@ Network
 * [Network Status](https://status.onflow.org/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/networks/node-ops/node-operation/past-sporks)
+* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)

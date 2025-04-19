@@ -6,26 +6,26 @@ Wallet Provider Spec | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/clients)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [Client Tools](/tools/clients)
-* [Tools](/tools)
-* [Error Codes](/tools/error-codes)
-* [Flow CLI](/tools/flow-cli)
 * [@onflow/kit](/tools/kit)
 * [Flow Emulator](/tools/emulator)
-* [Flow Dev Wallet](/tools/flow-dev-wallet)
+* [Flow CLI](/tools/flow-cli)
 * [Cadence VS Code Extension](/tools/vscode-extension)
+* [Flow Dev Wallet](/tools/flow-dev-wallet)
+* [Client Tools](/tools/clients)
+* [Error Codes](/tools/error-codes)
 * [Wallet Provider Spec](/tools/wallet-provider-spec)
 
   + [Authorization Function](/tools/wallet-provider-spec/authorization-function)
   + [Introduction](/tools/wallet-provider-spec/custodial)
   + [Provable Authn](/tools/wallet-provider-spec/provable-authn)
   + [User Signature](/tools/wallet-provider-spec/user-signature)
+* [Tools](/tools)
 
 * Wallet Provider Spec
 
@@ -131,7 +131,7 @@ _10
 
 _10
 
-| 'OpenID'`
+| 'OpenID';`
 
 The fields common to all FCL objects then can be defined as follows:
 
@@ -141,11 +141,11 @@ interface ObjectBase<Version = '1.0.0'> {
 
 _10
 
-f_vsn: Version
+f_vsn: Version;
 
 _10
 
-f_type: ObjectType
+f_type: ObjectType;
 
 _10
 
@@ -195,7 +195,7 @@ _10
 
 _10
 
-| OpenID`
+| OpenID;`
 
 ### `PollingResponse`[​](#pollingresponse "Direct link to pollingresponse")
 
@@ -205,27 +205,27 @@ interface PollingResponse extends ObjectBase {
 
 _10
 
-f_type: 'PollingResponse'
+f_type: 'PollingResponse';
 
 _10
 
-status: 'APPROVED' | 'DECLINED' | 'PENDING' | 'REDIRECT'
+status: 'APPROVED' | 'DECLINED' | 'PENDING' | 'REDIRECT';
 
 _10
 
-reason: string | null
+reason: string | null;
 
 _10
 
-data?: FclObject
+data?: FclObject;
 
 _10
 
-updates?: FclObject
+updates?: FclObject;
 
 _10
 
-local?: FclObject
+local?: FclObject;
 
 _10
 
@@ -544,7 +544,7 @@ _28
 
 _28
 
-| 'authn-refresh'
+| 'authn-refresh';
 
 _28
 
@@ -574,7 +574,7 @@ _28
 
 _28
 
-| 'DATA'
+| 'DATA';
 
 _28
 
@@ -584,39 +584,39 @@ interface Service extends ObjectBase {
 
 _28
 
-f_type: 'Service'
+f_type: 'Service';
 
 _28
 
-type: ServiceType
+type: ServiceType;
 
 _28
 
-method: ServiceMethod
+method: ServiceMethod;
 
 _28
 
-uid: string
+uid: string;
 
 _28
 
-endpoint: string
+endpoint: string;
 
 _28
 
-id: string
+id: string;
 
 _28
 
-identity: Identity
+identity: Identity;
 
 _28
 
-provider?: ServiceProvider
+provider?: ServiceProvider;
 
 _28
 
-data?: FclObject
+data?: FclObject;
 
 _28
 
@@ -653,15 +653,15 @@ interface Identity extends ObjectBase {
 
 _10
 
-f_type: 'Identity'
+f_type: 'Identity';
 
 _10
 
-address: string
+address: string;
 
 _10
 
-keyId?: number
+keyId?: number;
 
 _10
 
@@ -682,35 +682,35 @@ interface ServiceProvider extends ObjectBase {
 
 _10
 
-f_type: 'ServiceProvider'
+f_type: 'ServiceProvider';
 
 _10
 
-address: string
+address: string;
 
 _10
 
-name?: string
+name?: string;
 
 _10
 
-description?: string
+description?: string;
 
 _10
 
-icon?: string
+icon?: string;
 
 _10
 
-website?: string
+website?: string;
 
 _10
 
-supportUrl?: string
+supportUrl?: string;
 
 _10
 
-supportEmail?: string
+supportEmail?: string;
 
 _10
 
@@ -736,15 +736,15 @@ interface AuthnResponse extends ObjectBase {
 
 _10
 
-f_type: 'AuthnResponse'
+f_type: 'AuthnResponse';
 
 _10
 
-addr: string
+addr: string;
 
 _10
 
-services: Service[]
+services: Service[];
 
 _10
 
@@ -763,15 +763,15 @@ interface Signable extends ObjectBase<'1.0.1'> {
 
 _21
 
-f_type: 'Signable'
+f_type: 'Signable';
 
 _21
 
-addr: string
+addr: string;
 
 _21
 
-keyId: number
+keyId: number;
 
 _21
 
@@ -779,15 +779,15 @@ voucher: {
 
 _21
 
-cadence: string
+cadence: string;
 
 _21
 
-refBlock: string
+refBlock: string;
 
 _21
 
-computeLimit: number
+computeLimit: number;
 
 _21
 
@@ -795,15 +795,15 @@ arguments: {
 
 _21
 
-type: string
+type: string;
 
 _21
 
-value: unknown
+value: unknown;
 
 _21
 
-}[]
+}[];
 
 _21
 
@@ -811,31 +811,31 @@ proposalKey: {
 
 _21
 
-address: string
+address: string;
 
 _21
 
-keyId: number
+keyId: number;
 
 _21
 
-sequenceNum: number
+sequenceNum: number;
 
 _21
 
-}
+};
 
 _21
 
-payer: string
+payer: string;
 
 _21
 
-authorizers: string[]
+authorizers: string[];
 
 _21
 
-}
+};
 
 _21
 
@@ -851,19 +851,19 @@ interface CompositeSignature extends ObjectBase {
 
 _10
 
-f_type: 'CompositeSignature'
+f_type: 'CompositeSignature';
 
 _10
 
-addr: string
+addr: string;
 
 _10
 
-keyId: number
+keyId: number;
 
 _10
 
-signature: string
+signature: string;
 
 _10
 
@@ -897,7 +897,7 @@ _10
 
 _10
 
-| 'FCL:VIEW:CLOSE'
+| 'FCL:VIEW:CLOSE';
 
 _10
 
@@ -907,11 +907,11 @@ type Message = {
 
 _10
 
-type: MessageType
+type: MessageType;
 
 _10
 
-}`
+};`
 
 A message that indicates the status of the protocol invocation.
 
@@ -925,11 +925,11 @@ type ExtensionServiceInitiationMessage = {
 
 _10
 
-service: Service
+service: Service;
 
 _10
 
-}`
+};`
 
 This object is used to invoke a service when the `EXT/RPC` service method is used.
 
@@ -1109,15 +1109,15 @@ chrome.tabs.sendMessage(tabs[0].id, {
 
 _12
 
-f_type: "PollingResponse",
+f_type: 'PollingResponse',
 
 _12
 
-f_vsn: "1.0.0",
+f_vsn: '1.0.0',
 
 _12
 
-status: "APPROVED",
+status: 'APPROVED',
 
 _12
 
@@ -1129,11 +1129,11 @@ data: {
 
 _12
 
-f_type: "AuthnResponse",
+f_type: 'AuthnResponse',
 
 _12
 
-f_vsn: "1.0.0",
+f_vsn: '1.0.0',
 
 _12
 
@@ -1178,7 +1178,7 @@ _10
 
 _10
 
-import {config} from "@onflow/fcl"
+import { config } from '@onflow/fcl';
 
 _10
 
@@ -1188,15 +1188,15 @@ config({
 
 _10
 
-"discovery.wallet": "url-or-endpoint-fcl-will-use-for-authentication", // FCL Discovery endpoint, wallet provider's authentication URL or extension endpoint
+'discovery.wallet': 'url-or-endpoint-fcl-will-use-for-authentication', // FCL Discovery endpoint, wallet provider's authentication URL or extension endpoint
 
 _10
 
-"discovery.wallet.method": "IFRAME/RPC" // Optional. Available methods are "IFRAME/RPC", "POP/RPC", "TAB/RPC", "EXT/RPC" or "HTTP/POST", defaults to "IFRAME/RPC".
+'discovery.wallet.method': 'IFRAME/RPC', // Optional. Available methods are "IFRAME/RPC", "POP/RPC", "TAB/RPC", "EXT/RPC" or "HTTP/POST", defaults to "IFRAME/RPC".
 
 _10
 
-})`
+});`
 
 If the method specified is `IFRAME/RPC`, `POP/RPC` or `TAB/RPC`, then the URL specified as `discovery.wallet` will be rendered as a webpage. If the configured method is `EXT/RPC`, `discovery.wallet` should be set to the extension's `authn` `endpoint`. Otherwise, if the method specified is `HTTP/POST`, then the authentication process will happen over HTTP requests. (While authentication can be accomplished using any of those service methods, this example will use the `IFRAME/RPC` service method.)
 
@@ -1743,13 +1743,13 @@ From any frame, you can send a `FCL:VIEW:CLOSE` post message to FCL, which will 
 
 `_10
 
-import {WalletUtils} from "@onflow/fcl"
+import { WalletUtils } from '@onflow/fcl';
 
 _10
 
 _10
 
-WalletUtils.sendMsgToFCL("FCL:VIEW:CLOSE")`
+WalletUtils.sendMsgToFCL('FCL:VIEW:CLOSE');`
 
 # Authorization Service
 
@@ -1981,31 +1981,31 @@ _10
 
 _10
 
-import {WalletUtils} from "@onflow/fcl"
+import { WalletUtils } from '@onflow/fcl';
 
 _10
 
 _10
 
-const encoded = WalletUtils.encodeMessageFromSignable(signable, signerAddress)
+const encoded = WalletUtils.encodeMessageFromSignable(signable, signerAddress);
 
 _10
 
-const taggedMessage = tagMessage(encoded) // Tag the message to sign
+const taggedMessage = tagMessage(encoded); // Tag the message to sign
 
 _10
 
-const signature = signMessage(taggedMessage) // Sign the message
+const signature = signMessage(taggedMessage); // Sign the message
 
 _10
 
-const hexSignature = signatureToHex(signature) // Convert the signature to hex, if required.
+const hexSignature = signatureToHex(signature); // Convert the signature to hex, if required.
 
 _10
 
 _10
 
-return hexSignature`
+return hexSignature;`
 
 The eventual response back from the user signature service should resolve to something like this:
 
@@ -2474,11 +2474,11 @@ _34
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/index.md)
 
-Last updated on **Apr 14, 2025** by **Brian Doyle**
+Last updated on **Apr 18, 2025** by **Brian Doyle**
 
 [Previous
 
-Cadence VS Code Extension](/tools/vscode-extension)[Next
+Error Codes](/tools/error-codes)[Next
 
 Authorization Function](/tools/wallet-provider-spec/authorization-function)
 
@@ -2547,7 +2547,7 @@ Network
 * [Network Status](https://status.onflow.org/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/networks/node-ops/node-operation/past-sporks)
+* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
