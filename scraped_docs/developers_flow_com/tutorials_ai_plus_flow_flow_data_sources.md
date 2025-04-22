@@ -50,9 +50,10 @@ The repository contains Python scripts that:
 * **Structured Format**: All content is converted to Markdown for consistent processing
 * **Comprehensive Coverage**: Includes official documentation, code examples, and community discussions
 * **Optimized for AI**: Designed specifically for AI tools, chatbots, and RAG pipelines
-* **Two Output Options**:
-  + `all_merged.md`: Complete content including code blocks
-  + `essentials_merged.md`: Streamlined version without code blocks
+* **Output Options**:
+  + `all_merged.md`: Complete content
+  + `essentials_merged.md`: Streamlined version only including official documentation and sample codes.
+  + `cadence_docs_merged.md`: Streamlined version only including Cadence related documentation and sample codes.
 
 ## How to Use[​](#how-to-use "Direct link to How to Use")
 
@@ -69,6 +70,7 @@ The merged documentation files are available at:
 
 * [All Merged Content](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/all_merged.md)
 * [Essentials Only](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/essentials_merged.md)
+* [Cadence Only](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/cadence_docs_merged.md)
 
 For integration with AI tools like Cursor or ChatGPT, use the appropriate URL as described in the respective tutorials:
 
@@ -77,7 +79,7 @@ For integration with AI tools like Cursor or ChatGPT, use the appropriate URL as
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/flow-data-sources.md)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 17, 2025** by **BT.Wood(Tang Bo Hao)**
 
 [Previous
 

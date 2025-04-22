@@ -20,6 +20,7 @@ Search
 * [Accessing Data](/networks/access-onchain-data)
 
   + [Access HTTP API ↗️](/networks/access-onchain-data/access-http-api)
+  + [WebSockets Stream API](/networks/access-onchain-data/websockets-stream-api)
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
@@ -38,7 +39,7 @@ Last updated on **Apr 15, 2025** by **Brian Doyle**
 
 Access API](/networks/access-onchain-data)[Next
 
-Governance](/networks/governance)
+Overview](/networks/access-onchain-data/websockets-stream-api)
 
 Documentation
 

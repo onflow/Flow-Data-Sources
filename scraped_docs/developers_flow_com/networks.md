@@ -43,7 +43,7 @@ Search
 
 [## 🗃️ Accessing Data
 
-1 items](/networks/access-onchain-data)
+2 items](/networks/access-onchain-data)
 
 [## 🏛️ Governance
 

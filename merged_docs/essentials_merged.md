@@ -7770,7 +7770,7 @@ Ecosystem | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/clients)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -7862,7 +7862,7 @@ Flow Improvement Proposals (FLIPs) serve as a platform for engaging the Flow com
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/index.mdx)
 
-Last updated on **Apr 14, 2025** by **Brian Doyle**
+Last updated on **Apr 15, 2025** by **Brian Doyle**
 
 [Next
 
@@ -7904,7 +7904,7 @@ Network
 * [Network Status](https://status.onflow.org/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/networks/node-ops/node-operation/past-sporks)
+* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
@@ -22935,7 +22935,7 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
-# Source: https://developers.flow.com/
+# Source: https://developers.flow.com
 
 Flow Developer Portal | Flow Developer Portal
 
@@ -22999,6 +22999,16 @@ A scaffold for seamlessly integrating Cadence into your Wagmi/RainbowKit app to 
 
 Move established EVM tokens to Cadence for more powerful contracts, or move Cadence tokens to EVM to take advantage of established markets.](evm/cadence/vm-bridge)
 
+### Tools
+
+[### Cadence Block Explorer
+
+Search for users, transactions, and contracts on the Flow Cadence blockchain.](https://www.flowscan.io/)[### EVM Block Explorer
+
+Search for users, transactions, and contracts on the Flow EVM blockchain.](https://evm.flowscan.io/)[### Flow Runner
+
+Run Flow Cadence scripts and transactions in the browser with Flow Runner.](https://run.dnz.dev/)
+
 ## Grow
 
 ### 
@@ -23014,6 +23024,230 @@ Join our weekly developer office hours to get direct support from the Flow team 
 Connect with venture capital firms and investment funds actively supporting Flow projects.](/ecosystem/vcs-and-funds)[### Grants
 
 Discover grant opportunities available to developers and teams building on Flow.](/ecosystem/grants)
+
+Documentation
+
+* [Getting Started](/build/getting-started/contract-interaction)
+* [SDK's & Tools](/tools)
+* [Cadence](https://cadence-lang.org/docs/)
+* [Mobile](/build/guides/mobile/overview)
+* [FCL](/tools/clients/fcl-js)
+* [Testing](/build/smart-contracts/testing)
+* [CLI](/tools/flow-cli)
+* [Emulator](/tools/emulator)
+* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
+* [VS Code Extension](/tools/vscode-extension)
+
+Community
+
+* [Ecosystem](/ecosystem)
+* [Flow Port](https://port.onflow.org/)
+* [Developer Grants](https://github.com/onflow/developer-grants)
+* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
+* [Flowverse](https://www.flowverse.co/)
+* [Emerald Academy](https://academy.ecdao.org/)
+* [FLOATs (Attendance NFTs)](https://floats.city/)
+
+Start Building
+
+* [Flow Playground](https://play.flow.com/)
+* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
+* [Cadence Cookbook](https://open-cadence.onflow.org)
+* [Core Contracts & Standards](/build/core-contracts)
+* [EVM](/evm/about)
+
+Network
+
+* [Network Status](https://status.onflow.org/)
+* [Flowscan Mainnet](https://flowscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
+* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/networks/node-ops)
+* [Spork Information](/networks/node-ops/node-operation/spork)
+
+More
+
+* [GitHub](https://github.com/onflow)
+* [Discord](https://discord.gg/flow)
+* [Forum](https://forum.onflow.org/)
+* [OnFlow](https://onflow.org/)
+* [Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow, Inc. Built with Docusaurus.
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://developers.flow.com/networks/access-onchain-data/websockets-stream-api/common-errors
+
+Common errors | Flow Developer Portal
+
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Flow Networks](/networks/flow-networks)
+* [Networks](/networks)
+* [Flow's Network Architecture](/networks/network-architecture)
+* [Staking and Epochs](/networks/staking)
+* [Node Ops](/networks/node-ops)
+* [Accessing Data](/networks/access-onchain-data)
+
+  + [Access HTTP API ↗️](/networks/access-onchain-data/access-http-api)
+  + [WebSockets Stream API](/networks/access-onchain-data/websockets-stream-api)
+
+    - [Subscribing to topic](/networks/access-onchain-data/websockets-stream-api/subscribe-message)
+    - [Unsubscribing from topic](/networks/access-onchain-data/websockets-stream-api/unsubscribe-message)
+    - [Supported topics](/networks/access-onchain-data/websockets-stream-api/supported-topics)
+    - [Listing subscriptions](/networks/access-onchain-data/websockets-stream-api/list-subscriptions-message)
+    - [Connecting to WebSockets via Postman UI](/networks/access-onchain-data/websockets-stream-api/postman-example)
+    - [Common errors](/networks/access-onchain-data/websockets-stream-api/common-errors)
+* [Governance](/networks/governance)
+* [Flow Port](/networks/flow-port)
+
+* [Accessing Data](/networks/access-onchain-data)
+* [WebSockets Stream API](/networks/access-onchain-data/websockets-stream-api)
+* Common errors
+
+On this page
+
+# Common errors
+
+This document outlines the possible errors returned from the WebSocket API. Understanding these errors will help properly handle error cases in client implementation.
+
+## Error Structure[​](#error-structure "Direct link to Error Structure")
+
+All errors returned by the WebSocket API follow this structure:
+
+`_10
+
+{
+
+_10
+
+"subscriptionID": "string",
+
+_10
+
+"error": {
+
+_10
+
+"code": number,
+
+_10
+
+"message": "string"
+
+_10
+
+},
+
+_10
+
+"action": "string"
+
+_10
+
+}`
+
+Where:
+
+* `subscriptionID`: The ID of the subscription related to the error (if applicable)
+* `error.code`: HTTP status code indicating the error type
+* `error.message`: Human-readable description of the error
+* `action`: The action that was being performed when the error occurred (`subscribe`, `unsubscribe`, or `list_subscription`)
+
+### Message Format Errors[​](#message-format-errors "Direct link to Message Format Errors")
+
+**Status Code:** 400 Bad Request
+
+These errors occur when the server cannot parse or validate your incoming message.
+
+| Error Message | Description | When to Expect |
+| --- | --- | --- |
+| *"error reading message: ..."* | The raw message could not be read from the WebSocket connection | When sending malformed JSON or when the connection is disrupted |
+| *"error parsing message: ..."* | The message was read but could not be processed | When the message structure doesn't match the expected format |
+| *"error unmarshalling base message: ..."* | The message JSON could not be processed into the expected format | When required fields are missing or of incorrect type |
+| *"error unmarshalling subscribe message: ..."* | The message JSON could not be processed into a subscribe request | When sending a malformed subscribe request |
+| *"error unmarshalling unsubscribe message: ..."* | The message JSON could not be processed into an unsubscribe request | When sending a malformed unsubscribe request |
+| *"error unmarshalling list subscriptions message: ..."* | The message JSON could not be processed into a list subscriptions request | When sending a malformed list subscriptions request |
+| *"unknown action type: ..."* | The action specified in the message is not recognized | When specifying an action other than `subscribe`, `unsubscribe`, or `list_subscription` |
+
+## Subscription-Related Errors[​](#subscription-related-errors "Direct link to Subscription-Related Errors")
+
+### Subscribe Action Errors[​](#subscribe-action-errors "Direct link to Subscribe Action Errors")
+
+**Action:** `subscribe`
+
+| Error Message | Status Code | Description | When to Expect |
+| --- | --- | --- | --- |
+| *"error creating new subscription: maximum number of subscriptions reached"* | 429 Too Many Requests | The maximum number of active subscriptions per connection has been reached | When trying to create more subscriptions than allowed by the server |
+| *"error parsing subscription id: ..."* | 400 Bad Request | The provided subscription ID is invalid | When providing a malformed subscription ID |
+| *"subscription ID is already in use: ..."* | 400 Bad Request | The provided subscription ID is already being used | When trying to reuse an existing subscription ID |
+| *"error creating data provider: ..."* | 400 Bad Request | The subscription could not be created | When providing an invalid topic or arguments for your subscription |
+
+### Unsubscribe Action Errors[​](#unsubscribe-action-errors "Direct link to Unsubscribe Action Errors")
+
+**Action:** "unsubscribe"
+
+| Error Message | Status Code | Description | When to Expect |
+| --- | --- | --- | --- |
+| *"error parsing subscription id: ..."* | 400 Bad Request | The provided subscription ID is invalid | When providing a malformed subscription ID |
+| *"subscription not found"* | 404 Not Found | The specified subscription does not exist | When trying to unsubscribe from a non-existent subscription |
+
+### Subscription Runtime Errors[​](#subscription-runtime-errors "Direct link to Subscription Runtime Errors")
+
+**Action:** "subscribe"
+
+| Error Message | Status Code | Description | When to Expect |
+| --- | --- | --- | --- |
+| *"internal error: ..."* | 500 Internal Server Error | An error occurred while processing your subscription | When there's an issue with the subscription after it was successfully created |
+
+## Error Handling Best Practices[​](#error-handling-best-practices "Direct link to Error Handling Best Practices")
+
+1. **Always check for errors in responses**: Every response from the WebSocket API should be checked for the presence of an error object.
+2. **Handle subscription limits**: Be prepared to handle the case where the maximum number of subscriptions has been reached.
+3. **Log detailed error information**: Log the complete error object for debugging purposes.
+4. **Validate messages before sending**: Ensure your messages conform to the expected format to avoid parsing errors.
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/common-errors.md)
+
+Last updated on **Apr 21, 2025** by **Illia**
+
+[Previous
+
+Connecting to WebSockets via Postman UI](/networks/access-onchain-data/websockets-stream-api/postman-example)[Next
+
+Governance](/networks/governance)
+
+###### Rate this page
+
+😞😐😊
+
+* [Error Structure](#error-structure)
+  + [Message Format Errors](#message-format-errors)
+* [Subscription-Related Errors](#subscription-related-errors)
+  + [Subscribe Action Errors](#subscribe-action-errors)
+  + [Unsubscribe Action Errors](#unsubscribe-action-errors)
+  + [Subscription Runtime Errors](#subscription-runtime-errors)
+* [Error Handling Best Practices](#error-handling-best-practices)
 
 Documentation
 
@@ -39633,7 +39867,7 @@ Last updated on **Apr 15, 2025** by **Brian Doyle**
 
 [Previous
 
-Access HTTP API ↗️](/networks/access-onchain-data/access-http-api)[Next
+Common errors](/networks/access-onchain-data/websockets-stream-api/common-errors)[Next
 
 Flow Port](/networks/flow-port)
 
@@ -50980,6 +51214,132 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
+# Source: https://developers.flow.com/networks/access-onchain-data/websockets-stream-api/supported-topics
+
+Supported topics | Flow Developer Portal
+
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Flow Networks](/networks/flow-networks)
+* [Networks](/networks)
+* [Flow's Network Architecture](/networks/network-architecture)
+* [Staking and Epochs](/networks/staking)
+* [Node Ops](/networks/node-ops)
+* [Accessing Data](/networks/access-onchain-data)
+
+  + [Access HTTP API ↗️](/networks/access-onchain-data/access-http-api)
+  + [WebSockets Stream API](/networks/access-onchain-data/websockets-stream-api)
+
+    - [Subscribing to topic](/networks/access-onchain-data/websockets-stream-api/subscribe-message)
+    - [Unsubscribing from topic](/networks/access-onchain-data/websockets-stream-api/unsubscribe-message)
+    - [Supported topics](/networks/access-onchain-data/websockets-stream-api/supported-topics)
+
+      * [Block digests](/networks/access-onchain-data/websockets-stream-api/supported-topics/block_digests_topic)
+      * [Block headers](/networks/access-onchain-data/websockets-stream-api/supported-topics/block_headers_topic)
+      * [Blocks](/networks/access-onchain-data/websockets-stream-api/supported-topics/blocks_topic)
+      * [Events](/networks/access-onchain-data/websockets-stream-api/supported-topics/events_topic)
+      * [Account statuses](/networks/access-onchain-data/websockets-stream-api/supported-topics/account_statuses_topic)
+      * [Transaction statuses](/networks/access-onchain-data/websockets-stream-api/supported-topics/transaction_statuses_topic)
+      * [Send and get transaction statuses](/networks/access-onchain-data/websockets-stream-api/supported-topics/send_and_get_transaction_statuses_topic)
+    - [Listing subscriptions](/networks/access-onchain-data/websockets-stream-api/list-subscriptions-message)
+    - [Connecting to WebSockets via Postman UI](/networks/access-onchain-data/websockets-stream-api/postman-example)
+    - [Common errors](/networks/access-onchain-data/websockets-stream-api/common-errors)
+* [Governance](/networks/governance)
+* [Flow Port](/networks/flow-port)
+
+* [Accessing Data](/networks/access-onchain-data)
+* [WebSockets Stream API](/networks/access-onchain-data/websockets-stream-api)
+* Supported topics
+
+# Supported Topics
+
+In this section, there is a list of topics that client can subscribe to in order to receive updates on different states of the Flow blockchain.
+
+It is possible to subscribe to each topic multiple times with different configurations based on input arguments.
+
+The responses for all topics are aligned with the [Flow REST API](/http-api) responses.
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/supported-topics/index.md)
+
+Last updated on **Apr 21, 2025** by **Illia**
+
+[Previous
+
+Unsubscribing from topic](/networks/access-onchain-data/websockets-stream-api/unsubscribe-message)[Next
+
+Block digests](/networks/access-onchain-data/websockets-stream-api/supported-topics/block_digests_topic)
+
+Documentation
+
+* [Getting Started](/build/getting-started/contract-interaction)
+* [SDK's & Tools](/tools)
+* [Cadence](https://cadence-lang.org/docs/)
+* [Mobile](/build/guides/mobile/overview)
+* [FCL](/tools/clients/fcl-js)
+* [Testing](/build/smart-contracts/testing)
+* [CLI](/tools/flow-cli)
+* [Emulator](/tools/emulator)
+* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
+* [VS Code Extension](/tools/vscode-extension)
+
+Community
+
+* [Ecosystem](/ecosystem)
+* [Flow Port](https://port.onflow.org/)
+* [Developer Grants](https://github.com/onflow/developer-grants)
+* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
+* [Flowverse](https://www.flowverse.co/)
+* [Emerald Academy](https://academy.ecdao.org/)
+* [FLOATs (Attendance NFTs)](https://floats.city/)
+
+Start Building
+
+* [Flow Playground](https://play.flow.com/)
+* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
+* [Cadence Cookbook](https://open-cadence.onflow.org)
+* [Core Contracts & Standards](/build/core-contracts)
+* [EVM](/evm/about)
+
+Network
+
+* [Network Status](https://status.onflow.org/)
+* [Flowscan Mainnet](https://flowscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
+* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/networks/node-ops)
+* [Spork Information](/networks/node-ops/node-operation/spork)
+
+More
+
+* [GitHub](https://github.com/onflow)
+* [Discord](https://discord.gg/flow)
+* [Forum](https://forum.onflow.org/)
+* [OnFlow](https://onflow.org/)
+* [Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow, Inc. Built with Docusaurus.
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://developers.flow.com/networks/node-ops/access-onchain-data/light-nodes/observer-node
 
 
@@ -52248,6 +52608,7 @@ Search
 * [Accessing Data](/networks/access-onchain-data)
 
   + [Access HTTP API ↗️](/networks/access-onchain-data/access-http-api)
+  + [WebSockets Stream API](/networks/access-onchain-data/websockets-stream-api)
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
@@ -52266,7 +52627,7 @@ Last updated on **Apr 15, 2025** by **Brian Doyle**
 
 Access API](/networks/access-onchain-data)[Next
 
-Governance](/networks/governance)
+Overview](/networks/access-onchain-data/websockets-stream-api)
 
 Documentation
 
@@ -63019,6 +63380,7 @@ Search
 * [Accessing Data](/networks/access-onchain-data)
 
   + [Access HTTP API ↗️](/networks/access-onchain-data/access-http-api)
+  + [WebSockets Stream API](/networks/access-onchain-data/websockets-stream-api)
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
@@ -67308,6 +67670,334 @@ Development Standards](/build/smart-contracts/best-practices/project-development
 
 * [Problem](#problem)
 * [Solution](#solution)
+
+Documentation
+
+* [Getting Started](/build/getting-started/contract-interaction)
+* [SDK's & Tools](/tools)
+* [Cadence](https://cadence-lang.org/docs/)
+* [Mobile](/build/guides/mobile/overview)
+* [FCL](/tools/clients/fcl-js)
+* [Testing](/build/smart-contracts/testing)
+* [CLI](/tools/flow-cli)
+* [Emulator](/tools/emulator)
+* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
+* [VS Code Extension](/tools/vscode-extension)
+
+Community
+
+* [Ecosystem](/ecosystem)
+* [Flow Port](https://port.onflow.org/)
+* [Developer Grants](https://github.com/onflow/developer-grants)
+* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
+* [Flowverse](https://www.flowverse.co/)
+* [Emerald Academy](https://academy.ecdao.org/)
+* [FLOATs (Attendance NFTs)](https://floats.city/)
+
+Start Building
+
+* [Flow Playground](https://play.flow.com/)
+* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
+* [Cadence Cookbook](https://open-cadence.onflow.org)
+* [Core Contracts & Standards](/build/core-contracts)
+* [EVM](/evm/about)
+
+Network
+
+* [Network Status](https://status.onflow.org/)
+* [Flowscan Mainnet](https://flowscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
+* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/networks/node-ops)
+* [Spork Information](/networks/node-ops/node-operation/spork)
+
+More
+
+* [GitHub](https://github.com/onflow)
+* [Discord](https://discord.gg/flow)
+* [Forum](https://forum.onflow.org/)
+* [OnFlow](https://onflow.org/)
+* [Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow, Inc. Built with Docusaurus.
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://developers.flow.com/networks/access-onchain-data/websockets-stream-api/supported-topics/send_and_get_transaction_statuses_topic
+
+Send and get transaction statuses | Flow Developer Portal
+
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Flow Networks](/networks/flow-networks)
+* [Networks](/networks)
+* [Flow's Network Architecture](/networks/network-architecture)
+* [Staking and Epochs](/networks/staking)
+* [Node Ops](/networks/node-ops)
+* [Accessing Data](/networks/access-onchain-data)
+
+  + [Access HTTP API ↗️](/networks/access-onchain-data/access-http-api)
+  + [WebSockets Stream API](/networks/access-onchain-data/websockets-stream-api)
+
+    - [Subscribing to topic](/networks/access-onchain-data/websockets-stream-api/subscribe-message)
+    - [Unsubscribing from topic](/networks/access-onchain-data/websockets-stream-api/unsubscribe-message)
+    - [Supported topics](/networks/access-onchain-data/websockets-stream-api/supported-topics)
+
+      * [Block digests](/networks/access-onchain-data/websockets-stream-api/supported-topics/block_digests_topic)
+      * [Block headers](/networks/access-onchain-data/websockets-stream-api/supported-topics/block_headers_topic)
+      * [Blocks](/networks/access-onchain-data/websockets-stream-api/supported-topics/blocks_topic)
+      * [Events](/networks/access-onchain-data/websockets-stream-api/supported-topics/events_topic)
+      * [Account statuses](/networks/access-onchain-data/websockets-stream-api/supported-topics/account_statuses_topic)
+      * [Transaction statuses](/networks/access-onchain-data/websockets-stream-api/supported-topics/transaction_statuses_topic)
+      * [Send and get transaction statuses](/networks/access-onchain-data/websockets-stream-api/supported-topics/send_and_get_transaction_statuses_topic)
+    - [Listing subscriptions](/networks/access-onchain-data/websockets-stream-api/list-subscriptions-message)
+    - [Connecting to WebSockets via Postman UI](/networks/access-onchain-data/websockets-stream-api/postman-example)
+    - [Common errors](/networks/access-onchain-data/websockets-stream-api/common-errors)
+* [Governance](/networks/governance)
+* [Flow Port](/networks/flow-port)
+
+* [Accessing Data](/networks/access-onchain-data)
+* [WebSockets Stream API](/networks/access-onchain-data/websockets-stream-api)
+* [Supported topics](/networks/access-onchain-data/websockets-stream-api/supported-topics)
+* Send and get transaction statuses
+
+On this page
+
+# Send and get transaction statuses
+
+Sends a transaction and provides updates on its status changes.
+
+## Example Request[​](#example-request "Direct link to Example Request")
+
+`_25
+
+{
+
+_25
+
+"subscription_id": "some-id-7",
+
+_25
+
+"action": "subscribe",
+
+_25
+
+"topic": "send_and_get_transaction_statuses"
+
+_25
+
+"arguments": {
+
+_25
+
+"arguments": [],
+
+_25
+
+"authorizers": ["dba05362251g43g4"],
+
+_25
+
+"envelope_signatures": [
+
+_25
+
+{
+
+_25
+
+"address": "dba05362251g43g4",
+
+_25
+
+"key_index": "0",
+
+_25
+
+"signature": "PJPVEOCtPKubTEpPqd4zrrSXo1RhpABAMDuzIchgBje8gyh04XuWY4f/tu+c0llDhOU/5sQBokeOTdygaS6eTQ=="
+
+_25
+
+}
+
+_25
+
+],
+
+_25
+
+"gas_limit": "1000",
+
+_25
+
+"payer": "dba05362251g43g4",
+
+_25
+
+"proposal_key": {
+
+_25
+
+"address": "dba05362251g43g4",
+
+_25
+
+"key_index": "0",
+
+_25
+
+"sequence_number": "0"
+
+_25
+
+},
+
+_25
+
+"reference_block_id": "817d7c1d2c13a4bd37c182747a4116b45cd175c0ba4878071c33f0f278b37dd7",
+
+_25
+
+"script": "CgkJCXRyYW5zYWN0aW9uIHsKCQkJCXByZXBhcmUoYWNjOiAmQWNjb3VudCkge30KCQkJCWV4ZWN1dGUgewoJCQkJCWxvZygidGVzdCIpCgkJCQl9CgkJCX0KCQk="
+
+_25
+
+}
+
+_25
+
+}`
+
+| Name | Type | REQUIRED | Description |
+| --- | --- | --- | --- |
+| `script` | STRING | YES | Base64-encoded content of the Cadence script. |
+| `arguments` | LIST | YES | A list of arguments, each encoded as Base64. |
+| `reference_block_id` | STRING | YES | BlockID for the transaction's reference block |
+| `gas_limit` | STRING | YES | The limit on the amount of computation a transaction can perform. |
+| `payer` | STRING | YES | The 8-byte address of an account. |
+| `proposal_key` | OBJECT | YES | A required object representing the proposal key. |
+| `authorizers` | LIST | YES | A list of authorizers, each represented as a hexadecimal-encoded address. |
+| `payload_signatures` | LIST | NO | A list of Base64-encoded signatures. |
+| `envelope_signatures` | LIST | YES | A list of Base64-encoded signatures. |
+
+## Example Response[​](#example-response "Direct link to Example Response")
+
+`_20
+
+{
+
+_20
+
+"subscription_id": "some-id",
+
+_20
+
+"topic": "send_and_get_transaction_statuses",
+
+_20
+
+"payload": {
+
+_20
+
+"transaction_result": {
+
+_20
+
+"block_id": "7ad167602487665db095f7cb0b95139e5dcaf3ad2479ee4d14cade35b7d4bbdc",
+
+_20
+
+"collection_id": "d0855ed45c16be2831ab9892ec8a9ddfd10a0e01e683466971cfd87c759bf7d1",
+
+_20
+
+"execution": "Failure",
+
+_20
+
+"status": "Sealed",
+
+_20
+
+"status_code": 1,
+
+_20
+
+"error_message": "[Error Code: 1009] error caused by: 1 error occurred:\n\t* transaction verification failed: [Error Code: 1006] invalid proposal key: public key 0 on account dba05362251g43g4 does not have a valid signature: [Error Code: 1009] invalid envelope key: public key 0 on account dba05362251g43g4 does not have a valid signature: signature is not valid\n\n",
+
+_20
+
+"computation_used": "0",
+
+_20
+
+"events": [],
+
+_20
+
+"_links": {
+
+_20
+
+"_self": "/v1/transaction_results/92014de98466a6304ecd821c95ee2612e248c22419d243e6e3ff4d138dffde04"
+
+_20
+
+}
+
+_20
+
+},
+
+_20
+
+"message_index": 3
+
+_20
+
+}
+
+_20
+
+}`
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/supported-topics/send_and_get_transaction_statuses_topic.md)
+
+Last updated on **Apr 21, 2025** by **Illia**
+
+[Previous
+
+Transaction statuses](/networks/access-onchain-data/websockets-stream-api/supported-topics/transaction_statuses_topic)[Next
+
+Listing subscriptions](/networks/access-onchain-data/websockets-stream-api/list-subscriptions-message)
+
+###### Rate this page
+
+😞😐😊
+
+* [Example Request](#example-request)
+* [Example Response](#example-response)
 
 Documentation
 
@@ -76121,6 +76811,170 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
+# Source: https://developers.flow.com/networks/access-onchain-data/websockets-stream-api/postman-example
+
+Connecting to WebSockets via Postman UI | Flow Developer Portal
+
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Flow Networks](/networks/flow-networks)
+* [Networks](/networks)
+* [Flow's Network Architecture](/networks/network-architecture)
+* [Staking and Epochs](/networks/staking)
+* [Node Ops](/networks/node-ops)
+* [Accessing Data](/networks/access-onchain-data)
+
+  + [Access HTTP API ↗️](/networks/access-onchain-data/access-http-api)
+  + [WebSockets Stream API](/networks/access-onchain-data/websockets-stream-api)
+
+    - [Subscribing to topic](/networks/access-onchain-data/websockets-stream-api/subscribe-message)
+    - [Unsubscribing from topic](/networks/access-onchain-data/websockets-stream-api/unsubscribe-message)
+    - [Supported topics](/networks/access-onchain-data/websockets-stream-api/supported-topics)
+    - [Listing subscriptions](/networks/access-onchain-data/websockets-stream-api/list-subscriptions-message)
+    - [Connecting to WebSockets via Postman UI](/networks/access-onchain-data/websockets-stream-api/postman-example)
+    - [Common errors](/networks/access-onchain-data/websockets-stream-api/common-errors)
+* [Governance](/networks/governance)
+* [Flow Port](/networks/flow-port)
+
+* [Accessing Data](/networks/access-onchain-data)
+* [WebSockets Stream API](/networks/access-onchain-data/websockets-stream-api)
+* Connecting to WebSockets via Postman UI
+
+On this page
+
+# Connecting to WebSockets via Postman UI
+
+This tutorial will guide you through connecting to a WebSocket using Postman and sending a subscription message.
+
+## Step 1: Open Postman[​](#step-1-open-postman "Direct link to Step 1: Open Postman")
+
+Ensure you have Postman installed and opened on your system. If you don’t have it yet, download it from [Postman’s official website](https://www.postman.com/downloads/).
+
+## Step 2: Create a New WebSocket Request[​](#step-2-create-a-new-websocket-request "Direct link to Step 2: Create a New WebSocket Request")
+
+1. In Postman, click on **File** > **New...** > **WebSocket**.
+   ![pe_1](/assets/images/pe_1-bb4b1259cbf965170fd298540cacdba4.png)
+2. Enter the WebSocket URL in **Enter URL** field : `wss://rest-mainnet.onflow.org/v1/ws` or `wss://rest-testnet.onflow.org/v1/ws`
+3. Click **Connect** button to establish the WebSocket connection.
+   ![pe_2](/assets/images/pe_2-fad2825d44ebb56f85bf187829350269.png)
+
+## Step 3: Send a Subscription Message[​](#step-3-send-a-subscription-message "Direct link to Step 3: Send a Subscription Message")
+
+1. Once connected, go to the **Messages** tab.
+2. Enter the JSON message into the text box. In this example the [digests block subscription](/networks/access-onchain-data/websockets-stream-api/supported-topics/block_digests_topic) will be established. For other available topics check [Supported topics page](/networks/access-onchain-data/websockets-stream-api/supported-topics).
+3. Click **Send** to subscribe to the WebSocket topic.
+   ![pe_3](/assets/images/pe_3-f5c00c8fa002b7acc55ff5b89e3ab28b.png)
+
+## Step 4: View Responses[​](#step-4-view-responses "Direct link to Step 4: View Responses")
+
+* After sending the message, you should start receiving responses in the **Response** bottom tab.
+* Each message received from the server will be displayed in real-time.
+
+![pe_4](/assets/images/pe_4-1a1ba77a604e82be976534b0bddf4061.png)
+
+## Step 5: Disconnect[​](#step-5-disconnect "Direct link to Step 5: Disconnect")
+
+* When you are done, click **Disconnect** to close the WebSocket connection.
+
+## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
+
+* Ensure WebSocket URL is correct and active.
+* In case of an error validate your JSON message for any syntax errors before sending and check correctness of all arguments on [Supported topics page](/networks/access-onchain-data/websockets-stream-api/supported-topics).
+
+Congratulations! You have successfully connected to a WebSocket server using Postman and sent a subscription message.
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/postman-example.md)
+
+Last updated on **Apr 21, 2025** by **Illia**
+
+[Previous
+
+Listing subscriptions](/networks/access-onchain-data/websockets-stream-api/list-subscriptions-message)[Next
+
+Common errors](/networks/access-onchain-data/websockets-stream-api/common-errors)
+
+###### Rate this page
+
+😞😐😊
+
+* [Step 1: Open Postman](#step-1-open-postman)
+* [Step 2: Create a New WebSocket Request](#step-2-create-a-new-websocket-request)
+* [Step 3: Send a Subscription Message](#step-3-send-a-subscription-message)
+* [Step 4: View Responses](#step-4-view-responses)
+* [Step 5: Disconnect](#step-5-disconnect)
+* [Troubleshooting](#troubleshooting)
+
+Documentation
+
+* [Getting Started](/build/getting-started/contract-interaction)
+* [SDK's & Tools](/tools)
+* [Cadence](https://cadence-lang.org/docs/)
+* [Mobile](/build/guides/mobile/overview)
+* [FCL](/tools/clients/fcl-js)
+* [Testing](/build/smart-contracts/testing)
+* [CLI](/tools/flow-cli)
+* [Emulator](/tools/emulator)
+* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
+* [VS Code Extension](/tools/vscode-extension)
+
+Community
+
+* [Ecosystem](/ecosystem)
+* [Flow Port](https://port.onflow.org/)
+* [Developer Grants](https://github.com/onflow/developer-grants)
+* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
+* [Flowverse](https://www.flowverse.co/)
+* [Emerald Academy](https://academy.ecdao.org/)
+* [FLOATs (Attendance NFTs)](https://floats.city/)
+
+Start Building
+
+* [Flow Playground](https://play.flow.com/)
+* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
+* [Cadence Cookbook](https://open-cadence.onflow.org)
+* [Core Contracts & Standards](/build/core-contracts)
+* [EVM](/evm/about)
+
+Network
+
+* [Network Status](https://status.onflow.org/)
+* [Flowscan Mainnet](https://flowscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
+* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/networks/node-ops)
+* [Spork Information](/networks/node-ops/node-operation/spork)
+
+More
+
+* [GitHub](https://github.com/onflow)
+* [Discord](https://discord.gg/flow)
+* [Forum](https://forum.onflow.org/)
+* [OnFlow](https://onflow.org/)
+* [Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow, Inc. Built with Docusaurus.
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://developers.flow.com/tutorials/flowtobooth
 
 FlowtoBooth | Flow Developer Portal
@@ -76505,9 +77359,10 @@ The repository contains Python scripts that:
 * **Structured Format**: All content is converted to Markdown for consistent processing
 * **Comprehensive Coverage**: Includes official documentation, code examples, and community discussions
 * **Optimized for AI**: Designed specifically for AI tools, chatbots, and RAG pipelines
-* **Two Output Options**:
-  + `all_merged.md`: Complete content including code blocks
-  + `essentials_merged.md`: Streamlined version without code blocks
+* **Output Options**:
+  + `all_merged.md`: Complete content
+  + `essentials_merged.md`: Streamlined version only including official documentation and sample codes.
+  + `cadence_docs_merged.md`: Streamlined version only including Cadence related documentation and sample codes.
 
 ## How to Use[​](#how-to-use "Direct link to How to Use")
 
@@ -76524,6 +77379,7 @@ The merged documentation files are available at:
 
 * [All Merged Content](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/all_merged.md)
 * [Essentials Only](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/essentials_merged.md)
+* [Cadence Only](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/cadence_docs_merged.md)
 
 For integration with AI tools like Cursor or ChatGPT, use the appropriate URL as described in the respective tutorials:
 
@@ -76532,7 +77388,7 @@ For integration with AI tools like Cursor or ChatGPT, use the appropriate URL as
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/flow-data-sources.md)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 17, 2025** by **BT.Wood(Tang Bo Hao)**
 
 [Previous
 
@@ -76548,6 +77404,224 @@ Using AgentKit on Flow](/tutorials/ai-plus-flow/agentkit-flow-guide)
 * [Key Features](#key-features)
 * [How to Use](#how-to-use)
 * [Accessing the Content](#accessing-the-content)
+
+Documentation
+
+* [Getting Started](/build/getting-started/contract-interaction)
+* [SDK's & Tools](/tools)
+* [Cadence](https://cadence-lang.org/docs/)
+* [Mobile](/build/guides/mobile/overview)
+* [FCL](/tools/clients/fcl-js)
+* [Testing](/build/smart-contracts/testing)
+* [CLI](/tools/flow-cli)
+* [Emulator](/tools/emulator)
+* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
+* [VS Code Extension](/tools/vscode-extension)
+
+Community
+
+* [Ecosystem](/ecosystem)
+* [Flow Port](https://port.onflow.org/)
+* [Developer Grants](https://github.com/onflow/developer-grants)
+* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
+* [Flowverse](https://www.flowverse.co/)
+* [Emerald Academy](https://academy.ecdao.org/)
+* [FLOATs (Attendance NFTs)](https://floats.city/)
+
+Start Building
+
+* [Flow Playground](https://play.flow.com/)
+* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
+* [Cadence Cookbook](https://open-cadence.onflow.org)
+* [Core Contracts & Standards](/build/core-contracts)
+* [EVM](/evm/about)
+
+Network
+
+* [Network Status](https://status.onflow.org/)
+* [Flowscan Mainnet](https://flowscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
+* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/networks/node-ops)
+* [Spork Information](/networks/node-ops/node-operation/spork)
+
+More
+
+* [GitHub](https://github.com/onflow)
+* [Discord](https://discord.gg/flow)
+* [Forum](https://forum.onflow.org/)
+* [OnFlow](https://onflow.org/)
+* [Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow, Inc. Built with Docusaurus.
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://developers.flow.com/networks/access-onchain-data/websockets-stream-api/list-subscriptions-message
+
+List subscriptions request message format | Flow Developer Portal
+
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Flow Networks](/networks/flow-networks)
+* [Networks](/networks)
+* [Flow's Network Architecture](/networks/network-architecture)
+* [Staking and Epochs](/networks/staking)
+* [Node Ops](/networks/node-ops)
+* [Accessing Data](/networks/access-onchain-data)
+
+  + [Access HTTP API ↗️](/networks/access-onchain-data/access-http-api)
+  + [WebSockets Stream API](/networks/access-onchain-data/websockets-stream-api)
+
+    - [Subscribing to topic](/networks/access-onchain-data/websockets-stream-api/subscribe-message)
+    - [Unsubscribing from topic](/networks/access-onchain-data/websockets-stream-api/unsubscribe-message)
+    - [Supported topics](/networks/access-onchain-data/websockets-stream-api/supported-topics)
+    - [Listing subscriptions](/networks/access-onchain-data/websockets-stream-api/list-subscriptions-message)
+    - [Connecting to WebSockets via Postman UI](/networks/access-onchain-data/websockets-stream-api/postman-example)
+    - [Common errors](/networks/access-onchain-data/websockets-stream-api/common-errors)
+* [Governance](/networks/governance)
+* [Flow Port](/networks/flow-port)
+
+* [Accessing Data](/networks/access-onchain-data)
+* [WebSockets Stream API](/networks/access-onchain-data/websockets-stream-api)
+* Listing subscriptions
+
+On this page
+
+# List subscriptions message format
+
+List subscriptions requests must be sent as JSON in text frames, one request per frame.
+This message is different from others as it doesn't require you to provide subscription ID.
+Thus, the response for this message is different too.
+
+### Example of request[​](#example-of-request "Direct link to Example of request")
+
+`_10
+
+{
+
+_10
+
+"action": "list_subscriptions"
+
+_10
+
+}`
+
+### Example of response[​](#example-of-response "Direct link to Example of response")
+
+`_17
+
+{
+
+_17
+
+"subscriptions": [
+
+_17
+
+{
+
+_17
+
+"subscription_id": "some-id-1",
+
+_17
+
+"topic": "blocks",
+
+_17
+
+"arguments": {
+
+_17
+
+"block_status": "finalized",
+
+_17
+
+"start_block_height": "123456789"
+
+_17
+
+}
+
+_17
+
+},
+
+_17
+
+{
+
+_17
+
+"subscription_id": "some-id-2",
+
+_17
+
+"topic": "events",
+
+_17
+
+"arguments": {}
+
+_17
+
+}
+
+_17
+
+]
+
+_17
+
+}`
+
+If there are no active subscriptions, `subscriptions` array will be empty.
+
+### Request fields[​](#request-fields "Direct link to Request fields")
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `action` | STRING | YES | Action to perform. Must be `list_subscriptions` to initiate a list subscription request |
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/list-subscriptions-message.md)
+
+Last updated on **Apr 21, 2025** by **Illia**
+
+[Previous
+
+Send and get transaction statuses](/networks/access-onchain-data/websockets-stream-api/supported-topics/send_and_get_transaction_statuses_topic)[Next
+
+Connecting to WebSockets via Postman UI](/networks/access-onchain-data/websockets-stream-api/postman-example)
+
+###### Rate this page
+
+😞😐😊
+
+* [Example of request](#example-of-request)
+* [Example of response](#example-of-response)
+* [Request fields](#request-fields)
 
 Documentation
 
@@ -96540,6 +97614,385 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
+# Source: https://developers.flow.com/networks/access-onchain-data/websockets-stream-api/supported-topics/account_statuses_topic
+
+Account statuses | Flow Developer Portal
+
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Flow Networks](/networks/flow-networks)
+* [Networks](/networks)
+* [Flow's Network Architecture](/networks/network-architecture)
+* [Staking and Epochs](/networks/staking)
+* [Node Ops](/networks/node-ops)
+* [Accessing Data](/networks/access-onchain-data)
+
+  + [Access HTTP API ↗️](/networks/access-onchain-data/access-http-api)
+  + [WebSockets Stream API](/networks/access-onchain-data/websockets-stream-api)
+
+    - [Subscribing to topic](/networks/access-onchain-data/websockets-stream-api/subscribe-message)
+    - [Unsubscribing from topic](/networks/access-onchain-data/websockets-stream-api/unsubscribe-message)
+    - [Supported topics](/networks/access-onchain-data/websockets-stream-api/supported-topics)
+
+      * [Block digests](/networks/access-onchain-data/websockets-stream-api/supported-topics/block_digests_topic)
+      * [Block headers](/networks/access-onchain-data/websockets-stream-api/supported-topics/block_headers_topic)
+      * [Blocks](/networks/access-onchain-data/websockets-stream-api/supported-topics/blocks_topic)
+      * [Events](/networks/access-onchain-data/websockets-stream-api/supported-topics/events_topic)
+      * [Account statuses](/networks/access-onchain-data/websockets-stream-api/supported-topics/account_statuses_topic)
+      * [Transaction statuses](/networks/access-onchain-data/websockets-stream-api/supported-topics/transaction_statuses_topic)
+      * [Send and get transaction statuses](/networks/access-onchain-data/websockets-stream-api/supported-topics/send_and_get_transaction_statuses_topic)
+    - [Listing subscriptions](/networks/access-onchain-data/websockets-stream-api/list-subscriptions-message)
+    - [Connecting to WebSockets via Postman UI](/networks/access-onchain-data/websockets-stream-api/postman-example)
+    - [Common errors](/networks/access-onchain-data/websockets-stream-api/common-errors)
+* [Governance](/networks/governance)
+* [Flow Port](/networks/flow-port)
+
+* [Accessing Data](/networks/access-onchain-data)
+* [WebSockets Stream API](/networks/access-onchain-data/websockets-stream-api)
+* [Supported topics](/networks/access-onchain-data/websockets-stream-api/supported-topics)
+* Account statuses
+
+On this page
+
+# Account statuses
+
+Provides accounts statuses updates. The response can be configured using additional arguments to filter and retrieve only filtered account statuses instead of all core account events.
+
+## Example Request[​](#example-request "Direct link to Example Request")
+
+Started from latest block for event types `flow.AccountKeyAdded` and `flow.AccountKeyRemoved`:
+
+`_11
+
+{
+
+_11
+
+"subscription_id": "some-id",
+
+_11
+
+"action": "subscribe",
+
+_11
+
+"topic": "account_statuses",
+
+_11
+
+"arguments": {
+
+_11
+
+"event_types": [
+
+_11
+
+"flow.AccountKeyAdded",
+
+_11
+
+"flow.AccountKeyRemoved"
+
+_11
+
+]
+
+_11
+
+}
+
+_11
+
+}`
+
+Started from block height `106219488` for all accounts events with heartbeat interval equal 10 blocks:
+
+`_10
+
+{
+
+_10
+
+"subscription_id": "some-id",
+
+_10
+
+"action": "subscribe",
+
+_10
+
+"topic": "account_statuses",
+
+_10
+
+"arguments": {
+
+_10
+
+"start_block_height": "106219488",
+
+_10
+
+"heartbeat_interval": "10"
+
+_10
+
+}
+
+_10
+
+}`
+
+Started from block id `f1ba2fb02daf02c7a213b6b0f75774aaf54180ae67fb62bdf22ae37295fe1120` for account addresses `0xe544175ee0461c4b` and `2d4c3caffbeab845` with heartbeat interval equal 5 blocks:
+
+`_13
+
+{
+
+_13
+
+"subscription_id": "some-id",
+
+_13
+
+"action": "subscribe",
+
+_13
+
+"topic": "account_statuses",
+
+_13
+
+"arguments": {
+
+_13
+
+"start_block_id": "f1ba2fb02daf02c7a213b6b0f75774aaf54180ae67fb62bdf22ae37295fe1120",
+
+_13
+
+"heartbeat_interval": "5",
+
+_13
+
+"account_addresses": [
+
+_13
+
+"0xe544175ee0461c4b",
+
+_13
+
+"2d4c3caffbeab845"
+
+_13
+
+]
+
+_13
+
+}
+
+_13
+
+}`
+
+### Request Arguments[​](#request-arguments "Direct link to Request Arguments")
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `start_block_id` | STRING | NO | The ID of the block from which the subscription starts. If this argument is set, it is **not** possible to set `start_block_height`. |
+| `start_block_height` | STRING | NO | The height of the block from which the subscription starts. If this argument is set, it is **not** possible to set `start_block_id` |
+| `heartbeat_interval` | STRING | NO | Maximum number of blocks between messages after which a response with no events is returned. This helps the client track progress for sparse event filters. |
+| `event_types` | LIST | NO | A comma-separated list of event types to include. See the list of possible event types value [below](#the-list-of-possible-core-event-types). |
+| `account_addresses` | LIST | NO | A comma-separated list of addresses who's events should be included. The format could be `"0xe544175ee0461c4b"` or `"e544175ee0461c4b"`. |
+
+If neither `start_block_id` nor `start_block_height` is set, the subscription will start from the latest block based on its status.
+
+#### The list of possible core event types[​](#the-list-of-possible-core-event-types "Direct link to The list of possible core event types")
+
+* `flow.AccountCreated` emitted when a new account gets created.
+* `flow.AccountKeyAdded` emitted when a key gets added to an account.
+* `flow.AccountKeyRemoved` emitted when a key gets removed from an account.
+* `flow.AccountContractAdded` emitted when a contract gets deployed to an account.
+* `flow.AccountContractUpdated` emitted when a contract gets updated on an account.
+* `flow.AccountContractRemoved` emitted when a contract gets removed from an account.
+* `flow.InboxValuePublished` emitted when a Capability is published from an account.
+* `flow.InboxValueUnpublished` emitted when a Capability is unpublished from an account.
+* `flow.InboxValueClaimed` emitted when a Capability is claimed by an account.
+
+## Example Response[​](#example-response "Direct link to Example Response")
+
+`_20
+
+{
+
+_20
+
+"subscription_id": "some-id",
+
+_20
+
+"topic": "account_statuses",
+
+_20
+
+"payload": {
+
+_20
+
+"block_id": "ab20d1a3574177e69636eea73e7db4e74cffb2754cb14ca0bf18c2b96e8b68b9",
+
+_20
+
+"height": "106219247",
+
+_20
+
+"account_events": {
+
+_20
+
+"0x37d2b958f6970c48": [
+
+_20
+
+{
+
+_20
+
+"type": "flow.AccountKeyAdded",
+
+_20
+
+"transaction_id": "19af79cf2fe081491f1e7b0bf490869c8baece742c6606b4a51383515131b5f0",
+
+_20
+
+"transaction_index": "1",
+
+_20
+
+"event_index": "14",
+
+_20
+
+"payload": "2IGChNigg0BpUHVibGljS2V5goJpcHVibGljS2V52IvYiQyCcnNpZ25hdHVyZUFsZ29yaXRobdiIQQLYpINBAW1IYXNoQWxnb3JpdGhtgYJocmF3VmFsdWXYiQzYpINBAnJTaWduYXR1cmVBbGdvcml0aG2BgmhyYXdWYWx1ZdiJDNiig0EDdGZsb3cuQWNjb3VudEtleUFkZGVkhYJnYWRkcmVzc9iJA4JpcHVibGljS2V52IhAgmZ3ZWlnaHTYiReCbWhhc2hBbGdvcml0aG3YiEEBgmhrZXlJbmRleNiJBILYiEEDhUg30rlY9pcMSIKYQBjBGFoYKhg8GLoAGEIHGHAYYREYoBirGKsYiRhrGDAY3xiTGLkUGJYYdRixGOwYjxjNGCkAExhRGCoY/xgfEBh/GJ0YtxjBGH8YLxiqGD4JGKIY6xgmDhiUGDEYqRhvGCYY8hitGMEWGKwY6RiEGF4YQRhBGKGBAhsAAAAXSHboAIEBwkA="
+
+_20
+
+}
+
+_20
+
+]
+
+_20
+
+},
+
+_20
+
+"message_index": 4
+
+_20
+
+}
+
+_20
+
+}`
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/supported-topics/account_statuses_topic.md)
+
+Last updated on **Apr 21, 2025** by **Illia**
+
+[Previous
+
+Events](/networks/access-onchain-data/websockets-stream-api/supported-topics/events_topic)[Next
+
+Transaction statuses](/networks/access-onchain-data/websockets-stream-api/supported-topics/transaction_statuses_topic)
+
+###### Rate this page
+
+😞😐😊
+
+* [Example Request](#example-request)
+  + [Request Arguments](#request-arguments)
+* [Example Response](#example-response)
+
+Documentation
+
+* [Getting Started](/build/getting-started/contract-interaction)
+* [SDK's & Tools](/tools)
+* [Cadence](https://cadence-lang.org/docs/)
+* [Mobile](/build/guides/mobile/overview)
+* [FCL](/tools/clients/fcl-js)
+* [Testing](/build/smart-contracts/testing)
+* [CLI](/tools/flow-cli)
+* [Emulator](/tools/emulator)
+* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
+* [VS Code Extension](/tools/vscode-extension)
+
+Community
+
+* [Ecosystem](/ecosystem)
+* [Flow Port](https://port.onflow.org/)
+* [Developer Grants](https://github.com/onflow/developer-grants)
+* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
+* [Flowverse](https://www.flowverse.co/)
+* [Emerald Academy](https://academy.ecdao.org/)
+* [FLOATs (Attendance NFTs)](https://floats.city/)
+
+Start Building
+
+* [Flow Playground](https://play.flow.com/)
+* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
+* [Cadence Cookbook](https://open-cadence.onflow.org)
+* [Core Contracts & Standards](/build/core-contracts)
+* [EVM](/evm/about)
+
+Network
+
+* [Network Status](https://status.onflow.org/)
+* [Flowscan Mainnet](https://flowscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
+* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/networks/node-ops)
+* [Spork Information](/networks/node-ops/node-operation/spork)
+
+More
+
+* [GitHub](https://github.com/onflow)
+* [Discord](https://discord.gg/flow)
+* [Forum](https://forum.onflow.org/)
+* [OnFlow](https://onflow.org/)
+* [Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow, Inc. Built with Docusaurus.
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://developers.flow.com/evm/guides/vrf
 
 VRF (Randomness) in Solidity | Flow Developer Portal
@@ -109609,6 +111062,508 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
+# Source: https://developers.flow.com/networks/access-onchain-data/websockets-stream-api
+
+Overview | Flow Developer Portal
+
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Flow Networks](/networks/flow-networks)
+* [Networks](/networks)
+* [Flow's Network Architecture](/networks/network-architecture)
+* [Staking and Epochs](/networks/staking)
+* [Node Ops](/networks/node-ops)
+* [Accessing Data](/networks/access-onchain-data)
+
+  + [Access HTTP API ↗️](/networks/access-onchain-data/access-http-api)
+  + [WebSockets Stream API](/networks/access-onchain-data/websockets-stream-api)
+
+    - [Subscribing to topic](/networks/access-onchain-data/websockets-stream-api/subscribe-message)
+    - [Unsubscribing from topic](/networks/access-onchain-data/websockets-stream-api/unsubscribe-message)
+    - [Supported topics](/networks/access-onchain-data/websockets-stream-api/supported-topics)
+    - [Listing subscriptions](/networks/access-onchain-data/websockets-stream-api/list-subscriptions-message)
+    - [Connecting to WebSockets via Postman UI](/networks/access-onchain-data/websockets-stream-api/postman-example)
+    - [Common errors](/networks/access-onchain-data/websockets-stream-api/common-errors)
+* [Governance](/networks/governance)
+* [Flow Port](/networks/flow-port)
+
+* [Accessing Data](/networks/access-onchain-data)
+* WebSockets Stream API
+
+On this page
+
+# Websockets Stream API
+
+## Overview[​](#overview "Direct link to Overview")
+
+The Stream API allows clients to receive real-time updates from the Flow blockchain via WebSocket connections. It
+supports subscribing to various topics, such as blocks, events, and transactions, enabling low-latency access to live
+data.
+
+### Important Information[​](#important-information "Direct link to Important Information")
+
+* **Endpoint**: The WebSocket server is available at:
+
+  + Mainnet: `wss://rest-mainnet.onflow.org/v1/ws`
+  + Testnet: `wss://rest-testnet.onflow.org/v1/ws`
+* **Limits**:
+
+  + Each connection supports up to 20 concurrent subscriptions. Exceeding this limit will result in an error.
+  + Each subscription may provide up to 20 responses per second.
+  + After 1 minute of inactivity (no data sent or received) the connection is closed.
+* **Supported Topics**: See more details on [Supported Topics](/networks/access-onchain-data/websockets-stream-api/supported-topics) page.
+
+  + [`block_digests`](/networks/access-onchain-data/websockets-stream-api/supported-topics/block_digests_topic)
+  + [`block_headers`](/networks/access-onchain-data/websockets-stream-api/supported-topics/block_headers_topic)
+  + [`blocks`](/networks/access-onchain-data/websockets-stream-api/supported-topics/blocks_topic)
+  + [`events`](/networks/access-onchain-data/websockets-stream-api/supported-topics/events_topic)
+  + [`account_statuses`](/networks/access-onchain-data/websockets-stream-api/supported-topics/account_statuses_topic)
+  + [`transaction_statuses`](/networks/access-onchain-data/websockets-stream-api/supported-topics/transaction_statuses_topic)
+  + [`send_and_get_transaction_statuses`](/networks/access-onchain-data/websockets-stream-api/supported-topics/send_and_get_transaction_statuses_topic)
+* **Notes**: Always handle errors gracefully and close unused subscriptions to maintain efficient connections.
+
+---
+
+## Setting Up a WebSocket Connection[​](#setting-up-a-websocket-connection "Direct link to Setting Up a WebSocket Connection")
+
+Use any WebSocket client library to connect to the endpoint. Below is an example using JavaScript:
+
+`_13
+
+const ws = new WebSocket('wss://rest-mainnet.onflow.org/ws');
+
+_13
+
+_13
+
+ws.onopen = () => {
+
+_13
+
+console.log('Connected to WebSocket server');
+
+_13
+
+};
+
+_13
+
+_13
+
+ws.onclose = () => {
+
+_13
+
+console.log('Disconnected from WebSocket server');
+
+_13
+
+};
+
+_13
+
+_13
+
+ws.onerror = (error) => {
+
+_13
+
+console.error('WebSocket error:', error);
+
+_13
+
+};`
+
+---
+
+## Subscribing to Topics[​](#subscribing-to-topics "Direct link to Subscribing to Topics")
+
+To receive data from a specific topic, send a subscription request in JSON format over the WebSocket connection.
+
+### Request Format[​](#request-format "Direct link to Request Format")
+
+`_10
+
+{
+
+_10
+
+"subscription_id": "some-id-42",
+
+_10
+
+"action": "subscribe",
+
+_10
+
+"topic": "blocks",
+
+_10
+
+"arguments": {
+
+_10
+
+"block_status": "sealed",
+
+_10
+
+"start_block_height": "123456789"
+
+_10
+
+}
+
+_10
+
+}`
+
+* **`subscription_id`**(optional): A unique identifier for the subscription (a string with maximum length constraint of 20 characters). If omitted, the server generates one.
+* **`action`**: The action to perform. Supported actions include: `subscribe`, `unsubscribe`, `list_subscriptions`.
+* **`topic`**: The topic to subscribe to. See the supported topics in the Overview.
+* **`arguments`**: Additional topic specific arguments for subscriptions, such as `start_block_height`, `start_block_id`, and others. See more details about arguments for each topic on [Supported Topics](/networks/access-onchain-data/websockets-stream-api/supported-topics) page.
+
+### Successful Response Format[​](#successful-response-format "Direct link to Successful Response Format")
+
+`_10
+
+{
+
+_10
+
+"subscription_id": "some-id-42",
+
+_10
+
+"action": "subscribe"
+
+_10
+
+}`
+
+---
+
+## Unsubscribing from Topics[​](#unsubscribing-from-topics "Direct link to Unsubscribing from Topics")
+
+To stop receiving data from a specific topic, send an unsubscribe request.
+
+### Request Format[​](#request-format-1 "Direct link to Request Format")
+
+`_10
+
+{
+
+_10
+
+"subscription_id": "some-id-42",
+
+_10
+
+"action": "unsubscribe"
+
+_10
+
+}`
+
+### Successful Response Format[​](#successful-response-format-1 "Direct link to Successful Response Format")
+
+`_10
+
+{
+
+_10
+
+"subscription_id": "some-id-42",
+
+_10
+
+"action": "unsubscribe"
+
+_10
+
+}`
+
+---
+
+## Listing Active Subscriptions[​](#listing-active-subscriptions "Direct link to Listing Active Subscriptions")
+
+You can retrieve a list of all active subscriptions for the current WebSocket connection.
+
+### Request Format[​](#request-format-2 "Direct link to Request Format")
+
+`_10
+
+{
+
+_10
+
+"action": "list_subscriptions"
+
+_10
+
+}`
+
+### Successful Response Format[​](#successful-response-format-2 "Direct link to Successful Response Format")
+
+`_17
+
+{
+
+_17
+
+"subscriptions": [
+
+_17
+
+{
+
+_17
+
+"subscription_id": "some-id-1",
+
+_17
+
+"topic": "blocks",
+
+_17
+
+"arguments": {
+
+_17
+
+"block_status": "sealed",
+
+_17
+
+"start_block_height": "123456789"
+
+_17
+
+}
+
+_17
+
+},
+
+_17
+
+{
+
+_17
+
+"subscription_id": "some-id-2",
+
+_17
+
+"topic": "events",
+
+_17
+
+"arguments": {}
+
+_17
+
+}
+
+_17
+
+]
+
+_17
+
+}`
+
+---
+
+## Errors Example[​](#errors-example "Direct link to Errors Example")
+
+If a request is invalid or cannot be processed, the server responds with an error message.
+
+### OK Response[​](#ok-response "Direct link to OK Response")
+
+`_10
+
+{
+
+_10
+
+"subscription_id": "some-id-42",
+
+_10
+
+"topic": "block_digests",
+
+_10
+
+"payload": {
+
+_10
+
+"id": "0x1234...",
+
+_10
+
+"height:": "123456789",
+
+_10
+
+"timestamp": "2025-01-02T10:00:00Z"
+
+_10
+
+}
+
+_10
+
+}`
+
+### Error Response[​](#error-response "Direct link to Error Response")
+
+`_10
+
+{
+
+_10
+
+"subscription_id": "some-id-42",
+
+_10
+
+"error": {
+
+_10
+
+"code": 500,
+
+_10
+
+"message": "Access Node failed"
+
+_10
+
+}
+
+_10
+
+}`
+
+### Common Error Codes[​](#common-error-codes "Direct link to Common Error Codes")
+
+* **400**: Invalid message format or arguments
+* **404**: Subscription not found
+* **500**: Internal server error
+
+### Asynchronous environments[​](#asynchronous-environments "Direct link to Asynchronous environments")
+
+If you're working in an asynchronous environment, the Streaming API ensures **first-in first-out** message processing,
+so responses will be returned in the same order the requests were received over the connection.
+You can leverage this feature to simplify your code and maintain consistency.
+
+Additionally, you can specify a custom `subscription_id` in the subscribe request to easily identify the correct response. It must not be an empty string and must follow a maximum length constraint of 20 characters.
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/index.md)
+
+Last updated on **Apr 21, 2025** by **Illia**
+
+[Previous
+
+Access HTTP API ↗️](/networks/access-onchain-data/access-http-api)[Next
+
+Subscribing to topic](/networks/access-onchain-data/websockets-stream-api/subscribe-message)
+
+###### Rate this page
+
+😞😐😊
+
+* [Overview](#overview)
+  + [Important Information](#important-information)
+* [Setting Up a WebSocket Connection](#setting-up-a-websocket-connection)
+* [Subscribing to Topics](#subscribing-to-topics)
+  + [Request Format](#request-format)
+  + [Successful Response Format](#successful-response-format)
+* [Unsubscribing from Topics](#unsubscribing-from-topics)
+  + [Request Format](#request-format-1)
+  + [Successful Response Format](#successful-response-format-1)
+* [Listing Active Subscriptions](#listing-active-subscriptions)
+  + [Request Format](#request-format-2)
+  + [Successful Response Format](#successful-response-format-2)
+* [Errors Example](#errors-example)
+  + [OK Response](#ok-response)
+  + [Error Response](#error-response)
+  + [Common Error Codes](#common-error-codes)
+  + [Asynchronous environments](#asynchronous-environments)
+
+Documentation
+
+* [Getting Started](/build/getting-started/contract-interaction)
+* [SDK's & Tools](/tools)
+* [Cadence](https://cadence-lang.org/docs/)
+* [Mobile](/build/guides/mobile/overview)
+* [FCL](/tools/clients/fcl-js)
+* [Testing](/build/smart-contracts/testing)
+* [CLI](/tools/flow-cli)
+* [Emulator](/tools/emulator)
+* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
+* [VS Code Extension](/tools/vscode-extension)
+
+Community
+
+* [Ecosystem](/ecosystem)
+* [Flow Port](https://port.onflow.org/)
+* [Developer Grants](https://github.com/onflow/developer-grants)
+* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
+* [Flowverse](https://www.flowverse.co/)
+* [Emerald Academy](https://academy.ecdao.org/)
+* [FLOATs (Attendance NFTs)](https://floats.city/)
+
+Start Building
+
+* [Flow Playground](https://play.flow.com/)
+* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
+* [Cadence Cookbook](https://open-cadence.onflow.org)
+* [Core Contracts & Standards](/build/core-contracts)
+* [EVM](/evm/about)
+
+Network
+
+* [Network Status](https://status.onflow.org/)
+* [Flowscan Mainnet](https://flowscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
+* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/networks/node-ops)
+* [Spork Information](/networks/node-ops/node-operation/spork)
+
+More
+
+* [GitHub](https://github.com/onflow)
+* [Discord](https://discord.gg/flow)
+* [Forum](https://forum.onflow.org/)
+* [OnFlow](https://onflow.org/)
+* [Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow, Inc. Built with Docusaurus.
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://developers.flow.com/tools/clients/fcl-js/user-signatures
 
 Signing and Verifying Arbitrary Data | Flow Developer Portal
@@ -110854,6 +112809,200 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
+# Source: https://developers.flow.com/networks/access-onchain-data/websockets-stream-api/unsubscribe-message
+
+Unsubscribe request message format | Flow Developer Portal
+
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Flow Networks](/networks/flow-networks)
+* [Networks](/networks)
+* [Flow's Network Architecture](/networks/network-architecture)
+* [Staking and Epochs](/networks/staking)
+* [Node Ops](/networks/node-ops)
+* [Accessing Data](/networks/access-onchain-data)
+
+  + [Access HTTP API ↗️](/networks/access-onchain-data/access-http-api)
+  + [WebSockets Stream API](/networks/access-onchain-data/websockets-stream-api)
+
+    - [Subscribing to topic](/networks/access-onchain-data/websockets-stream-api/subscribe-message)
+    - [Unsubscribing from topic](/networks/access-onchain-data/websockets-stream-api/unsubscribe-message)
+    - [Supported topics](/networks/access-onchain-data/websockets-stream-api/supported-topics)
+    - [Listing subscriptions](/networks/access-onchain-data/websockets-stream-api/list-subscriptions-message)
+    - [Connecting to WebSockets via Postman UI](/networks/access-onchain-data/websockets-stream-api/postman-example)
+    - [Common errors](/networks/access-onchain-data/websockets-stream-api/common-errors)
+* [Governance](/networks/governance)
+* [Flow Port](/networks/flow-port)
+
+* [Accessing Data](/networks/access-onchain-data)
+* [WebSockets Stream API](/networks/access-onchain-data/websockets-stream-api)
+* Unsubscribing from topic
+
+On this page
+
+# Unsubscribe message format
+
+Unsubscribe requests must be sent as JSON in text frames, one request per frame.
+
+### Example of unsubscribe request[​](#example-of-unsubscribe-request "Direct link to Example of unsubscribe request")
+
+`_10
+
+{
+
+_10
+
+"subscription_id": "some-id-1",
+
+_10
+
+"action": "unsubscribe"
+
+_10
+
+}`
+
+### Example of successful response[​](#example-of-successful-response "Direct link to Example of successful response")
+
+`_10
+
+{
+
+_10
+
+"subscription_id": "some-id-1",
+
+_10
+
+"action": "unsubscribe"
+
+_10
+
+}`
+
+### Example of error response[​](#example-of-error-response "Direct link to Example of error response")
+
+`_10
+
+{
+
+_10
+
+"error": {
+
+_10
+
+"code": 404,
+
+_10
+
+"message": "subscription not found"
+
+_10
+
+}
+
+_10
+
+}`
+
+### Request fields[​](#request-fields "Direct link to Request fields")
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `subscription_id` | STRING | YES | Unique identifier of the subscription |
+| `action` | STRING | YES | Action to perform. Must be `unsubscribe` to initiate a unsubscription |
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/unsubscribe-message.md)
+
+Last updated on **Apr 21, 2025** by **Illia**
+
+[Previous
+
+Subscribing to topic](/networks/access-onchain-data/websockets-stream-api/subscribe-message)[Next
+
+Supported topics](/networks/access-onchain-data/websockets-stream-api/supported-topics)
+
+###### Rate this page
+
+😞😐😊
+
+* [Example of unsubscribe request](#example-of-unsubscribe-request)
+* [Example of successful response](#example-of-successful-response)
+* [Example of error response](#example-of-error-response)
+* [Request fields](#request-fields)
+
+Documentation
+
+* [Getting Started](/build/getting-started/contract-interaction)
+* [SDK's & Tools](/tools)
+* [Cadence](https://cadence-lang.org/docs/)
+* [Mobile](/build/guides/mobile/overview)
+* [FCL](/tools/clients/fcl-js)
+* [Testing](/build/smart-contracts/testing)
+* [CLI](/tools/flow-cli)
+* [Emulator](/tools/emulator)
+* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
+* [VS Code Extension](/tools/vscode-extension)
+
+Community
+
+* [Ecosystem](/ecosystem)
+* [Flow Port](https://port.onflow.org/)
+* [Developer Grants](https://github.com/onflow/developer-grants)
+* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
+* [Flowverse](https://www.flowverse.co/)
+* [Emerald Academy](https://academy.ecdao.org/)
+* [FLOATs (Attendance NFTs)](https://floats.city/)
+
+Start Building
+
+* [Flow Playground](https://play.flow.com/)
+* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
+* [Cadence Cookbook](https://open-cadence.onflow.org)
+* [Core Contracts & Standards](/build/core-contracts)
+* [EVM](/evm/about)
+
+Network
+
+* [Network Status](https://status.onflow.org/)
+* [Flowscan Mainnet](https://flowscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
+* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/networks/node-ops)
+* [Spork Information](/networks/node-ops/node-operation/spork)
+
+More
+
+* [GitHub](https://github.com/onflow)
+* [Discord](https://discord.gg/flow)
+* [Forum](https://forum.onflow.org/)
+* [OnFlow](https://onflow.org/)
+* [Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow, Inc. Built with Docusaurus.
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://developers.flow.com/tools/clients/fcl-js/scripts
 
 Scripts | Flow Developer Portal
@@ -111906,6 +114055,299 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
+# Source: https://developers.flow.com/networks/access-onchain-data/websockets-stream-api/supported-topics/block_digests_topic
+
+Block digests | Flow Developer Portal
+
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Flow Networks](/networks/flow-networks)
+* [Networks](/networks)
+* [Flow's Network Architecture](/networks/network-architecture)
+* [Staking and Epochs](/networks/staking)
+* [Node Ops](/networks/node-ops)
+* [Accessing Data](/networks/access-onchain-data)
+
+  + [Access HTTP API ↗️](/networks/access-onchain-data/access-http-api)
+  + [WebSockets Stream API](/networks/access-onchain-data/websockets-stream-api)
+
+    - [Subscribing to topic](/networks/access-onchain-data/websockets-stream-api/subscribe-message)
+    - [Unsubscribing from topic](/networks/access-onchain-data/websockets-stream-api/unsubscribe-message)
+    - [Supported topics](/networks/access-onchain-data/websockets-stream-api/supported-topics)
+
+      * [Block digests](/networks/access-onchain-data/websockets-stream-api/supported-topics/block_digests_topic)
+      * [Block headers](/networks/access-onchain-data/websockets-stream-api/supported-topics/block_headers_topic)
+      * [Blocks](/networks/access-onchain-data/websockets-stream-api/supported-topics/blocks_topic)
+      * [Events](/networks/access-onchain-data/websockets-stream-api/supported-topics/events_topic)
+      * [Account statuses](/networks/access-onchain-data/websockets-stream-api/supported-topics/account_statuses_topic)
+      * [Transaction statuses](/networks/access-onchain-data/websockets-stream-api/supported-topics/transaction_statuses_topic)
+      * [Send and get transaction statuses](/networks/access-onchain-data/websockets-stream-api/supported-topics/send_and_get_transaction_statuses_topic)
+    - [Listing subscriptions](/networks/access-onchain-data/websockets-stream-api/list-subscriptions-message)
+    - [Connecting to WebSockets via Postman UI](/networks/access-onchain-data/websockets-stream-api/postman-example)
+    - [Common errors](/networks/access-onchain-data/websockets-stream-api/common-errors)
+* [Governance](/networks/governance)
+* [Flow Port](/networks/flow-port)
+
+* [Accessing Data](/networks/access-onchain-data)
+* [WebSockets Stream API](/networks/access-onchain-data/websockets-stream-api)
+* [Supported topics](/networks/access-onchain-data/websockets-stream-api/supported-topics)
+* Block digests
+
+On this page
+
+# Block digests
+
+Provides a summarized version of block information, including only the block ID, height, and timestamp, each time a new block appears on the blockchain.
+
+## Example Request[​](#example-request "Direct link to Example Request")
+
+Started from latest block:
+
+`_10
+
+{
+
+_10
+
+"subscription_id": "some-id",
+
+_10
+
+"action": "subscribe",
+
+_10
+
+"topic": "block_digests",
+
+_10
+
+"arguments": {
+
+_10
+
+"block_status": "sealed"
+
+_10
+
+}
+
+_10
+
+}`
+
+Started from block height `106192109`:
+
+`_10
+
+{
+
+_10
+
+"subscription_id": "some-id",
+
+_10
+
+"action": "subscribe",
+
+_10
+
+"topic": "block_digests",
+
+_10
+
+"arguments": {
+
+_10
+
+"block_status": "sealed",
+
+_10
+
+"start_block_height": "106192109"
+
+_10
+
+}
+
+_10
+
+}`
+
+Started from block id `37193c008576c5f9e3fb9738d4cc53c9ca021ca593e437eb79107c13ec5a1758`:
+
+`_10
+
+{
+
+_10
+
+"subscription_id": "some-id",
+
+_10
+
+"action": "subscribe",
+
+_10
+
+"topic": "block_digests",
+
+_10
+
+"arguments": {
+
+_10
+
+"block_status": "sealed",
+
+_10
+
+"start_block_id": "37193c008576c5f9e3fb9738d4cc53c9ca021ca593e437eb79107c13ec5a1758"
+
+_10
+
+}
+
+_10
+
+}`
+
+### Request Arguments[​](#request-arguments "Direct link to Request Arguments")
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `block_status` | STRING | YES | The status of blocks to subscribe to. Supported values are: `sealed`, `finalized`. |
+| `start_block_id` | STRING | NO | The ID of the block from which the subscription starts. If this argument is set, `start_block_height` MUST be empty. |
+| `start_block_height` | STRING | NO | The height of the block from which the subscription starts. If this argument is set, `start_block_id` MUST be empty. |
+
+If neither `start_block_id` nor `start_block_height` is set, the subscription will start from the latest block based on its status.
+
+## Example Response[​](#example-response "Direct link to Example Response")
+
+`_10
+
+{
+
+_10
+
+"subscription_id": "some-id",
+
+_10
+
+"topic": "block_digests",
+
+_10
+
+"payload": {
+
+_10
+
+"block_id": "311ca4b8530fad041356ace3ba27cd6ca8bed53d166b4cefdde4c3ae414940d5",
+
+_10
+
+"height": "106190012",
+
+_10
+
+"timestamp": "2025-03-11T11:08:58.504803374Z"
+
+_10
+
+}
+
+_10
+
+}`
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/supported-topics/block_digests_topic.md)
+
+Last updated on **Apr 21, 2025** by **Illia**
+
+[Previous
+
+Supported topics](/networks/access-onchain-data/websockets-stream-api/supported-topics)[Next
+
+Block headers](/networks/access-onchain-data/websockets-stream-api/supported-topics/block_headers_topic)
+
+###### Rate this page
+
+😞😐😊
+
+* [Example Request](#example-request)
+  + [Request Arguments](#request-arguments)
+* [Example Response](#example-response)
+
+Documentation
+
+* [Getting Started](/build/getting-started/contract-interaction)
+* [SDK's & Tools](/tools)
+* [Cadence](https://cadence-lang.org/docs/)
+* [Mobile](/build/guides/mobile/overview)
+* [FCL](/tools/clients/fcl-js)
+* [Testing](/build/smart-contracts/testing)
+* [CLI](/tools/flow-cli)
+* [Emulator](/tools/emulator)
+* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
+* [VS Code Extension](/tools/vscode-extension)
+
+Community
+
+* [Ecosystem](/ecosystem)
+* [Flow Port](https://port.onflow.org/)
+* [Developer Grants](https://github.com/onflow/developer-grants)
+* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
+* [Flowverse](https://www.flowverse.co/)
+* [Emerald Academy](https://academy.ecdao.org/)
+* [FLOATs (Attendance NFTs)](https://floats.city/)
+
+Start Building
+
+* [Flow Playground](https://play.flow.com/)
+* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
+* [Cadence Cookbook](https://open-cadence.onflow.org)
+* [Core Contracts & Standards](/build/core-contracts)
+* [EVM](/evm/about)
+
+Network
+
+* [Network Status](https://status.onflow.org/)
+* [Flowscan Mainnet](https://flowscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
+* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/networks/node-ops)
+* [Spork Information](/networks/node-ops/node-operation/spork)
+
+More
+
+* [GitHub](https://github.com/onflow)
+* [Discord](https://discord.gg/flow)
+* [Forum](https://forum.onflow.org/)
+* [OnFlow](https://onflow.org/)
+* [Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow, Inc. Built with Docusaurus.
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://developers.flow.com/tools/clients/fcl-js/wallet-connect
 
 WalletConnect 2.0 Manual Configuration | Flow Developer Portal
@@ -112595,6 +115037,299 @@ Last updated on **Apr 15, 2025** by **Brian Doyle**
 Cross-chain Bridges ↙](/evm/cross-chain-bridges)[Next
 
 Block Explorers ↙](/evm/block-explorers)
+
+Documentation
+
+* [Getting Started](/build/getting-started/contract-interaction)
+* [SDK's & Tools](/tools)
+* [Cadence](https://cadence-lang.org/docs/)
+* [Mobile](/build/guides/mobile/overview)
+* [FCL](/tools/clients/fcl-js)
+* [Testing](/build/smart-contracts/testing)
+* [CLI](/tools/flow-cli)
+* [Emulator](/tools/emulator)
+* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
+* [VS Code Extension](/tools/vscode-extension)
+
+Community
+
+* [Ecosystem](/ecosystem)
+* [Flow Port](https://port.onflow.org/)
+* [Developer Grants](https://github.com/onflow/developer-grants)
+* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
+* [Flowverse](https://www.flowverse.co/)
+* [Emerald Academy](https://academy.ecdao.org/)
+* [FLOATs (Attendance NFTs)](https://floats.city/)
+
+Start Building
+
+* [Flow Playground](https://play.flow.com/)
+* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
+* [Cadence Cookbook](https://open-cadence.onflow.org)
+* [Core Contracts & Standards](/build/core-contracts)
+* [EVM](/evm/about)
+
+Network
+
+* [Network Status](https://status.onflow.org/)
+* [Flowscan Mainnet](https://flowscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
+* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/networks/node-ops)
+* [Spork Information](/networks/node-ops/node-operation/spork)
+
+More
+
+* [GitHub](https://github.com/onflow)
+* [Discord](https://discord.gg/flow)
+* [Forum](https://forum.onflow.org/)
+* [OnFlow](https://onflow.org/)
+* [Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow, Inc. Built with Docusaurus.
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://developers.flow.com/networks/access-onchain-data/websockets-stream-api/subscribe-message
+
+Subscribe request message format | Flow Developer Portal
+
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Flow Networks](/networks/flow-networks)
+* [Networks](/networks)
+* [Flow's Network Architecture](/networks/network-architecture)
+* [Staking and Epochs](/networks/staking)
+* [Node Ops](/networks/node-ops)
+* [Accessing Data](/networks/access-onchain-data)
+
+  + [Access HTTP API ↗️](/networks/access-onchain-data/access-http-api)
+  + [WebSockets Stream API](/networks/access-onchain-data/websockets-stream-api)
+
+    - [Subscribing to topic](/networks/access-onchain-data/websockets-stream-api/subscribe-message)
+    - [Unsubscribing from topic](/networks/access-onchain-data/websockets-stream-api/unsubscribe-message)
+    - [Supported topics](/networks/access-onchain-data/websockets-stream-api/supported-topics)
+    - [Listing subscriptions](/networks/access-onchain-data/websockets-stream-api/list-subscriptions-message)
+    - [Connecting to WebSockets via Postman UI](/networks/access-onchain-data/websockets-stream-api/postman-example)
+    - [Common errors](/networks/access-onchain-data/websockets-stream-api/common-errors)
+* [Governance](/networks/governance)
+* [Flow Port](/networks/flow-port)
+
+* [Accessing Data](/networks/access-onchain-data)
+* [WebSockets Stream API](/networks/access-onchain-data/websockets-stream-api)
+* Subscribing to topic
+
+On this page
+
+# Subscribe request format
+
+Subscribe requests must be sent as JSON in text frames, one request per frame.
+
+### Example of subscribe request[​](#example-of-subscribe-request "Direct link to Example of subscribe request")
+
+`_10
+
+{
+
+_10
+
+"subscription_id": "some-id-1",
+
+_10
+
+"action": "subscribe",
+
+_10
+
+"topic": "block_digests",
+
+_10
+
+"arguments": {
+
+_10
+
+"block_status": "finalized",
+
+_10
+
+"start_block_height": "99416580"
+
+_10
+
+}
+
+_10
+
+}`
+
+### Example of successful response[​](#example-of-successful-response "Direct link to Example of successful response")
+
+`_10
+
+{
+
+_10
+
+"subscription_id": "some-id-1",
+
+_10
+
+"action": "subscribe"
+
+_10
+
+}`
+
+### Example of failed response[​](#example-of-failed-response "Direct link to Example of failed response")
+
+`_10
+
+{
+
+_10
+
+"subscription_id": "some-id-1",
+
+_10
+
+"error": {
+
+_10
+
+"code": 400,
+
+_10
+
+"message": "invalid message"
+
+_10
+
+}
+
+_10
+
+}`
+
+### Example of messages provided by subscription (if successful)[​](#example-of-messages-provided-by-subscription-if-successful "Direct link to Example of messages provided by subscription (if successful)")
+
+`_10
+
+{
+
+_10
+
+"subscription_id": "some-id-1",
+
+_10
+
+"topic": "block_digests",
+
+_10
+
+"payload": {
+
+_10
+
+"id": "0x1234...",
+
+_10
+
+"height:": "123456789",
+
+_10
+
+"timestamp": "2025-01-02T10:00:00Z"
+
+_10
+
+}
+
+_10
+
+}`
+
+### Example of messages provided by subscription (if error)[​](#example-of-messages-provided-by-subscription-if-error "Direct link to Example of messages provided by subscription (if error)")
+
+`_10
+
+{
+
+_10
+
+"subscription_id": "some-id-1",
+
+_10
+
+"error": {
+
+_10
+
+"code": 500,
+
+_10
+
+"message": "internal error"
+
+_10
+
+}
+
+_10
+
+}`
+
+### Request fields:[​](#request-fields "Direct link to Request fields:")
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `subscription_id` | STRING | NO | Optional unique identifier for the subscription. Max length of ID generated by client is 20 characters. Server will generate a unique ID if omitted |
+| `action` | STRING | YES | Action to perform. Must be `subscribe` to initiate a subscription |
+| `topic` | STRING | YES | The topic to subscribe to, such as `blocks`, `block_digests`, etc. See more details on [Supported Topics](/networks/access-onchain-data/websockets-stream-api/supported-topics) page. |
+| `arguments` | STRING | NO | Additional topic specific parameters for the subscription, such as `start_block_id`, `start_block_height` or other. |
+
+You can use `subscription_id` as a client-generated identifier to track responses asynchronously.
+If you don't provide `subscription_id`, the server will generate one and include it in the response.
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/subscribe-message.md)
+
+Last updated on **Apr 21, 2025** by **Illia**
+
+[Previous
+
+Overview](/networks/access-onchain-data/websockets-stream-api)[Next
+
+Unsubscribing from topic](/networks/access-onchain-data/websockets-stream-api/unsubscribe-message)
+
+###### Rate this page
+
+😞😐😊
+
+* [Example of subscribe request](#example-of-subscribe-request)
+* [Example of successful response](#example-of-successful-response)
+* [Example of failed response](#example-of-failed-response)
+* [Example of messages provided by subscription (if successful)](#example-of-messages-provided-by-subscription-if-successful)
+* [Example of messages provided by subscription (if error)](#example-of-messages-provided-by-subscription-if-error)
+* [Request fields:](#request-fields)
 
 Documentation
 
@@ -129129,7 +131864,7 @@ Search
 
 [## 🗃️ Accessing Data
 
-1 items](/networks/access-onchain-data)
+2 items](/networks/access-onchain-data)
 
 [## 🏛️ Governance
 
