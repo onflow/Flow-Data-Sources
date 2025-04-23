@@ -6,7 +6,7 @@ Epoch and Staking Terminology | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/clients)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -132,7 +132,7 @@ This phase is expected to take less than 10% of the time of an epoch, near the e
 
 **Cluster Quorum Certificate Generation (QC):** A process by which nodes using the HotStuff consensus algorithm
 submit signed messages in order to generate a certificate for bootstrapping HotStuff. Each collector cluster runs
-a mini-version of HotStuff, and since clusters are randomized each epoch, a new quorum ceritificate is required
+a mini-version of HotStuff, and since clusters are randomized each epoch, a new quorum certificate is required
 for each cluster each epoch.
 
 **Distributed Key Generation (DKG):** Process for generating a shared public key to initialize the random beacon.
@@ -180,7 +180,7 @@ There is no maximum stake limit.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/02-epoch-terminology.md)
 
-Last updated on **Apr 14, 2025** by **Brian Doyle**
+Last updated on **Apr 17, 2025** by **leopardracer**
 
 [Previous
 
@@ -230,7 +230,7 @@ Network
 * [Network Status](https://status.onflow.org/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/networks/node-ops/node-operation/past-sporks)
+* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
