@@ -822,7 +822,7 @@ _42
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/08-staking-rewards.md)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
 
 [Previous
 

@@ -114,7 +114,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/deployment/emulator-snapshot.md)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
 
 [Previous
 

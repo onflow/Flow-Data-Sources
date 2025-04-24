@@ -324,7 +324,7 @@ _18
 
 _18
 
-enabled: true,
+query: { enabled: true },
 
 _18
 
@@ -626,7 +626,7 @@ _114
 
 _114
 
-enabled: true,
+query: { enabled: true },
 
 _114
 
@@ -990,7 +990,7 @@ For additional details and advanced usage, refer to the [@onflow/kit documentati
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/fcl-quickstart.md)
 
-Last updated on **Apr 18, 2025** by **Brian Doyle**
+Last updated on **Apr 23, 2025** by **Chase Fleming**
 
 [Previous
 

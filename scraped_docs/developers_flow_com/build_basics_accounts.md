@@ -278,7 +278,7 @@ Find a list of all SDKs here: [tools/clients](/tools/clients)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/accounts.md)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
 
 [Previous
 

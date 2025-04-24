@@ -170,7 +170,7 @@ After adding your account to your `flow.json` file, you're ready to use your acc
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/faucets.md)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
 
 [Previous
 

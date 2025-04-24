@@ -300,7 +300,7 @@ but this would require small changes to these transactions to use the new storag
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/15-staking-guide.md)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
 
 [Previous
 

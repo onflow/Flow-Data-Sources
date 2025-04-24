@@ -1022,7 +1022,7 @@ _10
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flow.json/configuration.md)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
 
 [Previous
 

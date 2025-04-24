@@ -111,7 +111,7 @@ This level of protection against MEV is not an afterthought—it has been a fund
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/mev-resistance.md)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
 
 [Previous
 

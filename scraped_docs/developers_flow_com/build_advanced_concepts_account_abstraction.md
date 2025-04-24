@@ -90,7 +90,7 @@ These improvements are especially notable on mobile, where users are typically m
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/account-abstraction.md)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
 
 [Previous
 
