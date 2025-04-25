@@ -16,6 +16,7 @@ SITES = [
     "https://academy.ecdao.org/en/snippets",
     "https://academy.ecdao.org/en/catalog/courses/learn-cadence-beginner",
     "https://academy.ecdao.org/en/catalog/courses/beginner-dapp",
+    "https://cadence-lang.org/docs/",
 
     # GitHub repos
     "https://github.com/onflow/cadence-lang.org/",
