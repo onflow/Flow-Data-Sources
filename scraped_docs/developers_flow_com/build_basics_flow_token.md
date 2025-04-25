@@ -149,7 +149,7 @@ To get started building on Flow, please see the [Flow App Quickstart](/build/get
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/flow-token.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -160,6 +160,8 @@ Smart Contracts ↙](/build/basics/smart-contracts)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Introduction](#introduction)
   + [FLOW as a Native Coin](#flow-as-a-native-coin)

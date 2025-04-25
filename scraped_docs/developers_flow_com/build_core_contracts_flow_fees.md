@@ -137,7 +137,7 @@ access(all) event MinimumStorageReservationChanged(_ minimumStorageReservation: 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/05-flow-fees.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -148,6 +148,8 @@ Staking Table](/build/core-contracts/staking-contract-reference)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [FlowFees](#flowfees)
   + [Events](#events)

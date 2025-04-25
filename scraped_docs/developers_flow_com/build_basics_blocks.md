@@ -115,7 +115,7 @@ Find a list of all SDKs [here](/tools/clients)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/blocks.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -126,6 +126,8 @@ Collections](/build/basics/collections)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Overview](#overview)
   + [Block Header](#block-header)

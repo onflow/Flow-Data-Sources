@@ -745,7 +745,7 @@ Additional Details:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/fees.md)
 
-Last updated on **Apr 14, 2025** by **vishal**
+Last updated on **Apr 18, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -756,6 +756,8 @@ MEV Resistance](/build/basics/mev-resistance)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Transaction Fees](#transaction-fees)
   + [Understanding the need for transaction fees](#understanding-the-need-for-transaction-fees)

@@ -243,7 +243,7 @@ via the `Burner.burn()` method, this event is emitted with the following argumen
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/02-fungible-token.md)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -254,6 +254,8 @@ Flow Token](/build/core-contracts/flow-token)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [FungibleToken Events](#fungibletoken-events)
   + [FungibleToken.Deposited](#fungibletokendeposited)

@@ -121,7 +121,7 @@ To learn more about next steps following the initial setup, check out the follow
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/super-commands.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -132,6 +132,8 @@ Get an Account](/tools/flow-cli/accounts/get-accounts)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Init](#init)
   + [Using Scaffolds](#using-scaffolds)

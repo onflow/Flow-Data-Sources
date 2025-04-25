@@ -303,7 +303,7 @@ The Eliza framework provides a powerful way to create intelligent agents that ca
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/eliza/index.md)
 
-Last updated on **Apr 16, 2025** by **leopardracer**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -314,6 +314,8 @@ Eliza Plugin Guide](/tutorials/ai-plus-flow/eliza/build-plugin)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Learning Objectives](#learning-objectives)
 * [Prerequisites](#prerequisites)

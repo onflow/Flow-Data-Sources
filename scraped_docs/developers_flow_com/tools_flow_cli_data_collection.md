@@ -73,7 +73,7 @@ we have turned off geolocation data reporting to Mixpanel.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/data-collection.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -84,6 +84,8 @@ Cadence VS Code Extension](/tools/vscode-extension)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Why do we collect data about flow cli usage?](#why-do-we-collect-data-about-flow-cli-usage)
 * [What data do we collect?](#what-data-do-we-collect)

@@ -2849,7 +2849,7 @@ Now that you've completed this tutorial, you're ready to explore more complex on
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/flowtobooth/image-gallery.md)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -2860,6 +2860,8 @@ Native VRF](/tutorials/native-vrf)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Objectives](#objectives)
 * [Prerequisites](#prerequisites)

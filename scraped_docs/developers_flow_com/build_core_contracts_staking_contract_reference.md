@@ -264,7 +264,7 @@ access(all) event NewDelegatorStakingMinimum(newMinimum: UFix64)`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/06-staking-contract-reference.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -275,6 +275,8 @@ Epoch Contracts](/build/core-contracts/epoch-contract-reference)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Contract](#contract)
 * [Transactions and Scripts](#transactions-and-scripts)

@@ -311,7 +311,7 @@ implentation](https://github.com/onflow/random-coin-toss) using the VRF.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/vrf.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -322,6 +322,8 @@ Ethers](/evm/guides/ethers)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [**Introduction**](#introduction)
   + [**What is Cadence Arch?**](#what-is-cadence-arch)

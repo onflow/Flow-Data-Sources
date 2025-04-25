@@ -79,7 +79,7 @@ Those wishing to understand the technical specifics of how Flow EVM works we rec
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/about.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Next
 
@@ -88,6 +88,8 @@ How it Works](/evm/how-it-works)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Seamless Integration for Ethereum Developers](#seamless-integration-for-ethereum-developers)
 * [Best-In-Class UX](#best-in-class-ux)

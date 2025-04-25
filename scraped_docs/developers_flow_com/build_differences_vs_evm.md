@@ -368,7 +368,7 @@ If you're already familiar with blockchain development, here's a comparison betw
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/differences-vs-evm/index.md)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -379,6 +379,8 @@ Contract Interaction](/build/getting-started/contract-interaction)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [The Flow Cadence Account Model](#the-flow-cadence-account-model)
 * [Smart Contracts](#smart-contracts)

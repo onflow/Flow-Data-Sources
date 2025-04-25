@@ -111,7 +111,7 @@ This level of protection against MEV is not an afterthought—it has been a fund
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/mev-resistance.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -122,6 +122,8 @@ Events](/build/basics/events)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [The Hidden Cost of MEV in Decentralized Systems](#the-hidden-cost-of-mev-in-decentralized-systems)
 * [Why MEV Persists on Most Blockchains](#why-mev-persists-on-most-blockchains)

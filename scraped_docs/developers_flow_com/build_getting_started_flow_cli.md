@@ -570,7 +570,7 @@ In this tutorial, we've accomplished all of our learning objectives:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/flow-cli.md)
 
-Last updated on **Apr 16, 2025** by **Brian Doyle**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -581,6 +581,8 @@ Simple Frontend](/build/getting-started/fcl-quickstart)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Objectives](#objectives)
 * [Installation](#installation)

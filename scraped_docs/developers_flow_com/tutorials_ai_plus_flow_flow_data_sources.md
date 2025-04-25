@@ -91,6 +91,8 @@ Using AgentKit on Flow](/tutorials/ai-plus-flow/agentkit-flow-guide)
 
 😞😐😊
 
+Open in ChatGPT
+
 * [Overview](#overview)
 * [Key Features](#key-features)
 * [How to Use](#how-to-use)

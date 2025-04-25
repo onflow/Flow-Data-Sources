@@ -320,6 +320,8 @@ Wallet Provider Spec](/tools/wallet-provider-spec)
 
 😞😐😊
 
+Open in ChatGPT
+
 * [1006](#1006)
 * [1007](#1007)
 * [1008](#1008)

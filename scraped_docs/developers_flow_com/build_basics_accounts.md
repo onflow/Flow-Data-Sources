@@ -278,7 +278,7 @@ Find a list of all SDKs here: [tools/clients](/tools/clients)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/accounts.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -289,6 +289,8 @@ Transactions](/build/basics/transactions)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Address](#address)
 * [Balance](#balance)

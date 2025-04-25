@@ -76,7 +76,7 @@ Check out [Running a Node](/networks/node-ops/light-nodes/observer-node) for mor
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-networks/index.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Next
 
@@ -85,6 +85,8 @@ Mainnet](/networks/flow-networks/accessing-mainnet)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [About Flow Networks](#about-flow-networks)
   + [How To Access These Networks?](#how-to-access-these-networks)

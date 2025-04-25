@@ -154,7 +154,7 @@ access(all) event BroadcastMessage(nodeID: String, content: String)`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/10-qc-dkg-scripts-events.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -165,6 +165,8 @@ Machine Account](/networks/staking/machine-account)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [QC Scripts](#qc-scripts)
   + [Get Clusters](#get-clusters)

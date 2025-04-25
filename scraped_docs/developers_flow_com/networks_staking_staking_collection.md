@@ -644,6 +644,8 @@ Basic Staking Guide (Deprecated)](/networks/staking/staking-guide)
 
 😞😐😊
 
+Open in ChatGPT
+
 * [Staker Object Fields](#staker-object-fields)
 * [Vault Capability Fields](#vault-capability-fields)
 * [Machine Account Support](#machine-account-support)

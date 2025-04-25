@@ -159,6 +159,8 @@ Flow Client Library (FCL)](/tools/clients/fcl-js)
 
 😞😐😊
 
+Open in ChatGPT
+
 * [JavaScript (FCL)](#javascript-fcl)
 * [Go SDK](#go-sdk)
 * [Python SDK](#python-sdk)

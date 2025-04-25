@@ -246,7 +246,7 @@ flow project deploy -f main.json -f private.json`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flow.json/security.md)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -257,6 +257,8 @@ Get Block](/tools/flow-cli/get-flow-data/get-blocks)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Private Account Configuration File](#private-account-configuration-file)
 * [Store Configuration in Environment Variables](#store-configuration-in-environment-variables)

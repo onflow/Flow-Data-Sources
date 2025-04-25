@@ -93,7 +93,7 @@ Block explorers are user-friendly online tools that visually present blockchain 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/block-explorers.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -104,6 +104,8 @@ Data Indexers](/ecosystem/data-indexers)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Flowscan](#flowscan)
   + [Supported networks:](#supported-networks)

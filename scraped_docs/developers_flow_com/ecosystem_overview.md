@@ -310,6 +310,8 @@ Auditors](/ecosystem/auditors)
 
 😞😐😊
 
+Open in ChatGPT
+
 * [Getting Started](#getting-started)
 * [Other Communities](#other-communities)
 * [Important: Resources & Tools to help you update your Smart Contracts, transactions and scripts to Cadence 1.0](#important-resources--tools-to-help-you-update-your-smart-contracts-transactions-and-scripts-to-cadence-10)

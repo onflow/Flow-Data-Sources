@@ -196,7 +196,7 @@ access(all) event NodeVersionBoundaryFreezePeriodChanged(freezePeriod: UInt64)`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/04-service-account.md)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -207,6 +207,8 @@ Flow Fees](/build/core-contracts/flow-fees)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Events](#events)
 * [Events](#events-1)

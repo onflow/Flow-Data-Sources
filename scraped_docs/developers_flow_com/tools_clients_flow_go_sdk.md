@@ -2825,7 +2825,7 @@ _39
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/flow-go-sdk/index.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -2836,6 +2836,8 @@ Migration Guide v0.25.0](/tools/clients/flow-go-sdk/migration-v0.25.0)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Overview](#overview)
 * [Getting Started](#getting-started)

@@ -2682,7 +2682,7 @@ The transfer transaction also has a [generic version](https://github.com/onflow/
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/fungible-token.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -2693,6 +2693,8 @@ Overview](/build/guides/mobile/overview)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [What are Fungible Tokens?](#what-are-fungible-tokens)
 * [Vaults on Flow](#vaults-on-flow)

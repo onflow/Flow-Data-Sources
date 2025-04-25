@@ -2486,6 +2486,8 @@ Authorization Function](/tools/wallet-provider-spec/authorization-function)
 
 😞😐😊
 
+Open in ChatGPT
+
 * [Status](#status)
 * [Definitions](#definitions)
 * [Common definitions](#common-definitions)

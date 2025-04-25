@@ -128,7 +128,7 @@ The [FLOW](/build/core-contracts/flow-token) (or $FLOW) token is the native curr
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/flow.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Next
 
@@ -137,6 +137,8 @@ Differences vs. EVM](/build/differences-vs-evm)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [What Makes Flow Unique](#what-makes-flow-unique)
   + [Flow Blockchain](#flow-blockchain)

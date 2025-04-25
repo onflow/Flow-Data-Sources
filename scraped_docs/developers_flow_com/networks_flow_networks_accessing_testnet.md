@@ -122,7 +122,7 @@ You can review [all available core contracts](/build/core-contracts) deployed to
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-networks/accessing-testnet.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -133,6 +133,8 @@ Networks](/networks)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [About Flow Testnet](#about-flow-testnet)
 * [Accessing Flow Testnet](#accessing-flow-testnet)

@@ -113,7 +113,7 @@ contract that conforms to the standard.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/overview.md)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -124,6 +124,8 @@ Deploying Contracts](/build/smart-contracts/deploying)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [How to Write Smart Contracts on Flow](#how-to-write-smart-contracts-on-flow)
   + [Onboard to Cadence](#onboard-to-cadence)

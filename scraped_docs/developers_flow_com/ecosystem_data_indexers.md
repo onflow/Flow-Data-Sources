@@ -66,7 +66,7 @@ To begin using Alchemy, developers can [sign up for an account](https://www.alch
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/data-indexers.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -77,6 +77,8 @@ Developer Profile](/ecosystem/developer-profile)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [EVM & Cadence](#evm--cadence)
   + [**SimpleHash**](#simplehash)

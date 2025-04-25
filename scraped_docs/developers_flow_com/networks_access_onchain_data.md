@@ -2920,7 +2920,7 @@ Below is a list of the available CLI flags to control the behavior of the API
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/index.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -2931,6 +2931,8 @@ Access HTTP API ↗️](/networks/access-onchain-data/access-http-api)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Flow Access Node Endpoints](#flow-access-node-endpoints)
 * [Ping](#ping)

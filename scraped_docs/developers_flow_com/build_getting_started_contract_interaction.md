@@ -243,7 +243,7 @@ Proceed to the next tutorial to learn how to create your own contracts and deplo
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/contract-interaction.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -254,6 +254,8 @@ Local Development](/build/getting-started/flow-cli)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Objectives](#objectives)
 * [Calling a Contract With a Script](#calling-a-contract-with-a-script)

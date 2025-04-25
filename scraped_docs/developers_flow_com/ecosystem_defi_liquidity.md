@@ -70,7 +70,7 @@ developers seeking to enhance the security and management of tokenized assets wi
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/index.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -81,6 +81,8 @@ DeFi Contracts](/ecosystem/defi-liquidity/defi-contracts)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Why DeFi on Flow?](#why-defi-on-flow)
 * [Securing DeFi on Flow EVM](#securing-defi-on-flow-evm)

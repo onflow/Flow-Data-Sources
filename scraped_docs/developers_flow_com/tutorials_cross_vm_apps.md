@@ -48,7 +48,7 @@ Stay tuned—more tutorials and advanced guides are on the way!
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/index.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -59,6 +59,8 @@ Batched Tx From Scaffold](/tutorials/cross-vm-apps/introduction)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Tutorials](#tutorials)
 * [More Coming Soon](#more-coming-soon)

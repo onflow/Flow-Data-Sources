@@ -942,7 +942,7 @@ The balloon inflation game stands as a testament to the seamless integration of 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/walletless-pwa.md)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -953,6 +953,8 @@ IOS Development](/build/guides/mobile/ios-quickstart)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Understanding Progressive Web Apps (PWAs)](#understanding-progressive-web-apps-pwas)
 * [****Exploring Walletless Onboarding****](#exploring-walletless-onboarding)

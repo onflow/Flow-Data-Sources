@@ -1892,7 +1892,7 @@ some other account.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking/child-accounts.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -1903,6 +1903,8 @@ Working With Parent Accounts](/build/guides/account-linking/parent-accounts)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Objectives](#objectives)
 * [Point of Clarity](#point-of-clarity)

@@ -335,7 +335,7 @@ _13
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/proving-authentication.mdx)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -346,6 +346,8 @@ Scripts](/tools/clients/fcl-js/scripts)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Proving Ownership of a Flow Account](#proving-ownership-of-a-flow-account)
   + [Authenticating a user using `account-proof`](#authenticating-a-user-using-account-proof)

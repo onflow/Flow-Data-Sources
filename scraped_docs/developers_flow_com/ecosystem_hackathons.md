@@ -60,7 +60,7 @@ Stay ahead of upcoming hackathons and exclusive announcements. [Join Flow World 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/hackathons.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -71,6 +71,8 @@ Auditors](/ecosystem/auditors)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Flow World Tour](#flow-world-tour)
   + [Why Join?](#why-join)

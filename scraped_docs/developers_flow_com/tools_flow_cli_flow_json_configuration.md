@@ -1022,7 +1022,7 @@ _10
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flow.json/configuration.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -1033,6 +1033,8 @@ Manage Configuration](/tools/flow-cli/flow.json/manage-configuration)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Example Project Configuration](#example-project-configuration)
 * [Configuration](#configuration)

@@ -258,7 +258,7 @@ Eliza's plugin system provides a powerful way to extend the functionality of you
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/eliza/build-plugin.md)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -269,6 +269,8 @@ Token Launch](/tutorials/token-launch)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Learning Objectives](#learning-objectives)
 * [Prerequisites](#prerequisites)

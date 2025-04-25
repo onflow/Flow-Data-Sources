@@ -140,7 +140,7 @@ To learn more about storage fee and transaction fee, visit [Flow Tokenomics page
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/fees.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -151,6 +151,8 @@ Accounts](/evm/accounts)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Gasless Transactions](#gasless-transactions)
 

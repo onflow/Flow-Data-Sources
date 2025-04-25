@@ -86,11 +86,13 @@ You've got an app and are meeting the needs of regular customers. Core features 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/growth/index.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Product Idea](#product-idea)
   + [What you are doing](#what-you-are-doing)

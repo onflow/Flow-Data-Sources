@@ -703,7 +703,7 @@ _66
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/interaction-templates.mdx)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -714,6 +714,8 @@ Proving Ownership of a Flow Account](/tools/clients/fcl-js/proving-authenticatio
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Overview](#overview)
 * [For Applications](#for-applications)

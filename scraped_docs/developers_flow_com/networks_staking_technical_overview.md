@@ -326,6 +326,8 @@ Staking Scripts and Events](/networks/staking/staking-scripts-events)
 
 😞😐😊
 
+Open in ChatGPT
+
 * [Smart Contract Summary](#smart-contract-summary)
 * [Staking as a Node Operator](#staking-as-a-node-operator)
 * [Staking as a Delegator](#staking-as-a-delegator)

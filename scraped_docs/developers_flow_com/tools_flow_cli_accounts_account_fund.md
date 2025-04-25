@@ -94,7 +94,7 @@ Flow [account address](/build/basics/accounts) (prefixed with `0x` or not).
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/account-fund.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -105,6 +105,8 @@ Generate Keys](/tools/flow-cli/keys/generate-keys)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Example Usage](#example-usage)
 * [Arguments](#arguments)

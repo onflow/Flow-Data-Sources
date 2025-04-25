@@ -375,7 +375,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/build-transactions.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -386,6 +386,8 @@ Build a Complex Transaction](/tools/flow-cli/transactions/complex-transactions)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Example Usage](#example-usage)
 * [Arguments](#arguments)

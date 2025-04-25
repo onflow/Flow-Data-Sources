@@ -176,7 +176,7 @@ Following are some recommendations on how to write efficient scripts:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/scripts.md)
 
-Last updated on **Apr 14, 2025** by **vishal**
+Last updated on **Apr 18, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -187,6 +187,8 @@ Fees](/build/basics/fees)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [When to use a script?](#when-to-use-a-script)
 * [Executing Scripts](#executing-scripts)

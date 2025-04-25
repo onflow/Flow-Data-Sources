@@ -56,7 +56,7 @@ State-of-the-art, developer-first security tools for in-house assurance. Get $20
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/builder-perks.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 

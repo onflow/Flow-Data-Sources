@@ -237,7 +237,7 @@ the NFT to update any stored information they have about the NFT in their databa
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/08-non-fungible-token.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -248,6 +248,8 @@ NFT Metadata](/build/core-contracts/nft-metadata)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [NonFungibleToken Events](#nonfungibletoken-events)
   + [NonFungibleToken.Deposited](#nonfungibletokendeposited)

@@ -143,7 +143,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/utils/tools.md)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -154,6 +154,8 @@ Dependency Manager](/tools/flow-cli/dependency-manager)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Flow Development Wallet](#flow-development-wallet)
 * [Flags](#flags)

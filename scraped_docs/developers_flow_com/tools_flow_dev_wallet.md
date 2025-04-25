@@ -584,6 +584,8 @@ Client Tools](/tools/clients)
 
 😞😐😊
 
+Open in ChatGPT
+
 * [Getting Started](#getting-started)
   + [Install the `flow-cli`](#install-the-flow-cli)
   + [Create a `flow.json` file](#create-a-flowjson-file)

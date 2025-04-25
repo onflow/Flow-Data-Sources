@@ -578,7 +578,7 @@ Happy hacking on Flow!
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/agentkit-flow-guide.md)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -589,6 +589,8 @@ Eliza on Flow](/tutorials/ai-plus-flow/eliza)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Quickstart - Starting From Scratch](#quickstart---starting-from-scratch)
 * [Project Setup](#project-setup)

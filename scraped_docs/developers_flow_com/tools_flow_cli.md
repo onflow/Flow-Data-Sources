@@ -84,6 +84,8 @@ Install Instructions](/tools/flow-cli/install)
 
 😞😐😊
 
+Open in ChatGPT
+
 * [Installation](#installation)
 * [Create Your First Project](#create-your-first-project)
 

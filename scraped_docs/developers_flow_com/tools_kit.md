@@ -809,6 +809,8 @@ Flow Emulator](/tools/emulator)
 
 😞😐😊
 
+Open in ChatGPT
+
 * [🔌 Included React Hooks](#-included-react-hooks)
 * [Installation](#installation)
 * [Usage](#usage)

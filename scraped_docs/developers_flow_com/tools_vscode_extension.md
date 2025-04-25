@@ -158,6 +158,8 @@ Flow Dev Wallet](/tools/flow-dev-wallet)
 
 😞😐😊
 
+Open in ChatGPT
+
 * [Features](#features)
 * [Installation](#installation)
 * [Developing the Extension](#developing-the-extension)

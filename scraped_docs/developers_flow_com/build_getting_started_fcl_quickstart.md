@@ -1002,6 +1002,8 @@ Network Architecture ↗️](/build/basics/network-architecture)
 
 😞😐😊
 
+Open in ChatGPT
+
 * [Objectives](#objectives)
 * [Prerequisites](#prerequisites)
 * [Setting Up the Next.js App](#setting-up-the-nextjs-app)

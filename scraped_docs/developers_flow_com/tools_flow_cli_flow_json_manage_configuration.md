@@ -107,7 +107,7 @@ files by using `-f` flag multiple times.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flow.json/manage-configuration.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -118,6 +118,8 @@ Security](/tools/flow-cli/flow.json/security)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Example Usage](#example-usage)
   + [Configuration](#configuration)

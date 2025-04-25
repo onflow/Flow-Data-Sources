@@ -536,7 +536,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/deployment/deploy-project-contracts.md)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -547,6 +547,8 @@ Create Emulator Snapshot](/tools/flow-cli/deployment/emulator-snapshot)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Example Usage](#example-usage)
 * [Initialization Arguments](#initialization-arguments)

@@ -46,7 +46,7 @@ More FlowtoBooth tutorials are in development, including:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/flowtobooth/index.md)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -57,6 +57,8 @@ Build a Fully-Onchain Image Gallery](/tutorials/flowtobooth/image-gallery)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Image Gallery](#image-gallery)
 * [Coming Soon](#coming-soon)

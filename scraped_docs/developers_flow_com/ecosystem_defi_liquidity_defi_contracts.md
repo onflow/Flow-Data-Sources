@@ -155,7 +155,7 @@ Mainnet EAS Explorer: [<https://flow.easscan.credora.io>] (<https://flow.easscan
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/defi-contracts.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -166,6 +166,8 @@ Cross-chain swaps on Flow EVM](/ecosystem/defi-liquidity/cross-chain-swaps)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Stablecoins & Wrapped Assets](#stablecoins--wrapped-assets)
 * [AMMs & DEXs](#amms--dexs)

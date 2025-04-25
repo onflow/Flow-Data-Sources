@@ -372,7 +372,7 @@ If the witness turns out to be valid, the Verification Node who signed that resu
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/slashing.md)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -383,6 +383,8 @@ Node Providers](/networks/node-ops/node-operation/node-providers)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Introduction](#introduction)
 * [Slashing Conditions](#slashing-conditions)

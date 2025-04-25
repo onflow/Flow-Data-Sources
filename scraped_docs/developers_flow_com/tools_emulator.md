@@ -48,7 +48,7 @@ have a look at [the README of the repository](https://github.com/onflow/flow-emu
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/emulator/index.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -59,6 +59,8 @@ Flow CLI](/tools/flow-cli)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Running the emulator with the Flow CLI](#running-the-emulator-with-the-flow-cli)
   + [Installation](#installation)

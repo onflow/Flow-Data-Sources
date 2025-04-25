@@ -220,7 +220,7 @@ Where can I get updates or ask questions?
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/faq.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -231,6 +231,8 @@ Bridges](/ecosystem/bridges)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Bridging and Gas](#bridging-and-gas)
 * [Stablecoins on Flow](#stablecoins-on-flow)

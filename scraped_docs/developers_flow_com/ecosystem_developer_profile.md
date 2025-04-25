@@ -100,7 +100,7 @@ We'll be updating the Developer Profile with new features and challenges. Check 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/developer-profile.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -111,6 +111,8 @@ DeFi & Liquidity](/ecosystem/defi-liquidity)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [What is the Developer Profile?](#what-is-the-developer-profile)
 * [Getting Started](#getting-started)

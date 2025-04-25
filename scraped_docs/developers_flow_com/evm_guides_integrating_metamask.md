@@ -169,7 +169,7 @@ By using this approach to add the Flow network to Metamask, you can avoid manual
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/integrating-metamask.mdx)
 
-Last updated on **Apr 16, 2025** by **leopardracer**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -180,6 +180,8 @@ Hardhat](/evm/guides/hardhat)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Metamask](#metamask)
   + [EIP-3035 & MetaMask](#eip-3035--metamask)

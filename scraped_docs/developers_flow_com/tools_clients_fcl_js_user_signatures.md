@@ -237,7 +237,7 @@ Use cases include cryptographic login, message validation, verifiable credential
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/user-signatures.md)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -248,6 +248,8 @@ WalletConnect 2.0 Manual Configuration](/tools/clients/fcl-js/wallet-connect)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Signing Arbitrary Data](#signing-arbitrary-data)
 * [Verifying User Signatures](#verifying-user-signatures)

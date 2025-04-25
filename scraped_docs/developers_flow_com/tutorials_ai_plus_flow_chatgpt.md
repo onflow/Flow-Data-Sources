@@ -108,7 +108,7 @@ You've now created a custom GPT that references your uploaded file as a primary 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/chatgpt/index.md)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -119,6 +119,8 @@ Flow Data Sources](/tutorials/ai-plus-flow/flow-data-sources)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [📍 Step 1: Open the "Explore GPTs" Section](#-step-1-open-the-explore-gpts-section)
 * [📍 Step 2: Click "Create a GPT"](#-step-2-click-create-a-gpt)
