@@ -14,7 +14,7 @@ Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
-* [Flow's Network Architecture](/networks/network-architecture)
+* [Flow Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 
   + [Epoch and Staking Terminology](/networks/staking/epoch-terminology)
@@ -822,7 +822,7 @@ _42
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/08-staking-rewards.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 21, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -833,6 +833,8 @@ QC and DKG](/networks/staking/qc-dkg)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Current method to check staking rewards](#current-method-to-check-staking-rewards)
 * [Check staking rewards before May 2023](#check-staking-rewards-before-may-2023)

@@ -359,7 +359,7 @@ _17
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/authorization-function.md)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -370,6 +370,8 @@ Introduction](/tools/wallet-provider-spec/custodial)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Overview](#overview)
 * [How to Use an Authorization Function](#how-to-use-an-authorization-function)

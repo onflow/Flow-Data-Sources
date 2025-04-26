@@ -16,7 +16,8 @@ Search
 * [AI Plus Flow](/tutorials/ai-plus-flow)
 * [Token Launch](/tutorials/token-launch)
 
-  + [Register Token](/tutorials/token-launch/register-token)
+  + [Register ERC20 Token](/tutorials/token-launch/register-erc20-token)
+  + [Register Cadence Assets](/tutorials/token-launch/register-cadence-assets)
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
 * [FlowtoBooth](/tutorials/flowtobooth)
 * [Native VRF](/tutorials/native-vrf)
@@ -29,25 +30,28 @@ On this page
 
 This section covers the process of registering your tokens on Flow.
 
-### Guides:[​](#guides "Direct link to Guides:")
+## Guides[​](#guides "Direct link to Guides")
 
-* **[Register Your Token](/tutorials/token-launch/register-token)**: Steps to register your Fungible Token on Flow Cadence or ERC20 on Flow EVM so it appears in Flow Wallet, IncrementFi, and other ecosystem apps.
+* **[Register Your ERC20 Token](/tutorials/token-launch/register-erc20-token)**: Steps to register your ERC20 token on Flow EVM based on Github Pull Request process so it appears in Flow standard Token List which is used by Flow Wallet, MetaMask, and other ecosystem apps.
+* **[Register Your Assets in Cadence](/tutorials/token-launch/register-cadence-assets)**: Steps to register your Fungible Token or Non-Fungible Token on Flow so it appears in Flow Wallet, IncrementFi, and other ecosystem apps.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/token-launch/index.md)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
 Eliza Plugin Guide](/tutorials/ai-plus-flow/eliza/build-plugin)[Next
 
-Register Token](/tutorials/token-launch/register-token)
+Register ERC20 Token](/tutorials/token-launch/register-erc20-token)
 
 ###### Rate this page
 
 😞😐😊
 
-* [Guides:](#guides)
+Open in ChatGPT
+
+* [Guides](#guides)
 
 Documentation
 

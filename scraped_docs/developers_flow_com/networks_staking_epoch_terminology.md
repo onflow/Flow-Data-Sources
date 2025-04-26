@@ -14,7 +14,7 @@ Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
-* [Flow's Network Architecture](/networks/network-architecture)
+* [Flow Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 
   + [Epoch and Staking Terminology](/networks/staking/epoch-terminology)
@@ -180,7 +180,7 @@ There is no maximum stake limit.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/02-epoch-terminology.md)
 
-Last updated on **Apr 17, 2025** by **leopardracer**
+Last updated on **Apr 21, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -191,6 +191,8 @@ Epoch and Reward Schedule](/networks/staking/schedule)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Terminology](#terminology)
 

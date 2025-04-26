@@ -48,11 +48,11 @@ Stay tuned—more tutorials and advanced guides are on the way!
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/index.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Brian Doyle**
 
 [Previous
 
-Register Token](/tutorials/token-launch/register-token)[Next
+Register Cadence Assets](/tutorials/token-launch/register-cadence-assets)[Next
 
 Batched Tx From Scaffold](/tutorials/cross-vm-apps/introduction)
 

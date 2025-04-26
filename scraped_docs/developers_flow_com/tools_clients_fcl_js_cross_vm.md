@@ -85,7 +85,7 @@ For background and motivation, see the [FCL Ethereum Provider for Cross-VM Apps 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/cross-vm/index.md)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -96,6 +96,8 @@ FCL Ethereum Provider](/tools/clients/fcl-js/cross-vm/ethereum-provider)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [`@onflow/fcl-ethereum-provider`](#onflowfcl-ethereum-provider)
 * [`@onflow/fcl-wagmi-adapter`](#onflowfcl-wagmi-adapter)

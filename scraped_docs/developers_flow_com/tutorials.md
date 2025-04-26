@@ -42,7 +42,8 @@ Learn how to leverage AI tools to enhance your Flow development experience. Thes
 
 Learn how to launch your own token on Flow using Cadence and EVM. This guide covers the process of registering and deploying tokens that can be used across both virtual machines.
 
-* [Register a Token](/tutorials/token-launch/register-token) - Step-by-step guide to registering and deploying your token on Flow
+* [Register Your ERC20 Token](/tutorials/token-launch/register-erc20-token) - Learn how to register your ERC20 token on Flow EVM based on Github Pull Request process so it appears in Flow standard Token List which is used by Flow Wallet, MetaMask, and other ecosystem apps.
+* [Register Your Assets in Cadence](/tutorials/token-launch/register-cadence-assets) - Learn how to register your Fungible Token or Non-Fungible Token on Flow through Cadence transaction so it appears in Flow Wallet, IncrementFi, and other ecosystem apps.
 
 ## Cross-VM Applications[​](#cross-vm-applications "Direct link to Cross-VM Applications")
 
@@ -69,7 +70,7 @@ Explore Flow's unique capabilities through fun benchmark applications that showc
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/index.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Next
 

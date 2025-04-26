@@ -1,6 +1,6 @@
 # Source: https://developers.flow.com/networks/network-architecture
 
-Flow's Network Architecture | Flow Developer Portal
+Flow Network Architecture | Flow Developer Portal
 
 
 
@@ -14,7 +14,7 @@ Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
-* [Flow's Network Architecture](/networks/network-architecture)
+* [Flow Network Architecture](/networks/network-architecture)
 
   + [Solving the blockchain trilemma](/networks/network-architecture/solving-blockchain-trilemma)
   + [Sustainability](/networks/network-architecture/sustainability)
@@ -25,63 +25,78 @@ Search
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
-* Flow's Network Architecture
+* Flow Network Architecture
 
 On this page
 
-Flow has pioneered a new paradigm of multi-role architecture that solves the core problem of today’s blockchains.
-The result is a scalable, decentralized, and secure network which ensures user safety and long-term sustainability.
+# Flow Network Architecture
+
+Flow introduces a new paradigm in blockchain architecture - **an [MEV-resistant](/build/basics/mev-resistance) modular design** that combines decentralized sequencers, stateless validators, and an execution layer built for **rich atomic composability across complex state**. This novel structure achieves scalability, decentralization, and security - without compromise - ensuring both [user safety](/networks/network-architecture/user-safety) and long-term sustainability.
 
 ![flow_gif](/assets/images/flow_node_types_1-c0d12de3d9d380025e907b83fe90e6c4.gif)
 
-To better understand the architecture, lets first understand the problems with the current blockchain. Then lets look at how Flow multi-role architecture solves these problems.
+Flow ships what roll-ups only promise: **a full modular feature-set on a single L1**.
 
-# What are the biggest problems solved by Flow's Multi-role Architecture?
+* **Decentralized sequencing** via Consensus + Collector roles - no central bottleneck and [MEV-resistance](/build/basics/mev-resistance)
+* **Native data availability** - Flow architecture ensures all necessary state data is available within the protocol, allowing nodes to verify state without relying on an external data availability layer
+* **Execution / verification split** for lightweight validators, yet one global state for atomic composability
+* **Protocol-level [account abstraction](/build/basics/accounts):** multi-key wallets, gas sponsorship, scoped capabilities
+* **Dual runtimes:** [EVM equivalence](/evm/about) alongside Cadence, so Solidity and resource-oriented contracts live side-by-side
 
-## 1. The blockchain trilemma[​](#1-the-blockchain-trilemma "Direct link to 1. The blockchain trilemma")
+To appreciate architecture of Flow, it's important to first understand the core challenges in building performant blockchains - and then explore how the Flow **multi-role architecture** addresses them directly.
 
-A blockchain should be fully decentralized, highly scalable and extremely secure. However a well-known problem with all blockchain is the blockchain trilemma - optimizing for any one edge comes at the cost of the other two.
+## What Problems Does the Flow Multi-Role Architecture Solve?[​](#what-problems-does-the-flow-multi-role-architecture-solve "Direct link to What Problems Does the Flow Multi-Role Architecture Solve?")
 
-You can have a chain that is decentralized and secure but not scalable e.g. Bitcoin and Ethereum or you can have a chain that is scalable and secure but not as decentralized e.g. Solana, Aptos and Sui.
-While multi-chain systems like Cosmos, Layer 2 solutions (L2s) like Polygon, and cross-chain bridges offer innovative approaches to address these challenges, they divide the trust into separate and independent security zones and such zones with fewer validators can be more vulnerable to attacks and therefore less secure.
+### 1. The Blockchain Trilemma[​](#1-the-blockchain-trilemma "Direct link to 1. The Blockchain Trilemma")
+
+The blockchain trilemma proposes that networks can only optimize for **two out of three** fundamental properties: **decentralization**, **security**, and **scalability**. For example:
+
+* Bitcoin and Ethereum prioritize decentralization and security, but suffer from scalability limitations.
+* Networks like Solana, Aptos, and Sui improve scalability and security, but centralize validator infrastructure, compromising decentralization.
+
+Multi-chain solutions (e.g. Cosmos), Layer 2s (e.g. Optimism), and cross-chain bridges aim to overcome this tradeoff. However, they do so by **splitting trust** across **independent security domains**, often with fewer validators - introducing new attack vectors and lowering security guarantees.
 
 ![scenario_1](/assets/images/trilemma-ee425f6b7d5ae5acecd2476064b9a66a.png)
 
-## 2. Disadvantaging end-users[​](#2-disadvantaging-end-users "Direct link to 2. Disadvantaging end-users")
+### 2. MEV and End-User Exploitation[​](#2-mev-and-end-user-exploitation "Direct link to 2. MEV and End-User Exploitation")
 
-Most blockchains, regardless of the number of participating nodes, inherently disadvantage individual end-users. This is because (colluding) nodes can censor user transactions or unfairly extract value from users in a phenomenon commonly known as Miner Extractable Value [MEV]. As a result, individual end users can end up paying an “invisible tax” or otherwise seeing their transactions fail due to MEV.
+Most blockchains inherently expose users to **Maximum (or Miner) Extractable Value (MEV)** - a phenomenon where block proposers reorder or censor transactions to extract value, or third parties manipulate priority fees to insert transactions before and/or after a target transaction. This results in users paying a hidden "invisible tax", experiencing failed transactions, or in extreme cases **having hundreds of thousands of dollars stolen from them**.
 
-## 3. Energy inefficient and unsustainable[​](#3-energy-inefficient-and-unsustainable "Direct link to 3. Energy inefficient and unsustainable")
+Even in large, decentralized networks, MEV can be exploited by colluding actors, creating **unfair outcomes for individual users**.
 
-It is well established that Proof-of-Work chains like Bitcoin consume massive amounts of energy, require perpetual hardware upgrades for the miners to stay competitive, and are therefore extremely harmful to the environment. A Proof-of-Stake chain’s environmental impact is less severe, but as web3 applications achieve mainstream adoption, every node in these chains will have to provide more and more hardware resources to meet the increasing throughput demand and the ever growing on-chain state. Vertically scaling the nodes implies higher energy consumption and environmental footprint.
+### 3. Energy Inefficiency and Unsustainable Growth[​](#3-energy-inefficiency-and-unsustainable-growth "Direct link to 3. Energy Inefficiency and Unsustainable Growth")
 
-## Multi-role Architecture on Flow[​](#multi-role-architecture-on-flow "Direct link to Multi-role Architecture on Flow")
+Proof-of-Work chains like Bitcoin are **energy-intensive** and require constant hardware upgrades to stay viable. While Proof-of-Stake reduces the carbon footprint, it still scales poorly. As usage grows, so does the **on-chain state and throughput demand**, requiring validators to **vertically scale** their hardware-leading to greater **centralization pressure** and higher energy consumption.
 
-![banner](/assets/images/banner-e0948ec90b34a09994987fdebe8537ce.png)
+## Rethinking Blockchain Design[​](#rethinking-blockchain-design "Direct link to Rethinking Blockchain Design")
 
-In first-generation smart contract blockchains like Ethereum and Bitcoin, every node in the network performs all of the work associated with processing every transaction (including the entire network’s history, account balances, smart contract code, etc.). While highly secure, it’s also incredibly inefficient, and does not scale throughput (transaction per second, transaction latency) and capacity (on-chain data storage).
+![Flow Banner](/assets/images/banner-e0948ec90b34a09994987fdebe8537ce.png)
 
-Most second-generation blockchain networks focus on improving performance in one of two ways:
+In traditional blockchains like Ethereum and Bitcoin, every full node is responsible for **all aspects of transaction processing**-from validating the full state to executing smart contracts and maintaining history. This ensures security but is inherently inefficient and limits scalability in terms of **throughput** and **data capacity**.
 
-1. They compromise decentralization by requiring that participating nodes run on powerful servers (e.g. Solana); or
-2. They dramatically increase smart developer complexity by breaking up the network through mechanisms such as sharding (e.g. L2s such as Polygon).
+Second-generation blockchains typically address this in one of two ways:
 
-The first approach is vulnerable to platform risk and cartel-like behavior. The second approach outsources the challenges of scaling the platform, effectively handing off the complexities of bridging the different strongly-federated ecosystems to application developers.
+1. **Reduce decentralization** by requiring high-performance hardware (e.g. Solana), or
+2. **Increase complexity** by fragmenting the network with techniques like sharding (e.g. Optimism and other L2s).
 
-Flow offers a new path: pipelining applied to blockchain networks.
+The first approach risks validator centralization and cartelization. The second shifts the burden to developers, who must manage cross-shard or cross-chain infrastructure - **introducing developer overhead and new failure modes**.
 
-Pipelining is a well-established technique across various fields, from manufacturing to CPU design, for significantly increasing productivity.
-Flow leverages this concept by distributing the tasks typically handled by a full node in a monolithic blockchain architecture across four specialized roles: Collection, Consensus, Execution, and Verification.
-This division of labor between nodes occurs within the different validation stages for each transaction, rather than distributing transactions across different nodes as is done with sharding.
-In other words, every Flow node still participates in the validation of every transaction, but they do so only at one of the stages of validation.
-They can therefore specialize—and greatly increase the efficiency—for their particular stage of focus.
+Flow offers a new path: **pipelining** applied to blockchain networks.
 
-### Flow node roles and what they do[​](#flow-node-roles-and-what-they-do "Direct link to Flow node roles and what they do")
+### The Flow Alternative: Modular Design and Pipelining[​](#the-flow-alternative-modular-design-and-pipelining "Direct link to The Flow Alternative: Modular Design and Pipelining")
+
+Flow applies pipelining, a proven method from manufacturing and computing, to blockchain consensus and execution.
+
+Rather than making each node perform all duties, Flow splits the responsibilities across **five specialized node roles**.
+
+Every transaction is still validated by the network - but **each node only handles a specific stage**, allowing them to specialize and **optimize for their role**. This specialization unlocks massive gains in **throughput**, **efficiency**, and **scalability** - without sacrificing decentralization or composability.
+
+### Flow Node Roles and What They Do[​](#flow-node-roles-and-what-they-do "Direct link to Flow Node Roles and What They Do")
 
 |  | Node type | Responsibility | What do the nodes of this role do? |
 | --- | --- | --- | --- |
 | collection | Collection | Collection nodes act as a censorship-resistant data availability layer, which caches transactions for subsequent execution. | Collection nodes order transactions into batches known as collection. |
-| consensus | Consensus | The consensus committee serves as the security authority in the network and orchestrates Flow's transaction processing pipeline. | Consensus nodes order collections into blocks and commit execution results after verification. |
+| consensus | Consensus | The consensus committee serves as the security authority in the network and orchestrates the Flow transaction processing pipeline. | Consensus nodes order collections into blocks and commit execution results after verification. |
 | execution | Execution | Execution nodes provide the computational resources for executing transactions and maintaining the state. | Execution nodes execute the transaction and record state changes. |
 | verification | Verification | Verification nodes ensure that transactions are truthfully executed. | Verification nodes verify the work of the execution nodes. They either approve or disagree with their results, reporting their findings to the consensus nodes. |
 | access | Access | Access Nodes route transactions into the network and replicate (parts of) the state and transaction results for external clients to query. | Access node serve the API calls to send and read data from the chain. |
@@ -97,7 +112,7 @@ In the next section, lets look at how Flow multi-role architecture solves those 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/network-architecture/index.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -111,11 +126,13 @@ Solving the blockchain trilemma](/networks/network-architecture/solving-blockcha
 
 Open in ChatGPT
 
-* [1. The blockchain trilemma](#1-the-blockchain-trilemma)
-* [2. Disadvantaging end-users](#2-disadvantaging-end-users)
-* [3. Energy inefficient and unsustainable](#3-energy-inefficient-and-unsustainable)
-* [Multi-role Architecture on Flow](#multi-role-architecture-on-flow)
-  + [Flow node roles and what they do](#flow-node-roles-and-what-they-do)
+* [What Problems Does the Flow Multi-Role Architecture Solve?](#what-problems-does-the-flow-multi-role-architecture-solve)
+  + [1. The Blockchain Trilemma](#1-the-blockchain-trilemma)
+  + [2. MEV and End-User Exploitation](#2-mev-and-end-user-exploitation)
+  + [3. Energy Inefficiency and Unsustainable Growth](#3-energy-inefficiency-and-unsustainable-growth)
+* [Rethinking Blockchain Design](#rethinking-blockchain-design)
+  + [The Flow Alternative: Modular Design and Pipelining](#the-flow-alternative-modular-design-and-pipelining)
+  + [Flow Node Roles and What They Do](#flow-node-roles-and-what-they-do)
   + [Further reading](#further-reading)
 
 Documentation

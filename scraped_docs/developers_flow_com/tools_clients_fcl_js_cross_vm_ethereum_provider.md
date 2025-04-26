@@ -285,7 +285,7 @@ Any unknown or unsupported request methods will be proxied to the `gateway` (if 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/cross-vm/ethereum-provider.mdx)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -296,6 +296,8 @@ FCL Rainbowkit Adapter](/tools/clients/fcl-js/cross-vm/rainbowkit-adapter)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Installation](#installation)
 * [Usage](#usage)

@@ -14,7 +14,7 @@ Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
-* [Flow's Network Architecture](/networks/network-architecture)
+* [Flow Network Architecture](/networks/network-architecture)
 
   + [Solving the blockchain trilemma](/networks/network-architecture/solving-blockchain-trilemma)
   + [Sustainability](/networks/network-architecture/sustainability)
@@ -25,7 +25,7 @@ Search
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
-* [Flow's Network Architecture](/networks/network-architecture)
+* [Flow Network Architecture](/networks/network-architecture)
 * Solving the blockchain trilemma
 
 On this page
@@ -76,11 +76,11 @@ Thus, Flow’s multi-role architecture solves the blockchain trilemma:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/network-architecture/solving-blockchain-trilemma.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Brian Doyle**
 
 [Previous
 
-Flow's Network Architecture](/networks/network-architecture)[Next
+Flow Network Architecture](/networks/network-architecture)[Next
 
 Sustainability](/networks/network-architecture/sustainability)
 

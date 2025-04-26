@@ -14,7 +14,7 @@ Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
-* [Flow's Network Architecture](/networks/network-architecture)
+* [Flow Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
 
@@ -657,7 +657,7 @@ consensus_compliance_sealed_height 1.132054e+06`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-setup.md)
 
-Last updated on **Apr 14, 2025** by **vishal**
+Last updated on **Apr 21, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -668,6 +668,8 @@ Past Network Upgrades](/networks/node-ops/node-operation/past-upgrades)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Pull the Flow Images](#pull-the-flow-images)
 * [Prepare Your Node to Start](#prepare-your-node-to-start)

@@ -14,7 +14,7 @@ Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
-* [Flow's Network Architecture](/networks/network-architecture)
+* [Flow Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 
   + [Epoch and Staking Terminology](/networks/staking/epoch-terminology)
@@ -118,7 +118,7 @@ It is possible to query the information about a node that an address runs though
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/12-faq.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 21, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -129,6 +129,8 @@ Technical Staking Options](/networks/staking/staking-options)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Where will users receive their staking reward for each staking option?](#where-will-users-receive-their-staking-reward-for-each-staking-option)
 * [Will staking rewards be automatically re-staked?](#will-staking-rewards-be-automatically-re-staked)

@@ -239,7 +239,7 @@ _17
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/provable-authn.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 21, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -250,6 +250,8 @@ User Signature](/tools/wallet-provider-spec/user-signature)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [TL;DR Wallet Provider](#tldr-wallet-provider)
   + [Account Proof Message Encoding](#account-proof-message-encoding)

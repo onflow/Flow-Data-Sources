@@ -14,7 +14,7 @@ Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
-* [Flow's Network Architecture](/networks/network-architecture)
+* [Flow Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
 
@@ -103,7 +103,7 @@ Delegators to the old node will have their tokens unstaked automatically. They w
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-migration.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 21, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -114,6 +114,8 @@ Node Provisioning](/networks/node-ops/node-operation/node-provisioning)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Method 1 - No change to the node staking data](#method-1---no-change-to-the-node-staking-data)
 * [Method 2 - Network address change](#method-2---network-address-change)

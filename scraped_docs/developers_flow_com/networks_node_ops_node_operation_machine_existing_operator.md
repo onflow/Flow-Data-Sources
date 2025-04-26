@@ -14,7 +14,7 @@ Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
-* [Flow's Network Architecture](/networks/network-architecture)
+* [Flow Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
 
@@ -285,7 +285,7 @@ This command will detect and provide information about common misconfigurations,
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/machine-existing-operator.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 21, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -296,6 +296,8 @@ Node Monitoring](/networks/node-ops/node-operation/monitoring-nodes)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Downloading Bootstrap Utility](#downloading-bootstrap-utility)
 * [Generate Machine Account key](#generate-machine-account-key)

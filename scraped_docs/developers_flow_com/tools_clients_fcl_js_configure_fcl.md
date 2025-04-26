@@ -373,7 +373,7 @@ FCL will automatically replace the contract name with the address for the networ
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/configure-fcl.md)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -384,6 +384,8 @@ Cross VM Packages](/tools/clients/fcl-js/cross-vm)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Configuration](#configuration)
 * [Setting Configuration Values](#setting-configuration-values)

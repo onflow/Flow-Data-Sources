@@ -39549,8 +39549,15 @@ access(all) contract interface FungibleToken: ViewResolver {
     /// The interface that provides a standard field
     /// for representing balance
     ///
-    access(all) resource interface Balance {
+    access(all) resource interface Balance: Burner.Burnable {
         access(all) var balance: UFix64
+
+        // This default implementation needs to be in a separate interface
+        // from the one in `Vault` so that the conditions get enforced
+        // in the correct one
+        access(contract) fun burnCallback() {
+            self.balance = 0.0
+        }
     }
 
     /// Provider
@@ -39659,7 +39666,6 @@ access(all) contract interface FungibleToken: ViewResolver {
                     "FungibleToken.Vault.burnCallback: Cannot burn this Vault with Burner.burn(). "
                     .concat("The balance must be set to zero during the burnCallback method so that it cannot be spammed.")
             }
-            self.balance = 0.0
         }
 
         /// getSupportedVaultTypes

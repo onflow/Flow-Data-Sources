@@ -14,7 +14,7 @@ Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
-* [Flow's Network Architecture](/networks/network-architecture)
+* [Flow Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
 * [Accessing Data](/networks/access-onchain-data)
@@ -29,7 +29,7 @@ Search
 
 2 items](/networks/flow-networks)
 
-[## 🗃️ Flow's Network Architecture
+[## 🗃️ Flow Network Architecture
 
 3 items](/networks/network-architecture)
 
@@ -55,13 +55,13 @@ Learn about Flow's governance model and how it's empowering our community of use
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/index.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Brian Doyle**
 
 [Previous
 
 Testnet](/networks/flow-networks/accessing-testnet)[Next
 
-Flow's Network Architecture](/networks/network-architecture)
+Flow Network Architecture](/networks/network-architecture)
 
 Documentation
 

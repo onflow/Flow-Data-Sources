@@ -14,7 +14,7 @@ Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
-* [Flow's Network Architecture](/networks/network-architecture)
+* [Flow Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
 * [Accessing Data](/networks/access-onchain-data)
@@ -150,6 +150,8 @@ Governance](/networks/governance)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Error Structure](#error-structure)
   + [Message Format Errors](#message-format-errors)

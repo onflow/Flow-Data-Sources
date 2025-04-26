@@ -14,7 +14,7 @@ Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
-* [Flow's Network Architecture](/networks/network-architecture)
+* [Flow Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
 
@@ -252,7 +252,7 @@ _10
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/protocol-state-bootstrap.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 21, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -263,6 +263,8 @@ Managing disk space](/networks/node-ops/node-operation/reclaim-disk)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Node Startup](#node-startup)
 * [Using a Root Snapshot File](#using-a-root-snapshot-file)

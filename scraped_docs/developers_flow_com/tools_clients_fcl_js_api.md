@@ -3614,7 +3614,7 @@ Signature objects are used to represent a signature for a particular message as 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/api.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 21, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -3625,6 +3625,8 @@ SDK Reference](/tools/clients/fcl-js/sdk-guidelines)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Configuration](#configuration)
   + [Setting Configuration Values](#setting-configuration-values)

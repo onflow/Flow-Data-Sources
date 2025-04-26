@@ -197,7 +197,7 @@ _31
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/cross-vm/wagmi-adapter.mdx)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -208,6 +208,8 @@ Wallet Discovery](/tools/clients/fcl-js/discovery)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Installation](#installation)
 * [Usage](#usage)

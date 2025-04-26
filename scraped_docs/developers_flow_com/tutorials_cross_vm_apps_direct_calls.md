@@ -195,7 +195,7 @@ For more information and a deeper dive into the `EVMAddress`, `Result`, and `Sta
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/direct-calls.md)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -206,6 +206,8 @@ Batched EVM Transactions](/tutorials/cross-vm-apps/batched-evm-transactions)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Making Direct Calls](#making-direct-calls)
   + [Accessing Flow EVM](#accessing-flow-evm)
