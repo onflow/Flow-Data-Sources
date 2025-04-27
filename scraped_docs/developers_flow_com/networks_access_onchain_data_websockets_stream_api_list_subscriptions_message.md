@@ -14,7 +14,7 @@ Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
-* [Flow's Network Architecture](/networks/network-architecture)
+* [Flow Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
 * [Accessing Data](/networks/access-onchain-data)
@@ -148,6 +148,8 @@ Connecting to WebSockets via Postman UI](/networks/access-onchain-data/websocket
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Example of request](#example-of-request)
 * [Example of response](#example-of-response)

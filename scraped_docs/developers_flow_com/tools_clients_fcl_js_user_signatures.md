@@ -237,7 +237,7 @@ Use cases include cryptographic login, message validation, verifiable credential
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/user-signatures.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 

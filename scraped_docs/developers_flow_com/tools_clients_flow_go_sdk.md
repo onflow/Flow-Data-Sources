@@ -2541,7 +2541,7 @@ publicKey := privateKey.PublicKey()`
 
 The example above uses an ECDSA key pair on the P-256 (secp256r1) elliptic curve. Flow also supports the secp256k1 curve used by Bitcoin and Ethereum. Read more about [supported algorithms here](/build/basics/accounts#signature-and-hash-algorithms).
 
-### Transfering Flow[​](#transfering-flow "Direct link to Transfering Flow")
+### Transferring Flow[​](#transferring-flow "Direct link to Transferring Flow")
 
 This is an example of how to construct a FLOW token transfer transaction
 with the Flow Go SDK.
@@ -2825,7 +2825,7 @@ _39
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/flow-go-sdk/index.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 26, 2025** by **leopardracer**
 
 [Previous
 
@@ -2863,7 +2863,7 @@ Open in ChatGPT
   + [Send Transactions](#send-transactions)
   + [Create Accounts](#create-accounts)
   + [Generate Keys](#generate-keys)
-  + [Transfering Flow](#transfering-flow)
+  + [Transferring Flow](#transferring-flow)
 * [Cadence Script](#cadence-script)
 * [Build the Transaction](#build-the-transaction)
 

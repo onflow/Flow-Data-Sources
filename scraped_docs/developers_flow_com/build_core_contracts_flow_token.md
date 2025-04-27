@@ -202,7 +202,7 @@ To learn more about staking events, read [staking/events/](/networks/staking/sta
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/03-flow-token.md)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -213,6 +213,8 @@ Service Account](/build/core-contracts/service-account)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Flow Token Contract](#flow-token-contract)
 * [Tokens Initialized](#tokens-initialized)

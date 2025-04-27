@@ -46,7 +46,7 @@ More FlowtoBooth tutorials are in development, including:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/flowtobooth/index.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 

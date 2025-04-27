@@ -14,7 +14,7 @@ Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
-* [Flow's Network Architecture](/networks/network-architecture)
+* [Flow Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
 
@@ -355,7 +355,7 @@ All networking layer settings are initialized to default values from the [config
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/guides/starting-nodes.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -366,6 +366,8 @@ Machine Accounts for Existing Node Operators](/networks/node-ops/node-operation/
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [systemd](#systemd)
 * [Docker](#docker)

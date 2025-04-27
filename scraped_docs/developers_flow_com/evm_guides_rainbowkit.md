@@ -164,7 +164,7 @@ mobile: {
 
 _63
 
-getUri: (uri: string) => uri,
+getUri: (uri: string) => `https://fcw-link.lilico.app/wc?uri=${encodeURIComponent(uri)}`,
 
 _63
 
@@ -514,7 +514,7 @@ Now that you've completed this tutorial, you're ready to enhance your dApp with 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/rainbowkit.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 25, 2025** by **Jordan Ribbink**
 
 [Previous
 

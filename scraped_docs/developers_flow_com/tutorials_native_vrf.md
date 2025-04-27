@@ -41,7 +41,7 @@ Stay tuned—more tutorials and advanced guides are on the way!
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/native-vrf/index.md)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -52,6 +52,8 @@ Secure Randomness with Commit-Reveal in Cadence](/tutorials/native-vrf/commit-re
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Tutorials](#tutorials)
 * [More Coming Soon](#more-coming-soon)

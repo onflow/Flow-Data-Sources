@@ -798,7 +798,7 @@ mobile: {
 
 _113
 
-getUri: (uri: string) => uri,
+getUri: (uri: string) => `https://fcw-link.lilico.app/wc?uri=${encodeURIComponent(uri)}`,
 
 _113
 
@@ -2849,7 +2849,7 @@ Now that you've completed this tutorial, you're ready to explore more complex on
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/flowtobooth/image-gallery.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 25, 2025** by **Jordan Ribbink**
 
 [Previous
 

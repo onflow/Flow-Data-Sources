@@ -2474,7 +2474,7 @@ _34
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/index.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 

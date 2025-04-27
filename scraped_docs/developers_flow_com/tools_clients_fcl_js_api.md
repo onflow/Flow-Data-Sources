@@ -1397,7 +1397,7 @@ _15
 ### `AppUtils.verifyAccountProof`[​](#apputilsverifyaccountproof "Direct link to apputilsverifyaccountproof")
 
 A method allowing applications to cryptographically prove that a user controls an on-chain account. During user authentication, some FCL compatible wallets will choose to support the FCL `account-proof` service. If a wallet chooses to support this service, and the user approves the signing of message data, they will return `account-proof` data and a signature(s) that can be used to prove a user controls an on-chain account.
-See [proving-authentication](https://github.com/onflow/fcl-js/blob/master/docs/reference/proving-authentication.mdx) documentaion for more details.
+See [proving-authentication](https://github.com/onflow/fcl-js/blob/master/docs/reference/proving-authentication.mdx) documentation for more details.
 
 ⚠️ `fcl.config.flow.network` or options override is required to use this api. See [FCL Configuration](#configuration).
 
@@ -1720,7 +1720,7 @@ A builder function that returns the interaction to get the latest block.
 
 📣 Use with `fcl.atBlockId()` and `fcl.atBlockHeight()` when building the interaction to get information for older blocks.
 
-⚠️Consider using the pre-built interaction [`fcl.getblock(isSealed)`](#getblock) if you do not need to pair with any other builders.
+  ⚠️Consider using the pre-built interaction [`fcl.getblock(isSealed)`](#getblock) if you do not need to pair with any other builders.
 
 #### Arguments[​](#arguments-7 "Direct link to Arguments")
 
@@ -3614,7 +3614,7 @@ Signature objects are used to represent a signature for a particular message as 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/api.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 26, 2025** by **leopardracer**
 
 [Previous
 

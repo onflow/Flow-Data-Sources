@@ -373,7 +373,7 @@ _16
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/wallet-connect.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 

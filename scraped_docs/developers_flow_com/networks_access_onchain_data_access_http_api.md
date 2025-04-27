@@ -14,7 +14,7 @@ Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
-* [Flow's Network Architecture](/networks/network-architecture)
+* [Flow Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
 * [Accessing Data](/networks/access-onchain-data)
@@ -33,7 +33,7 @@ Go to [HTTP API](/http-api)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/access-http-api.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 

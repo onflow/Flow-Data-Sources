@@ -73,7 +73,7 @@ After completing these tutorials, you'll be equipped to leverage AI tools effect
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/index.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 

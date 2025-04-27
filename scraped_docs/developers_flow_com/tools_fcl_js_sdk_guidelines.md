@@ -689,7 +689,7 @@ Flow supports great flexibility when it comes to transaction signing, we can def
 
 `_56
 
-// There are multiple ways to acheive this
+// There are multiple ways to achieve this
 
 _56
 
@@ -1737,7 +1737,7 @@ After a transaction has been **built** and **signed**, it can be sent to the Flo
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/sdk-guidelines.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 26, 2025** by **leopardracer**
 
 [Previous
 
@@ -1748,6 +1748,8 @@ Authentication](/tools/clients/fcl-js/authentication)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Overview](#overview)
 * [Getting Started](#getting-started)

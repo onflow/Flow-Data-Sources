@@ -14,7 +14,7 @@ Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
-* [Flow's Network Architecture](/networks/network-architecture)
+* [Flow Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
 * [Accessing Data](/networks/access-onchain-data)
@@ -220,6 +220,8 @@ Unsubscribing from topic](/networks/access-onchain-data/websockets-stream-api/un
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Example of subscribe request](#example-of-subscribe-request)
 * [Example of successful response](#example-of-successful-response)

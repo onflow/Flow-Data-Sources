@@ -14,7 +14,7 @@ Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
-* [Flow's Network Architecture](/networks/network-architecture)
+* [Flow Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
 * [Accessing Data](/networks/access-onchain-data)
@@ -91,6 +91,8 @@ Common errors](/networks/access-onchain-data/websockets-stream-api/common-errors
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Step 1: Open Postman](#step-1-open-postman)
 * [Step 2: Create a New WebSocket Request](#step-2-create-a-new-websocket-request)

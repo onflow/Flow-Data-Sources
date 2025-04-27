@@ -135,7 +135,7 @@ Flow Testnet is explicitly for experimentation and testing and should not be use
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/deploying.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -575,7 +575,7 @@ Block explorers are user-friendly online tools that visually present blockchain 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/block-explorers.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -676,7 +676,7 @@ Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
-* [Flow's Network Architecture](/networks/network-architecture)
+* [Flow Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
 * [Accessing Data](/networks/access-onchain-data)
@@ -1029,6 +1029,8 @@ Account statuses](/networks/access-onchain-data/websockets-stream-api/supported-
 
 😞😐😊
 
+Open in ChatGPT
+
 * [Example Request](#example-request)
   + [Request Arguments](#request-arguments)
 * [Example Response](#example-response)
@@ -1136,7 +1138,7 @@ Search
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/learn-cadence.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -1833,7 +1835,7 @@ FCL will automatically replace the contract name with the address for the networ
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/configure-fcl.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -1995,7 +1997,7 @@ On this page
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-providers.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -5404,7 +5406,7 @@ It provides an introduction to integrating these standards into your NFT contrac
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/metadata-views.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -5517,7 +5519,7 @@ Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
-* [Flow's Network Architecture](/networks/network-architecture)
+* [Flow Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
 * [Accessing Data](/networks/access-onchain-data)
@@ -5626,6 +5628,8 @@ Supported topics](/networks/access-onchain-data/websockets-stream-api/supported-
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Example of unsubscribe request](#example-of-unsubscribe-request)
 * [Example of successful response](#example-of-successful-response)
@@ -5782,7 +5786,7 @@ For background and motivation, see the [FCL Ethereum Provider for Cross-VM Apps 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/cross-vm/index.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -6062,7 +6066,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/scripts/execute-scripts.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -6467,7 +6471,7 @@ To learn more about `query`, check out the [API documentation](/tools/clients/fc
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/scripts.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -6883,7 +6887,7 @@ See the following video for demonstration of how to update your code to wait for
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/transactions.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -7066,7 +7070,7 @@ Selecting the right architecture is crucial when developing an app on the Flow b
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/app-architecture/index.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -8316,7 +8320,7 @@ Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
-* [Flow's Network Architecture](/networks/network-architecture)
+* [Flow Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
 * [Accessing Data](/networks/access-onchain-data)
@@ -8552,6 +8556,8 @@ Send and get transaction statuses](/networks/access-onchain-data/websockets-stre
 
 😞😐😊
 
+Open in ChatGPT
+
 * [Example Request](#example-request)
   + [Request Arguments](#request-arguments)
 * [Example Response](#example-response)
@@ -8659,7 +8665,7 @@ Research shows that warm introductions can increase your chances of securing fun
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/vcs-and-funds.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -9268,7 +9274,7 @@ Read more about the [EVM Gateway](https://github.com/onflow/flow-evm-gateway) on
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/using.mdx)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -9388,7 +9394,7 @@ Go to [Faucets](/ecosystem/faucets)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/faucets.mdx)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -9551,7 +9557,7 @@ The following are the upcoming Spork dates. These dates indicate the intention t
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/upcoming-sporks.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -9696,7 +9702,7 @@ Store, manage, and interact securely with tokens and digital assets on Flow. Dis
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/wallets.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -10099,7 +10105,7 @@ At the end of every epoch, tokens are moved between pools in this order:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/06-technical-overview.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -10912,7 +10918,7 @@ with its peers, preventing it from functioning properly.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/faq.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -11121,7 +11127,7 @@ It is possible to query the information about a node that an address runs though
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/12-faq.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -11298,7 +11304,7 @@ For more information about Cadence Owned Accounts, see the [Flow EVM Support FLI
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/accounts.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -11396,7 +11402,7 @@ Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
-* [Flow's Network Architecture](/networks/network-architecture)
+* [Flow Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
 * [Accessing Data](/networks/access-onchain-data)
@@ -11986,6 +11992,8 @@ Events](/networks/access-onchain-data/websockets-stream-api/supported-topics/eve
 
 😞😐😊
 
+Open in ChatGPT
+
 * [Example Request](#example-request)
   + [Request Arguments](#request-arguments)
 * [Example Response](#example-response)
@@ -12127,7 +12135,7 @@ Find a list of all SDKs [here](/tools/clients)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/collections.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -12607,7 +12615,7 @@ You've now created a custom GPT that references your uploaded file as a primary 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/chatgpt/index.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -13038,7 +13046,7 @@ machine_account_balance{acct_address="7b16b57ae0a3c6aa"} 9.99464935`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/monitoring-nodes.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -13924,7 +13932,7 @@ Register Provider with FCL Handshake and implement 5 Endpoints.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/custodial.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -14038,7 +14046,7 @@ Stay tuned—more tutorials and advanced guides are on the way!
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/native-vrf/index.md)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -14049,6 +14057,8 @@ Secure Randomness with Commit-Reveal in Cadence](/tutorials/native-vrf/commit-re
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Tutorials](#tutorials)
 * [More Coming Soon](#more-coming-soon)
@@ -14152,7 +14162,7 @@ Go to [Bridges](/ecosystem/bridges)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/cross-chain-bridges.mdx)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -14370,7 +14380,7 @@ _15
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/db-encryption-existing-operator.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -14811,7 +14821,7 @@ _17
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/authorization-function.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -15598,7 +15608,7 @@ To dive deeper into testing the functionality of your Cadence scripts and contra
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/tests.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -16095,7 +16105,7 @@ Restart VS Code and the extension should be installed!
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/vscode-extension/index.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -16437,7 +16447,7 @@ Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
-* [Flow's Network Architecture](/networks/network-architecture)
+* [Flow Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
 * [Accessing Data](/networks/access-onchain-data)
@@ -16842,6 +16852,8 @@ Subscribing to topic](/networks/access-onchain-data/websockets-stream-api/subscr
 
 😞😐😊
 
+Open in ChatGPT
+
 * [Overview](#overview)
   + [Important Information](#important-information)
 * [Setting Up a WebSocket Connection](#setting-up-a-websocket-connection)
@@ -17164,7 +17176,7 @@ _17
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/provable-authn.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -18714,7 +18726,7 @@ Bridges are mechanisms that connect different blockchain networks, enabling secu
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/bridges.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -19393,7 +19405,7 @@ If you're already familiar with blockchain development, here's a comparison betw
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/differences-vs-evm/index.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -19571,7 +19583,7 @@ React hooks to interact with Flow blockchain, making development easy and intuit
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/projects.mdx)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -20747,7 +20759,7 @@ A entitled receiver has not been paid during the sale of the NFT.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/10-nft-storefront.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -22253,7 +22265,7 @@ Use the `--dir` flag only if your project requires a different organizational st
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/boilerplate.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -23377,7 +23389,7 @@ access(all) event NodeVersionBoundaryFreezePeriodChanged(freezePeriod: UInt64)`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/04-service-account.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -23588,7 +23600,7 @@ The [FLOW](/build/core-contracts/flow-token) (or $FLOW) token is the native curr
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/flow.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Next
 
@@ -24990,7 +25002,7 @@ and ultimately the owners of these child accounts the ability to revoke secondar
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking/parent-accounts.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -25278,7 +25290,7 @@ For more information and a deeper dive into the `EVMAddress`, `Result`, and `Sta
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/direct-calls.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -25378,7 +25390,7 @@ Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
-* [Flow's Network Architecture](/networks/network-architecture)
+* [Flow Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
 * [Accessing Data](/networks/access-onchain-data)
@@ -28083,7 +28095,7 @@ That's it! You now have a shippable Flow dapp that can auth, query, init account
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/react-native-quickstart.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -28184,7 +28196,7 @@ Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
-* [Flow's Network Architecture](/networks/network-architecture)
+* [Flow Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
 * [Accessing Data](/networks/access-onchain-data)
@@ -28261,6 +28273,8 @@ Common errors](/networks/access-onchain-data/websockets-stream-api/common-errors
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Step 1: Open Postman](#step-1-open-postman)
 * [Step 2: Create a New WebSocket Request](#step-2-create-a-new-websocket-request)
@@ -30184,7 +30198,7 @@ In this tutorial, you took your first steps towards building powerful new experi
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking-with-dapper.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -30619,7 +30633,7 @@ Flow Improvement Proposals (FLIPs) serve as a platform for engaging the Flow com
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/index.mdx)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Next
 
@@ -30841,7 +30855,7 @@ Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
-* [Flow's Network Architecture](/networks/network-architecture)
+* [Flow Network Architecture](/networks/network-architecture)
 
   + [Solving the blockchain trilemma](/networks/network-architecture/solving-blockchain-trilemma)
   + [Sustainability](/networks/network-architecture/sustainability)
@@ -30852,7 +30866,7 @@ Search
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
-* [Flow's Network Architecture](/networks/network-architecture)
+* [Flow Network Architecture](/networks/network-architecture)
 * User safety
 
 # User Safety with Flow
@@ -30871,7 +30885,7 @@ Flow’s multi-role architecture provides censorship & MEV resistance by design:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/network-architecture/user-safety.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -31754,7 +31768,7 @@ _66
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/interaction-templates.mdx)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -33235,7 +33249,7 @@ _15
 ### `AppUtils.verifyAccountProof`[​](#apputilsverifyaccountproof "Direct link to apputilsverifyaccountproof")
 
 A method allowing applications to cryptographically prove that a user controls an on-chain account. During user authentication, some FCL compatible wallets will choose to support the FCL `account-proof` service. If a wallet chooses to support this service, and the user approves the signing of message data, they will return `account-proof` data and a signature(s) that can be used to prove a user controls an on-chain account.
-See [proving-authentication](https://github.com/onflow/fcl-js/blob/master/docs/reference/proving-authentication.mdx) documentaion for more details.
+See [proving-authentication](https://github.com/onflow/fcl-js/blob/master/docs/reference/proving-authentication.mdx) documentation for more details.
 
 ⚠️ `fcl.config.flow.network` or options override is required to use this api. See [FCL Configuration](#configuration).
 
@@ -33558,7 +33572,7 @@ A builder function that returns the interaction to get the latest block.
 
 📣 Use with `fcl.atBlockId()` and `fcl.atBlockHeight()` when building the interaction to get information for older blocks.
 
-⚠️Consider using the pre-built interaction [`fcl.getblock(isSealed)`](#getblock) if you do not need to pair with any other builders.
+  ⚠️Consider using the pre-built interaction [`fcl.getblock(isSealed)`](#getblock) if you do not need to pair with any other builders.
 
 #### Arguments[​](#arguments-7 "Direct link to Arguments")
 
@@ -35452,7 +35466,7 @@ Signature objects are used to represent a signature for a particular message as 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/api.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 26, 2025** by **leopardracer**
 
 [Previous
 
@@ -36527,7 +36541,7 @@ npx hardhat verify --network testnet DEPLOYED_CONTRACT_ADDRESS "Constructor argu
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/hardhat.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -36662,7 +36676,7 @@ Search
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/network-architecture.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -37390,7 +37404,7 @@ Use cases include cryptographic login, message validation, verifiable credential
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/user-signatures.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -38113,7 +38127,7 @@ This script does not require any arguments.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/05-epoch-scripts-events.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -38873,7 +38887,7 @@ The Agile Monkeys has written a very comprehensive guide on how to build a nativ
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/ios-quickstart.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -39183,7 +39197,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/get-accounts.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -40630,7 +40644,7 @@ _10
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flow.json/configuration.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -40830,7 +40844,7 @@ contract that conforms to the standard.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/overview.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -41497,7 +41511,7 @@ To learn more about staking events, read [staking/events/](/networks/staking/sta
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/03-flow-token.md)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -41508,6 +41522,8 @@ Service Account](/build/core-contracts/service-account)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Flow Token Contract](#flow-token-contract)
 * [Tokens Initialized](#tokens-initialized)
@@ -43053,7 +43069,7 @@ Once a valid root snapshot file is downloaded to the node's bootstrap folder, it
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-bootstrap.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -44324,7 +44340,7 @@ To learn more about storage fee and transaction fee, visit [Flow Tokenomics page
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/fees.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -44419,7 +44435,7 @@ Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
-* [Flow's Network Architecture](/networks/network-architecture)
+* [Flow Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
 * [Accessing Data](/networks/access-onchain-data)
@@ -44438,7 +44454,7 @@ Go to [HTTP API](/http-api)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/access-http-api.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -44573,7 +44589,7 @@ Mainnet/Testnet Source: [`EVM.cdc`](https://github.com/onflow/flow-go/blob/maste
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/13-evm.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -45400,7 +45416,7 @@ Find a list of all SDKs here: [tools/clients](/tools/clients)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/accounts.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -45546,7 +45562,7 @@ Stay tuned—more tutorials and advanced guides are on the way!
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/index.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -46395,7 +46411,7 @@ See [Past Sporks](/networks/node-ops/node-operation/past-upgrades) for the curre
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/light-nodes/observer-node.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -46820,7 +46836,7 @@ _13
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/proving-authentication.mdx)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -48786,7 +48802,7 @@ It takes roughly the time of 1 transaction to run all 420 without any errors.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/scaling.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -50764,7 +50780,7 @@ some other account.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking/child-accounts.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -50875,7 +50891,7 @@ Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
-* [Flow's Network Architecture](/networks/network-architecture)
+* [Flow Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
 
@@ -51216,7 +51232,7 @@ All networking layer settings are initialized to default values from the [config
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/guides/starting-nodes.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -51227,6 +51243,8 @@ Machine Accounts for Existing Node Operators](/networks/node-ops/node-operation/
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [systemd](#systemd)
 * [Docker](#docker)
@@ -51991,7 +52009,7 @@ Flow supports great flexibility when it comes to transaction signing, we can def
 
 `_56
 
-// There are multiple ways to acheive this
+// There are multiple ways to achieve this
 
 _56
 
@@ -53039,7 +53057,7 @@ After a transaction has been **built** and **signed**, it can be sent to the Flo
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/sdk-guidelines.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 26, 2025** by **leopardracer**
 
 [Previous
 
@@ -53050,6 +53068,8 @@ Authentication](/tools/clients/fcl-js/authentication)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Overview](#overview)
 * [Getting Started](#getting-started)
@@ -53191,7 +53211,7 @@ Flow EVM has the following public RPC nodes available:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/networks.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -53802,7 +53822,7 @@ Get familiar with the [Cadence anti-patterns](https://cadence-lang.org/docs/anti
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/testing.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -53911,7 +53931,7 @@ Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
-* [Flow's Network Architecture](/networks/network-architecture)
+* [Flow Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
 
@@ -54055,7 +54075,7 @@ Lastly, if the goal is to practice the entire Sporking procedure, including `tra
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/guides/spork-practice.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -56011,7 +56031,7 @@ flow project deploy -f main.json -f private.json`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flow.json/security.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -56174,7 +56194,7 @@ Those wishing to understand the technical specifics of how Flow EVM works we rec
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/about.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Next
 
@@ -56182,7 +56202,7 @@ How it Works](/evm/how-it-works)
 
 ###### Rate this page
 
-😞😐😊
+ 😞😐😊
 
 Open in ChatGPT
 
@@ -56304,7 +56324,7 @@ Read more about it [here](https://flow.com/post/flow-blockchain-sustainability-e
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/network-architecture/sustainability.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -56620,7 +56640,7 @@ A node operator can easily withdraw their FLOW from their machine account if the
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/11-machine-account.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -56756,7 +56776,7 @@ Basic Concepts of Flow Blockchain](/build/basics/blocks)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/explore-more.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -57432,7 +57452,7 @@ $DEPLOYER_ADDRESS`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/foundry.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -57703,7 +57723,7 @@ There is no maximum stake limit.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/02-epoch-terminology.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -59125,7 +59145,7 @@ More FlowtoBooth tutorials are in development, including:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/flowtobooth/index.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -59283,7 +59303,7 @@ Thus, Flow’s multi-role architecture solves the blockchain trilemma:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/network-architecture/solving-blockchain-trilemma.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -59672,7 +59692,7 @@ Example:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/error-codes.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -62697,7 +62717,7 @@ _34
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/index.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -62894,7 +62914,7 @@ If you encounter any issues:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/cursor/index.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -63652,7 +63672,7 @@ Do not use the `access(all)` modifier on fields and functions unless necessary. 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/best-practices/security-best-practices.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -63959,7 +63979,7 @@ Where can I get updates or ask questions?
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/faq.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -66089,7 +66109,7 @@ for information about technical integration.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/index.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -66442,7 +66462,7 @@ access(all) event NewDelegatorStakingMinimum(newMinimum: UFix64)`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/06-staking-contract-reference.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -66641,7 +66661,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/deployment/emulator-snapshot.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -66652,6 +66672,8 @@ Execute a Script](/tools/flow-cli/scripts/execute-scripts)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Example Usage](#example-usage)
   + [Create a new snapshot](#create-a-new-snapshot)
@@ -67031,7 +67053,7 @@ you can use scripts events to learn information about the state of the epoch con
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/04-epoch-preparation.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -67238,7 +67260,7 @@ Whether you're new to building onchain, or an established veteran, we’re here 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/authentication.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -69884,7 +69906,7 @@ If you're unsure, check the Flow EVM block explorer at [evm.flowscan.io](https:/
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/add-token-to-metamask.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -70490,7 +70512,7 @@ By harnessing Flow's built-in capabilities, you can now focus on crafting engagi
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/native-vrf/commit-reveal-cadence.md)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -70501,6 +70523,8 @@ Deploy a Solidity Contract Using Cadence](/tutorials/native-vrf/deploy-solidity-
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Objectives](#objectives)
 * [Prerequisites](#prerequisites)
@@ -70766,7 +70790,7 @@ Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
-* [Flow's Network Architecture](/networks/network-architecture)
+* [Flow Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 
   + [Epoch and Staking Terminology](/networks/staking/epoch-terminology)
@@ -70933,7 +70957,7 @@ which does not create regular transaction IDs.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/03-schedule.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -70944,6 +70968,8 @@ Epoch Preparation Protocol](/networks/staking/epoch-preparation)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Rewards](#rewards)
 * [Staking Auction](#staking-auction)
@@ -71945,7 +71971,7 @@ Example: there are 115 access nodes already part of the network. Hence, the tota
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/access-nodes/access-node-setup.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -72484,7 +72510,7 @@ _10
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/discovery.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -73231,7 +73257,7 @@ consensus_compliance_sealed_height 1.132054e+06`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-setup.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -73807,7 +73833,7 @@ Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
-* [Flow's Network Architecture](/networks/network-architecture)
+* [Flow Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
 * [Accessing Data](/networks/access-onchain-data)
@@ -73941,6 +73967,8 @@ Connecting to WebSockets via Postman UI](/networks/access-onchain-data/websocket
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Example of request](#example-of-request)
 * [Example of response](#example-of-response)
@@ -74232,7 +74260,7 @@ To get started with creating your first Flow project and to learn more about how
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/index.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -75774,7 +75802,7 @@ FCL is built **on top of the Flow SDK**, making it easier to handle authenticati
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/index.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -76022,7 +76050,7 @@ access(all) event BroadcastMessage(nodeID: String, content: String)`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/10-qc-dkg-scripts-events.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -78136,7 +78164,7 @@ While FCL v0.0.67 is not strictly necessary to use Mainnet 6, we strongly recomm
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/past-upgrades.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -79117,7 +79145,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/account-update-contract.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -82136,7 +82164,7 @@ Below is a list of the available CLI flags to control the behavior of the API
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/index.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -84399,7 +84427,7 @@ Now that you have completed the tutorial, you should be able to:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/introduction.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -85245,7 +85273,7 @@ And below are the bridge escrow's EVM addresses. These addresses are [`CadenceOw
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/15-bridge.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -85505,7 +85533,7 @@ _17
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/user-signature.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -85883,7 +85911,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/get-flow-data/get-blocks.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -86394,7 +86422,7 @@ To explore advanced features like snapshots, rollbacks, and debugging, visit the
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/deployment/start-emulator.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -86964,7 +86992,7 @@ For more information about using smart contracts in web3.js, see the [official d
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/web3-js.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -87531,7 +87559,7 @@ const fcl = require("@onflow/fcl");`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/installation.mdx)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -88006,7 +88034,7 @@ access(all) event MinimumStorageReservationChanged(_ minimumStorageReservation: 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/05-flow-fees.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -88166,7 +88194,7 @@ Check out [Running a Node](/networks/node-ops/light-nodes/observer-node) for mor
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-networks/index.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Next
 
@@ -88501,7 +88529,7 @@ _10
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/protocol-state-bootstrap.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -88690,7 +88718,7 @@ We'll be updating the Developer Profile with new features and challenges. Check 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/developer-profile.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -90451,7 +90479,7 @@ _31
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/cross-vm/wagmi-adapter.mdx)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -93735,7 +93763,7 @@ latestBlock, err := flowClient.GetLatestBlock(ctx, true, MaxCallSendMsgSize(100)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/flow-go-sdk/migration-v0.25.0.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -94210,7 +94238,7 @@ If you'd like to dive deeper into Flow's onchain randomness, here's a list of re
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/randomness.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -94468,7 +94496,7 @@ By using this approach to add the Flow network to Metamask, you can avoid manual
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/integrating-metamask.mdx)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -94622,7 +94650,7 @@ To optimize your NFT collections for this catalog, you'll need to:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/09-nft-metadata.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -95246,7 +95274,7 @@ Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
-* [Flow's Network Architecture](/networks/network-architecture)
+* [Flow Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
 * [Accessing Data](/networks/access-onchain-data)
@@ -95452,6 +95480,8 @@ Unsubscribing from topic](/networks/access-onchain-data/websockets-stream-api/un
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Example of subscribe request](#example-of-subscribe-request)
 * [Example of successful response](#example-of-successful-response)
@@ -96786,7 +96816,7 @@ To learn more about next steps following the initial setup, check out the follow
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/super-commands.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -97028,7 +97058,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/utils/signature-generate.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -97378,7 +97408,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/account-staking-info.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -97527,7 +97557,7 @@ Learn about Flow's governance model and how it's empowering our community of use
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/index.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -97765,7 +97795,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/keys/generate-keys.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -98783,7 +98813,7 @@ _16
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/wallet-connect.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -100468,7 +100498,7 @@ For a complete reference implementation, check out the [FCL + RainbowKit + wagmi
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/add-to-wagmi.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -101299,7 +101329,7 @@ failure in event subscription at height ${INIT-CADENCE-HEIGHT}, with: recoverabl
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/evm-gateway/evm-gateway-setup.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -101744,7 +101774,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/create-accounts.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -102086,7 +102116,7 @@ Proceed to the next tutorial to learn how to create your own contracts and deplo
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/contract-interaction.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -102259,7 +102289,7 @@ You've got an app and are meeting the needs of regular customers. Core features 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/growth/index.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 ###### Rate this page
 
@@ -102685,7 +102715,7 @@ Please see a list [here](https://github.com/onflow/flow/blob/master/nodeoperator
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-port/index.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -102907,7 +102937,7 @@ Specify the filename where you want the result to be saved
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/keys/derive-keys.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -103200,7 +103230,7 @@ This error is OK. Your fellow node operators have not turned on/joined the netwo
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/spork.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -103657,7 +103687,7 @@ Protobuf: <https://github.com/onflow/flow/blob/master/protobuf/flow/executiondat
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/access-nodes/access-node-configuration-options.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -103819,7 +103849,7 @@ The basic staking guide is detailed [here](/networks/staking/staking-guide)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/13-staking-options.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -104034,7 +104064,7 @@ _11
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/deployment/project-contracts.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -104852,7 +104882,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/deployment/deploy-project-contracts.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -105273,7 +105303,7 @@ Flow provides an implementation of the Flow interaction template service as an o
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/flix.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -105986,7 +106016,7 @@ Ready to unlock the full potential of Flow EVM? Start with our [Batched Transact
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/quickstart.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -106653,7 +106683,7 @@ Additionally, consider exploring these resources:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-dev-wallet/index.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -106828,7 +106858,7 @@ The Cadence Linter is also available in the [Cadence VSCode extension](/tools/vs
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/lint.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -107067,7 +107097,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/get-flow-data/get-status.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -107385,7 +107415,7 @@ For real-time numbers, please refer to the [block explorer](https://www.flowscan
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-economics.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -107515,7 +107545,7 @@ have a look at [the README of the repository](https://github.com/onflow/flow-emu
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/emulator/index.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -108067,7 +108097,7 @@ files by using `-f` flag multiple times.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flow.json/manage-configuration.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -111655,7 +111685,7 @@ Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
-* [Flow's Network Architecture](/networks/network-architecture)
+* [Flow Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
 * [Accessing Data](/networks/access-onchain-data)
@@ -111872,6 +111902,8 @@ Blocks](/networks/access-onchain-data/websockets-stream-api/supported-topics/blo
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Example Request](#example-request)
   + [Request Arguments](#request-arguments)
@@ -112571,7 +112603,7 @@ Learn more about it in the [Hybrid Custody documentation](/build/guides/account-
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking/index.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -115341,7 +115373,7 @@ The transfer transaction also has a [generic version](https://github.com/onflow/
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/fungible-token.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -115688,7 +115720,7 @@ Coming soon:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/overview.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -116464,7 +116496,7 @@ Flow supports great flexibility when it comes to transaction signing, we can def
 
 `_56
 
-// There are multiple ways to acheive this
+// There are multiple ways to achieve this
 
 _56
 
@@ -117512,7 +117544,7 @@ After a transaction has been **built** and **signed**, it can be sent to the Flo
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/sdk-guidelines.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 26, 2025** by **leopardracer**
 
 [Previous
 
@@ -117723,7 +117755,7 @@ This level of protection against MEV is not an afterthought—it has been a fund
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/mev-resistance.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -118096,7 +118128,7 @@ This command will detect and provide information about common misconfigurations,
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/machine-existing-operator.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -118248,7 +118280,7 @@ Web3 version of Twitter](https://dev.to/muttoni/lets-build-a-twitter-clone-on-we
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/more-guides.mdx)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -120115,7 +120147,7 @@ using Cadence.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/interacting-with-coa.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -120510,7 +120542,7 @@ After unblocking the node, connections and traffic coming from the node should r
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/byzantine-node-attack-response.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -120817,7 +120849,7 @@ but are nevertheless important to developers on Flow:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/index.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -121189,7 +121221,7 @@ Overflow is a Go-based DSL for testing and running interactive stories](https://
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/index.mdx)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -121350,7 +121382,7 @@ These improvements are especially notable on mobile, where users are typically m
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/account-abstraction.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -121450,7 +121482,7 @@ Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
-* [Flow's Network Architecture](/networks/network-architecture)
+* [Flow Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
 * [Accessing Data](/networks/access-onchain-data)
@@ -121659,6 +121691,8 @@ Block headers](/networks/access-onchain-data/websockets-stream-api/supported-top
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Example Request](#example-request)
   + [Request Arguments](#request-arguments)
@@ -121893,7 +121927,7 @@ mobile: {
 
 _63
 
-getUri: (uri: string) => uri,
+getUri: (uri: string) => `https://fcw-link.lilico.app/wc?uri=${encodeURIComponent(uri)}`,
 
 _63
 
@@ -122243,7 +122277,7 @@ Now that you've completed this tutorial, you're ready to enhance your dApp with 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/rainbowkit.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 25, 2025** by **Jordan Ribbink**
 
 [Previous
 
@@ -123330,7 +123364,7 @@ The process by which the Core Team chooses the updates for each new Protocol Ver
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/governance.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -123770,7 +123804,7 @@ Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
-* [Flow's Network Architecture](/networks/network-architecture)
+* [Flow Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
 * [Accessing Data](/networks/access-onchain-data)
@@ -124066,6 +124100,8 @@ Transaction statuses](/networks/access-onchain-data/websockets-stream-api/suppor
 
 😞😐😊
 
+Open in ChatGPT
+
 * [Example Request](#example-request)
   + [Request Arguments](#request-arguments)
 * [Example Response](#example-response)
@@ -124149,7 +124185,7 @@ Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
-* [Flow's Network Architecture](/networks/network-architecture)
+* [Flow Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
 * [Accessing Data](/networks/access-onchain-data)
@@ -124395,6 +124431,8 @@ Listing subscriptions](/networks/access-onchain-data/websockets-stream-api/list-
 
 😞😐😊
 
+Open in ChatGPT
+
 * [Example Request](#example-request)
 * [Example Response](#example-response)
 
@@ -124610,7 +124648,7 @@ Each client tool is designed with specific use cases and developer needs in mind
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/index.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -127771,7 +127809,7 @@ _24
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/events.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -128155,7 +128193,7 @@ but this would require small changes to these transactions to use the new storag
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/15-staking-guide.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -129052,7 +129090,7 @@ mobile: {
 
 _113
 
-getUri: (uri: string) => uri,
+getUri: (uri: string) => `https://fcw-link.lilico.app/wc?uri=${encodeURIComponent(uri)}`,
 
 _113
 
@@ -131103,7 +131141,7 @@ Now that you've completed this tutorial, you're ready to explore more complex on
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/flowtobooth/image-gallery.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 25, 2025** by **Jordan Ribbink**
 
 [Previous
 
@@ -131775,7 +131813,7 @@ In this tutorial, we've accomplished all of our learning objectives:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/flow-cli.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -131939,7 +131977,7 @@ After completing these tutorials, you'll be equipped to leverage AI tools effect
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/index.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -132092,7 +132130,7 @@ through a peer-to-peer transaction mechanism.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/cross-chain-swaps.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -133546,7 +133584,7 @@ Ready to level up your Cadence skills? Take a look at [these Cadence tutorials](
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/batched-evm-transactions.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -133834,7 +133872,7 @@ Flow’s state system provides ways to construct inclusion and non-inclusion pro
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/how-it-works.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -135153,7 +135191,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flix.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -138399,7 +138437,7 @@ The following companies provide independent contract auditing services of Cadenc
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/auditors.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -140544,7 +140582,7 @@ Congrats, you did it! You're now ready to launch the next fun NFT project on Flo
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/nft.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -140810,7 +140848,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/keys/decode-keys.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -140821,6 +140859,8 @@ Derive Public Key](/tools/flow-cli/keys/derive-keys)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Example Usage](#example-usage)
   + [Decode RLP Encoded Public Key](#decode-rlp-encoded-public-key)
@@ -141021,7 +141061,7 @@ Here is a comparison of the different node roles,
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-roles.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -141241,7 +141281,7 @@ To set up a new staked node after it has been authorized by the Flow governance 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/index.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -141567,7 +141607,7 @@ After selecting the contracts, press `enter` to confirm. The selected contracts 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/dependency-manager.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -141986,7 +142026,7 @@ If you have any feedback about these guidelines, please create an issue in the o
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/best-practices/project-development-tips.md)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -141997,6 +142037,8 @@ Account Abstraction](/build/advanced-concepts/account-abstraction)
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Context](#context)
   + [Implementing These Practices](#implementing-these-practices)
@@ -144621,7 +144663,7 @@ publicKey := privateKey.PublicKey()`
 
 The example above uses an ECDSA key pair on the P-256 (secp256r1) elliptic curve. Flow also supports the secp256k1 curve used by Bitcoin and Ethereum. Read more about [supported algorithms here](/build/basics/accounts#signature-and-hash-algorithms).
 
-### Transfering Flow[​](#transfering-flow "Direct link to Transfering Flow")
+### Transferring Flow[​](#transferring-flow "Direct link to Transferring Flow")
 
 This is an example of how to construct a FLOW token transfer transaction
 with the Flow Go SDK.
@@ -144905,7 +144947,7 @@ _39
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/flow-go-sdk/index.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 26, 2025** by **leopardracer**
 
 [Previous
 
@@ -144943,7 +144985,7 @@ Open in ChatGPT
   + [Send Transactions](#send-transactions)
   + [Create Accounts](#create-accounts)
   + [Generate Keys](#generate-keys)
-  + [Transfering Flow](#transfering-flow)
+  + [Transferring Flow](#transferring-flow)
 * [Cadence Script](#cadence-script)
 * [Build the Transaction](#build-the-transaction)
 
@@ -145731,7 +145773,7 @@ For integration with AI tools like Cursor or ChatGPT, use the appropriate URL as
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/flow-data-sources.md)
 
-Last updated on **Apr 17, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -145932,7 +145974,7 @@ Upon restart, the chunk data pack directory will be automatically recreated.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/reclaim-disk.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -146799,7 +146841,7 @@ Find a list of all SDKs [here](/tools/clients)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/transactions.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
@@ -147631,7 +147673,7 @@ Happy hacking on Flow!
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/agentkit-flow-guide.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 

@@ -14,7 +14,7 @@ Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
-* [Flow's Network Architecture](/networks/network-architecture)
+* [Flow Network Architecture](/networks/network-architecture)
 
   + [Solving the blockchain trilemma](/networks/network-architecture/solving-blockchain-trilemma)
   + [Sustainability](/networks/network-architecture/sustainability)
@@ -25,7 +25,7 @@ Search
 * [Governance](/networks/governance)
 * [Flow Port](/networks/flow-port)
 
-* [Flow's Network Architecture](/networks/network-architecture)
+* [Flow Network Architecture](/networks/network-architecture)
 * User safety
 
 # User Safety with Flow
@@ -44,7 +44,7 @@ Flow’s multi-role architecture provides censorship & MEV resistance by design:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/network-architecture/user-safety.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 

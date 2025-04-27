@@ -14,7 +14,7 @@ Search
 
 * [Flow Networks](/networks/flow-networks)
 * [Networks](/networks)
-* [Flow's Network Architecture](/networks/network-architecture)
+* [Flow Network Architecture](/networks/network-architecture)
 * [Staking and Epochs](/networks/staking)
 * [Node Ops](/networks/node-ops)
 * [Accessing Data](/networks/access-onchain-data)
@@ -249,6 +249,8 @@ Send and get transaction statuses](/networks/access-onchain-data/websockets-stre
 ###### Rate this page
 
 😞😐😊
+
+Open in ChatGPT
 
 * [Example Request](#example-request)
   + [Request Arguments](#request-arguments)
