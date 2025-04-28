@@ -115,11 +115,11 @@ Find a list of all SDKs [here](/tools/clients)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/blocks.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 21, 2025** by **Illia**
 
 [Previous
 
-Network Architecture ↗️](/build/basics/network-architecture)[Next
+Network Architecture  ↗️](/build/basics/network-architecture)[Next
 
 Collections](/build/basics/collections)
 
