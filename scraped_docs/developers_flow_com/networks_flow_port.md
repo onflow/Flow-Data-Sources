@@ -163,7 +163,7 @@ Please see a list [here](https://github.com/onflow/flow/blob/master/nodeoperator
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-port/index.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -175,7 +175,7 @@ Flow Port Staking Guide](/networks/flow-port/staking-guide)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Creating an Account](#creating-an-account)
   + [Flow Wallet](#flow-wallet)

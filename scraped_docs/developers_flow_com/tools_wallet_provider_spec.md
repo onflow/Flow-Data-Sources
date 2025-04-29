@@ -2474,7 +2474,7 @@ _34
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/index.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -2486,7 +2486,7 @@ Authorization Function](/tools/wallet-provider-spec/authorization-function)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Status](#status)
 * [Definitions](#definitions)

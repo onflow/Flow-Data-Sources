@@ -637,7 +637,7 @@ This script does not require any arguments.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/05-epoch-scripts-events.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -649,7 +649,7 @@ Staking Technical Overview](/networks/staking/technical-overview)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Introduction](#introduction)
 * [Monitor Epoch Service Events](#monitor-epoch-service-events)

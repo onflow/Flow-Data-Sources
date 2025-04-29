@@ -142,7 +142,7 @@ _11
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/deployment/project-contracts.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -154,7 +154,7 @@ Deploy a Project](/tools/flow-cli/deployment/deploy-project-contracts)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Add a Contract](#add-a-contract)
 * [Define Contract Deployment Targets](#define-contract-deployment-targets)

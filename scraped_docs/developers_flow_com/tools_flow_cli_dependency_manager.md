@@ -239,7 +239,7 @@ After selecting the contracts, press `enter` to confirm. The selected contracts 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/dependency-manager.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -251,7 +251,7 @@ Running Cadence Tests](/tools/flow-cli/tests)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [`install`](#install)
   + [Installing Specific Dependencies](#installing-specific-dependencies)

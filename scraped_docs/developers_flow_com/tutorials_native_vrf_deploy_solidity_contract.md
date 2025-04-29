@@ -470,7 +470,7 @@ As blockchain technology continues to evolve, adopting these best practices is c
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/native-vrf/deploy-solidity-contract.md)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -479,6 +479,8 @@ Secure Randomness with Commit-Reveal in Cadence](/tutorials/native-vrf/commit-re
 ###### Rate this page
 
 😞😐😊
+
+Copy as Markdown
 
 * [Why Solidity And Cadence?](#why-solidity-and-cadence)
 * [Objectives](#objectives)

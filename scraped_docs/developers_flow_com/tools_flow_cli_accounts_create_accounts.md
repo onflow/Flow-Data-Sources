@@ -345,7 +345,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/create-accounts.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -357,7 +357,7 @@ Deploy a Contract](/tools/flow-cli/accounts/account-add-contract)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Interactive Mode](#interactive-mode)
 * [Manual Mode](#manual-mode)

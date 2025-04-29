@@ -16,6 +16,7 @@ Search
 * [AI Plus Flow](/tutorials/ai-plus-flow)
 
   + [Use Cursor AI](/tutorials/ai-plus-flow/cursor)
+  + [Flow MCP](/tutorials/ai-plus-flow/mcp)
   + [Use ChatGPT](/tutorials/ai-plus-flow/chatgpt)
   + [Flow Data Sources](/tutorials/ai-plus-flow/flow-data-sources)
   + [Using AgentKit on Flow](/tutorials/ai-plus-flow/agentkit-flow-guide)
@@ -51,6 +52,7 @@ In this tutorial series, you'll discover how to:
 * [Flow Data Sources](/tutorials/ai-plus-flow/flow-data-sources) - Learn about this comprehensive resource and how to integrate it with various AI platforms.
 * [Eliza on Flow](/tutorials/ai-plus-flow/eliza) - Learn how to build AI Agent on Flow with Eliza
 * [Build AI Agents with AgentKit](/tutorials/ai-plus-flow/agentkit-flow-guide) - Learn how to create AI agents that can interact with Flow using AgentKit.
+* [Flow MCP](/tutorials/ai-plus-flow/mcp) - Learn how to use or build Flow MCP (Model Context Protocol) server to enhance AI tools with the capabilities of interacting with Flow blockchain.
 
 ## Best Practices[​](#best-practices "Direct link to Best Practices")
 
@@ -73,7 +75,7 @@ After completing these tutorials, you'll be equipped to leverage AI tools effect
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/index.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 28, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -85,7 +87,7 @@ Use Cursor AI](/tutorials/ai-plus-flow/cursor)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [What You'll Learn](#what-youll-learn)
 * [Tutorials](#tutorials)

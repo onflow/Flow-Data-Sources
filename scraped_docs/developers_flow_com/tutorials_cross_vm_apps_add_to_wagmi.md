@@ -1441,7 +1441,7 @@ For a complete reference implementation, check out the [FCL + RainbowKit + wagmi
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/add-to-wagmi.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -1453,7 +1453,7 @@ Interacting with COAs](/tutorials/cross-vm-apps/interacting-with-coa)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Video Overview](#video-overview)
 * [Objectives](#objectives)

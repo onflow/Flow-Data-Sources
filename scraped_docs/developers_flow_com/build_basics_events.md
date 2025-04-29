@@ -277,7 +277,7 @@ _24
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/events.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -289,7 +289,7 @@ FLOW Coin](/build/basics/flow-token)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Core Events](#core-events)
 * [User-defined events](#user-defined-events)

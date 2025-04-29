@@ -657,7 +657,7 @@ consensus_compliance_sealed_height 1.132054e+06`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-setup.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -669,7 +669,7 @@ Past Network Upgrades](/networks/node-ops/node-operation/past-upgrades)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Pull the Flow Images](#pull-the-flow-images)
 * [Prepare Your Node to Start](#prepare-your-node-to-start)

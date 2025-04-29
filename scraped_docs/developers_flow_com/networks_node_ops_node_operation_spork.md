@@ -203,7 +203,7 @@ This error is OK. Your fellow node operators have not turned on/joined the netwo
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/spork.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -215,7 +215,7 @@ Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Overview](#overview)
 * [Step 1 - Cleaning Up Previous Spork State](#step-1---cleaning-up-previous-spork-state)

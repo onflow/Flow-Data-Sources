@@ -421,7 +421,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/get-flow-data/get-events.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -433,7 +433,7 @@ Get Collection](/tools/flow-cli/get-flow-data/get-collections)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Example Usage](#example-usage)
 * [Arguments](#arguments)

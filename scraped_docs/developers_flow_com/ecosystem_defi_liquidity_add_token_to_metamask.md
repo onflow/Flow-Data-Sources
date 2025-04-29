@@ -93,7 +93,7 @@ If you're unsure, check the Flow EVM block explorer at [evm.flowscan.io](https:/
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/add-token-to-metamask.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -105,7 +105,7 @@ Stablecoins & Bridges FAQ](/ecosystem/defi-liquidity/faq)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Objectives](#objectives)
 * [Add a Token to MetaMask via Flowscan](#add-a-token-to-metamask-via-flowscan)

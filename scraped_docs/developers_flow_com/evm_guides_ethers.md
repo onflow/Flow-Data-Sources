@@ -205,7 +205,7 @@ _10
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/ethers.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -217,7 +217,7 @@ Web3.js](/evm/guides/web3-js)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Installation](#installation)
 * [Setup](#setup)

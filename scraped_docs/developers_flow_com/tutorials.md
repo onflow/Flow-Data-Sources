@@ -80,7 +80,7 @@ AI Plus Flow](/tutorials/ai-plus-flow)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [AI Plus Flow](#ai-plus-flow)
 * [Token Launch](#token-launch)

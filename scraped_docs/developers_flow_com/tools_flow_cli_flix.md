@@ -1224,7 +1224,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flix.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -1236,7 +1236,7 @@ Cadence Boilerplate](/tools/flow-cli/boilerplate)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Introduction](#introduction)
   + [Execute](#execute)

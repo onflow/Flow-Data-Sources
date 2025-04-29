@@ -134,7 +134,7 @@ To set up a new staked node after it has been authorized by the Flow governance 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/index.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -146,7 +146,7 @@ Access Node Setup](/networks/node-ops/access-nodes/access-node-setup)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Why Run a Node?](#why-run-a-node)
 * [Which Node Should You Run?](#which-node-should-you-run)

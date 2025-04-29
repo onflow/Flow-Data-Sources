@@ -115,11 +115,11 @@ Find a list of all SDKs [here](/tools/clients)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/blocks.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
-Network Architecture  ↗️](/build/basics/network-architecture)[Next
+Network Architecture ↗️](/build/basics/network-architecture)[Next
 
 Collections](/build/basics/collections)
 
@@ -127,7 +127,7 @@ Collections](/build/basics/collections)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Overview](#overview)
   + [Block Header](#block-header)

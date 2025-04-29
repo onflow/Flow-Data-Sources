@@ -78,7 +78,7 @@ The process by which the Core Team chooses the updates for each new Protocol Ver
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/governance.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -90,7 +90,7 @@ Flow Port](/networks/flow-port)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Participation](#participation)
 * [Token Holder Rights](#token-holder-rights)

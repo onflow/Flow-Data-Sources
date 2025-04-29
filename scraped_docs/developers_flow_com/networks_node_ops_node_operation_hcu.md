@@ -92,7 +92,7 @@ TODO: insert flow cli command here to query the block version details.`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/hcu.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -104,7 +104,7 @@ Protocol State Bootstrapping](/networks/node-ops/node-operation/protocol-state-b
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Overview](#overview)
 * [HCU versus Spork](#hcu-versus-spork)

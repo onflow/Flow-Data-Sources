@@ -84,7 +84,7 @@ A node operator can easily withdraw their FLOW from their machine account if the
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/11-machine-account.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -96,7 +96,7 @@ FAQs](/networks/staking/faq)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [What is a Machine Account?](#what-is-a-machine-account)
 

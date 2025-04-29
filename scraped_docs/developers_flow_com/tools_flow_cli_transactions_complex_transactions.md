@@ -481,7 +481,7 @@ _26
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/complex-transactions.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -493,7 +493,7 @@ Sign a Transaction](/tools/flow-cli/transactions/sign-transaction)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Examples](#examples)
   + [Single payer, proposer and authorizer](#single-payer-proposer-and-authorizer)

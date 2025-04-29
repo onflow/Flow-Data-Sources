@@ -135,7 +135,7 @@ Flow Testnet is explicitly for experimentation and testing and should not be use
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/deploying.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -147,7 +147,7 @@ Testing Your Contracts](/build/smart-contracts/testing)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Creating an Account](#creating-an-account)
 * [Create and deploy a mainnet project](#create-and-deploy-a-mainnet-project)

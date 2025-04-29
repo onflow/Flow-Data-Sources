@@ -1811,7 +1811,7 @@ That's it! You now have a shippable Flow dapp that can auth, query, init account
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/react-native-quickstart.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -1823,7 +1823,7 @@ Core Smart Contracts](/build/core-contracts)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Introduction](#introduction)
 * [Installation](#installation)

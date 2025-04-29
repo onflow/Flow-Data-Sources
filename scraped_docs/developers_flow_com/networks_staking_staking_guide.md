@@ -300,7 +300,7 @@ but this would require small changes to these transactions to use the new storag
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/15-staking-guide.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -312,7 +312,7 @@ Node Operations](/networks/node-ops)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Setup](#setup)
   + [Register a New Staked Node](#register-a-new-staked-node)

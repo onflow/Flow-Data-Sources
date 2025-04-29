@@ -250,7 +250,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/send-signed-transactions.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -261,6 +261,8 @@ Build a Complex Transaction](/tools/flow-cli/transactions/decode-transactions)
 ###### Rate this page
 
 😞😐😊
+
+Copy as Markdown
 
 * [Example Usage](#example-usage)
 * [Arguments](#arguments)

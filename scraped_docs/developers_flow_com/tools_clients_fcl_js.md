@@ -385,7 +385,7 @@ FCL is built **on top of the Flow SDK**, making it easier to handle authenticati
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/index.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -397,7 +397,7 @@ FCL Reference](/tools/clients/fcl-js/api)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [🌟 What is FCL?](#-what-is-fcl)
   + [🔑 Key Features:](#-key-features)

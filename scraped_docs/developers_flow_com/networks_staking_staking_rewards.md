@@ -822,7 +822,7 @@ _42
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/08-staking-rewards.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -834,7 +834,7 @@ QC and DKG](/networks/staking/qc-dkg)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Current method to check staking rewards](#current-method-to-check-staking-rewards)
 * [Check staking rewards before May 2023](#check-staking-rewards-before-may-2023)

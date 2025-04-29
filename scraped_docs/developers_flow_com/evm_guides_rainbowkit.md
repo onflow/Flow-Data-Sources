@@ -526,7 +526,7 @@ Viem & Wagmi](/evm/guides/wagmi)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Objectives](#objectives)
 * [Prerequisites](#prerequisites)

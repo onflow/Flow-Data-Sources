@@ -16,6 +16,7 @@ Search
 * [AI Plus Flow](/tutorials/ai-plus-flow)
 
   + [Use Cursor AI](/tutorials/ai-plus-flow/cursor)
+  + [Flow MCP](/tutorials/ai-plus-flow/mcp)
   + [Use ChatGPT](/tutorials/ai-plus-flow/chatgpt)
   + [Flow Data Sources](/tutorials/ai-plus-flow/flow-data-sources)
   + [Using AgentKit on Flow](/tutorials/ai-plus-flow/agentkit-flow-guide)
@@ -93,19 +94,19 @@ If you encounter any issues:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/cursor/index.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
 AI Plus Flow](/tutorials/ai-plus-flow)[Next
 
-Use ChatGPT](/tutorials/ai-plus-flow/chatgpt)
+Flow MCP](/tutorials/ai-plus-flow/mcp)
 
 ###### Rate this page
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Installation](#installation)
 * [Using Flow Docs in Cursor](#using-flow-docs-in-cursor)

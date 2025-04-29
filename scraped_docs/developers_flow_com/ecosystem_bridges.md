@@ -70,7 +70,7 @@ Bridges are mechanisms that connect different blockchain networks, enabling secu
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/bridges.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -82,7 +82,7 @@ Community Projects](/ecosystem/projects)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Stargate Bridge](#stargate-bridge)
 * [Flow Bridge](#flow-bridge)

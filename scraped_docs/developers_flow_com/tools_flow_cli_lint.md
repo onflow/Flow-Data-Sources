@@ -84,7 +84,7 @@ The Cadence Linter is also available in the [Cadence VSCode extension](/tools/vs
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/lint.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -96,7 +96,7 @@ Flow Interaction Templates (FLIX)](/tools/flow-cli/flix)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Example Usage](#example-usage)
 * [Example Output](#example-output)

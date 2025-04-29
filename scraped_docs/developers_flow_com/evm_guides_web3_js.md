@@ -485,7 +485,7 @@ For more information about using smart contracts in web3.js, see the [official d
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/web3-js.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -495,7 +495,7 @@ Ethers](/evm/guides/ethers)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Prerequisites](#prerequisites)
 * [Initializing Web3 with Flow](#initializing-web3-with-flow)

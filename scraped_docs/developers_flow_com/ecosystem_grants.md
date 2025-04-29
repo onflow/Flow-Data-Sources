@@ -53,7 +53,7 @@ We are particularly interested in projects across these key areas:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/grants.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -65,7 +65,7 @@ Hackathons](/ecosystem/hackathons)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Focus Areas](#focus-areas)
 * [How to Apply](#how-to-apply)

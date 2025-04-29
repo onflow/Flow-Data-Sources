@@ -304,7 +304,7 @@ you can use scripts events to learn information about the state of the epoch con
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/04-epoch-preparation.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -316,7 +316,7 @@ Stake Slashing](/networks/staking/stake-slashing)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Epochs Overview](#epochs-overview)
 * [Epoch Length](#epoch-length)

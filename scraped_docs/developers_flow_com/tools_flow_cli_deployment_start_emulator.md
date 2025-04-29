@@ -128,7 +128,7 @@ To explore advanced features like snapshots, rollbacks, and debugging, visit the
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/deployment/start-emulator.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -140,7 +140,7 @@ Add Project Contracts](/tools/flow-cli/deployment/project-contracts)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Initial Configuration](#initial-configuration)
 * [Starting the Emulator](#starting-the-emulator)

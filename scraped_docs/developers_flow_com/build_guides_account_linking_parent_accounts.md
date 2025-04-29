@@ -1029,7 +1029,7 @@ and ultimately the owners of these child accounts the ability to revoke secondar
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking/parent-accounts.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -1041,7 +1041,7 @@ Account Linking With NBA Top Shot](/build/guides/account-linking-with-dapper)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Objectives](#objectives)
 * [Design Overview](#design-overview)

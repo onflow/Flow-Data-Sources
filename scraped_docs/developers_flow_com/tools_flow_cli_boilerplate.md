@@ -186,7 +186,7 @@ Use the `--dir` flag only if your project requires a different organizational st
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/boilerplate.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -198,7 +198,7 @@ Data Collection](/tools/flow-cli/data-collection)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Introduction](#introduction)
 * [Generate Contract](#generate-contract)

@@ -170,7 +170,7 @@ After adding your account to your `flow.json` file, you're ready to use your acc
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/faucets.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -182,7 +182,7 @@ Grants](/ecosystem/grants)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Flow Faucet](#flow-faucet)
   + [Supported Networks](#supported-networks)

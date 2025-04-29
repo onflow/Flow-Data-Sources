@@ -69,7 +69,7 @@ through a peer-to-peer transaction mechanism.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/cross-chain-swaps.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -81,7 +81,7 @@ Add Token To MetaMask](/ecosystem/defi-liquidity/add-token-to-metamask)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Liquidity Pool Based Cross-chain Swaps](#liquidity-pool-based-cross-chain-swaps)
   + [Stargate](#stargate)

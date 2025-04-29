@@ -310,7 +310,7 @@ Auditors](/ecosystem/auditors)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Getting Started](#getting-started)
 * [Other Communities](#other-communities)

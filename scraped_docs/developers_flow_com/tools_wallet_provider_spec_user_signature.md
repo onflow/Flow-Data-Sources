@@ -187,7 +187,7 @@ _17
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/user-signature.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -199,7 +199,7 @@ Tools](/tools)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Status](#status)
   + [UserDomainTag](#userdomaintag)

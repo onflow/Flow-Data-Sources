@@ -1794,7 +1794,7 @@ using Cadence.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/interacting-with-coa.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -1806,7 +1806,7 @@ Direct Calls to Flow EVM](/tutorials/cross-vm-apps/direct-calls)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [COA Interface](#coa-interface)
 * [Importing the EVM Contract](#importing-the-evm-contract)

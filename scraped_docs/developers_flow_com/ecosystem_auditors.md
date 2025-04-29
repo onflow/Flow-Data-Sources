@@ -62,7 +62,7 @@ The following companies provide independent contract auditing services of Cadenc
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/auditors.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -74,7 +74,7 @@ Ecosystem Overview](/ecosystem/overview)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Nagra (Kudelski)](#nagra-kudelski)
 * [NCC Group](#ncc-group)

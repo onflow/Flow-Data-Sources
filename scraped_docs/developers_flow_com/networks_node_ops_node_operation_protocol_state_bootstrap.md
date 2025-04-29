@@ -252,7 +252,7 @@ _10
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/protocol-state-bootstrap.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -264,7 +264,7 @@ Managing disk space](/networks/node-ops/node-operation/reclaim-disk)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Node Startup](#node-startup)
 * [Using a Root Snapshot File](#using-a-root-snapshot-file)

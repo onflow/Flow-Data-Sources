@@ -147,7 +147,7 @@ access(all) event MachineAccountCreated(nodeID: String, role: UInt8, address: Ad
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/11-staking-collection.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -159,7 +159,7 @@ Account Linking](/build/core-contracts/hybrid-custody)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Transactions](#transactions)
 * [Scripts](#scripts)

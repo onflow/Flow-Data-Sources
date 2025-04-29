@@ -602,7 +602,7 @@ Once a valid root snapshot file is downloaded to the node's bootstrap folder, it
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-bootstrap.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -614,7 +614,7 @@ Node Economics](/networks/node-ops/node-operation/node-economics)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Timing](#timing)
 * [Step 1 - Run Genesis Bootstrap](#step-1---run-genesis-bootstrap)

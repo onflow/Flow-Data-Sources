@@ -333,7 +333,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/get-transactions.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -345,7 +345,7 @@ Build a Transaction](/tools/flow-cli/transactions/build-transactions)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Example Usage](#example-usage)
 * [Arguments](#arguments)

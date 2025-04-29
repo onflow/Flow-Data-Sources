@@ -90,7 +90,7 @@ These improvements are especially notable on mobile, where users are typically m
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/account-abstraction.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -102,7 +102,7 @@ FLIX (Flow Interaction Templates)](/build/advanced-concepts/flix)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Multi-sig Transactions](#multi-sig-transactions)
 * [Sponsored Transactions](#sponsored-transactions)

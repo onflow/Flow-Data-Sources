@@ -181,7 +181,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/get-flow-data/get-collections.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -193,7 +193,7 @@ Network Status](/tools/flow-cli/get-flow-data/get-status)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Example Usage](#example-usage)
   + [Example response](#example-response)

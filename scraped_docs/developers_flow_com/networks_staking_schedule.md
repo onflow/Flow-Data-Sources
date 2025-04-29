@@ -181,7 +181,7 @@ which does not create regular transaction IDs.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/03-schedule.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -193,7 +193,7 @@ Epoch Preparation Protocol](/networks/staking/epoch-preparation)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Rewards](#rewards)
 * [Staking Auction](#staking-auction)

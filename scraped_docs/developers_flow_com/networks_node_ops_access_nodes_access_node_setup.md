@@ -928,7 +928,7 @@ Example: there are 115 access nodes already part of the network. Hence, the tota
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/access-nodes/access-node-setup.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -940,7 +940,7 @@ Execution Data](/networks/node-ops/access-nodes/access-node-configuration-option
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Who Should Run a Permissionless Access Node?](#who-should-run-a-permissionless-access-node)
 * [Timing](#timing)

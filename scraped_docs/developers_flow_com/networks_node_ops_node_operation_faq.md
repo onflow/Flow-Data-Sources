@@ -116,7 +116,7 @@ with its peers, preventing it from functioning properly.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/faq.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -128,7 +128,7 @@ Byzantine Attack Response](/networks/node-ops/node-operation/byzantine-node-atta
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Can anybody run a node? What is the approval process?](#can-anybody-run-a-node-what-is-the-approval-process)
 * [How do I generate keys?](#how-do-i-generate-keys)

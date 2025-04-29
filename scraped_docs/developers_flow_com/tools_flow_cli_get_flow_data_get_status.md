@@ -157,7 +157,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/get-flow-data/get-status.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -169,7 +169,7 @@ Generate a Signature](/tools/flow-cli/utils/signature-generate)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Example Usage](#example-usage)
 * [Flags](#flags)

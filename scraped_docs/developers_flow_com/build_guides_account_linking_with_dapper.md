@@ -1850,7 +1850,7 @@ In this tutorial, you took your first steps towards building powerful new experi
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking-with-dapper.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -1862,7 +1862,7 @@ More Guides](/build/guides/more-guides)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Objectives](#objectives)
 * [Prerequisites](#prerequisites)

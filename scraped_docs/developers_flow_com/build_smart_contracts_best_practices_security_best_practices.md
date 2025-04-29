@@ -110,7 +110,7 @@ Do not use the `access(all)` modifier on fields and functions unless necessary. 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/best-practices/security-best-practices.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -122,7 +122,7 @@ Contract Upgrades with Incompatible Changes](/build/smart-contracts/best-practic
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [References](#references)
 * [Account Storage](#account-storage)

@@ -146,7 +146,7 @@ Restart VS Code and the extension should be installed!
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/vscode-extension/index.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -158,7 +158,7 @@ Flow Dev Wallet](/tools/flow-dev-wallet)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Features](#features)
 * [Installation](#installation)

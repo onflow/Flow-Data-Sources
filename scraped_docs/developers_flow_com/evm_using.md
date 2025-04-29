@@ -147,7 +147,7 @@ Read more about the [EVM Gateway](https://github.com/onflow/flow-evm-gateway) on
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/using.mdx)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -159,7 +159,7 @@ Network Information](/evm/networks)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [EVM Wallets](#evm-wallets)
   + [MetaMask](#metamask)

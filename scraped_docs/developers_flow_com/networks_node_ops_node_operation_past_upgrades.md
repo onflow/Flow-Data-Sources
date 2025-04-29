@@ -1081,7 +1081,7 @@ While FCL v0.0.67 is not strictly necessary to use Mainnet 6, we strongly recomm
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/past-upgrades.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -1093,7 +1093,7 @@ Network Upgrade (Spork) Process](/networks/node-ops/node-operation/spork)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Mainnet Upgrades](#mainnet-upgrades)
 * [Height Coordinated Upgrade 7](#height-coordinated-upgrade-7)

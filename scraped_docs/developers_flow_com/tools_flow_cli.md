@@ -72,7 +72,7 @@ To get started with creating your first Flow project and to learn more about how
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/index.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -84,7 +84,7 @@ Install Instructions](/tools/flow-cli/install)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Installation](#installation)
 * [Create Your First Project](#create-your-first-project)

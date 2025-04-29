@@ -185,7 +185,7 @@ about the events that can be emitted by these contracts and scripts you can use 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/09-qc-dkg.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -197,7 +197,7 @@ QC/DKG Scripts and Events](/networks/staking/qc-dkg-scripts-events)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Epoch Setup Phase](#epoch-setup-phase)
 * [Machine Accounts](#machine-accounts)

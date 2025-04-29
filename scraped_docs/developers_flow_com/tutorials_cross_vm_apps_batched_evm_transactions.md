@@ -1368,7 +1368,7 @@ Ready to level up your Cadence skills? Take a look at [these Cadence tutorials](
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/batched-evm-transactions.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -1380,7 +1380,7 @@ Cross-VM Bridge](/tutorials/cross-vm-apps/vm-bridge)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Objectives](#objectives)
 * [Prerequisites](#prerequisites)

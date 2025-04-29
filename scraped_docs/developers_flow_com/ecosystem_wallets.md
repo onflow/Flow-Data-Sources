@@ -72,7 +72,7 @@ Store, manage, and interact securely with tokens and digital assets on Flow. Dis
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/wallets.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -84,7 +84,7 @@ Flow Block Explorers](/ecosystem/block-explorers)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Flow Wallet](#flow-wallet)
 * [Metamask Wallet](#metamask-wallet)

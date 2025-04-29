@@ -124,7 +124,7 @@ Solving the blockchain trilemma](/networks/network-architecture/solving-blockcha
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [What Problems Does the Flow Multi-Role Architecture Solve?](#what-problems-does-the-flow-multi-role-architecture-solve)
   + [1. The Blockchain Trilemma](#1-the-blockchain-trilemma)

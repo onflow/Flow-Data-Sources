@@ -149,7 +149,7 @@ These files contain confidential data, and must be stored and accessed securely.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-provisioning.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -161,7 +161,7 @@ Node Roles](/networks/node-ops/node-operation/node-roles)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Hardware Requirements](#hardware-requirements)
 * [Networking Requirements](#networking-requirements)

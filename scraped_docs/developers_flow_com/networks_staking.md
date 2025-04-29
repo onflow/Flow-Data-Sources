@@ -199,7 +199,7 @@ for information about technical integration.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/index.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -211,7 +211,7 @@ Epoch and Staking Terminology](/networks/staking/epoch-terminology)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [What is Staking?](#what-is-staking)
 * [How Does Staking Work on Flow?](#how-does-staking-work-on-flow)

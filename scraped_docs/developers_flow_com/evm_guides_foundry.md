@@ -605,7 +605,7 @@ $DEPLOYER_ADDRESS`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/foundry.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -617,7 +617,7 @@ VRF (Randomness) in Solidity](/evm/guides/vrf)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Overview](#overview)
 * [Example: Deploying an ERC-20 Token Contract to Flow EVM](#example-deploying-an-erc-20-token-contract-to-flow-evm)

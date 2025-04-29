@@ -505,7 +505,7 @@ See [Past Sporks](/networks/node-ops/node-operation/past-upgrades) for the curre
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/light-nodes/observer-node.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -517,7 +517,7 @@ Operator FAQ](/networks/node-ops/node-operation/faq)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Who should run a light node?](#who-should-run-a-light-node)
 * [Running an light node](#running-an-light-node)

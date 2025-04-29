@@ -2059,7 +2059,7 @@ Congrats, you did it! You're now ready to launch the next fun NFT project on Flo
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/nft.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -2071,7 +2071,7 @@ Creating a Fungible Token](/build/guides/fungible-token)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [What are NFTs](#what-are-nfts)
 * [Setting Up a Project](#setting-up-a-project)

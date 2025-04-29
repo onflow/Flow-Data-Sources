@@ -373,7 +373,7 @@ _16
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/wallet-connect.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -385,7 +385,7 @@ Flow Go SDK](/tools/clients/flow-go-sdk)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [How does it work?](#how-does-it-work)
   + [Requirements](#requirements)

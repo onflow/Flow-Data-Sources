@@ -333,7 +333,7 @@ See the following video for demonstration of how to update your code to wait for
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/transactions.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -345,7 +345,7 @@ Signing and Verifying Arbitrary Data](/tools/clients/fcl-js/user-signatures)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Sending Your First Transaction](#sending-your-first-transaction)
 * [Authorizing a Transaction](#authorizing-a-transaction)

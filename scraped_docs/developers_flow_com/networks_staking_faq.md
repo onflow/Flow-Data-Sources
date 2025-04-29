@@ -118,7 +118,7 @@ It is possible to query the information about a node that an address runs though
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/12-faq.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -130,7 +130,7 @@ Technical Staking Options](/networks/staking/staking-options)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Where will users receive their staking reward for each staking option?](#where-will-users-receive-their-staking-reward-for-each-staking-option)
 * [Will staking rewards be automatically re-staked?](#will-staking-rewards-be-automatically-re-staked)

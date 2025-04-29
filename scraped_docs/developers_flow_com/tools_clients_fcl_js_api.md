@@ -3626,7 +3626,7 @@ SDK Reference](/tools/clients/fcl-js/sdk-guidelines)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Configuration](#configuration)
   + [Setting Configuration Values](#setting-configuration-values)

@@ -164,7 +164,7 @@ Cross-VM Apps](/tutorials/cross-vm-apps)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Manual Registration (~1 min)](#manual-registration-1-min)
 * [Programmatic Registration](#programmatic-registration)

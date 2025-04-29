@@ -49,7 +49,7 @@ Register ERC20 Token](/tutorials/token-launch/register-erc20-token)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Guides](#guides)
 

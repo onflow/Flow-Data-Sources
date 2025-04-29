@@ -521,7 +521,7 @@ By harnessing Flow's built-in capabilities, you can now focus on crafting engagi
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/native-vrf/commit-reveal-cadence.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -533,7 +533,7 @@ Deploy a Solidity Contract Using Cadence](/tutorials/native-vrf/deploy-solidity-
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Objectives](#objectives)
 * [Prerequisites](#prerequisites)

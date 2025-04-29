@@ -16,6 +16,7 @@ Search
 * [AI Plus Flow](/tutorials/ai-plus-flow)
 
   + [Use Cursor AI](/tutorials/ai-plus-flow/cursor)
+  + [Flow MCP](/tutorials/ai-plus-flow/mcp)
   + [Use ChatGPT](/tutorials/ai-plus-flow/chatgpt)
   + [Flow Data Sources](/tutorials/ai-plus-flow/flow-data-sources)
   + [Using AgentKit on Flow](/tutorials/ai-plus-flow/agentkit-flow-guide)
@@ -108,11 +109,11 @@ You've now created a custom GPT that references your uploaded file as a primary 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/chatgpt/index.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
-Use Cursor AI](/tutorials/ai-plus-flow/cursor)[Next
+Contribute to Flow MCP](/tutorials/ai-plus-flow/mcp/contribute-to-mcp)[Next
 
 Flow Data Sources](/tutorials/ai-plus-flow/flow-data-sources)
 
@@ -120,7 +121,7 @@ Flow Data Sources](/tutorials/ai-plus-flow/flow-data-sources)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [📍 Step 1: Open the "Explore GPTs" Section](#-step-1-open-the-explore-gpts-section)
 * [📍 Step 2: Click "Create a GPT"](#-step-2-click-create-a-gpt)

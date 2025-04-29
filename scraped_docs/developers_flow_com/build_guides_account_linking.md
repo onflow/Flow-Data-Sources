@@ -308,7 +308,7 @@ Learn more about it in the [Hybrid Custody documentation](/build/guides/account-
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking/index.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -320,7 +320,7 @@ Building Walletless Applications Using Child Accounts](/build/guides/account-lin
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Accessing Account](#accessing-account)
 * [Account Capabilities](#account-capabilities)

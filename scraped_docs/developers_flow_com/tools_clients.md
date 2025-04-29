@@ -147,7 +147,7 @@ Each client tool is designed with specific use cases and developer needs in mind
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/index.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -159,7 +159,7 @@ Flow Client Library (FCL)](/tools/clients/fcl-js)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [JavaScript (FCL)](#javascript-fcl)
 * [Go SDK](#go-sdk)

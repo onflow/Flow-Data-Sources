@@ -118,7 +118,7 @@ Whether you're new to building onchain, or an established veteran, we’re here 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/authentication.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -130,7 +130,7 @@ How to Configure FCL](/tools/clients/fcl-js/configure-fcl)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Snapshot of the Current User](#snapshot-of-the-current-user)
 * [Subscribe to the Current User](#subscribe-to-the-current-user)

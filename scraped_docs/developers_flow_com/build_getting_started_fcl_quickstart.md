@@ -990,7 +990,7 @@ For additional details and advanced usage, refer to the [@onflow/kit documentati
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/fcl-quickstart.md)
 
-Last updated on **Apr 23, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -1002,7 +1002,7 @@ Network Architecture ↗️](/build/basics/network-architecture)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Objectives](#objectives)
 * [Prerequisites](#prerequisites)

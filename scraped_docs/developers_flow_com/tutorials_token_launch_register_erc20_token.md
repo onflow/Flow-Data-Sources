@@ -100,7 +100,7 @@ Register Cadence Assets](/tutorials/token-launch/register-cadence-assets)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Overview](#overview)
 * [Guides for submitting your PRs](#guides-for-submitting-your-prs)

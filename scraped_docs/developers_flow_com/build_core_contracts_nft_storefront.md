@@ -648,7 +648,7 @@ A entitled receiver has not been paid during the sale of the NFT.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/10-nft-storefront.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -660,7 +660,7 @@ Staking Collection](/build/core-contracts/staking-collection)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Primer](#primer)
 * [Functional Overview](#functional-overview)

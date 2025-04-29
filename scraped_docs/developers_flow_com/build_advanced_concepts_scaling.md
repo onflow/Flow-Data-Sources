@@ -661,7 +661,7 @@ It takes roughly the time of 1 transaction to run all 420 without any errors.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/scaling.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -673,7 +673,7 @@ Account Linking (FLIP 72)](/build/guides/account-linking)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Problem](#problem)
 * [Solution](#solution)

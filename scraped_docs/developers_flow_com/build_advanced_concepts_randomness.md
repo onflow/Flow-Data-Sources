@@ -394,7 +394,7 @@ If you'd like to dive deeper into Flow's onchain randomness, here's a list of re
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/randomness.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -406,7 +406,7 @@ Scaling Transactions from a Single Account](/build/advanced-concepts/scaling)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Use Cases of Onchain Randomness](#use-cases-of-onchain-randomness)
 * [History of the Distributed Randomness Beacon](#history-of-the-distributed-randomness-beacon)

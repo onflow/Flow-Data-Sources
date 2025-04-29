@@ -538,7 +538,7 @@ Get familiar with the [Cadence anti-patterns](https://cadence-lang.org/docs/anti
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/testing.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -550,7 +550,7 @@ Security Best Practices](/build/smart-contracts/best-practices/security-best-pra
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Install Flow CLI](#install-flow-cli)
 * [Create a new project](#create-a-new-project)

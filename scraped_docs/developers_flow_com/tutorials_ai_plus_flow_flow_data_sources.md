@@ -16,6 +16,7 @@ Search
 * [AI Plus Flow](/tutorials/ai-plus-flow)
 
   + [Use Cursor AI](/tutorials/ai-plus-flow/cursor)
+  + [Flow MCP](/tutorials/ai-plus-flow/mcp)
   + [Use ChatGPT](/tutorials/ai-plus-flow/chatgpt)
   + [Flow Data Sources](/tutorials/ai-plus-flow/flow-data-sources)
   + [Using AgentKit on Flow](/tutorials/ai-plus-flow/agentkit-flow-guide)
@@ -79,7 +80,7 @@ For integration with AI tools like Cursor or ChatGPT, use the appropriate URL as
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/flow-data-sources.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -91,7 +92,7 @@ Using AgentKit on Flow](/tutorials/ai-plus-flow/agentkit-flow-guide)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Overview](#overview)
 * [Key Features](#key-features)

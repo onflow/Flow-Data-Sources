@@ -135,7 +135,7 @@ Flow Testnet is explicitly for experimentation and testing and should not be use
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/deploying.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -147,7 +147,7 @@ Testing Your Contracts](/build/smart-contracts/testing)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Creating an Account](#creating-an-account)
 * [Create and deploy a mainnet project](#create-and-deploy-a-mainnet-project)
@@ -392,7 +392,7 @@ Specify the log level. Control how much output you want to see while command exe
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flow.json/initialize-configuration.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -404,7 +404,7 @@ Configuration](/tools/flow-cli/flow.json/configuration)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Example Usage](#example-usage)
   + [Error Handling](#error-handling)
@@ -575,7 +575,7 @@ Block explorers are user-friendly online tools that visually present blockchain 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/block-explorers.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -587,7 +587,7 @@ Data Indexers](/ecosystem/data-indexers)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Flowscan](#flowscan)
   + [Supported networks:](#supported-networks)
@@ -1138,7 +1138,7 @@ Search
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/learn-cadence.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -3258,7 +3258,7 @@ Flow Emulator](/tools/emulator)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [🔌 Included React Hooks](#-included-react-hooks)
 * [Installation](#installation)
@@ -3820,7 +3820,7 @@ _26
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/complex-transactions.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -3832,7 +3832,7 @@ Sign a Transaction](/tools/flow-cli/transactions/sign-transaction)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Examples](#examples)
   + [Single payer, proposer and authorizer](#single-payer-proposer-and-authorizer)
@@ -4239,7 +4239,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/get-transactions.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -4251,7 +4251,7 @@ Build a Transaction](/tools/flow-cli/transactions/build-transactions)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Example Usage](#example-usage)
 * [Arguments](#arguments)
@@ -6066,7 +6066,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/scripts/execute-scripts.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -6078,7 +6078,7 @@ Send a Transaction](/tools/flow-cli/transactions/send-transactions)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Example Usage](#example-usage)
 * [Arguments](#arguments)
@@ -6887,7 +6887,7 @@ See the following video for demonstration of how to update your code to wait for
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/transactions.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -6899,7 +6899,7 @@ Signing and Verifying Arbitrary Data](/tools/clients/fcl-js/user-signatures)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Sending Your First Transaction](#sending-your-first-transaction)
 * [Authorizing a Transaction](#authorizing-a-transaction)
@@ -7070,7 +7070,7 @@ Selecting the right architecture is crucial when developing an app on the Flow b
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/app-architecture/index.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -7082,7 +7082,7 @@ Learn Cadence ↗️](/build/learn-cadence)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Self-Custody Architecture](#self-custody-architecture)
 * [App Custody Architecture](#app-custody-architecture)
@@ -7245,7 +7245,7 @@ TODO: insert flow cli command here to query the block version details.`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/hcu.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -7257,7 +7257,7 @@ Protocol State Bootstrapping](/networks/node-ops/node-operation/protocol-state-b
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Overview](#overview)
 * [HCU versus Spork](#hcu-versus-spork)
@@ -7509,7 +7509,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/get-flow-data/get-collections.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -7521,7 +7521,7 @@ Network Status](/tools/flow-cli/get-flow-data/get-status)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Example Usage](#example-usage)
   + [Example response](#example-response)
@@ -8665,7 +8665,7 @@ Research shows that warm introductions can increase your chances of securing fun
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/vcs-and-funds.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -9274,7 +9274,7 @@ Read more about the [EVM Gateway](https://github.com/onflow/flow-evm-gateway) on
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/using.mdx)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -9286,7 +9286,7 @@ Network Information](/evm/networks)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [EVM Wallets](#evm-wallets)
   + [MetaMask](#metamask)
@@ -9394,13 +9394,139 @@ Go to [Faucets](/ecosystem/faucets)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/faucets.mdx)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
 Cross-chain Bridges ↙](/evm/cross-chain-bridges)[Next
 
 Block Explorers ↙](/evm/block-explorers)
+
+Documentation
+
+* [Getting Started](/build/getting-started/contract-interaction)
+* [SDK's & Tools](/tools)
+* [Cadence](https://cadence-lang.org/docs/)
+* [Mobile](/build/guides/mobile/overview)
+* [FCL](/tools/clients/fcl-js)
+* [Testing](/build/smart-contracts/testing)
+* [CLI](/tools/flow-cli)
+* [Emulator](/tools/emulator)
+* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
+* [VS Code Extension](/tools/vscode-extension)
+
+Community
+
+* [Ecosystem](/ecosystem)
+* [Flow Port](https://port.onflow.org/)
+* [Developer Grants](https://github.com/onflow/developer-grants)
+* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
+* [Flowverse](https://www.flowverse.co/)
+* [Emerald Academy](https://academy.ecdao.org/)
+* [FLOATs (Attendance NFTs)](https://floats.city/)
+
+Start Building
+
+* [Flow Playground](https://play.flow.com/)
+* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
+* [Cadence Cookbook](https://open-cadence.onflow.org)
+* [Core Contracts & Standards](/build/core-contracts)
+* [EVM](/evm/about)
+
+Network
+
+* [Network Status](https://status.onflow.org/)
+* [Flowscan Mainnet](https://flowscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
+* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/networks/node-ops)
+* [Spork Information](/networks/node-ops/node-operation/spork)
+
+More
+
+* [GitHub](https://github.com/onflow)
+* [Discord](https://discord.gg/flow)
+* [Forum](https://forum.onflow.org/)
+* [OnFlow](https://onflow.org/)
+* [Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow, Inc. Built with Docusaurus.
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://developers.flow.com/tutorials/ai-plus-flow/mcp
+
+Flow MCP | Flow Developer Portal
+
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Tutorials](/tutorials)
+* [AI Plus Flow](/tutorials/ai-plus-flow)
+
+  + [Use Cursor AI](/tutorials/ai-plus-flow/cursor)
+  + [Flow MCP](/tutorials/ai-plus-flow/mcp)
+
+    - [Use Flow MCP in Cursor](/tutorials/ai-plus-flow/mcp/use-mcp-in-cursor)
+    - [Contribute to Flow MCP](/tutorials/ai-plus-flow/mcp/contribute-to-mcp)
+  + [Use ChatGPT](/tutorials/ai-plus-flow/chatgpt)
+  + [Flow Data Sources](/tutorials/ai-plus-flow/flow-data-sources)
+  + [Using AgentKit on Flow](/tutorials/ai-plus-flow/agentkit-flow-guide)
+  + [Eliza on Flow](/tutorials/ai-plus-flow/eliza)
+* [Token Launch](/tutorials/token-launch)
+* [Cross-VM Apps](/tutorials/cross-vm-apps)
+* [FlowtoBooth](/tutorials/flowtobooth)
+* [Native VRF](/tutorials/native-vrf)
+
+* [AI Plus Flow](/tutorials/ai-plus-flow)
+* Flow MCP
+
+On this page
+
+# Flow MCP Tutorials
+
+This section contains tutorials on how to use or build Flow MCP (Model Context Protocol) server to enhance AI tools with the capabilities of interacting with Flow blockchain.
+
+## Tutorials[​](#tutorials "Direct link to Tutorials")
+
+* [Use Flow MCP in Cursor](/tutorials/ai-plus-flow/mcp/use-mcp-in-cursor) - Learn how to use Flow MCP server in Cursor.
+* [Contribute to Flow MCP](/tutorials/ai-plus-flow/mcp/contribute-to-mcp) - Learn how to contribute to Flow MCP server.
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/mcp/index.md)
+
+Last updated on **Apr 28, 2025** by **Brian Doyle**
+
+[Previous
+
+Use Cursor AI](/tutorials/ai-plus-flow/cursor)[Next
+
+Use Flow MCP in Cursor](/tutorials/ai-plus-flow/mcp/use-mcp-in-cursor)
+
+###### Rate this page
+
+😞😐😊
+
+Copy as Markdown
+
+* [Tutorials](#tutorials)
 
 Documentation
 
@@ -9557,7 +9683,7 @@ The following are the upcoming Spork dates. These dates indicate the intention t
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/upcoming-sporks.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -9702,7 +9828,7 @@ Store, manage, and interact securely with tokens and digital assets on Flow. Dis
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/wallets.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -9714,7 +9840,7 @@ Flow Block Explorers](/ecosystem/block-explorers)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Flow Wallet](#flow-wallet)
 * [Metamask Wallet](#metamask-wallet)
@@ -10918,7 +11044,7 @@ with its peers, preventing it from functioning properly.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/faq.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -10930,7 +11056,7 @@ Byzantine Attack Response](/networks/node-ops/node-operation/byzantine-node-atta
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Can anybody run a node? What is the approval process?](#can-anybody-run-a-node-what-is-the-approval-process)
 * [How do I generate keys?](#how-do-i-generate-keys)
@@ -11127,7 +11253,7 @@ It is possible to query the information about a node that an address runs though
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/12-faq.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -11139,7 +11265,7 @@ Technical Staking Options](/networks/staking/staking-options)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Where will users receive their staking reward for each staking option?](#where-will-users-receive-their-staking-reward-for-each-staking-option)
 * [Will staking rewards be automatically re-staked?](#will-staking-rewards-be-automatically-re-staked)
@@ -11304,7 +11430,7 @@ For more information about Cadence Owned Accounts, see the [Flow EVM Support FLI
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/accounts.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -11316,7 +11442,7 @@ Cross-chain Bridges ↙](/evm/cross-chain-bridges)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Cadence Owned Accounts](#cadence-owned-accounts)
   + [Why use COAs?](#why-use-coas)
@@ -12421,7 +12547,7 @@ _10
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/ethers.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -12433,7 +12559,7 @@ Web3.js](/evm/guides/web3-js)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Installation](#installation)
 * [Setup](#setup)
@@ -12523,6 +12649,7 @@ Search
 * [AI Plus Flow](/tutorials/ai-plus-flow)
 
   + [Use Cursor AI](/tutorials/ai-plus-flow/cursor)
+  + [Flow MCP](/tutorials/ai-plus-flow/mcp)
   + [Use ChatGPT](/tutorials/ai-plus-flow/chatgpt)
   + [Flow Data Sources](/tutorials/ai-plus-flow/flow-data-sources)
   + [Using AgentKit on Flow](/tutorials/ai-plus-flow/agentkit-flow-guide)
@@ -12615,11 +12742,11 @@ You've now created a custom GPT that references your uploaded file as a primary 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/chatgpt/index.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
-Use Cursor AI](/tutorials/ai-plus-flow/cursor)[Next
+Contribute to Flow MCP](/tutorials/ai-plus-flow/mcp/contribute-to-mcp)[Next
 
 Flow Data Sources](/tutorials/ai-plus-flow/flow-data-sources)
 
@@ -12627,7 +12754,7 @@ Flow Data Sources](/tutorials/ai-plus-flow/flow-data-sources)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [📍 Step 1: Open the "Explore GPTs" Section](#-step-1-open-the-explore-gpts-section)
 * [📍 Step 2: Click "Create a GPT"](#-step-2-click-create-a-gpt)
@@ -12773,7 +12900,7 @@ developers seeking to enhance the security and management of tokenized assets wi
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/index.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -12785,7 +12912,7 @@ DeFi Contracts](/ecosystem/defi-liquidity/defi-contracts)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Why DeFi on Flow?](#why-defi-on-flow)
 * [Securing DeFi on Flow EVM](#securing-defi-on-flow-evm)
@@ -13046,7 +13173,7 @@ machine_account_balance{acct_address="7b16b57ae0a3c6aa"} 9.99464935`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/monitoring-nodes.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -13058,7 +13185,7 @@ Node Bootstrapping](/networks/node-ops/node-operation/node-bootstrap)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Logs](#logs)
 * [Metrics](#metrics)
@@ -14046,7 +14173,7 @@ Stay tuned—more tutorials and advanced guides are on the way!
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/native-vrf/index.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -14058,7 +14185,7 @@ Secure Randomness with Commit-Reveal in Cadence](/tutorials/native-vrf/commit-re
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Tutorials](#tutorials)
 * [More Coming Soon](#more-coming-soon)
@@ -14821,7 +14948,7 @@ _17
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/authorization-function.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -14833,7 +14960,7 @@ Introduction](/tools/wallet-provider-spec/custodial)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Overview](#overview)
 * [How to Use an Authorization Function](#how-to-use-an-authorization-function)
@@ -15149,7 +15276,7 @@ via the `Burner.burn()` method, this event is emitted with the following argumen
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/02-fungible-token.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -15161,7 +15288,7 @@ Flow Token](/build/core-contracts/flow-token)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [FungibleToken Events](#fungibletoken-events)
   + [FungibleToken.Deposited](#fungibletokendeposited)
@@ -15608,7 +15735,7 @@ To dive deeper into testing the functionality of your Cadence scripts and contra
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/tests.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -15620,7 +15747,7 @@ Cadence Linter](/tools/flow-cli/lint)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Prerequisites](#prerequisites)
   + [Setting Up Testing Aliases in Contracts](#setting-up-testing-aliases-in-contracts)
@@ -15863,7 +15990,7 @@ If you installed it using Hombrew you can remove it using: `brew uninstall flow-
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/install.md)
 
-Last updated on **Apr 24, 2025** by **Jordan Ribbink**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -15875,7 +16002,7 @@ Super Commands](/tools/flow-cli/super-commands)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [macOS](#macos)
   + [Homebrew](#homebrew)
@@ -16105,7 +16232,7 @@ Restart VS Code and the extension should be installed!
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/vscode-extension/index.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -16117,7 +16244,7 @@ Flow Dev Wallet](/tools/flow-dev-wallet)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Features](#features)
 * [Installation](#installation)
@@ -16341,7 +16468,7 @@ To get started building on Flow, please see the [Flow App Quickstart](/build/get
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/flow-token.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -16353,7 +16480,7 @@ Smart Contracts ↙](/build/basics/smart-contracts)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Introduction](#introduction)
   + [FLOW as a Native Coin](#flow-as-a-native-coin)
@@ -17176,7 +17303,7 @@ _17
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/provable-authn.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -17188,7 +17315,7 @@ User Signature](/tools/wallet-provider-spec/user-signature)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [TL;DR Wallet Provider](#tldr-wallet-provider)
   + [Account Proof Message Encoding](#account-proof-message-encoding)
@@ -17680,7 +17807,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/get-flow-data/get-events.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -17692,7 +17819,7 @@ Get Collection](/tools/flow-cli/get-flow-data/get-collections)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Example Usage](#example-usage)
 * [Arguments](#arguments)
@@ -17893,11 +18020,11 @@ Find a list of all SDKs [here](/tools/clients)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/blocks.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
-Network Architecture  ↗️](/build/basics/network-architecture)[Next
+Network Architecture ↗️](/build/basics/network-architecture)[Next
 
 Collections](/build/basics/collections)
 
@@ -17905,7 +18032,7 @@ Collections](/build/basics/collections)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Overview](#overview)
   + [Block Header](#block-header)
@@ -18349,7 +18476,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/send-transactions.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -18361,7 +18488,7 @@ Get a Transaction](/tools/flow-cli/transactions/get-transactions)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Example Usage](#example-usage)
 * [Arguments](#arguments)
@@ -18726,7 +18853,7 @@ Bridges are mechanisms that connect different blockchain networks, enabling secu
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/bridges.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -18738,7 +18865,7 @@ Community Projects](/ecosystem/projects)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Stargate Bridge](#stargate-bridge)
 * [Flow Bridge](#flow-bridge)
@@ -19405,7 +19532,7 @@ If you're already familiar with blockchain development, here's a comparison betw
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/differences-vs-evm/index.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -19417,7 +19544,7 @@ Contract Interaction](/build/getting-started/contract-interaction)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [The Flow Cadence Account Model](#the-flow-cadence-account-model)
 * [Smart Contracts](#smart-contracts)
@@ -19583,7 +19710,7 @@ React hooks to interact with Flow blockchain, making development easy and intuit
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/projects.mdx)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -20759,7 +20886,7 @@ A entitled receiver has not been paid during the sale of the NFT.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/10-nft-storefront.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -20771,7 +20898,7 @@ Staking Collection](/build/core-contracts/staking-collection)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Primer](#primer)
 * [Functional Overview](#functional-overview)
@@ -21682,7 +21809,7 @@ _42
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/08-staking-rewards.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -21694,7 +21821,7 @@ QC and DKG](/networks/staking/qc-dkg)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Current method to check staking rewards](#current-method-to-check-staking-rewards)
 * [Check staking rewards before May 2023](#check-staking-rewards-before-may-2023)
@@ -22265,7 +22392,7 @@ Use the `--dir` flag only if your project requires a different organizational st
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/boilerplate.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -22277,7 +22404,7 @@ Data Collection](/tools/flow-cli/data-collection)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Introduction](#introduction)
 * [Generate Contract](#generate-contract)
@@ -23098,7 +23225,7 @@ Additional Details:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/fees.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -23110,7 +23237,7 @@ MEV Resistance](/build/basics/mev-resistance)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Transaction Fees](#transaction-fees)
   + [Understanding the need for transaction fees](#understanding-the-need-for-transaction-fees)
@@ -23600,7 +23727,7 @@ The [FLOW](/build/core-contracts/flow-token) (or $FLOW) token is the native curr
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/flow.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Next
 
@@ -23610,7 +23737,7 @@ Differences vs. EVM](/build/differences-vs-evm)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [What Makes Flow Unique](#what-makes-flow-unique)
   + [Flow Blockchain](#flow-blockchain)
@@ -25002,7 +25129,7 @@ and ultimately the owners of these child accounts the ability to revoke secondar
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking/parent-accounts.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -25014,7 +25141,7 @@ Account Linking With NBA Top Shot](/build/guides/account-linking-with-dapper)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Objectives](#objectives)
 * [Design Overview](#design-overview)
@@ -25290,7 +25417,7 @@ For more information and a deeper dive into the `EVMAddress`, `Result`, and `Sta
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/direct-calls.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -25302,7 +25429,7 @@ Batched EVM Transactions](/tutorials/cross-vm-apps/batched-evm-transactions)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Making Direct Calls](#making-direct-calls)
   + [Accessing Flow EVM](#accessing-flow-evm)
@@ -25551,7 +25678,7 @@ Register ERC20 Token](/tutorials/token-launch/register-erc20-token)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Guides](#guides)
 
@@ -25931,7 +26058,7 @@ implentation](https://github.com/onflow/random-coin-toss) using the VRF.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/vrf.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -25943,7 +26070,7 @@ Ethers](/evm/guides/ethers)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [**Introduction**](#introduction)
   + [**What is Cadence Arch?**](#what-is-cadence-arch)
@@ -28095,7 +28222,7 @@ That's it! You now have a shippable Flow dapp that can auth, query, init account
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/react-native-quickstart.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -28107,7 +28234,7 @@ Core Smart Contracts](/build/core-contracts)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Introduction](#introduction)
 * [Installation](#installation)
@@ -30198,7 +30325,7 @@ In this tutorial, you took your first steps towards building powerful new experi
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking-with-dapper.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -30210,7 +30337,7 @@ More Guides](/build/guides/more-guides)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Objectives](#objectives)
 * [Prerequisites](#prerequisites)
@@ -30449,7 +30576,7 @@ These files contain confidential data, and must be stored and accessed securely.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-provisioning.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -30461,7 +30588,7 @@ Node Roles](/networks/node-ops/node-operation/node-roles)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Hardware Requirements](#hardware-requirements)
 * [Networking Requirements](#networking-requirements)
@@ -30633,7 +30760,7 @@ Flow Improvement Proposals (FLIPs) serve as a platform for engaging the Flow com
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/index.mdx)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Next
 
@@ -30885,7 +31012,7 @@ Flow’s multi-role architecture provides censorship & MEV resistance by design:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/network-architecture/user-safety.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -31768,7 +31895,7 @@ _66
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/interaction-templates.mdx)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -31780,7 +31907,7 @@ Proving Ownership of a Flow Account](/tools/clients/fcl-js/proving-authenticatio
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Overview](#overview)
 * [For Applications](#for-applications)
@@ -35478,7 +35605,7 @@ SDK Reference](/tools/clients/fcl-js/sdk-guidelines)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Configuration](#configuration)
   + [Setting Configuration Values](#setting-configuration-values)
@@ -36676,7 +36803,7 @@ Search
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/network-architecture.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -37071,7 +37198,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/sign-transaction.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -37083,7 +37210,7 @@ Send Signed Transaction](/tools/flow-cli/transactions/send-signed-transactions)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Example Usage](#example-usage)
 * [Arguments](#arguments)
@@ -37404,7 +37531,7 @@ Use cases include cryptographic login, message validation, verifiable credential
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/user-signatures.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -37416,7 +37543,7 @@ WalletConnect 2.0 Manual Configuration](/tools/clients/fcl-js/wallet-connect)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Signing Arbitrary Data](#signing-arbitrary-data)
 * [Verifying User Signatures](#verifying-user-signatures)
@@ -38127,7 +38254,7 @@ This script does not require any arguments.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/05-epoch-scripts-events.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -38139,7 +38266,7 @@ Staking Technical Overview](/networks/staking/technical-overview)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Introduction](#introduction)
 * [Monitor Epoch Service Events](#monitor-epoch-service-events)
@@ -39197,7 +39324,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/get-accounts.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -39209,7 +39336,7 @@ Create an Account](/tools/flow-cli/accounts/create-accounts)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Example Usage](#example-usage)
   + [Example response](#example-response)
@@ -39535,7 +39662,7 @@ Proceed to the next tutorial to learn how to create your own contracts and deplo
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/contract-interaction.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -39547,7 +39674,7 @@ Local Development](/build/getting-started/flow-cli)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Objectives](#objectives)
 * [Calling a Contract With a Script](#calling-a-contract-with-a-script)
@@ -40644,7 +40771,7 @@ _10
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flow.json/configuration.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -40656,7 +40783,7 @@ Manage Configuration](/tools/flow-cli/flow.json/manage-configuration)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Example Project Configuration](#example-project-configuration)
 * [Configuration](#configuration)
@@ -40844,7 +40971,7 @@ contract that conforms to the standard.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/overview.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -40856,7 +40983,7 @@ Deploying Contracts](/build/smart-contracts/deploying)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [How to Write Smart Contracts on Flow](#how-to-write-smart-contracts-on-flow)
   + [Onboard to Cadence](#onboard-to-cadence)
@@ -41224,7 +41351,7 @@ Mainnet EAS Explorer: [<https://flow.easscan.credora.io>] (<https://flow.easscan
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/defi-contracts.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -41236,7 +41363,7 @@ Cross-chain swaps on Flow EVM](/ecosystem/defi-liquidity/cross-chain-swaps)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Stablecoins & Wrapped Assets](#stablecoins--wrapped-assets)
 * [AMMs & DEXs](#amms--dexs)
@@ -43069,7 +43196,7 @@ Once a valid root snapshot file is downloaded to the node's bootstrap folder, it
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-bootstrap.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -43081,7 +43208,7 @@ Node Economics](/networks/node-ops/node-operation/node-economics)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Timing](#timing)
 * [Step 1 - Run Genesis Bootstrap](#step-1---run-genesis-bootstrap)
@@ -44589,7 +44716,7 @@ Mainnet/Testnet Source: [`EVM.cdc`](https://github.com/onflow/flow-go/blob/maste
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/13-evm.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -45037,7 +45164,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/build-transactions.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -45049,7 +45176,7 @@ Build a Complex Transaction](/tools/flow-cli/transactions/complex-transactions)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Example Usage](#example-usage)
 * [Arguments](#arguments)
@@ -45416,7 +45543,7 @@ Find a list of all SDKs here: [tools/clients](/tools/clients)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/accounts.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -45428,7 +45555,7 @@ Transactions](/build/basics/transactions)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Address](#address)
 * [Balance](#balance)
@@ -45562,7 +45689,7 @@ Stay tuned—more tutorials and advanced guides are on the way!
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/index.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -45574,7 +45701,7 @@ Batched Tx From Scaffold](/tutorials/cross-vm-apps/introduction)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Tutorials](#tutorials)
 * [More Coming Soon](#more-coming-soon)
@@ -45820,7 +45947,7 @@ Following are some recommendations on how to write efficient scripts:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/scripts.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -45832,7 +45959,7 @@ Fees](/build/basics/fees)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [When to use a script?](#when-to-use-a-script)
 * [Executing Scripts](#executing-scripts)
@@ -46411,7 +46538,7 @@ See [Past Sporks](/networks/node-ops/node-operation/past-upgrades) for the curre
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/light-nodes/observer-node.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -46423,7 +46550,7 @@ Operator FAQ](/networks/node-ops/node-operation/faq)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Who should run a light node?](#who-should-run-a-light-node)
 * [Running an light node](#running-an-light-node)
@@ -46972,7 +47099,7 @@ We are particularly interested in projects across these key areas:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/grants.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -46984,7 +47111,7 @@ Hackathons](/ecosystem/hackathons)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Focus Areas](#focus-areas)
 * [How to Apply](#how-to-apply)
@@ -48044,7 +48171,7 @@ For additional details and advanced usage, refer to the [@onflow/kit documentati
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/fcl-quickstart.md)
 
-Last updated on **Apr 23, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -48056,7 +48183,7 @@ Network Architecture ↗️](/build/basics/network-architecture)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Objectives](#objectives)
 * [Prerequisites](#prerequisites)
@@ -48802,7 +48929,7 @@ It takes roughly the time of 1 transaction to run all 420 without any errors.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/scaling.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -48814,7 +48941,7 @@ Account Linking (FLIP 72)](/build/guides/account-linking)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Problem](#problem)
 * [Solution](#solution)
@@ -51232,7 +51359,7 @@ All networking layer settings are initialized to default values from the [config
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/guides/starting-nodes.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -51244,7 +51371,7 @@ Machine Accounts for Existing Node Operators](/networks/node-ops/node-operation/
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [systemd](#systemd)
 * [Docker](#docker)
@@ -53822,7 +53949,7 @@ Get familiar with the [Cadence anti-patterns](https://cadence-lang.org/docs/anti
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/testing.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -53834,7 +53961,7 @@ Security Best Practices](/build/smart-contracts/best-practices/security-best-pra
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Install Flow CLI](#install-flow-cli)
 * [Create a new project](#create-a-new-project)
@@ -54232,7 +54359,7 @@ we have turned off geolocation data reporting to Mixpanel.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/data-collection.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -54244,7 +54371,7 @@ Cadence VS Code Extension](/tools/vscode-extension)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Why do we collect data about flow cli usage?](#why-do-we-collect-data-about-flow-cli-usage)
 * [What data do we collect?](#what-data-do-we-collect)
@@ -56031,7 +56158,7 @@ flow project deploy -f main.json -f private.json`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flow.json/security.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -56043,7 +56170,7 @@ Get Block](/tools/flow-cli/get-flow-data/get-blocks)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Private Account Configuration File](#private-account-configuration-file)
 * [Store Configuration in Environment Variables](#store-configuration-in-environment-variables)
@@ -56194,7 +56321,7 @@ Those wishing to understand the technical specifics of how Flow EVM works we rec
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/about.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Next
 
@@ -56202,9 +56329,9 @@ How it Works](/evm/how-it-works)
 
 ###### Rate this page
 
- 😞😐😊
+😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Seamless Integration for Ethereum Developers](#seamless-integration-for-ethereum-developers)
 * [Best-In-Class UX](#best-in-class-ux)
@@ -56324,7 +56451,7 @@ Read more about it [here](https://flow.com/post/flow-blockchain-sustainability-e
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/network-architecture/sustainability.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -56640,7 +56767,7 @@ A node operator can easily withdraw their FLOW from their machine account if the
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/11-machine-account.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -56652,7 +56779,7 @@ FAQs](/networks/staking/faq)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [What is a Machine Account?](#what-is-a-machine-account)
 
@@ -56776,7 +56903,7 @@ Basic Concepts of Flow Blockchain](/build/basics/blocks)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/explore-more.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -57452,7 +57579,7 @@ $DEPLOYER_ADDRESS`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/foundry.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -57464,7 +57591,7 @@ VRF (Randomness) in Solidity](/evm/guides/vrf)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Overview](#overview)
 * [Example: Deploying an ERC-20 Token Contract to Flow EVM](#example-deploying-an-erc-20-token-contract-to-flow-evm)
@@ -59145,7 +59272,7 @@ More FlowtoBooth tutorials are in development, including:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/flowtobooth/index.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -59157,10 +59284,255 @@ Build a Fully-Onchain Image Gallery](/tutorials/flowtobooth/image-gallery)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Image Gallery](#image-gallery)
 * [Coming Soon](#coming-soon)
+
+Documentation
+
+* [Getting Started](/build/getting-started/contract-interaction)
+* [SDK's & Tools](/tools)
+* [Cadence](https://cadence-lang.org/docs/)
+* [Mobile](/build/guides/mobile/overview)
+* [FCL](/tools/clients/fcl-js)
+* [Testing](/build/smart-contracts/testing)
+* [CLI](/tools/flow-cli)
+* [Emulator](/tools/emulator)
+* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
+* [VS Code Extension](/tools/vscode-extension)
+
+Community
+
+* [Ecosystem](/ecosystem)
+* [Flow Port](https://port.onflow.org/)
+* [Developer Grants](https://github.com/onflow/developer-grants)
+* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
+* [Flowverse](https://www.flowverse.co/)
+* [Emerald Academy](https://academy.ecdao.org/)
+* [FLOATs (Attendance NFTs)](https://floats.city/)
+
+Start Building
+
+* [Flow Playground](https://play.flow.com/)
+* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
+* [Cadence Cookbook](https://open-cadence.onflow.org)
+* [Core Contracts & Standards](/build/core-contracts)
+* [EVM](/evm/about)
+
+Network
+
+* [Network Status](https://status.onflow.org/)
+* [Flowscan Mainnet](https://flowscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
+* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/networks/node-ops)
+* [Spork Information](/networks/node-ops/node-operation/spork)
+
+More
+
+* [GitHub](https://github.com/onflow)
+* [Discord](https://discord.gg/flow)
+* [Forum](https://forum.onflow.org/)
+* [OnFlow](https://onflow.org/)
+* [Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow, Inc. Built with Docusaurus.
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://developers.flow.com/tutorials/ai-plus-flow/mcp/use-mcp-in-cursor
+
+Use Flow MCP in Cursor | Flow Developer Portal
+
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Tutorials](/tutorials)
+* [AI Plus Flow](/tutorials/ai-plus-flow)
+
+  + [Use Cursor AI](/tutorials/ai-plus-flow/cursor)
+  + [Flow MCP](/tutorials/ai-plus-flow/mcp)
+
+    - [Use Flow MCP in Cursor](/tutorials/ai-plus-flow/mcp/use-mcp-in-cursor)
+    - [Contribute to Flow MCP](/tutorials/ai-plus-flow/mcp/contribute-to-mcp)
+  + [Use ChatGPT](/tutorials/ai-plus-flow/chatgpt)
+  + [Flow Data Sources](/tutorials/ai-plus-flow/flow-data-sources)
+  + [Using AgentKit on Flow](/tutorials/ai-plus-flow/agentkit-flow-guide)
+  + [Eliza on Flow](/tutorials/ai-plus-flow/eliza)
+* [Token Launch](/tutorials/token-launch)
+* [Cross-VM Apps](/tutorials/cross-vm-apps)
+* [FlowtoBooth](/tutorials/flowtobooth)
+* [Native VRF](/tutorials/native-vrf)
+
+* [AI Plus Flow](/tutorials/ai-plus-flow)
+* [Flow MCP](/tutorials/ai-plus-flow/mcp)
+* Use Flow MCP in Cursor
+
+On this page
+
+# Use Flow MCP in Cursor
+
+Adding Flow MCP to Cursor gives you powerful AI-driven tools directly inside your code editor. It allows Cursor's AI to understand, query, and interact with Flow blockchain data and smart contracts through a standard protocol called the Model Context Protocol (MCP).
+
+Specifically, it enables you to:
+
+* Ask the AI in Cursor to fetch on-chain data such as account balances, account information, or contract source code without leaving your editor.
+* Speed up development by letting AI perform blockchain queries that would normally require manual steps.
+* Improve context for AI assistance by allowing Cursor to pull real blockchain data when needed.
+* Automate routine Flow tasks using tools exposed by the MCP server.
+* Prototype and debug faster with direct access to live blockchain information.
+
+This tutorial will guide you through setting up and using Flow MCP in [Cursor](https://www.cursor.com/) to enhance your Flow blockchain development experience with AI assistance.
+
+## Learning Objectives[​](#learning-objectives "Direct link to Learning Objectives")
+
+After completing this tutorial, you should be able to:
+
+* Configure Cursor to connect with the Flow MCP server using the MCP protocol.
+* Install and launch the Flow MCP server locally through Cursor.
+* Identify when Flow MCP tools are successfully loaded and ready inside Cursor.
+* Use Flow MCP tools to retrieve blockchain data such as account balances, account details, and contract source code.
+* Troubleshoot common setup and connectivity issues between Cursor and Flow MCP.
+
+## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+
+* [Cursor](https://www.cursor.com/) - the AI code editor
+* [Flow MCP GitHub Repository](https://github.com/outblock/flow-mcp) - the Flow MCP server repository
+
+## Installation[​](#installation "Direct link to Installation")
+
+1. Open Cursor Settings and go to the "MCP" tab.
+
+   ![Cursor Settings](/assets/images/mcp-settings-in-curosr-992c67311acc63125a862081ae6dcdd2.png)
+2. Configure the MCP configuration file in Cursor:
+
+   The MCP configuration file is located at the following location based on your operating system:
+
+   * macOS: `~/Library/Application Support/Claude/mcp.json`
+   * Windows: `%APPDATA%/Claude/mcp.json`
+   * Linux: `~/.config/Claude/mcp.json`
+
+   Add the following configuration:
+
+   `_10
+
+   {
+
+   _10
+
+   "mcpServers": {
+
+   _10
+
+   "flow-mcp": {
+
+   _10
+
+   "command": "npx",
+
+   _10
+
+   "args": ["-y", "@outblock/flow-mcp"]
+
+   _10
+
+   }
+
+   _10
+
+   }
+
+   _10
+
+   }`
+3. Restart Cursor to load the new MCP configuration.
+
+   You need to wait for the MCP server to start. Once it's ready, you will see there will be a green spot in the left side of `flow-mcp` server name label and all tools for Flow MCP will be displayed.
+
+   ![Flow MCP server ready](/assets/images/flow-mcp-enabled-58b9ed77b93836e1fc1cc077d0367c50.png)
+
+## How to use Flow MCP in Cursor[​](#how-to-use-flow-mcp-in-cursor "Direct link to How to use Flow MCP in Cursor")
+
+### Checking Flow Balance[​](#checking-flow-balance "Direct link to Checking Flow Balance")
+
+![Sample Image 1](/assets/images/sample-1-e626610744a305d993e0689b51025213.png)
+
+### Viewing Account Information[​](#viewing-account-information "Direct link to Viewing Account Information")
+
+![Sample Image 2](/assets/images/sample-2-e3f080df0c2de4c123e01ea7ce123401.png)
+
+### Getting Contract Source Code[​](#getting-contract-source-code "Direct link to Getting Contract Source Code")
+
+![Sample Image 3](/assets/images/sample-3-3a0d098a17c974fff8e5ab528fb41eef.png)
+
+## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
+
+If you encounter any issues:
+
+1. Ensure the MCP server is properly installed
+2. Verify the configuration file is in the correct location
+3. Check that the paths in the configuration are correct
+4. Try restarting Cursor
+5. Check the console for any error messages
+
+## Additional Resources[​](#additional-resources "Direct link to Additional Resources")
+
+* [Flow MCP GitHub Repository](https://github.com/outblock/flow-mcp)
+* [Cursor Documentation](https://cursor.sh/docs)
+* [Flow Documentation](https://developers.flow.com/)
+
+## Support[​](#support "Direct link to Support")
+
+For issues or questions:
+
+* Open an issue on the [Flow MCP GitHub Repository](https://github.com/outblock/flow-mcp)
+* Join the [Flow Discord](https://discord.gg/flow) community
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/mcp/use-mcp-in-cursor.md)
+
+Last updated on **Apr 28, 2025** by **Brian Doyle**
+
+[Previous
+
+Flow MCP](/tutorials/ai-plus-flow/mcp)[Next
+
+Contribute to Flow MCP](/tutorials/ai-plus-flow/mcp/contribute-to-mcp)
+
+###### Rate this page
+
+😞😐😊
+
+Copy as Markdown
+
+* [Learning Objectives](#learning-objectives)
+* [Prerequisites](#prerequisites)
+* [Installation](#installation)
+* [How to use Flow MCP in Cursor](#how-to-use-flow-mcp-in-cursor)
+  + [Checking Flow Balance](#checking-flow-balance)
+  + [Viewing Account Information](#viewing-account-information)
+  + [Getting Contract Source Code](#getting-contract-source-code)
+* [Troubleshooting](#troubleshooting)
+* [Additional Resources](#additional-resources)
+* [Support](#support)
 
 Documentation
 
@@ -59303,7 +59675,7 @@ Thus, Flow’s multi-role architecture solves the blockchain trilemma:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/network-architecture/solving-blockchain-trilemma.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -59315,7 +59687,7 @@ Sustainability](/networks/network-architecture/sustainability)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Separating Consensus from Compute](#separating-consensus-from-compute)
 
@@ -59692,7 +60064,7 @@ Example:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/error-codes.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -59704,7 +60076,7 @@ Wallet Provider Spec](/tools/wallet-provider-spec)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [1006](#1006)
 * [1007](#1007)
@@ -62717,7 +63089,7 @@ _34
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/index.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -62729,7 +63101,7 @@ Authorization Function](/tools/wallet-provider-spec/authorization-function)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Status](#status)
 * [Definitions](#definitions)
@@ -62837,6 +63209,7 @@ Search
 * [AI Plus Flow](/tutorials/ai-plus-flow)
 
   + [Use Cursor AI](/tutorials/ai-plus-flow/cursor)
+  + [Flow MCP](/tutorials/ai-plus-flow/mcp)
   + [Use ChatGPT](/tutorials/ai-plus-flow/chatgpt)
   + [Flow Data Sources](/tutorials/ai-plus-flow/flow-data-sources)
   + [Using AgentKit on Flow](/tutorials/ai-plus-flow/agentkit-flow-guide)
@@ -62914,19 +63287,19 @@ If you encounter any issues:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/cursor/index.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
 AI Plus Flow](/tutorials/ai-plus-flow)[Next
 
-Use ChatGPT](/tutorials/ai-plus-flow/chatgpt)
+Flow MCP](/tutorials/ai-plus-flow/mcp)
 
 ###### Rate this page
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Installation](#installation)
 * [Using Flow Docs in Cursor](#using-flow-docs-in-cursor)
@@ -63672,7 +64045,7 @@ Do not use the `access(all)` modifier on fields and functions unless necessary. 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/best-practices/security-best-practices.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -63684,7 +64057,7 @@ Contract Upgrades with Incompatible Changes](/build/smart-contracts/best-practic
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [References](#references)
 * [Account Storage](#account-storage)
@@ -64235,7 +64608,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/decode-transactions.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -64247,7 +64620,7 @@ Initialize Configuration](/tools/flow-cli/flow.json/initialize-configuration)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Example Usage](#example-usage)
 * [Arguments](#arguments)
@@ -66109,7 +66482,7 @@ for information about technical integration.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/index.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -66121,7 +66494,7 @@ Epoch and Staking Terminology](/networks/staking/epoch-terminology)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [What is Staking?](#what-is-staking)
 * [How Does Staking Work on Flow?](#how-does-staking-work-on-flow)
@@ -66462,7 +66835,7 @@ access(all) event NewDelegatorStakingMinimum(newMinimum: UFix64)`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/06-staking-contract-reference.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -66474,7 +66847,7 @@ Epoch Contracts](/build/core-contracts/epoch-contract-reference)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Contract](#contract)
 * [Transactions and Scripts](#transactions-and-scripts)
@@ -66661,7 +67034,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/deployment/emulator-snapshot.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -66673,7 +67046,7 @@ Execute a Script](/tools/flow-cli/scripts/execute-scripts)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Example Usage](#example-usage)
   + [Create a new snapshot](#create-a-new-snapshot)
@@ -67053,7 +67426,7 @@ you can use scripts events to learn information about the state of the epoch con
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/04-epoch-preparation.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -67065,7 +67438,7 @@ Stake Slashing](/networks/staking/stake-slashing)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Epochs Overview](#epochs-overview)
 * [Epoch Length](#epoch-length)
@@ -67260,7 +67633,7 @@ Whether you're new to building onchain, or an established veteran, we’re here 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/authentication.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -67272,7 +67645,7 @@ How to Configure FCL](/tools/clients/fcl-js/configure-fcl)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Snapshot of the Current User](#snapshot-of-the-current-user)
 * [Subscribe to the Current User](#subscribe-to-the-current-user)
@@ -69332,6 +69705,237 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
+# Source: https://developers.flow.com/tutorials/ai-plus-flow/mcp/contribute-to-mcp
+
+Contribute to Flow MCP | Flow Developer Portal
+
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Tutorials](/tutorials)
+* [AI Plus Flow](/tutorials/ai-plus-flow)
+
+  + [Use Cursor AI](/tutorials/ai-plus-flow/cursor)
+  + [Flow MCP](/tutorials/ai-plus-flow/mcp)
+
+    - [Use Flow MCP in Cursor](/tutorials/ai-plus-flow/mcp/use-mcp-in-cursor)
+    - [Contribute to Flow MCP](/tutorials/ai-plus-flow/mcp/contribute-to-mcp)
+  + [Use ChatGPT](/tutorials/ai-plus-flow/chatgpt)
+  + [Flow Data Sources](/tutorials/ai-plus-flow/flow-data-sources)
+  + [Using AgentKit on Flow](/tutorials/ai-plus-flow/agentkit-flow-guide)
+  + [Eliza on Flow](/tutorials/ai-plus-flow/eliza)
+* [Token Launch](/tutorials/token-launch)
+* [Cross-VM Apps](/tutorials/cross-vm-apps)
+* [FlowtoBooth](/tutorials/flowtobooth)
+* [Native VRF](/tutorials/native-vrf)
+
+* [AI Plus Flow](/tutorials/ai-plus-flow)
+* [Flow MCP](/tutorials/ai-plus-flow/mcp)
+* Contribute to Flow MCP
+
+On this page
+
+# Contribute to Flow MCP
+
+This tutorial will guide you through the process of contributing to the Flow MCP server. The [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) is an open standard developed by Anthropic that enables AI applications to interact seamlessly with external tools, systems, and data sources.
+
+## Learning Objectives[​](#learning-objectives "Direct link to Learning Objectives")
+
+After completing this tutorial, you should be able to:
+
+* Set up and build the Flow MCP server development environment.
+* Create and register a new Action Tool, including schema, handler, and tests.
+* Test and validate the functionality of a new Action Tool within the MCP system.
+* Submit a complete pull request that follows Flow MCP contribution guidelines.
+
+## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+
+* [Bun](https://bun.sh/) - the JavaScript runtime
+* [Flow MCP server](https://github.com/outblock/flow-mcp) - the Flow MCP server repository
+
+## Installation[​](#installation "Direct link to Installation")
+
+1. Fork the [Flow MCP server](https://github.com/outblock/flow-mcp) repository
+2. Clone the repository
+
+   `_10
+
+   git clone https://github.com/your-username/flow-mcp.git`
+3. Install the dependencies
+
+   `_10
+
+   bun install`
+4. Build the project
+
+   `_10
+
+   bun build`
+
+## Create new Action Tool for Flow MCP[​](#create-new-action-tool-for-flow-mcp "Direct link to Create new Action Tool for Flow MCP")
+
+1. Create a new folder in the `src/tools` directory
+
+   `_10
+
+   mkdir src/tools/your-tool-name`
+2. Create and implement the `index.ts`, `schema.ts`, and `your-tool.test.ts` files, which is the entry point, schema, and test file for the new tool respectively.
+
+   The `export` of `index.ts` file should be a `ToolRegistration` object, which is the registration of the new tool.
+
+   `_10
+
+   type ToolRegistration<T> = {
+
+   _10
+
+   name: string;
+
+   _10
+
+   description: string;
+
+   _10
+
+   inputSchema: z.ZodSchema;
+
+   _10
+
+   handler: (args: T) => CallToolResult | Promise<CallToolResult>;
+
+   _10
+
+   };`
+
+   If you want to add new Cadence files for your new tool, you can add them in the `src/cadence` directory. The `bun` will compile the Cadence files into `String`, so the dedicated Cadence files will help the project to be more organized.
+
+   And it is recommended to add a test for your new tool in the `src/tools/your-tool-name/your-tool.test.ts` file.
+3. Add a prompt export in the `src/prompts` directory which is used to ensure MCP client can understand the new tool. You can refer to the existing tools for examples.
+4. Add your new tool to the `src/tools/index.ts` file.
+
+   `_10
+
+   export const createTools = (): ToolRegistration<any>[] => {
+
+   _10
+
+   return [
+
+   _10
+
+   // ... other tools
+
+   _10
+
+   yourTool,
+
+   _10
+
+   ];
+
+   _10
+
+   };`
+5. Run the test to ensure your new tool works as expected
+
+   `_10
+
+   bun test`
+6. Commit and push your changes to your forked repository, and create a pull request.
+
+We will review your pull request and merge it if it is ready.
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/mcp/contribute-to-mcp.md)
+
+Last updated on **Apr 28, 2025** by **Tang Bo Hao**
+
+[Previous
+
+Use Flow MCP in Cursor](/tutorials/ai-plus-flow/mcp/use-mcp-in-cursor)[Next
+
+Use ChatGPT](/tutorials/ai-plus-flow/chatgpt)
+
+###### Rate this page
+
+😞😐😊
+
+Copy as Markdown
+
+* [Learning Objectives](#learning-objectives)
+* [Prerequisites](#prerequisites)
+* [Installation](#installation)
+* [Create new Action Tool for Flow MCP](#create-new-action-tool-for-flow-mcp)
+
+Documentation
+
+* [Getting Started](/build/getting-started/contract-interaction)
+* [SDK's & Tools](/tools)
+* [Cadence](https://cadence-lang.org/docs/)
+* [Mobile](/build/guides/mobile/overview)
+* [FCL](/tools/clients/fcl-js)
+* [Testing](/build/smart-contracts/testing)
+* [CLI](/tools/flow-cli)
+* [Emulator](/tools/emulator)
+* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
+* [VS Code Extension](/tools/vscode-extension)
+
+Community
+
+* [Ecosystem](/ecosystem)
+* [Flow Port](https://port.onflow.org/)
+* [Developer Grants](https://github.com/onflow/developer-grants)
+* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
+* [Flowverse](https://www.flowverse.co/)
+* [Emerald Academy](https://academy.ecdao.org/)
+* [FLOATs (Attendance NFTs)](https://floats.city/)
+
+Start Building
+
+* [Flow Playground](https://play.flow.com/)
+* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
+* [Cadence Cookbook](https://open-cadence.onflow.org)
+* [Core Contracts & Standards](/build/core-contracts)
+* [EVM](/evm/about)
+
+Network
+
+* [Network Status](https://status.onflow.org/)
+* [Flowscan Mainnet](https://flowscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
+* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/networks/node-ops)
+* [Spork Information](/networks/node-ops/node-operation/spork)
+
+More
+
+* [GitHub](https://github.com/onflow)
+* [Discord](https://discord.gg/flow)
+* [Forum](https://forum.onflow.org/)
+* [OnFlow](https://onflow.org/)
+* [Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow, Inc. Built with Docusaurus.
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://developers.flow.com/tooling/fcl-js
 
 Flow Client Library (FCL) | Flow Developer Portal
@@ -69906,7 +70510,7 @@ If you're unsure, check the Flow EVM block explorer at [evm.flowscan.io](https:/
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/add-token-to-metamask.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -69918,7 +70522,7 @@ Stablecoins & Bridges FAQ](/ecosystem/defi-liquidity/faq)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Objectives](#objectives)
 * [Add a Token to MetaMask via Flowscan](#add-a-token-to-metamask-via-flowscan)
@@ -70512,7 +71116,7 @@ By harnessing Flow's built-in capabilities, you can now focus on crafting engagi
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/native-vrf/commit-reveal-cadence.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -70524,7 +71128,7 @@ Deploy a Solidity Contract Using Cadence](/tutorials/native-vrf/deploy-solidity-
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Objectives](#objectives)
 * [Prerequisites](#prerequisites)
@@ -70957,7 +71561,7 @@ which does not create regular transaction IDs.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/03-schedule.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -70969,7 +71573,7 @@ Epoch Preparation Protocol](/networks/staking/epoch-preparation)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Rewards](#rewards)
 * [Staking Auction](#staking-auction)
@@ -71971,7 +72575,7 @@ Example: there are 115 access nodes already part of the network. Hence, the tota
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/access-nodes/access-node-setup.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -71983,7 +72587,7 @@ Execution Data](/networks/node-ops/access-nodes/access-node-configuration-option
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Who Should Run a Permissionless Access Node?](#who-should-run-a-permissionless-access-node)
 * [Timing](#timing)
@@ -72510,7 +73114,7 @@ _10
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/discovery.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -72522,7 +73126,7 @@ Installation](/tools/clients/fcl-js/installation)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Wallet Discovery](#wallet-discovery)
 * [UI Version](#ui-version)
@@ -73257,7 +73861,7 @@ consensus_compliance_sealed_height 1.132054e+06`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-setup.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -73269,7 +73873,7 @@ Past Network Upgrades](/networks/node-ops/node-operation/past-upgrades)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Pull the Flow Images](#pull-the-flow-images)
 * [Prepare Your Node to Start](#prepare-your-node-to-start)
@@ -73727,7 +74331,7 @@ If the witness turns out to be valid, the Verification Node who signed that resu
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/slashing.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -73739,7 +74343,7 @@ Node Providers](/networks/node-ops/node-operation/node-providers)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Introduction](#introduction)
 * [Slashing Conditions](#slashing-conditions)
@@ -74108,7 +74712,7 @@ If you absolutely must keep the old address when making an incompatible upgrade,
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/best-practices/contract-upgrades.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -74119,6 +74723,8 @@ Development Standards](/build/smart-contracts/best-practices/project-development
 ###### Rate this page
 
 😞😐😊
+
+Copy as Markdown
 
 * [Problem](#problem)
 * [Solution](#solution)
@@ -74260,7 +74866,7 @@ To get started with creating your first Flow project and to learn more about how
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/index.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -74272,7 +74878,7 @@ Install Instructions](/tools/flow-cli/install)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Installation](#installation)
 * [Create Your First Project](#create-your-first-project)
@@ -75802,7 +76408,7 @@ FCL is built **on top of the Flow SDK**, making it easier to handle authenticati
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/index.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -75814,7 +76420,7 @@ FCL Reference](/tools/clients/fcl-js/api)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [🌟 What is FCL?](#-what-is-fcl)
   + [🔑 Key Features:](#-key-features)
@@ -76050,7 +76656,7 @@ access(all) event BroadcastMessage(nodeID: String, content: String)`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/10-qc-dkg-scripts-events.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -76062,7 +76668,7 @@ Machine Account](/networks/staking/machine-account)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [QC Scripts](#qc-scripts)
   + [Get Clusters](#get-clusters)
@@ -76606,7 +77212,7 @@ Auditors](/ecosystem/auditors)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Getting Started](#getting-started)
 * [Other Communities](#other-communities)
@@ -78164,7 +78770,7 @@ While FCL v0.0.67 is not strictly necessary to use Mainnet 6, we strongly recomm
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/past-upgrades.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -78176,7 +78782,7 @@ Network Upgrade (Spork) Process](/networks/node-ops/node-operation/spork)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Mainnet Upgrades](#mainnet-upgrades)
 * [Height Coordinated Upgrade 7](#height-coordinated-upgrade-7)
@@ -78683,7 +79289,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/account-add-contract.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -78695,7 +79301,7 @@ Update a Contract](/tools/flow-cli/accounts/account-update-contract)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Example Usage](#example-usage)
 * [Arguments](#arguments)
@@ -79145,7 +79751,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/account-update-contract.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -79157,7 +79763,7 @@ Remove a Contract](/tools/flow-cli/accounts/account-remove-contract)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Example Usage](#example-usage)
 * [Arguments](#arguments)
@@ -82164,7 +82770,7 @@ Below is a list of the available CLI flags to control the behavior of the API
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/index.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -82176,7 +82782,7 @@ Access HTTP API ↗️](/networks/access-onchain-data/access-http-api)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Flow Access Node Endpoints](#flow-access-node-endpoints)
 * [Ping](#ping)
@@ -84629,7 +85235,7 @@ Register Cadence Assets](/tutorials/token-launch/register-cadence-assets)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Overview](#overview)
 * [Guides for submitting your PRs](#guides-for-submitting-your-prs)
@@ -85273,7 +85879,7 @@ And below are the bridge escrow's EVM addresses. These addresses are [`CadenceOw
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/15-bridge.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -85533,7 +86139,7 @@ _17
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/user-signature.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -85545,7 +86151,7 @@ Tools](/tools)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Status](#status)
   + [UserDomainTag](#userdomaintag)
@@ -85911,7 +86517,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/get-flow-data/get-blocks.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -85923,7 +86529,7 @@ Get Events](/tools/flow-cli/get-flow-data/get-events)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Example Usage](#example-usage)
   + [Example response](#example-response)
@@ -86422,7 +87028,7 @@ To explore advanced features like snapshots, rollbacks, and debugging, visit the
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/deployment/start-emulator.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -86434,7 +87040,7 @@ Add Project Contracts](/tools/flow-cli/deployment/project-contracts)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Initial Configuration](#initial-configuration)
 * [Starting the Emulator](#starting-the-emulator)
@@ -86992,7 +87598,7 @@ For more information about using smart contracts in web3.js, see the [official d
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/web3-js.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -87002,7 +87608,7 @@ Ethers](/evm/guides/ethers)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Prerequisites](#prerequisites)
 * [Initializing Web3 with Flow](#initializing-web3-with-flow)
@@ -87092,6 +87698,7 @@ Search
 * [AI Plus Flow](/tutorials/ai-plus-flow)
 
   + [Use Cursor AI](/tutorials/ai-plus-flow/cursor)
+  + [Flow MCP](/tutorials/ai-plus-flow/mcp)
   + [Use ChatGPT](/tutorials/ai-plus-flow/chatgpt)
   + [Flow Data Sources](/tutorials/ai-plus-flow/flow-data-sources)
   + [Using AgentKit on Flow](/tutorials/ai-plus-flow/agentkit-flow-guide)
@@ -87379,7 +87986,7 @@ The Eliza framework provides a powerful way to create intelligent agents that ca
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/eliza/index.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -87391,7 +87998,7 @@ Eliza Plugin Guide](/tutorials/ai-plus-flow/eliza/build-plugin)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Learning Objectives](#learning-objectives)
 * [Prerequisites](#prerequisites)
@@ -87559,7 +88166,7 @@ const fcl = require("@onflow/fcl");`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/installation.mdx)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -87571,7 +88178,7 @@ Interaction Templates](/tools/clients/fcl-js/interaction-templates)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Prerequisite](#prerequisite)
 
@@ -87810,7 +88417,7 @@ After adding your account to your `flow.json` file, you're ready to use your acc
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/faucets.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -87822,7 +88429,7 @@ Grants](/ecosystem/grants)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Flow Faucet](#flow-faucet)
   + [Supported Networks](#supported-networks)
@@ -88034,7 +88641,7 @@ access(all) event MinimumStorageReservationChanged(_ minimumStorageReservation: 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/05-flow-fees.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -88046,7 +88653,7 @@ Staking Table](/build/core-contracts/staking-contract-reference)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [FlowFees](#flowfees)
   + [Events](#events)
@@ -88194,7 +88801,7 @@ Check out [Running a Node](/networks/node-ops/light-nodes/observer-node) for mor
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-networks/index.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Next
 
@@ -88204,7 +88811,7 @@ Mainnet](/networks/flow-networks/accessing-mainnet)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [About Flow Networks](#about-flow-networks)
   + [How To Access These Networks?](#how-to-access-these-networks)
@@ -88529,7 +89136,7 @@ _10
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/protocol-state-bootstrap.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -88541,7 +89148,7 @@ Managing disk space](/networks/node-ops/node-operation/reclaim-disk)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Node Startup](#node-startup)
 * [Using a Root Snapshot File](#using-a-root-snapshot-file)
@@ -88718,7 +89325,7 @@ We'll be updating the Developer Profile with new features and challenges. Check 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/developer-profile.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -88730,7 +89337,7 @@ DeFi & Liquidity](/ecosystem/defi-liquidity)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [What is the Developer Profile?](#what-is-the-developer-profile)
 * [Getting Started](#getting-started)
@@ -93763,7 +94370,7 @@ latestBlock, err := flowClient.GetLatestBlock(ctx, true, MaxCallSendMsgSize(100)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/flow-go-sdk/migration-v0.25.0.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -93775,7 +94382,7 @@ Error Codes](/tools/error-codes)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Migration](#migration)
 
@@ -94238,7 +94845,7 @@ If you'd like to dive deeper into Flow's onchain randomness, here's a list of re
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/randomness.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -94250,7 +94857,7 @@ Scaling Transactions from a Single Account](/build/advanced-concepts/scaling)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Use Cases of Onchain Randomness](#use-cases-of-onchain-randomness)
 * [History of the Distributed Randomness Beacon](#history-of-the-distributed-randomness-beacon)
@@ -94496,7 +95103,7 @@ By using this approach to add the Flow network to Metamask, you can avoid manual
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/integrating-metamask.mdx)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -94508,7 +95115,7 @@ Hardhat](/evm/guides/hardhat)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Metamask](#metamask)
   + [EIP-3035 & MetaMask](#eip-3035--metamask)
@@ -95169,7 +95776,7 @@ contract that conforms to the standard.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/overview.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -95181,7 +95788,7 @@ Deploying Contracts](/build/smart-contracts/deploying)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [How to Write Smart Contracts on Flow](#how-to-write-smart-contracts-on-flow)
   + [Onboard to Cadence](#onboard-to-cadence)
@@ -95571,6 +96178,7 @@ Search
 * [AI Plus Flow](/tutorials/ai-plus-flow)
 
   + [Use Cursor AI](/tutorials/ai-plus-flow/cursor)
+  + [Flow MCP](/tutorials/ai-plus-flow/mcp)
   + [Use ChatGPT](/tutorials/ai-plus-flow/chatgpt)
   + [Flow Data Sources](/tutorials/ai-plus-flow/flow-data-sources)
   + [Using AgentKit on Flow](/tutorials/ai-plus-flow/agentkit-flow-guide)
@@ -95813,7 +96421,7 @@ Eliza's plugin system provides a powerful way to extend the functionality of you
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/eliza/build-plugin.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -95825,7 +96433,7 @@ Token Launch](/tutorials/token-launch)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Learning Objectives](#learning-objectives)
 * [Prerequisites](#prerequisites)
@@ -96069,7 +96677,7 @@ Cross-VM Apps](/tutorials/cross-vm-apps)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Manual Registration (~1 min)](#manual-registration-1-min)
 * [Programmatic Registration](#programmatic-registration)
@@ -96327,7 +96935,7 @@ about the events that can be emitted by these contracts and scripts you can use 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/09-qc-dkg.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -96339,7 +96947,7 @@ QC/DKG Scripts and Events](/networks/staking/qc-dkg-scripts-events)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Epoch Setup Phase](#epoch-setup-phase)
 * [Machine Accounts](#machine-accounts)
@@ -96816,7 +97424,7 @@ To learn more about next steps following the initial setup, check out the follow
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/super-commands.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -96828,7 +97436,7 @@ Get an Account](/tools/flow-cli/accounts/get-accounts)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Init](#init)
   + [Using Scaffolds](#using-scaffolds)
@@ -97058,7 +97666,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/utils/signature-generate.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -97070,7 +97678,7 @@ Verify Signature](/tools/flow-cli/utils/signature-verify)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Example Usage](#example-usage)
 * [Arguments](#arguments)
@@ -97408,7 +98016,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/account-staking-info.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -97420,7 +98028,7 @@ Funding a Testnet Account](/tools/flow-cli/accounts/account-fund)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Example Usage](#example-usage)
 * [Arguments](#arguments)
@@ -97557,7 +98165,7 @@ Learn about Flow's governance model and how it's empowering our community of use
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/index.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -97795,7 +98403,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/keys/generate-keys.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -97807,7 +98415,7 @@ Decode Public Keys](/tools/flow-cli/keys/decode-keys)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Example Usage](#example-usage)
   + [Example response](#example-response)
@@ -98356,7 +98964,7 @@ As blockchain technology continues to evolve, adopting these best practices is c
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/native-vrf/deploy-solidity-contract.md)
 
-Last updated on **Apr 15, 2025** by **Brian Doyle**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -98365,6 +98973,8 @@ Secure Randomness with Commit-Reveal in Cadence](/tutorials/native-vrf/commit-re
 ###### Rate this page
 
 😞😐😊
+
+Copy as Markdown
 
 * [Why Solidity And Cadence?](#why-solidity-and-cadence)
 * [Objectives](#objectives)
@@ -98813,7 +99423,7 @@ _16
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/wallet-connect.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -98825,7 +99435,7 @@ Flow Go SDK](/tools/clients/flow-go-sdk)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [How does it work?](#how-does-it-work)
   + [Requirements](#requirements)
@@ -98972,7 +99582,7 @@ To begin using Alchemy, developers can [sign up for an account](https://www.alch
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/data-indexers.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -98984,7 +99594,7 @@ Developer Profile](/ecosystem/developer-profile)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [EVM & Cadence](#evm--cadence)
   + [**SimpleHash**](#simplehash)
@@ -100498,7 +101108,7 @@ For a complete reference implementation, check out the [FCL + RainbowKit + wagmi
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/add-to-wagmi.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -100510,7 +101120,7 @@ Interacting with COAs](/tutorials/cross-vm-apps/interacting-with-coa)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Video Overview](#video-overview)
 * [Objectives](#objectives)
@@ -101774,7 +102384,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/create-accounts.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -101786,7 +102396,7 @@ Deploy a Contract](/tools/flow-cli/accounts/account-add-contract)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Interactive Mode](#interactive-mode)
 * [Manual Mode](#manual-mode)
@@ -102116,7 +102726,7 @@ Proceed to the next tutorial to learn how to create your own contracts and deplo
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/contract-interaction.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -102128,7 +102738,7 @@ Local Development](/build/getting-started/flow-cli)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Objectives](#objectives)
 * [Calling a Contract With a Script](#calling-a-contract-with-a-script)
@@ -102289,13 +102899,13 @@ You've got an app and are meeting the needs of regular customers. Core features 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/growth/index.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 ###### Rate this page
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Product Idea](#product-idea)
   + [What you are doing](#what-you-are-doing)
@@ -102715,7 +103325,7 @@ Please see a list [here](https://github.com/onflow/flow/blob/master/nodeoperator
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-port/index.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -102727,7 +103337,7 @@ Flow Port Staking Guide](/networks/flow-port/staking-guide)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Creating an Account](#creating-an-account)
   + [Flow Wallet](#flow-wallet)
@@ -102937,7 +103547,7 @@ Specify the filename where you want the result to be saved
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/keys/derive-keys.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -102949,7 +103559,7 @@ Start Emulator](/tools/flow-cli/deployment/start-emulator)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Example Usage](#example-usage)
   + [Derive Public Key from a Private Key](#derive-public-key-from-a-private-key)
@@ -103230,7 +103840,7 @@ This error is OK. Your fellow node operators have not turned on/joined the netwo
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/spork.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -103242,7 +103852,7 @@ Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Overview](#overview)
 * [Step 1 - Cleaning Up Previous Spork State](#step-1---cleaning-up-previous-spork-state)
@@ -103849,7 +104459,7 @@ The basic staking guide is detailed [here](/networks/staking/staking-guide)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/13-staking-options.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -104064,7 +104674,7 @@ _11
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/deployment/project-contracts.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -104076,7 +104686,7 @@ Deploy a Project](/tools/flow-cli/deployment/deploy-project-contracts)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Add a Contract](#add-a-contract)
 * [Define Contract Deployment Targets](#define-contract-deployment-targets)
@@ -104270,7 +104880,7 @@ Solving the blockchain trilemma](/networks/network-architecture/solving-blockcha
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [What Problems Does the Flow Multi-Role Architecture Solve?](#what-problems-does-the-flow-multi-role-architecture-solve)
   + [1. The Blockchain Trilemma](#1-the-blockchain-trilemma)
@@ -104882,7 +105492,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/deployment/deploy-project-contracts.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -104894,7 +105504,7 @@ Create Emulator Snapshot](/tools/flow-cli/deployment/emulator-snapshot)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Example Usage](#example-usage)
 * [Initialization Arguments](#initialization-arguments)
@@ -106683,7 +107293,7 @@ Additionally, consider exploring these resources:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-dev-wallet/index.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -106695,7 +107305,7 @@ Client Tools](/tools/clients)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Getting Started](#getting-started)
   + [Install the `flow-cli`](#install-the-flow-cli)
@@ -106858,7 +107468,7 @@ The Cadence Linter is also available in the [Cadence VSCode extension](/tools/vs
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/lint.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -106870,7 +107480,7 @@ Flow Interaction Templates (FLIX)](/tools/flow-cli/flix)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Example Usage](#example-usage)
 * [Example Output](#example-output)
@@ -107097,7 +107707,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/get-flow-data/get-status.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -107109,7 +107719,7 @@ Generate a Signature](/tools/flow-cli/utils/signature-generate)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Example Usage](#example-usage)
 * [Flags](#flags)
@@ -107248,7 +107858,7 @@ Stay ahead of upcoming hackathons and exclusive announcements. [Join Flow World 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/hackathons.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -107260,7 +107870,7 @@ Auditors](/ecosystem/auditors)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Flow World Tour](#flow-world-tour)
   + [Why Join?](#why-join)
@@ -107545,7 +108155,7 @@ have a look at [the README of the repository](https://github.com/onflow/flow-emu
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/emulator/index.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -107557,7 +108167,7 @@ Flow CLI](/tools/flow-cli)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Running the emulator with the Flow CLI](#running-the-emulator-with-the-flow-cli)
   + [Installation](#installation)
@@ -107902,7 +108512,7 @@ Follow the steps below to change the greeting and retrieve the new greeting.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/remix.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -107914,7 +108524,7 @@ Rainbowkit](/evm/guides/rainbowkit)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Add the Flow Network to MetaMask](#add-the-flow-network-to-metamask)
 * [Fund Your Flow Account](#fund-your-flow-account)
@@ -108097,7 +108707,7 @@ files by using `-f` flag multiple times.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flow.json/manage-configuration.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -108109,7 +108719,7 @@ Security](/tools/flow-cli/flow.json/security)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Example Usage](#example-usage)
   + [Configuration](#configuration)
@@ -108429,7 +109039,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/send-signed-transactions.md)
 
-Last updated on **Apr 15, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -108440,6 +109050,8 @@ Build a Complex Transaction](/tools/flow-cli/transactions/decode-transactions)
 ###### Rate this page
 
 😞😐😊
+
+Copy as Markdown
 
 * [Example Usage](#example-usage)
 * [Arguments](#arguments)
@@ -112211,7 +112823,7 @@ the NFT to update any stored information they have about the NFT in their databa
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/08-non-fungible-token.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -112223,7 +112835,7 @@ NFT Metadata](/build/core-contracts/nft-metadata)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [NonFungibleToken Events](#nonfungibletoken-events)
   + [NonFungibleToken.Deposited](#nonfungibletokendeposited)
@@ -112603,7 +113215,7 @@ Learn more about it in the [Hybrid Custody documentation](/build/guides/account-
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking/index.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -112615,7 +113227,7 @@ Building Walletless Applications Using Child Accounts](/build/guides/account-lin
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Accessing Account](#accessing-account)
 * [Account Capabilities](#account-capabilities)
@@ -115373,7 +115985,7 @@ The transfer transaction also has a [generic version](https://github.com/onflow/
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/fungible-token.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -115385,7 +115997,7 @@ Overview](/build/guides/mobile/overview)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [What are Fungible Tokens?](#what-are-fungible-tokens)
 * [Vaults on Flow](#vaults-on-flow)
@@ -115468,7 +116080,7 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
-# Source: https://developers.flow.com/
+# Source: https://developers.flow.com
 
 Flow Developer Portal | Flow Developer Portal
 
@@ -115720,7 +116332,7 @@ Coming soon:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/overview.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -115732,7 +116344,7 @@ Build a Walletless Mobile App (PWA)](/build/guides/mobile/walletless-pwa)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Why Flow](#why-flow)
 * [Why Flow Mobile](#why-flow-mobile)
@@ -117556,7 +118168,7 @@ Authentication](/tools/clients/fcl-js/authentication)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Overview](#overview)
 * [Getting Started](#getting-started)
@@ -117755,7 +118367,7 @@ This level of protection against MEV is not an afterthought—it has been a fund
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/mev-resistance.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -117767,7 +118379,7 @@ Events](/build/basics/events)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [The Hidden Cost of MEV in Decentralized Systems](#the-hidden-cost-of-mev-in-decentralized-systems)
 * [Why MEV Persists on Most Blockchains](#why-mev-persists-on-most-blockchains)
@@ -118128,7 +118740,7 @@ This command will detect and provide information about common misconfigurations,
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/machine-existing-operator.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -118140,7 +118752,7 @@ Node Monitoring](/networks/node-ops/node-operation/monitoring-nodes)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Downloading Bootstrap Utility](#downloading-bootstrap-utility)
 * [Generate Machine Account key](#generate-machine-account-key)
@@ -118280,7 +118892,7 @@ Web3 version of Twitter](https://dev.to/muttoni/lets-build-a-twitter-clone-on-we
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/more-guides.mdx)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -120147,7 +120759,7 @@ using Cadence.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/interacting-with-coa.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -120159,7 +120771,7 @@ Direct Calls to Flow EVM](/tutorials/cross-vm-apps/direct-calls)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [COA Interface](#coa-interface)
 * [Importing the EVM Contract](#importing-the-evm-contract)
@@ -120849,7 +121461,7 @@ but are nevertheless important to developers on Flow:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/index.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -121069,7 +121681,7 @@ access(all) event MachineAccountCreated(nodeID: String, role: UInt8, address: Ad
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/11-staking-collection.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -121081,7 +121693,7 @@ Account Linking](/build/core-contracts/hybrid-custody)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Transactions](#transactions)
 * [Scripts](#scripts)
@@ -121221,7 +121833,7 @@ Overflow is a Go-based DSL for testing and running interactive stories](https://
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/index.mdx)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -121382,7 +121994,7 @@ These improvements are especially notable on mobile, where users are typically m
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/account-abstraction.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -121394,7 +122006,7 @@ FLIX (Flow Interaction Templates)](/build/advanced-concepts/flix)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Multi-sig Transactions](#multi-sig-transactions)
 * [Sponsored Transactions](#sponsored-transactions)
@@ -122289,7 +122901,7 @@ Viem & Wagmi](/evm/guides/wagmi)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Objectives](#objectives)
 * [Prerequisites](#prerequisites)
@@ -123200,7 +123812,7 @@ Test it by updating the greeting, signing a transaction in your Metamask then wa
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/wagmi.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -123212,7 +123824,7 @@ Foundry](/evm/guides/foundry)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Viem Flow Config](#viem-flow-config)
 * [Prerequisites](#prerequisites)
@@ -123364,7 +123976,7 @@ The process by which the Core Team chooses the updates for each new Protocol Ver
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/governance.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -123376,7 +123988,7 @@ Flow Port](/networks/flow-port)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Participation](#participation)
 * [Token Holder Rights](#token-holder-rights)
@@ -124648,7 +125260,7 @@ Each client tool is designed with specific use cases and developer needs in mind
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/index.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -124660,7 +125272,7 @@ Flow Client Library (FCL)](/tools/clients/fcl-js)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [JavaScript (FCL)](#javascript-fcl)
 * [Go SDK](#go-sdk)
@@ -127809,7 +128421,7 @@ _24
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/events.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -127821,7 +128433,7 @@ FLOW Coin](/build/basics/flow-token)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Core Events](#core-events)
 * [User-defined events](#user-defined-events)
@@ -128193,7 +128805,7 @@ but this would require small changes to these transactions to use the new storag
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/15-staking-guide.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -128205,7 +128817,7 @@ Node Operations](/networks/node-ops)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Setup](#setup)
   + [Register a New Staked Node](#register-a-new-staked-node)
@@ -131813,7 +132425,7 @@ In this tutorial, we've accomplished all of our learning objectives:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/flow-cli.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -131825,7 +132437,7 @@ Simple Frontend](/build/getting-started/fcl-quickstart)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Objectives](#objectives)
 * [Installation](#installation)
@@ -131920,6 +132532,7 @@ Search
 * [AI Plus Flow](/tutorials/ai-plus-flow)
 
   + [Use Cursor AI](/tutorials/ai-plus-flow/cursor)
+  + [Flow MCP](/tutorials/ai-plus-flow/mcp)
   + [Use ChatGPT](/tutorials/ai-plus-flow/chatgpt)
   + [Flow Data Sources](/tutorials/ai-plus-flow/flow-data-sources)
   + [Using AgentKit on Flow](/tutorials/ai-plus-flow/agentkit-flow-guide)
@@ -131955,6 +132568,7 @@ In this tutorial series, you'll discover how to:
 * [Flow Data Sources](/tutorials/ai-plus-flow/flow-data-sources) - Learn about this comprehensive resource and how to integrate it with various AI platforms.
 * [Eliza on Flow](/tutorials/ai-plus-flow/eliza) - Learn how to build AI Agent on Flow with Eliza
 * [Build AI Agents with AgentKit](/tutorials/ai-plus-flow/agentkit-flow-guide) - Learn how to create AI agents that can interact with Flow using AgentKit.
+* [Flow MCP](/tutorials/ai-plus-flow/mcp) - Learn how to use or build Flow MCP (Model Context Protocol) server to enhance AI tools with the capabilities of interacting with Flow blockchain.
 
 ## Best Practices[​](#best-practices "Direct link to Best Practices")
 
@@ -131977,7 +132591,7 @@ After completing these tutorials, you'll be equipped to leverage AI tools effect
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/index.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 28, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -131989,7 +132603,7 @@ Use Cursor AI](/tutorials/ai-plus-flow/cursor)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [What You'll Learn](#what-youll-learn)
 * [Tutorials](#tutorials)
@@ -132130,7 +132744,7 @@ through a peer-to-peer transaction mechanism.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/cross-chain-swaps.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -132142,7 +132756,7 @@ Add Token To MetaMask](/ecosystem/defi-liquidity/add-token-to-metamask)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Liquidity Pool Based Cross-chain Swaps](#liquidity-pool-based-cross-chain-swaps)
   + [Stargate](#stargate)
@@ -133584,7 +134198,7 @@ Ready to level up your Cadence skills? Take a look at [these Cadence tutorials](
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/batched-evm-transactions.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -133596,7 +134210,7 @@ Cross-VM Bridge](/tutorials/cross-vm-apps/vm-bridge)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Objectives](#objectives)
 * [Prerequisites](#prerequisites)
@@ -133872,7 +134486,7 @@ Flow’s state system provides ways to construct inclusion and non-inclusion pro
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/how-it-works.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -133884,7 +134498,7 @@ Using Flow EVM](/evm/using)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Introduction](#introduction)
   + [EVM - A Smart Contract In Cadence](#evm---a-smart-contract-in-cadence)
@@ -135191,7 +135805,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flix.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -135203,7 +135817,7 @@ Cadence Boilerplate](/tools/flow-cli/boilerplate)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Introduction](#introduction)
   + [Execute](#execute)
@@ -135381,7 +135995,7 @@ AI Plus Flow](/tutorials/ai-plus-flow)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [AI Plus Flow](#ai-plus-flow)
 * [Token Launch](#token-launch)
@@ -135510,7 +136124,7 @@ State-of-the-art, developer-first security tools for in-house assurance. Get $20
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/builder-perks.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -138437,7 +139051,7 @@ The following companies provide independent contract auditing services of Cadenc
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/auditors.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -138449,7 +139063,7 @@ Ecosystem Overview](/ecosystem/overview)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Nagra (Kudelski)](#nagra-kudelski)
 * [NCC Group](#ncc-group)
@@ -140582,7 +141196,7 @@ Congrats, you did it! You're now ready to launch the next fun NFT project on Flo
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/nft.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -140594,7 +141208,7 @@ Creating a Fungible Token](/build/guides/fungible-token)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [What are NFTs](#what-are-nfts)
 * [Setting Up a Project](#setting-up-a-project)
@@ -141281,7 +141895,7 @@ To set up a new staked node after it has been authorized by the Flow governance 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/index.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -141293,7 +141907,7 @@ Access Node Setup](/networks/node-ops/access-nodes/access-node-setup)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Why Run a Node?](#why-run-a-node)
 * [Which Node Should You Run?](#which-node-should-you-run)
@@ -141607,7 +142221,7 @@ After selecting the contracts, press `enter` to confirm. The selected contracts 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/dependency-manager.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -141619,7 +142233,7 @@ Running Cadence Tests](/tools/flow-cli/tests)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [`install`](#install)
   + [Installing Specific Dependencies](#installing-specific-dependencies)
@@ -144959,7 +145573,7 @@ Migration Guide v0.25.0](/tools/clients/flow-go-sdk/migration-v0.25.0)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Overview](#overview)
 * [Getting Started](#getting-started)
@@ -145579,7 +146193,7 @@ After this event, the FLOW tokens will be withdrawn to a newly created `Fungible
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/07-staking-scripts-events.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -145591,7 +146205,7 @@ How to Query Staking rewards](/networks/staking/staking-rewards)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Get the list of proposed nodes for the next epoch:](#get-the-list-of-proposed-nodes-for-the-next-epoch)
 * [Get the list of all nodes that are currently staked:](#get-the-list-of-all-nodes-that-are-currently-staked)
@@ -145710,6 +146324,7 @@ Search
 * [AI Plus Flow](/tutorials/ai-plus-flow)
 
   + [Use Cursor AI](/tutorials/ai-plus-flow/cursor)
+  + [Flow MCP](/tutorials/ai-plus-flow/mcp)
   + [Use ChatGPT](/tutorials/ai-plus-flow/chatgpt)
   + [Flow Data Sources](/tutorials/ai-plus-flow/flow-data-sources)
   + [Using AgentKit on Flow](/tutorials/ai-plus-flow/agentkit-flow-guide)
@@ -145773,7 +146388,7 @@ For integration with AI tools like Cursor or ChatGPT, use the appropriate URL as
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/flow-data-sources.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -145785,7 +146400,7 @@ Using AgentKit on Flow](/tutorials/ai-plus-flow/agentkit-flow-guide)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Overview](#overview)
 * [Key Features](#key-features)
@@ -146841,7 +147456,7 @@ Find a list of all SDKs [here](/tools/clients)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/transactions.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -146853,7 +147468,7 @@ Scripts](/build/basics/scripts)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Script](#script)
 * [Arguments](#arguments)
@@ -147022,7 +147637,7 @@ at the end of the unstaking period.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/04-stake-slashing.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -147111,6 +147726,7 @@ Search
 * [AI Plus Flow](/tutorials/ai-plus-flow)
 
   + [Use Cursor AI](/tutorials/ai-plus-flow/cursor)
+  + [Flow MCP](/tutorials/ai-plus-flow/mcp)
   + [Use ChatGPT](/tutorials/ai-plus-flow/chatgpt)
   + [Flow Data Sources](/tutorials/ai-plus-flow/flow-data-sources)
   + [Using AgentKit on Flow](/tutorials/ai-plus-flow/agentkit-flow-guide)
@@ -147673,7 +148289,7 @@ Happy hacking on Flow!
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/agentkit-flow-guide.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -147685,7 +148301,7 @@ Eliza on Flow](/tutorials/ai-plus-flow/eliza)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Quickstart - Starting From Scratch](#quickstart---starting-from-scratch)
 * [Project Setup](#project-setup)
@@ -199765,6 +200381,335 @@ compatibility check logic would be admitted to the TFX's core library.
 demo_plugin
 
 ```
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/onflow/flips/blob/main/application/20241223-fcl-ethereum-provider.md
+
+---
+status: released
+flip: 316
+authors: Jordan Ribbink (jordan.ribbink@flowfoundation.org), Chase Fleming (chase.fleming@flowfoundation.org)
+sponsor: Jordan Ribbink (jordan.ribbink@flowfoundation.org)
+updated: 2024-04-28
+---
+
+# FCL Ethereum Provider for Cross-VM Apps
+
+## Objective
+
+This FLIP proposes the integration of an Ethereum provider interface into [FCL-JS](https://www.npmjs.com/package/@onflow/fcl) to interact with a user’s Cadence Owned Account (COA) and behave as a middleware between the FCL protocol and EVM tooling.
+
+The primary objective of this integration is to establish a mutually authenticated interface that unifies session management and interactions for a wallet’s Cadence and EVM functionalities.  An ancillary benefit is that such an interface also enables the use of Flow-native wallets in Flow EVM applications.
+
+This will help facilitate progressive adoption of Cadence, where developers can incrementally integrate FCL interactions into their existing EVM applications.
+
+## Motivation
+
+Flow’s Cadence VM enjoys a unique level of visibility and control over the Flow EVM state, where it is able to atomically interact with this sub-VM within a single composable environment.  This architecture positions Cadence as a **powerful extensibility layer** for EVM applications, allowing developers to enhance their dApps by leveraging the unique advantages of Cadence.
+
+Despite this potential, there are significant **integration challenges** which hinder adoption. Notably, Cadence-aware wallets do not share the same wallet adapter interface as their EVM counterparts.
+
+This fragmentation inhibits interoperability between client tooling for each VM.  Once a Flow EVM application has connected to a Cadence-aware wallet’s Ethereum Provider, there is no mechanism to identify its Cadence capabilities or interact with this wallet’s authenticated session using FCL.  As a result, Flow EVM developers unable to explore a Cadence integration without significant upfront investment in tooling and workflow adaptations.
+
+By addressing these barriers, this FLIP aims to unlock the ability for developers to **incrementally integrate Flow’s capabilities** into their existing Ethereum applications.  This approach provides **progressive adoption benefits**, reducing the risk of deploying on Flow by allowing developers to integrate features over time, rather than requiring a wholesale commitment upfront.
+
+## User Benefit
+
+This proposal lowers the barriers for developers building on Flow EVM to explore and integrate Cadence by bridging incompatible tooling and workflows. By enabling an incremental adoption path, developers can progressively experiment with Flow’s unique capabilities without the need for significant upfront investment or complete commitment to Flow tooling.
+
+The integration also enhances user experience by enabling Flow EVM applications to seamlessly support FCL-compatible wallets. This alignment with user preferences fosters a more inclusive and interoperable ecosystem, encouraging broader adoption and innovation within the Flow and Ethereum communities.
+
+### **Example Usage**
+
+In practice, application developers will not typically interact directly with the provider, but instead through higher-level tooling where it exists behind layers of abstraction.
+
+For instance, a developer using Wagmi & Rainbowkit would configure their applications using a pre-built adapter.
+
+```tsx
+import { flowWallet, walletConnectWallet } from '@onflow/fcl-rainbowkit-adapter';
+import { connectorsForWallets } from '@rainbow-me/rainbowkit';
+import {
+  flowTestnet,
+} from 'wagmi/chains';
+import * as fcl from '@onflow/fcl';
+import { createConfig, http } from 'wagmi';
+
+const config = getDefaultConfig({
+  appName: 'My RainbowKit App',
+  projectId: 'YOUR_PROJECT_ID',
+});
+
+const connectors = connectorsForWallets([
+  {
+    groupName: "Recommended",
+    wallets: [
+      flowWallet(),
+      walletConnectWallet,
+    ],
+  }
+], {
+  appName: 'RainbowKit demo',
+  projectId: '<<PROJECT_ID>>',
+});
+
+export const config = createConfig({
+  chains: [
+    flowTestnet
+  ],
+  connectors,
+  transports: { [flowTestnet.id]: http() }
+});
+
+```
+
+In this example, once the user has authenticated with Rainbowkit *with a Cadence-aware wallet*, FCL interactions can be used interchangeably with Wagmi.
+
+If the user's wallet does not support Cadence interactions (e.g. MetaMask), only Wagmi interactions will be available.
+
+```tsx
+import * as fcl from "@onflow/fcl";
+import { useSendTransaction } from "wagmi"
+
+function MyComponent() {
+  const sendTransaction = useSendTransaction()
+
+  const sendEVMTransaction = async () => {
+    await sendTransaction({
+      to: "0x1234...",
+      data: "0x1234...",
+      value: "0x1234...",
+    })
+  }
+
+  const sendCadenceTransaction = async () => {
+    await fcl.mutate({ cadence: ... })
+  }
+}
+```
+
+## Design Proposal
+
+### Overview
+
+FCL will expose an [EIP-1193](https://eips.ethereum.org/EIPS/eip-1193) Ethereum provider which can be used to interact with a Cadence-aware wallet’s COA via the Ethereum JSON-RPC API.  This provider will behave as a middleware between EVM tooling and FCL-JS by translating Ethereum JSON-RPC requests to interactions with an FCL wallet provider.
+
+It will be assumed that the user’s COA is stored at the path `/storage/evm`.
+
+The FCL Ethereum provider will be compatible with all FCL-compatible wallets.  Some Cadence-aware wallets already include an integrated Ethereum JSON-RPC API (e.g. Flow Wallet).  However, for wallets which do not include this API, the FCL Ethereum provider can behave as a compatibility adapter to interact with Flow EVM tooling & applications.
+
+### API Design
+
+A new method will be added to the FCL `currentUser` API, allowing developers to access FCL’s integrated Ethereum provider.
+
+```tsx
+function createEthereumProvider(config: {
+	service?: Service,
+	gateway?: Eip1193Provider
+}): Eip1193Provider
+```
+
+- `service` is an optional FCL service to be used to perform the authentication handshake and will default to the FCL Discovery service.  This can be used to target individual FCL services instead of FCL Discovery.
+- `gateway` is the JSON-RPC provider corresponding to the Flow EVM gateway, will default to the public Flow EVM gateway.
+
+The FCL Ethereum provider can be interacted with in the same way as a standard [EIP-1193](https://eips.ethereum.org/EIPS/eip-1193) provider, however, active sessions will be shared between the Ethereum JSON-RPC and FCL.
+
+```tsx
+import * as fcl from "@onflow/fcl";
+import { createProvider } from "@onflow/fcl-ethereum-provider";
+
+// Get COA Ethereum provider
+const provider = createProvider({
+  user: fcl.currentUser,
+  service: ...
+})
+
+// Will authenticate both FCL currentUser & COA Ethereum provider
+const evmAddress = await provider.request({ method: "eth_requestAccounts" })[0]
+
+// Single session shared between Ethereum JSON-RPC & FCL
+console.log("EVM Address:", evmAddress)
+console.log("Cadence Address:", (await fcl.currentUser().snapshot()).addr)
+
+// Send EVM TX from COA
+const txHash = await provider.request({ method: "eth_sendTransaction", params: ... })
+
+// Send FCL Transaction from Cadence account
+fcl.mutate({ cadence: ... })
+```
+
+In practice, application developers will not typically interact directly with the provider, but instead through higher-level tooling where it exists behind layers of abstraction.
+
+### Ethereum JSON-RPC Methods
+
+The FCL Ethereum provider will handle requests relating to wallet interactions internally. Any requests that cannot be processed by the client will be forwarded through the provider to the configured EVM gateway.
+
+The provider will handle the following types of requests:
+
+- **`eth_accounts` / `eth_requestAccounts`**
+    
+    Respond with the Cadence-Owned Account (COA) corresponding to the account currently authenticated with FCL. FCL-JS will assume that a user's COA exists at the standard `/storage/evm` path and will attempt to create a COA if one does not exist.
+    
+    If the user has not authenticated with FCL, this method will invoke the FCL authentication handshake and return COA address for the resulting user.
+    
+- **`eth_sendTransaction`**
+    
+    The emulated provider will wrap the transaction payload with a Cadence transaction to invoke the `call` method from the corresponding COA resource.
+    
+    The provider should use the following script to execute transactions from an account’s COA.  The deterministic message format can be used to help wallets distinguish EVM transactions from COAs.
+    
+    Replace `<<CONTRACT_ADDRESS>>` with the appropriate contract address before using the script.  
+    
+    - Call COA Transaction
+        
+        ```tsx
+        import EVM from <<CONTRACT_ADDRESS>>
+        
+        /// Executes the calldata from the signer's COA
+        ///
+        transaction(evmContractAddressHex: String, calldata: String, gasLimit: UInt64, value: UInt256) {
+        
+            let evmAddress: EVM.EVMAddress
+            let coa: auth(EVM.Call) &EVM.CadenceOwnedAccount
+        
+            prepare(signer: auth(BorrowValue) &Account) {
+                self.evmAddress = EVM.addressFromString(evmContractAddressHex)
+        
+                self.coa = signer.storage.borrow<auth(EVM.Call) &EVM.CadenceOwnedAccount>(from: /storage/evm)
+                    ?? panic("Could not borrow COA from provided gateway address")
+            }
+        
+            execute {
+                let valueBalance = EVM.Balance(attoflow: value)
+                let callResult = self.coa.call(
+                    to: self.evmAddress,
+                    data: calldata.decodeHex(),
+                    gasLimit: gasLimit,
+                    value: valueBalance
+                )
+            }
+        }
+        ```
+        
+    
+    One the provider has sent the transaction, it will respond to the request with the EVM transaction hash.
+    
+- **`eth_chainId`**
+    
+    The provider should respond with the Flow EVM chain ID.
+    
+- **`personal_sign`**
+    
+    The emulated provider will request a request a user signature from the user’s FCL wallet.  The hex-encoded payload remains unchanged.
+    
+    The provider should transform the FCL response into an RLP-encoded [COAOwnershipProof](https://github.com/onflow/flow-go/blob/master/fvm/evm/types/proof.go#L139) and return this to the caller.
+    
+- **`eth_signTypedData_v4`**
+    
+    The emulated provider will request a request a user signature from the user’s FCL wallet.  The payload to be signed is the hex-encoded typed data hash.
+    
+    The provider should transform the FCL response into an RLP-encoded [COAOwnershipProof](https://github.com/onflow/flow-go/blob/master/fvm/evm/types/proof.go#L139) and return this to the caller.
+    
+
+Any errors encountered when handling these requests will include error codes aligned with [EIP-1193](https://eips.ethereum.org/EIPS/eip-1193#provider-errors).
+
+### Ethereum Provider Events
+
+All of the following events defined in [EIP-1193](https://eips.ethereum.org/EIPS/eip-1193) will be implemented on the FCL Ethereum Provider.
+
+- `connect` should be emitted when FCL user has authenticated
+- `disconnect` should be emitted when FCL user has unauthenticated
+- `accountsChanged` should be emitted when FCL user has authenticated, corresponding to the user’s COA
+
+### Drawbacks
+
+**Loss of Human-Readable eth_signTypedData_v4 Signatures**
+
+The FCL Ethereum provider will not support human-readable signatures for `eth_signTypedData_v4` requests.  While wallets can still sign these requests using FCL's user signature service, the information presented to the user will be less user-friendly than the human-readable data provided by Ethereum JSON-RPC wallets.
+
+This is a trade-off of a client-side Ethereum JSON-RPC handler, which is only as expressive as its parent FCL interface.  Future standards for typed data signing may be considered in future iterations of the FCL protocol.
+
+**Risk of Ethereum JSON-RPC Changes**
+
+This proposal assumes that all necessary Ethereum JSON-RPC methods can be expressed using the FCL Protocol.  If future additions to the API violate this assumption, re-establishing equivalence will require changes to the FCL protocol.
+
+**Risk of Evolving COA Standards**
+
+This proposal assumes that an FCL user’s COA will always be stored at the canonical `/storage/evm` path.  Future evolution of ecosystem standards for COA storage may necessitate additional changes to accommodate alternate schemes.
+
+### Alternatives Considered
+
+**Extending Ethereum Provider JSON-RPC API**
+
+It was considered to adopt a set of [CASA standards](https://github.com/ChainAgnostic) for multi-VM authentication using an Ethereum provider’s existing RPC transport was considered.
+
+This benefits from a looser coupling between Cadence and EVM wallet interactions and allows dApps to express more granular requests to a wallet.  However, this was outweighed by the drawbacks of unnecessary complexity and inherent restrictions of the EVM transport layer.
+
+### Performance Implications
+
+There are no significant performance implications associated with this proposal.  Latency will be similar to existing Etheruem JSON-RPC APIs for COAs (e.g. Flow Wallet).
+
+### Dependencies
+
+Many EVM client libraries will require additional plugins or adapters to interact with the FCL Ethereum provider.
+
+### Engineering Impact
+
+This change should take a medium amount of effort to implement the FCL Ethereum provider, necessary plugins for EVM tooling, and examples.
+
+### Best Practices
+
+New features will be documented in the FCL API reference in the [Flow Developer Docs](https://developers.flow.com/).
+
+Flow EVM applications are encouraged to configure FCL Ethereum providers to support Cadence-aware wallets, even if they do not plan to integrate with Cadence.
+
+### Tutorials and Examples
+
+Guides for adding Cadence functionality to an existing EVM application should be created with specific integration paths for popular EVM client libraries (i.e. Wagmi, Rainbowkit).
+
+An example application should be created to excite EVM developers about the benefits of a Cadence integration and drive adoption efforts.
+
+### Compatibility
+
+The FCL Ethereum provider is an additive feature with no impact on existing FCL functionality.  It implements the [EIP-1193](https://eips.ethereum.org/EIPS/eip-1193) provider interface & full Ethereum JSON-RPC API to guarantee compatibility with existing EVM tooling.
+
+### User Impact
+
+This feature will be introduced in an upcoming release of the `FCL-JS` library.
+
+**EVM Developers** must configure relevant plugins or adapters with their existing tooling when integrating Cadence-aware wallets.
+
+**End-Users** will be unaffected and connect to FCL Ethereum providers in a manner indistinguishable from their usual workflows.
+
+### Related Issues
+
+N/A
+
+### Prior Art
+
+**Flow Wallet**: Implements the Ethereum JSON-RPC API to interact with COAs similar to this proposal.
+
+**Flow EVM Gateway:** Implements the Ethereum JSON-RPC to interact with the Flow EVM state, however does not interact with COAs.
+
+### Questions and Discussion
+
+This FLIP should be discussed in the [FLIPs](https://github.com/onflow/flips) GitHub repository as part of its PR.
+
+Some open questions include:
+
+- Are there additional risks associated with implementing a client-side Etheruem JSON-RPC handler that have not been considered in this document?
+- How should wallet provider de-duplication be handled when both an [EIP-6963](https://eips.ethereum.org/EIPS/eip-6963) and FCL Ethereum provider exist for the same wallet? (likely just add RDNS to FCL Service)
+
 
 
 

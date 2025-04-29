@@ -2837,7 +2837,7 @@ Migration Guide v0.25.0](/tools/clients/flow-go-sdk/migration-v0.25.0)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Overview](#overview)
 * [Getting Started](#getting-started)

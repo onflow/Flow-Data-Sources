@@ -76,7 +76,7 @@ Thus, Flow’s multi-role architecture solves the blockchain trilemma:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/network-architecture/solving-blockchain-trilemma.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -88,7 +88,7 @@ Sustainability](/networks/network-architecture/sustainability)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Separating Consensus from Compute](#separating-consensus-from-compute)
 

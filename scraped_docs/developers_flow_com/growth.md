@@ -86,13 +86,13 @@ You've got an app and are meeting the needs of regular customers. Core features 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/growth/index.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 ###### Rate this page
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Product Idea](#product-idea)
   + [What you are doing](#what-you-are-doing)

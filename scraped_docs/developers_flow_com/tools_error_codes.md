@@ -308,7 +308,7 @@ Example:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/error-codes.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -320,7 +320,7 @@ Wallet Provider Spec](/tools/wallet-provider-spec)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [1006](#1006)
 * [1007](#1007)

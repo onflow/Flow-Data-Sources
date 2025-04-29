@@ -285,7 +285,7 @@ This command will detect and provide information about common misconfigurations,
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/machine-existing-operator.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -297,7 +297,7 @@ Node Monitoring](/networks/node-ops/node-operation/monitoring-nodes)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Downloading Bootstrap Utility](#downloading-bootstrap-utility)
 * [Generate Machine Account key](#generate-machine-account-key)

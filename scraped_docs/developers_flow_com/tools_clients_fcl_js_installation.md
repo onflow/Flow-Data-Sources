@@ -87,7 +87,7 @@ const fcl = require("@onflow/fcl");`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/installation.mdx)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -99,7 +99,7 @@ Interaction Templates](/tools/clients/fcl-js/interaction-templates)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Prerequisite](#prerequisite)
 

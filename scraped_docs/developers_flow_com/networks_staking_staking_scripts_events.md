@@ -525,7 +525,7 @@ After this event, the FLOW tokens will be withdrawn to a newly created `Fungible
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/07-staking-scripts-events.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -537,7 +537,7 @@ How to Query Staking rewards](/networks/staking/staking-rewards)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Get the list of proposed nodes for the next epoch:](#get-the-list-of-proposed-nodes-for-the-next-epoch)
 * [Get the list of all nodes that are currently staked:](#get-the-list-of-all-nodes-that-are-currently-staked)

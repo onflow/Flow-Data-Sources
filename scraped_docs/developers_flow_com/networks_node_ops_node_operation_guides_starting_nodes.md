@@ -355,7 +355,7 @@ All networking layer settings are initialized to default values from the [config
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/guides/starting-nodes.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Ali Serag**
 
 [Previous
 
@@ -367,7 +367,7 @@ Machine Accounts for Existing Node Operators](/networks/node-ops/node-operation/
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [systemd](#systemd)
 * [Docker](#docker)
