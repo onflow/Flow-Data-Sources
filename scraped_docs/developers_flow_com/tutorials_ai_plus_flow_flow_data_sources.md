@@ -80,7 +80,7 @@ For integration with AI tools like Cursor or ChatGPT, use the appropriate URL as
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/flow-data-sources.md)
 
-Last updated on **Apr 25, 2025** by **Ali Serag**
+Last updated on **Apr 25, 2025** by **Chase Fleming**
 
 [Previous
 

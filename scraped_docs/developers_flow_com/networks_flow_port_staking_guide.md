@@ -164,7 +164,7 @@ Once the transition is processed, you can now see the withdrawn rewards in your 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-port/staking-guide.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -174,7 +174,7 @@ Flow Port](/networks/flow-port)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [First Step](#first-step)
 * [Stake a Node](#stake-a-node)

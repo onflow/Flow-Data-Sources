@@ -117,7 +117,7 @@ Upon restart, the chunk data pack directory will be automatically recreated.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/reclaim-disk.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -129,7 +129,7 @@ Access API](/networks/access-onchain-data)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Reclaiming disk space](#reclaiming-disk-space)
   + [Access, Collection, Consensus and Verification node](#access-collection-consensus-and-verification-node)

@@ -301,7 +301,7 @@ After unblocking the node, connections and traffic coming from the node should r
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/byzantine-node-attack-response.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -313,7 +313,7 @@ Database Encryption for Existing Node Operators](/networks/node-ops/node-operati
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Admin Server](#admin-server)
   + [Enable the Admin Server](#enable-the-admin-server)

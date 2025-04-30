@@ -95,7 +95,7 @@ Flow provides an implementation of the Flow interaction template service as an o
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/flix.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -107,7 +107,7 @@ NFT Metadata Views](/build/advanced-concepts/metadata-views)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Using FLIX](#using-flix)
   + [Example](#example)

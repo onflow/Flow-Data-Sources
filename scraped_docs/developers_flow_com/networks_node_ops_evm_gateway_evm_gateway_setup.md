@@ -736,7 +736,7 @@ failure in event subscription at height ${INIT-CADENCE-HEIGHT}, with: recoverabl
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/evm-gateway/evm-gateway-setup.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -748,7 +748,7 @@ Light Node Setup](/networks/node-ops/light-nodes/observer-node)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Anyone can run EVM Gateway](#anyone-can-run-evm-gateway)
 * [Hardware specifications](#hardware-specifications)

@@ -632,7 +632,7 @@ which is a mapping of nodeIDs to the `FlowStakingCollection.MachineAccountInfo` 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/14-staking-collection.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -644,7 +644,7 @@ Basic Staking Guide (Deprecated)](/networks/staking/staking-guide)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Staker Object Fields](#staker-object-fields)
 * [Vault Capability Fields](#vault-capability-fields)

@@ -80,7 +80,7 @@ Congratulations! You have successfully connected to a WebSocket server using Pos
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/postman-example.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -92,7 +92,7 @@ Common errors](/networks/access-onchain-data/websockets-stream-api/common-errors
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Step 1: Open Postman](#step-1-open-postman)
 * [Step 2: Create a New WebSocket Request](#step-2-create-a-new-websocket-request)

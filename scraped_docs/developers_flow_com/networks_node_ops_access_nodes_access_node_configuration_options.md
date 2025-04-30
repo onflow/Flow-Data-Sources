@@ -372,7 +372,7 @@ Protobuf: <https://github.com/onflow/flow/blob/master/protobuf/flow/executiondat
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/access-nodes/access-node-configuration-options.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -384,7 +384,7 @@ EVM Gateway Setup](/networks/node-ops/evm-gateway/evm-gateway-setup)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Setup node’s directory](#setup-nodes-directory)
 * [Setup execution data indexing](#setup-execution-data-indexing)

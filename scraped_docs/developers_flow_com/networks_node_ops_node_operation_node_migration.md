@@ -103,7 +103,7 @@ Delegators to the old node will have their tokens unstaked automatically. They w
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-migration.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -115,7 +115,7 @@ Node Provisioning](/networks/node-ops/node-operation/node-provisioning)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Method 1 - No change to the node staking data](#method-1---no-change-to-the-node-staking-data)
 * [Method 2 - Network address change](#method-2---network-address-change)

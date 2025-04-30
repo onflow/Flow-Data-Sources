@@ -298,7 +298,7 @@ _20
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/supported-topics/account_statuses_topic.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -310,7 +310,7 @@ Transaction statuses](/networks/access-onchain-data/websockets-stream-api/suppor
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Example Request](#example-request)
   + [Request Arguments](#request-arguments)

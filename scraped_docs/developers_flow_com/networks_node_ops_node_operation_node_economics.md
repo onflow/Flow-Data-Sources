@@ -84,7 +84,7 @@ For real-time numbers, please refer to the [block explorer](https://www.flowscan
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-economics.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -96,7 +96,7 @@ Node Migration](/networks/node-ops/node-operation/node-migration)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Node Operator Economics: An illustration](#node-operator-economics-an-illustration)
 * [Note](#note)

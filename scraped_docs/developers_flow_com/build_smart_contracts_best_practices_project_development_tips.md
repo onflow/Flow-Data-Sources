@@ -330,7 +330,7 @@ If you have any feedback about these guidelines, please create an issue in the o
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/best-practices/project-development-tips.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -342,7 +342,7 @@ Account Abstraction](/build/advanced-concepts/account-abstraction)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Context](#context)
   + [Implementing These Practices](#implementing-these-practices)

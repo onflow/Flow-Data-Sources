@@ -139,7 +139,7 @@ These errors occur when the server cannot parse or validate your incoming messag
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/common-errors.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -151,7 +151,7 @@ Governance](/networks/governance)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Error Structure](#error-structure)
   + [Message Format Errors](#message-format-errors)

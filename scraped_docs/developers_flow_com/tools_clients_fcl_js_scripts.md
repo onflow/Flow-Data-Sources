@@ -310,7 +310,7 @@ To learn more about `query`, check out the [API documentation](/tools/clients/fc
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/scripts.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -322,7 +322,7 @@ Transactions](/tools/clients/fcl-js/transactions)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Sending Your First Script](#sending-your-first-script)
 * [A More Complex Script](#a-more-complex-script)

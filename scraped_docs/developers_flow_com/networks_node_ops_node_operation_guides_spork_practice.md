@@ -158,7 +158,7 @@ Lastly, if the goal is to practice the entire Sporking procedure, including `tra
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/guides/spork-practice.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -170,7 +170,7 @@ Starting Your Nodes](/networks/node-ops/node-operation/guides/starting-nodes)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Sporking](#sporking)
 * [Local Testnet](#local-testnet)

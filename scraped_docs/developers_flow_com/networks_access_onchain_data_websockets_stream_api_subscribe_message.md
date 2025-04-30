@@ -209,7 +209,7 @@ If you don't provide `subscription_id`, the server will generate one and include
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/subscribe-message.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -221,7 +221,7 @@ Unsubscribing from topic](/networks/access-onchain-data/websockets-stream-api/un
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Example of subscribe request](#example-of-subscribe-request)
 * [Example of successful response](#example-of-successful-response)

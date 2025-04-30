@@ -1,4 +1,4 @@
-# Source: https://developers.flow.com
+# Source: https://developers.flow.com/
 
 Flow Developer Portal | Flow Developer Portal
 
@@ -64,7 +64,9 @@ Move established EVM tokens to Cadence for more powerful contracts, or move Cade
 
 ### Tools
 
-[### Cadence Block Explorer
+[### Dependency Manager
+
+Effortlessly import Flow Cadence contracts into your projects, including core contracts, ecosystem contracts, and your own published contracts.](tools/flow-cli/dependency-manager)[### Cadence Block Explorer
 
 Search for users, transactions, and contracts on the Flow Cadence blockchain.](https://www.flowscan.io/)[### EVM Block Explorer
 

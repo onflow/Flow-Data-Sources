@@ -1071,7 +1071,7 @@ It provides an introduction to integrating these standards into your NFT contrac
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/metadata-views.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -1083,7 +1083,7 @@ VRF (Randomness) in Cadence](/build/advanced-concepts/randomness)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Two Levels of Metadata: An Overview](#two-levels-of-metadata-an-overview)
 * [Understanding `ViewResolver` and `MetadataViews.Resolver`](#understanding-viewresolver-and-metadataviewsresolver)

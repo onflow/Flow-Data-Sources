@@ -145,7 +145,7 @@ _15
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/db-encryption-existing-operator.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -157,7 +157,7 @@ Genesis Bootstrapping](/networks/node-ops/node-operation/guides/genesis-bootstra
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Downloading Bootstrap Utility](#downloading-bootstrap-utility)
 * [Generate Database Encryption Key](#generate-database-encryption-key)

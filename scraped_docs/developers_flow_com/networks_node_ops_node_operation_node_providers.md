@@ -75,7 +75,7 @@ On this page
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-providers.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -87,7 +87,7 @@ Height coordinated upgrade](/networks/node-ops/node-operation/hcu)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Quick Node](#quick-node)
   + [Supported Networks](#supported-networks)
