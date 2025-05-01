@@ -147,7 +147,7 @@ Read more about the [EVM Gateway](https://github.com/onflow/flow-evm-gateway) on
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/using.mdx)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 

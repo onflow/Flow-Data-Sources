@@ -121,7 +121,7 @@ Here is a comparison of the different node roles,
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-roles.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -133,7 +133,7 @@ Node Setup](/networks/node-ops/node-operation/node-setup)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Collection](#collection)
 * [Consensus](#consensus)

@@ -2700,7 +2700,7 @@ For the current state of Flow EVM across various task paths, see the following r
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/vm-bridge.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 

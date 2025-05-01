@@ -392,7 +392,7 @@ Specify the log level. Control how much output you want to see while command exe
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flow.json/initialize-configuration.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -575,7 +575,7 @@ Block explorers are user-friendly online tools that visually present blockchain 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/block-explorers.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -1138,7 +1138,7 @@ Search
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/learn-cadence.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -1835,7 +1835,7 @@ FCL will automatically replace the contract name with the address for the networ
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/configure-fcl.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -2366,7 +2366,7 @@ Any unknown or unsupported request methods will be proxied to the `gateway` (if 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/cross-vm/ethereum-provider.mdx)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -3248,7 +3248,7 @@ _12
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/kit/index.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Next
 
@@ -3820,7 +3820,7 @@ _26
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/complex-transactions.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -4239,7 +4239,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/get-transactions.md)
 
-Last updated on **Apr 25, 2025** by **Ali Serag**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -5786,7 +5786,7 @@ For background and motivation, see the [FCL Ethereum Provider for Cross-VM Apps 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/cross-vm/index.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -6066,7 +6066,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/scripts/execute-scripts.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -6471,7 +6471,7 @@ To learn more about `query`, check out the [API documentation](/tools/clients/fc
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/scripts.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -6887,7 +6887,7 @@ See the following video for demonstration of how to update your code to wait for
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/transactions.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -7070,7 +7070,7 @@ Selecting the right architecture is crucial when developing an app on the Flow b
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/app-architecture/index.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -7245,7 +7245,7 @@ TODO: insert flow cli command here to query the block version details.`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/hcu.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -9032,7 +9032,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/account-remove-contract.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -9274,7 +9274,7 @@ Read more about the [EVM Gateway](https://github.com/onflow/flow-evm-gateway) on
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/using.mdx)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -9394,7 +9394,7 @@ Go to [Faucets](/ecosystem/faucets)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/faucets.mdx)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -9512,7 +9512,7 @@ This section contains tutorials on how to use or build Flow MCP (Model Context P
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/mcp/index.md)
 
-Last updated on **Apr 28, 2025** by **Brian Doyle**
+Last updated on **Apr 28, 2025** by **Tang Bo Hao**
 
 [Previous
 
@@ -9683,7 +9683,7 @@ The following are the upcoming Spork dates. These dates indicate the intention t
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/upcoming-sporks.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -9828,7 +9828,7 @@ Store, manage, and interact securely with tokens and digital assets on Flow. Dis
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/wallets.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -10231,7 +10231,7 @@ At the end of every epoch, tokens are moved between pools in this order:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/06-technical-overview.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -11044,7 +11044,7 @@ with its peers, preventing it from functioning properly.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/faq.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -11430,7 +11430,7 @@ For more information about Cadence Owned Accounts, see the [Flow EVM Support FLI
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/accounts.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -12106,7 +12106,7 @@ _104
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/supported-topics/blocks_topic.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -12118,7 +12118,7 @@ Events](/networks/access-onchain-data/websockets-stream-api/supported-topics/eve
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Example Request](#example-request)
   + [Request Arguments](#request-arguments)
@@ -12547,7 +12547,7 @@ _10
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/ethers.md)
 
-Last updated on **Apr 25, 2025** by **Ali Serag**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -12742,7 +12742,7 @@ You've now created a custom GPT that references your uploaded file as a primary 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/chatgpt/index.md)
 
-Last updated on **Apr 25, 2025** by **Ali Serag**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -12900,7 +12900,7 @@ developers seeking to enhance the security and management of tokenized assets wi
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/index.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -13173,7 +13173,7 @@ machine_account_balance{acct_address="7b16b57ae0a3c6aa"} 9.99464935`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/monitoring-nodes.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -14059,7 +14059,7 @@ Register Provider with FCL Handshake and implement 5 Endpoints.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/custodial.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -14173,7 +14173,7 @@ Stay tuned—more tutorials and advanced guides are on the way!
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/native-vrf/index.md)
 
-Last updated on **Apr 25, 2025** by **Ali Serag**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -14289,7 +14289,7 @@ Go to [Bridges](/ecosystem/bridges)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/cross-chain-bridges.mdx)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -14507,7 +14507,7 @@ _15
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/db-encryption-existing-operator.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -14948,7 +14948,7 @@ _17
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/authorization-function.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -15276,7 +15276,7 @@ via the `Burner.burn()` method, this event is emitted with the following argumen
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/02-fungible-token.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -15735,7 +15735,7 @@ To dive deeper into testing the functionality of your Cadence scripts and contra
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/tests.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -15990,7 +15990,7 @@ If you installed it using Hombrew you can remove it using: `brew uninstall flow-
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/install.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -16232,7 +16232,7 @@ Restart VS Code and the extension should be installed!
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/vscode-extension/index.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -17303,7 +17303,7 @@ _17
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/provable-authn.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -18020,7 +18020,7 @@ Find a list of all SDKs [here](/tools/clients)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/blocks.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -18476,7 +18476,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/send-transactions.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -18853,7 +18853,7 @@ Bridges are mechanisms that connect different blockchain networks, enabling secu
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/bridges.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -19532,7 +19532,7 @@ If you're already familiar with blockchain development, here's a comparison betw
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/differences-vs-evm/index.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -20003,7 +20003,7 @@ _35
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/cross-vm/rainbowkit-adapter.mdx)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -20160,7 +20160,7 @@ To get started with creating your first Flow project and to learn more about how
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/index.md)
 
-Last updated on **Apr 18, 2025** by **Brian Doyle**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -20171,6 +20171,8 @@ Install Instructions](/tools/flow-cli/install)
 ###### Rate this page
 
 😞😐😊
+
+Copy as Markdown
 
 * [Installation](#installation)
 * [Create Your First Project](#create-your-first-project)
@@ -20888,7 +20890,7 @@ A entitled receiver has not been paid during the sale of the NFT.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/10-nft-storefront.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -22394,7 +22396,7 @@ Use the `--dir` flag only if your project requires a different organizational st
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/boilerplate.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -23729,7 +23731,7 @@ The [FLOW](/build/core-contracts/flow-token) (or $FLOW) token is the native curr
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/flow.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Next
 
@@ -25131,7 +25133,7 @@ and ultimately the owners of these child accounts the ability to revoke secondar
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking/parent-accounts.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -25558,7 +25560,7 @@ The responses for all topics are aligned with the [Flow REST API](/http-api) res
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/supported-topics/index.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -28224,7 +28226,7 @@ That's it! You now have a shippable Flow dapp that can auth, query, init account
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/react-native-quickstart.md)
 
-Last updated on **Apr 25, 2025** by **Ali Serag**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -28391,7 +28393,7 @@ Congratulations! You have successfully connected to a WebSocket server using Pos
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/postman-example.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -30327,7 +30329,7 @@ In this tutorial, you took your first steps towards building powerful new experi
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking-with-dapper.md)
 
-Last updated on **Apr 25, 2025** by **Ali Serag**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -30578,7 +30580,7 @@ These files contain confidential data, and must be stored and accessed securely.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-provisioning.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -30762,7 +30764,7 @@ Flow Improvement Proposals (FLIPs) serve as a platform for engaging the Flow com
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/index.mdx)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Next
 
@@ -31014,7 +31016,7 @@ Flow’s multi-role architecture provides censorship & MEV resistance by design:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/network-architecture/user-safety.md)
 
-Last updated on **Apr 25, 2025** by **Ali Serag**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -31897,7 +31899,7 @@ _66
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/interaction-templates.mdx)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -35832,7 +35834,7 @@ You can see the docs for account linking [here](https://developers.flow.com/buil
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/12-hybrid-custody.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -36670,7 +36672,7 @@ npx hardhat verify --network testnet DEPLOYED_CONTRACT_ADDRESS "Constructor argu
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/hardhat.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -36682,7 +36684,7 @@ Remix](/evm/guides/remix)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Prerequisites](#prerequisites)
   + [Node](#node)
@@ -36805,7 +36807,7 @@ Search
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/network-architecture.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -37200,7 +37202,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/sign-transaction.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -37533,7 +37535,7 @@ Use cases include cryptographic login, message validation, verifiable credential
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/user-signatures.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -38256,7 +38258,7 @@ This script does not require any arguments.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/05-epoch-scripts-events.md)
 
-Last updated on **Apr 25, 2025** by **Ali Serag**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -39326,7 +39328,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/get-accounts.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -40973,7 +40975,7 @@ contract that conforms to the standard.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/overview.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -41640,7 +41642,7 @@ To learn more about staking events, read [staking/events/](/networks/staking/sta
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/03-flow-token.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -41827,7 +41829,7 @@ Flow Improvement Proposals (FLIPs) serve as a platform for engaging the Flow com
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/index.mdx)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Next
 
@@ -42509,7 +42511,7 @@ These errors occur when the server cannot parse or validate your incoming messag
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/common-errors.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -43198,7 +43200,7 @@ Once a valid root snapshot file is downloaded to the node's bootstrap folder, it
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-bootstrap.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -44469,7 +44471,7 @@ To learn more about storage fee and transaction fee, visit [Flow Tokenomics page
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/fees.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -44583,7 +44585,7 @@ Go to [HTTP API](/http-api)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/access-http-api.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -45166,7 +45168,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/build-transactions.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -45545,7 +45547,7 @@ Find a list of all SDKs here: [tools/clients](/tools/clients)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/accounts.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -46540,7 +46542,7 @@ See [Past Sporks](/networks/node-ops/node-operation/past-upgrades) for the curre
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/light-nodes/observer-node.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -46965,7 +46967,7 @@ _13
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/proving-authentication.mdx)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -47101,7 +47103,7 @@ We are particularly interested in projects across these key areas:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/grants.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -48173,7 +48175,7 @@ For additional details and advanced usage, refer to the [@onflow/kit documentati
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/fcl-quickstart.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -48931,7 +48933,7 @@ It takes roughly the time of 1 transaction to run all 420 without any errors.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/scaling.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -50909,7 +50911,7 @@ some other account.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking/child-accounts.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -51361,7 +51363,7 @@ All networking layer settings are initialized to default values from the [config
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/guides/starting-nodes.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -53951,7 +53953,7 @@ Get familiar with the [Cadence anti-patterns](https://cadence-lang.org/docs/anti
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/testing.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -54361,7 +54363,7 @@ we have turned off geolocation data reporting to Mixpanel.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/data-collection.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -56160,7 +56162,7 @@ flow project deploy -f main.json -f private.json`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flow.json/security.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -56323,7 +56325,7 @@ Those wishing to understand the technical specifics of how Flow EVM works we rec
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/about.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Next
 
@@ -56453,7 +56455,7 @@ Read more about it [here](https://flow.com/post/flow-blockchain-sustainability-e
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/network-architecture/sustainability.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -56905,7 +56907,7 @@ Basic Concepts of Flow Blockchain](/build/basics/blocks)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/explore-more.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -57581,7 +57583,7 @@ $DEPLOYER_ADDRESS`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/foundry.md)
 
-Last updated on **Apr 25, 2025** by **Ali Serag**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -58565,7 +58567,7 @@ which is a mapping of nodeIDs to the `FlowStakingCollection.MachineAccountInfo` 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/14-staking-collection.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -59274,7 +59276,7 @@ More FlowtoBooth tutorials are in development, including:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/flowtobooth/index.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -59677,7 +59679,7 @@ Thus, Flow’s multi-role architecture solves the blockchain trilemma:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/network-architecture/solving-blockchain-trilemma.md)
 
-Last updated on **Apr 25, 2025** by **Ali Serag**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -60066,7 +60068,7 @@ Example:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/error-codes.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -60526,7 +60528,7 @@ Start your systems, let's make some blocks!
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/guides/genesis-bootstrap.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -63091,7 +63093,7 @@ _34
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/index.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -63289,7 +63291,7 @@ If you encounter any issues:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/cursor/index.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -64354,7 +64356,7 @@ Where can I get updates or ask questions?
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/faq.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -64610,7 +64612,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/decode-transactions.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -66484,7 +66486,7 @@ for information about technical integration.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/index.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -67036,7 +67038,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/deployment/emulator-snapshot.md)
 
-Last updated on **Apr 25, 2025** by **Ali Serag**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -67428,7 +67430,7 @@ you can use scripts events to learn information about the state of the epoch con
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/04-epoch-preparation.md)
 
-Last updated on **Apr 25, 2025** by **Ali Serag**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -67635,7 +67637,7 @@ Whether you're new to building onchain, or an established veteran, we’re here 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/authentication.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -70512,7 +70514,7 @@ If you're unsure, check the Flow EVM block explorer at [evm.flowscan.io](https:/
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/add-token-to-metamask.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -70522,7 +70524,7 @@ Stablecoins & Bridges FAQ](/ecosystem/defi-liquidity/faq)
 
 ###### Rate this page
 
-   😞😐😊
+😞😐😊
 
 Copy as Markdown
 
@@ -70626,23 +70628,22 @@ On this page
 
 # Secure Randomness with Commit-Reveal in Cadence
 
-Randomness is a critical component in blockchain applications, enabling fair and unpredictable outcomes for use cases like gaming, lotteries, and cryptographic protocols. The most basic approach to generating a random number on EVM chains is to utilize block hashes, which combines the block hash with a user-provided seed and hashes them together. The resulting hash can be used as a pseudo-random number. However, this approach has limitations:
-
-1. Predictability: Miners can potentially manipulate the block hash to influence the generated random number.
-2. Replay attacks: In case of block reorganizations, the revealed answers will not be re-used again.
+Randomness is a critical component in blockchain applications, enabling fair and unpredictable outcomes for use cases like gaming, lotteries, and cryptographic protocols. The most basic approach to generating a random number on EVM chains is to utilize block hashes, which combines the block hash with a user-provided seed and hashes them together. The resulting hash can be used as a pseudo-random generator seed. However, this approach has limitations. The block hash can be manipulated by a validator influencing the random source used to compute transactions. The block proposer has the freedom to decide what to include into a block and can through different combinations till they find a favorable random source.
 
 [Chainlink VRF](https://docs.chain.link/vrf) is a popular tool that improves on this by providing another approach for generating provably random values on Ethereum and other blockchains by relying on a decentralized oracle network to deliver cryptographically secure randomness from off-chain sources. However, this dependence on external oracles introduces several weaknesses, such as cost, latency, and scalability concerns.
 
-In contrast, Flow offers a simpler and more integrated approach with its Random Beacon contract, which provides native on-chain randomness at the protocol level, eliminating reliance on external oracles and sidestepping their associated risks. Via a commit-and-reveal scheme, Flow's protocol-native secure randomness can be used within both Cadence and Solidity smart contracts.
+In contrast, Flow offers a simpler and more integrated approach with its native on-chain Randomness Beacon at the protocol level, eliminating reliance on external oracles and sidestepping their associated risks.
+
+In addition to instant randomness that is available to any transaction (via `revertibleRandom` function), Flow provides a solution to reverted transaction. Commit-Reveal schemes on Flow also rely on protocol-native secure randomness and they fix the issue of post-selection by trustless users. Commit-Reveal tools on Flow can be used within both Cadence and Solidity smart contracts. This tutorial will focus on the Cadence case.
 
 ## Objectives[​](#objectives "Direct link to Objectives")
 
 By the end of this guide, you will be able to:
 
 * Deploy a Cadence smart contract on the Flow blockchain
-* Implement commit-reveal randomness to ensure fairness
-* Interact with Flow's on-chain randomness features
-* Build and test the Coin Toss game using Flow's Testnet
+* Implement commit-reveal pattern for randomness to ensure fairness
+* Interact with on-chain randomness features on Flow
+* Build and test the Coin Toss game using the Flow Testnet
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
@@ -70653,26 +70654,34 @@ You'll need the following:
 
 ## Overview[​](#overview "Direct link to Overview")
 
-In this guide, we will explore how to use a commit-reveal scheme in conjunction with Flow's Random Beacon to achieve secure, non-revertible randomness. This mechanism mitigates post-selection attacks, where participants attempt to manipulate or reject unfavorable random outcomes after they are revealed.
+In this guide, we will explore how to use a commit-reveal scheme based on the Flow Random Beacon to achieve secure, non-revertible randomness. This mechanism mitigates post-selection attacks, where participants attempt to reject unfavorable random outcomes after they are revealed.
 
-To illustrate this concept, we will build a Coin Toss game on Flow, demonstrating how smart contracts can leverage commit-reveal randomness for fair, tamper-resistant results.
+To illustrate this concept, we will build a Coin Toss game on Flow, demonstrating how smart contracts can leverage a commit-reveal scheme for fair, tamper-resistant results.
+
+![Commit Reveal](/assets/images/commit-reveal-781e7a6a3f33610dc3258192029cbd4d.png)
 
 ### What is the Coin Toss Game?[​](#what-is-the-coin-toss-game "Direct link to What is the Coin Toss Game?")
 
-The Coin Toss Game is a decentralized betting game that showcases Flow's commit-reveal randomness. Players place bets without knowing the random outcome, ensuring fairness and resistance to manipulation.
+The Coin Toss Game is a decentralized betting game that showcases the commit-reveal pattern. Players place bets without knowing the random outcome, ensuring fairness and resistance to manipulation.
 
 The game consists of two distinct phases:
 
-1. Commit Phase – The player places a bet by sending Flow tokens to the contract. The contract records the commitment and requests a random value from Flow's Random Beacon. The player receives a Receipt, which they will use to reveal the result later.
-2. Reveal Phase – Once the random value becomes available in `RandomBeaconHistory`, the player submits their Receipt to determine the outcome:
+1. Commit Phase - The player places a bet by sending Flow tokens to the contract. The contract records the commitment to use a future random value from the Flow Random Beacon. The player receives a Receipt, which they will use to reveal the result later.
+2. Reveal Phase - Once the random value becomes available in the `RandomBeaconHistory` contract, the player submits their Receipt to determine the outcome:
    * If the result is 0, the player wins and receives double their bet.
    * If the result is 1, the player loses, and their bet remains in the contract.
 
-### Why Use Commit-Reveal Randomness?[​](#why-use-commit-reveal-randomness "Direct link to Why Use Commit-Reveal Randomness?")
+### Why Use a Commit-Reveal scheme?[​](#why-use-a-commit-reveal-scheme "Direct link to Why Use a Commit-Reveal scheme?")
 
-* Prevents manipulation – Players cannot selectively reveal results after seeing the randomness.
-* Ensures fairness – Flow's Random Beacon provides cryptographically secure, verifiable randomness.
-* Reduces reliance on external oracles – The randomness is generated natively on-chain, avoiding additional complexity, third party risk and cost.
+Similarly to revertible randomness, Commit-Reveal inherits the security of Flow native randomness beacon:
+
+* Ensures security - The Flow Random Beacon provides cryptographically unpredictable and non-biased randomness.
+* Ensure fairness - The Flow Random Beacon uses a Verifiable Random Function (VRF) under the hood which allows any external client or user to verify that randoms were generated fairly.
+* Reduces reliance on external oracles - The randomness is generated natively on-chain, avoiding additional complexity, third party risk and cost.
+
+In addition, commit-reveal patterns solve the issue of revertible randoms:
+
+* Prevents user manipulation - Players cannot selectively reveal results after seeing the random results.
 
 ## Building the Coin Toss Contract[​](#building-the-coin-toss-contract "Direct link to Building the Coin Toss Contract")
 
@@ -70752,7 +70761,7 @@ _18
 
 ### Step 2: Implementing the Commit Phase With `flipCoin`[​](#step-2-implementing-the-commit-phase-with-flipcoin "Direct link to step-2-implementing-the-commit-phase-with-flipcoin")
 
-Let's define the first step in our scheme; the commit phase. We do this through a `flipCoin` public function. In this method, the caller commits a bet. The contract takes note of the block height and bet amount, returning a `Receipt` resource which is used by the former to reveal the coin toss result and determine their winnings.
+Let's define the first step in our scheme; the commit phase. We do this through a `flipCoin` public function. In this method, the caller commits a bet. The contract takes note of a future block height and bet amount, returning a `Receipt` resource which is used by the former to reveal the coin toss result and determine their winnings.
 
 `_12
 
@@ -70800,7 +70809,8 @@ _12
 
 ### Step 3: Implementing the Reveal Phase With `revealCoin`[​](#step-3-implementing-the-reveal-phase-with-revealcoin "Direct link to step-3-implementing-the-reveal-phase-with-revealcoin")
 
-Now we implement the reveal phase with the `revealCoin` function. Here the caller provides the Receipt given to them at commitment. The contract then "flips a coin" with `_randomCoin()` providing the Receipt's contained Request. If result is 1, user loses, but if it's 0 the user doubles their bet. Note that the caller could condition the revealing transaction, but they've already provided their bet amount so there's no loss for the contract if they do.
+Now we implement the reveal phase with the `revealCoin` function. Here the caller provides the Receipt given to them at commitment. The contract then "flips a coin" with `_randomCoin()` providing the Receipt's contained Request. The reveal step is possible only when the protocol random source at the committed block height becomes available.
+If result is 1, user loses, but if it's 0 the user doubles their bet. Note that the caller could condition the revealing transaction, but they've already provided their bet amount so there's no loss for the contract if they do.
 
 `_23
 
@@ -71099,26 +71109,25 @@ You can find the full transaction used for this example, with its result and eve
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-The commit-reveal scheme, implemented within the context of Flow's Random Beacon, provides a robust solution for generating secure and non-revertible randomness in decentralized applications. By leveraging this mechanism, developers can ensure that their applications are:
+The commit-reveal scheme, implemented within the context of the Flow Randomness Beacon, provides a robust solution for generating secure and non-revertible randomness in decentralized applications. By leveraging this mechanism, developers can ensure that their applications are:
 
 * Fair: Outcomes remain unbiased and unpredictable.
-* Resistant to manipulation: Protects against post-selection attacks.
-* Immune to replay attacks: A common pitfall in traditional random number generation on other blockchains.
+* Resistant to post-selection: Protects against trustless users who cannot reverse their commitments.
 
 The CoinToss game serves as a practical example of these principles in action. By walking through its implementation, you've seen firsthand how straightforward yet effective this approach can be—balancing simplicity for developers with robust security for users. As blockchain technology advances, embracing such best practices is essential to creating a decentralized ecosystem that upholds fairness and integrity, empowering developers to innovate with confidence.
 
 This tutorial has equipped you with hands-on experience and key skills:
 
 * You deployed a Cadence smart contract on the Flow blockchain.
-* You implemented commit-reveal randomness to ensure fairness.
-* You interacted with Flow's on-chain randomness features.
-* You built and tested the Coin Toss game using Flow's Testnet.
+* You implemented commit-reveal to ensure fairness.
+* You interacted with on-chain randomness features on Flow.
+* You built and tested the Coin Toss game using the Flow Testnet.
 
-By harnessing Flow's built-in capabilities, you can now focus on crafting engaging, user-centric experiences without grappling with the complexities or limitations of external systems. This knowledge empowers you to create secure, scalable, and fair decentralized applications.
+By harnessing the built-in randomness capabilities on Flow, you can now focus on crafting engaging, user-centric experiences without grappling with the complexities or limitations of external systems. This knowledge empowers you to create secure, scalable, and fair decentralized applications.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/native-vrf/commit-reveal-cadence.md)
 
-Last updated on **Apr 25, 2025** by **Ali Serag**
+Last updated on **Apr 30, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -71136,7 +71145,7 @@ Copy as Markdown
 * [Prerequisites](#prerequisites)
 * [Overview](#overview)
   + [What is the Coin Toss Game?](#what-is-the-coin-toss-game)
-  + [Why Use Commit-Reveal Randomness?](#why-use-commit-reveal-randomness)
+  + [Why Use a Commit-Reveal scheme?](#why-use-a-commit-reveal-scheme)
 * [Building the Coin Toss Contract](#building-the-coin-toss-contract)
   + [Step 1: Defining the `CoinToss.cdc` Contract](#step-1-defining-the-cointosscdc-contract)
   + [Step 2: Implementing the Commit Phase With `flipCoin`](#step-2-implementing-the-commit-phase-with-flipcoin)
@@ -72577,7 +72586,7 @@ Example: there are 115 access nodes already part of the network. Hence, the tota
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/access-nodes/access-node-setup.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -73116,7 +73125,7 @@ _10
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/discovery.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -73863,7 +73872,7 @@ consensus_compliance_sealed_height 1.132054e+06`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-setup.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -74333,7 +74342,7 @@ If the witness turns out to be valid, the Verification Node who signed that resu
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/slashing.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -74868,7 +74877,7 @@ To get started with creating your first Flow project and to learn more about how
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/index.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -76410,7 +76419,7 @@ FCL is built **on top of the Flow SDK**, making it easier to handle authenticati
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/index.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -77603,7 +77612,7 @@ Learn more about it in the [Hybrid Custody documentation](/build/guides/account-
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking/index.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -77615,7 +77624,7 @@ Building Walletless Applications Using Child Accounts](/build/guides/account-lin
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Accessing Account](#accessing-account)
 * [Account Capabilities](#account-capabilities)
@@ -78772,7 +78781,7 @@ While FCL v0.0.67 is not strictly necessary to use Mainnet 6, we strongly recomm
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/past-upgrades.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -79291,7 +79300,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/account-add-contract.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -79753,7 +79762,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/account-update-contract.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -82772,7 +82781,7 @@ Below is a list of the available CLI flags to control the behavior of the API
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/index.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -86141,7 +86150,7 @@ _17
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/user-signature.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -86519,7 +86528,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/get-flow-data/get-blocks.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -87030,7 +87039,7 @@ To explore advanced features like snapshots, rollbacks, and debugging, visit the
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/deployment/start-emulator.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -87988,7 +87997,7 @@ The Eliza framework provides a powerful way to create intelligent agents that ca
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/eliza/index.md)
 
-Last updated on **Apr 25, 2025** by **Ali Serag**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -88168,7 +88177,7 @@ const fcl = require("@onflow/fcl");`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/installation.mdx)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -88419,7 +88428,7 @@ After adding your account to your `flow.json` file, you're ready to use your acc
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/faucets.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -88643,7 +88652,7 @@ access(all) event MinimumStorageReservationChanged(_ minimumStorageReservation: 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/05-flow-fees.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -88803,7 +88812,7 @@ Check out [Running a Node](/networks/node-ops/light-nodes/observer-node) for mor
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-networks/index.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Next
 
@@ -89138,7 +89147,7 @@ _10
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/protocol-state-bootstrap.md)
 
-Last updated on **Apr 25, 2025** by **Ali Serag**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -89327,7 +89336,7 @@ We'll be updating the Developer Profile with new features and challenges. Check 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/developer-profile.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -91088,7 +91097,7 @@ _31
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/cross-vm/wagmi-adapter.mdx)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -94372,7 +94381,7 @@ latestBlock, err := flowClient.GetLatestBlock(ctx, true, MaxCallSendMsgSize(100)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/flow-go-sdk/migration-v0.25.0.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -94491,7 +94500,7 @@ On this page
 
 Flow enhances blockchain functionality and eliminates reliance on external oracles by providing native onchain randomness at the protocol level. This secure, decentralized feature empowers developers to build a variety of applications with truly unpredictable, transparent, and fair outcomes, achieved with greater efficiency.
 
-Flow's onchain randomness delivers immediate random values within smart contracts, bypassing the latency and complexity of oracle integration. Developers can obtain verifiably random results with a single line of Cadence code, streamlining the development process and enhancing the performance of decentralized applications.
+Flow onchain randomness delivers immediate random values within transactions, bypassing the latency and complexity of oracle integration. Developers can obtain verifiably random results with a single line of Cadence code, streamlining the development process and enhancing the performance of decentralized applications.
 
 ## Use Cases of Onchain Randomness[​](#use-cases-of-onchain-randomness "Direct link to Use Cases of Onchain Randomness")
 
@@ -94501,29 +94510,23 @@ Flow's onchain randomness delivers immediate random values within smart contract
 * **DeFi Protocols:** Enables rapid and innovative random reward systems within decentralized finance.
 * **DAOs:** Assists in unbiased voting and task assignments through immediate randomness.
 * **Broad Applications:** Extends to any domain requiring impartial randomization, from asset distribution to security mechanisms, all with the added benefit of on-demand availability.
+* **Flow protocol:** Contributes to the proof of stake consensus security by selecting which validator gets to propose the next block, and assigns verification nodes to check block computations.
 
-## History of the Distributed Randomness Beacon[​](#history-of-the-distributed-randomness-beacon "Direct link to History of the Distributed Randomness Beacon")
+## Flow Distributed Randomness Beacon[​](#flow-distributed-randomness-beacon "Direct link to Flow Distributed Randomness Beacon")
 
 Within the Flow protocol, the heart of randomness generation lies in the "Distributed Randomness Beacon".
 This module generates randomness that is distributed across the network while adhering to established cryptographic and security standards.
 The output from the randomness beacon is a random source for each block that is unpredictable and impartial.
+Any node or external client can validate the block random source and verify it was generated fairly, making the randomness beacon a Verifiable Random function (VRF).
 
-For over three years, the beacon has ensured protocol security by selecting which consensus node gets to propose the next block and assigning verification nodes to oversee block computations. For those interested in a more detailed exploration of the randomness beacon and its inner workings, you can read [the technical deep dive on the Flow forum](https://forum.flow.com/t/secure-random-number-generator-for-flow-s-smart-contracts/5110).
+Since Flow mainnet launch, the beacon has ensured protocol security by selecting which consensus node gets to propose the next block and assigning verification nodes to oversee block computations. For those interested in a more detailed exploration of the randomness beacon and its inner workings, you can read [the technical deep dive on the Flow forum](https://forum.flow.com/t/secure-random-number-generator-for-flow-s-smart-contracts/5110).
 
-### The History and Limitations of `unsafeRandom` (Now Deprecated)[​](#the-history-and-limitations-of-unsaferandom-now-deprecated "Direct link to the-history-and-limitations-of-unsaferandom-now-deprecated")
+The randomness beacon is also used to provide the Flow Virtual Machine (FVM) with random numbers allowing both Cadence and EVM to access fresh, secure and instant randomness at every block and transaction.
 
-Cadence has historically provided the `unsafeRandom` function to return a pseudo-random number. The stream of random numbers produced was potentially unsafe in the following two regards:
+## Revertible Randomness[​](#revertible-randomness "Direct link to Revertible Randomness")
 
-1. The sequence of random numbers is potentially predictable by transactions within the same block and by other smart contracts calling into your smart contract.
-2. A transaction calling into your smart contract can potentially bias the sequence of random numbers which your smart contract internally generates. Currently, the block hash seeds `unsafeRandom`. Consensus nodes can *easily* bias the block hash and **influence the seed for `unsafeRandom`**.
-
-warning
-
-⚠️ Note `unsafeRandom` is deprecated since the Cadence 1.0 release.
-
-## Guidelines for Safe Usage[​](#guidelines-for-safe-usage "Direct link to Guidelines for Safe Usage")
-
-For usage of randomness where result abortion is not an issue, it is recommended to use the Cadence built-in function `revertibleRandom.` `revertibleRandom` returns a pseudo-random number and is based on the Distributed Randomness Beacon.
+For usage of randomness where result abortion is not an issue, it is recommended to use the built-in function `revertibleRandom.` `revertibleRandom` returns a pseudo-random number and is backed by the Distributed Randomness Beacon.
+The function is available for both Cadence and EVM.
 
 `_10
 
@@ -94535,10 +94538,6 @@ _10
 
 _10
 
-// Run the snippet here: https://academy.ecdao.org/en/snippets/cadence-random
-
-_10
-
 access(all) fun main(): UInt64 {
 
 _10
@@ -94547,7 +94546,7 @@ _10
 
 _10
 
-let rand: UInt64 = revertibleRandom()
+let rand: UInt64 = revertibleRandom<UInt64>()
 
 _10
 
@@ -94559,10 +94558,9 @@ _10
 
 It is notable that the random number generation process is unpredictable (for miners unpredictable at block construction time and for cadence logic unpredictable at time of call), verifiable, uniform, as well as safe from bias by miners and previously-running Cadence code.
 
-Protocol improvements (documented in [FLIP 120](https://github.com/onflow/flips/blob/main/cadence/20230713-random-function.md))
-expose the randomness beacon to the FVM and Cadence where it can be used to draw safe randoms without latency.
+Check the [Cadence documentation](https://cadence-lang.org/docs/language/built-in-functions#revertiblerandom) for more details about the function usage.
 
-Although Cadence exposes safe randomness generated by the Flow protocol via `revertibleRandom`, there is an additional safety-relevant aspect that developers need to be mindful about.
+Although Cadence and EVM exposes safe randomness generated by the Flow protocol via `revertibleRandom`, there is an additional safety-relevant aspect that developers need to be mindful about.
 
 The `revertibleRandom` function can be used safely in some applications where the transaction results are *not* deliberately reverted after the random number is revealed (i.e. a trusted contract distributing random NFTs to registered users or onchain lucky draw).
 However, if applications require a non-trusted party (for instance app users) to submit a transaction calling a randomized (non-deterministic) contract, the developer must explicitly protect the stream of random numbers to not break the security guarantees:
@@ -94571,13 +94569,15 @@ warning
 
 🚨 A transaction can atomically revert all its action during its runtime and abort. Therefore, it is possible for a transaction calling into your smart contract to post-select favorable results and revert the transaction for unfavorable results.
 
+In other words, if you write a lottery function that immediately draws a random number that may or may not be a winner, a clever attacker can get infinite guesses for free. Use commit-reveal and sell them a ticket instead!
+
 In other words, transactions submitted by a non-trusted party are able to reject their results after the random is revealed.
 
 info
 
 **Post-selection** - the ability for transactions to reject results they don't like - is inherent to any smart contract platform that allows transactions to roll back atomically. See this very similar [Ethereum example](https://consensys.github.io/smart-contract-best-practices/development-recommendations/general/public-data/).
 
-The central aspect that a contract developer needs to think about is the following scenario:
+The risky scenario that a contract developer needs to think about is the following:
 
 * Imagine an adversarial user that is sending a transaction that calls your smart contract.
 * The transaction includes code that runs after your smart contract returns and inspects the outcome.
@@ -94585,42 +94585,40 @@ The central aspect that a contract developer needs to think about is the followi
 
 As an example, consider a simple coin toss randomized contract where users can bet any amount of tokens against a random binary output. If the coin toss contract outputs `1`, the user doubles their bet. If the coin toss contract outputs `0`, the user loses their bet in favor of the coin toss.
 
-Although the user (or the honest coin toss contract) cannot predict or bias the outcome, the user transaction can check the randomized result and cancel the transaction if they are losing their bet. This can be done by calling an exception causing the transaction to error. All temporary state changes are cancelled and the user can repeat the process till they double their bet.
+Although the user (or the honest coin toss contract) cannot predict or bias the outcome, the user transaction can check the randomized result and cancel the transaction if they are losing their bet. This can be done by calling an exception causing the transaction to error (division by zero for instance). All temporary state changes are cancelled and the user can repeat the process till they double their bet.
 
 ## Commit-Reveal Scheme[​](#commit-reveal-scheme "Direct link to Commit-Reveal Scheme")
 
-The recommended way to mitigate the problems above is via a commit-reveal scheme. The scheme involves two steps: commit and reveal. During the commit phase, the user transaction commits to accepting the future output of a smart contract where the last remaining input is an unknown random source. The smart contract stores this commitment on the blockchain. At the current level of optimization, the reveal phase can start as early as the next block, when the "future" beacon's source of randomness becomes available. The reveal phase can be executed at any block after that, now that the commitment to a past block is stored on-chain. With a second transaction, the smart contract can be executed to explicitly generate the random outputs.
+The recommended way to mitigate the problems above is via a commit-reveal scheme. The scheme involves two steps: commit and reveal. During the commit phase, the user transaction commits to accepting the future output of a smart contract where the last remaining input is an unknown random source. The user transaction does not know the random source at the time of committing. The smart contract stores this commitment on the blockchain. The reveal phase can start as early as the next block, when the committed beacon's source of randomness becomes available. The reveal phase can be executed at any block after that, now that the commitment to a past block is stored on-chain. With a second transaction, the smart contract can be executed to explicitly generate the random outputs.
 
-There are ideas how to further optimize the developer experience in the future. For example, a transaction could delegate part of its gas to an independent transaction it spawns. Conceptually, also this future solution would be a commit-and-reveal scheme, just immediately happening within the same block. Until we eventually get to this next level, developers may need to implement their own commit-reveal. In Cadence, it is clean and short.
+There are ideas how to further optimize the developer experience in the future. For example, a transaction could delegate part of its gas to an independent transaction it spawns. Conceptually, also this future solution would be a commit-and-reveal scheme, just immediately happening within the same block. Until we eventually get to this next level, developers can implement their own commit-reveal using the tools available to them on Cadence and EVM.
 
-### FLIP 123[​](#flip-123 "Direct link to FLIP 123")
-
-On Flow, we have absorbed all security complexity into the platform.
+### Commit-Reveal pattern on Flow[​](#commit-reveal-pattern-on-flow "Direct link to Commit-Reveal pattern on Flow")
 
 [FLIP 123: On-chain Random beacon history for commit-reveal schemes](https://github.com/onflow/flips/blob/main/protocol/20230728-commit-reveal.md#flip-123-on-chain-random-beacon-history-for-commit-reveal-schemes) was introduced to provide a safe pattern to use randomness in transactions so that it's not possible to revert unfavorable randomized transaction results.
-We recommend this approach as a best-practice example for implementing a commit-reveal scheme in Cadence. The `RandomBeaconHistory` contract provides a convenient archive, where for each past block height (starting Nov 2023) the respective "source of randomness" can be retrieved. The `RandomBeaconHistory` contract is automatically executed by the system at each block to store the next source of randomness value.
+We recommend this approach as a best-practice example for implementing a commit-reveal scheme in Cadence or EVM. The `RandomBeaconHistory` contract provides a convenient archive, where for each past block height (starting Nov 2023) the respective "source of randomness" can be retrieved. The `RandomBeaconHistory` contract is automatically executed by the system at each block to store the next source of randomness. The history table can be used to query the user's committed random source from the past.
 
 info
 
-While the commit-and-reveal scheme mitigates post-selection of results by adversarial clients, Flow's secure randomness additionally protects against any pre-selection vulnerabilities (like biasing attacks by byzantine miners).
+While the commit-and-reveal scheme mitigates post-selection of results by adversarial clients, secure randomness on Flow additionally protects against any pre-selection vulnerabilities (like biasing attacks by byzantine miners).
 
-A commit-reveal scheme can be implemented as follows. The coin toss example described earlier will be used for illustration:
+A commit-reveal scheme can be implemented as follows. To illustrate, we'll revisit the coin toss example discussed earlier:
 
-* When a user submits a bidding transaction, the bid amount is transferred to the coin toss contract, and the block height where the bid was made is stored. This is a commitment by the user to use the SoR at the current block. Note that the current block's `SoR_A` isn't known to the transaction execution environment, and therefore the transaction has no way to inspect the random outcome and predict the coin toss result. The current block's `SoR_A` is only available once added to the history core-contract, which only happens at the end of the block's execution. The user may also commit to using an SoR of some future block, which is equally unknown at the time the bid is made.
+* When a user submits a bidding transaction, the bid amount is transferred to the coin toss contract, and the block height where the bid was made is stored. This is a commitment by the user to use the Source of Randomness (`SoR`) at the current block. Note that the current block's `SoR` isn't known to the transaction execution environment, and therefore the transaction has no way to inspect the random outcome and predict the coin toss result. The current block's `SoR` is only available once added to the history core-contract, which only happens at the end of the block's execution. The user may also commit to using an SoR of some future block, which is equally unknown at the time the bid is made.
 * The coin toss contract may grant the user a limited window of time (i.e a block height range) to send a second transaction for resolving the results and claim any winnings. Failing to do so, the bid amount remains in the coin toss contract.
-* Within that reveal transaction, the user calls the coin toss contract, looks us up the block height at which the block was committed and checks that it has already passed. The contract queries that block's `SoR_A` from the core-contract `RandomBeaconHistory` via block height.
-* The coin toss contract uses a PRG seeded with the queried `SoR_A` and diversified using a specific information to the use-case (a user ID or resource ID for instance). Diversification does not add new entropy, but it avoids generating the same outcome for different use-cases. If a diversifier (or salt) isn't used, all users that committed a bid on the same block would either win or lose.
+* Within that reveal transaction, the user calls the coin toss contract, looks us up the block height at which the block was committed and checks that it has already passed. The contract queries that block's `SoR` from the core-contract `RandomBeaconHistory` via block height.
+* The coin toss contract uses a PRG seeded with the queried `SoR` and diversified using a specific information to the use-case (a user ID or resource ID for instance). Diversification does not add new entropy, but it avoids generating the same outcome for different use-cases. If a diversifier (or salt) isn't used, all users that committed a bid on the same block would either win or lose.
 * The PRG is used to generate the random result and resolve the bid. Note that the user can make the transaction abort after inspecting a losing result. However, the bid amount would be lost anyway when the allocated window expires.
 
-The following lines of code illustrate a random coin toss that cannot be gamed or biased. The reveal-and-commit scheme prevent clients from post-selecting favorable outcomes.
+The following lines of code illustrate a random coin toss that cannot be gamed or biased. The commit-reveal scheme prevent clients from post-selecting favorable outcomes.
 
 `_54
 
-// The code below is taken from the example CoinToss contract found in this project repo
+// The code below is taken from the example CoinToss contract found in the project repo
 
 _54
 
-// Source: https://github.com/onflow/random-coin-toss
+// https://github.com/onflow/random-coin-toss
 
 _54
 
@@ -94642,7 +94640,7 @@ _54
 
 _54
 
-access(all) fun commitCoinToss(bet: @FungibleToken.Vault): @Receipt {
+access(all) fun flipCoin(bet: @{FungibleToken.Vault}): @Receipt {
 
 _54
 
@@ -94676,7 +94674,7 @@ _54
 
 _54
 
-emit CoinTossBet(betAmount: receipt.betAmount, commitBlock: receipt.commitBlock, receiptID: receipt.uuid)
+emit CoinFlipped(betAmount: receipt.betAmount, commitBlock: receipt.commitBlock, receiptID: receipt.uuid)
 
 _54
 
@@ -94724,7 +94722,7 @@ _54
 
 _54
 
-access(all) fun revealCoinToss(receipt: @Receipt): @FungibleToken.Vault {
+access(all) fun revealCoin(receipt: @Receipt): @FungibleToken.Vault {
 
 _54
 
@@ -94778,7 +94776,7 @@ if coin == 1 {
 
 _54
 
-emit CoinTossReveal(betAmount: betAmount, winningAmount: 0.0, commitBlock: commitBlock, receiptID: receiptID)
+emit CoinRevealed(betAmount: betAmount, winningAmount: 0.0, commitBlock: commitBlock, receiptID: receiptID)
 
 _54
 
@@ -94798,7 +94796,7 @@ _54
 
 _54
 
-emit CoinTossReveal(betAmount: betAmount, winningAmount: reward.balance, commitBlock: commitBlock, receiptID: receiptID)
+emit CoinRevealed(betAmount: betAmount, winningAmount: reward.balance, commitBlock: commitBlock, receiptID: receiptID)
 
 _54
 
@@ -94810,44 +94808,41 @@ _54
 
 }`
 
-### Which random function should be used:[​](#which-random-function-should-be-used "Direct link to Which random function should be used:")
+## Revertible Random or Commit-Reveal?[​](#revertible-random-or-commit-reveal "Direct link to Revertible Random or Commit-Reveal?")
 
-While both are backed by Flow's Randomness Beacon it is important for developers to mindfully choose between `revertibleRandom` or
-seeding their own PRNG utilizing the `RandomBeaconHistory` smart contract:
+While both methods are backed by the Flow Randomness Beacon,
+it is important for developers to mindfully choose between `revertibleRandom` or seeding a PRNG using the `RandomBeaconHistory` smart contract:
 
-* With `revertibleRandom` a developer is calling the transaction environment,
-  which has the power to abort and revert if it doesn't like `revertibleRandom`'s outputs.
-  `revertibleRandom` is only suitable for smart contract functions that exclusively run within the trusted transactions.
-* In contrast, the `RandomBeaconHistory` contract is key for effectively implementing a commit-reveal scheme, where the transaction is non-trusted and may revert the random outputs.
+* With `revertibleRandom` a user has the power to abort and revert if it doesn't like `revertibleRandom`'s outputs.
+  `revertibleRandom` is only suitable for smart contract functions that exclusively run within trusted transactions emitted by trusted parties. You can think of a lottery contract picking a winning user, where the picking transaction is emitted by the lottery developer who is trusted to not add the abortion logic into the transaction. Users are able to check the transaction code after it is submitted and make sure the lottery developer acted fairly.
+* In contrast, the commit-reveal method using the `RandomBeaconHistory` is necessary in cases where the transaction is submitted by non-trusted users and may revert the random outputs.
+  You can think of a user minting a randomized NFT and is able to add a logic to their transaction to check the random traits and abandon the NFT if they are not happy with the result.
+  Another user playing a betting game, adds a logic to check the bet result and abort whenever they lose the bet.
+  General users are not guaranteed to act honestly when they submit transactions to play. Commit-reveal patterns are the way to limit their actions.
   During the commit phase, the user commits to proceed with a future source of randomness,
   which is only revealed after the commit transaction concluded.
-  For each block, the `RandomBeaconHistory` automatically stores the generated source of randomness.
-  At the time of revealing the source, the committed source becomes a past-block source that can be queried through the history contract.
 
 Adding a safe pattern to reveal randomness without the possibility of conditional transaction reversion unlocks applications relying on randomness. By providing examples of commit-reveal implementations we hope to foster a more secure ecosystem of decentralized applications and encourage developers to build with best practices.
 
-In simpler terms, the native secure randomness provided by the protocol can now be safely utilized within Cadence smart contracts
-and is available to all developers on Flow and the FVM.
-
 ## An Invitation to Build[​](#an-invitation-to-build "Direct link to An Invitation to Build")
 
-Flow's onchain randomness opens new doors for innovation in web3, offering developers the tools to create fair and transparent decentralized applications. With this feature, new possibilities emerge—from enhancing gameplay in decentralized gaming to ensuring the integrity of smart contract-driven lotteries or introducing novel mechanisms in DeFi.
+Flow onchain randomness opens new doors for innovation, offering developers the tools to create fair and transparent decentralized applications. With this feature, new possibilities emerge—from enhancing gameplay in decentralized gaming to ensuring the integrity of smart contract-driven lotteries or introducing novel mechanisms in DeFi.
 
-This is an invitation for builders and creators: leverage Flow's onchain randomness to distinguish your projects and push the boundaries of what's possible. Your imagination and code have the potential to forge new paths in the web3 landscape. So go ahead and build; the community awaits the next big thing that springs from true randomness.
+This is an invitation for builders and creators: leverage onchain randomness on Flow to distinguish your projects and push the boundaries of what's possible. Your imagination and code have the potential to forge new paths in the web3 landscape. So go ahead and build; the community awaits the next big thing that springs from true randomness.
 
 ## Learn More[​](#learn-more "Direct link to Learn More")
 
-If you'd like to dive deeper into Flow's onchain randomness, here's a list of resources:
+If you'd like to dive deeper into onchain randomness on Flow, here's a list of resources:
 
-* To learn more about how randomness works under the hood, see [the forum post](https://forum.flow.com/t/secure-random-number-generator-for-flow-s-smart-contracts/5110).
-* These documents provide a more in-depth technical understanding of the updates and enhancements to the Flow blockchain.
-  + **[FLIP 120: Update unsafeRandom function](https://github.com/onflow/flips/blob/main/cadence/20230713-random-function.md#flip-120-update-unsaferandom-function)**
-  + **[FLIP 123: On-chain Random beacon history for commit-reveal schemes](https://github.com/onflow/flips/blob/main/protocol/20230728-commit-reveal.md#flip-123-on-chain-random-beacon-history-for-commit-reveal-schemes)**
-* To see working Cadence code, explore the [coin toss example on GitHub](https://github.com/onflow/random-coin-toss).
+* To learn more about how the randomness beacon works under the hood, see [the forum post](https://forum.flow.com/t/secure-random-number-generator-for-flow-s-smart-contracts/5110).
+* These FLIPs provide a more in-depth technical understanding of recent updates related to randomness:
+  + **[FLIP 120: Update unsafeRandom function:](https://github.com/onflow/flips/blob/main/cadence/20230713-random-function.md#flip-120-update-unsaferandom-function)** describes how the beacon provides randoms to `revertibleRandomness`.
+  + **[FLIP 123: On-chain Random beacon history for commit-reveal schemes:](https://github.com/onflow/flips/blob/main/protocol/20230728-commit-reveal.md#flip-123-on-chain-random-beacon-history-for-commit-reveal-schemes)** describes the commit-reveal design and why it is secure.
+* To see working Cadence and EVM code, explore the [coin toss example on GitHub](https://github.com/onflow/random-coin-toss).
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/randomness.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 30, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -94862,12 +94857,11 @@ Scaling Transactions from a Single Account](/build/advanced-concepts/scaling)
 Copy as Markdown
 
 * [Use Cases of Onchain Randomness](#use-cases-of-onchain-randomness)
-* [History of the Distributed Randomness Beacon](#history-of-the-distributed-randomness-beacon)
-  + [The History and Limitations of `unsafeRandom` (Now Deprecated)](#the-history-and-limitations-of-unsaferandom-now-deprecated)
-* [Guidelines for Safe Usage](#guidelines-for-safe-usage)
+* [Flow Distributed Randomness Beacon](#flow-distributed-randomness-beacon)
+* [Revertible Randomness](#revertible-randomness)
 * [Commit-Reveal Scheme](#commit-reveal-scheme)
-  + [FLIP 123](#flip-123)
-  + [Which random function should be used:](#which-random-function-should-be-used)
+  + [Commit-Reveal pattern on Flow](#commit-reveal-pattern-on-flow)
+* [Revertible Random or Commit-Reveal?](#revertible-random-or-commit-reveal)
 * [An Invitation to Build](#an-invitation-to-build)
 * [Learn More](#learn-more)
 
@@ -95105,7 +95099,7 @@ By using this approach to add the Flow network to Metamask, you can avoid manual
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/integrating-metamask.mdx)
 
-Last updated on **Apr 25, 2025** by **Ali Serag**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -95259,7 +95253,7 @@ To optimize your NFT collections for this catalog, you'll need to:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/09-nft-metadata.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -95582,7 +95576,7 @@ Delegators to the old node will have their tokens unstaked automatically. They w
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-migration.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -95778,7 +95772,7 @@ contract that conforms to the standard.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/overview.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -97212,7 +97206,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/utils/signature-verify.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -97224,7 +97218,7 @@ Snapshot Save](/tools/flow-cli/utils/snapshot-save)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Example Usage](#example-usage)
 * [Arguments](#arguments)
@@ -97426,7 +97420,7 @@ To learn more about next steps following the initial setup, check out the follow
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/super-commands.md)
 
-Last updated on **Apr 25, 2025** by **Ali Serag**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -97668,7 +97662,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/utils/signature-generate.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -98018,7 +98012,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/account-staking-info.md)
 
-Last updated on **Apr 25, 2025** by **Ali Serag**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -98167,7 +98161,7 @@ Learn about Flow's governance model and how it's empowering our community of use
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/index.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -98405,7 +98399,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/keys/generate-keys.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -98966,7 +98960,7 @@ As blockchain technology continues to evolve, adopting these best practices is c
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/native-vrf/deploy-solidity-contract.md)
 
-Last updated on **Apr 25, 2025** by **Ali Serag**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -99425,7 +99419,7 @@ _16
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/wallet-connect.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -99584,7 +99578,7 @@ To begin using Alchemy, developers can [sign up for an account](https://www.alch
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/data-indexers.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -101110,7 +101104,7 @@ For a complete reference implementation, check out the [FCL + RainbowKit + wagmi
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/add-to-wagmi.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -101941,7 +101935,7 @@ failure in event subscription at height ${INIT-CADENCE-HEIGHT}, with: recoverabl
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/evm-gateway/evm-gateway-setup.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -102386,7 +102380,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/create-accounts.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -102728,7 +102722,7 @@ Proceed to the next tutorial to learn how to create your own contracts and deplo
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/contract-interaction.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -102901,7 +102895,7 @@ You've got an app and are meeting the needs of regular customers. Core features 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/growth/index.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 ###### Rate this page
 
@@ -103081,7 +103075,7 @@ Flow [account address](/build/basics/accounts) (prefixed with `0x` or not).
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/account-fund.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -103327,7 +103321,7 @@ Please see a list [here](https://github.com/onflow/flow/blob/master/nodeoperator
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-port/index.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -103549,7 +103543,7 @@ Specify the filename where you want the result to be saved
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/keys/derive-keys.md)
 
-Last updated on **Apr 25, 2025** by **Ali Serag**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -103842,7 +103836,7 @@ This error is OK. Your fellow node operators have not turned on/joined the netwo
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/spork.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -104299,7 +104293,7 @@ Protobuf: <https://github.com/onflow/flow/blob/master/protobuf/flow/executiondat
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/access-nodes/access-node-configuration-options.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -104676,7 +104670,7 @@ _11
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/deployment/project-contracts.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -105494,7 +105488,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/deployment/deploy-project-contracts.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -105734,7 +105728,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/utils/tools.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -105746,7 +105740,7 @@ Dependency Manager](/tools/flow-cli/dependency-manager)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Flow Development Wallet](#flow-development-wallet)
 * [Flags](#flags)
@@ -105915,7 +105909,7 @@ Flow provides an implementation of the Flow interaction template service as an o
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/flix.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -106628,7 +106622,7 @@ Ready to unlock the full potential of Flow EVM? Start with our [Batched Transact
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/quickstart.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -107295,7 +107289,7 @@ Additionally, consider exploring these resources:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-dev-wallet/index.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -107470,7 +107464,7 @@ The Cadence Linter is also available in the [Cadence VSCode extension](/tools/vs
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/lint.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -107860,7 +107854,7 @@ Stay ahead of upcoming hackathons and exclusive announcements. [Join Flow World 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/hackathons.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -108027,7 +108021,7 @@ For real-time numbers, please refer to the [block explorer](https://www.flowscan
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-economics.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -108157,7 +108151,7 @@ have a look at [the README of the repository](https://github.com/onflow/flow-emu
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/emulator/index.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -108514,7 +108508,7 @@ Follow the steps below to change the greeting and retrieve the new greeting.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/remix.md)
 
-Last updated on **Apr 25, 2025** by **Ali Serag**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -109041,7 +109035,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/send-signed-transactions.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -113217,7 +113211,7 @@ Learn more about it in the [Hybrid Custody documentation](/build/guides/account-
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking/index.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -115987,7 +115981,7 @@ The transfer transaction also has a [generic version](https://github.com/onflow/
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/fungible-token.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -116336,7 +116330,7 @@ Coming soon:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/overview.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -118371,7 +118365,7 @@ This level of protection against MEV is not an afterthought—it has been a fund
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/mev-resistance.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -118896,7 +118890,7 @@ Web3 version of Twitter](https://dev.to/muttoni/lets-build-a-twitter-clone-on-we
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/more-guides.mdx)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -120763,7 +120757,7 @@ using Cadence.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/interacting-with-coa.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -121158,7 +121152,7 @@ After unblocking the node, connections and traffic coming from the node should r
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/byzantine-node-attack-response.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -121465,7 +121459,7 @@ but are nevertheless important to developers on Flow:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/index.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -121837,7 +121831,7 @@ Overflow is a Go-based DSL for testing and running interactive stories](https://
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/index.mdx)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -121998,7 +121992,7 @@ These improvements are especially notable on mobile, where users are typically m
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/account-abstraction.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -123816,7 +123810,7 @@ Test it by updating the greeting, signing a transaction in your Metamask then wa
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/wagmi.md)
 
-Last updated on **Apr 25, 2025** by **Ali Serag**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -123980,7 +123974,7 @@ The process by which the Core Team chooses the updates for each new Protocol Ver
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/governance.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -125264,7 +125258,7 @@ Each client tool is designed with specific use cases and developer needs in mind
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/index.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -128809,7 +128803,7 @@ but this would require small changes to these transactions to use the new storag
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/15-staking-guide.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -132429,7 +132423,7 @@ In this tutorial, we've accomplished all of our learning objectives:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/flow-cli.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -132595,7 +132589,7 @@ After completing these tutorials, you'll be equipped to leverage AI tools effect
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/index.md)
 
-Last updated on **Apr 28, 2025** by **Brian Doyle**
+Last updated on **Apr 28, 2025** by **Tang Bo Hao**
 
 [Previous
 
@@ -132748,7 +132742,7 @@ through a peer-to-peer transaction mechanism.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/cross-chain-swaps.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -135809,7 +135803,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flix.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -135989,7 +135983,7 @@ Explore Flow's unique capabilities through fun benchmark applications that showc
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/index.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Next
 
@@ -138901,7 +138895,7 @@ For the current state of Flow EVM across various task paths, see the following r
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/vm-bridge.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -141200,7 +141194,7 @@ Congrats, you did it! You're now ready to launch the next fun NFT project on Flo
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/nft.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -141679,7 +141673,7 @@ Here is a comparison of the different node roles,
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-roles.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -141691,7 +141685,7 @@ Node Setup](/networks/node-ops/node-operation/node-setup)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Collection](#collection)
 * [Consensus](#consensus)
@@ -141899,7 +141893,7 @@ To set up a new staked node after it has been authorized by the Flow governance 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/index.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -142225,7 +142219,7 @@ After selecting the contracts, press `enter` to confirm. The selected contracts 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/dependency-manager.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -146392,7 +146386,7 @@ For integration with AI tools like Cursor or ChatGPT, use the appropriate URL as
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/flow-data-sources.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -146593,7 +146587,7 @@ Upon restart, the chunk data pack directory will be automatically recreated.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/reclaim-disk.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -147460,7 +147454,7 @@ Find a list of all SDKs [here](/tools/clients)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/transactions.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -147641,7 +147635,7 @@ at the end of the unstaking period.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/04-stake-slashing.md)
 
-Last updated on **Apr 25, 2025** by **Ali Serag**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 

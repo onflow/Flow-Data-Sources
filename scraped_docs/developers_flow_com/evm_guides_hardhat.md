@@ -765,7 +765,7 @@ npx hardhat verify --network testnet DEPLOYED_CONTRACT_ADDRESS "Constructor argu
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/hardhat.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -777,7 +777,7 @@ Remix](/evm/guides/remix)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Prerequisites](#prerequisites)
   + [Node](#node)

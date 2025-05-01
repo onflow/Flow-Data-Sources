@@ -333,7 +333,7 @@ See the following video for demonstration of how to update your code to wait for
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/transactions.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 

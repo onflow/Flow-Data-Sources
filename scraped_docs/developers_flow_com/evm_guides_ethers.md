@@ -205,7 +205,7 @@ _10
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/ethers.md)
 
-Last updated on **Apr 25, 2025** by **Ali Serag**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 

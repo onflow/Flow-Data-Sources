@@ -72,7 +72,7 @@ To get started with creating your first Flow project and to learn more about how
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/index.md)
 
-Last updated on **Apr 18, 2025** by **Brian Doyle**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -83,6 +83,8 @@ Install Instructions](/tools/flow-cli/install)
 ###### Rate this page
 
 😞😐😊
+
+Copy as Markdown
 
 * [Installation](#installation)
 * [Create Your First Project](#create-your-first-project)
