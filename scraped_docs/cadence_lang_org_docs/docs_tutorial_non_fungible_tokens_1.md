@@ -73,7 +73,7 @@ Instead of being represented in a central ledger, like in most smart contract la
 
 It allows NFTs to benefit from the resource ownership rules that are enforced by the [type system](/docs/language/values-and-types) - resources can only have a single owner, they cannot be duplicated, and they cannot be lost due to accidental or malicious programming errors. These protections ensure that owners know that their NFT is safe and can represent an asset that has real value, and helps prevent developers from breaking this trust with easy-to-make programming mistakes.
 
-When users on Flow want to transact with each other, they can do so peer-to-peer, without having to interact with a central NFT contract, by calling resource-defined methods in both users' accounts.
+When users on Flow want to **transact** with each other, they can do so **peer-to-peer**, without having to interact with a central NFT contract, by calling resource-defined methods in both users' accounts.
 
 NFTs in a real-world context make it possible to trade assets and prove who the owner of an asset is. On Flow, NFTs are interoperable - so the NFTs in an account can be used in different smart contracts and app contexts.
 
@@ -123,7 +123,9 @@ _10
 
 An NFT is also usually expected to include some metadata like a name, description, traits, or a picture. Historically, most of this metadata has been stored off-chain, and the on-chain token only contains a URL or something similar that points to the off-chain metadata.
 
-In Flow, this is possible, but you can and normally should store all the metadata associated with a token directly on-chain. Unlike many other blockchain networks, **you do not need to consider string storage or manipulation as particularly expensive.**
+This practice was necessary due to the original costs of doing anything onchain, but it created a fiction where the actual content of an NFT can vanish (and sadly sometimes have vanished) at any time.
+
+In Flow, storing this data offchain is possible, but you can and normally should store all the metadata associated with a token directly on-chain. Unlike many other blockchain networks, **you do not need to consider string storage or manipulation as particularly expensive.**
 
 tip
 
@@ -227,7 +229,7 @@ _10
 
 Remember, when you work with a [resource](/docs/language/resources), you must use the [move operator](/docs/language/operators#move-operator--) (`<-`) to **move** it from one location to another.
 
-## Adding an NFT Your Account[​](#adding-an-nft-your-account "Direct link to Adding an NFT Your Account")
+## Adding an NFT to Your Account[​](#adding-an-nft-to-your-account "Direct link to Adding an NFT to Your Account")
 
 You've gone through the trouble of creating this NFT contract - you deserve the first NFT!
 
@@ -567,7 +569,7 @@ transaction {
 
 _15
 
-prepare(acct: auth(
+prepare(account: auth(
 
 _15
 
@@ -591,7 +593,7 @@ _15
 
 _15
 
-if acct.storage.borrow<&BasicNFT.NFT>(from: /storage/BasicNFTPath) != nil {
+if account.storage.borrow<&BasicNFT.NFT>(from: /storage/BasicNFTPath) != nil {
 
 _15
 
@@ -673,7 +675,7 @@ You'll see the NFT number `2` returned in the log.
 
 ## Performing a Basic Transfer[​](#performing-a-basic-transfer "Direct link to Performing a Basic Transfer")
 
-Users, independently or with the help of other developers, have the inherent ability to delete or transfer any resources in their accounts, including those created by your contracts.
+Users, independently or with the help of other developers, have the **inherent ability to delete or transfer any resources in their accounts**, including those created by your contracts.
 
 Action
 
@@ -793,13 +795,121 @@ Action
 
 Run `GetNFTNumber` to check account `0x08`.
 
-**You'll get an error here.** The reason is that you haven't created or published a capability on account `0x08`. You can do this as a part of your transaction, but remember that it isn't required. Another dev, or sophisticated user, could do the transfer **without** publishing a capability.
+**You'll get an error here.** The reason is that you haven't created or published the capability on account `0x08` to access and return the id number of the NFT owned by that account. You can do this as a part of your transaction, but remember that it isn't required. Another dev, or sophisticated user, could do the transfer **without** publishing a capability.
 
 Action
 
 On your own, refactor your transaction to publish a capability in the new owner's account.
 
 You're also not making sure that the recipient doesn't already have an NFT in the storage location, so go ahead and add that check as well.
+
+You should end up with something similar to:
+
+`_29
+
+import BasicNFT from 0x06
+
+_29
+
+_29
+
+transaction {
+
+_29
+
+prepare(
+
+_29
+
+signer1: auth(LoadValue) &Account,
+
+_29
+
+signer2: auth(
+
+_29
+
+SaveValue,
+
+_29
+
+IssueStorageCapabilityController,
+
+_29
+
+PublishCapability) &Account
+
+_29
+
+) {
+
+_29
+
+let nft <- signer1.storage.load<@BasicNFT.NFT>(from: /storage/BasicNFTPath)
+
+_29
+
+?? panic("Could not load NFT from the first signer's storage")
+
+_29
+
+_29
+
+if signer2.storage.check<&BasicNFT.NFT>(from: /storage/BasicNFTPath) {
+
+_29
+
+panic("The recipient already has an NFT")
+
+_29
+
+}
+
+_29
+
+_29
+
+signer2.storage.save(<-nft, to: /storage/BasicNFTPath)
+
+_29
+
+_29
+
+let capability = signer2
+
+_29
+
+.capabilities
+
+_29
+
+.storage
+
+_29
+
+.issue<&BasicNFT.NFT>(/storage/BasicNFTPath)
+
+_29
+
+_29
+
+signer2
+
+_29
+
+.capabilities
+
+_29
+
+.publish(capability, at: /public/BasicNFTPath)
+
+_29
+
+}
+
+_29
+
+}`
 
 ### Capabilities Referencing Moved Objects[​](#capabilities-referencing-moved-objects "Direct link to Capabilities Referencing Moved Objects")
 
@@ -829,6 +939,16 @@ Now that you have completed the tutorial, you should be able to:
 
 In the next tutorial, you'll learn how to make more complete NFTs that allow each user to possess many NFTs from your collection.
 
+## Reference Solution[​](#reference-solution "Direct link to Reference Solution")
+
+warning
+
+You are **not** saving time by skipping the the reference implementation. You'll learn much faster by doing the tutorials as presented!
+
+Reference solutions are functional, but may not be optimal.
+
+[Reference Solution](https://play.flow.com/4a74242f-bf77-4efd-9742-31a2b7580b8e)
+
 ---
 
 **Tags:**
@@ -856,7 +976,7 @@ Intermediate NFTs](/docs/tutorial/non-fungible-tokens-2)
 * [The Simplest Possible NFT](#the-simplest-possible-nft)
   + [Adding Basic Metadata](#adding-basic-metadata)
   + [Creating the NFT](#creating-the-nft)
-* [Adding an NFT Your Account](#adding-an-nft-your-account)
+* [Adding an NFT to Your Account](#adding-an-nft-to-your-account)
   + [NFT Capability](#nft-capability)
   + [Deploy and Test](#deploy-and-test)
 * [Get the Number of an NFT Owned by a User](#get-the-number-of-an-nft-owned-by-a-user)
@@ -864,6 +984,7 @@ Intermediate NFTs](/docs/tutorial/non-fungible-tokens-2)
 * [Performing a Basic Transfer](#performing-a-basic-transfer)
   + [Capabilities Referencing Moved Objects](#capabilities-referencing-moved-objects)
 * [Reviewing Basic NFTs](#reviewing-basic-nfts)
+* [Reference Solution](#reference-solution)
 
 Got suggestions for this site?
 

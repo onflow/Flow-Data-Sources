@@ -387,6 +387,16 @@ Now that you have completed the tutorial, you can:
 * Write simple transactions in Cadence.
 * Describe the role of signers in a Cadence transaction.
 
+## Reference Solution[​](#reference-solution "Direct link to Reference Solution")
+
+warning
+
+You are **not** saving time by skipping the the reference implementation. You'll learn much faster by doing the tutorials as presented!
+
+Reference solutions are functional, but may not be optimal.
+
+[Reference Solution](https://play.flow.com/edba10ad-1232-4720-bc1b-cd34cb12b6dc)
+
 **Tags:**
 
 * [reference](/docs/tags/reference)
@@ -418,6 +428,7 @@ Resources and the Move (<-) Operator](/docs/tutorial/resources)
 * [Transactions](#transactions)
   + [Transaction Process](#transaction-process)
 * [Conclusion](#conclusion)
+* [Reference Solution](#reference-solution)
 
 Got suggestions for this site?
 

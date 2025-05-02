@@ -213,7 +213,7 @@ Jan 31, 2025
 ·
 1 comments
 ·
-1 reply
+2 replies
 
 [Return to top](#top)
 
@@ -245,7 +245,7 @@ Was this translation helpful?
 
 All reactions
 
-## Replies: 1 comment · 1 reply
+## Replies: 1 comment · 2 replies
 
 * [Oldest](/orgs/onflow/discussions/1545?sort=old)
 * [Newest](/orgs/onflow/discussions/1545?sort=new)
@@ -279,7 +279,7 @@ Was this translation helpful?
 
 All reactions
 
-1 reply
+2 replies
 
 [![@Aliserag](https://avatars.githubusercontent.com/u/11467748?s=60&v=4)](/Aliserag)
 
@@ -308,6 +308,33 @@ Was this translation helpful?
 
 All reactions
 
+[![@madeinutica](https://avatars.githubusercontent.com/u/202726358?s=60&v=4)](/madeinutica)
+
+Comment options
+
+
+
+
+# {{title}}
+
+Something went wrong.
+
+Quote reply
+
+#### [madeinutica](/madeinutica) [May 1, 2025](#discussioncomment-13003051)
+
+-
+
+|  |
+| --- |
+| I am very interested, could you please let me know more? |
+
+Beta
+Was this translation helpful?
+[Give feedback.](#)
+
+All reactions
+
 [Sign up for free](/join?source=comment-repo)
 **to join this conversation on GitHub**.
 Already have an account?
@@ -323,9 +350,9 @@ Labels
 
 None yet
 
-2 participants
+3 participants
 
-[![@Aliserag](https://avatars.githubusercontent.com/u/11467748?s=48&v=4)](/Aliserag) [![@hahu07](https://avatars.githubusercontent.com/u/106557879?s=48&v=4)](/hahu07)
+[![@Aliserag](https://avatars.githubusercontent.com/u/11467748?s=48&v=4)](/Aliserag) [![@hahu07](https://avatars.githubusercontent.com/u/106557879?s=48&v=4)](/hahu07) [![@madeinutica](https://avatars.githubusercontent.com/u/202726358?s=48&v=4)](/madeinutica)
 
 Heading
 

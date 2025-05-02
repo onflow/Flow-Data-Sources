@@ -1017,7 +1017,7 @@ _33
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/supported-topics/events_topic.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -5406,7 +5406,7 @@ It provides an introduction to integrating these standards into your NFT contrac
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/metadata-views.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -5617,7 +5617,7 @@ _10
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/unsubscribe-message.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -7509,7 +7509,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/get-flow-data/get-collections.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -8544,7 +8544,7 @@ _36
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/supported-topics/transaction_statuses_topic.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -8556,7 +8556,7 @@ Send and get transaction statuses](/networks/access-onchain-data/websockets-stre
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Example Request](#example-request)
   + [Request Arguments](#request-arguments)
@@ -8665,7 +8665,7 @@ Research shows that warm introductions can increase your chances of securing fun
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/vcs-and-funds.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -11253,7 +11253,7 @@ It is possible to query the information about a node that an address runs though
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/12-faq.md)
 
-Last updated on **Apr 25, 2025** by **Ali Serag**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -12261,7 +12261,7 @@ Find a list of all SDKs [here](/tools/clients)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/collections.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -16468,7 +16468,7 @@ To get started building on Flow, please see the [Flow App Quickstart](/build/get
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/flow-token.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -16967,7 +16967,7 @@ Additionally, you can specify a custom `subscription_id` in the subscribe reques
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/index.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -17807,7 +17807,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/get-flow-data/get-events.md)
 
-Last updated on **Apr 25, 2025** by **Ali Serag**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -18699,7 +18699,7 @@ You can review [all available core contracts](/build/core-contracts) deployed to
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-networks/accessing-mainnet.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -18711,7 +18711,7 @@ Testnet](/networks/flow-networks/accessing-testnet)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Accessing Flow Mainnet](#accessing-flow-mainnet)
 * [Account Creation](#account-creation)
@@ -19710,7 +19710,7 @@ React hooks to interact with Flow blockchain, making development easy and intuit
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/projects.mdx)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -21813,7 +21813,7 @@ _42
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/08-staking-rewards.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -23229,7 +23229,7 @@ Additional Details:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/fees.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -25421,7 +25421,7 @@ For more information and a deeper dive into the `EVMAddress`, `Result`, and `Sta
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/direct-calls.md)
 
-Last updated on **Apr 25, 2025** by **Ali Serag**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -26062,7 +26062,7 @@ implentation](https://github.com/onflow/random-coin-toss) using the VRF.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/vrf.md)
 
-Last updated on **Apr 25, 2025** by **Ali Serag**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -31123,7 +31123,7 @@ Go to [Block explorers](/ecosystem/block-explorers)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/block-explorers.mdx)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -40775,7 +40775,7 @@ _10
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flow.json/configuration.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -41127,7 +41127,7 @@ should use `Burner.burn()` when destroying a resource instead of `destroy`.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/14-burner.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -44235,7 +44235,7 @@ The balloon inflation game stands as a testament to the seamless integration of 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/walletless-pwa.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -44247,7 +44247,7 @@ IOS Development](/build/guides/mobile/ios-quickstart)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Understanding Progressive Web Apps (PWAs)](#understanding-progressive-web-apps-pwas)
 * [****Exploring Walletless Onboarding****](#exploring-walletless-onboarding)
@@ -44720,7 +44720,7 @@ Mainnet/Testnet Source: [`EVM.cdc`](https://github.com/onflow/flow-go/blob/maste
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/13-evm.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -45693,7 +45693,7 @@ Stay tuned—more tutorials and advanced guides are on the way!
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/index.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -53200,7 +53200,7 @@ Authentication](/tools/clients/fcl-js/authentication)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Overview](#overview)
 * [Getting Started](#getting-started)
@@ -53342,7 +53342,7 @@ Flow EVM has the following public RPC nodes available:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/networks.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -66839,7 +66839,7 @@ access(all) event NewDelegatorStakingMinimum(newMinimum: UFix64)`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/06-staking-contract-reference.md)
 
-Last updated on **Apr 25, 2025** by **Ali Serag**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -70327,7 +70327,7 @@ FCL is built **on top of the Flow SDK**, making it easier to handle authenticati
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/index.md)
 
-Last updated on **Apr 21, 2025** by **Brian Doyle**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -70339,7 +70339,7 @@ FCL Reference](/tools/clients/fcl-js/api)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [🌟 What is FCL?](#-what-is-fcl)
   + [🔑 Key Features:](#-key-features)
@@ -74571,7 +74571,7 @@ If there are no active subscriptions, `subscriptions` array will be empty.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/list-subscriptions-message.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -74583,7 +74583,7 @@ Connecting to WebSockets via Postman UI](/networks/access-onchain-data/websocket
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Example of request](#example-of-request)
 * [Example of response](#example-of-response)
@@ -76824,7 +76824,9 @@ Move established EVM tokens to Cadence for more powerful contracts, or move Cade
 
 ### Tools
 
-[### Cadence Block Explorer
+[### Dependency Manager
+
+Effortlessly import Flow Cadence contracts into your projects, including core contracts, ecosystem contracts, and your own published contracts.](tools/flow-cli/dependency-manager)[### Cadence Block Explorer
 
 Search for users, transactions, and contracts on the Flow Cadence blockchain.](https://www.flowscan.io/)[### EVM Block Explorer
 
@@ -85044,7 +85046,7 @@ Now that you have completed the tutorial, you should be able to:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/introduction.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -85056,7 +85058,7 @@ Update Existing wagmi App](/tutorials/cross-vm-apps/add-to-wagmi)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Objectives](#objectives)
 * [Prerequisites](#prerequisites)
@@ -85440,7 +85442,7 @@ You can review [all available core contracts](/build/core-contracts) deployed to
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-networks/accessing-testnet.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -96072,7 +96074,7 @@ If you don't provide `subscription_id`, the server will generate one and include
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/subscribe-message.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -96931,7 +96933,7 @@ about the events that can be emitted by these contracts and scripts you can use 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/09-qc-dkg.md)
 
-Last updated on **Apr 25, 2025** by **Ali Serag**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -104455,7 +104457,7 @@ The basic staking guide is detailed [here](/networks/staking/staking-guide)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/13-staking-options.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -107703,7 +107705,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/get-flow-data/get-status.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -108703,7 +108705,7 @@ files by using `-f` flag multiple times.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flow.json/manage-configuration.md)
 
-Last updated on **Apr 25, 2025** by **Ali Serag**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -112499,7 +112501,7 @@ _11
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/supported-topics/block_headers_topic.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -116076,7 +116078,7 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
-# Source: https://developers.flow.com/
+# Source: https://developers.flow.com
 
 Flow Developer Portal | Flow Developer Portal
 
@@ -121679,7 +121681,7 @@ access(all) event MachineAccountCreated(nodeID: String, role: UInt8, address: Ad
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/11-staking-collection.md)
 
-Last updated on **Apr 25, 2025** by **Ali Serag**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -122290,7 +122292,7 @@ _10
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/supported-topics/block_digests_topic.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -122302,7 +122304,7 @@ Block headers](/networks/access-onchain-data/websockets-stream-api/supported-top
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Example Request](#example-request)
   + [Request Arguments](#request-arguments)
@@ -124698,7 +124700,7 @@ _20
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/supported-topics/account_statuses_topic.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -125029,7 +125031,7 @@ _20
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/supported-topics/send_and_get_transaction_statuses_topic.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -128419,7 +128421,7 @@ _24
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/events.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -129586,439 +129588,443 @@ npm install @rainbow-me/rainbowkit wagmi viem@2.x @tanstack/react-query`
 
 Add a file called `providers` inside the `app` folder. In it, add your config and providers for [wagmi](https://wagmi.sh/) and [rainbowkit](https://www.rainbowkit.com/). You'll need to [add the Flow Wallet](/evm/guides/rainbowkit) as a custom wallet. It's not included by default because it has special features that aren't compatible with other blockchains.
 
-`_113
+`_114
 
 'use client';
 
-_113
+_114
 
-_113
+_114
 
 import { connectorsForWallets } from '@rainbow-me/rainbowkit';
 
-_113
+_114
 
 import { Wallet, getWalletConnectConnector } from '@rainbow-me/rainbowkit';
 
-_113
+_114
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-_113
+_114
 
 import { createConfig, WagmiProvider } from 'wagmi';
 
-_113
+_114
 
 import { RainbowKitProvider } from '@rainbow-me/rainbowkit';
 
-_113
+_114
 
 import { flowTestnet } from 'viem/chains';
 
-_113
+_114
 
 import { http } from 'wagmi';
 
-_113
+_114
 
-_113
+_114
 
 const projectId = '51407fcf066d74968d9a1a4c6da0d994'; // Replace with your actual project ID
 
-_113
+_114
 
-_113
+_114
 
 export interface MyWalletOptions {
 
-_113
+_114
 
 projectId: string;
 
-_113
+_114
 
 }
 
-_113
+_114
 
-_113
+_114
 
 const flowWallet = ({ projectId }: MyWalletOptions): Wallet => ({
 
-_113
+_114
 
 id: 'flow-wallet',
 
-_113
+_114
 
 name: 'Flow Wallet',
 
-_113
+_114
+
+rdns: 'com.flowfoundation.wallet',
+
+_114
 
 iconUrl: 'https://lilico.app/logo_mobile.png',
 
-_113
+_114
 
 iconBackground: '#41CC5D',
 
-_113
+_114
 
 downloadUrls: {
 
-_113
+_114
 
 android:
 
-_113
+_114
 
 'https://play.google.com/store/apps/details?id=com.flowfoundation.wallet',
 
-_113
+_114
 
 ios: 'https://apps.apple.com/ca/app/flow-wallet-nfts-and-crypto/id6478996750',
 
-_113
+_114
 
 chrome:
 
-_113
+_114
 
 'https://chromewebstore.google.com/detail/flow-wallet/hpclkefagolihohboafpheddmmgdffjm',
 
-_113
+_114
 
 qrCode: 'https://link.lilico.app',
 
-_113
+_114
 
 },
 
-_113
+_114
 
 mobile: {
 
-_113
+_114
 
 getUri: (uri: string) => `https://fcw-link.lilico.app/wc?uri=${encodeURIComponent(uri)}`,
 
-_113
+_114
 
 },
 
-_113
+_114
 
 qrCode: {
 
-_113
+_114
 
 getUri: (uri: string) => uri,
 
-_113
+_114
 
 instructions: {
 
-_113
+_114
 
 learnMoreUrl: 'https://wallet.flow.com',
 
-_113
+_114
 
 steps: [
 
-_113
+_114
 
 {
 
-_113
+_114
 
 description:
 
-_113
+_114
 
 'We recommend putting Flow Wallet on your home screen for faster access to your wallet.',
 
-_113
+_114
 
 step: 'install',
 
-_113
+_114
 
 title: 'Open the Flow Wallet app',
 
-_113
+_114
 
 },
 
-_113
+_114
 
 {
 
-_113
+_114
 
 description:
 
-_113
+_114
 
 'You can find the scan button on home page, a connection prompt will appear for you to connect your wallet.',
 
-_113
+_114
 
 step: 'scan',
 
-_113
+_114
 
 title: 'Tap the scan button',
 
-_113
+_114
 
 },
 
-_113
+_114
 
 ],
 
-_113
+_114
 
 },
 
-_113
+_114
 
 },
 
-_113
+_114
 
 extension: {
 
-_113
+_114
 
 instructions: {
 
-_113
+_114
 
 learnMoreUrl: 'https://wallet.flow.com',
 
-_113
+_114
 
 steps: [
 
-_113
+_114
 
 {
 
-_113
+_114
 
 description:
 
-_113
+_114
 
 'We recommend pinning Flow Wallet to your taskbar for quicker access to your wallet.',
 
-_113
+_114
 
 step: 'install',
 
-_113
+_114
 
 title: 'Install the Flow Wallet extension',
 
-_113
+_114
 
 },
 
-_113
+_114
 
 {
 
-_113
+_114
 
 description:
 
-_113
+_114
 
 'Be sure to back up your wallet using a secure method. Never share your secret phrase with anyone.',
 
-_113
+_114
 
 step: 'create',
 
-_113
+_114
 
 title: 'Create or Import a Wallet',
 
-_113
+_114
 
 },
 
-_113
+_114
 
 {
 
-_113
+_114
 
 description:
 
-_113
+_114
 
 'Once you set up your wallet, click below to refresh the browser and load up the extension.',
 
-_113
+_114
 
 step: 'refresh',
 
-_113
+_114
 
 title: 'Refresh your browser',
 
-_113
+_114
 
 },
 
-_113
+_114
 
 ],
 
-_113
+_114
 
 },
 
-_113
+_114
 
 },
 
-_113
+_114
 
 createConnector: getWalletConnectConnector({ projectId }),
 
-_113
+_114
 
 });
 
-_113
+_114
 
-_113
+_114
 
 const connectors = connectorsForWallets(
 
-_113
+_114
 
 [
 
-_113
+_114
 
 {
 
-_113
+_114
 
 groupName: 'Recommended',
 
-_113
+_114
 
 wallets: [flowWallet],
 
-_113
+_114
 
 },
 
-_113
+_114
 
 ],
 
-_113
+_114
 
 {
 
-_113
+_114
 
 appName: 'Onchain Image Gallery',
 
-_113
+_114
 
 projectId: projectId,
 
-_113
+_114
 
 },
 
-_113
+_114
 
 );
 
-_113
+_114
 
-_113
+_114
 
 const wagmiConfig = createConfig({
 
-_113
+_114
 
 connectors,
 
-_113
+_114
 
 chains: [flowTestnet],
 
-_113
+_114
 
 ssr: true,
 
-_113
+_114
 
 transports: {
 
-_113
+_114
 
 [flowTestnet.id]: http(),
 
-_113
+_114
 
 },
 
-_113
+_114
 
 });
 
-_113
+_114
 
-_113
+_114
 
 export default function Providers({ children }: { children: React.ReactNode }) {
 
-_113
+_114
 
 const queryClient = new QueryClient();
 
-_113
+_114
 
-_113
+_114
 
 return (
 
-_113
+_114
 
 <WagmiProvider config={wagmiConfig}>
 
-_113
+_114
 
 <QueryClientProvider client={queryClient}>
 
-_113
+_114
 
 <RainbowKitProvider>{children}</RainbowKitProvider>
 
-_113
+_114
 
 </QueryClientProvider>
 
-_113
+_114
 
 </WagmiProvider>
 
-_113
+_114
 
 );
 
-_113
+_114
 
 }`
 
@@ -131751,7 +131757,7 @@ Now that you've completed this tutorial, you're ready to explore more complex on
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/flowtobooth/image-gallery.md)
 
-Last updated on **Apr 25, 2025** by **Jordan Ribbink**
+Last updated on **Apr 29, 2025** by **Jordan Ribbink**
 
 [Previous
 
@@ -131763,7 +131769,7 @@ Native VRF](/tutorials/native-vrf)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Objectives](#objectives)
 * [Prerequisites](#prerequisites)
@@ -134196,7 +134202,7 @@ Ready to level up your Cadence skills? Take a look at [these Cadence tutorials](
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/batched-evm-transactions.md)
 
-Last updated on **Apr 25, 2025** by **Ali Serag**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -134484,7 +134490,7 @@ Flow’s state system provides ways to construct inclusion and non-inclusion pro
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/how-it-works.md)
 
-Last updated on **Apr 25, 2025** by **Ali Serag**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -136122,7 +136128,7 @@ State-of-the-art, developer-first security tools for in-house assurance. Get $20
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/builder-perks.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -139049,7 +139055,7 @@ The following companies provide independent contract auditing services of Cadenc
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/auditors.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -141460,7 +141466,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/keys/decode-keys.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -141472,7 +141478,7 @@ Derive Public Key](/tools/flow-cli/keys/derive-keys)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Example Usage](#example-usage)
   + [Decode RLP Encoded Public Key](#decode-rlp-encoded-public-key)
@@ -142638,7 +142644,7 @@ If you have any feedback about these guidelines, please create an issue in the o
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/best-practices/project-development-tips.md)
 
-Last updated on **Apr 25, 2025** by **Chase Fleming**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 

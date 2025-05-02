@@ -169,7 +169,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/keys/decode-keys.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -181,7 +181,7 @@ Derive Public Key](/tools/flow-cli/keys/derive-keys)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Example Usage](#example-usage)
   + [Decode RLP Encoded Public Key](#decode-rlp-encoded-public-key)

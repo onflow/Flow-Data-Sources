@@ -112,9 +112,9 @@ Open the starter code for this tutorial in the Flow Playground:
 
 [<https://play.flow.com/b999f656-5c3e-49fa-96f2-5b0a4032f4f1>](https://play.flow.com/b999f656-5c3e-49fa-96f2-5b0a4032f4f1)
 
-`HelloWorldResource.cdc` contains the following code:
+`HelloResource.cdc` contains the following code:
 
-HelloWorldResource.cdc
+HelloResource.cdc
 
 `_10
 
@@ -148,8 +148,6 @@ These characteristics make it impossible to accidentally lose a resource from a 
 Action
 
 Add a `resource` called `HelloAsset` that contains a function to return a string containing "Hello Resources!":
-
-::
 
 HelloResource.cdc
 
@@ -238,7 +236,7 @@ Action
 
 Add a function called `createHelloAsset` that creates and returns a `HelloAsset` resource.
 
-HelloWorldResource.cdc
+HelloResource.cdc
 
 `_10
 
@@ -274,7 +272,7 @@ create\_hello.cdc
 
 `_10
 
-import HelloWorldResource from 0x06
+import HelloResource from 0x06
 
 _10
 
@@ -290,7 +288,7 @@ _10
 
 }`
 
-We've already imported the `HelloWorldResource` contract for you and stubbed out a `transaction`. Unlike the transaction in Hello World, you will need to modify the user's account, which means you will need to use the `prepare` phase to access and modify the account that is going to get an instance of the resource.
+We've already imported the `HelloResource` contract for you and stubbed out a `transaction`. Unlike the transaction in Hello World, you will need to modify the user's account, which means you will need to use the `prepare` phase to access and modify the account that is going to get an instance of the resource.
 
 ### Prepare Phase[​](#prepare-phase "Direct link to Prepare Phase")
 
@@ -302,6 +300,16 @@ First, inside the `transaction`, stub out the `prepare` phase with the authoriza
 
 `_10
 
+import HelloResource from 0x06
+
+_10
+
+_10
+
+transaction {
+
+_10
+
 prepare(acct: auth(SaveValue) &Account) {
 
 _10
@@ -310,19 +318,25 @@ _10
 
 _10
 
+}
+
+_10
+
 }`
 
 Action
 
-Next, use the `createHelloAsset` function in `HelloWorldResource` to `create` an instance of the resource and *move* it into a constant:
+Next, use the `createHelloAsset` function in `HelloResource` to `create` an instance of the resource inside of the `prepeare` and *move* it into a constant:
 
 `_10
 
-let newHello <- HelloWorldResource.createHelloAsset()`
+let newHello <- HelloResource.createHelloAsset()`
+
+You'll get an error for `loss of resource`. This is one of the best features of Cadence! The language **prevents you from accidentally destroying a resource** at the syntax level.
 
 ### Storage Paths[​](#storage-paths "Direct link to Storage Paths")
 
-In Cadence Accounts, objects are stored in [paths](/docs/language/accounts/paths). Paths represent a file system for your account, where an object can be stored at any user-defined path. Often, contracts will specify for the user where objects from that contract should be stored. This enables any code to know how to access these objects in a standard way.
+In Cadence Accounts, objects are stored in [paths](/docs/language/accounts/paths). Paths represent a file system for user accounts, where an object can be stored at any user-defined path. Usually, contracts will specify for the user where objects from that contract should be stored. This enables any code to know how to access these objects in a standard way.
 
 Paths start with the character `/`, followed by the domain, the path separator `/`, and finally the identifier. The identifier must start with a letter and can only be followed by letters, numbers, or the underscore `_`. For example, the path `/storage/test` has the domain `storage` and the identifier `test`.
 
@@ -330,7 +344,7 @@ There are two valid domains: `storage` and `public`.
 
 Paths in the storage domain have type `StoragePath`, and paths in the public domain have the type `PublicPath`. Both `StoragePath` and `PublicPath` are subtypes of `Path`.
 
-Paths are not strings and do not have quotes around them.
+Paths are **not** strings and do **not** have quotes around them.
 
 Action
 
@@ -342,9 +356,9 @@ acct.storage.save(<-newHello, to: /storage/HelloAssetTutorial)`
 
 The first parameter in `save` is the object that is being stored, and the `to` parameter is the path that the object is being stored at. The path must be a storage path, so only the domain `/storage/` is allowed in the `to` parameter.
 
-If there is already an object stored under the given path, the program aborts.
+Notice that the error for `loss of resource` has been resolved.
 
-Remember, the Cadence type system ensures that a resource can never be accidentally lost. When moving a resource to a field, into an array, into a dictionary, or into storage, there is the possibility that the location already contains a resource.
+If there is already an object stored under the given path, the program aborts. Remember, the Cadence type system ensures that a resource can never be accidentally lost. When moving a resource to a field, into an array, into a dictionary, or into storage, there is the possibility that the location already contains a resource.
 
 Cadence forces the developer to explicitly handle the case of an existing resource so that it is not accidentally lost through an overwrite.
 
@@ -369,6 +383,8 @@ log("Saved Hello Resource to account.")
 _10
 
 }`
+
+We'll learn more realistic uses of this phase soon.
 
 You should have something similar to:
 
@@ -475,7 +491,7 @@ Action
 
 Try removing the line of code that saves `newHello` to storage.
 
-You'll get an error for `newHello` that says `loss of resource`. This means that you are not handling the resource properly. Remember that if you ever see this error in any of your programs, it means there is a resource somewhere that is not being explicitly stored or destroyed.
+Again, you'll get an error for `newHello` that says `loss of resource`. This means that you are not handling the resource properly. Remember that if you ever see this error in any of your programs, it means there is a resource somewhere that is not being explicitly stored or destroyed.
 
 **Add the line back before you forget!**
 
@@ -709,7 +725,7 @@ _10
 
 Action
 
-Next, add a `transaction`-level variable to store a result `String`:
+Next, add a `transaction`-level (similar to contract-level or class-level) variable to store a result `String`:
 
 Similar to a class-level variable in other languages, these go at the top, inside the `transaction` scope, but not inside anything else. They are accessible in both the `prepare` and `execute` statements of a transaction.
 
@@ -735,7 +751,7 @@ _10
 
 }`
 
-You'll get an error: `missing initialization of field` result`in type`Transaction`. not initialized`
+You'll get an error: `missing initialization of field 'result' in type 'Transaction'. not initialized`
 
 In transactions, variables at the `transaction` level must be initialized in the `prepare` phase.
 
@@ -777,7 +793,7 @@ Refactor your prepare statement to check and see if the storage path is in use. 
 
 `_10
 
-if !acct.storage.check<&HelloWorldResource.HelloAsset>(from: storagePath) {
+if acct.storage.check<&HelloResource.HelloAsset>(from: storagePath) {
 
 _10
 
@@ -789,7 +805,7 @@ _10
 
 _10
 
-let newHello <- HelloWorldResource.createHelloAsset()
+let newHello <- HelloResource.createHelloAsset()
 
 _10
 
@@ -817,6 +833,84 @@ _10
 
 }`
 
+You should end up with something similar to:
+
+`_21
+
+import HelloResource from 0x06
+
+_21
+
+_21
+
+transaction {
+
+_21
+
+var result: String
+
+_21
+
+_21
+
+prepare(acct: auth(BorrowValue, SaveValue) &Account) {
+
+_21
+
+self.result = "Saved Hello Resource to account."
+
+_21
+
+let storagePath = /storage/HelloAssetTutorial
+
+_21
+
+_21
+
+if acct.storage.check<&HelloResource.HelloAsset>(from: storagePath) {
+
+_21
+
+self.result = "Unable to save, resource already present."
+
+_21
+
+} else {
+
+_21
+
+let newHello <- HelloResource.createHelloAsset()
+
+_21
+
+acct.storage.save(<-newHello, to: storagePath)
+
+_21
+
+}
+
+_21
+
+}
+
+_21
+
+_21
+
+execute {
+
+_21
+
+log(self.result)
+
+_21
+
+}
+
+_21
+
+}`
+
 Action
 
 `Send` the transaction again, both with accounts that have and have not yet created and stored an instance of `HelloAsset`.
@@ -825,7 +919,7 @@ Now you'll see an appropriate log whether or not a new resource was created and 
 
 ## Load Hello Transaction[​](#load-hello-transaction "Direct link to Load Hello Transaction")
 
-Now we're going to use a transaction to call the `hello()` method from the `HelloAsset` resource.
+Now, we're going to use a transaction to call the `hello()` method from the `HelloAsset` resource.
 
 Action
 
@@ -835,7 +929,7 @@ It's empty!
 
 Action
 
-On your own, stub out a transaction that imports `HelloWorldResource` and passes in an account [reference](/docs/language/references) with the `BorrowValue` authorization entitlement.
+On your own, stub out a transaction that imports `HelloResource` and passes in an account [reference](/docs/language/references) with the `BorrowValue` authorization entitlement.
 
 You should end up with something like this:
 
@@ -843,7 +937,7 @@ load\_hello.cdc
 
 `_10
 
-import HelloWorldResource from 0x06
+import HelloResource from 0x06
 
 _10
 
@@ -879,7 +973,7 @@ Create a variable with a [reference](/docs/language/references) to the `HelloAss
 
 `_10
 
-let helloAsset = acct.storage.borrow<&HelloWorldResource.HelloAsset>(from: /storage/HelloAssetTutorial)
+let helloAsset = acct.storage.borrow<&HelloResource.HelloAsset>(from: /storage/HelloAssetTutorial)
 
 _10
 
@@ -889,7 +983,7 @@ Action
 
 Finally, `log` the return from a call to the `hello()` function.
 
-warning
+danger
 
 Borrowing a [reference](/docs/language/references) does **not** allow you to move or destroy a resource, but it **does allow** you to mutate data inside that resource via one of the resource's functions.
 
@@ -897,7 +991,7 @@ Your transaction should be similar to:
 
 `_10
 
-import HelloWorldResource from 0x06
+import HelloResource from 0x06
 
 _10
 
@@ -911,7 +1005,7 @@ prepare(acct: auth(BorrowValue, LoadValue, SaveValue) &Account) {
 
 _10
 
-let helloAsset = acct.storage.borrow<&HelloWorldResource.HelloAsset>(from: /storage/HelloAssetTutorial)
+let helloAsset = acct.storage.borrow<&HelloResource.HelloAsset>(from: /storage/HelloAssetTutorial)
 
 _10
 
@@ -954,8 +1048,19 @@ Now that you have completed the tutorial, you can:
 * Set and use variables in both the `prepare` and `execute` phase
 * Use the [nil-coalescing operator (`??`)](/docs/language/operators#nil-coalescing-operator-) to `panic` if a resource is not found
 
+## Reference Solution[​](#reference-solution "Direct link to Reference Solution")
+
+warning
+
+You are **not** saving time by skipping the the reference implementation. You'll learn much faster by doing the tutorials as presented!
+
+Reference solutions are functional, but may not be optimal.
+
+[Reference Solution]
+
 [Non-Fungible Token Contract]: <https://github.com/onflow/flow-nft/blob/master/contracts/NonFungibleToken.cdc#L115-L121>)
 [Generic NFT Transfer transaction]: <https://github.com/onflow/flow-nft/blob/master/transactions/generic_transfer_with_address_and_type.cdc#L46-L50>
+[Reference Solution]: <https://play.flow.com/6f74fe85-465d-4e4f-a534-1895f6a3c0a6>
 
 **Tags:**
 
@@ -988,6 +1093,7 @@ Capabilities](/docs/tutorial/capabilities)
   + [Checking for Existing Storage](#checking-for-existing-storage)
 * [Load Hello Transaction](#load-hello-transaction)
 * [Reviewing the Resource Contract](#reviewing-the-resource-contract)
+* [Reference Solution](#reference-solution)
 
 Got suggestions for this site?
 

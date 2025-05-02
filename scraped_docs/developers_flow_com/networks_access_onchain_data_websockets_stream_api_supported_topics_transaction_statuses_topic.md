@@ -238,7 +238,7 @@ _36
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/supported-topics/transaction_statuses_topic.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -250,7 +250,7 @@ Send and get transaction statuses](/networks/access-onchain-data/websockets-stre
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Example Request](#example-request)
   + [Request Arguments](#request-arguments)

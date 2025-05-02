@@ -89,12 +89,11 @@ Next, you'll write a script that anyone can use that link to borrow a [reference
 Action
 
 Continue working with your code from the previous tutorial. Alternately, open a fresh copy here:
-
-[<https://play.flow.com/64287da4-50c4-4580-8b9f-5792b78d77c3>](https://play.flow.com/64287da4-50c4-4580-8b9f-5792b78d77c3)
+ [<https://play.flow.com/6f74fe85-465d-4e4f-a534-1895f6a3c0a6>](https://play.flow.com/6f74fe85-465d-4e4f-a534-1895f6a3c0a6)
 
 Action
 
-If you started with a fresh playground, be sure to deploy the `HelloWorld` contract with account `0x06` and call the `Create Hello` transaction, also with `0x06`.
+If you started with the playground linked above, be sure to deploy the `HelloResource` contract with account `0x06` and call the `Create Hello` transaction, also with `0x06`.
 
 ### Prepare the Account Capabilities[​](#prepare-the-account-capabilities "Direct link to Prepare the Account Capabilities")
 
@@ -102,17 +101,17 @@ Action
 
 Create a new transaction called `Create Link`.
 
-Import `HelloWorld` and stub out a `transaction` with a `prepare` phase.
+Import `HelloResource` and stub out a `transaction` with a `prepare` phase.
 
 tip
 
-Cadence allows for static analysis of imported contracts. You'll get errors in the transactions and scripts that import `HelloWorld` from `0x06` if you haven't deployed that contract.
+Cadence allows for static analysis of imported contracts. You'll get errors in the transactions and scripts that import `HelloResource` from `0x06` if you haven't deployed that contract.
 
 create\_link.cdc
 
 `_10
 
-import HelloWorld from 0x06
+import HelloResource from 0x06
 
 _10
 
@@ -144,7 +143,7 @@ create\_link.cdc
 
 `_10
 
-import HelloWorld from 0x06
+import HelloResource from 0x06
 
 _10
 
@@ -202,7 +201,7 @@ Capabilities are created with the [issue](/docs/language/accounts/capabilities#i
 
 Action
 
-Issue a capability to allow access to the instance of the `HelloAsset` [resource](/docs/language/resources) the `Create Hello` transaction saved in `/storage/HelloAssetTutorial`.
+In the `prepare` phase, issue a capability to allow access to the instance of the `HelloAsset` [resource](/docs/language/resources) the `Create Hello` transaction saved in `/storage/HelloAssetTutorial`.
 
 `_10
 
@@ -218,13 +217,13 @@ _10
 
 _10
 
-.issue<&HelloWorld.HelloAsset>(/storage/HelloAssetTutorial)`
+.issue<&HelloResource.HelloAsset>(/storage/HelloAssetTutorial)`
 
 danger
 
 In our example capability, we had the user sign a transaction that gave public access to **everything** found in the `HelloAsset` resource!
 
-When you're writing real transactions, follow the principle of giving minimal access. While the capability cannot move or destroy an object, it might be able to mutate data inside of it in a way that the owner does not desire.
+When you're writing real transactions, follow the principle of giving minimal access. While the capability cannot move or destroy an object, **it might be able to mutate data inside of it** in a way that the owner does not desire.
 
 For example, if you added a function to allow the owner of the resource to change the greeting message, this code would open that function up to anyone and everyone!
 
@@ -242,11 +241,11 @@ _10
 
 _10
 
-.issue<&HelloWorld.HelloAsset>(/storage/HelloAssetTutorial)`
+.issue<&HelloResource.HelloAsset>(/storage/HelloAssetTutorial)`
 
 The capability says that whoever borrows a reference from this capability has access to the fields and methods that are specified by the type and entitlements in `<>`. The specified type has to be a subtype of the type of the object being linked to, meaning that it cannot contain any fields or functions that the linked object doesn't have.
 
-A reference is referred to by the `&` symbol. Here, the capability references the `HelloAsset` object, so we specify `<&HelloWorld.HelloAsset>` as the type, which gives access to **everything** in the `HelloAsset` object.
+A reference is referred to by the `&` symbol. Here, the capability references the `HelloAsset` object, so we specify `<&HelloResource.HelloAsset>` as the type, which gives access to **everything** in the `HelloAsset` object.
 
 The argument to the `issue` function is the path to the object in storage that is to be linked to. When a capability is issued, a [capability controller](/docs/language/accounts/capabilities#accountcapabilities) is created for it in `account.capabilities`. This controller allows the creator of the capability to have fine-grained control over the capability.
 
@@ -259,7 +258,7 @@ Now that your transaction has created the capability with the [issue](/docs/lang
 
 Action
 
-Use [publish](/docs/language/accounts/capabilities#publishing-capabilities) function to publish the `capability` at `/public/HelloAssetTutorial`.
+In the `prepare` phase, use [publish](/docs/language/accounts/capabilities#publishing-capabilities) function to publish the `capability` at `/public/HelloAssetTutorial`.
 
 `_10
 
@@ -271,7 +270,7 @@ Create
 
 `_17
 
-import HelloWorld from 0x06
+import HelloResource from 0x06
 
 _17
 
@@ -309,7 +308,7 @@ _17
 
 _17
 
-.issue<&HelloWorld.HelloAsset>(/storage/HelloAssetTutorial)
+.issue<&HelloResource.HelloAsset>(/storage/HelloAssetTutorial)
 
 _17
 
@@ -343,7 +342,7 @@ Click the `Send` button to send the transaction. Then, send it a second time.
 
 warning
 
-This implementation will work the first time and fail the second. The object cannot be saved because something is already at the path.
+It is expected that this implementation will work the first time and fail the second. The object cannot be saved because something is already at the path.
 
 As you learned in the [resources tutorial](/docs/tutorial/resources), Cadence prevents you from writing code that might accidentally overwrite an object in storage, thus mutating or even destroying a piece of your users' digital property.
 
@@ -353,17 +352,17 @@ On your own, refactor your `Create Link` transaction to elegantly handle a scena
 
 ## Using the Capability in a Script[​](#using-the-capability-in-a-script "Direct link to Using the Capability in a Script")
 
-Now that you've published the capability with `public` `access`, anyone who wants to can write transactions or scripts that make use of it.
+Now that you've published the capability with `public` `access`, **anyone** who wants to can write transactions or scripts that make use of it.
 
 Action
 
-Create a script called `GetGreeting`. Import `HelloWorld` and give it public `access`.
+Create a script called `GetGreeting`. Import `HelloResource` and give it public `access`. To avoid syntax errors while writing the function, you may wish to add a temporary and obvious `return` value.
 
 GetGreeting.cdc
 
 `_10
 
-import HelloWorld from 0x06
+import HelloResource from 0x06
 
 _10
 
@@ -374,6 +373,10 @@ access(all) fun main(): String {
 _10
 
 // TODO
+
+_10
+
+return "TODO";
 
 _10
 
@@ -389,7 +392,7 @@ Use `getAccount` to get a reference to account `0x06`. Hardcode it for now.
 
 let helloAccount = getAccount(0x06)`
 
-warning
+tip
 
 Addresses are **not** strings and thus do **not** have quotes around them.
 
@@ -407,7 +410,7 @@ GetGreeting.cdc
 
 `_12
 
-import HelloWorld from 0x06
+import HelloResource from 0x06
 
 _12
 
@@ -431,7 +434,7 @@ _12
 
 _12
 
-.borrow<&HelloWorld.HelloAsset>(/public/HelloAssetTutorial)
+.borrow<&HelloResource.HelloAsset>(/public/HelloAssetTutorial)
 
 _12
 
@@ -453,7 +456,7 @@ Action
 
 You'll see `"Hello, World!"` logged to the console.
 
-Note that scripts don't need any authorization and can only access public information. You've enabled the user to make this capability public through the transaction you wrote and they signed.
+Note that scripts don't need any authorization and can only access public information. You've enabled the user to make this capability public through the transaction you wrote and they signed. **Anyone** can write their own scripts to interact with your contracts this way!
 
 At the end of the script execution, the `helloReference` value is lost, but that is ok because while it references a resource, it isn't the actual resource itself. It's ok to lose it.
 
@@ -461,9 +464,9 @@ At the end of the script execution, the `helloReference` value is lost, but that
 
 danger
 
-While most apps will need to depend on users storing resource that allow the user to interact with the app, avoid constructing your app logic such that it depends on something in a user's storage for important metadata. They own their storage and can delete anything in it at any time without asking anyone.
+While most apps will need to depend on users storing resource that allow the user to interact with the app, avoid constructing your app logic such that it depends on something in a user's storage for important data. They own their storage and can delete anything in it at any time without asking anyone.
 
-For example, if you stored the amount of debt for tokens you'd lent a user as a standalone resource in their account, they could simply delete the storage and erase the debt. Instead, store that metadata in your smart contract.
+For example, if you stored the amount of debt for tokens you'd lent a user as a standalone resource in their account, they could simply **delete the storage and erase the debt**. Instead, store that data in your smart contract.
 
 The owner of an object can effectively [revoke capabilities](/docs/language/accounts/capabilities#revoking-capabilities) they have created by using the `delete` method on the Capability Controller that was created for the capability when it was issued.
 
@@ -482,6 +485,16 @@ Now that you have completed the tutorial, you should be able to:
 * Write and execute a script that interacts with the resource through the capability.
 
 You're on the right track to building more complex applications with Cadence. Now is a great time to check out the [Cadence Best Practices document](/docs/design-patterns), [Anti-patterns document](/docs/anti-patterns), and the first NFT tutorial!
+
+## Reference Solution[​](#reference-solution "Direct link to Reference Solution")
+
+warning
+
+You are **not** saving time by skipping the the reference implementation. You'll learn much faster by doing the tutorials as presented!
+
+Reference solutions are functional, but may not be optimal.
+
+[Reference Solution](https://play.flow.com/6f74fe85-465d-4e4f-a534-1895f6a3c0a6)
 
 **Tags:**
 
@@ -513,6 +526,7 @@ Basic NFT](/docs/tutorial/non-fungible-tokens-1)
 * [Using the Capability in a Script](#using-the-capability-in-a-script)
 * [Deleting Capabilities](#deleting-capabilities)
 * [Reviewing Capabilities](#reviewing-capabilities)
+* [Reference Solution](#reference-solution)
 
 Got suggestions for this site?
 

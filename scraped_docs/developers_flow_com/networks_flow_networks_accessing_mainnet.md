@@ -119,7 +119,7 @@ You can review [all available core contracts](/build/core-contracts) deployed to
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-networks/accessing-mainnet.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -131,7 +131,7 @@ Testnet](/networks/flow-networks/accessing-testnet)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Accessing Flow Mainnet](#accessing-flow-mainnet)
 * [Account Creation](#account-creation)

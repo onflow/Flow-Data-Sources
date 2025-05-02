@@ -137,7 +137,7 @@ If there are no active subscriptions, `subscriptions` array will be empty.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/list-subscriptions-message.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -149,7 +149,7 @@ Connecting to WebSockets via Postman UI](/networks/access-onchain-data/websocket
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Example of request](#example-of-request)
 * [Example of response](#example-of-response)

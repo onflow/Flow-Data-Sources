@@ -1749,7 +1749,7 @@ Authentication](/tools/clients/fcl-js/authentication)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Overview](#overview)
 * [Getting Started](#getting-started)

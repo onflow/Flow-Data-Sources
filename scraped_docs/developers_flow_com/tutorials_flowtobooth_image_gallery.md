@@ -684,439 +684,443 @@ npm install @rainbow-me/rainbowkit wagmi viem@2.x @tanstack/react-query`
 
 Add a file called `providers` inside the `app` folder. In it, add your config and providers for [wagmi](https://wagmi.sh/) and [rainbowkit](https://www.rainbowkit.com/). You'll need to [add the Flow Wallet](/evm/guides/rainbowkit) as a custom wallet. It's not included by default because it has special features that aren't compatible with other blockchains.
 
-`_113
+`_114
 
 'use client';
 
-_113
+_114
 
-_113
+_114
 
 import { connectorsForWallets } from '@rainbow-me/rainbowkit';
 
-_113
+_114
 
 import { Wallet, getWalletConnectConnector } from '@rainbow-me/rainbowkit';
 
-_113
+_114
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-_113
+_114
 
 import { createConfig, WagmiProvider } from 'wagmi';
 
-_113
+_114
 
 import { RainbowKitProvider } from '@rainbow-me/rainbowkit';
 
-_113
+_114
 
 import { flowTestnet } from 'viem/chains';
 
-_113
+_114
 
 import { http } from 'wagmi';
 
-_113
+_114
 
-_113
+_114
 
 const projectId = '51407fcf066d74968d9a1a4c6da0d994'; // Replace with your actual project ID
 
-_113
+_114
 
-_113
+_114
 
 export interface MyWalletOptions {
 
-_113
+_114
 
 projectId: string;
 
-_113
+_114
 
 }
 
-_113
+_114
 
-_113
+_114
 
 const flowWallet = ({ projectId }: MyWalletOptions): Wallet => ({
 
-_113
+_114
 
 id: 'flow-wallet',
 
-_113
+_114
 
 name: 'Flow Wallet',
 
-_113
+_114
+
+rdns: 'com.flowfoundation.wallet',
+
+_114
 
 iconUrl: 'https://lilico.app/logo_mobile.png',
 
-_113
+_114
 
 iconBackground: '#41CC5D',
 
-_113
+_114
 
 downloadUrls: {
 
-_113
+_114
 
 android:
 
-_113
+_114
 
 'https://play.google.com/store/apps/details?id=com.flowfoundation.wallet',
 
-_113
+_114
 
 ios: 'https://apps.apple.com/ca/app/flow-wallet-nfts-and-crypto/id6478996750',
 
-_113
+_114
 
 chrome:
 
-_113
+_114
 
 'https://chromewebstore.google.com/detail/flow-wallet/hpclkefagolihohboafpheddmmgdffjm',
 
-_113
+_114
 
 qrCode: 'https://link.lilico.app',
 
-_113
+_114
 
 },
 
-_113
+_114
 
 mobile: {
 
-_113
+_114
 
 getUri: (uri: string) => `https://fcw-link.lilico.app/wc?uri=${encodeURIComponent(uri)}`,
 
-_113
+_114
 
 },
 
-_113
+_114
 
 qrCode: {
 
-_113
+_114
 
 getUri: (uri: string) => uri,
 
-_113
+_114
 
 instructions: {
 
-_113
+_114
 
 learnMoreUrl: 'https://wallet.flow.com',
 
-_113
+_114
 
 steps: [
 
-_113
+_114
 
 {
 
-_113
+_114
 
 description:
 
-_113
+_114
 
 'We recommend putting Flow Wallet on your home screen for faster access to your wallet.',
 
-_113
+_114
 
 step: 'install',
 
-_113
+_114
 
 title: 'Open the Flow Wallet app',
 
-_113
+_114
 
 },
 
-_113
+_114
 
 {
 
-_113
+_114
 
 description:
 
-_113
+_114
 
 'You can find the scan button on home page, a connection prompt will appear for you to connect your wallet.',
 
-_113
+_114
 
 step: 'scan',
 
-_113
+_114
 
 title: 'Tap the scan button',
 
-_113
+_114
 
 },
 
-_113
+_114
 
 ],
 
-_113
+_114
 
 },
 
-_113
+_114
 
 },
 
-_113
+_114
 
 extension: {
 
-_113
+_114
 
 instructions: {
 
-_113
+_114
 
 learnMoreUrl: 'https://wallet.flow.com',
 
-_113
+_114
 
 steps: [
 
-_113
+_114
 
 {
 
-_113
+_114
 
 description:
 
-_113
+_114
 
 'We recommend pinning Flow Wallet to your taskbar for quicker access to your wallet.',
 
-_113
+_114
 
 step: 'install',
 
-_113
+_114
 
 title: 'Install the Flow Wallet extension',
 
-_113
+_114
 
 },
 
-_113
+_114
 
 {
 
-_113
+_114
 
 description:
 
-_113
+_114
 
 'Be sure to back up your wallet using a secure method. Never share your secret phrase with anyone.',
 
-_113
+_114
 
 step: 'create',
 
-_113
+_114
 
 title: 'Create or Import a Wallet',
 
-_113
+_114
 
 },
 
-_113
+_114
 
 {
 
-_113
+_114
 
 description:
 
-_113
+_114
 
 'Once you set up your wallet, click below to refresh the browser and load up the extension.',
 
-_113
+_114
 
 step: 'refresh',
 
-_113
+_114
 
 title: 'Refresh your browser',
 
-_113
+_114
 
 },
 
-_113
+_114
 
 ],
 
-_113
+_114
 
 },
 
-_113
+_114
 
 },
 
-_113
+_114
 
 createConnector: getWalletConnectConnector({ projectId }),
 
-_113
+_114
 
 });
 
-_113
+_114
 
-_113
+_114
 
 const connectors = connectorsForWallets(
 
-_113
+_114
 
 [
 
-_113
+_114
 
 {
 
-_113
+_114
 
 groupName: 'Recommended',
 
-_113
+_114
 
 wallets: [flowWallet],
 
-_113
+_114
 
 },
 
-_113
+_114
 
 ],
 
-_113
+_114
 
 {
 
-_113
+_114
 
 appName: 'Onchain Image Gallery',
 
-_113
+_114
 
 projectId: projectId,
 
-_113
+_114
 
 },
 
-_113
+_114
 
 );
 
-_113
+_114
 
-_113
+_114
 
 const wagmiConfig = createConfig({
 
-_113
+_114
 
 connectors,
 
-_113
+_114
 
 chains: [flowTestnet],
 
-_113
+_114
 
 ssr: true,
 
-_113
+_114
 
 transports: {
 
-_113
+_114
 
 [flowTestnet.id]: http(),
 
-_113
+_114
 
 },
 
-_113
+_114
 
 });
 
-_113
+_114
 
-_113
+_114
 
 export default function Providers({ children }: { children: React.ReactNode }) {
 
-_113
+_114
 
 const queryClient = new QueryClient();
 
-_113
+_114
 
-_113
+_114
 
 return (
 
-_113
+_114
 
 <WagmiProvider config={wagmiConfig}>
 
-_113
+_114
 
 <QueryClientProvider client={queryClient}>
 
-_113
+_114
 
 <RainbowKitProvider>{children}</RainbowKitProvider>
 
-_113
+_114
 
 </QueryClientProvider>
 
-_113
+_114
 
 </WagmiProvider>
 
-_113
+_114
 
 );
 
-_113
+_114
 
 }`
 
@@ -2849,7 +2853,7 @@ Now that you've completed this tutorial, you're ready to explore more complex on
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/flowtobooth/image-gallery.md)
 
-Last updated on **Apr 25, 2025** by **Jordan Ribbink**
+Last updated on **Apr 29, 2025** by **Jordan Ribbink**
 
 [Previous
 
@@ -2861,7 +2865,7 @@ Native VRF](/tutorials/native-vrf)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Objectives](#objectives)
 * [Prerequisites](#prerequisites)

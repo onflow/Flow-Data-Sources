@@ -107,7 +107,7 @@ files by using `-f` flag multiple times.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flow.json/manage-configuration.md)
 
-Last updated on **Apr 25, 2025** by **Ali Serag**
+Last updated on **Apr 25, 2025** by **Brian Doyle**
 
 [Previous
 
