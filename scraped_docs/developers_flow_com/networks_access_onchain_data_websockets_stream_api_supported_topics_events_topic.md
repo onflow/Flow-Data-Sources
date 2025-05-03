@@ -355,7 +355,7 @@ _33
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/supported-topics/events_topic.md)
 
-Last updated on **Apr 25, 2025** by **Brian Doyle**
+Last updated on **Apr 26, 2025** by **Brian Doyle**
 
 [Previous
 

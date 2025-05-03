@@ -191,7 +191,7 @@ machine_account_balance{acct_address="7b16b57ae0a3c6aa"} 9.99464935`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/monitoring-nodes.md)
 
-Last updated on **Apr 25, 2025** by **Brian Doyle**
+Last updated on **Apr 26, 2025** by **Brian Doyle**
 
 [Previous
 

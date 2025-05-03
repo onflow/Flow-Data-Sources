@@ -90,251 +90,255 @@ The [RainbowKit](https://www.rainbowkit.com/) components will be available throu
 
 The first major step is defining the Flow Wallet connector. Create a new file called `flowWallet.ts` in `src/flowWallet.ts` to house the wallet configuration:
 
-`_63
+`_64
 
 /* src/flowWallet.ts */
 
-_63
+_64
 
 import { Wallet, getWalletConnectConnector } from '@rainbow-me/rainbowkit';
 
-_63
+_64
 
-_63
+_64
 
 export interface MyWalletOptions {
 
-_63
+_64
 
 projectId: string;
 
-_63
+_64
 
 }
 
-_63
+_64
 
-_63
+_64
 
 export const flowWallet = ({ projectId }: MyWalletOptions): Wallet => ({
 
-_63
+_64
 
 id: 'flow-wallet',
 
-_63
+_64
 
 name: 'Flow Wallet',
 
-_63
+_64
+
+rdns: 'com.flowfoundation.wallet',
+
+_64
 
 iconUrl: 'https://lilico.app/logo_mobile.png',
 
-_63
+_64
 
 iconBackground: '#41CC5D',
 
-_63
+_64
 
 downloadUrls: {
 
-_63
+_64
 
 android: 'https://play.google.com/store/apps/details?id=com.flowfoundation.wallet',
 
-_63
+_64
 
 ios: 'https://apps.apple.com/ca/app/flow-wallet-nfts-and-crypto/id6478996750',
 
-_63
+_64
 
 chrome: 'https://chromewebstore.google.com/detail/flow-wallet/hpclkefagolihohboafpheddmmgdffjm',
 
-_63
+_64
 
 qrCode: 'https://link.lilico.app',
 
-_63
+_64
 
 },
 
-_63
+_64
 
 mobile: {
 
-_63
+_64
 
 getUri: (uri: string) => `https://fcw-link.lilico.app/wc?uri=${encodeURIComponent(uri)}`,
 
-_63
+_64
 
 },
 
-_63
+_64
 
 qrCode: {
 
-_63
+_64
 
 getUri: (uri: string) => uri,
 
-_63
+_64
 
 instructions: {
 
-_63
+_64
 
 learnMoreUrl: 'https://wallet.flow.com',
 
-_63
+_64
 
 steps: [
 
-_63
+_64
 
 {
 
-_63
+_64
 
 description: 'We recommend putting Flow Wallet on your home screen for faster access to your wallet.',
 
-_63
+_64
 
 step: 'install',
 
-_63
+_64
 
 title: 'Open the Flow Wallet app',
 
-_63
+_64
 
 },
 
-_63
+_64
 
 {
 
-_63
+_64
 
 description: 'You can find the scan button on home page, a connection prompt will appear for you to connect your wallet.',
 
-_63
+_64
 
 step: 'scan',
 
-_63
+_64
 
 title: 'Tap the scan button',
 
-_63
+_64
 
 },
 
-_63
+_64
 
 ],
 
-_63
+_64
 
 },
 
-_63
+_64
 
 },
 
-_63
+_64
 
 extension: {
 
-_63
+_64
 
 instructions: {
 
-_63
+_64
 
 learnMoreUrl: 'https://wallet.flow.com',
 
-_63
+_64
 
 steps: [
 
-_63
+_64
 
 {
 
-_63
+_64
 
 description: 'We recommend pinning Flow Wallet to your taskbar for quicker access to your wallet.',
 
-_63
+_64
 
 step: 'install',
 
-_63
+_64
 
 title: 'Install the Flow Wallet extension',
 
-_63
+_64
 
 },
 
-_63
+_64
 
 {
 
-_63
+_64
 
 description: 'Be sure to back up your wallet using a secure method. Never share your secret phrase with anyone.',
 
-_63
+_64
 
 step: 'create',
 
-_63
+_64
 
 title: 'Create or Import a Wallet',
 
-_63
+_64
 
 },
 
-_63
+_64
 
 {
 
-_63
+_64
 
 description: 'Once you set up your wallet, click below to refresh the browser and load up the extension.',
 
-_63
+_64
 
 step: 'refresh',
 
-_63
+_64
 
 title: 'Refresh your browser',
 
-_63
+_64
 
 },
 
-_63
+_64
 
 ],
 
-_63
+_64
 
 },
 
-_63
+_64
 
 },
 
-_63
+_64
 
 createConnector: getWalletConnectConnector({ projectId }),
 
-_63
+_64
 
 });`
 
@@ -514,7 +518,7 @@ Now that you've completed this tutorial, you're ready to enhance your dApp with 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/rainbowkit.md)
 
-Last updated on **Apr 25, 2025** by **Jordan Ribbink**
+Last updated on **Apr 29, 2025** by **Jordan Ribbink**
 
 [Previous
 

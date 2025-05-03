@@ -928,7 +928,7 @@ Example: there are 115 access nodes already part of the network. Hence, the tota
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/access-nodes/access-node-setup.md)
 
-Last updated on **Apr 25, 2025** by **Brian Doyle**
+Last updated on **Apr 26, 2025** by **Brian Doyle**
 
 [Previous
 

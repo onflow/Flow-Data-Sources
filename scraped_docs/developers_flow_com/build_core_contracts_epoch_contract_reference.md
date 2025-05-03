@@ -107,7 +107,7 @@ for a list and documentation for important `FlowEpoch` events.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/07-epoch-contract-reference.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 26, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -119,7 +119,7 @@ Non-Fungible Token](/build/core-contracts/non-fungible-token)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Getting Epoch Info](#getting-epoch-info)
 * [Quorum Certificate Transactions and Scripts](#quorum-certificate-transactions-and-scripts)

@@ -570,7 +570,7 @@ In this tutorial, we've accomplished all of our learning objectives:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/flow-cli.md)
 
-Last updated on **Apr 25, 2025** by **Brian Doyle**
+Last updated on **Apr 26, 2025** by **Brian Doyle**
 
 [Previous
 

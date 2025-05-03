@@ -180,7 +180,7 @@ There is no maximum stake limit.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/02-epoch-terminology.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 26, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -192,7 +192,7 @@ Epoch and Reward Schedule](/networks/staking/schedule)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Terminology](#terminology)
 
