@@ -155,7 +155,7 @@ Mainnet EAS Explorer: [<https://flow.easscan.credora.io>] (<https://flow.easscan
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/defi-contracts.md)
 
-Last updated on **Apr 25, 2025** by **Ali Serag**
+Last updated on **Apr 26, 2025** by **Brian Doyle**
 
 [Previous
 
