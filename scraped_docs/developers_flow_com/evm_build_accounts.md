@@ -87,7 +87,7 @@ For more information about Cadence Owned Accounts, see the [Flow EVM Support FLI
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/accounts.md)
 
-Last updated on **Apr 17, 2025** by **Brian Doyle**
+Last updated on **Apr 26, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -99,7 +99,7 @@ Cross-chain Bridges ↙](/evm/cross-chain-bridges)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Cadence Owned Accounts](#cadence-owned-accounts)
   + [Why use COAs?](#why-use-coas)

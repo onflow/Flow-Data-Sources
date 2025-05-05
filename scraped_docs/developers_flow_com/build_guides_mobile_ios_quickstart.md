@@ -668,7 +668,7 @@ The Agile Monkeys has written a very comprehensive guide on how to build a nativ
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/ios-quickstart.md)
 
-Last updated on **Apr 21, 2025** by **Illia**
+Last updated on **Apr 26, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -680,7 +680,7 @@ React Native Development](/build/guides/mobile/react-native-quickstart)
 
 😞😐😊
 
-Open in ChatGPT
+Copy as Markdown
 
 * [Github Repo](#github-repo)
 * [Building to Device](#building-to-device)
