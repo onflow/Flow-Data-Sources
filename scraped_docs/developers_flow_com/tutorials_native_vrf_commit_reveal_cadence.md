@@ -528,7 +528,7 @@ By harnessing the built-in randomness capabilities on Flow, you can now focus on
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/native-vrf/commit-reveal-cadence.md)
 
-Last updated on **Apr 30, 2025** by **Brian Doyle**
+Last updated on **May 5, 2025** by **Brian Doyle**
 
 [Previous
 

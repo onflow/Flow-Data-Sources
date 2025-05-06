@@ -120,11 +120,11 @@ Finally, open `next.config.ts` and update it to use the plugin with Raw Loader:
 
 _13
 
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 _13
 
-import FlowCadencePlugin from "flow-cadence-plugin";
+import FlowCadencePlugin from 'flow-cadence-plugin';
 
 _13
 
@@ -138,7 +138,7 @@ webpack: (config) => {
 
 _13
 
-config.plugins.push(new FlowCadencePlugin())
+config.plugins.push(new FlowCadencePlugin());
 
 _13
 
@@ -414,7 +414,7 @@ _20
 
 _20
 
-return {user, loggedIn: user?.addr != null, logIn, logOut};
+return { user, loggedIn: user?.addr != null, logIn, logOut };
 
 _20
 
@@ -446,27 +446,31 @@ Finally, open `layout.tsx`. Start by importing Flow dependencies and the AuthPro
 
 `_10
 
-import flowJSON from '../flow.json'
+import flowJSON from '../flow.json';
 
 _10
 
-import * as fcl from "@onflow/fcl";
+import * as fcl from '@onflow/fcl';
 
 _10
 
 _10
 
-import AuthProvider from "./providers/AuthProvider";`
+import AuthProvider from './providers/AuthProvider';`
 
 Then add your Flow config:
 
 `_10
 
-fcl.config({
+fcl
 
 _10
 
-"discovery.wallet": "https://fcl-discovery.onflow.org/authn",
+.config({
+
+_10
+
+'discovery.wallet': 'https://fcl-discovery.onflow.org/authn',
 
 _10
 
@@ -478,11 +482,15 @@ _10
 
 _10
 
-'walletconnect.projectId': process.env.NEXT_PUBLIC_WALLETCONNECT_ID
+'walletconnect.projectId': process.env.NEXT_PUBLIC_WALLETCONNECT_ID,
 
 _10
 
-}).load({ flowJSON });`
+})
+
+_10
+
+.load({ flowJSON });`
 
 warning
 
@@ -508,31 +516,35 @@ _30
 
 _30
 
-import "./globals.css";
+import './globals.css';
 
 _30
 
-import flowJSON from '../flow.json'
+import flowJSON from '../flow.json';
 
 _30
 
-import * as fcl from "@onflow/fcl";
-
-_30
-
-_30
-
-import AuthProvider from "./providers/AuthProvider";
+import * as fcl from '@onflow/fcl';
 
 _30
 
 _30
 
-fcl.config({
+import AuthProvider from './providers/AuthProvider';
 
 _30
 
-"discovery.wallet": "https://fcl-discovery.onflow.org/authn",
+_30
+
+fcl
+
+_30
+
+.config({
+
+_30
+
+'discovery.wallet': 'https://fcl-discovery.onflow.org/authn',
 
 _30
 
@@ -544,11 +556,15 @@ _30
 
 _30
 
-'walletconnect.projectId': process.env.NEXT_PUBLIC_WALLETCONNECT_ID
+'walletconnect.projectId': process.env.NEXT_PUBLIC_WALLETCONNECT_ID,
 
 _30
 
-}).load({ flowJSON });
+})
+
+_30
+
+.load({ flowJSON });
 
 _30
 
@@ -586,15 +602,7 @@ _30
 
 _30
 
-<AuthProvider>
-
-_30
-
-{children}
-
-_30
-
-</AuthProvider>
+<AuthProvider>{children}</AuthProvider>
 
 _30
 
@@ -618,7 +626,7 @@ Open `page.tsx` and clean up the demo code leaving only the `<main>` block:
 
 `_11
 
-import Image from "next/image";
+import Image from 'next/image';
 
 _11
 
@@ -666,7 +674,7 @@ Add a `'use client';` directive, import the `useAuth` hook and instantiate it in
 
 _10
 
-import { useAuth } from "./providers/AuthProvider";`
+import { useAuth } from './providers/AuthProvider';`
 
 `_10
 
@@ -700,7 +708,7 @@ _10
 
 _10
 
-{loggedIn ? "Log Out" : "Log In"}
+{loggedIn ? 'Log Out' : 'Log In'}
 
 _10
 
@@ -1216,7 +1224,7 @@ import React, { useState, useEffect } from 'react';
 
 _10
 
-import * as fcl from "@onflow/fcl";
+import * as fcl from '@onflow/fcl';
 
 _10
 
@@ -1320,19 +1328,11 @@ _10
 
 _10
 
-return (
+return <div>Nothing here yet</div>;
 
 _10
 
-<div>Nothing here yet</div>
-
-_10
-
-)
-
-_10
-
-}
+};
 
 _10
 
@@ -1410,7 +1410,7 @@ _23
 
 _23
 
-console.error("Error fetching linked addresses:", error);
+console.error('Error fetching linked addresses:', error);
 
 _23
 
@@ -1434,7 +1434,15 @@ Return to `page.tsx`, import your new component, and add an instance of `<Displa
 
 `_10
 
-{loggedIn && <DisplayLinkedNFTs address={user.addr} />}`
+{
+
+_10
+
+loggedIn && <DisplayLinkedNFTs address={user.addr} />;
+
+_10
+
+}`
 
 ### Testing[​](#testing "Direct link to Testing")
 
@@ -1506,145 +1514,209 @@ _15
 
 Next, add a rendering function with some basic styling:
 
-`_19
+`_33
 
 // Function to render moments with validation
 
-_19
+_33
 
 const renderMoments = (data: ApiResponse) => {
 
-_19
+_33
 
 return Object.entries(data).map(([addr, moments]) => (
 
-_19
+_33
 
-<div key={addr} className="border border-gray-300 rounded-lg shadow-sm p-4 mb-6 bg-white">
+<div
 
-_19
+_33
 
-<h4 className="text-lg font-semibold mb-4 text-gray-800">Linked Wallet: {addr}</h4>
+key={addr}
 
-_19
+_33
+
+className="border border-gray-300 rounded-lg shadow-sm p-4 mb-6 bg-white"
+
+_33
+
+>
+
+_33
+
+<h4 className="text-lg font-semibold mb-4 text-gray-800">
+
+_33
+
+Linked Wallet: {addr}
+
+_33
+
+</h4>
+
+_33
 
 <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
 
-_19
+_33
 
-{Object.entries(moments).map(([momentId, moment]) => (
+{Object.entries(moments).map(([momentId, moment]) =>
 
-_19
+_33
 
 isValidMoment(moment) ? (
 
-_19
+_33
 
-<div key={momentId} className="border border-gray-200 rounded-lg p-4 shadow hover:shadow-lg transition-shadow duration-200 bg-gray-50">
+<div
 
-_19
+_33
 
-<h5 className="text-md font-bold text-blue-600 mb-2">{moment.name}</h5>
+key={momentId}
 
-_19
+_33
+
+className="border border-gray-200 rounded-lg p-4 shadow hover:shadow-lg transition-shadow duration-200 bg-gray-50"
+
+_33
+
+>
+
+_33
+
+<h5 className="text-md font-bold text-blue-600 mb-2">
+
+_33
+
+{moment.name}
+
+_33
+
+</h5>
+
+_33
 
 <p className="text-sm text-gray-600 mb-4">{moment.description}</p>
 
-_19
+_33
 
-<img src={moment.thumbnail.url} alt={moment.name} className="w-full h-32 object-cover rounded" />
+<img
 
-_19
+_33
+
+src={moment.thumbnail.url}
+
+_33
+
+alt={moment.name}
+
+_33
+
+className="w-full h-32 object-cover rounded"
+
+_33
+
+/>
+
+_33
 
 </div>
 
-_19
+_33
 
-) : null
+) : null,
 
-_19
+_33
 
-))}
+)}
 
-_19
-
-</div>
-
-_19
+_33
 
 </div>
 
-_19
+_33
+
+</div>
+
+_33
 
 ));
 
-_19
+_33
 
 };`
 
 Finally, update the `return` with some more styling and the rendered NFT data:
 
-`_16
+`_18
 
 return (
 
-_16
+_18
 
 <div className="p-6 bg-gray-100 min-h-screen">
 
-_16
+_18
 
 {address ? (
 
-_16
+_18
 
 <div className="max-w-4xl mx-auto">
 
-_16
+_18
 
 <h3 className="text-2xl font-bold text-gray-800 mb-4">Moments Data:</h3>
 
-_16
+_18
 
 <div>
 
-_16
+_18
 
-{responseData ? renderMoments(responseData) : (
+{responseData ? (
 
-_16
+_18
 
-<p className="text-gray-500">No Moments Data Available</p>
+renderMoments(responseData)
 
-_16
-
-)}
-
-_16
-
-</div>
-
-_16
-
-</div>
-
-_16
+_18
 
 ) : (
 
-_16
+_18
 
-<div className="text-center text-gray-500 mt-8">No Address Provided</div>
+<p className="text-gray-500">No Moments Data Available</p>
 
-_16
+_18
 
 )}
 
-_16
+_18
 
 </div>
 
-_16
+_18
+
+</div>
+
+_18
+
+) : (
+
+_18
+
+<div className="text-center text-gray-500 mt-8">No Address Provided</div>
+
+_18
+
+)}
+
+_18
+
+</div>
+
+_18
 
 );`
 
@@ -1652,193 +1724,201 @@ _16
 
 Finally, you can polish up your `page.tsx` to look a little nicer, and guide your users to the Account Linking process in the Dapper Wallet:
 
-`_50
+`_52
 
 'use client';
 
-_50
+_52
 
-import DisplayLinkedNFTs from "./components/DisplayLinkedNFTs";
+import DisplayLinkedNFTs from './components/DisplayLinkedNFTs';
 
-_50
+_52
 
-import { useAuth } from "./providers/AuthProvider";
+import { useAuth } from './providers/AuthProvider';
 
-_50
+_52
 
-_50
+_52
 
 export default function Home() {
 
-_50
+_52
 
 const { user, loggedIn, logIn, logOut } = useAuth();
 
-_50
+_52
 
-_50
+_52
 
 return (
 
-_50
+_52
 
 <div className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 sm:p-20 bg-gray-100 font-sans">
 
-_50
+_52
 
 <main className="flex flex-col gap-8 row-start-2 items-center w-full max-w-5xl px-12 py-12 bg-white rounded-lg shadow-lg border border-gray-200">
 
-_50
+_52
 
 {/* Message visible for all users */}
 
-_50
+_52
 
 <p className="text-center text-gray-700 mb-4">
 
-_50
+_52
 
-Please link your Dapper wallet to view your NFTs. For more information, check the{" "}
+Please link your Dapper wallet to view your NFTs. For more
 
-_50
+_52
+
+information, check the{' '}
+
+_52
 
 <a
 
-_50
+_52
 
 href="https://support.meetdapper.com/hc/en-us/articles/20744347884819-Account-Linking-and-FAQ"
 
-_50
+_52
 
 target="_blank"
 
-_50
+_52
 
 rel="noopener noreferrer"
 
-_50
+_52
 
 className="text-blue-600 hover:text-blue-800 underline"
 
-_50
+_52
 
 >
 
-_50
+_52
 
 Account Linking and FAQ
 
-_50
+_52
 
-</a>.
+</a>
 
-_50
+_52
+
+.
+
+_52
 
 </p>
 
-_50
+_52
 
-_50
+_52
 
 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between w-full gap-6">
 
-_50
+_52
 
 {/* Display user address or linked NFTs if logged in */}
 
-_50
+_52
 
 {loggedIn ? (
 
-_50
+_52
 
 <div className="text-lg font-semibold text-gray-800">
 
-_50
+_52
 
 Address: {user.addr}
 
-_50
+_52
 
 </div>
 
-_50
+_52
 
 ) : (
 
-_50
+_52
 
 <div className="text-lg font-semibold text-gray-800">
 
-_50
+_52
 
 Please log in to view your linked NFTs.
 
-_50
+_52
 
 </div>
 
-_50
+_52
 
 )}
 
-_50
+_52
 
-_50
+_52
 
 {/* Login/Logout Button */}
 
-_50
+_52
 
 <button
 
-_50
+_52
 
 onClick={loggedIn ? logOut : logIn}
 
-_50
+_52
 
 className="px-6 py-2 text-white bg-blue-600 hover:bg-blue-700 rounded-lg shadow-md transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 sm:ml-auto"
 
-_50
+_52
 
 >
 
-_50
+_52
 
-{loggedIn ? "Log Out" : "Log In"}
+{loggedIn ? 'Log Out' : 'Log In'}
 
-_50
+_52
 
 </button>
 
-_50
+_52
 
 </div>
 
-_50
+_52
 
-_50
+_52
 
 {/* Display NFTs if logged in */}
 
-_50
+_52
 
 {loggedIn && <DisplayLinkedNFTs address={user.addr} />}
 
-_50
+_52
 
 </main>
 
-_50
+_52
 
 </div>
 
-_50
+_52
 
 );
 
-_50
+_52
 
 }`
 
@@ -1848,9 +1928,19 @@ Your app will now look like the [simple onchain app](https://nextjs-topshot-acco
 
 In this tutorial, you took your first steps towards building powerful new experiences that meet you customers where they are. They can keep their assets in the wallet associate with one app, but also give your app the ability to use them - seamlessly, safely, and beautifully!
 
+## Reference Solution[​](#reference-solution "Direct link to Reference Solution")
+
+warning
+
+You are **not** saving time by skipping the the reference implementation. You'll learn much faster by doing the tutorials as presented!
+
+Reference solutions are functional, but may not be optimal.
+
+[Reference Solution](https://github.com/briandoyle81/nextjs-topshot-account-linking)
+
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking-with-dapper.md)
 
-Last updated on **Apr 26, 2025** by **Brian Doyle**
+Last updated on **May 2, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -1886,6 +1976,7 @@ Copy as Markdown
   + [Displaying the Moments](#displaying-the-moments)
   + [Further Polish](#further-polish)
 * [Conclusion](#conclusion)
+* [Reference Solution](#reference-solution)
 
 Documentation
 

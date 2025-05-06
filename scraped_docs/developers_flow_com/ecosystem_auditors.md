@@ -24,7 +24,7 @@ Search
 * [VCs & Funds](/ecosystem/vcs-and-funds)
 * [Faucets](/ecosystem/faucets)
 * [Grants](/ecosystem/grants)
-* [Hackathons](/ecosystem/hackathons)
+* [Hackathons and Events](/ecosystem/Hackathons and Events)
 * [Auditors](/ecosystem/auditors)
 * [Ecosystem Overview](/ecosystem/overview)
 
@@ -62,11 +62,11 @@ The following companies provide independent contract auditing services of Cadenc
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/auditors.md)
 
-Last updated on **Apr 26, 2025** by **Brian Doyle**
+Last updated on **May 5, 2025** by **Brian Doyle**
 
 [Previous
 
-Hackathons](/ecosystem/hackathons)[Next
+May the Flow be with You](/ecosystem/Hackathons and Events/may-the-flow-be-with-you)[Next
 
 Ecosystem Overview](/ecosystem/overview)
 

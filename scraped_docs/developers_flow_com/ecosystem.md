@@ -24,7 +24,7 @@ Search
 * [VCs & Funds](/ecosystem/vcs-and-funds)
 * [Faucets](/ecosystem/faucets)
 * [Grants](/ecosystem/grants)
-* [Hackathons](/ecosystem/hackathons)
+* [Hackathons and Events](/ecosystem/Hackathons and Events)
 * [Auditors](/ecosystem/auditors)
 * [Ecosystem Overview](/ecosystem/overview)
 
@@ -76,9 +76,9 @@ Get free Flow tokens for testing. Faucets are like taps for tokens, useful for t
 
 Discover grant opportunities and funding programs available for Flow developers](/ecosystem/grants)
 
-[## 🚀 Hackathons
+[## 🚀 Hackathons and Events
 
-Participate in Flow hackathons to build, learn, and win prizes](/ecosystem/hackathons)
+1 items](/ecosystem/Hackathons and Events)
 
 [## 🔎 Auditors
 
@@ -98,7 +98,7 @@ Flow Improvement Proposals (FLIPs) serve as a platform for engaging the Flow com
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/index.mdx)
 
-Last updated on **Apr 26, 2025** by **Brian Doyle**
+Last updated on **May 5, 2025** by **Brian Doyle**
 
 [Next
 

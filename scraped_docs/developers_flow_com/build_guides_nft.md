@@ -1482,6 +1482,15 @@ about your projects on their apps and websites and are critical
 for every project to include if we want to have a vibrant and interoperable
 ecosystem.
 
+## Flow VM Bridge NFTs[​](#flow-vm-bridge-nfts "Direct link to Flow VM Bridge NFTs")
+
+Flow provides an EVM environment where projects can deploy
+their solidity smart contracts as an easier on-ramp to building on Flow.
+The [Cross-VM Bridge](https://www.github.com/onflow/flow-evm-bridge) enables the movement of
+fungible and non-fungible tokens between Flow-Cadence & Flow-EVM.
+
+Learn about how you can [bridge your NFTs to Flow-EVM](/tutorials/cross-vm-apps/vm-bridge#cross-vm-bridge) and how you can build your NFT project [to be compatible with the Flow VM bridge](/tutorials/cross-vm-apps/vm-bridge#prep-your-assets-for-bridging).
+
 ## Deploying the Contract[​](#deploying-the-contract "Direct link to Deploying the Contract")
 
 With your contract ready, it's time to deploy it.
@@ -2055,11 +2064,12 @@ Congrats, you did it! You're now ready to launch the next fun NFT project on Flo
 * Check out the [`Burner` contract](/build/core-contracts/burner), which is the standard
   that all projects should use for handling the destruction of any resource.
 * For a deeper dive into `MetadataViews`, consult the [introduction guide](/build/advanced-concepts/metadata-views) or [the FLIP that introduced this feature](https://github.com/onflow/flips/blob/main/application/20210916-nft-metadata.md).
+* Learn about how you can [bridge your NFTs to Flow-EVM](/tutorials/cross-vm-apps/vm-bridge#cross-vm-bridge) and how you can build your NFT project [to be compatible with the Flow VM bridge](/tutorials/cross-vm-apps/vm-bridge#prep-your-assets-for-bridging).
 * Use a [no code tool for creating NFT projects on Flow](https://www.touchstone.city/)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/nft.md)
 
-Last updated on **Apr 26, 2025** by **Brian Doyle**
+Last updated on **May 5, 2025** by **Josh Hannan**
 
 [Previous
 
@@ -2084,6 +2094,7 @@ Copy as Markdown
   + [Applying the Standard](#applying-the-standard)
   + [Standard NFT Events](#standard-nft-events)
   + [Supporting NFT Metadata](#supporting-nft-metadata)
+* [Flow VM Bridge NFTs](#flow-vm-bridge-nfts)
 * [Deploying the Contract](#deploying-the-contract)
 * [Creating an NFTCollection](#creating-an-nftcollection)
 * [Get an Account's NFTs](#get-an-accounts-nfts)

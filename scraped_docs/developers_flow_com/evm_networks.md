@@ -34,7 +34,7 @@ Flow EVM has the following public RPC nodes available:
 
 | Name | Value |
 | --- | --- |
-| Network Name | Flow EVM |
+| Network Name | Flow EVM Mainnet |
 | Description | The public RPC URL for Flow Mainnet |
 | RPC Endpoint | <https://mainnet.evm.nodes.onflow.org> |
 | Chain ID | 747 |
@@ -54,7 +54,7 @@ Flow EVM has the following public RPC nodes available:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/networks.md)
 
-Last updated on **Apr 26, 2025** by **Brian Doyle**
+Last updated on **May 5, 2025** by **Brian Doyle**
 
 [Previous
 
