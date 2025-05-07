@@ -1940,7 +1940,7 @@ Reference solutions are functional, but may not be optimal.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking-with-dapper.md)
 
-Last updated on **May 2, 2025** by **Brian Doyle**
+Last updated on **May 5, 2025** by **Brian Doyle**
 
 [Previous
 

@@ -990,7 +990,7 @@ For additional details and advanced usage, refer to the [@onflow/kit documentati
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/fcl-quickstart.md)
 
-Last updated on **Apr 26, 2025** by **Brian Doyle**
+Last updated on **May 5, 2025** by **Brian Doyle**
 
 [Previous
 
