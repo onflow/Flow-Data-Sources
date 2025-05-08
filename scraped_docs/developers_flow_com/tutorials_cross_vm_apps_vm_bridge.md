@@ -34,10 +34,18 @@ On this page
 # Cross-VM Bridge
 
 Flow provides the [Cross-VM Bridge](https://www.github.com/onflow/flow-evm-bridge) which enables the movement of
-fungible and non-fungible tokens between Cadence & EVM. The Cross-VM Bridge is a contract-based protocol enabling the
+fungible and non-fungible tokens between Flow-Cadence & Flow-EVM. The Cross-VM Bridge is a contract-based protocol enabling the
 automated and atomic bridging of tokens from Cadence into EVM with their corresponding ERC-20 and ERC-721 token types.
 In the opposite direction, it supports bridging of arbitrary ERC-20 and ERC-721 tokens from EVM to Cadence as their
 corresponding FT or NFT token types.
+
+By default, when a user onboards a new token to the bridge,
+the bridge will deploy a standard token contract in the other VM that only the core bridge
+protocol contracts retain limited control over. This bridge-deployed contract handles basic
+minting and metadata operations that are required for usage in the needed environment.
+If a developer wants to define and connect the NFT contracts on both sides of the bridge,
+they can have each contract point to each other to indicate that they are associated and then
+register that association with the bridge so the token moves between VMs as either definition.
 
 The Cross-VM Bridge internalizes the capabilities to deploy new token contracts in either VM state as needed, resolving
 access to, and maintaining links between associated contracts. It additionally automates account and contract calls to
@@ -48,7 +56,9 @@ functionality is not currently available natively in Flow EVM. By extension, thi
 from EVM to Cadence must be a [`CadenceOwnedAccount` (COA)](/tutorials/cross-vm-apps/interacting-with-coa) as this is the only EVM account
 type that can be controlled from the Cadence runtime.
 
-This [FLIP](https://github.com/onflow/flips/pull/233) outlines the architecture and implementation of the VM bridge.
+This [FLIP-233](https://github.com/onflow/flips/pull/233) outlines the architecture and implementation of the VM bridge.
+An additional [FLIP-318](https://github.com/onflow/flips/blob/main/application/20250131-cross-vm-nft-support.md) describes how developers can create custom associations
+between NFTs they define and control in each VM.
 This document will focus on how to use the Cross-VM Bridge and considerations for fungible and non-fungible token
 projects deploying to either Cadence or EVM.
 
@@ -81,7 +91,7 @@ activity must be initiated via a Cadence transaction, not an EVM transaction reg
 bridge request. For more information on the interplay between Cadence and EVM, see [How Flow EVM
 Works](/evm/how-it-works).
 
-### Overview[​](#overview "Direct link to Overview")
+## Overview[​](#overview "Direct link to Overview")
 
 The Flow EVM bridge allows both fungible and non-fungible tokens to move atomically between Cadence and EVM. In the
 context of EVM, fungible tokens are defined as ERC20 tokens, and non-fungible tokens as ERC721 tokens. In Cadence,
@@ -90,24 +100,67 @@ fungible tokens are defined by contracts implementing
 and non-fungible tokens implement
 [the `NonFungibleToken` interface](https://github.com/onflow/flow-nft/blob/master/contracts/NonFungibleToken.cdc).
 
+You can find full guides for creating these projects [here](/build/guides/nft).
+
 Like all operations on Flow, there are native fees associated with both computation and storage. To prevent spam and
 sustain the bridge account's storage consumption, fees are charged for both onboarding assets and bridging assets. In
 the case where storage consumption is expected, fees are charged based on the storage consumed at the current network
 storage rate.
 
-### Onboarding[​](#onboarding "Direct link to Onboarding")
+## Onboarding Your token to the Bridge[​](#onboarding-your-token-to-the-bridge "Direct link to Onboarding Your token to the Bridge")
 
-Since a contract must define the asset in the target VM, an asset must be "onboarded" to the bridge before requests can
-be fulfilled.
+For the purpose of this guide, we are assuming that the developer has already deployed
+a token smart contract to their preferred VM (Flow-Cadence or Flow-EVM) and wants
+to bridge it to the other (target) VM.
 
-Moving from Cadence to EVM, onboarding can occur on the fly, deploying a template contract in the same transaction as
+In order for the developer's token to be usable in the target VM, there must be a contract
+that defines the asset and how it behaves in the target VM that also enables the bridge to
+fulfill the asset from Cadence to EVM and vice versa. This contract is separate from the
+contract in the native VM, but they are "associated" with each other by the mechanisms of
+the Flow VM bridge.
+
+To create this association, the asset must be "onboarded" to the bridge
+before bridging operations can be fulfilled. This can happen in two ways:
+
+### Option 1: Automatic Onboarding[​](#option-1-automatic-onboarding "Direct link to Option 1: Automatic Onboarding")
+
+Any user registers the native token contract with the bridge and the bridge deploys
+a basic templated version of the contract in the target VM. This basic contract is automatically
+associated with the native contract and is used for bridging. The developer has no direct control
+over this bridge-deployed contract because it is controlled by the bridge.
+
+This method is covered in the [Automatic Onboarding Section](#automatic-onboarding)
+
+### Option 2: Custom Association Onboarding[​](#option-2-custom-association-onboarding "Direct link to Option 2: Custom Association Onboarding")
+
+With this option (available for only for NFTs) developers can deploy their own contract to the
+target VM and declare a custom association between it and the native contract. This allows
+them to have more control over both contracts, enabling them to include more sophisticated
+features and mechanisms in their bridged token contracts such as ERC-721C, unique metadata
+views, and more that aren't included in the default bridged template versions.
+
+This method is covered in the [Custom Association Section](#custom-association-onboarding)
+
+info
+
+Before continuing with onboarding your token, you should review
+the [Prep Your Assets for Bridging](#prep-your-assets-for-bridging) section of this document.
+This describes some steps you should follow to make sure that your native asset and/or
+bridged asset are properly set up for you to register them with the bridge.
+
+## Automatic Onboarding[​](#automatic-onboarding "Direct link to Automatic Onboarding")
+
+Moving from a Cadence-native asset to EVM, automatic onboarding can occur on the fly,
+deploying a template contract in the same transaction as
 the asset is bridged to EVM if the transaction so specifies.
 
 Moving from EVM to Cadence, however, requires that onboarding occur in a separate transaction due to the fact that a
 Cadence contract is initialized at the end of a transaction and isn't available in the runtime until after the
 transaction has executed.
 
-Below are transactions relevant to onboarding assets:
+Below are transactions relevant to automatically onboarding assets native to either VM:
+
+**Automatically Onboard a Cadence-native asset:**
 
 onboard\_by\_type.cdc
 
@@ -319,6 +372,8 @@ _56
 
 }`
 
+**Automatically Onboard an EVM-native asset:**
+
 onboard\_by\_evm\_address.cdc
 
 onboard\_by\_evm\_address.cdc
@@ -527,9 +582,379 @@ _55
 
 }`
 
-### Bridging[​](#bridging "Direct link to Bridging")
+## Custom Association Onboarding[​](#custom-association-onboarding "Direct link to Custom Association Onboarding")
 
-Once an asset has been onboarded, either by its Cadence type or EVM contract address, it can be bridged in either
+With [Custom Associations](https://github.com/onflow/flips/blob/main/application/20250131-cross-vm-nft-support.md),
+developers can deploy NFT contracts in both VMs and associate them with each other,
+allowing them to retain control of the contracts in both VMs as well as implement custom
+use-case specific functionality.
+
+In order to do this, each contract must implement a special interface
+that tells the bridge what the associated contract is in the other VM.
+The fact that both point to each other validates the intended association,
+preventing spoofing. If the contracts do not point to each other this way,
+they will not be able to be registered as a custom association.
+
+Review the [Preparing Custom Associations](#preparing-custom-associations) section
+to learn how to set up each of your contracts for a custom association.
+
+Below is the transaction for onboarding NFTs for a custom association.
+Remember that both the Cadence and the Solidity contract need to be deployed
+and include the special interface conformances to point to each other before registration!
+
+**Onboard an NFT Custom Association:**
+
+register\_cross\_vm\_nft.cdc
+
+onboard\_by\_type.cdc
+
+`_90
+
+import "FungibleToken"
+
+_90
+
+import "NonFungibleToken"
+
+_90
+
+import "CrossVMMetadataViews"
+
+_90
+
+import "EVM"
+
+_90
+
+_90
+
+import "ScopedFTProviders"
+
+_90
+
+import "FlowEVMBridgeCustomAssociationTypes"
+
+_90
+
+import "FlowEVMBridgeCustomAssociations"
+
+_90
+
+import "FlowEVMBridge"
+
+_90
+
+import "FlowEVMBridgeConfig"
+
+_90
+
+_90
+
+/// This transaction will register an NFT type as a custom cross-VM NFT. The Cadence contract must implement the
+
+_90
+
+/// CrossVMMetadata.EVMPointer view and the corresponding ERC721 must implement ICrossVM interface such that the Type
+
+_90
+
+/// points to the EVM contract and vice versa. If the NFT is EVM-native, a
+
+_90
+
+/// FlowEVMBridgeCustomAssociations.NFTFulfillmentMinter Capability must be provided, allowing the bridge to fulfill
+
+_90
+
+/// requests moving the ERC721 from EVM into Cadence.
+
+_90
+
+///
+
+_90
+
+/// See FLIP-318 for more information on implementing custom cross-VM NFTs: https://github.com/onflow/flips/issues/318
+
+_90
+
+///
+
+_90
+
+/// @param nftTypeIdentifer: The type identifier of the NFT being registered as a custom cross-VM implementation
+
+_90
+
+/// @param fulfillmentMinterPath: The StoragePath where the NFTFulfillmentMinter is stored
+
+_90
+
+///
+
+_90
+
+transaction(nftTypeIdentifier: String, fulfillmentMinterPath: StoragePath?) {
+
+_90
+
+_90
+
+let nftType: Type
+
+_90
+
+let fulfillmentMinterCap: Capability<auth(FlowEVMBridgeCustomAssociationTypes.FulfillFromEVM) &{FlowEVMBridgeCustomAssociationTypes.NFTFulfillmentMinter}>?
+
+_90
+
+let scopedProvider: @ScopedFTProviders.ScopedFTProvider
+
+_90
+
+let expectedAssociation: EVM.EVMAddress
+
+_90
+
+_90
+
+prepare(signer: auth(CopyValue, BorrowValue, IssueStorageCapabilityController, PublishCapability, SaveValue) &Account) {
+
+_90
+
+/* --- Assign registration fields --- */
+
+_90
+
+//
+
+_90
+
+self.nftType = CompositeType(nftTypeIdentifier) ?? panic("Could not construct type from identifier ".concat(nftTypeIdentifier))
+
+_90
+
+if fulfillmentMinterPath != nil {
+
+_90
+
+assert(
+
+_90
+
+signer.storage.type(at: fulfillmentMinterPath!) != nil,
+
+_90
+
+message: "There was no resource found at provided path ".concat(fulfillmentMinterPath!.toString())
+
+_90
+
+)
+
+_90
+
+self.fulfillmentMinterCap = signer.capabilities.storage
+
+_90
+
+.issue<auth(FlowEVMBridgeCustomAssociationTypes.FulfillFromEVM) &{FlowEVMBridgeCustomAssociationTypes.NFTFulfillmentMinter}>(
+
+_90
+
+fulfillmentMinterPath!
+
+_90
+
+)
+
+_90
+
+} else {
+
+_90
+
+self.fulfillmentMinterCap = nil
+
+_90
+
+}
+
+_90
+
+_90
+
+/* --- Configure a ScopedFTProvider --- */
+
+_90
+
+//
+
+_90
+
+// Issue and store bridge-dedicated Provider Capability in storage if necessary
+
+_90
+
+if signer.storage.type(at: FlowEVMBridgeConfig.providerCapabilityStoragePath) == nil {
+
+_90
+
+let providerCap = signer.capabilities.storage.issue<auth(FungibleToken.Withdraw) &{FungibleToken.Provider}>(
+
+_90
+
+/storage/flowTokenVault
+
+_90
+
+)
+
+_90
+
+signer.storage.save(providerCap, to: FlowEVMBridgeConfig.providerCapabilityStoragePath)
+
+_90
+
+}
+
+_90
+
+// Copy the stored Provider capability and create a ScopedFTProvider
+
+_90
+
+let providerCapCopy = signer.storage.copy<Capability<auth(FungibleToken.Withdraw) &{FungibleToken.Provider}>>(
+
+_90
+
+from: FlowEVMBridgeConfig.providerCapabilityStoragePath
+
+_90
+
+) ?? panic("Invalid Provider Capability found in storage.")
+
+_90
+
+let providerFilter = ScopedFTProviders.AllowanceFilter(FlowEVMBridgeConfig.onboardFee)
+
+_90
+
+self.scopedProvider <- ScopedFTProviders.createScopedFTProvider(
+
+_90
+
+provider: providerCapCopy,
+
+_90
+
+filters: [ providerFilter ],
+
+_90
+
+expiration: getCurrentBlock().timestamp + 1.0
+
+_90
+
+)
+
+_90
+
+_90
+
+/* --- Assign the expected EVM address --- */
+
+_90
+
+//
+
+_90
+
+let resolver = getAccount(self.nftType.address!).contracts.borrow<&{NonFungibleToken}>(name: self.nftType.contractName!)
+
+_90
+
+?? panic("Could not borrow NFT contract for NFT type \(nftTypeIdentifier)")
+
+_90
+
+let evmPointer = resolver.resolveContractView(resourceType: self.nftType, viewType: Type<CrossVMMetadataViews.EVMPointer>()) as! CrossVMMetadataViews.EVMPointer?
+
+_90
+
+?? panic("Cross-VM NFTs must implement CrossVMMetadataViews.EVMPointer view but none was found for NFT \(nftTypeIdentifier)")
+
+_90
+
+self.expectedAssociation = evmPointer.evmContractAddress
+
+_90
+
+}
+
+_90
+
+_90
+
+execute {
+
+_90
+
+FlowEVMBridge.registerCrossVMNFT(
+
+_90
+
+type: self.nftType,
+
+_90
+
+fulfillmentMinter: self.fulfillmentMinterCap,
+
+_90
+
+feeProvider: &self.scopedProvider as auth(FungibleToken.Withdraw) &{FungibleToken.Provider}
+
+_90
+
+)
+
+_90
+
+destroy self.scopedProvider
+
+_90
+
+}
+
+_90
+
+_90
+
+post {
+
+_90
+
+FlowEVMBridgeConfig.getEVMAddressAssociated(with: self.nftType)?.equals(self.expectedAssociation) ?? false:
+
+_90
+
+"Expected final association with \(nftTypeIdentifier) to be set to \(self.expectedAssociation.toString()) but found "
+
+_90
+
+.concat(FlowEVMBridgeConfig.getEVMAddressAssociated(with: self.nftType)?.toString() ?? "nil")
+
+_90
+
+}
+
+_90
+
+}`
+
+## Bridging[​](#bridging "Direct link to Bridging")
+
+Once an asset has been onboarded, either by automatic or custom association, it can be bridged in either
 direction, referred to by its Cadence type. For Cadence-native assets, this is simply its native type. For EVM-native
 assets, this is in most cases a templated Cadence contract deployed to the bridge account, the name of which is derived
 from the EVM contract address. For instance, an ERC721 contract at address `0x1234` would be onboarded to the bridge as
@@ -2658,6 +3083,674 @@ then committed as the ERC721 `tokenURI` upon bridging Cadence-native NFTs to EVM
 onchain metadata either by field or by the ownership of sub-NFTs, this serialization pattern enables token URI updates
 on subsequent bridge requests.
 
+### Preparing Custom Associations[​](#preparing-custom-associations "Direct link to Preparing Custom Associations")
+
+If you are a developer who wants to deploy and manage NFT contracts in both VMs
+and have tokens from each be exchangable for each other,
+you'll have to add some code to your contracts so they point to each other,
+indicating that they each represent the same token in their respective VMs.
+
+For the purposes of these instructions, an NFT is native to a VM if that VM
+is the main source of truth for the contracts and where they are originally minted.
+
+This feature is not available for Fungible Tokens at the moment, but may be in the future.
+
+warning
+
+Note that the bridge only supports a single custom association declaration. This
+means that once you register an association between your Cadence NFT & EVM
+contract, the association cannot be updated. If you wish to retain some upgradeability
+to your registered implementations, it's recommended that you both retain keys on
+your Cadence NFT contract account \*\*and \*\* implement an upgradeable Solidity pattern
+when deploying your ERC721, then register the association between your Cadence NFT
+Type & ERC721 proxy (not the implementation address).
+
+#### Cadence[​](#cadence "Direct link to Cadence")
+
+All Cadence NFT contracts implement [Metadata Views](/build/advanced-concepts/metadata-views)
+that return metadata about their NFTs in standard ways
+via the `{Contract}.resolveContractView()` and `{NFT}.resolveView()` methods.
+
+The following new view (`CrossVMMetadataViews.EVMPointer`) **must** be resolved at the contract level (`ViewResolver.resolveContractView()`) for a given Type
+**and** at the NFT level (`ViewResolver.Resolver.resolveView()`)
+
+`_11
+
+/// View resolved at contract & resource level pointing to the associated EVM implementation
+
+_11
+
+access(all) struct EVMPointer {
+
+_11
+
+/// The associated Cadence Type
+
+_11
+
+access(all) let cadenceType: Type
+
+_11
+
+/// The defining Cadence contract address
+
+_11
+
+access(all) let cadenceContractAddress: Address
+
+_11
+
+/// The associated EVM contract address
+
+_11
+
+access(all) let evmContractAddress: EVM.EVMAddress
+
+_11
+
+/// Whether the asset is Cadence- or EVM-native
+
+_11
+
+access(all) let isCadenceNative: Bool
+
+_11
+
+}`
+
+This view allows a Cadence contract to specify which Solidity contract it is associated with.
+
+You can see an example of how this view is implemented in
+[the `ExampleNFT` contract](https://github.com/onflow/flow-nft/blob/master/contracts/ExampleNFT.cdc#L173-L195)
+in the Flow Non-Fungible Token repo.
+
+If your EVM contract expects metadata to be passed from Cadence at the time of
+bridging, you must implement the `CrossVMMetadataViews.EVMBytesMetadata`
+view. You'll find this useful for Cadence-native NFTs with dynamic metadata.
+This view will be resolved by the bridge and passed to your EVM contract
+when the `fulfillToEVM` method is called.
+
+How you handle the bridged bytes in your ERC721 implementation will be a matter
+of overriding the `_beforeFulfillment` and/or `_afterFulfillment` hooks included in the
+`CrossVMBridgeERC721Fulfillment` base contract.
+
+**Flow EVM-Native NFTs**
+
+If the NFT being onboarded to the bridge is native to Flow-EVM, then the associated contract's
+minter resource must implement the `FlowEVMBridgeCustomAssociationTypes.NFTFulfillmentMinter` interface:
+
+`_29
+
+/// Resource interface used by EVM-native NFT collections allowing for the fulfillment of NFTs from EVM into Cadence
+
+_29
+
+///
+
+_29
+
+access(all) resource interface NFTFulfillmentMinter {
+
+_29
+
+/// Getter for the type of NFT that's fulfilled by this implementation
+
+_29
+
+///
+
+_29
+
+access(all) view fun getFulfilledType(): Type
+
+_29
+
+_29
+
+/// Called by the VM bridge when moving NFTs from EVM into Cadence if the NFT is not in escrow. Since such NFTs
+
+_29
+
+/// are EVM-native, they are distributed in EVM. On the Cadence side, those NFTs are handled by a mint & escrow
+
+_29
+
+/// pattern. On moving to EVM, the NFTs are minted if not in escrow at the time of bridging.
+
+_29
+
+///
+
+_29
+
+/// @param id: The id of the token being fulfilled from EVM
+
+_29
+
+///
+
+_29
+
+/// @return The NFT fulfilled from EVM as its Cadence implementation
+
+_29
+
+///
+
+_29
+
+access(FulfillFromEVM)
+
+_29
+
+fun fulfillFromEVM(id: UInt256): @{NonFungibleToken.NFT} {
+
+_29
+
+pre {
+
+_29
+
+id <= UInt256(UInt64.max):
+
+_29
+
+"The requested ID \(id.toString()) exceeds the maximum assignable Cadence NFT ID \(UInt64.max.toString())"
+
+_29
+
+}
+
+_29
+
+post {
+
+_29
+
+UInt256(result.id) == id:
+
+_29
+
+"Resulting NFT ID \(result.id.toString()) does not match requested ID \(id.toString())"
+
+_29
+
+result.getType() == self.getFulfilledType():
+
+_29
+
+"Expected \(self.getFulfilledType().identifier) but fulfilled \(result.getType().identifier)"
+
+_29
+
+}
+
+_29
+
+}
+
+_29
+
+}`
+
+You can see an example of an implementation of this interface in
+the [Flow EVM bridge repo ExampleNFT contract](https://github.com/onflow/flow-evm-bridge/blob/flip-318/cadence/contracts/example-assets/cross-vm-nfts/ExampleEVMNativeNFT.cdc#L352-L377).
+
+A Capability with the `FulfillFromEVM` entitlement is required at the time of registration so the bridge
+can fulfill NFTs bridged from EVM for the first time.
+
+#### Solidity[​](#solidity "Direct link to Solidity")
+
+For custom associations, the following interface **must** be implemented in the IERC721-conforming Solidity contract.
+
+This provides functionality to point to the address and type
+of the associated Cadence NFT.
+
+`_10
+
+interface ICrossVM {
+
+_10
+
+/**
+
+_10
+
+* Returns the Cadence address defining the associated type
+
+_10
+
+*/
+
+_10
+
+function getCadenceAddress() external view returns (string memory);
+
+_10
+
+/**
+
+_10
+
+* Returns the Cadence Type identifier associated with the EVM contract
+
+_10
+
+*/
+
+_10
+
+function getCadenceIdentifier() external view returns (string memory);
+
+_10
+
+}`
+
+As an example, [`ICrossVM` is already
+implemented](https://github.com/onflow/flow-evm-bridge/blob/main/solidity/src/interfaces/ICrossVM.sol)
+and in use in the bridged [ERC721](https://github.com/onflow/flow-evm-bridge/blob/flip-318/solidity/src/templates/FlowEVMBridgedERC721.sol#L37-L43)
+and [ERC20](https://github.com/onflow/flow-evm-bridge/blob/flip-318/solidity/src/templates/FlowEVMBridgedERC20.sol#L13-L40) templates.
+
+If you are registering a custom association for an NFT that is native to Cadence, meaning that your project distributes NFTs to users on the Cadence side,
+then your ERC721 contract will need to implement the `CrossVMBridgeERC721Fulfillment` contract. This is
+a required conformance that does three primary things:
+
+1. Implements the mint/escrow pattern expected by the VM bridge
+2. Allows for the passing of arbitrary abi-encodable metadata from the Cadence NFT at the time of bridging
+3. Exposes two optional hooks enabling you to update the fulfilled token's URI with the provided metadata at the time of bridging
+
+Here is the Solidity contract to implement:
+
+`_100
+
+abstract contract CrossVMBridgeERC721Fulfillment is ICrossVMBridgeERC721Fulfillment, CrossVMBridgeCallable, ERC721 {
+
+_100
+
+_100
+
+/**
+
+_100
+
+* Initializes the bridge EVM address such that only the bridge COA can call privileged methods
+
+_100
+
+*/
+
+_100
+
+constructor(address _vmBridgeAddress) CrossVMBridgeCallable(_vmBridgeAddress) {}
+
+_100
+
+_100
+
+/**
+
+_100
+
+* @dev Fulfills the bridge request, minting (if non-existent) or transferring (if escrowed) the
+
+_100
+
+* token with the given ID to the provided address. For dynamic metadata handling between
+
+_100
+
+* Cadence & EVM, implementations should override and assign metadata as encoded from Cadence
+
+_100
+
+* side. If overriding, be sure to preserve the mint/escrow pattern as shown in the default
+
+_100
+
+* implementation. See `_beforeFulfillment` and `_afterFulfillment` hooks to enable pre-and/or
+
+_100
+
+* post-processing without the need to override this function.
+
+_100
+
+*
+
+_100
+
+* @param _to address of the token recipient
+
+_100
+
+* @param _id the id of the token being moved into EVM from Cadence
+
+_100
+
+* @param _data any encoded metadata passed by the corresponding Cadence NFT at the time of
+
+_100
+
+* bridging into EVM
+
+_100
+
+*/
+
+_100
+
+function fulfillToEVM(address _to, uint256 _id, bytes memory _data) external onlyVMBridge {
+
+_100
+
+_beforeFulfillment(_to, _id, _data); // hook allowing implementation to perform pre-fulfillment validation
+
+_100
+
+if (_ownerOf(_id) == address(0)) {
+
+_100
+
+_mint(_to, _id); // Doesn't exist, mint the token
+
+_100
+
+} else {
+
+_100
+
+// Should be escrowed under vm bridge - transfer from escrow to recipient
+
+_100
+
+_requireEscrowed(_id);
+
+_100
+
+safeTransferFrom(vmBridgeAddress(), _to, _id);
+
+_100
+
+}
+
+_100
+
+_afterFulfillment(_to, _id, _data); // hook allowing implementation to perform post-fulfillment processing
+
+_100
+
+emit FulfilledToEVM(_to, _id);
+
+_100
+
+}
+
+_100
+
+_100
+
+/**
+
+_100
+
+* @dev Returns whether the token is currently escrowed under custody of the designated VM bridge
+
+_100
+
+*
+
+_100
+
+* @param _id the ID of the token in question
+
+_100
+
+*/
+
+_100
+
+function isEscrowed(uint256 _id) public view returns (bool) {
+
+_100
+
+return _ownerOf(_id) == vmBridgeAddress();
+
+_100
+
+}
+
+_100
+
+_100
+
+/**
+
+_100
+
+* @dev Returns whether the token is exists or not defined positively by whether the owner of
+
+_100
+
+* the token is 0x0.
+
+_100
+
+*
+
+_100
+
+* @param _id the ID of the token in question
+
+_100
+
+*/
+
+_100
+
+function exists(uint256 _id) public view returns (bool) {
+
+_100
+
+return _ownerOf(_id) != address(0);
+
+_100
+
+}
+
+_100
+
+_100
+
+/**
+
+_100
+
+* @dev Allows a caller to determine the contract conforms to implemented interfaces
+
+_100
+
+*/
+
+_100
+
+function supportsInterface(bytes4 interfaceId) public view virtual override(CrossVMBridgeCallable, ERC721, IERC165) returns (bool) {
+
+_100
+
+return interfaceId == type(ICrossVMBridgeERC721Fulfillment).interfaceId
+
+_100
+
+|| interfaceId == type(ICrossVMBridgeCallable).interfaceId
+
+_100
+
+|| super.supportsInterface(interfaceId);
+
+_100
+
+}
+
+_100
+
+_100
+
+/**
+
+_100
+
+* @dev Internal method that reverts with FulfillmentFailedTokenNotEscrowed if the provided
+
+_100
+
+* token is not escrowed with the assigned vm bridge address as owner.
+
+_100
+
+*
+
+_100
+
+* @param _id the token id that must be escrowed
+
+_100
+
+*/
+
+_100
+
+function _requireEscrowed(uint256 _id) internal view {
+
+_100
+
+if (!isEscrowed(_id)) {
+
+_100
+
+revert FulfillmentFailedTokenNotEscrowed(_id, vmBridgeAddress());
+
+_100
+
+}
+
+_100
+
+}
+
+_100
+
+_100
+
+/**
+
+_100
+
+* @dev This internal method is included as a step implementations can override and have
+
+_100
+
+* executed in the default fullfillToEVM call.
+
+_100
+
+*
+
+_100
+
+* @param _to address of the pending token recipient
+
+_100
+
+* @param _id the id of the token to be moved into EVM from Cadence
+
+_100
+
+* @param _data any encoded metadata passed by the corresponding Cadence NFT at the time of
+
+_100
+
+* bridging into EVM
+
+_100
+
+*/
+
+_100
+
+function _beforeFulfillment(address _to, uint256 _id, bytes memory _data) internal virtual {
+
+_100
+
+// No-op by default, meant to be overridden by implementations
+
+_100
+
+}
+
+_100
+
+_100
+
+/**
+
+_100
+
+* @dev This internal method is included as a step implementations can override and have
+
+_100
+
+* executed in the default fullfillToEVM call.
+
+_100
+
+*
+
+_100
+
+* @param _to address of the pending token recipient
+
+_100
+
+* @param _id the id of the token to be moved into EVM from Cadence
+
+_100
+
+* @param _data any encoded metadata passed by the corresponding Cadence NFT at the time of
+
+_100
+
+* bridging into EVM
+
+_100
+
+*/
+
+_100
+
+function _afterFulfillment(address _to, uint256 _id, bytes memory _data) internal virtual {
+
+_100
+
+// No-op by default, meant to be overridden by implementations for things like processing
+
+_100
+
+// and setting metadata
+
+_100
+
+}
+
+_100
+
+}`
+
+Note the `_beforeFulfillment()` and `_afterFulfillment()` hooks are `virtual`, allowing implementations
+to optionally override the methods and handle the provided metadata passed from your NFT if
+`EVMBytesMetadata` is resolved at the time of bridging. Also, notice that the `fulfillToEVM` method
+is `onlyVMBridge`, allowing on the VM bridge to call the method either minting the NFT if it does not
+exist or transferring the NFT from escrow in a manner consistent with the bridge's mint/escrow pattern.
+
 ### Opting Out[​](#opting-out "Direct link to Opting Out")
 
 It's also recognized that the logic of some use cases may actually be compromised by the act of bridging, particularly
@@ -2700,7 +3793,7 @@ For the current state of Flow EVM across various task paths, see the following r
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/vm-bridge.md)
 
-Last updated on **Apr 25, 2025** by **Brian Doyle**
+Last updated on **May 5, 2025** by **Josh Hannan**
 
 [Previous
 
@@ -2716,13 +3809,18 @@ Copy as Markdown
 
 * [Deployments](#deployments)
 * [Interacting With the Bridge](#interacting-with-the-bridge)
-  + [Overview](#overview)
-  + [Onboarding](#onboarding)
-  + [Bridging](#bridging)
+* [Overview](#overview)
+* [Onboarding Your token to the Bridge](#onboarding-your-token-to-the-bridge)
+  + [Option 1: Automatic Onboarding](#option-1-automatic-onboarding)
+  + [Option 2: Custom Association Onboarding](#option-2-custom-association-onboarding)
+* [Automatic Onboarding](#automatic-onboarding)
+* [Custom Association Onboarding](#custom-association-onboarding)
+* [Bridging](#bridging)
 * [Prep Your Assets for Bridging](#prep-your-assets-for-bridging)
   + [Context](#context)
   + [EVMBridgedMetadata](#evmbridgedmetadata)
   + [SerializeMetadata](#serializemetadata)
+  + [Preparing Custom Associations](#preparing-custom-associations)
   + [Opting Out](#opting-out)
 * [Under the Hood](#under-the-hood)
   + [Additional Resources](#additional-resources)

@@ -46,7 +46,7 @@ Manual method: Add Flow EVM as a custom network to MetaMask:
 
 | Name | Value |
 | --- | --- |
-| Network Name | Flow EVM |
+| Network Name | Flow EVM Mainnet |
 | Description | The public RPC url for Flow Mainnet |
 | RPC Endpoint | <https://mainnet.evm.nodes.onflow.org> |
 | Chain ID | 747 |
@@ -132,7 +132,7 @@ To use the Flow Wallet Chrome extension:
 | [eth\_sendTransaction](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_sendtransaction) | 🚧 | Unsupported |
 | [eth\_sign](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_sign) | 🚧 | Unsupported |
 | [eth\_signTransaction](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_signtransaction) | 🚧 | Unsupported |
-| [eth\_syncing](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_syncing) | ✅ |  |
+| [eth\_syncing](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_syncing) |   ✅ |  |
 | [eth\_uninstallFilter](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_uninstallfilter) | ✅ |  |
 | [eth\_maxPriorityFeePerGas] | ✅ |  |
 | [eth\_feeHistory] | ✅ |  |
@@ -147,7 +147,7 @@ Read more about the [EVM Gateway](https://github.com/onflow/flow-evm-gateway) on
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/using.mdx)
 
-Last updated on **Apr 26, 2025** by **Brian Doyle**
+Last updated on **May 5, 2025** by **Josh Hannan**
 
 [Previous
 

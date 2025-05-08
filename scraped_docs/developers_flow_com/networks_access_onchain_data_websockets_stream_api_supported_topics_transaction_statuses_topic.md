@@ -238,7 +238,7 @@ _36
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/supported-topics/transaction_statuses_topic.md)
 
-Last updated on **May 5, 2025** by **Brian Doyle**
+Last updated on **May 5, 2025** by **Josh Hannan**
 
 [Previous
 

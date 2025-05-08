@@ -33,8 +33,7 @@ On this page
 
 This section covers the process of registering your ERC20 token on Flow EVM via a Github Pull Request process so it appears in Flow standard Token List which is used by Flow Wallet, MetaMask, and other ecosystem apps.
 
-We will use the [Flow Official Assets](https://github.com/onflow/assets) repository as the standard token list repository for updating the token list for the whole Flow ecosystem.  
-The repository is open to the public and you can submit your PRs to add your token to the list.
+We will use the [Flow Official Assets](https://github.com/onflow/assets) repository as the standard token list repository for updating the token list for the whole Flow ecosystem. The repository is open to the public and you can submit your PRs to add your token to the list.
 
 Note: The logic of the registration is based on the [Register Assets in Cadence](/tutorials/token-launch/register-cadence-assets) backend process.
 
@@ -88,7 +87,7 @@ You can check the token list JSON files to verify the token is registered in the
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/token-launch/register-erc20-token.md)
 
-Last updated on **Apr 26, 2025** by **Brian Doyle**
+Last updated on **May 6, 2025** by **Brian Doyle**
 
 [Previous
 

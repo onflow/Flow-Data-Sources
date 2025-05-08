@@ -797,7 +797,7 @@ _12
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/kit/index.md)
 
-Last updated on **May 5, 2025** by **Brian Doyle**
+Last updated on **May 5, 2025** by **Josh Hannan**
 
 [Next
 

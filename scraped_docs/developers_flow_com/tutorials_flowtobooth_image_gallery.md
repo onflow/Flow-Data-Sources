@@ -2853,7 +2853,7 @@ Now that you've completed this tutorial, you're ready to explore more complex on
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/flowtobooth/image-gallery.md)
 
-Last updated on **Apr 29, 2025** by **Jordan Ribbink**
+Last updated on **May 5, 2025** by **Josh Hannan**
 
 [Previous
 

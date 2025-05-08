@@ -259,7 +259,7 @@ Eliza's plugin system provides a powerful way to extend the functionality of you
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/eliza/build-plugin.md)
 
-Last updated on **Apr 25, 2025** by **Ali Serag**
+Last updated on **May 5, 2025** by **Josh Hannan**
 
 [Previous
 

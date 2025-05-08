@@ -63,7 +63,7 @@ We'll walk through how you, an application developer, can use the `account-proof
 authenticate a user.
 
 > Are you an FCL Wallet Developer? Check out the wallet provider specific docs
-> [here](https://github.com/onflow/fcl-js/tree/master/packages/fcl/src/wallet-provider-spec/provable-authn.md)
+> [here](https://github.com/onflow/fcl-js/blob/master/packages/fcl-core/src/wallet-provider-spec/provable-authn.md)
 
 ### Authenticating a user using `account-proof`[​](#authenticating-a-user-using-account-proof "Direct link to authenticating-a-user-using-account-proof")
 
@@ -335,7 +335,7 @@ _13
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/proving-authentication.mdx)
 
-Last updated on **May 5, 2025** by **Brian Doyle**
+Last updated on **May 7, 2025** by **PixelPilot**
 
 [Previous
 

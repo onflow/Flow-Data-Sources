@@ -1081,7 +1081,7 @@ While FCL v0.0.67 is not strictly necessary to use Mainnet 6, we strongly recomm
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/past-upgrades.md)
 
-Last updated on **May 5, 2025** by **Brian Doyle**
+Last updated on **May 5, 2025** by **Josh Hannan**
 
 [Previous
 
