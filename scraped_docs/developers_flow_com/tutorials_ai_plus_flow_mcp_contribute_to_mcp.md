@@ -147,7 +147,7 @@ We will review your pull request and merge it if it is ready.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/mcp/contribute-to-mcp.md)
 
-Last updated on **May 5, 2025** by **Josh Hannan**
+Last updated on **May 6, 2025** by **Brian Doyle**
 
 [Previous
 

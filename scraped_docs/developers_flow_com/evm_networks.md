@@ -54,7 +54,7 @@ Flow EVM has the following public RPC nodes available:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/networks.md)
 
-Last updated on **May 5, 2025** by **Josh Hannan**
+Last updated on **May 6, 2025** by **Brian Doyle**
 
 [Previous
 

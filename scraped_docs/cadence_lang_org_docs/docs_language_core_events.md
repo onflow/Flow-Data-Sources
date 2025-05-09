@@ -201,7 +201,7 @@ _10
 | --- | --- | --- |
 | `address` | `Address` | The address of the account the contract gets deployed to |
 | `codeHash` | `[UInt8]` | Hash of the contract source code |
-| `contract` | `String` | The name of the the contract |
+| `contract` | `String` | The name of the contract |
 
 ### Account Contract Updated[​](#account-contract-updated "Direct link to Account Contract Updated")
 
@@ -237,7 +237,7 @@ _10
 | --- | --- | --- |
 | `address` | `Address` | The address of the account where the updated contract is deployed |
 | `codeHash` | `[UInt8]` | Hash of the contract source code |
-| `contract` | `String` | The name of the the contract |
+| `contract` | `String` | The name of the contract |
 
 ### Account Contract Removed[​](#account-contract-removed "Direct link to Account Contract Removed")
 
@@ -273,7 +273,7 @@ _10
 | --- | --- | --- |
 | `address` | `Address` | The address of the account the contract gets removed from |
 | `codeHash` | `[UInt8]` | Hash of the contract source code |
-| `contract` | `String` | The name of the the contract |
+| `contract` | `String` | The name of the contract |
 
 ### Inbox Value Published[​](#inbox-value-published "Direct link to Inbox Value Published")
 

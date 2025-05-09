@@ -629,7 +629,7 @@ Ready to unlock the full potential of Flow EVM? Start with our [Batched Transact
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/quickstart.md)
 
-Last updated on **May 5, 2025** by **Josh Hannan**
+Last updated on **May 6, 2025** by **Brian Doyle**
 
 [Previous
 

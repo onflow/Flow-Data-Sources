@@ -48,7 +48,7 @@ have a look at [the README of the repository](https://github.com/onflow/flow-emu
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/emulator/index.md)
 
-Last updated on **May 5, 2025** by **Josh Hannan**
+Last updated on **May 6, 2025** by **Brian Doyle**
 
 [Previous
 

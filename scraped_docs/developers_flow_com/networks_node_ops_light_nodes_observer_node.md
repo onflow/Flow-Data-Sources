@@ -505,7 +505,7 @@ See [Past Sporks](/networks/node-ops/node-operation/past-upgrades) for the curre
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/light-nodes/observer-node.md)
 
-Last updated on **May 5, 2025** by **Josh Hannan**
+Last updated on **May 6, 2025** by **Brian Doyle**
 
 [Previous
 

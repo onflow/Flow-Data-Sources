@@ -250,22 +250,17 @@ Below are the main request methods handled within the FCL Ethereum provider:
    * **Behavior**:
      + Requests a user signature via FCL’s `signUserMessage` or equivalent mechanism
      + Returns an RLP-encoded [COA ownership proof](https://github.com/onflow/flow-go/blob/master/fvm/evm/types/proof.go#L139) in place of a raw secp256k1 signature
-4. **`eth_signTypedData_v4`**
-
-   * **Behavior**:
-     + Requests user signature for typed data (hash) via FCL
-     + Returns an RLP-encoded [COA ownership proof](https://github.com/onflow/flow-go/blob/master/fvm/evm/types/proof.go#L139)
-5. **`eth_chainId`**
+4. **`eth_chainId`**
 
    * **Behavior**:
      + Returns the numeric Flow EVM chain ID (e.g., `0x747` for Flow EVM Mainnet)
-6. **`wallet_switchEthereumChain`**
+5. **`wallet_switchEthereumChain`**
 
    * **Behavior**:
      + Allows dApps to request switching to a different Flow EVM chain (e.g. testnet to mainnet).
      + Under the hood, this can trigger reconfiguration of FCL for a different Flow access node and Flow EVM gateway if recognized.
      + If the requested chain ID is not recognized, the call will throw an error (matching EIP-1193 standard error codes).
-7. **`wallet_addEthereumChain`**
+6. **`wallet_addEthereumChain`**
 
    * **Behavior**:
      + Allows a dApp to request adding a Flow EVM chain config.
@@ -285,7 +280,7 @@ Any unknown or unsupported request methods will be proxied to the `gateway` (if 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/cross-vm/ethereum-provider.mdx)
 
-Last updated on **Apr 26, 2025** by **Brian Doyle**
+Last updated on **May 7, 2025** by **Jordan Ribbink**
 
 [Previous
 

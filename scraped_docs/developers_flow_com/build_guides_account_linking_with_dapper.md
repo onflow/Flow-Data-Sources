@@ -39,6 +39,8 @@ On this page
 
 [Account Linking](/build/guides/account-linking) is a powerful Flow feature that allows users to connect their wallets, enabling linked wallets to view and manage assets in one wallet with another. This feature helps reduce or even eliminate the challenges posed by other account abstraction solutions, which often lead to multiple isolated wallets and fragmented assets.
 
+![Top Shot Preview](/assets/images/top-shot-preview-6c64a2b21e280ea48e213066546e6794.png)
+
 In this tutorial, you'll build a [simple onchain app](https://nextjs-topshot-account-linking.vercel.app) that allows users to sign into your app with their Flow wallet and view [NBA Top Shot](https://nbatopshot.com) Moments that reside in their [Dapper Wallet](https://meetdapper.com) - without those users needing to sign in with Dapper.
 
 ## Objectives[​](#objectives "Direct link to Objectives")
@@ -878,7 +880,7 @@ _31
 
 _31
 
-✅ CapabilityFilter added to flow.json`
+  ✅ CapabilityFilter added to flow.json`
 
 Add `app/cadence/scripts/FetchNFTsFromLinkedAccts.cdc`. In it, add this script. Review the inline comments to see what each step is doing:
 
@@ -1940,7 +1942,7 @@ Reference solutions are functional, but may not be optimal.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking-with-dapper.md)
 
-Last updated on **May 5, 2025** by **Josh Hannan**
+Last updated on **May 7, 2025** by **Brian Doyle**
 
 [Previous
 

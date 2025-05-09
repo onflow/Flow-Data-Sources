@@ -518,7 +518,7 @@ Now that you've completed this tutorial, you're ready to enhance your dApp with 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/rainbowkit.md)
 
-Last updated on **Apr 29, 2025** by **Jordan Ribbink**
+Last updated on **May 6, 2025** by **Brian Doyle**
 
 [Previous
 

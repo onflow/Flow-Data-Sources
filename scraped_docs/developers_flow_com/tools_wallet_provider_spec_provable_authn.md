@@ -49,10 +49,12 @@ For example, it can be sent to the App’s backend and after validating the sign
 
 1. Wallet receives Authn `FCL:VIEW:READY:RESPONSE` request and parses out the `appIdentifier`, and `nonce`.
 2. The wallet authenticates the user however they choose to do, and determines the user's account `address`
-3. Wallet prepares and signs the message:
+3. The wallet must validate the `appIdentifier` against the RFC 6454 origin of the request if it matches the
+   format of a RFC 3454 URI. Requests with a mismatch should be rejected. Some legacy systems may use arbitrary strings as `appIdentifier` and not RFC 6454 origins. In this case, wallets should display a warning to the user that the app identifier does not match the origin of the request.
+4. Wallet prepares and signs the message:
    * Encodes the `appIdentifier`, `nonce`, and `address` along with the `"FCL-ACCOUNT-PROOF-V0.0"` domain separation tag, [using the encoding scheme described below](#account-proof-message-encoding).
    * Signs the message with the `signatureAlgorithm` and `hashAlgorithm` specified on user's key. **It is highly recommended that the wallet display the message data and receive user approval before signing.**
-4. Wallet sends back this new service and data along with the other service configuration when completing Authn.
+5. Wallet sends back this new service and data along with the other service configuration when completing Authn.
 
 ### Account Proof Message Encoding[​](#account-proof-message-encoding "Direct link to Account Proof Message Encoding")
 
@@ -97,149 +99,193 @@ with the following values:
 
 ### JavaScript Signing Example[​](#javascript-signing-example "Direct link to JavaScript Signing Example")
 
-`_20
+`_31
 
 // Using WalletUtils
 
-_20
+_31
 
 import {WalletUtils} from "@onflow/fcl"
 
-_20
+_31
 
-_20
+_31
 
-const message = WalletUtils.encodeAccountProof(
+WalletUtils.onMessageFromFcl(
 
-_20
+_31
 
-appIdentifier, // A human readable string to identify your application during signing
+(data, {origin}) => {
 
-_20
+_31
 
-address, // Flow address of the user authenticating
+const {address, nonce, appIdentifier} = data.data
 
-_20
+_31
 
-nonce, // minimum 32-btye nonce
+_31
 
-_20
+// Validate the origin
 
-)
+_31
 
-_20
+if (origin !== appIdentifier) {
 
-_20
+_31
 
-sign(privateKey, message)
+throw new Error("Invalid origin")
 
-_20
-
-_20
-
-// Without using FCL WalletUtils
-
-_20
-
-const ACCOUNT_PROOF_DOMAIN_TAG = rightPaddedHexBuffer(
-
-_20
-
-Buffer.from("FCL-ACCOUNT-PROOF-V0.0").toString("hex"),
-
-_20
-
-32
-
-_20
-
-)
-
-_20
-
-const message = rlp([appIdentifier, address, nonce])
-
-_20
-
-const prependUserDomainTag = (message) => ACCOUNT_PROOF_DOMAIN_TAG + message
-
-_20
-
-_20
-
-sign(privateKey, prependUserDomainTag(message))`
-
-`_17
-
-// Authentication Proof Service
-
-_17
-
-{
-
-_17
-
-f_type: "Service", // Its a service!
-
-_17
-
-f_vsn: "1.0.0", // Follows the v1.0.0 spec for the service
-
-_17
-
-type: "account-proof", // the type of service it is
-
-_17
-
-method: "DATA", // Its data!
-
-_17
-
-uid: "awesome-wallet#account-proof", // A unique identifier for the service
-
-_17
-
-data: {
-
-_17
-
-f_type: "account-proof",
-
-_17
-
-f_vsn: "1.0.0"
-
-_17
-
-// The user's address (8 bytes, i.e 16 hex characters)
-
-_17
-
-address: "0xf8d6e0586b0a20c7",
-
-_17
-
-// Nonce signed by the current account-proof (minimum 32 bytes in total, i.e 64 hex characters)
-
-_17
-
-nonce: "75f8587e5bd5f9dcc9909d0dae1f0ac5814458b2ae129620502cb936fde7120a",
-
-_17
-
-signatures: [CompositeSignature],
-
-_17
+_31
 
 }
 
-_17
+_31
+
+_31
+
+const message = WalletUtils.encodeAccountProof(
+
+_31
+
+appIdentifier, // A human readable string to identify your application during signing
+
+_31
+
+address, // Flow address of the user authenticating
+
+_31
+
+nonce, // minimum 32-btye nonce
+
+_31
+
+)
+
+_31
+
+_31
+
+sign(privateKey, message)
+
+_31
+
+_31
+
+// Without using FCL WalletUtils
+
+_31
+
+const ACCOUNT_PROOF_DOMAIN_TAG = rightPaddedHexBuffer(
+
+_31
+
+Buffer.from("FCL-ACCOUNT-PROOF-V0.0").toString("hex"),
+
+_31
+
+32
+
+_31
+
+)
+
+_31
+
+const message = rlp([appIdentifier, address, nonce])
+
+_31
+
+const prependUserDomainTag = (message) => ACCOUNT_PROOF_DOMAIN_TAG + message
+
+_31
+
+_31
+
+sign(privateKey, prependUserDomainTag(message))
+
+_31
+
+}
+
+_31
+
+)`
+
+`_18
+
+// Authentication Proof Service
+
+_18
+
+{
+
+_18
+
+f_type: "Service", // Its a service!
+
+_18
+
+f_vsn: "1.0.0", // Follows the v1.0.0 spec for the service
+
+_18
+
+type: "account-proof", // the type of service it is
+
+_18
+
+method: "DATA", // Its data!
+
+_18
+
+uid: "awesome-wallet#account-proof", // A unique identifier for the service
+
+_18
+
+data: {
+
+_18
+
+f_type: "account-proof",
+
+_18
+
+f_vsn: "1.0.0"
+
+_18
+
+// The user's address (8 bytes, i.e 16 hex characters)
+
+_18
+
+address: "0xf8d6e0586b0a20c7",
+
+_18
+
+// Nonce signed by the current account-proof (minimum 32 bytes in total, i.e 64 hex characters)
+
+_18
+
+nonce: "75f8587e5bd5f9dcc9909d0dae1f0ac5814458b2ae129620502cb936fde7120a",
+
+_18
+
+signatures: [CompositeSignature],
+
+_18
+
+appIdentifier: "https://myapp.com"
+
+_18
+
+}
+
+_18
 
 }`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/provable-authn.md)
 
-Last updated on **May 5, 2025** by **Josh Hannan**
+Last updated on **May 8, 2025** by **Jordan Ribbink**
 
 [Previous
 

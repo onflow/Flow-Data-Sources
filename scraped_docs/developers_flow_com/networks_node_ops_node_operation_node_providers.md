@@ -75,7 +75,7 @@ On this page
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-providers.md)
 
-Last updated on **May 5, 2025** by **Brian Doyle**
+Last updated on **May 6, 2025** by **Brian Doyle**
 
 [Previous
 

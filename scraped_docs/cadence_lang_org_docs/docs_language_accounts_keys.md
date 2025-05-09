@@ -344,7 +344,7 @@ A valid account key's `hashAlgorithm` field is either `SHA2_256` or `SHA3_256`.
 All other hash algorithms supported by Cadence are
 not valid for hashing with an account key.
 
-Refer to the the [hash algorithms section](/docs/language/crypto#hash-algorithms)
+Refer to the [hash algorithms section](/docs/language/crypto#hash-algorithms)
 for more details on hash algorithms.
 
 ## Getting an account key[​](#getting-an-account-key "Direct link to Getting an account key")

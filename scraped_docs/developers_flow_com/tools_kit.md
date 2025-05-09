@@ -39,6 +39,7 @@ On this page
 * [`useFlowEvents`](#useflowevents) – Subscribe to Flow events in real-time
 * [`useFlowQuery`](#useflowquery) – Execute Cadence scripts with optional arguments
 * [`useFlowMutate`](#useflowmutate) – Send transactions to the Flow blockchain
+* [`useFlowRevertibleRandom`](#useflowrevertiblerandom) – Generate pseudorandom values tied to block height
 * [`useFlowTransaction`](#useflowtransaction) – Track transaction status updates
 
 ## Installation[​](#installation "Direct link to Installation")
@@ -736,13 +737,143 @@ _33
 
 ---
 
+### `useFlowRevertibleRandom`[​](#useflowrevertiblerandom "Direct link to useflowrevertiblerandom")
+
+`_10
+
+import { useFlowRevertibleRandom } from "@onflow/kit"`
+
+#### Parameters:[​](#parameters-5 "Direct link to Parameters:")
+
+* `min?: string` – Minimum random value (inclusive), as a UInt256 decimal string. Defaults to `"0"`.
+* `max: string` – Maximum random value (inclusive), as a UInt256 decimal string. **Required**.
+* `count?: number` – Number of random values to fetch (must be at least 1). Defaults to `1`.
+* `query?: Omit<UseQueryOptions<any, Error>, "queryKey" | "queryFn">` – Optional TanStack Query settings like `staleTime`, `enabled`, `retry`, etc.
+
+#### Returns: `UseQueryResult<RevertibleRandomResult[], Error>`[​](#returns-usequeryresultrevertiblerandomresult-error "Direct link to returns-usequeryresultrevertiblerandomresult-error")
+
+Each `RevertibleRandomResult` includes:
+
+* `blockHeight: string` — The block height from which the random value was generated.
+* `value: string` — The random UInt256 value, returned as a decimal string.
+
+`_26
+
+function RandomValues() {
+
+_26
+
+const { data: randoms, isLoading, error, refetch } = useFlowRevertibleRandom({
+
+_26
+
+min: "0",
+
+_26
+
+max: "1000000000000000000000000", // Example large max
+
+_26
+
+count: 3,
+
+_26
+
+query: { staleTime: 10000 },
+
+_26
+
+})
+
+_26
+
+_26
+
+if (isLoading) return <p>Loading random numbers...</p>
+
+_26
+
+if (error) return <p>Error fetching random numbers: {error.message}</p>
+
+_26
+
+if (!randoms) return <p>No random values generated.</p>
+
+_26
+
+_26
+
+return (
+
+_26
+
+<div>
+
+_26
+
+<h2>Generated Random Numbers</h2>
+
+_26
+
+<ul>
+
+_26
+
+{randoms.map((rand, idx) => (
+
+_26
+
+<li key={idx}>
+
+_26
+
+Block {rand.blockHeight}: {rand.value}
+
+_26
+
+</li>
+
+_26
+
+))}
+
+_26
+
+</ul>
+
+_26
+
+<button onClick={refetch}>Regenerate</button>
+
+_26
+
+</div>
+
+_26
+
+)
+
+_26
+
+}`
+
+#### Notes:[​](#notes "Direct link to Notes:")
+
+* Randomness is generated using Flow’s **on-chain `revertibleRandom`**, producing pseudorandom values tied to block and transaction execution.
+* The value returned for identical calls within the same block will be identical.
+* This hook is intended for **non-critical randomness** like randomized UIs, loot crates, and temporary rewards.
+* For **critical applications** requiring secure and unpredictable randomness, use a [commit-reveal scheme](/build/advanced-concepts/randomness#commit-reveal-scheme) on Flow instead.
+* Values are **deterministic**: if a transaction fails and retries, the same random value will be regenerated.
+
+---
+
 ### `useFlowTransaction`[​](#useflowtransaction "Direct link to useflowtransaction")
 
 `_10
 
 import { useFlowTransaction } from "@onflow/kit"`
 
-#### Parameters:[​](#parameters-5 "Direct link to Parameters:")
+#### Parameters:[​](#parameters-6 "Direct link to Parameters:")
 
 * `id: string` – Transaction ID to subscribe to
 
@@ -797,7 +928,7 @@ _12
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/kit/index.md)
 
-Last updated on **May 5, 2025** by **Josh Hannan**
+Last updated on **May 8, 2025** by **Chase Fleming**
 
 [Next
 
@@ -821,6 +952,7 @@ Copy as Markdown
   + [`useFlowEvents`](#useflowevents)
   + [`useFlowQuery`](#useflowquery)
   + [`useFlowMutate`](#useflowmutate)
+  + [`useFlowRevertibleRandom`](#useflowrevertiblerandom)
   + [`useFlowTransaction`](#useflowtransaction)
 
 Documentation
