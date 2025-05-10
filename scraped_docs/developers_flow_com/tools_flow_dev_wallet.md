@@ -74,7 +74,15 @@ _10
 
 flow project deploy --network emulator`
 
-## Configuring Your JavaScript Application[​](#configuring-your-javascript-application "Direct link to Configuring Your JavaScript Application")
+### Start the Dev Wallet[​](#start-the-dev-wallet "Direct link to Start the Dev Wallet")
+
+In a separate terminal session, start the dev wallet service.
+
+`_10
+
+flow dev-wallet`
+
+### Configuring Your JavaScript Application[​](#configuring-your-javascript-application "Direct link to Configuring Your JavaScript Application")
 
 The Flow Dev Wallet is designed to be used with [`@onflow/fcl`](https://github.com/onflow/fcl-js) version `1.0.0` or higher. The FCL package can be installed with: `npm install @onflow/fcl` or `yarn add @onflow/fcl`.
 
@@ -572,7 +580,7 @@ Additionally, consider exploring these resources:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-dev-wallet/index.md)
 
-Last updated on **May 6, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Tom Haile**
 
 [Previous
 
@@ -590,7 +598,8 @@ Copy as Markdown
   + [Install the `flow-cli`](#install-the-flow-cli)
   + [Create a `flow.json` file](#create-a-flowjson-file)
   + [Start the Emulator](#start-the-emulator)
-* [Configuring Your JavaScript Application](#configuring-your-javascript-application)
+  + [Start the Dev Wallet](#start-the-dev-wallet)
+  + [Configuring Your JavaScript Application](#configuring-your-javascript-application)
   + [Test harness](#test-harness)
   + [Wallet Discovery](#wallet-discovery)
   + [Account/Address creation](#accountaddress-creation)

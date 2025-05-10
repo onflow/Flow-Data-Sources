@@ -86,7 +86,7 @@ You've got an app and are meeting the needs of regular customers. Core features 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/growth/index.md)
 
-Last updated on **May 6, 2025** by **Brian Doyle**
+Last updated on **May 8, 2025** by **Brian Doyle**
 
 ###### Rate this page
 

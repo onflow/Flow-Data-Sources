@@ -98,7 +98,7 @@ Flow Improvement Proposals (FLIPs) serve as a platform for engaging the Flow com
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/index.mdx)
 
-Last updated on **May 6, 2025** by **Brian Doyle**
+Last updated on **May 8, 2025** by **Brian Doyle**
 
 [Next
 

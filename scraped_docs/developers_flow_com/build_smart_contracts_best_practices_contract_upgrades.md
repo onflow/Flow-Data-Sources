@@ -69,7 +69,7 @@ If you absolutely must keep the old address when making an incompatible upgrade,
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/best-practices/contract-upgrades.md)
 
-Last updated on **May 5, 2025** by **Brian Doyle**
+Last updated on **May 8, 2025** by **Brian Doyle**
 
 [Previous
 

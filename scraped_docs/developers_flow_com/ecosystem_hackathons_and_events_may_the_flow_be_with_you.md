@@ -98,9 +98,9 @@ Leverage on-chain randomness to create unpredictable, emergent experiences on Fl
 
 #### Useful Resources:
 
-* [Flow Randomness Documentation](https://developers.flow.com/build/smart-contracts/randomness)
-* [Flow Randomness GitHub](https://github.com/onflow/flow-randomness)
-* [Randomness Code Examples](https://developers.flow.com/build/smart-contracts/randomness/examples)
+* [How to setup cursor with developer docs for optimal vibe coding](https://developers.flow.com/tutorials/ai-plus-flow/cursor)
+* ["Live app](https://randoms.wtf/)  built using Flow random and  [GitHub](https://github.com/Aliserag/random.wtf)
+* [Implement Randomness with Solidity in 3 min](https://developers.flow.com/evm/guides/vrf)
 
 ### Week 2: Theme TBD (May 11-17)
 
@@ -252,7 +252,7 @@ Disclaimer: Individuals residing in jurisdictions where gaming or lottery partic
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/Hackathons and Events/may-the-flow-be-with-you.md)
 
-Last updated on **May 5, 2025** by **Ali Serag**
+Last updated on **May 9, 2025** by **Ali Serag**
 
 [Previous
 

@@ -52,11 +52,15 @@ Get $99 worth of production-grade tools to build complete web3 apps and games on
 
 ### Olympix
 
-State-of-the-art, developer-first security tools for in-house assurance. Get $2000 in credits for your team.
+State-of-the-art, developer-first security tools for in-house assurance. Get $2000 in credits for your team.![uniblock](/img/ecosystem/uniblock.svg)
+
+### Uniblock
+
+Get $500+ OFF with 3 months of Uniblock Pro FREE. Access 50 data partners, 100 protocols, and 1500 APIs with enterprise features like load balancing and auto retry.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/builder-perks.md)
 
-Last updated on **May 6, 2025** by **Brian Doyle**
+Last updated on **May 8, 2025** by **Ali Serag**
 
 [Previous
 
