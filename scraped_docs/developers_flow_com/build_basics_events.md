@@ -277,7 +277,7 @@ _24
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/events.md)
 
-Last updated on **May 8, 2025** by **Brian Doyle**
+Last updated on **May 8, 2025** by **Chase Fleming**
 
 [Previous
 

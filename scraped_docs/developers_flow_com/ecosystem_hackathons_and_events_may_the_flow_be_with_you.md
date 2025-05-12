@@ -102,9 +102,14 @@ Leverage on-chain randomness to create unpredictable, emergent experiences on Fl
 * ["Live app](https://randoms.wtf/)  built using Flow random and  [GitHub](https://github.com/Aliserag/random.wtf)
 * [Implement Randomness with Solidity in 3 min](https://developers.flow.com/evm/guides/vrf)
 
-### Week 2: Theme TBD (May 11-17)
+### Week 2: Actually Fun Games (May 11-17)
 
-Next week's theme will be announced soon. Stay tuned!
+Master the ingredients of creating fun and delightful experiences, from replayability, social dynamics and randomness to 'easy to play hard to master' mechanics.
+
+* May 11: Week 2 starts
+* May 11-17: Build Games (either completely new or continue building on your week 1 project)
+* [May 14 (Wed): Twitter Space @ 4:00 PM PST - "How to Build Fun Games"](https://x.com/i/spaces/1yoKMoqmzzjJQ)
+* May 19: Week 2 winners announced
 
 ### Week 3: Theme TBD (May 18-24)
 
@@ -252,7 +257,7 @@ Disclaimer: Individuals residing in jurisdictions where gaming or lottery partic
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/Hackathons and Events/may-the-flow-be-with-you.md)
 
-Last updated on **May 9, 2025** by **Ali Serag**
+Last updated on **May 11, 2025** by **Ali Serag**
 
 [Previous
 

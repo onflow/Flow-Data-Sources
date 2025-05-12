@@ -34,7 +34,7 @@ Go to [Block explorers](/ecosystem/block-explorers)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/block-explorers.mdx)
 
-Last updated on **May 5, 2025** by **Josh Hannan**
+Last updated on **May 8, 2025** by **Chase Fleming**
 
 [Previous
 

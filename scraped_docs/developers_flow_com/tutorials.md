@@ -70,7 +70,7 @@ Explore Flow's unique capabilities through fun benchmark applications that showc
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/index.md)
 
-Last updated on **May 8, 2025** by **Brian Doyle**
+Last updated on **May 8, 2025** by **Chase Fleming**
 
 [Next
 

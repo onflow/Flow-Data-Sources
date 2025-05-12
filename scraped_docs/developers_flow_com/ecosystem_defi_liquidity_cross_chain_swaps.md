@@ -69,7 +69,7 @@ through a peer-to-peer transaction mechanism.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/cross-chain-swaps.md)
 
-Last updated on **May 8, 2025** by **Brian Doyle**
+Last updated on **May 8, 2025** by **Chase Fleming**
 
 [Previous
 
