@@ -243,7 +243,7 @@ via the `Burner.burn()` method, this event is emitted with the following argumen
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/02-fungible-token.md)
 
-Last updated on **May 8, 2025** by **Chase Fleming**
+Last updated on **May 8, 2025** by **Jordan Ribbink**
 
 [Previous
 

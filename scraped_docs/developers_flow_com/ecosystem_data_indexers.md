@@ -66,7 +66,7 @@ To begin using Alchemy, developers can [sign up for an account](https://www.alch
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/data-indexers.md)
 
-Last updated on **May 8, 2025** by **Chase Fleming**
+Last updated on **May 8, 2025** by **Jordan Ribbink**
 
 [Previous
 

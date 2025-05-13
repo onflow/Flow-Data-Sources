@@ -183,7 +183,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/utils/signature-verify.md)
 
-Last updated on **May 8, 2025** by **Chase Fleming**
+Last updated on **May 8, 2025** by **Jordan Ribbink**
 
 [Previous
 

@@ -147,7 +147,7 @@ access(all) event MachineAccountCreated(nodeID: String, role: UInt8, address: Ad
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/11-staking-collection.md)
 
-Last updated on **May 8, 2025** by **Chase Fleming**
+Last updated on **May 8, 2025** by **Jordan Ribbink**
 
 [Previous
 

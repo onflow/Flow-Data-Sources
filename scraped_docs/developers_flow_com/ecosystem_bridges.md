@@ -70,7 +70,7 @@ Bridges are mechanisms that connect different blockchain networks, enabling secu
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/bridges.md)
 
-Last updated on **May 8, 2025** by **Chase Fleming**
+Last updated on **May 8, 2025** by **Jordan Ribbink**
 
 [Previous
 

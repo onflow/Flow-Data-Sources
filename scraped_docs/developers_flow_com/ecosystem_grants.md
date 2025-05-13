@@ -75,7 +75,7 @@ The ecosystem grants program is aimed at supporting the growth of Flow ecosystem
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/grants.md)
 
-Last updated on **May 8, 2025** by **Chase Fleming**
+Last updated on **May 8, 2025** by **Jordan Ribbink**
 
 [Previous
 

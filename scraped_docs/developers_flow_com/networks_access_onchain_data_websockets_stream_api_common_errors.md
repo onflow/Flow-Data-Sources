@@ -139,7 +139,7 @@ These errors occur when the server cannot parse or validate your incoming messag
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/common-errors.md)
 
-Last updated on **May 8, 2025** by **Brian Doyle**
+Last updated on **May 8, 2025** by **Jordan Ribbink**
 
 [Previous
 

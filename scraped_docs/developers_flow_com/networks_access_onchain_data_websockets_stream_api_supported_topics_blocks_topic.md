@@ -592,7 +592,7 @@ _104
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/supported-topics/blocks_topic.md)
 
-Last updated on **May 6, 2025** by **Brian Doyle**
+Last updated on **May 8, 2025** by **Jordan Ribbink**
 
 [Previous
 

@@ -859,11 +859,12 @@ _26
 
 #### Notes:[​](#notes "Direct link to Notes:")
 
-* Randomness is generated using Flow’s **on-chain `revertibleRandom`**, producing pseudorandom values tied to block and transaction execution.
-* The value returned for identical calls within the same block will be identical.
-* This hook is designed for simple use cases that **don’t require a [commit-reveal scheme](/build/advanced-concepts/randomness#commit-reveal-scheme)**, such as randomized UIs.
-* For **more advanced use cases** that **do** require a [commit-reveal scheme](/build/advanced-concepts/randomness#commit-reveal-scheme), Flow provides built-in support for that pattern.
-* Values are **deterministic**: if a transaction fails and retries, the same random value will be regenerated.
+* Randomness is generated using the **on-chain `revertibleRandom`** function on Flow, producing pseudorandom values tied to block and script execution.
+* Values are **deterministic**: The values returned for identical calls within the same block will be identical.
+* If `count`  is larger than one, the returned values are distinct.
+* This hook is designed for simple use cases that don't require unpredictability, such as randomized UIs.
+  Since the hook uses script executions on existing blocks, the random source is already public and the randoms are predictable.
+* For **more advanced use cases** that **do** require on-chain randomness logic via transactions, Flow provides built-in support using Cadence's `revertibleRandom` and [commit-reveal scheme](/build/advanced-concepts/randomness#commit-reveal-scheme).
 
 ---
 
@@ -928,7 +929,7 @@ _12
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/kit/index.md)
 
-Last updated on **May 9, 2025** by **Chase Fleming**
+Last updated on **May 12, 2025** by **Tarak Ben Youssef**
 
 [Next
 

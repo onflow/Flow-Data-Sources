@@ -373,7 +373,7 @@ FCL will automatically replace the contract name with the address for the networ
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/configure-fcl.md)
 
-Last updated on **May 8, 2025** by **Chase Fleming**
+Last updated on **May 8, 2025** by **Jordan Ribbink**
 
 [Previous
 

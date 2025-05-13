@@ -44,7 +44,7 @@ Read more about it [here](https://flow.com/post/flow-blockchain-sustainability-e
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/network-architecture/sustainability.md)
 
-Last updated on **May 8, 2025** by **Brian Doyle**
+Last updated on **May 8, 2025** by **Jordan Ribbink**
 
 [Previous
 
