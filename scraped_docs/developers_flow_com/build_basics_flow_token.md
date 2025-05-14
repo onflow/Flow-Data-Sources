@@ -99,7 +99,7 @@ If you have already purchased FLOW and wish to hold it, you have a couple of opt
   Wallets are used to help you sign transactions (verify your actions) when using your FLOW tokens.
 * For larger, long term holdings - you may want to use a custody provider to keep your funds safe.
 
-You can find wallets and custodians supporting Flow in the [Flow Port](https://port.onflow.org/)
+You can find wallets and custodians supporting Flow in the [Flow Port](https://port.flow.com/)
 
 ### Voting with FLOW[​](#voting-with-flow "Direct link to Voting with FLOW")
 
@@ -149,7 +149,7 @@ To get started building on Flow, please see the [Flow App Quickstart](/build/get
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/flow-token.md)
 
-Last updated on **May 8, 2025** by **Jordan Ribbink**
+Last updated on **May 13, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -192,7 +192,7 @@ Documentation
 Community
 
 * [Ecosystem](/ecosystem)
-* [Flow Port](https://port.onflow.org/)
+* [Flow Port](https://port.flow.com/)
 * [Developer Grants](https://github.com/onflow/developer-grants)
 * [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
 * [Flowverse](https://www.flowverse.co/)
@@ -203,13 +203,13 @@ Start Building
 
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://open-cadence.onflow.org)
+* [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
 
 Network
 
-* [Network Status](https://status.onflow.org/)
+* [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
@@ -221,8 +221,8 @@ More
 
 * [GitHub](https://github.com/onflow)
 * [Discord](https://discord.gg/flow)
-* [Forum](https://forum.onflow.org/)
-* [OnFlow](https://onflow.org/)
+* [Forum](https://forum.flow.com/)
+* [Flow](https://flow.com/)
 * [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.

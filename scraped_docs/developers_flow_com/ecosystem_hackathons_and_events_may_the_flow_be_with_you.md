@@ -220,9 +220,19 @@ In addition to the weekly rewards, we will regularly give bonus FLOW to the top 
 
 Check this section daily to see all winners announced so far!
 
+### Week 1: The Randomness Revolution[​](#week-1-the-randomness-revolution "Direct link to Week 1: The Randomness Revolution")
+
+* Egg's Wisdom - 0x2ff409478f92e8bd
+* ElementalStrikers - 0xc65395858a38d8ff
+* Wheel of Fortune - 0xe712bbfbeeef1cfa
+* Lucky Spinning Wheel - 0x0012a1ef98accd88
+* Ghibli—style Headshot Generator - 0xd362246ad3f7ca3c
+* ChainRaffle - 0xbbdd20a9016cc1d9
+* Random Game (Phaser) - 0x9db94c9564243ba7
+
 note
 
-Winners are announced on [@aliserag0](https://twitter.com/aliserag0) Twitter account and prizes are sent to the top wallet address indicated in your profile.
+Winners are announced on the [@flow\_blockchain](https://x.com/flow_blockchain) Twitter account, and prizes are sent to the wallet addresses indicated in your submission name on github.
 
 ## FAQ[​](#faq "Direct link to FAQ")
 
@@ -257,7 +267,7 @@ Disclaimer: Individuals residing in jurisdictions where gaming or lottery partic
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/Hackathons and Events/may-the-flow-be-with-you.md)
 
-Last updated on **May 11, 2025** by **Ali Serag**
+Last updated on **May 13, 2025** by **Ali Serag**
 
 [Previous
 
@@ -280,6 +290,7 @@ Copy as Markdown
   + [Weekly Building in Public Bonus](#weekly-building-in-public-bonus)
 * [Building in Public](#building-in-public)
 * [List of Winners](#list-of-winners)
+  + [Week 1: The Randomness Revolution](#week-1-the-randomness-revolution)
 * [FAQ](#faq)
 * [Stay Connected](#stay-connected)
 
@@ -299,7 +310,7 @@ Documentation
 Community
 
 * [Ecosystem](/ecosystem)
-* [Flow Port](https://port.onflow.org/)
+* [Flow Port](https://port.flow.com/)
 * [Developer Grants](https://github.com/onflow/developer-grants)
 * [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
 * [Flowverse](https://www.flowverse.co/)
@@ -310,13 +321,13 @@ Start Building
 
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://open-cadence.onflow.org)
+* [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
 
 Network
 
-* [Network Status](https://status.onflow.org/)
+* [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
@@ -328,8 +339,8 @@ More
 
 * [GitHub](https://github.com/onflow)
 * [Discord](https://discord.gg/flow)
-* [Forum](https://forum.onflow.org/)
-* [OnFlow](https://onflow.org/)
+* [Forum](https://forum.flow.com/)
+* [Flow](https://flow.com/)
 * [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.

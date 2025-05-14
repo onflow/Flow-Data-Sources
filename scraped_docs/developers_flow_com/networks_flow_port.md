@@ -41,7 +41,7 @@ In order to access Flow Port, you must have a valid Flow address. If you do not 
 
 #### Creating Account Through Flow Port: Navigate To Flow Port[​](#creating-account-through-flow-port-navigate-to-flow-port "Direct link to Creating Account Through Flow Port: Navigate To Flow Port")
 
-1. Using Google Chrome, Navigate to [Flow Port](https://port.onflow.org/).
+1. Using Google Chrome, Navigate to [Flow Port](https://port.flow.com/).
 2. Click on 'Sign Up'
 3. Click on Flow Wallet and choose Chrome extension or Mobile
 4. You should be logged into Flow Port! You can now see your account address in Flow Port and access Flow features for your account
@@ -68,7 +68,7 @@ In order to access Flow Port, you must have a valid Flow address. If you do not 
 
 #### Navigate to Flow Port to Create an Address[​](#navigate-to-flow-port-to-create-an-address "Direct link to Navigate to Flow Port to Create an Address")
 
-1. Navigate to [Flow Port](https://port.onflow.org/).
+1. Navigate to [Flow Port](https://port.flow.com/).
 2. Click on 'Sign Up' if you need to create a new Flow Account.
 3. Click on Ledger.
 4. Follow the prompts on the screen. Plug in your Ledger device and open the Flow App.
@@ -90,7 +90,7 @@ If you are using a custody provider who controls your account and private keys f
 ### Starting a Manual Staking Transaction[​](#starting-a-manual-staking-transaction "Direct link to Starting a Manual Staking Transaction")
 
 1. You need to have FLOW in order to stake. Please see the [FLOW Token](/build/core-contracts/flow-token) reference for information on how to become a FLOW holder.
-2. Once you have FLOW tokens in your account, you can start staking through [Flow Port](https://port.onflow.org/) or, if applicable, with your [custody provider](#staking-via-a-custody-provider).
+2. Once you have FLOW tokens in your account, you can start staking through [Flow Port](https://port.flow.com/) or, if applicable, with your [custody provider](#staking-via-a-custody-provider).
 3. If you are using Flow Port, log-in with your Flow account address and navigate to the Stake/Delegate page. See the Manual Staking/Delegating section below for more information about what to do next.
 
 ### Manual Staking/Delegating[​](#manual-stakingdelegating "Direct link to Manual Staking/Delegating")
@@ -155,15 +155,15 @@ Please see a list [here](https://github.com/onflow/flow/blob/master/nodeoperator
 5. Do I need to use my Ledger device to view information about my account (e.g. my balance and current staked or delegated FLOW)?
 
    * a.) No you do not! You only need your Ledger device to sign transactions. If you want to view your account, you can do so without your Ledger. You can do this by navigating directly to the appropriate desired page URL, while inputting your address into the URL itself. For quick reference, below is a list of these URLs and where you would input your address:
-   * Dashboard: [https://port.onflow.org/account/[AccountAddress](https://port.onflow.org/account/%5BAccountAddress)]
-   * Stake & Delegate: [https://port.onflow.org/stake-delegate/[AccountAddress](https://port.onflow.org/stake-delegate/%5BAccountAddress)]
+   * Dashboard: [https://port.flow.com/account/[AccountAddress](https://port.flow.com/account/%5BAccountAddress)]
+   * Stake & Delegate: [https://port.flow.com/stake-delegate/[AccountAddress](https://port.flow.com/stake-delegate/%5BAccountAddress)]
 6. I am clicking 'submit' to execute a transaction, but nothing is happening. How can I unblock myself?
 
    * a.) Please disable any pop-up blockers and ad blockers you have and refresh the page. If you are still experiencing issues, please reach out via [Discord](https://discord.gg/flow) in the appropriate channel.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-port/index.md)
 
-Last updated on **May 8, 2025** by **Jordan Ribbink**
+Last updated on **May 13, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -207,7 +207,7 @@ Documentation
 Community
 
 * [Ecosystem](/ecosystem)
-* [Flow Port](https://port.onflow.org/)
+* [Flow Port](https://port.flow.com/)
 * [Developer Grants](https://github.com/onflow/developer-grants)
 * [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
 * [Flowverse](https://www.flowverse.co/)
@@ -218,13 +218,13 @@ Start Building
 
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://open-cadence.onflow.org)
+* [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
 
 Network
 
-* [Network Status](https://status.onflow.org/)
+* [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
@@ -236,8 +236,8 @@ More
 
 * [GitHub](https://github.com/onflow)
 * [Discord](https://discord.gg/flow)
-* [Forum](https://forum.onflow.org/)
-* [OnFlow](https://onflow.org/)
+* [Forum](https://forum.flow.com/)
+* [Flow](https://flow.com/)
 * [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.

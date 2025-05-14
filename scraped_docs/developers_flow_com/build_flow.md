@@ -48,11 +48,11 @@ Flow solves the [blockchain trilemma](https://coinmarketcap.com/academy/glossary
 
 ## What Makes Flow Unique[​](#what-makes-flow-unique "Direct link to What Makes Flow Unique")
 
-Flow is a fast, decentralized, and developer-friendly blockchain designed to be the foundation for a new generation of games, apps, and the [digital assets](https://www.onflow.org/post/flow-blockchain-cadence-programming-language-resources-assets) that power them. It is based on a unique [multi-role architecture](https://www.onflow.org/primer), and designed to [scale without sharding](https://www.onflow.org/post/flow-blockchain-multi-node-architecture-advantages), allowing for massive improvements in speed and throughput while preserving a developer-friendly, ACID-compliant environment. It natively allows development of smart contracts in the powerful [Cadence](https://cadence-lang.org/) language, and also supports full [Ethereum Virtual Machine (EVM)](https://flow.com/upgrade/crescendo/evm.md) equivalence with contracts written in Solidity.
+Flow is a fast, decentralized, and developer-friendly blockchain designed to be the foundation for a new generation of games, apps, and the [digital assets](https://www.flow.com/post/flow-blockchain-cadence-programming-language-resources-assets) that power them. It is based on a unique [multi-role architecture](https://www.flow.com/primer), and designed to [scale without sharding](https://www.flow.com/post/flow-blockchain-multi-node-architecture-advantages), allowing for massive improvements in speed and throughput while preserving a developer-friendly, ACID-compliant environment. It natively allows development of smart contracts in the powerful [Cadence](https://cadence-lang.org/) language, and also supports full [Ethereum Virtual Machine (EVM)](https://flow.com/upgrade/crescendo/evm.md) equivalence with contracts written in Solidity.
 
 ### Flow Blockchain[​](#flow-blockchain "Direct link to Flow Blockchain")
 
-* **Multi-role architecture:** The [multi-role architecture](https://www.onflow.org/primer) of Flow allows the network to [scale without sharding](https://www.onflow.org/post/flow-blockchain-multi-node-architecture-advantages) to serve billions of users without reducing the decentralization of consensus and verification.
+* **Multi-role architecture:** The [multi-role architecture](https://www.flow.com/primer) of Flow allows the network to [scale without sharding](https://www.flow.com/post/flow-blockchain-multi-node-architecture-advantages) to serve billions of users without reducing the decentralization of consensus and verification.
 * **True Fast Finality**: For most other networks, it takes minutes, [a day](https://docs.zksync.io/zk-stack/concepts/finality#finality-on-zksync-era), or even [a week](https://docs.optimism.io/stack/rollup/overview#fault-proofs) to reach hard finality - the point in which a transaction cannot be reversed. On Flow, the median time for finality is [under 10 seconds](/build/basics/transactions#flow), without compromising security.
 * **Native VRF**: Flow provides [onchain randomness](/build/advanced-concepts/randomness) at the protocol level. Instead of implementing a complex setup and [paying $10+ USD per number](https://docs.chain.link/vrf/v2-5/billing), simply call the built-in function.
 * **MEV Resistance**: Flow is designed to [ensure equitable access](/build/basics/mev-resistance) by resisting MEV. Maximum Extractable Value, also know as Miner-Extractable Value (MEV), is a practice common in other blockchains in which the builder of a block can profit at your expense by manipulating where and how your transaction is included.
@@ -118,17 +118,17 @@ The Flow blockchain implements core functionality using its own smart contract l
 
 The [FLOW](/build/core-contracts/flow-token) (or $FLOW) token is the native currency for the Flow network. Developers and users can use FLOW to transact on the network. Developers can integrate FLOW directly into their apps for peer-to-peer payments, service charges, or consumer rewards. FLOW can be held, transferred, or transacted peer-to-peer.
 
-* To understand more about Flow Token Economics and the FLOW token, read the [Flow Token Economics](https://www.onflow.org/flow-token-economics) guide.
+* To understand more about Flow Token Economics and the FLOW token, read the [Flow Token Economics](https://www.flow.com/flow-token-economics) guide.
 * FLOW tokens are the native Fungible Token on Flow. To learn more about how to work with them in your applications, review the [FLOW](/build/core-contracts/flow-token) article.
 
 ### Technical Background[​](#technical-background "Direct link to Technical Background")
 
-* The [Flow Technical Primer](https://www.onflow.org/primer) is a great place to start to understand how Flow works.
-* The [Three technical whitepapers](https://www.onflow.org/technical-paper) cover the unique innovation behind the Flow blockchain network in-depth.
+* The [Flow Technical Primer](https://www.flow.com/primer) is a great place to start to understand how Flow works.
+* The [Three technical whitepapers](https://www.flow.com/technical-paper) cover the unique innovation behind the Flow blockchain network in-depth.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/flow.md)
 
-Last updated on **May 8, 2025** by **Jordan Ribbink**
+Last updated on **May 13, 2025** by **Brian Doyle**
 
 [Next
 
@@ -168,7 +168,7 @@ Documentation
 Community
 
 * [Ecosystem](/ecosystem)
-* [Flow Port](https://port.onflow.org/)
+* [Flow Port](https://port.flow.com/)
 * [Developer Grants](https://github.com/onflow/developer-grants)
 * [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
 * [Flowverse](https://www.flowverse.co/)
@@ -179,13 +179,13 @@ Start Building
 
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://open-cadence.onflow.org)
+* [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
 
 Network
 
-* [Network Status](https://status.onflow.org/)
+* [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
@@ -197,8 +197,8 @@ More
 
 * [GitHub](https://github.com/onflow)
 * [Discord](https://discord.gg/flow)
-* [Forum](https://forum.onflow.org/)
-* [OnFlow](https://onflow.org/)
+* [Forum](https://forum.flow.com/)
+* [Flow](https://flow.com/)
 * [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.
