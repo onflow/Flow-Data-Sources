@@ -102,7 +102,7 @@ Now that your app is running, you can configure FCL. Within the main project dir
 
 `_10
 
-import { config } from "@onflow/fcl";
+import { config } from '@onflow/fcl';
 
 _10
 
@@ -112,19 +112,23 @@ config({
 
 _10
 
-"accessNode.api": "https://rest-testnet.onflow.org", // Mainnet: "https://rest-mainnet.onflow.org"
+'accessNode.api': 'https://rest-testnet.onflow.org', // Mainnet: "https://rest-mainnet.onflow.org"
 
 _10
 
-"discovery.wallet": "https://fcl-discovery.onflow.org/testnet/authn", // Mainnet: "https://fcl-discovery.onflow.org/authn"
+'discovery.wallet': 'https://fcl-discovery.onflow.org/testnet/authn', // Mainnet: "https://fcl-discovery.onflow.org/authn"
 
 _10
 
-"discovery.authn.endpoint": "https://fcl-discovery.onflow.org/api/testnet/authn", // Mainnet: "https://fcl-discovery.onflow.org/api/authn"
+'discovery.authn.endpoint':
 
 _10
 
-})`
+'https://fcl-discovery.onflow.org/api/testnet/authn', // Mainnet: "https://fcl-discovery.onflow.org/api/authn"
+
+_10
+
+});`
 
 📣 **Tip**: It's recommend to replace these values with environment variables for easy deployments across different environments like development/production or Testnet/Mainnet.
 
@@ -185,7 +189,7 @@ import { StyleSheet, Text, View } from 'react-native';
 
 _21
 
-import "./flow/config";
+import './flow/config';
 
 _21
 
@@ -271,155 +275,153 @@ This is what your file should look like now:
 
 ./App.js
 
-`_42
+`_41
 
 import { Text, View, Button } from 'react-native';
 
-_42
+_41
 
-import "./flow/config";
+import './flow/config';
 
-_42
+_41
 
-_42
+_41
 
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
-_42
+_41
 
-import * as fcl from "@onflow/fcl/dist/fcl-react-native";
+import * as fcl from '@onflow/fcl/dist/fcl-react-native';
 
-_42
+_41
 
-_42
+_41
 
 export default function App() {
 
-_42
+_41
 
-_42
+const [user, setUser] = useState({ loggedIn: null });
 
-const [user, setUser] = useState({loggedIn: null})
+_41
 
-_42
+_41
 
-_42
+useEffect(() => fcl.currentUser.subscribe(setUser), []);
 
-useEffect(() => fcl.currentUser.subscribe(setUser), [])
+_41
 
-_42
-
-_42
+_41
 
 const AuthedState = () => {
 
-_42
+_41
 
 return (
 
-_42
+_41
 
 <View>
 
-_42
+_41
 
-<Text>Address: {user?.addr ?? "No Address"}</Text>
+<Text>Address: {user?.addr ?? 'No Address'}</Text>
 
-_42
+_41
 
-<Button onPress={fcl.unauthenticate} title='Log Out'/>
+<Button onPress={fcl.unauthenticate} title="Log Out" />
 
-_42
+_41
 
 </View>
 
-_42
+_41
 
-)
+);
 
-_42
+_41
 
-}
+};
 
-_42
+_41
 
-_42
+_41
 
 if (user.loggedIn) {
 
-_42
-
-return <View style={styles.container}>
-
-_42
-
-<Text>Flow App</Text>
-
-_42
-
-<AuthedState />
-
-_42
-
-<StatusBar style="auto" />
-
-_42
-
-</View>
-
-_42
-
-}
-
-_42
-
-_42
+_41
 
 return (
 
-_42
+_41
 
-<fcl.ServiceDiscovery fcl={fcl}/>
+<View style={styles.container}>
 
-_42
+_41
 
-)
+<Text>Flow App</Text>
 
-_42
+_41
+
+<AuthedState />
+
+_41
+
+<StatusBar style="auto" />
+
+_41
+
+</View>
+
+_41
+
+);
+
+_41
 
 }
 
-_42
+_41
 
-_42
+_41
+
+return <fcl.ServiceDiscovery fcl={fcl} />;
+
+_41
+
+}
+
+_41
+
+_41
 
 const styles = StyleSheet.create({
 
-_42
+_41
 
 container: {
 
-_42
+_41
 
 flex: 1,
 
-_42
+_41
 
 backgroundColor: '#fff',
 
-_42
+_41
 
 alignItems: 'center',
 
-_42
+_41
 
 justifyContent: 'center',
 
-_42
+_41
 
 },
 
-_42
+_41
 
 });`
 
@@ -435,7 +437,7 @@ One of the main things you'll often need to do when building a dapp is query the
 
 `_10
 
-import { config } from "@onflow/fcl";
+import { config } from '@onflow/fcl';
 
 _10
 
@@ -445,23 +447,27 @@ config({
 
 _10
 
-"accessNode.api": "https://rest-testnet.onflow.org", // Mainnet: "https://rest-mainnet.onflow.org"
+'accessNode.api': 'https://rest-testnet.onflow.org', // Mainnet: "https://rest-mainnet.onflow.org"
 
 _10
 
-"discovery.wallet": "https://fcl-discovery.onflow.org/testnet/authn", // Mainnet: "https://fcl-discovery.onflow.org/authn"
+'discovery.wallet': 'https://fcl-discovery.onflow.org/testnet/authn', // Mainnet: "https://fcl-discovery.onflow.org/authn"
 
 _10
 
-"discovery.authn.endpoint": "https://fcl-discovery.onflow.org/api/testnet/authn",
+'discovery.authn.endpoint':
 
 _10
 
-"0xProfile": "0xba1132bc08f82fe2" // The account address where the Profile smart contract lives on Testnet
+'https://fcl-discovery.onflow.org/api/testnet/authn',
 
 _10
 
-})`
+'0xProfile': '0xba1132bc08f82fe2', // The account address where the Profile smart contract lives on Testnet
+
+_10
+
+});`
 
 If you want to see the on chain smart contract we'll be speaking with next, you can view the [Profile Contract](https://testnet.flowdiver.io/contract/A.ba1132bc08f82fe2.Profile) source code but again for this tutorial it's not necessary you understand it.
 
@@ -480,229 +486,239 @@ Take a look at the new code. We'll explain each new piece as we go. Remember, th
 
 ./App.js
 
-`_62
+`_64
 
 import { StatusBar } from 'expo-status-bar';
 
-_62
+_64
 
 import { StyleSheet, Text, View, Button } from 'react-native';
 
-_62
+_64
 
 import { useEffect, useState } from 'react';
 
-_62
+_64
 
-import './flow/config'
+import './flow/config';
 
-_62
+_64
 
-_62
+_64
 
-import * as fcl from "@onflow/fcl/dist/fcl-react-native";
+import * as fcl from '@onflow/fcl/dist/fcl-react-native';
 
-_62
+_64
 
-_62
+_64
 
 export default function App() {
 
-_62
+_64
 
-_62
+const [user, setUser] = useState({ loggedIn: null });
 
-const [user, setUser] = useState({loggedIn: null})
+_64
 
-_62
+const [name, setName] = useState(''); // NEW
 
-const [name, setName] = useState('') // NEW
+_64
 
-_62
+_64
 
-_62
+useEffect(() => fcl.currentUser.subscribe(setUser), []);
 
-useEffect(() => fcl.currentUser.subscribe(setUser), [])
+_64
 
-_62
-
-_62
+_64
 
 // NEW
 
-_62
+_64
 
 const sendQuery = async () => {
 
-_62
+_64
 
 const profile = await fcl.query({
 
-_62
+_64
 
 cadence: `
 
-_62
+_64
 
 import Profile from 0xProfile
 
-_62
+_64
 
-_62
+_64
 
 access(all) fun main(address: Address): Profile.ReadOnly? {
 
-_62
+_64
 
 return Profile.read(address)
 
-_62
+_64
 
 }
 
-_62
+_64
 
 `,
 
-_62
+_64
 
-args: (arg, t) => [arg(user.addr, t.Address)]
+args: (arg, t) => [arg(user.addr, t.Address)],
 
-_62
+_64
 
-})
+});
 
-_62
+_64
 
-_62
+_64
 
-setName(profile?.name ?? 'No Profile')
+setName(profile?.name ?? 'No Profile');
 
-_62
+_64
 
-}
+};
 
-_62
+_64
 
-_62
+_64
 
 const AuthedState = () => {
 
-_62
+_64
 
 return (
 
-_62
+_64
 
-<View >
+<View>
 
-_62
+_64
 
-<Text>Address: {user?.addr ?? "No Address"}</Text>{/* NEW */}
+<Text>Address: {user?.addr ?? 'No Address'}</Text>
 
-_62
+_64
 
-<Text>Profile Name: {name ?? "--"}</Text>{/* NEW */}
+{/* NEW */}
 
-_62
+_64
 
-<Button onPress={sendQuery} title='Send Query'/>{/* NEW */}
+<Text>Profile Name: {name ?? '--'}</Text>
 
-_62
+_64
 
-<Button onPress={fcl.unauthenticate} title='Log Out'/>
+{/* NEW */}
 
-_62
+_64
+
+<Button onPress={sendQuery} title="Send Query" />
+
+_64
+
+{/* NEW */}
+
+_64
+
+<Button onPress={fcl.unauthenticate} title="Log Out" />
+
+_64
 
 </View>
 
-_62
+_64
 
-)
+);
 
-_62
+_64
 
-}
+};
 
-_62
+_64
 
-_62
+_64
 
 if (user.loggedIn) {
 
-_62
-
-return <View style={styles.container}>
-
-_62
-
-<Text>Flow App</Text>
-
-_62
-
-<AuthedState />
-
-_62
-
-<StatusBar style="auto" />
-
-_62
-
-</View>
-
-_62
-
-}
-
-_62
-
-_62
+_64
 
 return (
 
-_62
+_64
 
-<fcl.ServiceDiscovery fcl={fcl}/>
+<View style={styles.container}>
 
-_62
+_64
 
-)
+<Text>Flow App</Text>
 
-_62
+_64
+
+<AuthedState />
+
+_64
+
+<StatusBar style="auto" />
+
+_64
+
+</View>
+
+_64
+
+);
+
+_64
 
 }
 
-_62
+_64
 
-_62
+_64
+
+return <fcl.ServiceDiscovery fcl={fcl} />;
+
+_64
+
+}
+
+_64
+
+_64
 
 const styles = StyleSheet.create({
 
-_62
+_64
 
 container: {
 
-_62
+_64
 
 flex: 1,
 
-_62
+_64
 
 backgroundColor: '#fff',
 
-_62
+_64
 
 alignItems: 'center',
 
-_62
+_64
 
 justifyContent: 'center',
 
-_62
+_64
 
 },
 
-_62
+_64
 
 });`
 
@@ -742,7 +758,7 @@ _10
 
 _10
 
-args: (arg, t) => [arg(user.addr, t.Address)]
+args: (arg, t) => [arg(user.addr, t.Address)],
 
 _10
 
@@ -854,25 +870,25 @@ authorizations: [fcl.authz],
 
 _29
 
-limit: 50
+limit: 50,
 
 _29
 
-})
+});
 
 _29
 
 _29
 
-const transaction = await fcl.tx(transactionId).onceExecuted()
+const transaction = await fcl.tx(transactionId).onceExecuted();
 
 _29
 
-console.log(transaction)
+console.log(transaction);
 
 _29
 
-}`
+};`
 
 You can see the new fields we talked about. You'll also notice `fcl.authz`. That's shorthand for "use the current user to authorize this transaction", (you could also write it as `fcl.currentUser.authorization`). If you want to learn more about transactions and signing transactions, you can [view the docs here](/build/basics/transactions). For this example, we'll keep it simple with the user being each of these roles.
 
@@ -900,13 +916,13 @@ import { useEffect, useState } from 'react';
 
 _93
 
-import './flow/config'
+import './flow/config';
 
 _93
 
 _93
 
-import * as fcl from "@onflow/fcl/dist/fcl-react-native";
+import * as fcl from '@onflow/fcl/dist/fcl-react-native';
 
 _93
 
@@ -916,19 +932,17 @@ export default function App() {
 
 _93
 
-_93
-
-const [user, setUser] = useState({loggedIn: null})
+const [user, setUser] = useState({ loggedIn: null });
 
 _93
 
-const [name, setName] = useState('')
+const [name, setName] = useState('');
 
 _93
 
 _93
 
-useEffect(() => fcl.currentUser.subscribe(setUser), [])
+useEffect(() => fcl.currentUser.subscribe(setUser), []);
 
 _93
 
@@ -968,21 +982,21 @@ _93
 
 _93
 
-args: (arg, t) => [arg(user.addr, t.Address)]
+args: (arg, t) => [arg(user.addr, t.Address)],
 
 _93
 
-})
+});
 
 _93
 
 _93
 
-setName(profile?.name ?? 'No Profile')
+setName(profile?.name ?? 'No Profile');
 
 _93
 
-}
+};
 
 _93
 
@@ -1078,25 +1092,25 @@ authorizations: [fcl.authz],
 
 _93
 
-limit: 50
+limit: 50,
 
 _93
 
-})
+});
 
 _93
 
 _93
 
-const transaction = await fcl.tx(transactionId).onceExecuted()
+const transaction = await fcl.tx(transactionId).onceExecuted();
 
 _93
 
-console.log(transaction)
+console.log(transaction);
 
 _93
 
-}
+};
 
 _93
 
@@ -1110,27 +1124,31 @@ return (
 
 _93
 
-<View >
+<View>
 
 _93
 
-<Text>Address: {user?.addr ?? "No Address"}</Text>
+<Text>Address: {user?.addr ?? 'No Address'}</Text>
 
 _93
 
-<Text>Profile Name: {name ?? "--"}</Text>
+<Text>Profile Name: {name ?? '--'}</Text>
 
 _93
 
-<Button onPress={sendQuery} title='Send Query'/>
+<Button onPress={sendQuery} title="Send Query" />
 
 _93
 
-<Button onPress={initAccount} title='Init Account'/>{/* NEW */}
+<Button onPress={initAccount} title="Init Account" />
 
 _93
 
-<Button onPress={fcl.unauthenticate} title='Log Out'/>
+{/* NEW */}
+
+_93
+
+<Button onPress={fcl.unauthenticate} title="Log Out" />
 
 _93
 
@@ -1138,11 +1156,11 @@ _93
 
 _93
 
-)
+);
 
 _93
 
-}
+};
 
 _93
 
@@ -1152,7 +1170,11 @@ if (user.loggedIn) {
 
 _93
 
-return <View style={styles.container}>
+return (
+
+_93
+
+<View style={styles.container}>
 
 _93
 
@@ -1172,21 +1194,17 @@ _93
 
 _93
 
+);
+
+_93
+
 }
 
 _93
 
 _93
 
-return (
-
-_93
-
-<fcl.ServiceDiscovery fcl={fcl}/>
-
-_93
-
-)
+return <fcl.ServiceDiscovery fcl={fcl} />;
 
 _93
 
@@ -1298,7 +1316,7 @@ _25
 
 _25
 
-args: (arg, t) => [arg("Flow Developer", t.String)],
+args: (arg, t) => [arg('Flow Developer', t.String)],
 
 _25
 
@@ -1314,21 +1332,21 @@ authorizations: [fcl.authz],
 
 _25
 
-limit: 50
+limit: 50,
 
 _25
 
-})
+});
 
 _25
 
 _25
 
-fcl.tx(transactionId).subscribe(res => setTransactionStatus(res.status))
+fcl.tx(transactionId).subscribe((res) => setTransactionStatus(res.status));
 
 _25
 
-}`
+};`
 
 Here you can see our argument is "Flow Developer" and at the bottom we've called the `subscribe` method instead of `onceExecuted`.
 
@@ -1338,451 +1356,461 @@ Let's see how that works inside our whole `index.js` file. But, let's also set t
 
 ./App.js
 
-`_122
+`_124
 
 import { StatusBar } from 'expo-status-bar';
 
-_122
+_124
 
 import { StyleSheet, Text, View, Button } from 'react-native';
 
-_122
+_124
 
 import { useEffect, useState } from 'react';
 
-_122
+_124
 
-import './flow/config'
+import './flow/config';
 
-_122
+_124
 
-_122
+_124
 
-import * as fcl from "@onflow/fcl/dist/fcl-react-native";
+import * as fcl from '@onflow/fcl/dist/fcl-react-native';
 
-_122
+_124
 
-_122
+_124
 
 export default function App() {
 
-_122
+_124
 
-_122
+const [user, setUser] = useState({ loggedIn: null });
 
-const [user, setUser] = useState({loggedIn: null})
+_124
 
-_122
+const [name, setName] = useState('');
 
-const [name, setName] = useState('')
+_124
 
-_122
+const [transactionStatus, setTransactionStatus] = useState(null); // NEW
 
-const [transactionStatus, setTransactionStatus] = useState(null) // NEW
+_124
 
-_122
+_124
 
-_122
+useEffect(() => fcl.currentUser.subscribe(setUser), []);
 
-useEffect(() => fcl.currentUser.subscribe(setUser), [])
+_124
 
-_122
-
-_122
+_124
 
 const sendQuery = async () => {
 
-_122
+_124
 
 const profile = await fcl.query({
 
-_122
+_124
 
 cadence: `
 
-_122
+_124
 
 import Profile from 0xProfile
 
-_122
+_124
 
-_122
+_124
 
 access(all) fun main(address: Address): Profile.ReadOnly? {
 
-_122
+_124
 
 return Profile.read(address)
 
-_122
+_124
 
 }
 
-_122
+_124
 
 `,
 
-_122
+_124
 
-args: (arg, t) => [arg(user.addr, t.Address)]
+args: (arg, t) => [arg(user.addr, t.Address)],
 
-_122
+_124
 
-})
+});
 
-_122
+_124
 
-_122
+_124
 
-setName(profile?.name ?? 'No Profile')
+setName(profile?.name ?? 'No Profile');
 
-_122
+_124
 
-}
+};
 
-_122
+_124
 
-_122
+_124
 
 const initAccount = async () => {
 
-_122
+_124
 
 const transactionId = await fcl.mutate({
 
-_122
+_124
 
 cadence: `
 
-_122
+_124
 
 import Profile from 0xProfile
 
-_122
+_124
 
-_122
+_124
 
 transaction {
 
-_122
+_124
 
 prepare(account: auth(Storage, Capabilities) &Account) {
 
-_122
+_124
 
 // Only initialize the account if it hasn't already been initialized
 
-_122
+_124
 
 if (!Profile.check(account.address)) {
 
-_122
+_124
 
 // This creates and stores the profile in the user's account
 
-_122
+_124
 
 account.storage.save(<- Profile.new(), to: Profile.storagePath)
 
-_122
+_124
 
-_122
+_124
 
 // This creates the public capability that lets applications read the profile's info
 
-_122
+_124
 
 let newCap = account.capabilities.storage.issue<&Profile.Base>(Profile.privatePath)
 
-_122
+_124
 
-_122
+_124
 
 account.capabilities.publish(newCap, at: Profile.publicPath)
 
-_122
+_124
 
 }
 
-_122
+_124
 
 }
 
-_122
+_124
 
 }
 
-_122
+_124
 
 `,
 
-_122
+_124
 
 payer: fcl.authz,
 
-_122
+_124
 
 proposer: fcl.authz,
 
-_122
+_124
 
 authorizations: [fcl.authz],
 
-_122
+_124
 
-limit: 50
+limit: 50,
 
-_122
+_124
 
-})
+});
 
-_122
+_124
 
-_122
+_124
 
-const transaction = await fcl.tx(transactionId).onceExecuted()
+const transaction = await fcl.tx(transactionId).onceExecuted();
 
-_122
+_124
 
-console.log(transaction)
+console.log(transaction);
 
-_122
+_124
 
-}
+};
 
-_122
+_124
 
-_122
+_124
 
 // NEW
 
-_122
+_124
 
 const executeTransaction = async () => {
 
-_122
+_124
 
 const transactionId = await fcl.mutate({
 
-_122
+_124
 
 cadence: `
 
-_122
+_124
 
 import Profile from 0xProfile
 
-_122
+_124
 
-_122
+_124
 
 transaction(name: String) {
 
-_122
+_124
 
 prepare(account: auth(BorrowValue) &Account) {
 
-_122
+_124
 
 let profileRef = account.storage.borrow<&Profile.Base>(from: Profile.privatePath)
 
-_122
+_124
 
 ?? panic("The signer does not store a Profile.Base object at the path "
 
-_122
+_124
 
 .concat(Profile.privatePath.toString())
 
-_122
+_124
 
 .concat(". The signer must initialize their account with this object first!"))
 
-_122
+_124
 
-_122
+_124
 
 profileRef.setName(name)
 
-_122
+_124
 
 }
 
-_122
+_124
 
 }
 
-_122
+_124
 
 `,
 
-_122
+_124
 
-args: (arg, t) => [arg("Flow Developer", t.String)],
+args: (arg, t) => [arg('Flow Developer', t.String)],
 
-_122
+_124
 
 payer: fcl.authz,
 
-_122
+_124
 
 proposer: fcl.authz,
 
-_122
+_124
 
 authorizations: [fcl.authz],
 
-_122
+_124
 
-limit: 50
+limit: 50,
 
-_122
+_124
 
-})
+});
 
-_122
+_124
 
-_122
+_124
 
-fcl.tx(transactionId).subscribe(res => setTransactionStatus(res.status))
+fcl.tx(transactionId).subscribe((res) => setTransactionStatus(res.status));
 
-_122
+_124
 
-}
+};
 
-_122
+_124
 
-_122
+_124
 
 const AuthedState = () => {
 
-_122
+_124
 
 return (
 
-_122
+_124
 
-<View >
+<View>
 
-_122
+_124
 
-<Text>Address: {user?.addr ?? "No Address"}</Text>
+<Text>Address: {user?.addr ?? 'No Address'}</Text>
 
-_122
+_124
 
-<Text>Profile Name: {name ?? "--"}</Text>
+<Text>Profile Name: {name ?? '--'}</Text>
 
-_122
+_124
 
-<Text>Transaction Status: {transactionStatus ?? "--"}</Text>{/* NEW */}
+<Text>Transaction Status: {transactionStatus ?? '--'}</Text>
 
-_122
+_124
 
-<Button onPress={sendQuery} title='Send Query'/>
+{/* NEW */}
 
-_122
+_124
 
-<Button onPress={initAccount} title='Init Account'/>{/* NEW */}
+<Button onPress={sendQuery} title="Send Query" />
 
-_122
+_124
 
-<Button onPress={executeTransaction} title='Execute Transaction'/>{/* NEW */}
+<Button onPress={initAccount} title="Init Account" />
 
-_122
+_124
 
-<Button onPress={fcl.unauthenticate} title='Log Out'/>
+{/* NEW */}
 
-_122
+_124
+
+<Button onPress={executeTransaction} title="Execute Transaction" />
+
+_124
+
+{/* NEW */}
+
+_124
+
+<Button onPress={fcl.unauthenticate} title="Log Out" />
+
+_124
 
 </View>
 
-_122
+_124
 
-)
+);
 
-_122
+_124
 
-}
+};
 
-_122
+_124
 
-_122
+_124
 
 if (user.loggedIn) {
 
-_122
-
-return <View style={styles.container}>
-
-_122
-
-<Text>Flow App</Text>
-
-_122
-
-<AuthedState />
-
-_122
-
-<StatusBar style="auto" />
-
-_122
-
-</View>
-
-_122
-
-}
-
-_122
-
-_122
+_124
 
 return (
 
-_122
+_124
 
-<fcl.ServiceDiscovery fcl={fcl}/>
+<View style={styles.container}>
 
-_122
+_124
 
-)
+<Text>Flow App</Text>
 
-_122
+_124
+
+<AuthedState />
+
+_124
+
+<StatusBar style="auto" />
+
+_124
+
+</View>
+
+_124
+
+);
+
+_124
 
 }
 
-_122
+_124
 
-_122
+_124
+
+return <fcl.ServiceDiscovery fcl={fcl} />;
+
+_124
+
+}
+
+_124
+
+_124
 
 const styles = StyleSheet.create({
 
-_122
+_124
 
 container: {
 
-_122
+_124
 
 flex: 1,
 
-_122
+_124
 
 backgroundColor: '#fff',
 
-_122
+_124
 
 alignItems: 'center',
 
-_122
+_124
 
 justifyContent: 'center',
 
-_122
+_124
 
 },
 
-_122
+_124
 
 });`
 
@@ -1795,7 +1823,7 @@ That's it! You now have a shippable Flow dapp that can auth, query, init account
 
 * [Cadence Playground Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Hello World Video](https://www.youtube.com/watch?v=pRz7EzrWchs)
-* [Why Cadence?](https://www.onflow.org/post/flow-blockchain-cadence-programming-language-resources-assets)
+* [Why Cadence?](https://www.flow.com/post/flow-blockchain-cadence-programming-language-resources-assets)
 
 **Full Stack NFT Marketplace Example**
 
@@ -1811,7 +1839,7 @@ That's it! You now have a shippable Flow dapp that can auth, query, init account
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/react-native-quickstart.md)
 
-Last updated on **May 8, 2025** by **Chase Fleming**
+Last updated on **May 13, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -1849,7 +1877,7 @@ Documentation
 Community
 
 * [Ecosystem](/ecosystem)
-* [Flow Port](https://port.onflow.org/)
+* [Flow Port](https://port.flow.com/)
 * [Developer Grants](https://github.com/onflow/developer-grants)
 * [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
 * [Flowverse](https://www.flowverse.co/)
@@ -1860,13 +1888,13 @@ Start Building
 
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://open-cadence.onflow.org)
+* [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
 
 Network
 
-* [Network Status](https://status.onflow.org/)
+* [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
@@ -1878,8 +1906,8 @@ More
 
 * [GitHub](https://github.com/onflow)
 * [Discord](https://discord.gg/flow)
-* [Forum](https://forum.onflow.org/)
-* [OnFlow](https://onflow.org/)
+* [Forum](https://forum.flow.com/)
+* [Flow](https://flow.com/)
 * [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.

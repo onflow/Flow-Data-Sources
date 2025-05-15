@@ -97,7 +97,7 @@ To create accounts and generate keys, make sure to install [Flow CLI](/tools/flo
 
 ### Creating an Account[​](#creating-an-account-1 "Direct link to Creating an Account")
 
-There is a simple Flow CLI command to run to create an account. `flow accounts create` command will create a new account and generate a key pair then add the account to your flow.json. The command will try and You can also use the [Testnet Faucet](https://testnet-faucet-v2.onflow.org/) to create and fund an account.
+There is a simple Flow CLI command to run to create an account. `flow accounts create` command will create a new account and generate a key pair then add the account to your flow.json. The command will try and You can also use the [Testnet Faucet](https://faucet.flow.com/fund-account) to create and fund an account.
 
 More information about [Flow CLI](/tools/flow-cli/accounts/create-accounts) and creating accounts.
 
@@ -121,7 +121,7 @@ Once your accounts are set up and you're ready to develop, you can look over [so
 
 The Flow blockchain is improved continuously and thus version updates to Cadence, Flow node software, and the Flow SDKs will contain important updates as well as breaking changes.
 
-You should anticipate future updates and join the community ([Forum](https://forum.onflow.org/) or [Discord](https://discord.com/invite/J6fFnh2xx6)) to stay tuned on important announcements. Notices and guidelines for changes will be provided as early as possible.
+You should anticipate future updates and join the community ([Forum](https://forum.flow.com/) or [Discord](https://discord.com/invite/J6fFnh2xx6)) to stay tuned on important announcements. Notices and guidelines for changes will be provided as early as possible.
 
 ### Testnet Sporking[​](#testnet-sporking "Direct link to Testnet Sporking")
 
@@ -135,7 +135,7 @@ Flow Testnet is explicitly for experimentation and testing and should not be use
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/deploying.md)
 
-Last updated on **May 8, 2025** by **Chase Fleming**
+Last updated on **May 13, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -177,7 +177,7 @@ Documentation
 Community
 
 * [Ecosystem](/ecosystem)
-* [Flow Port](https://port.onflow.org/)
+* [Flow Port](https://port.flow.com/)
 * [Developer Grants](https://github.com/onflow/developer-grants)
 * [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
 * [Flowverse](https://www.flowverse.co/)
@@ -188,13 +188,13 @@ Start Building
 
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://open-cadence.onflow.org)
+* [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
 
 Network
 
-* [Network Status](https://status.onflow.org/)
+* [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
@@ -206,8 +206,8 @@ More
 
 * [GitHub](https://github.com/onflow)
 * [Discord](https://discord.gg/flow)
-* [Forum](https://forum.onflow.org/)
-* [OnFlow](https://onflow.org/)
+* [Forum](https://forum.flow.com/)
+* [Flow](https://flow.com/)
 * [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.

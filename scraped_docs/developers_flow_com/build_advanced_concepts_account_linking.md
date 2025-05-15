@@ -100,7 +100,7 @@ A link between two existing accounts on Flow can be created in two steps:
 
 These two steps are implemented in Cadence as two transactions:
 
-************************************Create capability************************************
+****************\*\*\*\*****************Create capability\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
 
 The account B creates and publishes the `&Account` Capability to the account A at the address `0x01`
 
@@ -150,7 +150,7 @@ _12
 
 }`
 
-****************************Claim capability****************************
+************\*\*\*\*************Claim capability\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
 
 The account A claims the Capability published by account B.
 
@@ -298,7 +298,7 @@ Learn more about it in the [Hybrid Custody documentation](/build/guides/account-
 
 ### Resources[​](#resources "Direct link to Resources")
 
-* [Forum Post](https://forum.onflow.org/t/hybrid-custody/4016) where core concepts were introduced and discussed.
+* [Forum Post](https://forum.flow.com/t/hybrid-custody/4016) where core concepts were introduced and discussed.
 * [GitHub repository](https://github.com/onflow/hybrid-custody) where `HybridCustody` core contracts and scripts are
   maintained. Check out the repository for more advanced script or transaction examples.
 * [Example](https://github.com/jribbink/magic-link-hc-sample/) Account Linking project with
@@ -308,7 +308,7 @@ Learn more about it in the [Hybrid Custody documentation](/build/guides/account-
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking/index.md)
 
-Last updated on **May 8, 2025** by **Chase Fleming**
+Last updated on **May 13, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -347,7 +347,7 @@ Documentation
 Community
 
 * [Ecosystem](/ecosystem)
-* [Flow Port](https://port.onflow.org/)
+* [Flow Port](https://port.flow.com/)
 * [Developer Grants](https://github.com/onflow/developer-grants)
 * [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
 * [Flowverse](https://www.flowverse.co/)
@@ -358,13 +358,13 @@ Start Building
 
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://open-cadence.onflow.org)
+* [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
 
 Network
 
-* [Network Status](https://status.onflow.org/)
+* [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
@@ -376,8 +376,8 @@ More
 
 * [GitHub](https://github.com/onflow)
 * [Discord](https://discord.gg/flow)
-* [Forum](https://forum.onflow.org/)
-* [OnFlow](https://onflow.org/)
+* [Forum](https://forum.flow.com/)
+* [Flow](https://flow.com/)
 * [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.
