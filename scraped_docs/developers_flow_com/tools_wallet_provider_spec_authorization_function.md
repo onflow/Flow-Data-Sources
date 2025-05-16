@@ -359,7 +359,7 @@ _17
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/authorization-function.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 

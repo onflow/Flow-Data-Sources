@@ -42,802 +42,432 @@ Search
 * Tutorial
 * 7. Marketplace Setup
 
+On this page
+
 # 7. Marketplace Setup
+
+In the [Marketplace Tutorial](/docs/tutorial/marketplace-compose), we're going to create a marketplace that uses both the fungible and non-fungible token (NFTs) contracts that we have learned about in previous tutorials. First, you'll execute a series of transactions to set up the accounts that you'll need to complete the marketplace tutorial. You'll build the marketplace itself in the next tutorial.
 
 warning
 
-We're in the process of updating the Cadence tutorial series. This tutorial, and the ones following, have **not** yet been updated.
+If you're farther along with your Cadence learning journey and found this page looking for a production-ready marketplace, check out the [NFTStorefront repo](https://github.com/onflow/nft-storefront)!
 
-Check back, or follow us on socials. These will be updated soon!
+## Objectives[​](#objectives "Direct link to Objectives")
 
-In this tutorial, we're going to create a marketplace that uses both the fungible
-and non-fungible token (NFTs) contracts that we have learned about in previous tutorials.
-This page requires you to execute a series of transactions to setup your accounts to complete the Marketplace tutorial.
-The next page contains the main content of the tutorial.
+In this tutorial, you'll simply execute transactions that you've already written and validate that setup is complete. It's only necessary because the playground is not actually a blockchain, so the state is transient.
 
-When you are done with the tutorial, check out the [NFTStorefront repo](https://github.com/onflow/nft-storefront)
-for an example of a production ready marketplace that you can use right now on testnet or mainnet!
-
----
+## Getting Started[​](#getting-started "Direct link to Getting Started")
 
 Action
 
 Open the starter code for this tutorial in the Flow Playground:
 
-[<https://play.flow.com/7355d51c-066b-46be-adab-a3da6c28b645>](https://play.flow.com/7355d51c-066b-46be-adab-a3da6c28b645)
+[<https://play.flow.com/463a9a08-deb0-455a-b2ed-4583ea6dcb64>](https://play.flow.com/463a9a08-deb0-455a-b2ed-4583ea6dcb64)
 
-The tutorial will be asking you to take various actions to interact with this code.
+Your goal for this exercise is to set up the ephemeral playground into the state the blockchain would be in when you begin building a marketplace. It's also a great chance to practice some of what you've learned already. You'll need to:
 
-If you have already completed the Marketplace tutorial, please move on to [Composable Resources: Kitty Hats](/docs/tutorial/resources-compose).
+* Deploy the NFT contract on account `0x06`
+* Deploy the fungible token contract on account `0x07`
+* Set up account `0x08` and `0x09` to handle NFTs and tokens compatible with the simplified contracts you've built
+* Give fungible tokens to `0x08`
+* Give an NFT to `0x09`
 
-This guide will help you quickly get the playground to the state you need to complete the Marketplace tutorial.
-The marketplace tutorial uses the Fungible Token and Non-Fungible token contracts
-to allow users to buy and sell NFTs with fungible tokens.
-
----
+To start, you'll need to deploy some copies of the contracts you've built in the previous tutorials, and call transactions you've already built. For your convenience, they've been provided in the starter playground.
 
 Action
 
-Some of the code in these setup instructions has intentional errors built into it.
-You should understand enough about Cadence to be able to fix these tutorials on your own.
-All of the errors involve concepts that you have learned in previous tutorials
-
 1. Open the `ExampleToken` contract. This is the same contract from the fungible token tutorial.
 2. Deploy the `ExampleToken` code to account `0x06`.
-3. Switch to the `ExampleNFT` contract (Contract 2)
+3. Switch to the `IntermediateNFT` contract.
 4. Deploy the NFT code to account `0x07` by selecting it as the deploying signer.
-5. Run the transaction in "Setup 6". This is the `SetupAccount6Transaction.cdc` file.
-   Use account `0x06` as the only signer to set up account `0x06`'s storage.
 
-SetupAccount6Transaction.cdc
+## Account Setup Transactions[​](#account-setup-transactions "Direct link to Account Setup Transactions")
 
-`_25
+Next, you'll need to execute transactions to set up accounts `0x08` and `0x09` to be able to work with the contracts for the marketplace. You've already built these transactions in previous exercises.
 
-// SetupAccount6Transaction.cdc
+tip
 
-_25
+**Remember**: On Flow, accounts must maintain a balance of $FLOW proportional to the amount of storage the account is using. Furthermore, placing something in the storage of an account requires that the receiving account has a capability that can accept the asset type. As a result, accounts can **not** accept arbitrary data (including tokens!) from random contracts without first executing a transaction to allow it.
 
-_25
+This might seem like a burden, but it's **great!!** Thanks to this feature, one of the most common causes of burning assets is impossible on Flow. You can **not** send property to a random address - only those that know how to receive it!
 
-import ExampleToken from 0x06
+### NFT Setup[​](#nft-setup "Direct link to NFT Setup")
 
-_25
+Action
 
-import ExampleNFT from 0x07
+Open the `NFT Setup` transaction.
 
-_25
+`_16
 
-_25
+import IntermediateNFT from 0x07
 
-// This transaction sets up account 0x06 for the marketplace tutorial
+_16
 
-_25
+_16
 
-// by publishing a Vault reference and creating an empty NFT Collection.
+transaction() {
 
-_25
+_16
 
-transaction {
+prepare(acct: auth(SaveValue, Capabilities) &Account) {
 
-_25
+_16
 
-prepare(acct: auth(SaveValue) &Account) {
+// Create an empty NFT collection
 
-_25
+_16
 
-// Create a public Receiver capability to the Vault
+acct.storage.save(<-IntermediateNFT.createEmptyCollection(), to: IntermediateNFT.CollectionStoragePath)
 
-_25
+_16
 
-let receiverCap = acct.capabilities.storage.issue<&{ExampleToken.Receiver}>(
+_16
 
-_25
+// Create a public capability for the Collection
 
-/storage/CadenceFungibleTokenTutorialVault
+_16
 
-_25
+let cap = acct.capabilities.storage.issue<&IntermediateNFT.Collection>(IntermediateNFT.CollectionStoragePath)
 
-)
+_16
 
-_25
+acct.capabilities.publish(cap, at: IntermediateNFT.CollectionPublicPath)
 
-acct.capabilities.publish(receiverCap, at: /public/CadenceFungibleTokenTutorialReceiver)
-
-_25
-
-_25
-
-// store the empty NFT Collection in account storage
-
-_25
-
-acct.storage.save(<-ExampleNFT.createEmptyCollection(nftType: nil), to: ExampleNFT.CollectionStoragePath)
-
-_25
-
-_25
-
-log("Collection created for account 2")
-
-_25
-
-_25
-
-// create a public capability for the Collection
-
-_25
-
-let cap = acct.capabilities.storage.issue<&ExampleNFT.Collection>(ExampleNFT.CollectionStoragePath)
-
-_25
-
-acct.capabilities.publish(cap, at: ExampleNFT.CollectionStoragePath)
-
-_25
+_16
 
 }
 
-_25
+_16
+
+_16
+
+execute {
+
+_16
+
+log("Empty NFT Collection Created")
+
+_16
+
+}
+
+_16
 
 }`
 
-7. Run the second transaction, "Setup 7". This is the `SetupAccount7Transaction.cdc` file.
-   Use account `0x07` as the only signer to set up account `0x07`'s storage.
+This transaction will:
 
-SetupAccount7Transaction.cdc
+* `prepare` an account reference with permissions to create and save capabilities
+* Call `createEmptyCollection()` from the `IntermediateNFT` contract to create a collection
+* Create and publish public capabilities for the NFT collection
 
-`_44
+Action
 
-// SetupAccount7Transaction.cdc
+Run the transaction using `0x07` as the signer, then run it again for `0x08`.
 
-_44
+### Fungible Token Setup[​](#fungible-token-setup "Direct link to Fungible Token Setup")
 
-_44
+Action
+
+Open the `Fungible Token Setup` transaction.
+
+`_19
 
 import ExampleToken from 0x06
 
-_44
+_19
 
-import ExampleNFT from 0x07
+_19
 
-_44
+transaction() {
 
-_44
+_19
 
-// This transaction adds an empty Vault to account 0x07
+prepare(acct: auth(SaveValue, Capabilities) &Account) {
 
-_44
+_19
 
-// and mints an NFT with id=1 that is deposited into
+// Create a vault and save it in account storage
 
-_44
+_19
 
-// the NFT collection on account 0x06.
+acct.storage.save(<-ExampleToken.createEmptyVault(), to: ExampleToken.VaultStoragePath)
 
-_44
+_19
 
-transaction {
+_19
 
-_44
+// Create and publish a receiver for the fungible tokens
 
-_44
+_19
 
-// Private reference to this account's minter resource
+let cap = acct.capabilities.storage.issue<&ExampleToken.Vault>(
 
-_44
-
-let minterRef: &ExampleNFT.NFTMinter
-
-_44
-
-_44
-
-prepare(acct: auth(BorrowValue, SaveValue, StorageCapabilities, PublishCapability) &Account) {
-
-_44
-
-// create a new vault instance
-
-_44
-
-let vaultA <- ExampleToken.createEmptyVault()
-
-_44
-
-_44
-
-// Store the vault in the account storage
-
-_44
-
-acct.storage.save(<-vaultA, to: ExampleToken.VaultStoragePath)
-
-_44
-
-_44
-
-// Create a public Receiver capability to the Vault
-
-_44
-
-let receiverCap = acct.capabilities.storage.issue<&ExampleToken.Vault>(
-
-_44
+_19
 
 ExampleToken.VaultStoragePath
 
-_44
+_19
 
 )
 
-_44
+_19
 
-acct.capabilities.publish(receiverCap, at: ExampleToken.VaultPublicPath)
+_19
 
-_44
+acct.capabilities.publish(cap, at: ExampleToken.VaultPublicPath)
+
+_19
 
 }
 
-_44
+_19
+
+_19
 
 execute {
 
-_44
+_19
 
-// Get the recipient's public account object
+log("Vault Created")
 
-_44
-
-let recipient = getAccount(0x06)
-
-_44
-
-_44
-
-// Get the Collection reference for the receiver
-
-_44
-
-// getting the public capability and borrowing a reference from it
-
-_44
-
-let receiverRef = recipient.capabilities
-
-_44
-
-.borrow<&ExampleNFT.Collection>(ExampleNFT.CollectionPublicPath)
-
-_44
-
-?? panic("Could not borrow a collection reference to 0x06's ExampleNFT.Collection"
-
-_44
-
-.concat(" from the path ")
-
-_44
-
-.concat(ExampleNFT.CollectionPublicPath.toString())
-
-_44
-
-.concat(". Make sure account 0x06 has set up its account ")
-
-_44
-
-.concat("with an ExampleNFT Collection."))
-
-_44
-
-_44
-
-// Mint an NFT and deposit it into account 0x06's collection
-
-_44
-
-receiverRef.deposit(token: <-ExampleNFT.mintNFT())
-
-_44
+_19
 
 }
 
-_44
+_19
 
 }`
 
-8. Run the transaction in "Setup 6". This is the `SetupAccount6TransactionMinting.cdc` file.
-   Use account `0x06` as the only signer to mint fungible tokens for account 6 and 7.
+This transaction will:
 
-SetupAccount6TransactionMinting.cdc
+* Instantiate a constant for and borrow a reference to the `ExampleToken` contract
+* Create and add an empty `ExampleToken` vault
+* Add the `Receiver` [capability](/docs/language/capabilities) and [publish](/docs/language/accounts/capabilities#publishing-capabilities) it
 
-`_35
+Action
 
-// SetupAccount6TransactionMinting.cdc
+Run the transaction using `0x07` as the signer, then run it again for `0x08`.
 
-_35
+## Mint NFTs[​](#mint-nfts "Direct link to Mint NFTs")
 
-_35
+Now that you've set up both accounts to be able to receive NFTs, it's time to give account `0x08` an NFT to sell to `0x09`.
 
-import ExampleToken from 0x06
+tip
 
-_35
+**Reminder**: The `IntermediateNFT` contract allows **anyone** to freely mint NFTs. You wouldn't want this ability in production, but it is in here to streamline the tutorial.
 
-import ExampleNFT from 0x07
+You've already written a transaction to mint an NFT, so we've provided it here. You just need to call it.
 
-_35
+`_19
 
-_35
+import IntermediateNFT from 0x07
 
-// This transaction mints tokens for both accounts using
+_19
 
-_35
+_19
 
-// the minter stored on account 0x06.
+transaction(description: String) {
 
-_35
+_19
 
-transaction {
+let receiverRef: &IntermediateNFT.Collection
 
-_35
+_19
 
-_35
+_19
 
-// Public Vault Receiver References for both accounts
+prepare(account: auth(BorrowValue) &Account) {
 
-_35
+_19
 
-let acct6Capability: Capability<&{ExampleToken.Receiver}>
+self.receiverRef = account.capabilities
 
-_35
+_19
 
-let acct7Capability: Capability<&{ExampleToken.Receiver}>
+.borrow<&IntermediateNFT.Collection>(IntermediateNFT.CollectionPublicPath)
 
-_35
+_19
 
-_35
+?? panic(IntermediateNFT.collectionNotConfiguredError(address: account.address))
 
-// Private minter references for this account to mint tokens
-
-_35
-
-let minterRef: &ExampleToken.VaultMinter
-
-_35
-
-_35
-
-prepare(acct: auth(SaveValue, StorageCapabilities, BorrowValue) &Account) {
-
-_35
-
-// Get the public object for account 0x07
-
-_35
-
-let account7 = getAccount(0x07)
-
-_35
-
-_35
-
-// Retrieve public Vault Receiver references for both accounts
-
-_35
-
-self.acct6Capability = acct.capabilities.get<&{ExampleToken.Receiver}>(/public/CadenceFungibleTokenTutorialReceiver)
-
-_35
-
-self.acct7Capability = account7.capabilities.get<&{ExampleToken.Receiver}>(/public/CadenceFungibleTokenTutorialReceiver)
-
-_35
-
-_35
-
-// Get the stored Minter reference for account 0x06
-
-_35
-
-self.minterRef = acct.storage.borrow<&ExampleToken.VaultMinter>(from: /storage/CadenceFungibleTokenTutorialMinter)
-
-_35
-
-?? panic("Could not borrow owner's vault minter reference")
-
-_35
+_19
 
 }
 
-_35
+_19
 
-_35
+_19
 
 execute {
 
-_35
+_19
 
-// Mint tokens for both accounts
+let newNFT <- IntermediateNFT.mintNFT(description: description)
 
-_35
+_19
 
-self.minterRef.mintTokens(amount: 20.0, recipient: self.acct7Capability)
+_19
 
-_35
+self.receiverRef.deposit(token: <-newNFT)
 
-self.minterRef.mintTokens(amount: 10.0, recipient: self.acct6Capability)
+_19
 
-_35
+_19
+
+log("NFT Minted and deposited to minter's Collection")
+
+_19
 
 }
 
-_35
+_19
 
 }`
 
-9. Run the script `CheckSetupScript.cdc` file in Script 1 to ensure everything is set up.
+Action
 
-CheckSetupScript.cdc
+Mint a token with account `0x08`.
 
-`_87
+## Mint Fungible Tokens[​](#mint-fungible-tokens "Direct link to Mint Fungible Tokens")
 
-// CheckSetupScript.cdc
+You've also set up both accounts to be able to receive non-fungible tokens from `ExampleToken`.
 
-_87
+tip
 
-_87
+**Reminder**: The `ExampleToken` contract only allows the owner of the contract to mint NFTs.
+
+You've already written a transaction to mint fungible tokens, so we've provided it here. You just need to call it.
+
+`_26
 
 import ExampleToken from 0x06
 
-_87
+_26
 
-import ExampleNFT from 0x07
+_26
 
-_87
+transaction(recipient: Address, amount: UFix64) {
 
-_87
+_26
 
-/// Allows the script to return the ownership info
+let mintingRef: &ExampleToken.VaultMinter
 
-_87
+_26
 
-/// of all the accounts
+var receiver: Capability<&{ExampleToken.Receiver}>
 
-_87
+_26
 
-access(all) struct OwnerInfo {
+_26
 
-_87
+prepare(signer: auth(BorrowValue) &Account) {
 
-access(all) let acct6Balance: UFix64
+_26
 
-_87
+self.mintingRef = signer.storage.borrow<&ExampleToken.VaultMinter>(from: /storage/CadenceFungibleTokenTutorialMinter)
 
-access(all) let acct7Balance: UFix64
+_26
 
-_87
+?? panic(ExampleToken.vaultNotConfiguredError(address: recipient))
 
-_87
+_26
 
-access(all) let acct6IDs: [UInt64]
+_26
 
-_87
+let recipient = getAccount(recipient)
 
-access(all) let acct7IDs: [UInt64]
+_26
 
-_87
+_26
 
-_87
+// Consider further error handling if this fails
 
-init(balance1: UFix64, balance2: UFix64, acct6IDs: [UInt64], acct7IDs: [UInt64]) {
+_26
 
-_87
+self.receiver = recipient.capabilities.get<&{ExampleToken.Receiver}>
 
-self.acct6Balance = balance1
+_26
 
-_87
+(ExampleToken.VaultPublicPath)
 
-self.acct7Balance = balance2
+_26
 
-_87
-
-self.acct6IDs = acct6IDs
-
-_87
-
-self.acct7IDs = acct7IDs
-
-_87
+_26
 
 }
 
-_87
+_26
+
+_26
+
+execute {
+
+_26
+
+// Mint tokens and deposit them into the recipient's Vault
+
+_26
+
+self.mintingRef.mintTokens(amount: amount, recipient: self.receiver)
+
+_26
+
+_26
+
+log("Tokens minted and deposited to account "
+
+_26
+
+.concat(self.receiver.address.toString()))
+
+_26
 
 }
 
-_87
-
-_87
-
-// This script checks that the accounts are set up correctly for the marketplace tutorial.
-
-_87
-
-//
-
-_87
-
-// Account 0x06: Vault Balance = 40, NFT.id = 1
-
-_87
-
-// Account 0x07: Vault Balance = 20, No NFTs
-
-_87
-
-access(all) fun main(): OwnerInfo {
-
-_87
-
-// Get the accounts' public account objects
-
-_87
-
-let acct6 = getAccount(0x06)
-
-_87
-
-let acct7 = getAccount(0x07)
-
-_87
-
-_87
-
-// Get references to the account's receivers
-
-_87
-
-// by getting their public capability
-
-_87
-
-// and borrowing a reference from the capability
-
-_87
-
-let acct6ReceiverRef = acct6.capabilities.get<&{ExampleToken.Balance}>
-
-_87
-
-(/public/CadenceFungibleTokenTutorialReceiver)
-
-_87
-
-.borrow()
-
-_87
-
-?? panic("Could not borrow a balance reference to "
-
-_87
-
-.concat("0x06's ExampleToken.Vault")
-
-_87
-
-.concat(". Make sure 0x06 has set up its account ")
-
-_87
-
-.concat("with an ExampleToken Vault and valid capability."))
-
-_87
-
-_87
-
-let acct7ReceiverRef = acct7.capabilities.get<&{ExampleToken.Balance}>
-
-_87
-
-(/public/CadenceFungibleTokenTutorialReceiver)
-
-_87
-
-.borrow()
-
-_87
-
-?? panic("Could not borrow a balance reference to "
-
-_87
-
-.concat("0x07's ExampleToken.Vault")
-
-_87
-
-.concat(". Make sure 0x07 has set up its account ")
-
-_87
-
-.concat("with an ExampleToken Vault and valid capability."))
-
-_87
-
-_87
-
-let returnArray: [UFix64] = []
-
-_87
-
-_87
-
-// verify that the balances are correct
-
-_87
-
-if acct6ReceiverRef.balance != 40.0 || acct7ReceiverRef.balance != 20.0 {
-
-_87
-
-panic("Wrong balances!")
-
-_87
-
-}
-
-_87
-
-_87
-
-// Find the public Receiver capability for their Collections
-
-_87
-
-let acct6Capability = acct6.capabilities.get<&{ExampleNFT.NFTReceiver}>(ExampleNFT.CollectionPublicPath)
-
-_87
-
-let acct7Capability = acct7.capabilities.get<&{ExampleNFT.NFTReceiver}>(ExampleNFT.CollectionPublicPath)
-
-_87
-
-_87
-
-// borrow references from the capabilities
-
-_87
-
-let nft1Ref = acct6Capability.borrow()
-
-_87
-
-?? panic("Could not borrow a collection reference to 0x06's ExampleNFT.Collection"
-
-_87
-
-.concat(" from the path ")
-
-_87
-
-.concat(ExampleNFT.CollectionPublicPath.toString())
-
-_87
-
-.concat(". Make sure account 0x06 has set up its account ")
-
-_87
-
-.concat("with an ExampleNFT Collection."))
-
-_87
-
-_87
-
-let nft2Ref = acct7Capability.borrow()
-
-_87
-
-?? panic("Could not borrow a collection reference to 0x07's ExampleNFT.Collection"
-
-_87
-
-.concat(" from the path ")
-
-_87
-
-.concat(ExampleNFT.CollectionPublicPath.toString())
-
-_87
-
-.concat(". Make sure account 0x07 has set up its account ")
-
-_87
-
-.concat("with an ExampleNFT Collection."))
-
-_87
-
-_87
-
-// verify that the collections are correct
-
-_87
-
-if nft1Ref.getIDs()[0] != 1 || nft2Ref.getIDs().length != 0 {
-
-_87
-
-panic("Wrong Collections!")
-
-_87
-
-}
-
-_87
-
-_87
-
-// Return the struct that shows the account ownership info
-
-_87
-
-return OwnerInfo(balance1: acct6ReceiverRef.balance,
-
-_87
-
-balance2: acct7ReceiverRef.balance,
-
-_87
-
-acct6IDs: nft1Ref.getIDs(),
-
-_87
-
-acct7IDs: nft2Ref.getIDs())
-
-_87
+_26
 
 }`
 
-10. The script should not panic and you should see something like this output
+Action
+
+Call `Mint Tokens` with account `0x06` to grant 40 tokens to `0x09` and 20 tokens to `0x08`
+
+## Validate Setup[​](#validate-setup "Direct link to Validate Setup")
+
+We've provided a script called `Validate Setup` that you can use to make sure you've completed the setup correctly.
+
+Action
+
+Run the `Validate Setup` script and resolve any issues.
+
+The script should not panic and you should see something like this output:
 
 `_10
 
-"Account 6 Balance"
+...64807.OwnerInfo(acct8Balance: 40.00000000, acct9Balance: 40.00000000, acct8IDs: [1], acct9IDs: [])`
 
-_10
-
-40.00000000
-
-_10
-
-"Account 7 Balance"
-
-_10
-
-20.00000000
-
-_10
-
-"Account 6 NFTs"
-
-_10
-
-[1]
-
-_10
-
-"Account 7 NFTs"
-
-_10
-
-[]`
-
----
+## Conclusion[​](#conclusion "Direct link to Conclusion")
 
 With your playground now in the correct state, you're ready to continue with the next tutorial.
 
+Now that you have completed this tutorial, you able to:
+
+* Set up accounts and deploy contracts required for a basic NFT marketplace on Flow.
+* Configure account storage and capabilities for fungible and non-fungible tokens.
+* Validate the correct setup of accounts and assets in preparation for marketplace operations.
+
 You do not need to open a new playground session for the marketplace tutorial. You can just continue using this one.
+
+## Reference Solution[​](#reference-solution "Direct link to Reference Solution")
+
+warning
+
+You are **not** saving time by skipping to the reference implementation. You'll learn much faster by doing the tutorials as presented!
+
+Reference solutions are functional, but may not be optimal.
+
+[Reference Solution](https://play.flow.com/463a9a08-deb0-455a-b2ed-4583ea6dcb64)
 
 [Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/tutorial/07-marketplace-setup.md)
 
@@ -846,6 +476,21 @@ You do not need to open a new playground session for the marketplace tutorial. Y
 Fungible Tokens](/docs/tutorial/fungible-tokens)[Next
 
 8. Marketplace](/docs/tutorial/marketplace-compose)
+
+###### Rate this page
+
+😞😐😊
+
+* [Objectives](#objectives)
+* [Getting Started](#getting-started)
+* [Account Setup Transactions](#account-setup-transactions)
+  + [NFT Setup](#nft-setup)
+  + [Fungible Token Setup](#fungible-token-setup)
+* [Mint NFTs](#mint-nfts)
+* [Mint Fungible Tokens](#mint-fungible-tokens)
+* [Validate Setup](#validate-setup)
+* [Conclusion](#conclusion)
+* [Reference Solution](#reference-solution)
 
 Got suggestions for this site?
 

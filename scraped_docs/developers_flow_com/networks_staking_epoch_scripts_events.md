@@ -637,7 +637,7 @@ This script does not require any arguments.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/05-epoch-scripts-events.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 

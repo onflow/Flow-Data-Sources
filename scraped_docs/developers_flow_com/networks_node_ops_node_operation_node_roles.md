@@ -121,7 +121,7 @@ Here is a comparison of the different node roles,
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-roles.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 

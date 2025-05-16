@@ -181,7 +181,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/get-flow-data/get-collections.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -584,7 +584,7 @@ Example:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/error-codes.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -835,7 +835,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/utils/snapshot-save.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -2254,7 +2254,7 @@ Lastly, if the goal is to practice the entire Sporking procedure, including `tra
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/guides/spork-practice.md)
 
-Last updated on **May 8, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -2289,7 +2289,7 @@ Documentation
 Community
 
 * [Ecosystem](/ecosystem)
-* [Flow Port](https://port.onflow.org/)
+* [Flow Port](https://port.flow.com/)
 * [Developer Grants](https://github.com/onflow/developer-grants)
 * [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
 * [Flowverse](https://www.flowverse.co/)
@@ -2300,13 +2300,13 @@ Start Building
 
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://open-cadence.onflow.org)
+* [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
 
 Network
 
-* [Network Status](https://status.onflow.org/)
+* [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
@@ -2318,8 +2318,8 @@ More
 
 * [GitHub](https://github.com/onflow)
 * [Discord](https://discord.gg/flow)
-* [Forum](https://forum.onflow.org/)
-* [OnFlow](https://onflow.org/)
+* [Forum](https://forum.flow.com/)
+* [Flow](https://flow.com/)
 * [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.
@@ -2483,7 +2483,7 @@ _15
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/db-encryption-existing-operator.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -2937,7 +2937,7 @@ Protobuf: <https://github.com/onflow/flow/blob/master/protobuf/flow/executiondat
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/access-nodes/access-node-configuration-options.md)
 
-Last updated on **May 6, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -2979,7 +2979,7 @@ Documentation
 Community
 
 * [Ecosystem](/ecosystem)
-* [Flow Port](https://port.onflow.org/)
+* [Flow Port](https://port.flow.com/)
 * [Developer Grants](https://github.com/onflow/developer-grants)
 * [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
 * [Flowverse](https://www.flowverse.co/)
@@ -2990,13 +2990,13 @@ Start Building
 
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://open-cadence.onflow.org)
+* [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
 
 Network
 
-* [Network Status](https://status.onflow.org/)
+* [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
@@ -3008,8 +3008,8 @@ More
 
 * [GitHub](https://github.com/onflow)
 * [Discord](https://discord.gg/flow)
-* [Forum](https://forum.onflow.org/)
-* [OnFlow](https://onflow.org/)
+* [Forum](https://forum.flow.com/)
+* [Flow](https://flow.com/)
 * [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.
@@ -3430,7 +3430,7 @@ for a list and documentation for important `FlowEpoch` events.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/07-epoch-contract-reference.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -3547,7 +3547,7 @@ Go to [Block explorers](/ecosystem/block-explorers)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/block-explorers.mdx)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -4314,7 +4314,7 @@ the NFT to update any stored information they have about the NFT in their databa
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/08-non-fungible-token.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -4724,7 +4724,7 @@ Coming soon:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/overview.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -4880,7 +4880,7 @@ If you absolutely must keep the old address when making an incompatible upgrade,
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/best-practices/contract-upgrades.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -5521,7 +5521,7 @@ _24
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/events.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -6163,7 +6163,7 @@ access(all) event NodeVersionBoundaryFreezePeriodChanged(freezePeriod: UInt64)`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/04-service-account.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -8054,7 +8054,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/utils/signature-verify.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -8219,7 +8219,7 @@ To get started with creating your first Flow project and to learn more about how
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/index.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -8448,7 +8448,7 @@ access(all) event MachineAccountCreated(nodeID: String, role: UInt8, address: Ad
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/11-staking-collection.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -8865,7 +8865,7 @@ See the following video for demonstration of how to update your code to wait for
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/transactions.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -8992,7 +8992,7 @@ Search
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/network-architecture.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -11392,7 +11392,7 @@ Do not use the `access(all)` modifier on fields and functions unless necessary. 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/best-practices/security-best-practices.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -11655,7 +11655,7 @@ Following are some recommendations on how to write efficient scripts:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/scripts.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -11869,7 +11869,7 @@ To explore advanced features like snapshots, rollbacks, and debugging, visit the
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/deployment/start-emulator.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -12882,7 +12882,7 @@ Example: there are 115 access nodes already part of the network. Hence, the tota
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/access-nodes/access-node-setup.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -14703,7 +14703,7 @@ _10
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/protocol-state-bootstrap.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -15460,7 +15460,7 @@ The Agile Monkeys has written a very comprehensive guide on how to build a nativ
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/ios-quickstart.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -15847,7 +15847,7 @@ but this would require small changes to these transactions to use the new storag
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/15-staking-guide.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -16235,7 +16235,7 @@ have a look at [the README of the repository](https://github.com/onflow/flow-emu
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/emulator/index.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -18792,7 +18792,7 @@ _34
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/index.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -21579,7 +21579,7 @@ The transfer transaction also has a [generic version](https://github.com/onflow/
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/fungible-token.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -21873,7 +21873,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/scripts/execute-scripts.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -22041,7 +22041,7 @@ we have turned off geolocation data reporting to Mixpanel.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/data-collection.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -22236,7 +22236,7 @@ contract that conforms to the standard.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/overview.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -22477,7 +22477,7 @@ latestBlock, err := flowClient.GetLatestBlock(ctx, true, MaxCallSendMsgSize(100)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/flow-go-sdk/migration-v0.25.0.md)
 
-Last updated on **May 6, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -22509,7 +22509,7 @@ Documentation
 Community
 
 * [Ecosystem](/ecosystem)
-* [Flow Port](https://port.onflow.org/)
+* [Flow Port](https://port.flow.com/)
 * [Developer Grants](https://github.com/onflow/developer-grants)
 * [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
 * [Flowverse](https://www.flowverse.co/)
@@ -22520,13 +22520,13 @@ Start Building
 
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://open-cadence.onflow.org)
+* [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
 
 Network
 
-* [Network Status](https://status.onflow.org/)
+* [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
@@ -22538,8 +22538,8 @@ More
 
 * [GitHub](https://github.com/onflow)
 * [Discord](https://discord.gg/flow)
-* [Forum](https://forum.onflow.org/)
-* [OnFlow](https://onflow.org/)
+* [Forum](https://forum.flow.com/)
+* [Flow](https://flow.com/)
 * [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.
@@ -22700,7 +22700,7 @@ _11
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/deployment/project-contracts.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -23154,7 +23154,7 @@ This level of protection against MEV is not an afterthought—it has been a fund
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/mev-resistance.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -23847,7 +23847,7 @@ Once the transition is processed, you can now see the withdrawn rewards in your 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-port/staking-guide.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -25020,7 +25020,7 @@ The basic staking guide is detailed [here](/networks/staking/staking-guide)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/13-staking-options.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -26122,7 +26122,7 @@ A entitled receiver has not been paid during the sale of the NFT.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/10-nft-storefront.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -26277,7 +26277,7 @@ Flow EVM has the following public RPC nodes available:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/networks.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -26693,7 +26693,7 @@ Where can I get updates or ask questions?
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/faq.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -26896,7 +26896,7 @@ It is possible to query the information about a node that an address runs though
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/12-faq.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -26970,7 +26970,7 @@ More
 * [Flow](https://flow.com/)
 * [Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
+Copyright  © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
@@ -27635,7 +27635,7 @@ To learn more about next steps following the initial setup, check out the follow
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/super-commands.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -31334,7 +31334,7 @@ Signature objects are used to represent a signature for a particular message as 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/api.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -32538,7 +32538,7 @@ which does not create regular transaction IDs.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/03-schedule.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -32691,7 +32691,7 @@ Web3 version of Twitter](https://dev.to/muttoni/lets-build-a-twitter-clone-on-we
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/more-guides.mdx)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -32819,7 +32819,7 @@ Basic Concepts of Flow Blockchain](/build/basics/blocks)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/explore-more.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -33054,7 +33054,7 @@ If you installed it using Hombrew you can remove it using: `brew uninstall flow-
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/install.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -35092,7 +35092,7 @@ Reference solutions are functional, but may not be optimal.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking-with-dapper.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -39670,7 +39670,7 @@ To learn more about `query`, check out the [API documentation](/tools/clients/fc
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/scripts.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -39833,7 +39833,7 @@ For integration with AI tools like Cursor or ChatGPT, use the appropriate URL as
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/flow-data-sources.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -40017,7 +40017,7 @@ Selecting the right architecture is crucial when developing an app on the Flow b
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/app-architecture/index.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -40168,7 +40168,7 @@ Overflow is a Go-based DSL for testing and running interactive stories](https://
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/index.mdx)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -41440,7 +41440,7 @@ This script does not require any arguments.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/05-epoch-scripts-events.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -43326,7 +43326,7 @@ using Cadence.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/interacting-with-coa.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -43495,7 +43495,7 @@ On this page
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-providers.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -45107,7 +45107,7 @@ _66
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/interaction-templates.mdx)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -45698,7 +45698,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/get-accounts.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -47053,7 +47053,7 @@ After selecting the contracts, press `enter` to confirm. The selected contracts 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/dependency-manager.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -47296,7 +47296,7 @@ access(all) event BroadcastMessage(nodeID: String, content: String)`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/10-qc-dkg-scripts-events.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -47744,7 +47744,7 @@ All networking layer settings are initialized to default values from the [config
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/guides/starting-nodes.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -47894,7 +47894,7 @@ Mainnet/Testnet Source: [`EVM.cdc`](https://github.com/onflow/flow-go/blob/maste
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/13-evm.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -49145,7 +49145,7 @@ Mainnet EAS Explorer: [<https://flow.easscan.credora.io>] (<https://flow.easscan
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/defi-contracts.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -49565,7 +49565,7 @@ Those wishing to understand the technical specifics of how Flow EVM works we rec
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/about.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Next
 
@@ -51137,7 +51137,7 @@ Find a list of all SDKs [here](/tools/clients)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/transactions.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -51978,7 +51978,7 @@ If you'd like to dive deeper into onchain randomness on Flow, here's a list of r
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/randomness.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -52213,7 +52213,7 @@ Each client tool is designed with specific use cases and developer needs in mind
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/index.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -52661,7 +52661,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/account-add-contract.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -53008,7 +53008,7 @@ Bridges are mechanisms that connect different blockchain networks, enabling secu
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/bridges.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -53180,7 +53180,7 @@ A node operator can easily withdraw their FLOW from their machine account if the
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/11-machine-account.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -53295,7 +53295,7 @@ Go to [Bridges](/ecosystem/bridges)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/cross-chain-bridges.mdx)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -53632,7 +53632,7 @@ access(all) event NewDelegatorStakingMinimum(newMinimum: UFix64)`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/06-staking-contract-reference.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -54018,7 +54018,7 @@ After unblocking the node, connections and traffic coming from the node should r
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/byzantine-node-attack-response.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -54741,7 +54741,7 @@ Proceed to the next tutorial to learn how to create your own contracts and deplo
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/contract-interaction.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -59058,7 +59058,7 @@ While FCL v0.0.67 is not strictly necessary to use Mainnet 6, we strongly recomm
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/past-upgrades.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -60307,7 +60307,7 @@ _42
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/08-staking-rewards.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -62295,7 +62295,7 @@ To optimize your NFT collections for this catalog, you'll need to:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/09-nft-metadata.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -62967,7 +62967,7 @@ By using this approach to add the Flow network to Metamask, you can avoid manual
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/integrating-metamask.mdx)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -63127,7 +63127,7 @@ The ecosystem grants program is aimed at supporting the growth of Flow ecosystem
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/grants.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -64622,7 +64622,7 @@ Whether you're new to building onchain, or an established veteran, we’re here 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/authentication.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -64788,7 +64788,7 @@ For real-time numbers, please refer to the [block explorer](https://www.flowscan
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-economics.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -64957,7 +64957,7 @@ For more information about Cadence Owned Accounts, see the [Flow EVM Support FLI
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/accounts.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -67042,7 +67042,7 @@ And below are the bridge escrow's EVM addresses. These addresses are [`CadenceOw
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/15-bridge.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -67426,7 +67426,7 @@ implentation](https://github.com/onflow/random-coin-toss) using the VRF.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/vrf.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -67590,7 +67590,7 @@ developers seeking to enhance the security and management of tokenized assets wi
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/index.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -67957,7 +67957,7 @@ This command will detect and provide information about common misconfigurations,
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/machine-existing-operator.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -69131,7 +69131,7 @@ _31
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/cross-vm/wagmi-adapter.mdx)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -69391,7 +69391,7 @@ After completing these tutorials, you'll be equipped to leverage AI tools effect
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/index.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -71419,7 +71419,7 @@ After a transaction has been **built** and **signed**, it can be sent to the Flo
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/sdk-guidelines.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -73013,7 +73013,7 @@ For additional details and advanced usage, refer to the [@onflow/kit documentati
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/fcl-quickstart.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -73256,7 +73256,7 @@ Restart VS Code and the extension should be installed!
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/vscode-extension/index.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -73464,7 +73464,7 @@ Here is a comparison of the different node roles,
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-roles.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -73887,7 +73887,7 @@ _13
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/proving-authentication.mdx)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -74488,7 +74488,7 @@ Now that you've completed this tutorial, you're ready to enhance your dApp with 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/rainbowkit.md)
 
-Last updated on **May 8, 2025** by **Chase Fleming**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -74529,7 +74529,7 @@ Documentation
 Community
 
 * [Ecosystem](/ecosystem)
-* [Flow Port](https://port.onflow.org/)
+* [Flow Port](https://port.flow.com/)
 * [Developer Grants](https://github.com/onflow/developer-grants)
 * [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
 * [Flowverse](https://www.flowverse.co/)
@@ -74540,13 +74540,13 @@ Start Building
 
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://open-cadence.onflow.org)
+* [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
 
 Network
 
-* [Network Status](https://status.onflow.org/)
+* [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
@@ -74558,8 +74558,8 @@ More
 
 * [GitHub](https://github.com/onflow)
 * [Discord](https://discord.gg/flow)
-* [Forum](https://forum.onflow.org/)
-* [OnFlow](https://onflow.org/)
+* [Forum](https://forum.flow.com/)
+* [Flow](https://flow.com/)
 * [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.
@@ -74651,7 +74651,7 @@ at the end of the unstaking period.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/04-stake-slashing.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -78674,7 +78674,7 @@ Get $500+ OFF with 3 months of Uniblock Pro FREE. Access 50 data partners, 100 p
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/builder-perks.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -79923,7 +79923,7 @@ The Eliza framework provides a powerful way to create intelligent agents that ca
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/eliza/index.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -80201,7 +80201,7 @@ about the events that can be emitted by these contracts and scripts you can use 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/09-qc-dkg.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -80950,7 +80950,7 @@ consensus_compliance_sealed_height 1.132054e+06`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-setup.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -81533,7 +81533,7 @@ For more information about using smart contracts in web3.js, see the [official d
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/web3-js.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -81764,7 +81764,7 @@ Read more about the [EVM Gateway](https://github.com/onflow/flow-evm-gateway) on
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/using.mdx)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -82222,7 +82222,7 @@ If the witness turns out to be valid, the Verification Node who signed that resu
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/slashing.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -82400,7 +82400,7 @@ You've got an app and are meeting the needs of regular customers. Core features 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/growth/index.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 ###### Rate this page
 
@@ -83234,7 +83234,7 @@ In this tutorial, we've accomplished all of our learning objectives:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/flow-cli.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -83608,7 +83608,7 @@ Upon restart, the chunk data pack directory will be automatically recreated.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/reclaim-disk.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -83798,7 +83798,7 @@ files by using `-f` flag multiple times.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flow.json/manage-configuration.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -84255,7 +84255,7 @@ To dive deeper into testing the functionality of your Cadence scripts and contra
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/tests.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -84977,7 +84977,7 @@ Any unknown or unsupported request methods will be proxied to the `gateway` (if 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/cross-vm/ethereum-provider.mdx)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -85499,7 +85499,7 @@ For any issues, refer to the [Token List GitHub Repository](https://github.com/f
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/token-launch/register-cadence-assets.md)
 
-Last updated on **May 8, 2025** by **Chase Fleming**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -85535,7 +85535,7 @@ Documentation
 Community
 
 * [Ecosystem](/ecosystem)
-* [Flow Port](https://port.onflow.org/)
+* [Flow Port](https://port.flow.com/)
 * [Developer Grants](https://github.com/onflow/developer-grants)
 * [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
 * [Flowverse](https://www.flowverse.co/)
@@ -85546,13 +85546,13 @@ Start Building
 
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://open-cadence.onflow.org)
+* [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
 
 Network
 
-* [Network Status](https://status.onflow.org/)
+* [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
@@ -85564,8 +85564,8 @@ More
 
 * [GitHub](https://github.com/onflow)
 * [Discord](https://discord.gg/flow)
-* [Forum](https://forum.onflow.org/)
-* [OnFlow](https://onflow.org/)
+* [Forum](https://forum.flow.com/)
+* [Flow](https://flow.com/)
 * [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.
@@ -85621,7 +85621,7 @@ This section covers the process of registering your tokens on Flow.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/token-launch/index.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -87594,7 +87594,7 @@ some other account.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking/child-accounts.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -88603,7 +88603,7 @@ TODO: insert flow cli command here to query the block version details.`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/hcu.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -88934,7 +88934,7 @@ If you encounter any issues:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/cursor/index.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -89121,7 +89121,7 @@ Delegators to the old node will have their tokens unstaked automatically. They w
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-migration.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -89729,7 +89729,7 @@ After this event, the FLOW tokens will be withdrawn to a newly created `Fungible
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/07-staking-scripts-events.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -90867,7 +90867,7 @@ _10
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/discovery.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -91478,7 +91478,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/account-update-contract.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -92157,7 +92157,7 @@ Additionally, consider exploring these resources:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-dev-wallet/index.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -92492,7 +92492,7 @@ via the `Burner.burn()` method, this event is emitted with the following argumen
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/02-fungible-token.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -94659,7 +94659,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/utils/signature-generate.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -95583,7 +95583,7 @@ Test it by updating the greeting, signing a transaction in your Metamask then wa
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/wagmi.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -97481,7 +97481,7 @@ Start your systems, let's make some blocks!
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/guides/genesis-bootstrap.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -97626,7 +97626,7 @@ You can see the docs for account linking [here](https://developers.flow.com/buil
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/12-hybrid-custody.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -99051,7 +99051,7 @@ _10
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flow.json/configuration.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -99318,7 +99318,7 @@ There is no maximum stake limit.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/02-epoch-terminology.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -99729,7 +99729,7 @@ If you have any feedback about these guidelines, please create an issue in the o
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/best-practices/project-development-tips.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -100210,7 +100210,7 @@ FCL is built **on top of the Flow SDK**, making it easier to handle authenticati
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/index.md)
 
-Last updated on **May 6, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -100255,7 +100255,7 @@ Documentation
 Community
 
 * [Ecosystem](/ecosystem)
-* [Flow Port](https://port.onflow.org/)
+* [Flow Port](https://port.flow.com/)
 * [Developer Grants](https://github.com/onflow/developer-grants)
 * [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
 * [Flowverse](https://www.flowverse.co/)
@@ -100266,13 +100266,13 @@ Start Building
 
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://open-cadence.onflow.org)
+* [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
 
 Network
 
-* [Network Status](https://status.onflow.org/)
+* [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
@@ -100284,8 +100284,8 @@ More
 
 * [GitHub](https://github.com/onflow)
 * [Discord](https://discord.gg/flow)
-* [Forum](https://forum.onflow.org/)
-* [OnFlow](https://onflow.org/)
+* [Forum](https://forum.flow.com/)
+* [Flow](https://flow.com/)
 * [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.
@@ -100906,7 +100906,7 @@ Once a valid root snapshot file is downloaded to the node's bootstrap folder, it
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-bootstrap.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -101236,7 +101236,7 @@ Flow [account address](/build/basics/accounts) (prefixed with `0x` or not).
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/account-fund.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -102311,7 +102311,7 @@ machine_account_balance{acct_address="7b16b57ae0a3c6aa"} 9.99464935`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/monitoring-nodes.md)
 
-Last updated on **May 8, 2025** by **Jordan Ribbink**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -102346,7 +102346,7 @@ Documentation
 Community
 
 * [Ecosystem](/ecosystem)
-* [Flow Port](https://port.onflow.org/)
+* [Flow Port](https://port.flow.com/)
 * [Developer Grants](https://github.com/onflow/developer-grants)
 * [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
 * [Flowverse](https://www.flowverse.co/)
@@ -102357,13 +102357,13 @@ Start Building
 
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://open-cadence.onflow.org)
+* [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
 
 Network
 
-* [Network Status](https://status.onflow.org/)
+* [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
@@ -102375,8 +102375,8 @@ More
 
 * [GitHub](https://github.com/onflow)
 * [Discord](https://discord.gg/flow)
-* [Forum](https://forum.onflow.org/)
-* [OnFlow](https://onflow.org/)
+* [Forum](https://forum.flow.com/)
+* [Flow](https://flow.com/)
 * [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.
@@ -103115,7 +103115,7 @@ contract that conforms to the standard.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/overview.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -103408,7 +103408,7 @@ To learn more about staking events, read [staking/events/](/networks/staking/sta
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/03-flow-token.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -105863,7 +105863,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/create-accounts.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -106661,7 +106661,7 @@ At the end of every epoch, tokens are moved between pools in this order:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/06-technical-overview.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -107029,7 +107029,7 @@ Find a list of all SDKs here: [tools/clients](/tools/clients)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/accounts.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -111134,7 +111134,7 @@ Congrats, you did it! You're now ready to launch the next fun NFT project on Flo
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/nft.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -111861,7 +111861,7 @@ Ready to unlock the full potential of Flow EVM? Start with our [Batched Transact
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/quickstart.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -112011,7 +112011,7 @@ Learn about Flow's governance model and how it's empowering our community of use
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/index.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -112716,7 +112716,7 @@ which is a mapping of nodeIDs to the `FlowStakingCollection.MachineAccountInfo` 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/14-staking-collection.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -113026,7 +113026,7 @@ for information about technical integration.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/index.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -113252,7 +113252,7 @@ access(all) event MinimumStorageReservationChanged(_ minimumStorageReservation: 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/05-flow-fees.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -113448,7 +113448,7 @@ In the next section, lets look at how Flow multi-role architecture solves those 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/network-architecture/index.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -113614,7 +113614,7 @@ The process by which the Core Team chooses the updates for each new Protocol Ver
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/governance.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -114068,7 +114068,7 @@ If you're already familiar with blockchain development, here's a comparison betw
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/differences-vs-evm/index.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -114795,7 +114795,7 @@ Go to [Faucets](/ecosystem/faucets)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/faucets.mdx)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -115289,7 +115289,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/get-flow-data/get-events.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -116229,7 +116229,7 @@ _17
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/user-signature.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -116373,7 +116373,7 @@ should use `Burner.burn()` when destroying a resource instead of `destroy`.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/14-burner.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -116731,7 +116731,7 @@ _18
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/provable-authn.md)
 
-Last updated on **May 8, 2025** by **Jordan Ribbink**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -116765,7 +116765,7 @@ Documentation
 Community
 
 * [Ecosystem](/ecosystem)
-* [Flow Port](https://port.onflow.org/)
+* [Flow Port](https://port.flow.com/)
 * [Developer Grants](https://github.com/onflow/developer-grants)
 * [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
 * [Flowverse](https://www.flowverse.co/)
@@ -116776,13 +116776,13 @@ Start Building
 
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://open-cadence.onflow.org)
+* [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
 
 Network
 
-* [Network Status](https://status.onflow.org/)
+* [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
@@ -116794,8 +116794,8 @@ More
 
 * [GitHub](https://github.com/onflow)
 * [Discord](https://discord.gg/flow)
-* [Forum](https://forum.onflow.org/)
-* [OnFlow](https://onflow.org/)
+* [Forum](https://forum.flow.com/)
+* [Flow](https://flow.com/)
 * [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.
@@ -117187,7 +117187,7 @@ _16
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/wallet-connect.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -118721,7 +118721,7 @@ For a complete reference implementation, check out the [FCL + RainbowKit + wagmi
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/add-to-wagmi.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -118950,7 +118950,7 @@ To set up a new staked node after it has been authorized by the Flow governance 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/index.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -119839,7 +119839,7 @@ Register Provider with FCL Handshake and implement 5 Endpoints.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/custodial.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -120259,7 +120259,7 @@ Use the `--dir` flag only if your project requires a different organizational st
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/boilerplate.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -120642,7 +120642,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/get-flow-data/get-blocks.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -121683,7 +121683,7 @@ The balloon inflation game stands as a testament to the seamless integration of 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/walletless-pwa.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -121849,7 +121849,7 @@ Explore Flow's unique capabilities through fun benchmark applications that showc
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/index.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Next
 
@@ -122019,7 +122019,7 @@ For more information about Cadence Owned Accounts, see the [Flow EVM Support FLI
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/accounts.md)
 
-Last updated on **May 5, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -122054,7 +122054,7 @@ Documentation
 Community
 
 * [Ecosystem](/ecosystem)
-* [Flow Port](https://port.onflow.org/)
+* [Flow Port](https://port.flow.com/)
 * [Developer Grants](https://github.com/onflow/developer-grants)
 * [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
 * [Flowverse](https://www.flowverse.co/)
@@ -122065,13 +122065,13 @@ Start Building
 
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://open-cadence.onflow.org)
+* [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
 
 Network
 
-* [Network Status](https://status.onflow.org/)
+* [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
@@ -122083,8 +122083,8 @@ More
 
 * [GitHub](https://github.com/onflow)
 * [Discord](https://discord.gg/flow)
-* [Forum](https://forum.onflow.org/)
-* [OnFlow](https://onflow.org/)
+* [Forum](https://forum.flow.com/)
+* [Flow](https://flow.com/)
 * [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.
@@ -126155,7 +126155,7 @@ Get familiar with the [Cadence anti-patterns](https://cadence-lang.org/docs/anti
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/testing.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -126319,7 +126319,7 @@ through a peer-to-peer transaction mechanism.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/cross-chain-swaps.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -126492,7 +126492,7 @@ const fcl = require("@onflow/fcl");`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/installation.mdx)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -129398,7 +129398,7 @@ _39
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/flow-go-sdk/index.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -130010,7 +130010,7 @@ See [Past Sporks](/networks/node-ops/node-operation/past-upgrades) for the curre
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/light-nodes/observer-node.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -132428,7 +132428,7 @@ Search
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/smart-contracts/learn-cadence.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -133552,7 +133552,7 @@ you can use scripts events to learn information about the state of the epoch con
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/04-epoch-preparation.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -134105,7 +134105,7 @@ These files contain confidential data, and must be stored and accessed securely.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-provisioning.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -135429,7 +135429,7 @@ failure in event subscription at height ${INIT-CADENCE-HEIGHT}, with: recoverabl
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/evm-gateway/evm-gateway-setup.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -135669,7 +135669,7 @@ To learn more about storage fee and transaction fee, visit [Flow Tokenomics page
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/fees.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -136044,7 +136044,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/account-remove-contract.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -136205,7 +136205,7 @@ but are nevertheless important to developers on Flow:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/index.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -136853,7 +136853,7 @@ React hooks to interact with Flow blockchain, making development easy and intuit
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/projects.mdx)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -137091,7 +137091,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/keys/generate-keys.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -137900,7 +137900,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/sign-transaction.md)
 
-Last updated on **May 8, 2025** by **Jordan Ribbink**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -137947,7 +137947,7 @@ Documentation
 Community
 
 * [Ecosystem](/ecosystem)
-* [Flow Port](https://port.onflow.org/)
+* [Flow Port](https://port.flow.com/)
 * [Developer Grants](https://github.com/onflow/developer-grants)
 * [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
 * [Flowverse](https://www.flowverse.co/)
@@ -137958,13 +137958,13 @@ Start Building
 
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://open-cadence.onflow.org)
+* [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
 
 Network
 
-* [Network Status](https://status.onflow.org/)
+* [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
@@ -137976,8 +137976,8 @@ More
 
 * [GitHub](https://github.com/onflow)
 * [Discord](https://discord.gg/flow)
-* [Forum](https://forum.onflow.org/)
-* [OnFlow](https://onflow.org/)
+* [Forum](https://forum.flow.com/)
+* [Flow](https://flow.com/)
 * [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.
@@ -138199,7 +138199,7 @@ This error is OK. Your fellow node operators have not turned on/joined the netwo
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/spork.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -138529,7 +138529,7 @@ Check out [Running a Node](/networks/node-ops/light-nodes/observer-node) for mor
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/flow-networks/index.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Next
 
@@ -138849,7 +138849,7 @@ Use cases include cryptographic login, message validation, verifiable credential
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/user-signatures.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -145125,7 +145125,7 @@ Below is a list of the available CLI flags to control the behavior of the API
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/index.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -145345,7 +145345,7 @@ Find a list of all SDKs [here](/tools/clients)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/collections.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -145614,7 +145614,7 @@ Flow’s state system provides ways to construct inclusion and non-inclusion pro
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/how-it-works.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -146220,7 +146220,7 @@ FCL is built **on top of the Flow SDK**, making it easier to handle authenticati
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/index.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -146673,7 +146673,7 @@ _17
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/authorization-function.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -147207,7 +147207,7 @@ The following are the upcoming Spork dates. These dates indicate the intention t
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/upcoming-sporks.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -147395,7 +147395,7 @@ Find a list of all SDKs [here](/tools/clients)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/blocks.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -148617,7 +148617,7 @@ Stay ahead of upcoming hackathons and exclusive announcements. [Join Flow World 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/Hackathons and Events/index.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -149333,7 +149333,7 @@ These improvements are especially notable on mobile, where users are typically m
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/account-abstraction.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -150263,7 +150263,7 @@ The Cadence Linter is also available in the [Cadence VSCode extension](/tools/vs
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/lint.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 

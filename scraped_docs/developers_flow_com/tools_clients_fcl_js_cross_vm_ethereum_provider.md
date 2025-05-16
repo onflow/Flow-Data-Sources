@@ -280,7 +280,7 @@ Any unknown or unsupported request methods will be proxied to the `gateway` (if 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/cross-vm/ethereum-provider.mdx)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 

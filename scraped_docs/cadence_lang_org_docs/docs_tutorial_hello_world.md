@@ -46,7 +46,7 @@ On this page
 
 # Hello World
 
-It's time to write your own "Hello World" contract. In this instance, the contract will:
+It's time to write your own "Hello World" contract. In this instance, the contract accomplishes the following:
 
 1. Create and initialize a smart contract with a single field of type `String`.
 2. Initialize the field with the phrase "Hello, World!".
@@ -63,19 +63,11 @@ After completing this tutorial, you'll be able to:
 * Write simple transactions and scripts in Cadence.
 * Describe the role of signers in a Cadence transaction.
 
-## Implementing Hello World[​](#implementing-hello-world "Direct link to Implementing Hello World")
+## How to implement Hello World[​](#how-to-implement-hello-world "Direct link to How to implement Hello World")
 
-Action
+Open the starter code for this tutorial in the Flow Playground, which is empty: [play.flow.com/e559739d-603e-40d5-b2f1-b9957051cdc4](https://play.flow.com/e559739d-603e-40d5-b2f1-b9957051cdc4).
 
-Open the starter code for this tutorial in the Flow Playground:
-
-[<https://play.flow.com/e559739d-603e-40d5-b2f1-b9957051cdc4>](https://play.flow.com/e559739d-603e-40d5-b2f1-b9957051cdc4)
-
-It's empty!
-
-Action
-
-Begin by declaring your contract.
+Declare your contract by entering the following:
 
 `_10
 
@@ -89,13 +81,11 @@ _10
 
 }`
 
-### Declare a Contract-Level Constant[​](#declare-a-contract-level-constant "Direct link to Declare a Contract-Level Constant")
+### Declaring a Contract-Level Constant[​](#declaring-a-contract-level-constant "Direct link to Declaring a Contract-Level Constant")
 
-The line `access(all) contract HelloWorld`  declares a contract with [Access Control](/docs/language/access-control) that is accessible in all scopes - or public.
+The line `access(all) contract HelloWorld`  declares a contract with [Access Control](/docs/language/access-control) that is accessible in all scopes, including public.
 
-Action
-
-Add a public constant `String` field to store your greeting.
+Add a public constant `String` field to store your greeting:
 
 `_10
 
@@ -121,13 +111,15 @@ Cadence follows the same pattern as Swift where the `let` keyword is used to dec
 
 As before, you're using the `access` keyword to set the scope to `all` and make the constant public. The `let` keyword declares a state constant named `greeting`, and the [type annotation](/docs/language/type-annotations) declares it as a `String`.
 
-You've probably noticed the error that your code is `missing initializer for field `greeting` in type `HelloWorld``
+You'll probably notice the following error in your code:
+
+`_10
+
+missing initializer for field `greeting` in type `HelloWorld``
 
 [Composite Types](/docs/language/composite-types), which includes contracts, have a special initializer function that is run exactly once, upon object creation. It's optional, but constants declared at the contract level must have a value set in the initializer.
 
-Action
-
-Add an initializer and initialize your `greeting`.
+Add the following initializer and initialize your `greeting`:
 
 `_10
 
@@ -145,13 +137,9 @@ _10
 
 }`
 
-### Add a View Function[​](#add-a-view-function "Direct link to Add a View Function")
+### Adding a View Function[​](#adding-a-view-function "Direct link to Adding a View Function")
 
-You've created a contract and initialized the `"Hello, World!"` `String`. The next step is to:
-
-Action
-
-Implement a `view` function to return the `greeting` constant.
+After you create a contract and initialized the `"Hello, World!"` `String`, the next step is to implement a `view` function to return the `greeting` constant:
 
 `_10
 
@@ -169,7 +157,7 @@ _10
 
 }`
 
-Once again, the access level is public. Anyone who imports this contract into their own contract, transaction, or script can read the public fields, use the public types, and call the public contract functions - the ones that have `access(all)` specified.
+Once again, the access level is public. Anyone who imports this contract into their own contract, transaction, or script can read the public fields, use the public types, and call the public contract functions — the ones that have `access(all)` specified.
 
 The `view` annotation indicates that the function is permitted to view, but not modify blockchain state.
 
@@ -208,7 +196,7 @@ The second area is where you'll find [account storage](/docs/language/accounts/s
 
 Important
 
-In Cadence, **each account stores its assets as objects directly in its own account storage, like how you store your own possessions in your own house in real life**!
+In Cadence, each account **stores its assets as objects directly in its own account storage**, similar to how you store your own possessions in your own house in real life!
 
 The account storage section also stores code that declares the capabilities for controlling how these stored objects can be accessed. We'll cover account storage and capabilities in more detail in a later tutorial.
 
@@ -216,24 +204,19 @@ In this tutorial, we'll use the account with the address `0x06` to store our `He
 
 ### Capabilities[​](#capabilities "Direct link to Capabilities")
 
-[Capabilities](/docs/language/capabilities), or `account.capabilities`, are a part of the security model in Cadence. They represent the right to access parts or all of an object and perform operations on it. For example, a user might possess a vault that holds fungible tokens. For it, they'll have a capability that allows anyone to deposit tokens into the vault, and may choose to grant the capability to withdraw tokens to their broker's account.
+[Capabilities](/docs/language/capabilities), or `account.capabilities`, are a part of the security model in Cadence. They represent the right to access parts of or all of an object and perform operations on it. For example, a user might possess a vault that holds fungible tokens. In this case, they'll have the capability that allows anyone to deposit tokens into the vault, and may choose to grant the capability to withdraw tokens to their broker's account.
 
 ### Keys[​](#keys "Direct link to Keys")
 
-[Keys](/docs/language/accounts/keys), or `account.keys`, are used to sign [transactions](/docs/language/transactions). In Cadence, an account can have many keys. These keys can be shared or revoked, providing native version of [account abstraction](https://ethereum.org/en/roadmap/account-abstraction) that is extremely powerful. For example, you can use it [build an app](https://developers.flow.com/build/guides/account-linking-with-dapper) that pulls NFTs in an embedded wallet in one app into that user's browser wallet and use them in your app.
+[Keys](/docs/language/accounts/keys), or `account.keys`, are used to sign [transactions](/docs/language/transactions). In Cadence, an account can have many keys. These keys can be shared or revoked, providing native version of [account abstraction](https://ethereum.org/en/roadmap/account-abstraction) that is extremely powerful. For example, you can use it to [build an app](https://developers.flow.com/build/guides/account-linking-with-dapper) that pulls NFTs in an embedded wallet in one app into that user's browser wallet and then use them in your app.
 
 ## Deploying the HelloWorld Contract[​](#deploying-the-helloworld-contract "Direct link to Deploying the HelloWorld Contract")
 
-Action
-
-Make sure that the account `0x06` tab is selected and that the
-`HelloWorld.cdc` file is in the editor.
-
-Click the deploy button to deploy the contents of the editor to account `0x06`.
+To deploy a contract, make sure that the account `0x06` tab is selected and that the `HelloWorld.cdc` file is in the editor. Then, click the `Deploy` button to deploy the contents of the editor to account `0x06`:
 
 ![Deploy Contract](/assets/images/deploybox-15c80d99bfacdb110394351320484810.png)
 
-You should see a log in the output area indicating that the deployment succeeded.
+You should see a log in the output area indicating that the deployment succeeded:
 
 `_10
 
@@ -253,130 +236,111 @@ An account authorizes a transaction by performing a cryptographic signature on t
 
 In addition to being able to access the authorizer's private assets, transactions can also read and call functions in public contracts, and access public functions in other users' accounts.
 
-For this tutorial, we'll use a transaction to call our `hello()` function.
+### Importing a transaction[​](#importing-a-transaction "Direct link to Importing a transaction")
 
-Action
+This tutorial uses a transaction to call our `hello()` function:
 
-Open the `CallHello` file in the `Transactions` folder.
+1. Open the `CallHello` file in the `Transactions` folder.
+2. Import the **deployed instance** of `HelloWorld` from account `0x06`. If you haven't deployed the smart contract from the account, the transaction won't have access to it and the import will fail.
+3. Add an `import` at the top of the file:
 
-First, you'll need to import the **deployed instance** of `HelloWorld` from account `0x06`. If you haven't deployed the smart contract from the account, the transaction won't have access to it and the import will fail.
+   `_10
 
-Action
+   import HelloWorld from 0x06`
 
-Add an `import` at the top of the file.
+   This imports the entire contract code from `HelloWorld`, including type definitions and public functions, so that the transaction can use them to interact with the `HelloWorld` contract in account `0x06`.
+4. To import any smart contract from any account, use this format:
 
-`_10
+   `_10
 
-import HelloWorld from 0x06`
+   // Replace {ContractName} with the name of the contract you want to import
 
-This imports the entire contract code from `HelloWorld`, including type definitions and public functions, so that the transaction can use them to interact with the `HelloWorld` contract in account `0x06`.
+   _10
 
-To import any smart contract from any account, you can use this format:
+   // and {Address} with the account you want to import it from
 
-`_10
+   _10
 
-// Replace {ContractName} with the name of the contract you want to import
+   import {ContractName} from {Address}`
 
-_10
+   Transactions are written in Cadence and are declared with the `transaction` keyword.
+5. Declare an empty `transaction`:
 
-// and {Address} with the account you want to import it from
+   `_10
 
-_10
+   transaction {
 
-import {ContractName} from {Address}`
+   _10
 
-Transactions are written in Cadence and are declared with the `transaction` keyword.
+   // TODO
 
-Action
+   _10
 
-Declare an empty `transaction`.
+   }`
 
-`_10
-
-transaction {
-
-_10
-
-// TODO
-
-_10
-
-}`
-
-### Transaction Process[​](#transaction-process "Direct link to Transaction Process")
+### Working with a Transaction Process[​](#working-with-a-transaction-process "Direct link to Working with a Transaction Process")
 
 Transactions are divided into two main phases, `prepare` and `execute`.
 
 The [`prepare`](/docs/language/transactions#prepare-phase) phase is required and is used to identify the account(s) that will sign the transaction. It's also used when the transaction needs to access the account(s) that signed the transaction. The latter is not needed for this simple transaction.
 
-Action
+1. Add an empty `prepare` statement to your transaction:
 
-Add an empty `prepare` statement to your transaction.
+   `_10
 
-`_10
+   prepare(acct: &Account) {
 
-prepare(acct: &Account) {
+   _10
 
-_10
+   // Nothing is needed here for now
 
-// Nothing is needed here for now
+   _10
 
-_10
+   }`
 
-}`
+   The `execute` phase is the main body of a transaction. It can call functions on external contracts and objects and perform operations on data that was initialized in the transaction.
+2. Add an `execute` block to your transaction and use it to `log` the output of the `hello()` function from the imported `HelloWorld` contract to the console:
 
-The `execute` phase is the main body of a transaction. It can call functions on external contracts and objects and perform operations on data that was initialized in the transaction.
+   `_10
 
-Action
+   execute {
 
-Add an `execute` block to your transaction and use it to `log` the output of the `hello()` function from the imported `HelloWorld` contract to the console.
+   _10
 
-`_10
+   log(HelloWorld.hello())
 
-execute {
+   _10
 
-_10
+   }`
 
-log(HelloWorld.hello())
+   In this example, the `execute` phase calls `HelloWorld.hello()`. This executes the `hello()` function in the `HelloWorld` contract and logs the result(`log(HelloWorld.hello())`) to the console.
+3. In the box at the bottom right of the editor, select Account `0x06` as the transaction signer.
+4. Click the `Send` button to submit the transaction
+   You should see something similar to the following in the transaction results at the bottom of the screen:
 
-_10
+   `_10
 
-}`
+   16:46:56
 
-In this example, the `execute` phase calls `HelloWorld.hello()`. This executes the `hello()` function in the `HelloWorld` contract
-and logs the result(`log(HelloWorld.hello())`) to the console.
+   _10
 
-Action
+   Simple Transaction
 
-In the box at the bottom right of the editor, select Account `0x06` as the transaction signer.
+   _10
 
-Click the `Send` button to submit the transaction
+   [1]
 
-You should see something like this in the transaction results at the bottom of the screen:
+   _10
 
-`_10
-
-16:46:56
-
-_10
-
-Simple Transaction
-
-_10
-
-[1]
-
-_10
-
-Cadence log: "Hello, World!"`
+   Cadence log: "Hello, World!"`
 
 Congratulations, you just executed your first Cadence transaction with the account `0x06` as the signer!
 
-In this tutorial, you'll get the same result if you use different signers for the transaction but later tutorials will use more complex examples that have different results depending on the signer.
+This tutorial shows you the same result if you use different signers for the transaction but later tutorials will use more complex examples that have different results, depending on the signer.
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-This tutorial covered an introduction to Cadence, including terms like accounts, transactions, and signers. We implemented a smart contract that is accessible in all scopes. The smart contract had a `String` field initialized with the value `Hello, World!` and a function to return (read) this value.
+This tutorial covered an introduction to Cadence, including terms such as accounts, transactions, and signers. We implemented a smart contract that is accessible in all scopes. The smart contract had a `String` field initialized with the value `Hello, World!` and a function to return (read) this value.
 
 Next, we deployed this contract in an account and implemented a transaction to call the function in the smart contract and log the result to the console. Finally, we used the account `0x06` as the signer for this transaction.
 
@@ -395,7 +359,7 @@ You are **not** saving time by skipping the reference implementation. You'll lea
 
 Reference solutions are functional, but may not be optimal.
 
-[Reference Solution](https://play.flow.com/edba10ad-1232-4720-bc1b-cd34cb12b6dc)
+* [Reference Solution](https://play.flow.com/edba10ad-1232-4720-bc1b-cd34cb12b6dc)
 
 **Tags:**
 
@@ -416,9 +380,9 @@ Resources and the Move (<-) Operator](/docs/tutorial/resources)
 😞😐😊
 
 * [Objectives](#objectives)
-* [Implementing Hello World](#implementing-hello-world)
-  + [Declare a Contract-Level Constant](#declare-a-contract-level-constant)
-  + [Add a View Function](#add-a-view-function)
+* [How to implement Hello World](#how-to-implement-hello-world)
+  + [Declaring a Contract-Level Constant](#declaring-a-contract-level-constant)
+  + [Adding a View Function](#adding-a-view-function)
 * [Accounts](#accounts)
   + [Contract Area](#contract-area)
   + [Account Storage](#account-storage)
@@ -426,7 +390,8 @@ Resources and the Move (<-) Operator](/docs/tutorial/resources)
   + [Keys](#keys)
 * [Deploying the HelloWorld Contract](#deploying-the-helloworld-contract)
 * [Transactions](#transactions)
-  + [Transaction Process](#transaction-process)
+  + [Importing a transaction](#importing-a-transaction)
+  + [Working with a Transaction Process](#working-with-a-transaction-process)
 * [Conclusion](#conclusion)
 * [Reference Solution](#reference-solution)
 

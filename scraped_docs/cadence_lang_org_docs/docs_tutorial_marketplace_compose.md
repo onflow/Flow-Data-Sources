@@ -52,16 +52,19 @@ This is only for educational purposes and is not meant to be used in production
 See a production-ready marketplace in the [NFT storefront repo.](https://github.com/onflow/nft-storefront)
 This contract is already deployed to testnet and mainnet and can be used by anyone for any generic NFT sale!
 
+warning
+
+This tutorial series is in the process of being updated. The previous tutorials no longer align completely with this one. We will update this tutorial soon!
+
 ---
 
 Action
 
 Open the starter code for this tutorial in the Flow Playground:
+ [<https://play.flow.com/7355d51c-066b-46be-adab-a3da6c28b645>](https://play.flow.com/7355d51c-066b-46be-adab-a3da6c28b645)
 
-[<https://play.flow.com/7355d51c-066b-46be-adab-a3da6c28b645>](https://play.flow.com/7355d51c-066b-46be-adab-a3da6c28b645)
-
-The tutorial will be asking you to take various actions to interact with this code.
-[The marketplace setup guide](/docs/tutorial/marketplace-setup) shows you how to get the playground set up to do this tutorial.
+> The tutorial will be asking you to take various actions to interact with this code.
+> [The marketplace setup guide](/docs/tutorial/marketplace-setup) shows you how to get the playground set up to do this tutorial.
 
 Action
 

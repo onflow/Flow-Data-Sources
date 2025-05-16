@@ -485,7 +485,7 @@ For more information about using smart contracts in web3.js, see the [official d
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/web3-js.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Brian Doyle**
 
 [Previous
 
