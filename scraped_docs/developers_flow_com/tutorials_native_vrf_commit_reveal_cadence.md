@@ -50,8 +50,8 @@ By the end of this guide, you will be able to:
 
 You'll need the following:
 
-* Flow Testnet Account: An account on the Flow Testnet with test FLOW tokens for deploying contracts and executing transactions (e.g., via [Flow Faucet](https://testnet-faucet.onflow.org/)).
-* Flow CLI or Playground: The Flow CLI or Flow Playground for deploying and testing contracts (install via [Flow Docs](https://docs.onflow.org/flow-cli/install/)).
+* Flow Testnet Account: An account on the Flow Testnet with test FLOW tokens for deploying contracts and executing transactions (e.g., via [Flow Faucet](https://faucet.flow.com/fund-account)).
+* Flow CLI or Playground: The Flow CLI or Flow Playground for deploying and testing contracts (install via [Flow Docs](https://developers.flow.com)).
 
 ## Overview[​](#overview "Direct link to Overview")
 
@@ -528,7 +528,7 @@ By harnessing the built-in randomness capabilities on Flow, you can now focus on
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/native-vrf/commit-reveal-cadence.md)
 
-Last updated on **May 8, 2025** by **Brian Doyle**
+Last updated on **May 13, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -572,7 +572,7 @@ Documentation
 Community
 
 * [Ecosystem](/ecosystem)
-* [Flow Port](https://port.onflow.org/)
+* [Flow Port](https://port.flow.com/)
 * [Developer Grants](https://github.com/onflow/developer-grants)
 * [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
 * [Flowverse](https://www.flowverse.co/)
@@ -583,13 +583,13 @@ Start Building
 
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://open-cadence.onflow.org)
+* [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
 
 Network
 
-* [Network Status](https://status.onflow.org/)
+* [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
@@ -601,8 +601,8 @@ More
 
 * [GitHub](https://github.com/onflow)
 * [Discord](https://discord.gg/flow)
-* [Forum](https://forum.onflow.org/)
-* [OnFlow](https://onflow.org/)
+* [Forum](https://forum.flow.com/)
+* [Flow](https://flow.com/)
 * [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.
