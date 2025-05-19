@@ -111,9 +111,14 @@ Master the ingredients of creating fun and delightful experiences, from replayab
 * [May 14 (Wed): Twitter Space @ 4:00 PM PST - "How to Build Fun Games"](https://x.com/i/spaces/1yoKMoqmzzjJQ)
 * May 19: Week 2 winners announced
 
-### Week 3: Theme TBD (May 18-24)
+### Week 3: Generative Art and Worlds (May 18-24)
 
-Theme to be announced.
+Utilize generative tools and AI to create evolving, autonomous and algorithmicartistic applications. This theme is broad and inclusive of creative domains, composibility and platforms/launchpads that are easy for others to build off of or extend.
+
+* May 18: Week 3 starts
+* May 18-24: Build generative apps (either completely new or continue building on your week 1 or 2 projects)
+* [May 21 (Wed): Twitter Space @ 4:00 PM PST - "Generative Composiblity: Turning Products into Platforms"](https://x.com/i/spaces/1yoKMoqmzzjJQ)
+* May 26: Week 3 winners announced
 
 ### Week 4: Theme TBD (May 25-31)
 
@@ -267,7 +272,7 @@ Disclaimer: Individuals residing in jurisdictions where gaming or lottery partic
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/Hackathons and Events/may-the-flow-be-with-you.md)
 
-Last updated on **May 13, 2025** by **Ali Serag**
+Last updated on **May 18, 2025** by **Ali Serag**
 
 [Previous
 

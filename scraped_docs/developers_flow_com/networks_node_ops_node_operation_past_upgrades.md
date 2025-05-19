@@ -61,6 +61,17 @@ A JSON version of the information below can be found in [onflow/flow/sporks.json
 
 > Currently only includes HCUs from 2025.
 
+## Height Coordinated Upgrade 8[​](#height-coordinated-upgrade-8 "Direct link to Height Coordinated Upgrade 8")
+
+| HCU Info |
+| --- |
+| **Date**: May 15, 2025 |
+| **Block Height**: 113162222 |
+| **Git Commit**: 0000b9b745b51db1f6f114ec1b903a265fa7a08f |
+| **Branch/Tag**: v0.41.0 |
+| **Docker Image Tag**: v0.41.0 |
+| **Release Notes**: [v0.41.0](https://github.com/onflow/flow-go/releases/tag/v0.41.0) |
+
 ## Height Coordinated Upgrade 7[​](#height-coordinated-upgrade-7 "Direct link to Height Coordinated Upgrade 7")
 
 | HCU Info |
@@ -586,6 +597,17 @@ While FCL v0.0.67 is not strictly necessary to use Mainnet 6, we strongly recomm
 
 > Currently only includes HCUs from 2025.
 
+## Height Coordinated Upgrade 10[​](#height-coordinated-upgrade-10 "Direct link to Height Coordinated Upgrade 10")
+
+| HCU Info |
+| --- |
+| **Date**: May 8, 2025 |
+| **Block Height**: 257463367 |
+| **Git Commit**: 0000b9b745b51db1f6f114ec1b903a265fa7a08f |
+| **Branch/Tag**: v0.41.0 |
+| **Docker Image Tag**: v0.41.0 |
+| **Release Notes**: [v0.41.0](https://github.com/onflow/flow-go/releases/tag/v0.41.0) |
+
 ## Height Coordinated Upgrade 9[​](#height-coordinated-upgrade-9 "Direct link to Height Coordinated Upgrade 9")
 
 | HCU Info |
@@ -597,7 +619,7 @@ While FCL v0.0.67 is not strictly necessary to use Mainnet 6, we strongly recomm
 | **Docker Image Tag**: v0.40.0 |
 | **Release Notes**: [v0.40.0](https://github.com/onflow/flow-go/releases/tag/v0.40.0) |
 
-## Height Coordinated Upgrade 8[​](#height-coordinated-upgrade-8 "Direct link to Height Coordinated Upgrade 8")
+## Height Coordinated Upgrade 8[​](#height-coordinated-upgrade-8-1 "Direct link to Height Coordinated Upgrade 8")
 
 | HCU Info |
 | --- |
@@ -1081,7 +1103,7 @@ While FCL v0.0.67 is not strictly necessary to use Mainnet 6, we strongly recomm
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/past-upgrades.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 16, 2025** by **vishal**
 
 [Previous
 
@@ -1096,6 +1118,7 @@ Network Upgrade (Spork) Process](/networks/node-ops/node-operation/spork)
 Copy as Markdown
 
 * [Mainnet Upgrades](#mainnet-upgrades)
+* [Height Coordinated Upgrade 8](#height-coordinated-upgrade-8)
 * [Height Coordinated Upgrade 7](#height-coordinated-upgrade-7)
 * [Rolling Upgrade 1](#rolling-upgrade-1)
 * [Height Coordinated Upgrade 6](#height-coordinated-upgrade-6)
@@ -1136,8 +1159,9 @@ Copy as Markdown
 * [Candidate 5](#candidate-5)
 * [Candidate 4](#candidate-4)
 * [Testnet Upgrades](#testnet-upgrades)
+* [Height Coordinated Upgrade 10](#height-coordinated-upgrade-10)
 * [Height Coordinated Upgrade 9](#height-coordinated-upgrade-9)
-* [Height Coordinated Upgrade 8](#height-coordinated-upgrade-8)
+* [Height Coordinated Upgrade 8](#height-coordinated-upgrade-8-1)
 * [Height Coordinated Upgrade 7](#height-coordinated-upgrade-7-1)
 * [Height Coordinated Upgrade 6](#height-coordinated-upgrade-6-1)
 * [Height Coordinated Upgrade 5](#height-coordinated-upgrade-5-1)

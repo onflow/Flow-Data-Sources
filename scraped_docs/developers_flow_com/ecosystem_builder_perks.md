@@ -60,7 +60,7 @@ Get $500+ OFF with 3 months of Uniblock Pro FREE. Access 50 data partners, 100 p
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/builder-perks.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
