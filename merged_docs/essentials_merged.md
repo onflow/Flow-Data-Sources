@@ -835,7 +835,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/utils/snapshot-save.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -3237,7 +3237,7 @@ If you don't provide `subscription_id`, the server will generate one and include
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/subscribe-message.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -3993,7 +3993,7 @@ We will review your pull request and merge it if it is ready.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/mcp/contribute-to-mcp.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -4314,7 +4314,7 @@ the NFT to update any stored information they have about the NFT in their databa
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/08-non-fungible-token.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -5521,7 +5521,7 @@ _24
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/events.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -8054,7 +8054,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/utils/signature-verify.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -11869,7 +11869,7 @@ To explore advanced features like snapshots, rollbacks, and debugging, visit the
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/deployment/start-emulator.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -15460,7 +15460,7 @@ The Agile Monkeys has written a very comprehensive guide on how to build a nativ
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/ios-quickstart.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -15847,7 +15847,7 @@ but this would require small changes to these transactions to use the new storag
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/15-staking-guide.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -22700,7 +22700,7 @@ _11
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/deployment/project-contracts.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -22951,7 +22951,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/keys/decode-keys.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -23490,7 +23490,7 @@ _20
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/supported-topics/send_and_get_transaction_statuses_topic.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -24699,7 +24699,7 @@ npx hardhat verify --network testnet DEPLOYED_CONTRACT_ADDRESS "Constructor argu
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/hardhat.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -25391,7 +25391,7 @@ _20
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/supported-topics/account_statuses_topic.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -25401,7 +25401,7 @@ Transaction statuses](/networks/access-onchain-data/websockets-stream-api/suppor
 
 ###### Rate this page
 
-😞 😐😊
+😞😐😊
 
 Copy as Markdown
 
@@ -26122,7 +26122,7 @@ A entitled receiver has not been paid during the sale of the NFT.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/10-nft-storefront.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -41440,7 +41440,7 @@ This script does not require any arguments.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/05-epoch-scripts-events.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -45698,7 +45698,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/get-accounts.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -48406,7 +48406,7 @@ _11
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/supported-topics/block_headers_topic.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -48709,7 +48709,7 @@ _35
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/cross-vm/rainbowkit-adapter.mdx)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -60331,7 +60331,7 @@ _42
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/08-staking-rewards.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -62319,7 +62319,7 @@ To optimize your NFT collections for this catalog, you'll need to:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/09-nft-metadata.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -62732,7 +62732,7 @@ For issues or questions:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/mcp/use-mcp-in-cursor.md)
 
-Last updated on **May 9, 2025** by **Tom Haile**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -71950,7 +71950,7 @@ Additionally, you can specify a custom `subscription_id` in the subscribe reques
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/index.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -83429,7 +83429,7 @@ Congratulations! You have successfully connected to a WebSocket server using Pos
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/postman-example.md)
 
-Last updated on **May 8, 2025** by **Jordan Ribbink**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -83466,7 +83466,7 @@ Documentation
 Community
 
 * [Ecosystem](/ecosystem)
-* [Flow Port](https://port.onflow.org/)
+* [Flow Port](https://port.flow.com/)
 * [Developer Grants](https://github.com/onflow/developer-grants)
 * [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
 * [Flowverse](https://www.flowverse.co/)
@@ -83477,13 +83477,13 @@ Start Building
 
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://open-cadence.onflow.org)
+* [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/core-contracts)
 * [EVM](/evm/about)
 
 Network
 
-* [Network Status](https://status.onflow.org/)
+* [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
@@ -83495,8 +83495,8 @@ More
 
 * [GitHub](https://github.com/onflow)
 * [Discord](https://discord.gg/flow)
-* [Forum](https://forum.onflow.org/)
-* [OnFlow](https://onflow.org/)
+* [Forum](https://forum.flow.com/)
+* [Flow](https://flow.com/)
 * [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.
@@ -85001,7 +85001,7 @@ Any unknown or unsupported request methods will be proxied to the `gateway` (if 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/cross-vm/ethereum-provider.mdx)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -85523,7 +85523,7 @@ For any issues, refer to the [Token List GitHub Repository](https://github.com/f
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/token-launch/register-cadence-assets.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -87965,7 +87965,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/send-signed-transactions.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -91502,7 +91502,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/account-update-contract.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -97969,7 +97969,7 @@ flow project deploy -f main.json -f private.json`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flow.json/security.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -101260,7 +101260,7 @@ Flow [account address](/build/basics/accounts) (prefixed with `0x` or not).
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/account-fund.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -105887,7 +105887,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/create-accounts.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -106031,7 +106031,7 @@ This section contains tutorials on how to use or build Flow MCP (Model Context P
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/mcp/index.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -107730,7 +107730,7 @@ Happy hacking on Flow!
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/agentkit-flow-guide.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -108365,7 +108365,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/deployment/deploy-project-contracts.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -108571,7 +108571,7 @@ You've now created a custom GPT that references your uploaded file as a primary 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/chatgpt/index.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -108581,7 +108581,7 @@ Flow Data Sources](/tutorials/ai-plus-flow/flow-data-sources)
 
 ###### Rate this page
 
-😞😐😊
+😞   😐😊
 
 Copy as Markdown
 
@@ -109005,7 +109005,7 @@ You can check the token list JSON files to verify the token is registered in the
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/token-launch/register-erc20-token.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -114819,7 +114819,7 @@ Go to [Faucets](/ecosystem/faucets)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/faucets.mdx)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -115979,7 +115979,7 @@ These errors occur when the server cannot parse or validate your incoming messag
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/common-errors.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -116397,7 +116397,7 @@ should use `Burner.burn()` when destroying a resource instead of `destroy`.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/14-burner.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -122272,7 +122272,7 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
-# Source: https://developers.flow.com/
+# Source: https://developers.flow.com
 
 Flow Developer Portal | Flow Developer Portal
 
@@ -125539,7 +125539,7 @@ Now that you've completed this tutorial, you're ready to explore more complex on
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/flowtobooth/image-gallery.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -136068,7 +136068,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/accounts/account-remove-contract.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -136497,7 +136497,7 @@ For more information and a deeper dive into the `EVMAddress`, `Result`, and `Sta
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/direct-calls.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -136697,7 +136697,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/deployment/emulator-snapshot.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -137924,7 +137924,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/transactions/sign-transaction.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -145786,7 +145786,7 @@ The responses for all topics are aligned with the [Flow REST API](/http-api) res
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/access-onchain-data/websockets-stream-api/supported-topics/index.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -294717,8 +294717,10 @@ abstract contract BridgePermissions is ERC165, IBridgePermissions {
      * Emits a {PermissionsUpdated} event.
      */
     function _setPermissions(bool permissions) internal {
-        _permissions = permissions;
-        emit PermissionsUpdated(permissions);
+        if (_permissions != permissions) {
+            _permissions = permissions;
+            emit PermissionsUpdated(permissions);
+        }
     }
 }
 

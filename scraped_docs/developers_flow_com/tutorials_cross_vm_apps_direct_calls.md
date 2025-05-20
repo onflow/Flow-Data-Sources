@@ -195,7 +195,7 @@ For more information and a deeper dive into the `EVMAddress`, `Result`, and `Sta
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/direct-calls.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 

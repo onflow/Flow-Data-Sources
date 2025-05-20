@@ -26,6 +26,10 @@ Toggle navigation
   + [GitHub Copilot
 
     Write better code with AI](https://github.com/features/copilot)
+  + [GitHub Models
+    New
+
+    Manage and compare prompts](https://github.com/features/models)
   + [GitHub Advanced Security
 
     Find and fix vulnerabilities](https://github.com/security/advanced-security)
@@ -35,6 +39,7 @@ Toggle navigation
   + [Codespaces
 
     Instant dev environments](https://github.com/features/codespaces)
+
   + [Issues
 
     Plan and track work](https://github.com/features/issues)

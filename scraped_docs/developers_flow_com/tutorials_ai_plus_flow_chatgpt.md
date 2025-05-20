@@ -109,7 +109,7 @@ You've now created a custom GPT that references your uploaded file as a primary 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/chatgpt/index.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -119,7 +119,7 @@ Flow Data Sources](/tutorials/ai-plus-flow/flow-data-sources)
 
 ###### Rate this page
 
-😞😐😊
+😞   😐😊
 
 Copy as Markdown
 

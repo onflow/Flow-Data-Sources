@@ -34,7 +34,7 @@ Go to [Faucets](/ecosystem/faucets)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/faucets.mdx)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 

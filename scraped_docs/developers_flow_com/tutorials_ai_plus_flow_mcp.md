@@ -45,7 +45,7 @@ This section contains tutorials on how to use or build Flow MCP (Model Context P
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/ai-plus-flow/mcp/index.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 9, 2025** by **Chase Fleming**
 
 [Previous
 
