@@ -69,6 +69,8 @@ SITES = [
     "https://github.com/onflow/nft-storefront",
     "https://github.com/onflow/nft-storefront/",
     "https://github.com/onflow/random-coin-toss",
+    "https://github.com/onflow/hybrid-custody",
+    "https://github.com/fixes-world/fixes"
     
 
     # GitHub Discussions:
