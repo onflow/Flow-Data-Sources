@@ -17,6 +17,7 @@ SITES = [
     "https://academy.ecdao.org/en/catalog/courses/learn-cadence-beginner",
     "https://academy.ecdao.org/en/catalog/courses/beginner-dapp",
     "https://cadence-lang.org/docs/",
+    "https://docs.wallet.flow.com/",
 
     # GitHub repos
     "https://github.com/Ballerz-NFT/Ballerz",
