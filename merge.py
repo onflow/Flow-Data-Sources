@@ -70,7 +70,8 @@ CADENCE_DOCS = [
 ESSENTIALS = [
   # Docs
   'developers_flow_com',
-].extend(CADENCE_DOCS)
+  'docs_wallet_flow_com',
+] + CADENCE_DOCS
 
 OUTPUT_DIR = os.path.join(BASE_DIR, 'merged_docs')
 
