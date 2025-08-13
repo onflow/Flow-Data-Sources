@@ -6,14 +6,16 @@ Cross-VM Bridge | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
 * [Tutorials](/tutorials)
-* [AI Plus Flow](/tutorials/ai-plus-flow)
+* [Flow Blockchain 101](/tutorials/flow-101)
+* [Use AI To Build On Flow](/tutorials/use-AI-to-build-on-flow)
+* [Gasless Transactions](/tutorials/gasless-transactions)
 * [Token Launch](/tutorials/token-launch)
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
 
@@ -25,6 +27,7 @@ Search
   + [Cross-VM Bridge](/tutorials/cross-vm-apps/vm-bridge)
 * [FlowtoBooth](/tutorials/flowtobooth)
 * [Native VRF](/tutorials/native-vrf)
+* [Integrations](/tutorials/integrations/crossmint)
 
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
 * Cross-VM Bridge
@@ -378,7 +381,7 @@ onboard\_by\_evm\_address.cdc
 
 onboard\_by\_evm\_address.cdc
 
-`_55
+`` _55
 
 import "FungibleToken"
 
@@ -580,7 +583,7 @@ _55
 
 _55
 
-}`
+} ``
 
 ## Custom Association Onboarding[​](#custom-association-onboarding "Direct link to Custom Association Onboarding")
 
@@ -962,13 +965,13 @@ from the EVM contract address. For instance, an ERC721 contract at address `0x12
 
 To get the type identifier for a given NFT, you can use the following code:
 
-`_10
+`` _10
 
 // Where `nft` is either a @{NonFungibleToken.NFT} or &{NonFungibleToken.NFT}
 
 _10
 
-nft.getType().identifier`
+nft.getType().identifier ``
 
 You may also retrieve the type associated with a given EVM contract address using the following script:
 
@@ -976,7 +979,7 @@ get\_associated\_type.cdc
 
 get\_associated\_type.cdc
 
-`_16
+`` _16
 
 import "EVM"
 
@@ -1034,7 +1037,7 @@ return FlowEVMBridgeConfig.getTypeAssociated(with: address)
 
 _16
 
-}`
+} ``
 
 Alternatively, given some onboarded Cadence type, you can retrieve the associated EVM address using the following
 script:
@@ -3361,7 +3364,7 @@ a required conformance that does three primary things:
 
 Here is the Solidity contract to implement:
 
-`_100
+`` _100
 
 abstract contract CrossVMBridgeERC721Fulfillment is ICrossVMBridgeERC721Fulfillment, CrossVMBridgeCallable, ERC721 {
 
@@ -3743,7 +3746,7 @@ _100
 
 _100
 
-}`
+} ``
 
 Note the `_beforeFulfillment()` and `_afterFulfillment()` hooks are `virtual`, allowing implementations
 to optionally override the methods and handle the provided metadata passed from your NFT if
@@ -3793,7 +3796,7 @@ For the current state of Flow EVM across various task paths, see the following r
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/vm-bridge.md)
 
-Last updated on **May 9, 2025** by **Chase Fleming**
+Last updated on **May 5, 2025** by **Josh Hannan**
 
 [Previous
 

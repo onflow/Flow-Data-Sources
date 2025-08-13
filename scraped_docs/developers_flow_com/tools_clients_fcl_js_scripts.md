@@ -6,13 +6,13 @@ Scripts | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [@onflow/kit](/tools/kit)
+* [@onflow/react-sdk](/tools/react-sdk)
 * [Flow Emulator](/tools/emulator)
 * [Flow CLI](/tools/flow-cli)
 * [Cadence VS Code Extension](/tools/vscode-extension)
@@ -21,8 +21,7 @@ Search
 
   + [Flow Client Library (FCL)](/tools/clients/fcl-js)
 
-    - [FCL Reference](/tools/clients/fcl-js/api)
-    - [SDK Reference](/tools/clients/fcl-js/sdk-guidelines)
+    - [Packages Docs](/tools/clients/fcl-js/packages-docs)
     - [Authentication](/tools/clients/fcl-js/authentication)
     - [How to Configure FCL](/tools/clients/fcl-js/configure-fcl)
     - [Cross VM Packages](/tools/clients/fcl-js/cross-vm)
@@ -59,7 +58,7 @@ The `cadence` key inside the object sent to the `query` function is a [JavaScrip
 
 The following example demonstrates how to send a script to the Flow blockchain. This script adds two numbers and returns the result.
 
-`_11
+`` _11
 
 import * as fcl from "@onflow/fcl"
 
@@ -97,7 +96,7 @@ _11
 
 _11
 
-console.log(response) // 3`
+console.log(response) // 3 ``
 
 ### A More Complex Script[​](#a-more-complex-script "Direct link to A More Complex Script")
 
@@ -107,7 +106,7 @@ In the following code snippet, our script defines a struct called `Point`, it th
 
 The closest thing to a Structure in JavaScript is an object. In this case when we decode this response, we would be expecting to get back an array of objects, where the objects have an `x` and `y` value.
 
-`_21
+`` _21
 
 import * as fcl from "@onflow/fcl"
 
@@ -181,7 +180,7 @@ _21
 
 _21
 
-console.log(response) // [{x:1, y:1}, {x:2, y:2}]`
+console.log(response) // [{x:1, y:1}, {x:2, y:2}] ``
 
 ### Transforming Data with Custom Decoders[​](#transforming-data-with-custom-decoders "Direct link to Transforming Data with Custom Decoders")
 
@@ -194,7 +193,7 @@ This lets us set it once when our dapp starts up and use our normalized data thr
 
 In the below example we will use the concept of a `Point` again, but this time, we will add a custom decoder, that enables `fcl.decode` to transform it into a custom JavaScript `Point` class.
 
-`_31
+`` _31
 
 import * as fcl from "@onflow/fcl"
 
@@ -304,13 +303,13 @@ _31
 
 _31
 
-console.log(response) // [Point{x:1, y:1}, Point{x:2, y:2}]`
+console.log(response) // [Point{x:1, y:1}, Point{x:2, y:2}] ``
 
-To learn more about `query`, check out the [API documentation](/tools/clients/fcl-js/api#query).
+To learn more about `query`, check out the [API documentation](/tools/clients/fcl-js/packages-docs/fcl/query).
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/scripts.md)
 
-Last updated on **May 9, 2025** by **Chase Fleming**
+Last updated on **Jul 25, 2025** by **Jordan Ribbink**
 
 [Previous
 

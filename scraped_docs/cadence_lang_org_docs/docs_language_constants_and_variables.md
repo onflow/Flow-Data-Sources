@@ -8,55 +8,50 @@ Constants and Variable Declarations | Cadence
 
 [![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
 
-[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+[Learn](/docs)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Language Reference](/docs/language)
 
 Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
+* [Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
 * [Tutorial](/docs/tutorial/first-steps)
 * [Language Reference](/docs/language/)
 
   + [Syntax](/docs/language/syntax)
   + [Constants and Variable Declarations](/docs/language/constants-and-variables)
-  + [Type Annotations](/docs/language/type-annotations)
-  + [Values and Types](/docs/language/values-and-types)
-  + [Operators](/docs/language/operators)
+  + [Values and Types](/docs/language/values-and-types/)
+  + [Types and Type System](/docs/language/types-and-type-system/)
+  + [Operators](/docs/language/operators/)
+  + [Accounts](/docs/language/accounts/)
   + [Functions](/docs/language/functions)
+  + [Pre- and Post-Conditions](/docs/language/pre-and-post-conditions)
+  + [Built-in Functions](/docs/language/built-in-functions)
   + [Control Flow](/docs/language/control-flow)
   + [Scope](/docs/language/scope)
-  + [Type Safety](/docs/language/type-safety)
-  + [Type Inference](/docs/language/type-inference)
-  + [Composite Types](/docs/language/composite-types)
   + [Resources](/docs/language/resources)
-  + [Access control](/docs/language/access-control)
+  + [Access Control](/docs/language/access-control)
   + [Capabilities](/docs/language/capabilities)
   + [Interfaces](/docs/language/interfaces)
   + [Enumerations](/docs/language/enumerations)
-  + [Intersection Types](/docs/language/intersection-types)
   + [References](/docs/language/references)
   + [Imports](/docs/language/imports)
-  + [Accounts](/docs/language/accounts/)
   + [Attachments](/docs/language/attachments)
   + [Contracts](/docs/language/contracts)
   + [Contract Updatability](/docs/language/contract-updatability)
   + [Transactions](/docs/language/transactions)
   + [Events](/docs/language/events)
   + [Core Events](/docs/language/core-events)
-  + [Run-time Types](/docs/language/run-time-types)
-  + [Built-in Functions](/docs/language/built-in-functions)
   + [Environment Information](/docs/language/environment-information)
   + [Crypto](/docs/language/crypto)
-  + [Type Hierarchy](/docs/language/type-hierarchy)
   + [Glossary](/docs/language/glossary)
 * [Cadence 1.0 Migration Guide](/docs/cadence-migration-guide/)
 * [Design Patterns](/docs/design-patterns)
 * [Anti-Patterns](/docs/anti-patterns)
 * [Development Standards](/docs/project-development-tips)
 * [Security Best Practices](/docs/security-best-practices)
-* [Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
+* [JSON-Cadence Format](/docs/json-cadence-spec)
 * [Contract Upgrades with Incompatible Changes](/docs/contract-upgrades)
-* [JSON-Cadence format](/docs/json-cadence-spec)
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
@@ -65,23 +60,13 @@ Search
 
 # Constants and Variable Declarations
 
-Constants and variables are declarations that bind
-a value and [type](/docs/language/type-safety) to an identifier.
-Constants are initialized with a value and cannot be reassigned afterwards.
-Variables are initialized with a value and can be reassigned later.
-Declarations can be created in any scope, including the global scope.
+Constants and variables are declarations that bind a value and [type](/docs/language/types-and-type-system/type-safety) to an identifier. Constants are initialized with a value and cannot be reassigned afterwards. Variables are initialized with a value and can be reassigned later. Declarations can be created in any scope, including the global scope.
 
-Constant means that the *identifier's* association is constant,
-not the *value* itself –
-the value may still be changed if it is mutable.
+Constant means that the *identifier's* association is constant, not the *value* itself — the value may still be changed if it is mutable. For example, you can change the values inside of a constant array, but you cannot replace the array assignment with a new array.
 
-Constants are declared using the `let` keyword. Variables are declared
-using the `var` keyword.
-The keywords are followed by the identifier,
-an optional [type annotation](/docs/language/type-annotations), an equals sign `=`,
-and the initial value.
+Constants are declared using the `let` keyword. Variables are declared using the `var` keyword. The keywords are followed by the identifier, an optional [type annotation](/docs/language/types-and-type-system/type-annotations), an equals sign `=`, and the initial value:
 
-`_15
+`` _15
 
 // Declare a constant named `a`.
 
@@ -133,9 +118,9 @@ _15
 
 _15
 
-b = 4`
+b = 4 ``
 
-Variables and constants **must** be initialized.
+Variables and constants **must** be initialized:
 
 `_10
 
@@ -149,12 +134,9 @@ _10
 
 let a`
 
-The names of the variable or constant
-declarations in each scope must be unique.
-Declaring another variable or constant with a name that is already
-declared in the current scope is invalid, regardless of kind or type.
+The names of the variable or constant declarations in each scope must be unique. Declaring another variable or constant with a name that is already declared in the current scope is invalid, regardless of kind or type:
 
-`_23
+`` _23
 
 // Declare a constant named `a`.
 
@@ -236,11 +218,11 @@ _23
 
 _23
 
-var a = 5`
+var a = 5 ``
 
-However, variables can be redeclared in sub-scopes.
+However, variables can be redeclared in sub-scopes:
 
-`_13
+`` _13
 
 // Declare a constant named `a`.
 
@@ -284,9 +266,9 @@ _13
 
 _13
 
-// `a` is `1``
+// `a` is `1` ``
 
-A variable cannot be used as its own initial value.
+A variable cannot be used as its own initial value:
 
 `_10
 
@@ -302,11 +284,4 @@ let a = a`
 
 Syntax](/docs/language/syntax)[Next
 
-Type Annotations](/docs/language/type-annotations)
-
-Got suggestions for this site?
-
-* [It's open-source!](https://github.com/onflow/cadence-lang.org)
-
-The source code of this site is licensed under the Apache License, Version 2.0.
-Content is licensed under the Creative Commons Attribution 4.0 International License.
+Values and Types](/docs/language/values-and-types/)

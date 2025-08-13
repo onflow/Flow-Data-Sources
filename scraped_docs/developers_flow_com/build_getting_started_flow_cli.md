@@ -6,19 +6,19 @@ Local Development with Flow CLI | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
 * [Why Flow](/build/flow)
-* [Differences vs. EVM](/build/differences-vs-evm)
-* [Getting Started](/build/getting-started/contract-interaction)
+* [Getting Started](/build/getting-started)
 
   + [Contract Interaction](/build/getting-started/contract-interaction)
   + [Local Development](/build/getting-started/flow-cli)
   + [Simple Frontend](/build/getting-started/fcl-quickstart)
+* [Differences vs. EVM](/build/differences-vs-evm)
 * [Flow Protocol](/build/basics/network-architecture)
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
@@ -27,7 +27,7 @@ Search
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
-* Getting Started
+* [Getting Started](/build/getting-started)
 * Local Development
 
 On this page
@@ -55,6 +55,10 @@ The first thing you'll need to do is install the Flow CLI. If you have [homebrew
 brew install flow-cli`
 
 For other ways of installing, please refer to the [installation guide](/tools/flow-cli/install).
+
+### Flow Cadence VSCode Extension[​](#flow-cadence-vscode-extension "Direct link to Flow Cadence VSCode Extension")
+
+Install the [Flow Cadence VSCode Extension](https://marketplace.visualstudio.com/items?itemName=onflow.cadence) from the marketplace.
 
 ## Creating a New Project[​](#creating-a-new-project "Direct link to Creating a New Project")
 
@@ -323,7 +327,7 @@ Run the script to check the counter again. You'll see that it has incremented:
 
 `_10
 
-Result: 0`
+Result: 1`
 
 tip
 
@@ -515,7 +519,9 @@ _21
 
 Try out your new transaction with:
 
-`_10`
+`_10
+
+flow transactions send cadence/transactions/IncrementBy1000.cdc --signer test-account`
 
 Finally, to test the updated script, you can run:
 
@@ -570,7 +576,7 @@ In this tutorial, we've accomplished all of our learning objectives:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/flow-cli.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 30, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -586,6 +592,7 @@ Copy as Markdown
 
 * [Objectives](#objectives)
 * [Installation](#installation)
+  + [Flow Cadence VSCode Extension](#flow-cadence-vscode-extension)
 * [Creating a New Project](#creating-a-new-project)
   + [Running the Tests](#running-the-tests)
 * [Deploying the Contract to Emulator](#deploying-the-contract-to-emulator)

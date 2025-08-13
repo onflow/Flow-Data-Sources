@@ -6,14 +6,16 @@ Register Your ERC20 Token on Flow EVM | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
 * [Tutorials](/tutorials)
-* [AI Plus Flow](/tutorials/ai-plus-flow)
+* [Flow Blockchain 101](/tutorials/flow-101)
+* [Use AI To Build On Flow](/tutorials/use-AI-to-build-on-flow)
+* [Gasless Transactions](/tutorials/gasless-transactions)
 * [Token Launch](/tutorials/token-launch)
 
   + [Register ERC20 Token](/tutorials/token-launch/register-erc20-token)
@@ -21,6 +23,7 @@ Search
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
 * [FlowtoBooth](/tutorials/flowtobooth)
 * [Native VRF](/tutorials/native-vrf)
+* [Integrations](/tutorials/integrations/crossmint)
 
 * [Token Launch](/tutorials/token-launch)
 * Register ERC20 Token
@@ -87,7 +90,7 @@ You can check the token list JSON files to verify the token is registered in the
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/token-launch/register-erc20-token.md)
 
-Last updated on **May 9, 2025** by **Chase Fleming**
+Last updated on **May 6, 2025** by **Brian Doyle**
 
 [Previous
 

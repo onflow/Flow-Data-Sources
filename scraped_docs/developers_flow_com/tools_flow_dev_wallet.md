@@ -6,13 +6,13 @@ Flow Dev Wallet | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [@onflow/kit](/tools/kit)
+* [@onflow/react-sdk](/tools/react-sdk)
 * [Flow Emulator](/tools/emulator)
 * [Flow CLI](/tools/flow-cli)
 * [Cadence VS Code Extension](/tools/vscode-extension)
@@ -135,7 +135,7 @@ Navigate to <http://localhost:8701/harness>
 
 The following code from [Emerald Academy](https://academy.ecdao.org/en/snippets/fcl-authenticate) can be added to your React app to enable Wallet Discovery:
 
-`_60
+`` _60
 
 import { config, authenticate, unauthenticate, currentUser } from '@onflow/fcl';
 
@@ -361,7 +361,7 @@ _60
 
 _60
 
-}`
+} ``
 
 ### Account/Address creation[​](#accountaddress-creation "Direct link to Account/Address creation")
 
@@ -434,7 +434,7 @@ To create a new Flow account refer to these resources
 
 Retrieving the token balance of a specific account involves writing a script to pull data from onchain. The user may have both locked tokens as well as unlocked so to retrieve the total balance we would aggregate them together.
 
-`_34
+`` _34
 
 import * as fcl from '@onflow/fcl';
 
@@ -564,7 +564,7 @@ _34
 
 _34
 
-};`
+}; ``
 
 ## Contributing[​](#contributing "Direct link to Contributing")
 
@@ -580,7 +580,7 @@ Additionally, consider exploring these resources:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-dev-wallet/index.md)
 
-Last updated on **May 9, 2025** by **Chase Fleming**
+Last updated on **May 9, 2025** by **Tom Haile**
 
 [Previous
 

@@ -6,7 +6,7 @@ Bridges | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -19,6 +19,7 @@ Search
 * [Developer Profile](/ecosystem/developer-profile)
 * [DeFi & Liquidity](/ecosystem/defi-liquidity)
 * [Bridges](/ecosystem/bridges)
+* [Collectibles & NFTs](/ecosystem/collectibles)
 * [Community Projects](/ecosystem/projects)
 * [Builder Perks](/ecosystem/builder-perks)
 * [VCs & Funds](/ecosystem/vcs-and-funds)
@@ -68,15 +69,23 @@ Bridges are mechanisms that connect different blockchain networks, enabling secu
 
 [Relay](https://relay.link/bridge) is an intent-based bridge enabling high-speed bridging and connecting over 30 blockchains. Unlike consensus validator based decentralized bridges, Relay's permissioned relayer model stores outbound tokens on the origin chain and issues tokens on the destination chain allowing for low-cost, fast bridging of assets.
 
+## Relay.link[​](#relaylink "Direct link to Relay.link")
+
+[Relay.link](https://relay.link/) provides instant, low-cost swapping, bridging, and cross-chain execution across 73+ chains. It offers a comprehensive solution for users looking to bridge assets and execute cross-chain transactions with minimal fees and maximum efficiency.
+
+## Bridge.Flow.com[​](#bridgeflowcom "Direct link to Bridge.Flow.com")
+
+[Bridge.Flow.com](https://bridge.flow.com/) is a digital asset bridge powered by Superbridge, specifically designed to connect Ethereum and Flow EVM Mainnet. It provides secure and efficient asset transfers between these two major blockchain networks, enabling seamless interoperability for users and developers.
+
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/bridges.md)
 
-Last updated on **May 9, 2025** by **Chase Fleming**
+Last updated on **Aug 1, 2025** by **Brian Doyle**
 
 [Previous
 
 Stablecoins & Bridges FAQ](/ecosystem/defi-liquidity/faq)[Next
 
-Community Projects](/ecosystem/projects)
+Collectibles & NFTs](/ecosystem/collectibles)
 
 ###### Rate this page
 
@@ -92,6 +101,8 @@ Copy as Markdown
 * [Axelar](#axelar)
 * [DeBridge](#debridge)
 * [Relay](#relay)
+* [Relay.link](#relaylink)
+* [Bridge.Flow.com](#bridgeflowcom)
 
 Documentation
 

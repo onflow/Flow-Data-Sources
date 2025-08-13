@@ -24,7 +24,7 @@ Learn Cadence Beginner
 
 star
 
-143
+137
 
 ![User avatar](/avatars/jacob.jpeg)
 

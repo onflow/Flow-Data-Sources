@@ -6,13 +6,13 @@ Authorization Function | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [@onflow/kit](/tools/kit)
+* [@onflow/react-sdk](/tools/react-sdk)
 * [Flow Emulator](/tools/emulator)
 * [Flow CLI](/tools/flow-cli)
 * [Cadence VS Code Extension](/tools/vscode-extension)
@@ -48,7 +48,7 @@ To use an Authorization Function, you specify that Authorization Function as the
 
 Example 1:
 
-`_10
+`` _10
 
 import * as fcl from "@onflow/fcl"
 
@@ -82,7 +82,7 @@ fcl.authorizers([ myAuthorizationFunction ])
 
 _10
 
-])`
+]) ``
 
 The builder functions, `fcl.proposer`, `fcl.payer` and `fcl.authorizations` each consume the Authorization Function and set it as the resolve field on the internal Account object it creates.
 
@@ -117,7 +117,7 @@ Our Authorization Function becomes about filling things in:
 
 Example 2:
 
-`_18
+`` _18
 
 const authorizationFunction = async (account) => {
 
@@ -187,7 +187,7 @@ _18
 
 _18
 
-}`
+} ``
 
 ## Async stuff[​](#async-stuff "Direct link to Async stuff")
 
@@ -195,7 +195,7 @@ Both the Authorization Function, and the accounts Signing Function can be asynch
 
 Example 3:
 
-`_22
+`` _22
 
 const getAccount = (userId) => fetch(`/api/user/${userId}/account`).then(d => d.json())
 
@@ -277,7 +277,7 @@ _22
 
 _22
 
-}`
+} ``
 
 The above **Example 3** is the same as **Example 2**, but the information is gathered during the execution of the authorization function based on the supplied user id.
 
@@ -359,7 +359,7 @@ _17
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/authorization-function.md)
 
-Last updated on **May 9, 2025** by **Chase Fleming**
+Last updated on **Dec 16, 2024** by **Alex Ni**
 
 [Previous
 

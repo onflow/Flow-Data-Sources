@@ -1,6 +1,6 @@
 # Source: https://cadence-lang.org/docs/tags/reference
 
-7 docs tagged with "reference" | Cadence
+8 docs tagged with "reference" | Cadence
 
 
 
@@ -8,11 +8,11 @@
 
 [![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
 
-[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+[Learn](/docs)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Language Reference](/docs/language)
 
 Search
 
-# 7 docs tagged with "reference"
+# 8 docs tagged with "reference"
 
 [View All Tags](/docs/tags)
 
@@ -40,13 +40,10 @@ A smart contract tutorial for Cadence.
 
 Learn how to manage collections of NFTs in Cadence
 
+[## Marketplace](/docs/tutorial/marketplace-compose)
+
+Build a composable NFT marketplace on Flow using Cadence, integrating fungible and non-fungible tokens, capabilities, and events.
+
 [## Resources and the Move (<-) Operator](/docs/tutorial/resources)
 
 An introduction to resources, capabilities, and account storage in Cadence
-
-Got suggestions for this site?
-
-* [It's open-source!](https://github.com/onflow/cadence-lang.org)
-
-The source code of this site is licensed under the Apache License, Version 2.0.
-Content is licensed under the Creative Commons Attribution 4.0 International License.

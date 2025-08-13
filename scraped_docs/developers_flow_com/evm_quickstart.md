@@ -6,7 +6,7 @@ EVM Quickstart | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -22,7 +22,7 @@ Search
 * [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
 * [Faucets ↙](/evm/faucets)
 * [Block Explorers ↙](/evm/block-explorers)
-* [Guides](/evm/guides/integrating-metamask)
+* [Guides](/evm/guides)
 
 * EVM Quickstart
 
@@ -511,6 +511,12 @@ export default ClickerModule;`
 
 Visit the [Flow Faucet](https://faucet.flow.com/fund-account) and follow the instructions to add testnet funds. Compared to other networks, the [Flow Faucet](https://faucet.flow.com/fund-account) grants a vast amount of tokens - enough gas for millions of transactions.
 
+warning
+
+EVM accounts created by the [Flow Wallet](https://wallet.flow.com/) are [Cadence-Owned Accounts](/evm/accounts#cadence-owned-accounts), or COAs - **Not** EOAs. COAs have many advantages over EOAs, but they are generated differently, which means they don't have a key that's compatible with Hardhat.
+
+Use your [MetaMask](https://metamask.io) or similar EOA account to deploy contracts on Flow EVM.
+
 ### Deploy the Contract[​](#deploy-the-contract "Direct link to Deploy the Contract")
 
 Deploy the contract with:
@@ -629,7 +635,7 @@ Ready to unlock the full potential of Flow EVM? Start with our [Batched Transact
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/quickstart.md)
 
-Last updated on **May 9, 2025** by **Chase Fleming**
+Last updated on **Jul 25, 2025** by **Jordan Ribbink**
 
 [Previous
 

@@ -8,12 +8,13 @@ Cadence Security Best Practices | Cadence
 
 [![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
 
-[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+[Learn](/docs)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Language Reference](/docs/language)
 
 Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
+* [Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
 * [Tutorial](/docs/tutorial/first-steps)
 * [Language Reference](/docs/language/)
 * [Cadence 1.0 Migration Guide](/docs/cadence-migration-guide/)
@@ -21,9 +22,8 @@ Search
 * [Anti-Patterns](/docs/anti-patterns)
 * [Development Standards](/docs/project-development-tips)
 * [Security Best Practices](/docs/security-best-practices)
-* [Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
+* [JSON-Cadence Format](/docs/json-cadence-spec)
 * [Contract Upgrades with Incompatible Changes](/docs/contract-upgrades)
-* [JSON-Cadence format](/docs/json-cadence-spec)
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
@@ -103,7 +103,7 @@ and only request the least and most fine-grained account entitlements necessary 
 
 ## Types[​](#types "Direct link to Types")
 
-Use [intersection types and interfaces](/docs/language/intersection-types). Always use the most specific type possible, following the principle of least privilege. Types should always be as restrictive as possible, especially for resource types.
+Use [intersection types and interfaces](/docs/language/types-and-type-system/intersection-types). Always use the most specific type possible, following the principle of least privilege. Types should always be as restrictive as possible, especially for resource types.
 
 If given a less-specific type, cast to the more specific type that is expected. For example, when implementing the fungible token standard, a user may deposit any fungible token, so the implementation should cast to the expected concrete fungible token type.
 
@@ -123,7 +123,7 @@ and entitlement-based access for other cases.
 
 Development Standards](/docs/project-development-tips)[Next
 
-Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
+JSON-Cadence Format](/docs/json-cadence-spec)
 
 ###### Rate this page
 
@@ -136,10 +136,3 @@ Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
 * [Transactions](#transactions)
 * [Types](#types)
 * [Access Control](#access-control)
-
-Got suggestions for this site?
-
-* [It's open-source!](https://github.com/onflow/cadence-lang.org)
-
-The source code of this site is licensed under the Apache License, Version 2.0.
-Content is licensed under the Creative Commons Attribution 4.0 International License.

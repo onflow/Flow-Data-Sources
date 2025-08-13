@@ -8,55 +8,50 @@ Control Flow | Cadence
 
 [![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
 
-[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+[Learn](/docs)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Language Reference](/docs/language)
 
 Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
+* [Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
 * [Tutorial](/docs/tutorial/first-steps)
 * [Language Reference](/docs/language/)
 
   + [Syntax](/docs/language/syntax)
   + [Constants and Variable Declarations](/docs/language/constants-and-variables)
-  + [Type Annotations](/docs/language/type-annotations)
-  + [Values and Types](/docs/language/values-and-types)
-  + [Operators](/docs/language/operators)
+  + [Values and Types](/docs/language/values-and-types/)
+  + [Types and Type System](/docs/language/types-and-type-system/)
+  + [Operators](/docs/language/operators/)
+  + [Accounts](/docs/language/accounts/)
   + [Functions](/docs/language/functions)
+  + [Pre- and Post-Conditions](/docs/language/pre-and-post-conditions)
+  + [Built-in Functions](/docs/language/built-in-functions)
   + [Control Flow](/docs/language/control-flow)
   + [Scope](/docs/language/scope)
-  + [Type Safety](/docs/language/type-safety)
-  + [Type Inference](/docs/language/type-inference)
-  + [Composite Types](/docs/language/composite-types)
   + [Resources](/docs/language/resources)
-  + [Access control](/docs/language/access-control)
+  + [Access Control](/docs/language/access-control)
   + [Capabilities](/docs/language/capabilities)
   + [Interfaces](/docs/language/interfaces)
   + [Enumerations](/docs/language/enumerations)
-  + [Intersection Types](/docs/language/intersection-types)
   + [References](/docs/language/references)
   + [Imports](/docs/language/imports)
-  + [Accounts](/docs/language/accounts/)
   + [Attachments](/docs/language/attachments)
   + [Contracts](/docs/language/contracts)
   + [Contract Updatability](/docs/language/contract-updatability)
   + [Transactions](/docs/language/transactions)
   + [Events](/docs/language/events)
   + [Core Events](/docs/language/core-events)
-  + [Run-time Types](/docs/language/run-time-types)
-  + [Built-in Functions](/docs/language/built-in-functions)
   + [Environment Information](/docs/language/environment-information)
   + [Crypto](/docs/language/crypto)
-  + [Type Hierarchy](/docs/language/type-hierarchy)
   + [Glossary](/docs/language/glossary)
 * [Cadence 1.0 Migration Guide](/docs/cadence-migration-guide/)
 * [Design Patterns](/docs/design-patterns)
 * [Anti-Patterns](/docs/anti-patterns)
 * [Development Standards](/docs/project-development-tips)
 * [Security Best Practices](/docs/security-best-practices)
-* [Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
+* [JSON-Cadence Format](/docs/json-cadence-spec)
 * [Contract Upgrades with Incompatible Changes](/docs/contract-upgrades)
-* [JSON-Cadence format](/docs/json-cadence-spec)
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
@@ -73,14 +68,13 @@ Control flow statements control the flow of execution in a function.
 
 If-statements allow a certain piece of code to be executed only when a given condition is true.
 
-The if-statement starts with the `if` keyword, followed by the condition,
-and the code that should be executed if the condition is true
-inside opening and closing braces.
-The condition expression must be boolean.
-The braces are required and not optional.
-Parentheses around the condition are optional.
+The if-statement starts with the `if` keyword, followed by the condition, and the code that should be executed if the condition is true, inside opening and closing braces.
 
-`_13
+* The condition expression must be a boolean.
+* The braces are required and not optional.
+* Parentheses around the condition are optional:
+
+`` _13
 
 let a = 0
 
@@ -124,14 +118,11 @@ _13
 
 _13
 
-// `b` is `1``
+// `b` is `1` ``
 
-An additional, optional else-clause can be added to execute another piece of code
-when the condition is false.
-The else-clause is introduced by the `else` keyword followed by braces
-that contain the code that should be executed.
+An additional, optional else-clause can be added to execute another piece of code when the condition is false. The else-clause is introduced by the `else` keyword, followed by braces that contain the code that should be executed:
 
-`_10
+`` _10
 
 let a = 0
 
@@ -165,12 +156,11 @@ _10
 
 _10
 
-// `b` is `2``
+// `b` is `2` ``
 
-The else-clause can contain another if-statement, i.e., if-statements can be chained together.
-In this case the braces can be omitted.
+The else-clause can contain another if-statement (i.e., if-statements can be chained together). In this case, the braces can be omitted:
 
-`_22
+`` _22
 
 let a = 0
 
@@ -248,23 +238,17 @@ _22
 
 _22
 
-// `b` is `2``
+// `b` is `2` ``
 
-## Optional Binding[​](#optional-binding "Direct link to Optional Binding")
+## Optional binding[​](#optional-binding "Direct link to Optional binding")
 
-Optional binding allows getting the value inside an optional.
-It is a variant of the if-statement.
+Optional binding allows getting the value inside an optional. It is a variant of the if-statement.
 
-If the optional contains a value, the first branch is executed
-and a temporary constant or variable is declared and set to the value contained in the optional;
-otherwise, the else branch (if any) is executed.
+If the optional contains a value, the first branch is executed and a temporary constant or variable is declared and set to the value contained in the optional; otherwise, the else branch (if any) is executed.
 
-Optional bindings are declared using the `if` keyword like an if-statement,
-but instead of the boolean test value, it is followed by the `let` or `var` keywords,
-to either introduce a constant or variable, followed by a name,
-the equal sign (`=`), and the optional value.
+Optional bindings are declared using the `if` keyword like an if-statement, but instead of the boolean test value, it is followed by the `let` or `var` keywords, to either introduce a constant or variable, followed by a name, the equal sign (`=`), and the optional value:
 
-`_10
+`` _10
 
 let maybeNumber: Int? = 1
 
@@ -292,9 +276,9 @@ _10
 
 _10
 
-}`
+} ``
 
-`_10
+`` _10
 
 let noNumber: Int? = nil
 
@@ -322,35 +306,21 @@ _10
 
 _10
 
-}`
+} ``
 
 ## Switch[​](#switch "Direct link to Switch")
 
-Switch-statements compare a value against several possible values of the same type, in order.
-When an equal value is found, the associated block of code is executed.
+Switch-statements compare a value against several possible values of the same type, in order. When an equal value is found, the associated block of code is executed.
 
-The switch-statement starts with the `switch` keyword, followed by the tested value,
-followed by the cases inside opening and closing braces.
-The test expression must be equatable.
-The braces are required and not optional.
+The switch-statement starts with the `switch` keyword, followed by the tested value, followed by the cases inside opening and closing braces. The test expression must be equatable. The braces are required and not optional.
 
-Each case is a separate branch of code execution
-and starts with the `case` keyword,
-followed by a possible value, a colon (`:`),
-and the block of code that should be executed
-if the case's value is equal to the tested value.
+Each case is a separate branch of code execution and starts with the `case` keyword, followed by a possible value, a colon (`:`), and the block of code that should be executed if the case's value is equal to the tested value.
 
-The block of code associated with a switch case
-[does not implicitly fall through](#no-implicit-fallthrough),
-and must contain at least one statement.
-Empty blocks are invalid.
+The block of code associated with a switch case [does not implicitly fall through](#no-implicit-fallthrough), and must contain at least one statement. Empty blocks are invalid.
 
-An optional default case may be given by using the `default` keyword.
-The block of code of the default case is executed
-when none of the previous case tests succeeded.
-It must always appear last.
+An optional default case may be given by using the `default` keyword. The block of code of the default case is executed when none of the previous case tests succeed. It must always appear last:
 
-`_22
+`` _22
 
 fun word(_ n: Int): String {
 
@@ -434,14 +404,13 @@ word(3) // returns "other"
 
 _22
 
-word(4) // returns "other"`
+word(4) // returns "other" ``
 
 ### Duplicate cases[​](#duplicate-cases "Direct link to Duplicate cases")
 
-Cases are tested in order, so if a case is duplicated,
-the block of code associated with the first case that succeeds is executed.
+Cases are tested in order, so if a case is duplicated, the block of code associated with the first case that succeeds is executed:
 
-`_20
+`` _20
 
 fun test(_ n: Int): String {
 
@@ -517,35 +486,23 @@ _20
 
 _20
 
-word(1) // returns "one", not "also one"`
+word(1) // returns "one", not "also one" ``
 
 ### `break`[​](#break "Direct link to break")
 
-The block of code associated with a switch case may contain a `break` statement.
-It ends the execution of the switch statement immediately
-and transfers control to the code after the switch statement
+The block of code associated with a switch case may contain a `break` statement. It ends the execution of the switch statement immediately and transfers control to the code after the switch statement.
 
-### No Implicit Fallthrough[​](#no-implicit-fallthrough "Direct link to No Implicit Fallthrough")
+### No implicit fallthrough[​](#no-implicit-fallthrough "Direct link to No implicit fallthrough")
 
-Unlike switch statements in some other languages,
-switch statements in Cadence do not "fall through":
-execution of the switch statement finishes as soon as the block of code
-associated with the first matching case is completed.
-No explicit `break` statement is required.
+Unlike switch statements in some other languages, switch statements in Cadence do not *fall through*: execution of the switch statement finishes as soon as the block of code associated with the first matching case is completed. No explicit `break` statement is required.
 
-This makes the switch statement safer and easier to use,
-avoiding the accidental execution of more than one switch case.
+This makes the switch statement safer and easier to use, avoiding the accidental execution of more than one switch case.
 
-Some other languages implicitly fall through
-to the block of code associated with the next case,
-so it is common to write cases with an empty block
-to handle multiple values in the same way.
+Some other languages implicitly fall through to the block of code associated with the next case, so it is common to write cases with an empty block to handle multiple values in the same way.
 
-To prevent developers from writing switch statements
-that assume this behaviour, blocks must have at least one statement.
-Empty blocks are invalid.
+To protect developers from writing switch statements that assume this behavior, blocks must have at least one statement. Empty blocks are invalid:
 
-`_27
+`` _27
 
 fun words(_ n: Int): [String] {
 
@@ -647,27 +604,21 @@ words(3) // returns `["other"]`
 
 _27
 
-words(4) // returns `["other"]``
+words(4) // returns `["other"]` ``
 
 ## Looping[​](#looping "Direct link to Looping")
 
+The following sections describe looping statements.
+
 ### while-statement[​](#while-statement "Direct link to while-statement")
 
-While-statements allow a certain piece of code to be executed repeatedly,
-as long as a condition remains true.
+While-statements allow a certain piece of code to be executed repeatedly, as long as a condition remains true.
 
-The while-statement starts with the `while` keyword, followed by the condition,
-and the code that should be repeatedly
-executed if the condition is true inside opening and closing braces.
-The condition must be boolean and the braces are required.
+The while-statement starts with the `while` keyword, followed by the condition, and the code that should be repeatedly executed if the condition is true inside opening and closing braces. The condition must be boolean, and the braces are required.
 
-The while-statement will first evaluate the condition.
-If it is true, the piece of code is executed and the evaluation of the condition is repeated.
-If the condition is false, the piece of code is not executed
-and the execution of the whole while-statement is finished.
-Thus, the piece of code is executed zero or more times.
+The while-statement will first evaluate the condition. If it is true, the piece of code is executed, and the evaluation of the condition is repeated. If the condition is false, the piece of code is not executed, and the execution of the whole while-statement is finished. Thus, the piece of code is executed zero or more times:
 
-`_10
+`` _10
 
 var a = 0
 
@@ -687,24 +638,17 @@ _10
 
 _10
 
-// `a` is `5``
+// `a` is `5` ``
 
 ### For-in statement[​](#for-in-statement "Direct link to For-in statement")
 
-For-in statements allow a certain piece of code to be executed repeatedly for
-each element in an array.
+For-in statements allow a certain piece of code to be executed repeatedly for each element in an array.
 
-The for-in statement starts with the `for` keyword, followed by the name of
-the element that is used in each iteration of the loop,
-followed by the `in` keyword, and then followed by the array
-that is being iterated through in the loop.
+The for-in statement starts with the `for` keyword, followed by the name of the element that is used in each iteration of the loop, followed by the `in` keyword, and then followed by the array that is being iterated through in the loop.
 
-Then, the code that should be repeatedly executed in each iteration of the loop
-is enclosed in curly braces.
+Then, the code that should be repeatedly executed in each iteration of the loop is enclosed in curly braces.
 
-If there are no elements in the data structure, the code in the loop will not
-be executed at all. Otherwise, the code will execute as many times
-as there are elements in the array.
+If there are no elements in the data structure, the code in the loop will not be executed at all. Otherwise, the code will execute as many times as there are elements in the array:
 
 `_11
 
@@ -746,11 +690,7 @@ _11
 
 // "Bar"`
 
-Optionally, developers may include an additional variable preceding the element name,
-separated by a comma.
-When present, this variable contains the current
-index of the array being iterated through
-during each repeated execution (starting from 0).
+Optionally, developers may include an additional variable preceding the element name, separated by a comma. When present, this variable contains the current index of the array being iterated through during each repeated execution (starting from 0):
 
 `_11
 
@@ -792,8 +732,7 @@ _11
 
 // 3`
 
-To iterate over a dictionary's entries (keys and values),
-use a for-in loop over the dictionary's keys and get the value for each key:
+To iterate over a dictionary's entries (keys and values), use a for-in loop over the dictionary's keys and get the value for each key:
 
 `_12
 
@@ -873,12 +812,11 @@ _10
 
 })`
 
-### Ranges in Loops[​](#ranges-in-loops "Direct link to Ranges in Loops")
+### Ranges in loops[​](#ranges-in-loops "Direct link to Ranges in loops")
 
-An [`InclusiveRange` value](#../values-and-types/InclusiveRange) can be used in a for-in statement in place of an array or dictionary. In this case,
-the loop will iterate over all the values contained in the range, beginning with `range.start` and ending with `range.end`. E.g.
+An [`InclusiveRange` value](/docs/language/values-and-types/inclusive-range) can be used in a for-in statement in place of an array or dictionary. In this case, the loop will iterate over all the values contained in the range, beginning with `range.start` and ending with `range.end`. For example:
 
-`_10
+`` _10
 
 let range: InclusiveRange<UInt> = InclusiveRange(1, 100, step: 2)
 
@@ -900,13 +838,13 @@ _10
 
 _10
 
-// after this loop, `elements` contains all the odd integers from 1 to 99`
+// after this loop, `elements` contains all the odd integers from 1 to 99 ``
 
 Note that in this example, even though `100` is the end of the `range`, it is not included in the loop because it cannot be reached with the given `start` and `step`.
 
 The above loop is equivalent to:
 
-`_10
+`` _10
 
 let range: InclusiveRange<UInt> = InclusiveRange(1, 100, step: 2)
 
@@ -936,7 +874,7 @@ _10
 
 _10
 
-// after this loop, `elements` contains all the odd integers from 1 to 99`
+// after this loop, `elements` contains all the odd integers from 1 to 99 ``
 
 In general, a for-in loop over an increasing range (a positive `step`) is equivalent to:
 
@@ -962,7 +900,7 @@ _10
 
 While a for-in loop over a decreasing range (a negative `step`) is equivalent to:
 
-`_10
+`` _10
 
 var index = range.start
 
@@ -980,7 +918,7 @@ index = index + range.step // `range.step` here is negative, so this decreases `
 
 _10
 
-}`
+} ``
 
 Both can be equivalently rewritten to:
 
@@ -1006,10 +944,9 @@ _10
 
 ### `continue` and `break`[​](#continue-and-break "Direct link to continue-and-break")
 
-In for-loops and while-loops, the `continue` statement can be used to stop
-the current iteration of a loop and start the next iteration.
+In for-loops and while-loops, the `continue` statement can be used to stop the current iteration of a loop and start the next iteration:
 
-`_22
+`` _22
 
 var i = 0
 
@@ -1089,12 +1026,11 @@ _22
 
 _22
 
-// `sum` is `3``
+// `sum` is `3` ``
 
-The `break` statement can be used to stop the execution
-of a for-loop or a while-loop.
+The `break` statement can be used to stop the execution of a for-loop or a while-loop:
 
-`_20
+`` _20
 
 var x = 0
 
@@ -1166,20 +1102,17 @@ _20
 
 _20
 
-// `sum` is `1``
+// `sum` is `1` ``
 
 ## Immediate function return: return-statement[​](#immediate-function-return-return-statement "Direct link to Immediate function return: return-statement")
 
-The return-statement causes a function to return immediately,
-i.e., any code after the return-statement is not executed.
-The return-statement starts with the `return` keyword
-and is followed by an optional expression that should be the return value of the function call.
+The return-statement causes a function to return immediately (i.e., any code after the return-statement is not executed). The return-statement starts with the `return` keyword and is followed by an optional expression that should be the return value of the function call.
 
 [Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/control-flow.md)
 
 [Previous
 
-Functions](/docs/language/functions)[Next
+Built-in Functions](/docs/language/built-in-functions)[Next
 
 Scope](/docs/language/scope)
 
@@ -1188,21 +1121,14 @@ Scope](/docs/language/scope)
 😞😐😊
 
 * [Conditional branching: if-statement](#conditional-branching-if-statement)
-* [Optional Binding](#optional-binding)
+* [Optional binding](#optional-binding)
 * [Switch](#switch)
   + [Duplicate cases](#duplicate-cases)
   + [`break`](#break)
-  + [No Implicit Fallthrough](#no-implicit-fallthrough)
+  + [No implicit fallthrough](#no-implicit-fallthrough)
 * [Looping](#looping)
   + [while-statement](#while-statement)
   + [For-in statement](#for-in-statement)
-  + [Ranges in Loops](#ranges-in-loops)
+  + [Ranges in loops](#ranges-in-loops)
   + [`continue` and `break`](#continue-and-break)
 * [Immediate function return: return-statement](#immediate-function-return-return-statement)
-
-Got suggestions for this site?
-
-* [It's open-source!](https://github.com/onflow/cadence-lang.org)
-
-The source code of this site is licensed under the Apache License, Version 2.0.
-Content is licensed under the Creative Commons Attribution 4.0 International License.

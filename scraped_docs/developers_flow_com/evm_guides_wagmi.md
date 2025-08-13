@@ -6,7 +6,7 @@ Viem & Wagmi | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -22,7 +22,7 @@ Search
 * [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
 * [Faucets ↙](/evm/faucets)
 * [Block Explorers ↙](/evm/block-explorers)
-* [Guides](/evm/guides/integrating-metamask)
+* [Guides](/evm/guides)
 
   + [Integrating Metamask](/evm/guides/integrating-metamask)
   + [Hardhat](/evm/guides/hardhat)
@@ -30,11 +30,10 @@ Search
   + [Rainbowkit](/evm/guides/rainbowkit)
   + [Viem & Wagmi](/evm/guides/wagmi)
   + [Foundry](/evm/guides/foundry)
-  + [VRF (Randomness) in Solidity](/evm/guides/vrf)
   + [Ethers](/evm/guides/ethers)
   + [Web3.js](/evm/guides/web3-js)
 
-* Guides
+* [Guides](/evm/guides)
 * Viem & Wagmi
 
 On this page
@@ -181,177 +180,181 @@ _11
 
 By default Wagmi configures many wallets, MetaMask, Coinbase Wallet, and WalletConnect as wallet providers. Above we simplify the code to only be interested in the Injected Provider, which we are interested in Metamask. Verify `page.tsx` code looks like the following.
 
-`_47
+`_48
 
 'use client'
 
-_47
+_48
 
-_47
+_48
 
 import { useAccount, useConnect, useDisconnect } from 'wagmi'
 
-_47
+_48
 
-_47
+_48
 
 function App() {
 
-_47
+_48
 
 const account = useAccount()
 
-_47
+_48
 
 const { connectors, connect, status, error } = useConnect()
 
-_47
+_48
 
 const { disconnect } = useDisconnect()
 
-_47
+_48
 
-_47
+_48
 
 return (
 
-_47
+_48
 
 <>
 
-_47
+_48
 
 <div>
 
-_47
+_48
 
 <h2>Account</h2>
 
-_47
+_48
 
-_47
+_48
 
 <div>
 
-_47
+_48
 
 status: {account.status}
 
-_47
+_48
 
 <br />
 
-_47
+_48
 
 addresses: {JSON.stringify(account.addresses)}
 
-_47
+_48
 
 <br />
 
-_47
+_48
 
 chainId: {account.chainId}
 
-_47
+_48
 
 </div>
 
-_47
+_48
 
-_47
+_48
 
 {account.status === 'connected' && (
 
-_47
+_48
 
 <button type="button" onClick={() => disconnect()}>
 
-_47
+_48
 
 Disconnect
 
-_47
+_48
 
 </button>
 
-_47
+_48
 
 )}
 
-_47
+_48
 
 </div>
 
-_47
+_48
 
-_47
+_48
 
 <div>
 
-_47
+_48
 
 <h2>Connect</h2>
 
-_47
+_48
 
 {connectors.map((connector) => (
 
-_47
+_48
 
 <button
 
-_47
+_48
 
 key={connector.uid}
 
-_47
+_48
 
 onClick={() => connect({ connector })}
 
-_47
+_48
 
 type="button"
 
-_47
+_48
 
 >
 
-_47
+_48
 
 {connector.name}
 
-_47
+_48
 
 </button>
 
-_47
+_48
 
 ))}
 
-_47
+_48
 
 <div>{status}</div>
 
-_47
+_48
 
 <div>{error?.message}</div>
 
-_47
+_48
 
 </div>
 
-_47
+_48
 
 </>
 
-_47
+_48
+
+)
+
+_48
 
 }
 
-_47
+_48
 
-_47
+_48
 
 export default App`
 
@@ -833,7 +836,7 @@ Test it by updating the greeting, signing a transaction in your Metamask then wa
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/wagmi.md)
 
-Last updated on **May 9, 2025** by **Chase Fleming**
+Last updated on **Jul 22, 2025** by **dc**
 
 [Previous
 

@@ -6,7 +6,7 @@ Web3.js on Flow Blockchain | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -22,7 +22,7 @@ Search
 * [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
 * [Faucets ↙](/evm/faucets)
 * [Block Explorers ↙](/evm/block-explorers)
-* [Guides](/evm/guides/integrating-metamask)
+* [Guides](/evm/guides)
 
   + [Integrating Metamask](/evm/guides/integrating-metamask)
   + [Hardhat](/evm/guides/hardhat)
@@ -30,11 +30,10 @@ Search
   + [Rainbowkit](/evm/guides/rainbowkit)
   + [Viem & Wagmi](/evm/guides/wagmi)
   + [Foundry](/evm/guides/foundry)
-  + [VRF (Randomness) in Solidity](/evm/guides/vrf)
   + [Ethers](/evm/guides/ethers)
   + [Web3.js](/evm/guides/web3-js)
 
-* Guides
+* [Guides](/evm/guides)
 * Web3.js
 
 On this page
@@ -357,7 +356,7 @@ We can now interact with the contract on the network by using the `contract` obj
 
 State can be read from the contract by using the `call` function with one of the contract's methods. This will not change the state and will not send a transaction.
 
-`_10
+`` _10
 
 // Retrieve the current value stored in the contract
 
@@ -373,7 +372,7 @@ _10
 
 _10
 
-console.log(result); // Current value stored in the contract`
+console.log(result); // Current value stored in the contract ``
 
 ### Changing State[​](#changing-state "Direct link to Changing State")
 
@@ -405,7 +404,7 @@ const account = web3.eth.accounts.privateKeyToAccount('0x1234');`
 
 Then, we can sign a transaction using the user's account and send it to the network.
 
-`_18
+`` _18
 
 const newValue = 1337; // Replace with any value you want to store
 
@@ -469,7 +468,7 @@ _18
 
 _18
 
-console.log(result);`
+console.log(result); ``
 
 Now that the transaction has been sent, the contract's state should have been updated. We can verify this by querying the contract's state again:
 
@@ -485,7 +484,7 @@ For more information about using smart contracts in web3.js, see the [official d
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/web3-js.md)
 
-Last updated on **May 9, 2025** by **Chase Fleming**
+Last updated on **Mar 26, 2025** by **Brian Doyle**
 
 [Previous
 

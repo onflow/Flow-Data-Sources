@@ -6,13 +6,13 @@ Provable Authn | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [@onflow/kit](/tools/kit)
+* [@onflow/react-sdk](/tools/react-sdk)
 * [Flow Emulator](/tools/emulator)
 * [Flow CLI](/tools/flow-cli)
 * [Cadence VS Code Extension](/tools/vscode-extension)
@@ -50,7 +50,7 @@ For example, it can be sent to the App’s backend and after validating the sign
 1. Wallet receives Authn `FCL:VIEW:READY:RESPONSE` request and parses out the `appIdentifier`, and `nonce`.
 2. The wallet authenticates the user however they choose to do, and determines the user's account `address`
 3. The wallet must validate the `appIdentifier` against the RFC 6454 origin of the request if it matches the
-   format of a RFC 3454 URI. Requests with a mismatch should be rejected. Some legacy systems may use arbitrary strings as `appIdentifier` and not RFC 6454 origins. In this case, wallets should display a warning to the user that the app identifier does not match the origin of the request.
+   format of a [RFC 3986](https://www.rfc-editor.org/rfc/rfc3986) URI. Requests with a mismatch should be rejected. Some legacy systems may use arbitrary strings as `appIdentifier` and not [RFC 6454](https://www.rfc-editor.org/rfc/rfc6454.html) origins. In this case, wallets should display a warning to the user that the app identifier does not match the origin of the request.
 4. Wallet prepares and signs the message:
    * Encodes the `appIdentifier`, `nonce`, and `address` along with the `"FCL-ACCOUNT-PROOF-V0.0"` domain separation tag, [using the encoding scheme described below](#account-proof-message-encoding).
    * Signs the message with the `signatureAlgorithm` and `hashAlgorithm` specified on user's key. **It is highly recommended that the wallet display the message data and receive user approval before signing.**
@@ -99,193 +99,201 @@ with the following values:
 
 ### JavaScript Signing Example[​](#javascript-signing-example "Direct link to JavaScript Signing Example")
 
-`_31
+`_34
 
 // Using WalletUtils
 
-_31
+_34
 
 import {WalletUtils} from "@onflow/fcl"
 
-_31
+_34
 
-_31
+_34
 
 WalletUtils.onMessageFromFcl(
 
-_31
+_34
 
 (data, {origin}) => {
 
-_31
+_34
 
 const {address, nonce, appIdentifier} = data.data
 
-_31
+_34
 
-_31
+_34
 
-// Validate the origin
+// Check if the appIdentifier is a valid RFC 3986 URI
 
-_31
+_34
 
-if (origin !== appIdentifier) {
+if (!isRfc3986Uri(appIdentifier)) {
 
-_31
+_34
 
-throw new Error("Invalid origin")
+// Warn the user that the appIdentifier does not match the origin and to proceed with caution
 
-_31
+_34
+
+} else if (origin !== appIdentifier) {
+
+_34
+
+// Reject the request if the appIdentifier is a valid RFC 3986 URI but does not match the origin
+
+_34
+
+throw new Error("Invalid appIdentifier")
+
+_34
 
 }
 
-_31
+_34
 
-_31
+_34
 
 const message = WalletUtils.encodeAccountProof(
 
-_31
+_34
 
 appIdentifier, // A human readable string to identify your application during signing
 
-_31
+_34
 
 address, // Flow address of the user authenticating
 
-_31
+_34
 
 nonce, // minimum 32-btye nonce
 
-_31
+_34
 
 )
 
-_31
+_34
 
-_31
+_34
 
 sign(privateKey, message)
 
-_31
+_34
 
-_31
+_34
 
 // Without using FCL WalletUtils
 
-_31
+_34
 
 const ACCOUNT_PROOF_DOMAIN_TAG = rightPaddedHexBuffer(
 
-_31
+_34
 
 Buffer.from("FCL-ACCOUNT-PROOF-V0.0").toString("hex"),
 
-_31
+_34
 
 32
 
-_31
+_34
 
 )
 
-_31
+_34
 
 const message = rlp([appIdentifier, address, nonce])
 
-_31
+_34
 
 const prependUserDomainTag = (message) => ACCOUNT_PROOF_DOMAIN_TAG + message
 
-_31
+_34
 
-_31
+_34
 
 sign(privateKey, prependUserDomainTag(message))
 
-_31
+_34
 
 }
 
-_31
+_34
 
 )`
 
-`_18
+`_17
 
 // Authentication Proof Service
 
-_18
+_17
 
 {
 
-_18
+_17
 
 f_type: "Service", // Its a service!
 
-_18
+_17
 
 f_vsn: "1.0.0", // Follows the v1.0.0 spec for the service
 
-_18
+_17
 
 type: "account-proof", // the type of service it is
 
-_18
+_17
 
 method: "DATA", // Its data!
 
-_18
+_17
 
 uid: "awesome-wallet#account-proof", // A unique identifier for the service
 
-_18
+_17
 
 data: {
 
-_18
+_17
 
 f_type: "account-proof",
 
-_18
+_17
 
 f_vsn: "1.0.0"
 
-_18
+_17
 
 // The user's address (8 bytes, i.e 16 hex characters)
 
-_18
+_17
 
 address: "0xf8d6e0586b0a20c7",
 
-_18
+_17
 
 // Nonce signed by the current account-proof (minimum 32 bytes in total, i.e 64 hex characters)
 
-_18
+_17
 
 nonce: "75f8587e5bd5f9dcc9909d0dae1f0ac5814458b2ae129620502cb936fde7120a",
 
-_18
+_17
 
 signatures: [CompositeSignature],
 
-_18
-
-appIdentifier: "https://myapp.com"
-
-_18
+_17
 
 }
 
-_18
+_17
 
 }`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/provable-authn.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **May 23, 2025** by **Jordan Ribbink**
 
 [Previous
 

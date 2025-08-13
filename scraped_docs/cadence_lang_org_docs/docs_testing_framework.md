@@ -8,12 +8,13 @@ Cadence Testing Framework | Cadence
 
 [![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
 
-[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+[Learn](/docs)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Language Reference](/docs/language)
 
 Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
+* [Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
 * [Tutorial](/docs/tutorial/first-steps)
 * [Language Reference](/docs/language/)
 * [Cadence 1.0 Migration Guide](/docs/cadence-migration-guide/)
@@ -21,9 +22,8 @@ Search
 * [Anti-Patterns](/docs/anti-patterns)
 * [Development Standards](/docs/project-development-tips)
 * [Security Best Practices](/docs/security-best-practices)
-* [Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
+* [JSON-Cadence Format](/docs/json-cadence-spec)
 * [Contract Upgrades with Incompatible Changes](/docs/contract-upgrades)
-* [JSON-Cadence format](/docs/json-cadence-spec)
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
@@ -48,7 +48,7 @@ a `beforeEach` function that runs before each test case,
 and an `afterEach` function that runs after each test case.
 All the above four functions are optional.
 
-`_42
+`` _42
 
 // A `setup` function that always runs before the rest of the test cases.
 
@@ -200,7 +200,7 @@ fun tearDown() {
 
 _42
 
-}`
+} ``
 
 ## Test Standard Library[​](#test-standard-library "Direct link to Test Standard Library")
 
@@ -732,7 +732,7 @@ The type parameter `T` is bound to `AnyStruct` type. It is also optional.
 
 For example, a matcher that checks whether a given integer value is negative can be defined as follows:
 
-`_34
+`` _34
 
 import Test
 
@@ -852,7 +852,7 @@ Test.expect(7, matcher)
 
 _34
 
-}`
+} ``
 
 The `Test` contract provides some built-in matcher functions for convenience.
 
@@ -1463,727 +1463,715 @@ _15
 A blockchain is an environment to which transactions can be submitted to, and against which scripts can be run.
 It imitates the behavior of a real network, for testing.
 
-`_150
+`` _148
 
 /// Blockchain emulates a real network.
 
-_150
+_148
 
 ///
 
-_150
+_148
 
 access(all)
 
-_150
+_148
 
 struct Blockchain {
 
-_150
+_148
 
-_150
+_148
 
 access(all)
 
-_150
+_148
 
 let backend: AnyStruct{BlockchainBackend}
 
-_150
+_148
 
-_150
+_148
 
 init(backend: AnyStruct{BlockchainBackend}) {
 
-_150
+_148
 
 self.backend = backend
 
-_150
+_148
 
 }
 
-_150
+_148
 
-_150
+_148
 
 /// Executes a script and returns the script return value and the status.
 
-_150
+_148
 
 /// `returnValue` field of the result will be `nil` if the script failed.
 
-_150
+_148
 
 ///
 
-_150
+_148
 
 access(all)
 
-_150
+_148
 
 fun executeScript(_ script: String, _ arguments: [AnyStruct]): ScriptResult {
 
-_150
+_148
 
 return self.backend.executeScript(script, arguments)
 
-_150
+_148
 
 }
 
-_150
+_148
 
-_150
+_148
 
 /// Creates a signer account by submitting an account creation transaction.
 
-_150
+_148
 
 /// The transaction is paid by the service account.
 
-_150
+_148
 
 /// The returned account can be used to sign and authorize transactions.
 
-_150
+_148
 
 ///
 
-_150
+_148
 
 access(all)
 
-_150
+_148
 
 fun createAccount(): Account {
 
-_150
+_148
 
 return self.backend.createAccount()
 
-_150
+_148
 
 }
 
-_150
+_148
 
-_150
+_148
 
 /// Add a transaction to the current block.
 
-_150
+_148
 
 ///
 
-_150
+_148
 
 access(all)
 
-_150
+_148
 
 fun addTransaction(_ tx: Transaction) {
 
-_150
+_148
 
 self.backend.addTransaction(tx)
 
-_150
+_148
 
 }
 
-_150
+_148
 
-_150
+_148
 
 /// Executes the next transaction in the block, if any.
 
-_150
+_148
 
 /// Returns the result of the transaction, or nil if no transaction was scheduled.
 
-_150
+_148
 
 ///
 
-_150
+_148
 
 access(all)
 
-_150
+_148
 
 fun executeNextTransaction(): TransactionResult? {
 
-_150
+_148
 
 return self.backend.executeNextTransaction()
 
-_150
+_148
 
 }
 
-_150
+_148
 
-_150
+_148
 
 /// Commit the current block.
 
-_150
+_148
 
 /// Committing will fail if there are un-executed transactions in the block.
 
-_150
+_148
 
 ///
 
-_150
+_148
 
 access(all)
 
-_150
+_148
 
 fun commitBlock() {
 
-_150
+_148
 
 self.backend.commitBlock()
 
-_150
+_148
 
 }
 
-_150
+_148
 
-_150
+_148
 
 /// Executes a given transaction and commits the current block.
 
-_150
+_148
 
 ///
 
-_150
+_148
 
 access(all)
 
-_150
+_148
 
 fun executeTransaction(_ tx: Transaction): TransactionResult {
 
-_150
+_148
 
 self.addTransaction(tx)
 
-_150
+_148
 
 let txResult = self.executeNextTransaction()!
 
-_150
+_148
 
 self.commitBlock()
 
-_150
+_148
 
 return txResult
 
-_150
+_148
 
 }
 
-_150
+_148
 
-_150
+_148
 
 /// Executes a given set of transactions and commits the current block.
 
-_150
+_148
 
 ///
 
-_150
+_148
 
 access(all)
 
-_150
+_148
 
 fun executeTransactions(_ transactions: [Transaction]): [TransactionResult] {
 
-_150
+_148
 
 for tx in transactions {
 
-_150
+_148
 
 self.addTransaction(tx)
 
-_150
+_148
 
 }
 
-_150
+_148
 
-_150
+_148
 
 var results: [TransactionResult] = []
 
-_150
+_148
 
 for tx in transactions {
 
-_150
+_148
 
 let txResult = self.executeNextTransaction()!
 
-_150
+_148
 
 results.append(txResult)
 
-_150
+_148
 
 }
 
-_150
+_148
 
-_150
+_148
 
 self.commitBlock()
 
-_150
+_148
 
 return results
 
-_150
+_148
 
 }
 
-_150
+_148
 
-_150
+_148
 
 /// Deploys a given contract, and initializes it with the arguments.
 
-_150
+_148
 
 ///
 
-_150
+_148
 
 access(all)
 
-_150
+_148
 
 fun deployContract(
 
-_150
+_148
 
 name: String,
 
-_150
+_148
 
-code: String,
+path: String,
 
-_150
-
-account: Account,
-
-_150
+_148
 
 arguments: [AnyStruct]
 
-_150
+_148
 
 ): Error? {
 
-_150
+_148
 
 return self.backend.deployContract(
 
-_150
+_148
 
 name: name,
 
-_150
+_148
 
-code: code,
+path: path,
 
-_150
-
-account: account,
-
-_150
+_148
 
 arguments: arguments
 
-_150
+_148
 
 )
 
-_150
+_148
 
 }
 
-_150
+_148
 
-_150
+_148
 
 /// Set the configuration to be used by the blockchain.
 
-_150
+_148
 
 /// Overrides any existing configuration.
 
-_150
+_148
 
 ///
 
-_150
+_148
 
 access(all)
 
-_150
+_148
 
 fun useConfiguration(_ configuration: Configuration) {
 
-_150
+_148
 
 self.backend.useConfiguration(configuration)
 
-_150
+_148
 
 }
 
-_150
+_148
 
-_150
+_148
 
 /// Returns all the logs from the blockchain, up to the calling point.
 
-_150
+_148
 
 ///
 
-_150
+_148
 
 access(all)
 
-_150
+_148
 
 fun logs(): [String] {
 
-_150
+_148
 
 return self.backend.logs()
 
-_150
+_148
 
 }
 
-_150
+_148
 
-_150
+_148
 
 /// Returns the service account of the blockchain. Can be used to sign
 
-_150
+_148
 
 /// transactions with this account.
 
-_150
+_148
 
 ///
 
-_150
+_148
 
 access(all)
 
-_150
+_148
 
 fun serviceAccount(): Account {
 
-_150
+_148
 
 return self.backend.serviceAccount()
 
-_150
+_148
 
 }
 
-_150
+_148
 
-_150
+_148
 
 /// Returns all events emitted from the blockchain.
 
-_150
+_148
 
 ///
 
-_150
+_148
 
 access(all)
 
-_150
+_148
 
 fun events(): [AnyStruct] {
 
-_150
+_148
 
 return self.backend.events(nil)
 
-_150
+_148
 
 }
 
-_150
+_148
 
-_150
+_148
 
 /// Returns all events emitted from the blockchain,
 
-_150
+_148
 
 /// filtered by type.
 
-_150
+_148
 
 ///
 
-_150
+_148
 
 access(all)
 
-_150
+_148
 
 fun eventsOfType(_ type: Type): [AnyStruct] {
 
-_150
+_148
 
 return self.backend.events(type)
 
-_150
+_148
 
 }
 
-_150
+_148
 
-_150
+_148
 
 /// Resets the state of the blockchain to the given height.
 
-_150
+_148
 
 ///
 
-_150
+_148
 
 access(all)
 
-_150
+_148
 
 fun reset(to height: UInt64) {
 
-_150
+_148
 
 self.backend.reset(to: height)
 
-_150
+_148
 
 }
 
-_150
+_148
 
-_150
+_148
 
 /// Moves the time of the blockchain by the given delta,
 
-_150
+_148
 
 /// which should be passed in the form of seconds.
 
-_150
+_148
 
 ///
 
-_150
+_148
 
 access(all)
 
-_150
+_148
 
 fun moveTime(by delta: Fix64) {
 
-_150
+_148
 
 self.backend.moveTime(by: delta)
 
-_150
+_148
 
 }
 
-_150
+_148
 
-}`
+} ``
 
 The `BlockchainBackend` provides the actual functionality of the blockchain.
 
-`_46
+`_45
 
 /// BlockchainBackend is the interface to be implemented by the backend providers.
 
-_46
+_45
 
 ///
 
-_46
+_45
 
 access(all)
 
-_46
+_45
 
 struct interface BlockchainBackend {
 
-_46
+_45
 
-_46
+_45
 
 access(all)
 
-_46
+_45
 
 fun executeScript(_ script: String, _ arguments: [AnyStruct]): ScriptResult
 
-_46
+_45
 
-_46
+_45
 
 access(all)
 
-_46
+_45
 
 fun createAccount(): Account
 
-_46
+_45
 
-_46
+_45
 
 access(all)
 
-_46
+_45
 
 fun addTransaction(_ tx: Transaction)
 
-_46
+_45
 
-_46
+_45
 
 access(all)
 
-_46
+_45
 
 fun executeNextTransaction(): TransactionResult?
 
-_46
+_45
 
-_46
+_45
 
 access(all)
 
-_46
+_45
 
 fun commitBlock()
 
-_46
+_45
 
-_46
+_45
 
 access(all)
 
-_46
+_45
 
 fun deployContract(
 
-_46
+_45
 
 name: String,
 
-_46
+_45
 
-code: String,
+path: String,
 
-_46
-
-account: Account,
-
-_46
+_45
 
 arguments: [AnyStruct]
 
-_46
+_45
 
 ): Error?
 
-_46
+_45
 
-_46
+_45
 
 access(all)
 
-_46
+_45
 
 fun useConfiguration(_ configuration: Configuration)
 
-_46
+_45
 
-_46
+_45
 
 access(all)
 
-_46
+_45
 
 fun logs(): [String]
 
-_46
+_45
 
-_46
+_45
 
 access(all)
 
-_46
+_45
 
 fun serviceAccount(): Account
 
-_46
+_45
 
-_46
+_45
 
 access(all)
 
-_46
+_45
 
 fun events(_ type: Type?): [AnyStruct]
 
-_46
+_45
 
-_46
+_45
 
 access(all)
 
-_46
+_45
 
 fun reset(to height: UInt64)
 
-_46
+_45
 
-_46
+_45
 
 access(all)
 
-_46
+_45
 
 fun moveTime(by delta: Fix64)
 
-_46
+_45
 
 }`
 
@@ -2338,7 +2326,7 @@ _16
 Scripts can be run with the `executeScript` function, which returns a `ScriptResult`.
 The function takes script-code as the first argument, and the script-arguments as an array as the second argument.
 
-`_21
+`` _21
 
 import Test
 
@@ -2408,7 +2396,7 @@ Test.assertEqual("Hello, Peter", returnValue)
 
 _21
 
-}`
+} ``
 
 The script result consists of the `status` of the script execution, and a `returnValue` if the script execution was
 successful, or an `error` otherwise (see [errors](#errors) section for more details on errors).
@@ -2798,7 +2786,7 @@ _16
 
 `commitBlock` block will commit the current block, and will fail if there are any un-executed transactions in the block.
 
-`_24
+`` _24
 
 import Test
 
@@ -2880,7 +2868,7 @@ blockchain.commitBlock()
 
 _24
 
-}`
+} ``
 
 ### Deploying contracts[​](#deploying-contracts "Direct link to Deploying contracts")
 
@@ -2942,75 +2930,67 @@ _15
 
 }`
 
-`_20
+`_18
 
 import Test
 
-_20
+_18
 
-_20
+_18
 
 access(all)
 
-_20
+_18
 
 let blockchain = Test.newEmulatorBlockchain()
 
-_20
+_18
 
-_20
+_18
 
 access(all)
 
-_20
+_18
 
 let account = blockchain.createAccount()
 
-_20
+_18
 
-_20
+_18
 
 access(all)
 
-_20
+_18
 
 fun testExample() {
 
-_20
-
-let contractCode = Test.readFile("Foo.cdc")
-
-_20
+_18
 
 let err = blockchain.deployContract(
 
-_20
+_18
 
 name: "Foo",
 
-_20
+_18
 
-code: contractCode,
+path: "./Foo.cdc",
 
-_20
-
-account: account,
-
-_20
+_18
 
 arguments: ["hello from args"],
 
-_20
+_18
 
 )
 
-_20
+_18
 
-_20
+_18
 
 Test.expect(err, Test.beNil())
 
-_20
+_18
 
 }`
 
@@ -3114,129 +3094,121 @@ _10
 
 Then, before executing the script, the address mapping can be specified as follows:
 
-`_36
+`_34
 
 import Test
 
-_36
+_34
 
-_36
+_34
 
 access(all)
 
-_36
+_34
 
 let blockchain = Test.newEmulatorBlockchain()
 
-_36
+_34
 
-_36
+_34
 
 access(all)
 
-_36
+_34
 
 let account = blockchain.createAccount()
 
-_36
+_34
 
-_36
+_34
 
 access(all)
 
-_36
+_34
 
 fun setup() {
 
-_36
+_34
 
 blockchain.useConfiguration(Test.Configuration({
 
-_36
+_34
 
 "Foo": account.address
 
-_36
+_34
 
 }))
 
-_36
+_34
 
-_36
-
-let contractCode = Test.readFile("Foo.cdc")
-
-_36
+_34
 
 let err = blockchain.deployContract(
 
-_36
+_34
 
 name: "Foo",
 
-_36
+_34
 
-code: contractCode,
+path: "./Foo.cdc",
 
-_36
-
-account: account,
-
-_36
+_34
 
 arguments: ["hello from args"],
 
-_36
+_34
 
 )
 
-_36
+_34
 
-_36
+_34
 
 Test.expect(err, Test.beNil())
 
-_36
+_34
 
 }
 
-_36
+_34
 
-_36
+_34
 
 access(all)
 
-_36
+_34
 
 fun testExample() {
 
-_36
+_34
 
 let script = Test.readFile("say_hello.cdc")
 
-_36
+_34
 
 let scriptResult = blockchain.executeScript(script, [])
 
-_36
+_34
 
-_36
+_34
 
 Test.expect(scriptResult, Test.beSucceeded())
 
-_36
+_34
 
-_36
+_34
 
 let returnValue = scriptResult.returnValue! as! String
 
-_36
+_34
 
-_36
+_34
 
 Test.assertEqual("hello from args", returnValue)
 
-_36
+_34
 
 }`
 
@@ -3484,129 +3456,121 @@ _19
 
 }`
 
-`_35
+`_33
 
 import Test
 
-_35
+_33
 
-_35
+_33
 
 access(all)
 
-_35
+_33
 
 let blockchain = Test.newEmulatorBlockchain()
 
-_35
+_33
 
-_35
+_33
 
 access(all)
 
-_35
+_33
 
 let account = blockchain.createAccount()
 
-_35
+_33
 
-_35
+_33
 
 access(all)
 
-_35
+_33
 
 fun setup() {
 
-_35
+_33
 
 blockchain.useConfiguration(Test.Configuration({
 
-_35
+_33
 
 "Foo": account.address
 
-_35
+_33
 
 }))
 
-_35
+_33
 
-_35
-
-let contractCode = Test.readFile("Foo.cdc")
-
-_35
+_33
 
 let err = blockchain.deployContract(
 
-_35
+_33
 
 name: "Foo",
 
-_35
+_33
 
-code: contractCode,
+path: "./Foo.cdc",
 
-_35
-
-account: account,
-
-_35
+_33
 
 arguments: ["hello from args"],
 
-_35
+_33
 
 )
 
-_35
+_33
 
-_35
+_33
 
 Test.expect(err, Test.beNil())
 
-_35
+_33
 
-_35
+_33
 
 // As of now, we have to construct the composite type by hand,
 
-_35
+_33
 
 // until the testing framework allows developers to import
 
-_35
+_33
 
 // contract types, e.g.:
 
-_35
+_33
 
 // let typ = Type<FooContract.ContractInitialized>()
 
-_35
+_33
 
 let typ = CompositeType("A.01cf0e2f2f715450.Foo.ContractInitialized")!
 
-_35
+_33
 
 let events = blockchain.eventsOfType(typ)
 
-_35
+_33
 
 Test.assertEqual(1, events.length)
 
-_35
+_33
 
-_35
+_33
 
 // We can also fetch all events emitted from the blockchain
 
-_35
+_33
 
 log(blockchain.events())
 
-_35
+_33
 
 }`
 
@@ -3906,10 +3870,3 @@ Measuring Time](/docs/measuring-time)
 * [Reading from files](#reading-from-files)
 * [Logging](#logging)
 * [Examples](#examples)
-
-Got suggestions for this site?
-
-* [It's open-source!](https://github.com/onflow/cadence-lang.org)
-
-The source code of this site is licensed under the Apache License, Version 2.0.
-Content is licensed under the Creative Commons Attribution 4.0 International License.

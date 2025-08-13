@@ -8,34 +8,21 @@ Keys | Cadence
 
 [![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
 
-[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+[Learn](/docs)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Language Reference](/docs/language)
 
 Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
+* [Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
 * [Tutorial](/docs/tutorial/first-steps)
 * [Language Reference](/docs/language/)
 
   + [Syntax](/docs/language/syntax)
   + [Constants and Variable Declarations](/docs/language/constants-and-variables)
-  + [Type Annotations](/docs/language/type-annotations)
-  + [Values and Types](/docs/language/values-and-types)
-  + [Operators](/docs/language/operators)
-  + [Functions](/docs/language/functions)
-  + [Control Flow](/docs/language/control-flow)
-  + [Scope](/docs/language/scope)
-  + [Type Safety](/docs/language/type-safety)
-  + [Type Inference](/docs/language/type-inference)
-  + [Composite Types](/docs/language/composite-types)
-  + [Resources](/docs/language/resources)
-  + [Access control](/docs/language/access-control)
-  + [Capabilities](/docs/language/capabilities)
-  + [Interfaces](/docs/language/interfaces)
-  + [Enumerations](/docs/language/enumerations)
-  + [Intersection Types](/docs/language/intersection-types)
-  + [References](/docs/language/references)
-  + [Imports](/docs/language/imports)
+  + [Values and Types](/docs/language/values-and-types/)
+  + [Types and Type System](/docs/language/types-and-type-system/)
+  + [Operators](/docs/language/operators/)
   + [Accounts](/docs/language/accounts/)
 
     - [Paths](/docs/language/accounts/paths)
@@ -44,26 +31,34 @@ Search
     - [Keys](/docs/language/accounts/keys)
     - [Contracts](/docs/language/accounts/contracts)
     - [Inbox](/docs/language/accounts/inbox)
+  + [Functions](/docs/language/functions)
+  + [Pre- and Post-Conditions](/docs/language/pre-and-post-conditions)
+  + [Built-in Functions](/docs/language/built-in-functions)
+  + [Control Flow](/docs/language/control-flow)
+  + [Scope](/docs/language/scope)
+  + [Resources](/docs/language/resources)
+  + [Access Control](/docs/language/access-control)
+  + [Capabilities](/docs/language/capabilities)
+  + [Interfaces](/docs/language/interfaces)
+  + [Enumerations](/docs/language/enumerations)
+  + [References](/docs/language/references)
+  + [Imports](/docs/language/imports)
   + [Attachments](/docs/language/attachments)
   + [Contracts](/docs/language/contracts)
   + [Contract Updatability](/docs/language/contract-updatability)
   + [Transactions](/docs/language/transactions)
   + [Events](/docs/language/events)
   + [Core Events](/docs/language/core-events)
-  + [Run-time Types](/docs/language/run-time-types)
-  + [Built-in Functions](/docs/language/built-in-functions)
   + [Environment Information](/docs/language/environment-information)
   + [Crypto](/docs/language/crypto)
-  + [Type Hierarchy](/docs/language/type-hierarchy)
   + [Glossary](/docs/language/glossary)
 * [Cadence 1.0 Migration Guide](/docs/cadence-migration-guide/)
 * [Design Patterns](/docs/design-patterns)
 * [Anti-Patterns](/docs/anti-patterns)
 * [Development Standards](/docs/project-development-tips)
 * [Security Best Practices](/docs/security-best-practices)
-* [Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
+* [JSON-Cadence Format](/docs/json-cadence-spec)
 * [Contract Upgrades with Incompatible Changes](/docs/contract-upgrades)
-* [JSON-Cadence format](/docs/json-cadence-spec)
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
@@ -75,18 +70,13 @@ On this page
 
 # Keys
 
-Accounts have keys associated with them.
-When a key is added to an account,
-the key can be used to sign a [transaction](/docs/language/transactions),
-which in turn gets access the account
-and can [perform write operations](/docs/language/accounts/#performing-write-operations) on it.
+Accounts have keys associated with them. When a key is added to an account, the key can be used to sign a [transaction](/docs/language/transactions), which in turn gets access to the account and can [perform write operations](/docs/language/accounts/#performing-write-operations) on it.
 
-An account exposes its keys through the `keys` field,
-which has the type `Account.Keys`.
+An account exposes its keys through the `keys` field, which has the type `Account.Keys`.
 
 ## `Account.Keys`[​](#accountkeys "Direct link to accountkeys")
 
-`_43
+`` _43
 
 access(all)
 
@@ -120,7 +110,7 @@ _43
 
 _43
 
-/// Revoked keys are always returned, but they have `isRevoked` field set to true.
+/// Revoked keys are always returned, but they have an `isRevoked` field set to true.
 
 _43
 
@@ -242,13 +232,13 @@ entitlement AddKey
 
 _43
 
-entitlement RevokeKey`
+entitlement RevokeKey ``
 
 ## Account key[​](#account-key "Direct link to Account key")
 
 An account key has the following structure:
 
-`_24
+``` _24
 
 access(all)
 
@@ -330,29 +320,21 @@ let isRevoked: Bool
 
 _24
 
-}`
+} ```
 
-A valid account key's `publicKey` field is a `PublicKey` of either the
-`ECDSA_P256` or `ECDSA_secp256k1` signature algorithm.
-Public keys of other signature algorithms supported by Cadence are
-not valid account public keys.
+A valid account key's `publicKey` field is a `PublicKey` of either the `ECDSA_P256` or `ECDSA_secp256k1` signature algorithm. Public keys of other signature algorithms supported by Cadence are not valid account public keys.
 
-Refer to the [public keys section](/docs/language/crypto#public-keys)
-for more details on the creation and validity of public keys.
+Refer to the [public keys section](/docs/language/crypto#public-keys) for more details on the creation and validity of public keys.
 
-A valid account key's `hashAlgorithm` field is either `SHA2_256` or `SHA3_256`.  
-All other hash algorithms supported by Cadence are
-not valid for hashing with an account key.
+A valid account key's `hashAlgorithm` field is either `SHA2_256` or `SHA3_256`. All other hash algorithms supported by Cadence are not valid for hashing with an account key.
 
-Refer to the [hash algorithms section](/docs/language/crypto#hash-algorithms)
-for more details on hash algorithms.
+Refer to the [hash algorithms section](/docs/language/crypto#hash-algorithms) for more details on hash algorithms.
 
 ## Getting an account key[​](#getting-an-account-key "Direct link to Getting an account key")
 
 The functions `keys.get` and `keys.forEach` allow retrieving the keys of an account.
 
-The `get` function allows retrieving a key with a specific index.
-The function returns the key if it exists, and `nil` otherwise.
+The `get` function allows retrieving a key with a specific index. The function returns the key if it exists, and `nil` otherwise:
 
 `_10
 
@@ -362,7 +344,7 @@ _10
 
 view fun get(keyIndex: Int): AccountKey?`
 
-The `forEach` function allows iterating over all keys of an account.
+The `forEach` function allows iterating over all keys of an account:
 
 `_10
 
@@ -372,14 +354,11 @@ _10
 
 fun forEach(_ function: fun(AccountKey): Bool)`
 
-For each key of the account, the `forEach` function calls the given callback, passing the key to it.
-When the callback function returns `true` the iteration continues,
-and when it returns `false`, iteration stops.
+For each key of the account, the `forEach` function calls the given callback, passing the key to it. When the callback function returns `true`, the iteration continues, and when it returns `false`, the iteration stops.
 
 warning
 
-The `keys.get` and `keys.forEach` functions include revoked keys,
-which have the `isRevoked` field set to `true`.
+The `keys.get` and `keys.forEach` functions include revoked keys, which have the `isRevoked` field set to `true`.
 
 `_14
 
@@ -435,7 +414,7 @@ _14
 
 ## Adding an account key[​](#adding-an-account-key "Direct link to Adding an account key")
 
-The function `keys.add` allows a key to access an account.
+The function `keys.add` allows a key to access an account:
 
 `_10
 
@@ -461,12 +440,9 @@ _10
 
 ): AccountKey`
 
-Calling the `add` function requires access to an account via a reference which is authorized
-with the coarse-grained `Keys` entitlement (`auth(Keys) &Account`),
-or the fine-grained `AddKey` entitlement (`auth(AddKey) &Account`).
+Calling the `add` function requires access to an account via a reference, which is authorized with the coarse-grained `Keys` entitlement (`auth(Keys) &Account`), or the fine-grained `AddKey` entitlement (`auth(AddKey) &Account`).
 
-For example, to add a public key to an existing account,
-which signed the transaction:
+For example, to add a public key to an existing account that signed the transaction:
 
 `_14
 
@@ -522,10 +498,7 @@ _14
 
 }`
 
-A more complex transaction, which creates an account,
-has the signer of the transaction pay for the account creation,
-and authorizes one key to access the account,
-could look like:
+A more complex transaction, which creates an account, has the signer of the transaction pay for the account creation, and authorizes one key to access the account, could look like:
 
 `_16
 
@@ -589,8 +562,7 @@ _16
 
 ## Revoking an account key[​](#revoking-an-account-key "Direct link to Revoking an account key")
 
-The `revoke` function revokes a key from accessing an account.
-The function only marks the key at the given index as revoked, but never deletes it.
+The `revoke` function revokes a key from accessing an account. The function only marks the key at the given index as revoked, but never deletes it:
 
 `_10
 
@@ -600,11 +572,9 @@ _10
 
 fun revoke(keyIndex: Int): AccountKey?`
 
-Calling the `revoke` function requires access to an account via a reference which is authorized
-with the coarse-grained `Keys` entitlement (`auth(Keys) &Account`),
-or the fine-grained `RevokeKey` entitlement (`auth(RevokeKey) &Account`).
+Calling the `revoke` function requires access to an account via a reference, which is authorized with the coarse-grained `Keys` entitlement (`auth(Keys) &Account`), or the fine-grained `RevokeKey` entitlement (`auth(RevokeKey) &Account`).
 
-For example, to revoke the third key of the account which signed the transaction:
+For example, to revoke the third key of the account that signed the transaction:
 
 `_10
 
@@ -647,10 +617,3 @@ Contracts](/docs/language/accounts/contracts)
 * [Getting an account key](#getting-an-account-key)
 * [Adding an account key](#adding-an-account-key)
 * [Revoking an account key](#revoking-an-account-key)
-
-Got suggestions for this site?
-
-* [It's open-source!](https://github.com/onflow/cadence-lang.org)
-
-The source code of this site is licensed under the Apache License, Version 2.0.
-Content is licensed under the Creative Commons Attribution 4.0 International License.

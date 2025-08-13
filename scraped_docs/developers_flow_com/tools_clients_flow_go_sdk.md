@@ -6,13 +6,13 @@ Flow Go SDK | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [@onflow/kit](/tools/kit)
+* [@onflow/react-sdk](/tools/react-sdk)
 * [Flow Emulator](/tools/emulator)
 * [Flow CLI](/tools/flow-cli)
 * [Cadence VS Code Extension](/tools/vscode-extension)
@@ -874,7 +874,7 @@ We can execute a script using the latest state of the Flow blockchain or we can 
 
 **[![](https://raw.githubusercontent.com/onflow/sdks/main/templates/documentation/try.svg)](https://github.com/onflow/flow-go-sdk/blob/master/examples/execute_script/main.go)**
 
-`_62
+`` _62
 
 func demo() {
 
@@ -1102,7 +1102,7 @@ fmt.Printf("\nBalance: %d", u.balance)
 
 _62
 
-}`
+} ``
 
 Example output:
 
@@ -1596,7 +1596,7 @@ Flow supports great flexibility when it comes to transaction signing, we can def
 
 **[![](https://raw.githubusercontent.com/onflow/sdks/main/templates/documentation/try.svg)](https://github.com/onflow/flow-go-sdk/tree/master/examples#single-party-single-signature)**
 
-`_22
+`` _22
 
 account1, _ := c.GetAccount(ctx, flow.HexToAddress("01"))
 
@@ -1674,7 +1674,7 @@ _22
 
 _22
 
-err := tx.SignEnvelope(account1.Address, key1.Index, key1Signer)`
+err := tx.SignEnvelope(account1.Address, key1.Index, key1Signer) ``
 
 ### [Single party, multiple signatures](/build/basics/transactions#single-party-multiple-signatures)[​](#single-party-multiple-signatures "Direct link to single-party-multiple-signatures")
 
@@ -1689,7 +1689,7 @@ err := tx.SignEnvelope(account1.Address, key1.Index, key1Signer)`
 
 **[![](https://raw.githubusercontent.com/onflow/sdks/main/templates/documentation/try.svg)](https://github.com/onflow/flow-go-sdk/tree/master/examples#single-party-multiple-signatures)**
 
-`_27
+`` _27
 
 account1, _ := c.GetAccount(ctx, flow.HexToAddress("01"))
 
@@ -1785,7 +1785,7 @@ _27
 
 _27
 
-err = tx.SignEnvelope(account1.Address, key2.Index, key2Signer)`
+err = tx.SignEnvelope(account1.Address, key2.Index, key2Signer) ``
 
 ### [Multiple parties](/build/basics/transactions#multiple-parties)[​](#multiple-parties "Direct link to multiple-parties")
 
@@ -1802,7 +1802,7 @@ err = tx.SignEnvelope(account1.Address, key2.Index, key2Signer)`
 
 **[![](https://raw.githubusercontent.com/onflow/sdks/main/templates/documentation/try.svg)](https://github.com/onflow/flow-go-sdk/tree/master/examples#multiple-parties)**
 
-`_29
+`` _29
 
 account1, _ := c.GetAccount(ctx, flow.HexToAddress("01"))
 
@@ -1906,7 +1906,7 @@ _29
 
 _29
 
-err = tx.SignEnvelope(account2.Address, key3.Index, key3Signer)`
+err = tx.SignEnvelope(account2.Address, key3.Index, key3Signer) ``
 
 ### [Multiple parties, two authorizers](/build/basics/transactions#multiple-parties)[​](#multiple-parties-two-authorizers "Direct link to multiple-parties-two-authorizers")
 
@@ -1924,7 +1924,7 @@ err = tx.SignEnvelope(account2.Address, key3.Index, key3Signer)`
 
 **[![](https://raw.githubusercontent.com/onflow/sdks/main/templates/documentation/try.svg)](https://github.com/onflow/flow-go-sdk/tree/master/examples#multiple-parties-two-authorizers)**
 
-`_33
+`` _33
 
 account1, _ := c.GetAccount(ctx, flow.HexToAddress("01"))
 
@@ -2044,7 +2044,7 @@ _33
 
 _33
 
-err = tx.SignEnvelope(account2.Address, key3.Index, key3Signer)`
+err = tx.SignEnvelope(account2.Address, key3.Index, key3Signer) ``
 
 ### [Multiple parties, multiple signatures](/build/basics/transactions#multiple-parties)[​](#multiple-parties-multiple-signatures "Direct link to multiple-parties-multiple-signatures")
 
@@ -2064,7 +2064,7 @@ err = tx.SignEnvelope(account2.Address, key3.Index, key3Signer)`
 
 **[![](https://raw.githubusercontent.com/onflow/sdks/main/templates/documentation/try.svg)](https://github.com/onflow/flow-go-sdk/tree/master/examples#multiple-parties-multiple-signatures)**
 
-`_40
+`` _40
 
 account1, _ := c.GetAccount(ctx, flow.HexToAddress("01"))
 
@@ -2208,7 +2208,7 @@ _40
 
 _40
 
-err = tx.SignEnvelope(account2.Address, key4.Index, key4Signer)`
+err = tx.SignEnvelope(account2.Address, key4.Index, key4Signer) ``
 
 ### Send Transactions[​](#send-transactions "Direct link to Send Transactions")
 
@@ -2279,147 +2279,163 @@ An account key contains the following data:
 
 Account creation happens inside a transaction, which means that somebody must pay to submit that transaction to the network. We'll call this person the account creator. Make sure you have read [sending a transaction section](#send-transactions) first.
 
-`_40
+`_44
 
 var (
 
-_40
+_44
 
 creatorAddress flow.Address
 
-_40
+_44
 
 creatorAccountKey *flow.AccountKey
 
-_40
+_44
 
 creatorSigner crypto.Signer
 
-_40
+_44
 
 )
 
-_40
+_44
 
-_40
+_44
 
 var accessAPIHost string
 
-_40
+_44
 
-_40
+_44
 
 // Establish a connection with an access node
 
-_40
+_44
 
 flowClient := examples.NewFlowClient()
 
-_40
+_44
 
-_40
+_44
 
 // Use the templates package to create a new account creation transaction
 
-_40
+_44
 
 tx := templates.CreateAccount([]*flow.AccountKey{accountKey}, nil, creatorAddress)
 
-_40
+_44
 
-_40
+_44
 
 // Set the transaction payer and proposal key
 
-_40
+_44
 
 tx.SetPayer(creatorAddress)
 
-_40
+_44
 
 tx.SetProposalKey(
 
-_40
+_44
 
 creatorAddress,
 
-_40
+_44
 
 creatorAccountKey.Index,
 
-_40
+_44
 
 creatorAccountKey.SequenceNumber,
 
-_40
+_44
 
 )
 
-_40
+_44
 
-_40
+_44
 
-// Get the latest sealed block to use as a reference block
+// Get the latest finalized block to use as a reference block
 
-_40
+_44
 
-latestBlock, err := flowClient.GetLatestBlockHeader(context.Background(), true)
+// It is recommended to use the latest finalized block as the reference block, as
 
-_40
+_44
+
+// it is the most recent block guaranteed to be included by the network. Using the
+
+_44
+
+// latest sealed block is not recommended, as sealing occurs after finalization and
+
+_44
+
+// could cause the transaction to fall outside of the expiration window.
+
+_44
+
+latestBlock, err := flowClient.GetLatestBlockHeader(context.Background(), false)
+
+_44
 
 if err != nil {
 
-_40
+_44
 
 panic("failed to fetch latest block")
 
-_40
+_44
 
 }
 
-_40
+_44
 
-_40
+_44
 
 tx.SetReferenceBlockID(latestBlock.ID)
 
-_40
+_44
 
-_40
+_44
 
 // Sign and submit the transaction
 
-_40
+_44
 
 err = tx.SignEnvelope(creatorAddress, creatorAccountKey.Index, creatorSigner)
 
-_40
+_44
 
 if err != nil {
 
-_40
+_44
 
 panic("failed to sign transaction envelope")
 
-_40
+_44
 
 }
 
-_40
+_44
 
-_40
+_44
 
 err = flowClient.SendTransaction(context.Background(), *tx)
 
-_40
+_44
 
 if err != nil {
 
-_40
+_44
 
 panic("failed to send transaction to network")
 
-_40
+_44
 
 }`
 
@@ -2825,7 +2841,7 @@ _39
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/flow-go-sdk/index.md)
 
-Last updated on **May 9, 2025** by **Chase Fleming**
+Last updated on **Jul 22, 2025** by **Jordan Ribbink**
 
 [Previous
 

@@ -6,13 +6,13 @@ User Signature | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [@onflow/kit](/tools/kit)
+* [@onflow/react-sdk](/tools/react-sdk)
 * [Flow Emulator](/tools/emulator)
 * [Flow CLI](/tools/flow-cli)
 * [Cadence VS Code Extension](/tools/vscode-extension)
@@ -69,7 +69,7 @@ As a prerequisite, **FCL** is configured to point to the Wallet Provider's Authe
 > setting the **Wallet Discovery Url** to the wallet provider's **Authentication Endpoint**
 > by configuring fcl like this `config().put("discovery.wallet", "https://my-awesome-wallet-provider.com/fcl/authenticate")`.
 
-Common Configuration Keys and additional info can be found here [How to Configure FCL](/tools/clients/fcl-js/configure-fcl#common-configuration-keys)
+Common Configuration Keys and additional info can be found here [How to Configure FCL](/tools/clients/fcl-js/packages-docs/fcl#common-configuration-keys)
 
 1. A user initiates authentication with the wallet provider via application UI
 2. The wallet confirms a user's identity and sends back information used to configure **FCL** for future user actions in the application
@@ -187,7 +187,7 @@ _17
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/user-signature.md)
 
-Last updated on **May 9, 2025** by **Chase Fleming**
+Last updated on **Jul 25, 2025** by **Jordan Ribbink**
 
 [Previous
 

@@ -6,13 +6,13 @@ Wallet Discovery | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [@onflow/kit](/tools/kit)
+* [@onflow/react-sdk](/tools/react-sdk)
 * [Flow Emulator](/tools/emulator)
 * [Flow CLI](/tools/flow-cli)
 * [Cadence VS Code Extension](/tools/vscode-extension)
@@ -21,8 +21,7 @@ Search
 
   + [Flow Client Library (FCL)](/tools/clients/fcl-js)
 
-    - [FCL Reference](/tools/clients/fcl-js/api)
-    - [SDK Reference](/tools/clients/fcl-js/sdk-guidelines)
+    - [Packages Docs](/tools/clients/fcl-js/packages-docs)
     - [Authentication](/tools/clients/fcl-js/authentication)
     - [How to Configure FCL](/tools/clients/fcl-js/configure-fcl)
     - [Cross VM Packages](/tools/clients/fcl-js/cross-vm)
@@ -64,7 +63,7 @@ When authenticating via FCL using Discovery UI, a user is shown a list of servic
 
 This method is the simplest way to integrate Discovery and its wallets and services into your app. All you have to do is configure `discovery.wallet` with the host endpoint for testnet or mainnet.
 
-> **Note**: Opt-in wallets, like Ledger and Dapper Wallet, require you to explicitly state you'd like to use them. For more information on including opt-in wallets, [see these docs](/tools/clients/fcl-js/api#more-configuration).
+> **Note**: Opt-in wallets, like Ledger and Dapper Wallet, require you to explicitly state you'd like to use them. For more information on including opt-in wallets, [see these docs](/tools/clients/fcl-js/packages-docs/fcl#configuration).
 >
 > A [Dapper Wallet](https://meetdapper.com/developers) developer account is required. To enable Dapper Wallet inside FCL, you need to [follow this guide](https://docs.meetdapper.com/quickstart).
 
@@ -180,7 +179,7 @@ _10
 
 fcl.discovery.authn.snapshot();`
 
-In order to authenticate with a service (for example, when a user click's "login"), pass the selected service to the `fcl.authenticate` method described here [in the API reference](/tools/clients/fcl-js/api#authenticate):
+In order to authenticate with a service (for example, when a user click's "login"), pass the selected service to the `fcl.authenticate` method described here [in the API reference](/tools/clients/fcl-js/packages-docs/fcl/authenticate):
 
 `_10
 
@@ -399,10 +398,7 @@ _10
 | `Dapper Wallet` | 0x82ec283f88a62e65 | 0xead892083b3e2c6c |
 | `Ledger` | 0x9d2e44203cb13051 | 0xe5cd26afebe62781 |
 
-To learn more about other possible configurations, check out the following links:
-
-* [Discovery API Docs](/tools/clients/fcl-js/api#discovery-1)
-* [Discovery Github Repo](https://github.com/onflow/fcl-discovery)
+To learn more about other possible configurations, check out the [Discovery Github Repo](https://github.com/onflow/fcl-discovery).
 
 ### Exclude Wallets[​](#exclude-wallets "Direct link to Exclude Wallets")
 
@@ -438,7 +434,7 @@ _10
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/discovery.md)
 
-Last updated on **May 9, 2025** by **Chase Fleming**
+Last updated on **Jul 25, 2025** by **Jordan Ribbink**
 
 [Previous
 

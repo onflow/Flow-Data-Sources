@@ -8,55 +8,50 @@ Environment Information | Cadence
 
 [![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
 
-[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+[Learn](/docs)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Language Reference](/docs/language)
 
 Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
+* [Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
 * [Tutorial](/docs/tutorial/first-steps)
 * [Language Reference](/docs/language/)
 
   + [Syntax](/docs/language/syntax)
   + [Constants and Variable Declarations](/docs/language/constants-and-variables)
-  + [Type Annotations](/docs/language/type-annotations)
-  + [Values and Types](/docs/language/values-and-types)
-  + [Operators](/docs/language/operators)
+  + [Values and Types](/docs/language/values-and-types/)
+  + [Types and Type System](/docs/language/types-and-type-system/)
+  + [Operators](/docs/language/operators/)
+  + [Accounts](/docs/language/accounts/)
   + [Functions](/docs/language/functions)
+  + [Pre- and Post-Conditions](/docs/language/pre-and-post-conditions)
+  + [Built-in Functions](/docs/language/built-in-functions)
   + [Control Flow](/docs/language/control-flow)
   + [Scope](/docs/language/scope)
-  + [Type Safety](/docs/language/type-safety)
-  + [Type Inference](/docs/language/type-inference)
-  + [Composite Types](/docs/language/composite-types)
   + [Resources](/docs/language/resources)
-  + [Access control](/docs/language/access-control)
+  + [Access Control](/docs/language/access-control)
   + [Capabilities](/docs/language/capabilities)
   + [Interfaces](/docs/language/interfaces)
   + [Enumerations](/docs/language/enumerations)
-  + [Intersection Types](/docs/language/intersection-types)
   + [References](/docs/language/references)
   + [Imports](/docs/language/imports)
-  + [Accounts](/docs/language/accounts/)
   + [Attachments](/docs/language/attachments)
   + [Contracts](/docs/language/contracts)
   + [Contract Updatability](/docs/language/contract-updatability)
   + [Transactions](/docs/language/transactions)
   + [Events](/docs/language/events)
   + [Core Events](/docs/language/core-events)
-  + [Run-time Types](/docs/language/run-time-types)
-  + [Built-in Functions](/docs/language/built-in-functions)
   + [Environment Information](/docs/language/environment-information)
   + [Crypto](/docs/language/crypto)
-  + [Type Hierarchy](/docs/language/type-hierarchy)
   + [Glossary](/docs/language/glossary)
 * [Cadence 1.0 Migration Guide](/docs/cadence-migration-guide/)
 * [Design Patterns](/docs/design-patterns)
 * [Anti-Patterns](/docs/anti-patterns)
 * [Development Standards](/docs/project-development-tips)
 * [Security Best Practices](/docs/security-best-practices)
-* [Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
+* [JSON-Cadence Format](/docs/json-cadence-spec)
 * [Contract Upgrades with Incompatible Changes](/docs/contract-upgrades)
-* [JSON-Cadence format](/docs/json-cadence-spec)
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
@@ -67,16 +62,13 @@ On this page
 
 # Environment Information
 
-## Transaction Information[​](#transaction-information "Direct link to Transaction Information")
+## Transaction information[​](#transaction-information "Direct link to Transaction information")
 
-To get the addresses of the signers of a transaction,
-use the `address` field of each signing `Account`
-that is passed to the transaction's `prepare` phase.
+To get the addresses of the signers of a transaction, use the `address` field of each signing `Account` that is passed to the transaction's `prepare` phase.
 
-There is currently no API that allows getting other transaction information.
-Please let us know if your use-case demands it by request this feature in an issue.
+There is currently no API that allows getting other transaction information. Please let us know if your use-case demands it by requesting this feature in an issue.
 
-## Block Information[​](#block-information "Direct link to Block Information")
+## Block information[​](#block-information "Direct link to Block information")
 
 To get information about a block, the functions `getCurrentBlock` and `getBlock` can be used:
 
@@ -89,9 +81,7 @@ To get information about a block, the functions `getCurrentBlock` and `getBlock`
 
   view fun getBlock(at: UInt64): Block?`
 
-  Returns the block at the given height.
-  If the block exists within the accessible range defined by `flow.DefaultTransactionExpiry - 10` (`590` blocks), it is returned successfully.
-  If the block at the given height does not exist or is outside the default transaction expiration range of `590` blocks below the current sealed block, the function returns `nil`.
+  Returns the block at the given height. If the block exists within the accessible range defined by `flow.DefaultTransactionExpiry - 10` (`590` blocks), it is returned successfully. If the block at the given height does not exist or is outside the default transaction expiration range of `590` blocks below the current sealed block, the function returns `nil`.
 
 The `Block` type contains the identifier, height, and timestamp:
 
@@ -211,7 +201,7 @@ _35
 
 _35
 
-/// Consider observing blocks’ status changes off-chain yourself to get a more reliable value.
+/// Consider observing blocks' status changes off-chain yourself to get a more reliable value.
 
 _35
 
@@ -233,7 +223,7 @@ _35
 
 [Previous
 
-Built-in Functions](/docs/language/built-in-functions)[Next
+Core Events](/docs/language/core-events)[Next
 
 Crypto](/docs/language/crypto)
 
@@ -241,12 +231,5 @@ Crypto](/docs/language/crypto)
 
 😞😐😊
 
-* [Transaction Information](#transaction-information)
-* [Block Information](#block-information)
-
-Got suggestions for this site?
-
-* [It's open-source!](https://github.com/onflow/cadence-lang.org)
-
-The source code of this site is licensed under the Apache License, Version 2.0.
-Content is licensed under the Creative Commons Attribution 4.0 International License.
+* [Transaction information](#transaction-information)
+* [Block information](#block-information)

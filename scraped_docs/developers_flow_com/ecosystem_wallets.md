@@ -6,7 +6,7 @@ Wallets | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -19,6 +19,7 @@ Search
 * [Developer Profile](/ecosystem/developer-profile)
 * [DeFi & Liquidity](/ecosystem/defi-liquidity)
 * [Bridges](/ecosystem/bridges)
+* [Collectibles & NFTs](/ecosystem/collectibles)
 * [Community Projects](/ecosystem/projects)
 * [Builder Perks](/ecosystem/builder-perks)
 * [VCs & Funds](/ecosystem/vcs-and-funds)
@@ -38,27 +39,31 @@ Store, manage, and interact securely with tokens and digital assets on Flow. Dis
 
 ## Flow Wallet[​](#flow-wallet "Direct link to Flow Wallet")
 
-[Flow Wallet](https://wallet.flow.com/) is the most popular Flow-native wallet, it sponsors all gas fees for users and interacts seamlessly with both Cadence and EVM dApps in the ecosystem.
-
-## Metamask Wallet[​](#metamask-wallet "Direct link to Metamask Wallet")
-
-[Metamask](https://metamask.io/) is a secure and user-friendly crypto wallet for NFTs and digital tokens. Presently only supports Flow EVM and cannot access Cadence accounts.
-
-## Dapper Wallet[​](#dapper-wallet "Direct link to Dapper Wallet")
-
-[Dapper Wallet](https://www.meetdapper.com/) is a wallet exceptionally friendly for first time crypto collectors to buy and manage digital assets.
+[Flow Wallet](https://wallet.flow.com/) - The is the most popular Flow-native wallet, it sponsors all gas fees for users and interacts seamlessly with both Cadence and EVM dApps in the ecosystem.
 
 ## Ledger[​](#ledger "Direct link to Ledger")
 
 [Ledger](https://www.ledger.com/) is a hardware wallet to secure, buy, exchange, and grow your crypto assets.
 
-## Finoa[​](#finoa "Direct link to Finoa")
+## Metamask[​](#metamask "Direct link to Metamask")
 
-[Finoa](https://www.finoa.io/) is a platform for institutional investors to safely store and stake their FLOW tokens.
+[Metamask](https://metamask.io/) is a secure and user-friendly crypto wallet for NFTs and digital tokens. Presently only supports Flow EVM and cannot access Cadence accounts.
 
-## Blocto[​](#blocto "Direct link to Blocto")
+## NuFi[​](#nufi "Direct link to NuFi")
 
-[Blocto](https://www.blocto.io/) is a cross-chain mobile wallet for IOS and Android devices.
+[NuFi](https://https://nu.fi/) allows you to securely manage tokens and NFTs, trade, stake, and use apps on multiple blockchains. Presently only supports Flow EVM and cannot access Cadence accounts.
+
+## Rabby[​](#rabby "Direct link to Rabby")
+
+[Rabby](https://https://rabby.io/) - The game-changing wallet for Ethereum and all EVM chains. Presently only supports Flow EVM and cannot access Cadence accounts.
+
+## Wallet Connect[​](#wallet-connect "Direct link to Wallet Connect")
+
+[Wallet Connect](https://reown.com/) is the backbone of onchain connectivity. Presently only supports Flow EVM and cannot access Cadence accounts.
+
+## Dapper Wallet[​](#dapper-wallet "Direct link to Dapper Wallet")
+
+[Dapper Wallet](https://www.meetdapper.com/) is a wallet exceptionally friendly for first time crypto collectors to buy and manage digital assets.
 
 ## For Developers[​](#for-developers "Direct link to For Developers")
 
@@ -72,7 +77,7 @@ Store, manage, and interact securely with tokens and digital assets on Flow. Dis
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/wallets.md)
 
-Last updated on **May 9, 2025** by **Chase Fleming**
+Last updated on **Jul 21, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -87,11 +92,12 @@ Flow Block Explorers](/ecosystem/block-explorers)
 Copy as Markdown
 
 * [Flow Wallet](#flow-wallet)
-* [Metamask Wallet](#metamask-wallet)
-* [Dapper Wallet](#dapper-wallet)
 * [Ledger](#ledger)
-* [Finoa](#finoa)
-* [Blocto](#blocto)
+* [Metamask](#metamask)
+* [NuFi](#nufi)
+* [Rabby](#rabby)
+* [Wallet Connect](#wallet-connect)
+* [Dapper Wallet](#dapper-wallet)
 * [For Developers](#for-developers)
 * [Flow Dev Wallet](#flow-dev-wallet)
 * [Magic.link](#magiclink)

@@ -6,13 +6,13 @@ Introduction | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [@onflow/kit](/tools/kit)
+* [@onflow/react-sdk](/tools/react-sdk)
 * [Flow Emulator](/tools/emulator)
 * [Flow CLI](/tools/flow-cli)
 * [Cadence VS Code Extension](/tools/vscode-extension)
@@ -46,7 +46,7 @@ Public identity will be stored on chain as a resource, it will be publicly avail
 
 In FCL getting a users public identity will be as easy as:
 
-`_10
+`` _10
 
 import {user} from "@onflow/fcl"
 
@@ -76,7 +76,7 @@ _10
 
 _10
 
-// `------- The public identity for `flowAddress``
+// `------- The public identity for `flowAddress` ``
 
 Private identity will be stored by the Wallet Provider, it will only be available to the currentUser.
 
@@ -87,7 +87,7 @@ We highly recommend Wallet Providers let the user see what scopes are being requ
 
 Consumers of identities in FCL should always assume all data is optional, and should store as little as possible, FCL will make sure the users always see the latest.
 
-`_10
+`` _10
 
 import {config, currentUser, authenticate} from "@onflow/fcl"
 
@@ -115,7 +115,7 @@ _10
 
 _10
 
-authenticate() // trigger the challenge step (authenticate the user via a wallet provider)`
+authenticate() // trigger the challenge step (authenticate the user via a wallet provider) ``
 
 # Identity Data
 
@@ -176,7 +176,7 @@ The Authentication Endpoint will receive the following data as query params:
 * `scope` *(optional)* -- the scopes requested by the dapp
 * `redirect` *(optional)* -- where to redirect once the authentication challenge is complete
 
-`_10
+`` _10
 
 GET https://provider.com/flow/authenticate
 
@@ -200,7 +200,7 @@ _10
 
 _10
 
-The values will use javascripts `encodeURIComponent` function and scopes will be `+` deliminated.`
+The values will use javascripts `encodeURIComponent` function and scopes will be `+` deliminated. ``
 
 We can tell that this challenge is using the Redirect Flow because of the inclusion of the redirect query param.
 The Iframe Flow will still need to be supported as it will be the default flow for dapps.
@@ -211,7 +211,7 @@ Once the Wallet Provider is ready to hand back control to the dapp and FCL it ne
 
 Redirecting will look like this:
 
-`_10
+`` _10
 
 GET https://dapp.com/flow/callback # supplied by the redirect query param above
 
@@ -241,7 +241,7 @@ _10
 
 _10
 
-&hks==https%3A%2F%2Fprovider.com%2Fhooks # a URL where FCL can request the private information and hooks`
+&hks==https%3A%2F%2Fprovider.com%2Fhooks # a URL where FCL can request the private information and hooks ``
 
 Iframe will look like this:
 
@@ -802,7 +802,7 @@ Register Provider with FCL Handshake and implement 5 Endpoints.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/custodial.md)
 
-Last updated on **May 9, 2025** by **Chase Fleming**
+Last updated on **Nov 12, 2024** by **Alex Ni**
 
 [Previous
 

@@ -6,7 +6,7 @@ Node Bootstrap | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -110,7 +110,7 @@ sha256sum ./boot-tools/bootstrapcmd
 
 _10
 
-460cfcfeb52b40d8b8b0c4641bc4e423bcc90f82068e95f4267803ed32c26d60 ./boot-tools/bootstrap
+2fe0b0dbc79f63dfbb2479b518a34304960c54ebc4d63bd0f818926b8258ec49 ./boot-tools/bootstrap
 
 _10
 
@@ -120,7 +120,7 @@ sha256sum ./boot-tools/transit
 
 _10
 
-f146bdc82ce0cce73c0fb9de284b2e2639e851120f8b89a1dd9368e8442123b4 ./boot-tools/transit`
+54b5c0ff4216d98a5d9fcdd241c6b9a31a35bf41c51849e8e9d0407e00772a3c ./boot-tools/transit`
 
 ### Generate Your Node Keys[​](#generate-your-node-keys "Direct link to Generate Your Node Keys")
 
@@ -376,7 +376,11 @@ _10
 
 _10
 
-"StakingPubKey": "917826e018f056a00b778a58ae83054906957ffd4b6f1b7da083551f7a9f35e02b76ace50424ed7d2c9fc69207a59f0f08a031048f5641db94e77d0648b24d150dedd54bab7cd44b4aa60cfd54be418647b0b3965f8ae54c0bcb48ae9d705162"
+"StakingPubKey": "917826e018f056a00b778a58ae83054906957ffd4b6f1b7da083551f7a9f35e02b76ace50424ed7d2c9fc69207a59f0f08a031048f5641db94e77d0648b24d150dedd54bab7cd44b4aa60cfd54be418647b0b3965f8ae54c0bcb48ae9d705162",
+
+_10
+
+"StakingPoP": "99c879b963b45acd907aae0d7e968a24abf2d3dd28700eca81217b3f12c477334a531a56bcea0f86770614364ebca519"
 
 _10
 
@@ -602,7 +606,7 @@ Once a valid root snapshot file is downloaded to the node's bootstrap folder, it
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/node-bootstrap.md)
 
-Last updated on **May 9, 2025** by **Chase Fleming**
+Last updated on **Jun 3, 2025** by **Tarak Ben Youssef**
 
 [Previous
 

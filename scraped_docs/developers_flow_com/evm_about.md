@@ -6,7 +6,7 @@ Why EVM on Flow | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -22,7 +22,7 @@ Search
 * [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
 * [Faucets ↙](/evm/faucets)
 * [Block Explorers ↙](/evm/block-explorers)
-* [Guides](/evm/guides/integrating-metamask)
+* [Guides](/evm/guides)
 
 * Why EVM on Flow
 
@@ -30,7 +30,7 @@ On this page
 
 # Why EVM on Flow
 
-Flow is an L1 that now supports EVM-equivalency. This means that all of Flow's protocol benefits, such as fast transactions, low costs, and mainstream scalability, are natively available without any additional code changes to solidity contracts. With EVM, solidity devs and builders can now easily tap into Flow's user base and unique IPs without any implementation risk.
+Flow is an L1 that now supports EVM-equivalency. This makes Flow EVM an Ethereum alternative for apps because of its extremely fast transactions with lower fees. This means that Flow's protocol benefits, such as fast transactions, low costs, and mainstream scalability, are natively available without any additional code changes to solidity contracts. With EVM, solidity devs and builders can now easily tap into Flow's user base and unique IPs without any implementation risk.
 
 ## Seamless Integration for Ethereum Developers[​](#seamless-integration-for-ethereum-developers "Direct link to Seamless Integration for Ethereum Developers")
 
@@ -79,7 +79,7 @@ Those wishing to understand the technical specifics of how Flow EVM works we rec
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/about.md)
 
-Last updated on **May 9, 2025** by **Chase Fleming**
+Last updated on **Jul 30, 2025** by **0xLisanAlGaib**
 
 [Next
 

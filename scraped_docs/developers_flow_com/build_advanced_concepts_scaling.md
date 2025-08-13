@@ -6,15 +6,15 @@ Scaling Transactions from a Single Account | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
 * [Why Flow](/build/flow)
+* [Getting Started](/build/getting-started)
 * [Differences vs. EVM](/build/differences-vs-evm)
-* [Getting Started](/build/getting-started/contract-interaction)
 * [Flow Protocol](/build/basics/network-architecture)
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
@@ -415,7 +415,7 @@ wg.Wait()`
 
 The `IncreaseCounter` function calls the `increase()` function on the `Counter` contract:
 
-`_30
+`` _30
 
 // Increase the counter by 1 by running a transaction using the given proposal key
 
@@ -523,7 +523,7 @@ return RunTransaction(ctx, flowClient, account, signer, tx)
 
 _30
 
-}`
+} ``
 
 The above code is executed concurrently by each worker. Since each worker operates with a unique proposer key, there are no conflicts or synchronization issues. Each worker independently manages its sequence number, ensuring smooth execution of all transactions.
 

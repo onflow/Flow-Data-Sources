@@ -1,6 +1,6 @@
 # Source: https://cadence-lang.org/docs/1.0/language/access-control
 
-Access control | Cadence
+Access Control | Cadence
 
 
 
@@ -8,96 +8,83 @@ Access control | Cadence
 
 [![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
 
-[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+[Learn](/docs)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Language Reference](/docs/language)
 
 Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
+* [Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
 * [Tutorial](/docs/tutorial/first-steps)
 * [Language Reference](/docs/language/)
 
   + [Syntax](/docs/language/syntax)
   + [Constants and Variable Declarations](/docs/language/constants-and-variables)
-  + [Type Annotations](/docs/language/type-annotations)
-  + [Values and Types](/docs/language/values-and-types)
-  + [Operators](/docs/language/operators)
+  + [Values and Types](/docs/language/values-and-types/)
+  + [Types and Type System](/docs/language/types-and-type-system/)
+  + [Operators](/docs/language/operators/)
+  + [Accounts](/docs/language/accounts/)
   + [Functions](/docs/language/functions)
+  + [Pre- and Post-Conditions](/docs/language/pre-and-post-conditions)
+  + [Built-in Functions](/docs/language/built-in-functions)
   + [Control Flow](/docs/language/control-flow)
   + [Scope](/docs/language/scope)
-  + [Type Safety](/docs/language/type-safety)
-  + [Type Inference](/docs/language/type-inference)
-  + [Composite Types](/docs/language/composite-types)
   + [Resources](/docs/language/resources)
-  + [Access control](/docs/language/access-control)
+  + [Access Control](/docs/language/access-control)
   + [Capabilities](/docs/language/capabilities)
   + [Interfaces](/docs/language/interfaces)
   + [Enumerations](/docs/language/enumerations)
-  + [Intersection Types](/docs/language/intersection-types)
   + [References](/docs/language/references)
   + [Imports](/docs/language/imports)
-  + [Accounts](/docs/language/accounts/)
   + [Attachments](/docs/language/attachments)
   + [Contracts](/docs/language/contracts)
   + [Contract Updatability](/docs/language/contract-updatability)
   + [Transactions](/docs/language/transactions)
   + [Events](/docs/language/events)
   + [Core Events](/docs/language/core-events)
-  + [Run-time Types](/docs/language/run-time-types)
-  + [Built-in Functions](/docs/language/built-in-functions)
   + [Environment Information](/docs/language/environment-information)
   + [Crypto](/docs/language/crypto)
-  + [Type Hierarchy](/docs/language/type-hierarchy)
   + [Glossary](/docs/language/glossary)
 * [Cadence 1.0 Migration Guide](/docs/cadence-migration-guide/)
 * [Design Patterns](/docs/design-patterns)
 * [Anti-Patterns](/docs/anti-patterns)
 * [Development Standards](/docs/project-development-tips)
 * [Security Best Practices](/docs/security-best-practices)
-* [Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
+* [JSON-Cadence Format](/docs/json-cadence-spec)
 * [Contract Upgrades with Incompatible Changes](/docs/contract-upgrades)
-* [JSON-Cadence format](/docs/json-cadence-spec)
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
 * [Language Reference](/docs/language/)
-* Access control
+* Access Control
 
 On this page
 
-# Access control
+# Access Control
 
-Access control allows making certain parts of a program accessible/visible
-and making other parts inaccessible/invisible.
+Access control allows making certain parts of a program accessible/visible and making other parts inaccessible/invisible.
 
-In Cadence, access control consists of:
+In Cadence, access control is used in two ways:
 
-1. Access control on objects in account storage,
-   using [capability security](/docs/language/capabilities).
+1. Access control on objects in account storage, using [capability security](/docs/language/capabilities).
 
-A user is not able to access an object
-unless they own the object or have a reference to that object.
-This means that nothing is truly public by default.
+   A user is not able to access an object unless they own the object or have a reference to that object. This means that nothing is truly public by default.
 
-Other accounts can not read or write the objects in an account
-unless the owner of the account has granted them access
-by providing references to the objects.
+   Other accounts cannot read or write the objects in an account unless the owner of the account has granted them access by providing references to the objects.
 
-This kind of access control is covered in the pages
-on [capabilities](/docs/language/capabilities)
-and [capability management](/docs/language/accounts/capabilities).
+warning
 
-2. Access control within contracts and objects,
-   using access modifiers (`access` keyword).
+Remember that in this case, `private` refers to programmatic access to the data with a script or transaction. It is **not safe** to store secret or private information in a user's account. The raw data is still public and could be decoded.
 
-This page covers the second part of access control,
-using access modifiers.
+This kind of access control is covered in [capabilities](/docs/language/capabilities) and [capability management](/docs/language/accounts/capabilities).
 
-All declarations, such as [function](/docs/language/functions), [composite types](/docs/language/composite-types), and fields,
-must be prefixed with an access modifier, using the `access` keyword.
+1. Access control within contracts and objects, using access modifiers (`access` keyword).
 
-The access modifier determines where the declaration is accessible/visible.
-Fields can only be assigned to and mutated from within the same or inner scope.
+This page covers the second part of access control, using access modifiers.
+
+All declarations, such as [functions](/docs/language/functions), [composite types](/docs/language/types-and-type-system/composite-types), and fields, must be prefixed with an access modifier using the `access` keyword.
+
+The access modifier determines where the declaration is accessible/visible. Fields can only be assigned to and mutated from within the same or inner scope.
 
 For example, to make a function publicly accessible (`access(all)` is explained below):
 
@@ -109,49 +96,33 @@ _10
 
 fun test() {}`
 
+## Types of access control[​](#types-of-access-control "Direct link to Types of access control")
+
 There are five levels of access control:
 
-* **Public access** means the declaration is accessible/visible in all scopes.
-  This includes the current scope, inner scopes, and the outer scopes.
+* **Public access** — the declaration is accessible/visible in all scopes. This includes the current scope, inner scopes, and the outer scopes.
 
   A declaration is made publicly accessible using the `access(all)` modifier.
 
-  For example, a public field in a type can be accessed
-  on an instance of the type in an outer scope.
-* **Entitled access** means the declaration is only accessible/visible
-  to the owner of the object, or to [references](/docs/language/references)
-  that are authorized to the required [entitlements](#entitlements).
+  For example, a public field in a type can be accessed on an instance of the type in an outer scope.
+* **Entitled access** — the declaration is only accessible/visible to the owner of the object, or to [references](/docs/language/references) that are authorized to the required [entitlements](#entitlements).
 
-  A declaration is made accessible through entitlements by using the `access(E)` syntax,
-  where `E` is a set of one or more entitlements,
-  or a single [entitlement mapping](#entitlement-mappings).
+  A declaration is made accessible through entitlements by using the `access(E)` syntax, where `E` is a set of one or more entitlements, or a single [entitlement mapping](#entitlement-mappings).
 
-  A reference is considered authorized to an entitlement
-  if that entitlement appears in the `auth` portion of the reference type.
+  A reference is considered authorized to an entitlement if that entitlement appears in the `auth` portion of the reference type.
 
-  For example, an `access(E, F)` field on a resource `R` can only be accessed by an owned (`@R`-typed) value,
-  or a reference to `R` that is authorized to the `E` and `F` entitlements (`auth(E, F) &R`).
-* **Account access** means the declaration is only accessible/visible
-  in the scope of the entire account where it is defined.
-  This means that other contracts in the account are able to access it.
+  For example, an `access(E, F)` field on a resource `R` can only be accessed by an owned (`@R`-typed) value, or a reference to `R` that is authorized to the `E` and `F` entitlements (`auth(E, F) &R`).
+* **Account access** — the declaration is only accessible/visible in the scope of the entire account where it is defined. This means that other contracts in the account are able to access it.
 
-  A declaration is made accessible by code in the same account,
-  for example other contracts, by using the `access(account)` keyword.
-* **Contract access** means the declaration is only accessible/visible
-  in the scope of the contract that defined it.
-  This means that other declarations that are defined in the same contract can access it,
-  but not other contracts in the same account.
+  A declaration is made accessible by code in the same account, for example other contracts, by using the `access(account)` keyword.
+* **Contract access** — the declaration is only accessible/visible in the scope of the contract that defined it. This means that other declarations that are defined in the same contract can access it, but not other contracts in the same account.
 
-  A declaration is made accessible by code in the same contract
-  by using the `access(contract)` keyword.
-* **Private access** means the declaration is only accessible/visible
-  in the current and inner scopes.
+  A declaration is made accessible by code in the same contract by using the `access(contract)` keyword.
+* **Private access** — the declaration is only accessible/visible in the current and inner scopes.
 
-  A declaration is made accessible by code in the same containing type
-  by using the `access(self)` keyword.
+  A declaration is made accessible by code in the same containing type by using the `access(self)` keyword.
 
-  For example, an `access(self)` field can only be accessed
-  by functions of the type is part of, not by code in an outer scope.
+  For example, an `access(self)` field can only be accessed by functions of the type it is part of, not by code in an outer scope.
 
 To summarize the behavior for variable declarations, constant declarations, and fields:
 
@@ -168,10 +139,7 @@ To summarize the behavior for variable declarations, constant declarations, and 
 | `var` | `access(all)` | **All** | Current and inner | Current and inner |
 | `var` | `access(E)` | **All** with required entitlements | Current and inner | Current and inner |
 
-Declarations of [composite types](/docs/language/composite-types) must be public.
-However, even though the declarations/types are publicly visible,
-resources can only be created, and events can only be emitted
-from inside the contract they are declared in.
+Declarations of [composite types](/docs/language/types-and-type-system/composite-types) must be public. However, even though the declarations/types are publicly visible, resources can only be created, and events can only be emitted from inside the contract they are declared in:
 
 `_10
 
@@ -227,7 +195,7 @@ _99
 
 _99
 
-// Declare a private constant field which is only readable
+// Declare a private constant field, which is only readable
 
 _99
 
@@ -249,7 +217,7 @@ _99
 
 _99
 
-// Declare a public constant field which is readable in all scopes.
+// Declare a public constant field, which is readable in all scopes.
 
 _99
 
@@ -267,7 +235,7 @@ _99
 
 _99
 
-// Declare a private variable field which is only readable
+// Declare a private variable field, which is only readable
 
 _99
 
@@ -289,7 +257,7 @@ _99
 
 _99
 
-// Declare a public variable field which is not settable,
+// Declare a public variable field, which is not settable,
 
 _99
 
@@ -339,7 +307,7 @@ _99
 
 _99
 
-// Declare a private function which is only callable
+// Declare a private function, which is only callable
 
 _99
 
@@ -369,7 +337,7 @@ _99
 
 _99
 
-// Declare a public function which is callable in all scopes.
+// Declare a public function, which is callable in all scopes.
 
 _99
 
@@ -561,9 +529,7 @@ some.f.contains(0)`
 
 ## Entitlements[​](#entitlements "Direct link to Entitlements")
 
-Entitlements provide granular access control to each member of a composite.
-Entitlements are declared using the syntax `entitlement E`,
-where `E` is the name of the entitlement.
+Entitlements provide granular access control to each member of a composite. Entitlements are declared using the syntax `entitlement E`, where `E` is the name of the entitlement.
 
 For example, the following code declares two entitlements called `E` and `F`:
 
@@ -575,8 +541,7 @@ _10
 
 entitlement F`
 
-Entitlements can be imported from other contracts and used the same way as other types.
-When using entitlements defined in another contract, the same qualified name syntax is used as for other types:
+Entitlements can be imported from other contracts and used the same way as other types. When using entitlements defined in another contract, the same qualified name syntax is used as for other types:
 
 `_10
 
@@ -592,85 +557,87 @@ _10
 
 Outside of `C`, `E` is used with `C.E` syntax.
 
-Entitlements exist in the same namespace as types, so if a contract declares a resource called `R`,
-it is impossible to declare an entitlement that is also called `R`.
+Entitlements exist in the same namespace as types, so if a contract declares a resource called `R`, it is impossible to declare an entitlement that is also called `R`.
 
-Entitlements can be used in access modifiers of composite members (fields and functions)
-to specify which references to those composites are allowed to access those members.
+Entitlements can be used in access modifiers of composite members (fields and functions) to specify which references to those composites are allowed to access those members.
 
-An access modifier can include more than one entitlement,
-joined with either an `|`, to indicate disjunction ("or"),
-or a `,`, to indicate conjunction ("and").
-The two kinds of separators cannot be combined in the same set.
+An access modifier can include more than one entitlement, joined with either an `|`, to indicate disjunction ("or"), or a `,`, to indicate conjunction ("and"). The two kinds of separators cannot be combined in the same set.
 
 For example:
 
-`_18
+`` _20
 
 access(all)
 
-_18
+_20
 
 resource SomeResource {
 
-_18
+_20
 
-_18
+_20
 
 // requires a reference to have an `E` entitlement to read this field
 
-_18
+_20
 
 access(E)
 
-_18
+_20
 
 let a: Int
 
-_18
+_20
 
-_18
+_20
 
-// requires a reference to have either an `E` OR an `F` entitlement to read this field.
+// requires a reference to have either an `E` OR an `F` entitlement
 
-_18
+_20
+
+// to read this field.
+
+_20
 
 access(E | F)
 
-_18
+_20
 
 let b: Int
 
-_18
+_20
 
-_18
+_20
 
-// requires a reference to have both an `E` AND an `F` entitlement to read this field
+// requires a reference to have both an `E` AND an `F` entitlement
 
-_18
+_20
+
+// to read this field.
+
+_20
 
 access(E, F)
 
-_18
+_20
 
 let c: Int
 
-_18
+_20
 
-_18
+_20
 
 // intializers omitted for brevity
 
-_18
+_20
 
 // ...
 
-_18
+_20
 
-}`
+} ``
 
-Assuming the following constants exist,
-which have owned or [reference](/docs/language/references) types:
+Assuming the following constants exist, which have owned or [reference](/docs/language/references) types:
 
 `_10
 
@@ -694,150 +661,153 @@ let refEOrF: auth(E | F) &SomeResource = // ...`
 
 The references can be used as follows:
 
-`_34
+`` _36
 
 // valid, because `r` is owned and thus is "fully entitled"
 
-_34
+_36
 
 r.a
 
-_34
+_36
 
 // valid, because `r` is owned and thus is "fully entitled"
 
-_34
+_36
 
 r.b
 
-_34
+_36
 
 // valid, because `r` is owned and thus is "fully entitled"
 
-_34
+_36
 
 r.c
 
-_34
+_36
 
-_34
+_36
 
 // valid, because `refE` has an `E` entitlement as required
 
-_34
+_36
 
 refE.a
 
-_34
+_36
 
 // valid, because `refE` has one of the two required entitlements
 
-_34
+_36
 
 refE.b
 
-_34
+_36
 
 // invalid, because `refE` only has one of the two required entitlements
 
-_34
+_36
 
 refE.c
 
-_34
+_36
 
-_34
+_36
 
 // invalid, because `refF` has an `E` entitlement, not an `F`
 
-_34
+_36
 
 refF.a
 
-_34
+_36
 
 // valid, because `refF` has one of the two required entitlements
 
-_34
+_36
 
 refF.b
 
-_34
+_36
 
 // invalid, because `refF` only has one of the two required entitlements
 
-_34
+_36
 
 refF.c
 
-_34
+_36
 
-_34
+_36
 
 // valid, because `refEF` has an `E` entitlement
 
-_34
+_36
 
 refEF.a
 
-_34
+_36
 
 // valid, because `refEF` has both of the two required entitlements
 
-_34
+_36
 
 refEF.b
 
-_34
+_36
 
 // valid, because `refEF` has both of the two required entitlements
 
-_34
+_36
 
 refEF.c
 
-_34
+_36
 
-_34
+_36
 
-// invalid, because `refEOrF` might not have an `E` entitlement (it may have `F` instead)
+// invalid, because `refEOrF` might not have an `E` entitlement
 
-_34
+_36
+
+// (it may have `F` instead)
+
+_36
 
 refEOrF.a
 
-_34
+_36
 
 // valid, because `refEOrF` has one of the two entitlements necessary
 
-_34
+_36
 
 refEOrF.b
 
-_34
+_36
 
-// invalid, because `refEOrF` is only known to have one of the two required entitlements
+// invalid, because `refEOrF` is only known to have one of the two
 
-_34
+_36
 
-refEOrF.c`
+// required entitlements
 
-Note particularly in this example how the owned value `r` can access all entitled members on `SomeResource`.
-Owned values are not affected by entitled declarations.
+_36
 
-Further details about authorized references can be found [here](/docs/language/references#authorized-references).
+refEOrF.c ``
+
+Note that, particularly in this example, how the owned value `r` can access all entitled members on `SomeResource`. Owned values are not affected by entitled declarations.
+
+See [Authorized References](/docs/language/references#authorized-references) for more information.
 
 ### Entitlement mappings[​](#entitlement-mappings "Direct link to Entitlement mappings")
 
-Entitlement mappings are a way to statically declare how entitlements are propagated
-from parents to child objects in a nesting hierarchy.
+Entitlement mappings are a way to statically declare how entitlements are propagated from parents to child objects in a nesting hierarchy.
 
-When objects have fields that are child objects,
-entitlement mappings can be used
-to grant access to the inner object based on the entitlements of the reference to the parent object.
+When objects have fields that are child objects, entitlement mappings can be used to grant access to the inner object based on the entitlements of the reference to the parent object.
 
-Consider the following example,
-which uses entitlements to control access to an inner resource:
+Consider the following example, which uses entitlements to control access to an inner resource:
 
 `_43
 
@@ -995,23 +965,17 @@ _43
 
 }`
 
-With this pattern, it is possible to store a `InnerResource` in an `OuterResource`,
-and create different ways to access that nested resource depending on the entitlement one possesses.
+With this pattern, it is possible to store a `InnerResource` in an `OuterResource`, and create different ways to access that nested resource depending on the entitlement one possesses.
 
-An unauthorized reference to `OuterResource` can only be used to call the `getPubRef` function,
-and thus can only obtain an unauthorized reference to `InnerResource`.
-That reference to the `InnerResource` then only allows calling the function `foo`, which is publicly accessible,
-but not function `bar`, as it needs the `InnerEntitlement` entitlement, which is not granted.
+An unauthorized reference to `OuterResource` can only be used to call the `getPubRef` function, and thus can only obtain an unauthorized reference to `InnerResource`. That reference to the `InnerResource` then only allows calling the function `foo`, which is publicly accessible, but not function `bar`, as it needs the `InnerEntitlement` entitlement, which is not granted.
 
-However an `OuterEntitlement`-authorized reference to the `OuterResource` can be used to call the `getEntitledRef` function,
-which returns a `InnerEntitlement`-authorized reference to `InnerResource`,
-which in turn can be used to call function `bar`.
+However an `OuterEntitlement`-authorized reference to the `OuterResource` can be used to call the `getEntitledRef` function, which returns a `InnerEntitlement`-authorized reference to `InnerResource`, which in turn can be used to call function `bar`.
 
 This pattern is functional, but it is unfortunate that the accessor functions to `InnerResource` have to be "duplicated".
 
 Entitlement mappings should be used to avoid this duplication.
 
-Entitlement mappings are declared using the syntax:
+Entitlement mappings are declared by using the syntax:
 
 `_10
 
@@ -1027,211 +991,209 @@ _10
 
 Where `M` is the name of the mapping.
 
-The body of the mapping contains zero or more rules of the form `A -> B`,
-where `A` and `B` are entitlements.
-Each rule declares that, given a reference with the entitlement on the left,
-a reference with the entitlement on the right is produced.
+The body of the mapping contains zero or more rules of the form `A -> B`, where `A` and `B` are entitlements. Each rule declares that, given a reference with the entitlement on the left, a reference with the entitlement on the right is produced.
 
-An entitlement mapping thus defines a function from an input set of entitlements (called the domain)
-to an output set (called the range or the image).
+An entitlement mapping thus defines a function from an input set of entitlements (called the *domain*) to an output set (called the *range* or the *image*).
 
 Using entitlement mappings, the above example could be more concisely written as:
 
-`_51
+`` _53
 
 entitlement OuterEntitlement
 
-_51
+_53
 
 entitlement InnerEntitlement
 
-_51
+_53
 
-_51
+_53
 
 // Specify a mapping for entitlements called `OuterToInnerMap`,
 
-_51
+_53
 
 // which maps the entitlement `OuterEntitlement` to the entitlement `InnerEntitlement`.
 
-_51
+_53
 
 entitlement mapping OuterToInnerMap {
 
-_51
+_53
 
 OuterEntitlement -> InnerEntitlement
 
-_51
+_53
 
 }
 
-_51
+_53
 
-_51
+_53
 
 resource InnerResource {
 
-_51
+_53
 
-_51
+_53
 
 access(all)
 
-_51
+_53
 
 fun foo() { ... }
 
-_51
+_53
 
-_51
+_53
 
 access(InnerEntitlement)
 
-_51
+_53
 
 fun bar() { ... }
 
-_51
+_53
 
 }
 
-_51
+_53
 
-_51
+_53
 
 resource OuterResource {
 
-_51
+_53
 
 // Use the entitlement mapping `OuterToInnerMap`.
 
-_51
+_53
 
 //
 
-_51
+_53
 
 // This declares that when the field `childResource` is accessed
 
-_51
+_53
 
 // using a reference authorized with the entitlement `OuterEntitlement`,
 
-_51
+_53
 
 // then a reference with the entitlement `InnerEntitlement` is returned.
 
-_51
+_53
 
 //
 
-_51
+_53
 
 // This is equivalent to the two accessor functions
 
-_51
+_53
 
 // that were necessary in the previous example.
 
-_51
+_53
 
 //
 
-_51
+_53
 
 access(mapping OuterToInnerMap)
 
-_51
+_53
 
 let childResource: @InnerResource
 
-_51
+_53
 
-_51
+_53
 
 init(childResource: @InnerResource) {
 
-_51
+_53
 
 self.childResource <- childResource
 
-_51
+_53
 
 }
 
-_51
+_53
 
-_51
+_53
 
 // No accessor functions are needed.
 
-_51
+_53
 
 }
 
-_51
+_53
 
-_51
+_53
 
 // given some value `r` of type `@OuterResource`
 
-_51
+_53
 
-_51
+_53
 
 let pubRef = &r as &OuterResource
 
-_51
+_53
 
 let pubInnerRef = pubRef.childResource // has type `&InnerResource`
 
-_51
+_53
 
-_51
+_53
 
 let entitledRef = &r as auth(OuterEntitlement) &OuterResource
 
-_51
+_53
 
-let entitledInnerRef = entitledRef.childResource // has type `auth(InnerEntitlement) &InnerResource`,
+let entitledInnerRef = entitledRef.childResource // has type
 
-_51
+_53
 
-// as `OuterEntitlement` is defined to map to `InnerEntitlement`.
+// `auth(InnerEntitlement) &InnerResource`,as `OuterEntitlement`
 
-_51
+_53
 
-_51
+// is defined to map to `InnerEntitlement`.
 
-// `r` is an owned value, and is thus considered "fully-entitled" to `OuterResource`,
+_53
 
-_51
+_53
 
-// so this access yields a value authorized to the entire image of `OuterToInnerMap`,
+// `r` is an owned value, and is thus considered "fully-entitled"
 
-_51
+_53
 
-// in this case `InnerEntitlement`, and thus can call `bar`
+// to `OuterResource`, so this access yields a value authorized to the
 
-_51
+_53
 
-r.childResource.bar()`
+// entire image of `OuterToInnerMap`, in this case `InnerEntitlement`,
 
-Entitlement mappings can be used either in accessor functions (as in the example above),
-or in fields whose types are either references, or containers (composite types, dictionaries, and arrays).
+_53
 
-Entitlement mappings need not be 1:1.
-It is valid to define a mapping where many inputs map to the same output,
-or where one input maps to many outputs.
+// and thus can call `bar`
 
-Entitlement mappings preserve the "kind" of the set they are mapping.
-That is, mapping a conjunction ("and") set produces a conjunction set,
-and mapping a disjunction ("or") set produces a disjunction set.
+_53
 
-Because entitlement separators cannot be combined in the same set,
-attempting to map disjunction ("or") sets through certain complex mappings can result in a type error.
+r.childResource.bar() ``
+
+Entitlement mappings can be used either in accessor functions (as in the example above), in fields whose types are either references, or containers (composite types, dictionaries, and arrays).
+
+Entitlement mappings need not be 1:1. It is valid to define a mapping where many inputs map to the same output, or where one input maps to many outputs.
+
+Entitlement mappings preserve the "kind" of the set they are mapping. That is, mapping a conjunction ("and") set produces a conjunction set, and mapping a disjunction ("or") set produces a disjunction set.
+
+Because entitlement separators cannot be combined in the same set, attempting to map disjunction ("or") sets through certain complex mappings can result in a type error.
 
 For example, given the following entitlement mapping:
 
@@ -1255,20 +1217,17 @@ _10
 
 }`
 
-Attempting to map `(A | D)` through `M` will fail,
-since `A` should map to `(B, C)` and `D` should map to `E`,
-but these two outputs cannot be combined into a disjunction ("or") set.
+Attempting to map `(A | D)` through `M` will fail, since `A` should map to `(B, C)` and `D` should map to `E`, but these two outputs cannot be combined into a disjunction ("or") set.
 
-A good example for how entitlement mappings can be used is the [`Account` type](/docs/language/accounts/).
+A good example of how entitlement mappings can be used is the [`Account` type](/docs/language/accounts/).
 
 ### The `Identity` entitlement mapping[​](#the-identity-entitlement-mapping "Direct link to the-identity-entitlement-mapping")
 
-`Identity` is a special built-in entitlement mapping that maps every input to itself as the output.
-Any entitlement set passed through the `Identity` map will come out unchanged in the output.
+`Identity` is a special built-in entitlement mapping that maps every input to itself as the output. Any entitlement set passed through the `Identity` map will come out unchanged in the output.
 
 For instance:
 
-`_24
+`` _24
 
 entitlement X
 
@@ -1352,30 +1311,21 @@ _24
 
 _24
 
-}`
+} ``
 
-One important point to note about the `Identity` mapping, however,
-is that its full output range is unknown, and theoretically infinite.
-Because of that,
-accessing an `Identity`-mapped field or function with an owned value will yield an empty output set.
+One important point to note about the `Identity` mapping, however, is that its full output range is unknown and theoretically infinite. Because of that, accessing an `Identity`-mapped field or function with an owned value will yield an empty output set.
 
-For example, calling `getChildResource()` on an owned `OuterResource` value,
-will produce an unauthorized `&InnerResource` reference.
+For example, calling `getChildResource()` on an owned `OuterResource` value will produce an unauthorized `&InnerResource` reference.
 
 ### Mapping composition[​](#mapping-composition "Direct link to Mapping composition")
 
-Entitlement mappings can be composed.
-In the definition of an entitlement mapping,
-it is possible to include the definition of one or more other mappings,
-to copy over their mapping relations.
+Entitlement mappings can be composed. In the definition of an entitlement mapping, it is possible to include the definition of one or more other mappings, to copy over their mapping relations.
 
-An entitlement mapping is included into another entitlement mapping using the `include M` syntax,
-where `M` is the name of the entitlement mapping to be included.
+An entitlement mapping is included into another entitlement mapping using the `include M` syntax, where `M` is the name of the entitlement mapping to be included.
 
-In general, an `include M` statement in the definition of an entitlement mapping `N`
-is equivalent to simply copy-pasting all the relations defined in `M` into `N`'s definition.
+In general, an `include M` statement in the definition of an entitlement mapping `N` is equivalent to simply copy-pasting all the relations defined in `M` into `N`'s definition.
 
-Support for `include` is provided primarily to reduce code-reuse and promote composition.
+Support for `include` is provided primarily to reduce code reuse and promote composition.
 
 For example:
 
@@ -1431,13 +1381,9 @@ _14
 
 }`
 
-The entitlement mapping `P` includes all of the relations defined in `M` and `N`,
-along with the additional relations defined in its own definition.
+The entitlement mapping `P` includes all of the relations defined in `M` and `N`, along with the additional relations defined in its own definition.
 
-It is also possible to include the `Identity` mapping.
-Any mapping `M` that includes the `Identity` mapping will map its input set to itself,
-along with any additional relations defined in the mapping,
-or in other included mappings.
+It is also possible to include the `Identity` mapping. Any mapping `M` that includes the `Identity` mapping will map its input set to itself, along with any additional relations defined in the mapping or in other included mappings.
 
 For instance:
 
@@ -1457,17 +1403,15 @@ _10
 
 }`
 
-The mapping `M` maps the entitlement set `(X)` to `(X, Y)`,
-and `(Y)` to `(Y)`.
+The mapping `M` maps the entitlement set `(X)` to `(X, Y)`, and `(Y)` to `(Y)`.
 
 Includes that produce a cyclical mapping are rejected by the type-checker.
 
 ### Built-in mutability entitlements[​](#built-in-mutability-entitlements "Direct link to Built-in mutability entitlements")
 
-A prominent use-case of entitlements is to control access to object based on mutability.
+A prominent use case of entitlements is to control access to objects based on mutability.
 
-For example, in a composite, the author would want to control the access to certain fields to be read-only,
-and some fields to be mutable, etc.
+For example, in a composite, the author would want to control the access to certain fields to be read-only, and some fields to be mutable, and so on.
 
 In order to support this, the following built-in entitlements can be used:
 
@@ -1475,13 +1419,9 @@ In order to support this, the following built-in entitlements can be used:
 * `Remove`
 * `Mutate`
 
-These are primarily used by the built-in [array](/docs/language/values-and-types#arrays)
-and [dictionary](/docs/language/values-and-types#dictionaries) functions,
-but are available to be used in access modifiers of any declaration.
+These are primarily used by the built-in [array](/docs/language/values-and-types/arrays) and [dictionary](/docs/language/values-and-types/dictionaries) functions, but are available to be used in access modifiers of any declaration.
 
-While Cadence does not support entitlement composition or inheritance,
-the `Mutate` entitlement is intended to be used as an equivalent form
-to the conjunction of the `(Insert, Remove)` entitlement set.
+While Cadence does not support entitlement composition or inheritance, the `Mutate` entitlement is intended to be used as an equivalent form to the conjunction of the `(Insert, Remove)` entitlement set.
 
 [Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/access-control.md)
 
@@ -1493,17 +1433,11 @@ Capabilities](/docs/language/capabilities)
 
 ###### Rate this page
 
-😞😐😊
+😞😐  😊
 
+* [Types of access control](#types-of-access-control)
 * [Entitlements](#entitlements)
   + [Entitlement mappings](#entitlement-mappings)
   + [The `Identity` entitlement mapping](#the-identity-entitlement-mapping)
   + [Mapping composition](#mapping-composition)
   + [Built-in mutability entitlements](#built-in-mutability-entitlements)
-
-Got suggestions for this site?
-
-* [It's open-source!](https://github.com/onflow/cadence-lang.org)
-
-The source code of this site is licensed under the Apache License, Version 2.0.
-Content is licensed under the Creative Commons Attribution 4.0 International License.

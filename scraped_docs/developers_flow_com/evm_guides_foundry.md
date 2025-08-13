@@ -6,7 +6,7 @@ Using Foundry with Flow | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -22,7 +22,7 @@ Search
 * [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
 * [Faucets ↙](/evm/faucets)
 * [Block Explorers ↙](/evm/block-explorers)
-* [Guides](/evm/guides/integrating-metamask)
+* [Guides](/evm/guides)
 
   + [Integrating Metamask](/evm/guides/integrating-metamask)
   + [Hardhat](/evm/guides/hardhat)
@@ -30,11 +30,10 @@ Search
   + [Rainbowkit](/evm/guides/rainbowkit)
   + [Viem & Wagmi](/evm/guides/wagmi)
   + [Foundry](/evm/guides/foundry)
-  + [VRF (Randomness) in Solidity](/evm/guides/vrf)
   + [Ethers](/evm/guides/ethers)
   + [Web3.js](/evm/guides/web3-js)
 
-* Guides
+* [Guides](/evm/guides)
 * Foundry
 
 On this page
@@ -439,7 +438,11 @@ We can now deploy `MyToken` using the `forge create` command. We need to provide
 
 `_10
 
-forge create --rpc-url https://testnet.evm.nodes.onflow.org \
+forge create --broadcast src/MyToken.sol:MyToken \
+
+_10
+
+--rpc-url https://testnet.evm.nodes.onflow.org \
 
 _10
 
@@ -451,11 +454,7 @@ _10
 
 _10
 
---legacy \
-
-_10
-
-src/MyToken.sol:MyToken`
+--legacy`
 
 The above will print the deployed contract address. We'll use it in the next section to interact with the contract.
 
@@ -605,13 +604,13 @@ $DEPLOYER_ADDRESS`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/foundry.md)
 
-Last updated on **May 9, 2025** by **Chase Fleming**
+Last updated on **May 26, 2025** by **agyn-ub**
 
 [Previous
 
 Viem & Wagmi](/evm/guides/wagmi)[Next
 
-VRF (Randomness) in Solidity](/evm/guides/vrf)
+Ethers](/evm/guides/ethers)
 
 ###### Rate this page
 

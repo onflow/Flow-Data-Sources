@@ -6,15 +6,15 @@ Fees | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
 * [Why Flow](/build/flow)
+* [Getting Started](/build/getting-started)
 * [Differences vs. EVM](/build/differences-vs-evm)
-* [Getting Started](/build/getting-started/contract-interaction)
 * [Flow Protocol](/build/basics/network-architecture)
 
   + [Network Architecture ↗️](/build/basics/network-architecture)
@@ -299,7 +299,7 @@ It is important to set a limit that isn't too high or too low. If it is set too 
 
 You need to set the `limit` parameter for the `mutate` function, for example:
 
-`_17
+`` _17
 
 import * as fcl from "@onflow/fcl"
 
@@ -361,7 +361,7 @@ const transaction = await fcl.tx(transactionId).onceExecuted();
 
 _17
 
-console.log(transaction;)`
+console.log(transaction;) ``
 
 **Using FCL Go SDK**
 
@@ -613,7 +613,7 @@ _15
 
 Avoid costly loading and storage operations and [borrow references](https://cadence-lang.org/docs/design-patterns#avoid-excessive-load-and-save-storage-operations-prefer-in-place-mutations) where possible, for example:
 
-`_14
+`` _14
 
 transaction {
 
@@ -657,7 +657,7 @@ _14
 
 _14
 
-}`
+} ``
 
 > **Note**: If the requested resource does not exist, no reading costs are charged.
 

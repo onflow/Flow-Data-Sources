@@ -6,20 +6,23 @@ Build a Fully-Onchain Image Gallery | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
 * [Tutorials](/tutorials)
-* [AI Plus Flow](/tutorials/ai-plus-flow)
+* [Flow Blockchain 101](/tutorials/flow-101)
+* [Use AI To Build On Flow](/tutorials/use-AI-to-build-on-flow)
+* [Gasless Transactions](/tutorials/gasless-transactions)
 * [Token Launch](/tutorials/token-launch)
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
 * [FlowtoBooth](/tutorials/flowtobooth)
 
   + [Build a Fully-Onchain Image Gallery](/tutorials/flowtobooth/image-gallery)
 * [Native VRF](/tutorials/native-vrf)
+* [Integrations](/tutorials/integrations/crossmint)
 
 * [FlowtoBooth](/tutorials/flowtobooth)
 * Build a Fully-Onchain Image Gallery
@@ -48,7 +51,7 @@ Much more computation is available at prices you or your users will be willing t
 
 * Airdropping hundreds of NFTs with one transaction, for pennies
 * Generation of large mazes
-* Generating large amounts of random numbers (with free [native VRF](/evm/guides/vrf))
+* Generating large amounts of random numbers (with free [native VRF](/tutorials/native-vrf/vrf-in-solidity))
 * Extensive string manipulation onchain
 * Simple game AI logic
 
@@ -684,445 +687,449 @@ npm install @rainbow-me/rainbowkit wagmi viem@2.x @tanstack/react-query`
 
 Add a file called `providers` inside the `app` folder. In it, add your config and providers for [wagmi](https://wagmi.sh/) and [rainbowkit](https://www.rainbowkit.com/). You'll need to [add the Flow Wallet](/evm/guides/rainbowkit) as a custom wallet. It's not included by default because it has special features that aren't compatible with other blockchains.
 
-`_114
+`` _115
 
 'use client';
 
-_114
+_115
 
-_114
+_115
 
 import { connectorsForWallets } from '@rainbow-me/rainbowkit';
 
-_114
+_115
 
 import { Wallet, getWalletConnectConnector } from '@rainbow-me/rainbowkit';
 
-_114
+_115
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-_114
+_115
 
 import { createConfig, WagmiProvider } from 'wagmi';
 
-_114
+_115
 
 import { RainbowKitProvider } from '@rainbow-me/rainbowkit';
 
-_114
+_115
 
 import { flowTestnet } from 'viem/chains';
 
-_114
+_115
 
 import { http } from 'wagmi';
 
-_114
+_115
 
-_114
+_115
 
 const projectId = '51407fcf066d74968d9a1a4c6da0d994'; // Replace with your actual project ID
 
-_114
+_115
 
-_114
+_115
 
 export interface MyWalletOptions {
 
-_114
+_115
 
 projectId: string;
 
-_114
+_115
 
 }
 
-_114
+_115
 
-_114
+_115
 
 const flowWallet = ({ projectId }: MyWalletOptions): Wallet => ({
 
-_114
+_115
 
 id: 'flow-wallet',
 
-_114
+_115
 
 name: 'Flow Wallet',
 
-_114
+_115
 
 rdns: 'com.flowfoundation.wallet',
 
-_114
+_115
 
 iconUrl: 'https://lilico.app/logo_mobile.png',
 
-_114
+_115
 
 iconBackground: '#41CC5D',
 
-_114
+_115
 
 downloadUrls: {
 
-_114
+_115
 
 android:
 
-_114
+_115
 
 'https://play.google.com/store/apps/details?id=com.flowfoundation.wallet',
 
-_114
+_115
 
 ios: 'https://apps.apple.com/ca/app/flow-wallet-nfts-and-crypto/id6478996750',
 
-_114
+_115
 
 chrome:
 
-_114
+_115
 
 'https://chromewebstore.google.com/detail/flow-wallet/hpclkefagolihohboafpheddmmgdffjm',
 
-_114
+_115
 
 qrCode: 'https://link.lilico.app',
 
-_114
+_115
 
 },
 
-_114
+_115
 
 mobile: {
 
-_114
+_115
 
-getUri: (uri: string) => `https://fcw-link.lilico.app/wc?uri=${encodeURIComponent(uri)}`,
+getUri: (uri: string) =>
 
-_114
+_115
+
+`https://fcw-link.lilico.app/wc?uri=${encodeURIComponent(uri)}`,
+
+_115
 
 },
 
-_114
+_115
 
 qrCode: {
 
-_114
+_115
 
 getUri: (uri: string) => uri,
 
-_114
+_115
 
 instructions: {
 
-_114
+_115
 
 learnMoreUrl: 'https://wallet.flow.com',
 
-_114
+_115
 
 steps: [
 
-_114
+_115
 
 {
 
-_114
+_115
 
 description:
 
-_114
+_115
 
 'We recommend putting Flow Wallet on your home screen for faster access to your wallet.',
 
-_114
+_115
 
 step: 'install',
 
-_114
+_115
 
 title: 'Open the Flow Wallet app',
 
-_114
+_115
 
 },
 
-_114
+_115
 
 {
 
-_114
+_115
 
 description:
 
-_114
+_115
 
 'You can find the scan button on home page, a connection prompt will appear for you to connect your wallet.',
 
-_114
+_115
 
 step: 'scan',
 
-_114
+_115
 
 title: 'Tap the scan button',
 
-_114
+_115
 
 },
 
-_114
+_115
 
 ],
 
-_114
+_115
 
 },
 
-_114
+_115
 
 },
 
-_114
+_115
 
 extension: {
 
-_114
+_115
 
 instructions: {
 
-_114
+_115
 
 learnMoreUrl: 'https://wallet.flow.com',
 
-_114
+_115
 
 steps: [
 
-_114
+_115
 
 {
 
-_114
+_115
 
 description:
 
-_114
+_115
 
 'We recommend pinning Flow Wallet to your taskbar for quicker access to your wallet.',
 
-_114
+_115
 
 step: 'install',
 
-_114
+_115
 
 title: 'Install the Flow Wallet extension',
 
-_114
+_115
 
 },
 
-_114
+_115
 
 {
 
-_114
+_115
 
 description:
 
-_114
+_115
 
 'Be sure to back up your wallet using a secure method. Never share your secret phrase with anyone.',
 
-_114
+_115
 
 step: 'create',
 
-_114
+_115
 
 title: 'Create or Import a Wallet',
 
-_114
+_115
 
 },
 
-_114
+_115
 
 {
 
-_114
+_115
 
 description:
 
-_114
+_115
 
 'Once you set up your wallet, click below to refresh the browser and load up the extension.',
 
-_114
+_115
 
 step: 'refresh',
 
-_114
+_115
 
 title: 'Refresh your browser',
 
-_114
+_115
 
 },
 
-_114
+_115
 
 ],
 
-_114
+_115
 
 },
 
-_114
+_115
 
 },
 
-_114
+_115
 
 createConnector: getWalletConnectConnector({ projectId }),
 
-_114
+_115
 
 });
 
-_114
+_115
 
-_114
+_115
 
 const connectors = connectorsForWallets(
 
-_114
+_115
 
 [
 
-_114
+_115
 
 {
 
-_114
+_115
 
 groupName: 'Recommended',
 
-_114
+_115
 
 wallets: [flowWallet],
 
-_114
+_115
 
 },
 
-_114
+_115
 
 ],
 
-_114
+_115
 
 {
 
-_114
+_115
 
 appName: 'Onchain Image Gallery',
 
-_114
+_115
 
 projectId: projectId,
 
-_114
+_115
 
 },
 
-_114
+_115
 
 );
 
-_114
+_115
 
-_114
+_115
 
 const wagmiConfig = createConfig({
 
-_114
+_115
 
 connectors,
 
-_114
+_115
 
 chains: [flowTestnet],
 
-_114
+_115
 
 ssr: true,
 
-_114
+_115
 
 transports: {
 
-_114
+_115
 
 [flowTestnet.id]: http(),
 
-_114
+_115
 
 },
 
-_114
+_115
 
 });
 
-_114
+_115
 
-_114
+_115
 
 export default function Providers({ children }: { children: React.ReactNode }) {
 
-_114
+_115
 
 const queryClient = new QueryClient();
 
-_114
+_115
 
-_114
+_115
 
 return (
 
-_114
+_115
 
 <WagmiProvider config={wagmiConfig}>
 
-_114
+_115
 
 <QueryClientProvider client={queryClient}>
 
-_114
+_115
 
 <RainbowKitProvider>{children}</RainbowKitProvider>
 
-_114
+_115
 
 </QueryClientProvider>
 
-_114
+_115
 
 </WagmiProvider>
 
-_114
+_115
 
 );
 
-_114
+_115
 
-}`
+} ``
 
 ### Add the Connect Button[​](#add-the-connect-button "Direct link to Add the Connect Button")
 
@@ -1242,7 +1249,7 @@ Add a folder in `app` called `contracts`. Copy the following files from your sma
 
 Additionally, add a file called `contracts.ts`. In it, create a hook to provide the ABI and addresses of your contracts conveniently:
 
-`_22
+`` _22
 
 import { useMemo } from 'react';
 
@@ -1324,7 +1331,7 @@ _22
 
 _22
 
-}`
+} ``
 
 info
 
@@ -1357,7 +1364,7 @@ Add a folder in `app` called `components`, and create a file called `Content.tsx
 
 You'll end up with something similar to:
 
-`_103
+`` _103
 
 'use client';
 
@@ -1741,7 +1748,7 @@ _103
 
 _103
 
-}`
+} ``
 
 **Don't forget** to add your `<Content />` component to `page.tsx`, below the `<ConnectButton />` component.
 
@@ -1965,7 +1972,7 @@ Make sure you're using the same gallery you added an image too earlier. Otherwis
 
 Create a component called `ImageGallery`. All this needs to do is accept a list of images and descriptions and display them. You can style this nicely if you'd like, or use the basic implementation here:
 
-`_55
+`` _55
 
 export type ImageGalleryImage = {
 
@@ -2173,7 +2180,7 @@ _55
 
 _55
 
-export default ImageGallery;`
+export default ImageGallery; ``
 
 Implementing the gallery display will take more additions to `Content.tsx`. You'll need to:
 
@@ -2193,7 +2200,7 @@ Next, add a `useReadContract` to read from the gallery. Use the `activeAddress` 
 
 const [images, setImages] = useState<ImageGalleryImage[]>([]);`
 
-`_10
+`` _10
 
 const { data: galleryData, queryKey: galleryQueryKey } = useReadContract({
 
@@ -2211,11 +2218,11 @@ functionName: 'getImages',
 
 _10
 
-});`
+}); ``
 
 Hook the new query key into the refresh system:
 
-`_10
+`` _10
 
 useEffect(() => {
 
@@ -2245,7 +2252,7 @@ _10
 
 _10
 
-}, [reload]);`
+}, [reload]); ``
 
 Then, add a `useEffect` to update the `images` in state when `galleryData` is received. Users expect the newest images to be shown first, so `reverse` the array before setting it to state.
 
@@ -2283,7 +2290,7 @@ _10
 
 Finally, implement the gallery itself in the `return`:
 
-`_28
+`` _28
 
 return (
 
@@ -2393,7 +2400,7 @@ _28
 
 _28
 
-);`
+); ``
 
 Run the app, log in with your wallet **that has the gallery you created for testing** and select the gallery.
 
@@ -2707,7 +2714,7 @@ _11
 
 Finally, you need to add a button and a handler to call the smart contract function to save the image onchain.
 
-`_10
+`` _10
 
 function handleSaveOnchain() {
 
@@ -2745,11 +2752,11 @@ _10
 
 _10
 
-}`
+} ``
 
 Add the button inside the check for an `uploadedBase64Image` so that it only displays when there is an image to upload:
 
-`_22
+`` _22
 
 {
 
@@ -2835,7 +2842,7 @@ _22
 
 _22
 
-}`
+} ``
 
 Test the app to save your new image, and make sure the error displays if you try to upload an image that is too large.
 
@@ -2853,7 +2860,7 @@ Now that you've completed this tutorial, you're ready to explore more complex on
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/flowtobooth/image-gallery.md)
 
-Last updated on **May 9, 2025** by **Chase Fleming**
+Last updated on **Jun 20, 2025** by **Brian Doyle**
 
 [Previous
 

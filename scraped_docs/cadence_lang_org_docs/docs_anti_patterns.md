@@ -8,12 +8,13 @@ Cadence Anti-Patterns | Cadence
 
 [![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
 
-[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+[Learn](/docs)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Language Reference](/docs/language)
 
 Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
+* [Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
 * [Tutorial](/docs/tutorial/first-steps)
 * [Language Reference](/docs/language/)
 * [Cadence 1.0 Migration Guide](/docs/cadence-migration-guide/)
@@ -21,9 +22,8 @@ Search
 * [Anti-Patterns](/docs/anti-patterns)
 * [Development Standards](/docs/project-development-tips)
 * [Security Best Practices](/docs/security-best-practices)
-* [Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
+* [JSON-Cadence Format](/docs/json-cadence-spec)
 * [Contract Upgrades with Incompatible Changes](/docs/contract-upgrades)
-* [JSON-Cadence format](/docs/json-cadence-spec)
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
@@ -49,7 +49,7 @@ for example, to write to storage, which provides the opportunity for bad actors 
 
 ### Example:[​](#example "Direct link to Example:")
 
-`_39
+`` _39
 
 ...
 
@@ -185,7 +185,7 @@ _39
 
 _39
 
-...`
+... ``
 
 ### Solution[​](#solution "Direct link to Solution")
 
@@ -712,10 +712,3 @@ Development Standards](/docs/project-development-tips)
   + [Problem](#problem-4)
   + [Solution](#solution-4)
   + [Example](#example-2)
-
-Got suggestions for this site?
-
-* [It's open-source!](https://github.com/onflow/cadence-lang.org)
-
-The source code of this site is licensed under the Apache License, Version 2.0.
-Content is licensed under the Creative Commons Attribution 4.0 International License.

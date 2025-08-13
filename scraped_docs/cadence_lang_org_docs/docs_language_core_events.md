@@ -8,55 +8,50 @@ Core Events | Cadence
 
 [![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
 
-[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+[Learn](/docs)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Language Reference](/docs/language)
 
 Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
+* [Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
 * [Tutorial](/docs/tutorial/first-steps)
 * [Language Reference](/docs/language/)
 
   + [Syntax](/docs/language/syntax)
   + [Constants and Variable Declarations](/docs/language/constants-and-variables)
-  + [Type Annotations](/docs/language/type-annotations)
-  + [Values and Types](/docs/language/values-and-types)
-  + [Operators](/docs/language/operators)
+  + [Values and Types](/docs/language/values-and-types/)
+  + [Types and Type System](/docs/language/types-and-type-system/)
+  + [Operators](/docs/language/operators/)
+  + [Accounts](/docs/language/accounts/)
   + [Functions](/docs/language/functions)
+  + [Pre- and Post-Conditions](/docs/language/pre-and-post-conditions)
+  + [Built-in Functions](/docs/language/built-in-functions)
   + [Control Flow](/docs/language/control-flow)
   + [Scope](/docs/language/scope)
-  + [Type Safety](/docs/language/type-safety)
-  + [Type Inference](/docs/language/type-inference)
-  + [Composite Types](/docs/language/composite-types)
   + [Resources](/docs/language/resources)
-  + [Access control](/docs/language/access-control)
+  + [Access Control](/docs/language/access-control)
   + [Capabilities](/docs/language/capabilities)
   + [Interfaces](/docs/language/interfaces)
   + [Enumerations](/docs/language/enumerations)
-  + [Intersection Types](/docs/language/intersection-types)
   + [References](/docs/language/references)
   + [Imports](/docs/language/imports)
-  + [Accounts](/docs/language/accounts/)
   + [Attachments](/docs/language/attachments)
   + [Contracts](/docs/language/contracts)
   + [Contract Updatability](/docs/language/contract-updatability)
   + [Transactions](/docs/language/transactions)
   + [Events](/docs/language/events)
   + [Core Events](/docs/language/core-events)
-  + [Run-time Types](/docs/language/run-time-types)
-  + [Built-in Functions](/docs/language/built-in-functions)
   + [Environment Information](/docs/language/environment-information)
   + [Crypto](/docs/language/crypto)
-  + [Type Hierarchy](/docs/language/type-hierarchy)
   + [Glossary](/docs/language/glossary)
 * [Cadence 1.0 Migration Guide](/docs/cadence-migration-guide/)
 * [Design Patterns](/docs/design-patterns)
 * [Anti-Patterns](/docs/anti-patterns)
 * [Development Standards](/docs/project-development-tips)
 * [Security Best Practices](/docs/security-best-practices)
-* [Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
+* [JSON-Cadence Format](/docs/json-cadence-spec)
 * [Contract Upgrades with Incompatible Changes](/docs/contract-upgrades)
-* [JSON-Cadence format](/docs/json-cadence-spec)
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
@@ -67,8 +62,7 @@ On this page
 
 # Core Events
 
-Core events are events emitted directly from the FVM (Flow Virtual Machine).
-The events have the same name on all networks and do not follow the standard naming (they have no address).
+Core events are events emitted directly from the Flow Virtual Machine (FVM). The events have the same name on all networks and do not follow the standard naming (they have no address).
 
 Refer to the [public key section](/docs/language/crypto#public-keys) for more details on the information provided for account key events.
 
@@ -296,9 +290,9 @@ event InboxValuePublished(provider: Address, recipient: Address, name: String, t
 | `name` | `String` | The name associated with the published value |
 | `type` | `Type` | The type of the published value |
 
-To reduce the potential for spam,
-we recommend that user agents that display events do not display this event as-is to their users,
-and allow users to restrict whom they see events from.
+tip
+
+To reduce the potential for spam, we recommend that user agents that display events do not display this event as-is to their users, and allow users to restrict whom they see events from.
 
 ### Inbox Value Unpublished[​](#inbox-value-unpublished "Direct link to Inbox Value Unpublished")
 
@@ -319,9 +313,9 @@ event InboxValueUnpublished(provider: Address, name: String)`
 | `provider` | `Address` | The address of the publishing account |
 | `name` | `String` | The name associated with the published value |
 
-To reduce the potential for spam,
-we recommend that user agents that display events do not display this event as-is to their users,
-and allow users to restrict whom they see events from.
+tip
+
+To reduce the potential for spam, we recommend that user agents that display events do not display this event as-is to their users, and allow users to restrict whom they see events from.
 
 ### Inbox Value Claimed[​](#inbox-value-claimed "Direct link to Inbox Value Claimed")
 
@@ -343,9 +337,9 @@ event InboxValueClaimed(provider: Address, recipient: Address, name: String)`
 | `recipient` | `Address` | The address of the claiming recipient |
 | `name` | `String` | The name associated with the published value |
 
-To reduce the potential for spam,
-we recommend that user agents that display events do not display this event as-is to their users,
-and allow users to restrict whom they see events from.
+tip
+
+To reduce the potential for spam, we recommend that user agents that display events do not display this event as-is to their users, and allow users to restrict whom they see events from.
 
 [Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/core-events.md)
 
@@ -353,7 +347,7 @@ and allow users to restrict whom they see events from.
 
 Events](/docs/language/events)[Next
 
-Run-time Types](/docs/language/run-time-types)
+Environment Information](/docs/language/environment-information)
 
 ###### Rate this page
 
@@ -368,10 +362,3 @@ Run-time Types](/docs/language/run-time-types)
 * [Inbox Value Published](#inbox-value-published)
 * [Inbox Value Unpublished](#inbox-value-unpublished)
 * [Inbox Value Claimed](#inbox-value-claimed)
-
-Got suggestions for this site?
-
-* [It's open-source!](https://github.com/onflow/cadence-lang.org)
-
-The source code of this site is licensed under the Apache License, Version 2.0.
-Content is licensed under the Creative Commons Attribution 4.0 International License.

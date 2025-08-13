@@ -8,34 +8,21 @@ Storage | Cadence
 
 [![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
 
-[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+[Learn](/docs)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Language Reference](/docs/language)
 
 Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
+* [Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
 * [Tutorial](/docs/tutorial/first-steps)
 * [Language Reference](/docs/language/)
 
   + [Syntax](/docs/language/syntax)
   + [Constants and Variable Declarations](/docs/language/constants-and-variables)
-  + [Type Annotations](/docs/language/type-annotations)
-  + [Values and Types](/docs/language/values-and-types)
-  + [Operators](/docs/language/operators)
-  + [Functions](/docs/language/functions)
-  + [Control Flow](/docs/language/control-flow)
-  + [Scope](/docs/language/scope)
-  + [Type Safety](/docs/language/type-safety)
-  + [Type Inference](/docs/language/type-inference)
-  + [Composite Types](/docs/language/composite-types)
-  + [Resources](/docs/language/resources)
-  + [Access control](/docs/language/access-control)
-  + [Capabilities](/docs/language/capabilities)
-  + [Interfaces](/docs/language/interfaces)
-  + [Enumerations](/docs/language/enumerations)
-  + [Intersection Types](/docs/language/intersection-types)
-  + [References](/docs/language/references)
-  + [Imports](/docs/language/imports)
+  + [Values and Types](/docs/language/values-and-types/)
+  + [Types and Type System](/docs/language/types-and-type-system/)
+  + [Operators](/docs/language/operators/)
   + [Accounts](/docs/language/accounts/)
 
     - [Paths](/docs/language/accounts/paths)
@@ -44,26 +31,34 @@ Search
     - [Keys](/docs/language/accounts/keys)
     - [Contracts](/docs/language/accounts/contracts)
     - [Inbox](/docs/language/accounts/inbox)
+  + [Functions](/docs/language/functions)
+  + [Pre- and Post-Conditions](/docs/language/pre-and-post-conditions)
+  + [Built-in Functions](/docs/language/built-in-functions)
+  + [Control Flow](/docs/language/control-flow)
+  + [Scope](/docs/language/scope)
+  + [Resources](/docs/language/resources)
+  + [Access Control](/docs/language/access-control)
+  + [Capabilities](/docs/language/capabilities)
+  + [Interfaces](/docs/language/interfaces)
+  + [Enumerations](/docs/language/enumerations)
+  + [References](/docs/language/references)
+  + [Imports](/docs/language/imports)
   + [Attachments](/docs/language/attachments)
   + [Contracts](/docs/language/contracts)
   + [Contract Updatability](/docs/language/contract-updatability)
   + [Transactions](/docs/language/transactions)
   + [Events](/docs/language/events)
   + [Core Events](/docs/language/core-events)
-  + [Run-time Types](/docs/language/run-time-types)
-  + [Built-in Functions](/docs/language/built-in-functions)
   + [Environment Information](/docs/language/environment-information)
   + [Crypto](/docs/language/crypto)
-  + [Type Hierarchy](/docs/language/type-hierarchy)
   + [Glossary](/docs/language/glossary)
 * [Cadence 1.0 Migration Guide](/docs/cadence-migration-guide/)
 * [Design Patterns](/docs/design-patterns)
 * [Anti-Patterns](/docs/anti-patterns)
 * [Development Standards](/docs/project-development-tips)
 * [Security Best Practices](/docs/security-best-practices)
-* [Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
+* [JSON-Cadence Format](/docs/json-cadence-spec)
 * [Contract Upgrades with Incompatible Changes](/docs/contract-upgrades)
-* [JSON-Cadence format](/docs/json-cadence-spec)
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
@@ -77,12 +72,13 @@ On this page
 
 Accounts allow storing storable objects, such as resources and structures.
 
-An account exposes its storage through the `storage` field,
-which has the type `Account.Storage`.
+An account exposes its storage through the `storage` field, which has the type `Account.Storage`.
 
 ## `Account.Storage`[​](#accountstorage "Direct link to accountstorage")
 
-`_134
+Here's an example:
+
+`` _134
 
 access(all)
 
@@ -186,7 +182,7 @@ _134
 
 _134
 
-/// Reads the type of an object from the account's storage which is stored under the given path,
+/// Reads the type of an object from the account's storage, which is stored under the given path,
 
 _134
 
@@ -220,7 +216,7 @@ _134
 
 _134
 
-/// Loads an object from the account's storage which is stored under the given path,
+/// Loads an object from the account's storage, which is stored under the given path,
 
 _134
 
@@ -590,7 +586,7 @@ entitlement CopyValue
 
 _134
 
-entitlement BorrowValue`
+entitlement BorrowValue ``
 
 ## Saving objects[​](#saving-objects "Direct link to Saving objects")
 
@@ -602,13 +598,9 @@ _10
 
 fun save<T: Storable>(_ value: T, to: StoragePath)`
 
-The `save` function saves an object to account storage.
-The function moves resources, and copies structures.
-If there is already an object stored under the given path, the program aborts.
-The path must be a storage path, it must have the domain `storage`.
+The `save` function saves an object to account storage. The function moves resources and copies structures. If there is already an object stored under the given path, the program aborts. The path must be a storage path, and it must have the domain `storage`.
 
-`T` is the type parameter for the object type.
-Cadence can infer this type parameter from the argument's type.
+`T` is the type parameter for the object type. Cadence can infer this type parameter from the argument's type.
 
 ## Getting object type information[​](#getting-object-type-information "Direct link to Getting object type information")
 
@@ -620,14 +612,13 @@ _10
 
 view fun type(at path: StoragePath): Type?`
 
-The `type` function returns the type of the object stored under the given path,
-or `nil` if the account does not store an object under the given path.
+The `type` function returns the type of the object stored under the given path, or `nil` if the account does not store an object under the given path.
 
 The function does not change the stored object.
 
-The path must be a storage path, it must have the domain `storage`.
+The path must be a storage path, and it must have the domain `storage`.
 
-## Removing objects[​](#removing-objects "Direct link to Removing objects")
+## Loading (removing) objects[​](#loading-removing-objects "Direct link to Loading (removing) objects")
 
 `_10
 
@@ -637,23 +628,13 @@ _10
 
 fun load<T: Storable>(from: StoragePath): T?`
 
-The `load` function loads an object from account storage.
-If there is an object stored under the given path,
-the function moves the stored resource or structure out of storage
-and returns it as an optional.
-If there is no object stored under the given path,
-the function returns `nil`.
-When the function returns with an object,
-the storage no longer stores an object under the given path.
+The `load` function loads an object from account storage. If there is an object stored under the given path, the function moves the stored resource or structure out of storage and returns it as an optional. If there is no object stored under the given path, the function returns `nil`. When the function returns with an object, the storage no longer stores an object under the given path.
 
-`T` is the type parameter for the object type.
-Programs must explicitly provide a type argument for the parameter.
+`T` is the type parameter for the object type. Programs must explicitly provide a type argument for the parameter.
 
-The type `T` must be a supertype of the type of the loaded object.
-If it is not, the program aborts.
-The given type does not necessarily need to be exactly the same as the type of the loaded object.
+The type `T` must be a supertype of the type of the loaded object. If it is not, the program aborts. The given type does not necessarily need to be exactly the same as the type of the loaded object.
 
-The path must be a storage path, it must have the domain `storage`.
+The path must be a storage path, and it must have the domain `storage`.
 
 ## Copying objects[​](#copying-objects "Direct link to Copying objects")
 
@@ -665,25 +646,15 @@ _10
 
 view fun copy<T: AnyStruct>(from: StoragePath): T?`
 
-The `copy` function returns a copy of a structure stored in account storage,
-without removing it from storage.
-If there is a structure stored under the given path,
-the function copies the stored structure and returns it as an optional.
-If there is no structure stored under the given path,
-the function returns `nil`.
-When the function returns with an object,
-the structure stays stored in storage after the function returns.
+The `copy` function returns a copy of a structure stored in account storage, without removing it from storage. If there is a structure stored under the given path, the function copies the stored structure and returns it as an optional. If there is no structure stored under the given path, the function returns `nil`. When the function returns with an object, the structure stays stored in storage after the function returns.
 
-`T` is the type parameter for the structure type.
-Programs must explicitly provide a type argument for the parameter.
+`T` is the type parameter for the structure type. Programs must explicitly provide a type argument for the parameter.
 
-The type `T` must be a supertype of the type of the copied structure.
-If it is not, the program aborts.
-The given type does not necessarily have to be exactly the same as the type of the copied structure.
+The type `T` must be a supertype of the type of the copied structure. If it is not, the program aborts. The given type does not necessarily have to be exactly the same as the type of the copied structure.
 
-The path must be a storage path, it must have the domain `storage`.
+The path must be a storage path, and it must have the domain `storage`.
 
-## Accessing objects[​](#accessing-objects "Direct link to Accessing objects")
+## Borrowing objects[​](#borrowing-objects "Direct link to Borrowing objects")
 
 `_10
 
@@ -693,549 +664,250 @@ _10
 
 view fun borrow<T: &Any>(from: StoragePath): T?`
 
-The `borrow` function returns a reference to an objects stored in storage,
-without removing the object from storage.
-The function makes it convenient to work with objects in storage
-without having to move them out of storage.
+The `borrow` function returns a reference to an objects stored in storage, without removing the object from storage. The function makes it convenient to work with objects in storage without having to move them out of storage.
 
-If there is a structure stored under the given path,
-the function creates a reference to the object and returns the reference as an optional.
-If there is no structure stored under the given path,
-the function returns `nil`.
+If there is a structure stored under the given path, the function creates a reference to the object and returns the reference as an optional. If there is no structure stored under the given path, the function returns `nil`.
 
-`T` is the type parameter for the object type.
-Programs must explicitly provide a type argument for the parameter.
+`T` is the type parameter for the object type. Programs must explicitly provide a type argument for the parameter.
 
-The type argument must be a reference to any type, `&Any` (`Any` is the supertype of all types).
-The type `T` must be a supertype of the type of the borrowed object.
-If it is not, the program aborts.
-The given type does not necessarily have to be exactly the same as the type of the borrowed object.
+The type argument must be a reference to any type, `&Any` (`Any` is the supertype of all types). The type `T` must be a supertype of the type of the borrowed object. If it is not, the program aborts. The given type does not necessarily have to be exactly the same as the type of the borrowed object.
 
-The path must be a storage path, it must have the domain `storage`.
+The path must be a storage path, and it must have the domain `storage`.
 
 ## Example[​](#example "Direct link to Example")
 
-`_142
+The following steps show you how to declare a resource, create a new instance, and save it in the storage of the account:
 
-// Declare a resource interface named `HasCount`, that has a field `count`
+1. Declare a resource interface named `HasCount` that has a field `count`:
 
-_142
+   `_10
 
-//
+   resource interface HasCount {
 
-_142
+   _10
 
-resource interface HasCount {
+   count: Int
 
-_142
+   _10
 
-count: Int
+   }`
+2. Declare a resource named `Counter` that conforms to `HasCount`:
 
-_142
+   `_10
 
-}
+   resource Counter: HasCount {
 
-_142
+   _10
 
-_142
+   access(all)
 
-// Declare a resource named `Counter` that conforms to `HasCount`
+   _10
 
-_142
+   var count: Int
 
-//
+   _10
 
-_142
+   _10
 
-resource Counter: HasCount {
+   access(all)
 
-_142
+   _10
 
-access(all)
+   init(count: Int) {
 
-_142
+   _10
 
-var count: Int
+   self.count = count
 
-_142
+   _10
 
-_142
+   }
 
-access(all)
+   _10
 
-_142
+   }`
 
-init(count: Int) {
+   In this example, an authorized reference to an account is available through the constant `account`.
+3. Create a new instance of the resource type `Counter` and save it in the storage of the account.
 
-_142
+   * The path `/storage/counter` is used to refer to the stored value.
+   * Its identifier `counter` was chosen freely and could be something else.
 
-self.count = count
+   `` _11
 
-_142
+   account.storage.save(
 
-}
+   _11
 
-_142
+   <-create Counter(count: 42),
 
-}
+   _11
 
-_142
+   to: /storage/counter
 
-_142
+   _11
 
-// In this example, an authorized reference to an account
+   )
 
-_142
+   _11
 
-// is available through the constant `account`.
+   _11
 
-_142
+   // Run-time error: Storage already contains an object under path `/storage/counter`
 
-_142
+   _11
 
-// Create a new instance of the resource type `Counter`
+   //
 
-_142
+   _11
 
-// and save it in the storage of the account.
+   account.storage.save(
 
-_142
+   _11
 
-//
+   <-create Counter(count: 123),
 
-_142
+   _11
 
-// The path `/storage/counter` is used to refer to the stored value.
+   to: /storage/counter
 
-_142
+   _11
 
-// Its identifier `counter` was chosen freely and could be something else.
+   ) ``
+4. Load the `Counter` resource from storage path `/storage/counter`.
 
-_142
+   The new constant `counter` has the type `Counter?` (i.e., it is an optional), and its value is the counter resource that was saved at the beginning of the example:
 
-//
+   `_10
 
-_142
+   let counter <- account.storage.load<@Counter>(from: /storage/counter)`
 
-account.storage.save(
+   The storage is now empty, there is no longer an object stored under the path `/storage/counter`.
+5. Load the `Counter` resource again from storage path `/storage/counter`.
 
-_142
+   The new constant `counter2` has the type `Counter?` and is `nil`, as nothing is stored under the path `/storage/counter` anymore because the previous load moved the counter out of storage:
 
-<-create Counter(count: 42),
+   `_10
 
-_142
+   let counter2 <- account.storage.load<@Counter>(from: /storage/counter)`
+6. Create another new instance of the resource type `Counter` and save it in the storage of the account.
 
-to: /storage/counter
+   The path `/storage/otherCounter` is used to refer to the stored value:
 
-_142
+   `_10
 
-)
+   account.storage.save(
 
-_142
+   _10
 
-_142
+   <-create Counter(count: 123),
 
-// Run-time error: Storage already contains an object under path `/storage/counter`
+   _10
 
-_142
+   to: /storage/otherCounter
 
-//
+   _10
 
-_142
+   )`
+7. Load the `Vault` resource from storage path `/storage/otherCounter`.
 
-account.storage.save(
+   The new constant `vault` has the type `Vault?` and its value is `nil` as there is a resource with type `Counter` stored under the path, which is not a subtype of the requested type `Vault`:
 
-_142
+   `_10
 
-<-create Counter(count: 123),
+   let vault <- account.storage.load<@Vault>(from: /storage/otherCounter)`
 
-_142
+   The storage still stores a `Counter` resource under the path `/storage/otherCounter`.
+8. Save the string "Hello, World" in storage under the path `/storage/helloWorldMessage`:
 
-to: /storage/counter
+   `_10
 
-_142
+   account.storage.save(
 
-)
+   _10
 
-_142
+   "Hello, world!",
 
-_142
+   _10
 
-// Load the `Counter` resource from storage path `/storage/counter`.
+   to: /storage/helloWorldMessage
 
-_142
+   _10
 
-//
+   )`
+9. Copy the stored message from storage.
 
-_142
+   After the copy, the storage still stores the string under the path. Unlike `load`, `copy` does not remove the object from storage:
 
-// The new constant `counter` has the type `Counter?`, i.e., it is an optional,
+   `_10
 
-_142
+   let message = account.storage.copy<String>(from: /storage/helloWorldMessage)`
+10. Create a new instance of the resource type `Vault` and save it in the storage of the account:
 
-// and its value is the counter resource, that was saved at the beginning
+    `_10
 
-_142
+    account.storage.save(
 
-// of the example.
+    _10
 
-_142
+    <-createEmptyVault(),
 
-//
+    _10
 
-_142
+    to: /storage/vault
 
-let counter <- account.storage.load<@Counter>(from: /storage/counter)
+    _10
 
-_142
+    )
 
-_142
+    _10
 
-// The storage is now empty, there is no longer an object stored
+    _10
 
-_142
+    // Invalid: Cannot copy a resource, as this would allow arbitrary duplication.
 
-// under the path `/storage/counter`.
+    _10
 
-_142
+    //
 
-_142
+    _10
 
-// Load the `Counter` resource again from storage path `/storage/counter`.
+    let vault <- account.storage.copy<@Vault>(from: /storage/vault)`
+11. Create a reference to the object stored under path `/storage/counter`, typed as `&Counter`.
 
-_142
+    * `counterRef` has type `&Counter?` and is a valid reference (i.e., non-`nil`) because the borrow succeeded.
+    * There is an object stored under path `/storage/otherCounter` and it has type `Counter`, so it can be borrowed as `&Counter`:
 
-//
+    `` _10
 
-_142
+    let counterRef = account.storage.borrow<&Counter>(from: /storage/otherCounter)
 
-// The new constant `counter2` has the type `Counter?` and is `nil`,
+    _10
 
-_142
+    _10
 
-// as nothing is stored under the path `/storage/counter` anymore,
+    counterRef?.count // is `42` ``
+12. Create a reference to the object stored under path `/storage/otherCounter`, typed as `&{HasCount}`.
 
-_142
+    `hasCountRef` is non-`nil` as there is an object stored under path `/storage/otherCounter`, and the stored value of type `Counter` conforms to the requested type `{HasCount}` — the type `Counter` implements the intersection type's interface `HasCount`:
 
-// because the previous load moved the counter out of storage.
+    `_10
 
-_142
+    let hasCountRef = account.storage.borrow<&{HasCount}>(from: /storage/otherCounter)`
+13. Create a reference to the object stored under path `/storage/otherCounter`, typed as `&{SomethingElse}`.
 
-//
+    `otherRef` is `nil` as there is an object stored under path `/storage/otherCounter`, but the stored value of type `Counter` does not conform to the requested type `{SomethingElse}` — the type `Counter` does not implement the intersection type's interface `SomethingElse`:
 
-_142
+    `_10
 
-let counter2 <- account.storage.load<@Counter>(from: /storage/counter)
+    let otherRef = account.storage.borrow<&{SomethingElse}>(from: /storage/otherCounter)`
+14. Create a reference to the object stored under path `/storage/nonExistent`, typed as `&{HasCount}`.
 
-_142
+    `nonExistentRef` is `nil`, as there is nothing stored under path `/storage/nonExistent`:
 
-_142
+    `_10
 
-// Create another new instance of the resource type `Counter`
-
-_142
-
-// and save it in the storage of the account.
-
-_142
-
-//
-
-_142
-
-// The path `/storage/otherCounter` is used to refer to the stored value.
-
-_142
-
-//
-
-_142
-
-account.storage.save(
-
-_142
-
-<-create Counter(count: 123),
-
-_142
-
-to: /storage/otherCounter
-
-_142
-
-)
-
-_142
-
-_142
-
-// Load the `Vault` resource from storage path `/storage/otherCounter`.
-
-_142
-
-//
-
-_142
-
-// The new constant `vault` has the type `Vault?` and its value is `nil`,
-
-_142
-
-// as there is a resource with type `Counter` stored under the path,
-
-_142
-
-// which is not a subtype of the requested type `Vault`.
-
-_142
-
-//
-
-_142
-
-let vault <- account.storage.load<@Vault>(from: /storage/otherCounter)
-
-_142
-
-_142
-
-// The storage still stores a `Counter` resource under the path `/storage/otherCounter`.
-
-_142
-
-_142
-
-// Save the string "Hello, World" in storage
-
-_142
-
-// under the path `/storage/helloWorldMessage`.
-
-_142
-
-_142
-
-account.storage.save(
-
-_142
-
-"Hello, world!",
-
-_142
-
-to: /storage/helloWorldMessage
-
-_142
-
-)
-
-_142
-
-_142
-
-// Copy the stored message from storage.
-
-_142
-
-//
-
-_142
-
-// After the copy, the storage still stores the string under the path.
-
-_142
-
-// Unlike `load`, `copy` does not remove the object from storage.
-
-_142
-
-//
-
-_142
-
-let message = account.storage.copy<String>(from: /storage/helloWorldMessage)
-
-_142
-
-_142
-
-// Create a new instance of the resource type `Vault`
-
-_142
-
-// and save it in the storage of the account.
-
-_142
-
-//
-
-_142
-
-account.storage.save(
-
-_142
-
-<-createEmptyVault(),
-
-_142
-
-to: /storage/vault
-
-_142
-
-)
-
-_142
-
-_142
-
-// Invalid: Cannot copy a resource, as this would allow arbitrary duplication.
-
-_142
-
-//
-
-_142
-
-let vault <- account.storage.copy<@Vault>(from: /storage/vault)
-
-_142
-
-_142
-
-// Create a reference to the object stored under path `/storage/counter`,
-
-_142
-
-// typed as `&Counter`.
-
-_142
-
-//
-
-_142
-
-// `counterRef` has type `&Counter?` and is a valid reference, i.e. non-`nil`,
-
-_142
-
-// because the borrow succeeded:
-
-_142
-
-//
-
-_142
-
-// There is an object stored under path `/storage/otherCounter`
-
-_142
-
-// and it has type `Counter`, so it can be borrowed as `&Counter`
-
-_142
-
-//
-
-_142
-
-let counterRef = account.storage.borrow<&Counter>(from: /storage/otherCounter)
-
-_142
-
-_142
-
-counterRef?.count // is `42`
-
-_142
-
-_142
-
-// Create a reference to the object stored under path `/storage/otherCounter`,
-
-_142
-
-// typed as `&{HasCount}`.
-
-_142
-
-//
-
-_142
-
-// `hasCountRef` is non-`nil`, as there is an object stored under path `/storage/otherCounter`,
-
-_142
-
-// and the stored value of type `Counter` conforms to the requested type `{HasCount}`:
-
-_142
-
-// the type `Counter` implements the intersection type's interface `HasCount`
-
-_142
-
-_142
-
-let hasCountRef = account.storage.borrow<&{HasCount}>(from: /storage/otherCounter)
-
-_142
-
-_142
-
-// Create a reference to the object stored under path `/storage/otherCounter`,
-
-_142
-
-// typed as `&{SomethingElse}`.
-
-_142
-
-//
-
-_142
-
-// `otherRef` is `nil`, as there is an object stored under path `/storage/otherCounter`,
-
-_142
-
-// but the stored value of type `Counter` does not conform to the requested type `{SomethingElse}`:
-
-_142
-
-// the type `Counter` does not implement the intersection type's interface `SomethingElse`
-
-_142
-
-_142
-
-let otherRef = account.storage.borrow<&{SomethingElse}>(from: /storage/otherCounter)
-
-_142
-
-_142
-
-// Create a reference to the object stored under path `/storage/nonExistent`,
-
-_142
-
-// typed as `&{HasCount}`.
-
-_142
-
-//
-
-_142
-
-// `nonExistentRef` is `nil`, as there is nothing stored under path `/storage/nonExistent`
-
-_142
-
-//
-
-_142
-
-let nonExistentRef = account.storage.borrow<&{HasCount}>(from: /storage/nonExistent)`
+    let nonExistentRef = account.storage.borrow<&{HasCount}>(from: /storage/nonExistent)`
 
 ## Iterating over stored objects[​](#iterating-over-stored-objects "Direct link to Iterating over stored objects")
 
@@ -1249,35 +921,25 @@ _10
 
 fun forEachStored(_ function: fun(StoragePath, Type): Bool)`
 
-The functions iterate over all stored objects in the particular domain,
-calling the callback function for each stored object,
-passing the path and the run-time type of the stored object.
+The functions iterate over all stored objects in the particular domain, by calling the callback function for each stored object, and passing the path and the run-time type of the stored object.
 
-The `Bool` value returned from the callback function determines whether iteration continues.
-If the callback function returns `true`, iteration proceeds to the next stored object.
-If the callback function returns `false`, the iteration function stops.
-The specific order in which the objects are iterated over is undefined,
-as is the behavior when a path is added or removed from storage.
+The `Bool` value returned from the callback function determines whether iteration continues. If the callback function returns `true`, iteration proceeds to the next stored object. If the callback function returns `false`, the iteration function stops. The specific order in which the objects are iterated over is undefined, as is the behavior when a path is added or removed from storage.
 
 warning
 
 The iteration functions skip broken objects.
 
-An object could be broken due to invalid types associated with the stored value.
-For example, the contract for the stored object might have syntactic or semantic errors.
+An object could be broken due to invalid types associated with the stored value. For example, the contract for the stored object might have syntactic or semantic errors.
 
 warning
 
 The order of iteration is undefined. Do not rely on any particular behavior.
 
-Saving an object to a path or loading an object from storage during iteration
-can cause the order in which values are stored to change arbitrarily.
+Saving an object to a path or loading an object from storage during iteration can cause the order in which values are stored to change arbitrarily.
 
 When a program continues to iterate after such an operation, the program aborts.
 
-To avoid such errors, do not save objects to storage or load objects from storage during iteration.
-If you do perform such an operation,
-return `false` from the iteration callback to cause iteration to end after the mutation like so:
+To avoid such errors, do not save objects to storage or load objects from storage during iteration. If you do perform such an operation, return `false` from the iteration callback to cause the iteration to end after the mutation like so:
 
 `_17
 
@@ -1345,16 +1007,11 @@ _17
 
 An account's storage is limited by its storage capacity.
 
-An account's storage used is the sum of the size of all the data that the account stores, in MB.
-An account's storage capacity is a value that is calculated from the amount of FLOW
-that is stored in the account's main FLOW token vault.
+An account's storage used is the sum of the size of all the data that the account stores, in MB. An account's storage capacity is a value that is calculated from the amount of $FLOW that is stored in the account's main $FLOW token vault.
 
-At the end of every transaction, the storage used is compared to the storage capacity.
-For all accounts involved in the transaction,
-if the account's storage used is greater than its storage capacity, the transaction fails.
+At the end of every transaction, the storage used is compared to the storage capacity. For all accounts involved in the transaction, if the account's storage used is greater than its storage capacity, the transaction fails.
 
-An account exposes its storage used through the `storage.used` field,
-and its storage capacity through the `storage.capacity` field.
+An account exposes its storage used through the `storage.used` field, and its storage capacity through the `storage.capacity` field.
 
 The fields represent current values:
 
@@ -1419,16 +1076,9 @@ Capabilities](/docs/language/accounts/capabilities)
 * [`Account.Storage`](#accountstorage)
 * [Saving objects](#saving-objects)
 * [Getting object type information](#getting-object-type-information)
-* [Removing objects](#removing-objects)
+* [Loading (removing) objects](#loading-removing-objects)
 * [Copying objects](#copying-objects)
-* [Accessing objects](#accessing-objects)
+* [Borrowing objects](#borrowing-objects)
 * [Example](#example)
 * [Iterating over stored objects](#iterating-over-stored-objects)
 * [Storage limit](#storage-limit)
-
-Got suggestions for this site?
-
-* [It's open-source!](https://github.com/onflow/cadence-lang.org)
-
-The source code of this site is licensed under the Apache License, Version 2.0.
-Content is licensed under the Creative Commons Attribution 4.0 International License.

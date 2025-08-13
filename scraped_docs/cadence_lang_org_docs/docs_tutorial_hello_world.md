@@ -8,12 +8,13 @@ Hello World | Cadence
 
 [![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
 
-[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+[Learn](/docs)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Language Reference](/docs/language)
 
 Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
+* [Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
 * [Tutorial](/docs/tutorial/first-steps)
 
   + [First Steps](/docs/tutorial/first-steps)
@@ -23,8 +24,8 @@ Search
   + [Basic NFT](/docs/tutorial/non-fungible-tokens-1)
   + [Intermediate NFTs](/docs/tutorial/non-fungible-tokens-2)
   + [Fungible Tokens](/docs/tutorial/fungible-tokens)
-  + [7. Marketplace Setup](/docs/tutorial/marketplace-setup)
-  + [8. Marketplace](/docs/tutorial/marketplace-compose)
+  + [Marketplace Setup](/docs/tutorial/marketplace-setup)
+  + [Marketplace](/docs/tutorial/marketplace-compose)
   + [9. Voting Contract](/docs/tutorial/voting)
   + [10. Composable Resources](/docs/tutorial/resources-compose)
 * [Language Reference](/docs/language/)
@@ -33,9 +34,8 @@ Search
 * [Anti-Patterns](/docs/anti-patterns)
 * [Development Standards](/docs/project-development-tips)
 * [Security Best Practices](/docs/security-best-practices)
-* [Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
+* [JSON-Cadence Format](/docs/json-cadence-spec)
 * [Contract Upgrades with Incompatible Changes](/docs/contract-upgrades)
-* [JSON-Cadence format](/docs/json-cadence-spec)
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
@@ -109,15 +109,15 @@ warning
 
 Cadence follows the same pattern as Swift where the `let` keyword is used to declare a constant. The `var` keyword is used to declare a variable.
 
-As before, you're using the `access` keyword to set the scope to `all` and make the constant public. The `let` keyword declares a state constant named `greeting`, and the [type annotation](/docs/language/type-annotations) declares it as a `String`.
+As before, you're using the `access` keyword to set the scope to `all` and make the constant public. The `let` keyword declares a state constant named `greeting`, and the [type annotation](/docs/language/types-and-type-system/type-annotations) declares it as a `String`.
 
 You'll probably notice the following error in your code:
 
-`_10
+`` _10
 
-missing initializer for field `greeting` in type `HelloWorld``
+missing initializer for field `greeting` in type `HelloWorld` ``
 
-[Composite Types](/docs/language/composite-types), which includes contracts, have a special initializer function that is run exactly once, upon object creation. It's optional, but constants declared at the contract level must have a value set in the initializer.
+[Composite Types](/docs/language/types-and-type-system/composite-types), which includes contracts, have a special initializer function that is run exactly once, upon object creation. It's optional, but constants declared at the contract level must have a value set in the initializer.
 
 Add the following initializer and initialize your `greeting`:
 
@@ -394,10 +394,3 @@ Resources and the Move (<-) Operator](/docs/tutorial/resources)
   + [Working with a Transaction Process](#working-with-a-transaction-process)
 * [Conclusion](#conclusion)
 * [Reference Solution](#reference-solution)
-
-Got suggestions for this site?
-
-* [It's open-source!](https://github.com/onflow/cadence-lang.org)
-
-The source code of this site is licensed under the Apache License, Version 2.0.
-Content is licensed under the Creative Commons Attribution 4.0 International License.

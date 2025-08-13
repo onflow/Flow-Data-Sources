@@ -6,7 +6,7 @@ Past Network Upgrades | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -60,6 +60,50 @@ A JSON version of the information below can be found in [onflow/flow/sporks.json
 ## Mainnet Upgrades[​](#mainnet-upgrades "Direct link to Mainnet Upgrades")
 
 > Currently only includes HCUs from 2025.
+
+## Height Coordinated Upgrade 12[​](#height-coordinated-upgrade-12 "Direct link to Height Coordinated Upgrade 12")
+
+| HCU Info |
+| --- |
+| **Date**: Aug 7, 2025 |
+| **Block Height**: 122174655 |
+| **Git Commit**: 5ad9dd5706ae11656b7367c289bb2384a350c88d |
+| **Branch/Tag**: v0.42.3 |
+| **Docker Image Tag**: v0.42.3 or v0.42.1-rc.3 |
+| **Release Notes**: [v0.42.3](https://github.com/onflow/flow-go/releases/tag/v0.42.3) |
+
+## Height Coordinated Upgrade 11[​](#height-coordinated-upgrade-11 "Direct link to Height Coordinated Upgrade 11")
+
+| HCU Info |
+| --- |
+| **Date**: June 17, 2025 |
+| **Block Height**: 116720200 |
+| **Git Commit**: 5fe65350f5bffad0c6602787952a8d922861e754 |
+| **Branch/Tag**: v0.42.1 |
+| **Docker Image Tag**: v0.42.1 |
+| **Release Notes**: [v0.42.1](https://github.com/onflow/flow-go/releases/tag/v0.42.1) |
+
+## Height Coordinated Upgrade 10[​](#height-coordinated-upgrade-10 "Direct link to Height Coordinated Upgrade 10")
+
+| HCU Info |
+| --- |
+| **Date**: June 3, 2025 |
+| **Block Height**: 115211511 |
+| **Git Commit**: 5a5a11d628a4c0e8d19592dc69b3e869aea71241 |
+| **Branch/Tag**: v0.42.0-rc.2 |
+| **Docker Image Tag**: v0.42.0-rc.2 |
+| **Release Notes**: [v0.42.0-rc.2](https://github.com/onflow/flow-go/releases/tag/v0.42.0-rc.2) |
+
+## Height Coordinated Upgrade 9[​](#height-coordinated-upgrade-9 "Direct link to Height Coordinated Upgrade 9")
+
+| HCU Info |
+| --- |
+| **Date**: May 23, 2025 |
+| **Block Height**: 114045444 |
+| **Git Commit**: b120bc4855ee4863fcfcb0d1f26a6e9eef990c90 |
+| **Branch/Tag**: v0.41.4 |
+| **Docker Image Tag**: v0.41.4 |
+| **Release Notes**: [v0.41.4](https://github.com/onflow/flow-go/releases/tag/v0.41.4) |
 
 ## Height Coordinated Upgrade 8[​](#height-coordinated-upgrade-8 "Direct link to Height Coordinated Upgrade 8")
 
@@ -597,7 +641,51 @@ While FCL v0.0.67 is not strictly necessary to use Mainnet 6, we strongly recomm
 
 > Currently only includes HCUs from 2025.
 
-## Height Coordinated Upgrade 10[​](#height-coordinated-upgrade-10 "Direct link to Height Coordinated Upgrade 10")
+## Height Coordinated Upgrade 14[​](#height-coordinated-upgrade-14 "Direct link to Height Coordinated Upgrade 14")
+
+| HCU Info |
+| --- |
+| **Date**: Aug 6, 2025 |
+| **Block Height**: 273012710 |
+| **Git Commit**: 5ad9dd5706ae11656b7367c289bb2384a350c88d |
+| **Branch/Tag**: v0.42.3 |
+| **Docker Image Tag**: v0.42.3 or v0.42.1-rc.3 |
+| **Release Notes**: [v0.42.3](https://github.com/onflow/flow-go/releases/tag/v0.42.3) |
+
+## Height Coordinated Upgrade 13[​](#height-coordinated-upgrade-13 "Direct link to Height Coordinated Upgrade 13")
+
+| HCU Info |
+| --- |
+| **Date**: June 16, 2025 |
+| **Block Height**: 264201500 |
+| **Git Commit**: 5fe65350f5bffad0c6602787952a8d922861e754 |
+| **Branch/Tag**: v0.42.1 |
+| **Docker Image Tag**: v0.42.1 |
+| **Release Notes**: [v0.42.1](https://github.com/onflow/flow-go/releases/tag/v0.42.1) |
+
+## Height Coordinated Upgrade 12[​](#height-coordinated-upgrade-12-1 "Direct link to Height Coordinated Upgrade 12")
+
+| HCU Info |
+| --- |
+| **Date**: June 2, 2025 |
+| **Block Height**: 261783000 |
+| **Git Commit**: 5a5a11d628a4c0e8d19592dc69b3e869aea71241 |
+| **Branch/Tag**: v0.42.0-rc.2 |
+| **Docker Image Tag**: v0.42.0-rc.2 |
+| **Release Notes**: [v0.42.0-rc.2](https://github.com/onflow/flow-go/releases/tag/v0.42.0-rc.2) |
+
+## Height Coordinated Upgrade 11[​](#height-coordinated-upgrade-11-1 "Direct link to Height Coordinated Upgrade 11")
+
+| HCU Info |
+| --- |
+| **Date**: May 23, 2025 |
+| **Block Height**: 260085200 |
+| **Git Commit**: b120bc4855ee4863fcfcb0d1f26a6e9eef990c90 |
+| **Branch/Tag**: v0.41.4 |
+| **Docker Image Tag**: v0.41.4 |
+| **Release Notes**: [v0.41.4](https://github.com/onflow/flow-go/releases/tag/v0.41.4) |
+
+## Height Coordinated Upgrade 10[​](#height-coordinated-upgrade-10-1 "Direct link to Height Coordinated Upgrade 10")
 
 | HCU Info |
 | --- |
@@ -608,7 +696,7 @@ While FCL v0.0.67 is not strictly necessary to use Mainnet 6, we strongly recomm
 | **Docker Image Tag**: v0.41.0 |
 | **Release Notes**: [v0.41.0](https://github.com/onflow/flow-go/releases/tag/v0.41.0) |
 
-## Height Coordinated Upgrade 9[​](#height-coordinated-upgrade-9 "Direct link to Height Coordinated Upgrade 9")
+## Height Coordinated Upgrade 9[​](#height-coordinated-upgrade-9-1 "Direct link to Height Coordinated Upgrade 9")
 
 | HCU Info |
 | --- |
@@ -1075,7 +1163,7 @@ While FCL v0.0.67 is not strictly necessary to use Mainnet 6, we strongly recomm
 
 ---
 
-## Devnet 18[​](#devnet-18 "Direct link to Devnet 18")
+## Devnet 18[  ​](#devnet-18 "Direct link to Devnet 18")
 
 | Spork Info |
 | --- |
@@ -1103,7 +1191,7 @@ While FCL v0.0.67 is not strictly necessary to use Mainnet 6, we strongly recomm
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/past-upgrades.md)
 
-Last updated on **May 16, 2025** by **vishal**
+Last updated on **Aug 12, 2025** by **Vishal**
 
 [Previous
 
@@ -1118,6 +1206,10 @@ Network Upgrade (Spork) Process](/networks/node-ops/node-operation/spork)
 Copy as Markdown
 
 * [Mainnet Upgrades](#mainnet-upgrades)
+* [Height Coordinated Upgrade 12](#height-coordinated-upgrade-12)
+* [Height Coordinated Upgrade 11](#height-coordinated-upgrade-11)
+* [Height Coordinated Upgrade 10](#height-coordinated-upgrade-10)
+* [Height Coordinated Upgrade 9](#height-coordinated-upgrade-9)
 * [Height Coordinated Upgrade 8](#height-coordinated-upgrade-8)
 * [Height Coordinated Upgrade 7](#height-coordinated-upgrade-7)
 * [Rolling Upgrade 1](#rolling-upgrade-1)
@@ -1159,8 +1251,12 @@ Copy as Markdown
 * [Candidate 5](#candidate-5)
 * [Candidate 4](#candidate-4)
 * [Testnet Upgrades](#testnet-upgrades)
-* [Height Coordinated Upgrade 10](#height-coordinated-upgrade-10)
-* [Height Coordinated Upgrade 9](#height-coordinated-upgrade-9)
+* [Height Coordinated Upgrade 14](#height-coordinated-upgrade-14)
+* [Height Coordinated Upgrade 13](#height-coordinated-upgrade-13)
+* [Height Coordinated Upgrade 12](#height-coordinated-upgrade-12-1)
+* [Height Coordinated Upgrade 11](#height-coordinated-upgrade-11-1)
+* [Height Coordinated Upgrade 10](#height-coordinated-upgrade-10-1)
+* [Height Coordinated Upgrade 9](#height-coordinated-upgrade-9-1)
 * [Height Coordinated Upgrade 8](#height-coordinated-upgrade-8-1)
 * [Height Coordinated Upgrade 7](#height-coordinated-upgrade-7-1)
 * [Height Coordinated Upgrade 6](#height-coordinated-upgrade-6-1)

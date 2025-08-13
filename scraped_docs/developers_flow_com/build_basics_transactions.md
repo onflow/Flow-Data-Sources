@@ -6,15 +6,15 @@ Transactions | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
 * [Why Flow](/build/flow)
+* [Getting Started](/build/getting-started)
 * [Differences vs. EVM](/build/differences-vs-evm)
-* [Getting Started](/build/getting-started/contract-interaction)
 * [Flow Protocol](/build/basics/network-architecture)
 
   + [Network Architecture ↗️](/build/basics/network-architecture)
@@ -94,6 +94,10 @@ Transactions may declare parameters it needs during execution, these must be pro
 ### Reference Block[​](#reference-block "Direct link to Reference Block")
 
 A reference to a recent block used for expiry. A transaction is considered expired if it is submitted to Flow after reference block height + N, where N is a constant defined by the network. On mainnet current setting for N is 600 which amounts to approximately 10 minutes for expiry (please note this is subject to change).
+
+caution
+
+It is recommended to use the latest finalized block as the reference block, as it is the most recent block guaranteed to be included by the network. Using the latest sealed block is not recommended, as sealing occurs after finalization and could cause the transaction to fall outside of the expiration window.
 
 ### Gas Limit[​](#gas-limit "Direct link to Gas Limit")
 
@@ -784,7 +788,7 @@ Find a list of all SDKs [here](/tools/clients)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/basics/transactions.md)
 
-Last updated on **May 9, 2025** by **Chase Fleming**
+Last updated on **Jul 22, 2025** by **Jordan Ribbink**
 
 [Previous
 

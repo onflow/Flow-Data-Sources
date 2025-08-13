@@ -24,7 +24,7 @@ Niftory
 
 star
 
-2
+0
 
 ![User avatar](https://i.imgur.com/bymjTdC.png)
 

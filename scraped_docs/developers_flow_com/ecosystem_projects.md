@@ -6,7 +6,7 @@ Community Projects | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -19,6 +19,7 @@ Search
 * [Developer Profile](/ecosystem/developer-profile)
 * [DeFi & Liquidity](/ecosystem/defi-liquidity)
 * [Bridges](/ecosystem/bridges)
+* [Collectibles & NFTs](/ecosystem/collectibles)
 * [Community Projects](/ecosystem/projects)
 * [Builder Perks](/ecosystem/builder-perks)
 * [VCs & Funds](/ecosystem/vcs-and-funds)
@@ -90,13 +91,17 @@ It is an Api to allow users to fetch historical data of Flow blockchain from the
 
 React hooks to interact with Flow blockchain, making development easy and intuitive. It's wagmi for Flow!](https://www.flooks.io/)
 
+[## Stake & Eggs Chase Fleming
+
+A comprehensive Flow staking dashboard to track performance, estimate rewards, and simulate earnings.](https://stakeandeggs.wtf/)
+
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/projects.mdx)
 
-Last updated on **May 9, 2025** by **Chase Fleming**
+Last updated on **Jun 28, 2025** by **Chase Fleming**
 
 [Previous
 
-Bridges](/ecosystem/bridges)[Next
+Collectibles & NFTs](/ecosystem/collectibles)[Next
 
 Builder Perks](/ecosystem/builder-perks)
 

@@ -6,13 +6,13 @@ Wallet Provider Spec | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [@onflow/kit](/tools/kit)
+* [@onflow/react-sdk](/tools/react-sdk)
 * [Flow Emulator](/tools/emulator)
 * [Flow CLI](/tools/flow-cli)
 * [Cadence VS Code Extension](/tools/vscode-extension)
@@ -1758,7 +1758,7 @@ They are expected to eventually return a `f_type: "CompositeSignature"`.
 
 An authorization service is expected to know the Account and the Key that will be used to sign the transaction at the time the service is sent to FCL (during authentication).
 
-`_16
+`` _16
 
 {
 
@@ -1820,7 +1820,7 @@ params: {},
 
 _16
 
-}`
+} ``
 
 FCL will use the `method` provided to request an array of composite signature from authorization service (Wrapped in a `PollingResponse`).
 The authorization service will be sent a `Signable`.
@@ -1926,7 +1926,7 @@ They are expected to eventually return an array of `f_type: "CompositeSignature"
 
 The User Signature service is a stock/standard service.
 
-`_10
+`` _10
 
 {
 
@@ -1964,7 +1964,7 @@ params: {},
 
 _10
 
-}`
+} ``
 
 FCL will use the `method` provided to request an array of composite signatures from the user signature service (Wrapped in a `PollingResponse`).
 The user signature service will be sent a `Signable`.
@@ -2474,7 +2474,7 @@ _34
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/index.md)
 
-Last updated on **May 9, 2025** by **Chase Fleming**
+Last updated on **Apr 18, 2025** by **Brian Doyle**
 
 [Previous
 

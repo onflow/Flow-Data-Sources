@@ -8,7 +8,7 @@ Cadence: Community | Cadence
 
 [![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
 
-[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+[Learn](/docs)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Language Reference](/docs/language)
 
 Search
 
@@ -30,10 +30,3 @@ Contributing to Cadence is easy. You can join the community by:
 * **💭 Joining the [Cadence Language Design Meetings](https://docs.google.com/document/d/1KMGdiZ7qX9aoyH2WEVGHjsvBTNPTN6my8LcNmSVivLQ/edit) to discuss the design and implementation of Cadence.**
 
   In the meetings, the core contributors and the community investigate, design, and ultimately decide on language features.
-
-Got suggestions for this site?
-
-* [It's open-source!](https://github.com/onflow/cadence-lang.org)
-
-The source code of this site is licensed under the Apache License, Version 2.0.
-Content is licensed under the Creative Commons Attribution 4.0 International License.

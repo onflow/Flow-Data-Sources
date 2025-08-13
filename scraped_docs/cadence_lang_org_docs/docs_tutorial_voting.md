@@ -8,12 +8,13 @@
 
 [![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
 
-[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+[Learn](/docs)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Language Reference](/docs/language)
 
 Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
+* [Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
 * [Tutorial](/docs/tutorial/first-steps)
 
   + [First Steps](/docs/tutorial/first-steps)
@@ -23,8 +24,8 @@ Search
   + [Basic NFT](/docs/tutorial/non-fungible-tokens-1)
   + [Intermediate NFTs](/docs/tutorial/non-fungible-tokens-2)
   + [Fungible Tokens](/docs/tutorial/fungible-tokens)
-  + [7. Marketplace Setup](/docs/tutorial/marketplace-setup)
-  + [8. Marketplace](/docs/tutorial/marketplace-compose)
+  + [Marketplace Setup](/docs/tutorial/marketplace-setup)
+  + [Marketplace](/docs/tutorial/marketplace-compose)
   + [9. Voting Contract](/docs/tutorial/voting)
   + [10. Composable Resources](/docs/tutorial/resources-compose)
 * [Language Reference](/docs/language/)
@@ -33,9 +34,8 @@ Search
 * [Anti-Patterns](/docs/anti-patterns)
 * [Development Standards](/docs/project-development-tips)
 * [Security Best Practices](/docs/security-best-practices)
-* [Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
+* [JSON-Cadence Format](/docs/json-cadence-spec)
 * [Contract Upgrades with Incompatible Changes](/docs/contract-upgrades)
-* [JSON-Cadence format](/docs/json-cadence-spec)
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
@@ -102,7 +102,7 @@ The contract should have the following contents:
 
 ApprovalVoting.cdc
 
-`_61
+`` _61
 
 /*
 
@@ -322,7 +322,7 @@ _61
 
 _61
 
-}`
+} ``
 
 Now is your chance to write some of your own Cadence code!
 See if you can follow the instructions in the comments of the contract
@@ -719,7 +719,7 @@ but hopefully you can see what kind of features could be added to it to ensure p
 
 [Previous
 
-8. Marketplace](/docs/tutorial/marketplace-compose)[Next
+Marketplace](/docs/tutorial/marketplace-compose)[Next
 
 10. Composable Resources](/docs/tutorial/resources-compose)
 
@@ -735,10 +735,3 @@ but hopefully you can see what kind of features could be added to it to ensure p
 * [Casting a Vote](#casting-a-vote)
 * [Reading the result of the vote](#reading-the-result-of-the-vote)
 * [Other Voting possibilities](#other-voting-possibilities)
-
-Got suggestions for this site?
-
-* [It's open-source!](https://github.com/onflow/cadence-lang.org)
-
-The source code of this site is licensed under the Apache License, Version 2.0.
-Content is licensed under the Creative Commons Attribution 4.0 International License.

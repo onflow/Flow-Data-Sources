@@ -24,7 +24,7 @@ Beginner Dapp
 
 star
 
-28
+27
 
 ![User avatar](/avatars/jacob.jpeg)
 

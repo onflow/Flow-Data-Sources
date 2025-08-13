@@ -6,14 +6,16 @@ Native VRF | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
 * [Tutorials](/tutorials)
-* [AI Plus Flow](/tutorials/ai-plus-flow)
+* [Flow Blockchain 101](/tutorials/flow-101)
+* [Use AI To Build On Flow](/tutorials/use-AI-to-build-on-flow)
+* [Gasless Transactions](/tutorials/gasless-transactions)
 * [Token Launch](/tutorials/token-launch)
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
 * [FlowtoBooth](/tutorials/flowtobooth)
@@ -21,6 +23,8 @@ Search
 
   + [Secure Randomness with Commit-Reveal in Cadence](/tutorials/native-vrf/commit-reveal-cadence)
   + [Deploy a Solidity Contract Using Cadence](/tutorials/native-vrf/deploy-solidity-contract)
+  + [VRF (Randomness) in Solidity](/tutorials/native-vrf/vrf-in-solidity)
+* [Integrations](/tutorials/integrations/crossmint)
 
 * Native VRF
 
@@ -33,7 +37,9 @@ This series covers how to leverage Flow's native VRF (Verifiable Random Function
 ## Tutorials[​](#tutorials "Direct link to Tutorials")
 
 * **[Secure Randomness with Commit-Reveal in Cadence](/tutorials/native-vrf/commit-reveal-cadence)** - Learn how to implement secure randomness in Cadence using Flow's commit-reveal scheme.
+* **[VRF (Randomness) in Solidity](/tutorials/native-vrf/vrf-in-solidity)** - Learn how to use Flow's native VRF capabilities in Solidity.
 * **[Deploy a Solidity Contract Using Cadence](/tutorials/native-vrf/deploy-solidity-contract)** - Discover how to deploy and interact with Solidity contracts on Flow EVM using Cadence.
+* **[VRF (Randomness) in Solidity](/tutorials/native-vrf/vrf-in-solidity)** - How to access Flow's native verifiable randomness from Solidity smart contracts on Flow EVM, including code examples and security considerations.
 
 ## More Coming Soon[​](#more-coming-soon "Direct link to More Coming Soon")
 
@@ -41,7 +47,7 @@ Stay tuned—more tutorials and advanced guides are on the way!
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/native-vrf/index.md)
 
-Last updated on **May 9, 2025** by **Chase Fleming**
+Last updated on **Jun 20, 2025** by **Brian Doyle**
 
 [Previous
 

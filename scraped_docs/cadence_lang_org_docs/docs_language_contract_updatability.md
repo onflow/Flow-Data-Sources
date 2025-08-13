@@ -8,55 +8,50 @@ Contract Updatability | Cadence
 
 [![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
 
-[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+[Learn](/docs)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Language Reference](/docs/language)
 
 Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
+* [Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
 * [Tutorial](/docs/tutorial/first-steps)
 * [Language Reference](/docs/language/)
 
   + [Syntax](/docs/language/syntax)
   + [Constants and Variable Declarations](/docs/language/constants-and-variables)
-  + [Type Annotations](/docs/language/type-annotations)
-  + [Values and Types](/docs/language/values-and-types)
-  + [Operators](/docs/language/operators)
+  + [Values and Types](/docs/language/values-and-types/)
+  + [Types and Type System](/docs/language/types-and-type-system/)
+  + [Operators](/docs/language/operators/)
+  + [Accounts](/docs/language/accounts/)
   + [Functions](/docs/language/functions)
+  + [Pre- and Post-Conditions](/docs/language/pre-and-post-conditions)
+  + [Built-in Functions](/docs/language/built-in-functions)
   + [Control Flow](/docs/language/control-flow)
   + [Scope](/docs/language/scope)
-  + [Type Safety](/docs/language/type-safety)
-  + [Type Inference](/docs/language/type-inference)
-  + [Composite Types](/docs/language/composite-types)
   + [Resources](/docs/language/resources)
-  + [Access control](/docs/language/access-control)
+  + [Access Control](/docs/language/access-control)
   + [Capabilities](/docs/language/capabilities)
   + [Interfaces](/docs/language/interfaces)
   + [Enumerations](/docs/language/enumerations)
-  + [Intersection Types](/docs/language/intersection-types)
   + [References](/docs/language/references)
   + [Imports](/docs/language/imports)
-  + [Accounts](/docs/language/accounts/)
   + [Attachments](/docs/language/attachments)
   + [Contracts](/docs/language/contracts)
   + [Contract Updatability](/docs/language/contract-updatability)
   + [Transactions](/docs/language/transactions)
   + [Events](/docs/language/events)
   + [Core Events](/docs/language/core-events)
-  + [Run-time Types](/docs/language/run-time-types)
-  + [Built-in Functions](/docs/language/built-in-functions)
   + [Environment Information](/docs/language/environment-information)
   + [Crypto](/docs/language/crypto)
-  + [Type Hierarchy](/docs/language/type-hierarchy)
   + [Glossary](/docs/language/glossary)
 * [Cadence 1.0 Migration Guide](/docs/cadence-migration-guide/)
 * [Design Patterns](/docs/design-patterns)
 * [Anti-Patterns](/docs/anti-patterns)
 * [Development Standards](/docs/project-development-tips)
 * [Security Best Practices](/docs/security-best-practices)
-* [Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
+* [JSON-Cadence Format](/docs/json-cadence-spec)
 * [Contract Upgrades with Incompatible Changes](/docs/contract-upgrades)
-* [JSON-Cadence format](/docs/json-cadence-spec)
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
@@ -67,75 +62,58 @@ On this page
 
 # Contract Updatability
 
-## Introduction[​](#introduction "Direct link to Introduction")
+A [contract](/docs/language/contracts) is a collection of data (its state) and code (its functions) that lives in the contract storage area of an account. When a contract is *updated*, it is important to make sure that the changes introduced do not lead to runtime inconsistencies for already stored data.
 
-A [contract](/docs/language/contracts) is a collection of data (its state) and
-code (its functions) that lives in the contract storage area of an account.
-When a contract is updated, it is important to make sure that the changes introduced do not lead to runtime
-inconsistencies for already stored data.
 Cadence maintains this state consistency by validating the contracts and all their components before an update.
 
-## Validation Goals[​](#validation-goals "Direct link to Validation Goals")
+## Validation goals[​](#validation-goals "Direct link to Validation goals")
 
 The contract update validation ensures that:
 
 * Stored data doesn't change its meaning when a contract is updated.
 * Decoding and using stored data does not lead to runtime crashes.
-  + For example, it is invalid to add a field because existing stored data won't have the new field.
+  + For example, it is invalid to add a field because the existing stored data won't have the new field.
   + Loading the existing data will result in garbage/missing values for such fields.
-  + A static check of the access of the field would be valid, but the interpreter would crash when accessing the field,
-    because the field has a missing/garbage value.
+  + A static check of the access of the field would be valid, but the interpreter would crash when accessing the field because the field has a missing/garbage value.
 
-However, it **does not** ensure:
+However, it does **not** ensure any program that imports the updated contract stays valid. For example, an updated contract may remove an existing field or may change a function signature. In this case, any program that uses that field/function will get semantic errors.
 
-* Any program that imports the updated contract stays valid. e.g:
-  + Updated contract may remove an existing field or may change a function signature.
-  + Then any program that uses that field/function will get semantic errors.
+## Updating a contract[​](#updating-a-contract "Direct link to Updating a contract")
 
-## Updating a Contract[​](#updating-a-contract "Direct link to Updating a Contract")
+Changes to contracts can be introduced by adding new contracts, removing existing contracts, or updating existing contracts. However, some of these changes may lead to data inconsistencies as stated above.
 
-Changes to contracts can be introduced by adding new contracts, removing existing contracts, or updating existing
-contracts. However, some of these changes may lead to data inconsistencies as stated above.
-
-#### Valid Changes[​](#valid-changes "Direct link to Valid Changes")
+**Valid changes**
 
 * Adding a new contract is valid.
 * Removing a contract/contract-interface that doesn't have enum declarations is valid.
-* Updating a contract is valid, under the restrictions described in the below sections.
+* Updating a contract is valid under the restrictions described in the following sections.
 
-#### Invalid Changes[​](#invalid-changes "Direct link to Invalid Changes")
+**Invalid changes**
 
 * Removing a contract/contract-interface that contains enum declarations is not valid.
   + Removing a contract allows adding a new contract with the same name.
-  + The new contract could potentially have enum declarations with the same names as in the old contract, but with
-    different structures.
+  + The new contract could potentially have enum declarations with the same names as in the old contract, but with different structures.
   + This could change the meaning of the already stored values of those enum types.
 
-A contract may consist of fields and other declarations such as composite types, functions, constructors, etc.
-When an existing contract is updated, all its inner declarations are also validated.
+A contract may consist of fields and other declarations such as composite types, functions, constructors, and so on. When an existing contract is updated, all of its inner declarations are also validated.
 
-### Contract Fields[​](#contract-fields "Direct link to Contract Fields")
+### Contract fields[​](#contract-fields "Direct link to Contract fields")
 
-When a contract is deployed, the fields of the contract are stored in an account's contract storage.
-Changing the fields of a contract only changes the way the program treats the data, but does not change the already
-stored data itself, which could potentially result in runtime inconsistencies as mentioned in the previous section.
+When a contract is deployed, the fields of the contract are stored in an account's contract storage. Changing the fields of a contract only changes the way the program treats the data, but does not change the already-stored data itself, which could potentially result in runtime inconsistencies as mentioned in the previous section.
 
-See the [section about fields below](#fields) for the possible updates that can be done to the fields, and the restrictions
-imposed on changing fields of a contract.
+See [Fields](#fields) for any possible updates that can be made to the fields, and the restrictions imposed on changing the fields of a contract.
 
-### Nested Declarations[​](#nested-declarations "Direct link to Nested Declarations")
+### Nested declarations[​](#nested-declarations "Direct link to Nested declarations")
 
-Contracts can have nested composite type declarations such as structs, resources, interfaces, and enums.
-When a contract is updated, its nested declarations are checked, because:
+Contracts can have nested composite type declarations such as structs, resources, interfaces, and enums. When a contract is updated, its nested declarations are checked because:
 
-* They can be used as type annotation for the fields of the same contract, directly or indirectly.
+* They can be used as type annotations for the fields of the same contract, directly or indirectly.
 * Any third-party contract can import the types defined in this contract and use them as type annotations.
-* Hence, changing the type definition is the same as changing the type annotation of such a field (which is also invalid,
-  as described in the [section about fields fields](#fields) below).
+* Hence, changing the type definition is the same as changing the type annotation of such a field (which is also invalid, as described in the [Fields](#fields) section below).
 
-Changes that can be done to the nested declarations, and the update restrictions are described in following sections:
+Changes that can be performed on the nested declarations and the update restrictions are described in the following sections:
 
-* [Structs, resources and interface](#structs-resources-and-interfaces)
+* [Structs, resources, and interfaces](#structs-resources-and-interfaces)
 * [Enums](#enums)
 * [Functions](#functions)
 * [Events](#events)
@@ -143,77 +121,75 @@ Changes that can be done to the nested declarations, and the update restrictions
 
 ## Fields[​](#fields "Direct link to Fields")
 
-A field may belong to a contract, struct, resource, or interface.
+A field may belong to a contract, struct, resource, or interface:
 
-#### Valid Changes:[​](#valid-changes-1 "Direct link to Valid Changes:")
+**Valid changes**
 
 * Removing a field is valid
 
-  `_20
+  `_19
 
   // Existing contract
 
-  _20
+  _19
 
-  _20
+  _19
 
   access(all)
 
-  _20
+  _19
 
   contract Foo {
 
-  _20
+  _19
 
-  _20
+  _19
 
   access(all)
 
-  _20
+  _19
 
   var a: String
 
-  _20
+  _19
 
-  _20
+  _19
 
   access(all)
 
-  _20
+  _19
 
   var b: Int
 
-  _20
+  _19
 
   }
 
-  _20
+  _19
 
-  _20
-
-  _20
+  _19
 
   // Updated contract
 
-  _20
+  _19
 
-  _20
+  _19
 
   access(all)
 
-  _20
+  _19
 
   contract Foo {
 
-  _20
+  _19
 
   access(all)
 
-  _20
+  _19
 
   var a: String
 
-  _20
+  _19
 
   }`
 
@@ -221,833 +197,706 @@ A field may belong to a contract, struct, resource, or interface.
   + However, it does not cause any runtime crashes.
 * Changing the order of fields is valid.
 
-  `_24
+  `_23
 
   // Existing contract
 
-  _24
+  _23
 
-  _24
+  _23
 
   access(all)
 
-  _24
+  _23
 
   contract Foo {
 
-  _24
+  _23
 
-  _24
+  _23
 
   access(all)
 
-  _24
+  _23
 
   var a: String
 
-  _24
+  _23
 
-  _24
+  _23
 
   access(all)
 
-  _24
+  _23
 
   var b: Int
 
-  _24
+  _23
 
   }
 
-  _24
+  _23
 
-  _24
-
-  _24
+  _23
 
   // Updated contract
 
-  _24
+  _23
 
-  _24
+  _23
 
   access(all)
 
-  _24
+  _23
 
   contract Foo {
 
-  _24
+  _23
 
-  _24
+  _23
 
   access(all)
 
-  _24
+  _23
 
   var b: Int
 
-  _24
+  _23
 
-  _24
+  _23
 
   access(all)
 
-  _24
+  _23
 
   var a: String
 
-  _24
+  _23
 
   }`
 * Changing the access modifier of a field is valid.
 
-  `_16
+  `_15
 
   // Existing contract
 
-  _16
+  _15
 
-  _16
+  _15
 
   access(all)
 
-  _16
+  _15
 
   contract Foo {
 
-  _16
+  _15
 
   access(all)
 
-  _16
+  _15
 
   var a: String
 
-  _16
+  _15
 
   }
 
-  _16
+  _15
 
-  _16
-
-  _16
+  _15
 
   // Updated contract
 
-  _16
+  _15
 
-  _16
+  _15
 
   access(all)
 
-  _16
+  _15
 
   contract Foo {
 
-  _16
+  _15
 
   access(self)
 
-  _16
+  _15
 
   var a: String // access modifier changed to 'access(self)'
 
-  _16
+  _15
 
   }`
 
-#### Invalid Changes[​](#invalid-changes-1 "Direct link to Invalid Changes")
+**Invalid changes**
 
-* Adding a new field is not valid.
+* Adding a new field is not valid:
 
-  `_20
+  `_19
 
   // Existing contract
 
-  _20
+  _19
 
-  _20
+  _19
 
   access(all)
 
-  _20
+  _19
 
   contract Foo {
 
-  _20
+  _19
 
   access(all)
 
-  _20
+  _19
 
   var a: String
 
-  _20
+  _19
 
   }
 
-  _20
+  _19
 
-  _20
-
-  _20
+  _19
 
   // Updated contract
 
-  _20
+  _19
 
-  _20
+  _19
 
   access(all)
 
-  _20
+  _19
 
   contract Foo {
 
-  _20
+  _19
 
-  _20
+  _19
 
   access(all)
 
-  _20
+  _19
 
   var a: String
 
-  _20
+  _19
 
-  _20
+  _19
 
   access(all)
 
-  _20
+  _19
 
   var b: Int // Invalid new field
 
-  _20
+  _19
 
   }`
 
-  + Initializer of a contract only run once, when the contract is deployed for the first time. It does not rerun
-    when the contract is updated. However, it is still required to be present in the updated contract to satisfy type checks.
-  + Thus, the stored data won't have the new field, as the initializations for the newly added fields do not get
-    executed.
+  + The initializer of a contract only runs once, when the contract is deployed for the first time. It does not rerun when the contract is updated. However, it is still required to be present in the updated contract to satisfy type checks.
+  + Thus, the stored data won't have the new field, as the initializations for the newly added fields do not get executed.
   + Decoding stored data will result in garbage or missing values for such fields.
-* Changing the type of existing field is not valid.
+* Changing the type of an existing field is not valid.
 
-  `_18
+  `_17
 
   // Existing contract
 
-  _18
+  _17
 
-  _18
+  _17
 
   access(all)
 
-  _18
+  _17
 
   contract Foo {
 
-  _18
+  _17
 
-  _18
+  _17
 
   access(all)
 
-  _18
+  _17
 
   var a: String
 
-  _18
+  _17
 
   }
 
-  _18
+  _17
 
-  _18
-
-  _18
+  _17
 
   // Updated contract
 
-  _18
+  _17
 
-  _18
+  _17
 
   access(all)
 
-  _18
+  _17
 
   contract Foo {
 
-  _18
+  _17
 
-  _18
+  _17
 
   access(all)
 
-  _18
+  _17
 
   var a: Int // Invalid type change
 
-  _18
+  _17
 
   }`
 
   + In an already stored contract, the field `a` would have a value of type `String`.
-  + Changing the type of the field `a` to `Int`, would make the runtime read the already stored `String`
-    value as an `Int`, which will result in deserialization errors.
-  + Changing the field type to a subtype/supertype of the existing type is also not valid, as it would also
-    potentially cause issues while decoding/encoding.
-    - e.g: Changing an `Int64` field to `Int8` - Stored field could have a numeric value`624`, which exceeds the value space
-      for `Int8`.
-    - However, this is a limitation in the current implementation, and the future versions of Cadence may support
-      changing the type of field to a subtype, by providing means to migrate existing fields.
+  + Changing the type of the field `a` to `Int` would make the runtime read the already stored `String` value as an `Int`, which will result in deserialization errors.
+  + Changing the field type to a subtype/supertype of the existing type is also not valid, as it would also potentially cause issues while decoding/encoding.
+    - For example: changing an `Int64` field to `Int8` — Stored field could have a numeric value`624`, which exceeds the value space for `Int8`.
+    - However, this is a limitation in the current implementation; future versions of Cadence may support changing the type of field to a subtype by providing means to migrate existing fields.
 
-## Structs, Resources and Interfaces[​](#structs-resources-and-interfaces "Direct link to Structs, Resources and Interfaces")
+## Structs, resources, and interfaces[​](#structs-resources-and-interfaces "Direct link to Structs, resources, and interfaces")
 
-#### Valid Changes:[​](#valid-changes-2 "Direct link to Valid Changes:")
+**Valid changes**
 
 * Adding a new struct, resource, or interface is valid.
-* Adding an interface conformance to a struct/resource is valid, since the stored data only
-  stores concrete type/value, but doesn't store the conformance info.
+* Adding an interface conformance to a struct/resource is valid, since the stored data only stores concrete type/value, but doesn't store the conformance info:
 
-  `_12
+  `_11
 
   // Existing struct
 
-  _12
+  _11
 
-  _12
+  _11
 
   access(all)
 
-  _12
+  _11
 
   struct Foo {
 
-  _12
+  _11
 
   }
 
-  _12
+  _11
 
-  _12
+  _11
 
-  _12
+  // Updated struct
 
-  // Upated struct
+  _11
 
-  _12
-
-  _12
+  _11
 
   access(all)
 
-  _12
+  _11
 
   struct Foo: T {
 
-  _12
+  _11
 
   }`
 
-  + However, if adding a conformance also requires changing the existing structure (e.g: adding a new field that is
-    enforced by the new conformance), then the other restrictions (such as [restrictions on fields](#fields)) may
-    prevent performing such an update.
+  + However, if adding a conformance also requires changing the existing structure (e.g., adding a new field that is enforced by the new conformance), then the other restriction(such as [restrictions on fields](#fields)) may prevent performing such an update.
 
-#### Invalid Changes:[​](#invalid-changes-2 "Direct link to Invalid Changes:")
+**Invalid changes**
 
 * Removing an existing declaration is not valid.
   + Removing a declaration allows adding a new declaration with the same name, but with a different structure.
-  + Any program that uses stored data belong to that type would face inconsistencies.
-* Renaming a declaration is not valid. It can have the same effect as removing an existing declaration and adding
-  a new one.
-* Changing the type of declaration is not valid. i.e: Changing from a struct to interface, and vise versa.
+  + Any program that uses stored data belonging to that type would face inconsistencies.
+* Renaming a declaration is not valid. It can have the same effect as removing an existing declaration and adding a new one.
+* Changing the type of declaration is not valid (i.e., changing from a struct to an interface, and vise versa).
 
-  `_12
+  `_11
 
   // Existing struct
 
-  _12
+  _11
 
-  _12
+  _11
 
   access(all)
 
-  _12
+  _11
 
   struct Foo {
 
-  _12
+  _11
 
   }
 
-  _12
+  _11
 
-  _12
-
-  _12
+  _11
 
   // Changed to a struct interface
 
-  _12
+  _11
 
-  _12
+  _11
 
   access(all)
 
-  _12
+  _11
 
   struct interface Foo { // Invalid type declaration change
 
-  _12
+  _11
 
   }`
 * Removing an interface conformance of a struct/resource is not valid.
 
-  `_12
+  `_11
 
   // Existing struct
 
-  _12
+  _11
 
-  _12
+  _11
 
   access(all)
 
-  _12
+  _11
 
   struct Foo: T {
 
-  _12
+  _11
 
   }
 
-  _12
+  _11
 
-  _12
+  _11
 
-  _12
+  // Updated struct
 
-  // Upated struct
+  _11
 
-  _12
-
-  _12
+  _11
 
   access(all)
 
-  _12
+  _11
 
   struct Foo {
 
-  _12
+  _11
 
   }`
 
-  + Otherwise, types that used to conform to an interface would no longer conform to that interface, which would lead
-    to type safety issues at runtime.
+  + Otherwise, types that used to conform to an interface would no longer conform to that interface, which would lead to [type safety](/docs/language/types-and-type-system/type-safety) issues at runtime.
 
-### Updating Members[​](#updating-members "Direct link to Updating Members")
+### Updating members[​](#updating-members "Direct link to Updating members")
 
-Similar to contracts, these composite declarations: structs, resources, and interfaces also can have fields and
-other nested declarations as its member.
-Updating such a composite declaration would also include updating all of its members.
+Similar to contracts, the composite declarations structs, resources, and interfaces can also have fields and other nested declarations as its member. Updating such a composite declaration would also include updating all of its members.
 
-Below sections describes the restrictions imposed on updating the members of a struct, resource or an interface.
+The following sections describe the restrictions imposed on updating the members of a struct, resource, or interface:
 
 * [Fields](#fields)
-* [Nested structs, resources and interfaces](#structs-resources-and-interfaces)
 * [Enums](#enums)
 * [Functions](#functions)
 * [Constructors](#constructors)
 
 ## Enums[​](#enums "Direct link to Enums")
 
-#### Valid Changes:[​](#valid-changes-3 "Direct link to Valid Changes:")
+**Valid changes**
 
 * Adding a new enum declaration is valid.
 
-#### Invalid Changes:[​](#invalid-changes-3 "Direct link to Invalid Changes:")
+**Invalid changes**
 
 * Removing an existing enum declaration is invalid.
-  + Otherwise, it is possible to remove an existing enum and add a new enum declaration with the same name,
-    but with a different structure.
-  + The new structure could potentially have incompatible changes (such as changed types, changed enum-cases, etc).
+  + Otherwise, it is possible to remove an existing enum and add a new enum declaration with the same name, but with a different structure.
+  + The new structure could potentially have incompatible changes (such as changed types, changed enum-cases, and so on).
 * Changing the name is invalid, as it is equivalent to removing an existing enum and adding a new one.
-* Changing the raw type is invalid.
+* Changing the raw type is invalid:
 
-  `_24
+  `` _23
 
   // Existing enum with `Int` raw type
 
-  _24
+  _23
 
-  _24
+  _23
 
   access(all)
 
-  _24
+  _23
 
   enum Color: Int {
 
-  _24
+  _23
 
-  _24
+  _23
 
   access(all)
 
-  _24
+  _23
 
   case RED
 
-  _24
+  _23
 
-  _24
+  _23
 
   access(all)
 
-  _24
+  _23
 
   case BLUE
 
-  _24
+  _23
 
   }
 
-  _24
+  _23
 
-  _24
-
-  _24
+  _23
 
   // Updated enum with `UInt8` raw type
 
-  _24
+  _23
 
-  _24
+  _23
 
   access(all)
 
-  _24
+  _23
 
   enum Color: UInt8 { // Invalid change of raw type
 
-  _24
+  _23
 
-  _24
+  _23
 
   access(all)
 
-  _24
+  _23
 
   case RED
 
-  _24
+  _23
 
-  _24
+  _23
 
   access(all)
 
-  _24
+  _23
 
   case BLUE
 
-  _24
+  _23
 
-  }`
+  } ``
 
-  + When the enum value is stored, the raw value associated with the enum-case gets stored.
-  + If the type is changed, then deserializing could fail if the already stored values are not in the same value space
-    as the updated type.
+  + When the enum value is stored, the raw value associated with the enum case gets stored.
+  + If the type is changed, then deserializing could fail if the already stored values are not in the same value space as the updated type.
 
-### Updating Enum Cases[​](#updating-enum-cases "Direct link to Updating Enum Cases")
+### Updating enum cases[​](#updating-enum-cases "Direct link to Updating enum cases")
 
-Enums consist of enum-case declarations, and updating an enum may also include changing the enums cases as well.
-Enum cases are represented using their raw-value at the Cadence interpreter and runtime.
-Hence, any change that causes an enum-case to change its raw value is not permitted.
-Otherwise, a changed raw-value could cause an already stored enum value to have a different meaning than what
-it originally was (type confusion).
+Enums consist of enum-case declarations, and updating an enum may also include changing the enum's cases as well. Enum cases are represented using their raw value at the Cadence interpreter and runtime. Hence, any change that causes an enum case to change its raw value is not permitted. Otherwise, a changed raw value could cause an already stored enum value to have a different meaning than what it originally was (type confusion).
 
-#### Valid Changes:[​](#valid-changes-4 "Direct link to Valid Changes:")
+**Valid changes**
 
-* Adding an enum-case at the end of the existing enum-cases is valid.
+* Adding an enum case at the end of the existing enum cases is valid:
 
-  `_27
+  `_26
 
   // Existing enum
 
-  _27
+  _26
 
-  _27
+  _26
 
   access(all)
 
-  _27
+  _26
 
   enum Color: Int {
 
-  _27
+  _26
 
-  _27
+  _26
 
   access(all)
 
-  _27
+  _26
 
   case RED
 
-  _27
+  _26
 
-  _27
+  _26
 
   access(all)
 
-  _27
+  _26
 
   case BLUE
 
-  _27
+  _26
 
   }
 
-  _27
+  _26
 
-  _27
-
-  _27
+  _26
 
   // Updated enum
 
-  _27
+  _26
 
-  _27
+  _26
 
   access(all)
 
-  _27
+  _26
 
   enum Color: Int {
 
-  _27
+  _26
 
-  _27
+  _26
 
   access(all)
 
-  _27
+  _26
 
   case RED
 
-  _27
+  _26
 
-  _27
+  _26
 
   access(all)
 
-  _27
+  _26
 
   case BLUE
 
-  _27
+  _26
 
-  _27
+  _26
 
   access(all)
 
-  _27
+  _26
 
   case GREEN // valid new enum-case at the bottom
 
-  _27
+  _26
 
   }`
 
-#### Invalid Changes[​](#invalid-changes-4 "Direct link to Invalid Changes")
+**Invalid changes**
 
-* Adding an enum-case at the top or in the middle of the existing enum-cases is invalid.
+* Adding an enum-case at the top or in the middle of the existing enum cases is invalid:
 
-  `_27
+  `_26
 
   // Existing enum
 
-  _27
+  _26
 
-  _27
+  _26
 
   access(all)
 
-  _27
+  _26
 
   enum Color: Int {
 
-  _27
+  _26
 
-  _27
+  _26
 
   access(all)
 
-  _27
+  _26
 
   case RED
 
-  _27
+  _26
 
-  _27
+  _26
 
   access(all)
 
-  _27
+  _26
 
   case BLUE
 
-  _27
+  _26
 
   }
 
-  _27
+  _26
 
-  _27
-
-  _27
+  _26
 
   // Updated enum
 
-  _27
+  _26
 
-  _27
+  _26
 
   access(all)
 
-  _27
+  _26
 
   enum Color: Int {
 
-  _27
+  _26
 
-  _27
+  _26
 
   access(all)
 
-  _27
+  _26
 
   case RED
 
-  _27
+  _26
 
-  _27
+  _26
 
   access(all)
 
-  _27
+  _26
 
   case GREEN // invalid new enum-case in the middle
 
-  _27
+  _26
 
-  _27
+  _26
 
   access(all)
 
-  _27
+  _26
 
   case BLUE
 
-  _27
+  _26
 
   }`
-* Changing the name of an enum-case is invalid.
-
-  `_24
-
-  // Existing enum
-
-  _24
-
-  _24
-
-  access(all)
-
-  _24
-
-  enum Color: Int {
-
-  _24
-
-  _24
-
-  access(all)
-
-  _24
-
-  case RED
-
-  _24
-
-  _24
-
-  access(all)
-
-  _24
-
-  case BLUE
-
-  _24
-
-  }
-
-  _24
-
-  _24
-
-  _24
-
-  // Updated enum
-
-  _24
-
-  _24
-
-  access(all)
-
-  _24
-
-  enum Color: Int {
-
-  _24
-
-  _24
-
-  access(all)
-
-  _24
-
-  case RED
-
-  _24
-
-  _24
-
-  access(all)
-
-  _24
-
-  case GREEN // invalid change of names
-
-  _24
-
-  }`
-
-  + Previously stored raw values for `Color.BLUE` now represents `Color.GREEN`. i.e: The stored values have changed
-    their meaning, and hence not a valid change.
-  + Similarly, it is possible to add a new enum with the old name `BLUE`, which gets a new raw value. Then the same
-    enum-case `Color.BLUE` may have used two raw-values at runtime, before and after the change, which is also invalid.
-* Removing the enum case is invalid. Removing allows one to add and remove an enum-case which has the same effect
-  as renaming.
+* Changing the name of an enum case is invalid.
 
   `_23
 
@@ -1091,8 +940,6 @@ it originally was (type confusion).
 
   _23
 
-  _23
-
   // Updated enum
 
   _23
@@ -1119,101 +966,179 @@ it originally was (type confusion).
 
   _23
 
-  // invalid removal of `case BLUE`
+  access(all)
+
+  _23
+
+  case GREEN // invalid change of names
 
   _23
 
   }`
-* Changing the order of enum-cases is not permitted
 
-  `_24
+  + Previously stored raw values for `Color.BLUE` now represents `Color.GREEN` (i.e., the stored values have changed their meaning, and hence not a valid change).
+  + Similarly, it is possible to add a new enum with the old name `BLUE`, which gets a new raw value. Then, the same enum case `Color.BLUE` may have used two raw values at runtime, before and after the change, which is also invalid.
+* Removing the enum case is invalid. Removing allows one to add and remove an enum case, which has the same effect as renaming:
+
+  `` _22
 
   // Existing enum
 
-  _24
+  _22
 
-  _24
+  _22
 
   access(all)
 
-  _24
+  _22
 
   enum Color: Int {
 
-  _24
+  _22
 
-  _24
+  _22
 
   access(all)
 
-  _24
+  _22
 
   case RED
 
-  _24
+  _22
 
-  _24
+  _22
 
   access(all)
 
-  _24
+  _22
 
   case BLUE
 
-  _24
+  _22
 
   }
 
-  _24
+  _22
 
-  _24
-
-  _24
+  _22
 
   // Updated enum
 
-  _24
+  _22
 
-  _24
-
-  access(all)
-
-  _24
-
-  enum Color: UInt8 {
-
-  _24
-
-  _24
+  _22
 
   access(all)
 
-  _24
+  _22
 
-  case BLUE // invalid change of order
+  enum Color: Int {
 
-  _24
+  _22
 
-  _24
+  _22
 
   access(all)
 
-  _24
+  _22
 
   case RED
 
-  _24
+  _22
+
+  _22
+
+  // invalid removal of `case BLUE`
+
+  _22
+
+  } ``
+* Changing the order of enum cases is not permitted.
+
+  `_23
+
+  // Existing enum
+
+  _23
+
+  _23
+
+  access(all)
+
+  _23
+
+  enum Color: Int {
+
+  _23
+
+  _23
+
+  access(all)
+
+  _23
+
+  case RED
+
+  _23
+
+  _23
+
+  access(all)
+
+  _23
+
+  case BLUE
+
+  _23
+
+  }
+
+  _23
+
+  _23
+
+  // Updated enum
+
+  _23
+
+  _23
+
+  access(all)
+
+  _23
+
+  enum Color: UInt8 {
+
+  _23
+
+  _23
+
+  access(all)
+
+  _23
+
+  case BLUE // invalid change of order
+
+  _23
+
+  _23
+
+  access(all)
+
+  _23
+
+  case RED
+
+  _23
 
   }`
 
-  + Raw value of an enum is implicit, and corresponds to the defined order.
-  + Changing the order of enum-cases has the same effect as changing the raw-value, which could cause storage
-    inconsistencies and type-confusions as described earlier.
+  + The raw value of an enum is implicit and corresponds to the defined order.
+  + Changing the order of enum-cases has the same effect as changing the raw value, which could cause storage inconsistencies and type-confusions as described earlier.
 
 ## Functions[​](#functions "Direct link to Functions")
 
-Adding, changing, and deleting a function definition is always valid, as function definitions are never stored as data
-(function definitions are part of the code, but not data).
+Adding, changing, and deleting a function definition is always valid, as function definitions are never stored as data (function definitions are part of the code, but not data).
 
 * Adding a function is valid.
 * Deleting a function is valid.
@@ -1221,14 +1146,11 @@ Adding, changing, and deleting a function definition is always valid, as functio
 * Changing a function body is valid.
 * Changing the access modifiers is valid.
 
-However, changing a *function type* may or may not be valid, depending on where it is used:
-If a function type is used in the type annotation of a composite type field (direct or indirect),
-then changing the function type signature is the same as changing the type annotation of that field (which is invalid).
+However, changing a *function type* may or may not be valid, depending on where it is used: if a function type is used in the type annotation of a composite type field (direct or indirect), then changing the function type signature is the same as changing the type annotation of that field (which is invalid).
 
 ## Events[​](#events "Direct link to Events")
 
-Events are not stored on chain. Any changes made to events have no impact on the stored data.
-Hence, adding, removing, and modifying events in a contract is valid.
+Events are not stored onchain. Any changes made to events have no impact on the stored data. Hence, adding, removing, and modifying events in a contract is valid.
 
 ## Constructors[​](#constructors "Direct link to Constructors")
 
@@ -1236,19 +1158,15 @@ Similar to functions, constructors are also not stored. Hence, any changes to co
 
 ## Imports[​](#imports "Direct link to Imports")
 
-A contract may import declarations (types, functions, variables, etc.) from other programs. These imported programs are
-already validated at the time of their deployment. Hence, there is no need for validating any declaration every time
-they are imported.
+A contract may import declarations (types, functions, variables, and so on) from other programs. These imported programs are already validated at the time of their deployment. Hence, there is no need to validate any declaration every time they are imported.
 
-## The `#removedType` Pragma[​](#the-removedtype-pragma "Direct link to the-removedtype-pragma")
+## The `#removedType` pragma[​](#the-removedtype-pragma "Direct link to the-removedtype-pragma")
 
-Under normal circumstances, it is not valid to remove a type declaration, whether a composite or an interface.
-However, a special pragma can be used when this is necessary to enable composite declarations to be "tombstoned",
-removing them from a contract and preventing any declarations from being re-added with the same name.
-This pragma cannot be used with interfaces.
+Under normal circumstances, it is not valid to remove a type declaration, whether a composite or an interface. However, a special pragma can be used when this is necessary to enable composite declarations to be *tombstoned*, removing them from a contract and preventing any declarations from being re-added with the same name. This pragma cannot be used with interfaces.
 
-To use this pragma, simply add a `#removedType(T)` line to the contract containing the type `T` you want to remove,
-at the same scope as the declaration of `T`. So, for example, to remove a resource definition `R` defined like so:
+To use this pragma, simply add a `#removedType(T)` line to the contract containing the type `T` you want to remove, at the same scope as the declaration of `T`.
+
+For example, to remove a resource definition `R` defined like so:
 
 `_10
 
@@ -1300,12 +1218,7 @@ _10
 
 }`
 
-This will prevent any type named `R` from ever being declared again as a nested declaration in `Foo`,
-preventing the security issues normally posed by removing a type.
-Specifically, when a `#removedType(T)` pragma is present at a certain scope level in a contract,
-no new type named `T` can be added at that scope.
-Additionally, once added, a `#removedType` pragma can never be removed,
-as this would allow circumventing the above restriction.
+This prevents any type named `R` from ever being declared again as a nested declaration in `Foo`, preventing the security issues normally posed by removing a type. Specifically, when a `#removedType(T)` pragma is present at a certain scope level in a contract, no new type named `T` can be added at that scope. Additionally, once added, a `#removedType` pragma can never be removed, as this would allow circumventing the above restriction.
 
 Please note that this pragma's behavior is not necessarily final and is subject to change.
 
@@ -1321,25 +1234,17 @@ Transactions](/docs/language/transactions)
 
 😞😐😊
 
-* [Introduction](#introduction)
-* [Validation Goals](#validation-goals)
-* [Updating a Contract](#updating-a-contract)
-  + [Contract Fields](#contract-fields)
-  + [Nested Declarations](#nested-declarations)
+* [Validation goals](#validation-goals)
+* [Updating a contract](#updating-a-contract)
+  + [Contract fields](#contract-fields)
+  + [Nested declarations](#nested-declarations)
 * [Fields](#fields)
-* [Structs, Resources and Interfaces](#structs-resources-and-interfaces)
-  + [Updating Members](#updating-members)
+* [Structs, resources, and interfaces](#structs-resources-and-interfaces)
+  + [Updating members](#updating-members)
 * [Enums](#enums)
-  + [Updating Enum Cases](#updating-enum-cases)
+  + [Updating enum cases](#updating-enum-cases)
 * [Functions](#functions)
 * [Events](#events)
 * [Constructors](#constructors)
 * [Imports](#imports)
-* [The `#removedType` Pragma](#the-removedtype-pragma)
-
-Got suggestions for this site?
-
-* [It's open-source!](https://github.com/onflow/cadence-lang.org)
-
-The source code of this site is licensed under the Apache License, Version 2.0.
-Content is licensed under the Creative Commons Attribution 4.0 International License.
+* [The `#removedType` pragma](#the-removedtype-pragma)

@@ -1,6 +1,6 @@
 # Source: https://cadence-lang.org/docs/tags/nft
 
-2 docs tagged with "NFT" | Cadence
+3 docs tagged with "NFT" | Cadence
 
 
 
@@ -8,11 +8,11 @@
 
 [![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
 
-[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+[Learn](/docs)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Language Reference](/docs/language)
 
 Search
 
-# 2 docs tagged with "NFT"
+# 3 docs tagged with "NFT"
 
 [View All Tags](/docs/tags)
 
@@ -24,9 +24,6 @@ An introduction to a simplified version of NFTs on Cadence.
 
 Learn how to manage collections of NFTs in Cadence
 
-Got suggestions for this site?
+[## Marketplace](/docs/tutorial/marketplace-compose)
 
-* [It's open-source!](https://github.com/onflow/cadence-lang.org)
-
-The source code of this site is licensed under the Apache License, Version 2.0.
-Content is licensed under the Creative Commons Attribution 4.0 International License.
+Build a composable NFT marketplace on Flow using Cadence, integrating fungible and non-fungible tokens, capabilities, and events.

@@ -6,7 +6,7 @@ Using Flow EVM | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -22,7 +22,7 @@ Search
 * [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
 * [Faucets ↙](/evm/faucets)
 * [Block Explorers ↙](/evm/block-explorers)
-* [Guides](/evm/guides/integrating-metamask)
+* [Guides](/evm/guides)
 
 * Using Flow EVM
 
@@ -132,7 +132,7 @@ To use the Flow Wallet Chrome extension:
 | [eth\_sendTransaction](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_sendtransaction) | 🚧 | Unsupported |
 | [eth\_sign](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_sign) | 🚧 | Unsupported |
 | [eth\_signTransaction](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_signtransaction) | 🚧 | Unsupported |
-| [eth\_syncing](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_syncing) |   ✅ |  |
+| [eth\_syncing](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_syncing) | ✅ |  |
 | [eth\_uninstallFilter](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_uninstallfilter) | ✅ |  |
 | [eth\_maxPriorityFeePerGas] | ✅ |  |
 | [eth\_feeHistory] | ✅ |  |
@@ -147,7 +147,7 @@ Read more about the [EVM Gateway](https://github.com/onflow/flow-evm-gateway) on
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/using.mdx)
 
-Last updated on **May 9, 2025** by **Chase Fleming**
+Last updated on **May 1, 2025** by **Tang Bo Hao**
 
 [Previous
 

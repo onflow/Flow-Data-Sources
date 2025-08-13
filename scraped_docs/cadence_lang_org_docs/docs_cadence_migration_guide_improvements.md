@@ -8,12 +8,13 @@ Cadence 1.0 Improvements & New Features | Cadence
 
 [![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
 
-[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+[Learn](/docs)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Language Reference](/docs/language)
 
 Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
+* [Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
 * [Tutorial](/docs/tutorial/first-steps)
 * [Language Reference](/docs/language/)
 * [Cadence 1.0 Migration Guide](/docs/cadence-migration-guide/)
@@ -26,9 +27,8 @@ Search
 * [Anti-Patterns](/docs/anti-patterns)
 * [Development Standards](/docs/project-development-tips)
 * [Security Best Practices](/docs/security-best-practices)
-* [Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
+* [JSON-Cadence Format](/docs/json-cadence-spec)
 * [Contract Upgrades with Incompatible Changes](/docs/contract-upgrades)
-* [JSON-Cadence format](/docs/json-cadence-spec)
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
@@ -667,7 +667,7 @@ _10
 
 This now results in the following errors:
 
-`_11
+`` _11
 
 error: incorrect argument label
 
@@ -707,7 +707,7 @@ _11
 
 _11
 
-| ^^^^^`
+| ^^^^^ ``
 
 **Corrected program**:
 
@@ -955,7 +955,7 @@ fun foo(n: Int8, s: String): Int16 { /* ... */ }`
 The function `foo` now has the type `fun(Int8, String): Int16`.
 The `:` token is right-associative, so functions that return other functions can have their types written without nested parentheses:
 
-`_10
+`` _10
 
 fun curriedAdd(_ x: Int): fun(Int): Int {
 
@@ -977,11 +977,11 @@ _10
 
 _10
 
-// function `curriedAdd` has the type `fun(Int): fun(Int): Int``
+// function `curriedAdd` has the type `fun(Int): fun(Int): Int` ``
 
 To further bring the syntax for function types closer to the syntax of function declarations expressions, it is now possible to omit the return type, in which case the return type defaults to `Void`.
 
-`_10
+`` _10
 
 fun logTwice(_ value: AnyStruct) {// Return type is implicitly `Void`
 
@@ -1009,7 +1009,7 @@ let logTwice1: fun(AnyStruct): Void = logTwice
 
 _10
 
-let logTwice2: fun(AnyStruct) = logTwice`
+let logTwice2: fun(AnyStruct) = logTwice ``
 
 As a bonus consequence, it is now allowed for any type to be parenthesized. This is useful for complex type signatures, or for expressing optional functions:
 
@@ -1459,7 +1459,7 @@ Code that uses `AnyStruct` or `AnyResource` explicitly as the restricted typ
 
 This function accepted a reference to a `T` value, but restricted what functions were allowed to be called on it to those defined on the `X`, `Y`, and `Z` interfaces.
 
-`_32
+`` _32
 
 access(all)
 
@@ -1577,12 +1577,12 @@ _32
 
 _32
 
-}`
+} ``
 
 **After:**
 This function can be safely rewritten as:
 
-`_33
+`` _33
 
 access(all)
 
@@ -1702,7 +1702,7 @@ _33
 
 _33
 
-}`
+} ``
 
 Any functions on `T` that the author of `T` does not want users to be able to call publicly should be defined with entitlements, and thus will not be accessible to the unauthorized `param` reference, like with `qux` above.
 
@@ -1790,7 +1790,7 @@ _10
 
 If the transaction attempts to perform other operations, such as adding a new key, it is rejected:
 
-`_10
+`` _10
 
 transaction {
 
@@ -1816,7 +1816,7 @@ _10
 
 _10
 
-}`
+} ``
 
 Deprecated Key Management API Got Removed
 
@@ -2703,7 +2703,7 @@ destroy ownedNFTsRef.insert(key: 1234, <-nft)`
 
 Once this change is introduced, the above collection can be re-written as below:
 
-`_36
+`` _36
 
 pub resource MasterCollection {
 
@@ -2825,11 +2825,11 @@ TopshotCollector -> Remove
 
 _36
 
-}`
+} ``
 
 Then for a reference with no entitlements, none of the previously mentioned operations would be allowed:
 
-`_13
+`` _13
 
 var masterCollectionRef:&MasterCollection <- ... // Error: Cannot update the field. Doesn't have sufficient entitlements.
 
@@ -2873,7 +2873,7 @@ let ownedNFTsRef = &masterCollectionRef.kittyCollection.ownedNFTsas&{UInt64: Non
 
 _13
 
-destroy ownedNFTsRef.insert(key: 1234, <-nft)`
+destroy ownedNFTsRef.insert(key: 1234, <-nft) ``
 
 To perform these operations on the reference, one would need to have obtained a reference with proper entitlements:
 
@@ -3316,10 +3316,3 @@ NFT Cadence 1.0 Guide](/docs/cadence-migration-guide/nft-guide)
 * [⚡ Breaking Improvements](#-breaking-improvements)
 * [FT / NFT Standard changes](#ft--nft-standard-changes)
 * [More Resources](#more-resources)
-
-Got suggestions for this site?
-
-* [It's open-source!](https://github.com/onflow/cadence-lang.org)
-
-The source code of this site is licensed under the Apache License, Version 2.0.
-Content is licensed under the Creative Commons Attribution 4.0 International License.

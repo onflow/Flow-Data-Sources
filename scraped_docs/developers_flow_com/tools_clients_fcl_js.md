@@ -6,13 +6,13 @@ Flow Client Library (FCL) | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [@onflow/kit](/tools/kit)
+* [@onflow/react-sdk](/tools/react-sdk)
 * [Flow Emulator](/tools/emulator)
 * [Flow CLI](/tools/flow-cli)
 * [Cadence VS Code Extension](/tools/vscode-extension)
@@ -21,8 +21,7 @@ Search
 
   + [Flow Client Library (FCL)](/tools/clients/fcl-js)
 
-    - [FCL Reference](/tools/clients/fcl-js/api)
-    - [SDK Reference](/tools/clients/fcl-js/sdk-guidelines)
+    - [Packages Docs](/tools/clients/fcl-js/packages-docs)
     - [Authentication](/tools/clients/fcl-js/authentication)
     - [How to Configure FCL](/tools/clients/fcl-js/configure-fcl)
     - [Cross VM Packages](/tools/clients/fcl-js/cross-vm)
@@ -140,77 +139,79 @@ fcl.authenticate()`
 * *Interact with smart contracts*: Authorize transactions via the user's chosen wallet
 * *Prove ownership of a wallet address*: Signing and verifying user signed data
 
-[Learn more about wallet interactions >](/tools/clients/fcl-js/api#wallet-interactions)
-
 #### Blockchain Interactions[​](#blockchain-interactions "Direct link to Blockchain Interactions")
 
 * *Query the chain*: Send arbitrary Cadence scripts to the chain and receive back decoded values
 
-`_16
+`` _17
 
 import * as fcl from "@onflow/fcl";
 
-_16
+_17
 
-_16
+_17
 
 const result = await fcl.query({
 
-_16
+_17
 
 cadence: `
 
-_16
+_17
 
-pub fun main(a: Int, b: Int, addr: Address): Int {
+access(all)
 
-_16
+_17
+
+fun main(a: Int, b: Int, addr: Address): Int {
+
+_17
 
 log(addr)
 
-_16
+_17
 
 return a + b
 
-_16
+_17
 
 }
 
-_16
+_17
 
 `,
 
-_16
+_17
 
 args: (arg, t) => [
 
-_16
+_17
 
 arg(7, t.Int), // a: Int
 
-_16
+_17
 
 arg(6, t.Int), // b: Int
 
-_16
+_17
 
 arg("0xba1132bc08f82fe2", t.Address), // addr: Address
 
-_16
+_17
 
 ],
 
-_16
+_17
 
 });
 
-_16
+_17
 
-console.log(result); // 13`
+console.log(result); // 13 ``
 
 * *Mutate the chain*: Send arbitrary transactions with your own signatures or via a user's wallet to perform state changes on chain.
 
-`_14
+`` _14
 
 import * as fcl from "@onflow/fcl";
 
@@ -262,9 +263,7 @@ args: (arg, t) => [arg("myName", t.String)],
 
 _14
 
-});`
-
-[Learn more about on-chain interactions >](/tools/clients/fcl-js/api#on-chain-interactions)
+}); ``
 
 #### Utilities[​](#utilities "Direct link to Utilities")
 
@@ -273,8 +272,6 @@ _14
 * Transaction status polling
 * Event polling
 * Custom authorization functions
-
-[Learn more about utilities >](/tools/clients/fcl-js/api#pre-built-interactions)
 
 ## Typescript Support[​](#typescript-support "Direct link to Typescript Support")
 
@@ -327,7 +324,7 @@ For all type definitions available, see [this file](https://github.com/onflow/fc
 ## Next Steps[​](#next-steps "Direct link to Next Steps")
 
 * See the [Flow App Quick Start](/build/getting-started/fcl-quickstart).
-* See the full [API Reference](/tools/clients/fcl-js/api) for all FCL functionality.
+* See the full [API Reference](/tools/clients/fcl-js/packages-docs/fcl) for all FCL functionality.
 * Learn Flow's smart contract language to build any script or transactions: [Cadence](https://cadence-lang.org).
 * Explore all of Flow [docs and tools](https://developers.flow.com).
 
@@ -373,7 +370,7 @@ The discovery feature can be used via API allowing you to customize your own UI 
 
 ## 🛠 Want to Use the Flow SDK Directly?[​](#-want-to-use-the-flow-sdk-directly "Direct link to 🛠 Want to Use the Flow SDK Directly?")
 
-If you prefer to interact with Flow at a **lower level** without using FCL, you can use the [Flow JavaScript SDK](/tools/clients/fcl-js/sdk-guidelines) directly. The SDK provides raw access to Flow's API for sending transactions, executing scripts, and managing accounts.
+If you prefer to interact with Flow at a **lower level** without using FCL, you can use the [Flow JavaScript SDK](/tools/clients/fcl-js/packages-docs/sdk) directly. The SDK provides raw access to Flow's API for sending transactions, executing scripts, and managing accounts.
 
 FCL is built **on top of the Flow SDK**, making it easier to handle authentication, wallet interactions, and dapp connectivity. Choose the approach that best fits your use case.
 
@@ -385,13 +382,13 @@ FCL is built **on top of the Flow SDK**, making it easier to handle authenticati
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/index.md)
 
-Last updated on **May 9, 2025** by **Chase Fleming**
+Last updated on **Jul 25, 2025** by **Jordan Ribbink**
 
 [Previous
 
 Client Tools](/tools/clients)[Next
 
-FCL Reference](/tools/clients/fcl-js/api)
+Packages Docs](/tools/clients/fcl-js/packages-docs)
 
 ###### Rate this page
 

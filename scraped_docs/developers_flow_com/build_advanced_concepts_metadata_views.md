@@ -6,15 +6,15 @@ NFT Metadata Views | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
 * [Why Flow](/build/flow)
+* [Getting Started](/build/getting-started)
 * [Differences vs. EVM](/build/differences-vs-evm)
-* [Getting Started](/build/getting-started/contract-interaction)
 * [Flow Protocol](/build/basics/network-architecture)
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
@@ -821,7 +821,7 @@ These views should still should be queryable via individual NFTs though.
 One can accomplish this by just forwarding the call
 from the NFT's `resolveView()` method to the contract's `resolveView()` method, like so:
 
-`_10
+`` _10
 
 /// this line is in `ExampleNFT.NFT.resolveView()`
 
@@ -831,7 +831,7 @@ case Type<MetadataViews.NFTCollectionDisplay>():
 
 _10
 
-return ExampleNFT.getCollectionDisplay(nftType: Type<@ExampleNFT.NFT>())`
+return ExampleNFT.getCollectionDisplay(nftType: Type<@ExampleNFT.NFT>()) ``
 
 ### NFTCollectionData[​](#nftcollectiondata "Direct link to NFTCollectionData")
 

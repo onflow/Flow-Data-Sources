@@ -24,7 +24,7 @@ Beginner Dapp Ios
 
 star
 
-2
+0
 
 ![User avatar](https://avatars.githubusercontent.com/u/3641594?s=400&u=044fd05bc61270527c4da99212f143595d6fa4a1&v=4)
 

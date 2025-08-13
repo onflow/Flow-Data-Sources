@@ -6,14 +6,16 @@ Interacting with COAs from Cadence | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
 * [Tutorials](/tutorials)
-* [AI Plus Flow](/tutorials/ai-plus-flow)
+* [Flow Blockchain 101](/tutorials/flow-101)
+* [Use AI To Build On Flow](/tutorials/use-AI-to-build-on-flow)
+* [Gasless Transactions](/tutorials/gasless-transactions)
 * [Token Launch](/tutorials/token-launch)
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
 
@@ -25,6 +27,7 @@ Search
   + [Cross-VM Bridge](/tutorials/cross-vm-apps/vm-bridge)
 * [FlowtoBooth](/tutorials/flowtobooth)
 * [Native VRF](/tutorials/native-vrf)
+* [Integrations](/tutorials/integrations/crossmint)
 
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
 * Interacting with COAs
@@ -271,7 +274,7 @@ To import the `EVM` contract into your Cadence code using the simple import synt
 (learn more about configuring contracts in `flow.json`
 [here](/tools/flow-cli/flow.json/configuration#contracts)):
 
-`_10
+`` _10
 
 // This assumes you are working in the in the Flow CLI, FCL, or another tool that supports this syntax
 
@@ -285,7 +288,7 @@ import "EVM"
 
 _10
 
-// ...`
+// ... ``
 
 However, if you wish to use manual address imports instead, you can use the following format:
 
@@ -567,7 +570,7 @@ This transaction will withdraw Flow tokens from a user's Cadence vault and depos
 
 deposit\_to\_coa.cdc
 
-`_27
+`` _27
 
 import "EVM"
 
@@ -665,7 +668,7 @@ _27
 
 _27
 
-}`
+} ``
 
 info
 
@@ -684,7 +687,7 @@ We can run the following transaction to withdraw Flow tokens from a user's COA a
 
 withdraw\_from\_coa.cdc
 
-`_32
+`` _32
 
 import "EVM"
 
@@ -798,7 +801,7 @@ _32
 
 _32
 
-}`
+} ``
 
 info
 
@@ -1794,7 +1797,7 @@ using Cadence.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/interacting-with-coa.md)
 
-Last updated on **May 9, 2025** by **Chase Fleming**
+Last updated on **Mar 26, 2025** by **Brian Doyle**
 
 [Previous
 

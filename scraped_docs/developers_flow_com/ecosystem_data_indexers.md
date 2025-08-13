@@ -6,7 +6,7 @@ Data Indexers | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -19,6 +19,7 @@ Search
 * [Developer Profile](/ecosystem/developer-profile)
 * [DeFi & Liquidity](/ecosystem/defi-liquidity)
 * [Bridges](/ecosystem/bridges)
+* [Collectibles & NFTs](/ecosystem/collectibles)
 * [Community Projects](/ecosystem/projects)
 * [Builder Perks](/ecosystem/builder-perks)
 * [VCs & Funds](/ecosystem/vcs-and-funds)
@@ -35,18 +36,6 @@ On this page
 # Data Indexers
 
 When building applications that leverage Flow data, developers have multiple Data Indexers to choose from. These platforms offer flexible options, allowing you to index all data on Flow, including information from both the Cadence VM and EVM. Alternatively, if your application doesn't require Cadence, you can opt to index only EVM data. This flexibility ensures that you can tailor your data indexing strategy to fit the specific needs of your application.
-
-## EVM & Cadence[​](#evm--cadence "Direct link to EVM & Cadence")
-
-### **SimpleHash**[​](#simplehash "Direct link to simplehash")
-
-[SimpleHash](https://simplehash.com/) is a comprehensive multi-chain NFT data platform that provides developers with easy access to token data across 60+ blockchain networks. It offers a robust API for querying NFT metadata, media, collection details, sales, floor prices, listings, and bids, streamlining the process of building NFT-powered applications.
-
-**Getting Started with SimpleHash**
-
-Developers can begin using SimpleHash by [signing up for an API key](https://simplehash.com/) on their website. The platform provides comprehensive [documentation](https://docs.simplehash.com/reference/overview) to help developers integrate SimpleHash into their projects.
-
-## **EVM Only**[​](#evm-only "Direct link to evm-only")
 
 ### Moralis[​](#moralis "Direct link to Moralis")
 
@@ -66,7 +55,7 @@ To begin using Alchemy, developers can [sign up for an account](https://www.alch
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/data-indexers.md)
 
-Last updated on **May 9, 2025** by **Chase Fleming**
+Last updated on **May 20, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -80,11 +69,8 @@ Developer Profile](/ecosystem/developer-profile)
 
 Copy as Markdown
 
-* [EVM & Cadence](#evm--cadence)
-  + [**SimpleHash**](#simplehash)
-* [**EVM Only**](#evm-only)
-  + [Moralis](#moralis)
-  + [**Alchemy**](#alchemy)
+* [Moralis](#moralis)
+* [**Alchemy**](#alchemy)
 
 Documentation
 

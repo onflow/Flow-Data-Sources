@@ -8,55 +8,50 @@ Syntax | Cadence
 
 [![Cadence](/img/logo.svg)![Cadence](/img/logo.svg)](/)
 
-[Learn](/learn)[Solidity Guide](/docs/solidity-to-cadence)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Documentation](/docs/)[1.0](/docs/)
+[Learn](/docs)[Playground](https://play.flow.com/)[Community](/community)[Security](https://flow.com/flow-responsible-disclosure/)[Language Reference](/docs/language)
 
 Search
 
 * [Introduction](/docs/)
 * [Why Use Cadence?](/docs/why)
+* [Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
 * [Tutorial](/docs/tutorial/first-steps)
 * [Language Reference](/docs/language/)
 
   + [Syntax](/docs/language/syntax)
   + [Constants and Variable Declarations](/docs/language/constants-and-variables)
-  + [Type Annotations](/docs/language/type-annotations)
-  + [Values and Types](/docs/language/values-and-types)
-  + [Operators](/docs/language/operators)
+  + [Values and Types](/docs/language/values-and-types/)
+  + [Types and Type System](/docs/language/types-and-type-system/)
+  + [Operators](/docs/language/operators/)
+  + [Accounts](/docs/language/accounts/)
   + [Functions](/docs/language/functions)
+  + [Pre- and Post-Conditions](/docs/language/pre-and-post-conditions)
+  + [Built-in Functions](/docs/language/built-in-functions)
   + [Control Flow](/docs/language/control-flow)
   + [Scope](/docs/language/scope)
-  + [Type Safety](/docs/language/type-safety)
-  + [Type Inference](/docs/language/type-inference)
-  + [Composite Types](/docs/language/composite-types)
   + [Resources](/docs/language/resources)
-  + [Access control](/docs/language/access-control)
+  + [Access Control](/docs/language/access-control)
   + [Capabilities](/docs/language/capabilities)
   + [Interfaces](/docs/language/interfaces)
   + [Enumerations](/docs/language/enumerations)
-  + [Intersection Types](/docs/language/intersection-types)
   + [References](/docs/language/references)
   + [Imports](/docs/language/imports)
-  + [Accounts](/docs/language/accounts/)
   + [Attachments](/docs/language/attachments)
   + [Contracts](/docs/language/contracts)
   + [Contract Updatability](/docs/language/contract-updatability)
   + [Transactions](/docs/language/transactions)
   + [Events](/docs/language/events)
   + [Core Events](/docs/language/core-events)
-  + [Run-time Types](/docs/language/run-time-types)
-  + [Built-in Functions](/docs/language/built-in-functions)
   + [Environment Information](/docs/language/environment-information)
   + [Crypto](/docs/language/crypto)
-  + [Type Hierarchy](/docs/language/type-hierarchy)
   + [Glossary](/docs/language/glossary)
 * [Cadence 1.0 Migration Guide](/docs/cadence-migration-guide/)
 * [Design Patterns](/docs/design-patterns)
 * [Anti-Patterns](/docs/anti-patterns)
 * [Development Standards](/docs/project-development-tips)
 * [Security Best Practices](/docs/security-best-practices)
-* [Cadence Guide for Solidity Developers](/docs/solidity-to-cadence)
+* [JSON-Cadence Format](/docs/json-cadence-spec)
 * [Contract Upgrades with Incompatible Changes](/docs/contract-upgrades)
-* [JSON-Cadence format](/docs/json-cadence-spec)
 * [Measuring Time](/docs/measuring-time)
 * [Testing](/docs/testing-framework)
 
@@ -69,11 +64,9 @@ On this page
 
 ## Comments[​](#comments "Direct link to Comments")
 
-Comments can be used to document code.
-A comment is text that is not executed.
+Comments can be used to document code. A comment is text that is not executed.
 
-*Single-line comments* start with two slashes (`//`).
-These comments can go on a line by themselves or they can go directly after a line of code.
+*Single-line comments* start with two slashes (`//`). These comments can go on a line by themselves, or they can go directly after a line of code:
 
 `_10
 
@@ -89,8 +82,7 @@ _10
 
 let x = 1 // Here is another comment after a line of code.`
 
-*Multi-line comments* start with a slash and an asterisk (`/*`)
-and end with an asterisk and a slash (`*/`):
+*Multi-line comments* start with a slash and an asterisk (`/*`) and end with an asterisk and a slash (`*/`):
 
 `_10
 
@@ -100,27 +92,25 @@ _10
 
 spans multiple lines. */`
 
-Comments may be nested.
+Comments may be nested:
 
 `_10
 
 /* /* this */ is a valid comment */`
 
-Multi-line comments are balanced.
+Multi-line comments are balanced:
 
 `_10
 
 /* this is a // comment up to here */ this is not part of the comment */`
 
-### Documentation Comments[​](#documentation-comments "Direct link to Documentation Comments")
+### Documentation comments[​](#documentation-comments "Direct link to Documentation comments")
 
-Documentation comments (also known as "doc-strings" or "doc-comment") are a special set of comments that can be
-processed by tools, for example to generate human-readable documentation, or provide documentation in an IDE.
+Documentation comments (also known as *doc-strings* or *doc-comment*) are a special set of comments that can be processed by tools (e.g., to generate human-readable documentation or provide documentation in an IDE).
 
-Doc-comments either start with three slashes (`///`) on each line,
-or are surrounded by `/**` and `**/`.
+Doc-comments either start with three slashes (`///`) on each line or are surrounded by `/**` and `**/`:
 
-`_10
+`` _10
 
 /// This is a documentation comment for `x`.
 
@@ -132,7 +122,7 @@ _10
 
 _10
 
-let x = 1`
+let x = 1 ``
 
 `_10
 
@@ -152,11 +142,7 @@ _10
 
 ## Identifiers[​](#identifiers "Direct link to Identifiers")
 
-Identifiers may start with any upper or lowercase letter (A-Z, a-z)
-or an underscore (`_`).
-This may be followed by zero or more upper and lower case letters,
-underscores, and numbers (0-9).
-Identifiers may not begin with a number.
+Identifiers can start with any upper or lowercase letter (A-Z, a-z) or an underscore (`_`). This may be followed by zero or more upper and lower case letters, underscores, and numbers (0-9). Identifiers can **not** begin with a number:
 
 `_29
 
@@ -272,27 +258,21 @@ The following identifiers are reserved, as they are keywords of the language:
 * `fun`, `pre`, `post`,
 * `auth`, `access`
 * `self`, `init`
-* `contract`, `event`, `struct`, `resource`, `interface`,
-  `entitlement`, `enum`, `mapping`, `attachment`, `result`
+* `contract`, `event`, `struct`, `resource`, `interface`, `entitlement`, `enum`, `mapping`, `attachment`, `result`
 * `transaction`, `prepare`, `execute`
 * `switch`, `case`, `default`
 * `import`, `include`
-* `require`, `requires`, `static`, `native`, `pub`, `priv`, `try`, `catch`, `finally`,
-  `goto`, `const`, `export`, `throw`, `throws`, `where`, `final`, `internal`, `typealias`,
-  `repeat`, `guard`, `is`
+* `require`, `requires`, `static`, `native`, `pub`, `priv`, `try`, `catch`, `finally`, `goto`, `const`, `export`, `throw`, `throws`, `where`, `final`, `internal`, `typealias`, `repeat`, `guard`, `is`
 
 ### Conventions[​](#conventions "Direct link to Conventions")
 
-By convention, variables, constants, and functions have lowercase identifiers;
-and types have title-case identifiers.
+By convention, variables, constants, and functions have lowercase identifiers, and types have title-case identifiers.
 
 ## Semicolons[​](#semicolons "Direct link to Semicolons")
 
-Semicolons (;) are used as separators between declarations and statements.
-A semicolon can be placed after any declaration and statement,
-but can be omitted between declarations and if only one statement appears on the line.
+Semicolons (`;`) are used as separators between declarations and statements. A semicolon can be placed after any declaration and statement, but can be omitted between declarations if only one statement appears on the line.
 
-Semicolons must be used to separate multiple statements if they appear on the same line.
+Semicolons must be used to separate multiple statements if they appear on the same line:
 
 `_11
 
@@ -347,15 +327,8 @@ Constants and Variable Declarations](/docs/language/constants-and-variables)
 😞😐😊
 
 * [Comments](#comments)
-  + [Documentation Comments](#documentation-comments)
+  + [Documentation comments](#documentation-comments)
 * [Identifiers](#identifiers)
   + [Reserved identifiers](#reserved-identifiers)
   + [Conventions](#conventions)
 * [Semicolons](#semicolons)
-
-Got suggestions for this site?
-
-* [It's open-source!](https://github.com/onflow/cadence-lang.org)
-
-The source code of this site is licensed under the Apache License, Version 2.0.
-Content is licensed under the Creative Commons Attribution 4.0 International License.

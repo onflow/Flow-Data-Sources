@@ -6,18 +6,21 @@ Tutorials | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
 * [Tutorials](/tutorials)
-* [AI Plus Flow](/tutorials/ai-plus-flow)
+* [Flow Blockchain 101](/tutorials/flow-101)
+* [Use AI To Build On Flow](/tutorials/use-AI-to-build-on-flow)
+* [Gasless Transactions](/tutorials/gasless-transactions)
 * [Token Launch](/tutorials/token-launch)
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
 * [FlowtoBooth](/tutorials/flowtobooth)
 * [Native VRF](/tutorials/native-vrf)
+* [Integrations](/tutorials/integrations/crossmint)
 
 * Tutorials
 
@@ -33,10 +36,16 @@ For this grand future, we'll need a new suite of tutorials, guides, and resource
 
 Learn how to leverage AI tools to enhance your Flow development experience. These tutorials show you how to integrate various AI assistants with Flow development to boost productivity and code quality.
 
-* [Use Flow Knowledge Base in Cursor](/tutorials/ai-plus-flow/cursor) - Learn how to set up Cursor with Flow knowledge bases to get intelligent assistance while developing Flow applications
-* [Use Flow Knowledge Base in ChatGPT](/tutorials/ai-plus-flow/chatgpt) - Create a custom GPT that understands Flow and Cadence to provide accurate answers to your development questions
-* [Flow Data Sources](/tutorials/ai-plus-flow/flow-data-sources) - Learn about this comprehensive resource and how to integrate it with various AI platforms
-* [Build AI Agents with AgentKit](/tutorials/ai-plus-flow/agentkit-flow-guide) - Learn how to create AI agents that can interact with Flow using AgentKit
+* [Use Flow Knowledge Base in Cursor](/tutorials/use-AI-to-build-on-flow/cursor) - Learn how to set up Cursor with Flow knowledge bases to get intelligent assistance while developing Flow applications
+* [Use Flow Knowledge Base in ChatGPT](/tutorials/use-AI-to-build-on-flow/chatgpt) - Create a custom GPT that understands Flow and Cadence to provide accurate answers to your development questions
+* [Flow Data Sources](/tutorials/use-AI-to-build-on-flow/flow-data-sources) - Learn about this comprehensive resource and how to integrate it with various AI platforms
+* [Build AI Agents with AgentKit](/tutorials/use-AI-to-build-on-flow/agentkit-flow-guide) - Learn how to create AI agents that can interact with Flow using AgentKit
+
+## Backend Usage[​](#backend-usage "Direct link to Backend Usage")
+
+Learn some tips and tutorials for interacting with the Flow blockchain in a backend application.
+
+* [Gas Free EVM Endpoint](/tutorials/gasless-transactions/gas-free-evm-endpoint) - Learn how to set up a gas free EVM endpoint for your backend, all transactions sent through this endpoint will not be charged for gas fees from the transaction sender's account.
 
 ## Token Launch[​](#token-launch "Direct link to Token Launch")
 
@@ -60,6 +69,7 @@ Learn how to build applications that interact with both Cadence and Flow EVM. Th
 Learn how to leverage Flow's native VRF capabilities in both Cadence and Solidity smart contracts. These tutorials demonstrate how to implement secure randomness without relying on external oracles.
 
 * [Secure Randomness with Commit-Reveal in Cadence](/tutorials/native-vrf/commit-reveal-cadence) - Learn how to implement secure randomness in Cadence using Flow's commit-reveal scheme
+* [VRF (Randomness) in Solidity](/tutorials/native-vrf/vrf-in-solidity) - Learn how to use Flow's native VRF capabilities in Solidity.
 * [Deploy a Solidity Contract Using Cadence](/tutorials/native-vrf/deploy-solidity-contract) - Discover how to deploy and interact with Solidity contracts on Flow EVM using Cadence
 
 ## FlowtoBooth[​](#flowtobooth "Direct link to FlowtoBooth")
@@ -70,11 +80,11 @@ Explore Flow's unique capabilities through fun benchmark applications that showc
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/index.md)
 
-Last updated on **May 9, 2025** by **Chase Fleming**
+Last updated on **Aug 11, 2025** by **0xLisanAlGaib**
 
 [Next
 
-AI Plus Flow](/tutorials/ai-plus-flow)
+Flow Blockchain 101](/tutorials/flow-101)
 
 ###### Rate this page
 
@@ -83,6 +93,7 @@ AI Plus Flow](/tutorials/ai-plus-flow)
 Copy as Markdown
 
 * [AI Plus Flow](#ai-plus-flow)
+* [Backend Usage](#backend-usage)
 * [Token Launch](#token-launch)
 * [Cross-VM Applications](#cross-vm-applications)
 * [Native VRF](#native-vrf)

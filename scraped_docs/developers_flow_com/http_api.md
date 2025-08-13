@@ -6,7 +6,7 @@ Access API | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -43,7 +43,7 @@ Search
 
 # Access API (1.0.0)
 
-Download OpenAPI specification:[Download](https://raw.githubusercontent.com/onflow/flow/master/openapi/access.yaml)
+Download OpenAPI specification:[Download](https://raw.githubusercontent.com/onflow/flow/87a8f227ad761fa61576b014e3562d3b6c38d8a6/openapi/access.yaml)
 
 [Find out more about the Access API](https://docs.onflow.org/access-api/)
 
@@ -121,7 +121,9 @@ Copy
         + "collection_id": "string",
         + "signer_ids": [
           - "string"],
-        + "signature": "string"}],
+        + "signature": "string",
+        + "reference_block_id": "string",
+        + "cluster_chain_id": "string"}],
     - "block_seals": [
       * {
         + "block_id": "string",
@@ -240,7 +242,9 @@ Copy
         + "collection_id": "string",
         + "signer_ids": [
           - "string"],
-        + "signature": "string"}],
+        + "signature": "string",
+        + "reference_block_id": "string",
+        + "cluster_chain_id": "string"}],
     - "block_seals": [
       * {
         + "block_id": "string",
@@ -351,7 +355,9 @@ Copy
     - "collection_id": "string",
     - "signer_ids": [
       * "string"],
-    - "signature": "string"}],
+    - "signature": "string",
+    - "reference_block_id": "string",
+    - "cluster_chain_id": "string"}],
 * "block_seals": [
   + {
     - "block_id": "string",
