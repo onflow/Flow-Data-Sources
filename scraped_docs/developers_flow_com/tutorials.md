@@ -12,6 +12,7 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 
 Search
 
+* [DeFi Actions](/tutorials/defi)
 * [Tutorials](/tutorials)
 * [Flow Blockchain 101](/tutorials/flow-101)
 * [Use AI To Build On Flow](/tutorials/use-AI-to-build-on-flow)
@@ -82,7 +83,9 @@ Explore Flow's unique capabilities through fun benchmark applications that showc
 
 Last updated on **Aug 11, 2025** by **0xLisanAlGaib**
 
-[Next
+[Previous
+
+Introduction to Scheduled Callbacks](/tutorials/defi/scheduled-callbacks-introduction)[Next
 
 Flow Blockchain 101](/tutorials/flow-101)
 

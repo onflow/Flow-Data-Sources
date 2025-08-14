@@ -6,15 +6,15 @@ NFT Storefront Smart Contract | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
 * [Why Flow](/build/flow)
+* [Getting Started](/build/getting-started)
 * [Differences vs. EVM](/build/differences-vs-evm)
-* [Getting Started](/build/getting-started/contract-interaction)
 * [Flow Protocol](/build/basics/network-architecture)
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
@@ -45,7 +45,7 @@ On this page
 
 # NFT Storefront Smart Contract
 
-The `NFTStorefront` contracts implement a standard way to list NFTs for sale
+The NFT Storefront contracts implement a standard way to list NFTs for sale
 and buy them from listings. `NFTStorefrontV2` is the more powerful and full-featured
 version, so developers and users are encouraged to use it instead of `NFTStorefront`
 or their own implementation.
@@ -54,6 +54,8 @@ Source: [NFTStorefrontV2.cdc](https://github.com/onflow/nft-storefront/blob/main
 
 | Network | Contract Address |
 | --- | --- |
+| Emulator | `0xf8d6e0586b0a20c7` |
+| Cadence Testing Framework | `0x0000000000000001` |
 | Testnet | `0x2d55b98eb200daef` |
 | Mainnet | `0x4eb8a10cb9f87357` |
 
@@ -648,7 +650,7 @@ A entitled receiver has not been paid during the sale of the NFT.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/10-nft-storefront.md)
 
-Last updated on **May 9, 2025** by **Chase Fleming**
+Last updated on **Jul 24, 2025** by **Josh Hannan**
 
 [Previous
 

@@ -1,24 +1,24 @@
 # Source: https://developers.flow.com/build/getting-started/fcl-quickstart
 
-Building a Simple Frontend with "@onflow/kit" | Flow Developer Portal
+Building a Simple Frontend with "@onflow/react-sdk" | Flow Developer Portal
 
 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
 * [Why Flow](/build/flow)
-* [Differences vs. EVM](/build/differences-vs-evm)
-* [Getting Started](/build/getting-started/contract-interaction)
+* [Getting Started](/build/getting-started)
 
   + [Contract Interaction](/build/getting-started/contract-interaction)
   + [Local Development](/build/getting-started/flow-cli)
   + [Simple Frontend](/build/getting-started/fcl-quickstart)
+* [Differences vs. EVM](/build/differences-vs-evm)
 * [Flow Protocol](/build/basics/network-architecture)
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
@@ -27,20 +27,20 @@ Search
 * [Core Smart Contracts](/build/core-contracts)
 * [Explore More](/build/explore-more)
 
-* Getting Started
+* [Getting Started](/build/getting-started)
 * Simple Frontend
 
 On this page
 
-# Simple Frontend with `@onflow/kit`
+# Simple Frontend with `@onflow/react-sdk`
 
-Building on the `Counter` contract you deployed in [Step 1: Contract Interaction](/build/getting-started/contract-interaction) and [Step 2: Local Development](/build/getting-started/flow-cli), this tutorial shows you how to create a simple Next.js frontend that interacts with the `Counter` smart contract deployed on your local Flow emulator. Instead of using FCL directly, you'll leverage [**@onflow/kit**](/tools/kit) to simplify authentication, querying, transactions, and to display real-time transaction status updates using convenient React hooks.
+Building on the `Counter` contract you deployed in [Step 1: Contract Interaction](/build/getting-started/contract-interaction) and [Step 2: Local Development](/build/getting-started/flow-cli), this tutorial shows you how to create a simple Next.js frontend that interacts with the `Counter` smart contract deployed on your local Flow emulator. Instead of using FCL directly, you'll leverage [**@onflow/react-sdk**](/tools/react-sdk) to simplify authentication, querying, transactions, and to display real-time transaction status updates using convenient React hooks.
 
 ## Objectives[​](#objectives "Direct link to Objectives")
 
 After finishing this guide, you will be able to:
 
-* Wrap your Next.js app with a Flow provider using [**@onflow/kit**](/tools/kit).
+* Wrap your Next.js app with a Flow provider using [**@onflow/react-sdk**](/tools/react-sdk).
 * Read data from a Cadence smart contract (`Counter`) using kit's query hook.
 * Send a transaction to update the smart contract's state using kit's mutation hook.
 * Monitor a transaction's status in real time using kit's transaction hook.
@@ -54,7 +54,7 @@ After finishing this guide, you will be able to:
 
 ## Setting Up the Next.js App[​](#setting-up-the-nextjs-app "Direct link to Setting Up the Next.js App")
 
-Follow these steps to set up your Next.js project and integrate [**@onflow/kit**](/tools/kit).
+Follow these steps to set up your Next.js project and integrate [**@onflow/react-sdk**](/tools/react-sdk).
 
 ### Step 1: Create a New Next.js App[​](#step-1-create-a-new-nextjs-app "Direct link to Step 1: Create a New Next.js App")
 
@@ -110,13 +110,13 @@ Remove-Item -Recurse -Force .\kit-app-quickstart`
 
 **Note:** When moving hidden files (those beginning with a dot) like `.gitignore`, be cautious not to overwrite any important files.
 
-### Step 3: Install @onflow/kit[​](#step-3-install-onflowkit "Direct link to Step 3: Install @onflow/kit")
+### Step 3: Install @onflow/react-sdk[​](#step-3-install-onflowreact-sdk "Direct link to Step 3: Install @onflow/react-sdk")
 
 Install the kit library in your project:
 
 `_10
 
-npm install @onflow/kit`
+npm install @onflow/react-sdk`
 
 This library wraps FCL internally and exposes a set of hooks for authentication, querying, sending transactions, and tracking transaction status.
 
@@ -148,113 +148,109 @@ This will start the [Dev Wallet](/tools/flow-dev-wallet) on `http://localhost:87
 
 ## Wrapping Your App with FlowProvider[​](#wrapping-your-app-with-flowprovider "Direct link to Wrapping Your App with FlowProvider")
 
-[**@onflow/kit**](/tools/kit) provides a `FlowProvider` component that sets up the Flow Client Library configuration. In Next.js using the App Router, add or update your `src/app/layout.tsx` as follows:
+[**@onflow/react-sdk**](/tools/react-sdk) provides a `FlowProvider` component that sets up the Flow Client Library configuration. In Next.js using the App Router, add or update your `src/app/layout.tsx` as follows:
 
-`_28
+`_27
 
-// src/app/layout.tsx
+"use client";
 
-_28
+_27
 
-'use client';
+_27
 
-_28
+import { FlowProvider } from "@onflow/react-sdk";
 
-_28
+_27
 
-import { FlowProvider } from '@onflow/kit';
+import flowJson from "../flow.json";
 
-_28
+_27
 
-import flowJSON from '../../flow.json';
-
-_28
-
-_28
+_27
 
 export default function RootLayout({
 
-_28
+_27
 
 children,
 
-_28
+_27
 
 }: {
 
-_28
+_27
 
-children: React.ReactNode;
+children: React.ReactNode
 
-_28
+_27
 
 }) {
 
-_28
+_27
 
 return (
 
-_28
+_27
 
 <html>
 
-_28
+_27
 
 <body>
 
-_28
+_27
 
 <FlowProvider
 
-_28
+_27
 
 config={{
 
-_28
+_27
 
 accessNodeUrl: 'http://localhost:8888',
 
-_28
+_27
 
 flowNetwork: 'emulator',
 
-_28
+_27
 
 discoveryWallet: 'https://fcl-discovery.onflow.org/emulator/authn',
 
-_28
+_27
 
 }}
 
-_28
+_27
 
-flowJson={flowJSON}
+flowJson={flowJson}
 
-_28
+_27
 
 >
 
-_28
+_27
 
 {children}
 
-_28
+_27
 
 </FlowProvider>
 
-_28
+_27
 
 </body>
 
-_28
+_27
 
 </html>
 
-_28
+_27
 
-);
+)
 
-_28
+_27
 
 }`
 
@@ -268,11 +264,11 @@ Now that we've set our provider, lets start interacting with the chain.
 
 ### Querying the Chain[​](#querying-the-chain "Direct link to Querying the Chain")
 
-First, use the kit's [`useFlowQuery`](/tools/kit#useflowquery) hook to read the current counter value from the blockchain.
+First, use the kit's [`useFlowQuery`](/tools/react-sdk#useflowquery) hook to read the current counter value from the blockchain.
 
-`_18
+`` _18
 
-import { useFlowQuery } from '@onflow/kit';
+import { useFlowQuery } from '@onflow/react-sdk';
 
 _18
 
@@ -334,7 +330,7 @@ _18
 
 _18
 
-// Use the count data in your component as needed.`
+// Use the count data in your component as needed. ``
 
 This script fetches the counter value, formats it via the `NumberFormatter`, and returns the formatted string.
 
@@ -345,11 +341,11 @@ info
 
 ### Sending a Transaction[​](#sending-a-transaction "Direct link to Sending a Transaction")
 
-Next, use the kit's [`useFlowMutate`](/tools/kit#useflowmutate) hook to send a transaction that increments the counter.
+Next, use the kit's [`useFlowMutate`](/tools/react-sdk#useflowmutate) hook to send a transaction that increments the counter.
 
-`_27
+`` _27
 
-import { useFlowMutate } from '@onflow/kit';
+import { useFlowMutate } from '@onflow/react-sdk';
 
 _27
 
@@ -447,7 +443,7 @@ _27
 
 _27
 
-};`
+}; ``
 
 #### Explanation[​](#explanation "Direct link to Explanation")
 
@@ -455,51 +451,59 @@ This sends a Cadence transaction to the blockchain using the `mutate` function. 
 
 ### Subscribing to Transaction Status[​](#subscribing-to-transaction-status "Direct link to Subscribing to Transaction Status")
 
-Use the kit's [`useFlowTransaction`] hook to monitor and display the transaction status in real time.
+Use the kit's [`useFlowTransactionStatus`] hook to monitor and display the transaction status in real time.
 
-`_11
+`_14
 
-const { transactionStatus, error: txStatusError } = useFlowTransaction(
+import { useFlowTransactionStatus } from '@onflow/react-sdk';
 
-_11
+_14
 
-txId || '',
+_14
 
-_11
+const { transactionStatus, error: txStatusError } = useFlowTransactionStatus({
 
-);
+_14
 
-_11
+id: txId || "",
 
-_11
+_14
+
+});
+
+_14
+
+_14
+
+_14
 
 useEffect(() => {
 
-_11
+_14
 
 if (txId && transactionStatus?.status === 3) {
 
-_11
+_14
 
 refetch();
 
-_11
+_14
 
 }
 
-_11
+_14
 
 }, [transactionStatus?.status, txId, refetch]);
 
-_11
+_14
 
-_11
+_14
 
 // You can then use transactionStatus (for example, its statusString) to show updates.`
 
 #### Explanation:[​](#explanation-1 "Direct link to Explanation:")
 
-* `useFlowTransaction(txId)` subscribes to real-time updates about a transaction's lifecycle using the transaction ID.
+* `useFlowTransactionStatus(txId)` subscribes to real-time updates about a transaction's lifecycle using the transaction ID.
 * `transactionStatus.status` is a numeric code representing the state of the transaction:
   + `0`: **Unknown** – The transaction status is not yet known.
   + `1`: **Pending** – The transaction has been submitted and is waiting to be included in a block.
@@ -520,15 +524,9 @@ However:
 
 ### Integrating Authentication and Building the Complete UI[​](#integrating-authentication-and-building-the-complete-ui "Direct link to Integrating Authentication and Building the Complete UI")
 
-Finally, integrate the query, mutation, and transaction status hooks with authentication using `useCurrentFlowUser`. Combine all parts to build the complete page.
+Finally, integrate the query, mutation, and transaction status hooks with authentication using `useFlowCurrentUser`. Combine all parts to build the complete page.
 
-`_114
-
-// src/app/page.js
-
-_114
-
-_114
+`` _114
 
 "use client";
 
@@ -552,15 +550,15 @@ useFlowMutate,
 
 _114
 
-useFlowTransaction,
+useFlowTransactionStatus,
 
 _114
 
-useCurrentFlowUser,
+useFlowCurrentUser,
 
 _114
 
-} from "@onflow/kit";
+} from "@onflow/react-sdk";
 
 _114
 
@@ -570,11 +568,7 @@ export default function Home() {
 
 _114
 
-const { user, authenticate, unauthenticate } = useCurrentFlowUser();
-
-_114
-
-const [lastTxId, setLastTxId] = useState<string>();
+const { user, authenticate, unauthenticate } = useFlowCurrentUser();
 
 _114
 
@@ -662,15 +656,19 @@ _114
 
 _114
 
-const { transactionStatus, error: txStatusError } = useFlowTransaction(
+_114
+
+const { transactionStatus, error: txStatusError } = useFlowTransactionStatus({
 
 _114
 
-txId || "",
+id: txId || "",
 
 _114
 
-);
+});
+
+_114
 
 _114
 
@@ -680,11 +678,15 @@ useEffect(() => {
 
 _114
 
-if (txId && transactionStatus?.status === 4) {
+if (txId && transactionStatus?.status === 3) {
 
 _114
 
-refetch();
+// Transaction is executed
+
+_114
+
+refetch(); // Refresh the counter
 
 _114
 
@@ -778,7 +780,7 @@ _114
 
 _114
 
-<h1>@onflow/kit App Quickstart</h1>
+<h1>Flow Counter dApp</h1>
 
 _114
 
@@ -796,7 +798,7 @@ _114
 
 _114
 
-<p>Error fetching count: {error.message}</p>
+<p>Error: {error.message}</p>
 
 _114
 
@@ -808,7 +810,11 @@ _114
 
 _114
 
-<h2>Count: {data as string}</h2>
+<h2>{(data as string) || "0"}</h2>
+
+_114
+
+<p>Current Count</p>
 
 _114
 
@@ -822,7 +828,7 @@ _114
 
 _114
 
-{user.loggedIn ? (
+{user?.loggedIn ? (
 
 _114
 
@@ -830,11 +836,9 @@ _114
 
 _114
 
-<p>Address: {user.addr}</p>
+<p>Connected: {user.addr}</p>
 
 _114
-
-<button onClick={unauthenticate}>Log Out</button>
 
 _114
 
@@ -852,55 +856,25 @@ _114
 
 _114
 
-<div>
+<button onClick={unauthenticate}>
 
 _114
 
-Latest Transaction Status:{" "}
+Disconnect
 
 _114
 
-{transactionStatus?.statusString || "No transaction yet"}
-
-_114
-
-</div>
+</button>
 
 _114
 
 _114
 
-{txError && <p>Error sending transaction: {txError.message}</p>}
+{transactionStatus?.statusString && transactionStatus?.status && (
 
 _114
 
-_114
-
-{lastTxId && (
-
-_114
-
-<div>
-
-_114
-
-<h3>Transaction Status</h3>
-
-_114
-
-{transactionStatus ? (
-
-_114
-
-<p>Status: {transactionStatus.statusString}</p>
-
-_114
-
-) : (
-
-_114
-
-<p>Waiting for status update...</p>
+<p>Status: {transactionStatus.status >= 3 ? "Successful" : "Pending"}</p>
 
 _114
 
@@ -908,11 +882,27 @@ _114
 
 _114
 
-{txStatusError && <p>Error: {txStatusError.message}</p>}
+_114
+
+{txError && (
 
 _114
 
-</div>
+<p>Error: {txError.message}</p>
+
+_114
+
+)}
+
+_114
+
+_114
+
+{txStatusError && (
+
+_114
+
+<p>Status Error: {txStatusError.message}</p>
 
 _114
 
@@ -928,7 +918,15 @@ _114
 
 _114
 
-<button onClick={authenticate}>Log In</button>
+<button onClick={authenticate}>
+
+_114
+
+Connect Wallet
+
+_114
+
+</button>
 
 _114
 
@@ -944,14 +942,14 @@ _114
 
 _114
 
-}`
+} ``
 
 In this complete page:
 
 * **Step 1** queries the counter value.
 * **Step 2** sends a transaction to increment the counter and stores the transaction ID.
 * **Step 3** subscribes to transaction status updates using the stored transaction ID and uses a `useEffect` hook to automatically refetch the updated count when the transaction is sealed (status code 4).
-* **Step 4** integrates authentication via `useCurrentFlowUser` and combines all the pieces into a single user interface.
+* **Step 4** integrates authentication via `useFlowCurrentUser` and combines all the pieces into a single user interface.
 
 tip
 
@@ -971,6 +969,10 @@ If you have the Flow wallet browser extension installed, you might automatically
 
 Log out, and log back in selecting the Dev Wallet instead of the Flow Wallet.
 
+warning
+
+For your app to connect with contracts deployed on the emulator, you need to have completed [Step 1: Contract Interaction](/build/getting-started/contract-interaction) and [Step 2: Local Development](/build/getting-started/flow-cli).
+
 Then visit <http://localhost:3000> in your browser. You should see:
 
 * The current counter value displayed (formatted with commas using `NumberFormatter`).
@@ -980,23 +982,23 @@ Then visit <http://localhost:3000> in your browser. You should see:
 
 ## Wrapping Up[​](#wrapping-up "Direct link to Wrapping Up")
 
-By following these steps, you've built a simple Next.js dApp that interacts with a Flow smart contract using [**@onflow/kit**](/tools/kit). In this guide you learned how to:
+By following these steps, you've built a simple Next.js dApp that interacts with a Flow smart contract using [**@onflow/react-sdk**](/tools/react-sdk). In this guide you learned how to:
 
 * Wrap your application in a `FlowProvider` to configure blockchain connectivity.
-* Use kit hooks such as `useFlowQuery`, `useFlowMutate`, `useFlowTransaction`, and `useCurrentFlowUser` to manage authentication, query on-chain data, submit transactions, and monitor their status.
+* Use kit hooks such as `useFlowQuery`, `useFlowMutate`, `useFlowTransactionStatus`, and `useFlowCurrentUser` to manage authentication, query on-chain data, submit transactions, and monitor their status.
 * Integrate with the local Flow emulator and Dev Wallet for a fully functional development setup.
 
-For additional details and advanced usage, refer to the [@onflow/kit documentation](/tools/kit) and other Flow developer resources.
+For additional details and advanced usage, refer to the [@onflow/react-sdk documentation](/tools/react-sdk) and other Flow developer resources.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/fcl-quickstart.md)
 
-Last updated on **May 9, 2025** by **Chase Fleming**
+Last updated on **Jul 25, 2025** by **Jordan Ribbink**
 
 [Previous
 
 Local Development](/build/getting-started/flow-cli)[Next
 
-Network Architecture ↗️](/build/basics/network-architecture)
+Differences vs. EVM](/build/differences-vs-evm)
 
 ###### Rate this page
 
@@ -1009,7 +1011,7 @@ Copy as Markdown
 * [Setting Up the Next.js App](#setting-up-the-nextjs-app)
   + [Step 1: Create a New Next.js App](#step-1-create-a-new-nextjs-app)
   + [Step 2: Move the Next.js App Up a Directory](#step-2-move-the-nextjs-app-up-a-directory)
-  + [Step 3: Install @onflow/kit](#step-3-install-onflowkit)
+  + [Step 3: Install @onflow/react-sdk](#step-3-install-onflowreact-sdk)
 * [Configuring the Local Flow Emulator and Dev Wallet](#configuring-the-local-flow-emulator-and-dev-wallet)
   + [Start the Flow Emulator (if not already running)](#start-the-flow-emulator-if-not-already-running)
   + [Start the Dev Wallet](#start-the-dev-wallet)

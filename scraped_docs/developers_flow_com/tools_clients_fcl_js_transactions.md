@@ -6,13 +6,13 @@ Transactions | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [@onflow/kit](/tools/kit)
+* [@onflow/react-sdk](/tools/react-sdk)
 * [Flow Emulator](/tools/emulator)
 * [Flow CLI](/tools/flow-cli)
 * [Cadence VS Code Extension](/tools/vscode-extension)
@@ -21,8 +21,7 @@ Search
 
   + [Flow Client Library (FCL)](/tools/clients/fcl-js)
 
-    - [FCL Reference](/tools/clients/fcl-js/api)
-    - [SDK Reference](/tools/clients/fcl-js/sdk-guidelines)
+    - [Packages Docs](/tools/clients/fcl-js/packages-docs)
     - [Authentication](/tools/clients/fcl-js/authentication)
     - [How to Configure FCL](/tools/clients/fcl-js/configure-fcl)
     - [Cross VM Packages](/tools/clients/fcl-js/cross-vm)
@@ -67,7 +66,7 @@ If these are not set, FCL defaults to using the current user for all roles.
 
 `fcl.mutate` will return a `transactionId`. We can pass the response directly to `fcl.tx` and then use the `onceExecuted` method which resolves a promise when a transaction result is available.
 
-`_17
+`` _17
 
 import * as fcl from "@onflow/fcl"
 
@@ -129,7 +128,7 @@ const transaction = await fcl.tx(transactionId).onceExecuted()
 
 _17
 
-console.log(transaction) // The transactions status and events after being executed`
+console.log(transaction) // The transactions status and events after being executed ``
 
 ## Authorizing a Transaction[​](#authorizing-a-transaction "Direct link to Authorizing a Transaction")
 
@@ -141,7 +140,7 @@ Four authorizations means four `&Account`s as arguments passed to `prepare`. In 
 
 These authorizations are important as you can only access/modify an accounts storage if you have the said accounts authorization.
 
-`_21
+`` _21
 
 import * as fcl from "@onflow/fcl"
 
@@ -219,9 +218,9 @@ const transaction = await fcl.tx(transactionId).onceExecuted()
 
 _21
 
-console.log(transaction) // The transactions status and events after being executed`
+console.log(transaction) // The transactions status and events after being executed ``
 
-To learn more about `mutate`, check out the [API documentation](/tools/clients/fcl-js/api#mutate).
+To learn more about `mutate`, check out the [API documentation](/tools/clients/fcl-js/packages-docs/fcl/mutate).
 
 ## Transaction Finality[​](#transaction-finality "Direct link to Transaction Finality")
 
@@ -333,7 +332,7 @@ See the following video for demonstration of how to update your code to wait for
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/transactions.md)
 
-Last updated on **May 9, 2025** by **Chase Fleming**
+Last updated on **Jul 25, 2025** by **Jordan Ribbink**
 
 [Previous
 

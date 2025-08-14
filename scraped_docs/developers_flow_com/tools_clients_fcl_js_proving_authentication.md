@@ -6,13 +6,13 @@ Proving Ownership of a Flow Account | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [@onflow/kit](/tools/kit)
+* [@onflow/react-sdk](/tools/react-sdk)
 * [Flow Emulator](/tools/emulator)
 * [Flow CLI](/tools/flow-cli)
 * [Cadence VS Code Extension](/tools/vscode-extension)
@@ -21,8 +21,7 @@ Search
 
   + [Flow Client Library (FCL)](/tools/clients/fcl-js)
 
-    - [FCL Reference](/tools/clients/fcl-js/api)
-    - [SDK Reference](/tools/clients/fcl-js/sdk-guidelines)
+    - [Packages Docs](/tools/clients/fcl-js/packages-docs)
     - [Authentication](/tools/clients/fcl-js/authentication)
     - [How to Configure FCL](/tools/clients/fcl-js/configure-fcl)
     - [Cross VM Packages](/tools/clients/fcl-js/cross-vm)
@@ -146,91 +145,73 @@ Here is the suggested order of operations of how your application might use the
 
 The data within the `account-proof` service will look like this:
 
-`_24
+`_19
 
 {
 
-_24
+_19
 
 f_type: "Service", // Its a service!
 
-_24
+_19
 
 f_vsn: "1.0.0", // Follows the v1.0.0 spec for the service
 
-_24
+_19
 
 type: "account-proof", // The type of service it is
 
-_24
+_19
 
 method: "DATA", // Its data!
 
-_24
+_19
 
 uid: "awesome-wallet#account-proof", // A unique identifier for the service
 
-_24
+_19
 
 data: {
 
-_24
+_19
 
 f_type: "account-proof",
 
-_24
+_19
 
 f_vsn: "2.0.0"
 
-_24
+_19
 
-_24
+_19
 
 // The user's address (8 bytes, i.e 16 hex characters)
 
-_24
+_19
 
 address: "0xf8d6e0586b0a20c7",
 
-_24
+_19
 
-_24
+_19
 
 // Nonce signed by the current account-proof (minimum 32 bytes in total, i.e 64 hex characters)
 
-_24
+_19
 
 nonce: "75f8587e5bd5f9dcc9909d0dae1f0ac5814458b2ae129620502cb936fde7120a",
 
-_24
+_19
 
-_24
+_19
 
 signatures: [CompositeSignature],
 
-_24
-
-_24
-
-// The app identifier is used to uniquely identify the application and is automatically
-
-_24
-
-// derived from the RFC 6454 application origin by the FCL client. Wallets will embed this
-
-_24
-
-// in the signed response to be treated as an attestation to the validity of this origin.
-
-_24
-
-appIdentifier: "https://myapp.com"
-
-_24
+_19
 
 }
 
-_24
+_19
 
 }`
 
@@ -337,7 +318,7 @@ _13
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/proving-authentication.mdx)
 
-Last updated on **May 9, 2025** by **Chase Fleming**
+Last updated on **May 23, 2025** by **Jordan Ribbink**
 
 [Previous
 

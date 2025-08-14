@@ -6,15 +6,15 @@ Service Account Contracts | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
 * [Why Flow](/build/flow)
+* [Getting Started](/build/getting-started)
 * [Differences vs. EVM](/build/differences-vs-evm)
-* [Getting Started](/build/getting-started/contract-interaction)
 * [Flow Protocol](/build/basics/network-architecture)
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
@@ -86,7 +86,7 @@ Source: [RandomBeaconHistory.cdc](https://github.com/onflow/flow-core-contracts/
 
 Important events from `RandomBeaconHistory` are:
 
-`_12
+`` _12
 
 // Event emitted when missing SoRs from past heartbeats are detected and will be backfilled:
 
@@ -130,7 +130,7 @@ _12
 
 _12
 
-access(all) event RandomHistoryBackfilled(blockHeight: UInt64, gapStartHeight: UInt64, count: UInt64)`
+access(all) event RandomHistoryBackfilled(blockHeight: UInt64, gapStartHeight: UInt64, count: UInt64) ``
 
 # NodeVersionBeacon
 
@@ -196,7 +196,7 @@ access(all) event NodeVersionBoundaryFreezePeriodChanged(freezePeriod: UInt64)`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/core-contracts/04-service-account.md)
 
-Last updated on **May 9, 2025** by **Chase Fleming**
+Last updated on **Feb 5, 2025** by **Brian Doyle**
 
 [Previous
 

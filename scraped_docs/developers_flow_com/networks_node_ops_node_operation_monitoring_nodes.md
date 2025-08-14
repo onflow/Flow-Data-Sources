@@ -6,7 +6,7 @@ Monitoring Node Health | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -71,7 +71,7 @@ If you wish to make use of these metrics, you'll need to set up a Prometheus ser
 
 1. Copy the following Prometheus configuration into your current flow node
 
-   `_12
+   `` _12
 
    global:
 
@@ -111,7 +111,7 @@ If you wish to make use of these metrics, you'll need to set up a Prometheus ser
 
    _12
 
-   - targets: ['localhost:8080']`
+   - targets: ['localhost:8080'] ``
 2. Start Prometheus server
 
    `_10
@@ -191,7 +191,7 @@ machine_account_balance{acct_address="7b16b57ae0a3c6aa"} 9.99464935`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/node-ops/node-operation/monitoring-nodes.md)
 
-Last updated on **May 9, 2025** by **Chase Fleming**
+Last updated on **Oct 3, 2024** by **Vishal**
 
 [Previous
 
