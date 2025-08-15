@@ -13,17 +13,18 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 Search
 
 * [Tutorials](/tutorials)
+* [Flow Actions](/tutorials/defi)
 * [Flow Blockchain 101](/tutorials/flow-101)
 * [Use AI To Build On Flow](/tutorials/use-AI-to-build-on-flow)
 * [Gasless Transactions](/tutorials/gasless-transactions)
 * [Token Launch](/tutorials/token-launch)
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
-* [FlowtoBooth](/tutorials/flowtobooth)
 * [Native VRF](/tutorials/native-vrf)
 
   + [Secure Randomness with Commit-Reveal in Cadence](/tutorials/native-vrf/commit-reveal-cadence)
   + [Deploy a Solidity Contract Using Cadence](/tutorials/native-vrf/deploy-solidity-contract)
   + [VRF (Randomness) in Solidity](/tutorials/native-vrf/vrf-in-solidity)
+* [FlowtoBooth](/tutorials/flowtobooth)
 * [Integrations](/tutorials/integrations/crossmint)
 
 * Native VRF
@@ -47,11 +48,11 @@ Stay tuned—more tutorials and advanced guides are on the way!
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/native-vrf/index.md)
 
-Last updated on **Jun 20, 2025** by **Brian Doyle**
+Last updated on **Aug 14, 2025** by **0xLisanAlGaib**
 
 [Previous
 
-Build a Fully-Onchain Image Gallery](/tutorials/flowtobooth/image-gallery)[Next
+Cross-VM Bridge](/tutorials/cross-vm-apps/vm-bridge)[Next
 
 Secure Randomness with Commit-Reveal in Cadence](/tutorials/native-vrf/commit-reveal-cadence)
 

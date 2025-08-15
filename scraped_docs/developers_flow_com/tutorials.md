@@ -12,15 +12,15 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 
 Search
 
-* [DeFi Actions](/tutorials/defi)
 * [Tutorials](/tutorials)
+* [Flow Actions](/tutorials/defi)
 * [Flow Blockchain 101](/tutorials/flow-101)
 * [Use AI To Build On Flow](/tutorials/use-AI-to-build-on-flow)
 * [Gasless Transactions](/tutorials/gasless-transactions)
 * [Token Launch](/tutorials/token-launch)
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
-* [FlowtoBooth](/tutorials/flowtobooth)
 * [Native VRF](/tutorials/native-vrf)
+* [FlowtoBooth](/tutorials/flowtobooth)
 * [Integrations](/tutorials/integrations/crossmint)
 
 * Tutorials
@@ -33,12 +33,24 @@ Flow Cadence and Flow EVM are two VMs running on the Flow blockchain. A few mont
 
 For this grand future, we'll need a new suite of tutorials, guides, and resources to help you build with the best of both worlds. This section is dedicated to those tutorials.
 
+## Flow Actions[​](#flow-actions "Direct link to Flow Actions")
+
+Learn how to build composable DeFi applications using the Flow Actions framework. This framework provides a "LEGO" system of reusable components that enable developers to create sophisticated DeFi workflows through atomic composition.
+
+* [Introduction to Flow Actions](/tutorials/defi/intro-to-flow-actions) - Learn about Flow Actions, a suite of standardized Cadence interfaces that enable developers to compose complex DeFi workflows using small, reusable components
+* [Connectors](/tutorials/defi/connectors) - Understand how connectors bridge standardized Flow Actions interfaces with different DeFi protocols
+* [Basic Combinations](/tutorials/defi/basic-combinations) - Learn how to combine Flow Actions to create new workflows
+* [Scheduled Callbacks Introduction](/tutorials/defi/scheduled-callbacks-introduction) - Learn how to implement scheduled callbacks for time-based smart contract execution on Flow
+
 ## AI Plus Flow[​](#ai-plus-flow "Direct link to AI Plus Flow")
 
 Learn how to leverage AI tools to enhance your Flow development experience. These tutorials show you how to integrate various AI assistants with Flow development to boost productivity and code quality.
 
 * [Use Flow Knowledge Base in Cursor](/tutorials/use-AI-to-build-on-flow/cursor) - Learn how to set up Cursor with Flow knowledge bases to get intelligent assistance while developing Flow applications
 * [Use Flow Knowledge Base in ChatGPT](/tutorials/use-AI-to-build-on-flow/chatgpt) - Create a custom GPT that understands Flow and Cadence to provide accurate answers to your development questions
+* [Claude Code for Flow Development](/tutorials/use-AI-to-build-on-flow/claude-code) - Learn how to leverage Claude Code for efficient ways to build on Flow and with Cadence
+* [Cadence Rules](/tutorials/use-AI-to-build-on-flow/cadence-rules) - Learn how to use Cursor Rules to enhance AI assistance for Cadence and Flow development with persistent context and automated workflows
+* [Flow MCP](/tutorials/use-AI-to-build-on-flow/mcp) - Learn how to use Flow MCP (Model Context Protocol) server to enhance AI tools with on-chain interaction capabilities
 * [Flow Data Sources](/tutorials/use-AI-to-build-on-flow/flow-data-sources) - Learn about this comprehensive resource and how to integrate it with various AI platforms
 * [Build AI Agents with AgentKit](/tutorials/use-AI-to-build-on-flow/agentkit-flow-guide) - Learn how to create AI agents that can interact with Flow using AgentKit
 
@@ -81,13 +93,11 @@ Explore Flow's unique capabilities through fun benchmark applications that showc
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/index.md)
 
-Last updated on **Aug 11, 2025** by **0xLisanAlGaib**
+Last updated on **Aug 14, 2025** by **Felipe Cevallos**
 
-[Previous
+[Next
 
-Introduction to Scheduled Callbacks](/tutorials/defi/scheduled-callbacks-introduction)[Next
-
-Flow Blockchain 101](/tutorials/flow-101)
+Flow Actions](/tutorials/defi)
 
 ###### Rate this page
 
@@ -95,6 +105,7 @@ Flow Blockchain 101](/tutorials/flow-101)
 
 Copy as Markdown
 
+* [Flow Actions](#flow-actions)
 * [AI Plus Flow](#ai-plus-flow)
 * [Backend Usage](#backend-usage)
 * [Token Launch](#token-launch)

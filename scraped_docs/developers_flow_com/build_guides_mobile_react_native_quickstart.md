@@ -6,15 +6,15 @@ React Native Development | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
 * [Why Flow](/build/flow)
+* [Getting Started](/build/getting-started)
 * [Differences vs. EVM](/build/differences-vs-evm)
-* [Getting Started](/build/getting-started/contract-interaction)
 * [Flow Protocol](/build/basics/network-architecture)
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
@@ -135,7 +135,7 @@ _10
 * The `accessNode.api` key specifies the address of a Flow access node. Flow provides these, but in the future access to Flow may be provided by other 3rd parties, through their own access nodes.
 * `discovery.wallet` and `discovery.authn.endpoint` are addresses that point to a service that lists FCL compatible wallets. Flow's FCL Discovery service is a service that FCL wallet providers can be added to, and be made 'discoverable' to any application that uses the `discovery.wallet` and `discovery.authn.endpoint`.
 
-> Learn more about [configuring Discovery](/tools/clients/fcl-js/discovery) or [setting configuration values](/tools/clients/fcl-js/api#setting-configuration-values).
+> Learn more about [configuring Discovery](/tools/clients/fcl-js/discovery) or [setting configuration values](/tools/clients/fcl-js/packages-docs/fcl#setting-configuration-values).
 
 > If you are running a Wallet Discovery locally and want to use it in the React Native app, change `https://fcl-discovery.onflow.org/` to `http://<LOCAL_IP_ADDRESS>:<PORT>/`
 > For Example:
@@ -265,7 +265,7 @@ Now we're ready to start talking to Flow!
 
 To authenticate a user, you'll need to render a `ServiceDiscovery` component provided by `fcl-react-native`. Alternatively you can build your own component using `useServiceDiscovery`.
 
-Unauthenticate is as simple as calling `fcl.unauthenticate()`. Once authenticated, FCL sets an object called `fcl.currentUser` which exposes methods for watching changes in user data, signing transactions, and more. For more information on the `currentUser`, read more [here](/tools/clients/fcl-js/api#current-user).
+Unauthenticate is as simple as calling `fcl.unauthenticate()`. Once authenticated, FCL sets an object called `fcl.currentUser` which exposes methods for watching changes in user data, signing transactions, and more.
 
 Let's add in a few components and buttons buttons for sign up/login and also subscribe to changes on the `currentUser`. When the user is updated (which it will be after authentication), we'll set the user state in our component to reflect this. To demonstrate user authenticated sessions, we'll conditionally render a component based on if the user is or is not logged in.
 
@@ -486,7 +486,7 @@ Take a look at the new code. We'll explain each new piece as we go. Remember, th
 
 ./App.js
 
-`_64
+`` _64
 
 import { StatusBar } from 'expo-status-bar';
 
@@ -720,13 +720,13 @@ _64
 
 _64
 
-});`
+}); ``
 
 A few things happened. In our `AuthedState` component, we added a button to send a query for the user's profile name and a `Text` to display the result above it. The corresponding `useState` initialization can be seen at the top of the component.
 
 The other thing we did is build out the actual query inside of `sendQuery` method. Let's take a look at it more closely:
 
-`_10
+`` _10
 
 await fcl.query({
 
@@ -762,11 +762,11 @@ args: (arg, t) => [arg(user.addr, t.Address)],
 
 _10
 
-});`
+}); ``
 
 Inside the query you'll see we set two things: `cadence` and `args`. Cadence is Flow's smart contract language we mentioned. For this tutorial, when you look at it you just need to notice that it's importing the `Profile` contract from the account we named `0xProfile` earlier in our config file, then also taking an account address, and reading it. That's it until you're ready to [learn more Cadence](https://cadence-lang.org/docs).
 
-In the `args` section, we are simply passing it our user's account address from the user we set in state after authentication and giving it a type of `Address`. For more possible types, [see this reference](/tools/clients/fcl-js/api#ftype).
+In the `args` section, we are simply passing it our user's account address from the user we set in state after authentication and giving it a type of `Address`. For more possible types, [see this reference](/tools/clients/fcl-js/packages-docs/types).
 
 Go ahead and click the "Send Query" button. You should see "No Profile." That's because we haven't initialized the account yet.
 
@@ -782,7 +782,7 @@ That's where we jump back into FCL code. Instead of `query`, we use `mutate` for
 
 Let's take a look at what our account initialization function looks like:
 
-`_29
+`` _29
 
 const initAccount = async () => {
 
@@ -888,7 +888,7 @@ console.log(transaction);
 
 _29
 
-};`
+}; ``
 
 You can see the new fields we talked about. You'll also notice `fcl.authz`. That's shorthand for "use the current user to authorize this transaction", (you could also write it as `fcl.currentUser.authorization`). If you want to learn more about transactions and signing transactions, you can [view the docs here](/build/basics/transactions). For this example, we'll keep it simple with the user being each of these roles.
 
@@ -902,7 +902,7 @@ Now your `index.js` file should look like this (we also added a button for calli
 
 ./App.js
 
-`_93
+`` _93
 
 import { StatusBar } from 'expo-status-bar';
 
@@ -1242,7 +1242,7 @@ _93
 
 _93
 
-});`
+}); ``
 
 Press the "Init Account" button you should see the wallet ask you to approve a transaction. After approving, you will see a transaction response appear in your console (make sure to have that open). It may take a few moments. With the transaction result printed, you can use the `transactionId` to look up the details of the transaction using a [block explorer](https://testnet.flowscan.io/).
 
@@ -1254,7 +1254,7 @@ To do that, we are going to write another transaction that adds some Cadence cod
 
 It looks like this:
 
-`_25
+`` _25
 
 const executeTransaction = async () => {
 
@@ -1346,7 +1346,7 @@ fcl.tx(transactionId).subscribe((res) => setTransactionStatus(res.status));
 
 _25
 
-};`
+}; ``
 
 Here you can see our argument is "Flow Developer" and at the bottom we've called the `subscribe` method instead of `onceExecuted`.
 
@@ -1356,7 +1356,7 @@ Let's see how that works inside our whole `index.js` file. But, let's also set t
 
 ./App.js
 
-`_124
+`` _124
 
 import { StatusBar } from 'expo-status-bar';
 
@@ -1812,9 +1812,9 @@ _124
 
 _124
 
-});`
+}); ``
 
-Now if you click the "Execute Transaction" button you'll see the statuses update next to "Transaction Status." When you see "4" that means it's sealed! Status code meanings [can be found here](/tools/clients/fcl-js/api#transaction-statuses).
+Now if you click the "Execute Transaction" button you'll see the statuses update next to "Transaction Status." When you see "4" that means it's sealed! Status code meanings [can be found here](/tools/clients/fcl-js/packages-docs/types).
 If you query the account profile again, "Profile Name:" should now display "Flow Developer".
 
 That's it! You now have a shippable Flow dapp that can auth, query, init accounts, and mutate the chain. This is just the beginning. There is so much more to know. We have a lot more resources to help you build. To dive deeper, here are a few good places for taking the next steps:
@@ -1831,7 +1831,6 @@ That's it! You now have a shippable Flow dapp that can auth, query, init account
 
 **More FCL**
 
-* [FCL API Quick Reference](/tools/clients/fcl-js/api)
 * [More on Scripts](/tools/clients/fcl-js/scripts)
 * [More on Transactions](/tools/clients/fcl-js/transactions)
 * [User Signatures](/tools/clients/fcl-js/user-signatures)
@@ -1839,7 +1838,7 @@ That's it! You now have a shippable Flow dapp that can auth, query, init account
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/react-native-quickstart.md)
 
-Last updated on **May 13, 2025** by **Brian Doyle**
+Last updated on **Jul 25, 2025** by **Jordan Ribbink**
 
 [Previous
 

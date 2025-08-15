@@ -6,14 +6,17 @@ Batched Tx From Scaffold | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
 * [Tutorials](/tutorials)
-* [AI Plus Flow](/tutorials/ai-plus-flow)
+* [Flow Actions](/tutorials/defi)
+* [Flow Blockchain 101](/tutorials/flow-101)
+* [Use AI To Build On Flow](/tutorials/use-AI-to-build-on-flow)
+* [Gasless Transactions](/tutorials/gasless-transactions)
 * [Token Launch](/tutorials/token-launch)
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
 
@@ -23,8 +26,9 @@ Search
   + [Direct Calls to Flow EVM](/tutorials/cross-vm-apps/direct-calls)
   + [Batched EVM Transactions](/tutorials/cross-vm-apps/batched-evm-transactions)
   + [Cross-VM Bridge](/tutorials/cross-vm-apps/vm-bridge)
-* [FlowtoBooth](/tutorials/flowtobooth)
 * [Native VRF](/tutorials/native-vrf)
+* [FlowtoBooth](/tutorials/flowtobooth)
+* [Integrations](/tutorials/integrations/crossmint)
 
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
 * Batched Tx From Scaffold
@@ -33,7 +37,7 @@ On this page
 
 # Batched Tx From Scaffold
 
-Ever since the launch of Flow EVM, it's been possible to *supercharge* your EVM apps by using Flow Cadence features and contracts. Some benefits, such as [native VRF](/evm/guides/vrf) and inexpensive gas without compromising security are built in and either easy or automatic to use. Others, such as the ability to use [Cadence](https://cadence-lang.org/docs) to [structure and call EVM transactions](/tutorials/cross-vm-apps/batched-evm-transactions), are powerful but complicated to configure and use. They also require developers to manage concurrent connections to both networks.
+Ever since the launch of Flow EVM, it's been possible to *supercharge* your EVM apps by using Flow Cadence features and contracts. Some benefits, such as [native VRF](/tutorials/native-vrf/vrf-in-solidity) and inexpensive gas without compromising security are built in and either easy or automatic to use. Others, such as the ability to use [Cadence](https://cadence-lang.org/docs) to [structure and call EVM transactions](/tutorials/cross-vm-apps/batched-evm-transactions), are powerful but complicated to configure and use. They also require developers to manage concurrent connections to both networks.
 
 [FLIP 316](https://github.com/onflow/flips/pull/317) improves the [Flow Client Library (FCL)](/tools/clients/fcl-js) to support cross-VM functionality between Flow EVM and Flow Cadence.
 
@@ -469,7 +473,7 @@ Next, create a folder called `constants` and add a file called `contracts.ts` to
 
 In it, import the contract artifact and addresses file, and create export a constant with this information.
 
-`_10
+`` _10
 
 import ClickToken from '../contracts/ClickTokenModule#ClickToken.json';
 
@@ -493,7 +497,7 @@ address: deployedAddresses['ClickTokenModule#ClickToken'] as `0x${string}`,
 
 _10
 
-};`
+}; ``
 
 ## Build Traditional Functionality[​](#build-traditional-functionality "Direct link to Build Traditional Functionality")
 
@@ -685,7 +689,7 @@ _48
 
 `TopTenDisplay.tsx`
 
-`_110
+`` _110
 
 import { useAccount, useReadContract } from 'wagmi';
 
@@ -1095,7 +1099,7 @@ _110
 
 _110
 
-}`
+} ``
 
 `Content.tsx`
 
@@ -2115,7 +2119,7 @@ Now that you have completed the tutorial, you should be able to:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/introduction.md)
 
-Last updated on **May 9, 2025** by **Chase Fleming**
+Last updated on **Jun 4, 2025** by **Tang Bo Hao**
 
 [Previous
 

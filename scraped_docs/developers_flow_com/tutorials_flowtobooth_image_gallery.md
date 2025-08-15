@@ -13,15 +13,16 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 Search
 
 * [Tutorials](/tutorials)
+* [Flow Actions](/tutorials/defi)
 * [Flow Blockchain 101](/tutorials/flow-101)
 * [Use AI To Build On Flow](/tutorials/use-AI-to-build-on-flow)
 * [Gasless Transactions](/tutorials/gasless-transactions)
 * [Token Launch](/tutorials/token-launch)
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
+* [Native VRF](/tutorials/native-vrf)
 * [FlowtoBooth](/tutorials/flowtobooth)
 
   + [Build a Fully-Onchain Image Gallery](/tutorials/flowtobooth/image-gallery)
-* [Native VRF](/tutorials/native-vrf)
 * [Integrations](/tutorials/integrations/crossmint)
 
 * [FlowtoBooth](/tutorials/flowtobooth)
@@ -2866,7 +2867,7 @@ Last updated on **Jun 20, 2025** by **Brian Doyle**
 
 FlowtoBooth](/tutorials/flowtobooth)[Next
 
-Native VRF](/tutorials/native-vrf)
+Crossmint Integration Guide](/tutorials/integrations/crossmint)
 
 ###### Rate this page
 

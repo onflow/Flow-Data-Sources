@@ -12,8 +12,8 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 
 Search
 
-* [DeFi Actions](/tutorials/defi)
 * [Tutorials](/tutorials)
+* [Flow Actions](/tutorials/defi)
 * [Flow Blockchain 101](/tutorials/flow-101)
 * [Use AI To Build On Flow](/tutorials/use-AI-to-build-on-flow)
 * [Gasless Transactions](/tutorials/gasless-transactions)
@@ -26,8 +26,8 @@ Search
   + [Direct Calls to Flow EVM](/tutorials/cross-vm-apps/direct-calls)
   + [Batched EVM Transactions](/tutorials/cross-vm-apps/batched-evm-transactions)
   + [Cross-VM Bridge](/tutorials/cross-vm-apps/vm-bridge)
-* [FlowtoBooth](/tutorials/flowtobooth)
 * [Native VRF](/tutorials/native-vrf)
+* [FlowtoBooth](/tutorials/flowtobooth)
 * [Integrations](/tutorials/integrations/crossmint)
 
 * Cross-VM Apps
