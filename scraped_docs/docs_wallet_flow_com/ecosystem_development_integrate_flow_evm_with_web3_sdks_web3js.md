@@ -106,4 +106,4 @@ See more detail on <https://github.com/Outblock/web3js-flow-evm-demo>
 
 [PreviousEtherjs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/etherjs)[NextViem](/ecosystem-development/integrate-flow-evm-with-web3-sdks/viem)
 
-Last updated 6 months ago
+Last updated 7 months ago

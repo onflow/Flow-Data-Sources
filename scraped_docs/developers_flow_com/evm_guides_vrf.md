@@ -6,35 +6,28 @@ VRF (Randomness) in Solidity | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [Why EVM on Flow](/evm/about)
-* [How it Works](/evm/how-it-works)
-* [Using Flow EVM](/evm/using)
-* [Network Information](/evm/networks)
-* [EVM Quickstart](/evm/quickstart)
-* [Fees](/evm/fees)
-* [Accounts](/evm/accounts)
-* [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
-* [Faucets ↙](/evm/faucets)
-* [Block Explorers ↙](/evm/block-explorers)
-* [Guides](/evm/guides/integrating-metamask)
+* [Tutorials](/tutorials)
+* [Flow Actions](/tutorials/defi)
+* [Flow Blockchain 101](/tutorials/flow-101)
+* [Use AI To Build On Flow](/tutorials/use-AI-to-build-on-flow)
+* [Gasless Transactions](/tutorials/gasless-transactions)
+* [Token Launch](/tutorials/token-launch)
+* [Cross-VM Apps](/tutorials/cross-vm-apps)
+* [Native VRF](/tutorials/native-vrf)
 
-  + [Integrating Metamask](/evm/guides/integrating-metamask)
-  + [Hardhat](/evm/guides/hardhat)
-  + [Remix](/evm/guides/remix)
-  + [Rainbowkit](/evm/guides/rainbowkit)
-  + [Viem & Wagmi](/evm/guides/wagmi)
-  + [Foundry](/evm/guides/foundry)
-  + [VRF (Randomness) in Solidity](/evm/guides/vrf)
-  + [Ethers](/evm/guides/ethers)
-  + [Web3.js](/evm/guides/web3-js)
+  + [Secure Randomness with Commit-Reveal in Cadence](/tutorials/native-vrf/commit-reveal-cadence)
+  + [Deploy a Solidity Contract Using Cadence](/tutorials/native-vrf/deploy-solidity-contract)
+  + [VRF (Randomness) in Solidity](/tutorials/native-vrf/vrf-in-solidity)
+* [FlowtoBooth](/tutorials/flowtobooth)
+* [Integrations](/tutorials/integrations/crossmint)
 
-* Guides
+* [Native VRF](/tutorials/native-vrf)
 * VRF (Randomness) in Solidity
 
 On this page
@@ -43,16 +36,11 @@ On this page
 
 ## **Introduction**[​](#introduction "Direct link to introduction")
 
-Flow provides secure, native on-chain randomness that developers can leverage through Cadence Arch, a precompiled
-contract available on the Flow EVM environment. This guide will walk through how Solidity developers can use Cadence
-Arch to access Flow’s verifiable randomness using Solidity.
+Flow provides secure, native on-chain randomness that developers can leverage through Cadence Arch, a precompiled contract available on the Flow EVM environment. This guide will walk through how Solidity developers can use Cadence Arch to access Flow's verifiable randomness using Solidity.
 
 ### **What is Cadence Arch?**[​](#what-is-cadence-arch "Direct link to what-is-cadence-arch")
 
-[Cadence Arch](https://github.com/onflow/flips/blob/main/protocol/20231116-evm-support.md#cadence-arch) is a precompiled
-smart contract that allows Solidity developers on Flow EVM to interact with Flow’s randomness and other network features
-like block height. This contract can be accessed using its specific address, and Solidity developers can make static
-calls to retrieve random values and other information.
+[Cadence Arch](https://github.com/onflow/flips/blob/main/protocol/20231116-evm-support.md#cadence-arch) is a precompiled smart contract that allows Solidity developers on Flow EVM to interact with Flow's randomness and other network features like block height. This contract can be accessed using its specific address, and Solidity developers can make static calls to retrieve random values and other information.
 
 ---
 
@@ -68,10 +56,10 @@ calls to retrieve random values and other information.
 | **Parameter** | **Value** |
 | --- | --- |
 | **Network Name** | Flow EVM Testnet |
-| **RPC Endpoint** | [https://testnet.evm.nodes.onflow.org](https://testnet.evm.nodes.onflow.org/) |
+| **RPC Endpoint** | [Flow EVM Testnet RPC](https://testnet.evm.nodes.onflow.org/) |
 | **Chain ID** | 545 |
 | **Currency Symbol** | FLOW |
-| **Block Explorer** | [https://evm-testnet.flowscan.io](https://evm-testnet.flowscan.io/) |
+| **Block Explorer** | [Flow EVM Testnet Explorer](https://evm-testnet.flowscan.io/) |
 
 ## **Steps to Connect Flow EVM Testnet to Metamask**[​](#steps-to-connect-flow-evm-testnet-to-metamask "Direct link to steps-to-connect-flow-evm-testnet-to-metamask")
 
@@ -84,12 +72,12 @@ calls to retrieve random values and other information.
    * **Block Explorer**: `https://evm-testnet.flowscan.io`
 3. Click **Save** and switch to the Flow EVM Testnet.
 
-![image.png](/assets/images/vrf-1-8cd4faeceebc20f715b261df0ef9b073.png)
+![MetaMask Network Configuration](/assets/images/vrf-1-8cd4faeceebc20f715b261df0ef9b073.png)
 
 ## **Obtaining Testnet FLOW**[​](#obtaining-testnet-flow "Direct link to obtaining-testnet-flow")
 
-You can fund your account with testnet FLOW using the [Flow Faucet](https://testnet-faucet.onflow.org/fund-account).
-Enter your Flow-EVM testnet address, and you’ll receive testnet FLOW tokens to interact with smart contracts.
+You can fund your account with testnet FLOW using the [Flow Faucet](https://testnet-faucet.onflow.org/fund-account).  
+Enter your Flow-EVM testnet address, and you'll receive testnet FLOW tokens to interact with smart contracts.
 
 ---
 
@@ -181,28 +169,27 @@ _17
 1. Open Remix IDE.
 2. Create a new file and paste the Solidity code above.
 
-![image.png](/assets/images/vrf-2-26a148ae96be310f27241d862652992f.png)
+![Creating file in Remix](/assets/images/vrf-2-26a148ae96be310f27241d862652992f.png)
 
 3. Compile the contract by selecting the appropriate Solidity compiler version (0.8.x).
 
-![image.png](/assets/images/vrf-3-694be8b1a09f9a3f960db18b17dc713e.png)
+![Compiling in Remix](/assets/images/vrf-3-694be8b1a09f9a3f960db18b17dc713e.png)
 
 4. Connect Remix to your Metamask wallet (with Flow EVM testnet) by selecting **Injected Web3** as the environment.
 
-![image.png](/assets/images/vrf-4-e1a05dd1ccfec9650f563a28c44a2c60.png)
+![Connecting to MetaMask](/assets/images/vrf-4-e1a05dd1ccfec9650f563a28c44a2c60.png)
 
 5. Deploy the contract.
 
-![image.png](/assets/images/vrf-5-4c374061a3505fccd653efe6d58b22e3.png)
+![Deploying the contract](/assets/images/vrf-5-4c374061a3505fccd653efe6d58b22e3.png)
 
 ### Call revertibleRandom[​](#call-revertiblerandom "Direct link to Call revertibleRandom")
 
 After deployment, you can interact with the contract to retrieve a random number.
 
-Call the `revertibleRandom()` function in the left sidebar on the deployed contract. This will fetch a pseudo-random
-number generated by Flow’s VRF.
+Call the `revertibleRandom()` function in the left sidebar on the deployed contract. This will fetch a pseudo-random number generated by Flow's VRF.
 
-![image.png](/assets/images/vrf-6-a4257b376af1a8c564848cae10ba5122.png)
+![Calling revertibleRandom function](/assets/images/vrf-6-a4257b376af1a8c564848cae10ba5122.png)
 
 The result will be a `uint64` random number generated on Flow EVM.
 
@@ -210,8 +197,7 @@ The result will be a `uint64` random number generated on Flow EVM.
 
 ## **Generating Random Numbers in a Range**[​](#generating-random-numbers-in-a-range "Direct link to generating-random-numbers-in-a-range")
 
-For use-cases like games and lotteries, it’s useful to generate a random number within a specified range, the following
-example shows how to get a value between a min and max number.
+For use-cases like games and lotteries, it's useful to generate a random number within a specified range, the following example shows how to get a value between a min and max number.
 
 `_17
 
@@ -277,47 +263,35 @@ _17
 
 warning
 
-The above code is susceptible to the [modulo
-bias](https://research.kudelskisecurity.com/2020/07/28/the-definitive-guide-to-modulo-bias-and-how-to-avoid-it/),
-particularly if the random number range is not a multiple of your desired range. To avoid this, you can use a more
-complex algorithm like rejection sampling, an example for which is provided in [this
-repository](https://github.com/onflow/random-coin-toss).
+The above code is susceptible to the [modulo bias](https://research.kudelskisecurity.com/2020/07/28/the-definitive-guide-to-modulo-bias-and-how-to-avoid-it/), particularly if the random number range is not a multiple of your desired range. To avoid this, you can use a more complex algorithm like rejection sampling, an example for which is provided in [this repository](https://github.com/onflow/random-coin-toss).
 
 ## **Secure Randomness with Commit-Reveal Scheme in Solidity**[​](#secure-randomness-with-commit-reveal-scheme-in-solidity "Direct link to secure-randomness-with-commit-reveal-scheme-in-solidity")
 
-The **`revertibleRandom()`** function can be directly used to generate a pseudo-random number. However, in certain
-situations, especially involving untrusted callers, this function exposes a vulnerability: the ability of a transaction
-to **revert after seeing the random result**.
+The **`revertibleRandom()`** function can be directly used to generate a pseudo-random number. However, in certain situations, especially involving untrusted callers, this function exposes a vulnerability: the ability of a transaction to **revert after seeing the random result**.
 
 **The Issue with Using `revertibleRandom()` Directly:**
 
-* When an untrusted party calls a contract function that uses `revertibleRandom()`, they receive the random number
-  **during the transaction execution**.
-* **Post-selection** is the ability of the caller to abort the transaction if the random outcome is unfavorable. In this
-  case, the user could choose to revert the transaction (for example, if they lose a bet) and attempt to call the
-  function again in hopes of a better outcome.
-* This can lead to a form of **transaction reversion attack**, where the randomness can be exploited by repeatedly
-  attempting transactions until a favorable result is obtained.
+* When an untrusted party calls a contract function that uses `revertibleRandom()`, they receive the random number **during the transaction execution**.
+* **Post-selection** is the ability of the caller to abort the transaction if the random outcome is unfavorable. In this case, the user could choose to revert the transaction (for example, if they lose a bet) and attempt to call the function again in hopes of a better outcome.
+* This can lead to a form of **transaction reversion attack**, where the randomness can be exploited by repeatedly attempting transactions until a favorable result is obtained.
 
 ## Read More[​](#read-more "Direct link to Read More")
 
-For further details on Flow’s randomness and secure development practices, check out the [Flow Randomness
-Documentation](https://developers.flow.com/build/advanced-concepts/randomness).
+For further details on Flow's randomness and secure development practices, check out the [Flow Randomness Documentation](https://developers.flow.com/build/advanced-concepts/randomness).
 
-You can also view an example in both Solidity and Cadence of a [random coin toss
-implentation](https://github.com/onflow/random-coin-toss) using the VRF.
+You can also view an example in both Solidity and Cadence of a [random coin toss implentation](https://github.com/onflow/random-coin-toss) using the VRF.
 
-*This documentation was contributed by [Noah Naizir](https://x.com/noah_overflow), a community developer.*
+*This documentation was contributed by [Noah Naizir](https://x.com/noah_overflow) a community developer.*
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/vrf.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/native-vrf/vrf-in-solidity.md)
 
-Last updated on **May 9, 2025** by **Chase Fleming**
+Last updated on **Jun 9, 2025** by **Ali Serag**
 
 [Previous
 
-Foundry](/evm/guides/foundry)[Next
+Deploy a Solidity Contract Using Cadence](/tutorials/native-vrf/deploy-solidity-contract)[Next
 
-Ethers](/evm/guides/ethers)
+FlowtoBooth](/tutorials/flowtobooth)
 
 ###### Rate this page
 

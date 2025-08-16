@@ -13,6 +13,7 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 Search
 
 * [Tutorials](/tutorials)
+* [Flow Actions](/tutorials/defi)
 * [Flow Blockchain 101](/tutorials/flow-101)
 * [Use AI To Build On Flow](/tutorials/use-AI-to-build-on-flow)
 
@@ -27,8 +28,8 @@ Search
 * [Gasless Transactions](/tutorials/gasless-transactions)
 * [Token Launch](/tutorials/token-launch)
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
-* [FlowtoBooth](/tutorials/flowtobooth)
 * [Native VRF](/tutorials/native-vrf)
+* [FlowtoBooth](/tutorials/flowtobooth)
 * [Integrations](/tutorials/integrations/crossmint)
 
 * [Use AI To Build On Flow](/tutorials/use-AI-to-build-on-flow)
@@ -573,7 +574,7 @@ _19
 
 ## Resources[​](#resources "Direct link to Resources")
 
-* [AgentKit Docs](https://docs.cdp.coinbase.com/agentkit)
+* [AgentKit Docs](https://docs.cdp.coinbase.com/agent-kit/welcome)
 * [Flow EVM Guide](https://developers.flow.com/evm/using)
 * [Langchain LLM Integrations](https://python.langchain.com/docs/integrations/llms/)
 * [Anthropic Model Comparison](https://docs.anthropic.com/en/docs/about-claude/models/all-models#model-comparison-table)
@@ -584,7 +585,7 @@ Happy hacking on Flow!
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/use-AI-to-build-on-flow/agentkit-flow-guide.md)
 
-Last updated on **Aug 11, 2025** by **0xLisanAlGaib**
+Last updated on **Aug 15, 2025** by **0xLisanAlGaib**
 
 [Previous
 

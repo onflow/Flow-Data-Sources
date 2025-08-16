@@ -71,4 +71,4 @@ Wip
 
 [PreviousMIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)[NextPrivy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 
-Last updated 6 months ago
+Last updated 7 months ago

@@ -12,17 +12,17 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 
 Search
 
-* [DeFi Actions](/tutorials/defi)
 * [Tutorials](/tutorials)
+* [Flow Actions](/tutorials/defi)
 * [Flow Blockchain 101](/tutorials/flow-101)
 * [Use AI To Build On Flow](/tutorials/use-AI-to-build-on-flow)
 * [Gasless Transactions](/tutorials/gasless-transactions)
 * [Token Launch](/tutorials/token-launch)
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
+* [Native VRF](/tutorials/native-vrf)
 * [FlowtoBooth](/tutorials/flowtobooth)
 
   + [Build a Fully-Onchain Image Gallery](/tutorials/flowtobooth/image-gallery)
-* [Native VRF](/tutorials/native-vrf)
 * [Integrations](/tutorials/integrations/crossmint)
 
 * FlowtoBooth
@@ -50,11 +50,11 @@ More FlowtoBooth tutorials are in development, including:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/flowtobooth/index.md)
 
-Last updated on **Jun 18, 2025** by **Brian Doyle**
+Last updated on **Aug 14, 2025** by **0xLisanAlGaib**
 
 [Previous
 
-Cross-VM Bridge](/tutorials/cross-vm-apps/vm-bridge)[Next
+VRF (Randomness) in Solidity](/tutorials/native-vrf/vrf-in-solidity)[Next
 
 Build a Fully-Onchain Image Gallery](/tutorials/flowtobooth/image-gallery)
 

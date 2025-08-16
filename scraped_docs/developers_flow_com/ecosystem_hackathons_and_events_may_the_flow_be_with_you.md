@@ -6,7 +6,7 @@ May the Flow be with You | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -19,6 +19,7 @@ Search
 * [Developer Profile](/ecosystem/developer-profile)
 * [DeFi & Liquidity](/ecosystem/defi-liquidity)
 * [Bridges](/ecosystem/bridges)
+* [Collectibles & NFTs](/ecosystem/collectibles)
 * [Community Projects](/ecosystem/projects)
 * [Builder Perks](/ecosystem/builder-perks)
 * [VCs & Funds](/ecosystem/vcs-and-funds)
@@ -94,11 +95,11 @@ Leverage on-chain randomness to create unpredictable, emergent experiences on Fl
 * May 4: Challenges kickoff
 * May 4-10: Build randomness-powered applications
 * [May 7 (Wed): Twitter Space @ 4:00 PM PST - "Randomness: Building with Unpredictability"](https://x.com/i/spaces/1BdGYqgDedLGX)
-* May 12: Week 1 winners announced
+* May 12: Week 1 winners announced!
 
 #### Useful Resources:
 
-* [How to setup cursor with developer docs for optimal vibe coding](https://developers.flow.com/tutorials/ai-plus-flow/cursor)
+* [How to setup cursor with developer docs for optimal vibe coding](https://developers.flow.com/tutorials/use-AI-to-build-on-flow/cursor)
 * ["Live app](https://randoms.wtf/)  built using Flow random and  [GitHub](https://github.com/Aliserag/random.wtf)
 * [Implement Randomness with Solidity in 3 min](https://developers.flow.com/evm/guides/vrf)
 
@@ -109,7 +110,7 @@ Master the ingredients of creating fun and delightful experiences, from replayab
 * May 11: Week 2 starts
 * May 11-17: Build Games (either completely new or continue building on your week 1 project)
 * [May 14 (Wed): Twitter Space @ 4:00 PM PST - "How to Build Fun Games"](https://x.com/i/spaces/1yoKMoqmzzjJQ)
-* May 19: Week 2 winners announced
+* May 19: Week 2 winners announced!
 
 ### Week 3: Generative Art and Worlds (May 18-24)
 
@@ -117,15 +118,17 @@ Utilize generative tools and AI to create evolving, autonomous and algorithmicar
 
 * May 18: Week 3 starts
 * May 18-24: Build generative apps (either completely new or continue building on your week 1 or 2 projects)
-* [May 21 (Wed): Twitter Space @ 4:00 PM PST - "Generative Composiblity: Turning Products into Platforms"](https://x.com/i/spaces/1yoKMoqmzzjJQ)
-* May 26: Week 3 winners announced
+* [May 21 (Wed): Twitter Space @ 4:00 PM PST - "Generative Composiblity: Turning Products into Platforms"](https://x.com/i/spaces/1MnxnwmLabjKO)
+* May 26: Week 3 winners announced!
 
-### Week 4: Theme TBD (May 25-31)
+### Week 4: AI and LLMs (May 25 - June 1st)
 
-Theme to be announced.
+How can LLMs make life easier for everyday people or enrich experiences? Experiment with the latest AI models or agentic frameworks to create new levels of depth in your existing projects or create new ones entirely.
 
-* May 31: Final submission deadline
-* June 2: Week 4 winners and jackpot announced
+* May 25: Week 4 starts
+* May 25 - June 1st: Build AI integrated apps (either completely new or continue building on your week 1, 2 or 3 projects)
+* June 1st: Final submission deadline
+* June 2nd: Week 4 winners and jackpot announced! Note, the jackpot will consist of shortlisted projects that are the most working end-to-end and complex, check the repo for the new leaderboard to see how your project ranks relative to others!
 
 ### Looking for a Team?
 
@@ -148,9 +151,9 @@ submissions/
 │   │   │   ├── README.md   # Documentation with prompts used
 │   │   │   └── src/        # Source code
 │   │
-│   ├── week2/              # Week 2: Theme TBD
-│   ├── week3/              # Week 3: Theme TBD
-│   └── week4/              # Week 4: Theme TBD
+│   ├── week2/              # Week 2: ...
+│   ├── week3/              # Week 3: ...
+│   └── week4/              # Week 4: ...
 ```
 
 ### 3. Create Your Project Directory
@@ -235,9 +238,49 @@ Check this section daily to see all winners announced so far!
 * ChainRaffle - 0xbbdd20a9016cc1d9
 * Random Game (Phaser) - 0x9db94c9564243ba7
 
+### Week 2: Actually Fun Games[​](#week-2-actually-fun-games "Direct link to Week 2: Actually Fun Games")
+
+* Ace Guessing Game - 0xa620a02c4cc2d20d
+* ElementalStrikers - 0xc65395858a38d8ff
+* Click to the Moon - 0xe712bbfbeeef1cfa
+* The Doodles Memorizer - 0x9f7145728ef9ae10
+* Emoji Chain Reaction - 0x6c1b12e35dca8863
+* FrogDash - 0xe35f688520e4a2c3
+* FlowVerse - 0x1E78b3F3550889e90EcE152ab6bbCb8d9E7Dd221
+
+### Week 3: Generative Art & Worlds[​](#week-3-generative-art--worlds "Direct link to Week 3: Generative Art & Worlds")
+
+* Flow Craps - 0x9db94c9564243ba7
+* Doodles NFT Mutator - 0x9f7145728ef9ae10
+* Generative Tarot Card AI - 0xe712bbfbeeef1cfa
+* FlowGating - 0x94b619cc671a3734
+* Evolving Creatures - 0xc65395858a38d8ff
+* Flow Persona - 0x1E78b3F3550889e90EcE152ab6bbCb8d9E7Dd221
+* Game of Life - 0x0000000000000000000000021DD51488A93756E2
+
+### Week 3: Generative Art and Worlds[​](#week-3-generative-art-and-worlds "Direct link to Week 3: Generative Art and Worlds")
+
+Tasneem - 0x0000000000000000000000021DD51488A93756E2
+Zhixuan - 0x9f7145728ef9ae10
+Tobin - 0xe712bbfbeeef1cfa
+NileDEX - 0x94b619cc671a3734
+Ccarnicle - 0x9db94c9564243ba7
+Claucondor - 0xc65395858a38d8ff
+Pandit - 0x1E78b3F3550889e90EcE152ab6bbCb8d9E7Dd221
+
+### Week 4: AI & LLMs[​](#week-4-ai--llms "Direct link to Week 4: AI & LLMs")
+
+Claucondor - 0xc65395858a38d8ff
+AlexD-Great - 0x9701b128fd2017f8
+Pranav - 0x17b3b1e6b16965f3
+AltcoinDaddy - 0x6c1b12e35dca8863
+Tobin - 0xe712bbfbeeef1cfa
+Pandit - 0x1E78b3F3550889e90EcE152ab6bbCb8d9E7Dd221
+Zhixuan - 0x9f7145728ef9ae10
+
 note
 
-Winners are announced on the [@flow\_blockchain](https://x.com/flow_blockchain) Twitter account, and prizes are sent to the wallet addresses indicated in your submission name on github.
+Winners are announced on the [@flow\_blockchain](https://x.com/flow_blockchain) Twitter account, and prizes are sent to the wallet addresses indicated in your submission name on GitHub.
 
 ## FAQ[​](#faq "Direct link to FAQ")
 
@@ -272,7 +315,7 @@ Disclaimer: Individuals residing in jurisdictions where gaming or lottery partic
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/Hackathons and Events/may-the-flow-be-with-you.md)
 
-Last updated on **May 18, 2025** by **Ali Serag**
+Last updated on **Aug 11, 2025** by **0xLisanAlGaib**
 
 [Previous
 
@@ -296,6 +339,10 @@ Copy as Markdown
 * [Building in Public](#building-in-public)
 * [List of Winners](#list-of-winners)
   + [Week 1: The Randomness Revolution](#week-1-the-randomness-revolution)
+  + [Week 2: Actually Fun Games](#week-2-actually-fun-games)
+  + [Week 3: Generative Art & Worlds](#week-3-generative-art--worlds)
+  + [Week 3: Generative Art and Worlds](#week-3-generative-art-and-worlds)
+  + [Week 4: AI & LLMs](#week-4-ai--llms)
 * [FAQ](#faq)
 * [Stay Connected](#stay-connected)
 
