@@ -1,18 +1,18 @@
 # Source: https://developers.flow.com/tools/fcl-js/sdk-guidelines/
 
-SDK Reference | Flow Developer Portal
+@onflow/sdk | Flow Developer Portal
 
 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [@onflow/kit](/tools/kit)
+* [@onflow/react-sdk](/tools/react-sdk)
 * [Flow Emulator](/tools/emulator)
 * [Flow CLI](/tools/flow-cli)
 * [Cadence VS Code Extension](/tools/vscode-extension)
@@ -21,8 +21,82 @@ Search
 
   + [Flow Client Library (FCL)](/tools/clients/fcl-js)
 
-    - [FCL Reference](/tools/clients/fcl-js/api)
-    - [SDK Reference](/tools/clients/fcl-js/sdk-guidelines)
+    - [Packages Docs](/tools/clients/fcl-js/packages-docs)
+
+      * [@onflow/fcl](/tools/clients/fcl-js/packages-docs/fcl)
+      * [@onflow/sdk](/tools/clients/fcl-js/packages-docs/sdk)
+
+        + [account](/tools/clients/fcl-js/packages-docs/sdk/account)
+        + [arg](/tools/clients/fcl-js/packages-docs/sdk/arg)
+        + [args](/tools/clients/fcl-js/packages-docs/sdk/args)
+        + [atBlockHeight](/tools/clients/fcl-js/packages-docs/sdk/atBlockHeight)
+        + [atBlockId](/tools/clients/fcl-js/packages-docs/sdk/atBlockId)
+        + [atLatestBlock](/tools/clients/fcl-js/packages-docs/sdk/atLatestBlock)
+        + [authorization](/tools/clients/fcl-js/packages-docs/sdk/authorization)
+        + [authorizations](/tools/clients/fcl-js/packages-docs/sdk/authorizations)
+        + [block](/tools/clients/fcl-js/packages-docs/sdk/block)
+        + [build](/tools/clients/fcl-js/packages-docs/sdk/build)
+        + [cadence](/tools/clients/fcl-js/packages-docs/sdk/cadence)
+        + [cdc](/tools/clients/fcl-js/packages-docs/sdk/cdc)
+        + [config](/tools/clients/fcl-js/packages-docs/sdk/config)
+        + [createSdkClient](/tools/clients/fcl-js/packages-docs/sdk/createSdkClient)
+        + [createSignableVoucher](/tools/clients/fcl-js/packages-docs/sdk/createSignableVoucher)
+        + [decode](/tools/clients/fcl-js/packages-docs/sdk/decode)
+        + [destroy](/tools/clients/fcl-js/packages-docs/sdk/destroy)
+        + [encodeMessageFromSignable](/tools/clients/fcl-js/packages-docs/sdk/encodeMessageFromSignable)
+        + [encodeTransactionEnvelope](/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionEnvelope)
+        + [encodeTransactionPayload](/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionPayload)
+        + [encodeTxIdFromVoucher](/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher)
+        + [get](/tools/clients/fcl-js/packages-docs/sdk/get)
+        + [getAccount](/tools/clients/fcl-js/packages-docs/sdk/getAccount)
+        + [getBlock](/tools/clients/fcl-js/packages-docs/sdk/getBlock)
+        + [getBlockHeader](/tools/clients/fcl-js/packages-docs/sdk/getBlockHeader)
+        + [getCollection](/tools/clients/fcl-js/packages-docs/sdk/getCollection)
+        + [getEvents](/tools/clients/fcl-js/packages-docs/sdk/getEvents)
+        + [getEventsAtBlockHeightRange](/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockHeightRange)
+        + [getEventsAtBlockIds](/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockIds)
+        + [getNetworkParameters](/tools/clients/fcl-js/packages-docs/sdk/getNetworkParameters)
+        + [getNodeVersionInfo](/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo)
+        + [getTransaction](/tools/clients/fcl-js/packages-docs/sdk/getTransaction)
+        + [getTransactionStatus](/tools/clients/fcl-js/packages-docs/sdk/getTransactionStatus)
+        + [initInteraction](/tools/clients/fcl-js/packages-docs/sdk/initInteraction)
+        + [interaction](/tools/clients/fcl-js/packages-docs/sdk/interaction)
+        + [isBad](/tools/clients/fcl-js/packages-docs/sdk/isBad)
+        + [isOk](/tools/clients/fcl-js/packages-docs/sdk/isOk)
+        + [limit](/tools/clients/fcl-js/packages-docs/sdk/limit)
+        + [nodeVersionInfo](/tools/clients/fcl-js/packages-docs/sdk/nodeVersionInfo)
+        + [param](/tools/clients/fcl-js/packages-docs/sdk/param)
+        + [params](/tools/clients/fcl-js/packages-docs/sdk/params)
+        + [payer](/tools/clients/fcl-js/packages-docs/sdk/payer)
+        + [ping](/tools/clients/fcl-js/packages-docs/sdk/ping)
+        + [pipe](/tools/clients/fcl-js/packages-docs/sdk/pipe)
+        + [proposer](/tools/clients/fcl-js/packages-docs/sdk/proposer)
+        + [put](/tools/clients/fcl-js/packages-docs/sdk/put)
+        + [ref](/tools/clients/fcl-js/packages-docs/sdk/ref)
+        + [resolve](/tools/clients/fcl-js/packages-docs/sdk/resolve)
+        + [resolveAccounts](/tools/clients/fcl-js/packages-docs/sdk/resolveAccounts)
+        + [resolveArguments](/tools/clients/fcl-js/packages-docs/sdk/resolveArguments)
+        + [resolveCadence](/tools/clients/fcl-js/packages-docs/sdk/resolveCadence)
+        + [resolveFinalNormalization](/tools/clients/fcl-js/packages-docs/sdk/resolveFinalNormalization)
+        + [resolveProposerSequenceNumber](/tools/clients/fcl-js/packages-docs/sdk/resolveProposerSequenceNumber)
+        + [resolveRefBlockId](/tools/clients/fcl-js/packages-docs/sdk/resolveRefBlockId)
+        + [resolveSignatures](/tools/clients/fcl-js/packages-docs/sdk/resolveSignatures)
+        + [resolveValidators](/tools/clients/fcl-js/packages-docs/sdk/resolveValidators)
+        + [resolveVoucherIntercept](/tools/clients/fcl-js/packages-docs/sdk/resolveVoucherIntercept)
+        + [response](/tools/clients/fcl-js/packages-docs/sdk/response)
+        + [script](/tools/clients/fcl-js/packages-docs/sdk/script)
+        + [send](/tools/clients/fcl-js/packages-docs/sdk/send)
+        + [subscribe](/tools/clients/fcl-js/packages-docs/sdk/subscribe)
+        + [subscribeEvents](/tools/clients/fcl-js/packages-docs/sdk/subscribeEvents)
+        + [subscribeRaw](/tools/clients/fcl-js/packages-docs/sdk/subscribeRaw)
+        + [TestUtils](/tools/clients/fcl-js/packages-docs/sdk/testUtils)
+        + [transaction](/tools/clients/fcl-js/packages-docs/sdk/transaction)
+        + [update](/tools/clients/fcl-js/packages-docs/sdk/update)
+        + [validator](/tools/clients/fcl-js/packages-docs/sdk/validator)
+        + [voucherIntercept](/tools/clients/fcl-js/packages-docs/sdk/voucherIntercept)
+        + [voucherToTxId](/tools/clients/fcl-js/packages-docs/sdk/voucherToTxId)
+        + [why](/tools/clients/fcl-js/packages-docs/sdk/why)
+      * [Type Definitions](/tools/clients/fcl-js/packages-docs/types)
     - [Authentication](/tools/clients/fcl-js/authentication)
     - [How to Configure FCL](/tools/clients/fcl-js/configure-fcl)
     - [Cross VM Packages](/tools/clients/fcl-js/cross-vm)
@@ -41,58 +115,52 @@ Search
 
 * [Client Tools](/tools/clients)
 * [Flow Client Library (FCL)](/tools/clients/fcl-js)
-* SDK Reference
+* [Packages Docs](/tools/clients/fcl-js/packages-docs)
+* @onflow/sdk
 
 On this page
 
-# SDK Reference
+# @onflow/sdk
 
 ## Overview[​](#overview "Direct link to Overview")
 
-This reference documents methods available in the SDK that can be accessed via FCL, and explains in detail how these methods work.
-FCL/SDKs are open source, and you can use them according to the licence.
+The Flow sdk library provides a set of tools for developers to build applications on the Flow blockchain.
 
-The library client specifications can be found here:
+## Installation[​](#installation "Direct link to Installation")
 
-[![](https://raw.githubusercontent.com/onflow/sdks/main/templates/documentation/ref.svg)](/tools/clients/fcl-js/api)
-
-## Getting Started[​](#getting-started "Direct link to Getting Started")
-
-### Installing[​](#installing "Direct link to Installing")
-
-NPM:
+You can install the @onflow/sdk package using npm or yarn:
 
 `_10
 
-npm install --save @onflow/fcl @onflow/types`
+npm install @onflow/sdk`
 
-Yarn:
-
-`_10
-
-yarn add @onflow/fcl @onflow/types`
-
-### Importing the Library[​](#importing-the-library "Direct link to Importing the Library")
+Or using yarn:
 
 `_10
 
-import * as fcl from "@onflow/fcl"
+yarn add @onflow/sdk`
 
-_10
+### Requirements[​](#requirements "Direct link to Requirements")
 
-import * as types from "@onflow/types"`
+* Node.js 14.x or later
+
+### Importing[​](#importing "Direct link to Importing")
+
+You can import the entire package:
+
+`_10
+
+import * as sdk from "@onflow/sdk"`
+
+Or import specific functions:
+
+`_10
+
+import { functionName } from "@onflow/sdk"`
 
 ## Connect[​](#connect "Direct link to Connect")
 
-[![](https://raw.githubusercontent.com/onflow/sdks/main/templates/documentation/ref.svg)](/tools/clients/fcl-js/configure-fcl)
-
 By default, the library uses HTTP to communicate with the access nodes and it must be configured with the correct access node API URL. An error will be returned if the host is unreachable.
-
-📖**The HTTP/REST API information** can be found [here](/http-api). The public Flow HTTP/REST access nodes are accessible at:
-
-* Testnet `https://rest-testnet.onflow.org`
-* Mainnet `https://rest-mainnet.onflow.org`
-* Local Emulator `127.0.0.1:8888`
 
 Example:
 
@@ -118,420 +186,6 @@ _10
 
 After you have established a connection with an access node, you can query the Flow network to retrieve data about blocks, accounts, events and transactions. We will explore how to retrieve each of these entities in the sections below.
 
-### Get Blocks[​](#get-blocks "Direct link to Get Blocks")
-
-[![](https://raw.githubusercontent.com/onflow/sdks/main/templates/documentation/ref.svg)](/tools/clients/fcl-js/api#getblock)
-
-Query the network for block by id, height or get the latest block.
-
-📖 **Block ID** is SHA3-256 hash of the entire block payload. This hash is stored as an ID field on any block response object (ie. response from `GetLatestBlock`).
-
-📖 **Block height** expresses the height of the block on the chain. The latest block height increases by one for every valid block produced.
-
-#### Examples[​](#examples "Direct link to Examples")
-
-This example depicts ways to get the latest block as well as any other block by height or ID:
-
-`_10
-
-import * as fcl from "@onflow/fcl";
-
-_10
-
-_10
-
-// Get latest block
-
-_10
-
-const latestBlock = await fcl.latestBlock(true); // If true, get the latest sealed block
-
-_10
-
-_10
-
-// Get block by ID (uses builder function)
-
-_10
-
-await fcl.send([fcl.getBlock(), fcl.atBlockId("23232323232")]).then(fcl.decode);
-
-_10
-
-_10
-
-// Get block at height (uses builder function)
-
-_10
-
-await fcl.send([fcl.getBlock(), fcl.atBlockHeight(123)]).then(fcl.decode)`
-
-Result output: [BlockObject](/tools/clients/fcl-js/api#blockobject)
-
-### Get Account[​](#get-account "Direct link to Get Account")
-
-[![](https://raw.githubusercontent.com/onflow/sdks/main/templates/documentation/ref.svg)](/tools/clients/fcl-js/api#account)
-
-Retrieve any account from Flow network's latest block or from a specified block height.
-
-📖 **Account address** is a unique account identifier. Be mindful about the `0x` prefix, you should use the prefix as a default representation but be careful and safely handle user inputs without the prefix.
-
-An account includes the following data:
-
-* Address: the account address.
-* Balance: balance of the account.
-* Contracts: list of contracts deployed to the account.
-* Keys: list of keys associated with the account.
-
-#### Examples[​](#examples-1 "Direct link to Examples")
-
-Example depicts ways to get an account at the latest block and at a specific block height:
-
-`_10
-
-import * as fcl from "@onflow/fcl";
-
-_10
-
-_10
-
-// Get account from latest block height
-
-_10
-
-const account = await fcl.account("0x1d007d755706c469");
-
-_10
-
-_10
-
-// Get account at a specific block height
-
-_10
-
-fcl.send([
-
-_10
-
-fcl.getAccount("0x1d007d755706c469"),
-
-_10
-
-fcl.atBlockHeight(123)
-
-_10
-
-]);`
-
-Result output: [AccountObject](/tools/clients/fcl-js/api#accountobject)
-
-### Get Transactions[​](#get-transactions "Direct link to Get Transactions")
-
-[![](https://raw.githubusercontent.com/onflow/sdks/main/templates/documentation/ref.svg)](/tools/clients/fcl-js/api#gettransaction)
-
-Retrieve transactions from the network by providing a transaction ID. After a transaction has been submitted, you can also get the transaction result to check the status.
-
-📖 **Transaction ID** is a hash of the encoded transaction payload and can be calculated before submitting the transaction to the network.
-
-⚠️ The transaction ID provided must be from the current spork.
-
-📖 **Transaction status** represents the state of a transaction in the blockchain. Status can change until it is finalized.
-
-| Status | Final | Description |
-| --- | --- | --- |
-| UNKNOWN | ❌ | The transaction has not yet been seen by the network |
-| PENDING | ❌ | The transaction has not yet been included in a block |
-| FINALIZED | ❌ | The transaction has been included in a block |
-| EXECUTED | ❌ | The transaction has been executed but the result has not yet been sealed |
-| SEALED | ✅ | The transaction has been executed and the result is sealed in a block |
-| EXPIRED | ✅ | The transaction reference block is outdated before being executed |
-
-`_16
-
-import * as fcl from "@onflow/fcl";
-
-_16
-
-_16
-
-// Snapshot the transaction at a point in time
-
-_16
-
-fcl.tx(transactionId).snapshot();
-
-_16
-
-_16
-
-// Subscribe to a transaction's updates
-
-_16
-
-fcl.tx(transactionId).subscribe(callback);
-
-_16
-
-_16
-
-// Provides the transaction once the status is finalized
-
-_16
-
-fcl.tx(transactionId).onceFinalized();
-
-_16
-
-_16
-
-// Provides the transaction once the status is executed
-
-_16
-
-fcl.tx(transactionId).onceExecuted();
-
-_16
-
-_16
-
-// Provides the transaction once the status is sealed
-
-_16
-
-fcl.tx(transactionId).onceSealed();`
-
-Result output: [TransactionStatusObject](/tools/clients/fcl-js/api#gettransactionstatus)
-
-### Get Events[​](#get-events "Direct link to Get Events")
-
-[![](https://raw.githubusercontent.com/onflow/sdks/main/templates/documentation/ref.svg)](/tools/clients/fcl-js/api#geteventsatblockheightrange)
-
-Retrieve events by a given type in a specified block height range or through a list of block IDs.
-
-📖 **Event type** is a string that follow a standard format:
-
-`_10
-
-A.{contract address}.{contract name}.{event name}`
-
-Please read more about [events in the documentation](https://cadence-lang.org/docs/language/core-events). The exception to this standard are
-core events, and you should read more about them in [this document](https://cadence-lang.org/docs/language/core-events).
-
-📖 **Block height range** expresses the height of the start and end block in the chain.
-
-#### Examples[​](#examples-2 "Direct link to Examples")
-
-Example depicts ways to get events within block range or by block IDs:
-
-`_22
-
-import * as fcl from "@onflow/fcl";
-
-_22
-
-_22
-
-// Get events at block height range
-
-_22
-
-await fcl
-
-_22
-
-.send([
-
-_22
-
-fcl.getEventsAtBlockHeightRange(
-
-_22
-
-"A.7e60df042a9c0868.FlowToken.TokensWithdrawn", // event name
-
-_22
-
-35580624, // block to start looking for events at
-
-_22
-
-35580624 // block to stop looking for events at
-
-_22
-
-),
-
-_22
-
-])
-
-_22
-
-.then(fcl.decode);
-
-_22
-
-_22
-
-// Get events from list of block ids
-
-_22
-
-await fcl
-
-_22
-
-.send([
-
-_22
-
-fcl.getEventsAtBlockIds("A.7e60df042a9c0868.FlowToken.TokensWithdrawn", [
-
-_22
-
-"c4f239d49e96d1e5fbcf1f31027a6e582e8c03fcd9954177b7723fdb03d938c7",
-
-_22
-
-"5dbaa85922eb194a3dc463c946cc01c866f2ff2b88f3e59e21c0d8d00113273f",
-
-_22
-
-]),
-
-_22
-
-])
-
-_22
-
-.then(fcl.decode);`
-
-Result output: [EventObject](/tools/clients/fcl-js/api#event-object)
-
-### Get Collections[​](#get-collections "Direct link to Get Collections")
-
-[![](https://raw.githubusercontent.com/onflow/sdks/main/templates/documentation/ref.svg)](/tools/clients/fcl-js/api#getcollection)
-
-Retrieve a batch of transactions that have been included in the same block, known as ***collections***.
-Collections are used to improve consensus throughput by increasing the number of transactions per block and they act as a link between a block and a transaction.
-
-📖 **Collection ID** is SHA3-256 hash of the collection payload.
-
-Example retrieving a collection:
-
-`_10
-
-import * as fcl from "@onflow/fcl";
-
-_10
-
-_10
-
-const collection = await fcl
-
-_10
-
-.send([
-
-_10
-
-fcl.getCollection(
-
-_10
-
-"cccdb0c67d015dc7f6444e8f62a3244ed650215ed66b90603006c70c5ef1f6e5"
-
-_10
-
-),
-
-_10
-
-])
-
-_10
-
-.then(fcl.decode);`
-
-Result output: [CollectionObject](/tools/clients/fcl-js/api#collectionobject)
-
-### Execute Scripts[​](#execute-scripts "Direct link to Execute Scripts")
-
-[![](https://raw.githubusercontent.com/onflow/sdks/main/templates/documentation/ref.svg)](/tools/clients/fcl-js/api#query)
-
-Scripts allow you to write arbitrary non-mutating Cadence code on the Flow blockchain and return data. You can learn more about [Cadence here](https://cadence-lang.org/docs/language) and [scripts here](/tools/clients/fcl-js/scripts), but we are now only interested in executing the script code and getting back the data.
-
-We can execute a script using the latest state of the Flow blockchain or we can choose to execute the script at a specific time in history defined by a block height or block ID.
-
-📖 **Block ID** is SHA3-256 hash of the entire block payload, but you can get that value from the block response properties.
-
-📖 **Block height** expresses the height of the block in the chain.
-
-`_15
-
-import * as fcl from "@onflow/fcl";
-
-_15
-
-_15
-
-const result = await fcl.query({
-
-_15
-
-cadence: `
-
-_15
-
-access(all) fun main(a: Int, b: Int, addr: Address): Int {
-
-_15
-
-log(addr)
-
-_15
-
-return a + b
-
-_15
-
-}
-
-_15
-
-`,
-
-_15
-
-args: (arg, t) => [
-
-_15
-
-arg(7, t.Int), // a: Int
-
-_15
-
-arg(6, t.Int), // b: Int
-
-_15
-
-arg("0xba1132bc08f82fe2", t.Address), // addr: Address
-
-_15
-
-],
-
-_15
-
-});`
-
-Example output:
-
-`_10
-
-console.log(result); // 13`
-
 ## Mutate Flow Network[​](#mutate-flow-network "Direct link to Mutate Flow Network")
 
 Flow, like most blockchains, allows anybody to submit a transaction that mutates the shared global chain state. A transaction is an object that holds a payload, which describes the state mutation, and one or more authorizations that permit the transaction to mutate the state owned by specific accounts.
@@ -540,13 +194,13 @@ Transaction data is composed and signed with help of the SDK. The signed payload
 
 ## Transactions[​](#transactions "Direct link to Transactions")
 
-A transaction is nothing more than a signed set of data that includes script code which are instructions on how to mutate the network state and properties that define and limit it's execution. All these properties are explained bellow.
+A transaction is nothing more than a signed set of data that includes script code which are instructions on how to mutate the network state and properties that define and limit it's execution. All these properties are explained below.
 
-📖 **Script** field is the portion of the transaction that describes the state mutation logic. On Flow, transaction logic is written in [Cadence](https://cadence-lang.org/docs). Here is an example transaction script:
+**Script** field is the portion of the transaction that describes the state mutation logic. On Flow, transaction logic is written in [Cadence](https://cadence-lang.org/docs). Here is an example transaction script:
 
 `_10
 
-transaction(greeting: String) {
+transaction(greeting: string) {
 
 _10
 
@@ -564,9 +218,9 @@ _10
 
 }`
 
-📖 **Arguments**. A transaction can accept zero or more arguments that are passed into the Cadence script. The arguments on the transaction must match the number and order declared in the Cadence script. Sample script from above accepts a single `String` argument.
+**Arguments**. A transaction can accept zero or more arguments that are passed into the Cadence script. The arguments on the transaction must match the number and order declared in the Cadence script. Sample script from above accepts a single `String` argument.
 
-📖 **[Proposal key](/build/basics/transactions#proposal-key)** must be provided to act as a sequence number and prevent replay and other potential attacks.
+**Proposal key** must be provided to act as a sequence number and prevent replay and other potential attacks.
 
 Each account key maintains a separate transaction sequence counter; the key that lends its sequence number to a transaction is called the proposal key.
 
@@ -578,9 +232,9 @@ A proposal key contains three fields:
 
 A transaction is only valid if its declared sequence number matches the current on-chain sequence number for that key. The sequence number increments by one after the transaction is executed.
 
-📖 **[Payer](/build/basics/transactions#signer-roles)** is the account that pays the fees for the transaction. A transaction must specify exactly one payer. The payer is only responsible for paying the network and gas fees; the transaction is not authorized to access resources or code stored in the payer account.
+**Payer** is the account that pays the fees for the transaction. A transaction must specify exactly one payer. The payer is only responsible for paying the network and gas fees; the transaction is not authorized to access resources or code stored in the payer account.
 
-📖 **[Authorizers](/build/basics/transactions#signer-roles)** are accounts that authorize a transaction to read and mutate their resources. A transaction can specify zero or more authorizers, depending on how many accounts the transaction needs to access.
+**Authorizers** are accounts that authorize a transaction to read and mutate their resources. A transaction can specify zero or more authorizers, depending on how many accounts the transaction needs to access.
 
 The number of authorizers on the transaction must match the number of `&Account` parameters declared in the prepare statement of the Cadence script.
 
@@ -598,1152 +252,108 @@ _10
 
 }`
 
-📖 **Gas limit** is the limit on the amount of computation a transaction requires, and it will abort if it exceeds its gas limit.
+**Gas limit** is the limit on the amount of computation a transaction requires, and it will abort if it exceeds its gas limit.
 Cadence uses metering to measure the number of operations per transaction. You can read more about it in the [Cadence documentation](https://cadence-lang.org/docs).
 
 The gas limit depends on the complexity of the transaction script. Until dedicated gas estimation tooling exists, it's best to use the emulator to test complex transactions and determine a safe limit.
 
-📖 **Reference block** specifies an expiration window (measured in blocks) during which a transaction is considered valid by the network.
+**Reference block** specifies an expiration window (measured in blocks) during which a transaction is considered valid by the network.
 A transaction will be rejected if it is submitted past its expiry block. Flow calculates transaction expiry using the *reference block* field on a transaction.
 A transaction expires after `600` blocks are committed on top of the reference block, which takes about 10 minutes at average Mainnet block rates.
 
-### Mutate[​](#mutate "Direct link to Mutate")
-
-[![](https://raw.githubusercontent.com/onflow/sdks/main/templates/documentation/ref.svg)](/tools/clients/fcl-js/api#mutate)
-
-FCL "mutate" does the work of building, signing, and sending a transaction behind the scenes. In order to mutate the blockchain state using FCL, you need to do the following:
-
-`_16
-
-import * as fcl from "@onflow/fcl"
-
-_16
-
-_16
-
-await fcl.mutate({
-
-_16
-
-cadence: `
-
-_16
-
-transaction(a: Int) {
-
-_16
-
-prepare(acct: &Account) {
-
-_16
-
-log(acct)
-
-_16
-
-log(a)
-
-_16
-
-}
-
-_16
-
-}
-
-_16
-
-`,
-
-_16
-
-args: (arg, t) => [
-
-_16
-
-arg(6, t.Int)
-
-_16
-
-],
-
-_16
-
-limit: 50
-
-_16
-
-})`
-
-Flow supports great flexibility when it comes to transaction signing, we can define multiple authorizers (multi-sig transactions) and have different payer account than proposer. We will explore advanced signing scenarios bellow.
-
-### [Single party, single signature](/build/basics/transactions#single-party-single-signature)[​](#single-party-single-signature "Direct link to single-party-single-signature")
-
-* Proposer, payer and authorizer are the same account (`0x01`).
-* Only the envelope must be signed.
-* Proposal key must have full signing weight.
-
-| Account | Key ID | Weight |
-| --- | --- | --- |
-| `0x01` | 1 | 1000 |
-
-`_56
-
-// There are multiple ways to achieve this
-
-_56
-
-import * as fcl from "@onflow/fcl"
-
-_56
-
-_56
-
-// FCL provides currentUser as an authorization function
-
-_56
-
-await fcl.mutate({
-
-_56
-
-cadence: `
-
-_56
-
-transaction {
-
-_56
-
-prepare(acct: &Account) {}
-
-_56
-
-}
-
-_56
-
-`,
-
-_56
-
-proposer: currentUser,
-
-_56
-
-payer: currentUser,
-
-_56
-
-authorizations: [currentUser],
-
-_56
-
-limit: 50,
-
-_56
-
-})
-
-_56
-
-_56
-
-// Or, simplified
-
-_56
-
-_56
-
-mutate({
-
-_56
-
-cadence: `
-
-_56
-
-transaction {
-
-_56
-
-prepare(acct: &Account) {}
-
-_56
-
-}
-
-_56
-
-`,
-
-_56
-
-authz: currentUser, // Optional. Will default to currentUser if not provided.
-
-_56
-
-limit: 50,
-
-_56
-
-})
-
-_56
-
-_56
-
-_56
-
-// Or, create a custom authorization function
-
-_56
-
-const authzFn = async (txAccount) => {
-
-_56
-
-return {
-
-_56
-
-...txAccount,
-
-_56
-
-addr: "0x01",
-
-_56
-
-keyId: 0,
-
-_56
-
-signingFunction: async(signable) => {
-
-_56
-
-return {
-
-_56
-
-addr: "0x01",
-
-_56
-
-keyId: 0,
-
-_56
-
-signature
-
-_56
-
-}
-
-_56
-
-}
-
-_56
-
-}
-
-_56
-
-}
-
-_56
-
-_56
-
-mutate({
-
-_56
-
-cadence: `
-
-_56
-
-transaction {
-
-_56
-
-prepare(acct: &Account) {}
-
-_56
-
-}
-
-_56
-
-`,
-
-_56
-
-proposer: authzFn,
-
-_56
-
-payer: authzFn,
-
-_56
-
-authorizations: [authzFn],
-
-_56
-
-limit: 50,
-
-_56
-
-})`
-
-### [Single party, multiple signatures](/build/basics/transactions#single-party-multiple-signatures)[​](#single-party-multiple-signatures "Direct link to single-party-multiple-signatures")
-
-* Proposer, payer and authorizer are the same account (`0x01`).
-* Only the envelope must be signed.
-* Each key has weight 500, so two signatures are required.
-
-| Account | Key ID | Weight |
-| --- | --- | --- |
-| `0x01` | 1 | 500 |
-| `0x01` | 2 | 500 |
-
-**[![](https://raw.githubusercontent.com/onflow/sdks/main/templates/documentation/try.svg)](https://github.com/onflow/flow-go-sdk/tree/master/examples#single-party-multiple-signatures)**
-
-`_42
-
-import * as fcl from "@onflow/fcl"
-
-_42
-
-_42
-
-const authzFn = async (txAccount) => {
-
-_42
-
-return [
-
-_42
-
-{
-
-_42
-
-...txAccount,
-
-_42
-
-addr: "0x01",
-
-_42
-
-keyId: 0,
-
-_42
-
-signingFunction: async(signable) => {
-
-_42
-
-return {
-
-_42
-
-addr: "0x01",
-
-_42
-
-keyId: 0,
-
-_42
-
-signature
-
-_42
-
-}
-
-_42
-
-}
-
-_42
-
-},
-
-_42
-
-{
-
-_42
-
-...txAccount,
-
-_42
-
-addr: "0x01",
-
-_42
-
-keyId: 1,
-
-_42
-
-signingFunction: async(signable) => {
-
-_42
-
-return {
-
-_42
-
-addr: "0x01",
-
-_42
-
-keyId: 1,
-
-_42
-
-signature
-
-_42
-
-}
-
-_42
-
-}
-
-_42
-
-}
-
-_42
-
-]
-
-_42
-
-}
-
-_42
-
-_42
-
-mutate({
-
-_42
-
-cadence: `
-
-_42
-
-transaction {
-
-_42
-
-prepare(acct: &Account) {}
-
-_42
-
-}
-
-_42
-
-`,
-
-_42
-
-proposer: authzFn,
-
-_42
-
-payer: authzFn,
-
-_42
-
-authorizations: [authzFn],
-
-_42
-
-limit: 50,
-
-_42
-
-})`
-
-### [Multiple parties](/build/basics/transactions#multiple-parties)[​](#multiple-parties "Direct link to multiple-parties")
-
-* Proposer and authorizer are the same account (`0x01`).
-* Payer is a separate account (`0x02`).
-* Account `0x01` signs the payload.
-* Account `0x02` signs the envelope.
-  + Account `0x02` must sign last since it is the payer.
-
-| Account | Key ID | Weight |
-| --- | --- | --- |
-| `0x01` | 1 | 1000 |
-| `0x02` | 3 | 1000 |
-
-**[![](https://raw.githubusercontent.com/onflow/sdks/main/templates/documentation/try.svg)](https://github.com/onflow/flow-go-sdk/tree/master/examples#multiple-parties)**
-
-`_43
-
-import * as fcl from "@onflow/fcl"
-
-_43
-
-_43
-
-const authzFn = async (txAccount) => {
-
-_43
-
-return {
-
-_43
-
-...txAccount,
-
-_43
-
-addr: "0x01",
-
-_43
-
-keyId: 0,
-
-_43
-
-signingFunction: async(signable) => {
-
-_43
-
-return {
-
-_43
-
-addr: "0x01",
-
-_43
-
-keyId: 0,
-
-_43
-
-signature
-
-_43
-
-}
-
-_43
-
-}
-
-_43
-
-}
-
-_43
-
-}
-
-_43
-
-_43
-
-const authzTwoFn = async (txAccount) => {
-
-_43
-
-return {
-
-_43
-
-...txAccount,
-
-_43
-
-addr: "0x02",
-
-_43
-
-keyId: 0,
-
-_43
-
-signingFunction: async(signable) => {
-
-_43
-
-return {
-
-_43
-
-addr: "0x02",
-
-_43
-
-keyId: 0,
-
-_43
-
-signature
-
-_43
-
-}
-
-_43
-
-}
-
-_43
-
-}
-
-_43
-
-}
-
-_43
-
-_43
-
-mutate({
-
-_43
-
-cadence: `
-
-_43
-
-transaction {
-
-_43
-
-prepare(acct: &Account) {}
-
-_43
-
-}
-
-_43
-
-`,
-
-_43
-
-proposer: authzFn,
-
-_43
-
-payer: authzTwoFn,
-
-_43
-
-authorizations: [authzFn],
-
-_43
-
-limit: 50,
-
-_43
-
-})`
-
-### [Multiple parties, two authorizers](/build/basics/transactions#multiple-parties)[​](#multiple-parties-two-authorizers "Direct link to multiple-parties-two-authorizers")
-
-* Proposer and authorizer are the same account (`0x01`).
-* Payer is a separate account (`0x02`).
-* Account `0x01` signs the payload.
-* Account `0x02` signs the envelope.
-  + Account `0x02` must sign last since it is the payer.
-* Account `0x02` is also an authorizer to show how to include two `&Account` objects into an transaction
-
-| Account | Key ID | Weight |
-| --- | --- | --- |
-| `0x01` | 1 | 1000 |
-| `0x02` | 3 | 1000 |
-
-**[![](https://raw.githubusercontent.com/onflow/sdks/main/templates/documentation/try.svg)](https://github.com/onflow/flow-go-sdk/tree/master/examples#multiple-parties-two-authorizers)**
-
-`_43
-
-import * as fcl from "@onflow/fcl"
-
-_43
-
-_43
-
-const authzFn = async (txAccount) => {
-
-_43
-
-return {
-
-_43
-
-...txAccount,
-
-_43
-
-addr: "0x01",
-
-_43
-
-keyId: 0,
-
-_43
-
-signingFunction: async(signable) => {
-
-_43
-
-return {
-
-_43
-
-addr: "0x01",
-
-_43
-
-keyId: 0,
-
-_43
-
-signature
-
-_43
-
-}
-
-_43
-
-}
-
-_43
-
-}
-
-_43
-
-}
-
-_43
-
-_43
-
-const authzTwoFn = async (txAccount) => {
-
-_43
-
-return {
-
-_43
-
-...txAccount,
-
-_43
-
-addr: "0x02",
-
-_43
-
-keyId: 0,
-
-_43
-
-signingFunction: async(signable) => {
-
-_43
-
-return {
-
-_43
-
-addr: "0x02",
-
-_43
-
-keyId: 0,
-
-_43
-
-signature
-
-_43
-
-}
-
-_43
-
-}
-
-_43
-
-}
-
-_43
-
-}
-
-_43
-
-_43
-
-mutate({
-
-_43
-
-cadence: `
-
-_43
-
-transaction {
-
-_43
-
-prepare(acct: &Account, acct2: &Account) {}
-
-_43
-
-}
-
-_43
-
-`,
-
-_43
-
-proposer: authzFn,
-
-_43
-
-payer: authzTwoFn,
-
-_43
-
-authorizations: [authzFn, authzTwoFn],
-
-_43
-
-limit: 50,
-
-_43
-
-})`
-
-### [Multiple parties, multiple signatures](/build/basics/transactions#multiple-parties)[​](#multiple-parties-multiple-signatures "Direct link to multiple-parties-multiple-signatures")
-
-* Proposer and authorizer are the same account (`0x01`).
-* Payer is a separate account (`0x02`).
-* Account `0x01` signs the payload.
-* Account `0x02` signs the envelope.
-  + Account `0x02` must sign last since it is the payer.
-* Both accounts must sign twice (once with each of their keys).
-
-| Account | Key ID | Weight |
-| --- | --- | --- |
-| `0x01` | 1 | 500 |
-| `0x01` | 2 | 500 |
-| `0x02` | 3 | 500 |
-| `0x02` | 4 | 500 |
-
-`_71
-
-import * as fcl from "@onflow/fcl"
-
-_71
-
-_71
-
-const authzFn = async (txAccount) => {
-
-_71
-
-return [
-
-_71
-
-{
-
-_71
-
-...txAccount,
-
-_71
-
-addr: "0x01",
-
-_71
-
-keyId: 0,
-
-_71
-
-signingFunction: async(signable) => {
-
-_71
-
-return {
-
-_71
-
-addr: "0x01",
-
-_71
-
-keyId: 0,
-
-_71
-
-signature
-
-_71
-
-}
-
-_71
-
-}
-
-_71
-
-},
-
-_71
-
-{
-
-_71
-
-...txAccount,
-
-_71
-
-addr: "0x01",
-
-_71
-
-keyId: 1,
-
-_71
-
-signingFunction: async(signable) => {
-
-_71
-
-return {
-
-_71
-
-addr: "0x01",
-
-_71
-
-keyId: 1,
-
-_71
-
-signature
-
-_71
-
-}
-
-_71
-
-}
-
-_71
-
-}
-
-_71
-
-]
-
-_71
-
-}
-
-_71
-
-_71
-
-const authzTwoFn = async (txAccount) => {
-
-_71
-
-return [
-
-_71
-
-{
-
-_71
-
-...txAccount,
-
-_71
-
-addr: "0x02",
-
-_71
-
-keyId: 0,
-
-_71
-
-signingFunction: async(signable) => {
-
-_71
-
-return {
-
-_71
-
-addr: "0x02",
-
-_71
-
-keyId: 0,
-
-_71
-
-signature
-
-_71
-
-}
-
-_71
-
-}
-
-_71
-
-},
-
-_71
-
-{
-
-_71
-
-...txAccount,
-
-_71
-
-addr: "0x02",
-
-_71
-
-keyId: 1,
-
-_71
-
-signingFunction: async(signable) => {
-
-_71
-
-return {
-
-_71
-
-addr: "0x02",
-
-_71
-
-keyId: 1,
-
-_71
-
-signature
-
-_71
-
-}
-
-_71
-
-}
-
-_71
-
-}
-
-_71
-
-]
-
-_71
-
-}
-
-_71
-
-_71
-
-mutate({
-
-_71
-
-cadence: `
-
-_71
-
-transaction {
-
-_71
-
-prepare(acct: &Account) {}
-
-_71
-
-}
-
-_71
-
-`,
-
-_71
-
-proposer: authzFn,
-
-_71
-
-payer: authzTwoFn,
-
-_71
-
-authorizations: [authzFn],
-
-_71
-
-limit: 50,
-
-_71
-
-})`
-
-After a transaction has been **built** and **signed**, it can be sent to the Flow blockchain where it will be executed. If sending was successful you can then [retrieve the transaction result](#get-transactions).
-
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/sdk-guidelines.md)
-
-Last updated on **May 9, 2025** by **Brian Doyle**
+## API Reference[​](#api-reference "Direct link to API Reference")
+
+This section contains documentation for all of the functions and namespaces in the sdk package.
+
+* [account](/tools/clients/fcl-js/packages-docs/sdk/account) - Retrieve any account from Flow network's latest block or from a specified block...
+* [arg](/tools/clients/fcl-js/packages-docs/sdk/arg) - A utility builder to be used with fcl.args[...] to create FCL supported...
+* [args](/tools/clients/fcl-js/packages-docs/sdk/args) - A utility builder to be used with other builders to pass in arguments with a...
+* [atBlockHeight](/tools/clients/fcl-js/packages-docs/sdk/atBlockHeight) - A builder function that returns a partial interaction to a block at a specific...
+* [atBlockId](/tools/clients/fcl-js/packages-docs/sdk/atBlockId) - A builder function that returns a partial interaction to a block at a specific...
+* [atLatestBlock](/tools/clients/fcl-js/packages-docs/sdk/atLatestBlock) - A builder function that returns a partial interaction to query the latest block...
+* [authorization](/tools/clients/fcl-js/packages-docs/sdk/authorization) - Creates an authorization function for use in transactions. An authorization...
+* [authorizations](/tools/clients/fcl-js/packages-docs/sdk/authorizations) - A utility builder to set the authorizations on a transaction. Authorizations...
+* [block](/tools/clients/fcl-js/packages-docs/sdk/block) - Query the network for block by id, height or get the latest block. Block ID is...
+* [build](/tools/clients/fcl-js/packages-docs/sdk/build) - A builder function that creates an interaction from an array of builder...
+* [cadence](/tools/clients/fcl-js/packages-docs/sdk/cadence) - Creates a template function
+* [cdc](/tools/clients/fcl-js/packages-docs/sdk/cdc) - Creates a template function
+* [config](/tools/clients/fcl-js/packages-docs/sdk/config) - Sets the config
+* [createSdkClient](/tools/clients/fcl-js/packages-docs/sdk/createSdkClient) - Creates an SDK client with the provided options.
+* [createSignableVoucher](/tools/clients/fcl-js/packages-docs/sdk/createSignableVoucher) - Creates a signable voucher object from an interaction for signing purposes. A...
+* [decode](/tools/clients/fcl-js/packages-docs/sdk/decode) - Decodes the response from 'fcl.send()' into the appropriate JSON representation...
+* [destroy](/tools/clients/fcl-js/packages-docs/sdk/destroy) - Removes a property from an interaction object using a dot-notation key path.
+* [encodeMessageFromSignable](/tools/clients/fcl-js/packages-docs/sdk/encodeMessageFromSignable) - Encodes a message from a signable object for a specific signer address. This...
+* [encodeTransactionEnvelope](/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionEnvelope) - Encodes a complete transaction envelope including payload and signatures. This...
+* [encodeTransactionPayload](/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionPayload) - Encodes a transaction payload for signing. This function takes a transaction...
+* [encodeTxIdFromVoucher](/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher) - Encodes a transaction ID from a voucher by computing its hash. A voucher is an...
+* [get](/tools/clients/fcl-js/packages-docs/sdk/get) - Gets a value from an interaction object using a dot-notation key path.
+* [getAccount](/tools/clients/fcl-js/packages-docs/sdk/getAccount) - A builder function that returns the interaction to get an account by address....
+* [getBlock](/tools/clients/fcl-js/packages-docs/sdk/getBlock) - A builder function that returns the interaction to get the latest block. Use...
+* [getBlockHeader](/tools/clients/fcl-js/packages-docs/sdk/getBlockHeader) - A builder function that returns the interaction to get a block header. A block...
+* [getCollection](/tools/clients/fcl-js/packages-docs/sdk/getCollection) - A builder function that returns a collection containing a list of transaction...
+* [getEvents](/tools/clients/fcl-js/packages-docs/sdk/getEvents) - A builder function that returns the interaction to get events. Events are...
+* [getEventsAtBlockHeightRange](/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockHeightRange) - A builder function that returns all instances of a particular event (by name)...
+* [getEventsAtBlockIds](/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockIds) - A builder function that returns all instances of a particular event (by name)...
+* [getNetworkParameters](/tools/clients/fcl-js/packages-docs/sdk/getNetworkParameters) - A builder function that returns the interaction to get network parameters....
+* [getNodeVersionInfo](/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo) - A builder function for the Get Node Version Info interaction. Creates an...
+* [getTransaction](/tools/clients/fcl-js/packages-docs/sdk/getTransaction) - A builder function that returns the interaction to get a transaction by id....
+* [getTransactionStatus](/tools/clients/fcl-js/packages-docs/sdk/getTransactionStatus) - A builder function that returns the status of transaction. The transaction id...
+* [initInteraction](/tools/clients/fcl-js/packages-docs/sdk/initInteraction) - Creates a new interaction object with default values.
+* [interaction](/tools/clients/fcl-js/packages-docs/sdk/interaction) - Creates a new interaction object with default values.
+* [isBad](/tools/clients/fcl-js/packages-docs/sdk/isBad) - Checks if an interaction has a failed status.
+* [isOk](/tools/clients/fcl-js/packages-docs/sdk/isOk) - Checks if an interaction has a successful status.
+* [limit](/tools/clients/fcl-js/packages-docs/sdk/limit) - A utility builder to set the compute limit on a transaction. The compute limit...
+* [nodeVersionInfo](/tools/clients/fcl-js/packages-docs/sdk/nodeVersionInfo) - Retrieve version information from the connected Flow Access Node. This function...
+* [param](/tools/clients/fcl-js/packages-docs/sdk/param) - Legacy function for setting a single parameter on an interaction.
+* [params](/tools/clients/fcl-js/packages-docs/sdk/params) - Legacy function for setting parameters on an interaction.
+* [payer](/tools/clients/fcl-js/packages-docs/sdk/payer) - A builder function that adds payer account(s) to a transaction. Every...
+* [ping](/tools/clients/fcl-js/packages-docs/sdk/ping) - A builder function that creates a ping interaction to test connectivity to the...
+* [pipe](/tools/clients/fcl-js/packages-docs/sdk/pipe) - Async pipe function to compose interactions. The pipe function is the foundation...
+* [proposer](/tools/clients/fcl-js/packages-docs/sdk/proposer) - A builder function that adds the proposer to a transaction. The proposer is...
+* [put](/tools/clients/fcl-js/packages-docs/sdk/put) - Sets a value in an interaction object using a dot-notation key path.
+* [ref](/tools/clients/fcl-js/packages-docs/sdk/ref) - A builder function that sets the reference block for a transaction. The...
+* [resolve](/tools/clients/fcl-js/packages-docs/sdk/resolve) - Resolves an interaction by applying a series of resolvers in sequence. This is...
+* [resolveAccounts](/tools/clients/fcl-js/packages-docs/sdk/resolveAccounts) - Resolves account authorization functions and validates account configurations...
+* [resolveArguments](/tools/clients/fcl-js/packages-docs/sdk/resolveArguments) - Resolves transaction arguments by evaluating argument functions and converting...
+* [resolveCadence](/tools/clients/fcl-js/packages-docs/sdk/resolveCadence)
+* [resolveFinalNormalization](/tools/clients/fcl-js/packages-docs/sdk/resolveFinalNormalization) - Normalizes account addresses by removing the "0x" prefix from all account...
+* [resolveProposerSequenceNumber](/tools/clients/fcl-js/packages-docs/sdk/resolveProposerSequenceNumber) - Resolves the sequence number for the proposer account by querying the...
+* [resolveRefBlockId](/tools/clients/fcl-js/packages-docs/sdk/resolveRefBlockId) - Resolves the reference block ID for a transaction by querying the latest block...
+* [resolveSignatures](/tools/clients/fcl-js/packages-docs/sdk/resolveSignatures) - Resolves signatures for a transaction by coordinating the signing process for...
+* [resolveValidators](/tools/clients/fcl-js/packages-docs/sdk/resolveValidators) - Executes validator functions that have been attached to an interaction to...
+* [resolveVoucherIntercept](/tools/clients/fcl-js/packages-docs/sdk/resolveVoucherIntercept) - Resolves voucher intercept functions by calling them with the current voucher.
+* [response](/tools/clients/fcl-js/packages-docs/sdk/response) - Creates a default response object
+* [script](/tools/clients/fcl-js/packages-docs/sdk/script) - A builder function that creates a script interaction. Scripts allow you to write...
+* [send](/tools/clients/fcl-js/packages-docs/sdk/send) - Sends arbitrary scripts, transactions, and requests to Flow. This method...
+* [subscribe](/tools/clients/fcl-js/packages-docs/sdk/subscribe) - Subscribe to real-time data from the Flow blockchain and automatically decode...
+* [subscribeEvents](/tools/clients/fcl-js/packages-docs/sdk/subscribeEvents) - Subscribe to events with the given filter and parameters. Creates a subscription...
+* [subscribeRaw](/tools/clients/fcl-js/packages-docs/sdk/subscribeRaw) - Subscribe to a topic without decoding the data. This function creates a raw...
+* [TestUtils](/tools/clients/fcl-js/packages-docs/sdk/testUtils) (namespace) - Namespace containing TestUtils utilities
+* [TestUtils.authzDeepResolveMany](/tools/clients/fcl-js/packages-docs/sdk/testUtils#authzDeepResolveMany) - Creates a deep test authorization resolver with nested resolution for complex...
+* [TestUtils.authzFn](/tools/clients/fcl-js/packages-docs/sdk/testUtils#authzFn) - Creates a test authorization function for testing transactions.
+* [TestUtils.authzResolve](/tools/clients/fcl-js/packages-docs/sdk/testUtils#authzResolve) - Creates a test authorization resolver that can be used for testing account...
+* [TestUtils.authzResolveMany](/tools/clients/fcl-js/packages-docs/sdk/testUtils#authzResolveMany) - Creates a test authorization resolver that handles multiple accounts with...
+* [TestUtils.idof](/tools/clients/fcl-js/packages-docs/sdk/testUtils#idof) - Generates a unique identifier for an account based on its address and key ID.
+* [TestUtils.run](/tools/clients/fcl-js/packages-docs/sdk/testUtils#run) - Runs a set of functions on an interaction This is a utility function for testing...
+* [TestUtils.sig](/tools/clients/fcl-js/packages-docs/sdk/testUtils#sig) - Generates a test signature string for an account.
+* [transaction](/tools/clients/fcl-js/packages-docs/sdk/transaction) - A template builder to use a Cadence transaction for an interaction. FCL "mutate"...
+* [update](/tools/clients/fcl-js/packages-docs/sdk/update) - Updates a value in an interaction object using a transformation function.
+* [validator](/tools/clients/fcl-js/packages-docs/sdk/validator) - A builder function that adds a validator to a transaction. Validators are...
+* [voucherIntercept](/tools/clients/fcl-js/packages-docs/sdk/voucherIntercept) - A builder function that intercepts and modifies a voucher. This function is...
+* [voucherToTxId](/tools/clients/fcl-js/packages-docs/sdk/voucherToTxId) - Converts a voucher object to a transaction ID. This function computes the...
+* [why](/tools/clients/fcl-js/packages-docs/sdk/why) - Returns the reason for an interaction failure.
+
+---
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/packages-docs/sdk/index.md)
+
+Last updated on **Jul 25, 2025** by **Jordan Ribbink**
 
 [Previous
 
-FCL Reference](/tools/clients/fcl-js/api)[Next
+withPrefix](/tools/clients/fcl-js/packages-docs/fcl/withPrefix)[Next
 
-Authentication](/tools/clients/fcl-js/authentication)
+account](/tools/clients/fcl-js/packages-docs/sdk/account)
 
 ###### Rate this page
 
@@ -1752,25 +362,14 @@ Authentication](/tools/clients/fcl-js/authentication)
 Copy as Markdown
 
 * [Overview](#overview)
-* [Getting Started](#getting-started)
-  + [Installing](#installing)
-  + [Importing the Library](#importing-the-library)
+* [Installation](#installation)
+  + [Requirements](#requirements)
+  + [Importing](#importing)
 * [Connect](#connect)
 * [Querying the Flow Network](#querying-the-flow-network)
-  + [Get Blocks](#get-blocks)
-  + [Get Account](#get-account)
-  + [Get Transactions](#get-transactions)
-  + [Get Events](#get-events)
-  + [Get Collections](#get-collections)
-  + [Execute Scripts](#execute-scripts)
 * [Mutate Flow Network](#mutate-flow-network)
 * [Transactions](#transactions)
-  + [Mutate](#mutate)
-  + [Single party, single signature](#single-party-single-signature)
-  + [Single party, multiple signatures](#single-party-multiple-signatures)
-  + [Multiple parties](#multiple-parties)
-  + [Multiple parties, two authorizers](#multiple-parties-two-authorizers)
-  + [Multiple parties, multiple signatures](#multiple-parties-multiple-signatures)
+* [API Reference](#api-reference)
 
 Documentation
 

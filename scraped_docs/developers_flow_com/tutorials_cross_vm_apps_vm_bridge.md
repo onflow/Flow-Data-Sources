@@ -26,7 +26,7 @@ Search
   + [Direct Calls to Flow EVM](/tutorials/cross-vm-apps/direct-calls)
   + [Batched EVM Transactions](/tutorials/cross-vm-apps/batched-evm-transactions)
   + [Cross-VM Bridge](/tutorials/cross-vm-apps/vm-bridge)
-* [Native VRF](/tutorials/native-vrf)
+* [Flow – Secure Blockchain with Built-In Randomness & Native VRF](/tutorials/native-vrf)
 * [FlowtoBooth](/tutorials/flowtobooth)
 * [Integrations](/tutorials/integrations/crossmint)
 
@@ -3803,7 +3803,7 @@ Last updated on **May 5, 2025** by **Josh Hannan**
 
 Batched EVM Transactions](/tutorials/cross-vm-apps/batched-evm-transactions)[Next
 
-Native VRF](/tutorials/native-vrf)
+Flow – Secure Blockchain with Built-In Randomness & Native VRF](/tutorials/native-vrf)
 
 ###### Rate this page
 

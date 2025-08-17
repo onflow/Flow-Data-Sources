@@ -6,15 +6,15 @@ Creating a Fungible Token | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
 * [Why Flow](/build/flow)
+* [Getting Started](/build/getting-started)
 * [Differences vs. EVM](/build/differences-vs-evm)
-* [Getting Started](/build/getting-started/contract-interaction)
 * [Flow Protocol](/build/basics/network-architecture)
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
@@ -720,7 +720,7 @@ like emitting events, or updating a field in the contract to show that the resou
 This will call the resource's `burnCallback()` function, which emits the event.
 You'll need to also add this function to your token contract now:
 
-`_24
+`` _24
 
 import "FungibleToken"
 
@@ -798,7 +798,7 @@ _24
 
 _24
 
-}`
+} ``
 
 If you ever need to destroy a `Vault` with a non-zero balance,
 you should destroy it via the `Burner.burn` method so this important function can be called.
@@ -1416,7 +1416,7 @@ _13
 
 After each of these steps, your `FooToken.cdc` contract file should now look like this:
 
-`_172
+`` _172
 
 import "FungibleToken"
 
@@ -2052,7 +2052,7 @@ _172
 
 _172
 
-}`
+} ``
 
 ## Deploying the Contract[​](#deploying-the-contract "Direct link to Deploying the Contract")
 
@@ -2683,7 +2683,7 @@ The transfer transaction also has a [generic version](https://github.com/onflow/
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/fungible-token.md)
 
-Last updated on **May 9, 2025** by **Chase Fleming**
+Last updated on **May 5, 2025** by **Josh Hannan**
 
 [Previous
 

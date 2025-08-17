@@ -1,6 +1,6 @@
 # Source: https://developers.flow.com/build/advanced-concepts/account-abstraction
 
-Account Abstraction | Flow Developer Portal
+Build Faster with Flow’s Native Account Abstraction | Flow Developer Portal
 
 
 
@@ -20,7 +20,7 @@ Search
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
 
-  + [Account Abstraction](/build/advanced-concepts/account-abstraction)
+  + [Build Faster with Flow’s Native Account Abstraction](/build/advanced-concepts/account-abstraction)
   + [FLIX (Flow Interaction Templates)](/build/advanced-concepts/flix)
   + [NFT Metadata Views](/build/advanced-concepts/metadata-views)
   + [VRF (Randomness) in Cadence](/build/advanced-concepts/randomness)
@@ -30,15 +30,15 @@ Search
 * [Explore More](/build/explore-more)
 
 * Advanced Concepts
-* Account Abstraction
+* Build Faster with Flow’s Native Account Abstraction
 
 On this page
 
-# Account Abstraction
+# Blockchain Account Abstraction
 
-Flow provides native support for key use cases that are enabled by Account Abstraction, empowering developers to deliver mainstream-ready user experiences. With Cadence, Flow was designed with these use cases in mind through the separation of the contract and transaction layers. This guide demonstrates how Flow supports key use cases that are made possible with Account Abstraction.
+Flow is a fast blockchain with account abstraction, designed to make Web3 as seamless as Web2. It provides native support for key use cases that are enabled by Account Abstraction, empowering developers to deliver mainstream-ready user experiences. With Cadence, Flow was designed with these use cases in mind through the separation of the contract and transaction layers. This guide demonstrates how Flow supports key use cases that are made possible with Account Abstraction.
 
-## Multi-sig Transactions[​](#multi-sig-transactions "Direct link to Multi-sig Transactions")
+## Multi-sig Transactions on a Fast Blockchain with Account Abstraction[​](#multi-sig-transactions-on-a-fast-blockchain-with-account-abstraction "Direct link to Multi-sig Transactions on a Fast Blockchain with Account Abstraction")
 
 Since accounts are smart contracts, they can be defined in order to require multiple signatures in order to execute a transaction, which unlocks a range of new users that improve the user experience for Web3 apps.
 
@@ -46,7 +46,7 @@ Since accounts are smart contracts, they can be defined in order to require mult
 | --- | --- |
 | The move from from Externally-Owned Accounts (EOAs) to smart contract accounts enables developers to build in logic to require multiple signatures to execute transactions. | Flow has native support for multi-sig transactions since all accounts are defined as smart contracts. Flow provides [support for multiple keys](/build/basics/accounts#account-keys) to be added to an account and weights can be applied to denote relative priority. |
 
-## Sponsored Transactions[​](#sponsored-transactions "Direct link to Sponsored Transactions")
+## Sponsored Transactions for Mainstream-Ready Web3 Apps[​](#sponsored-transactions-for-mainstream-ready-web3-apps "Direct link to Sponsored Transactions for Mainstream-Ready Web3 Apps")
 
 The concept of paying fees to execute transactions in order to use Web3 apps can be a hurdle for newcomers as they begin to explore these experiences. In order to remove this significant point of friction in requiring newcomers to acquire crypto before they can get started with an app, developers can subsidize these costs on behalf of users.
 
@@ -54,7 +54,7 @@ The concept of paying fees to execute transactions in order to use Web3 apps can
 | --- | --- |
 | The ERC-4337 standard introduces the concept of [paymasters](https://eips.ethereum.org/EIPS/eip-4337#extension-paymasters), which can enable a developer to pay the fees for a transaction for their users. | Flow has built-in support for [3 different roles](/build/basics/transactions#signer-roles) for transactions which provides native support for sponsored transactions. |
 
-## Bundled Transactions[​](#bundled-transactions "Direct link to Bundled Transactions")
+## Bundled Transactions for Faster User Experience[​](#bundled-transactions-for-faster-user-experience "Direct link to Bundled Transactions for Faster User Experience")
 
 Developers can deliver a more streamlined user experience that reduces the amount of interruptions in the form of transaction approvals by bundling multiple transactions together into a single transaction that executes the set of operations with one signature.
 
@@ -88,9 +88,13 @@ These improvements are especially notable on mobile, where users are typically m
 | --- | --- |
 | Developers can build new features that streamline the user experience of Web3 apps, such as 'session keys' that pre-approve transactions for a period of time or setting custom limits on transaction volume or network fees. | Since all accounts are smart contracts, Flow has support for these new controls that enable apps to sign pre-approved transactions based on user controls and preferences. |
 
+## Conclusion[​](#conclusion "Direct link to Conclusion")
+
+Flow delivers more than just developer convenience, it’s a **high-performance blockchain with account abstraction** built directly into its core protocol. By combining speed, scalability, and advanced features like multi-sig, sponsored transactions, bundled operations, account recovery, and multi-factor authentication, Flow empowers developers to create secure, seamless, and mainstream-ready Web3 experiences without sacrificing performance.
+
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/account-abstraction.md)
 
-Last updated on **Feb 5, 2025** by **Brian Doyle**
+Last updated on **Aug 16, 2025** by **0xLisanAlGaib**
 
 [Previous
 
@@ -104,12 +108,13 @@ FLIX (Flow Interaction Templates)](/build/advanced-concepts/flix)
 
 Copy as Markdown
 
-* [Multi-sig Transactions](#multi-sig-transactions)
-* [Sponsored Transactions](#sponsored-transactions)
-* [Bundled Transactions](#bundled-transactions)
+* [Multi-sig Transactions on a Fast Blockchain with Account Abstraction](#multi-sig-transactions-on-a-fast-blockchain-with-account-abstraction)
+* [Sponsored Transactions for Mainstream-Ready Web3 Apps](#sponsored-transactions-for-mainstream-ready-web3-apps)
+* [Bundled Transactions for Faster User Experience](#bundled-transactions-for-faster-user-experience)
 * [Account Recovery](#account-recovery)
 * [Multi-factor Authentication](#multi-factor-authentication)
 * [Seamless Experience](#seamless-experience)
+* [Conclusion](#conclusion)
 
 Documentation
 

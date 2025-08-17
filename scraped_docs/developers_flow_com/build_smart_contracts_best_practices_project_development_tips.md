@@ -336,7 +336,7 @@ Last updated on **Feb 5, 2025** by **Brian Doyle**
 
 Contract Upgrades with Incompatible Changes](/build/smart-contracts/best-practices/contract-upgrades)[Next
 
-Account Abstraction](/build/advanced-concepts/account-abstraction)
+Build Faster with Flow’s Native Account Abstraction](/build/advanced-concepts/account-abstraction)
 
 ###### Rate this page
 

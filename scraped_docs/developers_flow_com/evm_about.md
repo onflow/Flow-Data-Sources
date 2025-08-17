@@ -1,6 +1,6 @@
 # Source: https://developers.flow.com/evm/about
 
-Why EVM on Flow | Flow Developer Portal
+Flow – Fast EVM Equivalent Blockchain with Low Fees | Flow Developer Portal
 
 
 
@@ -30,7 +30,7 @@ On this page
 
 # Why EVM on Flow
 
-Flow is an L1 that now supports EVM-equivalency. This makes Flow EVM an Ethereum alternative for apps because of its extremely fast transactions with lower fees. This means that Flow's protocol benefits, such as fast transactions, low costs, and mainstream scalability, are natively available without any additional code changes to solidity contracts. With EVM, solidity devs and builders can now easily tap into Flow's user base and unique IPs without any implementation risk.
+Flow is a [fast EVM equivalent blockchain with low fees](https://flow.com/), making it an ideal **Ethereum alternative for apps** that need both performance and affordability. With EVM equivalency, Solidity developers can deploy existing contracts on Flow without rewriting code, instantly gaining access to Flow’s ultra-fast transactions, low costs, and mainstream scalability. Builders can tap into Flow’s unique IPs and large user base with no implementation risk.
 
 ## Seamless Integration for Ethereum Developers[​](#seamless-integration-for-ethereum-developers "Direct link to Seamless Integration for Ethereum Developers")
 
@@ -77,9 +77,13 @@ Those wishing to understand the technical specifics of how Flow EVM works we rec
 * Insights into the [Flow EVM Gateway](https://github.com/onflow/flips/pull/235/files)
 * Integration of the [Cadence Interface](https://github.com/onflow/flips/blob/f646491ec895442dcccdb24d80080bab1c56188e/protocol/20231116-evm-support.md)
 
+## Build with Flow[​](#build-with-flow "Direct link to Build with Flow")
+
+Whether you’re porting an existing Solidity dApp or building from scratch, Flow offers a **fast, EVM equivalent blockchain with low fees** and the tooling you already know. As a **scalable Ethereum alternative for apps**, Flow combines familiar development workflows with performance and UX enhancements you can’t get elsewhere.
+
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/about.md)
 
-Last updated on **Jul 30, 2025** by **0xLisanAlGaib**
+Last updated on **Aug 16, 2025** by **0xLisanAlGaib**
 
 [Next
 
@@ -99,6 +103,7 @@ Copy as Markdown
 * [Join the Community](#join-the-community)
 * [Further Reading and Discussions](#further-reading-and-discussions)
 * [Flow Improvement Proposals (FLIPs)](#flow-improvement-proposals-flips)
+* [Build with Flow](#build-with-flow)
 
 Documentation
 
