@@ -20,7 +20,7 @@ Search
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
 * [Advanced Concepts](/build/advanced-concepts/account-abstraction)
 
-  + [Account Abstraction](/build/advanced-concepts/account-abstraction)
+  + [Build Faster with Flow’s Native Account Abstraction](/build/advanced-concepts/account-abstraction)
   + [FLIX (Flow Interaction Templates)](/build/advanced-concepts/flix)
   + [NFT Metadata Views](/build/advanced-concepts/metadata-views)
   + [VRF (Randomness) in Cadence](/build/advanced-concepts/randomness)
@@ -99,7 +99,7 @@ Last updated on **Feb 5, 2025** by **Brian Doyle**
 
 [Previous
 
-Account Abstraction](/build/advanced-concepts/account-abstraction)[Next
+Build Faster with Flow’s Native Account Abstraction](/build/advanced-concepts/account-abstraction)[Next
 
 NFT Metadata Views](/build/advanced-concepts/metadata-views)
 
