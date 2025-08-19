@@ -6,15 +6,15 @@ Build a Walletless Mobile App (PWA) | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
 * [Why Flow](/build/flow)
+* [Getting Started](/build/getting-started)
 * [Differences vs. EVM](/build/differences-vs-evm)
-* [Getting Started](/build/getting-started/contract-interaction)
 * [Flow Protocol](/build/basics/network-architecture)
 * [App Architecture](/build/app-architecture)
 * [Writing and Deploying Smart Contracts](/build/learn-cadence)
@@ -384,7 +384,7 @@ This example shows how to interact with the Flow blockchain using FCL and Magic 
 * **fcl.send**: A function provided by FCL to send transactions or scripts to the Flow blockchain.
 * **AUTHORIZATION\_FUNCTION**: The authorization function provided by Magic for signing transactions.
 
-`_26
+`` _26
 
 import * as fcl from "@onflow/fcl";
 
@@ -480,7 +480,7 @@ const transactionData = await fcl.tx(response).onceExecuted();
 
 _26
 
-};`
+}; ``
 
 ### ****Account Linking with Flow****[​](#account-linking-with-flow "Direct link to account-linking-with-flow")
 
@@ -794,7 +794,7 @@ _12
 
 and finally to remove a linked account you can run the following cadence transaction
 
-`_24
+`` _24
 
 await fcl.send([
 
@@ -882,7 +882,7 @@ fcl.limit(9999),
 
 _24
 
-]);`
+]); ``
 
 # Video Guide
 
@@ -942,7 +942,7 @@ The balloon inflation game stands as a testament to the seamless integration of 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/mobile/walletless-pwa.md)
 
-Last updated on **May 9, 2025** by **Brian Doyle**
+Last updated on **Mar 28, 2025** by **Jordan Ribbink**
 
 [Previous
 
