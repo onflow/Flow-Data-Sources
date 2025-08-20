@@ -1,0 +1,395 @@
+# Source: https://developers.flow.com/tools/clients/fcl-js/packages-docs/sdk/subscribe
+
+subscribe | Flow Developer Portal
+
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [@onflow/react-sdk](/tools/react-sdk)
+* [Flow Emulator](/tools/emulator)
+* [Flow CLI](/tools/flow-cli)
+* [Cadence VS Code Extension](/tools/vscode-extension)
+* [Flow Dev Wallet](/tools/flow-dev-wallet)
+* [Client Tools](/tools/clients)
+
+  + [Flow Client Library (FCL)](/tools/clients/fcl-js)
+
+    - [Packages Docs](/tools/clients/fcl-js/packages-docs)
+
+      * [@onflow/fcl](/tools/clients/fcl-js/packages-docs/fcl)
+      * [@onflow/sdk](/tools/clients/fcl-js/packages-docs/sdk)
+
+        + [account](/tools/clients/fcl-js/packages-docs/sdk/account)
+        + [arg](/tools/clients/fcl-js/packages-docs/sdk/arg)
+        + [args](/tools/clients/fcl-js/packages-docs/sdk/args)
+        + [atBlockHeight](/tools/clients/fcl-js/packages-docs/sdk/atBlockHeight)
+        + [atBlockId](/tools/clients/fcl-js/packages-docs/sdk/atBlockId)
+        + [atLatestBlock](/tools/clients/fcl-js/packages-docs/sdk/atLatestBlock)
+        + [authorization](/tools/clients/fcl-js/packages-docs/sdk/authorization)
+        + [authorizations](/tools/clients/fcl-js/packages-docs/sdk/authorizations)
+        + [block](/tools/clients/fcl-js/packages-docs/sdk/block)
+        + [build](/tools/clients/fcl-js/packages-docs/sdk/build)
+        + [cadence](/tools/clients/fcl-js/packages-docs/sdk/cadence)
+        + [cdc](/tools/clients/fcl-js/packages-docs/sdk/cdc)
+        + [config](/tools/clients/fcl-js/packages-docs/sdk/config)
+        + [createSdkClient](/tools/clients/fcl-js/packages-docs/sdk/createSdkClient)
+        + [createSignableVoucher](/tools/clients/fcl-js/packages-docs/sdk/createSignableVoucher)
+        + [decode](/tools/clients/fcl-js/packages-docs/sdk/decode)
+        + [destroy](/tools/clients/fcl-js/packages-docs/sdk/destroy)
+        + [encodeMessageFromSignable](/tools/clients/fcl-js/packages-docs/sdk/encodeMessageFromSignable)
+        + [encodeTransactionEnvelope](/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionEnvelope)
+        + [encodeTransactionPayload](/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionPayload)
+        + [encodeTxIdFromVoucher](/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher)
+        + [get](/tools/clients/fcl-js/packages-docs/sdk/get)
+        + [getAccount](/tools/clients/fcl-js/packages-docs/sdk/getAccount)
+        + [getBlock](/tools/clients/fcl-js/packages-docs/sdk/getBlock)
+        + [getBlockHeader](/tools/clients/fcl-js/packages-docs/sdk/getBlockHeader)
+        + [getCollection](/tools/clients/fcl-js/packages-docs/sdk/getCollection)
+        + [getEvents](/tools/clients/fcl-js/packages-docs/sdk/getEvents)
+        + [getEventsAtBlockHeightRange](/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockHeightRange)
+        + [getEventsAtBlockIds](/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockIds)
+        + [getNetworkParameters](/tools/clients/fcl-js/packages-docs/sdk/getNetworkParameters)
+        + [getNodeVersionInfo](/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo)
+        + [getTransaction](/tools/clients/fcl-js/packages-docs/sdk/getTransaction)
+        + [getTransactionStatus](/tools/clients/fcl-js/packages-docs/sdk/getTransactionStatus)
+        + [initInteraction](/tools/clients/fcl-js/packages-docs/sdk/initInteraction)
+        + [interaction](/tools/clients/fcl-js/packages-docs/sdk/interaction)
+        + [isBad](/tools/clients/fcl-js/packages-docs/sdk/isBad)
+        + [isOk](/tools/clients/fcl-js/packages-docs/sdk/isOk)
+        + [limit](/tools/clients/fcl-js/packages-docs/sdk/limit)
+        + [nodeVersionInfo](/tools/clients/fcl-js/packages-docs/sdk/nodeVersionInfo)
+        + [param](/tools/clients/fcl-js/packages-docs/sdk/param)
+        + [params](/tools/clients/fcl-js/packages-docs/sdk/params)
+        + [payer](/tools/clients/fcl-js/packages-docs/sdk/payer)
+        + [ping](/tools/clients/fcl-js/packages-docs/sdk/ping)
+        + [pipe](/tools/clients/fcl-js/packages-docs/sdk/pipe)
+        + [proposer](/tools/clients/fcl-js/packages-docs/sdk/proposer)
+        + [put](/tools/clients/fcl-js/packages-docs/sdk/put)
+        + [ref](/tools/clients/fcl-js/packages-docs/sdk/ref)
+        + [resolve](/tools/clients/fcl-js/packages-docs/sdk/resolve)
+        + [resolveAccounts](/tools/clients/fcl-js/packages-docs/sdk/resolveAccounts)
+        + [resolveArguments](/tools/clients/fcl-js/packages-docs/sdk/resolveArguments)
+        + [resolveCadence](/tools/clients/fcl-js/packages-docs/sdk/resolveCadence)
+        + [resolveFinalNormalization](/tools/clients/fcl-js/packages-docs/sdk/resolveFinalNormalization)
+        + [resolveProposerSequenceNumber](/tools/clients/fcl-js/packages-docs/sdk/resolveProposerSequenceNumber)
+        + [resolveRefBlockId](/tools/clients/fcl-js/packages-docs/sdk/resolveRefBlockId)
+        + [resolveSignatures](/tools/clients/fcl-js/packages-docs/sdk/resolveSignatures)
+        + [resolveValidators](/tools/clients/fcl-js/packages-docs/sdk/resolveValidators)
+        + [resolveVoucherIntercept](/tools/clients/fcl-js/packages-docs/sdk/resolveVoucherIntercept)
+        + [response](/tools/clients/fcl-js/packages-docs/sdk/response)
+        + [script](/tools/clients/fcl-js/packages-docs/sdk/script)
+        + [send](/tools/clients/fcl-js/packages-docs/sdk/send)
+        + [subscribe](/tools/clients/fcl-js/packages-docs/sdk/subscribe)
+        + [subscribeEvents](/tools/clients/fcl-js/packages-docs/sdk/subscribeEvents)
+        + [subscribeRaw](/tools/clients/fcl-js/packages-docs/sdk/subscribeRaw)
+        + [TestUtils](/tools/clients/fcl-js/packages-docs/sdk/testUtils)
+        + [transaction](/tools/clients/fcl-js/packages-docs/sdk/transaction)
+        + [update](/tools/clients/fcl-js/packages-docs/sdk/update)
+        + [validator](/tools/clients/fcl-js/packages-docs/sdk/validator)
+        + [voucherIntercept](/tools/clients/fcl-js/packages-docs/sdk/voucherIntercept)
+        + [voucherToTxId](/tools/clients/fcl-js/packages-docs/sdk/voucherToTxId)
+        + [why](/tools/clients/fcl-js/packages-docs/sdk/why)
+      * [Type Definitions](/tools/clients/fcl-js/packages-docs/types)
+    - [Authentication](/tools/clients/fcl-js/authentication)
+    - [How to Configure FCL](/tools/clients/fcl-js/configure-fcl)
+    - [Cross VM Packages](/tools/clients/fcl-js/cross-vm)
+    - [Wallet Discovery](/tools/clients/fcl-js/discovery)
+    - [Installation](/tools/clients/fcl-js/installation)
+    - [Interaction Templates](/tools/clients/fcl-js/interaction-templates)
+    - [Proving Ownership of a Flow Account](/tools/clients/fcl-js/proving-authentication)
+    - [Scripts](/tools/clients/fcl-js/scripts)
+    - [Transactions](/tools/clients/fcl-js/transactions)
+    - [Signing and Verifying Arbitrary Data](/tools/clients/fcl-js/user-signatures)
+    - [WalletConnect 2.0 Manual Configuration](/tools/clients/fcl-js/wallet-connect)
+  + [Flow Go SDK](/tools/clients/flow-go-sdk)
+* [Error Codes](/tools/error-codes)
+* [Wallet Provider Spec](/tools/wallet-provider-spec)
+* [Tools](/tools)
+
+* [Client Tools](/tools/clients)
+* [Flow Client Library (FCL)](/tools/clients/fcl-js)
+* [Packages Docs](/tools/clients/fcl-js/packages-docs)
+* [@onflow/sdk](/tools/clients/fcl-js/packages-docs/sdk)
+* subscribe
+
+On this page
+
+# subscribe
+
+Subscribe to real-time data from the Flow blockchain and automatically decode the responses.
+
+This is a utility function used for subscribing to real-time data from the WebSocket Streaming API. Data returned will be automatically decoded via the 'decode' function.
+
+Available topics include: `events`, `blocks`, `block_headers`, `block_digests`, `transaction_statuses`, `account_statuses`.
+
+## Import[​](#import "Direct link to Import")
+
+You can import the entire package and access the function:
+
+`_10
+
+import * as sdk from "@onflow/sdk"
+
+_10
+
+_10
+
+sdk.subscribe(subscribeParams, opts)`
+
+Or import directly the specific function:
+
+`_10
+
+import { subscribe } from "@onflow/sdk"
+
+_10
+
+_10
+
+subscribe(subscribeParams, opts)`
+
+## Usage[​](#usage "Direct link to Usage")
+
+`_34
+
+import * as fcl from "@onflow/fcl";
+
+_34
+
+import { SubscriptionTopic } from "@onflow/sdk";
+
+_34
+
+_34
+
+// Subscribe to events
+
+_34
+
+const subscription = fcl.subscribe({
+
+_34
+
+topic: SubscriptionTopic.EVENTS,
+
+_34
+
+args: {
+
+_34
+
+eventTypes: ["A.7e60df042a9c0868.FlowToken.TokensWithdrawn"]
+
+_34
+
+},
+
+_34
+
+onData: (events) => {
+
+_34
+
+console.log("Received events:", events);
+
+_34
+
+},
+
+_34
+
+onError: (error) => {
+
+_34
+
+console.error("Subscription error:", error);
+
+_34
+
+}
+
+_34
+
+});
+
+_34
+
+_34
+
+// Subscribe to blocks
+
+_34
+
+const blockSubscription = fcl.subscribe({
+
+_34
+
+topic: SubscriptionTopic.BLOCKS,
+
+_34
+
+args: {
+
+_34
+
+blockStatus: "finalized"
+
+_34
+
+},
+
+_34
+
+onData: (block) => {
+
+_34
+
+console.log("New block:", block);
+
+_34
+
+},
+
+_34
+
+onError: (error) => {
+
+_34
+
+console.error("Block subscription error:", error);
+
+_34
+
+}
+
+_34
+
+});
+
+_34
+
+_34
+
+// Later, to unsubscribe:
+
+_34
+
+subscription.unsubscribe();
+
+_34
+
+blockSubscription.unsubscribe();`
+
+## Parameters[​](#parameters "Direct link to Parameters")
+
+### `subscribeParams`[​](#subscribeparams "Direct link to subscribeparams")
+
+* Type:
+
+`_10
+
+SubscribeParams<T>`
+
+### `opts` (optional)[​](#opts-optional "Direct link to opts-optional")
+
+* Type:
+
+`_10
+
+{ node?: string; transport?: SdkTransport; }`
+
+* Description: Additional options for the subscription
+
+#### Properties:[​](#properties "Direct link to Properties:")
+
+* **`node`** - Custom node endpoint to be used for the subscription
+* **`transport`** - Custom transport implementation for handling the connection
+
+## Returns[​](#returns "Direct link to Returns")
+
+[`Subscription`](/tools/clients/fcl-js/packages-docs/types#subscription)
+
+A subscription object that allows you to manage the subscription (e.g., to unsubscribe later)
+
+---
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/packages-docs/sdk/subscribe.md)
+
+Last updated on **Jul 25, 2025** by **Jordan Ribbink**
+
+[Previous
+
+send](/tools/clients/fcl-js/packages-docs/sdk/send)[Next
+
+subscribeEvents](/tools/clients/fcl-js/packages-docs/sdk/subscribeEvents)
+
+###### Rate this page
+
+😞😐😊
+
+Copy as Markdown
+
+* [Import](#import)
+* [Usage](#usage)
+* [Parameters](#parameters)
+  + [`subscribeParams`](#subscribeparams)
+  + [`opts` (optional)](#opts-optional)
+* [Returns](#returns)
+
+Documentation
+
+* [Getting Started](/build/getting-started/contract-interaction)
+* [SDK's & Tools](/tools)
+* [Cadence](https://cadence-lang.org/docs/)
+* [Mobile](/build/guides/mobile/overview)
+* [FCL](/tools/clients/fcl-js)
+* [Testing](/build/smart-contracts/testing)
+* [CLI](/tools/flow-cli)
+* [Emulator](/tools/emulator)
+* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
+* [VS Code Extension](/tools/vscode-extension)
+
+Community
+
+* [Ecosystem](/ecosystem)
+* [Flow Port](https://port.flow.com/)
+* [Developer Grants](https://github.com/onflow/developer-grants)
+* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
+* [Flowverse](https://www.flowverse.co/)
+* [Emerald Academy](https://academy.ecdao.org/)
+* [FLOATs (Attendance NFTs)](https://floats.city/)
+
+Start Building
+
+* [Flow Playground](https://play.flow.com/)
+* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
+* [Cadence Cookbook](https://cookbook.flow.com)
+* [Core Contracts & Standards](/build/core-contracts)
+* [EVM](/evm/about)
+
+Network
+
+* [Network Status](https://status.flow.com/)
+* [Flowscan Mainnet](https://flowscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
+* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/networks/node-ops)
+* [Spork Information](/networks/node-ops/node-operation/spork)
+
+More
+
+* [GitHub](https://github.com/onflow)
+* [Discord](https://discord.gg/flow)
+* [Forum](https://forum.flow.com/)
+* [Flow](https://flow.com/)
+* [Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

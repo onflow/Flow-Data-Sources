@@ -21,7 +21,7 @@ Search
   + [Sponsor Transactions RPC Node](/tutorials/gasless-transactions/gas-free-evm-endpoint)
 * [Token Launch](/tutorials/token-launch)
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
-* [Flow – Secure Blockchain with Built-In Randomness & Native VRF](/tutorials/native-vrf)
+* [Native VRF (Built-in Randomness) Tutorials](/tutorials/native-vrf)
 * [FlowtoBooth](/tutorials/flowtobooth)
 * [Integrations](/tutorials/integrations/crossmint)
 

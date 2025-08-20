@@ -19,7 +19,7 @@ Search
 * [Gasless Transactions](/tutorials/gasless-transactions)
 * [Token Launch](/tutorials/token-launch)
 * [Cross-VM Apps](/tutorials/cross-vm-apps)
-* [Native VRF](/tutorials/native-vrf)
+* [Native VRF (Built-in Randomness) Tutorials](/tutorials/native-vrf)
 
   + [Secure Randomness with Commit-Reveal in Cadence](/tutorials/native-vrf/commit-reveal-cadence)
   + [Deploy a Solidity Contract Using Cadence](/tutorials/native-vrf/deploy-solidity-contract)
@@ -27,7 +27,7 @@ Search
 * [FlowtoBooth](/tutorials/flowtobooth)
 * [Integrations](/tutorials/integrations/crossmint)
 
-* [Native VRF](/tutorials/native-vrf)
+* [Native VRF (Built-in Randomness) Tutorials](/tutorials/native-vrf)
 * VRF (Randomness) in Solidity
 
 On this page
