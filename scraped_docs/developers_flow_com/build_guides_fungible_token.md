@@ -6,7 +6,7 @@ Creating a Fungible Token | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -2679,11 +2679,11 @@ The transfer transaction also has a [generic version](https://github.com/onflow/
 * [View a repo of this example code](https://github.com/chasefleming/FooToken)
 * [Review an `ExampleToken` contract implementing all of the remaining FungibleToken interface](https://github.com/onflow/flow-ft/blob/master/contracts/ExampleToken.cdc)
 * [View the Flow Token Standard](https://github.com/onflow/flow-ft/blob/master/contracts/FungibleToken.cdc)
-* Learn about how you can [bridge your FTs to Flow-EVM](/tutorials/cross-vm-apps/vm-bridge#cross-vm-bridge) and how you can build your FT project [to be compatible with the Flow VM bridge](/tutorials/cross-vm-apps/vm-bridge#prep-your-assets-for-bridging).
+* Learn about how you can [bridge your FTs to Flow-EVM](/blockchain-development-tutorials/cross-vm-apps/vm-bridge#cross-vm-bridge) and how you can build your FT project [to be compatible with the Flow VM bridge](/blockchain-development-tutorials/cross-vm-apps/vm-bridge#prep-your-assets-for-bridging).
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/fungible-token.md)
 
-Last updated on **May 5, 2025** by **Josh Hannan**
+Last updated on **Aug 17, 2025** by **0xLisanAlGaib**
 
 [Previous
 

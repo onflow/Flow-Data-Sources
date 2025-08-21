@@ -6,28 +6,28 @@ VRF (Randomness) in Solidity | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [Tutorials](/tutorials)
-* [Flow Actions](/tutorials/defi)
-* [Flow Blockchain 101](/tutorials/flow-101)
-* [Use AI To Build On Flow](/tutorials/use-AI-to-build-on-flow)
-* [Gasless Transactions](/tutorials/gasless-transactions)
-* [Token Launch](/tutorials/token-launch)
-* [Cross-VM Apps](/tutorials/cross-vm-apps)
-* [Native VRF (Built-in Randomness) Tutorials](/tutorials/native-vrf)
+* [Blockchain Development Tutorials](/blockchain-development-tutorials)
+* [Flow Actions](/blockchain-development-tutorials/defi)
+* [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)
+* [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
+* [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
+* [Token Launch](/blockchain-development-tutorials/token-launch)
+* [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
+* [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
 
-  + [Secure Randomness with Commit-Reveal in Cadence](/tutorials/native-vrf/commit-reveal-cadence)
-  + [Deploy a Solidity Contract Using Cadence](/tutorials/native-vrf/deploy-solidity-contract)
-  + [VRF (Randomness) in Solidity](/tutorials/native-vrf/vrf-in-solidity)
-* [FlowtoBooth](/tutorials/flowtobooth)
-* [Integrations](/tutorials/integrations/crossmint)
+  + [Secure Randomness with Commit-Reveal in Cadence](/blockchain-development-tutorials/native-vrf/commit-reveal-cadence)
+  + [Deploy a Solidity Contract Using Cadence](/blockchain-development-tutorials/native-vrf/deploy-solidity-contract)
+  + [VRF (Randomness) in Solidity](/blockchain-development-tutorials/native-vrf/vrf-in-solidity)
+* [FlowtoBooth](/blockchain-development-tutorials/flowtobooth)
+* [Integrations](/blockchain-development-tutorials/integrations/crossmint)
 
-* [Native VRF (Built-in Randomness) Tutorials](/tutorials/native-vrf)
+* [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
 * VRF (Randomness) in Solidity
 
 On this page
@@ -283,15 +283,15 @@ You can also view an example in both Solidity and Cadence of a [random coin toss
 
 *This documentation was contributed by [Noah Naizir](https://x.com/noah_overflow) a community developer.*
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/native-vrf/vrf-in-solidity.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/native-vrf/vrf-in-solidity.md)
 
-Last updated on **Jun 9, 2025** by **Ali Serag**
+Last updated on **Aug 17, 2025** by **0xLisanAlGaib**
 
 [Previous
 
-Deploy a Solidity Contract Using Cadence](/tutorials/native-vrf/deploy-solidity-contract)[Next
+Deploy a Solidity Contract Using Cadence](/blockchain-development-tutorials/native-vrf/deploy-solidity-contract)[Next
 
-FlowtoBooth](/tutorials/flowtobooth)
+FlowtoBooth](/blockchain-development-tutorials/flowtobooth)
 
 ###### Rate this page
 

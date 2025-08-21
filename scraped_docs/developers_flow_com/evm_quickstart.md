@@ -6,7 +6,7 @@ EVM Quickstart | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -624,18 +624,18 @@ In this tutorial, you learned how to:
 
 You've now mastered the basics of deploying and interacting with EVM contracts on Flow. But this is just the beginning! Flow EVM's true power lies in its ability to combine the best of both worlds: EVM compatibility with Flow's native features.
 
-In our [Cross-VM Apps](/tutorials/cross-vm-apps/introduction) tutorial series, you'll learn how to supercharge your EVM applications by integrating them with Flow Cadence. You'll discover how to:
+In our [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps/introduction) tutorial series, you'll learn how to supercharge your EVM applications by integrating them with Flow Cadence. You'll discover how to:
 
 * Build hybrid applications that seamlessly connect to both Flow EVM and Flow Cadence
 * Use Cadence's powerful features to enhance your EVM contracts
 * Enable multi-call contract writes with a single signature
 * Take advantage of Flow's native features like VRF and sponsored transactions
 
-Ready to unlock the full potential of Flow EVM? Start with our [Batched Transactions](/tutorials/cross-vm-apps/introduction) tutorial to learn how to build your first cross-VM application.
+Ready to unlock the full potential of Flow EVM? Start with our [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps/introduction) tutorial to learn how to build your first cross-VM application.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/quickstart.md)
 
-Last updated on **Jul 25, 2025** by **Jordan Ribbink**
+Last updated on **Aug 17, 2025** by **0xLisanAlGaib**
 
 [Previous
 

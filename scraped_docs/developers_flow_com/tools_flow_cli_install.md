@@ -6,7 +6,7 @@ Install Instructions | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -17,7 +17,7 @@ Search
 * [Flow CLI](/tools/flow-cli)
 
   + [Install Instructions](/tools/flow-cli/install)
-  + [Super Commands](/tools/flow-cli/super-commands)
+  + [Commands Overview](/tools/flow-cli/super-commands)
   + [Accounts](/tools/flow-cli/accounts/get-accounts)
   + [Keys](/tools/flow-cli/keys/generate-keys)
   + [Deploy Project](/tools/flow-cli/deployment/start-emulator)
@@ -162,15 +162,23 @@ To remove the flow CLI you can run the following command if it was previously in
 
 If you installed it using Hombrew you can remove it using: `brew uninstall flow-cli`.
 
+## Next Steps[​](#next-steps "Direct link to Next Steps")
+
+Now that you have the Flow CLI installed, you can:
+
+* **[Get started with Flow CLI commands](/tools/flow-cli/super-commands)** - Learn the essential commands for project development
+* **[Initialize a new project](/tools/flow-cli/flow.json/initialize-configuration)** - Create your first Flow project
+* **[Configure your project](/tools/flow-cli/flow.json/configuration)** - Set up your `flow.json` configuration file
+
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/install.md)
 
-Last updated on **Apr 24, 2025** by **Jordan Ribbink**
+Last updated on **Aug 19, 2025** by **Chase Fleming**
 
 [Previous
 
 Flow CLI](/tools/flow-cli)[Next
 
-Super Commands](/tools/flow-cli/super-commands)
+Commands Overview](/tools/flow-cli/super-commands)
 
 ###### Rate this page
 
@@ -194,6 +202,7 @@ Copy as Markdown
 * [Windows](#windows-1)
   + [From a pre-built binary](#from-a-pre-built-binary-5)
 * [Uninstalling Flow CLI](#uninstalling-flow-cli)
+* [Next Steps](#next-steps)
 
 Documentation
 

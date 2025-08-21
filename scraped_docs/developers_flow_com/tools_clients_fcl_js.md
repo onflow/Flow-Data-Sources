@@ -6,7 +6,7 @@ Flow Client Library (FCL) | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -87,13 +87,13 @@ yarn add @onflow/fcl`
 
 `_10
 
-import * as fcl from "@onflow/fcl";`
+import * as fcl from '@onflow/fcl';`
 
 **Node.js**
 
 `_10
 
-const fcl = require("@onflow/fcl");`
+const fcl = require('@onflow/fcl');`
 
 ---
 
@@ -110,7 +110,7 @@ const fcl = require("@onflow/fcl");`
 
 _10
 
-import * as fcl from "@onflow/fcl"
+import * as fcl from '@onflow/fcl';
 
 _10
 
@@ -120,17 +120,17 @@ fcl.config({
 
 _10
 
-"discovery.wallet": "https://fcl-discovery.onflow.org/testnet/authn", // Endpoint set to Testnet
+'discovery.wallet': 'https://fcl-discovery.onflow.org/testnet/authn', // Endpoint set to Testnet
 
 _10
 
-})
+});
 
 _10
 
 _10
 
-fcl.authenticate()`
+fcl.authenticate();`
 
 ![FCL Default Discovery UI](/assets/images/discovery-c2c95d28a66e86c570491a36e37e0afa.png)
 
@@ -145,7 +145,7 @@ fcl.authenticate()`
 
 `` _17
 
-import * as fcl from "@onflow/fcl";
+import * as fcl from '@onflow/fcl';
 
 _17
 
@@ -195,7 +195,7 @@ arg(6, t.Int), // b: Int
 
 _17
 
-arg("0xba1132bc08f82fe2", t.Address), // addr: Address
+arg('0xba1132bc08f82fe2', t.Address), // addr: Address
 
 _17
 
@@ -213,7 +213,7 @@ console.log(result); // 13 ``
 
 `` _14
 
-import * as fcl from "@onflow/fcl";
+import * as fcl from '@onflow/fcl';
 
 _14
 
@@ -259,7 +259,7 @@ _14
 
 _14
 
-args: (arg, t) => [arg("myName", t.String)],
+args: (arg, t) => [arg('myName', t.String)],
 
 _14
 
@@ -279,7 +279,7 @@ FCL JS supports TypeScript. If you need to import specific types, you can do so 
 
 `_11
 
-import {CurrentUser} from "@onflow/typedefs"
+import { CurrentUser } from '@onflow/typedefs';
 
 _11
 
@@ -313,11 +313,11 @@ loggedIn: null,
 
 _11
 
-services: []
+services: [],
 
 _11
 
-}`
+};`
 
 For all type definitions available, see [this file](https://github.com/onflow/fcl-js/blob/master/packages/typedefs/src/index.ts)
 
@@ -347,7 +347,7 @@ The communication channels involve responding to a set of pre-defined FCL messag
 * [NuFi Wallet](https://nu.fi/)
 * [Blocto](https://blocto.portto.io/en/)
 * [Ledger](https://ledger.com) (limited transaction support)
-* [Dapper Wallet](https://www.meetdapper.com/) (beta access - general availability coming soon)
+* [Dapper Wallet](https://www.meetdapper.com/)
 
 ### Wallet Discovery[​](#wallet-discovery "Direct link to Wallet Discovery")
 
@@ -382,7 +382,7 @@ FCL is built **on top of the Flow SDK**, making it easier to handle authenticati
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/fcl-js/index.md)
 
-Last updated on **Jul 25, 2025** by **Jordan Ribbink**
+Last updated on **Aug 20, 2025** by **Brian Doyle**
 
 [Previous
 

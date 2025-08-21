@@ -6,7 +6,7 @@ Accounts | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -81,13 +81,13 @@ Because COAs are owned by Cadence resources, an EVM transaction is not required 
 
 ### More Information[​](#more-information "Direct link to More Information")
 
-To learn how to create and interact with COAs in Cadence, see the guide for [Interacting with COAs from Cadence](/tutorials/cross-vm-apps/interacting-with-coa).
+To learn how to create and interact with COAs in Cadence, see the guide for [Interacting with COAs from Cadence](/blockchain-development-tutorials/cross-vm-apps/interacting-with-coa).
 
 For more information about Cadence Owned Accounts, see the [Flow EVM Support FLIP](https://github.com/onflow/flips/pull/225/files)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/accounts.md)
 
-Last updated on **Apr 1, 2025** by **Brian Doyle**
+Last updated on **Aug 17, 2025** by **0xLisanAlGaib**
 
 [Previous
 

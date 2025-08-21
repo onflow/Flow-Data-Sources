@@ -6,24 +6,24 @@ FlowtoBooth | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [Tutorials](/tutorials)
-* [Flow Actions](/tutorials/defi)
-* [Flow Blockchain 101](/tutorials/flow-101)
-* [Use AI To Build On Flow](/tutorials/use-AI-to-build-on-flow)
-* [Gasless Transactions](/tutorials/gasless-transactions)
-* [Token Launch](/tutorials/token-launch)
-* [Cross-VM Apps](/tutorials/cross-vm-apps)
-* [Native VRF (Built-in Randomness) Tutorials](/tutorials/native-vrf)
-* [FlowtoBooth](/tutorials/flowtobooth)
+* [Blockchain Development Tutorials](/blockchain-development-tutorials)
+* [Flow Actions](/blockchain-development-tutorials/defi)
+* [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)
+* [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
+* [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
+* [Token Launch](/blockchain-development-tutorials/token-launch)
+* [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
+* [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
+* [FlowtoBooth](/blockchain-development-tutorials/flowtobooth)
 
-  + [Build a Fully-Onchain Image Gallery](/tutorials/flowtobooth/image-gallery)
-* [Integrations](/tutorials/integrations/crossmint)
+  + [Build a Fully-Onchain Image Gallery](/blockchain-development-tutorials/flowtobooth/image-gallery)
+* [Integrations](/blockchain-development-tutorials/integrations/crossmint)
 
 * FlowtoBooth
 
@@ -39,24 +39,24 @@ These tutorials are designed to inspire developers by demonstrating what's possi
 
 Learn how to store and retrieve images directly onchain:
 
-* [Build a Fully-Onchain Image Gallery](/tutorials/flowtobooth/image-gallery)
+* [Build a Fully-Onchain Image Gallery](/blockchain-development-tutorials/flowtobooth/image-gallery)
 
 ## Coming Soon[​](#coming-soon "Direct link to Coming Soon")
 
 More FlowtoBooth tutorials are in development, including:
 
 * Composing on the Image Gallery to mint NFTs from the gallery
-* Using [Cross-VM](/tutorials/cross-vm-apps) to allow users to mint several NFTS with one approval
+* Using [Cross-VM](/blockchain-development-tutorials/cross-vm-apps) to allow users to mint several NFTS with one approval
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/flowtobooth/index.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/flowtobooth/index.md)
 
-Last updated on **Aug 14, 2025** by **0xLisanAlGaib**
+Last updated on **Aug 17, 2025** by **0xLisanAlGaib**
 
 [Previous
 
-VRF (Randomness) in Solidity](/tutorials/native-vrf/vrf-in-solidity)[Next
+VRF (Randomness) in Solidity](/blockchain-development-tutorials/native-vrf/vrf-in-solidity)[Next
 
-Build a Fully-Onchain Image Gallery](/tutorials/flowtobooth/image-gallery)
+Build a Fully-Onchain Image Gallery](/blockchain-development-tutorials/flowtobooth/image-gallery)
 
 ###### Rate this page
 

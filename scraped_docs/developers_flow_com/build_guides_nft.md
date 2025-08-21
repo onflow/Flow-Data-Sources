@@ -6,7 +6,7 @@ Creating an NFT Contract | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -1489,7 +1489,7 @@ their solidity smart contracts as an easier on-ramp to building on Flow.
 The [Cross-VM Bridge](https://www.github.com/onflow/flow-evm-bridge) enables the movement of
 fungible and non-fungible tokens between Flow-Cadence & Flow-EVM.
 
-Learn about how you can [bridge your NFTs to Flow-EVM](/tutorials/cross-vm-apps/vm-bridge#cross-vm-bridge) and how you can build your NFT project [to be compatible with the Flow VM bridge](/tutorials/cross-vm-apps/vm-bridge#prep-your-assets-for-bridging).
+Learn about how you can [bridge your NFTs to Flow-EVM](/blockchain-development-tutorials/cross-vm-apps/vm-bridge#cross-vm-bridge) and how you can build your NFT project [to be compatible with the Flow VM bridge](/blockchain-development-tutorials/cross-vm-apps/vm-bridge#prep-your-assets-for-bridging).
 
 ## Deploying the Contract[​](#deploying-the-contract "Direct link to Deploying the Contract")
 
@@ -2064,12 +2064,12 @@ Congrats, you did it! You're now ready to launch the next fun NFT project on Flo
 * Check out the [`Burner` contract](/build/core-contracts/burner), which is the standard
   that all projects should use for handling the destruction of any resource.
 * For a deeper dive into `MetadataViews`, consult the [introduction guide](/build/advanced-concepts/metadata-views) or [the FLIP that introduced this feature](https://github.com/onflow/flips/blob/main/application/20210916-nft-metadata.md).
-* Learn about how you can [bridge your NFTs to Flow-EVM](/tutorials/cross-vm-apps/vm-bridge#cross-vm-bridge) and how you can build your NFT project [to be compatible with the Flow VM bridge](/tutorials/cross-vm-apps/vm-bridge#prep-your-assets-for-bridging).
+* Learn about how you can [bridge your NFTs to Flow-EVM](/blockchain-development-tutorials/cross-vm-apps/vm-bridge#cross-vm-bridge) and how you can build your NFT project [to be compatible with the Flow VM bridge](/blockchain-development-tutorials/cross-vm-apps/vm-bridge#prep-your-assets-for-bridging).
 * Use a [no code tool for creating NFT projects on Flow](https://www.touchstone.city/)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/nft.md)
 
-Last updated on **May 5, 2025** by **Josh Hannan**
+Last updated on **Aug 17, 2025** by **0xLisanAlGaib**
 
 [Previous
 

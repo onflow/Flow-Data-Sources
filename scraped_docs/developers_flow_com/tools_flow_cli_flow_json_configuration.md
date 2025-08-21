@@ -6,7 +6,7 @@ Configuration | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -17,7 +17,7 @@ Search
 * [Flow CLI](/tools/flow-cli)
 
   + [Install Instructions](/tools/flow-cli/install)
-  + [Super Commands](/tools/flow-cli/super-commands)
+  + [Commands Overview](/tools/flow-cli/super-commands)
   + [Accounts](/tools/flow-cli/accounts/get-accounts)
   + [Keys](/tools/flow-cli/keys/generate-keys)
   + [Deploy Project](/tools/flow-cli/deployment/start-emulator)
@@ -52,16 +52,11 @@ On this page
 
 # Configuration
 
-Flow CLI uses a state called configuration which is stored in a file (usually `flow.json`).
+The `flow.json` file is the central configuration file for your Flow project. It tells the Flow CLI how to interact with networks, manage accounts, deploy contracts, and organize your project structure.
 
-Flow configuration (`flow.json`) file will contain the following properties:
+## Quick Start[​](#quick-start "Direct link to Quick Start")
 
-* A `networks` list pre-populated with the Flow emulator, testnet and mainnet connection configuration.
-* An `accounts` list pre-populated with the Flow Emulator service account.
-* A `deployments` empty object where all [deployment targets](/tools/flow-cli/deployment/project-contracts#define-contract-deployment-targets) can be defined.
-* A `contracts` empty object where you [define contracts](/tools/flow-cli/deployment/project-contracts#add-a-contract) you wish to deploy.
-
-## Example Project Configuration[​](#example-project-configuration "Direct link to Example Project Configuration")
+When you run `flow init`, a basic `flow.json` file is created for you:
 
 `_15
 
@@ -123,324 +118,58 @@ _15
 
 }`
 
-## Configuration[​](#configuration "Direct link to Configuration")
+This gives you everything you need to get started with local development. As your project grows, you'll add more configuration to support different networks and deployment targets.
 
-Below is an example of a configuration file for a complete Flow project.
-We'll walk through each property one by one.
+## Configuration Sections[​](#configuration-sections "Direct link to Configuration Sections")
 
-`_55
+### Networks[​](#networks "Direct link to Networks")
 
-{
+The `networks` section defines which Flow networks your project can connect to.
 
-_55
-
-"contracts": {
-
-_55
-
-"NonFungibleToken": "./cadence/contracts/NonFungibleToken.cdc",
-
-_55
-
-"Kibble": "./cadence/contracts/Kibble.cdc",
-
-_55
-
-"KittyItems": "./cadence/contracts/KittyItems.cdc",
-
-_55
-
-"KittyItemsMarket": "./cadence/contracts/KittyItemsMarket.cdc",
-
-_55
-
-"FungibleToken": {
-
-_55
-
-"source": "./cadence/contracts/FungibleToken.cdc",
-
-_55
-
-"aliases": {
-
-_55
-
-"testnet": "9a0766d93b6608b7",
-
-_55
-
-"emulator": "ee82856bf20e2aa6"
-
-_55
-
-}
-
-_55
-
-}
-
-_55
-
-},
-
-_55
-
-_55
-
-"deployments": {
-
-_55
-
-"testnet": {
-
-_55
-
-"admin-account": ["NonFungibleToken"],
-
-_55
-
-"user-account": ["Kibble", "KittyItems", "KittyItemsMarket"]
-
-_55
-
-},
-
-_55
-
-"emulator": {
-
-_55
-
-"emulator-account": [
-
-_55
-
-"NonFungibleToken",
-
-_55
-
-"Kibble",
-
-_55
-
-"KittyItems",
-
-_55
-
-"KittyItemsMarket"
-
-_55
-
-]
-
-_55
-
-}
-
-_55
-
-},
-
-_55
-
-_55
-
-"accounts": {
-
-_55
-
-"admin-account": {
-
-_55
-
-"address": "3ae53cb6e3f42a79",
-
-_55
-
-"key": "12332967fd2bd75234ae9037dd4694c1f00baad63a10c35172bf65fbb8ad1111"
-
-_55
-
-},
-
-_55
-
-"user-account": {
-
-_55
-
-"address": "e2a8b7f23e8b548f",
-
-_55
-
-"key": "22232967fd2bd75234ae9037dd4694c1f00baad63a10c35172bf65fbb8ad1111"
-
-_55
-
-},
-
-_55
-
-"emulator-account": {
-
-_55
-
-"address": "f8d6e0586b0a20c7",
-
-_55
-
-"key": "2eae2f31cb5b756151fa11d82949c634b8f28796a711d7eb1e52cc301ed11111"
-
-_55
-
-}
-
-_55
-
-},
-
-_55
-
-_55
+`_10
 
 "networks": {
 
-_55
+_10
 
 "emulator": "127.0.0.1:3569",
 
-_55
+_10
 
 "mainnet": "access.mainnet.nodes.onflow.org:9000",
 
-_55
+_10
 
-"testnet": "access.devnet.nodes.onflow.org:9000",
+"testnet": "access.devnet.nodes.onflow.org:9000"
 
-_55
-
-"testnetSecure": {
-
-_55
-
-"Host": "access-001.devnet30.nodes.onflow.org:9001",
-
-_55
-
-"NetworkKey": "ba69f7d2e82b9edf25b103c195cd371cf0cc047ef8884a9bbe331e62982d46daeebf836f7445a2ac16741013b192959d8ad26998aff12f2adc67a99e1eb2988d"
-
-_55
-
-}
-
-_55
-
-}
-
-_55
+_10
 
 }`
 
-### Contracts[​](#contracts "Direct link to Contracts")
+**Common Networks:**
 
-Contracts are specified as key-value pairs, where the key is the contract name,
-and the value is the location of the Cadence source code.
+* `emulator`: Your local development environment
+* `testnet`: Flow's test network for development and testing
+* `mainnet`: Flow's production network
 
-The advanced format allows us to specify aliases for each network.
-
-#### Simple Format[​](#simple-format "Direct link to Simple Format")
-
-`_10
-
-...
-
-_10
-
-_10
-
-"contracts": {
-
-_10
-
-"NonFungibleToken": "./cadence/contracts/NonFungibleToken.cdc"
-
-_10
-
-}
-
-_10
-
-_10
-
-...`
-
-#### Advanced Format[​](#advanced-format "Direct link to Advanced Format")
-
-Using advanced format we can define `aliases`. Aliases define an address where the contract is already deployed for that specific network.
-In the example scenario below the contract `FungibleToken` would be imported from the address `9a0766d93b6608b7` when deploying to testnet network
-and address `ee82856bf20e2aa6` when deploying to the Flow emulator.
-We can specify aliases for each network we have defined. When deploying to testnet it is always a good idea to specify aliases for all the [common contracts](/build/core-contracts) that have already been deployed to the testnet.
-
-⚠️ If we use an alias for the contract we should not specify it in the `deployment` section for that network.
+**Secure Connections:**
+For enhanced security, you can specify network keys:
 
 `_10
 
-...
+"networks": {
 
 _10
 
-"FungibleToken": {
+"testnetSecure": {
 
 _10
 
-"source": "./cadence/contracts/FungibleToken.cdc",
+"host": "access-001.devnet30.nodes.onflow.org:9001",
 
 _10
 
-"aliases": {
-
-_10
-
-"testnet": "9a0766d93b6608b7",
-
-_10
-
-"emulator": "ee82856bf20e2aa6"
-
-_10
-
-}
-
-_10
-
-}
-
-_10
-
-...`
-
-Format used to specify advanced contracts is:
-
-`_10
-
-"CONTRACT NAME": {
-
-_10
-
-"source": "CONTRACT SOURCE FILE LOCATION",
-
-_10
-
-"aliases": {
-
-_10
-
-"NETWORK NAME": "ADDRESS ON SPECIFIED NETWORK WITH DEPLOYED CONTRACT"
-
-_10
-
-...
+"key": "ba69f7d2e82b9edf25b103c195cd371cf0cc047ef8884a9bbe331e62982d46daeebf836f7445a2ac16741013b192959d8ad26998aff12f2adc67a99e1eb2988d"
 
 _10
 
@@ -452,35 +181,25 @@ _10
 
 ### Accounts[​](#accounts "Direct link to Accounts")
 
-The accounts section is used to define account properties such as keys and addresses.
-Each account must include a name, which is then referenced throughout the configuration file.
+The `accounts` section defines the accounts you can use for transactions and deployments.
 
-#### Simple Format[​](#simple-format-1 "Direct link to Simple Format")
-
-When using the simple format, simply specify the address for the account, and a single hex-encoded
-private key.
+#### Simple Account Format[​](#simple-account-format "Direct link to Simple Account Format")
 
 `_10
 
-...
-
-_10
-
-_10
-
 "accounts": {
 
 _10
 
-"admin-account": {
+"my-account": {
 
 _10
 
-"address": "3ae53cb6e3f42a79",
+"address": "f8d6e0586b0a20c7",
 
 _10
 
-"key": "12332967fd2bd75234ae9037dd4694c1f00baad63a10c35172bf65fbb8ad1111"
+"key": "ae1b44c0f5e8f6992ef2348898a35e50a8b0b9684000da8b1dade1b3bcd6ebee"
 
 _10
 
@@ -488,405 +207,207 @@ _10
 
 _10
 
-}
+}`
 
-_10
+#### Advanced Account Format[​](#advanced-account-format "Direct link to Advanced Account Format")
 
-_10
+For more control over key management:
 
-...`
-
-#### Advanced format[​](#advanced-format-1 "Direct link to Advanced format")
-
-The advanced format allows us to define more properties for the account.
-We can define the signature algorithm and hashing algorithm, as well as custom key formats.
-
-Please note that we can use `service` for address in case the account is used on `emulator` network as this is a special
-value that is defined on the run time to the default service address on the emulator network.
-
-**Example for advanced hex format:**
-
-`_16
-
-...
-
-_16
-
-_16
+`_12
 
 "accounts": {
 
-_16
+_12
 
-"admin-account": {
+"my-account": {
 
-_16
+_12
 
-"address": "service",
+"address": "f8d6e0586b0a20c7",
 
-_16
+_12
 
-"key":{
+"key": {
 
-_16
+_12
 
 "type": "hex",
 
-_16
+_12
 
 "index": 0,
 
-_16
+_12
 
 "signatureAlgorithm": "ECDSA_P256",
 
-_16
+_12
 
 "hashAlgorithm": "SHA3_256",
 
-_16
+_12
 
-"privateKey": "12332967fd2bd75234ae9037dd4694c1f00baad63a10c35172bf65fbb8ad1111"
+"privateKey": "ae1b44c0f5e8f6992ef2348898a35e50a8b0b9684000da8b1dade1b3bcd6ebee"
 
-_16
-
-}
-
-_16
+_12
 
 }
 
-_16
+_12
 
 }
 
-_16
+_12
 
-_16
+}`
 
-...`
+**Key Types:**
 
-You can also use BIP44 to derive keys from a mnemonic. For more details please see the [FLIP](https://github.com/onflow/flips/blob/main/application/20201125-bip-44-multi-account.md)
+* `hex`: Standard hex-encoded private key
+* `file`: Read key from a separate file
+* `bip44`: Derive from mnemonic phrase
+* `google-kms`: Use Google Cloud KMS
 
-**Example for BIP44 format:**
+**File-Based Keys:**
+For better security, you can store private keys in separate files:
 
-`_17
-
-...
-
-_17
-
-_17
+`_10
 
 "accounts": {
 
-_17
+_10
 
 "admin-account": {
 
-_17
+_10
 
-"address": "service",
+"address": "f8d6e0586b0a20c7",
 
-_17
-
-"key":{
-
-_17
-
-"type": "bip44",
-
-_17
-
-"index": 0,
-
-_17
-
-"signatureAlgorithm": "ECDSA_P256",
-
-_17
-
-"hashAlgorithm": "SHA3_256",
-
-_17
-
-"mnemonic": "skull design wagon top faith actor valley crystal subject volcano access join",
-
-_17
-
-"derivationPath": "m/44'/539'/0'/0/0"
-
-_17
-
-}
-
-_17
-
-}
-
-_17
-
-}
-
-_17
-
-_17
-
-...`
-
-Note: Default value for `derivationPath` is `m/44'/539'/0'/0/0` if omitted.
-
-You can also use a key management system (KMS) to sign the transactions. Currently, we only support Google KMS.
-
-**Example for Google KMS format:**
-
-`_14
-
-...
-
-_14
-
-"accounts": {
-
-_14
-
-"admin-account": {
-
-_14
-
-"address": "service",
-
-_14
+_10
 
 "key": {
 
-_14
-
-"type": "google-kms",
-
-_14
-
-"index": 0,
-
-_14
-
-"signatureAlgorithm": "ECDSA_P256",
-
-_14
-
-"hashAlgorithm": "SHA3_256",
-
-_14
-
-"resourceID": "projects/flow/locations/us/keyRings/foo/bar/cryptoKeyVersions/1"
-
-_14
-
-}
-
-_14
-
-}
-
-_14
-
-}
-
-_14
-
-...`
-
-You can store the account key to a separate file and provide the file location as part of the key configuration.
-
-**Example for separate key file:**
-
-`_11
-
-...
-
-_11
-
-"accounts": {
-
-_11
-
-"admin-account": {
-
-_11
-
-"address": "service",
-
-_11
-
-"key": {
-
-_11
+_10
 
 "type": "file",
 
-_11
+_10
 
-"location": "./test.key"
+"location": "./keys/admin.key"
 
-_11
-
-}
-
-_11
+_10
 
 }
 
-_11
+_10
 
 }
 
-_11
+_10
 
-...`
+}`
 
-Inside the `test.key` file you should only put the hex key content (e.g. `12332967fd2bd75234ae9037dd4694c1f00baad63a10c35172bf65fbb8ad1111`)
+The key file should contain only the hex-encoded private key (e.g., `ae1b44c0f5e8f6992ef2348898a35e50a8b0b9684000da8b1dade1b3bcd6ebee`).
+
+**Special Address Values:**
+
+* `"service"`: Use the default service account (emulator only)
+
+### Contracts[​](#contracts "Direct link to Contracts")
+
+The `contracts` section maps contract names to their source files.
+
+#### Simple Contract Format[​](#simple-contract-format "Direct link to Simple Contract Format")
+
+`_10
+
+"contracts": {
+
+_10
+
+"MyContract": "./cadence/contracts/MyContract.cdc",
+
+_10
+
+"AnotherContract": "./cadence/contracts/AnotherContract.cdc"
+
+_10
+
+}`
+
+#### Advanced Contract Format with Aliases[​](#advanced-contract-format-with-aliases "Direct link to Advanced Contract Format with Aliases")
+
+Use aliases when contracts are already deployed on specific networks:
+
+`_10
+
+"contracts": {
+
+_10
+
+"FungibleToken": {
+
+_10
+
+"source": "./cadence/contracts/FungibleToken.cdc",
+
+_10
+
+"aliases": {
+
+_10
+
+"testnet": "9a0766d93b6608b7",
+
+_10
+
+"mainnet": "f233dcee88fe0abe"
+
+_10
+
+}
+
+_10
+
+}
+
+_10
+
+}`
+
+**When to Use Aliases:**
+
+* For core contracts already deployed on mainnet/testnet
+* To avoid redeploying dependencies
+* To use the official versions of common contracts
 
 ### Deployments[​](#deployments "Direct link to Deployments")
 
-The deployments section defines where the `project deploy` command will deploy specified contracts.
-This configuration property acts as the glue that ties together accounts,
-contracts and networks, all of which are referenced by name.
-
-In the deployments section we specify the network, account name and list of contracts to be deployed to that account.
-
-Format specifying the deployment is:
+The `deployments` section defines which contracts get deployed to which accounts on which networks.
 
 `_10
 
-...
-
-_10
-
 "deployments": {
 
 _10
-
-"NETWORK": {
-
-_10
-
-"ACCOUNT NAME": ["CONTRACT NAME"]
-
-_10
-
-}
-
-_10
-
-}
-
-_10
-
-_10
-
-...`
-
-`_22
-
-...
-
-_22
-
-_22
-
-"deployments": {
-
-_22
 
 "emulator": {
 
-_22
+_10
 
-"emulator-account": [
+"emulator-account": ["MyContract", "AnotherContract"]
 
-_22
-
-"NonFungibleToken",
-
-_22
-
-"Kibble",
-
-_22
-
-"KittyItems",
-
-_22
-
-"KittyItemsMarket"
-
-_22
-
-]
-
-_22
+_10
 
 },
 
-_22
+_10
 
 "testnet": {
 
-_22
-
-"admin-account": ["NonFungibleToken"],
-
-_22
-
-"user-account": [
-
-_22
-
-"Kibble",
-
-_22
-
-"KittyItems",
-
-_22
-
-"KittyItemsMarket"
-
-_22
-
-]
-
-_22
-
-}
-
-_22
-
-}
-
-_22
-
-_22
-
-...`
-
-### Networks[​](#networks "Direct link to Networks")
-
-Use this section to define networks and connection parameters for that specific network.
-
-Format for networks is:
-
-`_10
-
-...
-
 _10
 
-"networks": {
-
-_10
-
-"NETWORK NAME": "ADDRESS"
+"my-testnet-account": ["MyContract"]
 
 _10
 
@@ -894,103 +415,21 @@ _10
 
 _10
 
-...`
+}`
 
-`_10
+**Format:** `"NETWORK": { "ACCOUNT": ["CONTRACT1", "CONTRACT2"] }`
 
-...
+**Important Notes:**
 
-_10
-
-"networks": {
-
-_10
-
-"NETWORK NAME": {
-
-_10
-
-"host": "ADDRESS",
-
-_10
-
-"key": "ACCESS NODE NETWORK KEY"
-
-_10
-
-}
-
-_10
-
-}
-
-_10
-
-...`
-
-`_13
-
-...
-
-_13
-
-_13
-
-"networks": {
-
-_13
-
-"emulator": "127.0.0.1:3569",
-
-_13
-
-"mainnet": "access.mainnet.nodes.onflow.org:9000",
-
-_13
-
-"testnet": "access.devnet.nodes.onflow.org:9000",
-
-_13
-
-"testnetSecure": {
-
-_13
-
-"host": "access-001.devnet30.nodes.onflow.org:9001",
-
-_13
-
-"key": "ba69f7d2e82b9edf25b103c195cd371cf0cc047ef8884a9bbe331e62982d46daeebf836f7445a2ac16741013b192959d8ad26998aff12f2adc67a99e1eb2988d"
-
-_13
-
-},
-
-_13
-
-}
-
-_13
-
-_13
-
-...`
+* Don't deploy contracts that have aliases defined for that network
+* Contracts are deployed in dependency order automatically
+* You can deploy the same contract to multiple accounts (but not in the same deploy command)
 
 ### Emulators[​](#emulators "Direct link to Emulators")
 
-The default emulator CLI is automatically configured with name being `"default"` and values of
-`serviceAccount`: `"emulator-account"` and `port`: `"3569"`. The default emulator configuration will not show up on
-flow.json.
-
-To customize emulator values, add emulator section like the example below:
+Customize emulator settings (optional):
 
 `_10
-
-...
-
-_10
-
-_10
 
 "emulators": {
 
@@ -1012,17 +451,223 @@ _10
 
 _10
 
+}`
+
+## Complete Example[​](#complete-example "Direct link to Complete Example")
+
+Here's a complete `flow.json` for a project with multiple contracts and networks:
+
+`_39
+
+{
+
+_39
+
+"networks": {
+
+_39
+
+"emulator": "127.0.0.1:3569",
+
+_39
+
+"testnet": "access.devnet.nodes.onflow.org:9000",
+
+_39
+
+"mainnet": "access.mainnet.nodes.onflow.org:9000"
+
+_39
+
+},
+
+_39
+
+_39
+
+"accounts": {
+
+_39
+
+"emulator-account": {
+
+_39
+
+"address": "f8d6e0586b0a20c7",
+
+_39
+
+"key": "ae1b44c0f5e8f6992ef2348898a35e50a8b0b9684000da8b1dade1b3bcd6ebee"
+
+_39
+
+},
+
+_39
+
+"testnet-account": {
+
+_39
+
+"address": "3ae53cb6e3f42a79",
+
+_39
+
+"key": "12332967fd2bd75234ae9037dd4694c1f00baad63a10c35172bf65fbb8ad1111"
+
+_39
+
 }
 
-_10
+_39
 
-_10
+},
 
-...`
+_39
+
+_39
+
+"contracts": {
+
+_39
+
+"FungibleToken": {
+
+_39
+
+"source": "./cadence/contracts/FungibleToken.cdc",
+
+_39
+
+"aliases": {
+
+_39
+
+"testnet": "9a0766d93b6608b7",
+
+_39
+
+"mainnet": "f233dcee88fe0abe"
+
+_39
+
+}
+
+_39
+
+},
+
+_39
+
+"MyToken": "./cadence/contracts/MyToken.cdc",
+
+_39
+
+"MyNFT": "./cadence/contracts/MyNFT.cdc"
+
+_39
+
+},
+
+_39
+
+_39
+
+"deployments": {
+
+_39
+
+"emulator": {
+
+_39
+
+"emulator-account": ["FungibleToken", "MyToken", "MyNFT"]
+
+_39
+
+},
+
+_39
+
+"testnet": {
+
+_39
+
+"testnet-account": ["MyToken", "MyNFT"]
+
+_39
+
+}
+
+_39
+
+}
+
+_39
+
+}`
+
+## Managing Configuration[​](#managing-configuration "Direct link to Managing Configuration")
+
+Instead of editing `flow.json` manually, use the CLI commands:
+
+`_11
+
+# Add an account
+
+_11
+
+flow config add account
+
+_11
+
+_11
+
+# Add a contract
+
+_11
+
+flow config add contract
+
+_11
+
+_11
+
+# Add a deployment
+
+_11
+
+flow config add deployment
+
+_11
+
+_11
+
+# Remove configuration
+
+_11
+
+flow config remove account my-account`
+
+## Best Practices[​](#best-practices "Direct link to Best Practices")
+
+1. **Use CLI commands** when possible instead of manual editing
+2. **Keep private keys secure** - consider using file-based keys for production
+3. **Use aliases** for core contracts to avoid redeployment
+4. **Test on emulator first** before deploying to testnet
+5. **Use different accounts** for different networks
+6. **Backup your configuration** before making major changes
+
+## Related Commands[​](#related-commands "Direct link to Related Commands")
+
+* [`flow init`](/tools/flow-cli/flow.json/initialize-configuration) - Initialize a new project
+* [`flow config add`](/tools/flow-cli/flow.json/manage-configuration) - Add configuration items
+* [`flow project deploy`](/tools/flow-cli/deployment/deploy-project-contracts) - Deploy contracts
+* [`flow accounts create`](/tools/flow-cli/accounts/create-accounts) - Create new accounts
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flow.json/configuration.md)
 
-Last updated on **Jul 6, 2025** by **Tang Bo Hao**
+Last updated on **Aug 19, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -1036,13 +681,17 @@ Manage Configuration](/tools/flow-cli/flow.json/manage-configuration)
 
 Copy as Markdown
 
-* [Example Project Configuration](#example-project-configuration)
-* [Configuration](#configuration)
-  + [Contracts](#contracts)
-  + [Accounts](#accounts)
-  + [Deployments](#deployments)
+* [Quick Start](#quick-start)
+* [Configuration Sections](#configuration-sections)
   + [Networks](#networks)
+  + [Accounts](#accounts)
+  + [Contracts](#contracts)
+  + [Deployments](#deployments)
   + [Emulators](#emulators)
+* [Complete Example](#complete-example)
+* [Managing Configuration](#managing-configuration)
+* [Best Practices](#best-practices)
+* [Related Commands](#related-commands)
 
 Documentation
 

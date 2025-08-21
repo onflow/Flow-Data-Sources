@@ -1,0 +1,157 @@
+# Source: https://developers.flow.com/blockchain-development-tutorials/use-AI-to-build-on-flow/flow-data-sources
+
+Flow Data Sources | Flow Developer Portal
+
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Blockchain Development Tutorials](/blockchain-development-tutorials)
+* [Flow Actions](/blockchain-development-tutorials/defi)
+* [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)
+* [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
+
+  + [Use Cursor AI](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor)
+  + [Flow MCP](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp)
+  + [Use ChatGPT](/blockchain-development-tutorials/use-AI-to-build-on-flow/chatgpt)
+  + [Flow Data Sources](/blockchain-development-tutorials/use-AI-to-build-on-flow/flow-data-sources)
+  + [Using AgentKit on Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow/agentkit-flow-guide)
+  + [Cadence Rules](/blockchain-development-tutorials/use-AI-to-build-on-flow/cadence-rules)
+  + [Eliza on Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow/eliza)
+  + [Claude Code Flow Guide](/blockchain-development-tutorials/use-AI-to-build-on-flow/claude-code)
+* [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
+* [Token Launch](/blockchain-development-tutorials/token-launch)
+* [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
+* [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
+* [FlowtoBooth](/blockchain-development-tutorials/flowtobooth)
+* [Integrations](/blockchain-development-tutorials/integrations/crossmint)
+
+* [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
+* Flow Data Sources
+
+On this page
+
+# Flow Data Sources
+
+Flow Data Sources is a comprehensive repository that automatically aggregates and formats Flow ecosystem content into Markdown files optimized for AI ingestion. This resource serves as a centralized knowledge base for AI tools, chatbots, and RAG (Retrieval-Augmented Generation) pipelines.
+
+## Overview[​](#overview "Direct link to Overview")
+
+The repository contains Python scripts that:
+
+* Crawl Flow-related documentation sites, GitHub repositories, and discussions
+* Convert HTML content to Markdown format
+* Extract code examples from GitHub repositories
+* Capture community discussions and Q&A content
+* Merge all content into consolidated files for easy consumption
+
+## Key Features[​](#key-features "Direct link to Key Features")
+
+* **Daily Updates**: Content is automatically refreshed to ensure the latest information
+* **Structured Format**: All content is converted to Markdown for consistent processing
+* **Comprehensive Coverage**: Includes official documentation, code examples, and community discussions
+* **Optimized for AI**: Designed specifically for AI tools, chatbots, and RAG pipelines
+* **Output Options**:
+  + `all_merged.md`: Complete content
+  + `essentials_merged.md`: Streamlined version only including official documentation and sample codes.
+  + `cadence_docs_merged.md`: Streamlined version only including Cadence related documentation and sample codes.
+
+## How to Use[​](#how-to-use "Direct link to How to Use")
+
+Flow Data Sources can be integrated with:
+
+* **ChatGPT Plugins**: Enhance Q&A capabilities with Flow-specific knowledge
+* **Custom Chatbots**: Power Discord/Telegram bots with accurate Flow information
+* **RAG Systems**: Index content in vector databases for semantic search
+* **Development Tools**: Provide context-aware assistance in IDEs like Cursor
+
+## Accessing the Content[​](#accessing-the-content "Direct link to Accessing the Content")
+
+The merged documentation files are available at:
+
+* [All Merged Content](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/all_merged.md)
+* [Essentials Only](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/essentials_merged.md)
+* [Cadence Only](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/cadence_docs_merged.md)
+
+For integration with AI tools like Cursor or ChatGPT, use the appropriate URL as described in the respective tutorials:
+
+* [Use Flow Knowledge Base in Cursor](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor) - Learn how to set up Cursor with Flow knowledge bases
+* [Use Flow Knowledge Base in ChatGPT](/blockchain-development-tutorials/use-AI-to-build-on-flow/chatgpt) - Create a custom GPT that understands Flow and Cadence
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/flow-data-sources.md)
+
+Last updated on **Aug 17, 2025** by **0xLisanAlGaib**
+
+[Previous
+
+Use ChatGPT](/blockchain-development-tutorials/use-AI-to-build-on-flow/chatgpt)[Next
+
+Using AgentKit on Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow/agentkit-flow-guide)
+
+###### Rate this page
+
+😞😐😊
+
+Copy as Markdown
+
+* [Overview](#overview)
+* [Key Features](#key-features)
+* [How to Use](#how-to-use)
+* [Accessing the Content](#accessing-the-content)
+
+Documentation
+
+* [Getting Started](/build/getting-started/contract-interaction)
+* [SDK's & Tools](/tools)
+* [Cadence](https://cadence-lang.org/docs/)
+* [Mobile](/build/guides/mobile/overview)
+* [FCL](/tools/clients/fcl-js)
+* [Testing](/build/smart-contracts/testing)
+* [CLI](/tools/flow-cli)
+* [Emulator](/tools/emulator)
+* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
+* [VS Code Extension](/tools/vscode-extension)
+
+Community
+
+* [Ecosystem](/ecosystem)
+* [Flow Port](https://port.flow.com/)
+* [Developer Grants](https://github.com/onflow/developer-grants)
+* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
+* [Flowverse](https://www.flowverse.co/)
+* [Emerald Academy](https://academy.ecdao.org/)
+* [FLOATs (Attendance NFTs)](https://floats.city/)
+
+Start Building
+
+* [Flow Playground](https://play.flow.com/)
+* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
+* [Cadence Cookbook](https://cookbook.flow.com)
+* [Core Contracts & Standards](/build/core-contracts)
+* [EVM](/evm/about)
+
+Network
+
+* [Network Status](https://status.flow.com/)
+* [Flowscan Mainnet](https://flowscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
+* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/networks/node-ops)
+* [Spork Information](/networks/node-ops/node-operation/spork)
+
+More
+
+* [GitHub](https://github.com/onflow)
+* [Discord](https://discord.gg/flow)
+* [Forum](https://forum.flow.com/)
+* [Flow](https://flow.com/)
+* [Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

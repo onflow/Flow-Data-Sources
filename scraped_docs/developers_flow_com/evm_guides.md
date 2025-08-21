@@ -6,7 +6,7 @@ Flow EVM Guides | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -52,13 +52,9 @@ This section contains guides and tutorials for building on [Flow EVM](/evm/about
 * **[Using Hardhat](/evm/guides/hardhat)** - Build, test, and deploy Solidity contracts on Flow EVM with Hardhat.
 * **[Using Remix](/evm/guides/remix)** - Write, deploy, and interact with contracts on Flow EVM using the Remix IDE.
 
-## More Coming Soon[​](#more-coming-soon "Direct link to More Coming Soon")
-
-Stay tuned - more guides and advanced tutorials are on the way!
-
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/guides/index.md)
 
-Last updated on **Jun 30, 2025** by **Brian Doyle**
+Last updated on **Aug 20, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -73,7 +69,6 @@ Integrating Metamask](/evm/guides/integrating-metamask)
 Copy as Markdown
 
 * [Guides](#guides)
-* [More Coming Soon](#more-coming-soon)
 
 Documentation
 
