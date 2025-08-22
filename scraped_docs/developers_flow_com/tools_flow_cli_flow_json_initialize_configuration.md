@@ -6,7 +6,7 @@ Initialize Configuration | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -17,7 +17,7 @@ Search
 * [Flow CLI](/tools/flow-cli)
 
   + [Install Instructions](/tools/flow-cli/install)
-  + [Super Commands](/tools/flow-cli/super-commands)
+  + [Commands Overview](/tools/flow-cli/super-commands)
   + [Accounts](/tools/flow-cli/accounts/get-accounts)
   + [Keys](/tools/flow-cli/keys/generate-keys)
   + [Deploy Project](/tools/flow-cli/deployment/start-emulator)
@@ -52,15 +52,22 @@ On this page
 
 # Initialize Configuration
 
-Flow CLI uses a state to operate which is called configuration (usually `flow.json` file).
-Before using commands that require this configuration we must initialize the project by
-using the init command. Read more about [state configuration here](/tools/flow-cli/flow.json/configuration).
+The `flow init` command creates a new Flow project with a basic `flow.json` configuration file. This is the first step in setting up any Flow project.
+
+## Basic Usage[​](#basic-usage "Direct link to Basic Usage")
 
 `_10
 
 flow init`
 
-## Example Usage[​](#example-usage "Direct link to Example Usage")
+This command will:
+
+* Create a new `flow.json` configuration file
+* Set up default networks (emulator, testnet, mainnet)
+* Create an emulator service account
+* Generate a basic project structure with `cadence/` directories
+
+## Example Output[​](#example-output "Direct link to Example Output")
 
 `_10
 
@@ -86,87 +93,153 @@ _10
 
 Reset configuration using: 'flow init --reset'`
 
-### Error Handling[​](#error-handling "Direct link to Error Handling")
+## Project Structure[​](#project-structure "Direct link to Project Structure")
 
-Existing configuration will cause the error below.
-You should initialize in an empty folder or reset configuration using `--reset` flag
-or by removing the configuration file first.
+After running `flow init`, you'll have:
 
 `_10
 
-❌ Command Error: configuration already exists at: flow.json, if you want to reset configuration use the reset flag`
+my-project/
+
+_10
+
+├── flow.json
+
+_10
+
+├── emulator-account.pkey
+
+_10
+
+└── cadence/
+
+_10
+
+├── contracts/
+
+_10
+
+├── scripts/
+
+_10
+
+├── transactions/
+
+_10
+
+└── tests/`
+
+## Configuration Only[​](#configuration-only "Direct link to Configuration Only")
+
+If you only want to generate the `flow.json` file without creating the full project structure, use the `--config-only` flag:
+
+`_10
+
+flow init --config-only`
+
+This is useful when:
+
+* You already have a project structure
+* You want to add Flow configuration to an existing project
+* You're setting up configuration for a specific environment
 
 ## Global Configuration[​](#global-configuration "Direct link to Global Configuration")
 
-Flow supports global configuration which is a `flow.json` file saved in your home
-directory and loaded as the first configuration file wherever you execute the CLI command.
+You can create a global `flow.json` file that applies to all Flow projects on your system:
 
-Please be aware that global configuration has the lowest priority and is overwritten
-by any other configuration file if they exist (if `flow.json` exist in your current
-directory it will overwrite properties in global configuration, but only those which overlap).
+`_10
 
-You can generate a global configuration using `--global` flag.
+flow init --global`
 
-Command example: `flow init --global`.
+**Global configuration locations:**
 
-Global flow configuration is saved as:
+* **macOS/Linux:** `~/flow.json`
+* **Windows:** `C:\Users\$USER\flow.json`
 
-* MacOs: `~/flow.json`
-* Linux: `~/flow.json`
-* Windows: `C:\Users\$USER\flow.json`
+**Priority order:**
+
+1. Local `flow.json` (highest priority)
+2. Global `flow.json` (lowest priority)
+
+Local configuration files will override global settings for overlapping properties.
+
+## Error Handling[​](#error-handling "Direct link to Error Handling")
+
+If a `flow.json` file already exists, you'll see this error:
+
+`_10
+
+❌ Command Error: configuration already exists at: flow.json`
+
+**Solutions:**
+
+* Delete the existing `flow.json` file first
+* Initialize in a different directory
+* Use `--config-only` to create a new config in a different location
 
 ## Flags[​](#flags "Direct link to Flags")
 
-### Reset[​](#reset "Direct link to Reset")
+### Configuration Only[​](#configuration-only-1 "Direct link to Configuration Only")
 
-* Flag: `--reset`
+`_10
 
-Using this flag will reset the existing configuration and create a new one.
+flow init --config-only`
 
-### Global[​](#global "Direct link to Global")
+Creates only the `flow.json` file without project structure.
 
-* Flag: `--global`
+### Global Flags[​](#global-flags "Direct link to Global Flags")
 
-Using this flag will create a global Flow configuration.
+The following global flags are also available:
 
-### Service Private Key[​](#service-private-key "Direct link to Service Private Key")
+`_10
 
-* Flag: `--service-private-key`
-* Valid inputs: a hex-encoded private key in raw form.
+# Log level
 
-Private key used on the default service account.
+_10
 
-### Service Key Signature Algorithm[​](#service-key-signature-algorithm "Direct link to Service Key Signature Algorithm")
+flow init --log debug
 
-* Flag: `--service-sig-algo`
-* Valid inputs: `"ECDSA_P256", "ECDSA_secp256k1"`
-* Default: `"ECDSA_P256"`
+_10
 
-Specify the ECDSA signature algorithm for the provided public key.
+_10
 
-Flow supports the secp256k1 and P-256 curves.
+# Output format
 
-### Service Key Hash Algorithm[​](#service-key-hash-algorithm "Direct link to Service Key Hash Algorithm")
+_10
 
-* Flag: `--service-hash-algo`
-* Valid inputs: `"SHA2_256", "SHA3_256"`
-* Default: `"SHA3_256"`
+flow init --output json
 
-Specify the hashing algorithm that will be paired with the public key
-upon account creation.
+_10
 
-### Log[​](#log "Direct link to Log")
+_10
 
-* Flag: `--log`
-* Short Flag: `-l`
-* Valid inputs: `none`, `error`, `debug`
-* Default: `info`
+# Approve prompts automatically
 
-Specify the log level. Control how much output you want to see while command execution.
+_10
+
+flow init --yes`
+
+**Available log levels:** `debug`, `info`, `error`, `none`
+
+## Next Steps[​](#next-steps "Direct link to Next Steps")
+
+After initializing your configuration:
+
+1. **Review the generated `flow.json`** - Understand the default setup
+2. **Add your contracts** - Use `flow config add contract`
+3. **Create accounts** - Use `flow accounts create` or `flow config add account`
+4. **Configure deployments** - Use `flow config add deployment`
+5. **Start developing** - Run `flow emulator start`
+
+## Related Commands[​](#related-commands "Direct link to Related Commands")
+
+* [`flow config add`](/tools/flow-cli/flow.json/manage-configuration) - Add configuration items
+* [`flow accounts create`](/tools/flow-cli/accounts/create-accounts) - Create new accounts
+* [`flow project deploy`](/tools/flow-cli/deployment/deploy-project-contracts) - Deploy contracts
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/flow.json/initialize-configuration.md)
 
-Last updated on **Sep 18, 2023** by **Alex**
+Last updated on **Aug 20, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -180,16 +253,17 @@ Configuration](/tools/flow-cli/flow.json/configuration)
 
 Copy as Markdown
 
-* [Example Usage](#example-usage)
-  + [Error Handling](#error-handling)
+* [Basic Usage](#basic-usage)
+* [Example Output](#example-output)
+* [Project Structure](#project-structure)
+* [Configuration Only](#configuration-only)
 * [Global Configuration](#global-configuration)
+* [Error Handling](#error-handling)
 * [Flags](#flags)
-  + [Reset](#reset)
-  + [Global](#global)
-  + [Service Private Key](#service-private-key)
-  + [Service Key Signature Algorithm](#service-key-signature-algorithm)
-  + [Service Key Hash Algorithm](#service-key-hash-algorithm)
-  + [Log](#log)
+  + [Configuration Only](#configuration-only-1)
+  + [Global Flags](#global-flags)
+* [Next Steps](#next-steps)
+* [Related Commands](#related-commands)
 
 Documentation
 

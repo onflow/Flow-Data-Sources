@@ -1,12 +1,12 @@
 # Source: https://developers.flow.com/tools/flow-cli/super-commands
 
-Super Commands | Flow Developer Portal
+Commands Overview | Flow Developer Portal
 
 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -17,7 +17,7 @@ Search
 * [Flow CLI](/tools/flow-cli)
 
   + [Install Instructions](/tools/flow-cli/install)
-  + [Super Commands](/tools/flow-cli/super-commands)
+  + [Commands Overview](/tools/flow-cli/super-commands)
   + [Accounts](/tools/flow-cli/accounts/get-accounts)
   + [Keys](/tools/flow-cli/keys/generate-keys)
   + [Deploy Project](/tools/flow-cli/deployment/start-emulator)
@@ -40,88 +40,688 @@ Search
 * [Tools](/tools)
 
 * [Flow CLI](/tools/flow-cli)
-* Super Commands
+* Commands Overview
 
 On this page
 
-# Super Commands
+# Commands Overview
 
-Flow CLI Super commands are set of commands that can be used during development of your dApp to greatly simplify the workflow. The result is you can focus on writing the contracts and the commands will take care of the rest.
+Flow CLI provides a set of powerful commands that simplify your development workflow. These "super commands" handle complex tasks automatically, letting you focus on writing your smart contracts while the CLI manages the rest.
 
-## Init[​](#init "Direct link to Init")
+## Project Lifecycle[​](#project-lifecycle "Direct link to Project Lifecycle")
 
-The initial command to start your new Flow project is flow init. It will ask you a few questions about how you'd like to configure your project and then create the necessary files and folders, set up the configuration file, and install any core contract dependencies you might need.
+### 1. Initialize a Project[​](#1-initialize-a-project "Direct link to 1. Initialize a Project")
 
-During the initialization process, `flow init` will prompt you if you want to install any core smart contracts (e.g. `NonFungibleToken`) and set them up in your project. If you choose to install core contracts, the CLI will use the [Dependency Manager](/tools/flow-cli/dependency-manager) under the hood to automatically install any required smart contract dependencies.
-
-> Note: If you just want the `flow.json` configured without creating any folders or files, you can run `flow init --config-only`.
-
-Running the command:
+Start a new Flow project with `flow init`:
 
 `_10
 
-> flow init $PROJECT_NAME`
+flow init my-project`
 
-Will create the following folders and files:
+This creates:
 
-* `/contracts` folder should contain all your Cadence contracts,
-* `/scripts` folder should contain all your Cadence scripts,
-* `/transactions` folder should contain all your Cadence transactions,
-* `/tests` folder should contain all your Cadence tests,
-* `flow.json` is a configuration file for your project, which will be automatically maintained.
+* `flow.json` - Project configuration
+* `cadence/` directory structure
+* Example contracts, scripts, and tests
+* Emulator account setup
 
-### Using Scaffolds[​](#using-scaffolds "Direct link to Using Scaffolds")
-
-Based on the purpose of your project you can select from a list of available scaffolds.
-You can access the scaffolds by simply using the `--scaffold` flag like so:
+**Options:**
 
 `_10
 
-> flow init $PROJECT_NAME --scaffold`
+# Configuration only (no project structure)
 
-If you'd like to skip the interactive mode of selecting a scaffold, use the `--scaffold-id` flag with a known ID:
+_10
+
+flow init --config-only
+
+_10
+
+_10
+
+# Global configuration
+
+_10
+
+flow init --global
+
+_10
+
+_10
+
+# Custom service account
+
+_10
+
+flow init --service-private-key <key>`
+
+📖 **[Learn more about project initialization](/tools/flow-cli/flow.json/initialize-configuration)**
+
+### 2. Generate Project Files[​](#2-generate-project-files "Direct link to 2. Generate Project Files")
+
+Create new files with the `flow generate` command:
+
+`_11
+
+# Generate a new contract
+
+_11
+
+flow generate contract MyToken
+
+_11
+
+_11
+
+# Generate a new script
+
+_11
+
+flow generate script GetBalance
+
+_11
+
+_11
+
+# Generate a new transaction
+
+_11
+
+flow generate transaction TransferTokens
+
+_11
+
+_11
+
+# Generate a new test
+
+_11
+
+flow generate test MyToken`
+
+**Generated Structure:**
 
 `_10
 
-> flow init $PROJECT_NAME --scaffold-id=1`
+cadence/
 
-The list of scaffolds will continuously grow, and you are welcome to contribute to that.
-You can contribute by creating your own scaffold repository which can then be added to the scaffold
-list by [following instructions here](https://github.com/onflow/flow-cli/blob/master/CONTRIBUTING.md#adding-a-scaffold).
+_10
 
-## Testing[​](#testing "Direct link to Testing")
+├── contracts/
 
-`flow init` will also have created an example test file in the `/tests` folder. You can run the tests by using the `flow test` command.
+_10
+
+│ └── MyToken.cdc
+
+_10
+
+├── scripts/
+
+_10
+
+│ └── GetBalance.cdc
+
+_10
+
+├── transactions/
+
+_10
+
+│ └── TransferTokens.cdc
+
+_10
+
+└── tests/
+
+_10
+
+└── MyToken.test.cdc`
+
+### 3. Run Tests[​](#3-run-tests "Direct link to 3. Run Tests")
+
+Test your contracts with `flow test`:
+
+`_11
+
+# Run all tests
+
+_11
+
+flow test
+
+_11
+
+_11
+
+# Run specific test file
+
+_11
+
+flow test cadence/tests/MyToken.test.cdc
+
+_11
+
+_11
+
+# Run with coverage
+
+_11
+
+flow test --coverage
+
+_11
+
+_11
+
+# Run with verbose output
+
+_11
+
+flow test --verbose`
+
+📖 **[Learn more about testing](/tools/flow-cli/tests)**
+
+### 4. Deploy Contracts[​](#4-deploy-contracts "Direct link to 4. Deploy Contracts")
+
+Deploy your contracts with `flow project deploy`:
+
+`_11
+
+# Deploy to emulator
+
+_11
+
+flow project deploy
+
+_11
+
+_11
+
+# Deploy to testnet
+
+_11
+
+flow project deploy --network=testnet
+
+_11
+
+_11
+
+# Deploy to mainnet
+
+_11
+
+flow project deploy --network=mainnet
+
+_11
+
+_11
+
+# Update existing contracts
+
+_11
+
+flow project deploy --update`
+
+📖 **[Learn more about project deployment](/tools/flow-cli/deployment/deploy-project-contracts)**
+
+## Configuration Management[​](#configuration-management "Direct link to Configuration Management")
+
+### Add Configuration Items[​](#add-configuration-items "Direct link to Add Configuration Items")
+
+Use `flow config add` to manage your project configuration:
+
+`_10
+
+# Add an account
+
+_10
+
+flow config add account --name my-account --address 0x123 --private-key abc123
+
+_10
+
+_10
+
+# Add a contract
+
+_10
+
+flow config add contract --name MyToken --filename ./cadence/contracts/MyToken.cdc
+
+_10
+
+_10
+
+# Add a deployment
+
+_10
+
+flow config add deployment --network testnet --account my-account --contract MyToken`
+
+### Remove Configuration Items[​](#remove-configuration-items "Direct link to Remove Configuration Items")
+
+`_10
+
+# Remove an account
+
+_10
+
+flow config remove account my-account
+
+_10
+
+_10
+
+# Remove a contract
+
+_10
+
+flow config remove contract MyToken
+
+_10
+
+_10
+
+# Remove a deployment
+
+_10
+
+flow config remove deployment testnet my-account MyToken`
+
+📖 **[Learn more about configuration management](/tools/flow-cli/flow.json/manage-configuration)**
+
+## Account Management[​](#account-management "Direct link to Account Management")
+
+### Create Accounts[​](#create-accounts "Direct link to Create Accounts")
+
+`_10
+
+# Interactive account creation
+
+_10
+
+flow accounts create
+
+_10
+
+_10
+
+# Create with specific network
+
+_10
+
+flow accounts create --network testnet
+
+_10
+
+_10
+
+# Create with custom key
+
+_10
+
+flow accounts create --key <private-key>`
+
+### Manage Account Keys[​](#manage-account-keys "Direct link to Manage Account Keys")
+
+`_10
+
+# Generate new key pair
+
+_10
+
+flow keys generate
+
+_10
+
+_10
+
+# Decode a key
+
+_10
+
+flow keys decode <key>
+
+_10
+
+_10
+
+# Derive public key from private key
+
+_10
+
+flow keys derive <private-key>`
+
+📖 **[Learn more about account management](/tools/flow-cli/accounts/create-accounts)**
+
+## Contract Interactions[​](#contract-interactions "Direct link to Contract Interactions")
+
+### Execute Scripts[​](#execute-scripts "Direct link to Execute Scripts")
+
+`_10
+
+# Run a script
+
+_10
+
+flow scripts execute cadence/scripts/GetBalance.cdc
+
+_10
+
+_10
+
+# Run with arguments
+
+_10
+
+flow scripts execute cadence/scripts/GetBalance.cdc --arg 0x123
+
+_10
+
+_10
+
+# Run on specific network
+
+_10
+
+flow scripts execute cadence/scripts/GetBalance.cdc --network testnet`
+
+### Send Transactions[​](#send-transactions "Direct link to Send Transactions")
+
+`_10
+
+# Send a transaction
+
+_10
+
+flow transactions send cadence/transactions/TransferTokens.cdc
+
+_10
+
+_10
+
+# Send with arguments
+
+_10
+
+flow transactions send cadence/transactions/TransferTokens.cdc --arg 0x123 --arg 100
+
+_10
+
+_10
+
+# Send with specific signer
+
+_10
+
+flow transactions send cadence/transactions/TransferTokens.cdc --signer my-account`
+
+📖 **[Learn more about scripts and transactions](/tools/flow-cli/scripts/execute-scripts)**
+
+## Dependency Management[​](#dependency-management "Direct link to Dependency Management")
+
+### Install Dependencies[​](#install-dependencies "Direct link to Install Dependencies")
+
+`_10
+
+# Install a contract dependency
+
+_10
+
+flow dependencies install testnet://8a4dce54554b225d.NumberFormatter
+
+_10
+
+_10
+
+# Install from mainnet
+
+_10
+
+flow dependencies install mainnet://f233dcee88fe0abe.FungibleToken
+
+_10
+
+_10
+
+# Install with specific account
+
+_10
+
+flow dependencies install testnet://8a4dce54554b225d.NumberFormatter --account my-account`
+
+### Manage Dependencies[​](#manage-dependencies "Direct link to Manage Dependencies")
+
+`_10
+
+# Discover available contracts
+
+_10
+
+flow dependencies discover
+
+_10
+
+_10
+
+# Install a contract dependency
+
+_10
+
+flow dependencies install testnet://8a4dce54554b225d.NumberFormatter`
+
+📖 **[Learn more about dependency management](/tools/flow-cli/dependency-manager)**
+
+## Development Workflow[​](#development-workflow "Direct link to Development Workflow")
+
+### Local Development[​](#local-development "Direct link to Local Development")
+
+1. **Start the emulator:**
+
+`_10
+
+flow emulator start`
+
+2. **Deploy contracts:**
+
+`_10
+
+flow project deploy`
+
+3. **Run tests:**
+
+`_10
+
+flow test`
+
+4. **Execute scripts:**
+
+`_10
+
+flow scripts execute cadence/scripts/GetBalance.cdc`
+
+5. **Send transactions:**
+
+`_10
+
+flow transactions send cadence/transactions/TransferTokens.cdc`
+
+### Testnet Deployment[​](#testnet-deployment "Direct link to Testnet Deployment")
+
+1. **Configure testnet account:**
+
+`_10
+
+flow config add account --name testnet-account --address 0x123 --private-key abc123`
+
+2. **Deploy to testnet:**
+
+`_10
+
+flow project deploy --network=testnet`
+
+3. **Test on testnet:**
+
+`_10
+
+flow scripts execute cadence/scripts/GetBalance.cdc --network=testnet`
 
 ## Import Schema[​](#import-schema "Direct link to Import Schema")
 
-You can simply import your contracts by name. We have introducted a new way to import your contracts. This will simply your workflow.
-
-The new import schema format looks like:
+Use simplified imports in your Cadence code:
 
 `_10
 
-import "{name of the contract}"`
+// Instead of complex import paths
 
-Example:
+_10
+
+import FungibleToken from 0x9a0766d93b6608b7
+
+_10
+
+_10
+
+// Use simple contract names
+
+_10
+
+import "FungibleToken"`
+
+The CLI automatically resolves imports based on your `flow.json` configuration.
+
+## Best Practices[​](#best-practices "Direct link to Best Practices")
+
+### 1. Use Configuration Commands[​](#1-use-configuration-commands "Direct link to 1. Use Configuration Commands")
+
+Instead of manually editing `flow.json`, use CLI commands:
 
 `_10
 
-import "HelloWorld"`
+# ✅ Good
 
-This will automatically import the contract you have created in your project with the same name and
-save the configuration in flow.json. It doesn't matter if the contract has been deployed on a non-default account.
+_10
 
-## Learn More[​](#learn-more "Direct link to Learn More")
+flow config add account --name my-account --address 0x123
 
-To learn more about next steps following the initial setup, check out the following links:
+_10
 
-* [Depedency Manager](/tools/flow-cli/dependency-manager): Lets you install and manage your contract dependencies with CLI commands.
-* [Manage Configuration](/tools/flow-cli/flow.json/manage-configuration): Learn how to manage your project configuration file.
+_10
+
+# ❌ Avoid
+
+_10
+
+# Manually editing flow.json`
+
+### 2. Test Locally First[​](#2-test-locally-first "Direct link to 2. Test Locally First")
+
+Always test on emulator before deploying:
+
+`_11
+
+# 1. Start emulator
+
+_11
+
+flow emulator start
+
+_11
+
+_11
+
+# 2. Deploy locally
+
+_11
+
+flow project deploy
+
+_11
+
+_11
+
+# 3. Run tests
+
+_11
+
+flow test
+
+_11
+
+_11
+
+# 4. Deploy to testnet
+
+_11
+
+flow project deploy --network=testnet`
+
+### 3. Use Descriptive Names[​](#3-use-descriptive-names "Direct link to 3. Use Descriptive Names")
+
+Choose clear names for accounts and contracts:
+
+`_10
+
+# ✅ Good
+
+_10
+
+flow config add account --name testnet-deployer
+
+_10
+
+flow generate contract MyNFT
+
+_10
+
+_10
+
+# ❌ Avoid
+
+_10
+
+flow config add account --name acc1
+
+_10
+
+flow generate contract c1`
+
+### 4. Secure Your Keys[​](#4-secure-your-keys "Direct link to 4. Secure Your Keys")
+
+Use secure key management:
+
+`_10
+
+# Use file-based keys
+
+_10
+
+flow config add account --name my-account --key-file ./keys/my-account.key
+
+_10
+
+_10
+
+# Use environment variables
+
+_10
+
+FLOW_PRIVATE_KEY=abc123 flow project deploy`
+
+📖 **[Learn more about security best practices](/tools/flow-cli/flow.json/security)**
+
+## Related Documentation[​](#related-documentation "Direct link to Related Documentation")
+
+* **[Configuration Management](/tools/flow-cli/flow.json/manage-configuration)** - Learn how to manage your `flow.json` file
+* **[Project Deployment](/tools/flow-cli/deployment/deploy-project-contracts)** - Deploy contracts to different networks
+* **[Account Management](/tools/flow-cli/accounts/create-accounts)** - Create and manage Flow accounts
+* **[Testing](/tools/flow-cli/tests)** - Write and run tests for your contracts
+* **[Security](/tools/flow-cli/flow.json/security)** - Secure your private keys and configuration
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/super-commands.md)
 
-Last updated on **Nov 21, 2024** by **Alex Ni**
+Last updated on **Aug 19, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -135,11 +735,33 @@ Get an Account](/tools/flow-cli/accounts/get-accounts)
 
 Copy as Markdown
 
-* [Init](#init)
-  + [Using Scaffolds](#using-scaffolds)
-* [Testing](#testing)
+* [Project Lifecycle](#project-lifecycle)
+  + [1. Initialize a Project](#1-initialize-a-project)
+  + [2. Generate Project Files](#2-generate-project-files)
+  + [3. Run Tests](#3-run-tests)
+  + [4. Deploy Contracts](#4-deploy-contracts)
+* [Configuration Management](#configuration-management)
+  + [Add Configuration Items](#add-configuration-items)
+  + [Remove Configuration Items](#remove-configuration-items)
+* [Account Management](#account-management)
+  + [Create Accounts](#create-accounts)
+  + [Manage Account Keys](#manage-account-keys)
+* [Contract Interactions](#contract-interactions)
+  + [Execute Scripts](#execute-scripts)
+  + [Send Transactions](#send-transactions)
+* [Dependency Management](#dependency-management)
+  + [Install Dependencies](#install-dependencies)
+  + [Manage Dependencies](#manage-dependencies)
+* [Development Workflow](#development-workflow)
+  + [Local Development](#local-development)
+  + [Testnet Deployment](#testnet-deployment)
 * [Import Schema](#import-schema)
-* [Learn More](#learn-more)
+* [Best Practices](#best-practices)
+  + [1. Use Configuration Commands](#1-use-configuration-commands)
+  + [2. Test Locally First](#2-test-locally-first)
+  + [3. Use Descriptive Names](#3-use-descriptive-names)
+  + [4. Secure Your Keys](#4-secure-your-keys)
+* [Related Documentation](#related-documentation)
 
 Documentation
 

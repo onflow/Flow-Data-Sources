@@ -6,7 +6,7 @@ DeFi Contracts on Flow | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/kit)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -24,6 +24,7 @@ Search
   + [Add Token To MetaMask](/ecosystem/defi-liquidity/add-token-to-metamask)
   + [Stablecoins & Bridges FAQ](/ecosystem/defi-liquidity/faq)
 * [Bridges](/ecosystem/bridges)
+* [Collectibles & NFTs](/ecosystem/collectibles)
 * [Community Projects](/ecosystem/projects)
 * [Builder Perks](/ecosystem/builder-perks)
 * [VCs & Funds](/ecosystem/vcs-and-funds)
@@ -112,6 +113,25 @@ Below is a list of commonly used DeFi contracts on Flow:
 | LayerZero | [Mainnet Contracts](https://docs.layerzero.network/v1/developers/evm/technical-reference/deployed-contracts?chains=flow) |
 | Axelar | [Axelar Docs](https://docs.axelar.dev/validator/external-chains/flow/) |
 
+## Omni Fungible Tokens (USD Flow - USDF)[​](#omni-fungible-tokens-usd-flow---usdf "Direct link to Omni Fungible Tokens (USD Flow - USDF)")
+
+#### Solana Mainnet[​](#solana-mainnet "Direct link to Solana Mainnet")
+
+| Contract Name | Contract Address |
+| --- | --- |
+| PYUSD Program ID | `28EyPNAi9BMTvGuCaQrptMXjpWUi7wx8SxAFVoSZxSXe` |
+| PYUSD Mint | `2b1kV6DkPAnxd5ixfnxCpjxmKwqjjaYmCZfHsFu24GXo` |
+| PYUSD Mint Authority | `22mKJkKjGEQ3rampp5YKaSsaYZ52BUkcnUN6evXGsXzz` |
+| PYUSD Escrow | `6z3QyVS36nQ9fk2YvToxqJqXqtAFsSijqgHxpzKyG5xn` |
+| PYUSD OFT Store | `2KUb8dcZR9LyrSg4RdkQx91xX6mPQLpS1MEo6gwfvLZk` |
+
+#### Ethereum Mainnet[​](#ethereum-mainnet "Direct link to Ethereum Mainnet")
+
+| Contract Name | Contract Address |
+| --- | --- |
+| PYUSD Token | `0x6c3ea9036406852006290770BEdFcAbA0e23A0e8` |
+| PYUSD Locker | `0xFA0e06B54986ad96DE87a8c56Fea76FBD8d493F8` |
+
 ## Oracles[​](#oracles "Direct link to Oracles")
 
 #### Flow EVM Mainnet[​](#flow-evm-mainnet-2 "Direct link to Flow EVM Mainnet")
@@ -155,7 +175,7 @@ Mainnet EAS Explorer: [<https://flow.easscan.credora.io>] (<https://flow.easscan
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/defi-contracts.md)
 
-Last updated on **May 9, 2025** by **Chase Fleming**
+Last updated on **May 28, 2025** by **Tom Haile**
 
 [Previous
 
@@ -172,6 +192,7 @@ Copy as Markdown
 * [Stablecoins & Wrapped Assets](#stablecoins--wrapped-assets)
 * [AMMs & DEXs](#amms--dexs)
 * [Bridges & Cross-Chain Messaging](#bridges--cross-chain-messaging)
+* [Omni Fungible Tokens (USD Flow - USDF)](#omni-fungible-tokens-usd-flow---usdf)
 * [Oracles](#oracles)
 * [Ethereum Attestation Service](#ethereum-attestation-service)
 

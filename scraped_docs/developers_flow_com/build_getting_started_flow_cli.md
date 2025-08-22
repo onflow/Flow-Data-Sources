@@ -6,7 +6,7 @@ Local Development with Flow CLI | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -74,9 +74,8 @@ You'll also be asked if you'd like to install any core contracts (such as `Fungi
 
 The `init` command will create a new directory with the project name and the following files:
 
-* `flow.json`: This file contains the configuration for your project.
+* `flow.json`: This file contains the configuration for your project, including accounts, contracts, deployments, and network settings. It's the central configuration file that the Flow CLI uses to understand your project structure and deployment targets.
 * `emulator-account.pkey`: This file contains the private key for the default emulator account.
-* `flow.json`: This file contains the configuration for your project.
 * `cadence/`: This directory contains your Cadence code. Inside there are subdirectories for contracts, scripts, transactions, and tests.
 
 Inside the `cadence/contracts` directory, you'll find a `Counter.cdc` file. This is the same as the `Counter` contract in the previous step.
@@ -115,7 +114,7 @@ Your emulator will now be running.
 
 #### Creating an Account[​](#creating-an-account "Direct link to Creating an Account")
 
-When you created a project you'll see that a `Counter` contract was added to your `flow.json` configuration file, but it's not set up for deployment yet. We could deploy it to the automatically created `emulator-account`, but for this example lets also create a new account on the emulator to deploy it to.
+When you created a project you'll see that a `Counter` contract was added to your [`flow.json` configuration file](/tools/flow-cli/flow.json/configuration), but it's not set up for deployment yet. We could deploy it to the automatically created `emulator-account`, but for this example lets also create a new account on the emulator to deploy it to.
 
 info
 
@@ -127,7 +126,7 @@ Leave your emulator running, and open a second terminal. Run the following comma
 
 flow accounts create`
 
-When prompted, give your account the name `test-account` and select `Emulator` as the network. You'll now see this account in your `flow.json`.
+When prompted, give your account the name `test-account` and select `Emulator` as the network. You'll now see this account in your [`flow.json`](/tools/flow-cli/flow.json/configuration).
 
 #### Configuring the Deployment[​](#configuring-the-deployment "Direct link to Configuring the Deployment")
 
@@ -167,9 +166,19 @@ _10
 
 That's it! You've just deployed your first contract to the Flow Emulator.
 
-You can't deploy the same contract to multiple accounts at the same time with the `deploy` command. If you've experimented with the above, you may need to manually edit the `"deployments"` property in `flow.json` to remove extra deployments.
+info
 
-:::
+**Deploying to Testnet**: To deploy your contracts to testnet instead of the emulator, simply add the `--network=testnet` flag to your deploy command:
+
+`_10
+
+flow project deploy --network=testnet`
+
+Make sure you have a testnet account configured in your [`flow.json` file](/tools/flow-cli/flow.json/configuration) and that you have enough FLOW tokens to pay for deployment fees. You can get testnet FLOW tokens from the [Flow Testnet Faucet](https://faucet.flow.com/fund-account).
+
+warning
+
+You can't deploy the same contract to multiple accounts at the same time with the `deploy` command. If you've experimented with the above, you may need to manually edit the `"deployments"` property in [`flow.json`](/tools/flow-cli/flow.json/configuration) to remove extra deployments.
 
 ## Running Scripts[​](#running-scripts "Direct link to Running Scripts")
 
@@ -347,9 +356,9 @@ flow dependencies install testnet://8a4dce54554b225d.NumberFormatter`
 
 When prompted for the account to deploy the contract to, select any account and ignore the prompt for an alias. This is if you wanted to configure a `mainnet` address for the contract.
 
-This will add the `NumberFormatter` contract and any of its dependencies to an `imports` directory in your project. It will also add any dependencies to your `flow.json` file. In addition, the prompt will configure the deployment of the contract to the account you selected. Make sure to select the `emulator-account` account to deploy the contract to the emulator.
+This will add the `NumberFormatter` contract and any of its dependencies to an `imports` directory in your project. It will also add any dependencies to your [`flow.json` file](/tools/flow-cli/flow.json/configuration). In addition, the prompt will configure the deployment of the contract to the account you selected. Make sure to select the `emulator-account` account to deploy the contract to the emulator.
 
-You'll then see the `NumberFormatter` in your deployments for emulator in your `flow.json`.
+You'll then see the `NumberFormatter` in your deployments for emulator in your [`flow.json`](/tools/flow-cli/flow.json/configuration).
 
 Now we can deploy the `NumberFormatter` contract to the emulator by running:
 
@@ -576,7 +585,7 @@ In this tutorial, we've accomplished all of our learning objectives:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/getting-started/flow-cli.md)
 
-Last updated on **May 30, 2025** by **Brian Doyle**
+Last updated on **Aug 19, 2025** by **Chase Fleming**
 
 [Previous
 

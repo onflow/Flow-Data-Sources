@@ -159,4 +159,4 @@ You can now use Privy’s SDK in your dApp frontend to connect wallets, sign tra
 
 [PreviousOthers SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)[NextDownload](/download/download)
 
-Last updated 15 days ago
+Last updated 16 days ago

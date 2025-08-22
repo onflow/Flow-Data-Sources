@@ -6,7 +6,7 @@ Query QC/DKG Info with Scripts or Events | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -87,10 +87,6 @@ can use the **Get Node Has Voted** ([QC.05](/build/core-contracts/epoch-contract
 To return a boolean representing if the voting for the QC phase is complete,
 can use the **Get Voting Complete** ([QC.06](/build/core-contracts/epoch-contract-reference#quorum-certificate-transactions-and-scripts)) script with no arguments.
 
-## QC Events[​](#qc-events "Direct link to QC Events")
-
-Documentation coming soon
-
 ## DKG Scripts[​](#dkg-scripts "Direct link to DKG Scripts")
 
 ### Get DKG Enabled[​](#get-dkg-enabled "Direct link to Get DKG Enabled")
@@ -154,7 +150,7 @@ access(all) event BroadcastMessage(nodeID: String, content: String)`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/networks/staking/10-qc-dkg-scripts-events.md)
 
-Last updated on **Jul 25, 2024** by **Josh Hannan**
+Last updated on **Aug 20, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -173,7 +169,6 @@ Copy as Markdown
   + [Get QC Enabled](#get-qc-enabled)
   + [Get Node Has Voted](#get-node-has-voted)
   + [Get Voting Complete](#get-voting-complete)
-* [QC Events](#qc-events)
 * [DKG Scripts](#dkg-scripts)
   + [Get DKG Enabled](#get-dkg-enabled)
   + [Get DKG Completed](#get-dkg-completed)

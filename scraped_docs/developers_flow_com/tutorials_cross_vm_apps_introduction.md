@@ -6,38 +6,38 @@ Batched Tx From Scaffold | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [Tutorials](/tutorials)
-* [Flow Actions](/tutorials/defi)
-* [Flow Blockchain 101](/tutorials/flow-101)
-* [Use AI To Build On Flow](/tutorials/use-AI-to-build-on-flow)
-* [Gasless Transactions](/tutorials/gasless-transactions)
-* [Token Launch](/tutorials/token-launch)
-* [Cross-VM Apps](/tutorials/cross-vm-apps)
+* [Blockchain Development Tutorials](/blockchain-development-tutorials)
+* [Flow Actions](/blockchain-development-tutorials/defi)
+* [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)
+* [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
+* [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
+* [Token Launch](/blockchain-development-tutorials/token-launch)
+* [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
 
-  + [Batched Tx From Scaffold](/tutorials/cross-vm-apps/introduction)
-  + [Update Existing wagmi App](/tutorials/cross-vm-apps/add-to-wagmi)
-  + [Interacting with COAs](/tutorials/cross-vm-apps/interacting-with-coa)
-  + [Direct Calls to Flow EVM](/tutorials/cross-vm-apps/direct-calls)
-  + [Batched EVM Transactions](/tutorials/cross-vm-apps/batched-evm-transactions)
-  + [Cross-VM Bridge](/tutorials/cross-vm-apps/vm-bridge)
-* [Flow – Secure Blockchain with Built-In Randomness & Native VRF](/tutorials/native-vrf)
-* [FlowtoBooth](/tutorials/flowtobooth)
-* [Integrations](/tutorials/integrations/crossmint)
+  + [Batched Tx From Scaffold](/blockchain-development-tutorials/cross-vm-apps/introduction)
+  + [Update Existing wagmi App](/blockchain-development-tutorials/cross-vm-apps/add-to-wagmi)
+  + [Interacting with COAs](/blockchain-development-tutorials/cross-vm-apps/interacting-with-coa)
+  + [Direct Calls to Flow EVM](/blockchain-development-tutorials/cross-vm-apps/direct-calls)
+  + [Batched EVM Transactions](/blockchain-development-tutorials/cross-vm-apps/batched-evm-transactions)
+  + [Cross-VM Bridge](/blockchain-development-tutorials/cross-vm-apps/vm-bridge)
+* [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
+* [FlowtoBooth](/blockchain-development-tutorials/flowtobooth)
+* [Integrations](/blockchain-development-tutorials/integrations/crossmint)
 
-* [Cross-VM Apps](/tutorials/cross-vm-apps)
+* [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
 * Batched Tx From Scaffold
 
 On this page
 
 # Batched Tx From Scaffold
 
-Ever since the launch of Flow EVM, it's been possible to *supercharge* your EVM apps by using Flow Cadence features and contracts. Some benefits, such as [native VRF](/tutorials/native-vrf/vrf-in-solidity) and inexpensive gas without compromising security are built in and either easy or automatic to use. Others, such as the ability to use [Cadence](https://cadence-lang.org/docs) to [structure and call EVM transactions](/tutorials/cross-vm-apps/batched-evm-transactions), are powerful but complicated to configure and use. They also require developers to manage concurrent connections to both networks.
+Ever since the launch of Flow EVM, it's been possible to *supercharge* your EVM apps by using Flow Cadence features and contracts. Some benefits, such as [native VRF](/blockchain-development-tutorials/native-vrf/vrf-in-solidity) and inexpensive gas without compromising security are built in and either easy or automatic to use. Others, such as the ability to use [Cadence](https://cadence-lang.org/docs) to [structure and call EVM transactions](/blockchain-development-tutorials/cross-vm-apps/batched-evm-transactions), are powerful but complicated to configure and use. They also require developers to manage concurrent connections to both networks.
 
 [FLIP 316](https://github.com/onflow/flips/pull/317) improves the [Flow Client Library (FCL)](/tools/clients/fcl-js) to support cross-VM functionality between Flow EVM and Flow Cadence.
 
@@ -2117,15 +2117,15 @@ Now that you have completed the tutorial, you should be able to:
 * Add Cadence features to your [Rainbowkit](https://www.rainbowkit.com/)/[wagmi](https://wagmi.sh/)/[viem](https://viem.sh/) app
 * Utilize [Flow Client Library (FCL)](/tools/clients/fcl-js) to enable multi-call contract writes to Flow EVM
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tutorials/cross-vm-apps/introduction.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cross-vm-apps/introduction.md)
 
-Last updated on **Jun 4, 2025** by **Tang Bo Hao**
+Last updated on **Aug 17, 2025** by **0xLisanAlGaib**
 
 [Previous
 
-Cross-VM Apps](/tutorials/cross-vm-apps)[Next
+Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)[Next
 
-Update Existing wagmi App](/tutorials/cross-vm-apps/add-to-wagmi)
+Update Existing wagmi App](/blockchain-development-tutorials/cross-vm-apps/add-to-wagmi)
 
 ###### Rate this page
 

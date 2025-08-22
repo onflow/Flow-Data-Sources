@@ -26,8 +26,7 @@ Search
   + [Fungible Tokens](/docs/tutorial/fungible-tokens)
   + [Marketplace Setup](/docs/tutorial/marketplace-setup)
   + [Marketplace](/docs/tutorial/marketplace-compose)
-  + [9. Voting Contract](/docs/tutorial/voting)
-  + [10. Composable Resources](/docs/tutorial/resources-compose)
+  + [Voting Contract](/docs/tutorial/voting)
 * [Language Reference](/docs/language/)
 * [Cadence 1.0 Migration Guide](/docs/cadence-migration-guide/)
 * [Design Patterns](/docs/design-patterns)
@@ -1624,7 +1623,7 @@ Reference solutions are functional, but may not be optimal.
 
 Marketplace Setup](/docs/tutorial/marketplace-setup)[Next
 
-9. Voting Contract](/docs/tutorial/voting)
+Voting Contract](/docs/tutorial/voting)
 
 ###### Rate this page
 

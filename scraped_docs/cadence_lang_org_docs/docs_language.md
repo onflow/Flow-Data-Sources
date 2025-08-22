@@ -94,7 +94,7 @@ In real Cadence code, all type definitions and code must be declared and contain
 
 [Previous
 
-10. Composable Resources](/docs/tutorial/resources-compose)[Next
+Voting Contract](/docs/tutorial/voting)[Next
 
 Syntax](/docs/language/syntax)
 
