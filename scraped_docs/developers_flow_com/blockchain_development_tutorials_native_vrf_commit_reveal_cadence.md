@@ -6,7 +6,7 @@ Secure Randomness with Commit-Reveal in Cadence | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -22,7 +22,6 @@ Search
 * [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
 
   + [Secure Randomness with Commit-Reveal in Cadence](/blockchain-development-tutorials/native-vrf/commit-reveal-cadence)
-  + [Deploy a Solidity Contract Using Cadence](/blockchain-development-tutorials/native-vrf/deploy-solidity-contract)
   + [VRF (Randomness) in Solidity](/blockchain-development-tutorials/native-vrf/vrf-in-solidity)
 * [FlowtoBooth](/blockchain-development-tutorials/flowtobooth)
 * [Integrations](/blockchain-development-tutorials/integrations/crossmint)
@@ -38,7 +37,7 @@ Randomness is a critical component in blockchain applications, enabling fair and
 
 [Chainlink VRF](https://docs.chain.link/vrf) is a popular tool that improves on this by providing another approach for generating provably random values on Ethereum and other blockchains by relying on a decentralized oracle network to deliver cryptographically secure randomness from off-chain sources. However, this dependence on external oracles introduces several weaknesses, such as cost, latency, and scalability concerns.
 
-In contrast, Flow offers a simpler and more integrated approach with its native on-chain Randomness Beacon at the protocol level, eliminating reliance on external oracles and sidestepping their associated risks.
+In contrast, Flow offers a simpler and more integrated approach with its native onchain Randomness Beacon at the protocol level, eliminating reliance on external oracles and sidestepping their associated risks.
 
 In addition to instant randomness that is available to any transaction (via `revertibleRandom` function), Flow provides a solution to reverted transaction. Commit-Reveal schemes on Flow also rely on protocol-native secure randomness and they fix the issue of post-selection by trustless users. Commit-Reveal tools on Flow can be used within both Cadence and Solidity smart contracts. This tutorial will focus on the Cadence case.
 
@@ -48,7 +47,7 @@ By the end of this guide, you will be able to:
 
 * Deploy a Cadence smart contract on the Flow blockchain
 * Implement commit-reveal pattern for randomness to ensure fairness
-* Interact with on-chain randomness features on Flow
+* Interact with onchain randomness features on Flow
 * Build and test the Coin Toss game using the Flow Testnet
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
@@ -83,7 +82,7 @@ Similarly to revertible randomness, Commit-Reveal inherits the security of Flow 
 
 * Ensures security - The Flow Random Beacon provides cryptographically unpredictable and non-biased randomness.
 * Ensure fairness - The Flow Random Beacon uses a Verifiable Random Function (VRF) under the hood which allows any external client or user to verify that randoms were generated fairly.
-* Reduces reliance on external oracles - The randomness is generated natively on-chain, avoiding additional complexity, third party risk and cost.
+* Reduces reliance on external oracles - The randomness is generated natively onchain, avoiding additional complexity, third party risk and cost.
 
 In addition, commit-reveal patterns solve the issue of revertible randoms:
 
@@ -526,20 +525,20 @@ This tutorial has equipped you with hands-on experience and key skills:
 
 * You deployed a Cadence smart contract on the Flow blockchain.
 * You implemented commit-reveal to ensure fairness.
-* You interacted with on-chain randomness features on Flow.
+* You interacted with onchain randomness features on Flow.
 * You built and tested the Coin Toss game using the Flow Testnet.
 
 By harnessing the built-in randomness capabilities on Flow, you can now focus on crafting engaging, user-centric experiences without grappling with the complexities or limitations of external systems. This knowledge empowers you to create secure, scalable, and fair decentralized applications.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/native-vrf/commit-reveal-cadence.md)
 
-Last updated on **Aug 17, 2025** by **0xLisanAlGaib**
+Last updated on **Aug 22, 2025** by **Brian Doyle**
 
 [Previous
 
 Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)[Next
 
-Deploy a Solidity Contract Using Cadence](/blockchain-development-tutorials/native-vrf/deploy-solidity-contract)
+VRF (Randomness) in Solidity](/blockchain-development-tutorials/native-vrf/vrf-in-solidity)
 
 ###### Rate this page
 
@@ -563,16 +562,16 @@ Copy as Markdown
 
 Documentation
 
-* [Getting Started](/build/getting-started/contract-interaction)
-* [SDK's & Tools](/tools)
+* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/guides/mobile/overview)
-* [FCL](/tools/clients/fcl-js)
-* [Testing](/build/smart-contracts/testing)
-* [CLI](/tools/flow-cli)
-* [Emulator](/tools/emulator)
+* [Mobile](/build/cadence/guides/mobile/overview)
+* [FCL](/build/tools/clients/fcl-js)
+* [Testing](/build/cadence/smart-contracts/testing)
+* [CLI](/build/tools/flow-cli)
+* [Emulator](/build/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/tools/vscode-extension)
+* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
@@ -589,18 +588,18 @@ Start Building
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/core-contracts)
-* [EVM](/evm/about)
+* [Core Contracts & Standards](/build/cadence/core-contracts)
+* [EVM](/build/evm/about)
 
 Network
 
 * [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
-* [Node Operation](/networks/node-ops)
-* [Spork Information](/networks/node-ops/node-operation/spork)
+* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/protocol/node-ops)
+* [Spork Information](/protocol/node-ops/node-operation/spork)
 
 More
 

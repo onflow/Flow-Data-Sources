@@ -1,0 +1,183 @@
+# Source: https://developers.flow.com/build/cadence/guides/mobile/overview
+
+Overview | Flow Developer Portal
+
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Why Flow](/build/flow)
+* [Cadence](/build/cadence/getting-started)
+
+  + [Getting Started](/build/cadence/getting-started)
+  + [Differences vs. EVM](/build/cadence/differences-vs-evm)
+  + [Flow Protocol](/build/cadence/basics/network-architecture)
+  + [App Architecture](/build/cadence/app-architecture)
+  + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
+  + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+  + [Guides](/build/cadence/guides/account-linking)
+
+    - [Account Linking (FLIP 72)](/build/cadence/guides/account-linking)
+    - [Account Linking With NBA Top Shot](/build/cadence/guides/account-linking-with-dapper)
+    - [More Guides](/build/cadence/guides/more-guides)
+    - [Creating an NFT Contract](/build/cadence/guides/nft)
+    - [Creating a Fungible Token](/build/cadence/guides/fungible-token)
+    - [Building on Mobile](/build/cadence/guides/mobile/overview)
+
+      * [Overview](/build/cadence/guides/mobile/overview)
+      * [Build a Walletless Mobile App (PWA)](/build/cadence/guides/mobile/walletless-pwa)
+      * [IOS Development](/build/cadence/guides/mobile/ios-quickstart)
+      * [React Native Development](/build/cadence/guides/mobile/react-native-quickstart)
+  + [Core Smart Contracts](/build/cadence/core-contracts)
+  + [Explore More](/build/cadence/explore-more)
+* [Solidity (EVM)](/build/evm/about)
+
+  + [Why EVM on Flow](/build/evm/about)
+  + [How it Works](/build/evm/how-it-works)
+  + [Using Flow EVM](/build/evm/using)
+  + [Network Information](/build/evm/networks)
+  + [EVM Quickstart](/build/evm/quickstart)
+  + [Fees](/build/evm/fees)
+  + [Accounts](/build/evm/accounts)
+  + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
+  + [Faucets ↙](/evm/faucets)
+  + [Block Explorers ↙](/evm/block-explorers)
+  + [Guides](/build/evm/guides)
+* [Tools & SDKs](/build/tools)
+
+* Cadence
+* Guides
+* Building on Mobile
+* Overview
+
+On this page
+
+# Overview
+
+Building mobile native applications that interact with the blockchain enables a much richer end user experiences and provides access to OS capabilities. With Flow Mobile, developers can build native applications for iOS and Android leveraging SDKs and mobile wallets.
+
+## Why Flow[​](#why-flow "Direct link to Why Flow")
+
+Millions of users with Flow accounts are exploring the ecosystem and looking for applications. Most of these users purchased Flow NFTs and are comfortable with web3 principles.
+
+In addition to the existing user base, developers can tap into smart contracts deployed on the Flow blockchain. These contracts, including their onchain state, provide unique possibilities to build experiences that enrich applications users are already using.
+
+The following key capabilities make Flow a standout choice for mobile applications:
+
+* On-device key encryption via Secure Enclave & Keychain
+* Mobile wallet compatibility and support for WalletConnect 2.0
+* Simple, progressive onboarding experience with postponed account linking
+* Seamless in-app experience with onchain interactions without constant signing requests
+* Account flexibility enabling secure account recovery and sharing
+
+## Why Flow Mobile[​](#why-flow-mobile "Direct link to Why Flow Mobile")
+
+### Proven[​](#proven "Direct link to Proven")
+
+Flow is built with mainstream adoption in mind. Mobile applications can leverage the best-in-class user experiences millions of users have enjoyed on the web, through applications like NBA TopShot or NFL AllDay.
+
+### Best-in-class UX[​](#best-in-class-ux "Direct link to Best-in-class UX")
+
+Flow's Client Library makes it very intuitive to sign up and sign in with their wallet of choice. For transaction signing, Flow offers human readable security, so users get a clear understanding of what they are approving. An increased sense of trust for Flow applications is the outcome.
+
+Furthermore, Flow's powerful account model allows for seamless user flows of onchain operations. Apps can perform transactions on behalf of the users (with their approval) in the background, without the need to switch between apps. The account model also allows apps to pay for transactions to postpone fiat on-ramps to get them to experience the value of an application before committing to buying tokens.
+
+Last but not least, developers can leverage progressive web3 onboarding, in which any identity provider can be used to authenticate users, without having to deal with keys. Developers can create Flow accounts for the users and link them to a wallet at a later point in time.
+
+### Security first[​](#security-first "Direct link to Security first")
+
+Flow's mobile SDKs use on-device key encryption via Apple's Secure Enclave and Android's Keystore. The flexible account model makes it possible for an account to have multiple keys with different weights, which enables secure social recovery, account sharing, and much more.
+
+## Smart contract language inspired by mobile languages[​](#smart-contract-language-inspired-by-mobile-languages "Direct link to Smart contract language inspired by mobile languages")
+
+Cadence, Flow's smart contract language, will look and feel very familiar to mobile languages developers are already familiar with. Cadence was inspired by Move, Swift, and Kotlin. This reduces the ramp-up period to develop mobile applications leveraging onchain logic.
+
+## What is available[​](#what-is-available "Direct link to What is available")
+
+Developers can leverage the following features to get productive quickly:
+
+* Swift & Kotlin FCL SDKs to auth and interact with the Flow blockchain (query + execute scripts)
+* FCL-compatible mobile wallets
+* User auth using WalletConnect 2.0
+* Basic mobile sample application (MonsterMaker)
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/guides/mobile/overview.md)
+
+Last updated on **Aug 22, 2025** by **Brian Doyle**
+
+[Previous
+
+Creating a Fungible Token](/build/cadence/guides/fungible-token)[Next
+
+Build a Walletless Mobile App (PWA)](/build/cadence/guides/mobile/walletless-pwa)
+
+###### Rate this page
+
+😞😐😊
+
+Copy as Markdown
+
+* [Why Flow](#why-flow)
+* [Why Flow Mobile](#why-flow-mobile)
+  + [Proven](#proven)
+  + [Best-in-class UX](#best-in-class-ux)
+  + [Security first](#security-first)
+* [Smart contract language inspired by mobile languages](#smart-contract-language-inspired-by-mobile-languages)
+* [What is available](#what-is-available)
+
+Documentation
+
+* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Tools & SDKs](/build/tools)
+* [Cadence](https://cadence-lang.org/docs/)
+* [Mobile](/build/cadence/guides/mobile/overview)
+* [FCL](/build/tools/clients/fcl-js)
+* [Testing](/build/cadence/smart-contracts/testing)
+* [CLI](/build/tools/flow-cli)
+* [Emulator](/build/tools/emulator)
+* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
+* [VS Code Extension](/build/tools/vscode-extension)
+
+Community
+
+* [Ecosystem](/ecosystem)
+* [Flow Port](https://port.flow.com/)
+* [Developer Grants](https://github.com/onflow/developer-grants)
+* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
+* [Flowverse](https://www.flowverse.co/)
+* [Emerald Academy](https://academy.ecdao.org/)
+* [FLOATs (Attendance NFTs)](https://floats.city/)
+
+Start Building
+
+* [Flow Playground](https://play.flow.com/)
+* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
+* [Cadence Cookbook](https://cookbook.flow.com)
+* [Core Contracts & Standards](/build/cadence/core-contracts)
+* [EVM](/build/evm/about)
+
+Network
+
+* [Network Status](https://status.flow.com/)
+* [Flowscan Mainnet](https://flowscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
+* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/protocol/node-ops)
+* [Spork Information](/protocol/node-ops/node-operation/spork)
+
+More
+
+* [GitHub](https://github.com/onflow)
+* [Discord](https://discord.gg/flow)
+* [Forum](https://forum.flow.com/)
+* [Flow](https://flow.com/)
+* [Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

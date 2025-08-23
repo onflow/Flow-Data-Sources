@@ -6,7 +6,7 @@ Build a Fully-Onchain Image Gallery | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -76,7 +76,7 @@ This tutorial uses [Next.js](https://nextjs.org/docs/app/getting-started/install
 
 ### Solidity[​](#solidity "Direct link to Solidity")
 
-You don't need to be an expert, but you should be comfortable writing code in [Solidity](https://soliditylang.org/). You can use [Hardhat](/evm/guides/hardhat), [Foundry](/evm/guides/foundry), or even [Remix](/evm/guides/remix).
+You don't need to be an expert, but you should be comfortable writing code in [Solidity](https://soliditylang.org/). You can use [Hardhat](/build/evm/guides/hardhat), [Foundry](/build/evm/guides/foundry), or even [Remix](/build/evm/guides/remix).
 
 ## Build an Image Gallery Contract[​](#build-an-image-gallery-contract "Direct link to Build an Image Gallery Contract")
 
@@ -602,9 +602,9 @@ Write appropriate unit tests, then deploy and verify the factory on Flow Testnet
 
 If you need help, check out:
 
-* Deploy and Verify with [Hardhat](/evm/guides/hardhat)
-* Deploy and Verify with [Foundry](/evm/guides/foundry)
-* Deploy and Verify with [Remix](/evm/guides/remix)
+* Deploy and Verify with [Hardhat](/build/evm/guides/hardhat)
+* Deploy and Verify with [Foundry](/build/evm/guides/foundry)
+* Deploy and Verify with [Remix](/build/evm/guides/remix)
 
 Navigate to [evm-testnet.flowscan.io](https://evm-testnet.flowscan.io/), search for your contract, and navigate to the `contracts` tab, then `Read/Write contract`. You'll see something similar to:
 
@@ -686,7 +686,7 @@ npm install @rainbow-me/rainbowkit wagmi viem@2.x @tanstack/react-query`
 
 ### Provider Setup[​](#provider-setup "Direct link to Provider Setup")
 
-Add a file called `providers` inside the `app` folder. In it, add your config and providers for [wagmi](https://wagmi.sh/) and [rainbowkit](https://www.rainbowkit.com/). You'll need to [add the Flow Wallet](/evm/guides/rainbowkit) as a custom wallet. It's not included by default because it has special features that aren't compatible with other blockchains.
+Add a file called `providers` inside the `app` folder. In it, add your config and providers for [wagmi](https://wagmi.sh/) and [rainbowkit](https://www.rainbowkit.com/). You'll need to [add the Flow Wallet](/build/evm/guides/rainbowkit) as a custom wallet. It's not included by default because it has special features that aren't compatible with other blockchains.
 
 `` _115
 
@@ -2861,7 +2861,7 @@ Now that you've completed this tutorial, you're ready to explore more complex on
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/flowtobooth/image-gallery.md)
 
-Last updated on **Aug 17, 2025** by **0xLisanAlGaib**
+Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -2900,16 +2900,16 @@ Copy as Markdown
 
 Documentation
 
-* [Getting Started](/build/getting-started/contract-interaction)
-* [SDK's & Tools](/tools)
+* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/guides/mobile/overview)
-* [FCL](/tools/clients/fcl-js)
-* [Testing](/build/smart-contracts/testing)
-* [CLI](/tools/flow-cli)
-* [Emulator](/tools/emulator)
+* [Mobile](/build/cadence/guides/mobile/overview)
+* [FCL](/build/tools/clients/fcl-js)
+* [Testing](/build/cadence/smart-contracts/testing)
+* [CLI](/build/tools/flow-cli)
+* [Emulator](/build/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/tools/vscode-extension)
+* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
@@ -2926,18 +2926,18 @@ Start Building
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/core-contracts)
-* [EVM](/evm/about)
+* [Core Contracts & Standards](/build/cadence/core-contracts)
+* [EVM](/build/evm/about)
 
 Network
 
 * [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
-* [Node Operation](/networks/node-ops)
-* [Spork Information](/networks/node-ops/node-operation/spork)
+* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/protocol/node-ops)
+* [Spork Information](/protocol/node-ops/node-operation/spork)
 
 More
 

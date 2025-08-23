@@ -1,0 +1,256 @@
+# Source: https://developers.flow.com/build/evm/guides/integrating-metamask
+
+Integrating Metamask | Flow Developer Portal
+
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Why Flow](/build/flow)
+* [Cadence](/build/cadence/getting-started)
+
+  + [Getting Started](/build/cadence/getting-started)
+  + [Differences vs. EVM](/build/cadence/differences-vs-evm)
+  + [Flow Protocol](/build/cadence/basics/network-architecture)
+  + [App Architecture](/build/cadence/app-architecture)
+  + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
+  + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+  + [Guides](/build/cadence/guides/account-linking)
+  + [Core Smart Contracts](/build/cadence/core-contracts)
+  + [Explore More](/build/cadence/explore-more)
+* [Solidity (EVM)](/build/evm/about)
+
+  + [Why EVM on Flow](/build/evm/about)
+  + [How it Works](/build/evm/how-it-works)
+  + [Using Flow EVM](/build/evm/using)
+  + [Network Information](/build/evm/networks)
+  + [EVM Quickstart](/build/evm/quickstart)
+  + [Fees](/build/evm/fees)
+  + [Accounts](/build/evm/accounts)
+  + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
+  + [Faucets ↙](/evm/faucets)
+  + [Block Explorers ↙](/evm/block-explorers)
+  + [Guides](/build/evm/guides)
+
+    - [Integrating Metamask](/build/evm/guides/integrating-metamask)
+    - [Hardhat](/build/evm/guides/hardhat)
+    - [Remix](/build/evm/guides/remix)
+    - [Rainbowkit](/build/evm/guides/rainbowkit)
+    - [Viem & Wagmi](/build/evm/guides/wagmi)
+    - [Foundry](/build/evm/guides/foundry)
+    - [Ethers](/build/evm/guides/ethers)
+    - [Web3.js](/build/evm/guides/web3-js)
+* [Tools & SDKs](/build/tools)
+
+* Solidity (EVM)
+* [Guides](/build/evm/guides)
+* Integrating Metamask
+
+On this page
+
+# Wallets & Configurations
+
+This document shows how to integrate the Flow Network programmatically with your Dapp via MetaMask.
+
+If you want to add it to your wallet now, you can click the buttons below, or follow the [manual process](/build/evm/using).
+
+## Metamask[​](#metamask "Direct link to Metamask")
+
+Integrating additional networks into MetaMask can pose challenges for users who lack technical expertise and may lead to errors. Simplifying this process can greatly enhance user onboarding for your application. This guide demonstrates how to create a straightforward button within your frontend application to streamline the addition of the Flow network to MetaMask.
+
+### EIP-3035 & MetaMask[​](#eip-3035--metamask "Direct link to EIP-3035 & MetaMask")
+
+[EIP-3035](https://eips.ethereum.org/EIPS/eip-3085) is an Ethereum Improvement Proposal that defines an RPC method for adding Ethereum-compatible chains to wallet applications. Since March 2021 MetaMask has implemented that EIP as part of their MetaMask [Custom Networks API](https://consensys.io/blog/connect-users-to-layer-2-networks-with-the-metamask-custom-networks-api).
+
+### Flow Network configuration[​](#flow-network-configuration "Direct link to Flow Network configuration")
+
+To add the Flow Testnet network to Metamask, add the following network configuration:
+
+`_11
+
+export const TESTNET_PARAMS = {
+
+_11
+
+chainId: '0x221',
+
+_11
+
+chainName: 'Flow',
+
+_11
+
+rpcUrls: ['https://testnet.evm.nodes.onflow.org'],
+
+_11
+
+nativeCurrency: {
+
+_11
+
+name: 'Flow',
+
+_11
+
+symbol: 'FLOW',
+
+_11
+
+decimals: 18,
+
+_11
+
+},
+
+_11
+
+blockExplorerUrls: ['https://evm-testnet.flowscan.io/']
+
+_11
+
+};`
+
+### Adding Flow Network[​](#adding-flow-network "Direct link to Adding Flow Network")
+
+To add this configuration to MetaMask, call the `wallet_addEthereumChain` method which is exposed by the web3 provider.
+
+`_12
+
+function addFlowTestnet() {
+
+_12
+
+injected.getProvider().then((provider) => {
+
+_12
+
+provider
+
+_12
+
+.request({
+
+_12
+
+method: 'wallet_addEthereumChain',
+
+_12
+
+params: [TESTNET_PARAMS],
+
+_12
+
+})
+
+_12
+
+.catch((error: any) => {
+
+_12
+
+console.log(error);
+
+_12
+
+});
+
+_12
+
+});
+
+_12
+
+}`
+
+The variable, `injected`, is initialized as a `web3-react/injected-connector` used to interface with MetaMask APIs. Usage for other popular web frameworks is similar.
+
+The typical usage would be to expose this button if you get errors when attempting to connect to MetaMask (i.e. `Wrong Network` or `Error Connecting`).
+
+### User Experience[​](#user-experience "Direct link to User Experience")
+
+Users of your app will need to first approve a connection to Metamask. After doing this, if you don't detect a successful Web3 network connection, you may present a dialog asking them to add the Flow network to their wallet.
+
+![Metamask Network](/assets/images/metamask-network-333fcb5893290b25f7a8d706672cebf1.png)
+
+After they approve, your app will be connected to the Flow network.
+
+By using this approach to add the Flow network to Metamask, you can avoid manual user data entry and ensure that users are ready to interact with your dApp!
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/evm/guides/integrating-metamask.mdx)
+
+Last updated on **Aug 21, 2025** by **Brian Doyle**
+
+[Previous
+
+Flow EVM Guides](/build/evm/guides)[Next
+
+Hardhat](/build/evm/guides/hardhat)
+
+###### Rate this page
+
+😞😐😊
+
+Copy as Markdown
+
+* [Metamask](#metamask)
+  + [EIP-3035 & MetaMask](#eip-3035--metamask)
+  + [Flow Network configuration](#flow-network-configuration)
+  + [Adding Flow Network](#adding-flow-network)
+  + [User Experience](#user-experience)
+
+Documentation
+
+* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Tools & SDKs](/build/tools)
+* [Cadence](https://cadence-lang.org/docs/)
+* [Mobile](/build/cadence/guides/mobile/overview)
+* [FCL](/build/tools/clients/fcl-js)
+* [Testing](/build/cadence/smart-contracts/testing)
+* [CLI](/build/tools/flow-cli)
+* [Emulator](/build/tools/emulator)
+* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
+* [VS Code Extension](/build/tools/vscode-extension)
+
+Community
+
+* [Ecosystem](/ecosystem)
+* [Flow Port](https://port.flow.com/)
+* [Developer Grants](https://github.com/onflow/developer-grants)
+* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
+* [Flowverse](https://www.flowverse.co/)
+* [Emerald Academy](https://academy.ecdao.org/)
+* [FLOATs (Attendance NFTs)](https://floats.city/)
+
+Start Building
+
+* [Flow Playground](https://play.flow.com/)
+* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
+* [Cadence Cookbook](https://cookbook.flow.com)
+* [Core Contracts & Standards](/build/cadence/core-contracts)
+* [EVM](/build/evm/about)
+
+Network
+
+* [Network Status](https://status.flow.com/)
+* [Flowscan Mainnet](https://flowscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
+* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/protocol/node-ops)
+* [Spork Information](/protocol/node-ops/node-operation/spork)
+
+More
+
+* [GitHub](https://github.com/onflow)
+* [Discord](https://discord.gg/flow)
+* [Forum](https://forum.flow.com/)
+* [Flow](https://flow.com/)
+* [Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

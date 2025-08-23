@@ -1,0 +1,288 @@
+# Source: https://developers.flow.com/build/tools/flow-cli/boilerplate
+
+Cadence Boilerplate Generation | Flow Developer Portal
+
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Why Flow](/build/flow)
+* [Cadence](/build/cadence/getting-started)
+
+  + [Getting Started](/build/cadence/getting-started)
+  + [Differences vs. EVM](/build/cadence/differences-vs-evm)
+  + [Flow Protocol](/build/cadence/basics/network-architecture)
+  + [App Architecture](/build/cadence/app-architecture)
+  + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
+  + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+  + [Guides](/build/cadence/guides/account-linking)
+  + [Core Smart Contracts](/build/cadence/core-contracts)
+  + [Explore More](/build/cadence/explore-more)
+* [Solidity (EVM)](/build/evm/about)
+
+  + [Why EVM on Flow](/build/evm/about)
+  + [How it Works](/build/evm/how-it-works)
+  + [Using Flow EVM](/build/evm/using)
+  + [Network Information](/build/evm/networks)
+  + [EVM Quickstart](/build/evm/quickstart)
+  + [Fees](/build/evm/fees)
+  + [Accounts](/build/evm/accounts)
+  + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
+  + [Faucets ↙](/evm/faucets)
+  + [Block Explorers ↙](/evm/block-explorers)
+  + [Guides](/build/evm/guides)
+* [Tools & SDKs](/build/tools)
+
+  + [@onflow/react-sdk](/build/tools/react-sdk)
+  + [Flow Emulator](/build/tools/emulator)
+  + [Flow CLI](/build/tools/flow-cli)
+
+    - [Install Instructions](/build/tools/flow-cli/install)
+    - [Commands Overview](/build/tools/flow-cli/super-commands)
+    - [Accounts](/build/tools/flow-cli/accounts/get-accounts)
+    - [Keys](/build/tools/flow-cli/keys/generate-keys)
+    - [Deploy Project](/build/tools/flow-cli/deployment/start-emulator)
+    - [Scripts](/build/tools/flow-cli/scripts/execute-scripts)
+    - [Transactions](/build/tools/flow-cli/transactions/send-transactions)
+    - [Flow.json](/build/tools/flow-cli/flow.json/initialize-configuration)
+    - [Flow Entities](/build/tools/flow-cli/get-flow-data/get-blocks)
+    - [Utils](/build/tools/flow-cli/utils/signature-generate)
+    - [Dependency Manager](/build/tools/flow-cli/dependency-manager)
+    - [Running Cadence Tests](/build/tools/flow-cli/tests)
+    - [Cadence Linter](/build/tools/flow-cli/lint)
+    - [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)
+    - [Cadence Boilerplate](/build/tools/flow-cli/boilerplate)
+    - [Data Collection](/build/tools/flow-cli/data-collection)
+  + [Cadence VS Code Extension](/build/tools/vscode-extension)
+  + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
+  + [Client Tools](/build/tools/clients)
+  + [Error Codes](/build/tools/error-codes)
+  + [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+
+* [Tools & SDKs](/build/tools)
+* [Flow CLI](/build/tools/flow-cli)
+* Cadence Boilerplate
+
+On this page
+
+# Cadence Boilerplate Generation
+
+## Introduction[​](#introduction "Direct link to Introduction")
+
+Flow CLI now includes a feature to automatically generate boilerplate code for contracts, transactions, and scripts. This feature enhances the development experience by simplifying the initial setup of various components in Flow.
+
+`_11
+
+> flow generate
+
+_11
+
+Usage:
+
+_11
+
+flow generate [command]
+
+_11
+
+_11
+
+Aliases:
+
+_11
+
+generate, g
+
+_11
+
+_11
+
+Available Commands:
+
+_11
+
+contract Generate a new contract
+
+_11
+
+script Generate a new script
+
+_11
+
+transaction Generate a new transaction`
+
+## Generate Contract[​](#generate-contract "Direct link to Generate Contract")
+
+To create a new contract with basic structure, use the `contract` command. It creates a new Cadence file with a template contract definition.
+
+`_10
+
+flow generate contract [ContractName]`
+
+### Usage Example[​](#usage-example "Direct link to Usage Example")
+
+`_10
+
+> flow generate contract HelloWorld`
+
+This command creates a file `cadence/contracts/HelloWorld.cdc` with the following content:
+
+`_10
+
+access(all) contract HelloWorld {
+
+_10
+
+init() {}
+
+_10
+
+}`
+
+## Generate Transaction[​](#generate-transaction "Direct link to Generate Transaction")
+
+For initializing a transaction, use the `transaction` command. It sets up a new Cadence file with a template transaction structure.
+
+`_10
+
+flow generate transaction [TransactionName]`
+
+### Usage Example[​](#usage-example-1 "Direct link to Usage Example")
+
+`_10
+
+> flow generate transaction SayHello`
+
+This command creates a file `cadence/transactions/SayHello.cdc` with the following content:
+
+`_10
+
+transaction() {
+
+_10
+
+prepare() {}
+
+_10
+
+_10
+
+execute {}
+
+_10
+
+}`
+
+## Generate Script[​](#generate-script "Direct link to Generate Script")
+
+Similarly, to start a new script, the `script` command generates a Cadence file with a basic script structure.
+
+`_10
+
+flow generate script [ScriptName]`
+
+### Usage Example[​](#usage-example-2 "Direct link to Usage Example")
+
+`_10
+
+> flow generate script ReadHello`
+
+This command creates a file `cadence/scripts/ReadHello.cdc` with the following content:
+
+`_10
+
+access(all) fun main() {}`
+
+## Optional `--dir` Flag[​](#optional---dir-flag "Direct link to optional---dir-flag")
+
+The `--dir` flag is an optional feature in the Flow CLI `generate` commands, allowing you to specify a custom directory for the generated contract, transaction, or script files. If this flag is not provided, the CLI adheres to the recommended project setup:
+
+* Contracts are generated in the `cadence/contracts` directory.
+* Transactions are generated in the `cadence/transactions` directory.
+* Scripts are generated in the `cadence/scripts` directory.
+* **Usage**: `--dir=<directory_name>`
+* **Example**: `flow generate contract HelloWorld --dir=custom_contracts`
+
+Use the `--dir` flag only if your project requires a different organizational structure than the default.
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/boilerplate.md)
+
+Last updated on **Aug 21, 2025** by **Brian Doyle**
+
+[Previous
+
+Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)[Next
+
+Data Collection](/build/tools/flow-cli/data-collection)
+
+###### Rate this page
+
+😞😐😊
+
+Copy as Markdown
+
+* [Introduction](#introduction)
+* [Generate Contract](#generate-contract)
+  + [Usage Example](#usage-example)
+* [Generate Transaction](#generate-transaction)
+  + [Usage Example](#usage-example-1)
+* [Generate Script](#generate-script)
+  + [Usage Example](#usage-example-2)
+* [Optional `--dir` Flag](#optional---dir-flag)
+
+Documentation
+
+* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Tools & SDKs](/build/tools)
+* [Cadence](https://cadence-lang.org/docs/)
+* [Mobile](/build/cadence/guides/mobile/overview)
+* [FCL](/build/tools/clients/fcl-js)
+* [Testing](/build/cadence/smart-contracts/testing)
+* [CLI](/build/tools/flow-cli)
+* [Emulator](/build/tools/emulator)
+* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
+* [VS Code Extension](/build/tools/vscode-extension)
+
+Community
+
+* [Ecosystem](/ecosystem)
+* [Flow Port](https://port.flow.com/)
+* [Developer Grants](https://github.com/onflow/developer-grants)
+* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
+* [Flowverse](https://www.flowverse.co/)
+* [Emerald Academy](https://academy.ecdao.org/)
+* [FLOATs (Attendance NFTs)](https://floats.city/)
+
+Start Building
+
+* [Flow Playground](https://play.flow.com/)
+* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
+* [Cadence Cookbook](https://cookbook.flow.com)
+* [Core Contracts & Standards](/build/cadence/core-contracts)
+* [EVM](/build/evm/about)
+
+Network
+
+* [Network Status](https://status.flow.com/)
+* [Flowscan Mainnet](https://flowscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
+* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/protocol/node-ops)
+* [Spork Information](/protocol/node-ops/node-operation/spork)
+
+More
+
+* [GitHub](https://github.com/onflow)
+* [Discord](https://discord.gg/flow)
+* [Forum](https://forum.flow.com/)
+* [Flow](https://flow.com/)
+* [Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

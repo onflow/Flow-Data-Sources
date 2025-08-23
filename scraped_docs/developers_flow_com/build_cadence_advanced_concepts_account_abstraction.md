@@ -1,0 +1,185 @@
+# Source: https://developers.flow.com/build/cadence/advanced-concepts/account-abstraction
+
+Build Faster with Flow’s Native Account Abstraction | Flow Developer Portal
+
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Why Flow](/build/flow)
+* [Cadence](/build/cadence/getting-started)
+
+  + [Getting Started](/build/cadence/getting-started)
+  + [Differences vs. EVM](/build/cadence/differences-vs-evm)
+  + [Flow Protocol](/build/cadence/basics/network-architecture)
+  + [App Architecture](/build/cadence/app-architecture)
+  + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
+  + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+
+    - [Build Faster with Flow’s Native Account Abstraction](/build/cadence/advanced-concepts/account-abstraction)
+    - [FLIX (Flow Interaction Templates)](/build/cadence/advanced-concepts/flix)
+    - [NFT Metadata Views](/build/cadence/advanced-concepts/metadata-views)
+    - [VRF (Randomness) in Cadence](/build/cadence/advanced-concepts/randomness)
+    - [Scaling Transactions from a Single Account](/build/cadence/advanced-concepts/scaling)
+  + [Guides](/build/cadence/guides/account-linking)
+  + [Core Smart Contracts](/build/cadence/core-contracts)
+  + [Explore More](/build/cadence/explore-more)
+* [Solidity (EVM)](/build/evm/about)
+
+  + [Why EVM on Flow](/build/evm/about)
+  + [How it Works](/build/evm/how-it-works)
+  + [Using Flow EVM](/build/evm/using)
+  + [Network Information](/build/evm/networks)
+  + [EVM Quickstart](/build/evm/quickstart)
+  + [Fees](/build/evm/fees)
+  + [Accounts](/build/evm/accounts)
+  + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
+  + [Faucets ↙](/evm/faucets)
+  + [Block Explorers ↙](/evm/block-explorers)
+  + [Guides](/build/evm/guides)
+* [Tools & SDKs](/build/tools)
+
+* Cadence
+* Advanced Concepts
+* Build Faster with Flow’s Native Account Abstraction
+
+On this page
+
+# Blockchain Account Abstraction
+
+Flow is a fast blockchain with account abstraction, designed to make Web3 as seamless as Web2. It provides native support for key use cases that are enabled by Account Abstraction, empowering developers to deliver mainstream-ready user experiences. With Cadence, Flow was designed with these use cases in mind through the separation of the contract and transaction layers. This guide demonstrates how Flow supports key use cases that are made possible with Account Abstraction.
+
+## Multi-sig Transactions on a Fast Blockchain with Account Abstraction[​](#multi-sig-transactions-on-a-fast-blockchain-with-account-abstraction "Direct link to Multi-sig Transactions on a Fast Blockchain with Account Abstraction")
+
+Since accounts are smart contracts, they can be defined in order to require multiple signatures in order to execute a transaction, which unlocks a range of new users that improve the user experience for Web3 apps.
+
+| Account Abstraction | Flow |
+| --- | --- |
+| The move from from Externally-Owned Accounts (EOAs) to smart contract accounts enables developers to build in logic to require multiple signatures to execute transactions. | Flow has native support for multi-sig transactions since all accounts are defined as smart contracts. Flow provides [support for multiple keys](/build/cadence/basics/accounts#account-keys) to be added to an account and weights can be applied to denote relative priority. |
+
+## Sponsored Transactions for Mainstream-Ready Web3 Apps[​](#sponsored-transactions-for-mainstream-ready-web3-apps "Direct link to Sponsored Transactions for Mainstream-Ready Web3 Apps")
+
+The concept of paying fees to execute transactions in order to use Web3 apps can be a hurdle for newcomers as they begin to explore these experiences. In order to remove this significant point of friction in requiring newcomers to acquire crypto before they can get started with an app, developers can subsidize these costs on behalf of users.
+
+| Account Abstraction | Flow |
+| --- | --- |
+| The ERC-4337 standard introduces the concept of [paymasters](https://eips.ethereum.org/EIPS/eip-4337#extension-paymasters), which can enable a developer to pay the fees for a transaction for their users. | Flow has built-in support for [3 different roles](/build/cadence/basics/transactions#signer-roles) for transactions which provides native support for sponsored transactions. |
+
+## Bundled Transactions for Faster User Experience[​](#bundled-transactions-for-faster-user-experience "Direct link to Bundled Transactions for Faster User Experience")
+
+Developers can deliver a more streamlined user experience that reduces the amount of interruptions in the form of transaction approvals by bundling multiple transactions together into a single transaction that executes the set of operations with one signature.
+
+| Account Abstraction | Flow |
+| --- | --- |
+| The ERC-4337 standard outlines support for bundled transactions through a new mempool that holds user operations from smart wallets. Bundlers package sets of these user operations into a single transaction on the blockchain and return the result back to each wallet. | Since Cadence has an explicit separation of contracts and transactions, Flow has protocol-level support for bundling transactions across multiple contracts into a single transaction. |
+
+## Account Recovery[​](#account-recovery "Direct link to Account Recovery")
+
+Account Abstraction enables developers to build more robust account management features for users, addressing the major pain point of losing access to assets forever if the user loses their keys to their account. Apps can enable users to recover access to their accounts and enclosed assets through social recovery or pre-approved accounts.
+
+| Account Abstraction | Flow |
+| --- | --- |
+| Smart contract accounts can be defined to include account recovery logic that enables users to define custom recovery methods that can rely on specific accounts or other validated sources. | Since all accounts are smart contracts, Flow has native support for account recovery and cycling of keys to help users regain access to accounts in a secure manner. |
+
+## Multi-factor Authentication[​](#multi-factor-authentication "Direct link to Multi-factor Authentication")
+
+Multi-factor authentication is a broadly accepted concept in Web2 apps for secure access to accounts and Account Abstraction enables developers to deliver the same benefits to Web3 users.
+
+| Account Abstraction | Flow |
+| --- | --- |
+| Smart contract accounts can require a secondary factor to confirm transactions which can be delivered in the form of familiar confirmation channels such as email or SMS. | Since all accounts are smart contracts, Flow has native support for multi-factor authentication as developers can implement these security mechanisms for their users. |
+
+## Seamless Experience[​](#seamless-experience "Direct link to Seamless Experience")
+
+Account Abstraction brings the potential for dramatic improvements to the user experience of Web3 apps. Developers can introduce conditions under which a user can grant a smart contract account to pre-approve transactions under certain conditions, reducing interruptions for the user to explicitly sign each transaction.
+
+These improvements are especially notable on mobile, where users are typically met with the jarring experience of switching between apps in approve transactions.
+
+| Account Abstraction | Flow |
+| --- | --- |
+| Developers can build new features that streamline the user experience of Web3 apps, such as 'session keys' that pre-approve transactions for a period of time or setting custom limits on transaction volume or network fees. | Since all accounts are smart contracts, Flow has support for these new controls that enable apps to sign pre-approved transactions based on user controls and preferences. |
+
+## Conclusion[​](#conclusion "Direct link to Conclusion")
+
+Flow delivers more than just developer convenience, it’s a **high-performance blockchain with account abstraction** built directly into its core protocol. By combining speed, scalability, and advanced features like multi-sig, sponsored transactions, bundled operations, account recovery, and multi-factor authentication, Flow empowers developers to create secure, seamless, and mainstream-ready Web3 experiences without sacrificing performance.
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/advanced-concepts/account-abstraction.md)
+
+Last updated on **Aug 21, 2025** by **Brian Doyle**
+
+[Previous
+
+Development Standards](/build/cadence/smart-contracts/best-practices/project-development-tips)[Next
+
+FLIX (Flow Interaction Templates)](/build/cadence/advanced-concepts/flix)
+
+###### Rate this page
+
+😞😐😊
+
+Copy as Markdown
+
+* [Multi-sig Transactions on a Fast Blockchain with Account Abstraction](#multi-sig-transactions-on-a-fast-blockchain-with-account-abstraction)
+* [Sponsored Transactions for Mainstream-Ready Web3 Apps](#sponsored-transactions-for-mainstream-ready-web3-apps)
+* [Bundled Transactions for Faster User Experience](#bundled-transactions-for-faster-user-experience)
+* [Account Recovery](#account-recovery)
+* [Multi-factor Authentication](#multi-factor-authentication)
+* [Seamless Experience](#seamless-experience)
+* [Conclusion](#conclusion)
+
+Documentation
+
+* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Tools & SDKs](/build/tools)
+* [Cadence](https://cadence-lang.org/docs/)
+* [Mobile](/build/cadence/guides/mobile/overview)
+* [FCL](/build/tools/clients/fcl-js)
+* [Testing](/build/cadence/smart-contracts/testing)
+* [CLI](/build/tools/flow-cli)
+* [Emulator](/build/tools/emulator)
+* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
+* [VS Code Extension](/build/tools/vscode-extension)
+
+Community
+
+* [Ecosystem](/ecosystem)
+* [Flow Port](https://port.flow.com/)
+* [Developer Grants](https://github.com/onflow/developer-grants)
+* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
+* [Flowverse](https://www.flowverse.co/)
+* [Emerald Academy](https://academy.ecdao.org/)
+* [FLOATs (Attendance NFTs)](https://floats.city/)
+
+Start Building
+
+* [Flow Playground](https://play.flow.com/)
+* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
+* [Cadence Cookbook](https://cookbook.flow.com)
+* [Core Contracts & Standards](/build/cadence/core-contracts)
+* [EVM](/build/evm/about)
+
+Network
+
+* [Network Status](https://status.flow.com/)
+* [Flowscan Mainnet](https://flowscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
+* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/protocol/node-ops)
+* [Spork Information](/protocol/node-ops/node-operation/spork)
+
+More
+
+* [GitHub](https://github.com/onflow)
+* [Discord](https://discord.gg/flow)
+* [Forum](https://forum.flow.com/)
+* [Flow](https://flow.com/)
+* [Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

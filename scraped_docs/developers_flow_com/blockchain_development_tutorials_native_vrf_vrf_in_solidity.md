@@ -6,7 +6,7 @@ VRF (Randomness) in Solidity | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -22,7 +22,6 @@ Search
 * [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
 
   + [Secure Randomness with Commit-Reveal in Cadence](/blockchain-development-tutorials/native-vrf/commit-reveal-cadence)
-  + [Deploy a Solidity Contract Using Cadence](/blockchain-development-tutorials/native-vrf/deploy-solidity-contract)
   + [VRF (Randomness) in Solidity](/blockchain-development-tutorials/native-vrf/vrf-in-solidity)
 * [FlowtoBooth](/blockchain-development-tutorials/flowtobooth)
 * [Integrations](/blockchain-development-tutorials/integrations/crossmint)
@@ -36,7 +35,7 @@ On this page
 
 ## **Introduction**[​](#introduction "Direct link to introduction")
 
-Flow provides secure, native on-chain randomness that developers can leverage through Cadence Arch, a precompiled contract available on the Flow EVM environment. This guide will walk through how Solidity developers can use Cadence Arch to access Flow's verifiable randomness using Solidity.
+Flow provides secure, native onchain randomness that developers can leverage through Cadence Arch, a precompiled contract available on the Flow EVM environment. This guide will walk through how Solidity developers can use Cadence Arch to access Flow's verifiable randomness using Solidity.
 
 ### **What is Cadence Arch?**[​](#what-is-cadence-arch "Direct link to what-is-cadence-arch")
 
@@ -277,7 +276,7 @@ The **`revertibleRandom()`** function can be directly used to generate a pseudo-
 
 ## Read More[​](#read-more "Direct link to Read More")
 
-For further details on Flow's randomness and secure development practices, check out the [Flow Randomness Documentation](https://developers.flow.com/build/advanced-concepts/randomness).
+For further details on Flow's randomness and secure development practices, check out the [Flow Randomness Documentation](https://developers.flow.com/build/cadence/advanced-concepts/randomness).
 
 You can also view an example in both Solidity and Cadence of a [random coin toss implentation](https://github.com/onflow/random-coin-toss) using the VRF.
 
@@ -285,11 +284,11 @@ You can also view an example in both Solidity and Cadence of a [random coin toss
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/native-vrf/vrf-in-solidity.md)
 
-Last updated on **Aug 17, 2025** by **0xLisanAlGaib**
+Last updated on **Aug 22, 2025** by **Brian Doyle**
 
 [Previous
 
-Deploy a Solidity Contract Using Cadence](/blockchain-development-tutorials/native-vrf/deploy-solidity-contract)[Next
+Secure Randomness with Commit-Reveal in Cadence](/blockchain-development-tutorials/native-vrf/commit-reveal-cadence)[Next
 
 FlowtoBooth](/blockchain-development-tutorials/flowtobooth)
 
@@ -316,16 +315,16 @@ Copy as Markdown
 
 Documentation
 
-* [Getting Started](/build/getting-started/contract-interaction)
-* [SDK's & Tools](/tools)
+* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/guides/mobile/overview)
-* [FCL](/tools/clients/fcl-js)
-* [Testing](/build/smart-contracts/testing)
-* [CLI](/tools/flow-cli)
-* [Emulator](/tools/emulator)
+* [Mobile](/build/cadence/guides/mobile/overview)
+* [FCL](/build/tools/clients/fcl-js)
+* [Testing](/build/cadence/smart-contracts/testing)
+* [CLI](/build/tools/flow-cli)
+* [Emulator](/build/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/tools/vscode-extension)
+* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
@@ -342,18 +341,18 @@ Start Building
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/core-contracts)
-* [EVM](/evm/about)
+* [Core Contracts & Standards](/build/cadence/core-contracts)
+* [EVM](/build/evm/about)
 
 Network
 
 * [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
-* [Node Operation](/networks/node-ops)
-* [Spork Information](/networks/node-ops/node-operation/spork)
+* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/protocol/node-ops)
+* [Spork Information](/protocol/node-ops/node-operation/spork)
 
 More
 

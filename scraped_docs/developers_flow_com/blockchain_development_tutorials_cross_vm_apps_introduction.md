@@ -6,7 +6,7 @@ Batched Tx From Scaffold | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -39,7 +39,7 @@ On this page
 
 Ever since the launch of Flow EVM, it's been possible to *supercharge* your EVM apps by using Flow Cadence features and contracts. Some benefits, such as [native VRF](/blockchain-development-tutorials/native-vrf/vrf-in-solidity) and inexpensive gas without compromising security are built in and either easy or automatic to use. Others, such as the ability to use [Cadence](https://cadence-lang.org/docs) to [structure and call EVM transactions](/blockchain-development-tutorials/cross-vm-apps/batched-evm-transactions), are powerful but complicated to configure and use. They also require developers to manage concurrent connections to both networks.
 
-[FLIP 316](https://github.com/onflow/flips/pull/317) improves the [Flow Client Library (FCL)](/tools/clients/fcl-js) to support cross-VM functionality between Flow EVM and Flow Cadence.
+[FLIP 316](https://github.com/onflow/flips/pull/317) improves the [Flow Client Library (FCL)](/build/tools/clients/fcl-js) to support cross-VM functionality between Flow EVM and Flow Cadence.
 
 For EVM developers, this means that you can use the familiar [wagmi](https://wagmi.sh/), [viem](https://viem.sh/), and [RainbowKit](https://www.rainbowkit.com/) stack you're used to, add FCL, and get features like **multi-call write** with one signature for users with a Cadence-compatible [wallet](/ecosystem/wallets).
 
@@ -57,7 +57,7 @@ After completing this guide, you'll be able to:
 
 * Build an app that seamlessly integrates Flow Cadence and Flow EVM connections
 * Add Cadence features to your [Rainbowkit](https://www.rainbowkit.com/)/[wagmi](https://wagmi.sh/)/[viem](https://viem.sh/) app
-* Utilize [Flow Client Library (FCL)](/tools/clients/fcl-js) to enable multi-call contract writes to Flow EVM
+* Utilize [Flow Client Library (FCL)](/build/tools/clients/fcl-js) to enable multi-call contract writes to Flow EVM
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
@@ -261,7 +261,7 @@ _38
 
 }`
 
-In this case, it's checking that the caller of the Cadence transaction has permission to control to the EVM account, which is built in for [Cadence Owned Accounts](/build/basics/accounts). The `execute` phase then iterates through the EVM transactions and uses the Cadence accounts own permissions to sign the EVM transactions.
+In this case, it's checking that the caller of the Cadence transaction has permission to control to the EVM account, which is built in for [Cadence Owned Accounts](/build/cadence/basics/accounts). The `execute` phase then iterates through the EVM transactions and uses the Cadence accounts own permissions to sign the EVM transactions.
 
 The loop also handles a check for the optional flag to cancel all of the transactions if any one of them fails. **In other words, you could set up a 20 transaction arbitrage attempt and unwind everything if it fails at any step!**
 
@@ -2115,11 +2115,11 @@ Now that you have completed the tutorial, you should be able to:
 
 * Build an app that seamlessly integrates Flow Cadence and Flow EVM connections
 * Add Cadence features to your [Rainbowkit](https://www.rainbowkit.com/)/[wagmi](https://wagmi.sh/)/[viem](https://viem.sh/) app
-* Utilize [Flow Client Library (FCL)](/tools/clients/fcl-js) to enable multi-call contract writes to Flow EVM
+* Utilize [Flow Client Library (FCL)](/build/tools/clients/fcl-js) to enable multi-call contract writes to Flow EVM
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cross-vm-apps/introduction.md)
 
-Last updated on **Aug 17, 2025** by **0xLisanAlGaib**
+Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -2158,16 +2158,16 @@ Copy as Markdown
 
 Documentation
 
-* [Getting Started](/build/getting-started/contract-interaction)
-* [SDK's & Tools](/tools)
+* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/guides/mobile/overview)
-* [FCL](/tools/clients/fcl-js)
-* [Testing](/build/smart-contracts/testing)
-* [CLI](/tools/flow-cli)
-* [Emulator](/tools/emulator)
+* [Mobile](/build/cadence/guides/mobile/overview)
+* [FCL](/build/tools/clients/fcl-js)
+* [Testing](/build/cadence/smart-contracts/testing)
+* [CLI](/build/tools/flow-cli)
+* [Emulator](/build/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/tools/vscode-extension)
+* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
@@ -2184,18 +2184,18 @@ Start Building
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/core-contracts)
-* [EVM](/evm/about)
+* [Core Contracts & Standards](/build/cadence/core-contracts)
+* [EVM](/build/evm/about)
 
 Network
 
 * [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
-* [Node Operation](/networks/node-ops)
-* [Spork Information](/networks/node-ops/node-operation/spork)
+* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/protocol/node-ops)
+* [Spork Information](/protocol/node-ops/node-operation/spork)
 
 More
 

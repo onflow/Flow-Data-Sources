@@ -6,29 +6,46 @@ NFT Metadata Views | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
 * [Why Flow](/build/flow)
-* [Getting Started](/build/getting-started)
-* [Differences vs. EVM](/build/differences-vs-evm)
-* [Flow Protocol](/build/basics/network-architecture)
-* [App Architecture](/build/app-architecture)
-* [Writing and Deploying Smart Contracts](/build/learn-cadence)
-* [Advanced Concepts](/build/advanced-concepts/account-abstraction)
+* [Cadence](/build/cadence/getting-started)
 
-  + [Build Faster with Flow’s Native Account Abstraction](/build/advanced-concepts/account-abstraction)
-  + [FLIX (Flow Interaction Templates)](/build/advanced-concepts/flix)
-  + [NFT Metadata Views](/build/advanced-concepts/metadata-views)
-  + [VRF (Randomness) in Cadence](/build/advanced-concepts/randomness)
-  + [Scaling Transactions from a Single Account](/build/advanced-concepts/scaling)
-* [Guides](/build/guides/account-linking)
-* [Core Smart Contracts](/build/core-contracts)
-* [Explore More](/build/explore-more)
+  + [Getting Started](/build/cadence/getting-started)
+  + [Differences vs. EVM](/build/cadence/differences-vs-evm)
+  + [Flow Protocol](/build/cadence/basics/network-architecture)
+  + [App Architecture](/build/cadence/app-architecture)
+  + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
+  + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
 
+    - [Build Faster with Flow’s Native Account Abstraction](/build/cadence/advanced-concepts/account-abstraction)
+    - [FLIX (Flow Interaction Templates)](/build/cadence/advanced-concepts/flix)
+    - [NFT Metadata Views](/build/cadence/advanced-concepts/metadata-views)
+    - [VRF (Randomness) in Cadence](/build/cadence/advanced-concepts/randomness)
+    - [Scaling Transactions from a Single Account](/build/cadence/advanced-concepts/scaling)
+  + [Guides](/build/cadence/guides/account-linking)
+  + [Core Smart Contracts](/build/cadence/core-contracts)
+  + [Explore More](/build/cadence/explore-more)
+* [Solidity (EVM)](/build/evm/about)
+
+  + [Why EVM on Flow](/build/evm/about)
+  + [How it Works](/build/evm/how-it-works)
+  + [Using Flow EVM](/build/evm/using)
+  + [Network Information](/build/evm/networks)
+  + [EVM Quickstart](/build/evm/quickstart)
+  + [Fees](/build/evm/fees)
+  + [Accounts](/build/evm/accounts)
+  + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
+  + [Faucets ↙](/evm/faucets)
+  + [Block Explorers ↙](/evm/block-explorers)
+  + [Guides](/build/evm/guides)
+* [Tools & SDKs](/build/tools)
+
+* Cadence
 * Advanced Concepts
 * NFT Metadata Views
 
@@ -441,7 +458,7 @@ _10
 
 info
 
-Note about SVG files on-chain: SVG field should be sent as `thumbnailURL`,
+Note about SVG files onchain: SVG field should be sent as `thumbnailURL`,
 should be base64 encoded, and should have a dataURI prefix, like so:
 
 `_10
@@ -1065,19 +1082,19 @@ To gain a deeper understanding of implementing the MetadataView standard,
 check out our documentation on "How to Create an NFT Project on Flow".
 It provides an introduction to integrating these standards into your NFT contracts.
 
-* See the [API reference for a complete list of Metadata functions](https://developers.flow.com/build/core-contracts/flow-nft/MetdataViews/MetadataViews)
+* See the [API reference for a complete list of Metadata functions](https://developers.flow.com/build/cadence/core-contracts/flow-nft/MetdataViews/MetadataViews)
 * Check out [an Example NFT project](https://github.com/onflow/flow-nft/blob/master/contracts/ExampleNFT.cdc) implementing `MetadataViews`
-* Read [the NFT Guide](/build/guides/nft) for an introduction to implementation
+* Read [the NFT Guide](/build/cadence/guides/nft) for an introduction to implementation
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/metadata-views.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/advanced-concepts/metadata-views.md)
 
-Last updated on **May 13, 2025** by **Brian Doyle**
+Last updated on **Aug 22, 2025** by **Brian Doyle**
 
 [Previous
 
-FLIX (Flow Interaction Templates)](/build/advanced-concepts/flix)[Next
+FLIX (Flow Interaction Templates)](/build/cadence/advanced-concepts/flix)[Next
 
-VRF (Randomness) in Cadence](/build/advanced-concepts/randomness)
+VRF (Randomness) in Cadence](/build/cadence/advanced-concepts/randomness)
 
 ###### Rate this page
 
@@ -1107,16 +1124,16 @@ Copy as Markdown
 
 Documentation
 
-* [Getting Started](/build/getting-started/contract-interaction)
-* [SDK's & Tools](/tools)
+* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/guides/mobile/overview)
-* [FCL](/tools/clients/fcl-js)
-* [Testing](/build/smart-contracts/testing)
-* [CLI](/tools/flow-cli)
-* [Emulator](/tools/emulator)
+* [Mobile](/build/cadence/guides/mobile/overview)
+* [FCL](/build/tools/clients/fcl-js)
+* [Testing](/build/cadence/smart-contracts/testing)
+* [CLI](/build/tools/flow-cli)
+* [Emulator](/build/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/tools/vscode-extension)
+* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
@@ -1133,18 +1150,18 @@ Start Building
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/core-contracts)
-* [EVM](/evm/about)
+* [Core Contracts & Standards](/build/cadence/core-contracts)
+* [EVM](/build/evm/about)
 
 Network
 
 * [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
-* [Node Operation](/networks/node-ops)
-* [Spork Information](/networks/node-ops/node-operation/spork)
+* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/protocol/node-ops)
+* [Spork Information](/protocol/node-ops/node-operation/spork)
 
 More
 

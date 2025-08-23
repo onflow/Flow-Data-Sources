@@ -6,7 +6,7 @@ Flow Blockchain 101 | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -31,9 +31,9 @@ On this page
 
 [### Build with Cadence
 
-Get started with Flow's native resource-oriented smart contract language. Learn how to deploy, interact, and build secure dApps using Cadence.](../build/getting-started/contract-interaction)[### Build with Solidity
+Get started with Flow's native resource-oriented smart contract language. Learn how to deploy, interact, and build secure dApps using Cadence.](../build/cadence/getting-started/contract-interaction)[### Build with Solidity
 
-Deploy Solidity contracts on Flow EVM using familiar Ethereum tools like Hardhat and Foundry. Start building EVM-compatible dApps on Flow.](../evm/quickstart)
+Deploy Solidity contracts on Flow EVM using familiar Ethereum tools like Hardhat and Foundry. Start building EVM-compatible dApps on Flow.](../build/evm/quickstart)
 
 ## What is Flow?[​](#what-is-flow "Direct link to What is Flow?")
 
@@ -66,23 +66,23 @@ Developers can build entirely in one or mix both environments for hybrid applica
 
 ## Flow features[​](#flow-features "Direct link to Flow features")
 
-### On-Chain randomness[​](#on-chain-randomness "Direct link to On-Chain randomness")
+### Onchain randomness[​](#onchain-randomness "Direct link to Onchain randomness")
 
 Flow natively supports verifiable randomness through its built-in Verifiable Random Function (VRF), which developers can use directly in smart contracts. This removes the need for third-party randomness oracles in many cases.
 
-* [Learn more](https://developers.flow.com/tutorials/native-vrf)
+* [Learn more](https://developers.flow.com/blockchain-development-tutorials/native-vrf)
 
 ### Batch transactions[​](#batch-transactions "Direct link to Batch transactions")
 
 Batching allows you to group multiple transactions together for atomic execution across both Flow EVM and Cadence-based contracts. This enables powerful cross-VM apps and composability.
 
-* [Explore the tutorial](https://developers.flow.com/tutorials/cross-vm-apps/introduction)
+* [Explore the tutorial](https://developers.flow.com/blockchain-development-tutorials/cross-vm-apps/introduction)
 
 ### Account linking[​](#account-linking "Direct link to Account linking")
 
 Account linking is a unique feature that lets users connect different accounts — such as linking their Dapper Wallet to another address — without compromising control or security. This is particularly useful in onboarding flows and games.
 
-* [Read the guide](https://developers.flow.com/build/guides/account-linking-with-dapper)
+* [Read the guide](https://developers.flow.com/build/cadence/guides/account-linking-with-dapper)
 
 ## What Cadence enables[​](#what-cadence-enables "Direct link to What Cadence enables")
 
@@ -104,12 +104,12 @@ Flow provides robust support for both Cadence and EVM development. Here's how to
 
 **For Flow EVM:**
 
-* [Connect to Testnet](https://developers.flow.com/networks/flow-networks/accessing-testnet)
-* [Connect to Mainnet](https://developers.flow.com/networks/flow-networks/accessing-mainnet)
+* [Connect to Testnet](https://developers.flow.com/protocol/flow-networks/accessing-testnet)
+* [Connect to Mainnet](https://developers.flow.com/protocol/flow-networks/accessing-mainnet)
 
 **For Cadence:**
 
-* [Flow Network Overview and Setup](https://developers.flow.com/networks/flow-networks)
+* [Flow Network Overview and Setup](https://developers.flow.com/protocol/flow-networks)
 
 ### Developer tools[​](#developer-tools "Direct link to Developer tools")
 
@@ -137,20 +137,20 @@ Whether you're looking for support, feedback, or collaboration, Flow's community
 
 ### Flow Cadence Quickstart[​](#flow-cadence-quickstart "Direct link to Flow Cadence Quickstart")
 
-* [Contract Interaction](/build/getting-started/contract-interaction): Interact with your first Cadence smart contract on the Flow testnet.
-* [Local Development](/build/getting-started/flow-cli): Set up your dev environment, run tests, add already deployed contracts to your environment with Dependency Manager, and deploy and use your first contract with the emulator.
-* [Simple Frontend](/build/getting-started/fcl-quickstart): Read and write from a smart contract using the hooks from [@onflow/react-sdk](https://developers.flow.com/tools/react-sdk).
+* [Contract Interaction](/build/cadence/getting-started/contract-interaction): Interact with your first Cadence smart contract on the Flow testnet.
+* [Local Development](/build/cadence/getting-started/flow-cli): Set up your dev environment, run tests, add already deployed contracts to your environment with Dependency Manager, and deploy and use your first contract with the emulator.
+* [Simple Frontend](/build/cadence/getting-started/fcl-quickstart): Read and write from a smart contract using the hooks from [@onflow/react-sdk](https://developers.flow.com/tools/react-sdk).
 
 ### Flow EVM Quickstart[​](#flow-evm-quickstart "Direct link to Flow EVM Quickstart")
 
-* [EVM Quickstart](/evm/quickstart): Deploy a contract with Hardhat and interact with it using [Testnet Flowscan](https://evm-testnet.flowscan.io/).
-* [Foundry](/evm/guides/foundry): Build and deploy an ERC20 on Flow with Foundry.
+* [EVM Quickstart](/build/evm/quickstart): Deploy a contract with Hardhat and interact with it using [Testnet Flowscan](https://evm-testnet.flowscan.io/).
+* [Foundry](/build/evm/guides/foundry): Build and deploy an ERC20 on Flow with Foundry.
 
-We also have guides for working with [Rainbowkit](/evm/guides/rainbowkit) and [wagmi](/evm/guides/wagmi).
+We also have guides for working with [Rainbowkit](/build/evm/guides/rainbowkit) and [wagmi](/build/evm/guides/wagmi).
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/flow-101.md)
 
-Last updated on **Aug 17, 2025** by **0xLisanAlGaib**
+Last updated on **Aug 22, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -167,7 +167,7 @@ Copy as Markdown
 * [What is Flow?](#what-is-flow)
   + [Flow EVM vs Cadence](#flow-evm-vs-cadence)
 * [Flow features](#flow-features)
-  + [On-Chain randomness](#on-chain-randomness)
+  + [Onchain randomness](#onchain-randomness)
   + [Batch transactions](#batch-transactions)
   + [Account linking](#account-linking)
 * [What Cadence enables](#what-cadence-enables)
@@ -181,16 +181,16 @@ Copy as Markdown
 
 Documentation
 
-* [Getting Started](/build/getting-started/contract-interaction)
-* [SDK's & Tools](/tools)
+* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/guides/mobile/overview)
-* [FCL](/tools/clients/fcl-js)
-* [Testing](/build/smart-contracts/testing)
-* [CLI](/tools/flow-cli)
-* [Emulator](/tools/emulator)
+* [Mobile](/build/cadence/guides/mobile/overview)
+* [FCL](/build/tools/clients/fcl-js)
+* [Testing](/build/cadence/smart-contracts/testing)
+* [CLI](/build/tools/flow-cli)
+* [Emulator](/build/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/tools/vscode-extension)
+* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
@@ -207,18 +207,18 @@ Start Building
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/core-contracts)
-* [EVM](/evm/about)
+* [Core Contracts & Standards](/build/cadence/core-contracts)
+* [EVM](/build/evm/about)
 
 Network
 
 * [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
-* [Node Operation](/networks/node-ops)
-* [Spork Information](/networks/node-ops/node-operation/spork)
+* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/protocol/node-ops)
+* [Spork Information](/protocol/node-ops/node-operation/spork)
 
 More
 

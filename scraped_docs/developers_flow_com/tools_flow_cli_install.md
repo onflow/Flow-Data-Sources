@@ -6,40 +6,67 @@ Install Instructions | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [@onflow/react-sdk](/tools/react-sdk)
-* [Flow Emulator](/tools/emulator)
-* [Flow CLI](/tools/flow-cli)
+* [Why Flow](/build/flow)
+* [Cadence](/build/cadence/getting-started)
 
-  + [Install Instructions](/tools/flow-cli/install)
-  + [Commands Overview](/tools/flow-cli/super-commands)
-  + [Accounts](/tools/flow-cli/accounts/get-accounts)
-  + [Keys](/tools/flow-cli/keys/generate-keys)
-  + [Deploy Project](/tools/flow-cli/deployment/start-emulator)
-  + [Scripts](/tools/flow-cli/scripts/execute-scripts)
-  + [Transactions](/tools/flow-cli/transactions/send-transactions)
-  + [Flow.json](/tools/flow-cli/flow.json/initialize-configuration)
-  + [Flow Entities](/tools/flow-cli/get-flow-data/get-blocks)
-  + [Utils](/tools/flow-cli/utils/signature-generate)
-  + [Dependency Manager](/tools/flow-cli/dependency-manager)
-  + [Running Cadence Tests](/tools/flow-cli/tests)
-  + [Cadence Linter](/tools/flow-cli/lint)
-  + [Flow Interaction Templates (FLIX)](/tools/flow-cli/flix)
-  + [Cadence Boilerplate](/tools/flow-cli/boilerplate)
-  + [Data Collection](/tools/flow-cli/data-collection)
-* [Cadence VS Code Extension](/tools/vscode-extension)
-* [Flow Dev Wallet](/tools/flow-dev-wallet)
-* [Client Tools](/tools/clients)
-* [Error Codes](/tools/error-codes)
-* [Wallet Provider Spec](/tools/wallet-provider-spec)
-* [Tools](/tools)
+  + [Getting Started](/build/cadence/getting-started)
+  + [Differences vs. EVM](/build/cadence/differences-vs-evm)
+  + [Flow Protocol](/build/cadence/basics/network-architecture)
+  + [App Architecture](/build/cadence/app-architecture)
+  + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
+  + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+  + [Guides](/build/cadence/guides/account-linking)
+  + [Core Smart Contracts](/build/cadence/core-contracts)
+  + [Explore More](/build/cadence/explore-more)
+* [Solidity (EVM)](/build/evm/about)
 
-* [Flow CLI](/tools/flow-cli)
+  + [Why EVM on Flow](/build/evm/about)
+  + [How it Works](/build/evm/how-it-works)
+  + [Using Flow EVM](/build/evm/using)
+  + [Network Information](/build/evm/networks)
+  + [EVM Quickstart](/build/evm/quickstart)
+  + [Fees](/build/evm/fees)
+  + [Accounts](/build/evm/accounts)
+  + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
+  + [Faucets ↙](/evm/faucets)
+  + [Block Explorers ↙](/evm/block-explorers)
+  + [Guides](/build/evm/guides)
+* [Tools & SDKs](/build/tools)
+
+  + [@onflow/react-sdk](/build/tools/react-sdk)
+  + [Flow Emulator](/build/tools/emulator)
+  + [Flow CLI](/build/tools/flow-cli)
+
+    - [Install Instructions](/build/tools/flow-cli/install)
+    - [Commands Overview](/build/tools/flow-cli/super-commands)
+    - [Accounts](/build/tools/flow-cli/accounts/get-accounts)
+    - [Keys](/build/tools/flow-cli/keys/generate-keys)
+    - [Deploy Project](/build/tools/flow-cli/deployment/start-emulator)
+    - [Scripts](/build/tools/flow-cli/scripts/execute-scripts)
+    - [Transactions](/build/tools/flow-cli/transactions/send-transactions)
+    - [Flow.json](/build/tools/flow-cli/flow.json/initialize-configuration)
+    - [Flow Entities](/build/tools/flow-cli/get-flow-data/get-blocks)
+    - [Utils](/build/tools/flow-cli/utils/signature-generate)
+    - [Dependency Manager](/build/tools/flow-cli/dependency-manager)
+    - [Running Cadence Tests](/build/tools/flow-cli/tests)
+    - [Cadence Linter](/build/tools/flow-cli/lint)
+    - [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)
+    - [Cadence Boilerplate](/build/tools/flow-cli/boilerplate)
+    - [Data Collection](/build/tools/flow-cli/data-collection)
+  + [Cadence VS Code Extension](/build/tools/vscode-extension)
+  + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
+  + [Client Tools](/build/tools/clients)
+  + [Error Codes](/build/tools/error-codes)
+  + [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+
+* [Tools & SDKs](/build/tools)
+* [Flow CLI](/build/tools/flow-cli)
 * Install Instructions
 
 On this page
@@ -166,19 +193,19 @@ If you installed it using Hombrew you can remove it using: `brew uninstall flow-
 
 Now that you have the Flow CLI installed, you can:
 
-* **[Get started with Flow CLI commands](/tools/flow-cli/super-commands)** - Learn the essential commands for project development
-* **[Initialize a new project](/tools/flow-cli/flow.json/initialize-configuration)** - Create your first Flow project
-* **[Configure your project](/tools/flow-cli/flow.json/configuration)** - Set up your `flow.json` configuration file
+* **[Get started with Flow CLI commands](/build/tools/flow-cli/super-commands)** - Learn the essential commands for project development
+* **[Initialize a new project](/build/tools/flow-cli/flow.json/initialize-configuration)** - Create your first Flow project
+* **[Configure your project](/build/tools/flow-cli/flow.json/configuration)** - Set up your `flow.json` configuration file
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/flow-cli/install.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/install.md)
 
-Last updated on **Aug 19, 2025** by **Chase Fleming**
+Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-Flow CLI](/tools/flow-cli)[Next
+Flow CLI](/build/tools/flow-cli)[Next
 
-Commands Overview](/tools/flow-cli/super-commands)
+Commands Overview](/build/tools/flow-cli/super-commands)
 
 ###### Rate this page
 
@@ -206,16 +233,16 @@ Copy as Markdown
 
 Documentation
 
-* [Getting Started](/build/getting-started/contract-interaction)
-* [SDK's & Tools](/tools)
+* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/guides/mobile/overview)
-* [FCL](/tools/clients/fcl-js)
-* [Testing](/build/smart-contracts/testing)
-* [CLI](/tools/flow-cli)
-* [Emulator](/tools/emulator)
+* [Mobile](/build/cadence/guides/mobile/overview)
+* [FCL](/build/tools/clients/fcl-js)
+* [Testing](/build/cadence/smart-contracts/testing)
+* [CLI](/build/tools/flow-cli)
+* [Emulator](/build/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/tools/vscode-extension)
+* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
@@ -232,18 +259,18 @@ Start Building
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/core-contracts)
-* [EVM](/evm/about)
+* [Core Contracts & Standards](/build/cadence/core-contracts)
+* [EVM](/build/evm/about)
 
 Network
 
 * [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
-* [Node Operation](/networks/node-ops)
-* [Spork Information](/networks/node-ops/node-operation/spork)
+* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/protocol/node-ops)
+* [Spork Information](/protocol/node-ops/node-operation/spork)
 
 More
 

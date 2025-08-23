@@ -6,7 +6,7 @@ Wallets | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -25,6 +25,7 @@ Search
 * [VCs & Funds](/ecosystem/vcs-and-funds)
 * [Faucets](/ecosystem/faucets)
 * [Grants](/ecosystem/grants)
+* [Project Growth](/ecosystem/project-growth)
 * [Hackathons and Events](/ecosystem/Hackathons and Events)
 * [Auditors](/ecosystem/auditors)
 * [Ecosystem Overview](/ecosystem/overview)
@@ -51,11 +52,11 @@ Store, manage, and interact securely with tokens and digital assets on Flow. Dis
 
 ## NuFi[​](#nufi "Direct link to NuFi")
 
-[NuFi](https://https://nu.fi/) allows you to securely manage tokens and NFTs, trade, stake, and use apps on multiple blockchains. Presently only supports Flow EVM and cannot access Cadence accounts.
+[NuFi](https://nu.fi/) allows you to securely manage tokens and NFTs, trade, stake, and use apps on multiple blockchains. Presently only supports Flow EVM and cannot access Cadence accounts.
 
 ## Rabby[​](#rabby "Direct link to Rabby")
 
-[Rabby](https://https://rabby.io/) - The game-changing wallet for Ethereum and all EVM chains. Presently only supports Flow EVM and cannot access Cadence accounts.
+[Rabby](https://rabby.io/) - The game-changing wallet for Ethereum and all EVM chains. Presently only supports Flow EVM and cannot access Cadence accounts.
 
 ## Wallet Connect[​](#wallet-connect "Direct link to Wallet Connect")
 
@@ -69,7 +70,7 @@ Store, manage, and interact securely with tokens and digital assets on Flow. Dis
 
 ## Flow Dev Wallet[​](#flow-dev-wallet "Direct link to Flow Dev Wallet")
 
-[The Flow Dev Wallet](/tools/flow-dev-wallet) simulates the protocols used by [FCL](/tools/clients/fcl-js) to interact with the Flow blockchain on behalf of simulated user accounts.
+[The Flow Dev Wallet](/build/tools/flow-dev-wallet) simulates the protocols used by [FCL](/build/tools/clients/fcl-js) to interact with the Flow blockchain on behalf of simulated user accounts.
 
 ## Magic.link[​](#magiclink "Direct link to Magic.link")
 
@@ -77,7 +78,7 @@ Store, manage, and interact securely with tokens and digital assets on Flow. Dis
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/wallets.md)
 
-Last updated on **Jul 21, 2025** by **Brian Doyle**
+Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -104,16 +105,16 @@ Copy as Markdown
 
 Documentation
 
-* [Getting Started](/build/getting-started/contract-interaction)
-* [SDK's & Tools](/tools)
+* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/guides/mobile/overview)
-* [FCL](/tools/clients/fcl-js)
-* [Testing](/build/smart-contracts/testing)
-* [CLI](/tools/flow-cli)
-* [Emulator](/tools/emulator)
+* [Mobile](/build/cadence/guides/mobile/overview)
+* [FCL](/build/tools/clients/fcl-js)
+* [Testing](/build/cadence/smart-contracts/testing)
+* [CLI](/build/tools/flow-cli)
+* [Emulator](/build/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/tools/vscode-extension)
+* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
@@ -130,18 +131,18 @@ Start Building
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/core-contracts)
-* [EVM](/evm/about)
+* [Core Contracts & Standards](/build/cadence/core-contracts)
+* [EVM](/build/evm/about)
 
 Network
 
 * [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
-* [Node Operation](/networks/node-ops)
-* [Spork Information](/networks/node-ops/node-operation/spork)
+* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/protocol/node-ops)
+* [Spork Information](/protocol/node-ops/node-operation/spork)
 
 More
 
