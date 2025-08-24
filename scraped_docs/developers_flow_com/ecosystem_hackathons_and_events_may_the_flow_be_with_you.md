@@ -6,7 +6,7 @@ May the Flow be with You | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -25,6 +25,7 @@ Search
 * [VCs & Funds](/ecosystem/vcs-and-funds)
 * [Faucets](/ecosystem/faucets)
 * [Grants](/ecosystem/grants)
+* [Project Growth](/ecosystem/project-growth)
 * [Hackathons and Events](/ecosystem/Hackathons and Events)
 
   + [May the Flow be with You](/ecosystem/Hackathons and Events/may-the-flow-be-with-you)
@@ -90,7 +91,7 @@ Build in public for bonus rewards (see guidelines below)
 
 ### Week 1: The Randomness Revolution (May 4-10)
 
-Leverage on-chain randomness to create unpredictable, emergent experiences on Flow. Think: generative art, dynamic NFTs, chance-based mechanics, and randomized gameplay elements.
+Leverage onchain randomness to create unpredictable, emergent experiences on Flow. Think: generative art, dynamic NFTs, chance-based mechanics, and randomized gameplay elements.
 
 * May 4: Challenges kickoff
 * May 4-10: Build randomness-powered applications
@@ -99,7 +100,7 @@ Leverage on-chain randomness to create unpredictable, emergent experiences on Fl
 
 #### Useful Resources:
 
-* [How to setup cursor with developer docs for optimal vibe coding](https://developers.flow.com/tutorials/use-AI-to-build-on-flow/cursor)
+* [How to setup cursor with developer docs for optimal vibe coding](https://developers.flow.com/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor)
 * ["Live app](https://randoms.wtf/)  built using Flow random and  [GitHub](https://github.com/Aliserag/random.wtf)
 * [Implement Randomness with Solidity in 3 min](https://developers.flow.com/evm/guides/vrf)
 
@@ -315,7 +316,7 @@ Disclaimer: Individuals residing in jurisdictions where gaming or lottery partic
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/Hackathons and Events/may-the-flow-be-with-you.md)
 
-Last updated on **Aug 11, 2025** by **0xLisanAlGaib**
+Last updated on **Aug 22, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -348,16 +349,16 @@ Copy as Markdown
 
 Documentation
 
-* [Getting Started](/build/getting-started/contract-interaction)
-* [SDK's & Tools](/tools)
+* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/guides/mobile/overview)
-* [FCL](/tools/clients/fcl-js)
-* [Testing](/build/smart-contracts/testing)
-* [CLI](/tools/flow-cli)
-* [Emulator](/tools/emulator)
+* [Mobile](/build/cadence/guides/mobile/overview)
+* [FCL](/build/tools/clients/fcl-js)
+* [Testing](/build/cadence/smart-contracts/testing)
+* [CLI](/build/tools/flow-cli)
+* [Emulator](/build/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/tools/vscode-extension)
+* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
@@ -374,18 +375,18 @@ Start Building
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/core-contracts)
-* [EVM](/evm/about)
+* [Core Contracts & Standards](/build/cadence/core-contracts)
+* [EVM](/build/evm/about)
 
 Network
 
 * [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
-* [Node Operation](/networks/node-ops)
-* [Spork Information](/networks/node-ops/node-operation/spork)
+* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/protocol/node-ops)
+* [Spork Information](/protocol/node-ops/node-operation/spork)
 
 More
 

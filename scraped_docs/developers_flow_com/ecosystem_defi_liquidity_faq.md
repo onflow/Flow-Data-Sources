@@ -6,7 +6,7 @@ Stablecoins & Bridges on Flow FAQ | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -30,6 +30,7 @@ Search
 * [VCs & Funds](/ecosystem/vcs-and-funds)
 * [Faucets](/ecosystem/faucets)
 * [Grants](/ecosystem/grants)
+* [Project Growth](/ecosystem/project-growth)
 * [Hackathons and Events](/ecosystem/Hackathons and Events)
 * [Auditors](/ecosystem/auditors)
 * [Ecosystem Overview](/ecosystem/overview)
@@ -52,7 +53,7 @@ No, Flow uses $FLOW as the gas token. [WETH](/ecosystem/defi-liquidity/defi-cont
 How do I pay for gas when bridging into Flow?
 
 When using Flow EVM for the first time, your EOA will automatically be credited 0.05 FLOW to cover gas costs when bridging into Flow.
-If further top-ups are required you can use [Gas.zip](https://www.gas.zip/). See [Fees](/evm/fees) for information on gas pricing.
+If further top-ups are required you can use [Gas.zip](https://www.gas.zip/). See [Fees](/build/evm/fees) for information on gas pricing.
 
 Flow Wallet users do not pay for gas since the wallet subsidizes all transaction fees.
 
@@ -220,7 +221,7 @@ Where can I get updates or ask questions?
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/faq.md)
 
-Last updated on **Aug 20, 2025** by **Brian Doyle**
+Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -242,16 +243,16 @@ Copy as Markdown
 
 Documentation
 
-* [Getting Started](/build/getting-started/contract-interaction)
-* [SDK's & Tools](/tools)
+* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/guides/mobile/overview)
-* [FCL](/tools/clients/fcl-js)
-* [Testing](/build/smart-contracts/testing)
-* [CLI](/tools/flow-cli)
-* [Emulator](/tools/emulator)
+* [Mobile](/build/cadence/guides/mobile/overview)
+* [FCL](/build/tools/clients/fcl-js)
+* [Testing](/build/cadence/smart-contracts/testing)
+* [CLI](/build/tools/flow-cli)
+* [Emulator](/build/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/tools/vscode-extension)
+* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
@@ -268,18 +269,18 @@ Start Building
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/core-contracts)
-* [EVM](/evm/about)
+* [Core Contracts & Standards](/build/cadence/core-contracts)
+* [EVM](/build/evm/about)
 
 Network
 
 * [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
-* [Node Operation](/networks/node-ops)
-* [Spork Information](/networks/node-ops/node-operation/spork)
+* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/protocol/node-ops)
+* [Spork Information](/protocol/node-ops/node-operation/spork)
 
 More
 

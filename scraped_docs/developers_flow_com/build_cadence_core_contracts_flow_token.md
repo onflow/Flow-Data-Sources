@@ -1,0 +1,295 @@
+# Source: https://developers.flow.com/build/cadence/core-contracts/flow-token
+
+Flow Token Contract | Flow Developer Portal
+
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Why Flow](/build/flow)
+* [Cadence](/build/cadence/getting-started)
+
+  + [Getting Started](/build/cadence/getting-started)
+  + [Differences vs. EVM](/build/cadence/differences-vs-evm)
+  + [Flow Protocol](/build/cadence/basics/network-architecture)
+  + [App Architecture](/build/cadence/app-architecture)
+  + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
+  + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+  + [Guides](/build/cadence/guides/account-linking)
+  + [Core Smart Contracts](/build/cadence/core-contracts)
+
+    - [Fungible Token](/build/cadence/core-contracts/fungible-token)
+    - [Flow Token](/build/cadence/core-contracts/flow-token)
+    - [Service Account](/build/cadence/core-contracts/service-account)
+    - [Flow Fees](/build/cadence/core-contracts/flow-fees)
+    - [Staking Table](/build/cadence/core-contracts/staking-contract-reference)
+    - [Epoch Contracts](/build/cadence/core-contracts/epoch-contract-reference)
+    - [Non-Fungible Token](/build/cadence/core-contracts/non-fungible-token)
+    - [NFT Metadata](/build/cadence/core-contracts/nft-metadata)
+    - [NFT Storefront](/build/cadence/core-contracts/nft-storefront)
+    - [Staking Collection](/build/cadence/core-contracts/staking-collection)
+    - [Account Linking](/build/cadence/core-contracts/hybrid-custody)
+    - [EVM](/build/cadence/core-contracts/evm)
+    - [Burner](/build/cadence/core-contracts/burner)
+    - [VM Bridge](/build/cadence/core-contracts/bridge)
+  + [Explore More](/build/cadence/explore-more)
+* [Solidity (EVM)](/build/evm/about)
+
+  + [Why EVM on Flow](/build/evm/about)
+  + [How it Works](/build/evm/how-it-works)
+  + [Using Flow EVM](/build/evm/using)
+  + [Network Information](/build/evm/networks)
+  + [EVM Quickstart](/build/evm/quickstart)
+  + [Fees](/build/evm/fees)
+  + [Accounts](/build/evm/accounts)
+  + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
+  + [Faucets ↙](/evm/faucets)
+  + [Block Explorers ↙](/evm/block-explorers)
+  + [Guides](/build/evm/guides)
+* [Tools & SDKs](/build/tools)
+
+* Cadence
+* [Core Smart Contracts](/build/cadence/core-contracts)
+* Flow Token
+
+On this page
+
+The `FlowToken` contract defines the FLOW network token.
+
+Source: [FlowToken.cdc](https://github.com/onflow/flow-core-contracts/blob/master/contracts/FlowToken.cdc)
+
+| Network | Contract Address |
+| --- | --- |
+| Emulator | `0x0ae53cb6e3f42a79` |
+| Cadence Testing Framework | `0x0000000000000003` |
+| Testnet | `0x7e60df042a9c0868` |
+| Mainnet | `0x1654653399040a61` |
+
+# Transactions
+
+Transactions and scripts for `FlowToken` are in the `flow-core-contracts` [repo](https://github.com/onflow/flow-core-contracts/tree/master/transactions/flowToken).
+
+As mentioned in the `FungibleToken` page, developers are encouraged to use
+the generic token transactions in the `flow-ft` [repo](https://github.com/onflow/flow-ft/tree/master/transactions) instead.
+
+# Events
+
+Flow relies on a set of core contracts that define key portions of the Flow protocol. Those contracts are core contracts
+and are made to emit the events documented below. You can read about the [core contracts here](/build/cadence/core-contracts)
+and view their source code and event definitions.
+
+Events emitted from core contracts follow a standard format:
+
+`_10
+
+A.{contract address}.{contract name}.{event name}`
+
+The components of the format are:
+
+* `contract address` - the address of the account the contract has been deployed to
+* `contract name` - the name of the contract in the source code
+* `event name` - the name of the event as declared in the source code
+
+### Flow Token Contract[​](#flow-token-contract "Direct link to Flow Token Contract")
+
+Description of events emitted from the [FLOW Token contract](/build/cadence/core-contracts/flow-token).
+The contract defines the fungible FLOW token. Please note that events for the fungible token contracts are the same
+if deployed to a different account but the `contract address` is
+changed to the address of the account the contract has been deployed to.
+
+### Tokens Initialized[​](#tokens-initialized "Direct link to Tokens Initialized")
+
+Event that is emitted when the contract gets created.
+
+* Event name: `TokensInitialized`
+* Mainnet event: `A.1654653399040a61.FlowToken.TokensInitialized`
+* Testnet event: `A.7e60df042a9c0868.FlowToken.TokensInitialized`
+
+`_10
+
+access(all) event TokensInitialized(initialSupply: UFix64)`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| initialSupply | UFix64 | The initial supply of the tokens |
+
+### Tokens Withdrawn[​](#tokens-withdrawn "Direct link to Tokens Withdrawn")
+
+Event that is emitted when tokens get withdrawn from a Vault.
+
+* Event name: `TokensWithdrawn`
+* Mainnet event: `A.1654653399040a61.FlowToken.TokensWithdrawn`
+* Testnet event: `A.7e60df042a9c0868.FlowToken.TokensWithdrawn`
+
+`_10
+
+access(all) event TokensWithdrawn(amount: UFix64, from: Address?)`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| amount | UFix64 | The amount of tokens withdrawn |
+| from | Address? | Optional address of the account that owns the vault where tokens were withdrawn from. `nil` if the vault is not in an account's storage |
+
+### Tokens Deposited[​](#tokens-deposited "Direct link to Tokens Deposited")
+
+Event that is emitted when tokens get deposited to a Vault.
+
+* Event name: `TokensDeposited`
+* Mainnet event: `A.1654653399040a61.FlowToken.TokensDeposited`
+* Testnet event: `A.7e60df042a9c0868.FlowToken.TokensDeposited`
+
+`_10
+
+access(all) event TokensDeposited(amount: UFix64, to: Address?)`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| amount | UFix64 | The amount of tokens withdrawn |
+| to | Address? | Optional address of the account that owns the vault where tokens were deposited to. `nil` if the vault is not in an account's storage |
+
+### Tokens Minted[​](#tokens-minted "Direct link to Tokens Minted")
+
+Event that is emitted when new tokens gets minted.
+
+* Event name: `TokensMinted`
+* Mainnet event: `A.1654653399040a61.FlowToken.TokensMinted`
+* Testnet event: `A.7e60df042a9c0868.FlowToken.TokensMinted`
+
+`_10
+
+access(all) event TokensMinted(amount: UFix64)`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| amount | UFix64 | The amount of tokens to mint |
+
+### Tokens Burned[​](#tokens-burned "Direct link to Tokens Burned")
+
+Event that is emitted when tokens get destroyed.
+
+* Event name: `TokensBurned`
+* Mainnet event: `A.1654653399040a61.FlowToken.TokensBurned`
+* Testnet event: `A.7e60df042a9c0868.FlowToken.TokensBurned`
+
+`_10
+
+access(all) event TokensBurned(amount: UFix64)`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| amount | UFix64 | The amount of tokens to burn |
+
+### Minter Created[​](#minter-created "Direct link to Minter Created")
+
+Event that is emitted when a new minter resource gets created.
+
+* Event name: `MinterCreated`
+* Mainnet event: `A.1654653399040a61.FlowToken.MinterCreated`
+* Testnet event: `A.7e60df042a9c0868.FlowToken.MinterCreated`
+
+`_10
+
+access(all) event MinterCreated(allowedAmount: UFix64)`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| allowedAmount | UFix64 | The amount of tokens that the minter is allowed to mint |
+
+### Burner Created[​](#burner-created "Direct link to Burner Created")
+
+Event that is emitted when a new burner Resource gets created.
+
+* Event name: `BurnerCreated`
+* Mainnet event: `A.1654653399040a61.FlowToken.BurnerCreated`
+* Testnet event: `A.7e60df042a9c0868.FlowToken.BurnerCreated`
+
+`_10
+
+access(all) event BurnerCreated()`
+
+### Staking Events[​](#staking-events "Direct link to Staking Events")
+
+To learn more about staking events, read [staking/events/](/protocol/staking/staking-scripts-events)
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/core-contracts/03-flow-token.md)
+
+Last updated on **Aug 22, 2025** by **Brian Doyle**
+
+[Previous
+
+Fungible Token](/build/cadence/core-contracts/fungible-token)[Next
+
+Service Account](/build/cadence/core-contracts/service-account)
+
+###### Rate this page
+
+😞😐😊
+
+Copy as Markdown
+
+* [Flow Token Contract](#flow-token-contract)
+* [Tokens Initialized](#tokens-initialized)
+* [Tokens Withdrawn](#tokens-withdrawn)
+* [Tokens Deposited](#tokens-deposited)
+* [Tokens Minted](#tokens-minted)
+* [Tokens Burned](#tokens-burned)
+* [Minter Created](#minter-created)
+* [Burner Created](#burner-created)
+* [Staking Events](#staking-events)
+
+Documentation
+
+* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Tools & SDKs](/build/tools)
+* [Cadence](https://cadence-lang.org/docs/)
+* [Mobile](/build/cadence/guides/mobile/overview)
+* [FCL](/build/tools/clients/fcl-js)
+* [Testing](/build/cadence/smart-contracts/testing)
+* [CLI](/build/tools/flow-cli)
+* [Emulator](/build/tools/emulator)
+* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
+* [VS Code Extension](/build/tools/vscode-extension)
+
+Community
+
+* [Ecosystem](/ecosystem)
+* [Flow Port](https://port.flow.com/)
+* [Developer Grants](https://github.com/onflow/developer-grants)
+* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
+* [Flowverse](https://www.flowverse.co/)
+* [Emerald Academy](https://academy.ecdao.org/)
+* [FLOATs (Attendance NFTs)](https://floats.city/)
+
+Start Building
+
+* [Flow Playground](https://play.flow.com/)
+* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
+* [Cadence Cookbook](https://cookbook.flow.com)
+* [Core Contracts & Standards](/build/cadence/core-contracts)
+* [EVM](/build/evm/about)
+
+Network
+
+* [Network Status](https://status.flow.com/)
+* [Flowscan Mainnet](https://flowscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
+* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/protocol/node-ops)
+* [Spork Information](/protocol/node-ops/node-operation/spork)
+
+More
+
+* [GitHub](https://github.com/onflow)
+* [Discord](https://discord.gg/flow)
+* [Forum](https://forum.flow.com/)
+* [Flow](https://flow.com/)
+* [Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

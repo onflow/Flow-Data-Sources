@@ -1,4 +1,4 @@
-# Source: https://developers.flow.com/docs/
+# Source: https://developers.flow.com/docs
 
 Flow Developer Portal
 
@@ -6,7 +6,7 @@ Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -16,7 +16,7 @@ Search
 
 Start building with **Cadence**, or **Solidity (EVM)**, with **AI-powered tools** - each path is first-class and fully supported.
 
-[Build with AI](/tutorials/use-AI-to-build-on-flow)Start with Cadence
+[Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)Start with Cadence
 
 ### Cadence
 
@@ -28,7 +28,7 @@ A purpose-build smart contract language for apps that do more than token movemen
 
 EVM equivalence with seamless composability and interoperability with Cadence.
 
-[Simply run with EVM equivalence](/evm/about)[Integrate native VRF in 3 lines](/tutorials/native-vrf/vrf-in-solidity)[Native batched transactions](/tutorials/cross-vm-apps)
+[Simply run with EVM equivalence](/build/evm/about)[Integrate native VRF in 3 lines](../blockchain-development-tutorials/native-vrf/vrf-in-solidity)[Native batched transactions](../blockchain-development-tutorials/cross-vm-apps)
 
 ### Tools
 
@@ -59,19 +59,19 @@ Connect with venture capital firms and investment funds actively supporting Flow
 ### Cadence
 
 * [Why Flow](/build/flow)
-* [Differences vs. EVM](/build/differences-vs-evm)
-* [Getting Started](/build/getting-started/contract-interaction)
-* [Flow Protocol](/build/basics/blocks)
-* [App Architecture](/build/app-architecture)
-* [Writing and Deploying Smart Contracts](/build/smart-contracts/overview)
-* [Advanced Concepts](/build/advanced-concepts/account-abstraction)
-* [Guides](/build/advanced-concepts/account-abstraction)
-* [Core Smart Contracts](/build/core-contracts)
-* [Explore More](/build/explore-more)
+* [Differences vs. EVM](/build/cadence/differences-vs-evm)
+* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Flow Protocol](/build/cadence/basics/blocks)
+* [App Architecture](/build/cadence/app-architecture)
+* [Writing and Deploying Smart Contracts](/build/cadence/smart-contracts/overview)
+* [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+* [Guides](/build/cadence/advanced-concepts/account-abstraction)
+* [Core Smart Contracts](/build/cadence/core-contracts)
+* [Explore More](/build/cadence/explore-more)
 
 ### EVM
 
-* [Why EVM on Flow](/evm/about)
+* [Why EVM on Flow](/build/evm/about)
 * [How it Works](/evm/how-it-works)
 * [Using Flow EVM](/evm/using)
 * [Network Information](/evm/networks)
@@ -97,15 +97,15 @@ Connect with venture capital firms and investment funds actively supporting Flow
 
 ### Networks
 
-* [Flow Networks](/networks/flow-networks)
-* [Mainnet](/networks/flow-networks/accessing-mainnet)
-* [Testnet](/networks/flow-networks/accessing-testnet)
-* [Network Architecture](/networks/network-architecture)
-* [Staking and Epochs](/networks/staking)
-* [Node Ops](/networks/node-ops)
-* [Accessing Data](/networks/access-onchain-data)
-* [Governance](/networks/governance)
-* [Flow Port](/networks/flow-port)
+* [Flow Networks](/protocol/flow-networks)
+* [Mainnet](/protocol/flow-networks/accessing-mainnet)
+* [Testnet](/protocol/flow-networks/accessing-testnet)
+* [Network Architecture](/protocol/network-architecture)
+* [Staking and Epochs](/protocol/staking)
+* [Node Ops](/protocol/node-ops)
+* [Accessing Data](/protocol/access-onchain-data)
+* [Governance](/protocol/governance)
+* [Flow Port](/protocol/flow-port)
 
 ### Ecosystem
 
@@ -128,25 +128,25 @@ Connect with venture capital firms and investment funds actively supporting Flow
 ### Tutorials
 
 * [Tutorials](/tutorials)
-* [Use AI To Build On Flow](/tutorials/use-AI-to-build-on-flow)
-* [Gasless Transactions](/tutorials/gasless-transactions)
-* [Token Launch](/tutorials/token-launch)
-* [Cross-VM Apps](/tutorials/cross-vm-apps)
-* [FlowtoBooth](/tutorials/flowtobooth)
-* [Native VRF](/tutorials/native-vrf)
+* [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
+* [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
+* [Token Launch](/blockchain-development-tutorials/token-launch)
+* [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
+* [FlowtoBooth](/blockchain-development-tutorials/flowtobooth)
+* [Native VRF](/blockchain-development-tutorials/native-vrf)
 
 Documentation
 
-* [Getting Started](/build/getting-started/contract-interaction)
-* [SDK's & Tools](/tools)
+* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/guides/mobile/overview)
-* [FCL](/tools/clients/fcl-js)
-* [Testing](/build/smart-contracts/testing)
-* [CLI](/tools/flow-cli)
-* [Emulator](/tools/emulator)
+* [Mobile](/build/cadence/guides/mobile/overview)
+* [FCL](/build/tools/clients/fcl-js)
+* [Testing](/build/cadence/smart-contracts/testing)
+* [CLI](/build/tools/flow-cli)
+* [Emulator](/build/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/tools/vscode-extension)
+* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
@@ -163,18 +163,18 @@ Start Building
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/core-contracts)
-* [EVM](/evm/about)
+* [Core Contracts & Standards](/build/cadence/core-contracts)
+* [EVM](/build/evm/about)
 
 Network
 
 * [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
-* [Node Operation](/networks/node-ops)
-* [Spork Information](/networks/node-ops/node-operation/spork)
+* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/protocol/node-ops)
+* [Spork Information](/protocol/node-ops/node-operation/spork)
 
 More
 
