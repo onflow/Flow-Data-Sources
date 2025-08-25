@@ -1,0 +1,252 @@
+# Source: https://developers.flow.com/build/tools/clients
+
+Client Tools | Flow Developer Portal
+
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Why Flow](/build/flow)
+* [Cadence](/build/cadence/getting-started)
+
+  + [Getting Started](/build/cadence/getting-started)
+  + [Differences vs. EVM](/build/cadence/differences-vs-evm)
+  + [Flow Protocol](/build/cadence/basics/network-architecture)
+  + [App Architecture](/build/cadence/app-architecture)
+  + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
+  + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+  + [Guides](/build/cadence/guides/account-linking)
+  + [Core Smart Contracts](/build/cadence/core-contracts)
+  + [Explore More](/build/cadence/explore-more)
+* [Solidity (EVM)](/build/evm/about)
+
+  + [Why EVM on Flow](/build/evm/about)
+  + [How it Works](/build/evm/how-it-works)
+  + [Using Flow EVM](/build/evm/using)
+  + [Network Information](/build/evm/networks)
+  + [EVM Quickstart](/build/evm/quickstart)
+  + [Fees](/build/evm/fees)
+  + [Accounts](/build/evm/accounts)
+  + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
+  + [Faucets ↙](/evm/faucets)
+  + [Block Explorers ↙](/evm/block-explorers)
+  + [Guides](/build/evm/guides)
+* [Tools & SDKs](/build/tools)
+
+  + [@onflow/react-sdk](/build/tools/react-sdk)
+  + [Flow Emulator](/build/tools/emulator)
+  + [Flow CLI](/build/tools/flow-cli)
+  + [Cadence VS Code Extension](/build/tools/vscode-extension)
+  + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
+  + [Client Tools](/build/tools/clients)
+
+    - [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
+    - [Flow Go SDK](/build/tools/clients/flow-go-sdk)
+  + [Error Codes](/build/tools/error-codes)
+  + [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+
+* [Tools & SDKs](/build/tools)
+* Client Tools
+
+On this page
+
+# Client Tools
+
+Flow provides a comprehensive suite of client tools and SDKs designed to help developers build applications that interact with the Flow blockchain. These tools support various programming languages and platforms, offering different levels of abstraction and functionality.
+
+## JavaScript (FCL)[​](#javascript-fcl "Direct link to JavaScript (FCL)")
+
+[Flow Client Library (FCL)](/build/tools/clients/fcl-js) is the primary JavaScript/TypeScript client for Flow. It provides:
+
+* Wallet integration and authentication
+* Transaction and script execution
+* Cross-VM functionality for EVM integration
+* TypeScript support
+* Built-in security features
+
+## Go SDK[​](#go-sdk "Direct link to Go SDK")
+
+[Flow Go SDK](/build/tools/clients/flow-go-sdk) offers a robust set of packages for Go developers, including:
+
+* High-performance blockchain interaction
+* Transaction building and signing
+* Account management
+* Event subscription
+* Comprehensive testing utilities
+
+## Python SDK[​](#python-sdk "Direct link to Python SDK")
+
+[Flow Python SDK](https://github.com/janezpodhostnik/flow-py-sdk) provides Python developers with:
+
+* Simple blockchain interaction
+* Transaction management
+* Account handling
+* Event monitoring
+* Easy integration with Python applications
+
+## Ruby[​](#ruby "Direct link to Ruby")
+
+[FlowClient](https://github.com/glucode/flow_client) is a Ruby gRPC client that enables:
+
+* Direct blockchain communication
+* Transaction processing
+* Account management
+* Event handling
+* Ruby-native blockchain integration
+
+## JVM[​](#jvm "Direct link to JVM")
+
+[Flow JVM SDK](https://github.com/onflow/flow-jvm-sdk) supports JVM-compatible languages (Java, Kotlin, Scala) with:
+
+* Kotlin-first implementation
+* Transaction management
+* Account handling
+* Event subscription
+* Cross-platform compatibility
+
+## Swift[​](#swift "Direct link to Swift")
+
+[flow-swift](https://github.com/Outblock/flow-swift) is designed for iOS development, offering:
+
+* Native iOS integration
+* Wallet connectivity
+* Transaction management
+* Account handling
+* SwiftUI support
+
+## .NET[​](#net "Direct link to .NET")
+
+[flow.net](https://github.com/tyronbrand/flow.net) provides .NET developers with:
+
+* C# and .NET Core support
+* Transaction management
+* Account handling
+* Event monitoring
+* Cross-platform compatibility
+
+## Rust[​](#rust "Direct link to Rust")
+
+[Rust SDK](https://github.com/fee1-dead/flow.rs) offers Rust developers:
+
+* High-performance blockchain interaction
+* Type-safe transaction handling
+* Account management
+* Event subscription
+* Memory safety guarantees
+
+## PHP[​](#php "Direct link to PHP")
+
+[PHP SDK](https://github.com/mayvenstudios/flow-php-sdk) enables PHP developers to:
+
+* Integrate blockchain functionality
+* Handle transactions
+* Manage accounts
+* Monitor events
+* Build web applications
+
+## Elixir[​](#elixir "Direct link to Elixir")
+
+[OnFlow](https://github.com/nkezhaya/on_flow) provides Elixir developers with:
+
+* Functional blockchain interaction
+* Transaction management
+* Account handling
+* Event subscription
+* Comprehensive documentation
+
+## HTTP API[​](#http-api "Direct link to HTTP API")
+
+[Flow OpenAPI](/http-api) specification provides:
+
+* RESTful API endpoints
+* Standardized API documentation
+* Language-agnostic integration
+* Easy API testing
+* Swagger/OpenAPI support
+
+Each client tool is designed with specific use cases and developer needs in mind. Choose the one that best fits your development environment and requirements.
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/index.md)
+
+Last updated on **Aug 21, 2025** by **Brian Doyle**
+
+[Previous
+
+Flow Dev Wallet](/build/tools/flow-dev-wallet)[Next
+
+Flow Client Library (FCL)](/build/tools/clients/fcl-js)
+
+###### Rate this page
+
+😞😐😊
+
+Copy as Markdown
+
+* [JavaScript (FCL)](#javascript-fcl)
+* [Go SDK](#go-sdk)
+* [Python SDK](#python-sdk)
+* [Ruby](#ruby)
+* [JVM](#jvm)
+* [Swift](#swift)
+* [.NET](#net)
+* [Rust](#rust)
+* [PHP](#php)
+* [Elixir](#elixir)
+* [HTTP API](#http-api)
+
+Documentation
+
+* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Tools & SDKs](/build/tools)
+* [Cadence](https://cadence-lang.org/docs/)
+* [Mobile](/build/cadence/guides/mobile/overview)
+* [FCL](/build/tools/clients/fcl-js)
+* [Testing](/build/cadence/smart-contracts/testing)
+* [CLI](/build/tools/flow-cli)
+* [Emulator](/build/tools/emulator)
+* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
+* [VS Code Extension](/build/tools/vscode-extension)
+
+Community
+
+* [Ecosystem](/ecosystem)
+* [Flow Port](https://port.flow.com/)
+* [Developer Grants](https://github.com/onflow/developer-grants)
+* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
+* [Flowverse](https://www.flowverse.co/)
+* [Emerald Academy](https://academy.ecdao.org/)
+* [FLOATs (Attendance NFTs)](https://floats.city/)
+
+Start Building
+
+* [Flow Playground](https://play.flow.com/)
+* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
+* [Cadence Cookbook](https://cookbook.flow.com)
+* [Core Contracts & Standards](/build/cadence/core-contracts)
+* [EVM](/build/evm/about)
+
+Network
+
+* [Network Status](https://status.flow.com/)
+* [Flowscan Mainnet](https://flowscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
+* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/protocol/node-ops)
+* [Spork Information](/protocol/node-ops/node-operation/spork)
+
+More
+
+* [GitHub](https://github.com/onflow)
+* [Discord](https://discord.gg/flow)
+* [Forum](https://forum.flow.com/)
+* [Flow](https://flow.com/)
+* [Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow, Inc. Built with Docusaurus.

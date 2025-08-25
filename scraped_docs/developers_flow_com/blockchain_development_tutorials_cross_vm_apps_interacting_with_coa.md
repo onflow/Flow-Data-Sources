@@ -6,7 +6,7 @@ Interacting with COAs from Cadence | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -37,7 +37,7 @@ On this page
 
 # Interacting with COAs from Cadence
 
-[Cadence Owned Accounts (COAs)](/evm/accounts#cadence-owned-accounts) are EVM accounts owned by a Cadence resource and
+[Cadence Owned Accounts (COAs)](/build/evm/accounts#cadence-owned-accounts) are EVM accounts owned by a Cadence resource and
 are used to interact with Flow EVM from Cadence.
 
 COAs expose two interfaces for interaction: one on the Cadence side and one on the EVM side. In this guide, we will
@@ -51,7 +51,7 @@ directly in `/storage/evm` as in these examples, but may instead be a part of a 
 
 To begin, we can take a look at a simplified version of the `EVM` contract, highlighting parts specific to COAs.
 
-You can learn more about the `EVM` contract [here](/build/core-contracts/evm) and the full contract code can
+You can learn more about the `EVM` contract [here](/build/cadence/core-contracts/evm) and the full contract code can
 be found on [GitHub](https://github.com/onflow/flow-go/tree/master/fvm/evm/stdlib/contract.cdc).
 
 EVM.cdc
@@ -273,7 +273,7 @@ need to begin by importing the `EVM` contract into your Cadence code.
 
 To import the `EVM` contract into your Cadence code using the simple import syntax, you can use the following format
 (learn more about configuring contracts in `flow.json`
-[here](/tools/flow-cli/flow.json/configuration#contracts)):
+[here](/build/tools/flow-cli/flow.json/configuration#contracts)):
 
 `` _10
 
@@ -306,7 +306,7 @@ _10
 // ...`
 
 To find the deployment addresses of the `EVM` contract, you can refer to the [EVM contract
-documentation](/build/core-contracts/evm).
+documentation](/build/cadence/core-contracts/evm).
 
 ## Creating a COA[​](#creating-a-coa "Direct link to Creating a COA")
 
@@ -677,7 +677,7 @@ This is a basic example which only transfers tokens between a single user's COA 
 modified to transfer these tokens between any arbitrary accounts.
 
 You can also deposit tokens directly into other types of EVM accounts using the `EVM.EVMAddress.deposit` function. See
-the [EVM contract documentation](/build/core-contracts/evm) for more information.
+the [EVM contract documentation](/build/cadence/core-contracts/evm) for more information.
 
 ### Withdrawing Flow Tokens[​](#withdrawing-flow-tokens "Direct link to Withdrawing Flow Tokens")
 
@@ -1789,7 +1789,7 @@ _22
 
 ## More Information[​](#more-information "Direct link to More Information")
 
-For more information about Cadence Owned Accounts, see [Flow EVM Accounts](/evm/accounts).
+For more information about Cadence Owned Accounts, see [Flow EVM Accounts](/build/evm/accounts).
 
 Other useful snippets for interacting with COAs can be found [here](https://fw-internal-doc.gitbook.io/evm).
 
@@ -1798,7 +1798,7 @@ using Cadence.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cross-vm-apps/interacting-with-coa.md)
 
-Last updated on **Aug 17, 2025** by **0xLisanAlGaib**
+Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -1829,16 +1829,16 @@ Copy as Markdown
 
 Documentation
 
-* [Getting Started](/build/getting-started/contract-interaction)
-* [SDK's & Tools](/tools)
+* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/guides/mobile/overview)
-* [FCL](/tools/clients/fcl-js)
-* [Testing](/build/smart-contracts/testing)
-* [CLI](/tools/flow-cli)
-* [Emulator](/tools/emulator)
+* [Mobile](/build/cadence/guides/mobile/overview)
+* [FCL](/build/tools/clients/fcl-js)
+* [Testing](/build/cadence/smart-contracts/testing)
+* [CLI](/build/tools/flow-cli)
+* [Emulator](/build/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/tools/vscode-extension)
+* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
@@ -1855,18 +1855,18 @@ Start Building
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/core-contracts)
-* [EVM](/evm/about)
+* [Core Contracts & Standards](/build/cadence/core-contracts)
+* [EVM](/build/evm/about)
 
 Network
 
 * [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
-* [Node Operation](/networks/node-ops)
-* [Spork Information](/networks/node-ops/node-operation/spork)
+* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/protocol/node-ops)
+* [Spork Information](/protocol/node-ops/node-operation/spork)
 
 More
 

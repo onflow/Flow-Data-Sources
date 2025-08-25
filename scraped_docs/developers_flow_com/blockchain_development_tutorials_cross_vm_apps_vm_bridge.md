@@ -6,7 +6,7 @@ Cross-VM Bridge | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -93,7 +93,7 @@ info
 All bridging activity in either direction is orchestrated via Cadence on COA EVM accounts. This means that all bridging
 activity must be initiated via a Cadence transaction, not an EVM transaction regardless of the directionality of the
 bridge request. For more information on the interplay between Cadence and EVM, see [How Flow EVM
-Works](/evm/how-it-works).
+Works](/build/evm/how-it-works).
 
 ## Overview[​](#overview "Direct link to Overview")
 
@@ -104,7 +104,7 @@ fungible tokens are defined by contracts implementing
 and non-fungible tokens implement
 [the `NonFungibleToken` interface](https://github.com/onflow/flow-nft/blob/master/contracts/NonFungibleToken.cdc).
 
-You can find full guides for creating these projects [here](/build/guides/nft).
+You can find full guides for creating these projects [here](/build/cadence/guides/nft).
 
 Like all operations on Flow, there are native fees associated with both computation and storage. To prevent spam and
 sustain the bridge account's storage consumption, fees are charged for both onboarding assets and bridging assets. In
@@ -3111,7 +3111,7 @@ Type & ERC721 proxy (not the implementation address).
 
 #### Cadence[​](#cadence "Direct link to Cadence")
 
-All Cadence NFT contracts implement [Metadata Views](/build/advanced-concepts/metadata-views)
+All Cadence NFT contracts implement [Metadata Views](/build/cadence/advanced-concepts/metadata-views)
 that return metadata about their NFTs in standard ways
 via the `{Contract}.resolveContractView()` and `{NFT}.resolveView()` methods.
 
@@ -3797,7 +3797,7 @@ For the current state of Flow EVM across various task paths, see the following r
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cross-vm-apps/vm-bridge.md)
 
-Last updated on **Aug 17, 2025** by **0xLisanAlGaib**
+Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -3831,16 +3831,16 @@ Copy as Markdown
 
 Documentation
 
-* [Getting Started](/build/getting-started/contract-interaction)
-* [SDK's & Tools](/tools)
+* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/guides/mobile/overview)
-* [FCL](/tools/clients/fcl-js)
-* [Testing](/build/smart-contracts/testing)
-* [CLI](/tools/flow-cli)
-* [Emulator](/tools/emulator)
+* [Mobile](/build/cadence/guides/mobile/overview)
+* [FCL](/build/tools/clients/fcl-js)
+* [Testing](/build/cadence/smart-contracts/testing)
+* [CLI](/build/tools/flow-cli)
+* [Emulator](/build/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/tools/vscode-extension)
+* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
@@ -3857,18 +3857,18 @@ Start Building
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/core-contracts)
-* [EVM](/evm/about)
+* [Core Contracts & Standards](/build/cadence/core-contracts)
+* [EVM](/build/evm/about)
 
 Network
 
 * [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
-* [Node Operation](/networks/node-ops)
-* [Spork Information](/networks/node-ops/node-operation/spork)
+* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/protocol/node-ops)
+* [Spork Information](/protocol/node-ops/node-operation/spork)
 
 More
 
