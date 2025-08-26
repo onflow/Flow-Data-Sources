@@ -6,8 +6,6 @@ Integrate Flow EVM with Web3 SDKs | Flow Wallet
 
 Flow Wallet](/)
 
-`Ctrl``K`
-
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
 
@@ -66,6 +64,12 @@ Copy
 
 # 🔌Integrate Flow EVM with Web3 SDKs
 
+[PreviousEcosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)[NextWagmi](/ecosystem-development/integrate-flow-evm-with-web3-sdks/wagmi)
+
+Last updated 7 months ago
+
+`Ctrl``K`
+
 ### Detect Flow wallet provider via EIP-6963
 
 Copy
@@ -104,7 +108,3 @@ const WalletConnect = () => {
 
 }
 ```
-
-[PreviousEcosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)[NextWagmi](/ecosystem-development/integrate-flow-evm-with-web3-sdks/wagmi)
-
-Last updated 7 months ago

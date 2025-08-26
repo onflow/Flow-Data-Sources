@@ -6,8 +6,6 @@ Extension Private Key and Seed Phrase Guide | Flow Wallet
 
 Flow Wallet](/)
 
-`Ctrl``K`
-
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
 
@@ -66,6 +64,12 @@ Copy
 
 # 💾Extension Private Key and Seed Phrase Guide
 
+[PreviousFLOW wallet init token guide](/tutorial/flow-wallet-init-token-guide)[NextMobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
+
+Last updated 10 months ago
+
+`Ctrl``K`
+
 Welcome to the Flow Wallet Extension guide! Your private key and seed phrase are essential components for managing and securing your digital assets. In this guide, we will show you how to easily locate your private key and seed phrase directly from the Settings page of the Flow Wallet Extension. Having this information at your fingertips ensures that you can recover your wallet and maintain full control over your funds. Let’s dive in and learn how to access these crucial details safely!
 
 1. Open the Flow Wallet Extension and navigate to the Settings page. Select the "Account List" section to view your accounts.
@@ -93,7 +97,3 @@ Welcome to the Flow Wallet Extension guide! Your private key and seed phrase are
 ### Support
 
 If you encounter any issues or have further questions, please reach out to our support team at [[email protected]](/cdn-cgi/l/email-protection).
-
-[PreviousFLOW wallet init token guide](/tutorial/flow-wallet-init-token-guide)[NextMobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
-
-Last updated 10 months ago

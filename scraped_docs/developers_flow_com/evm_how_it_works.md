@@ -6,24 +6,40 @@ How Flow EVM Works | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [Why EVM on Flow](/evm/about)
-* [How it Works](/evm/how-it-works)
-* [Using Flow EVM](/evm/using)
-* [Network Information](/evm/networks)
-* [EVM Quickstart](/evm/quickstart)
-* [Fees](/evm/fees)
-* [Accounts](/evm/accounts)
-* [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
-* [Faucets ↙](/evm/faucets)
-* [Block Explorers ↙](/evm/block-explorers)
-* [Guides](/evm/guides)
+* [Why Flow](/build/flow)
+* [Cadence](/build/cadence/getting-started)
 
+  + [Getting Started](/build/cadence/getting-started)
+  + [Differences vs. EVM](/build/cadence/differences-vs-evm)
+  + [Flow Protocol](/build/cadence/basics/network-architecture)
+  + [App Architecture](/build/cadence/app-architecture)
+  + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
+  + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+  + [Guides](/build/cadence/guides/account-linking)
+  + [Core Smart Contracts](/build/cadence/core-contracts)
+  + [Explore More](/build/cadence/explore-more)
+* [Solidity (EVM)](/build/evm/about)
+
+  + [Why EVM on Flow](/build/evm/about)
+  + [How it Works](/build/evm/how-it-works)
+  + [Using Flow EVM](/build/evm/using)
+  + [Network Information](/build/evm/networks)
+  + [EVM Quickstart](/build/evm/quickstart)
+  + [Fees](/build/evm/fees)
+  + [Accounts](/build/evm/accounts)
+  + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
+  + [Faucets ↙](/evm/faucets)
+  + [Block Explorers ↙](/evm/block-explorers)
+  + [Guides](/build/evm/guides)
+* [Tools & SDKs](/build/tools)
+
+* Solidity (EVM)
 * How it Works
 
 On this page
@@ -44,7 +60,7 @@ Flow EVM is designed with these major goals in mind:
 
 To satisfy the design goals and thanks to the extensibility properties of the Cadence runtime, Flow EVM is designed as a higher-level environment incorporated as a smart contract deployed to Cadence. This smart contract is not owned by anyone and has its own storage space, allows Cadence to query, and is updated through EVM transactions. EVM transactions can be wrapped inside Cadence transactions and passed to the EVM contract for execution. The artifacts of EVM transaction execution (e.g. receipts and logs) are emitted as special Cadence events (TransactionExecuted, BlockExecuted) and available to the upstream process (Flow transaction) to enable atomic operations.
 
-The EVM environment has its own concept of blocks, and every Flow block includes at most one EVM Block. The EVM block is formed at the end of Flow Block execution and includes all the transaction executed during the EVM block execution. Note that since EVM blocks are formed on-chain and Flow provides fast finality, as long as the user of these events waits for Flow block finality, it doesn’t have to worry about EVM block forks, uncle chains, and other consensus-related challenges.
+The EVM environment has its own concept of blocks, and every Flow block includes at most one EVM Block. The EVM block is formed at the end of Flow Block execution and includes all the transaction executed during the EVM block execution. Note that since EVM blocks are formed onchain and Flow provides fast finality, as long as the user of these events waits for Flow block finality, it doesn’t have to worry about EVM block forks, uncle chains, and other consensus-related challenges.
 
 ### No Shared Memory Design[​](#no-shared-memory-design "Direct link to No Shared Memory Design")
 
@@ -114,8 +130,8 @@ Functions currently available on the Cadence Arch smart contract are:
 
 * `FlowBlockHeight() uint64` (signature: `0x53e87d66`) returns the current Flow block height, this could be used instead of Flow EVM block heights to trigger scheduled actions given it's more predictable when a block might be formed.
 * `VerifyCOAOwnershipProof(bytes32 _hash, bytes memory _signature)(bool success)` returns true if the proof is valid. An ownership proof verifies that a Flow wallet controls a COA account (see the next section for more details on COA).
-* `revertibleRandom() uint64` returns a safe pseudo-random value that is produced by the Flow VRF (using Flow internal randomness beacon). The function invokes Cadence's `revertibleRandom<uint64>` described [here](https://developers.flow.com/build/advanced-concepts/randomness). Although the random value is safe, a transaction may revert its results in the case of an unfavourable outcome. The function should only be used by trusted calls where there is no issue with reverting the results. `getRandomSource` must be used instead with untrusted calls.
-* `getRandomSource(uint64) bytes32` should be used when implementing a [commit-reveal](https://developers.flow.com/build/advanced-concepts/randomness#commit-reveal-scheme) scheme. It returns a secure random source from the Cadence randomness history contract. Learn more about the secure usage of randomness on Flow [here](https://developers.flow.com/build/advanced-concepts/randomness).
+* `revertibleRandom() uint64` returns a safe pseudo-random value that is produced by the Flow VRF (using Flow internal randomness beacon). The function invokes Cadence's `revertibleRandom<uint64>` described [here](https://developers.flow.com/build/cadence/advanced-concepts/randomness). Although the random value is safe, a transaction may revert its results in the case of an unfavourable outcome. The function should only be used by trusted calls where there is no issue with reverting the results. `getRandomSource` must be used instead with untrusted calls.
+* `getRandomSource(uint64) bytes32` should be used when implementing a [commit-reveal](https://developers.flow.com/build/cadence/advanced-concepts/randomness#commit-reveal-scheme) scheme. It returns a secure random source from the Cadence randomness history contract. Learn more about the secure usage of randomness on Flow [here](https://developers.flow.com/build/cadence/advanced-concepts/randomness).
 
 Here is a sample demonstrating how to call the Cadence Arch.
 
@@ -186,15 +202,15 @@ Another type of proof that EVM environments provide is proof for the state of ac
 
 Flow’s state system provides ways to construct inclusion and non-inclusion proofs and one can construct proofs for EVM account’s meta data (account balances, nonce, … ). A less common proof type is proof over the storage state of an account (mostly used for smart contracts). The first release of Flow EVM won’t support these type of proofs.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/how-it-works.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/evm/how-it-works.md)
 
-Last updated on **Aug 17, 2025** by **0xLisanAlGaib**
+Last updated on **Aug 22, 2025** by **Brian Doyle**
 
 [Previous
 
-Why EVM on Flow](/evm/about)[Next
+Why EVM on Flow](/build/evm/about)[Next
 
-Using Flow EVM](/evm/using)
+Using Flow EVM](/build/evm/using)
 
 ###### Rate this page
 
@@ -220,16 +236,16 @@ Copy as Markdown
 
 Documentation
 
-* [Getting Started](/build/getting-started/contract-interaction)
-* [SDK's & Tools](/tools)
+* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/guides/mobile/overview)
-* [FCL](/tools/clients/fcl-js)
-* [Testing](/build/smart-contracts/testing)
-* [CLI](/tools/flow-cli)
-* [Emulator](/tools/emulator)
+* [Mobile](/build/cadence/guides/mobile/overview)
+* [FCL](/build/tools/clients/fcl-js)
+* [Testing](/build/cadence/smart-contracts/testing)
+* [CLI](/build/tools/flow-cli)
+* [Emulator](/build/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/tools/vscode-extension)
+* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
@@ -246,18 +262,18 @@ Start Building
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/core-contracts)
-* [EVM](/evm/about)
+* [Core Contracts & Standards](/build/cadence/core-contracts)
+* [EVM](/build/evm/about)
 
 Network
 
 * [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
-* [Node Operation](/networks/node-ops)
-* [Spork Information](/networks/node-ops/node-operation/spork)
+* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/protocol/node-ops)
+* [Spork Information](/protocol/node-ops/node-operation/spork)
 
 More
 

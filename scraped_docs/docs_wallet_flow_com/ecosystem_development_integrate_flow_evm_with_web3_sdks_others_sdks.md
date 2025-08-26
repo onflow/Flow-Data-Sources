@@ -6,8 +6,6 @@ Others SDKs | Flow Wallet
 
 Flow Wallet](/)
 
-`Ctrl``K`
-
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
 
@@ -72,3 +70,5 @@ Wip
 [PreviousMIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)[NextPrivy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 
 Last updated 7 months ago
+
+`Ctrl``K`

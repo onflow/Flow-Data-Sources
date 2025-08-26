@@ -6,8 +6,6 @@ Privy | Flow Wallet
 
 Flow Wallet](/)
 
-`Ctrl``K`
-
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
 
@@ -60,10 +58,6 @@ Flow Wallet](/)
 
 On this page
 
-* [1. Enable Smart Wallet](#id-1.-enable-smart-wallet)
-* [2. Add Custom EVM Chains (Flow EVM)](#id-2.-add-custom-evm-chains-flow-evm)
-* [✅ Verify the Configuration](#verify-the-configuration)
-
 Copy
 
 1. [Ecosystem Development](/ecosystem-development)
@@ -72,6 +66,16 @@ Copy
 # Privy
 
 🛠️ Guide to Configuring Privy with Flow Wallet (EVM Support)
+
+[PreviousOthers SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)[NextDownload](/download/download)
+
+Last updated 20 days ago
+
+`Ctrl``K`
+
+* [1. Enable Smart Wallet](#id-1.-enable-smart-wallet)
+* [2. Add Custom EVM Chains (Flow EVM)](#id-2.-add-custom-evm-chains-flow-evm)
+* [✅ Verify the Configuration](#verify-the-configuration)
 
 ---
 
@@ -156,7 +160,3 @@ After saving, you should see `Flow` and/or `Flow Testnet` listed under your conf
 You can now use Privy’s SDK in your dApp frontend to connect wallets, sign transactions, and interact with contracts on Flow EVM.
 
 ---
-
-[PreviousOthers SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)[NextDownload](/download/download)
-
-Last updated 18 days ago

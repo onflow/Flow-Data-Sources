@@ -6,8 +6,6 @@ Wallet Revoke key guide | Flow Wallet
 
 Flow Wallet](/)
 
-`Ctrl``K`
-
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
 
@@ -60,12 +58,18 @@ Flow Wallet](/)
 
 On this page
 
-* [📍 Steps to Revoke a Key](#steps-to-revoke-a-key)
-* [✅ Success](#success)
-
 Copy
 
 # 🔐Wallet Revoke key guide
+
+[PreviousMobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
+
+Last updated 1 month ago
+
+`Ctrl``K`
+
+* [📍 Steps to Revoke a Key](#steps-to-revoke-a-key)
+* [✅ Success](#success)
 
 If you no longer want a specific key to have access to your account, you can easily revoke it from the **Account Settings**. Follow the steps below to revoke a key safely.
 
@@ -95,7 +99,3 @@ If you no longer want a specific key to have access to your account, you can eas
 ### ✅ Success
 
 After revoking, the key will be marked as **Revoked**, and access using that key will be disabled immediately.
-
-[PreviousMobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
-
-Last updated 1 month ago

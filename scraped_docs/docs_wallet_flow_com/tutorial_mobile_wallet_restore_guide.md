@@ -6,8 +6,6 @@ Mobile Wallet Restore Guide | Flow Wallet
 
 Flow Wallet](/)
 
-`Ctrl``K`
-
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
 
@@ -60,16 +58,22 @@ Flow Wallet](/)
 
 On this page
 
-* [From Device Backup](#from-device-backup)
-* [From Multi Backup](#from-multi-backup)
-* [From Raw Key](#from-raw-key)
-* [Support](#support)
-
 Copy
 
 1. [Tutorial](/tutorial)
 
 # 📱Mobile Wallet Restore Guide
+
+[PreviousMove Assets between Flow and EVM](/tutorial/move-assets-between-flow-and-evm)[NextExtension Wallet Backup Guide](/tutorial/extension-wallet-backup-guide)
+
+Last updated 10 months ago
+
+`Ctrl``K`
+
+* [From Device Backup](#from-device-backup)
+* [From Multi Backup](#from-multi-backup)
+* [From Raw Key](#from-raw-key)
+* [Support](#support)
 
 Welcome to the Flow mobile Wallet Account Restoration Guide! This resource will help you seamlessly restore your account using various backup methods. Whether you need to recover your wallet from a device backup, utilize a multi-backup, or access your account using raw keys, we've got you covered.
 
@@ -176,7 +180,3 @@ Copy and past your private key in the correct order.
 ### Support
 
 If you encounter any issues or have further questions, please reach out to our support team at [[email protected]](/cdn-cgi/l/email-protection).
-
-[PreviousMove Assets between Flow and EVM](/tutorial/move-assets-between-flow-and-evm)[NextExtension Wallet Backup Guide](/tutorial/extension-wallet-backup-guide)
-
-Last updated 10 months ago

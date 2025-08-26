@@ -6,8 +6,6 @@ FLOW wallet init token guide | Flow Wallet
 
 Flow Wallet](/)
 
-`Ctrl``K`
-
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
 
@@ -66,6 +64,12 @@ Copy
 
 # 🪙FLOW wallet init token guide
 
+[PreviousExtension Update Guide](/tutorial/extension-update-guide)[NextExtension Private Key and Seed Phrase Guide](/tutorial/extension-private-key-and-seed-phrase-guide)
+
+Last updated 10 months ago
+
+`Ctrl``K`
+
 Welcome to our guide on enabling token storage in your FLOW wallet! Before you can receive FLOW tokens from others, it’s important to enable token storage in your wallet. This crucial step ensures that your wallet is equipped to securely hold and manage your tokens.
 
 In this guide, we’ll provide you with a step-by-step process to get started. Whether you’re a newcomer to the FLOW ecosystem or looking to enhance your understanding, this guide will empower you to handle your FLOW tokens with ease. Let’s dive in!
@@ -93,7 +97,3 @@ After you’ve completed all the above steps, you’ll find that the token has b
 ### Support
 
 If you encounter any issues or have further questions, please reach out to our support team at [[email protected]](/cdn-cgi/l/email-protection).
-
-[PreviousExtension Update Guide](/tutorial/extension-update-guide)[NextExtension Private Key and Seed Phrase Guide](/tutorial/extension-private-key-and-seed-phrase-guide)
-
-Last updated 10 months ago

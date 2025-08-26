@@ -6,8 +6,6 @@ Web3js | Flow Wallet
 
 Flow Wallet](/)
 
-`Ctrl``K`
-
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
 
@@ -69,6 +67,12 @@ Copy
 
 Integrate with Web3js
 
+[PreviousEtherjs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/etherjs)[NextViem](/ecosystem-development/integrate-flow-evm-with-web3-sdks/viem)
+
+Last updated 7 months ago
+
+`Ctrl``K`
+
 ### Connet wallet
 
 Copy
@@ -103,7 +107,3 @@ const WalletConnect = () => {
 See more detail on <https://github.com/Outblock/web3js-flow-evm-demo>
 
 See more detail on <https://github.com/Outblock/web3js-flow-evm-demo>
-
-[PreviousEtherjs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/etherjs)[NextViem](/ecosystem-development/integrate-flow-evm-with-web3-sdks/viem)
-
-Last updated 7 months ago

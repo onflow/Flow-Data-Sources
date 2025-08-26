@@ -6,8 +6,6 @@ Human Readable Transactions | Flow Wallet
 
 Flow Wallet](/)
 
-`Ctrl``K`
-
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
 
@@ -66,6 +64,12 @@ Copy
 
 # 📖Human Readable Transactions
 
+[PreviousWalletConnect](/features/walletconnect)[NextFlow Client Library (FCL)](/features/flow-client-library-fcl)
+
+Last updated 1 year ago
+
+`Ctrl``K`
+
 Flow Reference Wallet supports human-readable transactions during transaction authorization.
 **Background**
 When users are prompted to authorize a transaction, they are frequently presented with complex and often bewildering information, leading to confusion and increased user friction. This obscurity has unfortunately paved the way for numerous attacks, resulting in significant losses for unsuspecting victims.
@@ -77,7 +81,3 @@ Interaction template auditors play a crucial role in assessing the accuracy and 
 Interaction templates and audits eliminate the need for users to decipher unintelligible authorization prompts, ensuring they confidently sign and approve transactions that they understand.
 Flow Foundation believes that increasing the number of human-readable transactions through the usage of interaction templates and audits can further increase the adoption of Web3 and Flow.
 For more on how application developers, cadence developers and wallets can use interaction templates, see: <https://developers.flow.com/tooling/fcl-js/interaction-templates>
-
-[PreviousWalletConnect](/features/walletconnect)[NextFlow Client Library (FCL)](/features/flow-client-library-fcl)
-
-Last updated 1 year ago

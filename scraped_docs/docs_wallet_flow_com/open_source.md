@@ -6,8 +6,6 @@ Open Source | Flow Wallet
 
 Flow Wallet](/)
 
-`Ctrl``K`
-
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
 
@@ -66,6 +64,12 @@ Copy
 
 # 💽Open Source
 
+[PreviousDownload](/download/download)[NextMobile Wallet Backup Guide](/tutorial/mobile-wallet-backup-guide)
+
+Last updated 1 year ago
+
+`Ctrl``K`
+
 **iOS**
 <https://github.com/Outblock/FRW-iOS>
 
@@ -74,7 +78,3 @@ Copy
 
 **Chrome Extension**
 <https://github.com/Outblock/FRW-Extension>
-
-[PreviousDownload](/download/download)[NextMobile Wallet Backup Guide](/tutorial/mobile-wallet-backup-guide)
-
-Last updated 1 year ago

@@ -6,8 +6,6 @@ Account Linking | Flow Wallet
 
 Flow Wallet](/)
 
-`Ctrl``K`
-
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
 
@@ -66,6 +64,12 @@ Copy
 
 # ⛓️Account Linking
 
+[PreviousFAQ](/faq/faq)[NextWalletConnect](/features/walletconnect)
+
+Last updated 11 months ago
+
+`Ctrl``K`
+
 Flow Reference Wallet supports Account Linking, which is uniquely supported by Flow's account abstraction, which enables accounts to be linked together to create an association between them.
 **Background**One of the major hindrances to Web3 adoption is often the requirement for users to sign up for a wallet provider. This step during user onboarding to an application often causes excessive user friction and can deter users from participating. Flow solves this issue with account linking, which removes the requirement for users to sign up for a wallet prior to experiencing apps on Flow, while also enabling users to graduate to self-custody and true ownership of their assets.
 
@@ -80,7 +84,3 @@ Flow Reference Wallet supports and demonstrates account linking by automatically
 Flow Foundation believes that account linking eliminates the barriers to Web3 adoption by enabling familiar user onboarding mechanics to bring users to applications on Flow. Flow Reference Wallet provides support for account linking so users can seamlessly graduate to self-custody of their assets, and benefit from the portability of those assets across the ecosystem of apps on Flow.
 For more information on account linking, see: <https://flow.com/account-linking>
 For detailed technical documentation on account linking, see: <https://developers.flow.com/build/advanced-concepts/account-linking>
-
-[PreviousFAQ](/faq/faq)[NextWalletConnect](/features/walletconnect)
-
-Last updated 11 months ago

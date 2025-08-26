@@ -6,8 +6,6 @@ Etherjs | Flow Wallet
 
 Flow Wallet](/)
 
-`Ctrl``K`
-
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
 
@@ -69,6 +67,12 @@ Copy
 
 Integrate with etherjs
 
+[PreviousRainbowkit](/ecosystem-development/integrate-flow-evm-with-web3-sdks/rainbowkit)[NextWeb3js](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3js)
+
+Last updated 7 months ago
+
+`Ctrl``K`
+
 ### Connect wallet
 
 Copy
@@ -97,7 +101,3 @@ const WalletConnect = () => {
 ```
 
 See more detail on <https://github.com/Outblock/etherjs-flow-evm-demo>
-
-[PreviousRainbowkit](/ecosystem-development/integrate-flow-evm-with-web3-sdks/rainbowkit)[NextWeb3js](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3js)
-
-Last updated 7 months ago
