@@ -6,6 +6,8 @@ Extension Wallet Backup Guide | Flow Wallet
 
 Flow Wallet](/)
 
+`Ctrl``K`
+
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
 
@@ -64,12 +66,6 @@ Copy
 
 # 💻Extension Wallet Backup Guide
 
-[PreviousMobile Wallet Restore Guide](/tutorial/mobile-wallet-restore-guide)[NextExtension Wallet Restore Guide](/tutorial/extension-wallet-restore-guide)
-
-Last updated 10 months ago
-
-`Ctrl``K`
-
 Backing up your Flow Wallet Extension is crucial for ensuring the safety and accessibility of your digital assets. This guide will cover three essential methods for backing up your wallet.Introduction to Account Backup. These methods only used for accounts created in FLOW Wallet Extension.
 
 To ensure the security and accessibility of your account, it’s essential to have a reliable backup plan. We recommend choosing at least two of the following methods to back up your account. This will provide you with multiple layers of protection, giving you peace of mind that your assets are safe and can be easily recovered if needed.
@@ -103,3 +99,7 @@ After you’ve completed all the above steps, you’ll find that the backup has 
 ### Support
 
 If you encounter any issues or have further questions, please reach out to our support team at [[email protected]](/cdn-cgi/l/email-protection)
+
+[PreviousMobile Wallet Restore Guide](/tutorial/mobile-wallet-restore-guide)[NextExtension Wallet Restore Guide](/tutorial/extension-wallet-restore-guide)
+
+Last updated 10 months ago

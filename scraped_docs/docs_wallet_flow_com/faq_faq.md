@@ -6,6 +6,8 @@ FAQ | Flow Wallet
 
 Flow Wallet](/)
 
+`Ctrl``K`
+
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
 
@@ -66,12 +68,6 @@ Copy
 
 Answers to common questions about Flow Wallet
 
-[PreviousFlow Reference Wallet Primer](/ecosystem-primers/flow-reference-wallet-primer)[NextAccount Linking](/features/account-linking)
-
-Last updated 11 months ago
-
-`Ctrl``K`
-
 #### Is Flow Wallet a Self-Custody or Custodial Wallet?
 
 Flow Wallet is self-custodial. Users own and control the cryptographic keys securing their Flow accounts and assets.
@@ -117,3 +113,7 @@ This is the multi-backup recovery process:
 Create a Multi-Backup on Flow Wallet iOS and Android
 
 * Navigate to Settings > Backup > Create Multi-Backup
+
+[PreviousFlow Reference Wallet Primer](/ecosystem-primers/flow-reference-wallet-primer)[NextAccount Linking](/features/account-linking)
+
+Last updated 11 months ago

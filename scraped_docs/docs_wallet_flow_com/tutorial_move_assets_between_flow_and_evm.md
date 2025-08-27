@@ -6,6 +6,8 @@ Move Assets between Flow and EVM | Flow Wallet
 
 Flow Wallet](/)
 
+`Ctrl``K`
+
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
 
@@ -58,22 +60,16 @@ Flow Wallet](/)
 
 On this page
 
+* [Indroduction](#indroduction)
+* [Fungible asset transaction](#fungible-asset-transaction)
+* [Non-fungible assets transaction](#non-fungible-assets-transaction)
+* [Support](#support)
+
 Copy
 
 1. [Tutorial](/tutorial)
 
 # 💸Move Assets between Flow and EVM
-
-[PreviousMobile Wallet Backup Guide](/tutorial/mobile-wallet-backup-guide)[NextMobile Wallet Restore Guide](/tutorial/mobile-wallet-restore-guide)
-
-Last updated 10 months ago
-
-`Ctrl``K`
-
-* [Indroduction](#indroduction)
-* [Fungible asset transaction](#fungible-asset-transaction)
-* [Non-fungible assets transaction](#non-fungible-assets-transaction)
-* [Support](#support)
 
 ### Indroduction
 
@@ -182,3 +178,7 @@ Transferring FT to an EOA is a straightforward process. The steps to send FT fro
 ### Support
 
 If you encounter any issues or have further questions, please reach out to our support team at [[email protected]](/cdn-cgi/l/email-protection).
+
+[PreviousMobile Wallet Backup Guide](/tutorial/mobile-wallet-backup-guide)[NextMobile Wallet Restore Guide](/tutorial/mobile-wallet-restore-guide)
+
+Last updated 10 months ago

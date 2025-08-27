@@ -4665,9 +4665,9 @@ Search
     - [Utils](/build/tools/flow-cli/utils/signature-generate)
     - [Dependency Manager](/build/tools/flow-cli/dependency-manager)
     - [Running Cadence Tests](/build/tools/flow-cli/tests)
+    - [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)
     - [Cadence Linter](/build/tools/flow-cli/lint)
     - [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)
-    - [Cadence Boilerplate](/build/tools/flow-cli/boilerplate)
     - [Data Collection](/build/tools/flow-cli/data-collection)
   + [Cadence VS Code Extension](/build/tools/vscode-extension)
   + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
@@ -5018,7 +5018,7 @@ Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 Dependency Manager](/build/tools/flow-cli/dependency-manager)[Next
 
-Cadence Linter](/build/tools/flow-cli/lint)
+Generating Cadence Boilerplate](/build/tools/flow-cli/generate)
 
 ###### Rate this page
 
@@ -5166,9 +5166,9 @@ Search
     - [Utils](/build/tools/flow-cli/utils/signature-generate)
     - [Dependency Manager](/build/tools/flow-cli/dependency-manager)
     - [Running Cadence Tests](/build/tools/flow-cli/tests)
+    - [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)
     - [Cadence Linter](/build/tools/flow-cli/lint)
     - [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)
-    - [Cadence Boilerplate](/build/tools/flow-cli/boilerplate)
     - [Data Collection](/build/tools/flow-cli/data-collection)
   + [Cadence VS Code Extension](/build/tools/vscode-extension)
   + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
@@ -13193,7 +13193,7 @@ Sponsor Transactions RPC Node | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -13227,7 +13227,7 @@ This method only works in situations where you can control the RPC node used to 
 
 ## Context[​](#context "Direct link to Context")
 
-In [Using Flow EVM](/evm/using), we know that we can use the RPC endpoint to send EVM transactions to the Flow EVM. The default RPC endpoint is actually the [EVM Gateway](https://github.com/onflow/flow-evm-gateway).
+In [Using Flow EVM](/build/evm/using), we know that we can use the RPC endpoint to send EVM transactions to the Flow EVM. The default RPC endpoint is actually the [EVM Gateway](https://github.com/onflow/flow-evm-gateway).
 
 ### How does the EVM Gateway work?[​](#how-does-the-evm-gateway-work "Direct link to How does the EVM Gateway work?")
 
@@ -13248,7 +13248,7 @@ Here is the key points of the Flow EVM Gateway:
 
 ### Why we need a gas free EVM endpoint?[​](#why-we-need-a-gas-free-evm-endpoint "Direct link to Why we need a gas free EVM endpoint?")
 
-From the Flow [transaction model](/build/basics/transactions#Payer), we know that there is actually a Fee Payer role in native Flow transactions. When the transaction is executed, the fees for the transaction are entirely borne by the Fee Payer role. However, for EVM, the transaction model doesn't separate the signer from the payer. Therefore, when we execute transactions on the EVM, the transaction fees **must** be covered by the sender of the transaction.
+From the Flow [transaction model](/build/cadence/basics/transactions#Payer), we know that there is actually a Fee Payer role in native Flow transactions. When the transaction is executed, the fees for the transaction are entirely borne by the Fee Payer role. However, for EVM, the transaction model doesn't separate the signer from the payer. Therefore, when we execute transactions on the EVM, the transaction fees **must** be covered by the sender of the transaction.
 
 So here is the problem - if we want to send a EVM transaction through the default EVM Gateway, the sender's account has enough balance to cover the transaction fees. However, in some scenarios, developers may prefer to sponsor the transaction fees to create a more user-friendly experience, just can be done in native Cadence transactions, or paymaster solutions on other networks.
 
@@ -13268,11 +13268,11 @@ As long as you can ensure that all your users' transactions are sent through a c
 
 ## How to set up a gas free EVM endpoint?[​](#how-to-set-up-a-gas-free-evm-endpoint "Direct link to How to set up a gas free EVM endpoint?")
 
-Mosts of the tasks you need to complete are in the guide to set up your own [Custom EVM Gateway](/networks/node-ops/evm-gateway/evm-gateway-setup). A few highlights:
+Mosts of the tasks you need to complete are in the guide to set up your own [Custom EVM Gateway](/protocol/node-ops/evm-gateway/evm-gateway-setup). A few highlights:
 
-1. You need to prepare a Service Account for the EVM Gateway to cover all transaction fees. Please refer to [Account Creation](/networks/node-ops/evm-gateway/evm-gateway-setup#step-1---account-creation) for more details.
-2. You need to add enough identical keys to the Service Account to support the concurrent signing of EVM transactions. This is very important, because the EVM Gateway will use the Service Account to pay for the gas fees of the EVM transactions, so the Service Account needs to have enough keys to support the concurrent signing of EVM transactions. Please refer to [Account and Key Management](/networks/node-ops/evm-gateway/evm-gateway-setup#account-and-key-management) for more details.
-3. You need to set the correct environment variables for the EVM Gateway to enable the gas-free feature, adjust the environment variables in the [Run the gateway](/networks/node-ops/evm-gateway/evm-gateway-setup#run-the-gateway) section as follows:
+1. You need to prepare a Service Account for the EVM Gateway to cover all transaction fees. Please refer to [Account Creation](/protocol/node-ops/evm-gateway/evm-gateway-setup#step-1---account-creation) for more details.
+2. You need to add enough identical keys to the Service Account to support the concurrent signing of EVM transactions. This is very important, because the EVM Gateway will use the Service Account to pay for the gas fees of the EVM transactions, so the Service Account needs to have enough keys to support the concurrent signing of EVM transactions. Please refer to [Account and Key Management](/protocol/node-ops/evm-gateway/evm-gateway-setup#account-and-key-management) for more details.
+3. You need to set the correct environment variables for the EVM Gateway to enable the gas-free feature, adjust the environment variables in the [Run the gateway](/protocol/node-ops/evm-gateway/evm-gateway-setup#run-the-gateway) section as follows:
 
 * `COINBASE`: The address is used to accept EVM transaction fees. In this case, there won't be fees to accept because all fees will be covered by the service account. But you need to set it with a valid address to ensure the EVM Gateway can start.
 * `COA_ADDRESS`: This is the service account address, which will be used to pay for the gas fees of the EVM transactions. Please input the address of the Service Account you created in step 1, but without the `0x` prefix.
@@ -13280,7 +13280,7 @@ Mosts of the tasks you need to complete are in the guide to set up your own [Cus
 * `COA_KEY`: You need to set the private key of the Service Account you created in step 1.
 * `GAS_PRICE`: **Critical**: set this to `0` to ensure the linked service account will pay for transactions on users behalf.
 
-4. Please follow the full guide of [Custom EVM Gateway](/networks/node-ops/evm-gateway/evm-gateway-setup) to complete the EVM gateway setup, then you will get a custom RPC endpoint which will sponsor 100% of the gas fees for any EVM transaction sent through it.
+4. Please follow the full guide of [Custom EVM Gateway](/protocol/node-ops/evm-gateway/evm-gateway-setup) to complete the EVM gateway setup, then you will get a custom RPC endpoint which will sponsor 100% of the gas fees for any EVM transaction sent through it.
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
@@ -13296,7 +13296,7 @@ Remember that this solution is most effective when you can ensure all user trans
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/gasless-transactions/gas-free-evm-endpoint.md)
 
-Last updated on **Aug 17, 2025** by **0xLisanAlGaib**
+Last updated on **Aug 22, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -13319,16 +13319,16 @@ Copy as Markdown
 
 Documentation
 
-* [Getting Started](/build/getting-started/contract-interaction)
-* [SDK's & Tools](/tools)
+* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/guides/mobile/overview)
-* [FCL](/tools/clients/fcl-js)
-* [Testing](/build/smart-contracts/testing)
-* [CLI](/tools/flow-cli)
-* [Emulator](/tools/emulator)
+* [Mobile](/build/cadence/guides/mobile/overview)
+* [FCL](/build/tools/clients/fcl-js)
+* [Testing](/build/cadence/smart-contracts/testing)
+* [CLI](/build/tools/flow-cli)
+* [Emulator](/build/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/tools/vscode-extension)
+* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
@@ -13345,18 +13345,18 @@ Start Building
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/core-contracts)
-* [EVM](/evm/about)
+* [Core Contracts & Standards](/build/cadence/core-contracts)
+* [EVM](/build/evm/about)
 
 Network
 
 * [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
-* [Node Operation](/networks/node-ops)
-* [Spork Information](/networks/node-ops/node-operation/spork)
+* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/protocol/node-ops)
+* [Spork Information](/protocol/node-ops/node-operation/spork)
 
 More
 
@@ -15360,9 +15360,9 @@ Search
     - [Utils](/build/tools/flow-cli/utils/signature-generate)
     - [Dependency Manager](/build/tools/flow-cli/dependency-manager)
     - [Running Cadence Tests](/build/tools/flow-cli/tests)
+    - [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)
     - [Cadence Linter](/build/tools/flow-cli/lint)
     - [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)
-    - [Cadence Boilerplate](/build/tools/flow-cli/boilerplate)
     - [Data Collection](/build/tools/flow-cli/data-collection)
   + [Cadence VS Code Extension](/build/tools/vscode-extension)
   + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
@@ -17028,9 +17028,9 @@ Search
     - [Utils](/build/tools/flow-cli/utils/signature-generate)
     - [Dependency Manager](/build/tools/flow-cli/dependency-manager)
     - [Running Cadence Tests](/build/tools/flow-cli/tests)
+    - [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)
     - [Cadence Linter](/build/tools/flow-cli/lint)
     - [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)
-    - [Cadence Boilerplate](/build/tools/flow-cli/boilerplate)
     - [Data Collection](/build/tools/flow-cli/data-collection)
   + [Cadence VS Code Extension](/build/tools/vscode-extension)
   + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
@@ -22956,9 +22956,9 @@ Search
     - [Utils](/build/tools/flow-cli/utils/signature-generate)
     - [Dependency Manager](/build/tools/flow-cli/dependency-manager)
     - [Running Cadence Tests](/build/tools/flow-cli/tests)
+    - [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)
     - [Cadence Linter](/build/tools/flow-cli/lint)
     - [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)
-    - [Cadence Boilerplate](/build/tools/flow-cli/boilerplate)
     - [Data Collection](/build/tools/flow-cli/data-collection)
   + [Cadence VS Code Extension](/build/tools/vscode-extension)
   + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
@@ -25407,6 +25407,12 @@ If we wanted to generate a new script, we could run:
 
 flow generate script ScriptName`
 
+info
+
+For more information about generating Cadence files, see the [Generating Cadence Boilerplate](/build/tools/flow-cli/generate) documentation.
+
+**You'll usually want to use these commands instead of adding files manually!**
+
 But the default project already has a `GetCounter` script for reading the count of the `Counter` contract. Open `cadence/scripts/GetCounter.cdc` in your editor to see the script.
 
 To run the script, you can run:
@@ -25765,7 +25771,7 @@ Even more importantly, we did this **without needing access or permission.** You
 
 ## More[​](#more "Direct link to More")
 
-If you want to continue on generating your own contracts, you can also use the the `generate` subcommand to create a new contract file. See more in the [`generate` documentation](/build/tools/flow-cli/boilerplate).
+If you want to continue on generating your own contracts, you can also use the the `generate` subcommand to create a new contract file. See more in the [Generating Cadence Boilerplate](/build/tools/flow-cli/generate) documentation.
 
 After that, it's easy to add your contract to your project configuration using the Flow CLI [`config` commands](/build/tools/flow-cli/flow.json/manage-configuration).
 
@@ -25802,7 +25808,7 @@ In this tutorial, we've accomplished all of our learning objectives:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/getting-started/flow-cli.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Aug 26, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -72829,9 +72835,9 @@ Search
     - [Utils](/build/tools/flow-cli/utils/signature-generate)
     - [Dependency Manager](/build/tools/flow-cli/dependency-manager)
     - [Running Cadence Tests](/build/tools/flow-cli/tests)
+    - [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)
     - [Cadence Linter](/build/tools/flow-cli/lint)
     - [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)
-    - [Cadence Boilerplate](/build/tools/flow-cli/boilerplate)
     - [Data Collection](/build/tools/flow-cli/data-collection)
   + [Cadence VS Code Extension](/build/tools/vscode-extension)
   + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
@@ -72878,7 +72884,7 @@ Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-Cadence Boilerplate](/build/tools/flow-cli/boilerplate)[Next
+Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)[Next
 
 Cadence VS Code Extension](/build/tools/vscode-extension)
 
@@ -79724,9 +79730,9 @@ Search
     - [Utils](/build/tools/flow-cli/utils/signature-generate)
     - [Dependency Manager](/build/tools/flow-cli/dependency-manager)
     - [Running Cadence Tests](/build/tools/flow-cli/tests)
+    - [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)
     - [Cadence Linter](/build/tools/flow-cli/lint)
     - [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)
-    - [Cadence Boilerplate](/build/tools/flow-cli/boilerplate)
     - [Data Collection](/build/tools/flow-cli/data-collection)
   + [Cadence VS Code Extension](/build/tools/vscode-extension)
   + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
@@ -81817,9 +81823,9 @@ Search
     - [Utils](/build/tools/flow-cli/utils/signature-generate)
     - [Dependency Manager](/build/tools/flow-cli/dependency-manager)
     - [Running Cadence Tests](/build/tools/flow-cli/tests)
+    - [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)
     - [Cadence Linter](/build/tools/flow-cli/lint)
     - [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)
-    - [Cadence Boilerplate](/build/tools/flow-cli/boilerplate)
     - [Data Collection](/build/tools/flow-cli/data-collection)
   + [Cadence VS Code Extension](/build/tools/vscode-extension)
   + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
@@ -101783,7 +101789,7 @@ Use Flow MCP in Cursor | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -101824,7 +101830,7 @@ Adding Flow MCP to Cursor gives you powerful AI-driven tools directly inside you
 
 Specifically, it enables you to:
 
-* Ask the AI in Cursor to fetch on-chain data such as account balances, account information, or contract source code without leaving your editor.
+* Ask the AI in Cursor to fetch onchain data such as account balances, account information, or contract source code without leaving your editor.
 * Speed up development by letting AI perform blockchain queries that would normally require manual steps.
 * Improve context for AI assistance by allowing Cursor to pull real blockchain data when needed.
 * Automate routine Flow tasks using tools exposed by the MCP server.
@@ -101938,7 +101944,7 @@ For issues or questions:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp/use-mcp-in-cursor.md)
 
-Last updated on **Aug 17, 2025** by **0xLisanAlGaib**
+Last updated on **Aug 22, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -101965,16 +101971,16 @@ Copy as Markdown
 
 Documentation
 
-* [Getting Started](/build/getting-started/contract-interaction)
-* [SDK's & Tools](/tools)
+* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/guides/mobile/overview)
-* [FCL](/tools/clients/fcl-js)
-* [Testing](/build/smart-contracts/testing)
-* [CLI](/tools/flow-cli)
-* [Emulator](/tools/emulator)
+* [Mobile](/build/cadence/guides/mobile/overview)
+* [FCL](/build/tools/clients/fcl-js)
+* [Testing](/build/cadence/smart-contracts/testing)
+* [CLI](/build/tools/flow-cli)
+* [Emulator](/build/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/tools/vscode-extension)
+* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
@@ -101991,18 +101997,18 @@ Start Building
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/core-contracts)
-* [EVM](/evm/about)
+* [Core Contracts & Standards](/build/cadence/core-contracts)
+* [EVM](/build/evm/about)
 
 Network
 
 * [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
-* [Node Operation](/networks/node-ops)
-* [Spork Information](/networks/node-ops/node-operation/spork)
+* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/protocol/node-ops)
+* [Spork Information](/protocol/node-ops/node-operation/spork)
 
 More
 
@@ -103109,9 +103115,9 @@ Search
     - [Utils](/build/tools/flow-cli/utils/signature-generate)
     - [Dependency Manager](/build/tools/flow-cli/dependency-manager)
     - [Running Cadence Tests](/build/tools/flow-cli/tests)
+    - [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)
     - [Cadence Linter](/build/tools/flow-cli/lint)
     - [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)
-    - [Cadence Boilerplate](/build/tools/flow-cli/boilerplate)
     - [Data Collection](/build/tools/flow-cli/data-collection)
   + [Cadence VS Code Extension](/build/tools/vscode-extension)
   + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
@@ -112800,9 +112806,9 @@ Search
     - [Utils](/build/tools/flow-cli/utils/signature-generate)
     - [Dependency Manager](/build/tools/flow-cli/dependency-manager)
     - [Running Cadence Tests](/build/tools/flow-cli/tests)
+    - [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)
     - [Cadence Linter](/build/tools/flow-cli/lint)
     - [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)
-    - [Cadence Boilerplate](/build/tools/flow-cli/boilerplate)
     - [Data Collection](/build/tools/flow-cli/data-collection)
   + [Cadence VS Code Extension](/build/tools/vscode-extension)
   + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
@@ -121761,9 +121767,9 @@ Search
     - [Utils](/build/tools/flow-cli/utils/signature-generate)
     - [Dependency Manager](/build/tools/flow-cli/dependency-manager)
     - [Running Cadence Tests](/build/tools/flow-cli/tests)
+    - [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)
     - [Cadence Linter](/build/tools/flow-cli/lint)
     - [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)
-    - [Cadence Boilerplate](/build/tools/flow-cli/boilerplate)
     - [Data Collection](/build/tools/flow-cli/data-collection)
   + [Cadence VS Code Extension](/build/tools/vscode-extension)
   + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
@@ -127327,9 +127333,9 @@ Search
     - [Utils](/build/tools/flow-cli/utils/signature-generate)
     - [Dependency Manager](/build/tools/flow-cli/dependency-manager)
     - [Running Cadence Tests](/build/tools/flow-cli/tests)
+    - [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)
     - [Cadence Linter](/build/tools/flow-cli/lint)
     - [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)
-    - [Cadence Boilerplate](/build/tools/flow-cli/boilerplate)
     - [Data Collection](/build/tools/flow-cli/data-collection)
   + [Cadence VS Code Extension](/build/tools/vscode-extension)
   + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
@@ -127687,9 +127693,9 @@ Search
     - [Utils](/build/tools/flow-cli/utils/signature-generate)
     - [Dependency Manager](/build/tools/flow-cli/dependency-manager)
     - [Running Cadence Tests](/build/tools/flow-cli/tests)
+    - [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)
     - [Cadence Linter](/build/tools/flow-cli/lint)
     - [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)
-    - [Cadence Boilerplate](/build/tools/flow-cli/boilerplate)
     - [Data Collection](/build/tools/flow-cli/data-collection)
   + [Cadence VS Code Extension](/build/tools/vscode-extension)
   + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
@@ -129031,6 +129037,646 @@ Copy as Markdown
 * [Parameters](#parameters)
   + [`id`](#id)
 * [Returns](#returns)
+
+Documentation
+
+* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Tools & SDKs](/build/tools)
+* [Cadence](https://cadence-lang.org/docs/)
+* [Mobile](/build/cadence/guides/mobile/overview)
+* [FCL](/build/tools/clients/fcl-js)
+* [Testing](/build/cadence/smart-contracts/testing)
+* [CLI](/build/tools/flow-cli)
+* [Emulator](/build/tools/emulator)
+* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
+* [VS Code Extension](/build/tools/vscode-extension)
+
+Community
+
+* [Ecosystem](/ecosystem)
+* [Flow Port](https://port.flow.com/)
+* [Developer Grants](https://github.com/onflow/developer-grants)
+* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
+* [Flowverse](https://www.flowverse.co/)
+* [Emerald Academy](https://academy.ecdao.org/)
+* [FLOATs (Attendance NFTs)](https://floats.city/)
+
+Start Building
+
+* [Flow Playground](https://play.flow.com/)
+* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
+* [Cadence Cookbook](https://cookbook.flow.com)
+* [Core Contracts & Standards](/build/cadence/core-contracts)
+* [EVM](/build/evm/about)
+
+Network
+
+* [Network Status](https://status.flow.com/)
+* [Flowscan Mainnet](https://flowscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
+* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/protocol/node-ops)
+* [Spork Information](/protocol/node-ops/node-operation/spork)
+
+More
+
+* [GitHub](https://github.com/onflow)
+* [Discord](https://discord.gg/flow)
+* [Forum](https://forum.flow.com/)
+* [Flow](https://flow.com/)
+* [Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow, Inc. Built with Docusaurus.
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://developers.flow.com/protocol/staking/staking-scripts-events
+
+Query Staking Info with Scripts or Events | Flow Developer Portal
+
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Flow Networks](/protocol/flow-networks)
+* [Networks](/protocol)
+* [Flow Network Architecture](/protocol/network-architecture)
+* [Staking and Epochs](/protocol/staking)
+
+  + [Epoch and Staking Terminology](/protocol/staking/epoch-terminology)
+  + [Epoch and Reward Schedule](/protocol/staking/schedule)
+  + [Epoch Preparation Protocol](/protocol/staking/epoch-preparation)
+  + [Stake Slashing](/protocol/staking/stake-slashing)
+  + [Epoch Scripts and Events](/protocol/staking/epoch-scripts-events)
+  + [Staking Technical Overview](/protocol/staking/technical-overview)
+  + [Staking Scripts and Events](/protocol/staking/staking-scripts-events)
+  + [How to Query Staking rewards](/protocol/staking/staking-rewards)
+  + [QC and DKG](/protocol/staking/qc-dkg)
+  + [QC/DKG Scripts and Events](/protocol/staking/qc-dkg-scripts-events)
+  + [Machine Account](/protocol/staking/machine-account)
+  + [FAQs](/protocol/staking/faq)
+  + [Technical Staking Options](/protocol/staking/staking-options)
+  + [Staking Collection Guide](/protocol/staking/staking-collection)
+  + [Basic Staking Guide (Deprecated)](/protocol/staking/staking-guide)
+* [Node Ops](/protocol/node-ops)
+* [Accessing Data](/protocol/access-onchain-data)
+* [Governance](/protocol/governance)
+* [Flow Port](/protocol/flow-port)
+
+* [Staking and Epochs](/protocol/staking)
+* Staking Scripts and Events
+
+On this page
+
+# Introduction
+
+The staking contract stores a lot of different state, and the state is constantly changing.
+As an external party, there are two ways to keep track of these state changes.
+You can either use Cadence scripts to query the state of the contract at any given time,
+or you can monitor events that are emitted by the staking contract to be notified of any important occurances.
+
+# Query Information with Scripts
+
+## Get the list of proposed nodes for the next epoch:[​](#get-the-list-of-proposed-nodes-for-the-next-epoch "Direct link to Get the list of proposed nodes for the next epoch:")
+
+`FlowIDTableStaking.getProposedNodeIDs()`: Returns an array of node IDs for proposed nodes.
+Proposed nodes are nodes that have enough staked and committed for the next epoch
+to be above the minimum requirement and have been selected to participate in the next epoch.
+This means that new access nodes that have not been selected with the random slot selection algorithm
+will not be included in this list.
+
+You can use the **Get Proposed Table**([SC.05](/build/cadence/core-contracts/staking-contract-reference#getting-staking-info-with-scripts)) script for retrieving this info.
+
+This script requires no arguments.
+
+## Get the list of all nodes that are currently staked:[​](#get-the-list-of-all-nodes-that-are-currently-staked "Direct link to Get the list of all nodes that are currently staked:")
+
+`FlowIDTableStaking.getStakedNodeIDs()` and ``FlowIDTableStaking.getParticipantNodeList()`:
+Returns an array of nodeIDs that are currently staked.
+Staked nodes are nodes that are staked and participating in the current epoch.
+
+You can use the **Get Current Table**([SC.04](/build/cadence/core-contracts/staking-contract-reference#getting-staking-info-with-scripts)) script for retrieving this info.
+
+This script requires no arguments.
+
+## Get the list of all Candidate Nodes[​](#get-the-list-of-all-candidate-nodes "Direct link to Get the list of all Candidate Nodes")
+
+`getCandidateNodeList(): {UInt8: {String: Bool}}`:
+Returns a dictionary of nodes that are candidates to stake in the next epoch
+but are not staked in the current epoch.
+
+You can use the [**Get Candidate Node List**](https://github.com/onflow/flow-core-contracts/blob/master/contracts/FlowIDTableStaking.cdc#L1762) script for retrieving this info.
+
+This script requires no arguments.
+
+## Get all of the info associated with a single node staker:[​](#get-all-of-the-info-associated-with-a-single-node-staker "Direct link to Get all of the info associated with a single node staker:")
+
+`FlowIDTableStaking.NodeInfo(nodeID: String)`: Returns a `NodeInfo` struct with all of the metadata
+associated with the specified node ID. You can see the `NodeInfo` definition in the [FlowIDTableStaking
+smart contract.](https://github.com/onflow/flow-core-contracts/blob/master/contracts/FlowIDTableStaking.cdc#L254)
+
+You can use the **Get Node Info**([SC.08](/build/cadence/core-contracts/staking-contract-reference#getting-staking-info-with-scripts)) script
+with the following arguments:
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| **nodeID** | `String` | The node ID of the node to search for. |
+
+You can also query the info from an address that uses the staking collection by using the **Get Node Info From Address**([SCO.15](/build/cadence/core-contracts/staking-collection#scripts)) script
+with the following arguments:
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| **address** | `Address` | The address of the account that manages the nodes. |
+
+## Get the total committed balance of a node (with delegators):[​](#get-the-total-committed-balance-of-a-node-with-delegators "Direct link to Get the total committed balance of a node (with delegators):")
+
+`FlowIDTableStaking.NodeInfo(_ nodeID: String).totalCommittedWithDelegators()`: Returns the total committed balance for a node,
+which is their total tokens staked + committed, plus all of the staked + committed tokens of all their delegators.
+
+You can use the **Get Node Total Commitment**([SC.09](/build/cadence/core-contracts/staking-contract-reference#getting-staking-info-with-scripts)) script
+with the following argument:
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| **nodeID** | `String` | The node ID of the node to search for. |
+
+## Get the total committed balance of a node (without delegators):[​](#get-the-total-committed-balance-of-a-node-without-delegators "Direct link to Get the total committed balance of a node (without delegators):")
+
+`FlowIDTableStaking.NodeInfo(_ nodeID: String).totalCommittedWithoutDelegators()`: Returns the total committed balance for a node,
+which is their total tokens staked + committed, plus all of the staked + committed tokens of all their delegators.
+
+You can use the **Get Only Node Total Commitment**([SC.11](/build/cadence/core-contracts/staking-contract-reference#getting-staking-info-with-scripts)) script
+with the following argument:
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| **nodeID** | `String` | The node ID of the node to search for. |
+
+## Get all the info associated with a single delegator:[​](#get-all-the-info-associated-with-a-single-delegator "Direct link to Get all the info associated with a single delegator:")
+
+`FlowIDTableStaking.DelegatorInfo(nodeID: String, delegatorID: UInt32)`: Returns a `DelegatorInfo` struct with all of the metadata
+associated with the specified node ID and delegator ID. You can see the `DelegatorInfo` definition in the [FlowIDTableStaking
+smart contract.](https://github.com/onflow/flow-core-contracts/blob/master/contracts/FlowIDTableStaking.cdc#L375)
+
+You can use the **Get Delegator Info**([SC.10](/build/cadence/core-contracts/staking-contract-reference#getting-staking-info-with-scripts))
+script with the following arguments:
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| **nodeID** | `String` | The node ID that the delegator delegates to. |
+| **delegatorID** | `String` | The ID of the delegator to search for. |
+
+You can also query the info from an address by using the **Get Delegator Info From Address**([SCO.16](/build/cadence/core-contracts/staking-collection#scripts)) script
+with the following arguments:
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| **address** | `Address` | The address of the account that manages the delegator. |
+
+## Get the delegation cut percentage:[​](#get-the-delegation-cut-percentage "Direct link to Get the delegation cut percentage:")
+
+`FlowIDTableStaking.getRewardCutPercentage(): UFix64`: Returns a `UFix64` number for the cut of delegator rewards that each node operator takes.
+
+You can use the **Get Cut Percentage**([SC.01](/build/cadence/core-contracts/staking-contract-reference#getting-staking-info-with-scripts)) script to retrieve this info.
+
+This script requires no arguments.
+
+## Get the minimum stake requirements:[​](#get-the-minimum-stake-requirements "Direct link to Get the minimum stake requirements:")
+
+`FlowIDTableStaking.getMinimumStakeRequirements(): {UInt8: UFix64}`: Returns a mapping
+for the stake requirements for each node type.
+
+You can use the **Get stake requirements**([SC.02](/build/cadence/core-contracts/staking-contract-reference#getting-staking-info-with-scripts)) script to retrieve this info.
+
+This script requires no arguments.
+
+## Get the total weekly reward payout:[​](#get-the-total-weekly-reward-payout "Direct link to Get the total weekly reward payout:")
+
+`FlowIDTableStaking.getEpochTokenPayout(): UFix64`: Returns a `UFix64` value for the total number of FLOW paid out each epoch (week).
+
+You can use the **Get weekly payout**([SC.03](/build/cadence/core-contracts/staking-contract-reference#getting-staking-info-with-scripts)) script to retrieve this info.
+
+This script requires no arguments.
+
+## Get the total FLOW staked:[​](#get-the-total-flow-staked "Direct link to Get the total FLOW staked:")
+
+You can use the **Get total FLOW staked**([SC.06](/build/cadence/core-contracts/staking-contract-reference#getting-staking-info-with-scripts)) script to retrieve this info.
+
+This script requires no arguments.
+
+## Get the total FLOW staked by all the nodes of a single node role:[​](#get-the-total-flow-staked-by-all-the-nodes-of-a-single-node-role "Direct link to Get the total FLOW staked by all the nodes of a single node role:")
+
+You can use the **Get total FLOW staked by node type**([SC.07](/build/cadence/core-contracts/staking-contract-reference#getting-staking-info-with-scripts)) script
+with the following arguments:
+
+| Argument | Type | Description |
+| --- | --- | --- |
+| **nodeType** | `UInt8` | The type of node to search for. |
+
+# Staking Events
+
+Staking events can be queried using the Go or JavaScript SDKs to extract useful notifications and information about the
+state of the staking process.
+
+## Global Staking and Epoch Events[​](#global-staking-and-epoch-events "Direct link to Global Staking and Epoch Events")
+
+### NewEpoch[​](#newepoch "Direct link to NewEpoch")
+
+`_10
+
+access(all) event NewEpoch(totalStaked: UFix64, totalRewardPayout: UFix64, newEpochCounter: UInt64)`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| totalStaked | UFix64 | The total number of tokens staked for the new Epoch |
+| totalRewardPayout | UFix64 | The total number of tokens that will be paid as rewards for this epoch |
+| newEpochCounter | UInt64 | The epoch counter for this new epoch |
+
+Emitted by `FlowIDTableStaking.Admin.moveTokens()` when the tokens are moved between pools, which signals a new epoch.
+
+### NewWeeklyPayout[​](#newweeklypayout "Direct link to NewWeeklyPayout")
+
+`_10
+
+access(all) event NewWeeklyPayout(newPayout: UFix64)`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| newPayout | UFix64 | The new number of tokens that will be paid at the end of the epoch |
+
+Emitted by `FlowIDTableStaking.Admin.setEpochTokenPayout()` when the Admin changes the total tokens paid at the end of the epoch.
+
+After this event the `epochTokenPayout` is equal to the new value.
+
+## Node Events[​](#node-events "Direct link to Node Events")
+
+These are events that concern the operation of a node.
+
+### NewNodeCreated[​](#newnodecreated "Direct link to NewNodeCreated")
+
+`_10
+
+access(all) event NewNodeCreated(nodeID: String, role: UInt8, amountCommitted: UFix64)`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| nodeID | String | The unique ID string for the node. 32 bytes. Usually the hash of the node's public key. |
+| role | UInt8 | The node's role type. From 1 to 5 inclusive. |
+| amountCommitted | UFix64 | The amount of FLOW tokens staked to register the node. This is determined by the `role`. |
+
+Emitted by `FlowIDTableStaking.NodeRecord.init()` when a new node is successfully created.
+
+After this event is emitted for your node, you can begin to perform staking transactions using it.
+
+### NodeRemovedAndRefunded[​](#noderemovedandrefunded "Direct link to NodeRemovedAndRefunded")
+
+`_10
+
+access(all) event NodeRemovedAndRefunded(nodeID: String, amount: UFix64)`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| nodeID | String | The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node. |
+| amount | UFix64 | The amount of FLOW tokens returned to the node. |
+
+Emitted by `FlowIDTableStaking.Admin.endStakingAuction()` if the node is being removed from the next epoch
+due to a failure to meet the minimum requirements of committed tokens for the next epoch.
+
+After this event, the refunded FLOW tokens will be part of the node's `tokensUnstaked` balance.
+
+## Token Events[​](#token-events "Direct link to Token Events")
+
+These are events that concern the direct usage of FLOW tokens - staking or unstaking locked tokens, withdrawing rewards, etc.
+
+Events emitted when using delegation are described in the next section.
+
+### TokensCommitted[​](#tokenscommitted "Direct link to TokensCommitted")
+
+`_10
+
+access(all) event TokensCommitted(nodeID: String, amount: UFix64)`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| nodeID | String | The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node. |
+| amount | UFix64 | The amount of additional FLOW tokens committed to the node. |
+
+Emitted whenever additional tokens are staked on the node for the following epoch. Specifically:
+
+1. By `FlowIDTableStaking.NodeStaker.stakeNewTokens()` when new tokens (tokens that have not previously been staked) are added to the system
+   to stake on the node during the next epoch.
+2. By `FlowIDTableStaking.NodeStaker.stakeUnstakedTokens()` when unstaked tokens (tokens that were previously staked and then unstaked)
+   are staked again with the node for the next epoch.
+3. By `FlowIDTableStaking.NodeStaker.stakeRewardedTokens()` when reward tokens (tokens paid in return for previous staking)
+   are staked with the node for the next epoch.
+
+After this event, the FLOW tokens will be part of the node's `tokensCommitted` balance.
+
+### TokensStaked[​](#tokensstaked "Direct link to TokensStaked")
+
+`_10
+
+access(all) event TokensStaked(nodeID: String, amount: UFix64)`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| nodeID | String | The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node. |
+| amount | UFix64 | The amount of FLOW tokens staked to the node. |
+
+Emitted by `FlowIDTableStaking.Admin.moveTokens()` at the end of an epoch if committed tokens are being added to the node's tokensStaked balance.
+
+After this event, the tokens will be part of the node's staked balance.
+
+### TokensUnstaking[​](#tokensunstaking "Direct link to TokensUnstaking")
+
+`_10
+
+access(all) event TokensUnstaking(nodeID: String, amount: UFix64)`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| nodeID | String | The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node. |
+| amount | UFix64 | The amount of FLOW tokens unstaked from the node. |
+
+Emitted by `FlowIDTableStaking.Admin.moveTokens()` at the end of an epoch if
+a node operator's staked tokens are being unstaked in response to a request from the node operator.
+After this event, the tokens will be a part of the node operator's `tokensUnstaking` balance, where they are held for a whole epoch "unstaking period" with no rewards.
+
+### TokensUnstaked[​](#tokensunstaked "Direct link to TokensUnstaked")
+
+`_10
+
+access(all) event TokensUnstaked(nodeID: String, amount: UFix64)`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| nodeID | String | The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node. |
+| amount | UFix64 | The amount of FLOW tokens unstaked from the node. |
+
+Emitted by `FlowIDTableStaking.NodeStaker.requestUnstaking()` and `FlowIDTableStaking.Admin.moveTokens()`
+when tokens are deposited into the `tokensUnstaked` pool:
+
+### RewardsPaid[​](#rewardspaid "Direct link to RewardsPaid")
+
+`_10
+
+access(all) event RewardsPaid(nodeID: String, amount: UFix64)`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| nodeID | String | The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node. |
+| amount | UFix64 | The amount of FLOW tokens paid to the node this epoch as a reward. |
+
+Emitted by `FlowIDTableStaking.Admin.payRewards()` at the end of the epoch to pay rewards to node operators based on the tokens that they have staked.
+
+After this event, the reward tokens will be part of the node's tokensRewarded balance.
+
+The Delegator rewards are paid at the same time, see `DelegatorRewardsPaid` below.
+
+### UnstakedTokensWithdrawn[​](#unstakedtokenswithdrawn "Direct link to UnstakedTokensWithdrawn")
+
+`_10
+
+access(all) event UnstakedTokensWithdrawn(nodeID: String, amount: UFix64)`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| nodeID | String | The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node. |
+| amount | UFix64 | The amount of unstaked FLOW tokens that the node operator is withdrawing. |
+
+Emitted by `FlowIDTableStaking.NodeStaker.withdrawUnstakedTokens()` when the node operator calls that function to withdraw part or all of their
+unstaked tokens balance.
+
+After this event, the FLOW tokens will be withdrawn to a newly created `FungibleToken.Vault` which the caller can deposit to the vault of their choice.
+
+### RewardTokensWithdrawn[​](#rewardtokenswithdrawn "Direct link to RewardTokensWithdrawn")
+
+`_10
+
+access(all) event RewardTokensWithdrawn(nodeID: String, amount: UFix64)`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| nodeID | String | The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node. |
+| amount | UFix64 | The amount of rewarded FLOW tokens that the node operator is withdrawing. |
+
+Emitted by `FlowIDTableStaking.NodeStaker.withdrawRewardedTokens()` when the node operator calls that function to withdraw part or all of their
+reward tokens balance.
+
+After this event, the FLOW tokens will be withdrawn to a newly created `FungibleToken.Vault` which the caller can deposit to the vault of their choice.
+
+## Delegator Events[​](#delegator-events "Direct link to Delegator Events")
+
+These are events that concern FLOW token delegation.
+
+### NewDelegatorCreated[​](#newdelegatorcreated "Direct link to NewDelegatorCreated")
+
+`_10
+
+access(all) event NewDelegatorCreated(nodeID: String, delegatorID: UInt32)`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| nodeID | String | The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node. |
+| delegatorID | UFix64 | The ID for the new delegator. Unique within the node but not globally. |
+
+Emitted by `FlowIDTableStaking.Admin.registerNewDelegator()` when the node operator registers a new delegator for the node.
+
+Note that the delegatorID is unique within the node but is not globally unique.
+
+After this event, the new delegator is registered with the node.
+
+### DelegatorTokensCommitted[​](#delegatortokenscommitted "Direct link to DelegatorTokensCommitted")
+
+`_10
+
+access(all) event DelegatorTokensCommitted(nodeID: String, delegatorID: UInt32, amount: UFix64)`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| nodeID | String | The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node. |
+| delegatorID | UInt32 | The ID for the delegator. |
+| amount | UFix64 | The amount of additional FLOW tokens committed to the node. |
+
+Emitted whenever additional tokens are committed for a delegator for the following epoch. Specifically:
+
+1. By `FlowIDTableStaking.NodeDelegator.delegateNewTokens()` when new tokens (tokens that have not previously been staked) are added to the system
+   to stake with the delegator during the next epoch.
+2. By `FlowIDTableStaking.NodeDelegator.delegateUnstakedTokens()` when unstaked tokens (tokens that were previously staked and then unstaked)
+   are staked again with the delegator for the next epoch.
+3. By `FlowIDTableStaking.NodeDelegator.delegateRewardedTokens()` when reward tokens (tokens paid in return for previous staking)
+   are staked with the delegator for the next epoch.
+
+After this event, the FLOW tokens will be part of the delegator's `tokensCommitted` balance.
+
+### DelegatorTokensStaked[​](#delegatortokensstaked "Direct link to DelegatorTokensStaked")
+
+`_10
+
+access(all) event DelegatorTokensStaked(nodeID: String, delegatorID: UInt32, amount: UFix64)`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| nodeID | String | The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node. |
+| delegatorID | UInt32 | The ID for the delegator. |
+| amount | UFix64 | The amount of FLOW tokens staked to the node. |
+
+Emitted by `FlowIDTableStaking.Admin.moveTokens()` at the end of an epoch if committed tokens are being added to the delegator's tokensStaked balance.
+
+After this event, the tokens will be part of the delegator's staked balance.
+
+### DelegatorTokensUnstaking[​](#delegatortokensunstaking "Direct link to DelegatorTokensUnstaking")
+
+`_10
+
+access(all) event DelegatorTokensUnstaking(nodeID: String, delegatorID: UInt32, amount: UFix64)`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| nodeID | String | The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node. |
+| delegatorID | UInt32 | The ID for the delegator. |
+| amount | UFix64 | The amount of FLOW tokens unstaked from the node. |
+
+Emitted by `FlowIDTableStaking.Admin.moveTokens()` at the end of an epoch if
+a delegator's staked tokens are being unstaked in response to a request from the delegator.
+After this event, the tokens will be a part of the delegator's `tokensUnstaking` balance, where they are held for a whole epoch "unstaking period" with no rewards.
+
+### DelegatorTokensUnstaked[​](#delegatortokensunstaked "Direct link to DelegatorTokensUnstaked")
+
+`_10
+
+access(all) event DelegatorTokensUnstaked(nodeID: String, delegatorID: UInt32, amount: UFix64)`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| nodeID | String | The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node. |
+| delegatorID | UInt32 | The ID for the delegator. |
+| amount | UFix64 | The amount of FLOW tokens unstaked from the node. |
+
+Emitted by `FlowIDTableStaking.NodeDelegator.requestUnstaking()` and `FlowIDTableStaking.Admin.moveTokens()`
+when tokens are deposited into the delegator's `tokensUnstaked` pool:
+
+### DelegatorRewardsPaid[​](#delegatorrewardspaid "Direct link to DelegatorRewardsPaid")
+
+`_10
+
+access(all) event DelegatorRewardsPaid(nodeID: String, delegatorID: UInt32, amount: UFix64)`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| nodeID | String | The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node. |
+| delegatorID | UFix64 | The ID for the delegator. Unique within the node but not globally. |
+| amount | UFix64 | The amount of rewarded FLOW tokens that the delegator is paid. |
+
+Emitted by `FlowIDTableStaking.Admin.payRewards()` at the end of an epoch when rewards are being paid.
+
+After this event is emitted, the reward tokens will be part of the delegator's tokensRewarded balance.
+
+The Node rewards are paid at the same time, see `RewardsPaid` above.
+
+### DelegatorUnstakedTokensWithdrawn[​](#delegatorunstakedtokenswithdrawn "Direct link to DelegatorUnstakedTokensWithdrawn")
+
+`_10
+
+access(all) event DelegatorUnstakedTokensWithdrawn(nodeID: String, delegatorID: UInt32, amount: UFix64)`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| nodeID | String | The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node. |
+| delegatorID | UFix64 | The ID for the delegator. Unique within the node but not globally. |
+| amount | UFix64 | The amount of unstaked FLOW tokens that the delegator is withdrawing. |
+
+Emitted by `FlowIDTableStaking.NodeDelegator.withdrawUnstakedTokens()` when the delegator calls that function to withdraw part or all of their
+unstaked tokens balance.
+
+After this event, the FLOW tokens will be withdrawn to a newly created `FungibleToken.Vault` which the caller can deposit to the vault of their choice.
+
+### DelegatorRewardTokensWithdrawn[​](#delegatorrewardtokenswithdrawn "Direct link to DelegatorRewardTokensWithdrawn")
+
+`_10
+
+access(all) event DelegatorRewardTokensWithdrawn(nodeID: String, delegatorID: UInt32, amount: UFix64)`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| nodeID | String | The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node. |
+| delegatorID | UFix64 | The ID for the delegator. Unique within the node but not globally. |
+| amount | UFix64 | The amount of rewarded FLOW tokens that the delegator is withdrawing. |
+
+Emitted by `FlowIDTableStaking.NodeDelegator.withdrawRewardedTokens()` when the delegator calls that function to withdraw part or all of their
+unstaked tokens balance.
+
+After this event, the FLOW tokens will be withdrawn to a newly created `FungibleToken.Vault` which the caller can deposit to the vault of their choice.
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/protocol/staking/07-staking-scripts-events.md)
+
+Last updated on **Aug 22, 2025** by **Brian Doyle**
+
+[Previous
+
+Staking Technical Overview](/protocol/staking/technical-overview)[Next
+
+How to Query Staking rewards](/protocol/staking/staking-rewards)
+
+###### Rate this page
+
+😞😐😊
+
+Copy as Markdown
+
+* [Get the list of proposed nodes for the next epoch:](#get-the-list-of-proposed-nodes-for-the-next-epoch)
+* [Get the list of all nodes that are currently staked:](#get-the-list-of-all-nodes-that-are-currently-staked)
+* [Get the list of all Candidate Nodes](#get-the-list-of-all-candidate-nodes)
+* [Get all of the info associated with a single node staker:](#get-all-of-the-info-associated-with-a-single-node-staker)
+* [Get the total committed balance of a node (with delegators):](#get-the-total-committed-balance-of-a-node-with-delegators)
+* [Get the total committed balance of a node (without delegators):](#get-the-total-committed-balance-of-a-node-without-delegators)
+* [Get all the info associated with a single delegator:](#get-all-the-info-associated-with-a-single-delegator)
+* [Get the delegation cut percentage:](#get-the-delegation-cut-percentage)
+* [Get the minimum stake requirements:](#get-the-minimum-stake-requirements)
+* [Get the total weekly reward payout:](#get-the-total-weekly-reward-payout)
+* [Get the total FLOW staked:](#get-the-total-flow-staked)
+* [Get the total FLOW staked by all the nodes of a single node role:](#get-the-total-flow-staked-by-all-the-nodes-of-a-single-node-role)
+* [Global Staking and Epoch Events](#global-staking-and-epoch-events)
+  + [NewEpoch](#newepoch)
+  + [NewWeeklyPayout](#newweeklypayout)
+* [Node Events](#node-events)
+  + [NewNodeCreated](#newnodecreated)
+  + [NodeRemovedAndRefunded](#noderemovedandrefunded)
+* [Token Events](#token-events)
+  + [TokensCommitted](#tokenscommitted)
+  + [TokensStaked](#tokensstaked)
+  + [TokensUnstaking](#tokensunstaking)
+  + [TokensUnstaked](#tokensunstaked)
+  + [RewardsPaid](#rewardspaid)
+  + [UnstakedTokensWithdrawn](#unstakedtokenswithdrawn)
+  + [RewardTokensWithdrawn](#rewardtokenswithdrawn)
+* [Delegator Events](#delegator-events)
+  + [NewDelegatorCreated](#newdelegatorcreated)
+  + [DelegatorTokensCommitted](#delegatortokenscommitted)
+  + [DelegatorTokensStaked](#delegatortokensstaked)
+  + [DelegatorTokensUnstaking](#delegatortokensunstaking)
+  + [DelegatorTokensUnstaked](#delegatortokensunstaked)
+  + [DelegatorRewardsPaid](#delegatorrewardspaid)
+  + [DelegatorUnstakedTokensWithdrawn](#delegatorunstakedtokenswithdrawn)
+  + [DelegatorRewardTokensWithdrawn](#delegatorrewardtokenswithdrawn)
 
 Documentation
 
@@ -157856,6 +158502,407 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/cdc
+
+cdc | Flow Developer Portal
+
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Why Flow](/build/flow)
+* [Cadence](/build/cadence/getting-started)
+
+  + [Getting Started](/build/cadence/getting-started)
+  + [Differences vs. EVM](/build/cadence/differences-vs-evm)
+  + [Flow Protocol](/build/cadence/basics/network-architecture)
+  + [App Architecture](/build/cadence/app-architecture)
+  + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
+  + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+  + [Guides](/build/cadence/guides/account-linking)
+  + [Core Smart Contracts](/build/cadence/core-contracts)
+  + [Explore More](/build/cadence/explore-more)
+* [Solidity (EVM)](/build/evm/about)
+
+  + [Why EVM on Flow](/build/evm/about)
+  + [How it Works](/build/evm/how-it-works)
+  + [Using Flow EVM](/build/evm/using)
+  + [Network Information](/build/evm/networks)
+  + [EVM Quickstart](/build/evm/quickstart)
+  + [Fees](/build/evm/fees)
+  + [Accounts](/build/evm/accounts)
+  + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
+  + [Faucets ↙](/evm/faucets)
+  + [Block Explorers ↙](/evm/block-explorers)
+  + [Guides](/build/evm/guides)
+* [Tools & SDKs](/build/tools)
+
+  + [@onflow/react-sdk](/build/tools/react-sdk)
+  + [Flow Emulator](/build/tools/emulator)
+  + [Flow CLI](/build/tools/flow-cli)
+  + [Cadence VS Code Extension](/build/tools/vscode-extension)
+  + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
+  + [Client Tools](/build/tools/clients)
+
+    - [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
+
+      * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
+
+        + [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
+        + [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
+
+          - [account](/build/tools/clients/fcl-js/packages-docs/sdk/account)
+          - [arg](/build/tools/clients/fcl-js/packages-docs/sdk/arg)
+          - [args](/build/tools/clients/fcl-js/packages-docs/sdk/args)
+          - [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockHeight)
+          - [atBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockId)
+          - [atLatestBlock](/build/tools/clients/fcl-js/packages-docs/sdk/atLatestBlock)
+          - [authorization](/build/tools/clients/fcl-js/packages-docs/sdk/authorization)
+          - [authorizations](/build/tools/clients/fcl-js/packages-docs/sdk/authorizations)
+          - [block](/build/tools/clients/fcl-js/packages-docs/sdk/block)
+          - [build](/build/tools/clients/fcl-js/packages-docs/sdk/build)
+          - [cadence](/build/tools/clients/fcl-js/packages-docs/sdk/cadence)
+          - [cdc](/build/tools/clients/fcl-js/packages-docs/sdk/cdc)
+          - [config](/build/tools/clients/fcl-js/packages-docs/sdk/config)
+          - [createSdkClient](/build/tools/clients/fcl-js/packages-docs/sdk/createSdkClient)
+          - [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/createSignableVoucher)
+          - [decode](/build/tools/clients/fcl-js/packages-docs/sdk/decode)
+          - [destroy](/build/tools/clients/fcl-js/packages-docs/sdk/destroy)
+          - [encodeMessageFromSignable](/build/tools/clients/fcl-js/packages-docs/sdk/encodeMessageFromSignable)
+          - [encodeTransactionEnvelope](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionEnvelope)
+          - [encodeTransactionPayload](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionPayload)
+          - [encodeTxIdFromVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher)
+          - [get](/build/tools/clients/fcl-js/packages-docs/sdk/get)
+          - [getAccount](/build/tools/clients/fcl-js/packages-docs/sdk/getAccount)
+          - [getBlock](/build/tools/clients/fcl-js/packages-docs/sdk/getBlock)
+          - [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/sdk/getBlockHeader)
+          - [getCollection](/build/tools/clients/fcl-js/packages-docs/sdk/getCollection)
+          - [getEvents](/build/tools/clients/fcl-js/packages-docs/sdk/getEvents)
+          - [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockHeightRange)
+          - [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockIds)
+          - [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/sdk/getNetworkParameters)
+          - [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo)
+          - [getTransaction](/build/tools/clients/fcl-js/packages-docs/sdk/getTransaction)
+          - [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/sdk/getTransactionStatus)
+          - [initInteraction](/build/tools/clients/fcl-js/packages-docs/sdk/initInteraction)
+          - [interaction](/build/tools/clients/fcl-js/packages-docs/sdk/interaction)
+          - [isBad](/build/tools/clients/fcl-js/packages-docs/sdk/isBad)
+          - [isOk](/build/tools/clients/fcl-js/packages-docs/sdk/isOk)
+          - [limit](/build/tools/clients/fcl-js/packages-docs/sdk/limit)
+          - [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/nodeVersionInfo)
+          - [param](/build/tools/clients/fcl-js/packages-docs/sdk/param)
+          - [params](/build/tools/clients/fcl-js/packages-docs/sdk/params)
+          - [payer](/build/tools/clients/fcl-js/packages-docs/sdk/payer)
+          - [ping](/build/tools/clients/fcl-js/packages-docs/sdk/ping)
+          - [pipe](/build/tools/clients/fcl-js/packages-docs/sdk/pipe)
+          - [proposer](/build/tools/clients/fcl-js/packages-docs/sdk/proposer)
+          - [put](/build/tools/clients/fcl-js/packages-docs/sdk/put)
+          - [ref](/build/tools/clients/fcl-js/packages-docs/sdk/ref)
+          - [resolve](/build/tools/clients/fcl-js/packages-docs/sdk/resolve)
+          - [resolveAccounts](/build/tools/clients/fcl-js/packages-docs/sdk/resolveAccounts)
+          - [resolveArguments](/build/tools/clients/fcl-js/packages-docs/sdk/resolveArguments)
+          - [resolveCadence](/build/tools/clients/fcl-js/packages-docs/sdk/resolveCadence)
+          - [resolveFinalNormalization](/build/tools/clients/fcl-js/packages-docs/sdk/resolveFinalNormalization)
+          - [resolveProposerSequenceNumber](/build/tools/clients/fcl-js/packages-docs/sdk/resolveProposerSequenceNumber)
+          - [resolveRefBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/resolveRefBlockId)
+          - [resolveSignatures](/build/tools/clients/fcl-js/packages-docs/sdk/resolveSignatures)
+          - [resolveValidators](/build/tools/clients/fcl-js/packages-docs/sdk/resolveValidators)
+          - [resolveVoucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/resolveVoucherIntercept)
+          - [response](/build/tools/clients/fcl-js/packages-docs/sdk/response)
+          - [script](/build/tools/clients/fcl-js/packages-docs/sdk/script)
+          - [send](/build/tools/clients/fcl-js/packages-docs/sdk/send)
+          - [subscribe](/build/tools/clients/fcl-js/packages-docs/sdk/subscribe)
+          - [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeEvents)
+          - [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeRaw)
+          - [TestUtils](/build/tools/clients/fcl-js/packages-docs/sdk/testUtils)
+          - [transaction](/build/tools/clients/fcl-js/packages-docs/sdk/transaction)
+          - [update](/build/tools/clients/fcl-js/packages-docs/sdk/update)
+          - [validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)
+          - [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/voucherIntercept)
+          - [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/sdk/voucherToTxId)
+          - [why](/build/tools/clients/fcl-js/packages-docs/sdk/why)
+        + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)
+      * [Authentication](/build/tools/clients/fcl-js/authentication)
+      * [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)
+      * [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
+      * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)
+      * [Installation](/build/tools/clients/fcl-js/installation)
+      * [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)
+      * [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)
+      * [Scripts](/build/tools/clients/fcl-js/scripts)
+      * [Transactions](/build/tools/clients/fcl-js/transactions)
+      * [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)
+      * [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)
+    - [Flow Go SDK](/build/tools/clients/flow-go-sdk)
+  + [Error Codes](/build/tools/error-codes)
+  + [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+
+* [Tools & SDKs](/build/tools)
+* [Client Tools](/build/tools/clients)
+* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
+* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
+* [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
+* cdc
+
+On this page
+
+# cdc
+
+Creates a template function
+
+## Import[​](#import "Direct link to Import")
+
+You can import the entire package and access the function:
+
+`_10
+
+import * as sdk from "@onflow/sdk"
+
+_10
+
+_10
+
+sdk.cdc(head, rest)`
+
+Or import directly the specific function:
+
+`_10
+
+import { cdc } from "@onflow/sdk"
+
+_10
+
+_10
+
+cdc(head, rest)`
+
+## Usage[​](#usage "Direct link to Usage")
+
+`` _30
+
+import { template } from "@onflow/util-template"
+
+_30
+
+_30
+
+// String template
+
+_30
+
+const simpleTemplate = template("Hello, World!");
+
+_30
+
+console.log(simpleTemplate()); // "Hello, World!"
+
+_30
+
+_30
+
+// Template literal with interpolation
+
+_30
+
+const name = "Alice";
+
+_30
+
+const greeting = template`Hello, ${name}!`;
+
+_30
+
+console.log(greeting()); // "Hello, Alice!"
+
+_30
+
+_30
+
+// Cadence script template
+
+_30
+
+const cadenceScript = template`
+
+_30
+
+access(all) fun main(greeting: String): String {
+
+_30
+
+return greeting.concat(", from Flow!")
+
+_30
+
+}
+
+_30
+
+`;
+
+_30
+
+console.log(cadenceScript()); // The Cadence script as a string
+
+_30
+
+_30
+
+// Used with FCL for dynamic Cadence code
+
+_30
+
+import * as fcl from "@onflow/fcl";
+
+_30
+
+_30
+
+const contractAddress = "0x123456789abcdef0";
+
+_30
+
+const scriptTemplate = fcl.cadence`
+
+_30
+
+import MyContract from ${contractAddress}
+
+_30
+
+_30
+
+access(all) fun main(): String {
+
+_30
+
+return MyContract.getMessage()
+
+_30
+
+}
+
+_30
+
+`; ``
+
+## Parameters[​](#parameters "Direct link to Parameters")
+
+### `head`[​](#head "Direct link to head")
+
+* Type:
+
+`_10
+
+string | TemplateStringsArray | ((x?: unknown) => string)`
+
+* Description: - A string, template string array, or template function
+
+### `rest` (optional)[​](#rest-optional "Direct link to rest-optional")
+
+* Type: `unknown[]`
+* Description: - The rest of the arguments
+
+## Returns[​](#returns "Direct link to Returns")
+
+`string`
+
+A template function
+
+---
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/cdc.md)
+
+Last updated on **Aug 21, 2025** by **Brian Doyle**
+
+[Previous
+
+cadence](/build/tools/clients/fcl-js/packages-docs/sdk/cadence)[Next
+
+config](/build/tools/clients/fcl-js/packages-docs/sdk/config)
+
+###### Rate this page
+
+😞😐😊
+
+Copy as Markdown
+
+* [Import](#import)
+* [Usage](#usage)
+* [Parameters](#parameters)
+  + [`head`](#head)
+  + [`rest` (optional)](#rest-optional)
+* [Returns](#returns)
+
+Documentation
+
+* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Tools & SDKs](/build/tools)
+* [Cadence](https://cadence-lang.org/docs/)
+* [Mobile](/build/cadence/guides/mobile/overview)
+* [FCL](/build/tools/clients/fcl-js)
+* [Testing](/build/cadence/smart-contracts/testing)
+* [CLI](/build/tools/flow-cli)
+* [Emulator](/build/tools/emulator)
+* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
+* [VS Code Extension](/build/tools/vscode-extension)
+
+Community
+
+* [Ecosystem](/ecosystem)
+* [Flow Port](https://port.flow.com/)
+* [Developer Grants](https://github.com/onflow/developer-grants)
+* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
+* [Flowverse](https://www.flowverse.co/)
+* [Emerald Academy](https://academy.ecdao.org/)
+* [FLOATs (Attendance NFTs)](https://floats.city/)
+
+Start Building
+
+* [Flow Playground](https://play.flow.com/)
+* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
+* [Cadence Cookbook](https://cookbook.flow.com)
+* [Core Contracts & Standards](/build/cadence/core-contracts)
+* [EVM](/build/evm/about)
+
+Network
+
+* [Network Status](https://status.flow.com/)
+* [Flowscan Mainnet](https://flowscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
+* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/protocol/node-ops)
+* [Spork Information](/protocol/node-ops/node-operation/spork)
+
+More
+
+* [GitHub](https://github.com/onflow)
+* [Discord](https://discord.gg/flow)
+* [Forum](https://forum.flow.com/)
+* [Flow](https://flow.com/)
+* [Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow, Inc. Built with Docusaurus.
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://developers.flow.com/ecosystem/bridges
 
 Bridges | Flow Developer Portal
@@ -176900,9 +177947,9 @@ Search
     - [Utils](/build/tools/flow-cli/utils/signature-generate)
     - [Dependency Manager](/build/tools/flow-cli/dependency-manager)
     - [Running Cadence Tests](/build/tools/flow-cli/tests)
+    - [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)
     - [Cadence Linter](/build/tools/flow-cli/lint)
     - [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)
-    - [Cadence Boilerplate](/build/tools/flow-cli/boilerplate)
     - [Data Collection](/build/tools/flow-cli/data-collection)
   + [Cadence VS Code Extension](/build/tools/vscode-extension)
   + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
@@ -178342,6 +179389,435 @@ Copy as Markdown
   + [Non-Fungible Tokens (NFTs)](#non-fungible-tokens-nfts)
   + [NFT Sales and Trading](#nft-sales-and-trading)
   + [Fungible Tokens](#fungible-tokens)
+
+Documentation
+
+* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Tools & SDKs](/build/tools)
+* [Cadence](https://cadence-lang.org/docs/)
+* [Mobile](/build/cadence/guides/mobile/overview)
+* [FCL](/build/tools/clients/fcl-js)
+* [Testing](/build/cadence/smart-contracts/testing)
+* [CLI](/build/tools/flow-cli)
+* [Emulator](/build/tools/emulator)
+* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
+* [VS Code Extension](/build/tools/vscode-extension)
+
+Community
+
+* [Ecosystem](/ecosystem)
+* [Flow Port](https://port.flow.com/)
+* [Developer Grants](https://github.com/onflow/developer-grants)
+* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
+* [Flowverse](https://www.flowverse.co/)
+* [Emerald Academy](https://academy.ecdao.org/)
+* [FLOATs (Attendance NFTs)](https://floats.city/)
+
+Start Building
+
+* [Flow Playground](https://play.flow.com/)
+* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
+* [Cadence Cookbook](https://cookbook.flow.com)
+* [Core Contracts & Standards](/build/cadence/core-contracts)
+* [EVM](/build/evm/about)
+
+Network
+
+* [Network Status](https://status.flow.com/)
+* [Flowscan Mainnet](https://flowscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
+* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/protocol/node-ops)
+* [Spork Information](/protocol/node-ops/node-operation/spork)
+
+More
+
+* [GitHub](https://github.com/onflow)
+* [Discord](https://discord.gg/flow)
+* [Forum](https://forum.flow.com/)
+* [Flow](https://flow.com/)
+* [Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow, Inc. Built with Docusaurus.
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://developers.flow.com/build/cadence/smart-contracts/best-practices/project-development-tips
+
+Flow Smart Contract Project Development Standards | Flow Developer Portal
+
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Why Flow](/build/flow)
+* [Cadence](/build/cadence/getting-started)
+
+  + [Getting Started](/build/cadence/getting-started)
+  + [Differences vs. EVM](/build/cadence/differences-vs-evm)
+  + [Flow Protocol](/build/cadence/basics/network-architecture)
+  + [App Architecture](/build/cadence/app-architecture)
+  + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
+
+    - [Learn Cadence ↗️](/build/cadence/learn-cadence)
+    - [Smart Contracts on Flow](/build/cadence/smart-contracts/overview)
+    - [Deploying Contracts](/build/cadence/smart-contracts/deploying)
+    - [Testing Your Contracts](/build/cadence/smart-contracts/testing)
+    - [Best Practices](/build/cadence/smart-contracts/best-practices/security-best-practices)
+
+      * [Security Best Practices](/build/cadence/smart-contracts/best-practices/security-best-practices)
+      * [Contract Upgrades with Incompatible Changes](/build/cadence/smart-contracts/best-practices/contract-upgrades)
+      * [Development Standards](/build/cadence/smart-contracts/best-practices/project-development-tips)
+  + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+  + [Guides](/build/cadence/guides/account-linking)
+  + [Core Smart Contracts](/build/cadence/core-contracts)
+  + [Explore More](/build/cadence/explore-more)
+* [Solidity (EVM)](/build/evm/about)
+
+  + [Why EVM on Flow](/build/evm/about)
+  + [How it Works](/build/evm/how-it-works)
+  + [Using Flow EVM](/build/evm/using)
+  + [Network Information](/build/evm/networks)
+  + [EVM Quickstart](/build/evm/quickstart)
+  + [Fees](/build/evm/fees)
+  + [Accounts](/build/evm/accounts)
+  + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
+  + [Faucets ↙](/evm/faucets)
+  + [Block Explorers ↙](/evm/block-explorers)
+  + [Guides](/build/evm/guides)
+* [Tools & SDKs](/build/tools)
+
+* Cadence
+* Writing and Deploying Smart Contracts
+* Best Practices
+* Development Standards
+
+On this page
+
+# Smart Contract Project Development Standards
+
+## Context[​](#context "Direct link to Context")
+
+Smart Contracts are the bedrock piece of security for many important parts
+of the Flow blockchain, as well as for any project that is deployed to a blockchain.
+
+They are also the most visible technical parts of any project,
+since users will be querying them for data, building other smart contracts that interact with them,
+and using them as learning materials and templates for future projects.
+Furthermore, when deployed they are publicly available code on the blockchain
+and often also in public Github repos.
+
+Therefore, the process around designing, building, testing, documenting,
+and managing these projects needs to reflect the critical importance they hold in the ecosystem.
+
+Every software project strikes a balance between effort spent on product/feature delivery
+vs the many other demands of the software development lifecycle, whether testing, technical debt,
+automation, refactoring, or documentation etc. Building in Web3 we face the same trade-offs,
+but in a higher risk and consequence environment than what is typical for most software.
+A mismanaged or untested smart contract may result in **significant** financial losses
+as a result of vulnerabilities which were overlooked then exploited.
+We highly recommend builders adopt these best practices to help mitigate these risks.
+
+If they do so, they will be able to build better smart contracts, avoid potential bugs,
+support user and third-party adoption of their projects, and increase their chances of success
+by being a model for good software design. Additionally, the more projects that adopt
+good software design and management standards normalizes this behavior,
+encouraging other projects in the ecosystem to do the same which creates a healthier
+and more vibrant community.
+
+Ensuring appropriate levels of testing results in better smart contracts which have
+pro-actively modeled threats and engineered against them. Ensuring appropriate levels
+of standards adoption ([FungibleToken](https://github.com/onflow/flow-ft),
+[NFT Metadata](/build/cadence/advanced-concepts/metadata-views), [NFT StoreFront](https://github.com/onflow/nft-storefront), etc) by dapp
+builders amplifies the network effects for all in the ecosystem. NFTs in one dapp can be
+readily consumed by other dapps through onchain events with no new integration
+required. With your help and participation we can further accelerate healthy and vibrant
+network effects across the Flow ecosystem!
+
+Some of these suggestions might seem somewhat unnecessary,
+but it is important to model what a project can do to manage its smart contracts the best
+so that hopefully all of the other projects follow suit.
+
+This also assumes standard software design best practices also apply.
+Indeed, many of these suggestions are more general software design best practices,
+but there may be others that are assumed but not included here.
+
+### Implementing These Practices[​](#implementing-these-practices "Direct link to Implementing These Practices")
+
+This document serves as mostly an outline of best practices the projects should follow.
+As with all best practices, teams will choose which applies to them and their work process,
+however, we recommend that teams explicitly define a minimum acceptable set of standards
+for themselves along with the mechanisms to ensure they are being observed.
+
+Some teams may also have their own set of development standards that achieve a similar goal
+to these. These recommendations are not meant to be the only paths to success,
+so if a team disagrees with some of these and wants to do things their own way,
+they are welcome to pursue that. This document just shows some generic suggestions
+for teams who might not know how they want to manage their project.
+
+## Design Process[​](#design-process "Direct link to Design Process")
+
+Smart contracts usually manage a lot of value, have many users, and are difficult to upgrade
+for a variety of reasons. Therefore, it is important to have a clearly defined design
+process for the smart contracts before much code is written so that the team
+can set themselves up for success.
+
+Here are some recommendations for how projects can organize the foundations of their projects.
+
+### Projects should ensure that there is strong technical leadership for their smart contracts[​](#projects-should-ensure-that-there-is-strong-technical-leadership-for-their-smart-contracts "Direct link to Projects should ensure that there is strong technical leadership for their smart contracts")
+
+Developing a dapp requires a clear vision for the role of the smart contract and how it's integrated.
+Security vulnerabilities may arise from bugs directly in smart contract code (and elsewhere in the system).
+Asynchronous interaction vectors may lead to forms of malicious abuse,
+DOS etc in a contract triggering explosive gas costs for the developer or other problems.
+
+We recommend that engineers leading a project and deploying to mainnet have an understanding
+of software and security engineering fundamentals and have been thorough
+in their Cadence skills development. More in-depth resources for learning Cadence
+are available [here](https://cadence-lang.org/docs/).
+
+The technical leader should be someone who understands Cadence well and has written Cadence smart contracts
+before. Production-level smart contracts are not the place for beginners to get their start.
+
+It should be this person's responsibility to lead design discussions
+with product managers and the community, write most of the code and tests,
+solicit reviews, make requested changes and make sure the project gets completed in a timely manner.
+
+The leader should also understand how to sign transactions with the CLI
+to deploy/upgrade smart contracts, run admin transactions, and troubleshoot problems, etc.
+If something goes wrong in relation to the smart contract
+that needs to be handled with a bespoke transaction, it is important that the owner
+knows how to build and run transactions and scripts safely to address the issues
+and/or upgrade the smart contracts.
+
+The project should also have a clear plan of succession in case the original owner
+is not available or leaves the project. It is important that there are others who
+can fill in who have a clear understanding of the code and requirements so they can give good feedback,
+perform effective reviews, and make changes where needed.
+
+### Projects should maintain a well-organized open source Repo for their smart contracts[​](#projects-should-maintain-a-well-organized-open-source-repo-for-their-smart-contracts "Direct link to Projects should maintain a well-organized open source Repo for their smart contracts")
+
+As projects like NBA Topshot have shown, when a blockchain product becomes successful
+others can and do to build on top of what you are doing.
+Whether that is analytics, tools, or other value adds that could help grow your project ecosystem,
+composability is key and that depends on open source development.
+If there isn't already an open source repo, builders should consider creating one.
+
+Builders can start from the [the Flow open source template](https://github.com/onflow/open-source-template)
+and make sure all of their repo is set up with some initial documentation for what the repo is for
+before any code is written. External developers and users should have an easily accessible home page
+to go to to understand any given project.
+
+The repo should also have some sort of high-level design document that lays out
+the intended design and architecture of the smart contract.
+The project leads should determine what is best for them to include in the document,
+but some useful things to include are basic user stories, architecture of the smart contracts,
+and any questions that still need to be answered about it. - Where applicable, diagrams should be made describing state machines, user flows, etc. - This document should be shared in an issue in the open source repo
+where the contracts or features are being developed,
+then later moved to the README or another important docs page.
+
+A high level design is a key opportunity to model threats
+and understand the risks of the system. The process of collaborating
+and reviewing designs together helps ensure that more edge-cases are captured and addressed.
+It's also a lot less effort to iterate on a design than on hundreds of lines of Cadence.
+
+## Development Process Recommendations[​](#development-process-recommendations "Direct link to Development Process Recommendations")
+
+### The Development process should be iterative, if possible[​](#the-development-process-should-be-iterative-if-possible "Direct link to The Development process should be iterative, if possible")
+
+The project should develop an MVP first, get reviews, and test thoroughly,
+then add additional features with tests. This ensures that the core features are designed
+thoughtfully and makes the review process easier because they can focus on each feature
+one at a time instead of being overwhelmed by a huge block of code.
+
+### Comments and field/function descriptions are essential![​](#comments-and-fieldfunction-descriptions-are-essential "Direct link to Comments and field/function descriptions are essential!")
+
+Our experience writing many Cadence smart contracts has taught us how important documentation
+is. It especially matters what is documented and for whom, and in that way we are no different from
+any software language. The Why is super important, if for example something - an event - that
+happens in one contract leads to outcomes in a different contract. The What helps give context,
+the reason for the code turning out the way it is. The How, you don't document - you've written
+the code. Comments should be directed to those who will follow after you in changing the code.
+
+Comments should be written at the same time (or even before) the code is written.
+This helps the developer and reviewers understand the work-in-progress code better,
+as well as the intentions of the design (for testing and reviewing).
+Functions should be commented with a - Description - Parameter descriptions - Return value descriptions
+
+Top Level comments and comments for types, fields, events,
+and functions should use `///` (three slashes) to be recognised by the
+[Cadence Documentation Generator](https://github.com/onflow/cadence-tools/tree/master/docgen).
+Regular comments within functions should only use two slashes (`//`)
+
+## Testing Recommendations[​](#testing-recommendations "Direct link to Testing Recommendations")
+
+Summarized below is a list of testing related recommendations
+which are noteworthy to mention for a typical smart contract project.
+
+Popular testing frameworks to use for cadence are listed here:
+
+* Cadence: [Cadence Testing Framework](/build/cadence/smart-contracts/testing)
+* Go: [Overflow](https://github.com/bjartek/overflow)
+
+The same person who writes the code should also write the tests.
+They have the clearest understanding of the code paths and edge cases.
+
+Tests should be **mandatory**, not optional, even if the contract is copied from somewhere else.
+There should be thorough emulator unit tests in the public repo.
+[See the flow fungible token repo](https://github.com/onflow/flow-ft/tree/master/lib/js/test)
+for an example of unit tests in javascript.
+
+Every time there is a new Cadence version or emulator version,
+the dependencies of the repo should be updated to make sure the tests are all still passing.
+
+Tests should avoid being monolithic;
+Individual test cases should be set up for each part of the contract to test them in isolation.
+There are some exceptions, like contracts that have to run through a state machine
+to test different cases. Positive and negative cases need to be tested.
+
+Integration tests should also be written to ensure that your app and/or backend can interact
+properly with the smart contracts.
+
+## Managing Project Keys and Deployments[​](#managing-project-keys-and-deployments "Direct link to Managing Project Keys and Deployments")
+
+Smart contract keys and deployments are very important and need to be treated as such.
+
+### Private Keys should be stored securely[​](#private-keys-should-be-stored-securely "Direct link to Private Keys should be stored securely")
+
+Private Keys for the contract and/or admin accounts should not be kept in plain text format anywhere.
+Projects should determine a secure solution that works best for them to store their private keys.
+We recommend storing them in a secure key store such as google KMS or something similar.
+
+### Deployments to Testnet or Mainnet should be handled transparently[​](#deployments-to-testnet-or-mainnet-should-be-handled-transparently "Direct link to Deployments to Testnet or Mainnet should be handled transparently")
+
+As projects become more successful, communities around them grow.
+In a trustless ecosystem, that also means more of others building on your contracts.
+Before deploying or upgrading a contract, it is important to maintain
+clear community communications with sufficient notice, since changes will always bring added risk.
+Giving community members time to review and address issues with upgrades
+before they happen builds trust and confidence in projects.
+Here are a few suggestions for how to manage a deployment or upgrade.
+
+* Communicate to all stake-holders well in advance
+  + Share the proposal with the community at least a week in advance (unless it is a critical bug fix)
+    - Examples of places to share are your project's chat, forum, blog, email list, etc.
+    - This will allow the community and other stakeholders to have plenty of time
+      to view the upcoming changes and provide feedback if necessary.
+  + Share the time of the deployment and the deployment transaction with branch/commit hash information to ensure the transaction itself is correct.
+  + Coordinate deployment with stakeholders to make sure it is done correctly and on time.
+
+## Responsibilities to the Community[​](#responsibilities-to-the-community "Direct link to Responsibilities to the Community")
+
+Web3 brings tremendous possibilities for engineering applications with trustlessness
+and composability in mind, with Cadence and Flow offering unique features to achieve this.
+If every project treats their community and the Flow community with respect and care,
+the things we can all build together will be very powerful.
+
+### Projects should have thorough documentation[​](#projects-should-have-thorough-documentation "Direct link to Projects should have thorough documentation")
+
+Encouraging adoption of project contracts to the broader ecosystem
+raises the bar around code providing clear high-level descriptions,
+with detailed and useful comments within contracts, transactions, and scripts.
+The more that a project can be understood, that it adheres to standards,
+and can be built upon with ease, the more likely others will build against it in turn.
+
+Each project should have a detailed README.md with these sections: - Explanation of the project itself with links to the app - Addresses on various networks - High-level technical description of the contracts with emphasis on important types and functionality - Architecture diagram (if applicable) - Include links to tutorials if they are external - Flow smart contract standards that a project implements
+
+Additionally, each contract, transaction, and script should have high-level descriptions
+at the top of their files. This way, anyone in the community can easily
+come in and understand what each one is doing without having to parse confusing code.
+
+### Projects should engage with and respond to their own Community[​](#projects-should-engage-with-and-respond-to-their-own-community "Direct link to Projects should engage with and respond to their own Community")
+
+Once a contract is deployed, the work doesn't stop there.
+Project communities require ongoing nurturing and support.
+As the developer of a public project on a public blockchain,
+the owners have an obligation to be helpful and responsive to the community
+so that they can encourage composability and third party interactions.
+
+* Keep issues open in the repo.
+* The owner should turn on email notifications for new issue creation in the repo.
+* Respond to issues quickly and clean up unimportant ones.
+* Consider blog posts to share more details on technical aspects of the project and upcoming changes.
+
+### Projects should contribute to the greater Flow and Cadence community[​](#projects-should-contribute-to-the-greater-flow-and-cadence-community "Direct link to Projects should contribute to the greater Flow and Cadence community")
+
+Flow has a vibrant and growing community of contributors around the world.
+Through our mutual collaboration we've had numerous community Flow Improvement Proposals
+([FLIP](https://github.com/onflow/flow/tree/master/flips)s) shipped.
+If you have an interest in a particular improvement for Flow or Cadence,
+we host open meetings which you are welcome to join (announced on discord)
+and can participate anytime on any of the FLIPs
+[already proposed](https://github.com/onflow/flow/pulls?q=is%3Aopen+is%3Apr+label%3AFLIP).
+
+Responsible project maintainers should contribute to discussions
+about important proposals (new cadence features, standard smart contracts, metadata, etc)
+and generally be aware about evolving best practices and anti-pattern understandings.
+Projects who contribute to these discussions are able to influence them to ensure
+that the language/protocol changes are favorable to them
+and the rest of the app developers in the ecosystem.
+It also helps the owner to promote the project and themselves.
+
+Resources for Best Practices:
+
+* [cadence/design-pattern](https://cadence-lang.org/docs/design-patterns)
+* [cadence/anti-patterns](https://cadence-lang.org/docs/anti-patterns)
+* [cadence/security-best-practices](/build/cadence/smart-contracts/best-practices/security-best-practices)
+
+Composability and extensibility should also be priorities while designing, developing,
+and documenting their projects.
+
+If you have any feedback about these guidelines, please create an issue in the onflow/cadence-style-guide repo or make a PR updating the guidelines so we can start a discussion.
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/smart-contracts/best-practices/project-development-tips.md)
+
+Last updated on **Aug 22, 2025** by **Brian Doyle**
+
+[Previous
+
+Contract Upgrades with Incompatible Changes](/build/cadence/smart-contracts/best-practices/contract-upgrades)[Next
+
+Build Faster with Flow’s Native Account Abstraction](/build/cadence/advanced-concepts/account-abstraction)
+
+###### Rate this page
+
+😞😐😊
+
+Copy as Markdown
+
+* [Context](#context)
+  + [Implementing These Practices](#implementing-these-practices)
+* [Design Process](#design-process)
+  + [Projects should ensure that there is strong technical leadership for their smart contracts](#projects-should-ensure-that-there-is-strong-technical-leadership-for-their-smart-contracts)
+  + [Projects should maintain a well-organized open source Repo for their smart contracts](#projects-should-maintain-a-well-organized-open-source-repo-for-their-smart-contracts)
+* [Development Process Recommendations](#development-process-recommendations)
+  + [The Development process should be iterative, if possible](#the-development-process-should-be-iterative-if-possible)
+  + [Comments and field/function descriptions are essential!](#comments-and-fieldfunction-descriptions-are-essential)
+* [Testing Recommendations](#testing-recommendations)
+* [Managing Project Keys and Deployments](#managing-project-keys-and-deployments)
+  + [Private Keys should be stored securely](#private-keys-should-be-stored-securely)
+  + [Deployments to Testnet or Mainnet should be handled transparently](#deployments-to-testnet-or-mainnet-should-be-handled-transparently)
+* [Responsibilities to the Community](#responsibilities-to-the-community)
+  + [Projects should have thorough documentation](#projects-should-have-thorough-documentation)
+  + [Projects should engage with and respond to their own Community](#projects-should-engage-with-and-respond-to-their-own-community)
+  + [Projects should contribute to the greater Flow and Cadence community](#projects-should-contribute-to-the-greater-flow-and-cadence-community)
 
 Documentation
 
@@ -198622,9 +200098,9 @@ Search
     - [Utils](/build/tools/flow-cli/utils/signature-generate)
     - [Dependency Manager](/build/tools/flow-cli/dependency-manager)
     - [Running Cadence Tests](/build/tools/flow-cli/tests)
+    - [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)
     - [Cadence Linter](/build/tools/flow-cli/lint)
     - [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)
-    - [Cadence Boilerplate](/build/tools/flow-cli/boilerplate)
     - [Data Collection](/build/tools/flow-cli/data-collection)
   + [Cadence VS Code Extension](/build/tools/vscode-extension)
   + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
@@ -205828,9 +207304,9 @@ Search
     - [Utils](/build/tools/flow-cli/utils/signature-generate)
     - [Dependency Manager](/build/tools/flow-cli/dependency-manager)
     - [Running Cadence Tests](/build/tools/flow-cli/tests)
+    - [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)
     - [Cadence Linter](/build/tools/flow-cli/lint)
     - [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)
-    - [Cadence Boilerplate](/build/tools/flow-cli/boilerplate)
     - [Data Collection](/build/tools/flow-cli/data-collection)
   + [Cadence VS Code Extension](/build/tools/vscode-extension)
   + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
@@ -210158,9 +211634,9 @@ Search
     - [Utils](/build/tools/flow-cli/utils/signature-generate)
     - [Dependency Manager](/build/tools/flow-cli/dependency-manager)
     - [Running Cadence Tests](/build/tools/flow-cli/tests)
+    - [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)
     - [Cadence Linter](/build/tools/flow-cli/lint)
     - [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)
-    - [Cadence Boilerplate](/build/tools/flow-cli/boilerplate)
     - [Data Collection](/build/tools/flow-cli/data-collection)
   + [Cadence VS Code Extension](/build/tools/vscode-extension)
   + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
@@ -218274,9 +219750,9 @@ Search
     - [Utils](/build/tools/flow-cli/utils/signature-generate)
     - [Dependency Manager](/build/tools/flow-cli/dependency-manager)
     - [Running Cadence Tests](/build/tools/flow-cli/tests)
+    - [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)
     - [Cadence Linter](/build/tools/flow-cli/lint)
     - [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)
-    - [Cadence Boilerplate](/build/tools/flow-cli/boilerplate)
     - [Data Collection](/build/tools/flow-cli/data-collection)
   + [Cadence VS Code Extension](/build/tools/vscode-extension)
   + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
@@ -218334,7 +219810,7 @@ Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-Running Cadence Tests](/build/tools/flow-cli/tests)[Next
+Generating Cadence Boilerplate](/build/tools/flow-cli/generate)[Next
 
 Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)
 
@@ -218756,9 +220232,9 @@ Search
     - [Utils](/build/tools/flow-cli/utils/signature-generate)
     - [Dependency Manager](/build/tools/flow-cli/dependency-manager)
     - [Running Cadence Tests](/build/tools/flow-cli/tests)
+    - [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)
     - [Cadence Linter](/build/tools/flow-cli/lint)
     - [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)
-    - [Cadence Boilerplate](/build/tools/flow-cli/boilerplate)
     - [Data Collection](/build/tools/flow-cli/data-collection)
   + [Cadence VS Code Extension](/build/tools/vscode-extension)
   + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
@@ -228956,9 +230432,9 @@ Search
     - [Utils](/build/tools/flow-cli/utils/signature-generate)
     - [Dependency Manager](/build/tools/flow-cli/dependency-manager)
     - [Running Cadence Tests](/build/tools/flow-cli/tests)
+    - [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)
     - [Cadence Linter](/build/tools/flow-cli/lint)
     - [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)
-    - [Cadence Boilerplate](/build/tools/flow-cli/boilerplate)
     - [Data Collection](/build/tools/flow-cli/data-collection)
   + [Cadence VS Code Extension](/build/tools/vscode-extension)
   + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
@@ -232088,6 +233564,243 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
+More
+
+* [GitHub](https://github.com/onflow)
+* [Discord](https://discord.gg/flow)
+* [Forum](https://forum.flow.com/)
+* [Flow](https://flow.com/)
+* [Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow, Inc. Built with Docusaurus.
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://developers.flow.com/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp/contribute-to-mcp
+
+Contribute to Flow MCP | Flow Developer Portal
+
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Blockchain Development Tutorials](/blockchain-development-tutorials)
+* [Flow Actions](/blockchain-development-tutorials/defi)
+* [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)
+* [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
+
+  + [Use Cursor AI](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor)
+  + [Flow MCP](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp)
+
+    - [Use Flow MCP in Cursor](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp/use-mcp-in-cursor)
+    - [Contribute to Flow MCP](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp/contribute-to-mcp)
+  + [Use ChatGPT](/blockchain-development-tutorials/use-AI-to-build-on-flow/chatgpt)
+  + [Flow Data Sources](/blockchain-development-tutorials/use-AI-to-build-on-flow/flow-data-sources)
+  + [Using AgentKit on Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow/agentkit-flow-guide)
+  + [Cadence Rules](/blockchain-development-tutorials/use-AI-to-build-on-flow/cadence-rules)
+  + [Eliza on Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow/eliza)
+  + [Claude Code Flow Guide](/blockchain-development-tutorials/use-AI-to-build-on-flow/claude-code)
+* [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
+* [Token Launch](/blockchain-development-tutorials/token-launch)
+* [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
+* [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
+* [FlowtoBooth](/blockchain-development-tutorials/flowtobooth)
+* [Integrations](/blockchain-development-tutorials/integrations/crossmint)
+
+* [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
+* [Flow MCP](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp)
+* Contribute to Flow MCP
+
+On this page
+
+# Contribute to Flow MCP
+
+This tutorial will guide you through the process of contributing to the Flow MCP server. The [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) is an open standard developed by Anthropic that enables AI applications to interact seamlessly with external tools, systems, and data sources.
+
+## Learning Objectives[​](#learning-objectives "Direct link to Learning Objectives")
+
+After completing this tutorial, you should be able to:
+
+* Set up and build the Flow MCP server development environment.
+* Create and register a new Action Tool, including schema, handler, and tests.
+* Test and validate the functionality of a new Action Tool within the MCP system.
+* Submit a complete pull request that follows Flow MCP contribution guidelines.
+
+## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+
+* [Bun](https://bun.sh/) - the JavaScript runtime
+* [Flow MCP server](https://github.com/outblock/flow-mcp) - the Flow MCP server repository
+
+## Installation[​](#installation "Direct link to Installation")
+
+1. Fork the [Flow MCP server](https://github.com/outblock/flow-mcp) repository
+2. Clone the repository
+
+   `_10
+
+   git clone https://github.com/your-username/flow-mcp.git`
+3. Install the dependencies
+
+   `_10
+
+   bun install`
+4. Build the project
+
+   `_10
+
+   bun build`
+
+## Create new Action Tool for Flow MCP[​](#create-new-action-tool-for-flow-mcp "Direct link to Create new Action Tool for Flow MCP")
+
+1. Create a new folder in the `src/tools` directory
+
+   `_10
+
+   mkdir src/tools/your-tool-name`
+2. Create and implement the `index.ts`, `schema.ts`, and `your-tool.test.ts` files, which is the entry point, schema, and test file for the new tool respectively.
+
+   The `export` of `index.ts` file should be a `ToolRegistration` object, which is the registration of the new tool.
+
+   `_10
+
+   type ToolRegistration<T> = {
+
+   _10
+
+   name: string;
+
+   _10
+
+   description: string;
+
+   _10
+
+   inputSchema: z.ZodSchema;
+
+   _10
+
+   handler: (args: T) => CallToolResult | Promise<CallToolResult>;
+
+   _10
+
+   };`
+
+   If you want to add new Cadence files for your new tool, you can add them in the `src/cadence` directory. The `bun` will compile the Cadence files into `String`, so the dedicated Cadence files will help the project to be more organized.
+
+   And it is recommended to add a test for your new tool in the `src/tools/your-tool-name/your-tool.test.ts` file.
+3. Add a prompt export in the `src/prompts` directory which is used to ensure MCP client can understand the new tool. You can refer to the existing tools for examples.
+4. Add your new tool to the `src/tools/index.ts` file.
+
+   `_10
+
+   export const createTools = (): ToolRegistration<any>[] => {
+
+   _10
+
+   return [
+
+   _10
+
+   // ... other tools
+
+   _10
+
+   yourTool,
+
+   _10
+
+   ];
+
+   _10
+
+   };`
+5. Run the test to ensure your new tool works as expected
+
+   `_10
+
+   bun test`
+6. Commit and push your changes to your forked repository, and create a pull request.
+
+We will review your pull request and merge it if it is ready.
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp/contribute-to-mcp.md)
+
+Last updated on **Aug 17, 2025** by **0xLisanAlGaib**
+
+[Previous
+
+Use Flow MCP in Cursor](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp/use-mcp-in-cursor)[Next
+
+Use ChatGPT](/blockchain-development-tutorials/use-AI-to-build-on-flow/chatgpt)
+
+###### Rate this page
+
+😞😐😊
+
+Copy as Markdown
+
+* [Learning Objectives](#learning-objectives)
+* [Prerequisites](#prerequisites)
+* [Installation](#installation)
+* [Create new Action Tool for Flow MCP](#create-new-action-tool-for-flow-mcp)
+
+Documentation
+
+* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Tools & SDKs](/build/tools)
+* [Cadence](https://cadence-lang.org/docs/)
+* [Mobile](/build/cadence/guides/mobile/overview)
+* [FCL](/build/tools/clients/fcl-js)
+* [Testing](/build/cadence/smart-contracts/testing)
+* [CLI](/build/tools/flow-cli)
+* [Emulator](/build/tools/emulator)
+* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
+* [VS Code Extension](/build/tools/vscode-extension)
+
+Community
+
+* [Ecosystem](/ecosystem)
+* [Flow Port](https://port.flow.com/)
+* [Developer Grants](https://github.com/onflow/developer-grants)
+* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
+* [Flowverse](https://www.flowverse.co/)
+* [Emerald Academy](https://academy.ecdao.org/)
+* [FLOATs (Attendance NFTs)](https://floats.city/)
+
+Start Building
+
+* [Flow Playground](https://play.flow.com/)
+* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
+* [Cadence Cookbook](https://cookbook.flow.com)
+* [Core Contracts & Standards](/build/cadence/core-contracts)
+* [EVM](/build/evm/about)
+
+Network
+
+* [Network Status](https://status.flow.com/)
+* [Flowscan Mainnet](https://flowscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
+* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/protocol/node-ops)
+* [Spork Information](/protocol/node-ops/node-operation/spork)
 
 More
 
@@ -247931,6 +249644,283 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/param
+
+param | Flow Developer Portal
+
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Why Flow](/build/flow)
+* [Cadence](/build/cadence/getting-started)
+
+  + [Getting Started](/build/cadence/getting-started)
+  + [Differences vs. EVM](/build/cadence/differences-vs-evm)
+  + [Flow Protocol](/build/cadence/basics/network-architecture)
+  + [App Architecture](/build/cadence/app-architecture)
+  + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
+  + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+  + [Guides](/build/cadence/guides/account-linking)
+  + [Core Smart Contracts](/build/cadence/core-contracts)
+  + [Explore More](/build/cadence/explore-more)
+* [Solidity (EVM)](/build/evm/about)
+
+  + [Why EVM on Flow](/build/evm/about)
+  + [How it Works](/build/evm/how-it-works)
+  + [Using Flow EVM](/build/evm/using)
+  + [Network Information](/build/evm/networks)
+  + [EVM Quickstart](/build/evm/quickstart)
+  + [Fees](/build/evm/fees)
+  + [Accounts](/build/evm/accounts)
+  + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
+  + [Faucets ↙](/evm/faucets)
+  + [Block Explorers ↙](/evm/block-explorers)
+  + [Guides](/build/evm/guides)
+* [Tools & SDKs](/build/tools)
+
+  + [@onflow/react-sdk](/build/tools/react-sdk)
+  + [Flow Emulator](/build/tools/emulator)
+  + [Flow CLI](/build/tools/flow-cli)
+  + [Cadence VS Code Extension](/build/tools/vscode-extension)
+  + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
+  + [Client Tools](/build/tools/clients)
+
+    - [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
+
+      * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
+
+        + [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
+        + [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
+
+          - [account](/build/tools/clients/fcl-js/packages-docs/sdk/account)
+          - [arg](/build/tools/clients/fcl-js/packages-docs/sdk/arg)
+          - [args](/build/tools/clients/fcl-js/packages-docs/sdk/args)
+          - [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockHeight)
+          - [atBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockId)
+          - [atLatestBlock](/build/tools/clients/fcl-js/packages-docs/sdk/atLatestBlock)
+          - [authorization](/build/tools/clients/fcl-js/packages-docs/sdk/authorization)
+          - [authorizations](/build/tools/clients/fcl-js/packages-docs/sdk/authorizations)
+          - [block](/build/tools/clients/fcl-js/packages-docs/sdk/block)
+          - [build](/build/tools/clients/fcl-js/packages-docs/sdk/build)
+          - [cadence](/build/tools/clients/fcl-js/packages-docs/sdk/cadence)
+          - [cdc](/build/tools/clients/fcl-js/packages-docs/sdk/cdc)
+          - [config](/build/tools/clients/fcl-js/packages-docs/sdk/config)
+          - [createSdkClient](/build/tools/clients/fcl-js/packages-docs/sdk/createSdkClient)
+          - [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/createSignableVoucher)
+          - [decode](/build/tools/clients/fcl-js/packages-docs/sdk/decode)
+          - [destroy](/build/tools/clients/fcl-js/packages-docs/sdk/destroy)
+          - [encodeMessageFromSignable](/build/tools/clients/fcl-js/packages-docs/sdk/encodeMessageFromSignable)
+          - [encodeTransactionEnvelope](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionEnvelope)
+          - [encodeTransactionPayload](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionPayload)
+          - [encodeTxIdFromVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher)
+          - [get](/build/tools/clients/fcl-js/packages-docs/sdk/get)
+          - [getAccount](/build/tools/clients/fcl-js/packages-docs/sdk/getAccount)
+          - [getBlock](/build/tools/clients/fcl-js/packages-docs/sdk/getBlock)
+          - [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/sdk/getBlockHeader)
+          - [getCollection](/build/tools/clients/fcl-js/packages-docs/sdk/getCollection)
+          - [getEvents](/build/tools/clients/fcl-js/packages-docs/sdk/getEvents)
+          - [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockHeightRange)
+          - [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockIds)
+          - [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/sdk/getNetworkParameters)
+          - [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo)
+          - [getTransaction](/build/tools/clients/fcl-js/packages-docs/sdk/getTransaction)
+          - [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/sdk/getTransactionStatus)
+          - [initInteraction](/build/tools/clients/fcl-js/packages-docs/sdk/initInteraction)
+          - [interaction](/build/tools/clients/fcl-js/packages-docs/sdk/interaction)
+          - [isBad](/build/tools/clients/fcl-js/packages-docs/sdk/isBad)
+          - [isOk](/build/tools/clients/fcl-js/packages-docs/sdk/isOk)
+          - [limit](/build/tools/clients/fcl-js/packages-docs/sdk/limit)
+          - [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/nodeVersionInfo)
+          - [param](/build/tools/clients/fcl-js/packages-docs/sdk/param)
+          - [params](/build/tools/clients/fcl-js/packages-docs/sdk/params)
+          - [payer](/build/tools/clients/fcl-js/packages-docs/sdk/payer)
+          - [ping](/build/tools/clients/fcl-js/packages-docs/sdk/ping)
+          - [pipe](/build/tools/clients/fcl-js/packages-docs/sdk/pipe)
+          - [proposer](/build/tools/clients/fcl-js/packages-docs/sdk/proposer)
+          - [put](/build/tools/clients/fcl-js/packages-docs/sdk/put)
+          - [ref](/build/tools/clients/fcl-js/packages-docs/sdk/ref)
+          - [resolve](/build/tools/clients/fcl-js/packages-docs/sdk/resolve)
+          - [resolveAccounts](/build/tools/clients/fcl-js/packages-docs/sdk/resolveAccounts)
+          - [resolveArguments](/build/tools/clients/fcl-js/packages-docs/sdk/resolveArguments)
+          - [resolveCadence](/build/tools/clients/fcl-js/packages-docs/sdk/resolveCadence)
+          - [resolveFinalNormalization](/build/tools/clients/fcl-js/packages-docs/sdk/resolveFinalNormalization)
+          - [resolveProposerSequenceNumber](/build/tools/clients/fcl-js/packages-docs/sdk/resolveProposerSequenceNumber)
+          - [resolveRefBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/resolveRefBlockId)
+          - [resolveSignatures](/build/tools/clients/fcl-js/packages-docs/sdk/resolveSignatures)
+          - [resolveValidators](/build/tools/clients/fcl-js/packages-docs/sdk/resolveValidators)
+          - [resolveVoucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/resolveVoucherIntercept)
+          - [response](/build/tools/clients/fcl-js/packages-docs/sdk/response)
+          - [script](/build/tools/clients/fcl-js/packages-docs/sdk/script)
+          - [send](/build/tools/clients/fcl-js/packages-docs/sdk/send)
+          - [subscribe](/build/tools/clients/fcl-js/packages-docs/sdk/subscribe)
+          - [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeEvents)
+          - [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeRaw)
+          - [TestUtils](/build/tools/clients/fcl-js/packages-docs/sdk/testUtils)
+          - [transaction](/build/tools/clients/fcl-js/packages-docs/sdk/transaction)
+          - [update](/build/tools/clients/fcl-js/packages-docs/sdk/update)
+          - [validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)
+          - [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/voucherIntercept)
+          - [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/sdk/voucherToTxId)
+          - [why](/build/tools/clients/fcl-js/packages-docs/sdk/why)
+        + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)
+      * [Authentication](/build/tools/clients/fcl-js/authentication)
+      * [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)
+      * [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
+      * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)
+      * [Installation](/build/tools/clients/fcl-js/installation)
+      * [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)
+      * [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)
+      * [Scripts](/build/tools/clients/fcl-js/scripts)
+      * [Transactions](/build/tools/clients/fcl-js/transactions)
+      * [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)
+      * [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)
+    - [Flow Go SDK](/build/tools/clients/flow-go-sdk)
+  + [Error Codes](/build/tools/error-codes)
+  + [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+
+* [Tools & SDKs](/build/tools)
+* [Client Tools](/build/tools/clients)
+* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
+* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
+* [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
+* param
+
+On this page
+
+# param
+
+Legacy function for setting a single parameter on an interaction.
+
+## Import[​](#import "Direct link to Import")
+
+You can import the entire package and access the function:
+
+`_10
+
+import * as sdk from "@onflow/sdk"
+
+_10
+
+_10
+
+sdk.param(params)`
+
+Or import directly the specific function:
+
+`_10
+
+import { param } from "@onflow/sdk"
+
+_10
+
+_10
+
+param(params)`
+
+## Parameters[​](#parameters "Direct link to Parameters")
+
+### `params`[​](#params "Direct link to params")
+
+* Type: `never`
+* Description: The parameter to set
+
+## Returns[​](#returns "Direct link to Returns")
+
+`Promise<unknown>`
+
+---
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/param.md)
+
+Last updated on **Aug 21, 2025** by **Brian Doyle**
+
+[Previous
+
+nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/nodeVersionInfo)[Next
+
+params](/build/tools/clients/fcl-js/packages-docs/sdk/params)
+
+###### Rate this page
+
+😞😐😊
+
+Copy as Markdown
+
+* [Import](#import)
+* [Parameters](#parameters)
+  + [`params`](#params)
+* [Returns](#returns)
+
+Documentation
+
+* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Tools & SDKs](/build/tools)
+* [Cadence](https://cadence-lang.org/docs/)
+* [Mobile](/build/cadence/guides/mobile/overview)
+* [FCL](/build/tools/clients/fcl-js)
+* [Testing](/build/cadence/smart-contracts/testing)
+* [CLI](/build/tools/flow-cli)
+* [Emulator](/build/tools/emulator)
+* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
+* [VS Code Extension](/build/tools/vscode-extension)
+
+Community
+
+* [Ecosystem](/ecosystem)
+* [Flow Port](https://port.flow.com/)
+* [Developer Grants](https://github.com/onflow/developer-grants)
+* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
+* [Flowverse](https://www.flowverse.co/)
+* [Emerald Academy](https://academy.ecdao.org/)
+* [FLOATs (Attendance NFTs)](https://floats.city/)
+
+Start Building
+
+* [Flow Playground](https://play.flow.com/)
+* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
+* [Cadence Cookbook](https://cookbook.flow.com)
+* [Core Contracts & Standards](/build/cadence/core-contracts)
+* [EVM](/build/evm/about)
+
+Network
+
+* [Network Status](https://status.flow.com/)
+* [Flowscan Mainnet](https://flowscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
+* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/protocol/node-ops)
+* [Spork Information](/protocol/node-ops/node-operation/spork)
+
+More
+
+* [GitHub](https://github.com/onflow)
+* [Discord](https://discord.gg/flow)
+* [Forum](https://forum.flow.com/)
+* [Flow](https://flow.com/)
+* [Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow, Inc. Built with Docusaurus.
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://developers.flow.com/build/cadence/guides/account-linking
 
 Account Linking (FLIP 72) | Flow Developer Portal
@@ -257046,9 +259036,9 @@ Search
     - [Utils](/build/tools/flow-cli/utils/signature-generate)
     - [Dependency Manager](/build/tools/flow-cli/dependency-manager)
     - [Running Cadence Tests](/build/tools/flow-cli/tests)
+    - [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)
     - [Cadence Linter](/build/tools/flow-cli/lint)
     - [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)
-    - [Cadence Boilerplate](/build/tools/flow-cli/boilerplate)
     - [Data Collection](/build/tools/flow-cli/data-collection)
   + [Cadence VS Code Extension](/build/tools/vscode-extension)
   + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
@@ -259971,6 +261961,322 @@ Copy as Markdown
 * [Time synchronization](#time-synchronization)
 * [Setup Data Directories & Disks](#setup-data-directories--disks)
   + [Confidential Data & Files](#confidential-data--files)
+
+Documentation
+
+* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Tools & SDKs](/build/tools)
+* [Cadence](https://cadence-lang.org/docs/)
+* [Mobile](/build/cadence/guides/mobile/overview)
+* [FCL](/build/tools/clients/fcl-js)
+* [Testing](/build/cadence/smart-contracts/testing)
+* [CLI](/build/tools/flow-cli)
+* [Emulator](/build/tools/emulator)
+* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
+* [VS Code Extension](/build/tools/vscode-extension)
+
+Community
+
+* [Ecosystem](/ecosystem)
+* [Flow Port](https://port.flow.com/)
+* [Developer Grants](https://github.com/onflow/developer-grants)
+* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
+* [Flowverse](https://www.flowverse.co/)
+* [Emerald Academy](https://academy.ecdao.org/)
+* [FLOATs (Attendance NFTs)](https://floats.city/)
+
+Start Building
+
+* [Flow Playground](https://play.flow.com/)
+* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
+* [Cadence Cookbook](https://cookbook.flow.com)
+* [Core Contracts & Standards](/build/cadence/core-contracts)
+* [EVM](/build/evm/about)
+
+Network
+
+* [Network Status](https://status.flow.com/)
+* [Flowscan Mainnet](https://flowscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
+* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/protocol/node-ops)
+* [Spork Information](/protocol/node-ops/node-operation/spork)
+
+More
+
+* [GitHub](https://github.com/onflow)
+* [Discord](https://discord.gg/flow)
+* [Forum](https://forum.flow.com/)
+* [Flow](https://flow.com/)
+* [Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow, Inc. Built with Docusaurus.
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/getTransaction
+
+getTransaction | Flow Developer Portal
+
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Why Flow](/build/flow)
+* [Cadence](/build/cadence/getting-started)
+
+  + [Getting Started](/build/cadence/getting-started)
+  + [Differences vs. EVM](/build/cadence/differences-vs-evm)
+  + [Flow Protocol](/build/cadence/basics/network-architecture)
+  + [App Architecture](/build/cadence/app-architecture)
+  + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
+  + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+  + [Guides](/build/cadence/guides/account-linking)
+  + [Core Smart Contracts](/build/cadence/core-contracts)
+  + [Explore More](/build/cadence/explore-more)
+* [Solidity (EVM)](/build/evm/about)
+
+  + [Why EVM on Flow](/build/evm/about)
+  + [How it Works](/build/evm/how-it-works)
+  + [Using Flow EVM](/build/evm/using)
+  + [Network Information](/build/evm/networks)
+  + [EVM Quickstart](/build/evm/quickstart)
+  + [Fees](/build/evm/fees)
+  + [Accounts](/build/evm/accounts)
+  + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
+  + [Faucets ↙](/evm/faucets)
+  + [Block Explorers ↙](/evm/block-explorers)
+  + [Guides](/build/evm/guides)
+* [Tools & SDKs](/build/tools)
+
+  + [@onflow/react-sdk](/build/tools/react-sdk)
+  + [Flow Emulator](/build/tools/emulator)
+  + [Flow CLI](/build/tools/flow-cli)
+  + [Cadence VS Code Extension](/build/tools/vscode-extension)
+  + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
+  + [Client Tools](/build/tools/clients)
+
+    - [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
+
+      * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
+
+        + [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
+        + [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
+
+          - [account](/build/tools/clients/fcl-js/packages-docs/sdk/account)
+          - [arg](/build/tools/clients/fcl-js/packages-docs/sdk/arg)
+          - [args](/build/tools/clients/fcl-js/packages-docs/sdk/args)
+          - [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockHeight)
+          - [atBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockId)
+          - [atLatestBlock](/build/tools/clients/fcl-js/packages-docs/sdk/atLatestBlock)
+          - [authorization](/build/tools/clients/fcl-js/packages-docs/sdk/authorization)
+          - [authorizations](/build/tools/clients/fcl-js/packages-docs/sdk/authorizations)
+          - [block](/build/tools/clients/fcl-js/packages-docs/sdk/block)
+          - [build](/build/tools/clients/fcl-js/packages-docs/sdk/build)
+          - [cadence](/build/tools/clients/fcl-js/packages-docs/sdk/cadence)
+          - [cdc](/build/tools/clients/fcl-js/packages-docs/sdk/cdc)
+          - [config](/build/tools/clients/fcl-js/packages-docs/sdk/config)
+          - [createSdkClient](/build/tools/clients/fcl-js/packages-docs/sdk/createSdkClient)
+          - [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/createSignableVoucher)
+          - [decode](/build/tools/clients/fcl-js/packages-docs/sdk/decode)
+          - [destroy](/build/tools/clients/fcl-js/packages-docs/sdk/destroy)
+          - [encodeMessageFromSignable](/build/tools/clients/fcl-js/packages-docs/sdk/encodeMessageFromSignable)
+          - [encodeTransactionEnvelope](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionEnvelope)
+          - [encodeTransactionPayload](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionPayload)
+          - [encodeTxIdFromVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher)
+          - [get](/build/tools/clients/fcl-js/packages-docs/sdk/get)
+          - [getAccount](/build/tools/clients/fcl-js/packages-docs/sdk/getAccount)
+          - [getBlock](/build/tools/clients/fcl-js/packages-docs/sdk/getBlock)
+          - [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/sdk/getBlockHeader)
+          - [getCollection](/build/tools/clients/fcl-js/packages-docs/sdk/getCollection)
+          - [getEvents](/build/tools/clients/fcl-js/packages-docs/sdk/getEvents)
+          - [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockHeightRange)
+          - [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockIds)
+          - [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/sdk/getNetworkParameters)
+          - [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo)
+          - [getTransaction](/build/tools/clients/fcl-js/packages-docs/sdk/getTransaction)
+          - [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/sdk/getTransactionStatus)
+          - [initInteraction](/build/tools/clients/fcl-js/packages-docs/sdk/initInteraction)
+          - [interaction](/build/tools/clients/fcl-js/packages-docs/sdk/interaction)
+          - [isBad](/build/tools/clients/fcl-js/packages-docs/sdk/isBad)
+          - [isOk](/build/tools/clients/fcl-js/packages-docs/sdk/isOk)
+          - [limit](/build/tools/clients/fcl-js/packages-docs/sdk/limit)
+          - [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/nodeVersionInfo)
+          - [param](/build/tools/clients/fcl-js/packages-docs/sdk/param)
+          - [params](/build/tools/clients/fcl-js/packages-docs/sdk/params)
+          - [payer](/build/tools/clients/fcl-js/packages-docs/sdk/payer)
+          - [ping](/build/tools/clients/fcl-js/packages-docs/sdk/ping)
+          - [pipe](/build/tools/clients/fcl-js/packages-docs/sdk/pipe)
+          - [proposer](/build/tools/clients/fcl-js/packages-docs/sdk/proposer)
+          - [put](/build/tools/clients/fcl-js/packages-docs/sdk/put)
+          - [ref](/build/tools/clients/fcl-js/packages-docs/sdk/ref)
+          - [resolve](/build/tools/clients/fcl-js/packages-docs/sdk/resolve)
+          - [resolveAccounts](/build/tools/clients/fcl-js/packages-docs/sdk/resolveAccounts)
+          - [resolveArguments](/build/tools/clients/fcl-js/packages-docs/sdk/resolveArguments)
+          - [resolveCadence](/build/tools/clients/fcl-js/packages-docs/sdk/resolveCadence)
+          - [resolveFinalNormalization](/build/tools/clients/fcl-js/packages-docs/sdk/resolveFinalNormalization)
+          - [resolveProposerSequenceNumber](/build/tools/clients/fcl-js/packages-docs/sdk/resolveProposerSequenceNumber)
+          - [resolveRefBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/resolveRefBlockId)
+          - [resolveSignatures](/build/tools/clients/fcl-js/packages-docs/sdk/resolveSignatures)
+          - [resolveValidators](/build/tools/clients/fcl-js/packages-docs/sdk/resolveValidators)
+          - [resolveVoucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/resolveVoucherIntercept)
+          - [response](/build/tools/clients/fcl-js/packages-docs/sdk/response)
+          - [script](/build/tools/clients/fcl-js/packages-docs/sdk/script)
+          - [send](/build/tools/clients/fcl-js/packages-docs/sdk/send)
+          - [subscribe](/build/tools/clients/fcl-js/packages-docs/sdk/subscribe)
+          - [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeEvents)
+          - [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeRaw)
+          - [TestUtils](/build/tools/clients/fcl-js/packages-docs/sdk/testUtils)
+          - [transaction](/build/tools/clients/fcl-js/packages-docs/sdk/transaction)
+          - [update](/build/tools/clients/fcl-js/packages-docs/sdk/update)
+          - [validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)
+          - [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/voucherIntercept)
+          - [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/sdk/voucherToTxId)
+          - [why](/build/tools/clients/fcl-js/packages-docs/sdk/why)
+        + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)
+      * [Authentication](/build/tools/clients/fcl-js/authentication)
+      * [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)
+      * [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
+      * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)
+      * [Installation](/build/tools/clients/fcl-js/installation)
+      * [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)
+      * [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)
+      * [Scripts](/build/tools/clients/fcl-js/scripts)
+      * [Transactions](/build/tools/clients/fcl-js/transactions)
+      * [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)
+      * [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)
+    - [Flow Go SDK](/build/tools/clients/flow-go-sdk)
+  + [Error Codes](/build/tools/error-codes)
+  + [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+
+* [Tools & SDKs](/build/tools)
+* [Client Tools](/build/tools/clients)
+* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
+* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
+* [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
+* getTransaction
+
+On this page
+
+# getTransaction
+
+A builder function that returns the interaction to get a transaction by id.
+
+Transaction id is a hash of the encoded transaction payload and can be calculated before submitting the transaction to the network.
+Transaction status represents the state of a transaction in the blockchain. Status can change until it is finalized.
+
+The transaction id provided must be from the current spork.
+
+Consider using 'fcl.tx(id).onceExecuted()' instead of calling this method directly for real-time transaction monitoring.
+
+## Import[​](#import "Direct link to Import")
+
+You can import the entire package and access the function:
+
+`_10
+
+import * as sdk from "@onflow/sdk"
+
+_10
+
+_10
+
+sdk.getTransaction(id)`
+
+Or import directly the specific function:
+
+`_10
+
+import { getTransaction } from "@onflow/sdk"
+
+_10
+
+_10
+
+getTransaction(id)`
+
+## Usage[​](#usage "Direct link to Usage")
+
+`_10
+
+import * as fcl from "@onflow/fcl";
+
+_10
+
+_10
+
+const tx = await fcl.send([
+
+_10
+
+fcl.getTransaction("9dda5f281897389b99f103a1c6b180eec9dac870de846449a302103ce38453f3")
+
+_10
+
+]).then(fcl.decode);`
+
+## Parameters[​](#parameters "Direct link to Parameters")
+
+### `id`[​](#id "Direct link to id")
+
+* Type: `string`
+
+## Returns[​](#returns "Direct link to Returns")
+
+`_10
+
+export type InteractionBuilderFn = (
+
+_10
+
+ix: Interaction
+
+_10
+
+) => Interaction | Promise<Interaction>`
+
+A function that processes an interaction object
+
+---
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/getTransaction.md)
+
+Last updated on **Aug 21, 2025** by **Brian Doyle**
+
+[Previous
+
+getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo)[Next
+
+getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/sdk/getTransactionStatus)
+
+###### Rate this page
+
+😞😐😊
+
+Copy as Markdown
+
+* [Import](#import)
+* [Usage](#usage)
+* [Parameters](#parameters)
+  + [`id`](#id)
+* [Returns](#returns)
 
 Documentation
 
@@ -263592,7 +265898,7 @@ Hackathons and Events | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -263611,6 +265917,7 @@ Search
 * [VCs & Funds](/ecosystem/vcs-and-funds)
 * [Faucets](/ecosystem/faucets)
 * [Grants](/ecosystem/grants)
+* [Project Growth](/ecosystem/project-growth)
 * [Hackathons and Events](/ecosystem/Hackathons and Events)
 
   + [May the Flow be with You](/ecosystem/Hackathons and Events/may-the-flow-be-with-you)
@@ -263653,7 +265960,7 @@ Last updated on **May 5, 2025** by **Brian Doyle**
 
 [Previous
 
-Grants](/ecosystem/grants)[Next
+Project Growth](/ecosystem/project-growth)[Next
 
 May the Flow be with You](/ecosystem/Hackathons and Events/may-the-flow-be-with-you)
 
@@ -263669,16 +265976,16 @@ Copy as Markdown
 
 Documentation
 
-* [Getting Started](/build/getting-started/contract-interaction)
-* [SDK's & Tools](/tools)
+* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/guides/mobile/overview)
-* [FCL](/tools/clients/fcl-js)
-* [Testing](/build/smart-contracts/testing)
-* [CLI](/tools/flow-cli)
-* [Emulator](/tools/emulator)
+* [Mobile](/build/cadence/guides/mobile/overview)
+* [FCL](/build/tools/clients/fcl-js)
+* [Testing](/build/cadence/smart-contracts/testing)
+* [CLI](/build/tools/flow-cli)
+* [Emulator](/build/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/tools/vscode-extension)
+* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
@@ -263695,18 +266002,18 @@ Start Building
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/core-contracts)
-* [EVM](/evm/about)
+* [Core Contracts & Standards](/build/cadence/core-contracts)
+* [EVM](/build/evm/about)
 
 Network
 
 * [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
-* [Node Operation](/networks/node-ops)
-* [Spork Information](/networks/node-ops/node-operation/spork)
+* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/protocol/node-ops)
+* [Spork Information](/protocol/node-ops/node-operation/spork)
 
 More
 
@@ -265832,9 +268139,9 @@ Search
     - [Utils](/build/tools/flow-cli/utils/signature-generate)
     - [Dependency Manager](/build/tools/flow-cli/dependency-manager)
     - [Running Cadence Tests](/build/tools/flow-cli/tests)
+    - [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)
     - [Cadence Linter](/build/tools/flow-cli/lint)
     - [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)
-    - [Cadence Boilerplate](/build/tools/flow-cli/boilerplate)
     - [Data Collection](/build/tools/flow-cli/data-collection)
   + [Cadence VS Code Extension](/build/tools/vscode-extension)
   + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
@@ -272171,9 +274478,9 @@ Search
     - [Utils](/build/tools/flow-cli/utils/signature-generate)
     - [Dependency Manager](/build/tools/flow-cli/dependency-manager)
     - [Running Cadence Tests](/build/tools/flow-cli/tests)
+    - [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)
     - [Cadence Linter](/build/tools/flow-cli/lint)
     - [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)
-    - [Cadence Boilerplate](/build/tools/flow-cli/boilerplate)
     - [Data Collection](/build/tools/flow-cli/data-collection)
   + [Cadence VS Code Extension](/build/tools/vscode-extension)
   + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
@@ -272939,9 +275246,9 @@ Search
     - [Utils](/build/tools/flow-cli/utils/signature-generate)
     - [Dependency Manager](/build/tools/flow-cli/dependency-manager)
     - [Running Cadence Tests](/build/tools/flow-cli/tests)
+    - [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)
     - [Cadence Linter](/build/tools/flow-cli/lint)
     - [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)
-    - [Cadence Boilerplate](/build/tools/flow-cli/boilerplate)
     - [Data Collection](/build/tools/flow-cli/data-collection)
   + [Cadence VS Code Extension](/build/tools/vscode-extension)
   + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
@@ -281769,9 +284076,9 @@ Search
     - [Utils](/build/tools/flow-cli/utils/signature-generate)
     - [Dependency Manager](/build/tools/flow-cli/dependency-manager)
     - [Running Cadence Tests](/build/tools/flow-cli/tests)
+    - [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)
     - [Cadence Linter](/build/tools/flow-cli/lint)
     - [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)
-    - [Cadence Boilerplate](/build/tools/flow-cli/boilerplate)
     - [Data Collection](/build/tools/flow-cli/data-collection)
   + [Cadence VS Code Extension](/build/tools/vscode-extension)
   + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
@@ -288551,7 +290858,7 @@ Introduction to Flow Actions | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -288652,7 +290959,7 @@ Read the [connectors article](/blockchain-development-tutorials/defi/connectors)
 
 ## Token Types[​](#token-types "Direct link to Token Types")
 
-In Cadence, tokens that adhere to the [Fungible Token Standard](https://developers.flow.com/build/guides/fungible-token) have types that work with type safety principles.
+In Cadence, tokens that adhere to the [Fungible Token Standard](https://developers.flow.com/build/cadence/guides/fungible-token) have types that work with type safety principles.
 
 For example, you can find the type of $FLOW by running this script:
 
@@ -288692,7 +290999,7 @@ That being said, defi protocols and tools operate very differently, which means 
 
 ### Source[​](#source "Direct link to Source")
 
-A source is a primitive component that can supply a [vault](https://developers.flow.com/build/guides/fungible-token#vaults-on-flow) containing the requested type and amount of tokens from something the user controls, or has authorized access to. This includes, but is not limited to, personal vaults, accounts in protocols, and rewards.
+A source is a primitive component that can supply a [vault](https://developers.flow.com/build/cadence/guides/fungible-token#vaults-on-flow) containing the requested type and amount of tokens from something the user controls, or has authorized access to. This includes, but is not limited to, personal vaults, accounts in protocols, and rewards.
 
 ![source](/assets/images/source-bc4fb0b6e9216d36592df3e6ccf6c4f0.png)
 
@@ -289951,7 +292258,7 @@ Now that you have completed this tutorial, you should be able to:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/defi/intro-to-flow-actions.md)
 
-Last updated on **Aug 17, 2025** by **0xLisanAlGaib**
+Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -289987,16 +292294,16 @@ Copy as Markdown
 
 Documentation
 
-* [Getting Started](/build/getting-started/contract-interaction)
-* [SDK's & Tools](/tools)
+* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/guides/mobile/overview)
-* [FCL](/tools/clients/fcl-js)
-* [Testing](/build/smart-contracts/testing)
-* [CLI](/tools/flow-cli)
-* [Emulator](/tools/emulator)
+* [Mobile](/build/cadence/guides/mobile/overview)
+* [FCL](/build/tools/clients/fcl-js)
+* [Testing](/build/cadence/smart-contracts/testing)
+* [CLI](/build/tools/flow-cli)
+* [Emulator](/build/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/tools/vscode-extension)
+* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
@@ -290013,18 +292320,18 @@ Start Building
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/core-contracts)
-* [EVM](/evm/about)
+* [Core Contracts & Standards](/build/cadence/core-contracts)
+* [EVM](/build/evm/about)
 
 Network
 
 * [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
-* [Node Operation](/networks/node-ops)
-* [Spork Information](/networks/node-ops/node-operation/spork)
+* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/protocol/node-ops)
+* [Spork Information](/protocol/node-ops/node-operation/spork)
 
 More
 
@@ -304654,7 +306961,7 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
-# Source: https://developers.flow.com/
+# Source: https://developers.flow.com
 
 Flow Developer Portal
 
@@ -304670,7 +306977,7 @@ Search
 
 # Apps deserve better blockchains
 
-Start building with **Cadence**, or **Solidity (EVM)**, with **AI-powered tools** - each path is first-class and fully supported.
+Start building with **Cadence**, or **Solidity (EVM)**, with **AI-powered tools**. Build the next killer app only possible on Flow.
 
 [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)Start with Cadence
 
@@ -304692,11 +306999,11 @@ Best in class tools powering best in class applications builders.
 
 [Build apps fast](/tools/react-sdk)[Import and compose with contracts](/tools/flow-cli/dependency-manager)[Get 100k testnet $FLOW](https://faucet.flow.com/fund-account)
 
-## Query onchain data
+## Try it live
 
 Flow token account balanceAccount storage limit and usageOnchain counter current countBalance of custom tokenNBA Top Shot and NFL All Day
 
-## Grow your business
+## Builder toolkit to start, grow, and win
 
 [### Builder Perks
 
@@ -305090,9 +307397,9 @@ Search
     - [Utils](/build/tools/flow-cli/utils/signature-generate)
     - [Dependency Manager](/build/tools/flow-cli/dependency-manager)
     - [Running Cadence Tests](/build/tools/flow-cli/tests)
+    - [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)
     - [Cadence Linter](/build/tools/flow-cli/lint)
     - [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)
-    - [Cadence Boilerplate](/build/tools/flow-cli/boilerplate)
     - [Data Collection](/build/tools/flow-cli/data-collection)
   + [Cadence VS Code Extension](/build/tools/vscode-extension)
   + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
@@ -306300,7 +308607,7 @@ Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 Cadence Linter](/build/tools/flow-cli/lint)[Next
 
-Cadence Boilerplate](/build/tools/flow-cli/boilerplate)
+Data Collection](/build/tools/flow-cli/data-collection)
 
 ###### Rate this page
 
@@ -320849,6 +323156,420 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
+# Source: https://developers.flow.com/build/tools/flow-cli/generate
+
+Generating Cadence Boilerplate | Flow Developer Portal
+
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Why Flow](/build/flow)
+* [Cadence](/build/cadence/getting-started)
+
+  + [Getting Started](/build/cadence/getting-started)
+  + [Differences vs. EVM](/build/cadence/differences-vs-evm)
+  + [Flow Protocol](/build/cadence/basics/network-architecture)
+  + [App Architecture](/build/cadence/app-architecture)
+  + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
+  + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+  + [Guides](/build/cadence/guides/account-linking)
+  + [Core Smart Contracts](/build/cadence/core-contracts)
+  + [Explore More](/build/cadence/explore-more)
+* [Solidity (EVM)](/build/evm/about)
+
+  + [Why EVM on Flow](/build/evm/about)
+  + [How it Works](/build/evm/how-it-works)
+  + [Using Flow EVM](/build/evm/using)
+  + [Network Information](/build/evm/networks)
+  + [EVM Quickstart](/build/evm/quickstart)
+  + [Fees](/build/evm/fees)
+  + [Accounts](/build/evm/accounts)
+  + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
+  + [Faucets ↙](/evm/faucets)
+  + [Block Explorers ↙](/evm/block-explorers)
+  + [Guides](/build/evm/guides)
+* [Tools & SDKs](/build/tools)
+
+  + [@onflow/react-sdk](/build/tools/react-sdk)
+  + [Flow Emulator](/build/tools/emulator)
+  + [Flow CLI](/build/tools/flow-cli)
+
+    - [Install Instructions](/build/tools/flow-cli/install)
+    - [Commands Overview](/build/tools/flow-cli/super-commands)
+    - [Accounts](/build/tools/flow-cli/accounts/get-accounts)
+    - [Keys](/build/tools/flow-cli/keys/generate-keys)
+    - [Deploy Project](/build/tools/flow-cli/deployment/start-emulator)
+    - [Scripts](/build/tools/flow-cli/scripts/execute-scripts)
+    - [Transactions](/build/tools/flow-cli/transactions/send-transactions)
+    - [Flow.json](/build/tools/flow-cli/flow.json/initialize-configuration)
+    - [Flow Entities](/build/tools/flow-cli/get-flow-data/get-blocks)
+    - [Utils](/build/tools/flow-cli/utils/signature-generate)
+    - [Dependency Manager](/build/tools/flow-cli/dependency-manager)
+    - [Running Cadence Tests](/build/tools/flow-cli/tests)
+    - [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)
+    - [Cadence Linter](/build/tools/flow-cli/lint)
+    - [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)
+    - [Data Collection](/build/tools/flow-cli/data-collection)
+  + [Cadence VS Code Extension](/build/tools/vscode-extension)
+  + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
+  + [Client Tools](/build/tools/clients)
+  + [Error Codes](/build/tools/error-codes)
+  + [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+
+* [Tools & SDKs](/build/tools)
+* [Flow CLI](/build/tools/flow-cli)
+* Generating Cadence Boilerplate
+
+On this page
+
+# Generating Cadence Boilerplate
+
+The `flow generate` command provides a convenient way to create boilerplate template files for common Cadence code components. This command streamlines the development process by automatically generating properly structured files with the correct syntax and organization.
+
+## Overview[​](#overview "Direct link to Overview")
+
+`_10
+
+flow generate [command]`
+
+**Aliases:** `generate`, `g`
+
+The generate command supports four main subcommands for creating different types of Cadence files:
+
+* **contract** - Generate Cadence smart contract templates
+* **script** - Generate Cadence script templates
+* **test** - Generate Cadence test templates
+* **transaction** - Generate Cadence transaction templates
+
+## Generate Contract[​](#generate-contract "Direct link to Generate Contract")
+
+Creates a new Cadence smart contract with a basic template structure.
+
+### Usage[​](#usage "Direct link to Usage")
+
+`_10
+
+flow generate contract <name> [flags]`
+
+### Example[​](#example "Direct link to Example")
+
+`_10
+
+flow generate contract HelloWorld`
+
+This command creates a file `cadence/contracts/HelloWorld.cdc` with the following content:
+
+`_10
+
+access(all) contract HelloWorld {
+
+_10
+
+init() {}
+
+_10
+
+}`
+
+info
+
+When generating a contract, a corresponding test file will also be created automatically (unless `--skip-tests` is used). For example, generating `HelloWorld` contract will also create `cadence/tests/HelloWorld.test.cdc`.
+
+### Flags[​](#flags "Direct link to Flags")
+
+* `--dir string` - Directory to generate files in (defaults to `cadence/contracts/`)
+* `--skip-tests` - Skip generating test files
+* `-h, --help` - Help for contract command
+
+## Generate Transaction[​](#generate-transaction "Direct link to Generate Transaction")
+
+Creates a new Cadence transaction with a basic template structure.
+
+### Usage[​](#usage-1 "Direct link to Usage")
+
+`_10
+
+flow generate transaction <name> [flags]`
+
+### Example[​](#example-1 "Direct link to Example")
+
+`_10
+
+flow generate transaction TransferTokens`
+
+This command creates a file `cadence/transactions/TransferTokens.cdc` with the following content:
+
+`_10
+
+transaction() {
+
+_10
+
+prepare() {}
+
+_10
+
+_10
+
+execute {}
+
+_10
+
+}`
+
+### Flags[​](#flags-1 "Direct link to Flags")
+
+* `--dir string` - Directory to generate files in (defaults to `cadence/transactions/`)
+* `--skip-tests` - Skip generating test files
+* `-h, --help` - Help for transaction command
+
+## Generate Script[​](#generate-script "Direct link to Generate Script")
+
+Creates a new Cadence script with a basic template structure.
+
+### Usage[​](#usage-2 "Direct link to Usage")
+
+`_10
+
+flow generate script <name> [flags]`
+
+### Example[​](#example-2 "Direct link to Example")
+
+`_10
+
+flow generate script GetBalance`
+
+This command creates a file `cadence/scripts/GetBalance.cdc` with the following content:
+
+`_10
+
+access(all) fun main() {}`
+
+### Flags[​](#flags-2 "Direct link to Flags")
+
+* `--dir string` - Directory to generate files in (defaults to `cadence/scripts/`)
+* `--skip-tests` - Skip generating test files
+* `-h, --help` - Help for script command
+
+## Generate Test[​](#generate-test "Direct link to Generate Test")
+
+Creates a new Cadence test file with a basic template structure.
+
+### Usage[​](#usage-3 "Direct link to Usage")
+
+`_10
+
+flow generate test <name> [flags]`
+
+### Example[​](#example-3 "Direct link to Example")
+
+`_10
+
+flow generate test MyToken`
+
+This command creates a file `cadence/tests/MyToken.test.cdc` with a basic test structure.
+
+After generating a test, you can run it using `flow test`. For more information about writing and running Cadence tests, see the [Cadence Tests documentation](/build/tools/flow-cli/tests).
+
+### Flags[​](#flags-3 "Direct link to Flags")
+
+* `--dir string` - Directory to generate files in (defaults to `cadence/tests/`)
+* `--skip-tests` - Skip generating test files
+* `-h, --help` - Help for test command
+
+## Custom Directory Usage[​](#custom-directory-usage "Direct link to Custom Directory Usage")
+
+All generate commands support the `--dir` flag to specify a custom directory for the generated files. This is useful when your project requires a different organizational structure than the default.
+
+### Examples[​](#examples "Direct link to Examples")
+
+`_11
+
+# Generate contract in a custom directory
+
+_11
+
+flow generate contract MyToken --dir=src/contracts
+
+_11
+
+_11
+
+# Generate transaction in a custom directory
+
+_11
+
+flow generate transaction Transfer --dir=src/transactions
+
+_11
+
+_11
+
+# Generate script in a custom directory
+
+_11
+
+flow generate script GetData --dir=src/scripts
+
+_11
+
+_11
+
+# Generate test in a custom directory
+
+_11
+
+flow generate test MyToken --dir=src/tests`
+
+## Project Structure[​](#project-structure "Direct link to Project Structure")
+
+When using the default directories, the generate command creates the following structure:
+
+`_10
+
+cadence/
+
+_10
+
+├── contracts/
+
+_10
+
+│ └── MyToken.cdc
+
+_10
+
+├── scripts/
+
+_10
+
+│ └── GetBalance.cdc
+
+_10
+
+├── transactions/
+
+_10
+
+│ └── TransferTokens.cdc
+
+_10
+
+└── tests/
+
+_10
+
+└── MyToken.test.cdc`
+
+The generate command is an essential tool for accelerating Flow development by providing standardized, well-structured boilerplate code for all common Cadence components.
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/generate.md)
+
+Last updated on **Aug 26, 2025** by **Chase Fleming**
+
+[Previous
+
+Running Cadence Tests](/build/tools/flow-cli/tests)[Next
+
+Cadence Linter](/build/tools/flow-cli/lint)
+
+###### Rate this page
+
+😞😐😊
+
+Copy as Markdown
+
+* [Overview](#overview)
+* [Generate Contract](#generate-contract)
+  + [Usage](#usage)
+  + [Example](#example)
+  + [Flags](#flags)
+* [Generate Transaction](#generate-transaction)
+  + [Usage](#usage-1)
+  + [Example](#example-1)
+  + [Flags](#flags-1)
+* [Generate Script](#generate-script)
+  + [Usage](#usage-2)
+  + [Example](#example-2)
+  + [Flags](#flags-2)
+* [Generate Test](#generate-test)
+  + [Usage](#usage-3)
+  + [Example](#example-3)
+  + [Flags](#flags-3)
+* [Custom Directory Usage](#custom-directory-usage)
+  + [Examples](#examples)
+* [Project Structure](#project-structure)
+
+Documentation
+
+* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Tools & SDKs](/build/tools)
+* [Cadence](https://cadence-lang.org/docs/)
+* [Mobile](/build/cadence/guides/mobile/overview)
+* [FCL](/build/tools/clients/fcl-js)
+* [Testing](/build/cadence/smart-contracts/testing)
+* [CLI](/build/tools/flow-cli)
+* [Emulator](/build/tools/emulator)
+* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
+* [VS Code Extension](/build/tools/vscode-extension)
+
+Community
+
+* [Ecosystem](/ecosystem)
+* [Flow Port](https://port.flow.com/)
+* [Developer Grants](https://github.com/onflow/developer-grants)
+* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
+* [Flowverse](https://www.flowverse.co/)
+* [Emerald Academy](https://academy.ecdao.org/)
+* [FLOATs (Attendance NFTs)](https://floats.city/)
+
+Start Building
+
+* [Flow Playground](https://play.flow.com/)
+* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
+* [Cadence Cookbook](https://cookbook.flow.com)
+* [Core Contracts & Standards](/build/cadence/core-contracts)
+* [EVM](/build/evm/about)
+
+Network
+
+* [Network Status](https://status.flow.com/)
+* [Flowscan Mainnet](https://flowscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
+* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/protocol/node-ops)
+* [Spork Information](/protocol/node-ops/node-operation/spork)
+
+More
+
+* [GitHub](https://github.com/onflow)
+* [Discord](https://discord.gg/flow)
+* [Forum](https://forum.flow.com/)
+* [Flow](https://flow.com/)
+* [Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow, Inc. Built with Docusaurus.
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://developers.flow.com/tools/wallet-provider-spec/user-signature
 
 User Signature | Flow Developer Portal
@@ -329803,9 +332524,9 @@ Search
     - [Utils](/build/tools/flow-cli/utils/signature-generate)
     - [Dependency Manager](/build/tools/flow-cli/dependency-manager)
     - [Running Cadence Tests](/build/tools/flow-cli/tests)
+    - [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)
     - [Cadence Linter](/build/tools/flow-cli/lint)
     - [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)
-    - [Cadence Boilerplate](/build/tools/flow-cli/boilerplate)
     - [Data Collection](/build/tools/flow-cli/data-collection)
   + [Cadence VS Code Extension](/build/tools/vscode-extension)
   + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
@@ -339422,9 +342143,9 @@ Search
     - [Utils](/build/tools/flow-cli/utils/signature-generate)
     - [Dependency Manager](/build/tools/flow-cli/dependency-manager)
     - [Running Cadence Tests](/build/tools/flow-cli/tests)
+    - [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)
     - [Cadence Linter](/build/tools/flow-cli/lint)
     - [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)
-    - [Cadence Boilerplate](/build/tools/flow-cli/boilerplate)
     - [Data Collection](/build/tools/flow-cli/data-collection)
   + [Cadence VS Code Extension](/build/tools/vscode-extension)
   + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
@@ -350274,6 +352995,8 @@ Account Linking | Flow Wallet
 
 Flow Wallet](/)
 
+`Ctrl``K`
+
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
 
@@ -350332,12 +353055,6 @@ Copy
 
 # ⛓️Account Linking
 
-[PreviousFAQ](/faq/faq)[NextWalletConnect](/features/walletconnect)
-
-Last updated 11 months ago
-
-`Ctrl``K`
-
 Flow Reference Wallet supports Account Linking, which is uniquely supported by Flow's account abstraction, which enables accounts to be linked together to create an association between them.
 **Background**One of the major hindrances to Web3 adoption is often the requirement for users to sign up for a wallet provider. This step during user onboarding to an application often causes excessive user friction and can deter users from participating. Flow solves this issue with account linking, which removes the requirement for users to sign up for a wallet prior to experiencing apps on Flow, while also enabling users to graduate to self-custody and true ownership of their assets.
 
@@ -350352,6 +353069,10 @@ Flow Reference Wallet supports and demonstrates account linking by automatically
 Flow Foundation believes that account linking eliminates the barriers to Web3 adoption by enabling familiar user onboarding mechanics to bring users to applications on Flow. Flow Reference Wallet provides support for account linking so users can seamlessly graduate to self-custody of their assets, and benefit from the portability of those assets across the ecosystem of apps on Flow.
 For more information on account linking, see: <https://flow.com/account-linking>
 For detailed technical documentation on account linking, see: <https://developers.flow.com/build/advanced-concepts/account-linking>
+
+[PreviousFAQ](/faq/faq)[NextWalletConnect](/features/walletconnect)
+
+Last updated 11 months ago
 
 
 
@@ -350372,6 +353093,8 @@ Extension Wallet Restore Guide | Flow Wallet
 [![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+`Ctrl``K`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
@@ -350425,21 +353148,15 @@ Flow Wallet](/)
 
 On this page
 
+* [From Device Backup](#from-device-backup)
+* [From Raw Key](#from-raw-key)
+* [Support](#support)
+
 Copy
 
 1. [Tutorial](/tutorial)
 
 # 🖥️Extension Wallet Restore Guide
-
-[PreviousExtension Wallet Backup Guide](/tutorial/extension-wallet-backup-guide)[NextExtension Update Guide](/tutorial/extension-update-guide)
-
-Last updated 10 months ago
-
-`Ctrl``K`
-
-* [From Device Backup](#from-device-backup)
-* [From Raw Key](#from-raw-key)
-* [Support](#support)
 
 Welcome to the Flow extension Wallet Account Restoration Guide! This resource will help you seamlessly restore your account using various backup methods. Whether you need to recover your wallet from a device backup or access your account using raw keys, we've got you covered.
 
@@ -350517,6 +353234,10 @@ Copy and past your private key in the correct order.
 
 If you encounter any issues or have further questions, please reach out to our support team at [[email protected]](/cdn-cgi/l/email-protection).
 
+[PreviousExtension Wallet Backup Guide](/tutorial/extension-wallet-backup-guide)[NextExtension Update Guide](/tutorial/extension-update-guide)
+
+Last updated 10 months ago
+
 
 
 
@@ -350536,6 +353257,8 @@ Open Source | Flow Wallet
 [![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+`Ctrl``K`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
@@ -350595,12 +353318,6 @@ Copy
 
 # 💽Open Source
 
-[PreviousDownload](/download/download)[NextMobile Wallet Backup Guide](/tutorial/mobile-wallet-backup-guide)
-
-Last updated 1 year ago
-
-`Ctrl``K`
-
 **iOS**
 <https://github.com/Outblock/FRW-iOS>
 
@@ -350609,6 +353326,10 @@ Last updated 1 year ago
 
 **Chrome Extension**
 <https://github.com/Outblock/FRW-Extension>
+
+[PreviousDownload](/download/download)[NextMobile Wallet Backup Guide](/tutorial/mobile-wallet-backup-guide)
+
+Last updated 1 year ago
 
 
 
@@ -350629,6 +353350,8 @@ FAQ | Flow Wallet
 [![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+`Ctrl``K`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
@@ -350690,12 +353413,6 @@ Copy
 
 Answers to common questions about Flow Wallet
 
-[PreviousFlow Reference Wallet Primer](/ecosystem-primers/flow-reference-wallet-primer)[NextAccount Linking](/features/account-linking)
-
-Last updated 11 months ago
-
-`Ctrl``K`
-
 #### Is Flow Wallet a Self-Custody or Custodial Wallet?
 
 Flow Wallet is self-custodial. Users own and control the cryptographic keys securing their Flow accounts and assets.
@@ -350742,6 +353459,10 @@ Create a Multi-Backup on Flow Wallet iOS and Android
 
 * Navigate to Settings > Backup > Create Multi-Backup
 
+[PreviousFlow Reference Wallet Primer](/ecosystem-primers/flow-reference-wallet-primer)[NextAccount Linking](/features/account-linking)
+
+Last updated 11 months ago
+
 
 
 
@@ -350761,6 +353482,8 @@ Etherjs | Flow Wallet
 [![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+`Ctrl``K`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
@@ -350823,12 +353546,6 @@ Copy
 
 Integrate with etherjs
 
-[PreviousRainbowkit](/ecosystem-development/integrate-flow-evm-with-web3-sdks/rainbowkit)[NextWeb3js](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3js)
-
-Last updated 7 months ago
-
-`Ctrl``K`
-
 ### Connect wallet
 
 Copy
@@ -350858,6 +353575,10 @@ const WalletConnect = () => {
 
 See more detail on <https://github.com/Outblock/etherjs-flow-evm-demo>
 
+[PreviousRainbowkit](/ecosystem-development/integrate-flow-evm-with-web3-sdks/rainbowkit)[NextWeb3js](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3js)
+
+Last updated 7 months ago
+
 
 
 
@@ -350877,6 +353598,8 @@ Download | Flow Wallet
 [![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+`Ctrl``K`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
@@ -350936,17 +353659,15 @@ Copy
 
 # 📲Download
 
-[PreviousPrivy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)[NextOpen Source](/open-source/open-source)
-
-Last updated 1 year ago
-
-`Ctrl``K`
-
 **iOS**[**https://apps.apple.com/ca/app/flow-wallet-nfts-and-crypto/id6478996750**](https://apps.apple.com/ca/app/flow-wallet-nfts-and-crypto/id6478996750)
 
 **Android**[**https://play.google.com/store/apps/details?id=com.flowfoundation.wallet**](https://play.google.com/store/apps/details?id=com.flowfoundation.wallet)
 
 **Chrome Extension**[**https://chrome.google.com/webstore/detail/flow-core/hpclkefagolihohboafpheddmmgdffjm**](https://chrome.google.com/webstore/detail/flow-core/hpclkefagolihohboafpheddmmgdffjm)
+
+[PreviousPrivy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)[NextOpen Source](/open-source/open-source)
+
+Last updated 1 year ago
 
 
 
@@ -350981,12 +353702,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **974f291efb8ae604**
+Cloudflare Ray ID: **975767127fefc583**
 •
 
 Your IP:
 Click to reveal
-4.236.159.80
+57.154.243.164
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 
@@ -351009,6 +353730,8 @@ Account Recovery | Flow Wallet
 [![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+`Ctrl``K`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
@@ -351068,12 +353791,6 @@ Copy
 
 # 🦺Account Recovery
 
-[PreviousSecure Enclave](/features/secure-enclave)[NextEcosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
-
-Last updated 1 year ago
-
-`Ctrl``K`
-
 Flow Reference Wallet enables users to recover their Flow accounts and assets in the event they lose access to their non-custodial wallet.
 **Background**Enabling users on Flow to safely self-custody their assets is important as it allows them to enjoy true ownership of their assets. Wallets need to address the safety drawbacks of self-custody, which include the possibility that a user will lose access to their self-custodial wallet and the keys it maintains. Fortunately, Flow natively supports features such as account abstraction and capability-based access control which open up a variety of options for how wallet providers can enable account recovery should their users lose access to the wallet.
 **Account Abstraction & Capability-Based Access Control**Flow's account abstraction enables accounts on Flow to have any number of keys with any number of weights. A user through their wallet provider can create multiple keys and set them to their account, perhaps storing some keys in a separate secure location or on a backup device. Weighted keys on Flow enable each account to natively act similar to a multi-sig on Ethereum. Users could share a variety of partial-weighted keys with their friends, which could collectively perform multi-sig to recover the assets of the account in the event the user's primary, full-weight keys are lost.
@@ -351089,6 +353806,10 @@ Since every user has different security preferences, their desired mechanic for 
 Technologies such as multi-party computation, Shamir's secret sharing, and threshold cryptography provide mechanics for distributing a user's secrets across multiple devices and systems, further removing the single point of failure that exists when custodying a user's key on a single device. Flow Reference Wallet will engage with systems such as Torus Network and Lit Protocol to provide ways to gate recovery keys behind cloud storage, social login providers, and across recovery devices should a user choose these options.
 **Conclusion**
 Flow Foundation believes that a safe user experience; one that empowers users to enjoy true ownership of their assets through self-custody while remaining safe from the possibility of losing access to a set of their account keys will further propel Flow and Web3 toward greater adoption.
+
+[PreviousSecure Enclave](/features/secure-enclave)[NextEcosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
+
+Last updated 1 year ago
 
 
 
@@ -351109,6 +353830,8 @@ Privy | Flow Wallet
 [![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+`Ctrl``K`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
@@ -351162,6 +353885,10 @@ Flow Wallet](/)
 
 On this page
 
+* [1. Enable Smart Wallet](#id-1.-enable-smart-wallet)
+* [2. Add Custom EVM Chains (Flow EVM)](#id-2.-add-custom-evm-chains-flow-evm)
+* [✅ Verify the Configuration](#verify-the-configuration)
+
 Copy
 
 1. [Ecosystem Development](/ecosystem-development)
@@ -351170,16 +353897,6 @@ Copy
 # Privy
 
 🛠️ Guide to Configuring Privy with Flow Wallet (EVM Support)
-
-[PreviousOthers SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)[NextDownload](/download/download)
-
-Last updated 20 days ago
-
-`Ctrl``K`
-
-* [1. Enable Smart Wallet](#id-1.-enable-smart-wallet)
-* [2. Add Custom EVM Chains (Flow EVM)](#id-2.-add-custom-evm-chains-flow-evm)
-* [✅ Verify the Configuration](#verify-the-configuration)
 
 ---
 
@@ -351265,6 +353982,10 @@ You can now use Privy’s SDK in your dApp frontend to connect wallets, sign tra
 
 ---
 
+[PreviousOthers SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)[NextDownload](/download/download)
+
+Last updated 21 days ago
+
 
 
 
@@ -351284,6 +354005,8 @@ Open Source | Flow Wallet
 [![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+`Ctrl``K`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
@@ -351343,12 +354066,6 @@ Copy
 
 # 💽Open Source
 
-[PreviousDownload](/download/download)[NextMobile Wallet Backup Guide](/tutorial/mobile-wallet-backup-guide)
-
-Last updated 1 year ago
-
-`Ctrl``K`
-
 **iOS**
 <https://github.com/Outblock/FRW-iOS>
 
@@ -351357,6 +354074,10 @@ Last updated 1 year ago
 
 **Chrome Extension**
 <https://github.com/Outblock/FRW-Extension>
+
+[PreviousDownload](/download/download)[NextMobile Wallet Backup Guide](/tutorial/mobile-wallet-backup-guide)
+
+Last updated 1 year ago
 
 
 
@@ -351377,6 +354098,8 @@ Wagmi | Flow Wallet
 [![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+`Ctrl``K`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
@@ -351430,6 +354153,9 @@ Flow Wallet](/)
 
 On this page
 
+* [Config wagmi with Chains and providers](#config-wagmi-with-chains-and-providers)
+* [Connect injected wallet with Flow EVM](#connect-injected-wallet-with-flow-evm)
+
 Copy
 
 1. [Ecosystem Development](/ecosystem-development)
@@ -351438,15 +354164,6 @@ Copy
 # Wagmi
 
 Integrate with Wagmi
-
-[PreviousIntegrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)[NextRainbowkit](/ecosystem-development/integrate-flow-evm-with-web3-sdks/rainbowkit)
-
-Last updated 7 months ago
-
-`Ctrl``K`
-
-* [Config wagmi with Chains and providers](#config-wagmi-with-chains-and-providers)
-* [Connect injected wallet with Flow EVM](#connect-injected-wallet-with-flow-evm)
 
 ### Config wagmi with Chains and providers
 
@@ -351510,6 +354227,10 @@ function App() {
 
 See more detail on <https://github.com/Outblock/wagmi-project>
 
+[PreviousIntegrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)[NextRainbowkit](/ecosystem-development/integrate-flow-evm-with-web3-sdks/rainbowkit)
+
+Last updated 7 months ago
+
 
 
 
@@ -351529,6 +354250,8 @@ Flow Client Library (FCL) | Flow Wallet
 [![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+`Ctrl``K`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
@@ -351588,16 +354311,14 @@ Copy
 
 # 💚Flow Client Library (FCL)
 
-[PreviousHuman Readable Transactions](/features/human-readable-transactions)[NextSecure Enclave](/features/secure-enclave)
-
-Last updated 1 year ago
-
-`Ctrl``K`
-
 Flow Reference Wallet is built on the FCL protocol, enabling it to be supported by the ecosystem of applications on Flow that use FCL to connect their users to their desired wallet provider.
 
 Flow Reference Wallet is a demonstration of how wallets can integrate with the FCL protocol to become an available wallet in the Flow ecosystem.
 For more on FCL, see: <https://developers.flow.com/tools/clients/fcl-js>
+
+[PreviousHuman Readable Transactions](/features/human-readable-transactions)[NextSecure Enclave](/features/secure-enclave)
+
+Last updated 1 year ago
 
 
 
@@ -351618,6 +354339,8 @@ Extension Private Key and Seed Phrase Guide | Flow Wallet
 [![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+`Ctrl``K`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
@@ -351677,12 +354400,6 @@ Copy
 
 # 💾Extension Private Key and Seed Phrase Guide
 
-[PreviousFLOW wallet init token guide](/tutorial/flow-wallet-init-token-guide)[NextMobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
-
-Last updated 10 months ago
-
-`Ctrl``K`
-
 Welcome to the Flow Wallet Extension guide! Your private key and seed phrase are essential components for managing and securing your digital assets. In this guide, we will show you how to easily locate your private key and seed phrase directly from the Settings page of the Flow Wallet Extension. Having this information at your fingertips ensures that you can recover your wallet and maintain full control over your funds. Let’s dive in and learn how to access these crucial details safely!
 
 1. Open the Flow Wallet Extension and navigate to the Settings page. Select the "Account List" section to view your accounts.
@@ -351711,6 +354428,10 @@ Welcome to the Flow Wallet Extension guide! Your private key and seed phrase are
 
 If you encounter any issues or have further questions, please reach out to our support team at [[email protected]](/cdn-cgi/l/email-protection).
 
+[PreviousFLOW wallet init token guide](/tutorial/flow-wallet-init-token-guide)[NextMobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
+
+Last updated 10 months ago
+
 
 
 
@@ -351730,6 +354451,8 @@ Move Assets between Flow and EVM | Flow Wallet
 [![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+`Ctrl``K`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
@@ -351783,22 +354506,16 @@ Flow Wallet](/)
 
 On this page
 
+* [Indroduction](#indroduction)
+* [Fungible asset transaction](#fungible-asset-transaction)
+* [Non-fungible assets transaction](#non-fungible-assets-transaction)
+* [Support](#support)
+
 Copy
 
 1. [Tutorial](/tutorial)
 
 # 💸Move Assets between Flow and EVM
-
-[PreviousMobile Wallet Backup Guide](/tutorial/mobile-wallet-backup-guide)[NextMobile Wallet Restore Guide](/tutorial/mobile-wallet-restore-guide)
-
-Last updated 10 months ago
-
-`Ctrl``K`
-
-* [Indroduction](#indroduction)
-* [Fungible asset transaction](#fungible-asset-transaction)
-* [Non-fungible assets transaction](#non-fungible-assets-transaction)
-* [Support](#support)
 
 ### Indroduction
 
@@ -351908,6 +354625,10 @@ Transferring FT to an EOA is a straightforward process. The steps to send FT fro
 
 If you encounter any issues or have further questions, please reach out to our support team at [[email protected]](/cdn-cgi/l/email-protection).
 
+[PreviousMobile Wallet Backup Guide](/tutorial/mobile-wallet-backup-guide)[NextMobile Wallet Restore Guide](/tutorial/mobile-wallet-restore-guide)
+
+Last updated 10 months ago
+
 
 
 
@@ -351927,6 +354648,8 @@ Others SDKs | Flow Wallet
 [![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+`Ctrl``K`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
@@ -351993,8 +354716,6 @@ Wip
 
 Last updated 7 months ago
 
-`Ctrl``K`
-
 
 
 
@@ -352014,6 +354735,8 @@ Rainbowkit | Flow Wallet
 [![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+`Ctrl``K`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
@@ -352076,12 +354799,6 @@ Copy
 
 Integrate with Rainbowkit
 
-[PreviousWagmi](/ecosystem-development/integrate-flow-evm-with-web3-sdks/wagmi)[NextEtherjs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/etherjs)
-
-Last updated 7 months ago
-
-`Ctrl``K`
-
 ### Connect wallet to Flow EVM
 
 Copy
@@ -352127,6 +354844,10 @@ const Home: NextPage = () => {
 
 See more detail on <https://github.com/Outblock/flow-evm-rainbow>
 
+[PreviousWagmi](/ecosystem-development/integrate-flow-evm-with-web3-sdks/wagmi)[NextEtherjs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/etherjs)
+
+Last updated 7 months ago
+
 
 
 
@@ -352146,6 +354867,8 @@ Account Linking | Flow Wallet
 [![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+`Ctrl``K`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
@@ -352205,12 +354928,6 @@ Copy
 
 # ⛓️Account Linking
 
-[PreviousFAQ](/faq/faq)[NextWalletConnect](/features/walletconnect)
-
-Last updated 11 months ago
-
-`Ctrl``K`
-
 Flow Reference Wallet supports Account Linking, which is uniquely supported by Flow's account abstraction, which enables accounts to be linked together to create an association between them.
 **Background**One of the major hindrances to Web3 adoption is often the requirement for users to sign up for a wallet provider. This step during user onboarding to an application often causes excessive user friction and can deter users from participating. Flow solves this issue with account linking, which removes the requirement for users to sign up for a wallet prior to experiencing apps on Flow, while also enabling users to graduate to self-custody and true ownership of their assets.
 
@@ -352225,6 +354942,10 @@ Flow Reference Wallet supports and demonstrates account linking by automatically
 Flow Foundation believes that account linking eliminates the barriers to Web3 adoption by enabling familiar user onboarding mechanics to bring users to applications on Flow. Flow Reference Wallet provides support for account linking so users can seamlessly graduate to self-custody of their assets, and benefit from the portability of those assets across the ecosystem of apps on Flow.
 For more information on account linking, see: <https://flow.com/account-linking>
 For detailed technical documentation on account linking, see: <https://developers.flow.com/build/advanced-concepts/account-linking>
+
+[PreviousFAQ](/faq/faq)[NextWalletConnect](/features/walletconnect)
+
+Last updated 11 months ago
 
 
 
@@ -352245,6 +354966,8 @@ Mobile Wallet Restore Guide | Flow Wallet
 [![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+`Ctrl``K`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
@@ -352298,22 +355021,16 @@ Flow Wallet](/)
 
 On this page
 
+* [From Device Backup](#from-device-backup)
+* [From Multi Backup](#from-multi-backup)
+* [From Raw Key](#from-raw-key)
+* [Support](#support)
+
 Copy
 
 1. [Tutorial](/tutorial)
 
 # 📱Mobile Wallet Restore Guide
-
-[PreviousMove Assets between Flow and EVM](/tutorial/move-assets-between-flow-and-evm)[NextExtension Wallet Backup Guide](/tutorial/extension-wallet-backup-guide)
-
-Last updated 10 months ago
-
-`Ctrl``K`
-
-* [From Device Backup](#from-device-backup)
-* [From Multi Backup](#from-multi-backup)
-* [From Raw Key](#from-raw-key)
-* [Support](#support)
 
 Welcome to the Flow mobile Wallet Account Restoration Guide! This resource will help you seamlessly restore your account using various backup methods. Whether you need to recover your wallet from a device backup, utilize a multi-backup, or access your account using raw keys, we've got you covered.
 
@@ -352421,6 +355138,10 @@ Copy and past your private key in the correct order.
 
 If you encounter any issues or have further questions, please reach out to our support team at [[email protected]](/cdn-cgi/l/email-protection).
 
+[PreviousMove Assets between Flow and EVM](/tutorial/move-assets-between-flow-and-evm)[NextExtension Wallet Backup Guide](/tutorial/extension-wallet-backup-guide)
+
+Last updated 10 months ago
+
 
 
 
@@ -352440,6 +355161,8 @@ Secure Enclave | Flow Wallet
 [![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+`Ctrl``K`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
@@ -352499,12 +355222,6 @@ Copy
 
 # 🔓Secure Enclave
 
-[PreviousFlow Client Library (FCL)](/features/flow-client-library-fcl)[NextAccount Recovery](/features/account-recovery)
-
-Last updated 11 months ago
-
-`Ctrl``K`
-
 Flow’s account abstraction deliberately supports ECDSA P-256 keys which are also supported by the Secure Enclave hardware on iPhone.
 **What is a Secure Enclave?**
 
@@ -352545,6 +355262,10 @@ Moreover, Flow offers another solution for this issue through its [account linki
 **Conclusion**
 Considering the advantages of using Secure Enclave on iPhone, Flow Reference Wallet will therefore move to support this credible specialized hardware for secure key management, as it enables users to benefit from the credibility, portability, utility, and security of their mobile device as their non-custodial wallet on Flow.
 
+[PreviousFlow Client Library (FCL)](/features/flow-client-library-fcl)[NextAccount Recovery](/features/account-recovery)
+
+Last updated 11 months ago
+
 
 
 
@@ -352564,6 +355285,8 @@ Flow Reference Wallet Primer | Flow Wallet
 [![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+`Ctrl``K`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
@@ -352622,12 +355345,6 @@ Copy
 1. [Ecosystem Primers](/ecosystem-primers)
 
 # ⭐Flow Reference Wallet Primer
-
-[PreviousWelcome to Flow Wallet](/)[NextFAQ](/faq/faq)
-
-Last updated 11 months ago
-
-`Ctrl``K`
 
 **Introduction**
 Flow is proud to unveil **Flow Reference Wallet**; a new self-custodial wallet designed to serve as a beacon to the Flow ecosystem, guiding wallets with an open-source implementation of the novel and unique product opportunities for wallets on the Flow blockchain. Flow Reference Wallet sets a new standard for wallet development on Flow by promoting a robust and secure, open-source, community-led foundation for wallet developers to build on.
@@ -352722,6 +355439,10 @@ telegram: @jeffjeffjeffjeffjeffjeffjeff
 **Working Group**
 Flow has an open working group dedicated to furthering the development of wallets on Flow. If you’d like to join this working group please email [[email protected]](/cdn-cgi/l/email-protection) to be added to the recurring meeting.
 
+[PreviousWelcome to Flow Wallet](/)[NextFAQ](/faq/faq)
+
+Last updated 11 months ago
+
 
 
 
@@ -352741,6 +355462,8 @@ Extension Update Guide | Flow Wallet
 [![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+`Ctrl``K`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
@@ -352802,12 +355525,6 @@ Copy
 
 This is the page to tell user how to upgrade their extension manually
 
-[PreviousExtension Wallet Restore Guide](/tutorial/extension-wallet-restore-guide)[NextFLOW wallet init token guide](/tutorial/flow-wallet-init-token-guide)
-
-Last updated 10 months ago
-
-`Ctrl``K`
-
 Welcome to the Flow Wallet Extension Version Update Guide! Keeping your extension up to date is essential for ensuring the best performance, security, and access to the latest features. In this guide, we will walk you through the process of manually updating to the newest version of the Flow Wallet Extension. Whether you’re experiencing issues or simply want to take advantage of new enhancements, this guide will provide you with step-by-step instructions to ensure a smooth update experience. Let’s get started!
 
 **Step-by-Step Instructions to Manually Update**
@@ -352828,6 +355545,10 @@ Welcome to the Flow Wallet Extension Version Update Guide! Keeping your extensio
 
 If you encounter any issues or have further questions, please reach out to our support team at [[email protected]](/cdn-cgi/l/email-protection).
 
+[PreviousExtension Wallet Restore Guide](/tutorial/extension-wallet-restore-guide)[NextFLOW wallet init token guide](/tutorial/flow-wallet-init-token-guide)
+
+Last updated 10 months ago
+
 
 
 
@@ -352847,6 +355568,8 @@ Mobile Wallet Backup Guide | Flow Wallet
 [![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+`Ctrl``K`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
@@ -352905,12 +355628,6 @@ Copy
 1. [Tutorial](/tutorial)
 
 # 🔐Mobile Wallet Backup Guide
-
-[PreviousOpen Source](/open-source/open-source)[NextMove Assets between Flow and EVM](/tutorial/move-assets-between-flow-and-evm)
-
-Last updated 10 months ago
-
-`Ctrl``K`
 
 Welcome to the Flow Mobile Wallet! Our wallet is designed to provide a secure and user-friendly experience for managing your digital assets. One of the standout features of the Flow Mobile Wallet is its robust backup options, ensuring that your funds remain safe and accessible.
 
@@ -352986,6 +355703,10 @@ Creating a seed phrase is a traditional method for securing your digital assets.
 
 If you encounter any issues or have further questions, please reach out to our support team at [[email protected]](/cdn-cgi/l/email-protection).
 
+[PreviousOpen Source](/open-source/open-source)[NextMove Assets between Flow and EVM](/tutorial/move-assets-between-flow-and-evm)
+
+Last updated 10 months ago
+
 
 
 
@@ -353005,6 +355726,8 @@ Wallet Revoke key guide | Flow Wallet
 [![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+`Ctrl``K`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
@@ -353058,18 +355781,12 @@ Flow Wallet](/)
 
 On this page
 
+* [📍 Steps to Revoke a Key](#steps-to-revoke-a-key)
+* [✅ Success](#success)
+
 Copy
 
 # 🔐Wallet Revoke key guide
-
-[PreviousMobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
-
-Last updated 1 month ago
-
-`Ctrl``K`
-
-* [📍 Steps to Revoke a Key](#steps-to-revoke-a-key)
-* [✅ Success](#success)
 
 If you no longer want a specific key to have access to your account, you can easily revoke it from the **Account Settings**. Follow the steps below to revoke a key safely.
 
@@ -353100,6 +355817,10 @@ If you no longer want a specific key to have access to your account, you can eas
 
 After revoking, the key will be marked as **Revoked**, and access using that key will be disabled immediately.
 
+[PreviousMobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
+
+Last updated 1 month ago
+
 
 
 
@@ -353119,6 +355840,8 @@ Flow Reference Wallet Primer | Flow Wallet
 [![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+`Ctrl``K`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
@@ -353177,12 +355900,6 @@ Copy
 1. [Ecosystem Primers](/ecosystem-primers)
 
 # ⭐Flow Reference Wallet Primer
-
-[PreviousWelcome to Flow Wallet](/)[NextFAQ](/faq/faq)
-
-Last updated 11 months ago
-
-`Ctrl``K`
 
 **Introduction**
 Flow is proud to unveil **Flow Reference Wallet**; a new self-custodial wallet designed to serve as a beacon to the Flow ecosystem, guiding wallets with an open-source implementation of the novel and unique product opportunities for wallets on the Flow blockchain. Flow Reference Wallet sets a new standard for wallet development on Flow by promoting a robust and secure, open-source, community-led foundation for wallet developers to build on.
@@ -353277,6 +355994,10 @@ telegram: @jeffjeffjeffjeffjeffjeffjeff
 **Working Group**
 Flow has an open working group dedicated to furthering the development of wallets on Flow. If you’d like to join this working group please email [[email protected]](/cdn-cgi/l/email-protection) to be added to the recurring meeting.
 
+[PreviousWelcome to Flow Wallet](/)[NextFAQ](/faq/faq)
+
+Last updated 11 months ago
+
 
 
 
@@ -353296,6 +356017,8 @@ MIPD | Flow Wallet
 [![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+`Ctrl``K`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
@@ -353358,12 +356081,6 @@ Copy
 
 Integrate with MIPD
 
-[PreviousWeb3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)[NextOthers SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-
-Last updated 7 months ago
-
-`Ctrl``K`
-
 ### Connect wallet
 
 Copy
@@ -353415,6 +356132,10 @@ const WalletConnect = () => {
 
 See more detail on <https://github.com/Outblock/mipd-flow-evm-demo>
 
+[PreviousWeb3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)[NextOthers SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
+
+Last updated 7 months ago
+
 
 
 
@@ -353434,6 +356155,8 @@ Ecosystem Developer Grants | Flow Wallet
 [![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+`Ctrl``K`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
@@ -353493,16 +356216,14 @@ Copy
 
 # 🛠️Ecosystem Developer Grants
 
-[PreviousAccount Recovery](/features/account-recovery)[NextIntegrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
-
-Last updated 1 year ago
-
-`Ctrl``K`
-
 Flow Reference Wallet is an ecosystem-led project, with developer grants available to further encourage ecosystem members to participate in its development.
 
 If you're interested in contributing to Flow Reference Wallet, see the available grants here:
 <https://github.com/onflow/developer-grants/blob/main/projects/flow-core-wallet/README.md>
+
+[PreviousAccount Recovery](/features/account-recovery)[NextIntegrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+
+Last updated 1 year ago
 
 
 
@@ -353523,6 +356244,8 @@ Integrate Flow EVM with Web3 SDKs | Flow Wallet
 [![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+`Ctrl``K`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
@@ -353582,12 +356305,6 @@ Copy
 
 # 🔌Integrate Flow EVM with Web3 SDKs
 
-[PreviousEcosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)[NextWagmi](/ecosystem-development/integrate-flow-evm-with-web3-sdks/wagmi)
-
-Last updated 7 months ago
-
-`Ctrl``K`
-
 ### Detect Flow wallet provider via EIP-6963
 
 Copy
@@ -353627,6 +356344,10 @@ const WalletConnect = () => {
 }
 ```
 
+[PreviousEcosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)[NextWagmi](/ecosystem-development/integrate-flow-evm-with-web3-sdks/wagmi)
+
+Last updated 7 months ago
+
 
 
 
@@ -353646,6 +356367,8 @@ FLOW wallet init token guide | Flow Wallet
 [![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+`Ctrl``K`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
@@ -353705,12 +356428,6 @@ Copy
 
 # 🪙FLOW wallet init token guide
 
-[PreviousExtension Update Guide](/tutorial/extension-update-guide)[NextExtension Private Key and Seed Phrase Guide](/tutorial/extension-private-key-and-seed-phrase-guide)
-
-Last updated 10 months ago
-
-`Ctrl``K`
-
 Welcome to our guide on enabling token storage in your FLOW wallet! Before you can receive FLOW tokens from others, it’s important to enable token storage in your wallet. This crucial step ensures that your wallet is equipped to securely hold and manage your tokens.
 
 In this guide, we’ll provide you with a step-by-step process to get started. Whether you’re a newcomer to the FLOW ecosystem or looking to enhance your understanding, this guide will empower you to handle your FLOW tokens with ease. Let’s dive in!
@@ -353739,6 +356456,10 @@ After you’ve completed all the above steps, you’ll find that the token has b
 
 If you encounter any issues or have further questions, please reach out to our support team at [[email protected]](/cdn-cgi/l/email-protection).
 
+[PreviousExtension Update Guide](/tutorial/extension-update-guide)[NextExtension Private Key and Seed Phrase Guide](/tutorial/extension-private-key-and-seed-phrase-guide)
+
+Last updated 10 months ago
+
 
 
 
@@ -353758,6 +356479,8 @@ Mobile Wallet Export Log Guide | Flow Wallet
 [![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+`Ctrl``K`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
@@ -353817,12 +356540,6 @@ Copy
 
 # ⛵Mobile Wallet Export Log Guide
 
-[PreviousExtension Private Key and Seed Phrase Guide](/tutorial/extension-private-key-and-seed-phrase-guide)[NextWallet Revoke key guide](/wallet-revoke-key-guide)
-
-Last updated 10 months ago
-
-`Ctrl``K`
-
 Welcome to the Flow Mobile Wallet Export Log Guide! This document is designed to assist users in exporting logs from the Flow Wallet app. Exporting logs can be a crucial step in troubleshooting issues, as it provides developers with detailed information about app performance and potential errors. By following this guide, you will learn how to easily export logs, enabling our development team to pinpoint and address any issues you may encounter. Your cooperation in this process helps us enhance the user experience and ensure the smooth operation of the Flow Wallet.
 
 Follow the steps below to export logs from the Flow Mobile Wallet:
@@ -353851,6 +356568,10 @@ Once you have exported the logs, you can share them with our support team for fu
 
 If you encounter any issues or have further questions, please reach out to our support team at [[email protected]](/cdn-cgi/l/email-protection).
 
+[PreviousExtension Private Key and Seed Phrase Guide](/tutorial/extension-private-key-and-seed-phrase-guide)[NextWallet Revoke key guide](/wallet-revoke-key-guide)
+
+Last updated 10 months ago
+
 
 
 
@@ -353870,6 +356591,8 @@ Mobile Wallet Backup Guide | Flow Wallet
 [![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+`Ctrl``K`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
@@ -353928,12 +356651,6 @@ Copy
 1. [Tutorial](/tutorial)
 
 # 🔐Mobile Wallet Backup Guide
-
-[PreviousOpen Source](/open-source/open-source)[NextMove Assets between Flow and EVM](/tutorial/move-assets-between-flow-and-evm)
-
-Last updated 10 months ago
-
-`Ctrl``K`
 
 Welcome to the Flow Mobile Wallet! Our wallet is designed to provide a secure and user-friendly experience for managing your digital assets. One of the standout features of the Flow Mobile Wallet is its robust backup options, ensuring that your funds remain safe and accessible.
 
@@ -354009,6 +356726,10 @@ Creating a seed phrase is a traditional method for securing your digital assets.
 
 If you encounter any issues or have further questions, please reach out to our support team at [[email protected]](/cdn-cgi/l/email-protection).
 
+[PreviousOpen Source](/open-source/open-source)[NextMove Assets between Flow and EVM](/tutorial/move-assets-between-flow-and-evm)
+
+Last updated 10 months ago
+
 
 
 
@@ -354028,6 +356749,8 @@ Download | Flow Wallet
 [![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+`Ctrl``K`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
@@ -354087,17 +356810,15 @@ Copy
 
 # 📲Download
 
-[PreviousPrivy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)[NextOpen Source](/open-source/open-source)
-
-Last updated 1 year ago
-
-`Ctrl``K`
-
 **iOS**[**https://apps.apple.com/ca/app/flow-wallet-nfts-and-crypto/id6478996750**](https://apps.apple.com/ca/app/flow-wallet-nfts-and-crypto/id6478996750)
 
 **Android**[**https://play.google.com/store/apps/details?id=com.flowfoundation.wallet**](https://play.google.com/store/apps/details?id=com.flowfoundation.wallet)
 
 **Chrome Extension**[**https://chrome.google.com/webstore/detail/flow-core/hpclkefagolihohboafpheddmmgdffjm**](https://chrome.google.com/webstore/detail/flow-core/hpclkefagolihohboafpheddmmgdffjm)
+
+[PreviousPrivy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)[NextOpen Source](/open-source/open-source)
+
+Last updated 1 year ago
 
 
 
@@ -354118,6 +356839,8 @@ Ecosystem Developer Grants | Flow Wallet
 [![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+`Ctrl``K`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
@@ -354177,16 +356900,14 @@ Copy
 
 # 🛠️Ecosystem Developer Grants
 
-[PreviousAccount Recovery](/features/account-recovery)[NextIntegrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
-
-Last updated 1 year ago
-
-`Ctrl``K`
-
 Flow Reference Wallet is an ecosystem-led project, with developer grants available to further encourage ecosystem members to participate in its development.
 
 If you're interested in contributing to Flow Reference Wallet, see the available grants here:
 <https://github.com/onflow/developer-grants/blob/main/projects/flow-core-wallet/README.md>
+
+[PreviousAccount Recovery](/features/account-recovery)[NextIntegrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+
+Last updated 1 year ago
 
 
 
@@ -354207,6 +356928,8 @@ Web3js | Flow Wallet
 [![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+`Ctrl``K`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
@@ -354269,12 +356992,6 @@ Copy
 
 Integrate with Web3js
 
-[PreviousEtherjs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/etherjs)[NextViem](/ecosystem-development/integrate-flow-evm-with-web3-sdks/viem)
-
-Last updated 7 months ago
-
-`Ctrl``K`
-
 ### Connet wallet
 
 Copy
@@ -354310,6 +357027,10 @@ See more detail on <https://github.com/Outblock/web3js-flow-evm-demo>
 
 See more detail on <https://github.com/Outblock/web3js-flow-evm-demo>
 
+[PreviousEtherjs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/etherjs)[NextViem](/ecosystem-development/integrate-flow-evm-with-web3-sdks/viem)
+
+Last updated 7 months ago
+
 
 
 
@@ -354329,6 +357050,8 @@ FAQ | Flow Wallet
 [![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+`Ctrl``K`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
@@ -354390,12 +357113,6 @@ Copy
 
 Answers to common questions about Flow Wallet
 
-[PreviousFlow Reference Wallet Primer](/ecosystem-primers/flow-reference-wallet-primer)[NextAccount Linking](/features/account-linking)
-
-Last updated 11 months ago
-
-`Ctrl``K`
-
 #### Is Flow Wallet a Self-Custody or Custodial Wallet?
 
 Flow Wallet is self-custodial. Users own and control the cryptographic keys securing their Flow accounts and assets.
@@ -354442,6 +357159,10 @@ Create a Multi-Backup on Flow Wallet iOS and Android
 
 * Navigate to Settings > Backup > Create Multi-Backup
 
+[PreviousFlow Reference Wallet Primer](/ecosystem-primers/flow-reference-wallet-primer)[NextAccount Linking](/features/account-linking)
+
+Last updated 11 months ago
+
 
 
 
@@ -354461,6 +357182,8 @@ Extension Wallet Backup Guide | Flow Wallet
 [![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+`Ctrl``K`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
@@ -354520,12 +357243,6 @@ Copy
 
 # 💻Extension Wallet Backup Guide
 
-[PreviousMobile Wallet Restore Guide](/tutorial/mobile-wallet-restore-guide)[NextExtension Wallet Restore Guide](/tutorial/extension-wallet-restore-guide)
-
-Last updated 10 months ago
-
-`Ctrl``K`
-
 Backing up your Flow Wallet Extension is crucial for ensuring the safety and accessibility of your digital assets. This guide will cover three essential methods for backing up your wallet.Introduction to Account Backup. These methods only used for accounts created in FLOW Wallet Extension.
 
 To ensure the security and accessibility of your account, it’s essential to have a reliable backup plan. We recommend choosing at least two of the following methods to back up your account. This will provide you with multiple layers of protection, giving you peace of mind that your assets are safe and can be easily recovered if needed.
@@ -354560,6 +357277,10 @@ After you’ve completed all the above steps, you’ll find that the backup has 
 
 If you encounter any issues or have further questions, please reach out to our support team at [[email protected]](/cdn-cgi/l/email-protection)
 
+[PreviousMobile Wallet Restore Guide](/tutorial/mobile-wallet-restore-guide)[NextExtension Wallet Restore Guide](/tutorial/extension-wallet-restore-guide)
+
+Last updated 10 months ago
+
 
 
 
@@ -354579,6 +357300,8 @@ WalletConnect | Flow Wallet
 [![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+`Ctrl``K`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
@@ -354638,14 +357361,12 @@ Copy
 
 # 🔌WalletConnect
 
+Flow Reference Wallet integrates with FCL WalletConnect, enabling users to effortlessly link their mobile Flow Reference Wallet on iOS and Android to the ecosystem of desktop applications on Flow. By easily scanning a QR code, users can authenticate themselves and authorize transactions using their self-custodial mobile wallet, maintaining complete control over their private keys, and enhancing security and trust. This feature empowers users to explore the vast landscape of decentralized applications on Flow, making Flow Reference Wallet a great choice for users seeking a seamless and secure self-custodial mobile wallet experience.
+For more on FCL WalletConnect, see: <https://developers.flow.com/tools/clients/fcl-js/wallet-connect>
+
 [PreviousAccount Linking](/features/account-linking)[NextHuman Readable Transactions](/features/human-readable-transactions)
 
 Last updated 1 year ago
-
-`Ctrl``K`
-
-Flow Reference Wallet integrates with FCL WalletConnect, enabling users to effortlessly link their mobile Flow Reference Wallet on iOS and Android to the ecosystem of desktop applications on Flow. By easily scanning a QR code, users can authenticate themselves and authorize transactions using their self-custodial mobile wallet, maintaining complete control over their private keys, and enhancing security and trust. This feature empowers users to explore the vast landscape of decentralized applications on Flow, making Flow Reference Wallet a great choice for users seeking a seamless and secure self-custodial mobile wallet experience.
-For more on FCL WalletConnect, see: <https://developers.flow.com/tools/clients/fcl-js/wallet-connect>
 
 
 
@@ -354666,6 +357387,8 @@ Web3-Onboard | Flow Wallet
 [![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+`Ctrl``K`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
@@ -354728,12 +357451,6 @@ Copy
 
 Integrate with Web3-Onboard
 
-[PreviousViem](/ecosystem-development/integrate-flow-evm-with-web3-sdks/viem)[NextMIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
-
-Last updated 7 months ago
-
-`Ctrl``K`
-
 ### Connect wallet to Flow EVM
 
 Copy
@@ -354794,6 +357511,10 @@ const WalletConnect = () => {
 
 See more detail on <https://github.com/Outblock/web3-onboard-flow-evm-demo>
 
+[PreviousViem](/ecosystem-development/integrate-flow-evm-with-web3-sdks/viem)[NextMIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
+
+Last updated 7 months ago
+
 
 
 
@@ -354813,6 +357534,8 @@ Welcome to Flow Wallet | Flow Wallet
 [![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+`Ctrl``K`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
@@ -354868,23 +357591,17 @@ Flow Wallet](/)
 
 On this page
 
-Copy
-
-# 👋Welcome to Flow Wallet
-
-A reference wallet created ‍for everyone. Trusted. Battle-tested. Beautifully designed.
-
-[NextFlow Reference Wallet Primer](/ecosystem-primers/flow-reference-wallet-primer)
-
-Last updated 11 months ago
-
-`Ctrl``K`
-
 * [Introduction](#introduction)
 * [Download](#download)
 * [Ecosystem Primer](#ecosystem-primer)
 * [Wallet Features](#wallet-features)
 * [Ecosystem Development](#ecosystem-development)
+
+Copy
+
+# 👋Welcome to Flow Wallet
+
+A reference wallet created ‍for everyone. Trusted. Battle-tested. Beautifully designed.
 
 ## Introduction
 
@@ -354912,6 +357629,10 @@ The Flow Wallet ecosystem primer document explains the purpose of Flow Wallet an
 
 [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
 
+[NextFlow Reference Wallet Primer](/ecosystem-primers/flow-reference-wallet-primer)
+
+Last updated 11 months ago
+
 
 
 
@@ -354931,6 +357652,8 @@ Viem | Flow Wallet
 [![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+`Ctrl``K`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
@@ -354993,12 +357716,6 @@ Copy
 
 Integrate with Viem
 
-[PreviousWeb3js](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3js)[NextWeb3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
-
-Last updated 7 months ago
-
-`Ctrl``K`
-
 ### Connect wallet to Flow EVM
 
 Copy
@@ -355038,6 +357755,10 @@ const WalletConnect = () => {
 
 See more detail on <https://github.com/Outblock/viem-flow-evm-demo>
 
+[PreviousWeb3js](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3js)[NextWeb3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
+
+Last updated 7 months ago
+
 
 
 
@@ -355057,6 +357778,8 @@ Human Readable Transactions | Flow Wallet
 [![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)![](https://docs.wallet.flow.com/~gitbook/image?url=https%3A%2F%2F2259229985-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FCqw72ZIu4wNI7q40hHbt%252Ficon%252FujFWaar3Vnn4QTdMskjH%252Ficon_appstore_1024.png%3Falt%3Dmedia%26token%3D52699cef-93ef-43b6-b628-efba059c75b3&width=32&dpr=4&quality=100&sign=8e5f4036&sv=2)
 
 Flow Wallet](/)
+
+`Ctrl``K`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
@@ -355116,12 +357839,6 @@ Copy
 
 # 📖Human Readable Transactions
 
-[PreviousWalletConnect](/features/walletconnect)[NextFlow Client Library (FCL)](/features/flow-client-library-fcl)
-
-Last updated 1 year ago
-
-`Ctrl``K`
-
 Flow Reference Wallet supports human-readable transactions during transaction authorization.
 **Background**
 When users are prompted to authorize a transaction, they are frequently presented with complex and often bewildering information, leading to confusion and increased user friction. This obscurity has unfortunately paved the way for numerous attacks, resulting in significant losses for unsuspecting victims.
@@ -355133,6 +357850,10 @@ Interaction template auditors play a crucial role in assessing the accuracy and 
 Interaction templates and audits eliminate the need for users to decipher unintelligible authorization prompts, ensuring they confidently sign and approve transactions that they understand.
 Flow Foundation believes that increasing the number of human-readable transactions through the usage of interaction templates and audits can further increase the adoption of Web3 and Flow.
 For more on how application developers, cadence developers and wallets can use interaction templates, see: <https://developers.flow.com/tooling/fcl-js/interaction-templates>
+
+[PreviousWalletConnect](/features/walletconnect)[NextFlow Client Library (FCL)](/features/flow-client-library-fcl)
+
+Last updated 1 year ago
 
 
 

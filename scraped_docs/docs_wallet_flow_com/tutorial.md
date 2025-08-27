@@ -6,6 +6,8 @@ Mobile Wallet Backup Guide | Flow Wallet
 
 Flow Wallet](/)
 
+`Ctrl``K`
+
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
 
@@ -63,12 +65,6 @@ Copy
 1. [Tutorial](/tutorial)
 
 # 🔐Mobile Wallet Backup Guide
-
-[PreviousOpen Source](/open-source/open-source)[NextMove Assets between Flow and EVM](/tutorial/move-assets-between-flow-and-evm)
-
-Last updated 10 months ago
-
-`Ctrl``K`
 
 Welcome to the Flow Mobile Wallet! Our wallet is designed to provide a secure and user-friendly experience for managing your digital assets. One of the standout features of the Flow Mobile Wallet is its robust backup options, ensuring that your funds remain safe and accessible.
 
@@ -143,3 +139,7 @@ Creating a seed phrase is a traditional method for securing your digital assets.
 ### Support
 
 If you encounter any issues or have further questions, please reach out to our support team at [[email protected]](/cdn-cgi/l/email-protection).
+
+[PreviousOpen Source](/open-source/open-source)[NextMove Assets between Flow and EVM](/tutorial/move-assets-between-flow-and-evm)
+
+Last updated 10 months ago

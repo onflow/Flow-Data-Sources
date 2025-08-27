@@ -341,6 +341,144 @@ tip
 
 To reduce the potential for spam, we recommend that user agents that display events do not display this event as-is to their users, and allow users to restrict whom they see events from.
 
+### Storage Capability Controller Issued[​](#storage-capability-controller-issued "Direct link to Storage Capability Controller Issued")
+
+Event that is emitted when a storage capability controller is created and issued to an account.
+
+Event name: `flow.StorageCapabilityControllerIssued`
+
+`_10
+
+access(all)
+
+_10
+
+event StorageCapabilityControllerIssued(id: UInt64, address: Address, type: Type, path: Path)`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `UInt64` | The ID of the issued capability controller |
+| `address` | `Address` | The address of the account which the controller targets |
+| `type` | `Type` | The kind of reference that can be obtained with capabilities from this controller |
+| `path` | `Path` | The storage path this controller manages |
+
+### Account Capability Controller Issued[​](#account-capability-controller-issued "Direct link to Account Capability Controller Issued")
+
+Event that is emitted when an account capability controller is created and issued to an account.
+
+Event name: `flow.AccountCapabilityControllerIssued`
+
+`_10
+
+access(all)
+
+_10
+
+event AccountCapabilityControllerIssued(id: UInt64, address: Address, type: Type)`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `UInt64` | The ID of the issued capability controller |
+| `address` | `Address` | The address of the account which the controller targets |
+| `type` | `Type` | The kind of reference that can be obtained with capabilities from this controller |
+
+### Storage Capability Controller Deleted[​](#storage-capability-controller-deleted "Direct link to Storage Capability Controller Deleted")
+
+Event that is emitted when a storage capability controller is deleted.
+
+Event name: `flow.StorageCapabilityControllerDeleted`
+
+`_10
+
+access(all)
+
+_10
+
+event StorageCapabilityControllerDeleted(id: UInt64, address: Address)`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `UInt64` | The ID of the issued capability controller |
+| `address` | `Address` | The address of the account which the controller targets |
+
+### Account Capability Controller Deleted[​](#account-capability-controller-deleted "Direct link to Account Capability Controller Deleted")
+
+Event that is emitted when an account capability controller is deleted.
+
+Event name: `flow.AccountCapabilityControllerDeleted`
+
+`_10
+
+access(all)
+
+_10
+
+event AccountCapabilityControllerDeleted(id: UInt64, address: Address)`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `UInt64` | The ID of the issued capability controller |
+| `address` | `Address` | The address of the account which the controller targets |
+
+### Storage Capability Controller Target Changed[​](#storage-capability-controller-target-changed "Direct link to Storage Capability Controller Target Changed")
+
+Event that is emitted when a storage capability controller's path is changed.
+
+Event name: `flow.StorageCapabilityControllerTargetChanged`
+
+`_10
+
+access(all)
+
+_10
+
+event StorageCapabilityControllerTargetChanged(id: UInt64, address: Address, path: Path)`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `UInt64` | The ID of the issued capability controller |
+| `address` | `Address` | The address of the account which the controller targets |
+| `path` | `Path` | The new path this controller manages |
+
+### Capability Published[​](#capability-published "Direct link to Capability Published")
+
+Event that is emitted when a capability is published.
+
+Event name: `flow.CapabilityPublished`
+
+`_10
+
+access(all)
+
+_10
+
+event CapabilityPublished(address: Address, path: Path, capability: Capability)`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `address` | `Address` | The address of the account which the capability targets |
+| `path` | `Path` | The path this capability is published at |
+| `capability` | `Capability` | The published capability |
+
+### Capability Unpublished[​](#capability-unpublished "Direct link to Capability Unpublished")
+
+Event that is emitted when a capability is unpublished.
+
+Event name: `flow.CapabilityUnpublished`
+
+`_10
+
+access(all)
+
+_10
+
+event CapabilityUnpublished(address: Address, path: Path)`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `address` | `Address` | The address of the account which the capability targeted |
+| `path` | `Path` | The path this capability was published at |
+
 [Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/core-events.md)
 
 [Previous
@@ -362,3 +500,10 @@ Environment Information](/docs/language/environment-information)
 * [Inbox Value Published](#inbox-value-published)
 * [Inbox Value Unpublished](#inbox-value-unpublished)
 * [Inbox Value Claimed](#inbox-value-claimed)
+* [Storage Capability Controller Issued](#storage-capability-controller-issued)
+* [Account Capability Controller Issued](#account-capability-controller-issued)
+* [Storage Capability Controller Deleted](#storage-capability-controller-deleted)
+* [Account Capability Controller Deleted](#account-capability-controller-deleted)
+* [Storage Capability Controller Target Changed](#storage-capability-controller-target-changed)
+* [Capability Published](#capability-published)
+* [Capability Unpublished](#capability-unpublished)

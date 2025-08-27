@@ -1286,6 +1286,73 @@ The following functions can only be used on variable-sized arrays. It is invalid
   _15
 
   numbers.removeLast() ``
+* `_10
+
+  access(all)
+
+  _10
+
+  fun toConstantSized<[T; N]>(): [T; N]?`
+
+  Converts a variable-sized array to a constant-sized array if the number of elements matches the target size `N` and the original variable-sized array has type `T`. Available if `T` is not resource-kinded.
+
+  Returns nil if the number of elements does not match the target size `N`.
+
+  `_10
+
+  // Declare an array of integers.
+
+  _10
+
+  let numbers = [42, 23]
+
+  _10
+
+  _10
+
+  // Change to a constant-sized array
+
+  _10
+
+  let numbersConst = numbers.toConstantSized<[Int; 2]>()
+
+  _10
+
+  // numbersConst has the type [Int; 2]?`
+
+## Constant-size array functions[​](#constant-size-array-functions "Direct link to Constant-size array functions")
+
+* `_10
+
+  access(all)
+
+  _10
+
+  fun toVariableSized(): [T]`
+
+  Converts a constant-sized array to a variable-sized array of the same type `T`. Available if `T` is not resource-kinded.
+
+  `_10
+
+  // Declare an array of integers.
+
+  _10
+
+  let numbers: [Int16; 3] = [1, 2, 3]
+
+  _10
+
+  _10
+
+  // Change to a constant-sized array
+
+  _10
+
+  let numbersVar = numbers.toVariableSized()
+
+  _10
+
+  // numbersVar has the type [Int]`
 
 [Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/values-and-types/arrays.md)
 
@@ -1303,3 +1370,4 @@ Dictionaries](/docs/language/values-and-types/dictionaries)
 * [Array indexing](#array-indexing)
 * [Array fields and functions](#array-fields-and-functions)
 * [Variable-size array functions](#variable-size-array-functions)
+* [Constant-size array functions](#constant-size-array-functions)

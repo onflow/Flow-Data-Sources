@@ -6,6 +6,8 @@ Ecosystem Developer Grants | Flow Wallet
 
 Flow Wallet](/)
 
+`Ctrl``K`
+
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
 
@@ -64,13 +66,11 @@ Copy
 
 # 🛠️Ecosystem Developer Grants
 
-[PreviousAccount Recovery](/features/account-recovery)[NextIntegrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
-
-Last updated 1 year ago
-
-`Ctrl``K`
-
 Flow Reference Wallet is an ecosystem-led project, with developer grants available to further encourage ecosystem members to participate in its development.
 
 If you're interested in contributing to Flow Reference Wallet, see the available grants here:
 <https://github.com/onflow/developer-grants/blob/main/projects/flow-core-wallet/README.md>
+
+[PreviousAccount Recovery](/features/account-recovery)[NextIntegrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
+
+Last updated 1 year ago

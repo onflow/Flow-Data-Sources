@@ -6,6 +6,8 @@ Extension Update Guide | Flow Wallet
 
 Flow Wallet](/)
 
+`Ctrl``K`
+
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
 
@@ -66,12 +68,6 @@ Copy
 
 This is the page to tell user how to upgrade their extension manually
 
-[PreviousExtension Wallet Restore Guide](/tutorial/extension-wallet-restore-guide)[NextFLOW wallet init token guide](/tutorial/flow-wallet-init-token-guide)
-
-Last updated 10 months ago
-
-`Ctrl``K`
-
 Welcome to the Flow Wallet Extension Version Update Guide! Keeping your extension up to date is essential for ensuring the best performance, security, and access to the latest features. In this guide, we will walk you through the process of manually updating to the newest version of the Flow Wallet Extension. Whether you’re experiencing issues or simply want to take advantage of new enhancements, this guide will provide you with step-by-step instructions to ensure a smooth update experience. Let’s get started!
 
 **Step-by-Step Instructions to Manually Update**
@@ -91,3 +87,7 @@ Welcome to the Flow Wallet Extension Version Update Guide! Keeping your extensio
 ### Support
 
 If you encounter any issues or have further questions, please reach out to our support team at [[email protected]](/cdn-cgi/l/email-protection).
+
+[PreviousExtension Wallet Restore Guide](/tutorial/extension-wallet-restore-guide)[NextFLOW wallet init token guide](/tutorial/flow-wallet-init-token-guide)
+
+Last updated 10 months ago

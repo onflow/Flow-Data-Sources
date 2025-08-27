@@ -403,9 +403,9 @@ _52
 
 entitlement UnpublishCapability ``
 
-## Checking the existence of public capabilities[​](#checking-the-existence-of-public-capabilities "Direct link to Checking the existence of public capabilities")
+## Checking the existence of public capabilities with `.exists()`[​](#checking-the-existence-of-public-capabilities-with-exists "Direct link to checking-the-existence-of-public-capabilities-with-exists")
 
-The function `capabilities.check` determines if a public capability was [published](#publishing-capabilities) at the given path before:
+The function `capabilities.exists` determines if a public capability was [published](#publishing-capabilities) at the given path before:
 
 `_10
 
@@ -1666,7 +1666,7 @@ Interfaces](/docs/language/interfaces)
 
 * [`Capability`](#capability)
 * [Capabilities in accounts](#capabilities-in-accounts)
-* [Checking the existence of public capabilities](#checking-the-existence-of-public-capabilities)
+* [Checking the existence of public capabilities with `.exists()`](#checking-the-existence-of-public-capabilities-with-exists)
 * [Getting public capabilities with `.get()`](#getting-public-capabilities-with-get)
 * [Borrowing public capabilities with `.borrow()`](#borrowing-public-capabilities-with-borrow)
 * [Managing capabilities](#managing-capabilities)

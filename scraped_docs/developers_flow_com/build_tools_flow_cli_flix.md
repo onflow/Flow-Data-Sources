@@ -55,9 +55,9 @@ Search
     - [Utils](/build/tools/flow-cli/utils/signature-generate)
     - [Dependency Manager](/build/tools/flow-cli/dependency-manager)
     - [Running Cadence Tests](/build/tools/flow-cli/tests)
+    - [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)
     - [Cadence Linter](/build/tools/flow-cli/lint)
     - [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)
-    - [Cadence Boilerplate](/build/tools/flow-cli/boilerplate)
     - [Data Collection](/build/tools/flow-cli/data-collection)
   + [Cadence VS Code Extension](/build/tools/vscode-extension)
   + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
@@ -1265,7 +1265,7 @@ Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 Cadence Linter](/build/tools/flow-cli/lint)[Next
 
-Cadence Boilerplate](/build/tools/flow-cli/boilerplate)
+Data Collection](/build/tools/flow-cli/data-collection)
 
 ###### Rate this page
 

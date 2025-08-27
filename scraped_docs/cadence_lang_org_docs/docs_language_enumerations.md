@@ -161,6 +161,59 @@ Enum cases can be compared using the equality operators `==` and `!=`.
    `` _10
 
    Color.red != Color.blue // is `true` ``
+6. Use an enum as part of a control flow statement.
+
+   `_13
+
+   fun applyPaint(_ paint: Color): String {
+
+   _13
+
+   // Directly test the value of the enum paint
+
+   _13
+
+   switch paint {
+
+   _13
+
+   case Color.red:
+
+   _13
+
+   return "red"
+
+   _13
+
+   case Color.blue:
+
+   _13
+
+   return "blue"
+
+   _13
+
+   case Color.green:
+
+   _13
+
+   return "green"
+
+   _13
+
+   default
+
+   _13
+
+   return "unsupported color"
+
+   _13
+
+   }
+
+   _13
+
+   }`
 
 [Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/enumerations.md)
 

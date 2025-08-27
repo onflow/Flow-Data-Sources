@@ -6,6 +6,8 @@ Flow Client Library (FCL) | Flow Wallet
 
 Flow Wallet](/)
 
+`Ctrl``K`
+
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
 
@@ -64,13 +66,11 @@ Copy
 
 # 💚Flow Client Library (FCL)
 
-[PreviousHuman Readable Transactions](/features/human-readable-transactions)[NextSecure Enclave](/features/secure-enclave)
-
-Last updated 1 year ago
-
-`Ctrl``K`
-
 Flow Reference Wallet is built on the FCL protocol, enabling it to be supported by the ecosystem of applications on Flow that use FCL to connect their users to their desired wallet provider.
 
 Flow Reference Wallet is a demonstration of how wallets can integrate with the FCL protocol to become an available wallet in the Flow ecosystem.
 For more on FCL, see: <https://developers.flow.com/tools/clients/fcl-js>
+
+[PreviousHuman Readable Transactions](/features/human-readable-transactions)[NextSecure Enclave](/features/secure-enclave)
+
+Last updated 1 year ago

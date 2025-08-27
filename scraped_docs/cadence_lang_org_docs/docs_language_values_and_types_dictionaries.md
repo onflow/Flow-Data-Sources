@@ -758,6 +758,17 @@ Dictionary keys must be hashable and equatable.
 
 Most of the built-in types, like booleans and integers, are hashable and equatable, so can be used as keys in dictionaries.
 
+A comprehensive list of valid dictionary key types:
+
+* [Address](/docs/language/values-and-types/addresses-functions)
+* [Bool](/docs/language/values-and-types/booleans-numlits-ints#booleans)
+* [Character](/docs/language/values-and-types/strings-and-characters)
+* [Enum](/docs/language/enumerations)
+* [Numbers](/docs/language/values-and-types/booleans-numlits-ints#numeric-literals)
+* [Paths](/docs/language/accounts/paths)
+* [Runtime-types](/docs/language/types-and-type-system/run-time-types)
+* [String](/docs/language/values-and-types/strings-and-characters)
+
 [Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/values-and-types/dictionaries.md)
 
 [Previous

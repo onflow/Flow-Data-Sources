@@ -6,6 +6,8 @@ MIPD | Flow Wallet
 
 Flow Wallet](/)
 
+`Ctrl``K`
+
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
 
@@ -67,12 +69,6 @@ Copy
 
 Integrate with MIPD
 
-[PreviousWeb3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)[NextOthers SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-
-Last updated 7 months ago
-
-`Ctrl``K`
-
 ### Connect wallet
 
 Copy
@@ -123,3 +119,7 @@ const WalletConnect = () => {
 ```
 
 See more detail on <https://github.com/Outblock/mipd-flow-evm-demo>
+
+[PreviousWeb3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)[NextOthers SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
+
+Last updated 7 months ago

@@ -303,7 +303,11 @@ view fun CapabilityType(_ type: Type): Type?
 
 _10
 
-view fun ReferenceType(entitlements: [String], type: Type): Type? ``
+view fun ReferenceType(entitlements: [String], type: Type): Type?
+
+_10
+
+view fun InclusiveRangeType(_ type: Type): Type? ``
 
 ## Asserting the type of a value[​](#asserting-the-type-of-a-value "Direct link to Asserting the type of a value")
 

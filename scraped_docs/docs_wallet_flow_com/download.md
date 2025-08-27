@@ -6,6 +6,8 @@ Download | Flow Wallet
 
 Flow Wallet](/)
 
+`Ctrl``K`
+
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
 
@@ -64,14 +66,12 @@ Copy
 
 # 📲Download
 
-[PreviousPrivy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)[NextOpen Source](/open-source/open-source)
-
-Last updated 1 year ago
-
-`Ctrl``K`
-
 **iOS**[**https://apps.apple.com/ca/app/flow-wallet-nfts-and-crypto/id6478996750**](https://apps.apple.com/ca/app/flow-wallet-nfts-and-crypto/id6478996750)
 
 **Android**[**https://play.google.com/store/apps/details?id=com.flowfoundation.wallet**](https://play.google.com/store/apps/details?id=com.flowfoundation.wallet)
 
 **Chrome Extension**[**https://chrome.google.com/webstore/detail/flow-core/hpclkefagolihohboafpheddmmgdffjm**](https://chrome.google.com/webstore/detail/flow-core/hpclkefagolihohboafpheddmmgdffjm)
+
+[PreviousPrivy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)[NextOpen Source](/open-source/open-source)
+
+Last updated 1 year ago

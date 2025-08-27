@@ -6,6 +6,8 @@ Rainbowkit | Flow Wallet
 
 Flow Wallet](/)
 
+`Ctrl``K`
+
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
 
@@ -67,12 +69,6 @@ Copy
 
 Integrate with Rainbowkit
 
-[PreviousWagmi](/ecosystem-development/integrate-flow-evm-with-web3-sdks/wagmi)[NextEtherjs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/etherjs)
-
-Last updated 7 months ago
-
-`Ctrl``K`
-
 ### Connect wallet to Flow EVM
 
 Copy
@@ -117,3 +113,7 @@ const Home: NextPage = () => {
 ```
 
 See more detail on <https://github.com/Outblock/flow-evm-rainbow>
+
+[PreviousWagmi](/ecosystem-development/integrate-flow-evm-with-web3-sdks/wagmi)[NextEtherjs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/etherjs)
+
+Last updated 7 months ago

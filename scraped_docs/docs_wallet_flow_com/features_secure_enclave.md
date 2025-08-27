@@ -6,6 +6,8 @@ Secure Enclave | Flow Wallet
 
 Flow Wallet](/)
 
+`Ctrl``K`
+
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
 
@@ -64,12 +66,6 @@ Copy
 
 # 🔓Secure Enclave
 
-[PreviousFlow Client Library (FCL)](/features/flow-client-library-fcl)[NextAccount Recovery](/features/account-recovery)
-
-Last updated 11 months ago
-
-`Ctrl``K`
-
 Flow’s account abstraction deliberately supports ECDSA P-256 keys which are also supported by the Secure Enclave hardware on iPhone.
 **What is a Secure Enclave?**
 
@@ -109,3 +105,7 @@ Moreover, Flow offers another solution for this issue through its [account linki
 
 **Conclusion**
 Considering the advantages of using Secure Enclave on iPhone, Flow Reference Wallet will therefore move to support this credible specialized hardware for secure key management, as it enables users to benefit from the credibility, portability, utility, and security of their mobile device as their non-custodial wallet on Flow.
+
+[PreviousFlow Client Library (FCL)](/features/flow-client-library-fcl)[NextAccount Recovery](/features/account-recovery)
+
+Last updated 11 months ago

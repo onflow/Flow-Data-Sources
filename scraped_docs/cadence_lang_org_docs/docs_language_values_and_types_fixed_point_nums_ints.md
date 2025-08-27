@@ -220,6 +220,98 @@ All fixed-point types support the following functions:
 
   let negativeNumber: Fix64? = Fix64.fromBigEndianBytes([255, 255, 255, 255, 250, 10, 31, 0]) // ok, -1`
 
+## Number type casting[​](#number-type-casting "Direct link to Number type casting")
+
+Casting between number types (e.g. `Int` to `UInt`, `Fix64` to `Int`) using the [casting operators](/docs/language/operators/casting-operators) (`as`, `as?` and `as!`) is not supported.
+
+To convert between number types, the conversion functions ((e.g. `UInt(_)`)) must be used. These conversion functions have the same name as the desired type.
+
+`` _10
+
+let value: UInt8 = 1
+
+_10
+
+_10
+
+let intValue: Int? = value as? Int
+
+_10
+
+// intValue is `nil` and has type `Int?`
+
+_10
+
+_10
+
+let validInt: Int = Int(value)
+
+_10
+
+// validInt is `1` and has type `Int` ``
+
+When converting from a larger number type to a smaller one (narrowing), the conversion will succeed if the value can be represented in the smaller type. If it cannot an error will be thrown indicating overflow or underflow. Converting to a larger number type will always succeed.
+
+`` _10
+
+let intValue: Int16 = 256
+
+_10
+
+_10
+
+let uintValue: UInt8 = UInt8(intValue)
+
+_10
+
+// error: overflow, UInt8 has max value of `255`
+
+_10
+
+_10
+
+let validUInt: UInt16 = UInt16(intValue)
+
+_10
+
+// validUInt is `256` and has type `UInt16`
+
+_10
+
+_10
+
+let largerIntValue: Int = Int(intValue)
+
+_10
+
+// largerIntValue is `256` and has type `Int` ``
+
+Converting from integer types to fixed point types and vice versa is supported by calling the conversion functions as well. The same conditions as narrowing applies, an error will be thrown if the value cannot be represented in the range.
+
+`` _10
+
+let intValue: Int = -1
+
+_10
+
+_10
+
+let fixValue: Fix64 = Fix64(intValue)
+
+_10
+
+// fixValue is `-1.00000000` and has type `Fix64`
+
+_10
+
+_10
+
+let ufixValue: UFix64 = UFix64(intValue)
+
+_10
+
+// error: underflow, UFix64 has min value `0.0` ``
+
 [Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/values-and-types/fixed-point-nums-ints.md)
 
 [Previous
@@ -234,3 +326,4 @@ Minimum and Maximum Values, Saturation Arithmetic, and Floating-Point Numbers](/
 
 * [Fixed-point numbers](#fixed-point-numbers)
   + [Fixed-point number functions](#fixed-point-number-functions)
+* [Number type casting](#number-type-casting)

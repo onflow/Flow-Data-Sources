@@ -6,6 +6,8 @@ Flow Reference Wallet Primer | Flow Wallet
 
 Flow Wallet](/)
 
+`Ctrl``K`
+
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
 
@@ -63,12 +65,6 @@ Copy
 1. [Ecosystem Primers](/ecosystem-primers)
 
 # ⭐Flow Reference Wallet Primer
-
-[PreviousWelcome to Flow Wallet](/)[NextFAQ](/faq/faq)
-
-Last updated 11 months ago
-
-`Ctrl``K`
 
 **Introduction**
 Flow is proud to unveil **Flow Reference Wallet**; a new self-custodial wallet designed to serve as a beacon to the Flow ecosystem, guiding wallets with an open-source implementation of the novel and unique product opportunities for wallets on the Flow blockchain. Flow Reference Wallet sets a new standard for wallet development on Flow by promoting a robust and secure, open-source, community-led foundation for wallet developers to build on.
@@ -162,3 +158,7 @@ telegram: @lmcmz
 telegram: @jeffjeffjeffjeffjeffjeffjeff
 **Working Group**
 Flow has an open working group dedicated to furthering the development of wallets on Flow. If you’d like to join this working group please email [[email protected]](/cdn-cgi/l/email-protection) to be added to the recurring meeting.
+
+[PreviousWelcome to Flow Wallet](/)[NextFAQ](/faq/faq)
+
+Last updated 11 months ago

@@ -339,6 +339,42 @@ _17
 
 // Run-time error ``
 
+## Implicit casting[​](#implicit-casting "Direct link to Implicit casting")
+
+Cadence does not allow implicit casting (coercion).
+
+`_10
+
+let value: UInt8 = 1
+
+_10
+
+_10
+
+// invalid: implicit cast
+
+_10
+
+let intValue: Int = value`
+
+Instead, conversion must be explicitly performed by calling a conversion function.
+Cadence provides a conversion function for each number type. The functions have the same name as the type, accept any number, and return the number type.
+If the value cannot be converted, the function panics.
+
+For example, for the type `Int`, the conversion function `fun Int(_ number: Number): Int` is provided.
+
+For example, to convert a `UInt8` value to an `Int` value:
+
+`_10
+
+let value: UInt8 = 1
+
+_10
+
+let intValue = Int(value)`
+
+See [Number type casting](/docs/language/values-and-types/fixed-point-nums-ints#number-type-casting) for more information.
+
 [Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/operators/casting-operators.md)
 
 [Previous
@@ -354,3 +390,4 @@ Optional Operators](/docs/language/operators/optional-operators)
 * [Static casting operator (`as`)](#static-casting-operator-as)
 * [Conditional downcasting operator (`as?`)](#conditional-downcasting-operator-as)
 * [Force-downcasting operator (`as!`)](#force-downcasting-operator-as)
+* [Implicit casting](#implicit-casting)

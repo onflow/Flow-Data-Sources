@@ -6,6 +6,8 @@ Web3-Onboard | Flow Wallet
 
 Flow Wallet](/)
 
+`Ctrl``K`
+
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
 
@@ -67,12 +69,6 @@ Copy
 
 Integrate with Web3-Onboard
 
-[PreviousViem](/ecosystem-development/integrate-flow-evm-with-web3-sdks/viem)[NextMIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
-
-Last updated 7 months ago
-
-`Ctrl``K`
-
 ### Connect wallet to Flow EVM
 
 Copy
@@ -132,3 +128,7 @@ const WalletConnect = () => {
 ```
 
 See more detail on <https://github.com/Outblock/web3-onboard-flow-evm-demo>
+
+[PreviousViem](/ecosystem-development/integrate-flow-evm-with-web3-sdks/viem)[NextMIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
+
+Last updated 7 months ago

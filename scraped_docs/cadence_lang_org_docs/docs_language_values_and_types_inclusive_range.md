@@ -293,6 +293,10 @@ A value of type `InclusiveRange<T>`, where `T` is a number type, has the followi
 
   contains = range.contains(11) ``
 
+## Usage in loops[​](#usage-in-loops "Direct link to Usage in loops")
+
+See [Ranges in loops](/docs/language/control-flow#ranges-in-loops) for more information.
+
 [Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/language/values-and-types/inclusive-range.md)
 
 [Previous
@@ -306,3 +310,4 @@ Types and Type System](/docs/language/types-and-type-system/)
 😞😐😊
 
 * [InclusiveRange fields and functions](#inclusiverange-fields-and-functions)
+* [Usage in loops](#usage-in-loops)

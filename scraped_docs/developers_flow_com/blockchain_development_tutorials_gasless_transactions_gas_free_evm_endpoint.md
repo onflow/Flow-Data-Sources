@@ -6,7 +6,7 @@ Sponsor Transactions RPC Node | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -40,7 +40,7 @@ This method only works in situations where you can control the RPC node used to 
 
 ## Context[​](#context "Direct link to Context")
 
-In [Using Flow EVM](/evm/using), we know that we can use the RPC endpoint to send EVM transactions to the Flow EVM. The default RPC endpoint is actually the [EVM Gateway](https://github.com/onflow/flow-evm-gateway).
+In [Using Flow EVM](/build/evm/using), we know that we can use the RPC endpoint to send EVM transactions to the Flow EVM. The default RPC endpoint is actually the [EVM Gateway](https://github.com/onflow/flow-evm-gateway).
 
 ### How does the EVM Gateway work?[​](#how-does-the-evm-gateway-work "Direct link to How does the EVM Gateway work?")
 
@@ -61,7 +61,7 @@ Here is the key points of the Flow EVM Gateway:
 
 ### Why we need a gas free EVM endpoint?[​](#why-we-need-a-gas-free-evm-endpoint "Direct link to Why we need a gas free EVM endpoint?")
 
-From the Flow [transaction model](/build/basics/transactions#Payer), we know that there is actually a Fee Payer role in native Flow transactions. When the transaction is executed, the fees for the transaction are entirely borne by the Fee Payer role. However, for EVM, the transaction model doesn't separate the signer from the payer. Therefore, when we execute transactions on the EVM, the transaction fees **must** be covered by the sender of the transaction.
+From the Flow [transaction model](/build/cadence/basics/transactions#Payer), we know that there is actually a Fee Payer role in native Flow transactions. When the transaction is executed, the fees for the transaction are entirely borne by the Fee Payer role. However, for EVM, the transaction model doesn't separate the signer from the payer. Therefore, when we execute transactions on the EVM, the transaction fees **must** be covered by the sender of the transaction.
 
 So here is the problem - if we want to send a EVM transaction through the default EVM Gateway, the sender's account has enough balance to cover the transaction fees. However, in some scenarios, developers may prefer to sponsor the transaction fees to create a more user-friendly experience, just can be done in native Cadence transactions, or paymaster solutions on other networks.
 
@@ -81,11 +81,11 @@ As long as you can ensure that all your users' transactions are sent through a c
 
 ## How to set up a gas free EVM endpoint?[​](#how-to-set-up-a-gas-free-evm-endpoint "Direct link to How to set up a gas free EVM endpoint?")
 
-Mosts of the tasks you need to complete are in the guide to set up your own [Custom EVM Gateway](/networks/node-ops/evm-gateway/evm-gateway-setup). A few highlights:
+Mosts of the tasks you need to complete are in the guide to set up your own [Custom EVM Gateway](/protocol/node-ops/evm-gateway/evm-gateway-setup). A few highlights:
 
-1. You need to prepare a Service Account for the EVM Gateway to cover all transaction fees. Please refer to [Account Creation](/networks/node-ops/evm-gateway/evm-gateway-setup#step-1---account-creation) for more details.
-2. You need to add enough identical keys to the Service Account to support the concurrent signing of EVM transactions. This is very important, because the EVM Gateway will use the Service Account to pay for the gas fees of the EVM transactions, so the Service Account needs to have enough keys to support the concurrent signing of EVM transactions. Please refer to [Account and Key Management](/networks/node-ops/evm-gateway/evm-gateway-setup#account-and-key-management) for more details.
-3. You need to set the correct environment variables for the EVM Gateway to enable the gas-free feature, adjust the environment variables in the [Run the gateway](/networks/node-ops/evm-gateway/evm-gateway-setup#run-the-gateway) section as follows:
+1. You need to prepare a Service Account for the EVM Gateway to cover all transaction fees. Please refer to [Account Creation](/protocol/node-ops/evm-gateway/evm-gateway-setup#step-1---account-creation) for more details.
+2. You need to add enough identical keys to the Service Account to support the concurrent signing of EVM transactions. This is very important, because the EVM Gateway will use the Service Account to pay for the gas fees of the EVM transactions, so the Service Account needs to have enough keys to support the concurrent signing of EVM transactions. Please refer to [Account and Key Management](/protocol/node-ops/evm-gateway/evm-gateway-setup#account-and-key-management) for more details.
+3. You need to set the correct environment variables for the EVM Gateway to enable the gas-free feature, adjust the environment variables in the [Run the gateway](/protocol/node-ops/evm-gateway/evm-gateway-setup#run-the-gateway) section as follows:
 
 * `COINBASE`: The address is used to accept EVM transaction fees. In this case, there won't be fees to accept because all fees will be covered by the service account. But you need to set it with a valid address to ensure the EVM Gateway can start.
 * `COA_ADDRESS`: This is the service account address, which will be used to pay for the gas fees of the EVM transactions. Please input the address of the Service Account you created in step 1, but without the `0x` prefix.
@@ -93,7 +93,7 @@ Mosts of the tasks you need to complete are in the guide to set up your own [Cus
 * `COA_KEY`: You need to set the private key of the Service Account you created in step 1.
 * `GAS_PRICE`: **Critical**: set this to `0` to ensure the linked service account will pay for transactions on users behalf.
 
-4. Please follow the full guide of [Custom EVM Gateway](/networks/node-ops/evm-gateway/evm-gateway-setup) to complete the EVM gateway setup, then you will get a custom RPC endpoint which will sponsor 100% of the gas fees for any EVM transaction sent through it.
+4. Please follow the full guide of [Custom EVM Gateway](/protocol/node-ops/evm-gateway/evm-gateway-setup) to complete the EVM gateway setup, then you will get a custom RPC endpoint which will sponsor 100% of the gas fees for any EVM transaction sent through it.
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
@@ -109,7 +109,7 @@ Remember that this solution is most effective when you can ensure all user trans
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/gasless-transactions/gas-free-evm-endpoint.md)
 
-Last updated on **Aug 17, 2025** by **0xLisanAlGaib**
+Last updated on **Aug 22, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -132,16 +132,16 @@ Copy as Markdown
 
 Documentation
 
-* [Getting Started](/build/getting-started/contract-interaction)
-* [SDK's & Tools](/tools)
+* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/guides/mobile/overview)
-* [FCL](/tools/clients/fcl-js)
-* [Testing](/build/smart-contracts/testing)
-* [CLI](/tools/flow-cli)
-* [Emulator](/tools/emulator)
+* [Mobile](/build/cadence/guides/mobile/overview)
+* [FCL](/build/tools/clients/fcl-js)
+* [Testing](/build/cadence/smart-contracts/testing)
+* [CLI](/build/tools/flow-cli)
+* [Emulator](/build/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/tools/vscode-extension)
+* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
@@ -158,18 +158,18 @@ Start Building
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/core-contracts)
-* [EVM](/evm/about)
+* [Core Contracts & Standards](/build/cadence/core-contracts)
+* [EVM](/build/evm/about)
 
 Network
 
 * [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
-* [Node Operation](/networks/node-ops)
-* [Spork Information](/networks/node-ops/node-operation/spork)
+* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/protocol/node-ops)
+* [Spork Information](/protocol/node-ops/node-operation/spork)
 
 More
 

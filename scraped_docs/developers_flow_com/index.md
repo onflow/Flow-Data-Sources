@@ -1,4 +1,4 @@
-# Source: https://developers.flow.com/
+# Source: https://developers.flow.com
 
 Flow Developer Portal
 
@@ -14,7 +14,7 @@ Search
 
 # Apps deserve better blockchains
 
-Start building with **Cadence**, or **Solidity (EVM)**, with **AI-powered tools** - each path is first-class and fully supported.
+Start building with **Cadence**, or **Solidity (EVM)**, with **AI-powered tools**. Build the next killer app only possible on Flow.
 
 [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)Start with Cadence
 
@@ -36,11 +36,11 @@ Best in class tools powering best in class applications builders.
 
 [Build apps fast](/tools/react-sdk)[Import and compose with contracts](/tools/flow-cli/dependency-manager)[Get 100k testnet $FLOW](https://faucet.flow.com/fund-account)
 
-## Query onchain data
+## Try it live
 
 Flow token account balanceAccount storage limit and usageOnchain counter current countBalance of custom tokenNBA Top Shot and NFL All Day
 
-## Grow your business
+## Builder toolkit to start, grow, and win
 
 [### Builder Perks
 

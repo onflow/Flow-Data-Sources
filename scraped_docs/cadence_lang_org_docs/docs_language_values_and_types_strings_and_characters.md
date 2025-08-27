@@ -392,6 +392,55 @@ Strings have multiple built-in functions you can use:
   _10
 
   example.split(separator: " ") // is `["hello", "world"]` ``
+* `_10
+
+  view fun count(_ substr: String): Int`
+
+  Returns the number of times the provided `substr` appears in the string. This function only counts each character once (see below).
+
+  `_10
+
+  let example = "11111"
+
+  _10
+
+  _10
+
+  example.count("11") // is 2`
+* `_10
+
+  view fun index(of: String): Int`
+
+  Returns the index of the first (leftmost) occurrence of `of` in the string or `-1` if `of` does not occur in the string.
+
+  `_10
+
+  let example = "abcabc"
+
+  _10
+
+  _10
+
+  example.index(of: "a") // is 0
+
+  _10
+
+  example.index(of: "d") // is -1`
+* `_10
+
+  view fun contains(_ other: String): Bool`
+
+  Returns `true` if the string contains `other`, `false` otherwise.
+
+  `_10
+
+  let example = "abcdef"
+
+  _10
+
+  _10
+
+  example.contains("abcdefg") // is false`
 
 The `String` type also provides the following functions:
 

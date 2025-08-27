@@ -6,6 +6,8 @@ Viem | Flow Wallet
 
 Flow Wallet](/)
 
+`Ctrl``K`
+
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
 
@@ -67,12 +69,6 @@ Copy
 
 Integrate with Viem
 
-[PreviousWeb3js](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3js)[NextWeb3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
-
-Last updated 7 months ago
-
-`Ctrl``K`
-
 ### Connect wallet to Flow EVM
 
 Copy
@@ -111,3 +107,7 @@ const WalletConnect = () => {
 ```
 
 See more detail on <https://github.com/Outblock/viem-flow-evm-demo>
+
+[PreviousWeb3js](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3js)[NextWeb3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
+
+Last updated 7 months ago
