@@ -27,7 +27,6 @@ Search
     - [Testing Your Contracts](/build/cadence/smart-contracts/testing)
     - [Best Practices](/build/cadence/smart-contracts/best-practices/security-best-practices)
   + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
-  + [Guides](/build/cadence/guides/account-linking)
   + [Core Smart Contracts](/build/cadence/core-contracts)
   + [Explore More](/build/cadence/explore-more)
 * [Solidity (EVM)](/build/evm/about)
@@ -42,7 +41,6 @@ Search
   + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
   + [Faucets ↙](/evm/faucets)
   + [Block Explorers ↙](/evm/block-explorers)
-  + [Guides](/build/evm/guides)
 * [Tools & SDKs](/build/tools)
 
 * Cadence
@@ -108,7 +106,7 @@ The Flow blockchain has existing smart contract standards for both fungible and 
 
 All NFTs on the Flow blockchain implement the [NonFungibleToken](/build/cadence/core-contracts/non-fungible-token) interface, allowing them to be compatible with wallets, marketplaces and other cross-app experiences.
 
-See the [NFT Guide](/build/cadence/guides/nft) for a guide on how to create a basic NFT contract
+See the [NFT Guide](/blockchain-development-tutorials/tokens/nft-cadence) for a guide on how to create a basic NFT contract
 that conforms to the standard.
 
 * [Non-Fungible Token (NFT) contract interface](/build/cadence/core-contracts/non-fungible-token)
@@ -123,14 +121,14 @@ Flow has a standard contract to facilitate both the direct sales and peer-to-pee
 
 Fungible tokens (i.e. coins, currencies) on the Flow blockchain, including the default cryptocurrency token FLOW, implement the [FungibleToken](/build/cadence/core-contracts/fungible-token) interface.
 
-See the [FT Guide](/build/cadence/guides/fungible-token) for a guide on how to create a basic fungible token
+See the [FT Guide](/blockchain-development-tutorials/tokens/fungible-token-cadence) for a guide on how to create a basic fungible token
 contract that conforms to the standard.
 
 * [Fungible Token contract interface](/build/cadence/core-contracts/fungible-token)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/smart-contracts/overview.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Aug 26, 2025** by **Felipe Cevallos**
 
 [Previous
 
@@ -161,7 +159,7 @@ Documentation
 * [Getting Started](/build/cadence/getting-started/contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/cadence/guides/mobile/overview)
+* [Mobile](/blockchain-development-tutorials/cadence/mobile)
 * [FCL](/build/tools/clients/fcl-js)
 * [Testing](/build/cadence/smart-contracts/testing)
 * [CLI](/build/tools/flow-cli)

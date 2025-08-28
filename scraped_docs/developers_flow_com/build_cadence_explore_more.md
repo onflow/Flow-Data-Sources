@@ -21,7 +21,6 @@ Search
   + [App Architecture](/build/cadence/app-architecture)
   + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
   + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
-  + [Guides](/build/cadence/guides/account-linking)
   + [Core Smart Contracts](/build/cadence/core-contracts)
   + [Explore More](/build/cadence/explore-more)
 * [Solidity (EVM)](/build/evm/about)
@@ -36,7 +35,6 @@ Search
   + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
   + [Faucets ↙](/evm/faucets)
   + [Block Explorers ↙](/evm/block-explorers)
-  + [Guides](/build/evm/guides)
 * [Tools & SDKs](/build/tools)
 
 * Cadence
@@ -52,7 +50,7 @@ Simple walkthrough building a web3 app using the Flow Client Library (FCL)](/bui
 
 [## Fungible Token Guide Flow Blockchain
 
-Steps to create, deploy, mint, and transfer fungible tokens on Flow](/build/cadence/guides/fungible-token)
+Steps to create, deploy, mint, and transfer fungible tokens on Flow](/build/cadence/core-contracts/fungible-token)
 
 [## NFT Guide Emerald City DAO
 
@@ -72,7 +70,7 @@ Basic Concepts of Flow Blockchain](/build/cadence/basics/blocks)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/explore-more.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Aug 26, 2025** by **Felipe Cevallos**
 
 [Previous
 
@@ -85,7 +83,7 @@ Documentation
 * [Getting Started](/build/cadence/getting-started/contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/cadence/guides/mobile/overview)
+* [Mobile](/blockchain-development-tutorials/cadence/mobile)
 * [FCL](/build/tools/clients/fcl-js)
 * [Testing](/build/cadence/smart-contracts/testing)
 * [CLI](/build/tools/flow-cli)

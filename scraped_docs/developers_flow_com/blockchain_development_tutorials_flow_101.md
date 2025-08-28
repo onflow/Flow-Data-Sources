@@ -13,15 +13,16 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 Search
 
 * [Blockchain Development Tutorials](/blockchain-development-tutorials)
-* [Flow Actions](/blockchain-development-tutorials/defi)
 * [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)
+* [Flow Actions](/blockchain-development-tutorials/flow-actions)
+* [Token Development and Registration](/blockchain-development-tutorials/tokens)
 * [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
-* [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
-* [Token Launch](/blockchain-development-tutorials/token-launch)
+* [Flow EVM Guides](/blockchain-development-tutorials/evm)
+* [Cadence Tutorials](/blockchain-development-tutorials/cadence)
 * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
 * [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
-* [FlowtoBooth](/blockchain-development-tutorials/flowtobooth)
-* [Integrations](/blockchain-development-tutorials/integrations/crossmint)
+* [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
+* [Third-Party Integrations](/blockchain-development-tutorials/integrations)
 
 * Flow Blockchain 101
 
@@ -144,19 +145,19 @@ Whether you're looking for support, feedback, or collaboration, Flow's community
 ### Flow EVM Quickstart[​](#flow-evm-quickstart "Direct link to Flow EVM Quickstart")
 
 * [EVM Quickstart](/build/evm/quickstart): Deploy a contract with Hardhat and interact with it using [Testnet Flowscan](https://evm-testnet.flowscan.io/).
-* [Foundry](/build/evm/guides/foundry): Build and deploy an ERC20 on Flow with Foundry.
+* [Foundry](/blockchain-development-tutorials/evm/development-tools/foundry): Build and deploy an ERC20 on Flow with Foundry.
 
-We also have guides for working with [Rainbowkit](/build/evm/guides/rainbowkit) and [wagmi](/build/evm/guides/wagmi).
+We also have guides for working with [Rainbowkit](/blockchain-development-tutorials/evm/frameworks/rainbowkit) and [wagmi](/blockchain-development-tutorials/evm/frameworks/wagmi).
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/flow-101.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Aug 26, 2025** by **Felipe Cevallos**
 
 [Previous
 
-Introduction to Scheduled Callbacks](/blockchain-development-tutorials/defi/scheduled-callbacks-introduction)[Next
+Blockchain Development Tutorials](/blockchain-development-tutorials)[Next
 
-Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
+Flow Actions](/blockchain-development-tutorials/flow-actions)
 
 ###### Rate this page
 
@@ -184,7 +185,7 @@ Documentation
 * [Getting Started](/build/cadence/getting-started/contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/cadence/guides/mobile/overview)
+* [Mobile](/blockchain-development-tutorials/cadence/mobile)
 * [FCL](/build/tools/clients/fcl-js)
 * [Testing](/build/cadence/smart-contracts/testing)
 * [CLI](/build/tools/flow-cli)

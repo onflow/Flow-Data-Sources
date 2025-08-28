@@ -12,9 +12,9 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 
 Search
 
-# Apps deserve better blockchains
+# Better apps deserve better blockchains
 
-Start building with **Cadence**, or **Solidity (EVM)**, with **AI-powered tools**. Build the next killer app only possible on Flow.
+**Cadence** for whats next. **Solidity** for what you've got. On Flow, both run natively with no tricks and no rewrites. **Build the next killer app.**.
 
 [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)Start with Cadence
 
@@ -140,7 +140,7 @@ Documentation
 * [Getting Started](/build/cadence/getting-started/contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/cadence/guides/mobile/overview)
+* [Mobile](/blockchain-development-tutorials/cadence/mobile)
 * [FCL](/build/tools/clients/fcl-js)
 * [Testing](/build/cadence/smart-contracts/testing)
 * [CLI](/build/tools/flow-cli)

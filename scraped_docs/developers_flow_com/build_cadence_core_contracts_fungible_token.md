@@ -21,7 +21,6 @@ Search
   + [App Architecture](/build/cadence/app-architecture)
   + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
   + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
-  + [Guides](/build/cadence/guides/account-linking)
   + [Core Smart Contracts](/build/cadence/core-contracts)
 
     - [Fungible Token](/build/cadence/core-contracts/fungible-token)
@@ -51,7 +50,6 @@ Search
   + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
   + [Faucets ↙](/evm/faucets)
   + [Block Explorers ↙](/evm/block-explorers)
-  + [Guides](/build/evm/guides)
 * [Tools & SDKs](/build/tools)
 
 * Cadence
@@ -63,7 +61,7 @@ On this page
 The `FungibleToken` contract implements the Fungible Token Standard. It is the second contract ever deployed on Flow.
 
 * [Basic Fungible Token Tutorial](https://cadence-lang.org/docs/tutorial/fungible-tokens)
-* [Fungible Token Guide](/build/cadence/guides/fungible-token)
+* [Fungible Token Guide](/blockchain-development-tutorials/tokens/fungible-token-cadence)
 * [Fungible Token Standard Repo](https://github.com/onflow/flow-ft)
 
 The `FungibleTokenMetadataViews` and `FungibleTokenSwitchboard` contracts
@@ -260,7 +258,7 @@ via the `Burner.burn()` method, this event is emitted with the following argumen
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/core-contracts/02-fungible-token.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Aug 26, 2025** by **Felipe Cevallos**
 
 [Previous
 
@@ -284,7 +282,7 @@ Documentation
 * [Getting Started](/build/cadence/getting-started/contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/cadence/guides/mobile/overview)
+* [Mobile](/blockchain-development-tutorials/cadence/mobile)
 * [FCL](/build/tools/clients/fcl-js)
 * [Testing](/build/cadence/smart-contracts/testing)
 * [CLI](/build/tools/flow-cli)

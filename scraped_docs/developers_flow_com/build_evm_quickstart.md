@@ -21,7 +21,6 @@ Search
   + [App Architecture](/build/cadence/app-architecture)
   + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
   + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
-  + [Guides](/build/cadence/guides/account-linking)
   + [Core Smart Contracts](/build/cadence/core-contracts)
   + [Explore More](/build/cadence/explore-more)
 * [Solidity (EVM)](/build/evm/about)
@@ -36,7 +35,6 @@ Search
   + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
   + [Faucets ↙](/evm/faucets)
   + [Block Explorers ↙](/evm/block-explorers)
-  + [Guides](/build/evm/guides)
 * [Tools & SDKs](/build/tools)
 
 * Solidity (EVM)
@@ -50,7 +48,7 @@ Flow EVM is an EVM-equivalent blockchain that combines the advantages of Flow, i
 
 This guide is a self-contained quickstart that will walk you through deploying a contract on Flow EVM testnet with [Hardhat](https://hardhat.org/) and testing it with [testnet Flowscan](https://evm-testnet.flowscan.io/).
 
-If you prefer, check out our tutorials for [Remix](/build/evm/guides/remix) and [Foundry](/build/evm/guides/foundry) for information on how to deploy a contract with those platforms.
+If you prefer, check out our tutorials for [Remix](/blockchain-development-tutorials/evm/development-tools/remix) and [Foundry](/blockchain-development-tutorials/evm/development-tools/foundry) for information on how to deploy a contract with those platforms.
 
 ## Objectives[​](#objectives "Direct link to Objectives")
 
@@ -651,7 +649,7 @@ Ready to unlock the full potential of Flow EVM? Start with our [Batched Transact
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/evm/quickstart.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Aug 26, 2025** by **Felipe Cevallos**
 
 [Previous
 
@@ -686,7 +684,7 @@ Documentation
 * [Getting Started](/build/cadence/getting-started/contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/cadence/guides/mobile/overview)
+* [Mobile](/blockchain-development-tutorials/cadence/mobile)
 * [FCL](/build/tools/clients/fcl-js)
 * [Testing](/build/cadence/smart-contracts/testing)
 * [CLI](/build/tools/flow-cli)

@@ -6,31 +6,30 @@ Creating an NFT Contract | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [Why Flow](/build/flow)
-* [Getting Started](/build/getting-started)
-* [Differences vs. EVM](/build/differences-vs-evm)
-* [Flow Protocol](/build/basics/network-architecture)
-* [App Architecture](/build/app-architecture)
-* [Writing and Deploying Smart Contracts](/build/learn-cadence)
-* [Advanced Concepts](/build/advanced-concepts/account-abstraction)
-* [Guides](/build/guides/account-linking)
+* [Blockchain Development Tutorials](/blockchain-development-tutorials)
+* [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)
+* [Flow Actions](/blockchain-development-tutorials/flow-actions)
+* [Token Development and Registration](/blockchain-development-tutorials/tokens)
 
-  + [Account Linking (FLIP 72)](/build/guides/account-linking)
-  + [Account Linking With NBA Top Shot](/build/guides/account-linking-with-dapper)
-  + [More Guides](/build/guides/more-guides)
-  + [Creating an NFT Contract](/build/guides/nft)
-  + [Creating a Fungible Token](/build/guides/fungible-token)
-  + [Building on Mobile](/build/guides/mobile/overview)
-* [Core Smart Contracts](/build/core-contracts)
-* [Explore More](/build/explore-more)
+  + [Creating a Fungible Token](/blockchain-development-tutorials/tokens/fungible-token-cadence)
+  + [Creating an NFT Contract](/blockchain-development-tutorials/tokens/nft-cadence)
+  + [Register Cadence Assets](/blockchain-development-tutorials/tokens/register-cadence-assets)
+  + [Register ERC20 Token](/blockchain-development-tutorials/tokens/register-erc20-token)
+* [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
+* [Flow EVM Guides](/blockchain-development-tutorials/evm)
+* [Cadence Tutorials](/blockchain-development-tutorials/cadence)
+* [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
+* [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
+* [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
+* [Third-Party Integrations](/blockchain-development-tutorials/integrations)
 
-* Guides
+* [Token Development and Registration](/blockchain-development-tutorials/tokens)
 * Creating an NFT Contract
 
 On this page
@@ -63,11 +62,11 @@ that allow developers to interact seamlessly with the Flow blockchain.
 
 If you haven't installed the Flow CLI yet and have [Homebrew](https://brew.sh/) installed,
 you can run `brew install flow-cli`. If you don't have Homebrew,
-please follow [the installation guide here](/tools/flow-cli/install).
+please follow [the installation guide here](/build/tools/flow-cli/install).
 
 ### Initializing a New Project[​](#initializing-a-new-project "Direct link to Initializing a New Project")
 
-> 💡 Note: Here is [a link to the completed code](https://github.com/chasefleming/foobar-nft) if you want to skip ahead or reference as you follow along.
+> 💡 Note: Here is [a link to the completed code](https://github.com/onflow/foobar-nft) if you want to skip ahead or reference as you follow along.
 
 Once you have the Flow CLI installed, you can set up a new project using the `flow init` command. This command initializes the necessary directory structure and a `flow.json` configuration file (a way to configure your project for contract sources, deployments, accounts, and more):
 
@@ -948,7 +947,7 @@ access(all) event ResourceDestroyed(id: UInt64 = self.id, uuid: UInt64 = self.uu
 `ResourceDestroyed` events are standard events that can be added to any resource definition
 to be emitted when the resource is destroyed. Learn more about them [in the Cadence docs](https://cadence-lang.org/docs/language/resources#destroy-events).
 
-Additionally, check out the optional [`Burner` contract](/build/core-contracts/burner),
+Additionally, check out the optional [`Burner` contract](/build/cadence/core-contracts/burner),
 which is the standard that all projects should use for handling the destruction of any resource.
 
 Lastly, there is a [standard `NonFungibleToken.Updated` event](https://github.com/onflow/flow-nft/blob/master/contracts/NonFungibleToken.cdc#L63-L77)
@@ -1053,7 +1052,7 @@ and [MetadataViews](https://github.com/onflow/flow-nft/blob/master/contracts/Met
 These provide developers with standard ways of representing metadata
 about a given token such as token symbols, images, royalties, editions,
 website links, and standard account paths and types that third-parties can access in a standard way.
-You can see the [metadata views documentation](/build/advanced-concepts/metadata-views)
+You can see the [metadata views documentation](/build/cadence/advanced-concepts/metadata-views)
 for a more thorough guide using a NFT contract as an example.
 
 For now, you can add this code to your contract to support the important metadata:
@@ -2061,21 +2060,21 @@ Congrats, you did it! You're now ready to launch the next fun NFT project on Flo
 
 * Explore [an example NFT repository](https://github.com/nvdtf/flow-nft-scaffold/blob/main/cadence/contracts/exampleNFT/ExampleNFT.cdc)
 * Dive into the details of [the NFT Standard](https://github.com/onflow/flow-nft)
-* Check out the [`Burner` contract](/build/core-contracts/burner), which is the standard
+* Check out the [`Burner` contract](/build/cadence/core-contracts/burner), which is the standard
   that all projects should use for handling the destruction of any resource.
-* For a deeper dive into `MetadataViews`, consult the [introduction guide](/build/advanced-concepts/metadata-views) or [the FLIP that introduced this feature](https://github.com/onflow/flips/blob/main/application/20210916-nft-metadata.md).
+* For a deeper dive into `MetadataViews`, consult the [introduction guide](/build/cadence/advanced-concepts/metadata-views) or [the FLIP that introduced this feature](https://github.com/onflow/flips/blob/main/application/20210916-nft-metadata.md).
 * Learn about how you can [bridge your NFTs to Flow-EVM](/blockchain-development-tutorials/cross-vm-apps/vm-bridge#cross-vm-bridge) and how you can build your NFT project [to be compatible with the Flow VM bridge](/blockchain-development-tutorials/cross-vm-apps/vm-bridge#prep-your-assets-for-bridging).
 * Use a [no code tool for creating NFT projects on Flow](https://www.touchstone.city/)
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/nft.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/tokens/nft-cadence.md)
 
-Last updated on **Aug 17, 2025** by **0xLisanAlGaib**
+Last updated on **Aug 26, 2025** by **Felipe Cevallos**
 
 [Previous
 
-More Guides](/build/guides/more-guides)[Next
+Creating a Fungible Token](/blockchain-development-tutorials/tokens/fungible-token-cadence)[Next
 
-Creating a Fungible Token](/build/guides/fungible-token)
+Register Cadence Assets](/blockchain-development-tutorials/tokens/register-cadence-assets)
 
 ###### Rate this page
 
@@ -2104,16 +2103,16 @@ Copy as Markdown
 
 Documentation
 
-* [Getting Started](/build/getting-started/contract-interaction)
-* [SDK's & Tools](/tools)
+* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/guides/mobile/overview)
-* [FCL](/tools/clients/fcl-js)
-* [Testing](/build/smart-contracts/testing)
-* [CLI](/tools/flow-cli)
-* [Emulator](/tools/emulator)
+* [Mobile](/blockchain-development-tutorials/cadence/mobile)
+* [FCL](/build/tools/clients/fcl-js)
+* [Testing](/build/cadence/smart-contracts/testing)
+* [CLI](/build/tools/flow-cli)
+* [Emulator](/build/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/tools/vscode-extension)
+* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
@@ -2130,18 +2129,18 @@ Start Building
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/core-contracts)
-* [EVM](/evm/about)
+* [Core Contracts & Standards](/build/cadence/core-contracts)
+* [EVM](/build/evm/about)
 
 Network
 
 * [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
-* [Node Operation](/networks/node-ops)
-* [Spork Information](/networks/node-ops/node-operation/spork)
+* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/protocol/node-ops)
+* [Spork Information](/protocol/node-ops/node-operation/spork)
 
 More
 

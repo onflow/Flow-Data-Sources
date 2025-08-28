@@ -21,7 +21,6 @@ Search
   + [App Architecture](/build/cadence/app-architecture)
   + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
   + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
-  + [Guides](/build/cadence/guides/account-linking)
   + [Core Smart Contracts](/build/cadence/core-contracts)
   + [Explore More](/build/cadence/explore-more)
 * [Solidity (EVM)](/build/evm/about)
@@ -36,7 +35,6 @@ Search
   + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
   + [Faucets ↙](/evm/faucets)
   + [Block Explorers ↙](/evm/block-explorers)
-  + [Guides](/build/evm/guides)
 * [Tools & SDKs](/build/tools)
 
   + [@onflow/react-sdk](/build/tools/react-sdk)
@@ -55,9 +53,9 @@ Search
     - [Utils](/build/tools/flow-cli/utils/signature-generate)
     - [Dependency Manager](/build/tools/flow-cli/dependency-manager)
     - [Running Cadence Tests](/build/tools/flow-cli/tests)
+    - [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)
     - [Cadence Linter](/build/tools/flow-cli/lint)
     - [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)
-    - [Cadence Boilerplate](/build/tools/flow-cli/boilerplate)
     - [Data Collection](/build/tools/flow-cli/data-collection)
   + [Cadence VS Code Extension](/build/tools/vscode-extension)
   + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
@@ -202,7 +200,9 @@ _10
 
 _10
 
-└── MyToken.test.cdc`
+└── MyToken_test.cdc`
+
+📖 **[Learn more about generating Cadence boilerplate](/build/tools/flow-cli/generate)**
 
 ### 3. Run Tests[​](#3-run-tests "Direct link to 3. Run Tests")
 
@@ -224,7 +224,7 @@ _11
 
 _11
 
-flow test cadence/tests/MyToken.test.cdc
+flow test cadence/tests/MyToken_test.cdc
 
 _11
 
@@ -748,7 +748,7 @@ FLOW_PRIVATE_KEY=abc123 flow project deploy`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/super-commands.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Aug 26, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -795,7 +795,7 @@ Documentation
 * [Getting Started](/build/cadence/getting-started/contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/cadence/guides/mobile/overview)
+* [Mobile](/blockchain-development-tutorials/cadence/mobile)
 * [FCL](/build/tools/clients/fcl-js)
 * [Testing](/build/cadence/smart-contracts/testing)
 * [CLI](/build/tools/flow-cli)

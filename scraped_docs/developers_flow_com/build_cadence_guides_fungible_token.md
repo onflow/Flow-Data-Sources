@@ -12,42 +12,24 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 
 Search
 
-* [Why Flow](/build/flow)
-* [Cadence](/build/cadence/getting-started)
+* [Blockchain Development Tutorials](/blockchain-development-tutorials)
+* [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)
+* [Flow Actions](/blockchain-development-tutorials/flow-actions)
+* [Token Development and Registration](/blockchain-development-tutorials/tokens)
 
-  + [Getting Started](/build/cadence/getting-started)
-  + [Differences vs. EVM](/build/cadence/differences-vs-evm)
-  + [Flow Protocol](/build/cadence/basics/network-architecture)
-  + [App Architecture](/build/cadence/app-architecture)
-  + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
-  + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
-  + [Guides](/build/cadence/guides/account-linking)
+  + [Creating a Fungible Token](/blockchain-development-tutorials/tokens/fungible-token-cadence)
+  + [Creating an NFT Contract](/blockchain-development-tutorials/tokens/nft-cadence)
+  + [Register Cadence Assets](/blockchain-development-tutorials/tokens/register-cadence-assets)
+  + [Register ERC20 Token](/blockchain-development-tutorials/tokens/register-erc20-token)
+* [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
+* [Flow EVM Guides](/blockchain-development-tutorials/evm)
+* [Cadence Tutorials](/blockchain-development-tutorials/cadence)
+* [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
+* [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
+* [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
+* [Third-Party Integrations](/blockchain-development-tutorials/integrations)
 
-    - [Account Linking (FLIP 72)](/build/cadence/guides/account-linking)
-    - [Account Linking With NBA Top Shot](/build/cadence/guides/account-linking-with-dapper)
-    - [More Guides](/build/cadence/guides/more-guides)
-    - [Creating an NFT Contract](/build/cadence/guides/nft)
-    - [Creating a Fungible Token](/build/cadence/guides/fungible-token)
-    - [Building on Mobile](/build/cadence/guides/mobile/overview)
-  + [Core Smart Contracts](/build/cadence/core-contracts)
-  + [Explore More](/build/cadence/explore-more)
-* [Solidity (EVM)](/build/evm/about)
-
-  + [Why EVM on Flow](/build/evm/about)
-  + [How it Works](/build/evm/how-it-works)
-  + [Using Flow EVM](/build/evm/using)
-  + [Network Information](/build/evm/networks)
-  + [EVM Quickstart](/build/evm/quickstart)
-  + [Fees](/build/evm/fees)
-  + [Accounts](/build/evm/accounts)
-  + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
-  + [Faucets ↙](/evm/faucets)
-  + [Block Explorers ↙](/evm/block-explorers)
-  + [Guides](/build/evm/guides)
-* [Tools & SDKs](/build/tools)
-
-* Cadence
-* Guides
+* [Token Development and Registration](/blockchain-development-tutorials/tokens)
 * Creating a Fungible Token
 
 On this page
@@ -2698,15 +2680,15 @@ The transfer transaction also has a [generic version](https://github.com/onflow/
 * [View the Flow Token Standard](https://github.com/onflow/flow-ft/blob/master/contracts/FungibleToken.cdc)
 * Learn about how you can [bridge your FTs to Flow-EVM](/blockchain-development-tutorials/cross-vm-apps/vm-bridge#cross-vm-bridge) and how you can build your FT project [to be compatible with the Flow VM bridge](/blockchain-development-tutorials/cross-vm-apps/vm-bridge#prep-your-assets-for-bridging).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/guides/fungible-token.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/tokens/fungible-token-cadence.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Aug 26, 2025** by **Felipe Cevallos**
 
 [Previous
 
-Creating an NFT Contract](/build/cadence/guides/nft)[Next
+Token Development and Registration](/blockchain-development-tutorials/tokens)[Next
 
-Overview](/build/cadence/guides/mobile/overview)
+Creating an NFT Contract](/blockchain-development-tutorials/tokens/nft-cadence)
 
 ###### Rate this page
 
@@ -2737,7 +2719,7 @@ Documentation
 * [Getting Started](/build/cadence/getting-started/contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/cadence/guides/mobile/overview)
+* [Mobile](/blockchain-development-tutorials/cadence/mobile)
 * [FCL](/build/tools/clients/fcl-js)
 * [Testing](/build/cadence/smart-contracts/testing)
 * [CLI](/build/tools/flow-cli)

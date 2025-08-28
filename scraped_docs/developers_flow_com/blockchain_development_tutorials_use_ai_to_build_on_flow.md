@@ -13,24 +13,21 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 Search
 
 * [Blockchain Development Tutorials](/blockchain-development-tutorials)
-* [Flow Actions](/blockchain-development-tutorials/defi)
 * [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)
+* [Flow Actions](/blockchain-development-tutorials/flow-actions)
+* [Token Development and Registration](/blockchain-development-tutorials/tokens)
 * [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
 
+  + [Large Language Models (LLMs)](/blockchain-development-tutorials/use-AI-to-build-on-flow/llms)
   + [Use Cursor AI](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor)
+  + [AI Agents](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents)
   + [Flow MCP](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp)
-  + [Use ChatGPT](/blockchain-development-tutorials/use-AI-to-build-on-flow/chatgpt)
-  + [Flow Data Sources](/blockchain-development-tutorials/use-AI-to-build-on-flow/flow-data-sources)
-  + [Using AgentKit on Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow/agentkit-flow-guide)
-  + [Cadence Rules](/blockchain-development-tutorials/use-AI-to-build-on-flow/cadence-rules)
-  + [Eliza on Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow/eliza)
-  + [Claude Code Flow Guide](/blockchain-development-tutorials/use-AI-to-build-on-flow/claude-code)
-* [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
-* [Token Launch](/blockchain-development-tutorials/token-launch)
+* [Flow EVM Guides](/blockchain-development-tutorials/evm)
+* [Cadence Tutorials](/blockchain-development-tutorials/cadence)
 * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
 * [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
-* [FlowtoBooth](/blockchain-development-tutorials/flowtobooth)
-* [Integrations](/blockchain-development-tutorials/integrations/crossmint)
+* [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
+* [Third-Party Integrations](/blockchain-development-tutorials/integrations)
 
 * Use AI To Build On Flow
 
@@ -63,25 +60,25 @@ Tutorial: [Use Flow Knowledge Base in Cursor](/blockchain-development-tutorials/
 
 Build your own expert AI assistant by creating a custom GPT specifically engineered to master the Flow blockchain and its Cadence smart contract language. This specialized tool will act as your personal pair programmer, providing highly accurate and context-aware answers to your most challenging development questions. By doing this, you're not just using a generic AI; you're creating a specialist trained on the exact documentation, code patterns, and best practices relevant to your work.
 
-Tutorial: [Use Flow Knowledge Base in ChatGPT](/blockchain-development-tutorials/use-AI-to-build-on-flow/chatgpt)
+Tutorial: [Use Flow Knowledge Base in ChatGPT](/blockchain-development-tutorials/use-AI-to-build-on-flow/llms/chatgpt)
 
 ## Data Sources[​](#data-sources "Direct link to Data Sources")
 
 Learn about Flow Data Sources, a meticulously curated library designed to autonomously gather and structure information from the entire Flow ecosystem. This project systematically transforms a wide array of content into clean, AI-ready Markdown files, establishing a unified source of truth. The resulting collection acts as a foundational knowledge base, perfectly suited for powering advanced applications such as custom chatbots and sophisticated Retrieval-Augmented Generation (RAG) systems.
 
-Tutorial: [Data Sources](/blockchain-development-tutorials/use-AI-to-build-on-flow/flow-data-sources)
+Tutorial: [Data Sources](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor/flow-data-sources)
 
 ## Eliza Integration[​](#eliza-integration "Direct link to Eliza Integration")
 
 Learn about using Eliza on Flow, a versatile framework for constructing sophisticated AI agents that communicate with users through natural language. This guide walks you through the entire process of configuring and launching an AI agent built with Eliza directly onto the Flow blockchain. You will discover how to engineer intelligent agents capable of comprehending and addressing user prompts, all while harnessing the power of Flow's inherently secure and scalable onchain infrastructure.
 
-Tutorial: [Eliza on Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow/eliza)
+Tutorial: [Eliza on Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/eliza)
 
 ## Build AI Agents with AgentKit[​](#build-ai-agents-with-agentkit "Direct link to Build AI Agents with AgentKit")
 
 Learn how to build AI agents on Flow with AgentKit, a versatile and modular developer toolkit that is not tied to any single platform. It is engineered to dramatically accelerate the process of building, deploying, and refining AI agents by supplying pre-configured environments and a library of ready-to-use templates. This guide will walk you through the steps to launch your own custom agent on Flow's EVM-compatible testnet, leveraging the powerful combination of the Langchain framework and Anthropic's Claude large language model.
 
-Tutorial: [Build AI Agents with AgentKit](/blockchain-development-tutorials/use-AI-to-build-on-flow/agentkit-flow-guide)
+Tutorial: [Build AI Agents with AgentKit](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/agentkit-flow-guide)
 
 ## MCP Guides[​](#mcp-guides "Direct link to MCP Guides")
 
@@ -93,7 +90,7 @@ Tutorial: [Flow MCP](/blockchain-development-tutorials/use-AI-to-build-on-flow/m
 
 Learn how to establish and utilize Cursor Rules to transform your AI assistant into a dedicated Flow development expert. This process embeds your AI with persistent, foundational knowledge of essential topics, including proper Cadence syntax, official NFT standards, project-specific configurations, and established development methodologies.
 
-Tutorial: [Cadence Rules](/blockchain-development-tutorials/use-AI-to-build-on-flow/cadence-rules)
+Tutorial: [Cadence Rules](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor/cadence-rules)
 
 ## Best Practices[​](#best-practices "Direct link to Best Practices")
 
@@ -112,7 +109,7 @@ After completing these tutorials, you'll be equipped to leverage AI tools effect
 
 * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps/introduction) - Build applications that integrate Flow EVM and Cadence
 * [Native VRF](/blockchain-development-tutorials/native-vrf) - Implement verifiable random functions in your applications
-* [Token Launch](/blockchain-development-tutorials/token-launch) - Create and launch tokens on Flow
+* [Token Launch](/blockchain-development-tutorials/tokens) - Create and launch tokens on Flow
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
@@ -120,13 +117,13 @@ Flow is the ideal platform for AI-enhanced blockchain development. The combinati
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/index.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Aug 26, 2025** by **Felipe Cevallos**
 
 [Previous
 
-Flow Blockchain 101](/blockchain-development-tutorials/flow-101)[Next
+Register ERC20 Token](/blockchain-development-tutorials/tokens/register-erc20-token)[Next
 
-Use Cursor AI](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor)
+Large Language Models (LLMs)](/blockchain-development-tutorials/use-AI-to-build-on-flow/llms)
 
 ###### Rate this page
 
@@ -151,7 +148,7 @@ Documentation
 * [Getting Started](/build/cadence/getting-started/contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/cadence/guides/mobile/overview)
+* [Mobile](/blockchain-development-tutorials/cadence/mobile)
 * [FCL](/build/tools/clients/fcl-js)
 * [Testing](/build/cadence/smart-contracts/testing)
 * [CLI](/build/tools/flow-cli)
