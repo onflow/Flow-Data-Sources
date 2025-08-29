@@ -13,27 +13,24 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 Search
 
 * [Blockchain Development Tutorials](/blockchain-development-tutorials)
-* [Flow Actions](/blockchain-development-tutorials/defi)
 * [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)
+* [Flow Actions](/blockchain-development-tutorials/flow-actions)
+* [Token Development and Registration](/blockchain-development-tutorials/tokens)
 * [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
 
+  + [Large Language Models (LLMs)](/blockchain-development-tutorials/use-AI-to-build-on-flow/llms)
   + [Use Cursor AI](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor)
+  + [AI Agents](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents)
   + [Flow MCP](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp)
 
     - [Use Flow MCP in Cursor](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp/use-mcp-in-cursor)
     - [Contribute to Flow MCP](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp/contribute-to-mcp)
-  + [Use ChatGPT](/blockchain-development-tutorials/use-AI-to-build-on-flow/chatgpt)
-  + [Flow Data Sources](/blockchain-development-tutorials/use-AI-to-build-on-flow/flow-data-sources)
-  + [Using AgentKit on Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow/agentkit-flow-guide)
-  + [Cadence Rules](/blockchain-development-tutorials/use-AI-to-build-on-flow/cadence-rules)
-  + [Eliza on Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow/eliza)
-  + [Claude Code Flow Guide](/blockchain-development-tutorials/use-AI-to-build-on-flow/claude-code)
-* [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
-* [Token Launch](/blockchain-development-tutorials/token-launch)
+* [Flow EVM Guides](/blockchain-development-tutorials/evm)
+* [Cadence Tutorials](/blockchain-development-tutorials/cadence)
 * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
 * [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
-* [FlowtoBooth](/blockchain-development-tutorials/flowtobooth)
-* [Integrations](/blockchain-development-tutorials/integrations/crossmint)
+* [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
+* [Third-Party Integrations](/blockchain-development-tutorials/integrations)
 
 * [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
 * [Flow MCP](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp)
@@ -153,13 +150,13 @@ We will review your pull request and merge it if it is ready.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp/contribute-to-mcp.md)
 
-Last updated on **Aug 17, 2025** by **0xLisanAlGaib**
+Last updated on **Aug 26, 2025** by **Felipe Cevallos**
 
 [Previous
 
 Use Flow MCP in Cursor](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp/use-mcp-in-cursor)[Next
 
-Use ChatGPT](/blockchain-development-tutorials/use-AI-to-build-on-flow/chatgpt)
+Flow EVM Guides](/blockchain-development-tutorials/evm)
 
 ###### Rate this page
 
@@ -177,7 +174,7 @@ Documentation
 * [Getting Started](/build/cadence/getting-started/contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/cadence/guides/mobile/overview)
+* [Mobile](/blockchain-development-tutorials/cadence/mobile)
 * [FCL](/build/tools/clients/fcl-js)
 * [Testing](/build/cadence/smart-contracts/testing)
 * [CLI](/build/tools/flow-cli)

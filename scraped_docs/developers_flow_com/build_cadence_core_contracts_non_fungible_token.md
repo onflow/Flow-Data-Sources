@@ -21,7 +21,6 @@ Search
   + [App Architecture](/build/cadence/app-architecture)
   + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
   + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
-  + [Guides](/build/cadence/guides/account-linking)
   + [Core Smart Contracts](/build/cadence/core-contracts)
 
     - [Fungible Token](/build/cadence/core-contracts/fungible-token)
@@ -51,7 +50,6 @@ Search
   + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
   + [Faucets ↙](/evm/faucets)
   + [Block Explorers ↙](/evm/block-explorers)
-  + [Guides](/build/evm/guides)
 * [Tools & SDKs](/build/tools)
 
 * Cadence
@@ -64,7 +62,7 @@ The `NonFungibleToken` contract interface implements the Fungible Token Standard
 All NFT contracts are encouraged to import and implement this standard.
 
 * [Basic Non-Fungible Token Tutorial](https://cadence-lang.org/docs/tutorial/non-fungible-tokens-1)
-* [Non Fungible Token Guide](/build/cadence/guides/nft)
+* [Non Fungible Token Guide](/blockchain-development-tutorials/tokens/nft-cadence)
 * [Non Fungible Token Standard Repo](https://github.com/onflow/flow-nft)
 
 Source: [NonFungibleToken.cdc](https://github.com/onflow/flow-nft/blob/master/contracts/NonFungibleToken.cdc)
@@ -254,7 +252,7 @@ the NFT to update any stored information they have about the NFT in their databa
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/core-contracts/08-non-fungible-token.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Aug 26, 2025** by **Felipe Cevallos**
 
 [Previous
 
@@ -278,7 +276,7 @@ Documentation
 * [Getting Started](/build/cadence/getting-started/contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/cadence/guides/mobile/overview)
+* [Mobile](/blockchain-development-tutorials/cadence/mobile)
 * [FCL](/build/tools/clients/fcl-js)
 * [Testing](/build/cadence/smart-contracts/testing)
 * [CLI](/build/tools/flow-cli)

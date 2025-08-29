@@ -13,24 +13,25 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 Search
 
 * [Blockchain Development Tutorials](/blockchain-development-tutorials)
-* [Flow Actions](/blockchain-development-tutorials/defi)
 * [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)
+* [Flow Actions](/blockchain-development-tutorials/flow-actions)
+* [Token Development and Registration](/blockchain-development-tutorials/tokens)
 * [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
-* [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
-* [Token Launch](/blockchain-development-tutorials/token-launch)
+* [Flow EVM Guides](/blockchain-development-tutorials/evm)
+* [Cadence Tutorials](/blockchain-development-tutorials/cadence)
 * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
 * [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
-* [FlowtoBooth](/blockchain-development-tutorials/flowtobooth)
-* [Integrations](/blockchain-development-tutorials/integrations/crossmint)
+* [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
+* [Third-Party Integrations](/blockchain-development-tutorials/integrations)
 
+  + [Gelato Smart Wallet](/blockchain-development-tutorials/integrations/gelato-sw)
   + [Crossmint Integration Guide](/blockchain-development-tutorials/integrations/crossmint)
 
     - [Authentication Integration Guide](/blockchain-development-tutorials/integrations/crossmint/authentication)
     - [Payment Checkout Integration](/blockchain-development-tutorials/integrations/crossmint/payment-checkout)
     - [Minting Platform Integration](/blockchain-development-tutorials/integrations/crossmint/minting-platform)
-  + [Gelato Smart Wallet](/blockchain-development-tutorials/integrations/gelato-sw)
 
-* Integrations
+* [Third-Party Integrations](/blockchain-development-tutorials/integrations)
 * [Crossmint Integration Guide](/blockchain-development-tutorials/integrations/crossmint)
 * Minting Platform Integration
 
@@ -259,9 +260,7 @@ Last updated on **Aug 17, 2025** by **0xLisanAlGaib**
 
 [Previous
 
-Payment Checkout Integration](/blockchain-development-tutorials/integrations/crossmint/payment-checkout)[Next
-
-Gelato Smart Wallet](/blockchain-development-tutorials/integrations/gelato-sw)
+Payment Checkout Integration](/blockchain-development-tutorials/integrations/crossmint/payment-checkout)
 
 ###### Rate this page
 
@@ -284,7 +283,7 @@ Documentation
 * [Getting Started](/build/cadence/getting-started/contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/cadence/guides/mobile/overview)
+* [Mobile](/blockchain-development-tutorials/cadence/mobile)
 * [FCL](/build/tools/clients/fcl-js)
 * [Testing](/build/cadence/smart-contracts/testing)
 * [CLI](/build/tools/flow-cli)

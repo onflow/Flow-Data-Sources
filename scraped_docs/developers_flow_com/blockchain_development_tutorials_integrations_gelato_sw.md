@@ -13,20 +13,21 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 Search
 
 * [Blockchain Development Tutorials](/blockchain-development-tutorials)
-* [Flow Actions](/blockchain-development-tutorials/defi)
 * [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)
+* [Flow Actions](/blockchain-development-tutorials/flow-actions)
+* [Token Development and Registration](/blockchain-development-tutorials/tokens)
 * [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
-* [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
-* [Token Launch](/blockchain-development-tutorials/token-launch)
+* [Flow EVM Guides](/blockchain-development-tutorials/evm)
+* [Cadence Tutorials](/blockchain-development-tutorials/cadence)
 * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
 * [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
-* [FlowtoBooth](/blockchain-development-tutorials/flowtobooth)
-* [Integrations](/blockchain-development-tutorials/integrations/crossmint)
+* [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
+* [Third-Party Integrations](/blockchain-development-tutorials/integrations)
 
-  + [Crossmint Integration Guide](/blockchain-development-tutorials/integrations/crossmint)
   + [Gelato Smart Wallet](/blockchain-development-tutorials/integrations/gelato-sw)
+  + [Crossmint Integration Guide](/blockchain-development-tutorials/integrations/crossmint)
 
-* Integrations
+* [Third-Party Integrations](/blockchain-development-tutorials/integrations)
 * Gelato Smart Wallet
 
 On this page
@@ -516,13 +517,15 @@ Now that you have completed the tutorial, you should be able to:
 
 The combination of Flow's efficient gas pricing and Gelato's sponsored transaction infrastructure opens up new possibilities for building user-friendly dApps. By eliminating the need for users to hold native tokens for gas fees, you can create onboarding experiences that rival traditional Web2 applications while maintaining the security and transparency of blockchain technology.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/integrations/gelato-sw.mdx)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/integrations/gelato-sw.md)
 
-Last updated on **Aug 17, 2025** by **0xLisanAlGaib**
+Last updated on **Aug 26, 2025** by **Felipe Cevallos**
 
 [Previous
 
-Minting Platform Integration](/blockchain-development-tutorials/integrations/crossmint/minting-platform)
+Third-Party Integrations](/blockchain-development-tutorials/integrations)[Next
+
+Crossmint Integration Guide](/blockchain-development-tutorials/integrations/crossmint)
 
 ###### Rate this page
 
@@ -547,7 +550,7 @@ Documentation
 * [Getting Started](/build/cadence/getting-started/contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/cadence/guides/mobile/overview)
+* [Mobile](/blockchain-development-tutorials/cadence/mobile)
 * [FCL](/build/tools/clients/fcl-js)
 * [Testing](/build/cadence/smart-contracts/testing)
 * [CLI](/build/tools/flow-cli)
