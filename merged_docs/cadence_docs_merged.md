@@ -147340,6 +147340,7 @@ Consider using `String.decodeHex()` for now until type inference has been improv
 
 # Source: https://github.com/onflow/cadence/blob/master/README.md
 
+[![Release](https://img.shields.io/github/v/release/onflow/cadence)](https://github.com/onflow/cadence/releases)
 [![CI](https://github.com/onflow/cadence/actions/workflows/ci.yml/badge.svg)](https://github.com/onflow/cadence/actions/workflows/ci.yml)
 
 # Cadence
