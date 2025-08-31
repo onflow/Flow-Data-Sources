@@ -14,7 +14,7 @@ Search
 
 # Better apps deserve better blockchains
 
-**Cadence** for whats next. **Solidity** for what you've got. On Flow, both run natively with no tricks and no rewrites. **Build the next killer app.**.
+**Cadence** for whats next. **Solidity** for what you've got. On Flow, both run natively with no tricks and no rewrites. **Build the next killer app**.
 
 [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)Start with Cadence
 

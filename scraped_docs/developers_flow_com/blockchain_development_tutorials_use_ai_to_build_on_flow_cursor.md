@@ -13,24 +13,25 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 Search
 
 * [Blockchain Development Tutorials](/blockchain-development-tutorials)
-* [Flow Actions](/blockchain-development-tutorials/defi)
 * [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)
+* [Flow Actions](/blockchain-development-tutorials/flow-actions)
+* [Token Development and Registration](/blockchain-development-tutorials/tokens)
 * [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
 
+  + [Large Language Models (LLMs)](/blockchain-development-tutorials/use-AI-to-build-on-flow/llms)
   + [Use Cursor AI](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor)
+
+    - [Flow Data Sources](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor/flow-data-sources)
+    - [Indexing Documentation](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor/indexing-docs)
+    - [Cadence Rules](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor/cadence-rules)
+  + [AI Agents](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents)
   + [Flow MCP](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp)
-  + [Use ChatGPT](/blockchain-development-tutorials/use-AI-to-build-on-flow/chatgpt)
-  + [Flow Data Sources](/blockchain-development-tutorials/use-AI-to-build-on-flow/flow-data-sources)
-  + [Using AgentKit on Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow/agentkit-flow-guide)
-  + [Cadence Rules](/blockchain-development-tutorials/use-AI-to-build-on-flow/cadence-rules)
-  + [Eliza on Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow/eliza)
-  + [Claude Code Flow Guide](/blockchain-development-tutorials/use-AI-to-build-on-flow/claude-code)
-* [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
-* [Token Launch](/blockchain-development-tutorials/token-launch)
+* [Flow EVM Guides](/blockchain-development-tutorials/evm)
+* [Cadence Tutorials](/blockchain-development-tutorials/cadence)
 * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
 * [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
-* [FlowtoBooth](/blockchain-development-tutorials/flowtobooth)
-* [Integrations](/blockchain-development-tutorials/integrations/crossmint)
+* [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
+* [Third-Party Integrations](/blockchain-development-tutorials/integrations)
 
 * [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
 * Use Cursor AI
@@ -39,74 +40,77 @@ On this page
 
 # Use Flow Knowledge Base in Cursor
 
-[Cursor](https://www.cursor.com/) is an AI code editor that makes it easy to write code while building Flow apps. Let's walk through how to setup Cursor for the best possible experience when writing applications on Flow.
+[Cursor](https://www.cursor.com/) is an AI code editor that makes it easy to write code while building Flow apps. This section provides comprehensive guidance on setting up and using Cursor with Flow's extensive documentation ecosystem to enhance your development experience.
 
-## Installation[​](#installation "Direct link to Installation")
+## Overview[​](#overview "Direct link to Overview")
 
-Adding Flow docs lets you interact with our docs directly and get the most accurate answers to your questions.
+To get the most out of Cursor for Flow development, you'll need to understand three key components:
 
-1. Go to Cursor Settings > Features > Docs and click "+ Add new doc".
+1. **Flow Data Sources** - The comprehensive knowledge base that powers AI assistance
+2. **Documentation Indexing** - The process of making Flow documentation available within Cursor
+3. **Cadence Rules** - Persistent AI context that provides specialized Flow development guidance
 
-![Cursor Settings](/assets/images/use-cursor-1-4c5b9bc11a4106f1ca259b60faa6e871.png)
+## [Flow Data Sources](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor/flow-data-sources)[​](#flow-data-sources "Direct link to flow-data-sources")
 
-1. Set Flow Docs:
+Learn about Flow's comprehensive, auto-generated documentation repository that serves as the foundation for AI-assisted development. This resource contains the most current information about Flow, Cadence, and the broader ecosystem, specifically formatted for optimal AI integration.
 
-* Enter the URL of the Flow docs: `https://developers.flow.com/tools` and press Enter.
-  + Note: This **will index all** the docs. We're investigating why you need `/tools`
-  + Cursor will automatically detect the Flow docs and index them for you.
-  + Ensure the name is `Flow`, and click "Confirm" to add the docs.
+The Flow Data Sources guide covers:
 
-![Cursor Settings](/assets/images/use-cursor-2-40225d578bab288f66abe1221315b89d.png)
+* What Flow Data Sources contains and how it's organized
+* Different file formats available for various use cases
+* Integration strategies with AI tools
+* Best practices for leveraging this knowledge base
 
-1. Set Cadence Docs:
+## [Indexing Flow Documentation in Cursor](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor/indexing-docs)[​](#indexing-flow-documentation-in-cursor "Direct link to indexing-flow-documentation-in-cursor")
 
-* Click "+ Add new doc" again, now enter the URL of the Cadence docs: `https://cadence-lang.org/docs/` and press Enter.
-* Same process as before, ensure the name is `Cadence`, and click "Confirm" to add the docs.
+Follow the step-by-step process for setting up Flow documentation within Cursor's AI system. This detailed guide walks you through indexing multiple documentation sources to create a comprehensive Flow development environment.
 
-1. Add [Flow Data Sources](/blockchain-development-tutorials/use-AI-to-build-on-flow/flow-data-sources):
-   Click "+ Add new doc" one more time and enter the URL of our massive, auto-generated file with the most current data and practices for Flow and Cadence: `https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/all_merged.md` and press Enter.
+The indexing documentation covers:
 
-* Enter `Flow Data Sources`, and click "Confirm" to add the doc.
-* **Caution**: This file is very large. For older development machines, you may wish to use the [essentials merged](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/essentials_merged.md) file instead.
+* Adding Flow developer documentation to Cursor
+* Integrating Cadence language documentation
+* Including Flow Data Sources for comprehensive coverage
+* Troubleshooting common indexing issues
+* Best practices for using indexed documentation
 
-1. Now wait for Cursor to index the docs. You can check the progress in the Docs section of the settings. After the indexing is complete, you can start using the docs in Cursor.
+## [Cadence Rules](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor/cadence-rules)[​](#cadence-rules "Direct link to cadence-rules")
 
-## Using Flow Docs in Cursor[​](#using-flow-docs-in-cursor "Direct link to Using Flow Docs in Cursor")
+Learn how to use Cursor Rules to enhance AI assistance for Cadence and Flow development with persistent context and automated workflows. This comprehensive guide demonstrates how to create specialized rules that transform your AI assistant into a Flow development expert with continuous knowledge of syntax patterns, NFT standards, and project workflows.
 
-You can then reference the Flow docs in your prompt with the `@Flow`, `@Cadence`or `@Flow Data Sources` docs.
+The Cadence Rules guide covers:
 
-![Cursor Settings](/assets/images/use-cursor-3-ee338cc36953ea4ae1fe236ba9c1a9a5.png)
+* Understanding Cursor Rules and how they provide persistent AI context
+* Five specialized rules for Flow development: NFT standards, syntax patterns, development workflows, project configuration, and user preferences
+* Creating custom rules for your specific Flow development needs
+* Best practices for rule organization and team collaboration
+* Integration with existing Flow development tools and documentation
 
-## Best Practices[​](#best-practices "Direct link to Best Practices")
+## Getting Started[​](#getting-started "Direct link to Getting Started")
 
-When using Cursor with Flow documentation:
+1. **Start with Flow Data Sources**: Understand what documentation is available and how it can enhance your development workflow
+2. **Follow the Indexing Guide**: Set up your Cursor environment with comprehensive Flow documentation
+3. **Configure Cadence Rules**: Implement persistent AI context for consistent Flow development assistance
+4. **Practice with Examples**: Use the indexed documentation and rules to build Flow applications with enhanced AI assistance
 
-* Use `@Flow` when asking questions about Flow-specific concepts, tools, or ecosystem
-* Use `@Cadence` when asking questions about Cadence programming language syntax or features
-* Use `@Flow Data Sources` when asking about complex questions, difficult tasks, or anything that the first two sources didn't provide a satisfactory result
-* Be specific in your prompts to get more accurate and relevant answers
-* Combine both `@Flow` and `@Cadence` when working on cross-VM applications
-* Use the documentation to verify AI-generated code and ensure best practices
+## Best Practices for Cursor + Flow[​](#best-practices-for-cursor--flow "Direct link to Best Practices for Cursor + Flow")
 
-## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
+* **Use Specific References**: Target `@Flow`, `@Cadence`, or `@Flow Data Sources` based on your needs
+* **Leverage Cursor Rules**: Apply `@cadence-nft-standards`, `@cadence-syntax-patterns`, or other specialized rules for consistent guidance
+* **Combine Sources**: Leverage multiple documentation sources and rules for comprehensive assistance
+* **Verify AI Output**: Cross-reference generated code with official documentation
+* **Stay Updated**: Refresh your documentation indexes and rules periodically for current information
 
-If you encounter any issues:
-
-1. Ensure all three sources are properly indexed
-2. Try refreshing the documentation if answers seem outdated
-3. Check your internet connection as Cursor needs to access the documentation
-4. Verify the URLs are correct in your settings
-5. Contact Cursor support if issues persist
+This integrated approach combining comprehensive documentation indexing with persistent AI context through Cursor Rules provides you with consistent, accurate, and specialized assistance throughout your Flow development process.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor/index.md)
 
-Last updated on **Aug 17, 2025** by **0xLisanAlGaib**
+Last updated on **Aug 26, 2025** by **Felipe Cevallos**
 
 [Previous
 
-Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)[Next
+Claude Code Flow Guide](/blockchain-development-tutorials/use-AI-to-build-on-flow/llms/claude-code)[Next
 
-Flow MCP](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp)
+Flow Data Sources](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor/flow-data-sources)
 
 ###### Rate this page
 
@@ -114,17 +118,19 @@ Flow MCP](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp)
 
 Copy as Markdown
 
-* [Installation](#installation)
-* [Using Flow Docs in Cursor](#using-flow-docs-in-cursor)
-* [Best Practices](#best-practices)
-* [Troubleshooting](#troubleshooting)
+* [Overview](#overview)
+* [Flow Data Sources](#flow-data-sources)
+* [Indexing Flow Documentation in Cursor](#indexing-flow-documentation-in-cursor)
+* [Cadence Rules](#cadence-rules)
+* [Getting Started](#getting-started)
+* [Best Practices for Cursor + Flow](#best-practices-for-cursor--flow)
 
 Documentation
 
 * [Getting Started](/build/cadence/getting-started/contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/cadence/guides/mobile/overview)
+* [Mobile](/blockchain-development-tutorials/cadence/mobile)
 * [FCL](/build/tools/clients/fcl-js)
 * [Testing](/build/cadence/smart-contracts/testing)
 * [CLI](/build/tools/flow-cli)
