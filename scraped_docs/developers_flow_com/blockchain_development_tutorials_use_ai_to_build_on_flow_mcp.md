@@ -13,49 +13,55 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 Search
 
 * [Blockchain Development Tutorials](/blockchain-development-tutorials)
-* [Flow Actions](/blockchain-development-tutorials/defi)
 * [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)
+* [Flow Actions](/blockchain-development-tutorials/flow-actions)
+* [Token Development and Registration](/blockchain-development-tutorials/tokens)
 * [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
 
+  + [Large Language Models (LLMs)](/blockchain-development-tutorials/use-AI-to-build-on-flow/llms)
   + [Use Cursor AI](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor)
+  + [AI Agents](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents)
   + [Flow MCP](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp)
 
     - [Use Flow MCP in Cursor](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp/use-mcp-in-cursor)
     - [Contribute to Flow MCP](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp/contribute-to-mcp)
-  + [Use ChatGPT](/blockchain-development-tutorials/use-AI-to-build-on-flow/chatgpt)
-  + [Flow Data Sources](/blockchain-development-tutorials/use-AI-to-build-on-flow/flow-data-sources)
-  + [Using AgentKit on Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow/agentkit-flow-guide)
-  + [Cadence Rules](/blockchain-development-tutorials/use-AI-to-build-on-flow/cadence-rules)
-  + [Eliza on Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow/eliza)
-  + [Claude Code Flow Guide](/blockchain-development-tutorials/use-AI-to-build-on-flow/claude-code)
-* [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
-* [Token Launch](/blockchain-development-tutorials/token-launch)
+* [Flow EVM Guides](/blockchain-development-tutorials/evm)
+* [Cadence Tutorials](/blockchain-development-tutorials/cadence)
 * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
 * [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
-* [FlowtoBooth](/blockchain-development-tutorials/flowtobooth)
-* [Integrations](/blockchain-development-tutorials/integrations/crossmint)
+* [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
+* [Third-Party Integrations](/blockchain-development-tutorials/integrations)
 
 * [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
 * Flow MCP
 
 On this page
 
-# Flow MCP Tutorials
+# Flow MCP (Model Context Protocol)
 
-This section contains tutorials on how to use or build Flow MCP (Model Context Protocol) server to enhance AI tools with the capabilities of interacting with Flow blockchain.
+The Model Context Protocol (MCP) is an open standard that enables AI applications to interact seamlessly with external tools, systems, and data sources. Flow MCP extends this protocol to provide AI tools with direct access to Flow blockchain data, smart contracts, and on-chain operations. This integration allows developers to enhance their AI-powered development workflows with real-time blockchain information and automated Flow interactions.
 
-## Tutorials[​](#tutorials "Direct link to Tutorials")
+Flow MCP transforms how developers work with the Flow blockchain by bringing blockchain capabilities directly into AI-powered code editors and development tools, eliminating the need to switch between different interfaces and enabling more efficient, context-aware development experiences.
 
-* [Use Flow MCP in Cursor](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp/use-mcp-in-cursor) - Learn how to use Flow MCP server in Cursor.
-* [Contribute to Flow MCP](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp/contribute-to-mcp) - Learn how to contribute to Flow MCP server.
+## [Use Flow MCP in Cursor](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp/use-mcp-in-cursor)[​](#use-flow-mcp-in-cursor "Direct link to use-flow-mcp-in-cursor")
+
+Learn how to integrate the Flow MCP server with Cursor to enable AI-driven blockchain queries directly within your code editor. This tutorial guides you through setting up Flow MCP in Cursor, allowing the AI to fetch on-chain data such as account balances, contract information, and blockchain state without leaving your development environment. By the end of this tutorial, you'll be able to ask Cursor's AI to perform Flow blockchain operations, speed up development workflows, and access live blockchain data for enhanced debugging and prototyping.
+
+## [Contribute to Flow MCP](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp/contribute-to-mcp)[​](#contribute-to-flow-mcp "Direct link to contribute-to-flow-mcp")
+
+Discover how to extend the Flow MCP server by creating custom Action Tools that add new blockchain interaction capabilities. This comprehensive guide walks you through the development process, from setting up the development environment to submitting pull requests for new features. Learn to create new tools with proper schemas, handlers, and tests, while following Flow MCP's contribution guidelines. This tutorial empowers developers to expand the Flow MCP ecosystem by adding specialized blockchain tools that benefit the entire Flow developer community.
+
+## Conclusion[​](#conclusion "Direct link to Conclusion")
+
+Flow MCP bridges the gap between AI development tools and blockchain functionality, enabling developers to access Flow's comprehensive blockchain features directly through AI-powered interfaces. Whether you're using existing MCP tools in Cursor or contributing new capabilities to the Flow MCP server, these tutorials provide the foundation for integrating blockchain operations into your AI-enhanced development workflow.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp/index.md)
 
-Last updated on **Aug 17, 2025** by **0xLisanAlGaib**
+Last updated on **Aug 26, 2025** by **Felipe Cevallos**
 
 [Previous
 
-Use Cursor AI](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor)[Next
+Using AgentKit on Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/agentkit-flow-guide)[Next
 
 Use Flow MCP in Cursor](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp/use-mcp-in-cursor)
 
@@ -65,14 +71,16 @@ Use Flow MCP in Cursor](/blockchain-development-tutorials/use-AI-to-build-on-flo
 
 Copy as Markdown
 
-* [Tutorials](#tutorials)
+* [Use Flow MCP in Cursor](#use-flow-mcp-in-cursor)
+* [Contribute to Flow MCP](#contribute-to-flow-mcp)
+* [Conclusion](#conclusion)
 
 Documentation
 
 * [Getting Started](/build/cadence/getting-started/contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/cadence/guides/mobile/overview)
+* [Mobile](/blockchain-development-tutorials/cadence/mobile)
 * [FCL](/build/tools/clients/fcl-js)
 * [Testing](/build/cadence/smart-contracts/testing)
 * [CLI](/build/tools/flow-cli)
