@@ -30,9 +30,13 @@ On this page
 
 # Flow Blockchain 101
 
-[### Build with Cadence
+[![cadence](/images/icons/cadence-logo-mark-black-1.svg)
 
-Get started with Flow's native resource-oriented smart contract language. Learn how to deploy, interact, and build secure dApps using Cadence.](../build/cadence/getting-started/contract-interaction)[### Build with Solidity
+### Build with Cadence
+
+Get started with Flow's native resource-oriented smart contract language. Learn how to deploy, interact, and build secure dApps using Cadence.](../build/cadence/getting-started/contract-interaction)[![solidity](/images/icons/flow-evm.svg)
+
+### Build with Solidity
 
 Deploy Solidity contracts on Flow EVM using familiar Ethereum tools like Hardhat and Foundry. Start building EVM-compatible dApps on Flow.](../build/evm/quickstart)
 

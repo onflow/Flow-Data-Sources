@@ -13,6 +13,7 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 Search
 
 * [Ecosystem](/ecosystem)
+* [Developer Support Hub](/ecosystem/developer-support-hub)
 * [Wallets](/ecosystem/wallets)
 * [Flow Block Explorers](/ecosystem/block-explorers)
 * [Data Indexers](/ecosystem/data-indexers)
@@ -21,11 +22,7 @@ Search
 * [Bridges](/ecosystem/bridges)
 * [Collectibles & NFTs](/ecosystem/collectibles)
 * [Community Projects](/ecosystem/projects)
-* [Builder Perks](/ecosystem/builder-perks)
-* [VCs & Funds](/ecosystem/vcs-and-funds)
 * [Faucets](/ecosystem/faucets)
-* [Grants](/ecosystem/grants)
-* [Project Growth](/ecosystem/project-growth)
 * [Hackathons and Events](/ecosystem/Hackathons and Events)
 * [Auditors](/ecosystem/auditors)
 * [Ecosystem Overview](/ecosystem/overview)
@@ -33,6 +30,10 @@ Search
 * Ecosystem
 
 # Ecosystem
+
+[## 🗃️ Developer Support Hub
+
+3 items](/ecosystem/developer-support-hub)
 
 [## 🔑 Wallets
 
@@ -66,25 +67,9 @@ Digital collectibles, NFTs, and trading platforms on Flow blockchain, featuring 
 
 Explore the diverse projects and contributions within the Flow Blockchain community.](/ecosystem/projects)
 
-[## Builder Perks
-
-Exclusive perks and benefits for Flow builders](/ecosystem/builder-perks)
-
-[## 💼 VCs & Funds
-
-Connect with venture capital firms and investment funds supporting Flow projects](/ecosystem/vcs-and-funds)
-
 [## 💧 Faucets
 
 Get free Flow tokens for testing. Faucets are like taps for tokens, useful for trying Flow without buying tokens.](/ecosystem/faucets)
-
-[## 🌱 Grants
-
-Discover grant opportunities and funding programs available for Flow developers](/ecosystem/grants)
-
-[## Project Growth
-
-Get advice, support, and resources for each stage of development for your project.](/ecosystem/project-growth)
 
 [## 🚀 Hackathons and Events
 
@@ -112,7 +97,7 @@ Last updated on **May 13, 2025** by **Brian Doyle**
 
 [Next
 
-Wallets](/ecosystem/wallets)
+Developer Support Hub](/ecosystem/developer-support-hub)
 
 Documentation
 

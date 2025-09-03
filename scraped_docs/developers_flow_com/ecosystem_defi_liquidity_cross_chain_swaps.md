@@ -13,6 +13,7 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 Search
 
 * [Ecosystem](/ecosystem)
+* [Developer Support Hub](/ecosystem/developer-support-hub)
 * [Wallets](/ecosystem/wallets)
 * [Flow Block Explorers](/ecosystem/block-explorers)
 * [Data Indexers](/ecosystem/data-indexers)
@@ -26,11 +27,7 @@ Search
 * [Bridges](/ecosystem/bridges)
 * [Collectibles & NFTs](/ecosystem/collectibles)
 * [Community Projects](/ecosystem/projects)
-* [Builder Perks](/ecosystem/builder-perks)
-* [VCs & Funds](/ecosystem/vcs-and-funds)
 * [Faucets](/ecosystem/faucets)
-* [Grants](/ecosystem/grants)
-* [Project Growth](/ecosystem/project-growth)
 * [Hackathons and Events](/ecosystem/Hackathons and Events)
 * [Auditors](/ecosystem/auditors)
 * [Ecosystem Overview](/ecosystem/overview)
@@ -97,7 +94,7 @@ Documentation
 * [Getting Started](/build/cadence/getting-started/contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/cadence/guides/mobile/overview)
+* [Mobile](/blockchain-development-tutorials/cadence/mobile)
 * [FCL](/build/tools/clients/fcl-js)
 * [Testing](/build/cadence/smart-contracts/testing)
 * [CLI](/build/tools/flow-cli)
