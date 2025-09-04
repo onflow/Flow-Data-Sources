@@ -41,7 +41,7 @@ Flow ships what roll-ups only promise: **a full modular feature-set on a single 
 * **Native data availability** - Flow architecture ensures all necessary state data is available within the protocol, allowing nodes to verify state without relying on an external data availability layer
 * **Execution / verification split** for lightweight validators, yet one global state for atomic composability
 * **Protocol-level [account abstraction](/build/cadence/basics/accounts):** multi-key wallets, gas sponsorship, scoped capabilities
-* **Dual runtimes:** [EVM equivalence](/build/evm/about) alongside Cadence, so Solidity and resource-oriented contracts live side-by-side
+* **Dual runtimes:** [EVM equivalence](/build/evm/quickstart) alongside Cadence, so Solidity and resource-oriented contracts live side-by-side
 
 To appreciate architecture of Flow, it's important to first understand the core challenges in building performant blockchains - and then explore how the Flow **multi-role architecture** addresses them directly.
 
@@ -112,7 +112,7 @@ In the next section, lets look at how Flow multi-role architecture solves those 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/protocol/network-architecture/index.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Sep 3, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -164,7 +164,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 

@@ -117,7 +117,7 @@ tip
 
 Cadence is an object-oriented language. Inside a composite type, such as a [resource](/docs/language/resources), `self` refers to the instance of that type and **not** the contract itself.
 
-Dictionary definitions in Cadence don't always need the `@` symbol in the type specification, but because the `myNFTs` mapping stores resources, the whole field must become a resource type. Therefore, you need the `@` symbol indicating that `ownedNFTs` is a resource type.
+Dictionary definitions in Cadence don't always need the `@` symbol in the type specification, but because the `ownedNFTs` mapping stores resources, the whole field must become a resource type. Therefore, you need the `@` symbol indicating that `ownedNFTs` is a resource type.
 
 As a result, all the rules that apply to resources apply to this type.
 

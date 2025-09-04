@@ -649,7 +649,7 @@ Now that you have completed this guide, you should be able to:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor/cadence-rules.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Sep 3, 2025** by **Felipe Cevallos**
 
 [Previous
 
@@ -710,7 +710,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 

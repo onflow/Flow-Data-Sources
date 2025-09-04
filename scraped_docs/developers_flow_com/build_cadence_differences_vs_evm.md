@@ -23,13 +23,12 @@ Search
   + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
   + [Core Smart Contracts](/build/cadence/core-contracts)
   + [Explore More](/build/cadence/explore-more)
-* [Solidity (EVM)](/build/evm/about)
+* [Solidity (EVM)](/build/evm/quickstart)
 
-  + [Why EVM on Flow](/build/evm/about)
+  + [EVM Quickstart](/build/evm/quickstart)
   + [How it Works](/build/evm/how-it-works)
   + [Using Flow EVM](/build/evm/using)
   + [Network Information](/build/evm/networks)
-  + [EVM Quickstart](/build/evm/quickstart)
   + [Fees](/build/evm/fees)
   + [Accounts](/build/evm/accounts)
   + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
@@ -48,7 +47,7 @@ Flow [Cadence](https://cadence-lang.org/) is designed with many improvements ove
 
 tip
 
-Remember, Flow also supports full [EVM](/build/evm/about) equivalence! You can start by moving over your existing contracts, then start building new features that take advantage of the power of Cadence.
+Remember, Flow also supports full [EVM](/build/evm/quickstart) equivalence! You can start by moving over your existing contracts, then start building new features that take advantage of the power of Cadence.
 
 ## The Flow Cadence Account Model[​](#the-flow-cadence-account-model "Direct link to The Flow Cadence Account Model")
 
@@ -383,7 +382,7 @@ If you're already familiar with blockchain development, here's a comparison betw
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/differences-vs-evm/index.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Sep 3, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -433,7 +432,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 

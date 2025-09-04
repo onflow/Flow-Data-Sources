@@ -13,6 +13,11 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 Search
 
 * [Ecosystem](/ecosystem)
+* [Developer Support Hub](/ecosystem/developer-support-hub)
+
+  + [Builder Perks](/ecosystem/developer-support-hub/builder-perks)
+  + [Grants](/ecosystem/developer-support-hub/grants)
+  + [VCs & Funds](/ecosystem/developer-support-hub/vcs-and-funds)
 * [Wallets](/ecosystem/wallets)
 * [Flow Block Explorers](/ecosystem/block-explorers)
 * [Data Indexers](/ecosystem/data-indexers)
@@ -21,15 +26,12 @@ Search
 * [Bridges](/ecosystem/bridges)
 * [Collectibles & NFTs](/ecosystem/collectibles)
 * [Community Projects](/ecosystem/projects)
-* [Builder Perks](/ecosystem/builder-perks)
-* [VCs & Funds](/ecosystem/vcs-and-funds)
 * [Faucets](/ecosystem/faucets)
-* [Grants](/ecosystem/grants)
-* [Project Growth](/ecosystem/project-growth)
 * [Hackathons and Events](/ecosystem/Hackathons and Events)
 * [Auditors](/ecosystem/auditors)
 * [Ecosystem Overview](/ecosystem/overview)
 
+* [Developer Support Hub](/ecosystem/developer-support-hub)
 * VCs & Funds
 
 # VCs & Funds
@@ -38,15 +40,15 @@ Building a successful Web3 project requires more than just great technology - ha
 
 Research shows that warm introductions can increase your chances of securing funding by up to 500% more liley compared to cold outreach. The Flow Foundation can help facilitate introductions to our network of trusted investors who have a deep understanding of the Flow ecosystem and web3. Reach out to your local dev-rel in [office hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com) or [discord](https://discord.gg/flow) to get a warm introduction.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/vcs-and-funds.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/developer-support-hub/vcs-and-funds.md)
 
-Last updated on **Feb 11, 2025** by **bz**
+Last updated on **Aug 28, 2025** by **SeanRobb**
 
 [Previous
 
-Builder Perks](/ecosystem/builder-perks)[Next
+Grants](/ecosystem/developer-support-hub/grants)[Next
 
-Faucets](/ecosystem/faucets)
+Wallets](/ecosystem/wallets)
 
 Documentation
 
@@ -77,7 +79,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 

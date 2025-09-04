@@ -1,4 +1,4 @@
-# Source: https://developers.flow.com
+# Source: https://developers.flow.com/
 
 Flow Developer Portal
 
@@ -36,7 +36,7 @@ EVM equivalence with seamless composability and interoperability with Cadence.
 
 [![evm-on-flow](/images/icons/evm-on-flow.svg)
 
-Simply run with EVM equivalence](/build/evm/about)[![random](/images/icons/random.svg)
+Simply run with EVM equivalence](/build/evm/quickstart)[![random](/images/icons/random.svg)
 
 Integrate native VRF in 3 lines](../blockchain-development-tutorials/native-vrf/vrf-in-solidity)[![batched-evm-transactions](/images/icons/batched-evm-transactions.svg)
 
@@ -169,11 +169,10 @@ Connect with venture capital firms and investment funds actively supporting Flow
 
 ### EVM
 
-* [Why EVM on Flow](/build/evm/about)
+* [EVM Quickstart](/evm/quickstart)
 * [How it Works](/evm/how-it-works)
 * [Using Flow EVM](/evm/using)
 * [Network Information](/evm/networks)
-* [EVM Quickstart](/evm/quickstart)
 * [Fees](/evm/fees)
 * [Accounts](/evm/accounts)
 * [Cross-chain Bridges](/ecosystem/bridges)
@@ -262,7 +261,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 

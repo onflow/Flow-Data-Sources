@@ -162,7 +162,7 @@ The `view` annotation indicates that the function is permitted to view, but not 
 
 ## Accounts[​](#accounts "Direct link to Accounts")
 
-Each user has an account controlled by one or more private keys with configurable weight. This means that support for accounts/wallets with [multiple controllers](https://www.coindesk.comwhat-is-a-multisignature-crypto-wallet) is built into the protocol by default.
+Each user has an account controlled by one or more private keys with configurable weight. This means that support for accounts/wallets with [multiple controllers](https://www.coindesk.com/learn/what-is-a-multisig-wallet) is built into the protocol by default.
 
 An account is divided into several areas:
 
