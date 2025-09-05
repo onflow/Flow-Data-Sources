@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/put
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/resolveProposerSequenceNumber
 
-put | Flow Developer Portal
+resolveProposerSequenceNumber | Flow Developer Portal
 
 
 
@@ -141,13 +141,13 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
-* put
+* resolveProposerSequenceNumber
 
 On this page
 
-# put
+# resolveProposerSequenceNumber
 
-Sets a value in an interaction object using a dot-notation key path.
+Resolves the sequence number for the proposer account by querying the blockchain.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -161,101 +161,55 @@ _10
 
 _10
 
-sdk.put(key, value)`
+sdk.resolveProposerSequenceNumber(nodeConfig)`
 
 Or import directly the specific function:
 
 `_10
 
-import { put } from "@onflow/sdk"
+import { resolveProposerSequenceNumber } from "@onflow/sdk"
 
 _10
 
 _10
 
-put(key, value)`
-
-## Usage[​](#usage "Direct link to Usage")
-
-`` _14
-
-import * as fcl from "@onflow/fcl";
-
-_14
-
-import { put } from "@onflow/sdk"
-
-_14
-
-_14
-
-// Using put in a custom builder function
-
-_14
-
-const setCustomData = (data) => put("custom.data", data);
-
-_14
-
-_14
-
-await fcl.send([
-
-_14
-
-fcl.script`access(all) fun main(): String { return "Hello" }`,
-
-_14
-
-setCustomData({ userId: 123, timestamp: Date.now() })
-
-_14
-
-]);
-
-_14
-
-_14
-
-// Direct usage
-
-_14
-
-const interaction = initInteraction();
-
-_14
-
-put("network.endpoint", "https://access.mainnet.onflow.org")(interaction); ``
+resolveProposerSequenceNumber(nodeConfig)`
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `key`[​](#key "Direct link to key")
+### `nodeConfig`[​](#nodeconfig "Direct link to nodeconfig")
 
-* Type: `string`
-* Description: The dot-notation key path (e.g., "message.arguments")
+* Type:
 
-### `value`[​](#value "Direct link to value")
+`_10
 
-* Type: `any`
-* Description: The value to set
+interface NodeConfig {
+
+_10
+
+node: string
+
+_10
+
+}`
 
 ## Returns[​](#returns "Direct link to Returns")
 
-[`Interaction`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
+[`Promise<Interaction>`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
 
-A function that takes an interaction and sets the value
+A function that resolves the proposer sequence number for an interaction
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/put.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/resolveProposerSequenceNumber.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-proposer](/build/tools/clients/fcl-js/packages-docs/sdk/proposer)[Next
+resolveFinalNormalization](/build/tools/clients/fcl-js/packages-docs/sdk/resolveFinalNormalization)[Next
 
-ref](/build/tools/clients/fcl-js/packages-docs/sdk/ref)
+resolveRefBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/resolveRefBlockId)
 
 ###### Rate this page
 
@@ -264,10 +218,8 @@ ref](/build/tools/clients/fcl-js/packages-docs/sdk/ref)
 Copy as Markdown
 
 * [Import](#import)
-* [Usage](#usage)
 * [Parameters](#parameters)
-  + [`key`](#key)
-  + [`value`](#value)
+  + [`nodeConfig`](#nodeconfig)
 * [Returns](#returns)
 
 Documentation

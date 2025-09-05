@@ -102,4 +102,4 @@ The Flow Wallet ecosystem primer document explains the purpose of Flow Wallet an
 
 [NextFlow Reference Wallet Primer](/ecosystem-primers/flow-reference-wallet-primer)
 
-Last updated 11 months ago
+Last updated 12 months ago

@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/put
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/atBlockHeight
 
-put | Flow Developer Portal
+atBlockHeight | Flow Developer Portal
 
 
 
@@ -141,13 +141,17 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
-* put
+* atBlockHeight
 
 On this page
 
-# put
+# atBlockHeight
 
-Sets a value in an interaction object using a dot-notation key path.
+A builder function that returns a partial interaction to a block at a specific height.
+
+Use with other interactions like 'fcl.getBlock()' to get a full interaction at the specified block height.
+
+Block height expresses the height of the block on the chain. The latest block height increases by one for every valid block produced.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -155,107 +159,140 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as sdk from "@onflow/sdk"
+import * as sdk from '@onflow/sdk';
 
 _10
 
 _10
 
-sdk.put(key, value)`
+sdk.atBlockHeight(height);`
 
 Or import directly the specific function:
 
 `_10
 
-import { put } from "@onflow/sdk"
+import { atBlockHeight } from '@onflow/sdk';
 
 _10
 
 _10
 
-put(key, value)`
+atBlockHeight(height);`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`` _14
+`` _21
 
-import * as fcl from "@onflow/fcl";
+import * as fcl from '@onflow/fcl';
 
-_14
+_21
 
-import { put } from "@onflow/sdk"
+_21
 
-_14
+// Get block at specific height
 
-_14
+_21
 
-// Using put in a custom builder function
+await fcl.send([fcl.getBlock(), fcl.atBlockHeight(123)]).then(fcl.decode);
 
-_14
+_21
 
-const setCustomData = (data) => put("custom.data", data);
+_21
 
-_14
+// Get account at specific block height
 
-_14
+_21
 
-await fcl.send([
+await fcl
 
-_14
+_21
 
-fcl.script`access(all) fun main(): String { return "Hello" }`,
+.send([fcl.getAccount('0x1d007d755706c469'), fcl.atBlockHeight(12345)])
 
-_14
+_21
 
-setCustomData({ userId: 123, timestamp: Date.now() })
+.then(fcl.decode);
 
-_14
+_21
 
-]);
+_21
 
-_14
+// Execute script at specific block height
 
-_14
+_21
 
-// Direct usage
+await fcl
 
-_14
+_21
 
-const interaction = initInteraction();
+.send([
 
-_14
+_21
 
-put("network.endpoint", "https://access.mainnet.onflow.org")(interaction); ``
+fcl.script`
+
+_21
+
+access(all) fun main(): UFix64 {
+
+_21
+
+return getCurrentBlock().height
+
+_21
+
+}
+
+_21
+
+`,
+
+_21
+
+fcl.atBlockHeight(100),
+
+_21
+
+])
+
+_21
+
+.then(fcl.decode); ``
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `key`[​](#key "Direct link to key")
+### `height`[​](#height "Direct link to height")
 
-* Type: `string`
-* Description: The dot-notation key path (e.g., "message.arguments")
-
-### `value`[​](#value "Direct link to value")
-
-* Type: `any`
-* Description: The value to set
+* Type: `number`
+* Description: The height of the block to execute the interaction at
 
 ## Returns[​](#returns "Direct link to Returns")
 
-[`Interaction`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
+`_10
 
-A function that takes an interaction and sets the value
+export type InteractionBuilderFn = (
+
+_10
+
+ix: Interaction,
+
+_10
+
+) => Interaction | Promise<Interaction>;`
+
+A partial interaction to be paired with another interaction such as 'fcl.getBlock()' or 'fcl.getAccount()'
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/put.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/atBlockHeight.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-proposer](/build/tools/clients/fcl-js/packages-docs/sdk/proposer)[Next
+args](/build/tools/clients/fcl-js/packages-docs/sdk/args)[Next
 
-ref](/build/tools/clients/fcl-js/packages-docs/sdk/ref)
+atBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockId)
 
 ###### Rate this page
 
@@ -266,8 +303,7 @@ Copy as Markdown
 * [Import](#import)
 * [Usage](#usage)
 * [Parameters](#parameters)
-  + [`key`](#key)
-  + [`value`](#value)
+  + [`height`](#height)
 * [Returns](#returns)
 
 Documentation

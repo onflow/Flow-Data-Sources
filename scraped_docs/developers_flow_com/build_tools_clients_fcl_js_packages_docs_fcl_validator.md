@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/why
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/validator
 
-why | Flow Developer Portal
+validator | Flow Developer Portal
 
 
 
@@ -138,13 +138,17 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
-* why
+* validator
 
 On this page
 
-# why
+# validator
 
-Returns the reason for an interaction failure.
+A builder function that adds a validator to a transaction.
+
+Validators are functions that run during transaction building to check for invalid configurations or parameters.
+They help catch errors early before submitting transactions to the network, preventing failed transactions
+and wasted compute costs.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -152,95 +156,153 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as fcl from "@onflow/fcl"
+import * as fcl from '@onflow/fcl';
 
 _10
 
 _10
 
-fcl.why(ix)`
+fcl.validator(cb);`
 
 Or import directly the specific function:
 
 `_10
 
-import { why } from "@onflow/fcl"
+import { validator } from '@onflow/fcl';
 
 _10
 
 _10
 
-why(ix)`
+validator(cb);`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`_10
+`` _21
 
-import { Bad, why, initInteraction } from "@onflow/sdk"
+import * as fcl from '@onflow/fcl';
 
-_10
+_21
 
-_10
+_21
 
-const interaction = Bad(initInteraction(), "Network timeout");
+// Custom validator to ensure account has sufficient balance
 
-_10
+_21
 
-console.log(why(interaction)); // "Network timeout"
+const validateBalance = (ix) => {
 
-_10
+_21
 
-_10
+if (ix.message.computeLimit > 1000) {
 
-// Used with error handling
+_21
 
-_10
+throw new Error('Compute limit too high for this account');
 
-if (isBad(response)) {
+_21
 
-_10
+}
 
-console.error("Error occurred:", why(response));
+_21
 
-_10
+return ix;
 
-}`
+_21
+
+};
+
+_21
+
+_21
+
+await fcl.send([
+
+_21
+
+fcl.transaction`
+
+_21
+
+transaction {
+
+_21
+
+prepare(account: AuthAccount) {
+
+_21
+
+// Transaction logic
+
+_21
+
+}
+
+_21
+
+}
+
+_21
+
+`,
+
+_21
+
+fcl.validator(validateBalance),
+
+_21
+
+fcl.limit(500), // This will pass validation
+
+_21
+
+]); ``
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `ix`[​](#ix "Direct link to ix")
+### `cb`[​](#cb "Direct link to cb")
 
-* Type: [`Interaction`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
-* Description: The interaction to get the failure reason from
+* Type: `Function`
+* Description: The validator function that takes an interaction and returns it (or throws an error if invalid)
 
 ## Returns[​](#returns "Direct link to Returns")
 
-`string`
+`_10
 
-The reason string or undefined if no reason is set
+export type InteractionBuilderFn = (
+
+_10
+
+ix: Interaction,
+
+_10
+
+) => Interaction | Promise<Interaction>;`
+
+A function that processes an interaction object
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/why.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/validator.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-voucherToTxId](/build/tools/clients/fcl-js/packages-docs/fcl/voucherToTxId)[Next
+unauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/unauthenticate)[Next
 
-withPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/withPrefix)
+verifyUserSignatures](/build/tools/clients/fcl-js/packages-docs/fcl/verifyUserSignatures)
 
 ###### Rate this page
 
-  😞😐😊
+😞😐😊
 
 Copy as Markdown
 
 * [Import](#import)
 * [Usage](#usage)
 * [Parameters](#parameters)
-  + [`ix`](#ix)
+  + [`cb`](#cb)
 * [Returns](#returns)
 
 Documentation

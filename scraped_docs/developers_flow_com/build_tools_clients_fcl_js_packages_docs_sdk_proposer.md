@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/put
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/proposer
 
-put | Flow Developer Portal
+proposer | Flow Developer Portal
 
 
 
@@ -141,13 +141,20 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
-* put
+* proposer
 
 On this page
 
-# put
+# proposer
 
-Sets a value in an interaction object using a dot-notation key path.
+A builder function that adds the proposer to a transaction.
+
+The proposer is responsible for providing the proposal key and paying the network fee for the transaction.
+The proposer key is used to specify the sequence number and prevent replay attacks.
+
+Every transaction requires exactly one proposer.
+
+Read more about [transaction roles](https://docs.onflow.org/concepts/transaction-signing/#proposer) and [signing transactions](https://docs.onflow.org/concepts/accounts-and-keys/).
 
 ## Import[​](#import "Direct link to Import")
 
@@ -155,119 +162,184 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as sdk from "@onflow/sdk"
+import * as sdk from '@onflow/sdk';
 
 _10
 
 _10
 
-sdk.put(key, value)`
+sdk.proposer(authz);`
 
 Or import directly the specific function:
 
 `_10
 
-import { put } from "@onflow/sdk"
+import { proposer } from '@onflow/sdk';
 
 _10
 
 _10
 
-put(key, value)`
+proposer(authz);`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`` _14
+`` _28
 
-import * as fcl from "@onflow/fcl";
+import * as fcl from '@onflow/fcl';
 
-_14
+_28
 
-import { put } from "@onflow/sdk"
+_28
 
-_14
+// Using the current user as proposer
 
-_14
+_28
 
-// Using put in a custom builder function
+await fcl.mutate({
 
-_14
+_28
 
-const setCustomData = (data) => put("custom.data", data);
+cadence: `
 
-_14
+_28
 
-_14
+transaction {
+
+_28
+
+prepare(account: AuthAccount) {
+
+_28
+
+log("Hello from proposer!")
+
+_28
+
+}
+
+_28
+
+}
+
+_28
+
+`,
+
+_28
+
+proposer: fcl.authz,
+
+_28
+
+});
+
+_28
+
+_28
+
+// Using builder pattern
+
+_28
 
 await fcl.send([
 
-_14
+_28
 
-fcl.script`access(all) fun main(): String { return "Hello" }`,
+fcl.transaction`
 
-_14
+_28
 
-setCustomData({ userId: 123, timestamp: Date.now() })
+transaction {
 
-_14
+_28
 
-]);
+prepare(account: AuthAccount) {
 
-_14
+_28
 
-_14
+log("Transaction executed")
 
-// Direct usage
+_28
 
-_14
+}
 
-const interaction = initInteraction();
+_28
 
-_14
+}
 
-put("network.endpoint", "https://access.mainnet.onflow.org")(interaction); ``
+_28
+
+`,
+
+_28
+
+fcl.proposer(proposerAuthz),
+
+_28
+
+fcl.payer(payerAuthz),
+
+_28
+
+fcl.authorizations([authorizerAuthz]),
+
+_28
+
+fcl.limit(100),
+
+_28
+
+]); ``
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `key`[​](#key "Direct link to key")
+### `authz`[​](#authz "Direct link to authz")
 
-* Type: `string`
-* Description: The dot-notation key path (e.g., "message.arguments")
+* Type:
 
-### `value`[​](#value "Direct link to value")
+`_10
 
-* Type: `any`
-* Description: The value to set
+export type AccountAuthorization =
+
+_10
+
+| (AuthorizationFn & Partial<InteractionAccount>)
+
+_10
+
+| Partial<InteractionAccount>;`
+
+* Description: The authorization object for the proposer
 
 ## Returns[​](#returns "Direct link to Returns")
 
 [`Interaction`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
 
-A function that takes an interaction and sets the value
+A function that takes an interaction object and returns a new interaction object with the proposer added
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/put.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/proposer.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-proposer](/build/tools/clients/fcl-js/packages-docs/sdk/proposer)[Next
+pipe](/build/tools/clients/fcl-js/packages-docs/sdk/pipe)[Next
 
-ref](/build/tools/clients/fcl-js/packages-docs/sdk/ref)
+put](/build/tools/clients/fcl-js/packages-docs/sdk/put)
 
 ###### Rate this page
 
-😞😐😊
+   😞😐😊
 
 Copy as Markdown
 
 * [Import](#import)
 * [Usage](#usage)
 * [Parameters](#parameters)
-  + [`key`](#key)
-  + [`value`](#value)
+  + [`authz`](#authz)
 * [Returns](#returns)
 
 Documentation

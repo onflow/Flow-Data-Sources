@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/put
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/block
 
-put | Flow Developer Portal
+block | Flow Developer Portal
 
 
 
@@ -141,13 +141,17 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
-* put
+* block
 
 On this page
 
-# put
+# block
 
-Sets a value in an interaction object using a dot-notation key path.
+Query the network for block by id, height or get the latest block.
+
+Block ID is SHA3-256 hash of the entire block payload. This hash is stored as an ID field on any block response object (ie. response from `GetLatestBlock`).
+
+Block height expresses the height of the block on the chain. The latest block height increases by one for every valid block produced.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -161,101 +165,106 @@ _10
 
 _10
 
-sdk.put(key, value)`
+sdk.block(blockQueryOptions, opts)`
 
 Or import directly the specific function:
 
 `_10
 
-import { put } from "@onflow/sdk"
+import { block } from "@onflow/sdk"
 
 _10
 
 _10
 
-put(key, value)`
+block(blockQueryOptions, opts)`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`` _14
+`_11
 
 import * as fcl from "@onflow/fcl";
 
-_14
+_11
 
-import { put } from "@onflow/sdk"
+_11
 
-_14
+// Get latest block
 
-_14
+_11
 
-// Using put in a custom builder function
+const latestBlock = await fcl.block(); // Get the latest finalized block
 
-_14
+_11
 
-const setCustomData = (data) => put("custom.data", data);
+const latestSealedBlock = await fcl.block({sealed: true}); // Get the latest sealed block
 
-_14
+_11
 
-_14
+_11
 
-await fcl.send([
+// Get block by ID (uses builder function)
 
-_14
+_11
 
-fcl.script`access(all) fun main(): String { return "Hello" }`,
+await fcl.send([fcl.getBlock(), fcl.atBlockId("23232323232")]).then(fcl.decode);
 
-_14
+_11
 
-setCustomData({ userId: 123, timestamp: Date.now() })
+_11
 
-_14
+// Get block at height (uses builder function)
 
-]);
+_11
 
-_14
-
-_14
-
-// Direct usage
-
-_14
-
-const interaction = initInteraction();
-
-_14
-
-put("network.endpoint", "https://access.mainnet.onflow.org")(interaction); ``
+await fcl.send([fcl.getBlock(), fcl.atBlockHeight(123)]).then(fcl.decode)`
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `key`[​](#key "Direct link to key")
+### `blockQueryOptions` (optional)[​](#blockqueryoptions-optional "Direct link to blockqueryoptions-optional")
 
-* Type: `string`
-* Description: The dot-notation key path (e.g., "message.arguments")
+* Type:
 
-### `value`[​](#value "Direct link to value")
+`_10
 
-* Type: `any`
-* Description: The value to set
+export interface BlockQueryOptions {
+
+_10
+
+sealed?: boolean
+
+_10
+
+height?: number
+
+_10
+
+id?: string
+
+_10
+
+}`
+
+### `opts` (optional)[​](#opts-optional "Direct link to opts-optional")
+
+* Type: `object`
+* Description: Optional parameters
 
 ## Returns[​](#returns "Direct link to Returns")
 
-[`Interaction`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
-
-A function that takes an interaction and sets the value
+[`Promise<Block>`](/build/tools/clients/fcl-js/packages-docs/types#block)
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/put.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/block.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-proposer](/build/tools/clients/fcl-js/packages-docs/sdk/proposer)[Next
+authorizations](/build/tools/clients/fcl-js/packages-docs/sdk/authorizations)[Next
 
-ref](/build/tools/clients/fcl-js/packages-docs/sdk/ref)
+build](/build/tools/clients/fcl-js/packages-docs/sdk/build)
 
 ###### Rate this page
 
@@ -266,8 +275,8 @@ Copy as Markdown
 * [Import](#import)
 * [Usage](#usage)
 * [Parameters](#parameters)
-  + [`key`](#key)
-  + [`value`](#value)
+  + [`blockQueryOptions` (optional)](#blockqueryoptions-optional)
+  + [`opts` (optional)](#opts-optional)
 * [Returns](#returns)
 
 Documentation

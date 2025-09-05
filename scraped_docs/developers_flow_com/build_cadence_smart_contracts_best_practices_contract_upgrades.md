@@ -24,7 +24,7 @@ Search
     - [Learn Cadence ↗️](/build/cadence/learn-cadence)
     - [Smart Contracts on Flow](/build/cadence/smart-contracts/overview)
     - [Deploying Contracts](/build/cadence/smart-contracts/deploying)
-    - [Testing Your Contracts](/build/cadence/smart-contracts/testing)
+    - [Testing Smart Contracts](/build/cadence/smart-contracts/testing)
     - [Best Practices](/build/cadence/smart-contracts/best-practices/security-best-practices)
 
       * [Security Best Practices](/build/cadence/smart-contracts/best-practices/security-best-practices)

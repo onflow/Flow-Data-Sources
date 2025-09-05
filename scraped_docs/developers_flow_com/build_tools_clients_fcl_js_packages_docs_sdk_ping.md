@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/put
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/ping
 
-put | Flow Developer Portal
+ping | Flow Developer Portal
 
 
 
@@ -141,13 +141,15 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
-* put
+* ping
 
 On this page
 
-# put
+# ping
 
-Sets a value in an interaction object using a dot-notation key path.
+A builder function that creates a ping interaction to test connectivity to the Flow Access Node.
+
+The ping interaction is a simple way to test if the Flow Access Node is reachable and responding. This is useful for health checks, connectivity testing, and debugging network issues.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -155,107 +157,153 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as sdk from "@onflow/sdk"
+import * as sdk from '@onflow/sdk';
 
 _10
 
 _10
 
-sdk.put(key, value)`
+sdk.ping();`
 
 Or import directly the specific function:
 
 `_10
 
-import { put } from "@onflow/sdk"
+import { ping } from '@onflow/sdk';
 
 _10
 
 _10
 
-put(key, value)`
+ping();`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`` _14
+`_26
 
-import * as fcl from "@onflow/fcl";
+import * as fcl from '@onflow/fcl';
 
-_14
+_26
 
-import { put } from "@onflow/sdk"
+_26
 
-_14
+// Simple ping to test connectivity
 
-_14
+_26
 
-// Using put in a custom builder function
+try {
 
-_14
+_26
 
-const setCustomData = (data) => put("custom.data", data);
+const response = await fcl.send([fcl.ping()]);
 
-_14
+_26
 
-_14
+console.log('Access Node is reachable');
 
-await fcl.send([
+_26
 
-_14
+} catch (error) {
 
-fcl.script`access(all) fun main(): String { return "Hello" }`,
+_26
 
-_14
+console.error('Access Node is not reachable:', error);
 
-setCustomData({ userId: 123, timestamp: Date.now() })
+_26
 
-_14
+}
 
-]);
+_26
 
-_14
+_26
 
-_14
+// Use ping for health checks
 
-// Direct usage
+_26
 
-_14
+const healthCheck = async () => {
 
-const interaction = initInteraction();
+_26
 
-_14
+try {
 
-put("network.endpoint", "https://access.mainnet.onflow.org")(interaction); ``
+_26
 
-## Parameters[​](#parameters "Direct link to Parameters")
+await fcl.send([fcl.ping()]);
 
-### `key`[​](#key "Direct link to key")
+_26
 
-* Type: `string`
-* Description: The dot-notation key path (e.g., "message.arguments")
+return { status: 'healthy', timestamp: new Date().toISOString() };
 
-### `value`[​](#value "Direct link to value")
+_26
 
-* Type: `any`
-* Description: The value to set
+} catch (error) {
+
+_26
+
+return {
+
+_26
+
+status: 'unhealthy',
+
+_26
+
+error: error.message,
+
+_26
+
+timestamp: new Date().toISOString(),
+
+_26
+
+};
+
+_26
+
+}
+
+_26
+
+};
+
+_26
+
+_26
+
+const health = await healthCheck();
+
+_26
+
+console.log('Health status:', health);`
 
 ## Returns[​](#returns "Direct link to Returns")
 
-[`Interaction`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
+`_10
 
-A function that takes an interaction and sets the value
+export type InteractionBuilderFn = (
+
+_10
+
+ix: Interaction,
+
+_10
+
+) => Interaction | Promise<Interaction>;`
+
+A function that processes an interaction object
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/put.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/ping.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-proposer](/build/tools/clients/fcl-js/packages-docs/sdk/proposer)[Next
+payer](/build/tools/clients/fcl-js/packages-docs/sdk/payer)[Next
 
-ref](/build/tools/clients/fcl-js/packages-docs/sdk/ref)
+pipe](/build/tools/clients/fcl-js/packages-docs/sdk/pipe)
 
 ###### Rate this page
 
@@ -265,9 +313,6 @@ Copy as Markdown
 
 * [Import](#import)
 * [Usage](#usage)
-* [Parameters](#parameters)
-  + [`key`](#key)
-  + [`value`](#value)
 * [Returns](#returns)
 
 Documentation

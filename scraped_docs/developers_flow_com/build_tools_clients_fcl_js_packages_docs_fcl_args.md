@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/why
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/args
 
-why | Flow Developer Portal
+args | Flow Developer Portal
 
 
 
@@ -138,13 +138,16 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
-* why
+* args
 
 On this page
 
-# why
+# args
 
-Returns the reason for an interaction failure.
+A utility builder to be used with other builders to pass in arguments with a value and supported type.
+
+A transaction can accept zero or more arguments that are passed into the Cadence script. The arguments on the transaction must match the number and order declared in the Cadence script.
+This function returns a Partial Interaction that contains the arguments and types passed in. This alone is a partial and incomplete interaction.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -152,95 +155,136 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as fcl from "@onflow/fcl"
+import * as fcl from '@onflow/fcl';
 
 _10
 
 _10
 
-fcl.why(ix)`
+fcl.args(ax);`
 
 Or import directly the specific function:
 
 `_10
 
-import { why } from "@onflow/fcl"
+import { args } from '@onflow/fcl';
 
 _10
 
 _10
 
-why(ix)`
+args(ax);`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`_10
+`` _15
 
-import { Bad, why, initInteraction } from "@onflow/sdk"
+import * as fcl from '@onflow/fcl';
 
-_10
+_15
 
-_10
+_15
 
-const interaction = Bad(initInteraction(), "Network timeout");
+await fcl.mutate({
 
-_10
+_15
 
-console.log(why(interaction)); // "Network timeout"
+cadence: `
 
-_10
+_15
 
-_10
+transaction(amount: UFix64, to: Address) {
 
-// Used with error handling
+_15
 
-_10
+prepare(signer: AuthAccount) {
 
-if (isBad(response)) {
+_15
 
-_10
+// transaction logic
 
-console.error("Error occurred:", why(response));
+_15
 
-_10
+}
 
-}`
+_15
+
+}
+
+_15
+
+`,
+
+_15
+
+args: (arg, t) => [
+
+_15
+
+arg('10.0', t.UFix64), // Will be the first argument `amount: UFix64`
+
+_15
+
+arg('0xba1132bc08f82fe2', t.Address), // Will be the second argument `to: Address`
+
+_15
+
+],
+
+_15
+
+}); ``
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `ix`[​](#ix "Direct link to ix")
+### `ax`[​](#ax "Direct link to ax")
 
-* Type: [`Interaction`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
-* Description: The interaction to get the failure reason from
+* Type:
+
+`_10
+
+CadenceArgument < any > [];`
+
+* Description: An array of argument objects created with fcl.arg()
 
 ## Returns[​](#returns "Direct link to Returns")
 
-`string`
+`_10
 
-The reason string or undefined if no reason is set
+export type InteractionBuilderFn = (
+
+_10
+
+ix: Interaction,
+
+_10
+
+) => Interaction | Promise<Interaction>;`
+
+A Partial Interaction object containing the arguments and types passed in
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/why.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/args.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-voucherToTxId](/build/tools/clients/fcl-js/packages-docs/fcl/voucherToTxId)[Next
+arg](/build/tools/clients/fcl-js/packages-docs/fcl/arg)[Next
 
-withPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/withPrefix)
+atBlockHeight](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockHeight)
 
 ###### Rate this page
 
-  😞😐😊
+😞😐😊
 
 Copy as Markdown
 
 * [Import](#import)
 * [Usage](#usage)
 * [Parameters](#parameters)
-  + [`ix`](#ix)
+  + [`ax`](#ax)
 * [Returns](#returns)
 
 Documentation

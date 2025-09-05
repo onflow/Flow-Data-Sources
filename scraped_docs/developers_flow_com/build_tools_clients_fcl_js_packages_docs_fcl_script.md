@@ -21,22 +21,19 @@ Search
   + [App Architecture](/build/cadence/app-architecture)
   + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
   + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
-  + [Guides](/build/cadence/guides/account-linking)
   + [Core Smart Contracts](/build/cadence/core-contracts)
   + [Explore More](/build/cadence/explore-more)
-* [Solidity (EVM)](/build/evm/about)
+* [Solidity (EVM)](/build/evm/quickstart)
 
-  + [Why EVM on Flow](/build/evm/about)
+  + [EVM Quickstart](/build/evm/quickstart)
   + [How it Works](/build/evm/how-it-works)
   + [Using Flow EVM](/build/evm/using)
   + [Network Information](/build/evm/networks)
-  + [EVM Quickstart](/build/evm/quickstart)
   + [Fees](/build/evm/fees)
   + [Accounts](/build/evm/accounts)
   + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
   + [Faucets ↙](/evm/faucets)
   + [Block Explorers ↙](/evm/block-explorers)
-  + [Guides](/build/evm/guides)
 * [Tools & SDKs](/build/tools)
 
   + [@onflow/react-sdk](/build/tools/react-sdk)
@@ -306,7 +303,7 @@ Documentation
 * [Getting Started](/build/cadence/getting-started/contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/cadence/guides/mobile/overview)
+* [Mobile](/blockchain-development-tutorials/cadence/mobile)
 * [FCL](/build/tools/clients/fcl-js)
 * [Testing](/build/cadence/smart-contracts/testing)
 * [CLI](/build/tools/flow-cli)
@@ -330,7 +327,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 

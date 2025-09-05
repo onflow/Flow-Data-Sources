@@ -23,13 +23,12 @@ Search
   + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
   + [Core Smart Contracts](/build/cadence/core-contracts)
   + [Explore More](/build/cadence/explore-more)
-* [Solidity (EVM)](/build/evm/about)
+* [Solidity (EVM)](/build/evm/quickstart)
 
-  + [Why EVM on Flow](/build/evm/about)
+  + [EVM Quickstart](/build/evm/quickstart)
   + [How it Works](/build/evm/how-it-works)
   + [Using Flow EVM](/build/evm/using)
   + [Network Information](/build/evm/networks)
-  + [EVM Quickstart](/build/evm/quickstart)
   + [Fees](/build/evm/fees)
   + [Accounts](/build/evm/accounts)
   + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
@@ -92,139 +91,195 @@ npm install @onflow/fcl-rainbowkit-adapter`
 
 Below is a typical usage example that shows how to set up a **RainbowKit** config for the Flow testnet, using this adapter. (From your provided sample.)
 
-`_35
+`_50
 
 import * as fcl from '@onflow/fcl'
 
-_35
+_50
 
-import { createFclConnector, flowWallet } from '@onflow/fcl-rainbowkit-adapter'
+import { createFclConnector, flowWallet, useIsCadenceWalletConnected } from '@onflow/fcl-rainbowkit-adapter'
 
-_35
+_50
 
 import { connectorsForWallets } from '@rainbow-me/rainbowkit'
 
-_35
+_50
 
 import { flowTestnet } from 'wagmi/chains'
 
-_35
+_50
 
 import { createConfig, http } from 'wagmi'
 
-_35
+_50
 
-_35
+_50
 
 // Configure FCL (Flow testnet in this example)
 
-_35
+_50
 
 fcl.config({
 
-_35
+_50
 
 "accessNode.api": "https://rest-testnet.onflow.org",
 
-_35
+_50
 
 "discovery.wallet": "https://fcl-discovery.onflow.org/testnet/authn",
 
-_35
+_50
 
 "walletconnect.projectId": "9b70cfa398b2355a5eb9b1cf99f4a981", // example WC projectId
 
-_35
+_50
 
 })
 
-_35
+_50
 
-_35
+_50
 
 // Create a list of connectors from your wallets
 
-_35
+_50
 
 const connectors = connectorsForWallets([
 
-_35
+_50
 
 {
 
-_35
+_50
 
 groupName: "Recommended",
 
-_35
+_50
 
 wallets: [
 
-_35
+_50
 
 flowWallet(),
 
-_35
+_50
 
 ],
 
-_35
+_50
 
 },
 
-_35
+_50
 
 ], {
 
-_35
+_50
 
 appName: 'RainbowKit demo',
 
-_35
+_50
 
 projectId: '9b70cfa398b2355a5eb9b1cf99f4a981',
 
-_35
+_50
 
 })
 
-_35
+_50
 
-_35
+_50
 
 // Wagmi config
 
-_35
+_50
 
 export const config = createConfig({
 
-_35
+_50
 
 chains: [flowTestnet],
 
-_35
+_50
 
 connectors,
 
-_35
+_50
 
 ssr: true,
 
-_35
+_50
 
 transports: {
 
-_35
+_50
 
 [flowTestnet.id]: http(),
 
-_35
+_50
 
 }
 
-_35
+_50
 
-});`
+});
+
+_50
+
+_50
+
+// In your React component
+
+_50
+
+function MyApp() {
+
+_50
+
+const isCadenceConnected = useIsCadenceWalletConnected(config)
+
+_50
+
+_50
+
+return (
+
+_50
+
+<div>
+
+_50
+
+{isCadenceConnected ? (
+
+_50
+
+<p>Cadence wallet is connected!</p>
+
+_50
+
+) : (
+
+_50
+
+<p>Please connect your Cadence wallet</p>
+
+_50
+
+)}
+
+_50
+
+</div>
+
+_50
+
+)
+
+_50
+
+}`
 
 ## API[​](#api "Direct link to API")
 
@@ -237,14 +292,22 @@ _35
 
 ### `createFclConnector(config?: CreateFclConnectorOptions): Connector`[​](#createfclconnectorconfig-createfclconnectoroptions-connector "Direct link to createfclconnectorconfig-createfclconnectoroptions-connector")
 
-* A lower-level helper to build your own FCL-based EIP-1193 connectors for RainbowKit if you don’t want the preconfigured `flowWallet`.
+* A lower-level helper to build your own FCL-based EIP-1193 connectors for RainbowKit if you don't want the preconfigured `flowWallet`.
 * **Parameters**
   + `config?: CreateFclConnectorOptions` – typical Wagmi + FCL config object (i.e., chain ID, network URL, FCL services, etc.).
 * **Returns**: A valid Wagmi `Connector` for EVM interactions via FCL.
 
+### `useIsCadenceWalletConnected(config: Config): boolean`[​](#useiscadencewalletconnectedconfig-config-boolean "Direct link to useiscadencewalletconnectedconfig-config-boolean")
+
+A React hook that monitors the connection status of both FCL (Cadence) and Wagmi accounts to determine whether a Cadence-aware wallet is connected.
+
+* **Parameters**
+  + `config: Config` – The Wagmi configuration object
+* **Returns**: `boolean` – `true` when both Cadence-aware wallet is connected, `false` if no wallet, or an EVM-only wallet is connected.
+
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/cross-vm/rainbowkit-adapter.mdx)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Sep 4, 2025** by **Jordan Ribbink**
 
 [Previous
 
@@ -263,6 +326,7 @@ Copy as Markdown
 * [API](#api)
   + [`flowWallet(options?: FlowWalletOptions): RainbowKitWallet`](#flowwalletoptions-flowwalletoptions-rainbowkitwallet)
   + [`createFclConnector(config?: CreateFclConnectorOptions): Connector`](#createfclconnectorconfig-createfclconnectoroptions-connector)
+  + [`useIsCadenceWalletConnected(config: Config): boolean`](#useiscadencewalletconnectedconfig-config-boolean)
 
 Documentation
 
@@ -293,7 +357,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 

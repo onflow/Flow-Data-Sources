@@ -321,7 +321,7 @@ Documentation
 * [Getting Started](/build/cadence/getting-started/contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/cadence/guides/mobile/overview)
+* [Mobile](/blockchain-development-tutorials/cadence/mobile)
 * [FCL](/build/tools/clients/fcl-js)
 * [Testing](/build/cadence/smart-contracts/testing)
 * [CLI](/build/tools/flow-cli)
@@ -345,7 +345,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 

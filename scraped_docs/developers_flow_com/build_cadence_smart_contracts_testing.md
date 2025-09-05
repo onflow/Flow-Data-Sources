@@ -1,6 +1,6 @@
 # Source: https://developers.flow.com/build/cadence/smart-contracts/testing
 
-Testing Your Contracts | Flow Developer Portal
+Testing Smart Contracts | Flow Developer Portal
 
 
 
@@ -24,7 +24,7 @@ Search
     - [Learn Cadence ↗️](/build/cadence/learn-cadence)
     - [Smart Contracts on Flow](/build/cadence/smart-contracts/overview)
     - [Deploying Contracts](/build/cadence/smart-contracts/deploying)
-    - [Testing Your Contracts](/build/cadence/smart-contracts/testing)
+    - [Testing Smart Contracts](/build/cadence/smart-contracts/testing)
     - [Best Practices](/build/cadence/smart-contracts/best-practices/security-best-practices)
   + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
   + [Core Smart Contracts](/build/cadence/core-contracts)
@@ -44,11 +44,11 @@ Search
 
 * Cadence
 * Writing and Deploying Smart Contracts
-* Testing Your Contracts
+* Testing Smart Contracts
 
 On this page
 
-# Testing Your Contracts
+# Testing Smart Contracts
 
 Testing is an essential part of smart contract development to ensure the correctness and reliability of your code. The Cadence Testing Framework provides a convenient way to write tests for your contracts, scripts and transactions which allows you to verify the functionality and correctness of your smart contracts.
 
@@ -544,7 +544,7 @@ Get familiar with the [Cadence anti-patterns](https://cadence-lang.org/docs/anti
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/smart-contracts/testing.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Sep 4, 2025** by **0xLisanAlGaib**
 
 [Previous
 

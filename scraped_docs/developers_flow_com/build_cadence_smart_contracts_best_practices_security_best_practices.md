@@ -24,7 +24,7 @@ Search
     - [Learn Cadence ↗️](/build/cadence/learn-cadence)
     - [Smart Contracts on Flow](/build/cadence/smart-contracts/overview)
     - [Deploying Contracts](/build/cadence/smart-contracts/deploying)
-    - [Testing Your Contracts](/build/cadence/smart-contracts/testing)
+    - [Testing Smart Contracts](/build/cadence/smart-contracts/testing)
     - [Best Practices](/build/cadence/smart-contracts/best-practices/security-best-practices)
 
       * [Security Best Practices](/build/cadence/smart-contracts/best-practices/security-best-practices)
@@ -33,13 +33,12 @@ Search
   + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
   + [Core Smart Contracts](/build/cadence/core-contracts)
   + [Explore More](/build/cadence/explore-more)
-* [Solidity (EVM)](/build/evm/about)
+* [Solidity (EVM)](/build/evm/quickstart)
 
-  + [Why EVM on Flow](/build/evm/about)
+  + [EVM Quickstart](/build/evm/quickstart)
   + [How it Works](/build/evm/how-it-works)
   + [Using Flow EVM](/build/evm/using)
   + [Network Information](/build/evm/networks)
-  + [EVM Quickstart](/build/evm/quickstart)
   + [Fees](/build/evm/fees)
   + [Accounts](/build/evm/accounts)
   + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
@@ -129,7 +128,7 @@ Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-Testing Your Contracts](/build/cadence/smart-contracts/testing)[Next
+Testing Smart Contracts](/build/cadence/smart-contracts/testing)[Next
 
 Contract Upgrades with Incompatible Changes](/build/cadence/smart-contracts/best-practices/contract-upgrades)
 
@@ -176,7 +175,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 

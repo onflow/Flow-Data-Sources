@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/why
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/getCollection
 
-why | Flow Developer Portal
+getCollection | Flow Developer Portal
 
 
 
@@ -138,13 +138,19 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
-* why
+* getCollection
 
 On this page
 
-# why
+# getCollection
 
-Returns the reason for an interaction failure.
+A builder function that returns a collection containing a list of transaction IDs by its collection ID.
+
+A collection is a batch of transactions that have been included in a block. Each collection has a unique ID
+which is the SHA3-256 hash of the collection payload. Collections are used to group related transactions
+together for more efficient processing by the network.
+
+The collection ID provided must be from the current spork. Collections from past sporks are currently unavailable.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -152,95 +158,154 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as fcl from "@onflow/fcl"
+import * as fcl from '@onflow/fcl';
 
 _10
 
 _10
 
-fcl.why(ix)`
+fcl.getCollection(id);`
 
 Or import directly the specific function:
 
 `_10
 
-import { why } from "@onflow/fcl"
+import { getCollection } from '@onflow/fcl';
 
 _10
 
 _10
 
-why(ix)`
+getCollection(id);`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`_10
+`_22
 
-import { Bad, why, initInteraction } from "@onflow/sdk"
+import * as fcl from '@onflow/fcl';
 
-_10
+_22
 
-_10
+_22
 
-const interaction = Bad(initInteraction(), "Network timeout");
+// Get a collection and see what transactions it contains
 
-_10
+_22
 
-console.log(why(interaction)); // "Network timeout"
+const collection = await fcl
 
-_10
+_22
 
-_10
+.send([
 
-// Used with error handling
+_22
 
-_10
+fcl.getCollection(
 
-if (isBad(response)) {
+_22
 
-_10
+'cccdb0c67d015dc7f6444e8f62a3244ed650215ed66b90603006c70c5ef1f6e5',
 
-console.error("Error occurred:", why(response));
+_22
 
-_10
+),
+
+_22
+
+])
+
+_22
+
+.then(fcl.decode);
+
+_22
+
+_22
+
+console.log('Collection ID:', collection.id);
+
+_22
+
+console.log('Transaction IDs:', collection.transactionIds);
+
+_22
+
+console.log('Total transactions:', collection.transactionIds.length);
+
+_22
+
+_22
+
+// Process each transaction in the collection
+
+_22
+
+for (const txId of collection.transactionIds) {
+
+_22
+
+const transaction = await fcl
+
+_22
+
+.send([fcl.getTransaction(txId)])
+
+_22
+
+.then(fcl.decode);
+
+_22
+
+console.log('Transaction:', transaction);
+
+_22
 
 }`
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `ix`[​](#ix "Direct link to ix")
+### `id` (optional)[​](#id-optional "Direct link to id-optional")
 
-* Type: [`Interaction`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
-* Description: The interaction to get the failure reason from
+* Type: `string`
 
 ## Returns[​](#returns "Direct link to Returns")
 
-`string`
+`_10
 
-The reason string or undefined if no reason is set
+export type InteractionBuilderFn = (
+
+_10
+
+ix: Interaction,
+
+_10
+
+) => Interaction | Promise<Interaction>;`
+
+A function that processes an interaction object
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/why.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/getCollection.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-voucherToTxId](/build/tools/clients/fcl-js/packages-docs/fcl/voucherToTxId)[Next
+getChainId](/build/tools/clients/fcl-js/packages-docs/fcl/getChainId)[Next
 
-withPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/withPrefix)
+getEvents](/build/tools/clients/fcl-js/packages-docs/fcl/getEvents)
 
 ###### Rate this page
 
-  😞😐😊
+😞😐😊
 
 Copy as Markdown
 
 * [Import](#import)
 * [Usage](#usage)
 * [Parameters](#parameters)
-  + [`ix`](#ix)
+  + [`id` (optional)](#id-optional)
 * [Returns](#returns)
 
 Documentation

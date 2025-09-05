@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/why
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/authorization
 
-why | Flow Developer Portal
+authorization | Flow Developer Portal
 
 
 
@@ -138,13 +138,17 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
-* why
+* authorization
 
 On this page
 
-# why
+# authorization
 
-Returns the reason for an interaction failure.
+Creates an authorization function for use in transactions.
+
+An authorization function must produce the information of the user that is going to sign and a signing function to use the information to produce a signature.
+
+Read more about [authorization functions](https://docs.onflow.org/fcl/reference/authorization-function/) and [transaction roles](https://docs.onflow.org/concepts/transaction-signing/).
 
 ## Import[​](#import "Direct link to Import")
 
@@ -152,95 +156,202 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as fcl from "@onflow/fcl"
+import * as fcl from '@onflow/fcl';
 
 _10
 
 _10
 
-fcl.why(ix)`
+fcl.authorization(addr, signingFunction, keyId, sequenceNum);`
 
 Or import directly the specific function:
 
 `_10
 
-import { why } from "@onflow/fcl"
+import { authorization } from '@onflow/fcl';
 
 _10
 
 _10
 
-why(ix)`
+authorization(addr, signingFunction, keyId, sequenceNum);`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`_10
+`` _28
 
-import { Bad, why, initInteraction } from "@onflow/sdk"
+import * as fcl from '@onflow/fcl';
 
-_10
+_28
 
-_10
+import { ec as EC } from 'elliptic';
 
-const interaction = Bad(initInteraction(), "Network timeout");
+_28
 
-_10
+_28
 
-console.log(why(interaction)); // "Network timeout"
+// Create a signing function
 
-_10
+_28
 
-_10
+const signingFunction = ({ message }) => {
 
-// Used with error handling
+_28
 
-_10
+// Your signing logic here
 
-if (isBad(response)) {
+_28
 
-_10
+return {
 
-console.error("Error occurred:", why(response));
+_28
 
-_10
+addr: '0x123456789abcdef0',
 
-}`
+_28
+
+keyId: 0,
+
+_28
+
+signature: 'your_signature_here',
+
+_28
+
+};
+
+_28
+
+};
+
+_28
+
+_28
+
+// Create authorization
+
+_28
+
+const authz = fcl.authorization(
+
+_28
+
+'0x123456789abcdef0', // account address
+
+_28
+
+signingFunction, // signing function
+
+_28
+
+0, // key ID
+
+_28
+
+42, // sequence number
+
+_28
+
+);
+
+_28
+
+_28
+
+// Use in transaction
+
+_28
+
+await fcl.mutate({
+
+_28
+
+cadence: `transaction { prepare(acct: AuthAccount) {} }`,
+
+_28
+
+proposer: authz,
+
+_28
+
+payer: authz,
+
+_28
+
+authorizations: [authz],
+
+_28
+
+}); ``
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `ix`[​](#ix "Direct link to ix")
+### `addr`[​](#addr "Direct link to addr")
 
-* Type: [`Interaction`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
-* Description: The interaction to get the failure reason from
+* Type: `string`
+* Description: The address of the account that will sign the transaction
+
+### `signingFunction`[​](#signingfunction "Direct link to signingfunction")
+
+* Type:
+
+`_10
+
+type SigningFn = (
+
+_10
+
+signable?: SignableMessage,
+
+_10
+
+) => SigningResult | Promise<SigningResult>;`
+
+* Description: A function that produces signatures for the account
+
+### `keyId` (optional)[​](#keyid-optional "Direct link to keyid-optional")
+
+* Type: `string | number`
+* Description: The index of the key to use for signing (optional)
+
+### `sequenceNum` (optional)[​](#sequencenum-optional "Direct link to sequencenum-optional")
+
+* Type: `number`
+* Description: The sequence number for the account key (optional)
 
 ## Returns[​](#returns "Direct link to Returns")
 
-`string`
+`_10
 
-The reason string or undefined if no reason is set
+Partial<InteractionAccount>;`
+
+A partial interaction account object
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/why.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/authorization.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-voucherToTxId](/build/tools/clients/fcl-js/packages-docs/fcl/voucherToTxId)[Next
+authenticate](/build/tools/clients/fcl-js/packages-docs/fcl/authenticate)[Next
 
-withPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/withPrefix)
+authorizations](/build/tools/clients/fcl-js/packages-docs/fcl/authorizations)
 
 ###### Rate this page
 
-  😞😐😊
+😞😐😊
 
 Copy as Markdown
 
 * [Import](#import)
 * [Usage](#usage)
 * [Parameters](#parameters)
-  + [`ix`](#ix)
+  + [`addr`](#addr)
+  + [`signingFunction`](#signingfunction)
+  + [`keyId` (optional)](#keyid-optional)
+  + [`sequenceNum` (optional)](#sequencenum-optional)
 * [Returns](#returns)
 
 Documentation

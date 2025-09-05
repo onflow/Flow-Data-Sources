@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/why
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/currentUser
 
-why | Flow Developer Portal
+currentUser | Flow Developer Portal
 
 
 
@@ -138,13 +138,60 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
-* why
+* currentUser
 
 On this page
 
-# why
+# currentUser
 
-Returns the reason for an interaction failure.
+The main current user service for managing user authentication and authorization in Flow applications.
+This service provides a complete interface for wallet connections, user sessions, transaction signing, and user data management.
+It handles the complexity of connecting to various FCL-compatible wallets, managing authentication state, and providing
+authorization functions for transaction signing.
+
+The currentUser service is configured for web platforms and uses the browser's localStorage by default for session persistence.
+It integrates with Flow's discovery service to enable wallet selection and supports both authentication and re-authentication flows.
+
+This service is reactive and provides subscription capabilities to monitor authentication state changes in real-time.
+All wallet interactions are handled through FCL's standardized protocols, ensuring compatibility with the Flow ecosystem.
+
+Returns an object with the following methods:
+
+`_10
+
+{
+
+_10
+
+authenticate, // Authenticates the user via FCL-compatible wallets
+
+_10
+
+unauthenticate, // Logs out the current user and clears session data
+
+_10
+
+authorization, // Produces authorization details for transaction signing
+
+_10
+
+signUserMessage, // Signs arbitrary messages with the user's wallet
+
+_10
+
+subscribe, // Subscribes to authentication state changes
+
+_10
+
+snapshot, // Returns the current user object snapshot
+
+_10
+
+resolveArgument // Resolves the current user as a transaction argument
+
+_10
+
+}`
 
 ## Import[​](#import "Direct link to Import")
 
@@ -158,89 +205,192 @@ _10
 
 _10
 
-fcl.why(ix)`
+fcl.currentUser()`
 
 Or import directly the specific function:
 
 `_10
 
-import { why } from "@onflow/fcl"
+import { currentUser } from "@onflow/fcl"
 
 _10
 
 _10
 
-why(ix)`
+currentUser()`
 
 ## Usage[​](#usage "Direct link to Usage")
 
+`_36
+
+// Basic authentication flow
+
+_36
+
+import * as fcl from "@onflow/fcl"
+
+_36
+
+_36
+
+// Configure FCL
+
+_36
+
+fcl.config({
+
+_36
+
+"accessNode.api": "https://rest-testnet.onflow.org",
+
+_36
+
+"discovery.wallet": "https://fcl-discovery.onflow.org/testnet/authn",
+
+_36
+
+"flow.network": "testnet"
+
+_36
+
+})
+
+_36
+
+_36
+
+// Authenticate user
+
+_36
+
+const user = await fcl.currentUser.authenticate()
+
+_36
+
+console.log("User authenticated:", user.addr)
+
+_36
+
+_36
+
+// Check authentication status
+
+_36
+
+const currentUser = await fcl.currentUser.snapshot()
+
+_36
+
+if (currentUser.loggedIn) {
+
+_36
+
+console.log("User is logged in:", currentUser.addr)
+
+_36
+
+}
+
+_36
+
+_36
+
+// Subscribe to authentication state changes
+
+_36
+
+import * as fcl from "@onflow/fcl"
+
+_36
+
+_36
+
+const unsubscribe = fcl.currentUser.subscribe((user) => {
+
+_36
+
+if (user.loggedIn) {
+
+_36
+
+console.log("User logged in:", user.addr)
+
+_36
+
+document.getElementById("login-btn").style.display = "none"
+
+_36
+
+document.getElementById("logout-btn").style.display = "block"
+
+_36
+
+} else {
+
+_36
+
+console.log("User logged out")
+
+_36
+
+document.getElementById("login-btn").style.display = "block"
+
+_36
+
+document.getElementById("logout-btn").style.display = "none"
+
+_36
+
+}
+
+_36
+
+})
+
+_36
+
+// Clean up subscription when component unmounts
+
+_36
+
+window.addEventListener("beforeunload", () => unsubscribe())`
+
+## Returns[​](#returns "Direct link to Returns")
+
 `_10
 
-import { Bad, why, initInteraction } from "@onflow/sdk"
+export interface CurrentUserService extends CurrentUserServiceApi {
 
 _10
 
-_10
-
-const interaction = Bad(initInteraction(), "Network timeout");
-
-_10
-
-console.log(why(interaction)); // "Network timeout"
-
-_10
-
-_10
-
-// Used with error handling
-
-_10
-
-if (isBad(response)) {
-
-_10
-
-console.error("Error occurred:", why(response));
+(): CurrentUserServiceApi
 
 _10
 
 }`
 
-## Parameters[​](#parameters "Direct link to Parameters")
-
-### `ix`[​](#ix "Direct link to ix")
-
-* Type: [`Interaction`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
-* Description: The interaction to get the failure reason from
-
-## Returns[​](#returns "Direct link to Returns")
-
-`string`
-
-The reason string or undefined if no reason is set
+A CurrentUserService object
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/why.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/currentUser.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-voucherToTxId](/build/tools/clients/fcl-js/packages-docs/fcl/voucherToTxId)[Next
+createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/fcl/createSignableVoucher)[Next
 
-withPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/withPrefix)
+decode](/build/tools/clients/fcl-js/packages-docs/fcl/decode)
 
 ###### Rate this page
 
-  😞😐😊
+😞😐😊
 
 Copy as Markdown
 
 * [Import](#import)
 * [Usage](#usage)
-* [Parameters](#parameters)
-  + [`ix`](#ix)
 * [Returns](#returns)
 
 Documentation
