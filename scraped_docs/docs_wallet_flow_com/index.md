@@ -36,7 +36,6 @@ Flow Wallet](/)
     - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
     - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
     - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-    - [Privy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 * Download
 
   + [📲Download](/download/download)

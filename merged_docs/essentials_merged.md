@@ -6762,13 +6762,12 @@ Search
   + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
   + [Core Smart Contracts](/build/cadence/core-contracts)
   + [Explore More](/build/cadence/explore-more)
-* [Solidity (EVM)](/build/evm/about)
+* [Solidity (EVM)](/build/evm/quickstart)
 
-  + [Why EVM on Flow](/build/evm/about)
+  + [EVM Quickstart](/build/evm/quickstart)
   + [How it Works](/build/evm/how-it-works)
   + [Using Flow EVM](/build/evm/using)
   + [Network Information](/build/evm/networks)
-  + [EVM Quickstart](/build/evm/quickstart)
   + [Fees](/build/evm/fees)
   + [Accounts](/build/evm/accounts)
   + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
@@ -6989,7 +6988,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 
@@ -7379,7 +7378,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 
@@ -14174,6 +14173,273 @@ Network
 * [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/networks/node-ops)
 * [Spork Information](/networks/node-ops/node-operation/spork)
+
+More
+
+* [GitHub](https://github.com/onflow)
+* [Discord](https://discord.gg/flow)
+* [Forum](https://forum.flow.com/)
+* [Flow](https://flow.com/)
+* [Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow, Inc. Built with Docusaurus.
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/initInteraction
+
+initInteraction | Flow Developer Portal
+
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Why Flow](/build/flow)
+* [Cadence](/build/cadence/getting-started)
+
+  + [Getting Started](/build/cadence/getting-started)
+  + [Differences vs. EVM](/build/cadence/differences-vs-evm)
+  + [Flow Protocol](/build/cadence/basics/network-architecture)
+  + [App Architecture](/build/cadence/app-architecture)
+  + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
+  + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+  + [Core Smart Contracts](/build/cadence/core-contracts)
+  + [Explore More](/build/cadence/explore-more)
+* [Solidity (EVM)](/build/evm/quickstart)
+
+  + [EVM Quickstart](/build/evm/quickstart)
+  + [How it Works](/build/evm/how-it-works)
+  + [Using Flow EVM](/build/evm/using)
+  + [Network Information](/build/evm/networks)
+  + [Fees](/build/evm/fees)
+  + [Accounts](/build/evm/accounts)
+  + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
+  + [Faucets ↙](/evm/faucets)
+  + [Block Explorers ↙](/evm/block-explorers)
+* [Tools & SDKs](/build/tools)
+
+  + [@onflow/react-sdk](/build/tools/react-sdk)
+  + [Flow Emulator](/build/tools/emulator)
+  + [Flow CLI](/build/tools/flow-cli)
+  + [Cadence VS Code Extension](/build/tools/vscode-extension)
+  + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
+  + [Client Tools](/build/tools/clients)
+
+    - [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
+
+      * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
+
+        + [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
+        + [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
+
+          - [account](/build/tools/clients/fcl-js/packages-docs/sdk/account)
+          - [arg](/build/tools/clients/fcl-js/packages-docs/sdk/arg)
+          - [args](/build/tools/clients/fcl-js/packages-docs/sdk/args)
+          - [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockHeight)
+          - [atBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockId)
+          - [atLatestBlock](/build/tools/clients/fcl-js/packages-docs/sdk/atLatestBlock)
+          - [authorization](/build/tools/clients/fcl-js/packages-docs/sdk/authorization)
+          - [authorizations](/build/tools/clients/fcl-js/packages-docs/sdk/authorizations)
+          - [block](/build/tools/clients/fcl-js/packages-docs/sdk/block)
+          - [build](/build/tools/clients/fcl-js/packages-docs/sdk/build)
+          - [cadence](/build/tools/clients/fcl-js/packages-docs/sdk/cadence)
+          - [cdc](/build/tools/clients/fcl-js/packages-docs/sdk/cdc)
+          - [config](/build/tools/clients/fcl-js/packages-docs/sdk/config)
+          - [createSdkClient](/build/tools/clients/fcl-js/packages-docs/sdk/createSdkClient)
+          - [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/createSignableVoucher)
+          - [decode](/build/tools/clients/fcl-js/packages-docs/sdk/decode)
+          - [destroy](/build/tools/clients/fcl-js/packages-docs/sdk/destroy)
+          - [encodeMessageFromSignable](/build/tools/clients/fcl-js/packages-docs/sdk/encodeMessageFromSignable)
+          - [encodeTransactionEnvelope](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionEnvelope)
+          - [encodeTransactionPayload](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionPayload)
+          - [encodeTxIdFromVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher)
+          - [get](/build/tools/clients/fcl-js/packages-docs/sdk/get)
+          - [getAccount](/build/tools/clients/fcl-js/packages-docs/sdk/getAccount)
+          - [getBlock](/build/tools/clients/fcl-js/packages-docs/sdk/getBlock)
+          - [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/sdk/getBlockHeader)
+          - [getCollection](/build/tools/clients/fcl-js/packages-docs/sdk/getCollection)
+          - [getEvents](/build/tools/clients/fcl-js/packages-docs/sdk/getEvents)
+          - [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockHeightRange)
+          - [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockIds)
+          - [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/sdk/getNetworkParameters)
+          - [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo)
+          - [getTransaction](/build/tools/clients/fcl-js/packages-docs/sdk/getTransaction)
+          - [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/sdk/getTransactionStatus)
+          - [initInteraction](/build/tools/clients/fcl-js/packages-docs/sdk/initInteraction)
+          - [interaction](/build/tools/clients/fcl-js/packages-docs/sdk/interaction)
+          - [isBad](/build/tools/clients/fcl-js/packages-docs/sdk/isBad)
+          - [isOk](/build/tools/clients/fcl-js/packages-docs/sdk/isOk)
+          - [limit](/build/tools/clients/fcl-js/packages-docs/sdk/limit)
+          - [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/nodeVersionInfo)
+          - [param](/build/tools/clients/fcl-js/packages-docs/sdk/param)
+          - [params](/build/tools/clients/fcl-js/packages-docs/sdk/params)
+          - [payer](/build/tools/clients/fcl-js/packages-docs/sdk/payer)
+          - [ping](/build/tools/clients/fcl-js/packages-docs/sdk/ping)
+          - [pipe](/build/tools/clients/fcl-js/packages-docs/sdk/pipe)
+          - [proposer](/build/tools/clients/fcl-js/packages-docs/sdk/proposer)
+          - [put](/build/tools/clients/fcl-js/packages-docs/sdk/put)
+          - [ref](/build/tools/clients/fcl-js/packages-docs/sdk/ref)
+          - [resolve](/build/tools/clients/fcl-js/packages-docs/sdk/resolve)
+          - [resolveAccounts](/build/tools/clients/fcl-js/packages-docs/sdk/resolveAccounts)
+          - [resolveArguments](/build/tools/clients/fcl-js/packages-docs/sdk/resolveArguments)
+          - [resolveCadence](/build/tools/clients/fcl-js/packages-docs/sdk/resolveCadence)
+          - [resolveFinalNormalization](/build/tools/clients/fcl-js/packages-docs/sdk/resolveFinalNormalization)
+          - [resolveProposerSequenceNumber](/build/tools/clients/fcl-js/packages-docs/sdk/resolveProposerSequenceNumber)
+          - [resolveRefBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/resolveRefBlockId)
+          - [resolveSignatures](/build/tools/clients/fcl-js/packages-docs/sdk/resolveSignatures)
+          - [resolveValidators](/build/tools/clients/fcl-js/packages-docs/sdk/resolveValidators)
+          - [resolveVoucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/resolveVoucherIntercept)
+          - [response](/build/tools/clients/fcl-js/packages-docs/sdk/response)
+          - [script](/build/tools/clients/fcl-js/packages-docs/sdk/script)
+          - [send](/build/tools/clients/fcl-js/packages-docs/sdk/send)
+          - [subscribe](/build/tools/clients/fcl-js/packages-docs/sdk/subscribe)
+          - [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeEvents)
+          - [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeRaw)
+          - [TestUtils](/build/tools/clients/fcl-js/packages-docs/sdk/testUtils)
+          - [transaction](/build/tools/clients/fcl-js/packages-docs/sdk/transaction)
+          - [update](/build/tools/clients/fcl-js/packages-docs/sdk/update)
+          - [validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)
+          - [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/voucherIntercept)
+          - [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/sdk/voucherToTxId)
+          - [why](/build/tools/clients/fcl-js/packages-docs/sdk/why)
+        + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)
+      * [Authentication](/build/tools/clients/fcl-js/authentication)
+      * [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)
+      * [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
+      * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)
+      * [Installation](/build/tools/clients/fcl-js/installation)
+      * [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)
+      * [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)
+      * [Scripts](/build/tools/clients/fcl-js/scripts)
+      * [Transactions](/build/tools/clients/fcl-js/transactions)
+      * [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)
+      * [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)
+    - [Flow Go SDK](/build/tools/clients/flow-go-sdk)
+  + [Error Codes](/build/tools/error-codes)
+  + [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+
+* [Tools & SDKs](/build/tools)
+* [Client Tools](/build/tools/clients)
+* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
+* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
+* [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
+* initInteraction
+
+On this page
+
+# initInteraction
+
+Creates a new interaction object with default values.
+
+## Import[​](#import "Direct link to Import")
+
+You can import the entire package and access the function:
+
+`_10
+
+import * as sdk from "@onflow/sdk"
+
+_10
+
+_10
+
+sdk.initInteraction()`
+
+Or import directly the specific function:
+
+`_10
+
+import { initInteraction } from "@onflow/sdk"
+
+_10
+
+_10
+
+initInteraction()`
+
+## Returns[​](#returns "Direct link to Returns")
+
+[`Interaction`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
+
+A new interaction object initialized with default values
+
+---
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/initInteraction.md)
+
+Last updated on **Aug 21, 2025** by **Brian Doyle**
+
+[Previous
+
+getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/sdk/getTransactionStatus)[Next
+
+interaction](/build/tools/clients/fcl-js/packages-docs/sdk/interaction)
+
+###### Rate this page
+
+😞😐😊
+
+Copy as Markdown
+
+* [Import](#import)
+* [Returns](#returns)
+
+Documentation
+
+* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Tools & SDKs](/build/tools)
+* [Cadence](https://cadence-lang.org/docs/)
+* [Mobile](/blockchain-development-tutorials/cadence/mobile)
+* [FCL](/build/tools/clients/fcl-js)
+* [Testing](/build/cadence/smart-contracts/testing)
+* [CLI](/build/tools/flow-cli)
+* [Emulator](/build/tools/emulator)
+* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
+* [VS Code Extension](/build/tools/vscode-extension)
+
+Community
+
+* [Ecosystem](/ecosystem)
+* [Flow Port](https://port.flow.com/)
+* [Developer Grants](https://github.com/onflow/developer-grants)
+* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
+* [Flowverse](https://www.flowverse.co/)
+* [Emerald Academy](https://academy.ecdao.org/)
+* [FLOATs (Attendance NFTs)](https://floats.city/)
+
+Start Building
+
+* [Flow Playground](https://play.flow.com/)
+* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
+* [Cadence Cookbook](https://cookbook.flow.com)
+* [Core Contracts & Standards](/build/cadence/core-contracts)
+* [EVM](/build/evm/quickstart)
+
+Network
+
+* [Network Status](https://status.flow.com/)
+* [Flowscan Mainnet](https://flowscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
+* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/protocol/node-ops)
+* [Spork Information](/protocol/node-ops/node-operation/spork)
 
 More
 
@@ -43979,13 +44245,12 @@ Search
   + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
   + [Core Smart Contracts](/build/cadence/core-contracts)
   + [Explore More](/build/cadence/explore-more)
-* [Solidity (EVM)](/build/evm/about)
+* [Solidity (EVM)](/build/evm/quickstart)
 
-  + [Why EVM on Flow](/build/evm/about)
+  + [EVM Quickstart](/build/evm/quickstart)
   + [How it Works](/build/evm/how-it-works)
   + [Using Flow EVM](/build/evm/using)
   + [Network Information](/build/evm/networks)
-  + [EVM Quickstart](/build/evm/quickstart)
   + [Fees](/build/evm/fees)
   + [Accounts](/build/evm/accounts)
   + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
@@ -44274,7 +44539,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 
@@ -45656,13 +45921,12 @@ Search
     - [Burner](/build/cadence/core-contracts/burner)
     - [VM Bridge](/build/cadence/core-contracts/bridge)
   + [Explore More](/build/cadence/explore-more)
-* [Solidity (EVM)](/build/evm/about)
+* [Solidity (EVM)](/build/evm/quickstart)
 
-  + [Why EVM on Flow](/build/evm/about)
+  + [EVM Quickstart](/build/evm/quickstart)
   + [How it Works](/build/evm/how-it-works)
   + [Using Flow EVM](/build/evm/using)
   + [Network Information](/build/evm/networks)
-  + [EVM Quickstart](/build/evm/quickstart)
   + [Fees](/build/evm/fees)
   + [Accounts](/build/evm/accounts)
   + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
@@ -45780,7 +46044,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 
@@ -94229,7 +94493,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 
@@ -114003,13 +114267,12 @@ Search
     - [Burner](/build/cadence/core-contracts/burner)
     - [VM Bridge](/build/cadence/core-contracts/bridge)
   + [Explore More](/build/cadence/explore-more)
-* [Solidity (EVM)](/build/evm/about)
+* [Solidity (EVM)](/build/evm/quickstart)
 
-  + [Why EVM on Flow](/build/evm/about)
+  + [EVM Quickstart](/build/evm/quickstart)
   + [How it Works](/build/evm/how-it-works)
   + [Using Flow EVM](/build/evm/using)
   + [Network Information](/build/evm/networks)
-  + [EVM Quickstart](/build/evm/quickstart)
   + [Fees](/build/evm/fees)
   + [Accounts](/build/evm/accounts)
   + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
@@ -114235,7 +114498,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 
@@ -116563,13 +116826,12 @@ Search
   + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
   + [Core Smart Contracts](/build/cadence/core-contracts)
   + [Explore More](/build/cadence/explore-more)
-* [Solidity (EVM)](/build/evm/about)
+* [Solidity (EVM)](/build/evm/quickstart)
 
-  + [Why EVM on Flow](/build/evm/about)
+  + [EVM Quickstart](/build/evm/quickstart)
   + [How it Works](/build/evm/how-it-works)
   + [Using Flow EVM](/build/evm/using)
   + [Network Information](/build/evm/networks)
-  + [EVM Quickstart](/build/evm/quickstart)
   + [Fees](/build/evm/fees)
   + [Accounts](/build/evm/accounts)
   + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
@@ -116918,7 +117180,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 
@@ -158158,13 +158420,12 @@ Search
   + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
   + [Core Smart Contracts](/build/cadence/core-contracts)
   + [Explore More](/build/cadence/explore-more)
-* [Solidity (EVM)](/build/evm/about)
+* [Solidity (EVM)](/build/evm/quickstart)
 
-  + [Why EVM on Flow](/build/evm/about)
+  + [EVM Quickstart](/build/evm/quickstart)
   + [How it Works](/build/evm/how-it-works)
   + [Using Flow EVM](/build/evm/using)
   + [Network Information](/build/evm/networks)
-  + [EVM Quickstart](/build/evm/quickstart)
   + [Fees](/build/evm/fees)
   + [Accounts](/build/evm/accounts)
   + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
@@ -158465,7 +158726,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 
@@ -179458,7 +179719,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 
@@ -190126,13 +190387,12 @@ Search
   + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
   + [Core Smart Contracts](/build/cadence/core-contracts)
   + [Explore More](/build/cadence/explore-more)
-* [Solidity (EVM)](/build/evm/about)
+* [Solidity (EVM)](/build/evm/quickstart)
 
-  + [Why EVM on Flow](/build/evm/about)
+  + [EVM Quickstart](/build/evm/quickstart)
   + [How it Works](/build/evm/how-it-works)
   + [Using Flow EVM](/build/evm/using)
   + [Network Information](/build/evm/networks)
-  + [EVM Quickstart](/build/evm/quickstart)
   + [Fees](/build/evm/fees)
   + [Accounts](/build/evm/accounts)
   + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
@@ -190351,7 +190611,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 
@@ -205224,7 +205484,7 @@ Search
     - [Learn Cadence ↗️](/build/cadence/learn-cadence)
     - [Smart Contracts on Flow](/build/cadence/smart-contracts/overview)
     - [Deploying Contracts](/build/cadence/smart-contracts/deploying)
-    - [Testing Your Contracts](/build/cadence/smart-contracts/testing)
+    - [Testing Smart Contracts](/build/cadence/smart-contracts/testing)
     - [Best Practices](/build/cadence/smart-contracts/best-practices/security-best-practices)
 
       * [Security Best Practices](/build/cadence/smart-contracts/best-practices/security-best-practices)
@@ -206321,13 +206581,12 @@ Search
     - [Burner](/build/cadence/core-contracts/burner)
     - [VM Bridge](/build/cadence/core-contracts/bridge)
   + [Explore More](/build/cadence/explore-more)
-* [Solidity (EVM)](/build/evm/about)
+* [Solidity (EVM)](/build/evm/quickstart)
 
-  + [Why EVM on Flow](/build/evm/about)
+  + [EVM Quickstart](/build/evm/quickstart)
   + [How it Works](/build/evm/how-it-works)
   + [Using Flow EVM](/build/evm/using)
   + [Network Information](/build/evm/networks)
-  + [EVM Quickstart](/build/evm/quickstart)
   + [Fees](/build/evm/fees)
   + [Accounts](/build/evm/accounts)
   + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
@@ -206389,7 +206648,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 
@@ -211081,13 +211340,12 @@ Search
   + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
   + [Core Smart Contracts](/build/cadence/core-contracts)
   + [Explore More](/build/cadence/explore-more)
-* [Solidity (EVM)](/build/evm/about)
+* [Solidity (EVM)](/build/evm/quickstart)
 
-  + [Why EVM on Flow](/build/evm/about)
+  + [EVM Quickstart](/build/evm/quickstart)
   + [How it Works](/build/evm/how-it-works)
   + [Using Flow EVM](/build/evm/using)
   + [Network Information](/build/evm/networks)
-  + [EVM Quickstart](/build/evm/quickstart)
   + [Fees](/build/evm/fees)
   + [Accounts](/build/evm/accounts)
   + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
@@ -211323,7 +211581,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 
@@ -221433,7 +221691,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 
@@ -252040,13 +252298,12 @@ Search
   + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
   + [Core Smart Contracts](/build/cadence/core-contracts)
   + [Explore More](/build/cadence/explore-more)
-* [Solidity (EVM)](/build/evm/about)
+* [Solidity (EVM)](/build/evm/quickstart)
 
-  + [Why EVM on Flow](/build/evm/about)
+  + [EVM Quickstart](/build/evm/quickstart)
   + [How it Works](/build/evm/how-it-works)
   + [Using Flow EVM](/build/evm/using)
   + [Network Information](/build/evm/networks)
-  + [EVM Quickstart](/build/evm/quickstart)
   + [Fees](/build/evm/fees)
   + [Accounts](/build/evm/accounts)
   + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
@@ -252435,7 +252692,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 
@@ -254405,7 +254662,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 
@@ -268017,7 +268274,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 
@@ -272427,13 +272684,12 @@ Search
     - [Burner](/build/cadence/core-contracts/burner)
     - [VM Bridge](/build/cadence/core-contracts/bridge)
   + [Explore More](/build/cadence/explore-more)
-* [Solidity (EVM)](/build/evm/about)
+* [Solidity (EVM)](/build/evm/quickstart)
 
-  + [Why EVM on Flow](/build/evm/about)
+  + [EVM Quickstart](/build/evm/quickstart)
   + [How it Works](/build/evm/how-it-works)
   + [Using Flow EVM](/build/evm/using)
   + [Network Information](/build/evm/networks)
-  + [EVM Quickstart](/build/evm/quickstart)
   + [Fees](/build/evm/fees)
   + [Accounts](/build/evm/accounts)
   + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
@@ -272502,7 +272758,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 
@@ -313280,13 +313536,12 @@ Search
   + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
   + [Core Smart Contracts](/build/cadence/core-contracts)
   + [Explore More](/build/cadence/explore-more)
-* [Solidity (EVM)](/build/evm/about)
+* [Solidity (EVM)](/build/evm/quickstart)
 
-  + [Why EVM on Flow](/build/evm/about)
+  + [EVM Quickstart](/build/evm/quickstart)
   + [How it Works](/build/evm/how-it-works)
   + [Using Flow EVM](/build/evm/using)
   + [Network Information](/build/evm/networks)
-  + [EVM Quickstart](/build/evm/quickstart)
   + [Fees](/build/evm/fees)
   + [Accounts](/build/evm/accounts)
   + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
@@ -313494,7 +313749,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 
@@ -315112,13 +315367,12 @@ Search
   + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
   + [Core Smart Contracts](/build/cadence/core-contracts)
   + [Explore More](/build/cadence/explore-more)
-* [Solidity (EVM)](/build/evm/about)
+* [Solidity (EVM)](/build/evm/quickstart)
 
-  + [Why EVM on Flow](/build/evm/about)
+  + [EVM Quickstart](/build/evm/quickstart)
   + [How it Works](/build/evm/how-it-works)
   + [Using Flow EVM](/build/evm/using)
   + [Network Information](/build/evm/networks)
-  + [EVM Quickstart](/build/evm/quickstart)
   + [Fees](/build/evm/fees)
   + [Accounts](/build/evm/accounts)
   + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
@@ -315297,7 +315551,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 
@@ -322631,13 +322885,12 @@ Search
   + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
   + [Core Smart Contracts](/build/cadence/core-contracts)
   + [Explore More](/build/cadence/explore-more)
-* [Solidity (EVM)](/build/evm/about)
+* [Solidity (EVM)](/build/evm/quickstart)
 
-  + [Why EVM on Flow](/build/evm/about)
+  + [EVM Quickstart](/build/evm/quickstart)
   + [How it Works](/build/evm/how-it-works)
   + [Using Flow EVM](/build/evm/using)
   + [Network Information](/build/evm/networks)
-  + [EVM Quickstart](/build/evm/quickstart)
   + [Fees](/build/evm/fees)
   + [Accounts](/build/evm/accounts)
   + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
@@ -323303,7 +323556,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 
@@ -325592,22 +325845,19 @@ Search
     - [NFT Metadata Views](/build/cadence/advanced-concepts/metadata-views)
     - [VRF (Randomness) in Cadence](/build/cadence/advanced-concepts/randomness)
     - [Scaling Transactions from a Single Account](/build/cadence/advanced-concepts/scaling)
-  + [Guides](/build/cadence/guides/account-linking)
   + [Core Smart Contracts](/build/cadence/core-contracts)
   + [Explore More](/build/cadence/explore-more)
-* [Solidity (EVM)](/build/evm/about)
+* [Solidity (EVM)](/build/evm/quickstart)
 
-  + [Why EVM on Flow](/build/evm/about)
+  + [EVM Quickstart](/build/evm/quickstart)
   + [How it Works](/build/evm/how-it-works)
   + [Using Flow EVM](/build/evm/using)
   + [Network Information](/build/evm/networks)
-  + [EVM Quickstart](/build/evm/quickstart)
   + [Fees](/build/evm/fees)
   + [Accounts](/build/evm/accounts)
   + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
   + [Faucets ↙](/evm/faucets)
   + [Block Explorers ↙](/evm/block-explorers)
-  + [Guides](/build/evm/guides)
 * [Tools & SDKs](/build/tools)
 
 * Cadence
@@ -326649,11 +326899,11 @@ It provides an introduction to integrating these standards into your NFT contrac
 
 * See the [API reference for a complete list of Metadata functions](https://developers.flow.com/build/cadence/core-contracts/flow-nft/MetdataViews/MetadataViews)
 * Check out [an Example NFT project](https://github.com/onflow/flow-nft/blob/master/contracts/ExampleNFT.cdc) implementing `MetadataViews`
-* Read [the NFT Guide](/build/cadence/guides/nft) for an introduction to implementation
+* Read [the NFT Guide](/blockchain-development-tutorials/tokens/nft-cadence) for an introduction to implementation
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/advanced-concepts/metadata-views.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Aug 26, 2025** by **Felipe Cevallos**
 
 [Previous
 
@@ -326692,7 +326942,7 @@ Documentation
 * [Getting Started](/build/cadence/getting-started/contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/cadence/guides/mobile/overview)
+* [Mobile](/blockchain-development-tutorials/cadence/mobile)
 * [FCL](/build/tools/clients/fcl-js)
 * [Testing](/build/cadence/smart-contracts/testing)
 * [CLI](/build/tools/flow-cli)
@@ -326716,7 +326966,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 
@@ -375638,7 +375888,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 
@@ -393451,13 +393701,12 @@ Search
   + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
   + [Core Smart Contracts](/build/cadence/core-contracts)
   + [Explore More](/build/cadence/explore-more)
-* [Solidity (EVM)](/build/evm/about)
+* [Solidity (EVM)](/build/evm/quickstart)
 
-  + [Why EVM on Flow](/build/evm/about)
+  + [EVM Quickstart](/build/evm/quickstart)
   + [How it Works](/build/evm/how-it-works)
   + [Using Flow EVM](/build/evm/using)
   + [Network Information](/build/evm/networks)
-  + [EVM Quickstart](/build/evm/quickstart)
   + [Fees](/build/evm/fees)
   + [Accounts](/build/evm/accounts)
   + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
@@ -393709,7 +393958,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 
@@ -411660,6 +411909,374 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/ref
+
+ref | Flow Developer Portal
+
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Why Flow](/build/flow)
+* [Cadence](/build/cadence/getting-started)
+
+  + [Getting Started](/build/cadence/getting-started)
+  + [Differences vs. EVM](/build/cadence/differences-vs-evm)
+  + [Flow Protocol](/build/cadence/basics/network-architecture)
+  + [App Architecture](/build/cadence/app-architecture)
+  + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
+  + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+  + [Core Smart Contracts](/build/cadence/core-contracts)
+  + [Explore More](/build/cadence/explore-more)
+* [Solidity (EVM)](/build/evm/quickstart)
+
+  + [EVM Quickstart](/build/evm/quickstart)
+  + [How it Works](/build/evm/how-it-works)
+  + [Using Flow EVM](/build/evm/using)
+  + [Network Information](/build/evm/networks)
+  + [Fees](/build/evm/fees)
+  + [Accounts](/build/evm/accounts)
+  + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
+  + [Faucets ↙](/evm/faucets)
+  + [Block Explorers ↙](/evm/block-explorers)
+* [Tools & SDKs](/build/tools)
+
+  + [@onflow/react-sdk](/build/tools/react-sdk)
+  + [Flow Emulator](/build/tools/emulator)
+  + [Flow CLI](/build/tools/flow-cli)
+  + [Cadence VS Code Extension](/build/tools/vscode-extension)
+  + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
+  + [Client Tools](/build/tools/clients)
+
+    - [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
+
+      * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
+
+        + [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
+        + [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
+
+          - [account](/build/tools/clients/fcl-js/packages-docs/sdk/account)
+          - [arg](/build/tools/clients/fcl-js/packages-docs/sdk/arg)
+          - [args](/build/tools/clients/fcl-js/packages-docs/sdk/args)
+          - [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockHeight)
+          - [atBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockId)
+          - [atLatestBlock](/build/tools/clients/fcl-js/packages-docs/sdk/atLatestBlock)
+          - [authorization](/build/tools/clients/fcl-js/packages-docs/sdk/authorization)
+          - [authorizations](/build/tools/clients/fcl-js/packages-docs/sdk/authorizations)
+          - [block](/build/tools/clients/fcl-js/packages-docs/sdk/block)
+          - [build](/build/tools/clients/fcl-js/packages-docs/sdk/build)
+          - [cadence](/build/tools/clients/fcl-js/packages-docs/sdk/cadence)
+          - [cdc](/build/tools/clients/fcl-js/packages-docs/sdk/cdc)
+          - [config](/build/tools/clients/fcl-js/packages-docs/sdk/config)
+          - [createSdkClient](/build/tools/clients/fcl-js/packages-docs/sdk/createSdkClient)
+          - [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/createSignableVoucher)
+          - [decode](/build/tools/clients/fcl-js/packages-docs/sdk/decode)
+          - [destroy](/build/tools/clients/fcl-js/packages-docs/sdk/destroy)
+          - [encodeMessageFromSignable](/build/tools/clients/fcl-js/packages-docs/sdk/encodeMessageFromSignable)
+          - [encodeTransactionEnvelope](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionEnvelope)
+          - [encodeTransactionPayload](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionPayload)
+          - [encodeTxIdFromVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher)
+          - [get](/build/tools/clients/fcl-js/packages-docs/sdk/get)
+          - [getAccount](/build/tools/clients/fcl-js/packages-docs/sdk/getAccount)
+          - [getBlock](/build/tools/clients/fcl-js/packages-docs/sdk/getBlock)
+          - [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/sdk/getBlockHeader)
+          - [getCollection](/build/tools/clients/fcl-js/packages-docs/sdk/getCollection)
+          - [getEvents](/build/tools/clients/fcl-js/packages-docs/sdk/getEvents)
+          - [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockHeightRange)
+          - [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockIds)
+          - [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/sdk/getNetworkParameters)
+          - [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo)
+          - [getTransaction](/build/tools/clients/fcl-js/packages-docs/sdk/getTransaction)
+          - [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/sdk/getTransactionStatus)
+          - [initInteraction](/build/tools/clients/fcl-js/packages-docs/sdk/initInteraction)
+          - [interaction](/build/tools/clients/fcl-js/packages-docs/sdk/interaction)
+          - [isBad](/build/tools/clients/fcl-js/packages-docs/sdk/isBad)
+          - [isOk](/build/tools/clients/fcl-js/packages-docs/sdk/isOk)
+          - [limit](/build/tools/clients/fcl-js/packages-docs/sdk/limit)
+          - [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/nodeVersionInfo)
+          - [param](/build/tools/clients/fcl-js/packages-docs/sdk/param)
+          - [params](/build/tools/clients/fcl-js/packages-docs/sdk/params)
+          - [payer](/build/tools/clients/fcl-js/packages-docs/sdk/payer)
+          - [ping](/build/tools/clients/fcl-js/packages-docs/sdk/ping)
+          - [pipe](/build/tools/clients/fcl-js/packages-docs/sdk/pipe)
+          - [proposer](/build/tools/clients/fcl-js/packages-docs/sdk/proposer)
+          - [put](/build/tools/clients/fcl-js/packages-docs/sdk/put)
+          - [ref](/build/tools/clients/fcl-js/packages-docs/sdk/ref)
+          - [resolve](/build/tools/clients/fcl-js/packages-docs/sdk/resolve)
+          - [resolveAccounts](/build/tools/clients/fcl-js/packages-docs/sdk/resolveAccounts)
+          - [resolveArguments](/build/tools/clients/fcl-js/packages-docs/sdk/resolveArguments)
+          - [resolveCadence](/build/tools/clients/fcl-js/packages-docs/sdk/resolveCadence)
+          - [resolveFinalNormalization](/build/tools/clients/fcl-js/packages-docs/sdk/resolveFinalNormalization)
+          - [resolveProposerSequenceNumber](/build/tools/clients/fcl-js/packages-docs/sdk/resolveProposerSequenceNumber)
+          - [resolveRefBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/resolveRefBlockId)
+          - [resolveSignatures](/build/tools/clients/fcl-js/packages-docs/sdk/resolveSignatures)
+          - [resolveValidators](/build/tools/clients/fcl-js/packages-docs/sdk/resolveValidators)
+          - [resolveVoucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/resolveVoucherIntercept)
+          - [response](/build/tools/clients/fcl-js/packages-docs/sdk/response)
+          - [script](/build/tools/clients/fcl-js/packages-docs/sdk/script)
+          - [send](/build/tools/clients/fcl-js/packages-docs/sdk/send)
+          - [subscribe](/build/tools/clients/fcl-js/packages-docs/sdk/subscribe)
+          - [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeEvents)
+          - [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeRaw)
+          - [TestUtils](/build/tools/clients/fcl-js/packages-docs/sdk/testUtils)
+          - [transaction](/build/tools/clients/fcl-js/packages-docs/sdk/transaction)
+          - [update](/build/tools/clients/fcl-js/packages-docs/sdk/update)
+          - [validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)
+          - [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/voucherIntercept)
+          - [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/sdk/voucherToTxId)
+          - [why](/build/tools/clients/fcl-js/packages-docs/sdk/why)
+        + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)
+      * [Authentication](/build/tools/clients/fcl-js/authentication)
+      * [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)
+      * [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
+      * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)
+      * [Installation](/build/tools/clients/fcl-js/installation)
+      * [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)
+      * [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)
+      * [Scripts](/build/tools/clients/fcl-js/scripts)
+      * [Transactions](/build/tools/clients/fcl-js/transactions)
+      * [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)
+      * [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)
+    - [Flow Go SDK](/build/tools/clients/flow-go-sdk)
+  + [Error Codes](/build/tools/error-codes)
+  + [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+
+* [Tools & SDKs](/build/tools)
+* [Client Tools](/build/tools/clients)
+* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
+* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
+* [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
+* ref
+
+On this page
+
+# ref
+
+A builder function that sets the reference block for a transaction.
+
+The reference block specifies an expiration window (measured in blocks) during which a transaction is considered valid by the network.
+A transaction will be rejected if it is submitted past its expiry block. Flow calculates transaction expiry using the reference block field.
+
+## Import[​](#import "Direct link to Import")
+
+You can import the entire package and access the function:
+
+`_10
+
+import * as sdk from '@onflow/sdk';
+
+_10
+
+_10
+
+sdk.ref(refBlock);`
+
+Or import directly the specific function:
+
+`_10
+
+import { ref } from '@onflow/sdk';
+
+_10
+
+_10
+
+ref(refBlock);`
+
+## Usage[​](#usage "Direct link to Usage")
+
+`` _20
+
+import * as fcl from '@onflow/fcl';
+
+_20
+
+_20
+
+// Set specific reference block for transaction
+
+_20
+
+await fcl.send([
+
+_20
+
+fcl.transaction`
+
+_20
+
+transaction {
+
+_20
+
+prepare(account: AuthAccount) {
+
+_20
+
+log("Transaction with custom reference block")
+
+_20
+
+}
+
+_20
+
+}
+
+_20
+
+`,
+
+_20
+
+fcl.ref('a1b2c3d4e5f6789...'), // Custom reference block ID
+
+_20
+
+fcl.proposer(fcl.authz),
+
+_20
+
+fcl.payer(fcl.authz),
+
+_20
+
+fcl.authorizations([fcl.authz]),
+
+_20
+
+fcl.limit(100),
+
+_20
+
+]);
+
+_20
+
+_20
+
+// Usually, you don't need to set reference block manually
+
+_20
+
+// as FCL will automatically set it to the latest block ``
+
+## Parameters[​](#parameters "Direct link to Parameters")
+
+### `refBlock`[​](#refblock "Direct link to refblock")
+
+* Type: `string`
+* Description: The reference block ID
+
+## Returns[​](#returns "Direct link to Returns")
+
+`_10
+
+export type InteractionBuilderFn = (
+
+_10
+
+ix: Interaction,
+
+_10
+
+) => Interaction | Promise<Interaction>;`
+
+A function that processes an interaction object
+
+---
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/ref.md)
+
+Last updated on **Aug 21, 2025** by **Brian Doyle**
+
+[Previous
+
+put](/build/tools/clients/fcl-js/packages-docs/sdk/put)[Next
+
+resolve](/build/tools/clients/fcl-js/packages-docs/sdk/resolve)
+
+###### Rate this page
+
+😞😐😊
+
+Copy as Markdown
+
+* [Import](#import)
+* [Usage](#usage)
+* [Parameters](#parameters)
+  + [`refBlock`](#refblock)
+* [Returns](#returns)
+
+Documentation
+
+* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Tools & SDKs](/build/tools)
+* [Cadence](https://cadence-lang.org/docs/)
+* [Mobile](/blockchain-development-tutorials/cadence/mobile)
+* [FCL](/build/tools/clients/fcl-js)
+* [Testing](/build/cadence/smart-contracts/testing)
+* [CLI](/build/tools/flow-cli)
+* [Emulator](/build/tools/emulator)
+* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
+* [VS Code Extension](/build/tools/vscode-extension)
+
+Community
+
+* [Ecosystem](/ecosystem)
+* [Flow Port](https://port.flow.com/)
+* [Developer Grants](https://github.com/onflow/developer-grants)
+* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
+* [Flowverse](https://www.flowverse.co/)
+* [Emerald Academy](https://academy.ecdao.org/)
+* [FLOATs (Attendance NFTs)](https://floats.city/)
+
+Start Building
+
+* [Flow Playground](https://play.flow.com/)
+* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
+* [Cadence Cookbook](https://cookbook.flow.com)
+* [Core Contracts & Standards](/build/cadence/core-contracts)
+* [EVM](/build/evm/quickstart)
+
+Network
+
+* [Network Status](https://status.flow.com/)
+* [Flowscan Mainnet](https://flowscan.io/)
+* [Flowscan Testnet](https://testnet.flowscan.io/)
+* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
+* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
+* [Node Operation](/protocol/node-ops)
+* [Spork Information](/protocol/node-ops/node-operation/spork)
+
+More
+
+* [GitHub](https://github.com/onflow)
+* [Discord](https://discord.gg/flow)
+* [Forum](https://forum.flow.com/)
+* [Flow](https://flow.com/)
+* [Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow, Inc. Built with Docusaurus.
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/query
 
 query | Flow Developer Portal
@@ -415094,7 +415711,6 @@ Flow Wallet](/)
     - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
     - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
     - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-    - [Privy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 * Download
 
   + [📲Download](/download/download)
@@ -415206,7 +415822,6 @@ Flow Wallet](/)
     - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
     - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
     - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-    - [Privy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 * Download
 
   + [📲Download](/download/download)
@@ -415318,7 +415933,6 @@ Flow Wallet](/)
     - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
     - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
     - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-    - [Privy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 * Download
 
   + [📲Download](/download/download)
@@ -415515,7 +416129,6 @@ Flow Wallet](/)
     - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
     - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
     - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-    - [Privy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 * Download
 
   + [📲Download](/download/download)
@@ -415608,7 +416221,6 @@ Flow Wallet](/)
     - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
     - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
     - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-    - [Privy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 * Download
 
   + [📲Download](/download/download)
@@ -415644,7 +416256,7 @@ Copy
 
 **Chrome Extension**[**https://chrome.google.com/webstore/detail/flow-core/hpclkefagolihohboafpheddmmgdffjm**](https://chrome.google.com/webstore/detail/flow-core/hpclkefagolihohboafpheddmmgdffjm)
 
-[PreviousPrivy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)[NextOpen Source](/open-source/open-source)
+[PreviousOthers SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)[NextOpen Source](/open-source/open-source)
 
 Last updated 1 year ago
 
@@ -415698,7 +416310,6 @@ Flow Wallet](/)
     - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
     - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
     - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-    - [Privy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 * Download
 
   + [📲Download](/download/download)
@@ -415787,7 +416398,6 @@ Flow Wallet](/)
     - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
     - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
     - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-    - [Privy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 * Download
 
   + [📲Download](/download/download)
@@ -415934,7 +416544,6 @@ Flow Wallet](/)
     - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
     - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
     - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-    - [Privy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 * Download
 
   + [📲Download](/download/download)
@@ -416052,7 +416661,6 @@ Flow Wallet](/)
     - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
     - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
     - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-    - [Privy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 * Download
 
   + [📲Download](/download/download)
@@ -416184,7 +416792,6 @@ Flow Wallet](/)
     - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
     - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
     - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-    - [Privy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 * Download
 
   + [📲Download](/download/download)
@@ -416342,7 +416949,6 @@ Flow Wallet](/)
     - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
     - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
     - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-    - [Privy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 * Download
 
   + [📲Download](/download/download)
@@ -416480,7 +417086,6 @@ Flow Wallet](/)
     - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
     - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
     - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-    - [Privy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 * Download
 
   + [📲Download](/download/download)
@@ -416638,7 +417243,6 @@ Flow Wallet](/)
     - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
     - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
     - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-    - [Privy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 * Download
 
   + [📲Download](/download/download)
@@ -416756,7 +417360,6 @@ Flow Wallet](/)
     - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
     - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
     - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-    - [Privy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 * Download
 
   + [📲Download](/download/download)
@@ -416828,12 +417431,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **97a18e8b3d4505e6**
+Cloudflare Ray ID: **97a9c9885d786807**
 •
 
 Your IP:
 Click to reveal
-4.246.135.160
+52.159.247.67
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 
@@ -416887,7 +417490,6 @@ Flow Wallet](/)
     - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
     - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
     - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-    - [Privy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 * Download
 
   + [📲Download](/download/download)
@@ -417064,7 +417666,6 @@ Flow Wallet](/)
     - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
     - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
     - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-    - [Privy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 * Download
 
   + [📲Download](/download/download)
@@ -417153,7 +417754,6 @@ Flow Wallet](/)
     - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
     - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
     - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-    - [Privy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 * Download
 
   + [📲Download](/download/download)
@@ -417265,7 +417865,6 @@ Flow Wallet](/)
     - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
     - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
     - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-    - [Privy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 * Download
 
   + [📲Download](/download/download)
@@ -417429,7 +418028,6 @@ Flow Wallet](/)
     - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
     - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
     - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-    - [Privy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 * Download
 
   + [📲Download](/download/download)
@@ -417554,7 +418152,7 @@ Flow has an open working group dedicated to furthering the development of wallet
 
 [PreviousWelcome to Flow Wallet](/)[NextFAQ](/faq/faq)
 
-Last updated 11 months ago
+Last updated 12 months ago
 
 
 
@@ -417781,7 +418379,6 @@ Flow Wallet](/)
     - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
     - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
     - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-    - [Privy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 * Download
 
   + [📲Download](/download/download)
@@ -417903,7 +418500,6 @@ Flow Wallet](/)
     - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
     - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
     - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-    - [Privy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 * Download
 
   + [📲Download](/download/download)
@@ -417996,7 +418592,6 @@ Flow Wallet](/)
     - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
     - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
     - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-    - [Privy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 * Download
 
   + [📲Download](/download/download)
@@ -418029,7 +418624,7 @@ Copy
 
 Wip
 
-[PreviousMIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)[NextPrivy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
+[PreviousMIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)[NextDownload](/download/download)
 
 Last updated 7 months ago
 
@@ -418083,7 +418678,6 @@ Flow Wallet](/)
     - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
     - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
     - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-    - [Privy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 * Download
 
   + [📲Download](/download/download)
@@ -418215,7 +418809,6 @@ Flow Wallet](/)
     - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
     - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
     - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-    - [Privy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 * Download
 
   + [📲Download](/download/download)
@@ -418262,7 +418855,7 @@ For detailed technical documentation on account linking, see: <https://developer
 
 [PreviousFAQ](/faq/faq)[NextWalletConnect](/features/walletconnect)
 
-Last updated 11 months ago
+Last updated 12 months ago
 
 
 
@@ -418314,7 +418907,6 @@ Flow Wallet](/)
     - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
     - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
     - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-    - [Privy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 * Download
 
   + [📲Download](/download/download)
@@ -418410,7 +419002,6 @@ Flow Wallet](/)
     - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
     - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
     - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-    - [Privy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 * Download
 
   + [📲Download](/download/download)
@@ -418516,7 +419107,6 @@ Flow Wallet](/)
     - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
     - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
     - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-    - [Privy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 * Download
 
   + [📲Download](/download/download)
@@ -418668,7 +419258,6 @@ Flow Wallet](/)
     - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
     - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
     - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-    - [Privy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 * Download
 
   + [📲Download](/download/download)
@@ -418791,7 +419380,6 @@ Flow Wallet](/)
     - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
     - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
     - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-    - [Privy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 * Download
 
   + [📲Download](/download/download)
@@ -418863,7 +419451,7 @@ Considering the advantages of using Secure Enclave on iPhone, Flow Reference Wal
 
 [PreviousFlow Client Library (FCL)](/features/flow-client-library-fcl)[NextAccount Recovery](/features/account-recovery)
 
-Last updated 11 months ago
+Last updated 12 months ago
 
 
 
@@ -418915,7 +419503,6 @@ Flow Wallet](/)
     - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
     - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
     - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-    - [Privy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 * Download
 
   + [📲Download](/download/download)
@@ -419015,7 +419602,6 @@ Flow Wallet](/)
     - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
     - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
     - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-    - [Privy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 * Download
 
   + [📲Download](/download/download)
@@ -419129,7 +419715,6 @@ Flow Wallet](/)
     - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
     - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
     - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-    - [Privy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 * Download
 
   + [📲Download](/download/download)
@@ -419245,7 +419830,6 @@ Flow Wallet](/)
     - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
     - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
     - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-    - [Privy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 * Download
 
   + [📲Download](/download/download)
@@ -419281,7 +419865,7 @@ Copy
 
 **Chrome Extension**[**https://chrome.google.com/webstore/detail/flow-core/hpclkefagolihohboafpheddmmgdffjm**](https://chrome.google.com/webstore/detail/flow-core/hpclkefagolihohboafpheddmmgdffjm)
 
-[PreviousPrivy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)[NextOpen Source](/open-source/open-source)
+[PreviousOthers SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)[NextOpen Source](/open-source/open-source)
 
 Last updated 1 year ago
 
@@ -419335,7 +419919,6 @@ Flow Wallet](/)
     - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
     - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
     - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-    - [Privy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 * Download
 
   + [📲Download](/download/download)
@@ -419422,7 +420005,6 @@ Flow Wallet](/)
     - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
     - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
     - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-    - [Privy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 * Download
 
   + [📲Download](/download/download)
@@ -419469,7 +420051,7 @@ For detailed technical documentation on account linking, see: <https://developer
 
 [PreviousFAQ](/faq/faq)[NextWalletConnect](/features/walletconnect)
 
-Last updated 11 months ago
+Last updated 12 months ago
 
 
 
@@ -419521,7 +420103,6 @@ Flow Wallet](/)
     - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
     - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
     - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-    - [Privy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 * Download
 
   + [📲Download](/download/download)
@@ -419647,7 +420228,6 @@ Flow Wallet](/)
     - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
     - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
     - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-    - [Privy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 * Download
 
   + [📲Download](/download/download)
@@ -419842,7 +420422,6 @@ Flow Wallet](/)
     - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
     - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
     - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
-    - [Privy](/ecosystem-development/integrate-flow-evm-with-web3-sdks/privy)
 * Download
 
   + [📲Download](/download/download)

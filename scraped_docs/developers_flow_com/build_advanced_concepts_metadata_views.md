@@ -27,22 +27,19 @@ Search
     - [NFT Metadata Views](/build/cadence/advanced-concepts/metadata-views)
     - [VRF (Randomness) in Cadence](/build/cadence/advanced-concepts/randomness)
     - [Scaling Transactions from a Single Account](/build/cadence/advanced-concepts/scaling)
-  + [Guides](/build/cadence/guides/account-linking)
   + [Core Smart Contracts](/build/cadence/core-contracts)
   + [Explore More](/build/cadence/explore-more)
-* [Solidity (EVM)](/build/evm/about)
+* [Solidity (EVM)](/build/evm/quickstart)
 
-  + [Why EVM on Flow](/build/evm/about)
+  + [EVM Quickstart](/build/evm/quickstart)
   + [How it Works](/build/evm/how-it-works)
   + [Using Flow EVM](/build/evm/using)
   + [Network Information](/build/evm/networks)
-  + [EVM Quickstart](/build/evm/quickstart)
   + [Fees](/build/evm/fees)
   + [Accounts](/build/evm/accounts)
   + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
   + [Faucets ↙](/evm/faucets)
   + [Block Explorers ↙](/evm/block-explorers)
-  + [Guides](/build/evm/guides)
 * [Tools & SDKs](/build/tools)
 
 * Cadence
@@ -1084,11 +1081,11 @@ It provides an introduction to integrating these standards into your NFT contrac
 
 * See the [API reference for a complete list of Metadata functions](https://developers.flow.com/build/cadence/core-contracts/flow-nft/MetdataViews/MetadataViews)
 * Check out [an Example NFT project](https://github.com/onflow/flow-nft/blob/master/contracts/ExampleNFT.cdc) implementing `MetadataViews`
-* Read [the NFT Guide](/build/cadence/guides/nft) for an introduction to implementation
+* Read [the NFT Guide](/blockchain-development-tutorials/tokens/nft-cadence) for an introduction to implementation
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/advanced-concepts/metadata-views.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Aug 26, 2025** by **Felipe Cevallos**
 
 [Previous
 
@@ -1127,7 +1124,7 @@ Documentation
 * [Getting Started](/build/cadence/getting-started/contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/cadence/guides/mobile/overview)
+* [Mobile](/blockchain-development-tutorials/cadence/mobile)
 * [FCL](/build/tools/clients/fcl-js)
 * [Testing](/build/cadence/smart-contracts/testing)
 * [CLI](/build/tools/flow-cli)
@@ -1151,7 +1148,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 
