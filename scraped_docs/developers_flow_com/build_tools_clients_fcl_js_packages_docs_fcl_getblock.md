@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/build
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/getBlock
 
-build | Flow Developer Portal
+getBlock | Flow Developer Portal
 
 
 
@@ -138,17 +138,21 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
-* build
+* getBlock
 
 On this page
 
-# build
+# getBlock
 
-A builder function that creates an interaction from an array of builder functions.
+A builder function that returns the interaction to get the latest block.
 
-The build function takes an array of builder functions and applies them to create a complete interaction object. This is the foundation for constructing all interactions in Flow, whether they're scripts, transactions, or queries.
+Use with 'fcl.atBlockId()' and 'fcl.atBlockHeight()' when building the interaction to get information for older blocks.
 
-Each builder function modifies specific parts of the interaction object, such as adding Cadence code, arguments, authorization details, or other configuration.
+Consider using the pre-built interaction 'fcl.block(options)' if you do not need to pair with any other builders.
+
+Block ID is SHA3-256 hash of the entire block payload. This hash is stored as an ID field on any block response object (ie. response from 'GetLatestBlock').
+
+Block height expresses the height of the block on the chain. The latest block height increases by one for every valid block produced.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -162,150 +166,82 @@ _10
 
 _10
 
-fcl.build(fns);`
+fcl.getBlock(isSealed);`
 
 Or import directly the specific function:
 
 `_10
 
-import { build } from '@onflow/fcl';
+import { getBlock } from '@onflow/fcl';
 
 _10
 
 _10
 
-build(fns);`
+getBlock(isSealed);`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`` _27
+`_10
 
 import * as fcl from '@onflow/fcl';
 
-_27
+_10
 
-_27
+_10
 
-// Build a script interaction
+const latestSealedBlock = await fcl
 
-_27
+_10
 
-const scriptInteraction = await fcl.build([
+.send([
 
-_27
+_10
 
-fcl.script`
+fcl.getBlock(true), // isSealed = true
 
-_27
+_10
 
-access(all) fun main(a: Int, b: Int): Int {
+])
 
-_27
+_10
 
-return a + b
-
-_27
-
-}
-
-_27
-
-`,
-
-_27
-
-fcl.args([fcl.arg(1, fcl.t.Int), fcl.arg(2, fcl.t.Int)]),
-
-_27
-
-]);
-
-_27
-
-_27
-
-// Build a transaction interaction
-
-_27
-
-const txInteraction = await fcl.build([
-
-_27
-
-fcl.transaction`
-
-_27
-
-transaction(name: String) {
-
-_27
-
-prepare(account: AuthAccount) {
-
-_27
-
-log("Hello, " + name)
-
-_27
-
-}
-
-_27
-
-}
-
-_27
-
-`,
-
-_27
-
-fcl.args([fcl.arg('World', fcl.t.String)]),
-
-_27
-
-fcl.proposer(proposerAuthz),
-
-_27
-
-fcl.payer(payerAuthz),
-
-_27
-
-fcl.authorizations([authorizerAuthz]),
-
-_27
-
-fcl.limit(100),
-
-_27
-
-]); ``
+.then(fcl.decode);`
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `fns` (optional)[​](#fns-optional "Direct link to fns-optional")
+### `isSealed` (optional)[​](#issealed-optional "Direct link to issealed-optional")
 
-* Type: `(false | InteractionBuilderFn)[]`
-* Description: The functions to apply to the interaction
+* Type: `boolean`
+* Description: If the latest block should be sealed or not. See block states
 
 ## Returns[​](#returns "Direct link to Returns")
 
-[`Promise<Interaction>`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
+`_10
 
-A promise of an interaction
+export type InteractionBuilderFn = (
+
+_10
+
+ix: Interaction,
+
+_10
+
+) => Interaction | Promise<Interaction>;`
+
+A function that processes an interaction object
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/build.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/getBlock.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-block](/build/tools/clients/fcl-js/packages-docs/fcl/block)[Next
+getAccount](/build/tools/clients/fcl-js/packages-docs/fcl/getAccount)[Next
 
-cadence](/build/tools/clients/fcl-js/packages-docs/fcl/cadence)
+getBlockHeader](/build/tools/clients/fcl-js/packages-docs/fcl/getBlockHeader)
 
 ###### Rate this page
 
@@ -316,7 +252,7 @@ Copy as Markdown
 * [Import](#import)
 * [Usage](#usage)
 * [Parameters](#parameters)
-  + [`fns` (optional)](#fns-optional)
+  + [`isSealed` (optional)](#issealed-optional)
 * [Returns](#returns)
 
 Documentation

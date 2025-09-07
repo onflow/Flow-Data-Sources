@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/update
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/account
 
-update | Flow Developer Portal
+account | Flow Developer Portal
 
 
 
@@ -141,13 +141,22 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
-* update
+* account
 
 On this page
 
-# update
+# account
 
-Updates a value in an interaction object using a transformation function.
+Retrieve any account from Flow network's latest block or from a specified block height.
+
+Account address is a unique account identifier. Be mindful about the '0x' prefix, you should use the prefix as a default representation but be careful and safely handle user inputs without the prefix.
+
+An account includes the following data:
+
+* Address: the account address.
+* Balance: balance of the account.
+* Contracts: list of contracts deployed to the account.
+* Keys: list of keys associated with the account.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -161,112 +170,179 @@ _10
 
 _10
 
-sdk.update(key, fn)`
+sdk.account(address, accountQueryOptions, opts)`
 
 Or import directly the specific function:
 
 `_10
 
-import { update } from "@onflow/sdk"
+import { account } from "@onflow/sdk"
 
 _10
 
 _10
 
-update(key, fn)`
+account(address, accountQueryOptions, opts)`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`_16
+`_29
 
-import { update, put, initInteraction } from "@onflow/sdk"
+import * as fcl from "@onflow/fcl";
 
-_16
+_29
 
-_16
+_29
 
-const interaction = initInteraction();
+// Get account from latest block height
 
-_16
+_29
 
-_16
+const account = await fcl.account("0x1d007d755706c469");
 
-// Set initial value
+_29
 
-_16
+console.log("Address:", account.address);
 
-put("counter", 0)(interaction);
+_29
 
-_16
+console.log("Balance:", account.balance);
 
-_16
+_29
 
-// Increment counter
+console.log("Keys:", account.keys);
 
-_16
+_29
 
-const increment = update("counter", (current) => (current || 0) + 1);
+console.log("Contracts:", Object.keys(account.contracts));
 
-_16
+_29
 
-increment(interaction); // counter becomes 1
+_29
 
-_16
+// Get account at a specific block height
 
-increment(interaction); // counter becomes 2
+_29
 
-_16
+const historicalAccount = await fcl.account("0x1d007d755706c469", {
 
-_16
+_29
 
-// Update array
+height: 12345
 
-_16
+_29
 
-put("tags", ["flow", "blockchain"])(interaction);
+});
 
-_16
+_29
 
-const addTag = update("tags", (tags) => [...(tags || []), "web3"]);
+_29
 
-_16
+// Get account at a specific block ID
 
-addTag(interaction); // tags becomes ["flow", "blockchain", "web3"]`
+_29
+
+const accountAtBlock = await fcl.account("0x1d007d755706c469", {
+
+_29
+
+id: "9dda5f281897389b99f103a1c6b180eec9dac870de846449a302103ce38453f3"
+
+_29
+
+});
+
+_29
+
+_29
+
+// Get account from sealed block
+
+_29
+
+const sealedAccount = await fcl.account("0x1d007d755706c469", {
+
+_29
+
+isSealed: true
+
+_29
+
+});
+
+_29
+
+_29
+
+// Alternative using builder pattern
+
+_29
+
+fcl.send([
+
+_29
+
+fcl.getAccount("0x1d007d755706c469"),
+
+_29
+
+fcl.atBlockHeight(123)
+
+_29
+
+]).then(fcl.decode);`
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `key`[​](#key "Direct link to key")
+### `address`[​](#address "Direct link to address")
 
 * Type: `string`
-* Description: The dot-notation key path to update
+* Description: Address of the account
 
-### `fn` (optional)[​](#fn-optional "Direct link to fn-optional")
+### `accountQueryOptions` (optional)[​](#accountqueryoptions-optional "Direct link to accountqueryoptions-optional")
 
 * Type:
 
 `_10
 
-(v: T | T[], ...args: any[]) => T | T[]`
+export interface AccountQueryOptions {
 
-* Description: The transformation function to apply to the existing value
+_10
+
+height?: number
+
+_10
+
+id?: string
+
+_10
+
+isSealed?: boolean
+
+_10
+
+}`
+
+### `opts` (optional)[​](#opts-optional "Direct link to opts-optional")
+
+* Type: `object`
+* Description: Optional parameters
 
 ## Returns[​](#returns "Direct link to Returns")
 
-[`Interaction`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
-
-A function that takes an interaction and updates the value
+[`Promise<Account>`](/build/tools/clients/fcl-js/packages-docs/types#account)
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/update.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/account.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-transaction](/build/tools/clients/fcl-js/packages-docs/sdk/transaction)[Next
+@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)[Next
 
-validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)
+arg](/build/tools/clients/fcl-js/packages-docs/sdk/arg)
 
 ###### Rate this page
 
@@ -277,8 +353,9 @@ Copy as Markdown
 * [Import](#import)
 * [Usage](#usage)
 * [Parameters](#parameters)
-  + [`key`](#key)
-  + [`fn` (optional)](#fn-optional)
+  + [`address`](#address)
+  + [`accountQueryOptions` (optional)](#accountqueryoptions-optional)
+  + [`opts` (optional)](#opts-optional)
 * [Returns](#returns)
 
 Documentation

@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/update
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/decode
 
-update | Flow Developer Portal
+decode | Flow Developer Portal
 
 
 
@@ -141,13 +141,15 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
-* update
+* decode
 
 On this page
 
-# update
+# decode
 
-Updates a value in an interaction object using a transformation function.
+Decodes the response from 'fcl.send()' into the appropriate JSON representation of any values returned from Cadence code.
+
+The response from Flow contains encoded values that need to be decoded into JavaScript types. This function handles that conversion, including complex types like structs, arrays, and dictionaries.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -161,112 +163,144 @@ _10
 
 _10
 
-sdk.update(key, fn)`
+sdk.decode(response)`
 
 Or import directly the specific function:
 
 `_10
 
-import { update } from "@onflow/sdk"
+import { decode } from "@onflow/sdk"
 
 _10
 
 _10
 
-update(key, fn)`
+decode(response)`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`_16
+`` _27
 
-import { update, put, initInteraction } from "@onflow/sdk"
+import * as fcl from "@onflow/fcl";
 
-_16
+_27
 
-_16
+_27
 
-const interaction = initInteraction();
+// Simple script to add 2 numbers
 
-_16
+_27
 
-_16
+const response = await fcl.send([
 
-// Set initial value
+_27
 
-_16
+fcl.script`
 
-put("counter", 0)(interaction);
+_27
 
-_16
+access(all) fun main(int1: Int, int2: Int): Int {
 
-_16
+_27
 
-// Increment counter
+return int1 + int2
 
-_16
+_27
 
-const increment = update("counter", (current) => (current || 0) + 1);
+}
 
-_16
+_27
 
-increment(interaction); // counter becomes 1
+`,
 
-_16
+_27
 
-increment(interaction); // counter becomes 2
+fcl.args([fcl.arg(1, fcl.t.Int), fcl.arg(2, fcl.t.Int)])
 
-_16
+_27
 
-_16
+]);
 
-// Update array
+_27
 
-_16
+_27
 
-put("tags", ["flow", "blockchain"])(interaction);
+const decoded = await fcl.decode(response);
 
-_16
+_27
 
-const addTag = update("tags", (tags) => [...(tags || []), "web3"]);
+console.log(decoded); // 3
 
-_16
+_27
 
-addTag(interaction); // tags becomes ["flow", "blockchain", "web3"]`
+console.log(typeof decoded); // "number"
+
+_27
+
+_27
+
+// Complex return types
+
+_27
+
+const complexResponse = await fcl.send([
+
+_27
+
+fcl.script`
+
+_27
+
+access(all) fun main(): {String: Int} {
+
+_27
+
+return {"foo": 1, "bar": 2}
+
+_27
+
+}
+
+_27
+
+`
+
+_27
+
+]);
+
+_27
+
+_27
+
+const complexDecoded = await fcl.decode(complexResponse);
+
+_27
+
+console.log(complexDecoded); // {foo: 1, bar: 2} ``
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `key`[​](#key "Direct link to key")
+### `response`[​](#response "Direct link to response")
 
-* Type: `string`
-* Description: The dot-notation key path to update
-
-### `fn` (optional)[​](#fn-optional "Direct link to fn-optional")
-
-* Type:
-
-`_10
-
-(v: T | T[], ...args: any[]) => T | T[]`
-
-* Description: The transformation function to apply to the existing value
+* Type: `any`
+* Description: Should be the response returned from 'fcl.send([...])'
 
 ## Returns[​](#returns "Direct link to Returns")
 
-[`Interaction`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
-
-A function that takes an interaction and updates the value
+`Promise<any>`
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/update.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/decode.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-transaction](/build/tools/clients/fcl-js/packages-docs/sdk/transaction)[Next
+createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/createSignableVoucher)[Next
 
-validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)
+destroy](/build/tools/clients/fcl-js/packages-docs/sdk/destroy)
 
 ###### Rate this page
 
@@ -277,8 +311,7 @@ Copy as Markdown
 * [Import](#import)
 * [Usage](#usage)
 * [Parameters](#parameters)
-  + [`key`](#key)
-  + [`fn` (optional)](#fn-optional)
+  + [`response`](#response)
 * [Returns](#returns)
 
 Documentation

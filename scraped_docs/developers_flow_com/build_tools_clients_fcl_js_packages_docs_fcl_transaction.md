@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/build
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/transaction
 
-build | Flow Developer Portal
+transaction | Flow Developer Portal
 
 
 
@@ -138,17 +138,15 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
-* build
+* transaction
 
 On this page
 
-# build
+# transaction
 
-A builder function that creates an interaction from an array of builder functions.
+A template builder to use a Cadence transaction for an interaction. FCL "mutate" does the work of building, signing, and sending a transaction behind the scenes.
 
-The build function takes an array of builder functions and applies them to create a complete interaction object. This is the foundation for constructing all interactions in Flow, whether they're scripts, transactions, or queries.
-
-Each builder function modifies specific parts of the interaction object, such as adding Cadence code, arguments, authorization details, or other configuration.
+Flow supports great flexibility when it comes to transaction signing, we can define multiple authorizers (multi-sig transactions) and have different payer account than proposer.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -156,156 +154,233 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as fcl from '@onflow/fcl';
+import * as fcl from "@onflow/fcl"
 
 _10
 
 _10
 
-fcl.build(fns);`
+fcl.transaction(args)`
 
 Or import directly the specific function:
 
 `_10
 
-import { build } from '@onflow/fcl';
+import { transaction } from "@onflow/fcl"
 
 _10
 
 _10
 
-build(fns);`
+transaction(args)`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`` _27
+`` _43
 
-import * as fcl from '@onflow/fcl';
+import * as fcl from "@onflow/fcl"
 
-_27
+_43
 
-_27
+_43
 
-// Build a script interaction
+// Basic transaction usage
 
-_27
+_43
 
-const scriptInteraction = await fcl.build([
+await fcl.mutate({
 
-_27
+_43
 
-fcl.script`
+cadence: `
 
-_27
+_43
 
-access(all) fun main(a: Int, b: Int): Int {
+transaction(a: Int) {
 
-_27
+_43
 
-return a + b
+prepare(acct: &Account) {
 
-_27
+_43
+
+log(acct)
+
+_43
+
+log(a)
+
+_43
 
 }
 
-_27
+_43
+
+}
+
+_43
 
 `,
 
-_27
+_43
 
-fcl.args([fcl.arg(1, fcl.t.Int), fcl.arg(2, fcl.t.Int)]),
+args: (arg, t) => [
 
-_27
+_43
 
-]);
+arg(6, t.Int)
 
-_27
+_43
 
-_27
+],
 
-// Build a transaction interaction
+_43
 
-_27
+limit: 50
 
-const txInteraction = await fcl.build([
+_43
 
-_27
+})
 
-fcl.transaction`
+_43
 
-_27
+_43
 
-transaction(name: String) {
+// Single party, single signature
 
-_27
+_43
 
-prepare(account: AuthAccount) {
+// Proposer, payer and authorizer are the same account
 
-_27
+_43
 
-log("Hello, " + name)
+await fcl.mutate({
 
-_27
+_43
+
+cadence: `
+
+_43
+
+transaction {
+
+_43
+
+prepare(acct: &Account) {}
+
+_43
 
 }
 
-_27
-
-}
-
-_27
+_43
 
 `,
 
-_27
+_43
 
-fcl.args([fcl.arg('World', fcl.t.String)]),
+authz: currentUser, // Optional. Will default to currentUser if not provided.
 
-_27
+_43
 
-fcl.proposer(proposerAuthz),
+limit: 50,
 
-_27
+_43
 
-fcl.payer(payerAuthz),
+})
 
-_27
+_43
 
-fcl.authorizations([authorizerAuthz]),
+_43
 
-_27
+// Multiple parties
 
-fcl.limit(100),
+_43
 
-_27
+// Proposer and authorizer are the same account, but different payer
 
-]); ``
+_43
+
+await fcl.mutate({
+
+_43
+
+cadence: `
+
+_43
+
+transaction {
+
+_43
+
+prepare(acct: &Account) {}
+
+_43
+
+}
+
+_43
+
+`,
+
+_43
+
+proposer: authzFn,
+
+_43
+
+payer: authzTwoFn,
+
+_43
+
+authorizations: [authzFn],
+
+_43
+
+limit: 50,
+
+_43
+
+}) ``
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `fns` (optional)[​](#fns-optional "Direct link to fns-optional")
+### `args` (optional)[​](#args-optional "Direct link to args-optional")
 
-* Type: `(false | InteractionBuilderFn)[]`
-* Description: The functions to apply to the interaction
+* Type:
+
+`_10
+
+[string | TemplateStringsArray, ...any[]]`
+
+* Description: The arguments to pass to the template
 
 ## Returns[​](#returns "Direct link to Returns")
 
-[`Promise<Interaction>`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
+`_10
 
-A promise of an interaction
+export type InteractionBuilderFn = (
+
+_10
+
+ix: Interaction
+
+_10
+
+) => Interaction | Promise<Interaction>`
+
+A function that processes an interaction object
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/build.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/transaction.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-block](/build/tools/clients/fcl-js/packages-docs/fcl/block)[Next
+subscribeRaw](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeRaw)[Next
 
-cadence](/build/tools/clients/fcl-js/packages-docs/fcl/cadence)
+tx](/build/tools/clients/fcl-js/packages-docs/fcl/tx)
 
 ###### Rate this page
 
@@ -316,7 +391,7 @@ Copy as Markdown
 * [Import](#import)
 * [Usage](#usage)
 * [Parameters](#parameters)
-  + [`fns` (optional)](#fns-optional)
+  + [`args` (optional)](#args-optional)
 * [Returns](#returns)
 
 Documentation

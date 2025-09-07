@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/update
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/getEvents
 
-update | Flow Developer Portal
+getEvents | Flow Developer Portal
 
 
 
@@ -141,13 +141,16 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
-* update
+* getEvents
 
 On this page
 
-# update
+# getEvents
 
-Updates a value in an interaction object using a transformation function.
+A builder function that returns the interaction to get events.
+
+Events are emitted by Cadence code during transaction execution and provide insights into what happened during execution.
+This function queries for events of a specific type within a range of block heights.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -155,118 +158,124 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as sdk from "@onflow/sdk"
+import * as sdk from '@onflow/sdk';
 
 _10
 
 _10
 
-sdk.update(key, fn)`
+sdk.getEvents(eventType, start, end);`
 
 Or import directly the specific function:
 
 `_10
 
-import { update } from "@onflow/sdk"
+import { getEvents } from '@onflow/sdk';
 
 _10
 
 _10
 
-update(key, fn)`
+getEvents(eventType, start, end);`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`_16
+`_14
 
-import { update, put, initInteraction } from "@onflow/sdk"
+import * as fcl from '@onflow/fcl';
 
-_16
+_14
 
-_16
+_14
 
-const interaction = initInteraction();
+// Get FlowToken transfer events from blocks 1000 to 2000
 
-_16
+_14
 
-_16
+const events = await fcl
 
-// Set initial value
+_14
 
-_16
+.send([
 
-put("counter", 0)(interaction);
+_14
 
-_16
+fcl.getEvents('A.1654653399040a61.FlowToken.TokensDeposited', 1000, 2000),
 
-_16
+_14
 
-// Increment counter
+])
 
-_16
+_14
 
-const increment = update("counter", (current) => (current || 0) + 1);
+.then(fcl.decode);
 
-_16
+_14
 
-increment(interaction); // counter becomes 1
+_14
 
-_16
+console.log('Found events:', events.length);
 
-increment(interaction); // counter becomes 2
+_14
 
-_16
+events.forEach((event) => {
 
-_16
+_14
 
-// Update array
+console.log('Event data:', event.data);
 
-_16
+_14
 
-put("tags", ["flow", "blockchain"])(interaction);
+console.log('Transaction ID:', event.transactionId);
 
-_16
+_14
 
-const addTag = update("tags", (tags) => [...(tags || []), "web3"]);
-
-_16
-
-addTag(interaction); // tags becomes ["flow", "blockchain", "web3"]`
+});`
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `key`[​](#key "Direct link to key")
+### `eventType`[​](#eventtype "Direct link to eventtype")
 
 * Type: `string`
-* Description: The dot-notation key path to update
+* Description: The type of event to get (e.g., "A.1654653399040a61.FlowToken.TokensWithdrawn")
 
-### `fn` (optional)[​](#fn-optional "Direct link to fn-optional")
+### `start`[​](#start "Direct link to start")
 
-* Type:
+* Type: `number`
+* Description: The start block height to query from
 
-`_10
+### `end`[​](#end "Direct link to end")
 
-(v: T | T[], ...args: any[]) => T | T[]`
-
-* Description: The transformation function to apply to the existing value
+* Type: `number`
+* Description: The end block height to query to
 
 ## Returns[​](#returns "Direct link to Returns")
 
-[`Interaction`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
+`_10
 
-A function that takes an interaction and updates the value
+export type InteractionBuilderFn = (
+
+_10
+
+ix: Interaction,
+
+_10
+
+) => Interaction | Promise<Interaction>;`
+
+A function that processes an interaction object
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/update.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/getEvents.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-transaction](/build/tools/clients/fcl-js/packages-docs/sdk/transaction)[Next
+getCollection](/build/tools/clients/fcl-js/packages-docs/sdk/getCollection)[Next
 
-validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)
+getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockHeightRange)
 
 ###### Rate this page
 
@@ -277,8 +286,9 @@ Copy as Markdown
 * [Import](#import)
 * [Usage](#usage)
 * [Parameters](#parameters)
-  + [`key`](#key)
-  + [`fn` (optional)](#fn-optional)
+  + [`eventType`](#eventtype)
+  + [`start`](#start)
+  + [`end`](#end)
 * [Returns](#returns)
 
 Documentation

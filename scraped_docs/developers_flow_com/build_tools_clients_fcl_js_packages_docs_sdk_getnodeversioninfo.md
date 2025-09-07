@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/update
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo
 
-update | Flow Developer Portal
+getNodeVersionInfo | Flow Developer Portal
 
 
 
@@ -141,13 +141,18 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
-* update
+* getNodeVersionInfo
 
 On this page
 
-# update
+# getNodeVersionInfo
 
-Updates a value in an interaction object using a transformation function.
+A builder function for the Get Node Version Info interaction.
+
+Creates an interaction to retrieve version information from the connected Flow Access Node.
+This includes details about the node's software version, protocol version, and spork information.
+
+Consider using the pre-built interaction 'fcl.nodeVersionInfo()' if you do not need to pair with any other builders.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -155,118 +160,105 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as sdk from "@onflow/sdk"
+import * as sdk from '@onflow/sdk';
 
 _10
 
 _10
 
-sdk.update(key, fn)`
+sdk.getNodeVersionInfo();`
 
 Or import directly the specific function:
 
 `_10
 
-import { update } from "@onflow/sdk"
+import { getNodeVersionInfo } from '@onflow/sdk';
 
 _10
 
 _10
 
-update(key, fn)`
+getNodeVersionInfo();`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`_16
+`_14
 
-import { update, put, initInteraction } from "@onflow/sdk"
+import * as fcl from '@onflow/fcl';
 
-_16
+_14
 
-_16
+_14
 
-const interaction = initInteraction();
+// Get node version information using builder
 
-_16
+_14
 
-_16
+const versionInfo = await fcl.send([fcl.getNodeVersionInfo()]).then(fcl.decode);
 
-// Set initial value
+_14
 
-_16
+_14
 
-put("counter", 0)(interaction);
+console.log('Node version:', versionInfo.semver);
 
-_16
+_14
 
-_16
+console.log('Protocol version:', versionInfo.protocol_version);
 
-// Increment counter
+_14
 
-_16
+console.log('Spork ID:', versionInfo.spork_id);
 
-const increment = update("counter", (current) => (current || 0) + 1);
+_14
 
-_16
+_14
 
-increment(interaction); // counter becomes 1
+// Use with other builders if needed
 
-_16
+_14
 
-increment(interaction); // counter becomes 2
+const interaction = await fcl.build([
 
-_16
+_14
 
-_16
+fcl.getNodeVersionInfo(),
 
-// Update array
+_14
 
-_16
+// other builders can be added here
 
-put("tags", ["flow", "blockchain"])(interaction);
+_14
 
-_16
-
-const addTag = update("tags", (tags) => [...(tags || []), "web3"]);
-
-_16
-
-addTag(interaction); // tags becomes ["flow", "blockchain", "web3"]`
-
-## Parameters[​](#parameters "Direct link to Parameters")
-
-### `key`[​](#key "Direct link to key")
-
-* Type: `string`
-* Description: The dot-notation key path to update
-
-### `fn` (optional)[​](#fn-optional "Direct link to fn-optional")
-
-* Type:
-
-`_10
-
-(v: T | T[], ...args: any[]) => T | T[]`
-
-* Description: The transformation function to apply to the existing value
+]);`
 
 ## Returns[​](#returns "Direct link to Returns")
 
-[`Interaction`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
+`_10
 
-A function that takes an interaction and updates the value
+export type InteractionBuilderFn = (
+
+_10
+
+ix: Interaction,
+
+_10
+
+) => Interaction | Promise<Interaction>;`
+
+A function that processes an interaction object
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/update.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-transaction](/build/tools/clients/fcl-js/packages-docs/sdk/transaction)[Next
+getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/sdk/getNetworkParameters)[Next
 
-validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)
+getTransaction](/build/tools/clients/fcl-js/packages-docs/sdk/getTransaction)
 
 ###### Rate this page
 
@@ -276,9 +268,6 @@ Copy as Markdown
 
 * [Import](#import)
 * [Usage](#usage)
-* [Parameters](#parameters)
-  + [`key`](#key)
-  + [`fn` (optional)](#fn-optional)
 * [Returns](#returns)
 
 Documentation

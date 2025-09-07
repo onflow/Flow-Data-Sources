@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/update
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/getTransactionStatus
 
-update | Flow Developer Portal
+getTransactionStatus | Flow Developer Portal
 
 
 
@@ -141,13 +141,17 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
-* update
+* getTransactionStatus
 
 On this page
 
-# update
+# getTransactionStatus
 
-Updates a value in an interaction object using a transformation function.
+A builder function that returns the status of transaction.
+
+The transaction id provided must be from the current spork.
+
+Consider using 'fcl.tx(id)' instead of calling this method directly for real-time transaction monitoring.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -155,118 +159,96 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as sdk from "@onflow/sdk"
+import * as sdk from '@onflow/sdk';
 
 _10
 
 _10
 
-sdk.update(key, fn)`
+sdk.getTransactionStatus(transactionId);`
 
 Or import directly the specific function:
 
 `_10
 
-import { update } from "@onflow/sdk"
+import { getTransactionStatus } from '@onflow/sdk';
 
 _10
 
 _10
 
-update(key, fn)`
+getTransactionStatus(transactionId);`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`_16
+`_10
 
-import { update, put, initInteraction } from "@onflow/sdk"
+import * as fcl from '@onflow/fcl';
 
-_16
+_10
 
-_16
+_10
 
-const interaction = initInteraction();
+const status = await fcl
 
-_16
+_10
 
-_16
+.send([
 
-// Set initial value
+_10
 
-_16
+fcl.getTransactionStatus(
 
-put("counter", 0)(interaction);
+_10
 
-_16
+'9dda5f281897389b99f103a1c6b180eec9dac870de846449a302103ce38453f3',
 
-_16
+_10
 
-// Increment counter
+),
 
-_16
+_10
 
-const increment = update("counter", (current) => (current || 0) + 1);
+])
 
-_16
+_10
 
-increment(interaction); // counter becomes 1
-
-_16
-
-increment(interaction); // counter becomes 2
-
-_16
-
-_16
-
-// Update array
-
-_16
-
-put("tags", ["flow", "blockchain"])(interaction);
-
-_16
-
-const addTag = update("tags", (tags) => [...(tags || []), "web3"]);
-
-_16
-
-addTag(interaction); // tags becomes ["flow", "blockchain", "web3"]`
+.then(fcl.decode);`
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `key`[​](#key "Direct link to key")
+### `transactionId`[​](#transactionid "Direct link to transactionid")
 
 * Type: `string`
-* Description: The dot-notation key path to update
-
-### `fn` (optional)[​](#fn-optional "Direct link to fn-optional")
-
-* Type:
-
-`_10
-
-(v: T | T[], ...args: any[]) => T | T[]`
-
-* Description: The transformation function to apply to the existing value
+* Description: The id of the transaction to get the status of
 
 ## Returns[​](#returns "Direct link to Returns")
 
-[`Interaction`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
+`_10
 
-A function that takes an interaction and updates the value
+export type InteractionBuilderFn = (
+
+_10
+
+ix: Interaction,
+
+_10
+
+) => Interaction | Promise<Interaction>;`
+
+A function that processes an interaction object
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/update.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/getTransactionStatus.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-transaction](/build/tools/clients/fcl-js/packages-docs/sdk/transaction)[Next
+getTransaction](/build/tools/clients/fcl-js/packages-docs/sdk/getTransaction)[Next
 
-validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)
+initInteraction](/build/tools/clients/fcl-js/packages-docs/sdk/initInteraction)
 
 ###### Rate this page
 
@@ -277,8 +259,7 @@ Copy as Markdown
 * [Import](#import)
 * [Usage](#usage)
 * [Parameters](#parameters)
-  + [`key`](#key)
-  + [`fn` (optional)](#fn-optional)
+  + [`transactionId`](#transactionid)
 * [Returns](#returns)
 
 Documentation

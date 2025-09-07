@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/update
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/voucherIntercept
 
-update | Flow Developer Portal
+voucherIntercept | Flow Developer Portal
 
 
 
@@ -141,13 +141,16 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
-* update
+* voucherIntercept
 
 On this page
 
-# update
+# voucherIntercept
 
-Updates a value in an interaction object using a transformation function.
+A builder function that intercepts and modifies a voucher.
+
+This function is useful for debugging, logging, or making modifications to
+the transaction data. The voucher contains all the transaction details in their final form.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -155,118 +158,161 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as sdk from "@onflow/sdk"
+import * as sdk from '@onflow/sdk';
 
 _10
 
 _10
 
-sdk.update(key, fn)`
+sdk.voucherIntercept(fn);`
 
 Or import directly the specific function:
 
 `_10
 
-import { update } from "@onflow/sdk"
+import { voucherIntercept } from '@onflow/sdk';
 
 _10
 
 _10
 
-update(key, fn)`
+voucherIntercept(fn);`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`_16
+`` _24
 
-import { update, put, initInteraction } from "@onflow/sdk"
+import * as fcl from '@onflow/fcl';
 
-_16
+_24
 
-_16
+_24
 
-const interaction = initInteraction();
+// Intercept voucher for logging
 
-_16
+_24
 
-_16
+await fcl.send([
 
-// Set initial value
+_24
 
-_16
+fcl.transaction`
 
-put("counter", 0)(interaction);
+_24
 
-_16
+transaction {
 
-_16
+_24
 
-// Increment counter
+prepare(account: AuthAccount) {
 
-_16
+_24
 
-const increment = update("counter", (current) => (current || 0) + 1);
+log("Transaction executed")
 
-_16
+_24
 
-increment(interaction); // counter becomes 1
+}
 
-_16
+_24
 
-increment(interaction); // counter becomes 2
+}
 
-_16
+_24
 
-_16
+`,
 
-// Update array
+_24
 
-_16
+fcl.voucherIntercept((voucher) => {
 
-put("tags", ["flow", "blockchain"])(interaction);
+_24
 
-_16
+console.log('Voucher details:', {
 
-const addTag = update("tags", (tags) => [...(tags || []), "web3"]);
+_24
 
-_16
+cadence: voucher.cadence,
 
-addTag(interaction); // tags becomes ["flow", "blockchain", "web3"]`
+_24
+
+proposalKey: voucher.proposalKey,
+
+_24
+
+payer: voucher.payer,
+
+_24
+
+authorizers: voucher.authorizers,
+
+_24
+
+computeLimit: voucher.computeLimit,
+
+_24
+
+});
+
+_24
+
+}),
+
+_24
+
+fcl.proposer(fcl.authz),
+
+_24
+
+fcl.payer(fcl.authz),
+
+_24
+
+fcl.authorizations([fcl.authz]),
+
+_24
+
+]); ``
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `key`[​](#key "Direct link to key")
-
-* Type: `string`
-* Description: The dot-notation key path to update
-
-### `fn` (optional)[​](#fn-optional "Direct link to fn-optional")
+### `fn`[​](#fn "Direct link to fn")
 
 * Type:
 
 `_10
 
-(v: T | T[], ...args: any[]) => T | T[]`
+type VoucherInterceptFn = (voucher: Voucher) => any | Promise<any>;`
 
-* Description: The transformation function to apply to the existing value
+* Description: The function to intercept and potentially modify the voucher
 
 ## Returns[​](#returns "Direct link to Returns")
 
-[`Interaction`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
+`_10
 
-A function that takes an interaction and updates the value
+export type InteractionBuilderFn = (
+
+_10
+
+ix: Interaction,
+
+_10
+
+) => Interaction | Promise<Interaction>;`
+
+A function that processes an interaction object
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/update.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/voucherIntercept.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-transaction](/build/tools/clients/fcl-js/packages-docs/sdk/transaction)[Next
+validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)[Next
 
-validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)
+voucherToTxId](/build/tools/clients/fcl-js/packages-docs/sdk/voucherToTxId)
 
 ###### Rate this page
 
@@ -277,8 +323,7 @@ Copy as Markdown
 * [Import](#import)
 * [Usage](#usage)
 * [Parameters](#parameters)
-  + [`key`](#key)
-  + [`fn` (optional)](#fn-optional)
+  + [`fn`](#fn)
 * [Returns](#returns)
 
 Documentation

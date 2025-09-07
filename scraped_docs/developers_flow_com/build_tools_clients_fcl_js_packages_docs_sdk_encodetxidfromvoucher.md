@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/update
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher
 
-update | Flow Developer Portal
+encodeTxIdFromVoucher | Flow Developer Portal
 
 
 
@@ -141,13 +141,16 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
-* update
+* encodeTxIdFromVoucher
 
 On this page
 
-# update
+# encodeTxIdFromVoucher
 
-Updates a value in an interaction object using a transformation function.
+Encodes a transaction ID from a voucher by computing its hash.
+
+A voucher is an intermediary object that contains transaction details before final encoding.
+This function computes the transaction ID that would result from submitting the transaction.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -161,112 +164,207 @@ _10
 
 _10
 
-sdk.update(key, fn)`
+sdk.encodeTxIdFromVoucher(voucher)`
 
 Or import directly the specific function:
 
 `_10
 
-import { update } from "@onflow/sdk"
+import { encodeTxIdFromVoucher } from "@onflow/sdk"
 
 _10
 
 _10
 
-update(key, fn)`
+encodeTxIdFromVoucher(voucher)`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`_16
+`` _30
 
-import { update, put, initInteraction } from "@onflow/sdk"
+import * as fcl from "@onflow/fcl";
 
-_16
+_30
 
-_16
+import { encodeTxIdFromVoucher } from "@onflow/sdk"
 
-const interaction = initInteraction();
+_30
 
-_16
+_30
 
-_16
+// Create a voucher (usually done internally by FCL)
 
-// Set initial value
+_30
 
-_16
+const voucher = {
 
-put("counter", 0)(interaction);
+_30
 
-_16
+cadence: `
 
-_16
+_30
 
-// Increment counter
+transaction {
 
-_16
+_30
 
-const increment = update("counter", (current) => (current || 0) + 1);
+prepare(account: AuthAccount) {
 
-_16
+_30
 
-increment(interaction); // counter becomes 1
+log("Hello")
 
-_16
+_30
 
-increment(interaction); // counter becomes 2
+}
 
-_16
+_30
 
-_16
+}
 
-// Update array
+_30
 
-_16
+`,
 
-put("tags", ["flow", "blockchain"])(interaction);
+_30
 
-_16
+arguments: [],
 
-const addTag = update("tags", (tags) => [...(tags || []), "web3"]);
+_30
 
-_16
+refBlock: "abc123...",
 
-addTag(interaction); // tags becomes ["flow", "blockchain", "web3"]`
+_30
+
+computeLimit: 100,
+
+_30
+
+proposalKey: {
+
+_30
+
+address: "0x123456789abcdef0",
+
+_30
+
+keyId: 0,
+
+_30
+
+sequenceNum: 42
+
+_30
+
+},
+
+_30
+
+payer: "0x123456789abcdef0",
+
+_30
+
+authorizers: ["0x123456789abcdef0"],
+
+_30
+
+payloadSigs: [],
+
+_30
+
+envelopeSigs: []
+
+_30
+
+};
+
+_30
+
+_30
+
+// Calculate the transaction ID
+
+_30
+
+const txId = encodeTxIdFromVoucher(voucher);
+
+_30
+
+console.log("Transaction ID:", txId);
+
+_30
+
+// Returns a transaction ID that can be used to track the transaction ``
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `key`[​](#key "Direct link to key")
-
-* Type: `string`
-* Description: The dot-notation key path to update
-
-### `fn` (optional)[​](#fn-optional "Direct link to fn-optional")
+### `voucher`[​](#voucher "Direct link to voucher")
 
 * Type:
 
-`_10
+`_11
 
-(v: T | T[], ...args: any[]) => T | T[]`
+export interface Voucher {
 
-* Description: The transformation function to apply to the existing value
+_11
+
+cadence: string
+
+_11
+
+refBlock: string
+
+_11
+
+computeLimit: number
+
+_11
+
+arguments: VoucherArgument[]
+
+_11
+
+proposalKey: VoucherProposalKey
+
+_11
+
+payer: string
+
+_11
+
+authorizers: string[]
+
+_11
+
+payloadSigs: Sig[]
+
+_11
+
+envelopeSigs: Sig[]
+
+_11
+
+}`
+
+* Description: The voucher object containing transaction details
 
 ## Returns[​](#returns "Direct link to Returns")
 
-[`Interaction`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
+`string`
 
-A function that takes an interaction and updates the value
+A hex-encoded string representing the transaction ID
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/update.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-transaction](/build/tools/clients/fcl-js/packages-docs/sdk/transaction)[Next
+encodeTransactionPayload](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionPayload)[Next
 
-validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)
+get](/build/tools/clients/fcl-js/packages-docs/sdk/get)
 
 ###### Rate this page
 
@@ -277,8 +375,7 @@ Copy as Markdown
 * [Import](#import)
 * [Usage](#usage)
 * [Parameters](#parameters)
-  + [`key`](#key)
-  + [`fn` (optional)](#fn-optional)
+  + [`voucher`](#voucher)
 * [Returns](#returns)
 
 Documentation

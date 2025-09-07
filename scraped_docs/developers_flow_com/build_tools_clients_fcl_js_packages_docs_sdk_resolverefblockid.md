@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/update
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/resolveRefBlockId
 
-update | Flow Developer Portal
+resolveRefBlockId | Flow Developer Portal
 
 
 
@@ -141,13 +141,13 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
-* update
+* resolveRefBlockId
 
 On this page
 
-# update
+# resolveRefBlockId
 
-Updates a value in an interaction object using a transformation function.
+Resolves the reference block ID for a transaction by querying the latest block from the network.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -161,112 +161,49 @@ _10
 
 _10
 
-sdk.update(key, fn)`
+sdk.resolveRefBlockId(opts)`
 
 Or import directly the specific function:
 
 `_10
 
-import { update } from "@onflow/sdk"
+import { resolveRefBlockId } from "@onflow/sdk"
 
 _10
 
 _10
 
-update(key, fn)`
-
-## Usage[​](#usage "Direct link to Usage")
-
-`_16
-
-import { update, put, initInteraction } from "@onflow/sdk"
-
-_16
-
-_16
-
-const interaction = initInteraction();
-
-_16
-
-_16
-
-// Set initial value
-
-_16
-
-put("counter", 0)(interaction);
-
-_16
-
-_16
-
-// Increment counter
-
-_16
-
-const increment = update("counter", (current) => (current || 0) + 1);
-
-_16
-
-increment(interaction); // counter becomes 1
-
-_16
-
-increment(interaction); // counter becomes 2
-
-_16
-
-_16
-
-// Update array
-
-_16
-
-put("tags", ["flow", "blockchain"])(interaction);
-
-_16
-
-const addTag = update("tags", (tags) => [...(tags || []), "web3"]);
-
-_16
-
-addTag(interaction); // tags becomes ["flow", "blockchain", "web3"]`
+resolveRefBlockId(opts)`
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `key`[​](#key "Direct link to key")
-
-* Type: `string`
-* Description: The dot-notation key path to update
-
-### `fn` (optional)[​](#fn-optional "Direct link to fn-optional")
+### `opts` (optional)[​](#opts-optional "Direct link to opts-optional")
 
 * Type:
 
 `_10
 
-(v: T | T[], ...args: any[]) => T | T[]`
+{ [key: string]: any; }`
 
-* Description: The transformation function to apply to the existing value
+* Description: Optional configuration parameters
 
 ## Returns[​](#returns "Direct link to Returns")
 
-[`Interaction`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
+[`Promise<Interaction>`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
 
-A function that takes an interaction and updates the value
+A function that resolves the reference block ID for an interaction
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/update.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/resolveRefBlockId.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-transaction](/build/tools/clients/fcl-js/packages-docs/sdk/transaction)[Next
+resolveProposerSequenceNumber](/build/tools/clients/fcl-js/packages-docs/sdk/resolveProposerSequenceNumber)[Next
 
-validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)
+resolveSignatures](/build/tools/clients/fcl-js/packages-docs/sdk/resolveSignatures)
 
 ###### Rate this page
 
@@ -275,10 +212,8 @@ validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)
 Copy as Markdown
 
 * [Import](#import)
-* [Usage](#usage)
 * [Parameters](#parameters)
-  + [`key`](#key)
-  + [`fn` (optional)](#fn-optional)
+  + [`opts` (optional)](#opts-optional)
 * [Returns](#returns)
 
 Documentation

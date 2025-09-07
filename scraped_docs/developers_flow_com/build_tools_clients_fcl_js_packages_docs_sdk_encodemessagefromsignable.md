@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/update
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/encodeMessageFromSignable
 
-update | Flow Developer Portal
+encodeMessageFromSignable | Flow Developer Portal
 
 
 
@@ -141,13 +141,22 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
-* update
+* encodeMessageFromSignable
 
 On this page
 
-# update
+# encodeMessageFromSignable
 
-Updates a value in an interaction object using a transformation function.
+Encodes a message from a signable object for a specific signer address.
+
+This function determines whether the signer should sign the transaction payload or envelope
+based on their role in the transaction (authorizer, proposer, or payer), then encodes the
+appropriate message for signing.
+
+Payload signers include authorizers and proposers (but not payers)
+Envelope signers include only payers
+
+The encoded message is what gets signed by the account's private key to create the transaction signature.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -161,112 +170,180 @@ _10
 
 _10
 
-sdk.update(key, fn)`
+sdk.encodeMessageFromSignable(signable, signerAddress)`
 
 Or import directly the specific function:
 
 `_10
 
-import { update } from "@onflow/sdk"
+import { encodeMessageFromSignable } from "@onflow/sdk"
 
 _10
 
 _10
 
-update(key, fn)`
+encodeMessageFromSignable(signable, signerAddress)`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`_16
+`_25
 
-import { update, put, initInteraction } from "@onflow/sdk"
+import * as fcl from "@onflow/fcl";
 
-_16
+_25
 
-_16
+_25
 
-const interaction = initInteraction();
+// This function is typically used internally by authorization functions
 
-_16
+_25
 
-_16
+// when implementing custom wallet connectors or signing flows
 
-// Set initial value
+_25
 
-_16
+_25
 
-put("counter", 0)(interaction);
+const signable = {
 
-_16
+_25
 
-_16
+voucher: {
 
-// Increment counter
+_25
 
-_16
+cadence: "transaction { prepare(acct: AuthAccount) {} }",
 
-const increment = update("counter", (current) => (current || 0) + 1);
+_25
 
-_16
+authorizers: ["0x01"],
 
-increment(interaction); // counter becomes 1
+_25
 
-_16
+proposalKey: { address: "0x01", keyId: 0, sequenceNum: 42 },
 
-increment(interaction); // counter becomes 2
+_25
 
-_16
+payer: "0x02",
 
-_16
+_25
 
-// Update array
+refBlock: "a1b2c3",
 
-_16
+_25
 
-put("tags", ["flow", "blockchain"])(interaction);
+computeLimit: 100,
 
-_16
+_25
 
-const addTag = update("tags", (tags) => [...(tags || []), "web3"]);
+arguments: [],
 
-_16
+_25
 
-addTag(interaction); // tags becomes ["flow", "blockchain", "web3"]`
+payloadSigs: []
+
+_25
+
+}
+
+_25
+
+};
+
+_25
+
+_25
+
+// For an authorizer (payload signer)
+
+_25
+
+const authorizerMessage = fcl.encodeMessageFromSignable(signable, "0x01");
+
+_25
+
+console.log("Authorizer signs:", authorizerMessage);
+
+_25
+
+_25
+
+// For a payer (envelope signer)
+
+_25
+
+const payerMessage = fcl.encodeMessageFromSignable(signable, "0x02");
+
+_25
+
+console.log("Payer signs:", payerMessage);`
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `key`[​](#key "Direct link to key")
-
-* Type: `string`
-* Description: The dot-notation key path to update
-
-### `fn` (optional)[​](#fn-optional "Direct link to fn-optional")
+### `signable`[​](#signable "Direct link to signable")
 
 * Type:
 
 `_10
 
-(v: T | T[], ...args: any[]) => T | T[]`
+export interface Signable {
 
-* Description: The transformation function to apply to the existing value
+_10
+
+message: string
+
+_10
+
+addr?: string
+
+_10
+
+keyId?: number
+
+_10
+
+signature?: string
+
+_10
+
+roles: Record<string, boolean>
+
+_10
+
+voucher: Voucher
+
+_10
+
+[key: string]: any
+
+_10
+
+}`
+
+* Description: The signable object containing transaction data and voucher
+
+### `signerAddress`[​](#signeraddress "Direct link to signeraddress")
+
+* Type: `string`
+* Description: The address of the signer to encode the message for
 
 ## Returns[​](#returns "Direct link to Returns")
 
-[`Interaction`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
+`string`
 
-A function that takes an interaction and updates the value
+An encoded message string suitable for signing with the account's private key
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/update.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/encodeMessageFromSignable.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-transaction](/build/tools/clients/fcl-js/packages-docs/sdk/transaction)[Next
+destroy](/build/tools/clients/fcl-js/packages-docs/sdk/destroy)[Next
 
-validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)
+encodeTransactionEnvelope](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionEnvelope)
 
 ###### Rate this page
 
@@ -277,8 +354,8 @@ Copy as Markdown
 * [Import](#import)
 * [Usage](#usage)
 * [Parameters](#parameters)
-  + [`key`](#key)
-  + [`fn` (optional)](#fn-optional)
+  + [`signable`](#signable)
+  + [`signerAddress`](#signeraddress)
 * [Returns](#returns)
 
 Documentation

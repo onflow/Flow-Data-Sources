@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/build
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/events
 
-build | Flow Developer Portal
+events | Flow Developer Portal
 
 
 
@@ -138,17 +138,15 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
-* build
+* events
 
 On this page
 
-# build
+# events
 
-A builder function that creates an interaction from an array of builder functions.
-
-The build function takes an array of builder functions and applies them to create a complete interaction object. This is the foundation for constructing all interactions in Flow, whether they're scripts, transactions, or queries.
-
-Each builder function modifies specific parts of the interaction object, such as adding Cadence code, arguments, authorization details, or other configuration.
+Subscribes to Flow blockchain events in real-time. This function provides a way to listen
+for specific events emitted by smart contracts on the Flow blockchain. It automatically handles
+fallback to legacy polling for environments that don't support WebSocket subscriptions.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -156,156 +154,204 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as fcl from '@onflow/fcl';
+import * as fcl from "@onflow/fcl"
 
 _10
 
 _10
 
-fcl.build(fns);`
+fcl.events(filterOrType)`
 
 Or import directly the specific function:
 
 `_10
 
-import { build } from '@onflow/fcl';
+import { events } from "@onflow/fcl"
 
 _10
 
 _10
 
-build(fns);`
+events(filterOrType)`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`` _27
+`_37
 
-import * as fcl from '@onflow/fcl';
+// Subscribe to a specific event type
 
-_27
+_37
 
-_27
+import * as fcl from "@onflow/fcl"
 
-// Build a script interaction
+_37
 
-_27
+_37
 
-const scriptInteraction = await fcl.build([
+const unsubscribe = fcl.events("A.0x1654653399040a61.FlowToken.TokensWithdrawn")
 
-_27
+_37
 
-fcl.script`
+.subscribe((event) => {
 
-_27
+_37
 
-access(all) fun main(a: Int, b: Int): Int {
+console.log("Event received:", event)
 
-_27
+_37
 
-return a + b
+console.log("Event data:", event.data)
 
-_27
+_37
+
+console.log("Transaction ID:", event.transactionId)
+
+_37
+
+})
+
+_37
+
+_37
+
+// Stop listening after 30 seconds
+
+_37
+
+setTimeout(() => {
+
+_37
+
+unsubscribe()
+
+_37
+
+}, 30000)
+
+_37
+
+_37
+
+// Subscribe to multiple event types with error handling
+
+_37
+
+const unsubscribe = fcl.events({
+
+_37
+
+eventTypes: [
+
+_37
+
+"A.0x1654653399040a61.FlowToken.TokensWithdrawn",
+
+_37
+
+"A.0x1654653399040a61.FlowToken.TokensDeposited"
+
+_37
+
+]
+
+_37
+
+}).subscribe(
+
+_37
+
+(event) => {
+
+_37
+
+console.log("Token event:", event.type, event.data)
+
+_37
+
+},
+
+_37
+
+(error) => {
+
+_37
+
+console.error("Event subscription error:", error)
+
+_37
 
 }
 
-_27
+_37
 
-`,
+)
 
-_27
+_37
 
-fcl.args([fcl.arg(1, fcl.t.Int), fcl.arg(2, fcl.t.Int)]),
+_37
 
-_27
+// Subscribe to events starting from a specific block height
 
-]);
+_37
 
-_27
+const unsubscribe = fcl.events({
 
-_27
+_37
 
-// Build a transaction interaction
+eventTypes: ["A.CONTRACT.EVENT"],
 
-_27
+_37
 
-const txInteraction = await fcl.build([
+startBlockHeight: 12345678
 
-_27
+_37
 
-fcl.transaction`
+}).subscribe((event) => {
 
-_27
+_37
 
-transaction(name: String) {
+console.log("Historical and new events:", event)
 
-_27
+_37
 
-prepare(account: AuthAccount) {
-
-_27
-
-log("Hello, " + name)
-
-_27
-
-}
-
-_27
-
-}
-
-_27
-
-`,
-
-_27
-
-fcl.args([fcl.arg('World', fcl.t.String)]),
-
-_27
-
-fcl.proposer(proposerAuthz),
-
-_27
-
-fcl.payer(payerAuthz),
-
-_27
-
-fcl.authorizations([authorizerAuthz]),
-
-_27
-
-fcl.limit(100),
-
-_27
-
-]); ``
+})`
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `fns` (optional)[​](#fns-optional "Direct link to fns-optional")
+### `filterOrType` (optional)[​](#filterortype-optional "Direct link to filterortype-optional")
 
-* Type: `(false | InteractionBuilderFn)[]`
-* Description: The functions to apply to the interaction
+* Type: `string` | [`EventFilter`](/build/tools/clients/fcl-js/packages-docs/types#eventfilter)
+* Description: Event filter object or event type string.
+  If a string is provided, it will be treated as a single event type to subscribe to.
+  If an EventFilter object is provided, it can contain multiple event types and other filter criteria.
+
+#### Properties:[​](#properties "Direct link to Properties:")
+
+* **`eventTypes`** - Array of event type strings to subscribe to
+* **`startBlockId`** - Block ID to start streaming from
+* **`startBlockHeight`** - Block height to start streaming from
 
 ## Returns[​](#returns "Direct link to Returns")
 
-[`Promise<Interaction>`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
+`void; }`
 
-A promise of an interaction
+An object containing a subscribe method
+• returns.subscribe Function to start the subscription
+• returns.subscribe.onData Callback function called when an event is received
+• returns.subscribe.onError Optional callback function called when an error occurs
+• returns.subscribe.unsubscribe Function returned by subscribe() to stop the subscription
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/build.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/events.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-block](/build/tools/clients/fcl-js/packages-docs/fcl/block)[Next
+display](/build/tools/clients/fcl-js/packages-docs/fcl/display)[Next
 
-cadence](/build/tools/clients/fcl-js/packages-docs/fcl/cadence)
+getAccount](/build/tools/clients/fcl-js/packages-docs/fcl/getAccount)
 
 ###### Rate this page
 
@@ -316,7 +362,7 @@ Copy as Markdown
 * [Import](#import)
 * [Usage](#usage)
 * [Parameters](#parameters)
-  + [`fns` (optional)](#fns-optional)
+  + [`filterOrType` (optional)](#filterortype-optional)
 * [Returns](#returns)
 
 Documentation

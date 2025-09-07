@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/build
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/pipe
 
-build | Flow Developer Portal
+pipe | Flow Developer Portal
 
 
 
@@ -138,17 +138,22 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
-* build
+* pipe
 
 On this page
 
-# build
+# pipe
 
-A builder function that creates an interaction from an array of builder functions.
+Async pipe function to compose interactions.
 
-The build function takes an array of builder functions and applies them to create a complete interaction object. This is the foundation for constructing all interactions in Flow, whether they're scripts, transactions, or queries.
+The pipe function is the foundation for composing multiple interaction builder functions together.
+It sequentially applies builder functions to an interaction, allowing for complex interaction construction.
+Each function in the pipe receives the result of the previous function and can modify or validate the interaction.
 
-Each builder function modifies specific parts of the interaction object, such as adding Cadence code, arguments, authorization details, or other configuration.
+Pipe has two main forms:
+
+1. `pipe(builderFunctions)`: Returns a builder function
+2. `pipe(interaction, builderFunctions)`: Directly executes the pipe on an interaction
 
 ## Import[​](#import "Direct link to Import")
 
@@ -156,156 +161,156 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as fcl from '@onflow/fcl';
+import * as fcl from "@onflow/fcl"
 
 _10
 
 _10
 
-fcl.build(fns);`
+fcl.pipe(fns)`
 
 Or import directly the specific function:
 
 `_10
 
-import { build } from '@onflow/fcl';
+import { pipe } from "@onflow/fcl"
 
 _10
 
 _10
 
-build(fns);`
+pipe(fns)`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`` _27
+`` _25
 
-import * as fcl from '@onflow/fcl';
+import * as fcl from "@onflow/fcl";
 
-_27
+_25
 
-_27
+_25
 
-// Build a script interaction
+// Using pipe to create a reusable builder
 
-_27
+_25
 
-const scriptInteraction = await fcl.build([
+const myTransactionBuilder = fcl.pipe([
 
-_27
-
-fcl.script`
-
-_27
-
-access(all) fun main(a: Int, b: Int): Int {
-
-_27
-
-return a + b
-
-_27
-
-}
-
-_27
-
-`,
-
-_27
-
-fcl.args([fcl.arg(1, fcl.t.Int), fcl.arg(2, fcl.t.Int)]),
-
-_27
-
-]);
-
-_27
-
-_27
-
-// Build a transaction interaction
-
-_27
-
-const txInteraction = await fcl.build([
-
-_27
+_25
 
 fcl.transaction`
 
-_27
+_25
 
-transaction(name: String) {
+transaction(amount: UFix64) {
 
-_27
+_25
 
 prepare(account: AuthAccount) {
 
-_27
+_25
 
-log("Hello, " + name)
+log(amount)
 
-_27
-
-}
-
-_27
+_25
 
 }
 
-_27
+_25
+
+}
+
+_25
 
 `,
 
-_27
+_25
 
-fcl.args([fcl.arg('World', fcl.t.String)]),
+fcl.args([fcl.arg("10.0", fcl.t.UFix64)]),
 
-_27
+_25
 
-fcl.proposer(proposerAuthz),
+fcl.proposer(fcl.authz),
 
-_27
+_25
 
-fcl.payer(payerAuthz),
+fcl.payer(fcl.authz),
 
-_27
+_25
 
-fcl.authorizations([authorizerAuthz]),
+fcl.authorizations([fcl.authz]),
 
-_27
+_25
 
-fcl.limit(100),
+fcl.limit(100)
 
-_27
+_25
 
-]); ``
+]);
+
+_25
+
+_25
+
+// Use the builder
+
+_25
+
+const interaction = await fcl.build([myTransactionBuilder]);
+
+_25
+
+_25
+
+// Pipe is used internally by build() and send()
+
+_25
+
+await fcl.send([
+
+_25
+
+fcl.script`access(all) fun main(): Int { return 42 }`
+
+_25
+
+]); // This uses pipe internally ``
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `fns` (optional)[​](#fns-optional "Direct link to fns-optional")
+### `fns`[​](#fns "Direct link to fns")
 
 * Type: `(false | InteractionBuilderFn)[]`
-* Description: The functions to apply to the interaction
+* Description: Array of builder functions to apply
 
 ## Returns[​](#returns "Direct link to Returns")
 
-[`Promise<Interaction>`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
+`_10
 
-A promise of an interaction
+export type InteractionBuilderFn = (
+
+_10
+
+ix: Interaction
+
+_10
+
+) => Interaction | Promise<Interaction>`
+
+An interaction builder function when called with just functions, or a Promise<Interaction> when called with an interaction and functions
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/build.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/pipe.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-block](/build/tools/clients/fcl-js/packages-docs/fcl/block)[Next
+ping](/build/tools/clients/fcl-js/packages-docs/fcl/ping)[Next
 
-cadence](/build/tools/clients/fcl-js/packages-docs/fcl/cadence)
+pluginRegistry](/build/tools/clients/fcl-js/packages-docs/fcl/pluginRegistry)
 
 ###### Rate this page
 
@@ -316,7 +321,7 @@ Copy as Markdown
 * [Import](#import)
 * [Usage](#usage)
 * [Parameters](#parameters)
-  + [`fns` (optional)](#fns-optional)
+  + [`fns`](#fns)
 * [Returns](#returns)
 
 Documentation

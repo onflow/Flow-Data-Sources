@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/update
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/transaction
 
-update | Flow Developer Portal
+transaction | Flow Developer Portal
 
 
 
@@ -141,13 +141,15 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
-* update
+* transaction
 
 On this page
 
-# update
+# transaction
 
-Updates a value in an interaction object using a transformation function.
+A template builder to use a Cadence transaction for an interaction. FCL "mutate" does the work of building, signing, and sending a transaction behind the scenes.
+
+Flow supports great flexibility when it comes to transaction signing, we can define multiple authorizers (multi-sig transactions) and have different payer account than proposer.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -155,118 +157,225 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as sdk from "@onflow/sdk"
+import * as sdk from '@onflow/sdk';
 
 _10
 
 _10
 
-sdk.update(key, fn)`
+sdk.transaction(args);`
 
 Or import directly the specific function:
 
 `_10
 
-import { update } from "@onflow/sdk"
+import { transaction } from '@onflow/sdk';
 
 _10
 
 _10
 
-update(key, fn)`
+transaction(args);`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`_16
+`` _41
 
-import { update, put, initInteraction } from "@onflow/sdk"
+import * as fcl from '@onflow/fcl';
 
-_16
+_41
 
-_16
+_41
 
-const interaction = initInteraction();
+// Basic transaction usage
 
-_16
+_41
 
-_16
+await fcl.mutate({
 
-// Set initial value
+_41
 
-_16
+cadence: `
 
-put("counter", 0)(interaction);
+_41
 
-_16
+transaction(a: Int) {
 
-_16
+_41
 
-// Increment counter
+prepare(acct: &Account) {
 
-_16
+_41
 
-const increment = update("counter", (current) => (current || 0) + 1);
+log(acct)
 
-_16
+_41
 
-increment(interaction); // counter becomes 1
+log(a)
 
-_16
+_41
 
-increment(interaction); // counter becomes 2
+}
 
-_16
+_41
 
-_16
+}
 
-// Update array
+_41
 
-_16
+`,
 
-put("tags", ["flow", "blockchain"])(interaction);
+_41
 
-_16
+args: (arg, t) => [arg(6, t.Int)],
 
-const addTag = update("tags", (tags) => [...(tags || []), "web3"]);
+_41
 
-_16
+limit: 50,
 
-addTag(interaction); // tags becomes ["flow", "blockchain", "web3"]`
+_41
+
+});
+
+_41
+
+_41
+
+// Single party, single signature
+
+_41
+
+// Proposer, payer and authorizer are the same account
+
+_41
+
+await fcl.mutate({
+
+_41
+
+cadence: `
+
+_41
+
+transaction {
+
+_41
+
+prepare(acct: &Account) {}
+
+_41
+
+}
+
+_41
+
+`,
+
+_41
+
+authz: currentUser, // Optional. Will default to currentUser if not provided.
+
+_41
+
+limit: 50,
+
+_41
+
+});
+
+_41
+
+_41
+
+// Multiple parties
+
+_41
+
+// Proposer and authorizer are the same account, but different payer
+
+_41
+
+await fcl.mutate({
+
+_41
+
+cadence: `
+
+_41
+
+transaction {
+
+_41
+
+prepare(acct: &Account) {}
+
+_41
+
+}
+
+_41
+
+`,
+
+_41
+
+proposer: authzFn,
+
+_41
+
+payer: authzTwoFn,
+
+_41
+
+authorizations: [authzFn],
+
+_41
+
+limit: 50,
+
+_41
+
+}); ``
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `key`[​](#key "Direct link to key")
-
-* Type: `string`
-* Description: The dot-notation key path to update
-
-### `fn` (optional)[​](#fn-optional "Direct link to fn-optional")
+### `args` (optional)[​](#args-optional "Direct link to args-optional")
 
 * Type:
 
 `_10
 
-(v: T | T[], ...args: any[]) => T | T[]`
+[string | TemplateStringsArray, ...any[]]`
 
-* Description: The transformation function to apply to the existing value
+* Description: The arguments to pass to the template
 
 ## Returns[​](#returns "Direct link to Returns")
 
-[`Interaction`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
+`_10
 
-A function that takes an interaction and updates the value
+export type InteractionBuilderFn = (
+
+_10
+
+ix: Interaction,
+
+_10
+
+) => Interaction | Promise<Interaction>;`
+
+A function that processes an interaction object
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/update.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/transaction.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-transaction](/build/tools/clients/fcl-js/packages-docs/sdk/transaction)[Next
+TestUtils](/build/tools/clients/fcl-js/packages-docs/sdk/testUtils)[Next
 
-validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)
+update](/build/tools/clients/fcl-js/packages-docs/sdk/update)
 
 ###### Rate this page
 
@@ -277,8 +386,7 @@ Copy as Markdown
 * [Import](#import)
 * [Usage](#usage)
 * [Parameters](#parameters)
-  + [`key`](#key)
-  + [`fn` (optional)](#fn-optional)
+  + [`args` (optional)](#args-optional)
 * [Returns](#returns)
 
 Documentation
