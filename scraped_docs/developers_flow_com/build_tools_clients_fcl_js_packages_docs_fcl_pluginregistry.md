@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/verifyUserSignatures
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/pluginRegistry
 
-verifyUserSignatures | Flow Developer Portal
+pluginRegistry | Flow Developer Portal
 
 
 
@@ -138,13 +138,15 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
-* verifyUserSignatures
+* pluginRegistry
 
 On this page
 
-# verifyUserSignatures
+# pluginRegistry
 
-Verify a valid signature/s for an account on Flow.
+Global plugin registry instance for managing FCL plugins. This registry handles
+the registration and management of various FCL plugins including service plugins that add
+new wallet services and strategies.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -158,37 +160,71 @@ _10
 
 _10
 
-fcl.verifyUserSignatures()`
+fcl.pluginRegistry()`
 
 Or import directly the specific function:
 
 `_10
 
-import { verifyUserSignatures } from "@onflow/fcl"
+import { pluginRegistry } from "@onflow/fcl"
 
 _10
 
 _10
 
-verifyUserSignatures()`
+pluginRegistry()`
+
+## Usage[​](#usage "Direct link to Usage")
+
+`_10
+
+// Add a plugin to the registry
+
+_10
+
+pluginRegistry.add({
+
+_10
+
+name: "MyWalletPlugin",
+
+_10
+
+f_type: "ServicePlugin",
+
+_10
+
+type: "discovery-service",
+
+_10
+
+services: [...],
+
+_10
+
+serviceStrategy: { method: "CUSTOM/RPC", exec: customExecFunction }
+
+_10
+
+})`
 
 ## Returns[​](#returns "Direct link to Returns")
 
 `_10
 
-Promise<void> | ((...args: any[]) => Promise<Promise<boolean>>)`
+Readonly<{ add: (plugins: any) => void; getPlugins: () => Map<any, any>; }>`
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/verifyUserSignatures.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/pluginRegistry.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-validator](/build/tools/clients/fcl-js/packages-docs/fcl/validator)[Next
+pipe](/build/tools/clients/fcl-js/packages-docs/fcl/pipe)[Next
 
-voucherIntercept](/build/tools/clients/fcl-js/packages-docs/fcl/voucherIntercept)
+proposer](/build/tools/clients/fcl-js/packages-docs/fcl/proposer)
 
 ###### Rate this page
 
@@ -197,6 +233,7 @@ voucherIntercept](/build/tools/clients/fcl-js/packages-docs/fcl/voucherIntercept
 Copy as Markdown
 
 * [Import](#import)
+* [Usage](#usage)
 * [Returns](#returns)
 
 Documentation

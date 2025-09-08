@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/verifyUserSignatures
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/arg
 
-verifyUserSignatures | Flow Developer Portal
+arg | Flow Developer Portal
 
 
 
@@ -138,13 +138,16 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
-* verifyUserSignatures
+* arg
 
 On this page
 
-# verifyUserSignatures
+# arg
 
-Verify a valid signature/s for an account on Flow.
+A utility builder to be used with fcl.args[...] to create FCL supported arguments for interactions.
+
+Arguments are used to pass data to Cadence scripts and transactions. The arguments must match the number and order declared in the Cadence script.
+This function creates an ArgumentObject that holds the value and type passed in.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -152,43 +155,122 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as fcl from "@onflow/fcl"
+import * as fcl from '@onflow/fcl';
 
 _10
 
 _10
 
-fcl.verifyUserSignatures()`
+fcl.arg(value, xform);`
 
 Or import directly the specific function:
 
 `_10
 
-import { verifyUserSignatures } from "@onflow/fcl"
+import { arg } from '@onflow/fcl';
 
 _10
 
 _10
 
-verifyUserSignatures()`
+arg(value, xform);`
+
+## Usage[​](#usage "Direct link to Usage")
+
+`` _15
+
+import * as fcl from '@onflow/fcl';
+
+_15
+
+_15
+
+const result = await fcl.query({
+
+_15
+
+cadence: `
+
+_15
+
+access(all) fun main(a: Int, b: Int, addr: Address): Int {
+
+_15
+
+log(addr)
+
+_15
+
+return a + b
+
+_15
+
+}
+
+_15
+
+`,
+
+_15
+
+args: (arg, t) => [
+
+_15
+
+arg(7, t.Int), // a: Int
+
+_15
+
+arg(6, t.Int), // b: Int
+
+_15
+
+arg('0xba1132bc08f82fe2', t.Address), // addr: Address
+
+_15
+
+],
+
+_15
+
+}); ``
+
+## Parameters[​](#parameters "Direct link to Parameters")
+
+### `value`[​](#value "Direct link to value")
+
+* Type:
+
+`_10
+
+TypeDescriptorInput<T>;`
+
+* Description: Any value that you are looking to pass to other builders
+
+### `xform`[​](#xform "Direct link to xform")
+
+* Type: `T`
+* Description: A type supported by Flow (FType descriptor)
 
 ## Returns[​](#returns "Direct link to Returns")
 
 `_10
 
-Promise<void> | ((...args: any[]) => Promise<Promise<boolean>>)`
+CadenceArgument<T>;`
+
+An ArgumentObject that holds the value and type passed in
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/verifyUserSignatures.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/arg.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-validator](/build/tools/clients/fcl-js/packages-docs/fcl/validator)[Next
+account](/build/tools/clients/fcl-js/packages-docs/fcl/account)[Next
 
-voucherIntercept](/build/tools/clients/fcl-js/packages-docs/fcl/voucherIntercept)
+args](/build/tools/clients/fcl-js/packages-docs/fcl/args)
 
 ###### Rate this page
 
@@ -197,6 +279,10 @@ voucherIntercept](/build/tools/clients/fcl-js/packages-docs/fcl/voucherIntercept
 Copy as Markdown
 
 * [Import](#import)
+* [Usage](#usage)
+* [Parameters](#parameters)
+  + [`value`](#value)
+  + [`xform`](#xform)
 * [Returns](#returns)
 
 Documentation

@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/verifyUserSignatures
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/isBad
 
-verifyUserSignatures | Flow Developer Portal
+isBad | Flow Developer Portal
 
 
 
@@ -138,13 +138,13 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
-* verifyUserSignatures
+* isBad
 
 On this page
 
-# verifyUserSignatures
+# isBad
 
-Verify a valid signature/s for an account on Flow.
+Checks if an interaction has a failed status.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -158,37 +158,82 @@ _10
 
 _10
 
-fcl.verifyUserSignatures()`
+fcl.isBad(ix)`
 
 Or import directly the specific function:
 
 `_10
 
-import { verifyUserSignatures } from "@onflow/fcl"
+import { isBad } from "@onflow/fcl"
 
 _10
 
 _10
 
-verifyUserSignatures()`
+isBad(ix)`
+
+## Usage[​](#usage "Direct link to Usage")
+
+`` _10
+
+import * as fcl from "@onflow/fcl";
+
+_10
+
+import { isBad, why } from "@onflow/sdk"
+
+_10
+
+_10
+
+const response = await fcl.send([
+
+_10
+
+fcl.transaction`transaction { prepare(account: AuthAccount) {} }`
+
+_10
+
+]);
+
+_10
+
+_10
+
+if (isBad(response)) {
+
+_10
+
+console.log("Transaction failed:", why(response));
+
+_10
+
+} ``
+
+## Parameters[​](#parameters "Direct link to Parameters")
+
+### `ix`[​](#ix "Direct link to ix")
+
+* Type: [`Interaction`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
+* Description: The interaction to check
 
 ## Returns[​](#returns "Direct link to Returns")
 
-`_10
+`boolean`
 
-Promise<void> | ((...args: any[]) => Promise<Promise<boolean>>)`
+True if the interaction status is BAD, false otherwise
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/verifyUserSignatures.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/isBad.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-validator](/build/tools/clients/fcl-js/packages-docs/fcl/validator)[Next
+invariant](/build/tools/clients/fcl-js/packages-docs/fcl/invariant)[Next
 
-voucherIntercept](/build/tools/clients/fcl-js/packages-docs/fcl/voucherIntercept)
+isOk](/build/tools/clients/fcl-js/packages-docs/fcl/isOk)
 
 ###### Rate this page
 
@@ -197,6 +242,9 @@ voucherIntercept](/build/tools/clients/fcl-js/packages-docs/fcl/voucherIntercept
 Copy as Markdown
 
 * [Import](#import)
+* [Usage](#usage)
+* [Parameters](#parameters)
+  + [`ix`](#ix)
 * [Returns](#returns)
 
 Documentation

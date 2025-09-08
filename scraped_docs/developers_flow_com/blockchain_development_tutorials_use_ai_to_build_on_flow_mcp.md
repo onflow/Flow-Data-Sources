@@ -39,13 +39,13 @@ On this page
 
 # Flow MCP (Model Context Protocol)
 
-The Model Context Protocol (MCP) is an open standard that enables AI applications to interact seamlessly with external tools, systems, and data sources. Flow MCP extends this protocol to provide AI tools with direct access to Flow blockchain data, smart contracts, and on-chain operations. This integration allows developers to enhance their AI-powered development workflows with real-time blockchain information and automated Flow interactions.
+The Model Context Protocol (MCP) is an open standard that enables AI applications to interact seamlessly with external tools, systems, and data sources. Flow MCP extends this protocol to provide AI tools with direct access to Flow blockchain data, smart contracts, and onchain operations. This integration allows developers to enhance their AI-powered development workflows with real-time blockchain information and automated Flow interactions.
 
 Flow MCP transforms how developers work with the Flow blockchain by bringing blockchain capabilities directly into AI-powered code editors and development tools, eliminating the need to switch between different interfaces and enabling more efficient, context-aware development experiences.
 
 ## [Use Flow MCP in Cursor](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp/use-mcp-in-cursor)[​](#use-flow-mcp-in-cursor "Direct link to use-flow-mcp-in-cursor")
 
-Learn how to integrate the Flow MCP server with Cursor to enable AI-driven blockchain queries directly within your code editor. This tutorial guides you through setting up Flow MCP in Cursor, allowing the AI to fetch on-chain data such as account balances, contract information, and blockchain state without leaving your development environment. By the end of this tutorial, you'll be able to ask Cursor's AI to perform Flow blockchain operations, speed up development workflows, and access live blockchain data for enhanced debugging and prototyping.
+Learn how to integrate the Flow MCP server with Cursor to enable AI-driven blockchain queries directly within your code editor. This tutorial guides you through setting up Flow MCP in Cursor, allowing the AI to fetch onchain data such as account balances, contract information, and blockchain state without leaving your development environment. By the end of this tutorial, you'll be able to ask Cursor's AI to perform Flow blockchain operations, speed up development workflows, and access live blockchain data for enhanced debugging and prototyping.
 
 ## [Contribute to Flow MCP](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp/contribute-to-mcp)[​](#contribute-to-flow-mcp "Direct link to contribute-to-flow-mcp")
 
@@ -57,7 +57,7 @@ Flow MCP bridges the gap between AI development tools and blockchain functionali
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp/index.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Sep 3, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -104,7 +104,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 

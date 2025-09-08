@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/verifyUserSignatures
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/getEvents
 
-verifyUserSignatures | Flow Developer Portal
+getEvents | Flow Developer Portal
 
 
 
@@ -138,13 +138,16 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
-* verifyUserSignatures
+* getEvents
 
 On this page
 
-# verifyUserSignatures
+# getEvents
 
-Verify a valid signature/s for an account on Flow.
+A builder function that returns the interaction to get events.
+
+Events are emitted by Cadence code during transaction execution and provide insights into what happened during execution.
+This function queries for events of a specific type within a range of block heights.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -152,43 +155,124 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as fcl from "@onflow/fcl"
+import * as fcl from '@onflow/fcl';
 
 _10
 
 _10
 
-fcl.verifyUserSignatures()`
+fcl.getEvents(eventType, start, end);`
 
 Or import directly the specific function:
 
 `_10
 
-import { verifyUserSignatures } from "@onflow/fcl"
+import { getEvents } from '@onflow/fcl';
 
 _10
 
 _10
 
-verifyUserSignatures()`
+getEvents(eventType, start, end);`
+
+## Usage[​](#usage "Direct link to Usage")
+
+`_14
+
+import * as fcl from '@onflow/fcl';
+
+_14
+
+_14
+
+// Get FlowToken transfer events from blocks 1000 to 2000
+
+_14
+
+const events = await fcl
+
+_14
+
+.send([
+
+_14
+
+fcl.getEvents('A.1654653399040a61.FlowToken.TokensDeposited', 1000, 2000),
+
+_14
+
+])
+
+_14
+
+.then(fcl.decode);
+
+_14
+
+_14
+
+console.log('Found events:', events.length);
+
+_14
+
+events.forEach((event) => {
+
+_14
+
+console.log('Event data:', event.data);
+
+_14
+
+console.log('Transaction ID:', event.transactionId);
+
+_14
+
+});`
+
+## Parameters[​](#parameters "Direct link to Parameters")
+
+### `eventType`[​](#eventtype "Direct link to eventtype")
+
+* Type: `string`
+* Description: The type of event to get (e.g., "A.1654653399040a61.FlowToken.TokensWithdrawn")
+
+### `start`[​](#start "Direct link to start")
+
+* Type: `number`
+* Description: The start block height to query from
+
+### `end`[​](#end "Direct link to end")
+
+* Type: `number`
+* Description: The end block height to query to
 
 ## Returns[​](#returns "Direct link to Returns")
 
 `_10
 
-Promise<void> | ((...args: any[]) => Promise<Promise<boolean>>)`
+export type InteractionBuilderFn = (
+
+_10
+
+ix: Interaction,
+
+_10
+
+) => Interaction | Promise<Interaction>;`
+
+A function that processes an interaction object
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/verifyUserSignatures.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/getEvents.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-validator](/build/tools/clients/fcl-js/packages-docs/fcl/validator)[Next
+getCollection](/build/tools/clients/fcl-js/packages-docs/fcl/getCollection)[Next
 
-voucherIntercept](/build/tools/clients/fcl-js/packages-docs/fcl/voucherIntercept)
+getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockHeightRange)
 
 ###### Rate this page
 
@@ -197,6 +281,11 @@ voucherIntercept](/build/tools/clients/fcl-js/packages-docs/fcl/voucherIntercept
 Copy as Markdown
 
 * [Import](#import)
+* [Usage](#usage)
+* [Parameters](#parameters)
+  + [`eventType`](#eventtype)
+  + [`start`](#start)
+  + [`end`](#end)
 * [Returns](#returns)
 
 Documentation

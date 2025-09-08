@@ -3798,7 +3798,7 @@ For the current state of Flow EVM across various task paths, see the following r
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cross-vm-apps/vm-bridge.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Aug 28, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -3859,7 +3859,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 

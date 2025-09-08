@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/verifyUserSignatures
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/createSignableVoucher
 
-verifyUserSignatures | Flow Developer Portal
+createSignableVoucher | Flow Developer Portal
 
 
 
@@ -138,13 +138,17 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
-* verifyUserSignatures
+* createSignableVoucher
 
 On this page
 
-# verifyUserSignatures
+# createSignableVoucher
 
-Verify a valid signature/s for an account on Flow.
+Creates a signable voucher object from an interaction for signing purposes.
+
+A voucher is a standardized representation of a transaction that contains all the necessary
+information for signing and submitting to the Flow network. This function transforms an
+interaction object into a voucher format.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -158,37 +162,150 @@ _10
 
 _10
 
-fcl.verifyUserSignatures()`
+fcl.createSignableVoucher(ix)`
 
 Or import directly the specific function:
 
 `_10
 
-import { verifyUserSignatures } from "@onflow/fcl"
+import { createSignableVoucher } from "@onflow/fcl"
 
 _10
 
 _10
 
-verifyUserSignatures()`
+createSignableVoucher(ix)`
+
+## Usage[​](#usage "Direct link to Usage")
+
+`` _27
+
+import * as fcl from "@onflow/fcl";
+
+_27
+
+import { createSignableVoucher } from "@onflow/sdk"
+
+_27
+
+_27
+
+// Build a transaction interaction
+
+_27
+
+const interaction = await fcl.build([
+
+_27
+
+fcl.transaction`
+
+_27
+
+transaction(amount: UFix64) {
+
+_27
+
+prepare(account: AuthAccount) {
+
+_27
+
+log(amount)
+
+_27
+
+}
+
+_27
+
+}
+
+_27
+
+`,
+
+_27
+
+fcl.args([fcl.arg("10.0", fcl.t.UFix64)]),
+
+_27
+
+fcl.proposer(proposerAuthz),
+
+_27
+
+fcl.payer(payerAuthz),
+
+_27
+
+fcl.authorizations([authorizerAuthz]),
+
+_27
+
+fcl.limit(100)
+
+_27
+
+]);
+
+_27
+
+_27
+
+// Create a voucher for signing
+
+_27
+
+const voucher = createSignableVoucher(interaction);
+
+_27
+
+console.log(voucher.cadence); // The Cadence script
+
+_27
+
+console.log(voucher.arguments); // The transaction arguments
+
+_27
+
+console.log(voucher.proposalKey); // Proposer account details
+
+_27
+
+console.log(voucher.authorizers); // List of authorizer addresses
+
+_27
+
+_27
+
+// The voucher can now be signed and submitted ``
+
+## Parameters[​](#parameters "Direct link to Parameters")
+
+### `ix`[​](#ix "Direct link to ix")
+
+* Type: [`Interaction`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
+* Description: The interaction object containing transaction details
 
 ## Returns[​](#returns "Direct link to Returns")
 
 `_10
 
-Promise<void> | ((...args: any[]) => Promise<Promise<boolean>>)`
+{ cadence: string; refBlock: string; computeLimit: number; arguments: any[]; proposalKey: { address: string; keyId: string | number; sequenceNum: number; } | { address?: undefined; keyId?: undefined; sequenceNum?: undefined; }; payer: string; authorizers: string[]; payloadSigs: { address: string; keyId: string | number; sig: string; }[]; envelopeSigs: { address: string; keyId: string | number; sig: string; }[]; }`
+
+A voucher object containing all transaction data and signatures
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/verifyUserSignatures.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/createSignableVoucher.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-validator](/build/tools/clients/fcl-js/packages-docs/fcl/validator)[Next
+createFcl](/build/tools/clients/fcl-js/packages-docs/fcl/createFcl)[Next
 
-voucherIntercept](/build/tools/clients/fcl-js/packages-docs/fcl/voucherIntercept)
+currentUser](/build/tools/clients/fcl-js/packages-docs/fcl/currentUser)
 
 ###### Rate this page
 
@@ -197,6 +314,9 @@ voucherIntercept](/build/tools/clients/fcl-js/packages-docs/fcl/voucherIntercept
 Copy as Markdown
 
 * [Import](#import)
+* [Usage](#usage)
+* [Parameters](#parameters)
+  + [`ix`](#ix)
 * [Returns](#returns)
 
 Documentation

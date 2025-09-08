@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/verifyUserSignatures
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/cdc
 
-verifyUserSignatures | Flow Developer Portal
+cdc | Flow Developer Portal
 
 
 
@@ -138,13 +138,13 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
-* verifyUserSignatures
+* cdc
 
 On this page
 
-# verifyUserSignatures
+# cdc
 
-Verify a valid signature/s for an account on Flow.
+Creates a template function
 
 ## Import[​](#import "Direct link to Import")
 
@@ -158,37 +158,164 @@ _10
 
 _10
 
-fcl.verifyUserSignatures()`
+fcl.cdc(head, rest)`
 
 Or import directly the specific function:
 
 `_10
 
-import { verifyUserSignatures } from "@onflow/fcl"
+import { cdc } from "@onflow/fcl"
 
 _10
 
 _10
 
-verifyUserSignatures()`
+cdc(head, rest)`
 
-## Returns[​](#returns "Direct link to Returns")
+## Usage[​](#usage "Direct link to Usage")
+
+`` _30
+
+import { template } from "@onflow/util-template"
+
+_30
+
+_30
+
+// String template
+
+_30
+
+const simpleTemplate = template("Hello, World!");
+
+_30
+
+console.log(simpleTemplate()); // "Hello, World!"
+
+_30
+
+_30
+
+// Template literal with interpolation
+
+_30
+
+const name = "Alice";
+
+_30
+
+const greeting = template`Hello, ${name}!`;
+
+_30
+
+console.log(greeting()); // "Hello, Alice!"
+
+_30
+
+_30
+
+// Cadence script template
+
+_30
+
+const cadenceScript = template`
+
+_30
+
+access(all) fun main(greeting: String): String {
+
+_30
+
+return greeting.concat(", from Flow!")
+
+_30
+
+}
+
+_30
+
+`;
+
+_30
+
+console.log(cadenceScript()); // The Cadence script as a string
+
+_30
+
+_30
+
+// Used with FCL for dynamic Cadence code
+
+_30
+
+import * as fcl from "@onflow/fcl";
+
+_30
+
+_30
+
+const contractAddress = "0x123456789abcdef0";
+
+_30
+
+const scriptTemplate = fcl.cadence`
+
+_30
+
+import MyContract from ${contractAddress}
+
+_30
+
+_30
+
+access(all) fun main(): String {
+
+_30
+
+return MyContract.getMessage()
+
+_30
+
+}
+
+_30
+
+`; ``
+
+## Parameters[​](#parameters "Direct link to Parameters")
+
+### `head`[​](#head "Direct link to head")
+
+* Type:
 
 `_10
 
-Promise<void> | ((...args: any[]) => Promise<Promise<boolean>>)`
+string | TemplateStringsArray | ((x?: unknown) => string)`
+
+* Description: - A string, template string array, or template function
+
+### `rest` (optional)[​](#rest-optional "Direct link to rest-optional")
+
+* Type: `unknown[]`
+* Description: - The rest of the arguments
+
+## Returns[​](#returns "Direct link to Returns")
+
+`string`
+
+A template function
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/verifyUserSignatures.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/cdc.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-validator](/build/tools/clients/fcl-js/packages-docs/fcl/validator)[Next
+cadence](/build/tools/clients/fcl-js/packages-docs/fcl/cadence)[Next
 
-voucherIntercept](/build/tools/clients/fcl-js/packages-docs/fcl/voucherIntercept)
+config](/build/tools/clients/fcl-js/packages-docs/fcl/config)
 
 ###### Rate this page
 
@@ -197,6 +324,10 @@ voucherIntercept](/build/tools/clients/fcl-js/packages-docs/fcl/voucherIntercept
 Copy as Markdown
 
 * [Import](#import)
+* [Usage](#usage)
+* [Parameters](#parameters)
+  + [`head`](#head)
+  + [`rest` (optional)](#rest-optional)
 * [Returns](#returns)
 
 Documentation
