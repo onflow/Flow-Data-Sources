@@ -2863,9 +2863,176 @@ _39
 
 }`
 
+## Stream Events[​](#stream-events "Direct link to Stream Events")
+
+[![](https://raw.githubusercontent.com/onflow/sdks/main/templates/documentation/ref.svg)](https://pkg.go.dev/github.com/onflow/flow-go-sdk/client#Client.SubscribeEventsByBlockID)
+
+Subscribe to and stream events from an Access node using the SDK subscription primitives. The canonical example demonstrates a complete runnable implementation that connects to an access node, subscribes from a reference block, and processes an event stream.
+
+**[![](https://raw.githubusercontent.com/onflow/sdks/main/templates/documentation/try.svg)](https://github.com/onflow/flow-go-sdk/blob/master/examples/stream_events/main.go)**
+
+`_40
+
+// Minimal walkthrough (based on examples/stream_events/main.go)
+
+_40
+
+ctx := context.Background()
+
+_40
+
+_40
+
+// 1) Create a client (SubscribeEvents only supported by Flow Go SDK gRPC client)
+
+_40
+
+flowClient, err := grpc.NewClient(grpc.TestnetHost)
+
+_40
+
+// handle err
+
+_40
+
+_40
+
+// 2) Obtain a reference block/header to start the subscription from
+
+_40
+
+header, err := flowClient.GetLatestBlockHeader(ctx, true)
+
+_40
+
+// handle err
+
+_40
+
+_40
+
+// 3) Subscribe for events by block ID (returns data channel, error channel, init error)
+
+_40
+
+dataCh, errCh, initErr := flowClient.SubscribeEventsByBlockID(ctx, header.ID, flow.EventFilter{})
+
+_40
+
+if initErr != nil {
+
+_40
+
+// handle init error
+
+_40
+
+}
+
+_40
+
+_40
+
+// 4) Process the stream (select loop)
+
+_40
+
+for {
+
+_40
+
+select {
+
+_40
+
+case <-ctx.Done():
+
+_40
+
+// graceful shutdown
+
+_40
+
+return
+
+_40
+
+case data, ok := <-dataCh:
+
+_40
+
+if !ok {
+
+_40
+
+// subscription closed; reconnect / exponential back-off
+
+_40
+
+return
+
+_40
+
+}
+
+_40
+
+// data contains block-level payload with Events
+
+_40
+
+for _, ev := range data.Events {
+
+_40
+
+fmt.Printf("Type: %s\n", ev.Type)
+
+_40
+
+fmt.Printf("Values: %v\n", ev.Value)
+
+_40
+
+fmt.Printf("Transaction ID: %s\n", ev.TransactionID)
+
+_40
+
+}
+
+_40
+
+case err := <-errCh:
+
+_40
+
+if err != nil {
+
+_40
+
+// handle streaming error (log, reconnect / exponential back-off)
+
+_40
+
+}
+
+_40
+
+}
+
+_40
+
+}`
+
+Notes & best practices
+
+* Use `flow.EventFilter` to subscribe only to event types / contracts you need to reduce bandwidth.
+* Persist the last processed block ID/height to resume after restarts; resume subscriptions from a checkpoint.
+* Treat empty payloads/heartbeats as liveness; implement reconnect and exponential back-off on termination.
+* For historical backfills use `GetEventsForBlockIDs` / `GetEventsForBlockRange` instead of live streaming.
+
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/flow-go-sdk/index.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Sep 8, 2025** by **Jordan Ribbink**
 
 [Previous
 
@@ -2906,6 +3073,7 @@ Copy as Markdown
   + [Transferring Flow](#transferring-flow)
 * [Cadence Script](#cadence-script)
 * [Build the Transaction](#build-the-transaction)
+* [Stream Events](#stream-events)
 
 Documentation
 

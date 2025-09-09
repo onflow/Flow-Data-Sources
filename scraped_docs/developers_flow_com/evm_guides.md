@@ -12,71 +12,60 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 
 Search
 
-* [Why Flow](/build/flow)
-* [Cadence](/build/cadence/getting-started)
+* [Blockchain Development Tutorials](/blockchain-development-tutorials)
+* [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)
+* [Flow Actions](/blockchain-development-tutorials/flow-actions)
+* [Token Development and Registration](/blockchain-development-tutorials/tokens)
+* [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
+* [Flow EVM Guides](/blockchain-development-tutorials/evm)
 
-  + [Getting Started](/build/cadence/getting-started)
-  + [Differences vs. EVM](/build/cadence/differences-vs-evm)
-  + [Flow Protocol](/build/cadence/basics/network-architecture)
-  + [App Architecture](/build/cadence/app-architecture)
-  + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
-  + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
-  + [Guides](/build/cadence/guides/account-linking)
-  + [Core Smart Contracts](/build/cadence/core-contracts)
-  + [Explore More](/build/cadence/explore-more)
-* [Solidity (EVM)](/build/evm/about)
+  + [Flow EVM Setup](/blockchain-development-tutorials/evm/setup)
+  + [Flow EVM Frameworks](/blockchain-development-tutorials/evm/frameworks)
+  + [Flow EVM Development Tools](/blockchain-development-tutorials/evm/development-tools)
+  + [Build a Fully-Onchain Image Gallery](/blockchain-development-tutorials/evm/image-gallery)
+* [Cadence Tutorials](/blockchain-development-tutorials/cadence)
+* [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
+* [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
+* [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
+* [Third-Party Integrations](/blockchain-development-tutorials/integrations)
 
-  + [Why EVM on Flow](/build/evm/about)
-  + [How it Works](/build/evm/how-it-works)
-  + [Using Flow EVM](/build/evm/using)
-  + [Network Information](/build/evm/networks)
-  + [EVM Quickstart](/build/evm/quickstart)
-  + [Fees](/build/evm/fees)
-  + [Accounts](/build/evm/accounts)
-  + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
-  + [Faucets ↙](/evm/faucets)
-  + [Block Explorers ↙](/evm/block-explorers)
-  + [Guides](/build/evm/guides)
-
-    - [Integrating Metamask](/build/evm/guides/integrating-metamask)
-    - [Hardhat](/build/evm/guides/hardhat)
-    - [Remix](/build/evm/guides/remix)
-    - [Rainbowkit](/build/evm/guides/rainbowkit)
-    - [Viem & Wagmi](/build/evm/guides/wagmi)
-    - [Foundry](/build/evm/guides/foundry)
-    - [Ethers](/build/evm/guides/ethers)
-    - [Web3.js](/build/evm/guides/web3-js)
-* [Tools & SDKs](/build/tools)
-
-* Solidity (EVM)
-* Guides
+* Flow EVM Guides
 
 On this page
 
 # EVM Guides
 
-This section contains guides and tutorials for building on [Flow EVM](/build/evm/about), integrating with popular Ethereum tools, and leveraging Flow's unique features.
+Flow EVM provides full Ethereum Virtual Machine compatibility, enabling developers to deploy existing Solidity contracts and use familiar Ethereum development tools on Flow's high-performance blockchain. These guides demonstrate how to leverage popular Ethereum tools and frameworks to build, test, and deploy smart contracts on Flow EVM while taking advantage of Flow's unique features like built-in randomness and efficient transaction processing.
 
-## Guides[​](#guides "Direct link to Guides")
+## [Setup](/blockchain-development-tutorials/evm/setup)[​](#setup "Direct link to setup")
 
-* **[Integrating MetaMask](/build/evm/guides/integrating-metamask)** - How to connect MetaMask to Flow EVM and interact with your dapps.
-* **[Using ethers.js](/build/evm/guides/ethers)** - Learn to use ethers.js with Flow EVM for contract interaction and account management.
-* **[Using web3.js](/build/evm/guides/web3-js)** - Use web3.js to build and interact with Flow EVM smart contracts.
-* **[Using wagmi](/build/evm/guides/wagmi)** - Integrate wagmi for React-based EVM dapps on Flow.
-* **[Using RainbowKit](/build/evm/guides/rainbowkit)** - Add wallet connection and onboarding with RainbowKit in your Flow EVM dapp.
-* **[Using Foundry](/build/evm/guides/foundry)** - Develop, test, and deploy smart contracts on Flow EVM using Foundry.
-* **[Using Hardhat](/build/evm/guides/hardhat)** - Build, test, and deploy Solidity contracts on Flow EVM with Hardhat.
-* **[Using Remix](/build/evm/guides/remix)** - Write, deploy, and interact with contracts on Flow EVM using the Remix IDE.
+Essential setup guides for Flow EVM development, including MetaMask integration and wallet configuration. Learn how to connect popular Ethereum tools to Flow's EVM-compatible network and prepare your development environment for building on Flow.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/evm/guides/index.md)
+## [Frameworks](/blockchain-development-tutorials/evm/frameworks)[​](#frameworks "Direct link to frameworks")
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Modern JavaScript and React frameworks for building Flow EVM applications. These guides cover popular blockchain libraries like ethers.js, web3.js, wagmi, and RainbowKit, providing practical implementation patterns for frontend development on Flow.
+
+## [Development Tools](/blockchain-development-tutorials/evm/development-tools)[​](#development-tools "Direct link to development-tools")
+
+Professional Solidity development tools adapted for Flow EVM. Master Foundry's testing suite, Hardhat's TypeScript environment, and Remix's browser-based IDE for comprehensive smart contract development workflows on Flow.
+
+## [Build a Fully-Onchain Image Gallery](/blockchain-development-tutorials/evm/image-gallery)[​](#build-a-fully-onchain-image-gallery "Direct link to build-a-fully-onchain-image-gallery")
+
+Create a decentralized image gallery that stores images directly on the blockchain using Flow's efficient gas pricing. This comprehensive tutorial demonstrates building smart contracts for onchain image storage, implementing factory patterns for user galleries, and creating a modern React frontend with wallet integration. Learn how Flow's low gas costs enable applications that would be prohibitively expensive on other chains.
+
+## Conclusion[​](#conclusion "Direct link to Conclusion")
+
+These EVM guides provide comprehensive coverage of the most popular Ethereum development tools and frameworks, adapted for Flow EVM development. Whether you're migrating existing Ethereum applications or building new projects, these tutorials offer practical implementation patterns for wallet integration, contract deployment, and blockchain interaction on Flow's high-performance EVM-compatible network.
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/index.md)
+
+Last updated on **Aug 26, 2025** by **Felipe Cevallos**
 
 [Previous
 
-Block Explorers ↙](/evm/block-explorers)[Next
+Contribute to Flow MCP](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp/contribute-to-mcp)[Next
 
-Integrating Metamask](/build/evm/guides/integrating-metamask)
+Flow EVM Setup](/blockchain-development-tutorials/evm/setup)
 
 ###### Rate this page
 
@@ -84,14 +73,18 @@ Integrating Metamask](/build/evm/guides/integrating-metamask)
 
 Copy as Markdown
 
-* [Guides](#guides)
+* [Setup](#setup)
+* [Frameworks](#frameworks)
+* [Development Tools](#development-tools)
+* [Build a Fully-Onchain Image Gallery](#build-a-fully-onchain-image-gallery)
+* [Conclusion](#conclusion)
 
 Documentation
 
 * [Getting Started](/build/cadence/getting-started/contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/cadence/guides/mobile/overview)
+* [Mobile](/blockchain-development-tutorials/cadence/mobile)
 * [FCL](/build/tools/clients/fcl-js)
 * [Testing](/build/cadence/smart-contracts/testing)
 * [CLI](/build/tools/flow-cli)
@@ -115,7 +108,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 
