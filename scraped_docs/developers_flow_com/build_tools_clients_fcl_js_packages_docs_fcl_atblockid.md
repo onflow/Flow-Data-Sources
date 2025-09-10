@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/cadence
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/atBlockId
 
-cadence | Flow Developer Portal
+atBlockId | Flow Developer Portal
 
 
 
@@ -138,13 +138,17 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
-* cadence
+* atBlockId
 
 On this page
 
-# cadence
+# atBlockId
 
-Creates a template function
+A builder function that returns a partial interaction to a block at a specific block ID.
+
+Use with other interactions like 'fcl.getBlock()' to get a full interaction at the specified block ID.
+
+Block ID is SHA3-256 hash of the entire block payload. This hash is stored as an ID field on any block response object (ie. response from 'GetLatestBlock').
 
 ## Import[​](#import "Direct link to Import")
 
@@ -152,170 +156,160 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as fcl from "@onflow/fcl"
+import * as fcl from '@onflow/fcl';
 
 _10
 
 _10
 
-fcl.cadence(head, rest)`
+fcl.atBlockId(id);`
 
 Or import directly the specific function:
 
 `_10
 
-import { cadence } from "@onflow/fcl"
+import { atBlockId } from '@onflow/fcl';
 
 _10
 
 _10
 
-cadence(head, rest)`
+atBlockId(id);`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`` _30
+`` _26
 
-import { template } from "@onflow/util-template"
+import * as fcl from '@onflow/fcl';
 
-_30
+_26
 
-_30
+_26
 
-// String template
+// Get block by ID
 
-_30
+_26
 
-const simpleTemplate = template("Hello, World!");
+await fcl.send([fcl.getBlock(), fcl.atBlockId('23232323232')]).then(fcl.decode);
 
-_30
+_26
 
-console.log(simpleTemplate()); // "Hello, World!"
+_26
 
-_30
+// Get account at specific block ID
 
-_30
+_26
 
-// Template literal with interpolation
+await fcl
 
-_30
+_26
 
-const name = "Alice";
+.send([
 
-_30
+_26
 
-const greeting = template`Hello, ${name}!`;
+fcl.getAccount('0x1d007d755706c469'),
 
-_30
+_26
 
-console.log(greeting()); // "Hello, Alice!"
+fcl.atBlockId(
 
-_30
+_26
 
-_30
+'9dda5f281897389b99f103a1c6b180eec9dac870de846449a302103ce38453f3',
 
-// Cadence script template
+_26
 
-_30
+),
 
-const cadenceScript = template`
+_26
 
-_30
+])
 
-access(all) fun main(greeting: String): String {
+_26
 
-_30
+.then(fcl.decode);
 
-return greeting.concat(", from Flow!")
+_26
 
-_30
+_26
 
-}
+// Execute script at specific block
 
-_30
+_26
 
-`;
+await fcl
 
-_30
+_26
 
-console.log(cadenceScript()); // The Cadence script as a string
+.send([
 
-_30
+_26
 
-_30
+fcl.script`
 
-// Used with FCL for dynamic Cadence code
+_26
 
-_30
+access(all) fun main(): UFix64 {
 
-import * as fcl from "@onflow/fcl";
+_26
 
-_30
+return getCurrentBlock().timestamp
 
-_30
-
-const contractAddress = "0x123456789abcdef0";
-
-_30
-
-const scriptTemplate = fcl.cadence`
-
-_30
-
-import MyContract from ${contractAddress}
-
-_30
-
-_30
-
-access(all) fun main(): String {
-
-_30
-
-return MyContract.getMessage()
-
-_30
+_26
 
 }
 
-_30
+_26
 
-`; ``
+`,
+
+_26
+
+fcl.atBlockId('a1b2c3d4e5f6'),
+
+_26
+
+])
+
+_26
+
+.then(fcl.decode); ``
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `head`[​](#head "Direct link to head")
+### `id`[​](#id "Direct link to id")
 
-* Type:
-
-`_10
-
-string | TemplateStringsArray | ((x?: unknown) => string)`
-
-* Description: - A string, template string array, or template function
-
-### `rest` (optional)[​](#rest-optional "Direct link to rest-optional")
-
-* Type: `unknown[]`
-* Description: - The rest of the arguments
+* Type: `string`
+* Description: The ID of the block to execute the interaction at
 
 ## Returns[​](#returns "Direct link to Returns")
 
-`string`
+`_10
 
-A template function
+export type InteractionBuilderFn = (
+
+_10
+
+ix: Interaction,
+
+_10
+
+) => Interaction | Promise<Interaction>;`
+
+A partial interaction to be paired with another interaction such as 'fcl.getBlock()' or 'fcl.getAccount()'
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/cadence.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/atBlockId.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-build](/build/tools/clients/fcl-js/packages-docs/fcl/build)[Next
+atBlockHeight](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockHeight)[Next
 
-cdc](/build/tools/clients/fcl-js/packages-docs/fcl/cdc)
+authenticate](/build/tools/clients/fcl-js/packages-docs/fcl/authenticate)
 
 ###### Rate this page
 
@@ -326,8 +320,7 @@ Copy as Markdown
 * [Import](#import)
 * [Usage](#usage)
 * [Parameters](#parameters)
-  + [`head`](#head)
-  + [`rest` (optional)](#rest-optional)
+  + [`id`](#id)
 * [Returns](#returns)
 
 Documentation

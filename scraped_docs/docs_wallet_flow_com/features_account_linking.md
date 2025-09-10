@@ -82,4 +82,4 @@ For detailed technical documentation on account linking, see: <https://developer
 
 [PreviousFAQ](/faq/faq)[NextWalletConnect](/features/walletconnect)
 
-Last updated 12 months ago
+Last updated 1 year ago

@@ -160,4 +160,4 @@ Flow has an open working group dedicated to furthering the development of wallet
 
 [PreviousWelcome to Flow Wallet](/)[NextFAQ](/faq/faq)
 
-Last updated 12 months ago
+Last updated 1 year ago

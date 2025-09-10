@@ -107,4 +107,4 @@ Considering the advantages of using Secure Enclave on iPhone, Flow Reference Wal
 
 [PreviousFlow Client Library (FCL)](/features/flow-client-library-fcl)[NextAccount Recovery](/features/account-recovery)
 
-Last updated 12 months ago
+Last updated 1 year ago

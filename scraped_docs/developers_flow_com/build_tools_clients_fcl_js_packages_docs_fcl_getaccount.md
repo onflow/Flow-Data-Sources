@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/cadence
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/getAccount
 
-cadence | Flow Developer Portal
+getAccount | Flow Developer Portal
 
 
 
@@ -138,13 +138,17 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
-* cadence
+* getAccount
 
 On this page
 
-# cadence
+# getAccount
 
-Creates a template function
+A builder function that returns the interaction to get an account by address.
+
+Consider using the pre-built interaction 'fcl.account(address)' if you do not need to pair with any other builders.
+
+Account address is a unique account identifier. Be mindful about the '0x' prefix, you should use the prefix as a default representation but be careful and safely handle user inputs without the prefix.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -152,170 +156,91 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as fcl from "@onflow/fcl"
+import * as fcl from '@onflow/fcl';
 
 _10
 
 _10
 
-fcl.cadence(head, rest)`
+fcl.getAccount(addr);`
 
 Or import directly the specific function:
 
 `_10
 
-import { cadence } from "@onflow/fcl"
+import { getAccount } from '@onflow/fcl';
 
 _10
 
 _10
 
-cadence(head, rest)`
+getAccount(addr);`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`` _30
+`_10
 
-import { template } from "@onflow/util-template"
+import * as fcl from '@onflow/fcl';
 
-_30
+_10
 
-_30
+_10
 
-// String template
+// somewhere in an async function
 
-_30
+_10
 
-const simpleTemplate = template("Hello, World!");
+// fcl.account is the same as this function
 
-_30
+_10
 
-console.log(simpleTemplate()); // "Hello, World!"
+const getAccount = async (address) => {
 
-_30
+_10
 
-_30
+const account = await fcl.send([fcl.getAccount(address)]).then(fcl.decode);
 
-// Template literal with interpolation
+_10
 
-_30
+return account;
 
-const name = "Alice";
+_10
 
-_30
-
-const greeting = template`Hello, ${name}!`;
-
-_30
-
-console.log(greeting()); // "Hello, Alice!"
-
-_30
-
-_30
-
-// Cadence script template
-
-_30
-
-const cadenceScript = template`
-
-_30
-
-access(all) fun main(greeting: String): String {
-
-_30
-
-return greeting.concat(", from Flow!")
-
-_30
-
-}
-
-_30
-
-`;
-
-_30
-
-console.log(cadenceScript()); // The Cadence script as a string
-
-_30
-
-_30
-
-// Used with FCL for dynamic Cadence code
-
-_30
-
-import * as fcl from "@onflow/fcl";
-
-_30
-
-_30
-
-const contractAddress = "0x123456789abcdef0";
-
-_30
-
-const scriptTemplate = fcl.cadence`
-
-_30
-
-import MyContract from ${contractAddress}
-
-_30
-
-_30
-
-access(all) fun main(): String {
-
-_30
-
-return MyContract.getMessage()
-
-_30
-
-}
-
-_30
-
-`; ``
+};`
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `head`[​](#head "Direct link to head")
+### `addr`[​](#addr "Direct link to addr")
 
-* Type:
-
-`_10
-
-string | TemplateStringsArray | ((x?: unknown) => string)`
-
-* Description: - A string, template string array, or template function
-
-### `rest` (optional)[​](#rest-optional "Direct link to rest-optional")
-
-* Type: `unknown[]`
-* Description: - The rest of the arguments
+* Type: `string`
 
 ## Returns[​](#returns "Direct link to Returns")
 
-`string`
+`_10
 
-A template function
+export type InteractionBuilderFn = (
+
+_10
+
+ix: Interaction,
+
+_10
+
+) => Interaction | Promise<Interaction>;`
+
+A function that processes an interaction object
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/cadence.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/getAccount.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-build](/build/tools/clients/fcl-js/packages-docs/fcl/build)[Next
+events](/build/tools/clients/fcl-js/packages-docs/fcl/events)[Next
 
-cdc](/build/tools/clients/fcl-js/packages-docs/fcl/cdc)
+getBlock](/build/tools/clients/fcl-js/packages-docs/fcl/getBlock)
 
 ###### Rate this page
 
@@ -326,8 +251,7 @@ Copy as Markdown
 * [Import](#import)
 * [Usage](#usage)
 * [Parameters](#parameters)
-  + [`head`](#head)
-  + [`rest` (optional)](#rest-optional)
+  + [`addr`](#addr)
 * [Returns](#returns)
 
 Documentation
