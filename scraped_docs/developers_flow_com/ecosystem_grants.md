@@ -13,6 +13,11 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 Search
 
 * [Ecosystem](/ecosystem)
+* [Developer Support Hub](/ecosystem/developer-support-hub)
+
+  + [Builder Perks](/ecosystem/developer-support-hub/builder-perks)
+  + [Grants](/ecosystem/developer-support-hub/grants)
+  + [VCs & Funds](/ecosystem/developer-support-hub/vcs-and-funds)
 * [Wallets](/ecosystem/wallets)
 * [Flow Block Explorers](/ecosystem/block-explorers)
 * [Data Indexers](/ecosystem/data-indexers)
@@ -21,15 +26,12 @@ Search
 * [Bridges](/ecosystem/bridges)
 * [Collectibles & NFTs](/ecosystem/collectibles)
 * [Community Projects](/ecosystem/projects)
-* [Builder Perks](/ecosystem/builder-perks)
-* [VCs & Funds](/ecosystem/vcs-and-funds)
 * [Faucets](/ecosystem/faucets)
-* [Grants](/ecosystem/grants)
-* [Project Growth](/ecosystem/project-growth)
 * [Hackathons and Events](/ecosystem/Hackathons and Events)
 * [Auditors](/ecosystem/auditors)
 * [Ecosystem Overview](/ecosystem/overview)
 
+* [Developer Support Hub](/ecosystem/developer-support-hub)
 * Grants
 
 On this page
@@ -85,15 +87,15 @@ The ecosystem grants program is aimed at supporting the growth of Flow ecosystem
 2. Send the proposal to Flow Foundation at [bd@flowfoundation.org](mailto:bd@flowfoundation.org)
 3. Wait for our response for your proposal, our BD team will get back to you as soon as possible.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/grants.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/developer-support-hub/grants.md)
 
-Last updated on **Aug 21, 2025** by **Tang Bo Hao**
+Last updated on **Aug 28, 2025** by **SeanRobb**
 
 [Previous
 
-Faucets](/ecosystem/faucets)[Next
+Builder Perks](/ecosystem/developer-support-hub/builder-perks)[Next
 
-Project Growth](/ecosystem/project-growth)
+VCs & Funds](/ecosystem/developer-support-hub/vcs-and-funds)
 
 ###### Rate this page
 
@@ -136,7 +138,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 

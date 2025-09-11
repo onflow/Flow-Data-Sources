@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/payer
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/send
 
-payer | Flow Developer Portal
+send | Flow Developer Portal
 
 
 
@@ -138,20 +138,17 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
-* payer
+* send
 
 On this page
 
-# payer
+# send
 
-A builder function that adds payer account(s) to a transaction.
+Sends arbitrary scripts, transactions, and requests to Flow.
 
-Every transaction requires at least one payer.
+This method consumes an array of builders that are to be resolved and sent. The builders required to be included in the array depend on the interaction that is being built.
 
-The payer is the account that pays the transaction fee for executing the transaction on the network.
-The payer account must have sufficient Flow tokens to cover the transaction fees.
-
-Read more about [transaction roles](https://docs.onflow.org/concepts/transaction-signing/#payer) and [transaction fees](https://docs.onflow.org/concepts/fees/).
+WARNING: Must be used in conjunction with 'fcl.decode(response)' to get back correct keys and all values in JSON.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -159,225 +156,133 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as fcl from '@onflow/fcl';
+import * as fcl from "@onflow/fcl"
 
 _10
 
 _10
 
-fcl.payer(ax);`
+fcl.send(args, opts)`
 
 Or import directly the specific function:
 
 `_10
 
-import { payer } from '@onflow/fcl';
+import { send } from "@onflow/fcl"
 
 _10
 
 _10
 
-payer(ax);`
+send(args, opts)`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`` _39
+`` _18
 
-import * as fcl from '@onflow/fcl';
+import * as fcl from "@onflow/fcl";
 
-_39
+_18
 
-_39
+_18
 
-// Using current user as payer (most common case)
+// a script only needs to resolve the arguments to the script
 
-_39
+_18
 
-await fcl.mutate({
+const response = await fcl.send([fcl.script`${script}`, fcl.args(args)]);
 
-_39
+_18
 
-cadence: `
+// note: response values are encoded, call await fcl.decode(response) to get JSON
 
-_39
+_18
 
-transaction {
+_18
 
-_39
+// a transaction requires multiple 'builders' that need to be resolved prior to being sent to the chain - such as setting the authorizations.
 
-prepare(acct: AuthAccount) {
+_18
 
-_39
+const response = await fcl.send([
 
-log("Transaction fees paid by: ".concat(acct.address.toString()))
-
-_39
-
-}
-
-_39
-
-}
-
-_39
-
-`,
-
-_39
-
-payer: fcl.authz, // Current user as payer
-
-_39
-
-});
-
-_39
-
-_39
-
-// Using custom payer with builder pattern
-
-_39
-
-await fcl.send([
-
-_39
+_18
 
 fcl.transaction`
 
-_39
+_18
 
-transaction {
+${transaction}
 
-_39
-
-prepare(acct: AuthAccount) {
-
-_39
-
-// Transaction logic
-
-_39
-
-}
-
-_39
-
-}
-
-_39
+_18
 
 `,
 
-_39
+_18
 
-fcl.proposer(fcl.authz), // Current user as proposer
+fcl.args(args),
 
-_39
+_18
 
-fcl.authorizations([fcl.authz]), // Current user as authorizer
+fcl.proposer(proposer),
 
-_39
+_18
 
-fcl.payer(customPayerAuthz), // Custom payer pays fees
+fcl.authorizations(authorizations),
 
-_39
+_18
+
+fcl.payer(payer),
+
+_18
+
+fcl.limit(9999)
+
+_18
 
 ]);
 
-_39
+_18
 
-_39
-
-// Multiple payers (advanced use case)
-
-_39
-
-await fcl.send([
-
-_39
-
-fcl.transaction`
-
-_39
-
-transaction {
-
-_39
-
-prepare(acct: AuthAccount) {
-
-_39
-
-// Transaction logic
-
-_39
-
-}
-
-_39
-
-}
-
-_39
-
-`,
-
-_39
-
-fcl.payer([payerAuthz1, payerAuthz2]), // Multiple payers split fees
-
-_39
-
-]); ``
+// note: response contains several values ``
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `ax` (optional)[​](#ax-optional "Direct link to ax-optional")
+### `args` (optional)[​](#args-optional "Direct link to args-optional")
 
 * Type:
 
 `_10
 
-export type AccountAuthorization =
+false | InteractionBuilderFn | (false | InteractionBuilderFn)[]`
 
-_10
+* Description: An array of builders (functions that take an interaction object and return a new interaction object)
 
-| (AuthorizationFn & Partial<InteractionAccount>)
+### `opts` (optional)[​](#opts-optional "Direct link to opts-optional")
 
-_10
+* Type: `any`
+* Description: Additional optional options for the request
 
-| Partial<InteractionAccount>;`
+#### Properties:[​](#properties "Direct link to Properties:")
 
-* Description: An account address or an array of account addresses
+* **`node`** - Custom node endpoint to use for this request
+* **`resolve`** - Custom resolve function to use for processing the interaction
 
 ## Returns[​](#returns "Direct link to Returns")
 
-`_10
-
-export type InteractionBuilderFn = (
-
-_10
-
-ix: Interaction,
-
-_10
-
-) => Interaction | Promise<Interaction>;`
-
-A function that takes an interaction object and returns a new interaction object with the payer(s) added
+`Promise<any>`
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/payer.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/send.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-params](/build/tools/clients/fcl-js/packages-docs/fcl/params)[Next
+script](/build/tools/clients/fcl-js/packages-docs/fcl/script)[Next
 
-ping](/build/tools/clients/fcl-js/packages-docs/fcl/ping)
+serialize](/build/tools/clients/fcl-js/packages-docs/fcl/serialize)
 
 ###### Rate this page
 
@@ -388,7 +293,8 @@ Copy as Markdown
 * [Import](#import)
 * [Usage](#usage)
 * [Parameters](#parameters)
-  + [`ax` (optional)](#ax-optional)
+  + [`args` (optional)](#args-optional)
+  + [`opts` (optional)](#opts-optional)
 * [Returns](#returns)
 
 Documentation

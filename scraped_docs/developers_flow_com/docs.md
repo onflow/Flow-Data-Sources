@@ -14,7 +14,7 @@ Search
 
 # Better apps deserve better blockchains
 
-**Cadence** for whats next. **Solidity** for what you've got. On Flow, both run natively with no tricks and no rewrites. **Build the next killer app.**.
+**Cadence** for whats next. **Solidity** for what you've got. On Flow, both run natively with no tricks and no rewrites. **Build the next killer app**.
 
 [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)Start with Cadence
 
@@ -22,35 +22,133 @@ Search
 
 A purpose-build smart contract language for apps that do more than token movement.
 
-[Why Flow?](/build/flow)[Query state and run transactions](https://run.dnz.dev/)[Build quickly & securely with Cadence](https://cadence-lang.org)
+[![why-flow](/images/icons/why-flow.svg)
+
+Why Flow?](/build/flow)[![hello-world](/images/icons/hello-world.svg)
+
+Query state and run transactions](https://run.dnz.dev/)[![flow-cadence](/images/icons/flow-cadence.svg)
+
+Build quickly & securely with Cadence](https://cadence-lang.org)
 
 ### Solidity
 
 EVM equivalence with seamless composability and interoperability with Cadence.
 
-[Simply run with EVM equivalence](/build/evm/about)[Integrate native VRF in 3 lines](../blockchain-development-tutorials/native-vrf/vrf-in-solidity)[Native batched transactions](../blockchain-development-tutorials/cross-vm-apps)
+[![evm-on-flow](/images/icons/evm-on-flow.svg)
+
+Simply run with EVM equivalence](/build/evm/quickstart)[![random](/images/icons/random.svg)
+
+Integrate native VRF in 3 lines](../blockchain-development-tutorials/native-vrf/vrf-in-solidity)[![batched-evm-transactions](/images/icons/batched-evm-transactions.svg)
+
+Native batched transactions](../blockchain-development-tutorials/cross-vm-apps)
 
 ### Tools
 
 Best in class tools powering best in class applications builders.
 
-[Build apps fast](/tools/react-sdk)[Import and compose with contracts](/tools/flow-cli/dependency-manager)[Get 100k testnet $FLOW](https://faucet.flow.com/fund-account)
+[![flow-client-library](/images/icons/flow-client-library.svg)
+
+Build apps fast](/tools/react-sdk)[![tools](/images/icons/flow-tools.svg)
+
+Import and compose with contracts](/tools/flow-cli/dependency-manager)[![faucet](/images/icons/Faucet.svg)
+
+Get 100k testnet $FLOW](https://faucet.flow.com/fund-account)
 
 ## Try it live
 
 Flow token account balanceAccount storage limit and usageOnchain counter current countBalance of custom tokenNBA Top Shot and NFL All Day
 
+![Flow](/images/logos/flow-runner-flow-icon.svg)
+
+**Open**
+
+**Run
+
+**Share
+
+**Download
+
+**Settings
+
+**
+
+Flow token account balance
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+11
+
+12
+
+13
+
+import FungibleToken from 0xf233dcee88fe0abe
+
+// Returns the balance of the stored Vault at
+
+// the given address if exists, otherwise nil
+
+// Run this with this address: 0xfeb88a0fcc175a3d
+
+access(all) fun main(address: Address): UFix64? {
+
+let path = StoragePath(identifier: "flowTokenVault")
+
+return getAuthAccount<auth(BorrowValue) &Account>(address).storage.borrow<{FungibleToken.Vault}>(
+
+from: path!
+
+)?.balance ?? nil
+
+}
+
+Hover to load interactive examples
+
+**0 Errors
+
+**Environment: Flow Mainnet****
+
+![grow](/images/icons/flow-grow.svg)
+
 ## Builder toolkit to start, grow, and win
 
-[### Builder Perks
+[![builder-credits](/images/icons/builder-credits.svg)
 
-Access thousands of dollars worth of Builder perks for building on Flow!](/ecosystem/builder-perks)[### Dev Office Hours
+### Builder Perks
 
-Join our weekly developer office hours to get direct support from the Flow team and connect with other builders.](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)[### Grants
+Access thousands of dollars worth of Builder perks for building on Flow!](/ecosystem/builder-perks)[![dev-office-hours](/images/icons/dev-office-hours.svg)
 
-Discover grant opportunities available to developers and teams building on Flow.](/ecosystem/grants)[### Startup Support
+### Dev Office Hours
 
-Get comprehensive support including technical guidance, marketing resources, and ecosystem connections.](/growth)[### VCs & Funds
+Join our weekly developer office hours to get direct support from the Flow team and connect with other builders.](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)[![grants](/images/icons/flow-grants.svg)
+
+### Grants
+
+Discover grant opportunities available to developers and teams building on Flow.](/ecosystem/grants)[![startup-support](/images/icons/startup-support.svg)
+
+### Startup Support
+
+Get comprehensive support including technical guidance, marketing resources, and ecosystem connections.](/growth)[![vcs-&-funds](/images/icons/vcs-&-funds.svg)
+
+### VCs & Funds
 
 Connect with venture capital firms and investment funds actively supporting Flow projects.](/ecosystem/vcs-and-funds)
 
@@ -71,11 +169,10 @@ Connect with venture capital firms and investment funds actively supporting Flow
 
 ### EVM
 
-* [Why EVM on Flow](/build/evm/about)
+* [EVM Quickstart](/evm/quickstart)
 * [How it Works](/evm/how-it-works)
 * [Using Flow EVM](/evm/using)
 * [Network Information](/evm/networks)
-* [EVM Quickstart](/evm/quickstart)
 * [Fees](/evm/fees)
 * [Accounts](/evm/accounts)
 * [Cross-chain Bridges](/ecosystem/bridges)
@@ -164,7 +261,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 

@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/payer
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/isOk
 
-payer | Flow Developer Portal
+isOk | Flow Developer Portal
 
 
 
@@ -138,20 +138,13 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
-* payer
+* isOk
 
 On this page
 
-# payer
+# isOk
 
-A builder function that adds payer account(s) to a transaction.
-
-Every transaction requires at least one payer.
-
-The payer is the account that pays the transaction fee for executing the transaction on the network.
-The payer account must have sufficient Flow tokens to cover the transaction fees.
-
-Read more about [transaction roles](https://docs.onflow.org/concepts/transaction-signing/#payer) and [transaction fees](https://docs.onflow.org/concepts/fees/).
+Checks if an interaction has a successful status.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -159,225 +152,100 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as fcl from '@onflow/fcl';
+import * as fcl from "@onflow/fcl"
 
 _10
 
 _10
 
-fcl.payer(ax);`
+fcl.isOk(ix)`
 
 Or import directly the specific function:
 
 `_10
 
-import { payer } from '@onflow/fcl';
+import { isOk } from "@onflow/fcl"
 
 _10
 
 _10
 
-payer(ax);`
+isOk(ix)`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`` _39
+`` _13
 
-import * as fcl from '@onflow/fcl';
+import * as fcl from "@onflow/fcl";
 
-_39
+_13
 
-_39
+import { isOk } from "@onflow/sdk"
 
-// Using current user as payer (most common case)
+_13
 
-_39
+_13
 
-await fcl.mutate({
+// Check if a transaction was successful
 
-_39
+_13
 
-cadence: `
+const response = await fcl.send([
 
-_39
+_13
 
-transaction {
+fcl.transaction`transaction { prepare(account: AuthAccount) {} }`
 
-_39
-
-prepare(acct: AuthAccount) {
-
-_39
-
-log("Transaction fees paid by: ".concat(acct.address.toString()))
-
-_39
-
-}
-
-_39
-
-}
-
-_39
-
-`,
-
-_39
-
-payer: fcl.authz, // Current user as payer
-
-_39
-
-});
-
-_39
-
-_39
-
-// Using custom payer with builder pattern
-
-_39
-
-await fcl.send([
-
-_39
-
-fcl.transaction`
-
-_39
-
-transaction {
-
-_39
-
-prepare(acct: AuthAccount) {
-
-_39
-
-// Transaction logic
-
-_39
-
-}
-
-_39
-
-}
-
-_39
-
-`,
-
-_39
-
-fcl.proposer(fcl.authz), // Current user as proposer
-
-_39
-
-fcl.authorizations([fcl.authz]), // Current user as authorizer
-
-_39
-
-fcl.payer(customPayerAuthz), // Custom payer pays fees
-
-_39
+_13
 
 ]);
 
-_39
+_13
 
-_39
+_13
 
-// Multiple payers (advanced use case)
+if (isOk(response)) {
 
-_39
+_13
 
-await fcl.send([
+console.log("Transaction was successful");
 
-_39
+_13
 
-fcl.transaction`
+} else {
 
-_39
+_13
 
-transaction {
+console.log("Transaction failed");
 
-_39
+_13
 
-prepare(acct: AuthAccount) {
-
-_39
-
-// Transaction logic
-
-_39
-
-}
-
-_39
-
-}
-
-_39
-
-`,
-
-_39
-
-fcl.payer([payerAuthz1, payerAuthz2]), // Multiple payers split fees
-
-_39
-
-]); ``
+} ``
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `ax` (optional)[​](#ax-optional "Direct link to ax-optional")
+### `ix`[​](#ix "Direct link to ix")
 
-* Type:
-
-`_10
-
-export type AccountAuthorization =
-
-_10
-
-| (AuthorizationFn & Partial<InteractionAccount>)
-
-_10
-
-| Partial<InteractionAccount>;`
-
-* Description: An account address or an array of account addresses
+* Type: [`Interaction`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
+* Description: The interaction to check
 
 ## Returns[​](#returns "Direct link to Returns")
 
-`_10
+`boolean`
 
-export type InteractionBuilderFn = (
-
-_10
-
-ix: Interaction,
-
-_10
-
-) => Interaction | Promise<Interaction>;`
-
-A function that takes an interaction object and returns a new interaction object with the payer(s) added
+True if the interaction status is OK, false otherwise
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/payer.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/isOk.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-params](/build/tools/clients/fcl-js/packages-docs/fcl/params)[Next
+isBad](/build/tools/clients/fcl-js/packages-docs/fcl/isBad)[Next
 
-ping](/build/tools/clients/fcl-js/packages-docs/fcl/ping)
+limit](/build/tools/clients/fcl-js/packages-docs/fcl/limit)
 
 ###### Rate this page
 
@@ -388,7 +256,7 @@ Copy as Markdown
 * [Import](#import)
 * [Usage](#usage)
 * [Parameters](#parameters)
-  + [`ax` (optional)](#ax-optional)
+  + [`ix`](#ix)
 * [Returns](#returns)
 
 Documentation

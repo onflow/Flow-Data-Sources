@@ -115,4 +115,4 @@ Create a Multi-Backup on Flow Wallet iOS and Android
 
 [PreviousFlow Reference Wallet Primer](/ecosystem-primers/flow-reference-wallet-primer)[NextAccount Linking](/features/account-linking)
 
-Last updated 12 months ago
+Last updated 1 year ago
