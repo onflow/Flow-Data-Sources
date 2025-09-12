@@ -180,4 +180,4 @@ If you encounter any issues or have further questions, please reach out to our s
 
 [PreviousMobile Wallet Backup Guide](/tutorial/mobile-wallet-backup-guide)[NextMobile Wallet Restore Guide](/tutorial/mobile-wallet-restore-guide)
 
-Last updated 10 months ago
+Last updated 11 months ago

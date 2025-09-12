@@ -18,7 +18,7 @@ Search
 * [Tutorial](/docs/tutorial/first-steps)
 * [Language Reference](/docs/language/)
 
-  + [Syntax](/docs/language/syntax)
+  + [Syntax and Glossary](/docs/language/syntax)
   + [Constants and Variable Declarations](/docs/language/constants-and-variables)
   + [Values and Types](/docs/language/values-and-types/)
   + [Types and Type System](/docs/language/types-and-type-system/)
@@ -44,7 +44,6 @@ Search
   + [Core Events](/docs/language/core-events)
   + [Environment Information](/docs/language/environment-information)
   + [Crypto](/docs/language/crypto)
-  + [Glossary](/docs/language/glossary)
 * [Cadence 1.0 Migration Guide](/docs/cadence-migration-guide/)
 * [Design Patterns](/docs/design-patterns)
 * [Anti-Patterns](/docs/anti-patterns)
@@ -96,7 +95,7 @@ In real Cadence code, all type definitions and code must be declared and contain
 
 Voting Contract](/docs/tutorial/voting)[Next
 
-Syntax](/docs/language/syntax)
+Syntax and Glossary](/docs/language/syntax)
 
 ###### Rate this page
 

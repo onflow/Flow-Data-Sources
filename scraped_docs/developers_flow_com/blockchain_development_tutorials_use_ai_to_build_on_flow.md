@@ -50,6 +50,12 @@ In this tutorial series, you'll discover how to:
 
 # AI Tutorials for Flow
 
+## Using Claude Code with Flow[​](#using-claude-code-with-flow "Direct link to Using Claude Code with Flow")
+
+Master systematic AI-powered Flow development with Claude Code, a terminal-integrated coding assistant designed for iterative blockchain development. This comprehensive guide teaches you to implement a four-stage development methodology (Idea → Visualization → Planning → Build) while leveraging unlimited context windows, subagent capabilities, and persistent project memory. Learn to configure CLAUDE.md files for Flow-specific instructions, integrate MCP servers for blockchain interactions, and implement checkpoint-based workflows that ensure reliable smart contract development from emulator to mainnet deployment.
+
+Tutorial: [Claude Code for Flow Development](/blockchain-development-tutorials/use-AI-to-build-on-flow/llms/claude-code)
+
 ## Using Cursor with Flow[​](#using-cursor-with-flow "Direct link to Using Cursor with Flow")
 
 This guide details how you can set up the Cursor AI code editor with custom Flow knowledge bases, transforming it into a specialized assistant for building powerful applications on the Flow network. By providing the AI with direct access to the official Flow documentation, Cadence language references, and best-practice examples, you unlock a new tier of intelligent assistance that goes far beyond simple autocompletion
@@ -117,7 +123,7 @@ Flow is the ideal platform for AI-enhanced blockchain development. The combinati
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/index.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Sep 10, 2025** by **0xLisanAlGaib**
 
 [Previous
 
@@ -132,6 +138,7 @@ Large Language Models (LLMs)](/blockchain-development-tutorials/use-AI-to-build-
 Copy as Markdown
 
 * [What You'll Learn](#what-youll-learn)
+* [Using Claude Code with Flow](#using-claude-code-with-flow)
 * [Using Cursor with Flow](#using-cursor-with-flow)
 * [Using Chat GPT with Flow](#using-chat-gpt-with-flow)
 * [Data Sources](#data-sources)

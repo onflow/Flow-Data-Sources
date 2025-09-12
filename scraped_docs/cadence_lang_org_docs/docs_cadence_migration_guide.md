@@ -62,7 +62,7 @@ In addition to changes to the Cadence programming language, the Cadence token st
 
 [Previous
 
-Glossary](/docs/language/glossary)[Next
+Crypto](/docs/language/crypto)[Next
 
 Improvements & New Features](/docs/cadence-migration-guide/improvements)
 
