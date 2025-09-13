@@ -23,7 +23,7 @@ Search
 * [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
 * [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
 
-  + [Sponsor Transactions RPC Node](/blockchain-development-tutorials/gasless-transactions/gas-free-evm-endpoint)
+  + [Sponsored Transactions EVM Endpoint](/blockchain-development-tutorials/gasless-transactions/sponsored-transactions-evm-endpoint)
 * [Third-Party Integrations](/blockchain-development-tutorials/integrations)
 
 * Gasless Transactions
@@ -50,17 +50,17 @@ In this tutorial series, you’ll discover how to:
 
 Learn how to set up a gas free EVM endpoint for your backend. All transactions sent through this endpoint will not be charged gas fees from the sender’s account. Instead, the EVM Gateway’s service account will sponsor the gas, making transactions completely **gasless for end users**.
 
-Tutorial: [Gas Free EVM Endpoint](/blockchain-development-tutorials/gasless-transactions/gas-free-evm-endpoint)
+Tutorial: [Gas Free EVM Endpoint](/blockchain-development-tutorials/gasless-transactions/sponsored-transactions-evm-endpoint)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/gasless-transactions/index.md)
 
-Last updated on **Sep 4, 2025** by **0xLisanAlGaib**
+Last updated on **Sep 12, 2025** by **Vishal**
 
 [Previous
 
 VRF (Randomness) in Solidity](/blockchain-development-tutorials/native-vrf/vrf-in-solidity)[Next
 
-Sponsor Transactions RPC Node](/blockchain-development-tutorials/gasless-transactions/gas-free-evm-endpoint)
+Sponsored Transactions EVM Endpoint](/blockchain-development-tutorials/gasless-transactions/sponsored-transactions-evm-endpoint)
 
 ###### Rate this page
 
@@ -108,7 +108,6 @@ Network
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/protocol/node-ops)
 * [Spork Information](/protocol/node-ops/node-operation/spork)
 

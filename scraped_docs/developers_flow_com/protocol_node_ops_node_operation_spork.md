@@ -37,7 +37,6 @@ Search
     - [Node Setup](/protocol/node-ops/node-operation/node-setup)
     - [Past Network Upgrades](/protocol/node-ops/node-operation/past-upgrades)
     - [Network Upgrade (Spork) Process](/protocol/node-ops/node-operation/spork)
-    - [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
     - [Slashing Conditions](/protocol/node-ops/node-operation/slashing)
     - [Node Providers](/protocol/node-ops/node-operation/node-providers)
     - [Height coordinated upgrade](/protocol/node-ops/node-operation/hcu)
@@ -61,10 +60,9 @@ A spork is a coordinated network upgrade process where node operators upgrade th
 re-initialize with a consolidated representation of the previous spork's state. This enables rapid development
 on the Flow Protocol and minimizes the impact of breaking changes.
 
-The Flow network sporks approximately once every year. Upcoming sporks
-are announced in advance on the `#flow-validators-announcements` **Discord** channel
-and in [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks). The `#flow-validators-announcements` channel is
-also used to coordinate during the spork process.
+The Flow network sporks approximately once every year.
+Upcoming sporks are announced in advance on the `#flow-validators-announcements` [Discord channel](https://discord.gg/flow) and on the [status](https://status.flow.com/) page.
+The `#flow-validators-announcements` channel is also used to coordinate during the spork process with all the node operators.
 
 This guide is for existing operators participating in a spork. See [Node Bootstrap](/protocol/node-ops/node-operation/node-bootstrap)
 for a guide to joining the network for the first time.
@@ -82,22 +80,25 @@ You can skip this step if it is your first time running a node on Flow.
 
 ## Step 2 - Start Your Node[​](#step-2---start-your-node "Direct link to Step 2 - Start Your Node")
 
-Once you receive an announcement that the spork process is complete (via Discord), you will need to fetch the genesis info, update your runtime configuration and then boot your Flow node up!
+Once you receive an announcement that the spork process is complete (via [Discord server](https://discord.gg/flow)), you will need to fetch the genesis info, update your runtime configuration and then boot your Flow node up!
 
 warning
 
 If you had set the [dynamic bootstrap arguments](https://developers.flow.com/protocol/node-ops/node-operation/protocol-state-bootstrap) command line arguments (`--dynamic-startup-access-address`, `--dynamic-startup-access-publickey`, `--dynamic-startup-epoch-phase`) please remove them.
 
 1. Run the transit script to fetch the new genesis info:
-   `./boot-tools/transit pull -b ./bootstrap -t ${PULL_TOKEN} -r ${YOUR_NODE_TYPE} --concurrency 10 --timeout 15m`
+
+   `_10
+
+   ./boot-tools/transit pull -b ./bootstrap -t ${PULL_TOKEN} -r ${YOUR_NODE_TYPE} --concurrency 10 --timeout 50m`
 
 * `PULL_TOKEN` will be provided by the Flow team.
 
-  + For `collection`, `consensus`, `verification` node type it will generally be `testnet-x` or `mainnet-x` where x is the latest number of respective network upgrade. e.g. `testnet-52`, `mainnet-26`.
+  + For `collection`, `consensus`, `verification` node type it will generally be `testnet-x` or `mainnet-x` where x is the latest number of respective network upgrade. e.g. `testnet-53`, `mainnet-27`.
   + For `execution` node type it will generally be `testnet-x-execution` or `mainnet-x-execution`.
   + For `access` node:
     - It will generally be `testnet-x` or `mainnet-x` if execution data indexing is not enabled.
-    - It will generally be `testnet-x-execution` or `mainnet-x-execution` if execution data indexing is enabled.
+    - It will generally be `testnet-x-execution` or `mainnet-x-execution` if execution data indexing is enabled. See [here](/protocol/node-ops/access-nodes/access-node-configuration-options) to enable execution date indexing.
 * `YOUR_NODE_TYPE` should be one of `collection`, `consensus`, `execution`, `verification`, `access` based on the node(s) that you are running.
 
 Example
@@ -176,10 +177,7 @@ _19
 
 └── random-beacon.priv.json.39fa54984b8eaa463e129919464f61c8cec3a4389478df79c44eb9bfbf30799a`
 
-2. Pull the latest changes from [flow-go repository](https://github.com/onflow/flow-go)
-3. Get your `node-id`, you can find it at `/path/to/bootstrap/public-genesis-information/node-id`
-4. Update the `FLOW_GO_NODE_ID` inside [runtime-conf.env](https://github.com/onflow/flow-go/blob/master/deploy/systemd-docker/runtime-conf.env) to the `node-id` that you got from the previous step
-5. Start your Flow node via `docker` or `systemd`
+2. Start your Flow node via `docker` or `systemd`
 
 See [Node Bootstrap](/protocol/node-ops/node-operation/node-bootstrap) for detailed information on Docker/Systemd configuration.
 
@@ -203,13 +201,13 @@ This error is OK. Your fellow node operators have not turned on/joined the netwo
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/protocol/node-ops/node-operation/spork.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Sep 12, 2025** by **Vishal**
 
 [Previous
 
 Past Network Upgrades](/protocol/node-ops/node-operation/past-upgrades)[Next
 
-Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
+Slashing Conditions](/protocol/node-ops/node-operation/slashing)
 
 ###### Rate this page
 
@@ -260,7 +258,6 @@ Network
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/protocol/node-ops)
 * [Spork Information](/protocol/node-ops/node-operation/spork)
 

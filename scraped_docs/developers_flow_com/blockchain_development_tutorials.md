@@ -112,7 +112,7 @@ Tutorials for using Flow's native Verifiable Random Function (VRF) to generate c
 
 Implement gasless transaction patterns on Flow to improve user experience by removing the need for users to hold native tokens for gas fees.
 
-* [Gas-Free EVM Endpoint](/blockchain-development-tutorials/gasless-transactions/gas-free-evm-endpoint) - Use Flow's gas-free EVM endpoint to enable sponsored transactions that remove gas fee barriers for users interacting with EVM smart contracts.
+* [Gas-Free EVM Endpoint](/blockchain-development-tutorials/gasless-transactions/sponsored-transactions-evm-endpoint) - Use Flow's gas-free EVM endpoint to enable sponsored transactions that remove gas fee barriers for users interacting with EVM smart contracts.
 
 ## [Use AI to Build on the Flow Blockchain](/blockchain-development-tutorials/use-AI-to-build-on-flow)[​](#use-ai-to-build-on-the-flow-blockchain "Direct link to use-ai-to-build-on-the-flow-blockchain")
 
@@ -150,7 +150,7 @@ Flow will continue to provide quality walkthroughs and tutorials to provide deve
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/index.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Sep 12, 2025** by **Vishal**
 
 [Next
 
@@ -211,7 +211,6 @@ Network
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/protocol/node-ops)
 * [Spork Information](/protocol/node-ops/node-operation/spork)
 

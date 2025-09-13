@@ -57,7 +57,7 @@ Last updated on **Aug 26, 2025** by **Felipe Cevallos**
 
 [Previous
 
-Sponsor Transactions RPC Node](/blockchain-development-tutorials/gasless-transactions/gas-free-evm-endpoint)[Next
+Sponsored Transactions EVM Endpoint](/blockchain-development-tutorials/gasless-transactions/sponsored-transactions-evm-endpoint)[Next
 
 Gelato Smart Wallet](/blockchain-development-tutorials/integrations/gelato-sw)
 
@@ -109,7 +109,6 @@ Network
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/protocol/node-ops)
 * [Spork Information](/protocol/node-ops/node-operation/spork)
 

@@ -37,7 +37,6 @@ Search
     - [Node Setup](/protocol/node-ops/node-operation/node-setup)
     - [Past Network Upgrades](/protocol/node-ops/node-operation/past-upgrades)
     - [Network Upgrade (Spork) Process](/protocol/node-ops/node-operation/spork)
-    - [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
     - [Slashing Conditions](/protocol/node-ops/node-operation/slashing)
     - [Node Providers](/protocol/node-ops/node-operation/node-providers)
     - [Height coordinated upgrade](/protocol/node-ops/node-operation/hcu)
@@ -61,11 +60,11 @@ Anyone can run an [observer node](/protocol/node-ops/light-nodes/observer-node).
 
 Anyone can run an Access Node after registering and staking. See [Access Node Setup](/protocol/node-ops/access-nodes/access-node-setup) for detailed instructions.
 
-For the other node roles, individuals can go through an application process that involves asking about their background and experience contributing to decentralized projects. To pursue an application, please visit [the Flow website here to apply](https://www.flow.com/node-validators).
+For the other node roles, individuals can go through an application process that involves asking about their background and experience contributing to decentralized projects. To pursue an application, please create an issue [here](https://github.com/onflow/flow-validator).
 
-Pending approval, new node operators will be onboarded and invited to join a webinar to meet the team and share more about how they’ll grow the community. Node Operators are invited to join and participate in Flow's Node Validator Discord channel for setup questions and network announcements.
+Pending approval from the governance committee, new node operators will be onboarded and invited to join a webinar to meet the team and share more about how they’ll grow the community. Node Operators are invited to join and participate in Flow's Node Validator Discord channel for setup questions and network announcements.
 
-In the long-term, anyone can run a node validator on Flow.
+In the future, running a validator node on Flow will be permissionless. See the [autonomy roadmap](https://flow.com/protocol-autonomy-roadmap) for details.
 
 ### How do I generate keys?[​](#how-do-i-generate-keys "Direct link to How do I generate keys?")
 
@@ -85,14 +84,18 @@ See [Staking & Epochs](/protocol/staking#epochs) for general information and [No
 All staked nodes except access nodes, have to be online at all time. A staked node, other than an access node, which is not online can cause severe degradation of network performance and will be subjected to slashing of rewards.
 A way to prevent this is to check your equipment meets Flow's [recommended requirements](/protocol/node-ops/node-operation/node-provisioning#hardware-requirements), periodically checking for updates and announcements in Discord but also using a node monitoring system for when your node does go offline.
 
-### Does Flow has a regular schedule for Sporks?[​](#does-flow-has-a-regular-schedule-for-sporks "Direct link to Does Flow has a regular schedule for Sporks?")
+### Does Flow has a regular schedule for network upgrades?[​](#does-flow-has-a-regular-schedule-for-network-upgrades "Direct link to Does Flow has a regular schedule for network upgrades?")
 
-Yes, see [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks) for the latest schedule. Currently, Flow has a Mainnet Spork and a Testnet Spork roughly every two months.
+Network upgrades (also referred to as "sporks") occur once every year. These are large-scale upgrades that require all node operators to upgrade software versions.
 
-### How do I update the Node Software?[​](#how-do-i-update-the-node-software "Direct link to How do I update the Node Software?")
+Between network upgrades, there are also Height Coordinated Upgrades (HCU) which occur approximately once every two months. These are targeted upgrades for the transaction execution environment and require only Execution Nodes and Verification Nodes to upgrade software versions.
 
-One of the reasons for a [spork](/protocol/node-ops/node-operation/spork) is to make sure all nodes update to the latest software version. Hence, you should have the latest software update as long as you are participating in each spork.
-However, if we do release any software update in between a Spork (e.g. an emergency patch) we will announce it on Discord.
+Upcoming sporks are announced in advance on the `#flow-validators-announcements` [Discord channel](https://discord.gg/flow) and on the [status](https://status.flow.com/) page.
+The `#flow-validators-announcements` channel is also used to coordinate during the spork process with all the node operators.
+
+### How do I update the node software during a network upgrade?[​](#how-do-i-update-the-node-software-during-a-network-upgrade "Direct link to How do I update the node software during a network upgrade?")
+
+The new software version for a spork will be published in advance on [GitHub](https://github.com/onflow/flow-go/releases) and announced in the `#flow-validators-announcements` [Discord channel](https://discord.gg/flow).
 
 ### Is there any way to know if a node is currently online?[​](#is-there-any-way-to-know-if-a-node-is-currently-online "Direct link to Is there any way to know if a node is currently online?")
 
@@ -100,12 +103,12 @@ To verify if a node is online, please [setup metrics](/protocol/node-ops/node-op
 
 ### Can I migrate a node to a new machine?[​](#can-i-migrate-a-node-to-a-new-machine "Direct link to Can I migrate a node to a new machine?")
 
-Yes, as long as you retain the `boostrap` information which includes the node staking key, networking key, IP address and port from the old node to the new.
+Yes, as long as you retain the `boostrap` information which includes the node staking key, networking key, network address and port from the old node to the new.
 More on this [here](/protocol/node-ops/node-operation/node-migration)
 
 ### Where can I find how many nodes are currently running Flow?[​](#where-can-i-find-how-many-nodes-are-currently-running-flow "Direct link to Where can I find how many nodes are currently running Flow?")
 
-If you are running a node, then you most definitely have this information on your node in the file `<your bootstrap dir>/public-root-information/node-infos.pub.json`. If you are not running a node, you can find this information by using a Cadence script to query the [Staking Smart Contract](/build/cadence/core-contracts/staking-contract-reference) (or check [Flowdiver](https://flowdiver.io/staking/overview))
+If you are running a node, then you most definitely have this information on your node in the file `<your bootstrap dir>/public-root-information/node-infos.pub.json`. If you are not running a node, you can find this information by using a Cadence script to query the [Staking Smart Contract](/build/cadence/core-contracts/staking-contract-reference) or check [flowscan](https://www.flowscan.io/node).
 
 ### Why do I need to update my node's ulimit?[​](#why-do-i-need-to-update-my-nodes-ulimit "Direct link to Why do I need to update my node's ulimit?")
 
@@ -116,7 +119,7 @@ with its peers, preventing it from functioning properly.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/protocol/node-ops/node-operation/faq.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Sep 12, 2025** by **Vishal**
 
 [Previous
 
@@ -135,8 +138,8 @@ Copy as Markdown
 * [How do I check on the status of my node?](#how-do-i-check-on-the-status-of-my-node)
 * [Can I bootstrap and run a node at any time?](#can-i-bootstrap-and-run-a-node-at-any-time)
 * [Would it hurt the network to have a node that constantly spins up and down?](#would-it-hurt-the-network-to-have-a-node-that-constantly-spins-up-and-down)
-* [Does Flow has a regular schedule for Sporks?](#does-flow-has-a-regular-schedule-for-sporks)
-* [How do I update the Node Software?](#how-do-i-update-the-node-software)
+* [Does Flow has a regular schedule for network upgrades?](#does-flow-has-a-regular-schedule-for-network-upgrades)
+* [How do I update the node software during a network upgrade?](#how-do-i-update-the-node-software-during-a-network-upgrade)
 * [Is there any way to know if a node is currently online?](#is-there-any-way-to-know-if-a-node-is-currently-online)
 * [Can I migrate a node to a new machine?](#can-i-migrate-a-node-to-a-new-machine)
 * [Where can I find how many nodes are currently running Flow?](#where-can-i-find-how-many-nodes-are-currently-running-flow)
@@ -179,7 +182,6 @@ Network
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/protocol/node-ops)
 * [Spork Information](/protocol/node-ops/node-operation/spork)
 

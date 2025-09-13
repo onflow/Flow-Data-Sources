@@ -95,4 +95,4 @@ If you encounter any issues or have further questions, please reach out to our s
 
 [PreviousExtension Private Key and Seed Phrase Guide](/tutorial/extension-private-key-and-seed-phrase-guide)[NextWallet Revoke key guide](/wallet-revoke-key-guide)
 
-Last updated 10 months ago
+Last updated 11 months ago

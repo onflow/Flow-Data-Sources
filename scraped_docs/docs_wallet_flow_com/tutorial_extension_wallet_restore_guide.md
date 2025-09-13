@@ -147,4 +147,4 @@ If you encounter any issues or have further questions, please reach out to our s
 
 [PreviousExtension Wallet Backup Guide](/tutorial/extension-wallet-backup-guide)[NextExtension Update Guide](/tutorial/extension-update-guide)
 
-Last updated 10 months ago
+Last updated 11 months ago
