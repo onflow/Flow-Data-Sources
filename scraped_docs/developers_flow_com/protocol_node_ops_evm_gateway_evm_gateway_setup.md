@@ -68,6 +68,10 @@ Alternatively, you can also choose from any of the following providers who provi
 3. [Moralis](https://docs.moralis.com/web3-data-api/evm/chains/flow)
 4. [QuickNode](https://www.quicknode.com/chains/flow)
 
+## Gas Sponsorship[​](#gas-sponsorship "Direct link to Gas Sponsorship")
+
+Custom EVM Gateways can be set up to sponsor all gas for all EVM transactions passed through them. See the tutorial for [Gas Free EVM Endpoint](/blockchain-development-tutorials/gasless-transactions/sponsored-transactions-evm-endpoint) for more details.
+
 ## Hardware specifications[​](#hardware-specifications "Direct link to Hardware specifications")
 
 The EVM Gateway is a lightweight node which runs on commodity hardware and cloud VMs. It can be run on GCP **standard** and AWS **large**
@@ -736,7 +740,7 @@ failure in event subscription at height ${INIT-CADENCE-HEIGHT}, with: recoverabl
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/protocol/node-ops/evm-gateway/evm-gateway-setup.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Sep 12, 2025** by **Vishal**
 
 [Previous
 
@@ -751,6 +755,7 @@ Light Node Setup](/protocol/node-ops/light-nodes/observer-node)
 Copy as Markdown
 
 * [Anyone can run EVM Gateway](#anyone-can-run-evm-gateway)
+* [Gas Sponsorship](#gas-sponsorship)
 * [Hardware specifications](#hardware-specifications)
   + [Google Cloud Platform (GCP) VM Types](#google-cloud-platform-gcp-vm-types)
   + [Amazon Web Services (AWS) EC2 Instance Types](#amazon-web-services-aws-ec2-instance-types)
@@ -808,7 +813,6 @@ Network
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/protocol/node-ops)
 * [Spork Information](/protocol/node-ops/node-operation/spork)
 

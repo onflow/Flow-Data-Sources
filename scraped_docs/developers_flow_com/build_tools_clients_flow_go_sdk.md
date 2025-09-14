@@ -132,7 +132,7 @@ _10
 
 _10
 
-// initialize a gPRC emulator client
+// initialize a gRPC emulator client
 
 _10
 
@@ -3032,7 +3032,7 @@ Notes & best practices
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/flow-go-sdk/index.md)
 
-Last updated on **Sep 8, 2025** by **Jordan Ribbink**
+Last updated on **Sep 10, 2025** by **Pandit Dhamdhere**
 
 [Previous
 
@@ -3112,7 +3112,6 @@ Network
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/protocol/node-ops)
 * [Spork Information](/protocol/node-ops/node-operation/spork)
 
