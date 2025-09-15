@@ -6,41 +6,40 @@ Account Linking (FLIP 72) | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [Why Flow](/build/flow)
-* [Getting Started](/build/getting-started)
-* [Differences vs. EVM](/build/differences-vs-evm)
-* [Flow Protocol](/build/basics/network-architecture)
-* [App Architecture](/build/app-architecture)
-* [Writing and Deploying Smart Contracts](/build/learn-cadence)
-* [Advanced Concepts](/build/advanced-concepts/account-abstraction)
-* [Guides](/build/guides/account-linking)
+* [Blockchain Development Tutorials](/blockchain-development-tutorials)
+* [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)
+* [Flow Actions](/blockchain-development-tutorials/flow-actions)
+* [Token Development and Registration](/blockchain-development-tutorials/tokens)
+* [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
+* [Flow EVM Guides](/blockchain-development-tutorials/evm)
+* [Cadence Tutorials](/blockchain-development-tutorials/cadence)
 
-  + [Account Linking (FLIP 72)](/build/guides/account-linking)
+  + [Account Linking (FLIP 72)](/blockchain-development-tutorials/cadence/account-management)
 
-    - [Building Walletless Applications Using Child Accounts](/build/guides/account-linking/child-accounts)
-    - [Working With Parent Accounts](/build/guides/account-linking/parent-accounts)
-  + [Account Linking With NBA Top Shot](/build/guides/account-linking-with-dapper)
-  + [More Guides](/build/guides/more-guides)
-  + [Creating an NFT Contract](/build/guides/nft)
-  + [Creating a Fungible Token](/build/guides/fungible-token)
-  + [Building on Mobile](/build/guides/mobile/overview)
-* [Core Smart Contracts](/build/core-contracts)
-* [Explore More](/build/explore-more)
+    - [Building Walletless Applications Using Child Accounts](/blockchain-development-tutorials/cadence/account-management/child-accounts)
+    - [Working With Parent Accounts](/blockchain-development-tutorials/cadence/account-management/parent-accounts)
+    - [Account Linking With NBA Top Shot](/blockchain-development-tutorials/cadence/account-management/account-linking-with-dapper)
+    - [More Guides](/blockchain-development-tutorials/cadence/account-management/more-guides)
+  + [Mobile Development on Flow](/blockchain-development-tutorials/cadence/mobile)
+* [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
+* [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
+* [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
+* [Third-Party Integrations](/blockchain-development-tutorials/integrations)
 
-* Guides
+* [Cadence Tutorials](/blockchain-development-tutorials/cadence)
 * Account Linking (FLIP 72)
 
 On this page
 
 # Account Linking
 
-Account linking is a unique Flow concept that enables sharing ownership over [accounts](/build/basics/accounts). In
+Account linking is a unique Flow concept that enables sharing ownership over [accounts](/build/cadence/basics/accounts). In
 order to understand how we can achieve that we must first understand how accounts on Flow are accessed.
 
 Accounts on flow can be accessed in Cadence through two types, `PublicAccount` and `Account`. As the name implies the
@@ -59,7 +58,7 @@ that transactions are signed by the account being accessed. [Account
 entitlements](https://cadence-lang.org/docs/language/accounts/#performing-write-operations) enable for more granular
 access control over the specific parts of the account that can be accessed from within the signed transaction. A
 transaction can list multiple authorizing account it wants to access as part of the `prepare` section of the
-transaction. Read more about transaction signing in the [transaction documentation](/build/basics/transactions).
+transaction. Read more about transaction signing in the [transaction documentation](/build/cadence/basics/transactions).
 
 Since access to the `Account` object enables state change, the idea of account ownership actually translates to the
 ability to access the underlying account. Traditionally, you might consider this the same as having key access on an
@@ -236,7 +235,7 @@ without any delay while still offering a path to self-sovreign ownership.
 Naturally, users may expect to use their account with another application, or otherwise move assets stored in that
 account elsewhere - at minimum from their wallet. When an app initially leverages account linking, the app creates the
 account instead of the user and stores that user's specific state in the app-created account. At a later point, users
-can take ownership of the app account providing they possess a full [Flow account](/build/basics/accounts), typically
+can take ownership of the app account providing they possess a full [Flow account](/build/cadence/basics/accounts), typically
 by installing a wallet app.
 
 Account linking enables users to possess multiple linked child accounts from different apps. Complexities associated
@@ -274,7 +273,7 @@ Creating an `&Account` Capability and sharing it with third-party account effect
 account's private keys.
 
 Because unfiltered account linking can be dangerous, Flow introduces the [`HybridCustody`
-contract](/build/guides/account-linking/parent-accounts) that helps custodial applications regulate access while enabling parent accounts to
+contract](/blockchain-development-tutorials/cadence/account-management/parent-accounts) that helps custodial applications regulate access while enabling parent accounts to
 manage their many child accounts and assets within them.
 
 ## Hybrid Custody and Account Linking[​](#hybrid-custody-and-account-linking "Direct link to Hybrid Custody and Account Linking")
@@ -286,13 +285,13 @@ form they want. Using hybrid custody contracts, the app still maintains control 
    parent accounts via helper contracts (the `CapabilityFactory`, and `CapabilityFilter`)
 2. Share additional capabilities (public or private) with a parent account via a `CapabilityDelegator` resource
 
-Learn more about it in the [Hybrid Custody documentation](/build/guides/account-linking/parent-accounts).
+Learn more about it in the [Hybrid Custody documentation](/blockchain-development-tutorials/cadence/account-management/parent-accounts).
 
 ### Guides[​](#guides "Direct link to Guides")
 
-* [Building Walletless Applications Using Child Accounts](/build/guides/account-linking/child-accounts) covers how apps can leverage Account
+* [Building Walletless Applications Using Child Accounts](/blockchain-development-tutorials/cadence/account-management/child-accounts) covers how apps can leverage Account
   Linking to create a seamless user experience and enable future self-custody.
-* [Working With Parent Accounts](/build/guides/account-linking/parent-accounts) covers features enabled by the core `HybridCustody` contract to
+* [Working With Parent Accounts](/blockchain-development-tutorials/cadence/account-management/parent-accounts) covers features enabled by the core `HybridCustody` contract to
   access child account assets from parent accounts. This is useful for apps like marketplaces or wallets that are
   working with accounts that have potential child accounts.
 
@@ -306,15 +305,15 @@ Learn more about it in the [Hybrid Custody documentation](/build/guides/account-
 * [Starter template](https://github.com/Niftory/niftory-samples/tree/main/walletless-onboarding) for
   [Niftory](https://niftory.com/) Account Linking API.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/guides/account-linking/index.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/account-management/index.md)
 
-Last updated on **May 13, 2025** by **Brian Doyle**
+Last updated on **Aug 26, 2025** by **Felipe Cevallos**
 
 [Previous
 
-Scaling Transactions from a Single Account](/build/advanced-concepts/scaling)[Next
+Cadence Tutorials](/blockchain-development-tutorials/cadence)[Next
 
-Building Walletless Applications Using Child Accounts](/build/guides/account-linking/child-accounts)
+Building Walletless Applications Using Child Accounts](/blockchain-development-tutorials/cadence/account-management/child-accounts)
 
 ###### Rate this page
 
@@ -333,16 +332,16 @@ Copy as Markdown
 
 Documentation
 
-* [Getting Started](/build/getting-started/contract-interaction)
-* [SDK's & Tools](/tools)
+* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/guides/mobile/overview)
-* [FCL](/tools/clients/fcl-js)
-* [Testing](/build/smart-contracts/testing)
-* [CLI](/tools/flow-cli)
-* [Emulator](/tools/emulator)
+* [Mobile](/blockchain-development-tutorials/cadence/mobile)
+* [FCL](/build/tools/clients/fcl-js)
+* [Testing](/build/cadence/smart-contracts/testing)
+* [CLI](/build/tools/flow-cli)
+* [Emulator](/build/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/tools/vscode-extension)
+* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
@@ -359,18 +358,17 @@ Start Building
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/core-contracts)
-* [EVM](/evm/about)
+* [Core Contracts & Standards](/build/cadence/core-contracts)
+* [EVM](/build/evm/quickstart)
 
 Network
 
 * [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
-* [Node Operation](/networks/node-ops)
-* [Spork Information](/networks/node-ops/node-operation/spork)
+* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
+* [Node Operation](/protocol/node-ops)
+* [Spork Information](/protocol/node-ops/node-operation/spork)
 
 More
 
