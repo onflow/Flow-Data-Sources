@@ -12,10 +12,6 @@ from markdownify import markdownify as md
 SITES = [
     # Normal docs sites
     "https://developers.flow.com/",
-    "https://academy.ecdao.org/en/cadence-by-example",
-    "https://academy.ecdao.org/en/snippets",
-    "https://academy.ecdao.org/en/catalog/courses/learn-cadence-beginner",
-    "https://academy.ecdao.org/en/catalog/courses/beginner-dapp",
     "https://cadence-lang.org/docs/",
     "https://docs.wallet.flow.com/",
 
@@ -49,10 +45,8 @@ SITES = [
     "https://github.com/blocto/revv-contracts",
     "https://github.com/bluesign/cadenceUpgrader",
     "https://github.com/crash13override/flovatar",
-    "https://github.com/dapperlabs/nba-smart-contracts",
     "https://github.com/dapperlabs/nfl-smart-contracts",
     "https://github.com/dapperlabs/studio-platform-smart-contracts",
-    "https://github.com/emerald-dao/emerald-academy-v2",
     "https://github.com/emerald-dao/emerald-id",
     "https://github.com/emerald-dao/float",
     "https://github.com/emerald-dao/project-toucans-v2",
@@ -60,7 +54,6 @@ SITES = [
     "https://github.com/onflow/bridged-usdc",
     "https://github.com/onflow/cadence",
     "https://github.com/onflow/cadence-lang.org/",
-    "https://github.com/onflow/flips",
     "https://github.com/onflow/flow-core-contracts/",
     "https://github.com/onflow/flow-evm-bridge",
     "https://github.com/onflow/flow-ft/",
