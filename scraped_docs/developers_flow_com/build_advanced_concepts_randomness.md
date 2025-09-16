@@ -1,34 +1,48 @@
 # Source: https://developers.flow.com/build/advanced-concepts/randomness
 
-Flow On-chain Randomness in Cadence | Flow Developer Portal
+Flow Onchain Randomness in Cadence | Flow Developer Portal
 
 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
 * [Why Flow](/build/flow)
-* [Getting Started](/build/getting-started)
-* [Differences vs. EVM](/build/differences-vs-evm)
-* [Flow Protocol](/build/basics/network-architecture)
-* [App Architecture](/build/app-architecture)
-* [Writing and Deploying Smart Contracts](/build/learn-cadence)
-* [Advanced Concepts](/build/advanced-concepts/account-abstraction)
+* [Cadence](/build/cadence/getting-started)
 
-  + [Build Faster with Flow’s Native Account Abstraction](/build/advanced-concepts/account-abstraction)
-  + [FLIX (Flow Interaction Templates)](/build/advanced-concepts/flix)
-  + [NFT Metadata Views](/build/advanced-concepts/metadata-views)
-  + [VRF (Randomness) in Cadence](/build/advanced-concepts/randomness)
-  + [Scaling Transactions from a Single Account](/build/advanced-concepts/scaling)
-* [Guides](/build/guides/account-linking)
-* [Core Smart Contracts](/build/core-contracts)
-* [Explore More](/build/explore-more)
+  + [Getting Started](/build/cadence/getting-started)
+  + [Differences vs. EVM](/build/cadence/differences-vs-evm)
+  + [Flow Protocol](/build/cadence/basics/network-architecture)
+  + [App Architecture](/build/cadence/app-architecture)
+  + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
+  + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
 
+    - [Build Faster with Flow’s Native Account Abstraction](/build/cadence/advanced-concepts/account-abstraction)
+    - [FLIX (Flow Interaction Templates)](/build/cadence/advanced-concepts/flix)
+    - [NFT Metadata Views](/build/cadence/advanced-concepts/metadata-views)
+    - [VRF (Randomness) in Cadence](/build/cadence/advanced-concepts/randomness)
+    - [Scaling Transactions from a Single Account](/build/cadence/advanced-concepts/scaling)
+  + [Core Smart Contracts](/build/cadence/core-contracts)
+  + [Explore More](/build/cadence/explore-more)
+* [Solidity (EVM)](/build/evm/quickstart)
+
+  + [EVM Quickstart](/build/evm/quickstart)
+  + [How it Works](/build/evm/how-it-works)
+  + [Using Flow EVM](/build/evm/using)
+  + [Network Information](/build/evm/networks)
+  + [Fees](/build/evm/fees)
+  + [Accounts](/build/evm/accounts)
+  + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
+  + [Faucets ↙](/evm/faucets)
+  + [Block Explorers ↙](/evm/block-explorers)
+* [Tools & SDKs](/build/tools)
+
+* Cadence
 * Advanced Concepts
 * VRF (Randomness) in Cadence
 
@@ -127,13 +141,13 @@ Although the user (or the honest coin toss contract) cannot predict or bias the 
 
 ## Commit-Reveal Scheme[​](#commit-reveal-scheme "Direct link to Commit-Reveal Scheme")
 
-The recommended way to mitigate the problems above is via a commit-reveal scheme. The scheme involves two steps: commit and reveal. During the commit phase, the user transaction commits to accepting the future output of a smart contract where the last remaining input is an unknown random source. The user transaction does not know the random source at the time of committing. The smart contract stores this commitment on the blockchain. The reveal phase can start as early as the next block, when the committed beacon's source of randomness becomes available. The reveal phase can be executed at any block after that, now that the commitment to a past block is stored on-chain. With a second transaction, the smart contract can be executed to explicitly generate the random outputs.
+The recommended way to mitigate the problems above is via a commit-reveal scheme. The scheme involves two steps: commit and reveal. During the commit phase, the user transaction commits to accepting the future output of a smart contract where the last remaining input is an unknown random source. The user transaction does not know the random source at the time of committing. The smart contract stores this commitment on the blockchain. The reveal phase can start as early as the next block, when the committed beacon's source of randomness becomes available. The reveal phase can be executed at any block after that, now that the commitment to a past block is stored onchain. With a second transaction, the smart contract can be executed to explicitly generate the random outputs.
 
 There are ideas how to further optimize the developer experience in the future. For example, a transaction could delegate part of its gas to an independent transaction it spawns. Conceptually, also this future solution would be a commit-and-reveal scheme, just immediately happening within the same block. Until we eventually get to this next level, developers can implement their own commit-reveal using the tools available to them on Cadence and EVM.
 
 ### Commit-Reveal pattern on Flow[​](#commit-reveal-pattern-on-flow "Direct link to Commit-Reveal pattern on Flow")
 
-[FLIP 123: On-chain Random beacon history for commit-reveal schemes](https://github.com/onflow/flips/blob/main/protocol/20230728-commit-reveal.md#flip-123-on-chain-random-beacon-history-for-commit-reveal-schemes) was introduced to provide a safe pattern to use randomness in transactions so that it's not possible to revert unfavorable randomized transaction results.
+[FLIP 123: Onchain Random beacon history for commit-reveal schemes](https://github.com/onflow/flips/blob/main/protocol/20230728-commit-reveal.md#flip-123-onchain-random-beacon-history-for-commit-reveal-schemes) was introduced to provide a safe pattern to use randomness in transactions so that it's not possible to revert unfavorable randomized transaction results.
 We recommend this approach as a best-practice example for implementing a commit-reveal scheme in Cadence or EVM. The `RandomBeaconHistory` contract provides a convenient archive, where for each past block height (starting Nov 2023) the respective "source of randomness" can be retrieved. The `RandomBeaconHistory` contract is automatically executed by the system at each block to store the next source of randomness. The history table can be used to query the user's committed random source from the past.
 
 info
@@ -375,18 +389,18 @@ If you'd like to dive deeper into onchain randomness on Flow, here's a list of r
 * To learn more about how the randomness beacon works under the hood, see [the forum post](https://forum.flow.com/t/secure-random-number-generator-for-flow-s-smart-contracts/5110).
 * These FLIPs provide a more in-depth technical understanding of recent updates related to randomness:
   + **[FLIP 120: Update unsafeRandom function:](https://github.com/onflow/flips/blob/main/cadence/20230713-random-function.md#flip-120-update-unsaferandom-function)** describes how the beacon provides randoms to `revertibleRandomness`.
-  + **[FLIP 123: On-chain Random beacon history for commit-reveal schemes:](https://github.com/onflow/flips/blob/main/protocol/20230728-commit-reveal.md#flip-123-on-chain-random-beacon-history-for-commit-reveal-schemes)** describes the commit-reveal design and why it is secure.
+  + **[FLIP 123: Onchain Random beacon history for commit-reveal schemes:](https://github.com/onflow/flips/blob/main/protocol/20230728-commit-reveal.md#flip-123-onchain-random-beacon-history-for-commit-reveal-schemes)** describes the commit-reveal design and why it is secure.
 * To see working Cadence and EVM code, explore the [coin toss example on GitHub](https://github.com/onflow/random-coin-toss).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/advanced-concepts/randomness.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/advanced-concepts/randomness.md)
 
-Last updated on **Apr 30, 2025** by **Brian Doyle**
+Last updated on **Aug 22, 2025** by **Brian Doyle**
 
 [Previous
 
-NFT Metadata Views](/build/advanced-concepts/metadata-views)[Next
+NFT Metadata Views](/build/cadence/advanced-concepts/metadata-views)[Next
 
-Scaling Transactions from a Single Account](/build/advanced-concepts/scaling)
+Scaling Transactions from a Single Account](/build/cadence/advanced-concepts/scaling)
 
 ###### Rate this page
 
@@ -405,16 +419,16 @@ Copy as Markdown
 
 Documentation
 
-* [Getting Started](/build/getting-started/contract-interaction)
-* [SDK's & Tools](/tools)
+* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/guides/mobile/overview)
-* [FCL](/tools/clients/fcl-js)
-* [Testing](/build/smart-contracts/testing)
-* [CLI](/tools/flow-cli)
-* [Emulator](/tools/emulator)
+* [Mobile](/blockchain-development-tutorials/cadence/mobile)
+* [FCL](/build/tools/clients/fcl-js)
+* [Testing](/build/cadence/smart-contracts/testing)
+* [CLI](/build/tools/flow-cli)
+* [Emulator](/build/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/tools/vscode-extension)
+* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
@@ -431,18 +445,17 @@ Start Building
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/core-contracts)
-* [EVM](/evm/about)
+* [Core Contracts & Standards](/build/cadence/core-contracts)
+* [EVM](/build/evm/quickstart)
 
 Network
 
 * [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
-* [Node Operation](/networks/node-ops)
-* [Spork Information](/networks/node-ops/node-operation/spork)
+* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
+* [Node Operation](/protocol/node-ops)
+* [Spork Information](/protocol/node-ops/node-operation/spork)
 
 More
 

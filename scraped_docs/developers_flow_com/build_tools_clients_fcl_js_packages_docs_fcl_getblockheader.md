@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/cadence
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/getBlockHeader
 
-cadence | Flow Developer Portal
+getBlockHeader | Flow Developer Portal
 
 
 
@@ -138,13 +138,19 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
-* cadence
+* getBlockHeader
 
 On this page
 
-# cadence
+# getBlockHeader
 
-Creates a template function
+A builder function that returns the interaction to get a block header.
+
+A block header contains metadata about a block without the full transaction details, making it more
+lightweight than fetching the entire block. This is useful when you only need block metadata like
+timestamp, height, parent hash, etc.
+
+Use with 'fcl.atBlockId()' and 'fcl.atBlockHeight()' when building the interaction to get headers for specific blocks.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -152,170 +158,134 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as fcl from "@onflow/fcl"
+import * as fcl from '@onflow/fcl';
 
 _10
 
 _10
 
-fcl.cadence(head, rest)`
+fcl.getBlockHeader(isSealed);`
 
 Or import directly the specific function:
 
 `_10
 
-import { cadence } from "@onflow/fcl"
+import { getBlockHeader } from '@onflow/fcl';
 
 _10
 
 _10
 
-cadence(head, rest)`
+getBlockHeader(isSealed);`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`` _30
+`_20
 
-import { template } from "@onflow/util-template"
+import * as fcl from '@onflow/fcl';
 
-_30
+_20
 
-_30
+_20
 
-// String template
+// Get latest sealed block header
 
-_30
+_20
 
-const simpleTemplate = template("Hello, World!");
+const sealedHeader = await fcl
 
-_30
+_20
 
-console.log(simpleTemplate()); // "Hello, World!"
+.send([fcl.getBlockHeader(true)])
 
-_30
+_20
 
-_30
+.then(fcl.decode);
 
-// Template literal with interpolation
+_20
 
-_30
+_20
 
-const name = "Alice";
+console.log('Block height:', sealedHeader.height);
 
-_30
+_20
 
-const greeting = template`Hello, ${name}!`;
+console.log('Block timestamp:', sealedHeader.timestamp);
 
-_30
+_20
 
-console.log(greeting()); // "Hello, Alice!"
+console.log('Parent block ID:', sealedHeader.parentId);
 
-_30
+_20
 
-_30
+_20
 
-// Cadence script template
+// Get header for specific block
 
-_30
+_20
 
-const cadenceScript = template`
+const blockHeader = await fcl
 
-_30
+_20
 
-access(all) fun main(greeting: String): String {
+.send([fcl.getBlockHeader(), fcl.atBlockHeight(12345)])
 
-_30
+_20
 
-return greeting.concat(", from Flow!")
+.then(fcl.decode);
 
-_30
+_20
 
-}
+_20
 
-_30
+// Get latest finalized block header
 
-`;
+_20
 
-_30
+const finalizedHeader = await fcl
 
-console.log(cadenceScript()); // The Cadence script as a string
+_20
 
-_30
+.send([fcl.getBlockHeader(false)])
 
-_30
+_20
 
-// Used with FCL for dynamic Cadence code
-
-_30
-
-import * as fcl from "@onflow/fcl";
-
-_30
-
-_30
-
-const contractAddress = "0x123456789abcdef0";
-
-_30
-
-const scriptTemplate = fcl.cadence`
-
-_30
-
-import MyContract from ${contractAddress}
-
-_30
-
-_30
-
-access(all) fun main(): String {
-
-_30
-
-return MyContract.getMessage()
-
-_30
-
-}
-
-_30
-
-`; ``
+.then(fcl.decode);`
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `head`[​](#head "Direct link to head")
+### `isSealed` (optional)[​](#issealed-optional "Direct link to issealed-optional")
 
-* Type:
-
-`_10
-
-string | TemplateStringsArray | ((x?: unknown) => string)`
-
-* Description: - A string, template string array, or template function
-
-### `rest` (optional)[​](#rest-optional "Direct link to rest-optional")
-
-* Type: `unknown[]`
-* Description: - The rest of the arguments
+* Type: `boolean`
+* Description: Block finality state, true for sealed blocks, false for finalized blocks, null for latest
 
 ## Returns[​](#returns "Direct link to Returns")
 
-`string`
+`_10
 
-A template function
+export type InteractionBuilderFn = (
+
+_10
+
+ix: Interaction,
+
+_10
+
+) => Interaction | Promise<Interaction>;`
+
+A function that processes an interaction object
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/cadence.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/getBlockHeader.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-build](/build/tools/clients/fcl-js/packages-docs/fcl/build)[Next
+getBlock](/build/tools/clients/fcl-js/packages-docs/fcl/getBlock)[Next
 
-cdc](/build/tools/clients/fcl-js/packages-docs/fcl/cdc)
+getChainId](/build/tools/clients/fcl-js/packages-docs/fcl/getChainId)
 
 ###### Rate this page
 
@@ -326,8 +296,7 @@ Copy as Markdown
 * [Import](#import)
 * [Usage](#usage)
 * [Parameters](#parameters)
-  + [`head`](#head)
-  + [`rest` (optional)](#rest-optional)
+  + [`isSealed` (optional)](#issealed-optional)
 * [Returns](#returns)
 
 Documentation

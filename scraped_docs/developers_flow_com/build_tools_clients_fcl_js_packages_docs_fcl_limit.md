@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/cadence
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/limit
 
-cadence | Flow Developer Portal
+limit | Flow Developer Portal
 
 
 
@@ -138,13 +138,18 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
-* cadence
+* limit
 
 On this page
 
-# cadence
+# limit
 
-Creates a template function
+A utility builder to set the compute limit on a transaction.
+
+The compute limit is the maximum amount of computation that can be performed during transaction execution.
+Setting an appropriate compute limit helps prevent infinite loops and ensures predictable transaction costs.
+
+Read more about [computation cost](https://docs.onflow.org/concepts/fees/#computation-cost) and [transaction fees](https://docs.onflow.org/concepts/fees/).
 
 ## Import[​](#import "Direct link to Import")
 
@@ -152,170 +157,154 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as fcl from "@onflow/fcl"
+import * as fcl from '@onflow/fcl';
 
 _10
 
 _10
 
-fcl.cadence(head, rest)`
+fcl.limit(limit);`
 
 Or import directly the specific function:
 
 `_10
 
-import { cadence } from "@onflow/fcl"
+import { limit } from '@onflow/fcl';
 
 _10
 
 _10
 
-cadence(head, rest)`
+limit(limit);`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`` _30
+`` _24
 
-import { template } from "@onflow/util-template"
+import * as fcl from '@onflow/fcl';
 
-_30
+_24
 
-_30
+_24
 
-// String template
+await fcl.mutate({
 
-_30
+_24
 
-const simpleTemplate = template("Hello, World!");
+cadence: `
 
-_30
+_24
 
-console.log(simpleTemplate()); // "Hello, World!"
+transaction {
 
-_30
+_24
 
-_30
+prepare(account: AuthAccount) {
 
-// Template literal with interpolation
+_24
 
-_30
+// Complex transaction logic here
 
-const name = "Alice";
-
-_30
-
-const greeting = template`Hello, ${name}!`;
-
-_30
-
-console.log(greeting()); // "Hello, Alice!"
-
-_30
-
-_30
-
-// Cadence script template
-
-_30
-
-const cadenceScript = template`
-
-_30
-
-access(all) fun main(greeting: String): String {
-
-_30
-
-return greeting.concat(", from Flow!")
-
-_30
+_24
 
 }
 
-_30
-
-`;
-
-_30
-
-console.log(cadenceScript()); // The Cadence script as a string
-
-_30
-
-_30
-
-// Used with FCL for dynamic Cadence code
-
-_30
-
-import * as fcl from "@onflow/fcl";
-
-_30
-
-_30
-
-const contractAddress = "0x123456789abcdef0";
-
-_30
-
-const scriptTemplate = fcl.cadence`
-
-_30
-
-import MyContract from ${contractAddress}
-
-_30
-
-_30
-
-access(all) fun main(): String {
-
-_30
-
-return MyContract.getMessage()
-
-_30
+_24
 
 }
 
-_30
+_24
 
-`; ``
+`,
+
+_24
+
+limit: 1000, // Set compute limit to 1000
+
+_24
+
+});
+
+_24
+
+_24
+
+// Using builder pattern
+
+_24
+
+await fcl.send([
+
+_24
+
+fcl.transaction`
+
+_24
+
+transaction {
+
+_24
+
+prepare(account: AuthAccount) {
+
+_24
+
+// Transaction logic
+
+_24
+
+}
+
+_24
+
+}
+
+_24
+
+`,
+
+_24
+
+fcl.limit(9999), // Set higher limit for complex operations
+
+_24
+
+]); ``
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `head`[​](#head "Direct link to head")
+### `limit`[​](#limit-1 "Direct link to limit-1")
 
-* Type:
-
-`_10
-
-string | TemplateStringsArray | ((x?: unknown) => string)`
-
-* Description: - A string, template string array, or template function
-
-### `rest` (optional)[​](#rest-optional "Direct link to rest-optional")
-
-* Type: `unknown[]`
-* Description: - The rest of the arguments
+* Type: `number`
+* Description: The maximum amount of computation for the transaction
 
 ## Returns[​](#returns "Direct link to Returns")
 
-`string`
+`_10
 
-A template function
+export type InteractionBuilderFn = (
+
+_10
+
+ix: Interaction,
+
+_10
+
+) => Interaction | Promise<Interaction>;`
+
+A function that processes an interaction object
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/cadence.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/limit.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-build](/build/tools/clients/fcl-js/packages-docs/fcl/build)[Next
+isOk](/build/tools/clients/fcl-js/packages-docs/fcl/isOk)[Next
 
-cdc](/build/tools/clients/fcl-js/packages-docs/fcl/cdc)
+logIn](/build/tools/clients/fcl-js/packages-docs/fcl/logIn)
 
 ###### Rate this page
 
@@ -326,8 +315,7 @@ Copy as Markdown
 * [Import](#import)
 * [Usage](#usage)
 * [Parameters](#parameters)
-  + [`head`](#head)
-  + [`rest` (optional)](#rest-optional)
+  + [`limit`](#limit-1)
 * [Returns](#returns)
 
 Documentation

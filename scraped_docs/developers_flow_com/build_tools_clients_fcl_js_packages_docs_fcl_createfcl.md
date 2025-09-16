@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/cadence
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/createFcl
 
-cadence | Flow Developer Portal
+createFcl | Flow Developer Portal
 
 
 
@@ -138,13 +138,26 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
-* cadence
+* createFcl
 
 On this page
 
-# cadence
+# createFcl
 
-Creates a template function
+Creates a configured FCL (Flow Client Library) instance for web applications.
+This function initializes FCL with web-specific defaults and discovery configuration,
+providing a complete interface for interacting with the Flow blockchain.
+
+The created FCL instance includes all core functionality for:
+
+* User authentication and wallet connections
+* Transaction submission and monitoring
+* Blockchain queries and event subscriptions
+* Configuration management
+* Discovery service integration
+
+This function automatically configures the platform as "web" and uses localStorage
+for session persistence by default, while allowing customization of other parameters.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -158,164 +171,112 @@ _10
 
 _10
 
-fcl.cadence(head, rest)`
+fcl.createFcl(params)`
 
 Or import directly the specific function:
 
 `_10
 
-import { cadence } from "@onflow/fcl"
+import { createFcl } from "@onflow/fcl"
 
 _10
 
 _10
 
-cadence(head, rest)`
+createFcl(params)`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`` _30
+`_12
 
-import { template } from "@onflow/util-template"
+// Basic FCL instance creation
 
-_30
+_12
 
-_30
+import { createFcl } from "@onflow/fcl"
 
-// String template
+_12
 
-_30
+_12
 
-const simpleTemplate = template("Hello, World!");
+const fcl = createFcl({
 
-_30
+_12
 
-console.log(simpleTemplate()); // "Hello, World!"
+accessNodeUrl: "https://rest-testnet.onflow.org",
 
-_30
+_12
 
-_30
+computeLimit: 1000,
 
-// Template literal with interpolation
+_12
 
-_30
+flowNetwork: "testnet"
 
-const name = "Alice";
+_12
 
-_30
+})
 
-const greeting = template`Hello, ${name}!`;
+_12
 
-_30
+_12
 
-console.log(greeting()); // "Hello, Alice!"
+// Use the instance for authentication
 
-_30
+_12
 
-_30
+const user = await fcl.currentUser.authenticate()
 
-// Cadence script template
+_12
 
-_30
-
-const cadenceScript = template`
-
-_30
-
-access(all) fun main(greeting: String): String {
-
-_30
-
-return greeting.concat(", from Flow!")
-
-_30
-
-}
-
-_30
-
-`;
-
-_30
-
-console.log(cadenceScript()); // The Cadence script as a string
-
-_30
-
-_30
-
-// Used with FCL for dynamic Cadence code
-
-_30
-
-import * as fcl from "@onflow/fcl";
-
-_30
-
-_30
-
-const contractAddress = "0x123456789abcdef0";
-
-_30
-
-const scriptTemplate = fcl.cadence`
-
-_30
-
-import MyContract from ${contractAddress}
-
-_30
-
-_30
-
-access(all) fun main(): String {
-
-_30
-
-return MyContract.getMessage()
-
-_30
-
-}
-
-_30
-
-`; ``
+console.log("Authenticated user:", user.addr)`
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `head`[​](#head "Direct link to head")
+### `params`[​](#params "Direct link to params")
 
 * Type:
 
 `_10
 
-string | TemplateStringsArray | ((x?: unknown) => string)`
+WithOptionalProperties<any, "platform" | "storage">`
 
-* Description: - A string, template string array, or template function
+* Description: Configuration parameters for the FCL instance
 
-### `rest` (optional)[​](#rest-optional "Direct link to rest-optional")
+#### Properties:[​](#properties "Direct link to Properties:")
 
-* Type: `unknown[]`
-* Description: - The rest of the arguments
+* **`accessNodeUrl`** - URL of the Flow access node (e.g., "<https://rest-testnet.onflow.org>")
+* **`computeLimit`** - Default compute limit for transactions and queries
+* **`customResolver`** - Optional custom resolver for address replacement
+* **`customDecoders`** - Optional custom decoders for response parsing
+* **`contracts`** - Optional contract address mappings
+* **`discoveryWallet`** - Optional discovery wallet endpoint
+* **`discoveryWalletMethod`** - Optional discovery wallet method
+* **`defaultComputeLimit`** - Optional default compute limit override
+* **`flowNetwork`** - Optional Flow network identifier
+* **`serviceOpenIdScopes`** - Optional OpenID scopes for services
+* **`walletconnectProjectId`** - Optional WalletConnect project ID
+* **`walletconnectDisableNotifications`** - Optional flag to disable WalletConnect notifications
+* **`storage`** - Optional custom storage provider (defaults to localStorage)
+* **`discovery`** - Optional discovery configuration
 
 ## Returns[​](#returns "Direct link to Returns")
 
-`string`
+`any`
 
-A template function
+A fully configured FCL instance with all core methods and services
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/cadence.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/createFcl.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-build](/build/tools/clients/fcl-js/packages-docs/fcl/build)[Next
+config](/build/tools/clients/fcl-js/packages-docs/fcl/config)[Next
 
-cdc](/build/tools/clients/fcl-js/packages-docs/fcl/cdc)
+createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/fcl/createSignableVoucher)
 
 ###### Rate this page
 
@@ -326,8 +287,7 @@ Copy as Markdown
 * [Import](#import)
 * [Usage](#usage)
 * [Parameters](#parameters)
-  + [`head`](#head)
-  + [`rest` (optional)](#rest-optional)
+  + [`params`](#params)
 * [Returns](#returns)
 
 Documentation
