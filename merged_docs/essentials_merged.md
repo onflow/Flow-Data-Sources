@@ -37011,7 +37011,6 @@ Network
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/protocol/node-ops)
 * [Spork Information](/protocol/node-ops/node-operation/spork)
 
@@ -66199,7 +66198,7 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
-# Source: https://developers.flow.com/
+# Source: https://developers.flow.com
 
 Flow Developer Portal
 
@@ -98610,7 +98609,6 @@ Network
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/protocol/node-ops)
 * [Spork Information](/protocol/node-ops/node-operation/spork)
 
@@ -245968,7 +245966,6 @@ Network
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/protocol/node-ops)
 * [Spork Information](/protocol/node-ops/node-operation/spork)
 
@@ -260278,7 +260275,7 @@ On this page
 
 # EVM Quickstart
 
-Flow EVM is an EVM-equivalent blockchain that combines the advantages of Flow, including security, low-cost gas, and native VRF with compatibility with exiting blockchain applications tools, and contracts. If it works on another EVM-equivalent blockchain, it should work on Flow EVM!
+Flow EVM is an EVM-equivalent blockchain that combines the advantages of Flow, including security, low-cost gas, and native VRF with compatibility with existing blockchain applications tools, and contracts. If it works on another EVM-equivalent blockchain, it should work on Flow EVM!
 
 This guide is a self-contained quickstart that will walk you through deploying a contract on Flow EVM testnet with [Hardhat](https://hardhat.org/) and testing it with [testnet Flowscan](https://evm-testnet.flowscan.io/).
 
@@ -260883,7 +260880,7 @@ Ready to unlock the full potential of Flow EVM? Start with our [Batched Transact
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/evm/quickstart.md)
 
-Last updated on **Sep 3, 2025** by **Brian Doyle**
+Last updated on **Sep 15, 2025** by **Pandit Dhamdhere**
 
 [Previous
 
@@ -342445,6 +342442,11 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 Search
 
 * [Ecosystem](/ecosystem)
+* [Developer Support Hub](/ecosystem/developer-support-hub)
+
+  + [Builder Perks](/ecosystem/developer-support-hub/builder-perks)
+  + [Grants](/ecosystem/developer-support-hub/grants)
+  + [VCs & Funds](/ecosystem/developer-support-hub/vcs-and-funds)
 * [Wallets](/ecosystem/wallets)
 * [Flow Block Explorers](/ecosystem/block-explorers)
 * [Data Indexers](/ecosystem/data-indexers)
@@ -342453,15 +342455,12 @@ Search
 * [Bridges](/ecosystem/bridges)
 * [Collectibles & NFTs](/ecosystem/collectibles)
 * [Community Projects](/ecosystem/projects)
-* [Builder Perks](/ecosystem/builder-perks)
-* [VCs & Funds](/ecosystem/vcs-and-funds)
 * [Faucets](/ecosystem/faucets)
-* [Grants](/ecosystem/grants)
-* [Project Growth](/ecosystem/project-growth)
 * [Hackathons and Events](/ecosystem/Hackathons and Events)
 * [Auditors](/ecosystem/auditors)
 * [Ecosystem Overview](/ecosystem/overview)
 
+* [Developer Support Hub](/ecosystem/developer-support-hub)
 * Builder Perks
 
 # Builder Perks
@@ -342492,15 +342491,15 @@ State-of-the-art, developer-first security tools for in-house assurance. Get $20
 
 Get $500+ OFF with 3 months of Uniblock Pro FREE. Access 50 data partners, 100 protocols, and 1500 APIs with enterprise features like load balancing and auto retry.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/builder-perks.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/developer-support-hub/builder-perks.md)
 
-Last updated on **May 8, 2025** by **Ali Serag**
+Last updated on **Aug 28, 2025** by **SeanRobb**
 
 [Previous
 
-Community Projects](/ecosystem/projects)[Next
+Developer Support Hub](/ecosystem/developer-support-hub)[Next
 
-VCs & Funds](/ecosystem/vcs-and-funds)
+Grants](/ecosystem/developer-support-hub/grants)
 
 Documentation
 
@@ -342531,7 +342530,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 
@@ -342539,7 +342538,6 @@ Network
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/protocol/node-ops)
 * [Spork Information](/protocol/node-ops/node-operation/spork)
 
@@ -398617,7 +398615,6 @@ Network
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/protocol/node-ops)
 * [Spork Information](/protocol/node-ops/node-operation/spork)
 
@@ -417817,7 +417814,6 @@ Network
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/protocol/node-ops)
 * [Spork Information](/protocol/node-ops/node-operation/spork)
 
@@ -428581,7 +428577,7 @@ If you encounter any issues or have further questions, please reach out to our s
 
 [PreviousMobile Wallet Restore Guide](/tutorial/mobile-wallet-restore-guide)[NextExtension Wallet Restore Guide](/tutorial/extension-wallet-restore-guide)
 
-Last updated 10 months ago
+Last updated 11 months ago
 
 
 
@@ -428704,12 +428700,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **97fc2ddd0e19f9a7**
+Cloudflare Ray ID: **98046ceb2880e9bd**
 •
 
 Your IP:
 Click to reveal
-20.81.159.2
+57.151.137.213
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 

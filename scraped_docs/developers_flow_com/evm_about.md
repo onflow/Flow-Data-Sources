@@ -43,7 +43,7 @@ On this page
 
 # EVM Quickstart
 
-Flow EVM is an EVM-equivalent blockchain that combines the advantages of Flow, including security, low-cost gas, and native VRF with compatibility with exiting blockchain applications tools, and contracts. If it works on another EVM-equivalent blockchain, it should work on Flow EVM!
+Flow EVM is an EVM-equivalent blockchain that combines the advantages of Flow, including security, low-cost gas, and native VRF with compatibility with existing blockchain applications tools, and contracts. If it works on another EVM-equivalent blockchain, it should work on Flow EVM!
 
 This guide is a self-contained quickstart that will walk you through deploying a contract on Flow EVM testnet with [Hardhat](https://hardhat.org/) and testing it with [testnet Flowscan](https://evm-testnet.flowscan.io/).
 
@@ -648,7 +648,7 @@ Ready to unlock the full potential of Flow EVM? Start with our [Batched Transact
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/evm/quickstart.md)
 
-Last updated on **Sep 3, 2025** by **Brian Doyle**
+Last updated on **Sep 15, 2025** by **Pandit Dhamdhere**
 
 [Previous
 

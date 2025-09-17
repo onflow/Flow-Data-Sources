@@ -13,6 +13,11 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 Search
 
 * [Ecosystem](/ecosystem)
+* [Developer Support Hub](/ecosystem/developer-support-hub)
+
+  + [Builder Perks](/ecosystem/developer-support-hub/builder-perks)
+  + [Grants](/ecosystem/developer-support-hub/grants)
+  + [VCs & Funds](/ecosystem/developer-support-hub/vcs-and-funds)
 * [Wallets](/ecosystem/wallets)
 * [Flow Block Explorers](/ecosystem/block-explorers)
 * [Data Indexers](/ecosystem/data-indexers)
@@ -21,15 +26,12 @@ Search
 * [Bridges](/ecosystem/bridges)
 * [Collectibles & NFTs](/ecosystem/collectibles)
 * [Community Projects](/ecosystem/projects)
-* [Builder Perks](/ecosystem/builder-perks)
-* [VCs & Funds](/ecosystem/vcs-and-funds)
 * [Faucets](/ecosystem/faucets)
-* [Grants](/ecosystem/grants)
-* [Project Growth](/ecosystem/project-growth)
 * [Hackathons and Events](/ecosystem/Hackathons and Events)
 * [Auditors](/ecosystem/auditors)
 * [Ecosystem Overview](/ecosystem/overview)
 
+* [Developer Support Hub](/ecosystem/developer-support-hub)
 * Builder Perks
 
 # Builder Perks
@@ -60,15 +62,15 @@ State-of-the-art, developer-first security tools for in-house assurance. Get $20
 
 Get $500+ OFF with 3 months of Uniblock Pro FREE. Access 50 data partners, 100 protocols, and 1500 APIs with enterprise features like load balancing and auto retry.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/builder-perks.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/developer-support-hub/builder-perks.md)
 
-Last updated on **May 8, 2025** by **Ali Serag**
+Last updated on **Aug 28, 2025** by **SeanRobb**
 
 [Previous
 
-Community Projects](/ecosystem/projects)[Next
+Developer Support Hub](/ecosystem/developer-support-hub)[Next
 
-VCs & Funds](/ecosystem/vcs-and-funds)
+Grants](/ecosystem/developer-support-hub/grants)
 
 Documentation
 
@@ -99,7 +101,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 
@@ -107,7 +109,6 @@ Network
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/protocol/node-ops)
 * [Spork Information](/protocol/node-ops/node-operation/spork)
 
