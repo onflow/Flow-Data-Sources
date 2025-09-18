@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/resolveCadence
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/isBad
 
-resolveCadence | Flow Developer Portal
+isBad | Flow Developer Portal
 
 
 
@@ -141,11 +141,13 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
-* resolveCadence
+* isBad
 
 On this page
 
-# resolveCadence
+# isBad
+
+Checks if an interaction has a failed status.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -159,89 +161,82 @@ _10
 
 _10
 
-sdk.resolveCadence(context)`
+sdk.isBad(ix)`
 
 Or import directly the specific function:
 
 `_10
 
-import { resolveCadence } from "@onflow/sdk"
+import { isBad } from "@onflow/sdk"
 
 _10
 
 _10
 
-resolveCadence(context)`
+isBad(ix)`
+
+## Usage[​](#usage "Direct link to Usage")
+
+`` _10
+
+import * as fcl from "@onflow/fcl";
+
+_10
+
+import { isBad, why } from "@onflow/sdk"
+
+_10
+
+_10
+
+const response = await fcl.send([
+
+_10
+
+fcl.transaction`transaction { prepare(account: AuthAccount) {} }`
+
+_10
+
+]);
+
+_10
+
+_10
+
+if (isBad(response)) {
+
+_10
+
+console.log("Transaction failed:", why(response));
+
+_10
+
+} ``
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `context`[​](#context "Direct link to context")
+### `ix`[​](#ix "Direct link to ix")
 
-* Type:
-
-`_12
-
-export interface SdkContext {
-
-_12
-
-get accessNodeUrl(): string
-
-_12
-
-get transport(): SdkTransport
-
-_12
-
-get computeLimit(): number
-
-_12
-
-get customResolver(): ((args: any) => Promise<any>) | undefined
-
-_12
-
-get customDecoders(): {[key: string]: (data: any) => any}
-
-_12
-
-get contracts(): {
-
-_12
-
-[contractName: string]: string
-
-_12
-
-}
-
-_12
-
-get debug(): {[key: string]: any}
-
-_12
-
-get legacyContractIdentifiers(): Record<string, string>
-
-_12
-
-}`
+* Type: [`Interaction`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
+* Description: The interaction to check
 
 ## Returns[​](#returns "Direct link to Returns")
 
-[`Promise<Interaction>`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
+`boolean`
+
+True if the interaction status is BAD, false otherwise
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/resolveCadence.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/isBad.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-resolveArguments](/build/tools/clients/fcl-js/packages-docs/sdk/resolveArguments)[Next
+interaction](/build/tools/clients/fcl-js/packages-docs/sdk/interaction)[Next
 
-resolveFinalNormalization](/build/tools/clients/fcl-js/packages-docs/sdk/resolveFinalNormalization)
+isOk](/build/tools/clients/fcl-js/packages-docs/sdk/isOk)
 
 ###### Rate this page
 
@@ -250,8 +245,9 @@ resolveFinalNormalization](/build/tools/clients/fcl-js/packages-docs/sdk/resolve
 Copy as Markdown
 
 * [Import](#import)
+* [Usage](#usage)
 * [Parameters](#parameters)
-  + [`context`](#context)
+  + [`ix`](#ix)
 * [Returns](#returns)
 
 Documentation

@@ -72,4 +72,4 @@ If you're interested in contributing to Flow Reference Wallet, see the available
 
 [PreviousAccount Recovery](/features/account-recovery)[NextIntegrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
 
-Last updated 1 year ago
+Last updated 2 years ago

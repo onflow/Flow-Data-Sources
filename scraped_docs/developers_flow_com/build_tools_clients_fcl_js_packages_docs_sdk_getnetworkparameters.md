@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/resolveCadence
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/getNetworkParameters
 
-resolveCadence | Flow Developer Portal
+getNetworkParameters | Flow Developer Portal
 
 
 
@@ -141,11 +141,17 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
-* resolveCadence
+* getNetworkParameters
 
 On this page
 
-# resolveCadence
+# getNetworkParameters
+
+A builder function that returns the interaction to get network parameters.
+
+Network parameters contain important configuration information about the Flow network,
+including the chain ID, which is essential for signing transactions correctly.
+This information is crucial for ensuring transactions are submitted to the correct network.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -153,95 +159,105 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as sdk from "@onflow/sdk"
+import * as sdk from '@onflow/sdk';
 
 _10
 
 _10
 
-sdk.resolveCadence(context)`
+sdk.getNetworkParameters();`
 
 Or import directly the specific function:
 
 `_10
 
-import { resolveCadence } from "@onflow/sdk"
+import { getNetworkParameters } from '@onflow/sdk';
 
 _10
 
 _10
 
-resolveCadence(context)`
+getNetworkParameters();`
 
-## Parameters[​](#parameters "Direct link to Parameters")
+## Usage[​](#usage "Direct link to Usage")
 
-### `context`[​](#context "Direct link to context")
+`_14
 
-* Type:
+import * as fcl from '@onflow/fcl';
 
-`_12
+_14
 
-export interface SdkContext {
+_14
 
-_12
+// Get network parameters to verify chain ID
 
-get accessNodeUrl(): string
+_14
 
-_12
+const params = await fcl.send([fcl.getNetworkParameters()]).then(fcl.decode);
 
-get transport(): SdkTransport
+_14
 
-_12
+_14
 
-get computeLimit(): number
+console.log('Chain ID:', params.chainId);
 
-_12
+_14
 
-get customResolver(): ((args: any) => Promise<any>) | undefined
+console.log('Network:', params.name);
 
-_12
+_14
 
-get customDecoders(): {[key: string]: (data: any) => any}
+_14
 
-_12
+// Use this to verify you're connected to the right network
 
-get contracts(): {
+_14
 
-_12
+if (params.chainId === 'flow-mainnet') {
 
-[contractName: string]: string
+_14
 
-_12
+console.log('Connected to Flow Mainnet');
 
-}
+_14
 
-_12
+} else if (params.chainId === 'flow-testnet') {
 
-get debug(): {[key: string]: any}
+_14
 
-_12
+console.log('Connected to Flow Testnet');
 
-get legacyContractIdentifiers(): Record<string, string>
-
-_12
+_14
 
 }`
 
 ## Returns[​](#returns "Direct link to Returns")
 
-[`Promise<Interaction>`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
+`_10
+
+export type InteractionBuilderFn = (
+
+_10
+
+ix: Interaction,
+
+_10
+
+) => Interaction | Promise<Interaction>;`
+
+A function that processes an interaction object
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/resolveCadence.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/getNetworkParameters.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-resolveArguments](/build/tools/clients/fcl-js/packages-docs/sdk/resolveArguments)[Next
+getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockIds)[Next
 
-resolveFinalNormalization](/build/tools/clients/fcl-js/packages-docs/sdk/resolveFinalNormalization)
+getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo)
 
 ###### Rate this page
 
@@ -250,8 +266,7 @@ resolveFinalNormalization](/build/tools/clients/fcl-js/packages-docs/sdk/resolve
 Copy as Markdown
 
 * [Import](#import)
-* [Parameters](#parameters)
-  + [`context`](#context)
+* [Usage](#usage)
 * [Returns](#returns)
 
 Documentation
