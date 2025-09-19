@@ -83,4 +83,4 @@ Flow Foundation believes that a safe user experience; one that empowers users to
 
 [PreviousSecure Enclave](/features/secure-enclave)[NextEcosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
 
-Last updated 1 year ago
+Last updated 2 years ago

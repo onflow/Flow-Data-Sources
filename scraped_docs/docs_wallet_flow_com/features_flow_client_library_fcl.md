@@ -72,4 +72,4 @@ For more on FCL, see: <https://developers.flow.com/tools/clients/fcl-js>
 
 [PreviousHuman Readable Transactions](/features/human-readable-transactions)[NextSecure Enclave](/features/secure-enclave)
 
-Last updated 1 year ago
+Last updated 2 years ago

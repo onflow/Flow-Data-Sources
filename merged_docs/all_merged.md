@@ -73930,7 +73930,7 @@ Marketplace](/docs/tutorial/marketplace-compose)
 
 
 
-# Source: https://cadence-lang.org/docs/language/
+# Source: https://cadence-lang.org/docs/language
 
 The Cadence Programming Language | Cadence
 
@@ -131031,13 +131031,12 @@ Search
   + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
   + [Core Smart Contracts](/build/cadence/core-contracts)
   + [Explore More](/build/cadence/explore-more)
-* [Solidity (EVM)](/build/evm/about)
+* [Solidity (EVM)](/build/evm/quickstart)
 
-  + [Why EVM on Flow](/build/evm/about)
+  + [EVM Quickstart](/build/evm/quickstart)
   + [How it Works](/build/evm/how-it-works)
   + [Using Flow EVM](/build/evm/using)
   + [Network Information](/build/evm/networks)
-  + [EVM Quickstart](/build/evm/quickstart)
   + [Fees](/build/evm/fees)
   + [Accounts](/build/evm/accounts)
   + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
@@ -131230,7 +131229,7 @@ Start Building
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
 * [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [EVM](/build/evm/quickstart)
 
 Network
 
@@ -131238,7 +131237,6 @@ Network
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/protocol/node-ops)
 * [Spork Information](/protocol/node-ops/node-operation/spork)
 
@@ -148108,7 +148106,6 @@ Network
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/protocol/node-ops)
 * [Spork Information](/protocol/node-ops/node-operation/spork)
 
@@ -190421,7 +190418,7 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
-# Source: https://developers.flow.com/
+# Source: https://developers.flow.com
 
 Flow Developer Portal
 
@@ -322317,7 +322314,6 @@ Network
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/protocol/node-ops)
 * [Spork Information](/protocol/node-ops/node-operation/spork)
 
@@ -599471,12 +599467,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **980ca8d08ae43b29**
+Cloudflare Ray ID: **9814e6eff8ece5b6**
 •
 
 Your IP:
 Click to reveal
-20.161.30.228
+145.132.101.192
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 
@@ -599742,7 +599738,7 @@ For more on FCL, see: <https://developers.flow.com/tools/clients/fcl-js>
 
 [PreviousHuman Readable Transactions](/features/human-readable-transactions)[NextSecure Enclave](/features/secure-enclave)
 
-Last updated 1 year ago
+Last updated 2 years ago
 
 
 
@@ -600990,7 +600986,7 @@ For more on how application developers, cadence developers and wallets can use i
 
 [PreviousWalletConnect](/features/walletconnect)[NextFlow Client Library (FCL)](/features/flow-client-library-fcl)
 
-Last updated 1 year ago
+Last updated 2 years ago
 
 
 
@@ -601590,7 +601586,7 @@ Flow Foundation believes that a safe user experience; one that empowers users to
 
 [PreviousSecure Enclave](/features/secure-enclave)[NextEcosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
 
-Last updated 1 year ago
+Last updated 2 years ago
 
 
 
@@ -601993,7 +601989,7 @@ For more on FCL WalletConnect, see: <https://developers.flow.com/tools/clients/f
 
 [PreviousAccount Linking](/features/account-linking)[NextHuman Readable Transactions](/features/human-readable-transactions)
 
-Last updated 1 year ago
+Last updated 2 years ago
 
 
 

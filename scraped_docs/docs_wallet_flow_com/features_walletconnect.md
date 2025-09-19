@@ -70,4 +70,4 @@ For more on FCL WalletConnect, see: <https://developers.flow.com/tools/clients/f
 
 [PreviousAccount Linking](/features/account-linking)[NextHuman Readable Transactions](/features/human-readable-transactions)
 
-Last updated 1 year ago
+Last updated 2 years ago

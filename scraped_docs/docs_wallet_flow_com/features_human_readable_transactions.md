@@ -79,4 +79,4 @@ For more on how application developers, cadence developers and wallets can use i
 
 [PreviousWalletConnect](/features/walletconnect)[NextFlow Client Library (FCL)](/features/flow-client-library-fcl)
 
-Last updated 1 year ago
+Last updated 2 years ago
