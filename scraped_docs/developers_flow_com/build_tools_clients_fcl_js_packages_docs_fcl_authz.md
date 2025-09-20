@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/nodeVersionInfo
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/authz
 
-nodeVersionInfo | Flow Developer Portal
+authz | Flow Developer Portal
 
 
 
@@ -138,15 +138,15 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
-* nodeVersionInfo
+* authz
 
 On this page
 
-# nodeVersionInfo
+# authz
 
-Retrieve version information from the connected Flow Access Node.
+A convenience method that produces the needed authorization details for the current user to submit transactions to Flow. It defines a signing function that connects to a user's wallet provider to produce signatures to submit transactions.
 
-This function returns detailed information about the Flow node's version, including the protocol version, spork information, and node-specific details. This is useful for debugging, compatibility checks, and understanding the network state.
+You can replace this function with your own authorization function if needed.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -160,118 +160,125 @@ _10
 
 _10
 
-fcl.nodeVersionInfo(opts)`
+fcl.authz()`
 
 Or import directly the specific function:
 
 `_10
 
-import { nodeVersionInfo } from "@onflow/fcl"
+import { authz } from "@onflow/fcl"
 
 _10
 
 _10
 
-nodeVersionInfo(opts)`
+authz()`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`_19
+`` _22
 
-import * as fcl from "@onflow/fcl";
+import * as fcl from '@onflow/fcl';
 
-_19
+_22
 
-_19
+// login somewhere before
 
-// Get node version information
+_22
 
-_19
+fcl.authenticate();
 
-const versionInfo = await fcl.nodeVersionInfo();
+_22
 
-_19
+// once logged in authz will produce values
 
-console.log(versionInfo);
+_22
 
-_19
+console.log(fcl.authz);
 
-// {
+_22
 
-_19
+// prints {addr, signingFunction, keyId, sequenceNum} from the current authenticated user.
 
-// semver: "v0.37.13",
+_22
 
-_19
+_22
 
-// commit: "12345abcd",
+const txId = await fcl.mutate({
 
-_19
+_22
 
-// spork_id: "mainnet-23",
+cadence: `
 
-_19
+_22
 
-// protocol_version: "2.13.10",
+import Profile from 0xba1132bc08f82fe2
 
-_19
+_22
 
-// spork_root_block_height: "88483760",
+_22
 
-_19
+transaction(name: String) {
 
-// node_root_block_height: "88483760"
+_22
 
-_19
+prepare(account: auth(BorrowValue) &Account) {
 
-// }
+_22
 
-_19
+account.storage.borrow<&{Profile.Owner}>(from: Profile.privatePath)!.setName(name)
 
-_19
+_22
 
-// Check compatibility
+}
 
-_19
+_22
 
-const info = await fcl.nodeVersionInfo();
+}
 
-_19
+_22
 
-if (info.protocol_version.startsWith("2.13")) {
+`,
 
-_19
+_22
 
-console.log("Compatible with current protocol version");
+args: (arg, t) => [arg('myName', t.String)],
 
-_19
+_22
 
-}`
+proposer: fcl.authz, // optional - default is fcl.authz
 
-## Parameters[​](#parameters "Direct link to Parameters")
+_22
 
-### `opts` (optional)[​](#opts-optional "Direct link to opts-optional")
+payer: fcl.authz, // optional - default is fcl.authz
 
-* Type: `any`
-* Description: Optional parameters for the request
+_22
+
+authorizations: [fcl.authz], // optional - default is [fcl.authz]
+
+_22
+
+}); ``
 
 ## Returns[​](#returns "Direct link to Returns")
 
-[`Promise<NodeVersionInfo>`](/build/tools/clients/fcl-js/packages-docs/types#nodeversioninfo)
+`_10
 
-A promise that resolves to a block response
+(account: Account) => Promise<Account>`
+
+An object containing the necessary details from the current user to authorize a transaction in any role.
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/nodeVersionInfo.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/authz.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-mutate](/build/tools/clients/fcl-js/packages-docs/fcl/mutate)[Next
+authorizations](/build/tools/clients/fcl-js/packages-docs/fcl/authorizations)[Next
 
-param](/build/tools/clients/fcl-js/packages-docs/fcl/param)
+block](/build/tools/clients/fcl-js/packages-docs/fcl/block)
 
 ###### Rate this page
 
@@ -281,8 +288,6 @@ Copy as Markdown
 
 * [Import](#import)
 * [Usage](#usage)
-* [Parameters](#parameters)
-  + [`opts` (optional)](#opts-optional)
 * [Returns](#returns)
 
 Documentation

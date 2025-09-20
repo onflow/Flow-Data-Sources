@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/nodeVersionInfo
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/voucherToTxId
 
-nodeVersionInfo | Flow Developer Portal
+voucherToTxId | Flow Developer Portal
 
 
 
@@ -138,15 +138,16 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
-* nodeVersionInfo
+* voucherToTxId
 
 On this page
 
-# nodeVersionInfo
+# voucherToTxId
 
-Retrieve version information from the connected Flow Access Node.
+Converts a voucher object to a transaction ID.
 
-This function returns detailed information about the Flow node's version, including the protocol version, spork information, and node-specific details. This is useful for debugging, compatibility checks, and understanding the network state.
+This function computes the transaction ID by encoding and hashing the voucher.
+The transaction ID can be used to track the transaction status on the Flow network.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -160,118 +161,191 @@ _10
 
 _10
 
-fcl.nodeVersionInfo(opts)`
+fcl.voucherToTxId(voucher)`
 
 Or import directly the specific function:
 
 `_10
 
-import { nodeVersionInfo } from "@onflow/fcl"
+import { voucherToTxId } from "@onflow/fcl"
 
 _10
 
 _10
 
-nodeVersionInfo(opts)`
+voucherToTxId(voucher)`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`_19
+`` _27
+
+import { voucherToTxId, createSignableVoucher } from "@onflow/sdk"
+
+_27
 
 import * as fcl from "@onflow/fcl";
 
-_19
+_27
 
-_19
+_27
 
-// Get node version information
+// Create a voucher from an interaction
 
-_19
+_27
 
-const versionInfo = await fcl.nodeVersionInfo();
+const interaction = await fcl.build([
 
-_19
+_27
 
-console.log(versionInfo);
+fcl.transaction`
 
-_19
+_27
 
-// {
+transaction {
 
-_19
+_27
 
-// semver: "v0.37.13",
+prepare(account: AuthAccount) {
 
-_19
+_27
 
-// commit: "12345abcd",
+log("Hello, Flow!")
 
-_19
+_27
 
-// spork_id: "mainnet-23",
+}
 
-_19
+_27
 
-// protocol_version: "2.13.10",
+}
 
-_19
+_27
 
-// spork_root_block_height: "88483760",
+`,
 
-_19
+_27
 
-// node_root_block_height: "88483760"
+fcl.proposer(authz),
 
-_19
+_27
 
-// }
+fcl.payer(authz),
 
-_19
+_27
 
-_19
+fcl.authorizations([authz])
 
-// Check compatibility
+_27
 
-_19
+]);
 
-const info = await fcl.nodeVersionInfo();
+_27
 
-_19
+_27
 
-if (info.protocol_version.startsWith("2.13")) {
+const voucher = createSignableVoucher(interaction);
 
-_19
+_27
 
-console.log("Compatible with current protocol version");
+_27
 
-_19
+// Calculate the transaction ID
 
-}`
+_27
+
+const txId = voucherToTxId(voucher);
+
+_27
+
+console.log("Transaction ID:", txId);
+
+_27
+
+// Returns something like: "a1b2c3d4e5f6789..."
+
+_27
+
+_27
+
+// You can use this ID to track the transaction
+
+_27
+
+const txStatus = await fcl.tx(txId).onceSealed();
+
+_27
+
+console.log("Transaction status:", txStatus); ``
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `opts` (optional)[​](#opts-optional "Direct link to opts-optional")
+### `voucher`[​](#voucher "Direct link to voucher")
 
-* Type: `any`
-* Description: Optional parameters for the request
+* Type:
+
+`_11
+
+export interface Voucher {
+
+_11
+
+cadence: string
+
+_11
+
+refBlock: string
+
+_11
+
+computeLimit: number
+
+_11
+
+arguments: VoucherArgument[]
+
+_11
+
+proposalKey: VoucherProposalKey
+
+_11
+
+payer: string
+
+_11
+
+authorizers: string[]
+
+_11
+
+payloadSigs: Sig[]
+
+_11
+
+envelopeSigs: Sig[]
+
+_11
+
+}`
+
+* Description: The voucher object to convert
 
 ## Returns[​](#returns "Direct link to Returns")
 
-[`Promise<NodeVersionInfo>`](/build/tools/clients/fcl-js/packages-docs/types#nodeversioninfo)
+`string`
 
-A promise that resolves to a block response
+A transaction ID string
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/nodeVersionInfo.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/voucherToTxId.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-mutate](/build/tools/clients/fcl-js/packages-docs/fcl/mutate)[Next
+voucherIntercept](/build/tools/clients/fcl-js/packages-docs/fcl/voucherIntercept)[Next
 
-param](/build/tools/clients/fcl-js/packages-docs/fcl/param)
+why](/build/tools/clients/fcl-js/packages-docs/fcl/why)
 
 ###### Rate this page
 
@@ -282,7 +356,7 @@ Copy as Markdown
 * [Import](#import)
 * [Usage](#usage)
 * [Parameters](#parameters)
-  + [`opts` (optional)](#opts-optional)
+  + [`voucher`](#voucher)
 * [Returns](#returns)
 
 Documentation
