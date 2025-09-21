@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/decode
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/logIn
 
-decode | Flow Developer Portal
+logIn | Flow Developer Portal
 
 
 
@@ -138,15 +138,15 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
-* decode
+* logIn
 
 On this page
 
-# decode
+# logIn
 
-Decodes the response from 'fcl.send()' into the appropriate JSON representation of any values returned from Cadence code.
+A convenience method that calls and is equivalent to `fcl.authenticate()`.
 
-The response from Flow contains encoded values that need to be decoded into JavaScript types. This function handles that conversion, including complex types like structs, arrays, and dictionaries.
+This method can only be used in web browsers.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -160,144 +160,78 @@ _10
 
 _10
 
-fcl.decode(response)`
+fcl.logIn(opts)`
 
 Or import directly the specific function:
 
 `_10
 
-import { decode } from "@onflow/fcl"
+import { logIn } from "@onflow/fcl"
 
 _10
 
 _10
 
-decode(response)`
+logIn(opts)`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`` _27
+`_10
 
-import * as fcl from "@onflow/fcl";
+import * as fcl from '@onflow/fcl';
 
-_27
+_10
 
-_27
+fcl.config()
 
-// Simple script to add 2 numbers
+_10
 
-_27
+.put('accessNode.api', 'https://rest-testnet.onflow.org')
 
-const response = await fcl.send([
+_10
 
-_27
+.put('discovery.wallet', 'https://fcl-discovery.onflow.org/testnet/authn');
 
-fcl.script`
+_10
 
-_27
+_10
 
-access(all) fun main(int1: Int, int2: Int): Int {
+// User clicks log in button
 
-_27
+_10
 
-return int1 + int2
-
-_27
-
-}
-
-_27
-
-`,
-
-_27
-
-fcl.args([fcl.arg(1, fcl.t.Int), fcl.arg(2, fcl.t.Int)])
-
-_27
-
-]);
-
-_27
-
-_27
-
-const decoded = await fcl.decode(response);
-
-_27
-
-console.log(decoded); // 3
-
-_27
-
-console.log(typeof decoded); // "number"
-
-_27
-
-_27
-
-// Complex return types
-
-_27
-
-const complexResponse = await fcl.send([
-
-_27
-
-fcl.script`
-
-_27
-
-access(all) fun main(): {String: Int} {
-
-_27
-
-return {"foo": 1, "bar": 2}
-
-_27
-
-}
-
-_27
-
-`
-
-_27
-
-]);
-
-_27
-
-_27
-
-const complexDecoded = await fcl.decode(complexResponse);
-
-_27
-
-console.log(complexDecoded); // {foo: 1, bar: 2} ``
+fcl.logIn();`
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `response`[​](#response "Direct link to response")
+### `opts` (optional)[​](#opts-optional "Direct link to opts-optional")
 
-* Type: `any`
-* Description: Should be the response returned from 'fcl.send([...])'
+* Type: `{}`
+* Description: Authentication options passed to authenticate method
+
+#### Properties:[​](#properties "Direct link to Properties:")
+
+* **`service`** - Optional service to use for authentication
+* **`redir`** - Optional redirect flag. Defaults to false.
+* **`forceReauth`** - Optional force re-authentication flag. Defaults to false.
 
 ## Returns[​](#returns "Direct link to Returns")
 
-`Promise<any>`
+[`Promise<CurrentUser>`](/build/tools/clients/fcl-js/packages-docs/types#currentuser)
+
+Promise that resolves to the authenticated CurrentUser object or undefined
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/decode.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/logIn.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-currentUser](/build/tools/clients/fcl-js/packages-docs/fcl/currentUser)[Next
+limit](/build/tools/clients/fcl-js/packages-docs/fcl/limit)[Next
 
-display](/build/tools/clients/fcl-js/packages-docs/fcl/display)
+mutate](/build/tools/clients/fcl-js/packages-docs/fcl/mutate)
 
 ###### Rate this page
 
@@ -308,7 +242,7 @@ Copy as Markdown
 * [Import](#import)
 * [Usage](#usage)
 * [Parameters](#parameters)
-  + [`response`](#response)
+  + [`opts` (optional)](#opts-optional)
 * [Returns](#returns)
 
 Documentation

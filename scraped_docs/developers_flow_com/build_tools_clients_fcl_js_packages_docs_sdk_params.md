@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/params
 
-getNodeVersionInfo | Flow Developer Portal
+params | Flow Developer Portal
 
 
 
@@ -141,18 +141,13 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
-* getNodeVersionInfo
+* params
 
 On this page
 
-# getNodeVersionInfo
+# params
 
-A builder function for the Get Node Version Info interaction.
-
-Creates an interaction to retrieve version information from the connected Flow Access Node.
-This includes details about the node's software version, protocol version, and spork information.
-
-Consider using the pre-built interaction 'fcl.nodeVersionInfo()' if you do not need to pair with any other builders.
+Legacy function for setting parameters on an interaction.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -160,105 +155,48 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as sdk from '@onflow/sdk';
+import * as sdk from "@onflow/sdk"
 
 _10
 
 _10
 
-sdk.getNodeVersionInfo();`
+sdk.params(params)`
 
 Or import directly the specific function:
 
 `_10
 
-import { getNodeVersionInfo } from '@onflow/sdk';
+import { params } from "@onflow/sdk"
 
 _10
 
 _10
 
-getNodeVersionInfo();`
+params(params)`
 
-## Usage[​](#usage "Direct link to Usage")
+## Parameters[​](#parameters "Direct link to Parameters")
 
-`_14
+### `params`[​](#params-1 "Direct link to params-1")
 
-import * as fcl from '@onflow/fcl';
-
-_14
-
-_14
-
-// Get node version information using builder
-
-_14
-
-const versionInfo = await fcl.send([fcl.getNodeVersionInfo()]).then(fcl.decode);
-
-_14
-
-_14
-
-console.log('Node version:', versionInfo.semver);
-
-_14
-
-console.log('Protocol version:', versionInfo.protocol_version);
-
-_14
-
-console.log('Spork ID:', versionInfo.spork_id);
-
-_14
-
-_14
-
-// Use with other builders if needed
-
-_14
-
-const interaction = await fcl.build([
-
-_14
-
-fcl.getNodeVersionInfo(),
-
-_14
-
-// other builders can be added here
-
-_14
-
-]);`
+* Type: `never`
+* Description: The parameters to set
 
 ## Returns[​](#returns "Direct link to Returns")
 
-`_10
-
-export type InteractionBuilderFn = (
-
-_10
-
-ix: Interaction,
-
-_10
-
-) => Interaction | Promise<Interaction>;`
-
-A function that processes an interaction object
+`Promise<unknown>`
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/params.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/sdk/getNetworkParameters)[Next
+param](/build/tools/clients/fcl-js/packages-docs/sdk/param)[Next
 
-getTransaction](/build/tools/clients/fcl-js/packages-docs/sdk/getTransaction)
+payer](/build/tools/clients/fcl-js/packages-docs/sdk/payer)
 
 ###### Rate this page
 
@@ -267,7 +205,8 @@ getTransaction](/build/tools/clients/fcl-js/packages-docs/sdk/getTransaction)
 Copy as Markdown
 
 * [Import](#import)
-* [Usage](#usage)
+* [Parameters](#parameters)
+  + [`params`](#params-1)
 * [Returns](#returns)
 
 Documentation
