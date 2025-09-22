@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/resolveProposerSequenceNumber
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/limit
 
-resolveProposerSequenceNumber | Flow Developer Portal
+limit | Flow Developer Portal
 
 
 
@@ -141,13 +141,18 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
-* resolveProposerSequenceNumber
+* limit
 
 On this page
 
-# resolveProposerSequenceNumber
+# limit
 
-Resolves the sequence number for the proposer account by querying the blockchain.
+A utility builder to set the compute limit on a transaction.
+
+The compute limit is the maximum amount of computation that can be performed during transaction execution.
+Setting an appropriate compute limit helps prevent infinite loops and ensures predictable transaction costs.
+
+Read more about [computation cost](https://docs.onflow.org/concepts/fees/#computation-cost) and [transaction fees](https://docs.onflow.org/concepts/fees/).
 
 ## Import[​](#import "Direct link to Import")
 
@@ -155,61 +160,154 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as sdk from "@onflow/sdk"
+import * as sdk from '@onflow/sdk';
 
 _10
 
 _10
 
-sdk.resolveProposerSequenceNumber(nodeConfig)`
+sdk.limit(limit);`
 
 Or import directly the specific function:
 
 `_10
 
-import { resolveProposerSequenceNumber } from "@onflow/sdk"
+import { limit } from '@onflow/sdk';
 
 _10
 
 _10
 
-resolveProposerSequenceNumber(nodeConfig)`
+limit(limit);`
+
+## Usage[​](#usage "Direct link to Usage")
+
+`` _24
+
+import * as fcl from '@onflow/fcl';
+
+_24
+
+_24
+
+await fcl.mutate({
+
+_24
+
+cadence: `
+
+_24
+
+transaction {
+
+_24
+
+prepare(account: AuthAccount) {
+
+_24
+
+// Complex transaction logic here
+
+_24
+
+}
+
+_24
+
+}
+
+_24
+
+`,
+
+_24
+
+limit: 1000, // Set compute limit to 1000
+
+_24
+
+});
+
+_24
+
+_24
+
+// Using builder pattern
+
+_24
+
+await fcl.send([
+
+_24
+
+fcl.transaction`
+
+_24
+
+transaction {
+
+_24
+
+prepare(account: AuthAccount) {
+
+_24
+
+// Transaction logic
+
+_24
+
+}
+
+_24
+
+}
+
+_24
+
+`,
+
+_24
+
+fcl.limit(9999), // Set higher limit for complex operations
+
+_24
+
+]); ``
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `nodeConfig`[​](#nodeconfig "Direct link to nodeconfig")
+### `limit`[​](#limit-1 "Direct link to limit-1")
 
-* Type:
-
-`_10
-
-interface NodeConfig {
-
-_10
-
-node: string
-
-_10
-
-}`
+* Type: `number`
+* Description: The maximum amount of computation for the transaction
 
 ## Returns[​](#returns "Direct link to Returns")
 
-[`Promise<Interaction>`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
+`_10
 
-A function that resolves the proposer sequence number for an interaction
+export type InteractionBuilderFn = (
+
+_10
+
+ix: Interaction,
+
+_10
+
+) => Interaction | Promise<Interaction>;`
+
+A function that processes an interaction object
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/resolveProposerSequenceNumber.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/limit.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-resolveFinalNormalization](/build/tools/clients/fcl-js/packages-docs/sdk/resolveFinalNormalization)[Next
+isOk](/build/tools/clients/fcl-js/packages-docs/sdk/isOk)[Next
 
-resolveRefBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/resolveRefBlockId)
+nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/nodeVersionInfo)
 
 ###### Rate this page
 
@@ -218,8 +316,9 @@ resolveRefBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/resolveRefBlock
 Copy as Markdown
 
 * [Import](#import)
+* [Usage](#usage)
 * [Parameters](#parameters)
-  + [`nodeConfig`](#nodeconfig)
+  + [`limit`](#limit-1)
 * [Returns](#returns)
 
 Documentation
