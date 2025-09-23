@@ -55,6 +55,7 @@ Search
       * [Sign a Transaction](/build/tools/flow-cli/transactions/sign-transaction)
       * [Send Signed Transaction](/build/tools/flow-cli/transactions/send-signed-transactions)
       * [Build a Complex Transaction](/build/tools/flow-cli/transactions/decode-transactions)
+      * [Get a System Transaction](/build/tools/flow-cli/transactions/get-system-transactions)
     - [Flow.json](/build/tools/flow-cli/flow.json/initialize-configuration)
     - [Flow Entities](/build/tools/flow-cli/get-flow-data/get-blocks)
     - [Utils](/build/tools/flow-cli/utils/signature-generate)
@@ -201,7 +202,7 @@ Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 Send Signed Transaction](/build/tools/flow-cli/transactions/send-signed-transactions)[Next
 
-Initialize Configuration](/build/tools/flow-cli/flow.json/initialize-configuration)
+Get a System Transaction](/build/tools/flow-cli/transactions/get-system-transactions)
 
 ###### Rate this page
 

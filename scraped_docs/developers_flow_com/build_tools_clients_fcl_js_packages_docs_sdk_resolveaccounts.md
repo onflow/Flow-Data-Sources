@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/resolveAccounts
 
-encodeTxIdFromVoucher | Flow Developer Portal
+resolveAccounts | Flow Developer Portal
 
 
 
@@ -141,16 +141,13 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
-* encodeTxIdFromVoucher
+* resolveAccounts
 
 On this page
 
-# encodeTxIdFromVoucher
+# resolveAccounts
 
-Encodes a transaction ID from a voucher by computing its hash.
-
-A voucher is an intermediary object that contains transaction details before final encoding.
-This function computes the transaction ID that would result from submitting the transaction.
+Resolves account authorization functions and validates account configurations for transactions.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -164,207 +161,54 @@ _10
 
 _10
 
-sdk.encodeTxIdFromVoucher(voucher)`
+sdk.resolveAccounts(ix, opts)`
 
 Or import directly the specific function:
 
 `_10
 
-import { encodeTxIdFromVoucher } from "@onflow/sdk"
+import { resolveAccounts } from "@onflow/sdk"
 
 _10
 
 _10
 
-encodeTxIdFromVoucher(voucher)`
-
-## Usage[​](#usage "Direct link to Usage")
-
-`` _30
-
-import * as fcl from "@onflow/fcl";
-
-_30
-
-import { encodeTxIdFromVoucher } from "@onflow/sdk"
-
-_30
-
-_30
-
-// Create a voucher (usually done internally by FCL)
-
-_30
-
-const voucher = {
-
-_30
-
-cadence: `
-
-_30
-
-transaction {
-
-_30
-
-prepare(account: AuthAccount) {
-
-_30
-
-log("Hello")
-
-_30
-
-}
-
-_30
-
-}
-
-_30
-
-`,
-
-_30
-
-arguments: [],
-
-_30
-
-refBlock: "abc123...",
-
-_30
-
-computeLimit: 100,
-
-_30
-
-proposalKey: {
-
-_30
-
-address: "0x123456789abcdef0",
-
-_30
-
-keyId: 0,
-
-_30
-
-sequenceNum: 42
-
-_30
-
-},
-
-_30
-
-payer: "0x123456789abcdef0",
-
-_30
-
-authorizers: ["0x123456789abcdef0"],
-
-_30
-
-payloadSigs: [],
-
-_30
-
-envelopeSigs: []
-
-_30
-
-};
-
-_30
-
-_30
-
-// Calculate the transaction ID
-
-_30
-
-const txId = encodeTxIdFromVoucher(voucher);
-
-_30
-
-console.log("Transaction ID:", txId);
-
-_30
-
-// Returns a transaction ID that can be used to track the transaction ``
+resolveAccounts(ix, opts)`
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `voucher`[​](#voucher "Direct link to voucher")
+### `ix`[​](#ix "Direct link to ix")
+
+* Type: [`Interaction`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
+* Description: The interaction object containing accounts to resolve
+
+### `opts` (optional)[​](#opts-optional "Direct link to opts-optional")
 
 * Type:
 
-`_11
+`_10
 
-export interface Voucher {
+Record<string, any>`
 
-_11
-
-cadence: string
-
-_11
-
-refBlock: string
-
-_11
-
-computeLimit: number
-
-_11
-
-arguments: VoucherArgument[]
-
-_11
-
-proposalKey: VoucherProposalKey
-
-_11
-
-payer: string
-
-_11
-
-authorizers: string[]
-
-_11
-
-payloadSigs: Sig[]
-
-_11
-
-envelopeSigs: Sig[]
-
-_11
-
-}`
-
-* Description: The voucher object containing transaction details
+* Description: Configuration options for resolution
 
 ## Returns[​](#returns "Direct link to Returns")
 
-`string`
+[`Promise<Interaction>`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
 
-A hex-encoded string representing the transaction ID
+The interaction with resolved accounts
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/resolveAccounts.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-encodeTransactionPayload](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionPayload)[Next
+resolve](/build/tools/clients/fcl-js/packages-docs/sdk/resolve)[Next
 
-get](/build/tools/clients/fcl-js/packages-docs/sdk/get)
+resolveArguments](/build/tools/clients/fcl-js/packages-docs/sdk/resolveArguments)
 
 ###### Rate this page
 
@@ -373,9 +217,9 @@ get](/build/tools/clients/fcl-js/packages-docs/sdk/get)
 Copy as Markdown
 
 * [Import](#import)
-* [Usage](#usage)
 * [Parameters](#parameters)
-  + [`voucher`](#voucher)
+  + [`ix`](#ix)
+  + [`opts` (optional)](#opts-optional)
 * [Returns](#returns)
 
 Documentation

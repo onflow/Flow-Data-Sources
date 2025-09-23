@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionEnvelope
 
-encodeTxIdFromVoucher | Flow Developer Portal
+encodeTransactionEnvelope | Flow Developer Portal
 
 
 
@@ -141,16 +141,16 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
-* encodeTxIdFromVoucher
+* encodeTransactionEnvelope
 
 On this page
 
-# encodeTxIdFromVoucher
+# encodeTransactionEnvelope
 
-Encodes a transaction ID from a voucher by computing its hash.
+Encodes a complete transaction envelope including payload and signatures.
 
-A voucher is an intermediary object that contains transaction details before final encoding.
-This function computes the transaction ID that would result from submitting the transaction.
+This function encodes the full transaction including both the payload and all signatures.
+This is the final step before submitting a transaction to the Flow network.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -164,207 +164,144 @@ _10
 
 _10
 
-sdk.encodeTxIdFromVoucher(voucher)`
+sdk.encodeTransactionEnvelope(tx)`
 
 Or import directly the specific function:
 
 `_10
 
-import { encodeTxIdFromVoucher } from "@onflow/sdk"
+import { encodeTransactionEnvelope } from "@onflow/sdk"
 
 _10
 
 _10
 
-encodeTxIdFromVoucher(voucher)`
+encodeTransactionEnvelope(tx)`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`` _30
+`` _26
 
 import * as fcl from "@onflow/fcl";
 
-_30
+_26
 
-import { encodeTxIdFromVoucher } from "@onflow/sdk"
+import { encodeTransactionEnvelope } from "@onflow/sdk"
 
-_30
+_26
 
-_30
+_26
 
-// Create a voucher (usually done internally by FCL)
+// Assuming you have a fully built and signed transaction
 
-_30
+_26
 
-const voucher = {
+const signedTransaction = await fcl.build([
 
-_30
+_26
 
-cadence: `
+fcl.transaction`
 
-_30
+_26
 
 transaction {
 
-_30
+_26
 
 prepare(account: AuthAccount) {
 
-_30
+_26
 
-log("Hello")
+log("Hello, Flow!")
 
-_30
-
-}
-
-_30
+_26
 
 }
 
-_30
+_26
+
+}
+
+_26
 
 `,
 
-_30
+_26
 
-arguments: [],
+fcl.proposer(authz),
 
-_30
+_26
 
-refBlock: "abc123...",
+fcl.payer(authz),
 
-_30
+_26
 
-computeLimit: 100,
+fcl.authorizations([authz]),
 
-_30
+_26
 
-proposalKey: {
+fcl.limit(100)
 
-_30
+_26
 
-address: "0x123456789abcdef0",
+]);
 
-_30
+_26
 
-keyId: 0,
+_26
 
-_30
+// Add signatures to the transaction (this is usually done automatically)
 
-sequenceNum: 42
+_26
 
-_30
+// signedTransaction.payloadSigs = [...];
 
-},
+_26
 
-_30
+// signedTransaction.envelopeSigs = [...];
 
-payer: "0x123456789abcdef0",
+_26
 
-_30
+_26
 
-authorizers: ["0x123456789abcdef0"],
+// Encode the complete transaction envelope
 
-_30
+_26
 
-payloadSigs: [],
+const encodedEnvelope = encodeTransactionEnvelope(signedTransaction);
 
-_30
+_26
 
-envelopeSigs: []
+console.log("Encoded envelope:", encodedEnvelope);
 
-_30
+_26
 
-};
-
-_30
-
-_30
-
-// Calculate the transaction ID
-
-_30
-
-const txId = encodeTxIdFromVoucher(voucher);
-
-_30
-
-console.log("Transaction ID:", txId);
-
-_30
-
-// Returns a transaction ID that can be used to track the transaction ``
+// Returns a hex string ready for network submission ``
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `voucher`[​](#voucher "Direct link to voucher")
+### `tx`[​](#tx "Direct link to tx")
 
-* Type:
-
-`_11
-
-export interface Voucher {
-
-_11
-
-cadence: string
-
-_11
-
-refBlock: string
-
-_11
-
-computeLimit: number
-
-_11
-
-arguments: VoucherArgument[]
-
-_11
-
-proposalKey: VoucherProposalKey
-
-_11
-
-payer: string
-
-_11
-
-authorizers: string[]
-
-_11
-
-payloadSigs: Sig[]
-
-_11
-
-envelopeSigs: Sig[]
-
-_11
-
-}`
-
-* Description: The voucher object containing transaction details
+* Type: [`Transaction`](/build/tools/clients/fcl-js/packages-docs/types#transaction)
+* Description: The transaction object to encode
 
 ## Returns[​](#returns "Direct link to Returns")
 
 `string`
 
-A hex-encoded string representing the transaction ID
+A hex-encoded string representing the complete transaction envelope
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionEnvelope.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-encodeTransactionPayload](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionPayload)[Next
+encodeMessageFromSignable](/build/tools/clients/fcl-js/packages-docs/sdk/encodeMessageFromSignable)[Next
 
-get](/build/tools/clients/fcl-js/packages-docs/sdk/get)
+encodeTransactionPayload](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionPayload)
 
 ###### Rate this page
 
@@ -375,7 +312,7 @@ Copy as Markdown
 * [Import](#import)
 * [Usage](#usage)
 * [Parameters](#parameters)
-  + [`voucher`](#voucher)
+  + [`tx`](#tx)
 * [Returns](#returns)
 
 Documentation

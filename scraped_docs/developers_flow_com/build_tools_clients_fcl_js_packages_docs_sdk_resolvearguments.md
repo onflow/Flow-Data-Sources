@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/resolveArguments
 
-encodeTxIdFromVoucher | Flow Developer Portal
+resolveArguments | Flow Developer Portal
 
 
 
@@ -141,16 +141,22 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
-* encodeTxIdFromVoucher
+* resolveArguments
 
 On this page
 
-# encodeTxIdFromVoucher
+# resolveArguments
 
-Encodes a transaction ID from a voucher by computing its hash.
+Resolves transaction arguments by evaluating argument functions and converting them to appropriate types.
 
-A voucher is an intermediary object that contains transaction details before final encoding.
-This function computes the transaction ID that would result from submitting the transaction.
+This function processes all arguments in a transaction or script interaction, calling their transform functions
+to convert JavaScript values into Cadence-compatible argument formats that can be sent to the Flow network.
+
+The resolution process includes:
+
+* Calling argument resolver functions if present
+* Applying type transformations using the xform field
+* Handling recursive argument resolution up to a depth limit
 
 ## Import[​](#import "Direct link to Import")
 
@@ -164,207 +170,106 @@ _10
 
 _10
 
-sdk.encodeTxIdFromVoucher(voucher)`
+sdk.resolveArguments(ix)`
 
 Or import directly the specific function:
 
 `_10
 
-import { encodeTxIdFromVoucher } from "@onflow/sdk"
+import { resolveArguments } from "@onflow/sdk"
 
 _10
 
 _10
 
-encodeTxIdFromVoucher(voucher)`
+resolveArguments(ix)`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`` _30
+`` _16
 
 import * as fcl from "@onflow/fcl";
 
-_30
+_16
 
-import { encodeTxIdFromVoucher } from "@onflow/sdk"
+_16
 
-_30
+// Arguments are automatically resolved during send()
 
-_30
+_16
 
-// Create a voucher (usually done internally by FCL)
+await fcl.send([
 
-_30
+_16
 
-const voucher = {
+fcl.script`
 
-_30
+_16
 
-cadence: `
+access(all) fun main(amount: UFix64, recipient: Address): String {
 
-_30
+_16
 
-transaction {
+return "Sending ".concat(amount.toString()).concat(" to ").concat(recipient.toString())
 
-_30
-
-prepare(account: AuthAccount) {
-
-_30
-
-log("Hello")
-
-_30
+_16
 
 }
 
-_30
-
-}
-
-_30
+_16
 
 `,
 
-_30
+_16
 
-arguments: [],
+fcl.args([
 
-_30
+_16
 
-refBlock: "abc123...",
+fcl.arg("100.0", fcl.t.UFix64), // Will be resolved to Cadence UFix64
 
-_30
+_16
 
-computeLimit: 100,
+fcl.arg("0x01", fcl.t.Address) // Will be resolved to Cadence Address
 
-_30
+_16
 
-proposalKey: {
+])
 
-_30
+_16
 
-address: "0x123456789abcdef0",
+]).then(fcl.decode);
 
-_30
+_16
 
-keyId: 0,
+_16
 
-_30
-
-sequenceNum: 42
-
-_30
-
-},
-
-_30
-
-payer: "0x123456789abcdef0",
-
-_30
-
-authorizers: ["0x123456789abcdef0"],
-
-_30
-
-payloadSigs: [],
-
-_30
-
-envelopeSigs: []
-
-_30
-
-};
-
-_30
-
-_30
-
-// Calculate the transaction ID
-
-_30
-
-const txId = encodeTxIdFromVoucher(voucher);
-
-_30
-
-console.log("Transaction ID:", txId);
-
-_30
-
-// Returns a transaction ID that can be used to track the transaction ``
+// The resolveArguments function handles the conversion automatically ``
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `voucher`[​](#voucher "Direct link to voucher")
+### `ix`[​](#ix "Direct link to ix")
 
-* Type:
-
-`_11
-
-export interface Voucher {
-
-_11
-
-cadence: string
-
-_11
-
-refBlock: string
-
-_11
-
-computeLimit: number
-
-_11
-
-arguments: VoucherArgument[]
-
-_11
-
-proposalKey: VoucherProposalKey
-
-_11
-
-payer: string
-
-_11
-
-authorizers: string[]
-
-_11
-
-payloadSigs: Sig[]
-
-_11
-
-envelopeSigs: Sig[]
-
-_11
-
-}`
-
-* Description: The voucher object containing transaction details
+* Type: [`Interaction`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
+* Description: The interaction object containing arguments to resolve
 
 ## Returns[​](#returns "Direct link to Returns")
 
-`string`
+[`Promise<Interaction>`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
 
-A hex-encoded string representing the transaction ID
+The interaction with resolved arguments ready for network transmission
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/resolveArguments.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-encodeTransactionPayload](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionPayload)[Next
+resolveAccounts](/build/tools/clients/fcl-js/packages-docs/sdk/resolveAccounts)[Next
 
-get](/build/tools/clients/fcl-js/packages-docs/sdk/get)
+resolveCadence](/build/tools/clients/fcl-js/packages-docs/sdk/resolveCadence)
 
 ###### Rate this page
 
@@ -375,7 +280,7 @@ Copy as Markdown
 * [Import](#import)
 * [Usage](#usage)
 * [Parameters](#parameters)
-  + [`voucher`](#voucher)
+  + [`ix`](#ix)
 * [Returns](#returns)
 
 Documentation

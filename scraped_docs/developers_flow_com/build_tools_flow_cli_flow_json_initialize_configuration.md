@@ -267,7 +267,7 @@ Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-Build a Complex Transaction](/build/tools/flow-cli/transactions/decode-transactions)[Next
+Get a System Transaction](/build/tools/flow-cli/transactions/get-system-transactions)[Next
 
 Configuration](/build/tools/flow-cli/flow.json/configuration)
 

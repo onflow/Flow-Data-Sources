@@ -96,7 +96,7 @@ This specifies the remote source of the contract on the network that will be use
 
 ### Installing Core Contracts Using Simplified Syntax[​](#installing-core-contracts-using-simplified-syntax "Direct link to Installing Core Contracts Using Simplified Syntax")
 
-For core contracts, you can use a simplified syntax that defaults to the Flow Mainnet:
+For core contracts (and [DeFiActions](https://github.com/onflow/FlowActions/tree/main?tab=readme-ov-file#deployments)), you can use a simplified syntax that defaults to the Flow Mainnet:
 
 `_10
 
@@ -261,9 +261,21 @@ _15
 
 After selecting the contracts, press `enter` to confirm. The selected contracts will be added to your `flow.json` file and will be accessible in your project.
 
+## `list`[​](#list "Direct link to list")
+
+The `list` command displays all the dependencies currently installed in your project. This is useful for reviewing what contracts your project depends on and their sources.
+
+To list your installed dependencies, run:
+
+`_10
+
+flow dependencies list`
+
+This command will show you all the dependencies from your `flow.json` file along with their source information, helping you keep track of what external contracts your project is using.
+
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/dependency-manager.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Sep 22, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -286,6 +298,7 @@ Copy as Markdown
   + [Example `flow.json` Entry](#example-flowjson-entry)
   + [Other Things to Note](#other-things-to-note)
 * [`discover`](#discover)
+* [`list`](#list)
 
 Documentation
 

@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/flow-cli/transactions/send-transactions
+# Source: https://developers.flow.com/build/tools/flow-cli/transactions/get-system-transactions
 
-Send a Transaction | Flow Developer Portal
+Get a System Transaction | Flow Developer Portal
 
 
 
@@ -74,194 +74,139 @@ Search
 * [Tools & SDKs](/build/tools)
 * [Flow CLI](/build/tools/flow-cli)
 * Transactions
-* Send a Transaction
+* Get a System Transaction
 
 On this page
 
-# Send a Transaction
+# Get a System Transaction
 
-The Flow CLI provides a command to sign and send transactions to
-any Flow Access API.
+The Flow CLI provides a command to fetch the system transaction for a given block reference. You can optionally provide a transaction ID to target a specific system transaction within that block.
 
 `_10
 
-flow transactions send <code filename> [<argument> <argument>...] [flags]`
+flow transactions get-system <block_id|latest|block_height> [tx_id]`
+
+warning
+
+Querying with a system transaction ID (`[tx_id]`) is part of the Forte network upgrade and is currently available on Flow Emulator (CLI v2.7.0+) and [Flow Testnet](/protocol/flow-networks/accessing-testnet). See the announcement for context: [Forte: Introducing Actions & Agents](https://flow.com/post/forte-introducing-actions-agents-supercharging-composability-and-automation).
+
+## Use Cases[​](#use-cases "Direct link to Use Cases")
+
+* System chunk transaction for protocol operations: see [Epoch Scripts and Events](/protocol/staking/epoch-scripts-events) and [Staking rewards via system chunk](/protocol/staking/staking-rewards).
+* Transactions related to scheduled callbacks: see [Introduction to Scheduled Callbacks](https://developers.flow.com/blockchain-development-tutorials/flow-actions/scheduled-callbacks-introduction). Consider `--include fee-events` for callback fee details.
 
 ## Example Usage[​](#example-usage "Direct link to Example Usage")
 
-`_22
+`_23
 
-> flow transactions send ./tx.cdc "Hello"
+> flow transactions get-system latest --network mainnet
 
-_22
+_23
 
-_22
+_23
 
 Status ✅ SEALED
 
-_22
+_23
 
-ID b04b6bcc3164f5ee6b77fa502c3a682e0db57fc47e5b8a8ef3b56aae50ad49c8
+ID 40bc4b100c1930c61381c22e0f4c10a7f5827975ee25715527c1061b8d71e5aa
 
-_22
+_23
 
-Payer f8d6e0586b0a20c7
+Payer —
 
-_22
+_23
 
-Authorizers [f8d6e0586b0a20c7]
+Authorizers []
 
-_22
+_23
 
-_22
+_23
 
-Proposal Key:
+Proposal Key: —
 
-_22
+_23
 
-Address f8d6e0586b0a20c7
-
-_22
-
-Index 0
-
-_22
-
-Sequence 0
-
-_22
-
-_22
+_23
 
 No Payload Signatures
 
-_22
+_23
 
-_22
+No Envelope Signatures
 
-Envelope Signature 0: f8d6e0586b0a20c7
+_23
 
-_22
+_23
 
-Signatures (minimized, use --include signatures)
+Events:
 
-_22
+_23
 
-_22
+Index 0
 
-Events: None
+_23
 
-_22
+Type A.1654653399040a61.FlowToken.TokensDeposited
 
-_22
+_23
+
+Tx ID 40bc4b100c1930c61381c22e0f4c10a7f5827975ee25715527c1061b8d71e5aa
+
+_23
+
+Values
+
+_23
+
+- amount (UFix64): 0.00100000
+
+_23
+
+- to ({}?): 5068e27f275c546c
+
+_23
+
+_23
 
 Code (hidden, use --include code)
 
-_22
+_23
 
-_22
+_23
 
 Payload (hidden, use --include payload)`
 
-Multiple arguments example:
+Select a specific system transaction within the block by ID:
 
 `_10
 
-> flow transactions send tx1.cdc Foo 1 2 10.9 0x1 '[123,222]' '["a","b"]'`
-
-Transaction code:
-
-`_10
-
-transaction(a: String, b: Int, c: UInt16, d: UFix64, e: Address, f: [Int], g: [String]) {
-
-_10
-
-prepare(authorizer: &Account) {}
-
-_10
-
-}`
-
-In the above example, the `flow.json` file would look something like this:
-
-`_10
-
-{
-
-_10
-
-"accounts": {
-
-_10
-
-"my-testnet-account": {
-
-_10
-
-"address": "a2c4941b5f3c7151",
-
-_10
-
-"key": "12c5dfde...bb2e542f1af710bd1d40b2"
-
-_10
-
-}
-
-_10
-
-}
-
-_10
-
-}`
-
-JSON arguments from a file example:
-
-`_10
-
-> flow transactions send tx1.cdc --args-json "$(cat args.json)"`
+> flow transactions get-system latest 07a8...b433 --network mainnet`
 
 ## Arguments[​](#arguments "Direct link to Arguments")
 
-### Code Filename[​](#code-filename "Direct link to Code Filename")
+### Block Reference[​](#block-reference "Direct link to Block Reference")
 
-* Name: `code filename`
-* Valid inputs: Any filename and path valid on the system.
+* Name: `<block_id|latest|block_height>`
+* Valid Input: a block ID (hex), the keyword `latest`, or a block height (number).
 
-The first argument is a path to a Cadence file containing the
-transaction to be executed.
+The first argument is a reference to the block whose system transaction you want to fetch.
 
-### Arguments[​](#arguments-1 "Direct link to Arguments")
+### Transaction ID (optional)[​](#transaction-id-optional "Direct link to Transaction ID (optional)")
 
-* Name: `argument`
-* Valid inputs: valid [cadence values](https://cadencelang.dev/docs/1.0/json-cadence-spec)
-  matching argument type in transaction code.
+* Name: `[tx_id]`
+* Valid Input: a transaction ID (hex).
 
-Input arguments values matching corresponding types in the source code and passed in the same order.
-You can pass a `nil` value to optional arguments by sending the transaction like this: `flow transactions send tx.cdc nil`.
+Optionally narrow the result to a specific system transaction within the referenced block.
 
 ## Flags[​](#flags "Direct link to Flags")
 
 ### Include Fields[​](#include-fields "Direct link to Include Fields")
 
 * Flag: `--include`
-* Valid inputs: `code`, `payload`
+* Valid inputs: `code`, `payload`, `signatures`, `fee-events`
 
 Specify fields to include in the result output. Applies only to the text output.
-
-### Code[​](#code "Direct link to Code")
-
-* Flag: `--code`
-
-⚠️ No longer supported: use filename argument.
-
-### Results[​](#results "Direct link to Results")
-
-* Flag: `--results`
-
-⚠️ No longer supported: all transactions will provide result.
 
 ### Exclude Fields[​](#exclude-fields "Direct link to Exclude Fields")
 
@@ -270,59 +215,13 @@ Specify fields to include in the result output. Applies only to the text output.
 
 Specify fields to exclude from the result output. Applies only to the text output.
 
-### Signer[​](#signer "Direct link to Signer")
-
-* Flag: `--signer`
-* Valid inputs: the name of an account defined in the configuration (`flow.json`)
-
-Specify the name of the account that will be used to sign the transaction.
-
-### Proposer[​](#proposer "Direct link to Proposer")
-
-* Flag: `--proposer`
-* Valid inputs: the name of an account defined in the configuration (`flow.json`)
-
-Specify the name of the account that will be used as proposer in the transaction.
-
-### Payer[​](#payer "Direct link to Payer")
-
-* Flag: `--payer`
-* Valid inputs: the name of an account defined in the configuration (`flow.json`)
-
-Specify the name of the account that will be used as payer in the transaction.
-
-### Authorizer[​](#authorizer "Direct link to Authorizer")
-
-* Flag: `--authorizer`
-* Valid inputs: the name of a single or multiple comma-separated accounts defined in the configuration (`flow.json`)
-
-Specify the name of the account(s) that will be used as authorizer(s) in the transaction. If you want to provide multiple authorizers separate them using commas (e.g. `alice,bob`)
-
-### Arguments JSON[​](#arguments-json "Direct link to Arguments JSON")
-
-* Flag: `--args-json`
-* Valid inputs: arguments in JSON-Cadence form.
-* Example: `flow transactions send ./tx.cdc '[{"type": "String", "value": "Hello World"}]'`
-
-Arguments passed to the Cadence transaction in Cadence JSON format.
-Cadence JSON format contains `type` and `value` keys and is
-[documented here](https://cadencelang.dev/docs/1.0/json-cadence-spec).
-
-### Gas Limit[​](#gas-limit "Direct link to Gas Limit")
-
-* Flag: `--gas-limit`
-* Valid inputs: an integer greater than zero.
-* Default: `1000`
-
-Specify the gas limit for this transaction.
-
 ### Host[​](#host "Direct link to Host")
 
 * Flag: `--host`
-* Valid inputs: an IP address or hostname.
+* Valid inputs: an IP address or host address.
 * Default: `127.0.0.1:3569` (Flow Emulator)
 
-Specify the hostname of the Access API that will be
+Specify the host address of the Access API that will be
 used to execute the command. This flag overrides
 any host defined by the `--network` flag.
 
@@ -332,7 +231,7 @@ any host defined by the `--network` flag.
 * Valid inputs: A valid network public key of the host in hex string format
 
 Specify the network public key of the Access API that will be
-used to create a secure GRPC client when executing the command.
+used to create secure client connections when executing the command.
 
 ### Network[​](#network "Direct link to Network")
 
@@ -363,7 +262,7 @@ Specify the format of the command results.
 
 * Flag: `--save`
 * Short Flag: `-s`
-* Valid inputs: a path in the current filesystem.
+* Valid inputs: a path in the current file system.
 
 Specify the filename where you want the result to be saved
 
@@ -380,7 +279,7 @@ Specify the log level. Control how much output you want to see during command ex
 
 * Flag: `--config-path`
 * Short Flag: `-f`
-* Valid inputs: a path in the current filesystem.
+* Valid inputs: a path in the current file system.
 * Default: `flow.json`
 
 Specify the path to the `flow.json` configuration file.
@@ -394,15 +293,27 @@ several configuration files.
 
 Skip version check during start up to speed up process for slow connections.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/transactions/send-transactions.md)
+## Notes[​](#notes "Direct link to Notes")
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+System transactions currently cover:
+
+* System chunk transactions used by protocol operations. See an overview of system chunks and service events: [Epoch Scripts and Events](/protocol/staking/epoch-scripts-events).
+* Scheduled callbacks execution. Learn more: [Introduction to Scheduled Callbacks](https://developers.flow.com/blockchain-development-tutorials/flow-actions/scheduled-callbacks-introduction).
+
+More resources:
+
+* [Staking rewards via system chunk](/protocol/staking/staking-rewards)
+* [Epoch schedule and system chunk transactions](/protocol/staking/schedule)
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/transactions/get-system-transactions.md)
+
+Last updated on **Sep 22, 2025** by **Jordan Ribbink**
 
 [Previous
 
-Execute a Script](/build/tools/flow-cli/scripts/execute-scripts)[Next
+Build a Complex Transaction](/build/tools/flow-cli/transactions/decode-transactions)[Next
 
-Get a Transaction](/build/tools/flow-cli/transactions/get-transactions)
+Initialize Configuration](/build/tools/flow-cli/flow.json/initialize-configuration)
 
 ###### Rate this page
 
@@ -410,21 +321,14 @@ Get a Transaction](/build/tools/flow-cli/transactions/get-transactions)
 
 Copy as Markdown
 
+* [Use Cases](#use-cases)
 * [Example Usage](#example-usage)
 * [Arguments](#arguments)
-  + [Code Filename](#code-filename)
-  + [Arguments](#arguments-1)
+  + [Block Reference](#block-reference)
+  + [Transaction ID (optional)](#transaction-id-optional)
 * [Flags](#flags)
   + [Include Fields](#include-fields)
-  + [Code](#code)
-  + [Results](#results)
   + [Exclude Fields](#exclude-fields)
-  + [Signer](#signer)
-  + [Proposer](#proposer)
-  + [Payer](#payer)
-  + [Authorizer](#authorizer)
-  + [Arguments JSON](#arguments-json)
-  + [Gas Limit](#gas-limit)
   + [Host](#host)
   + [Network Key](#network-key)
   + [Network](#network)
@@ -434,6 +338,7 @@ Copy as Markdown
   + [Log](#log)
   + [Configuration](#configuration)
   + [Version Check](#version-check)
+* [Notes](#notes)
 
 Documentation
 

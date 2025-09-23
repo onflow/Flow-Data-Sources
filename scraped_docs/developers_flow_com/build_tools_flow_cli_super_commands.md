@@ -359,6 +359,16 @@ flow config remove deployment testnet my-account MyToken`
 
 ## Account Management[​](#account-management "Direct link to Account Management")
 
+### List Accounts[​](#list-accounts "Direct link to List Accounts")
+
+`_10
+
+# List all configured accounts with status
+
+_10
+
+flow accounts list`
+
 ### Create Accounts[​](#create-accounts "Direct link to Create Accounts")
 
 `_10
@@ -388,6 +398,36 @@ _10
 _10
 
 flow accounts create --key <private-key>`
+
+### Fund Accounts[​](#fund-accounts "Direct link to Fund Accounts")
+
+`_10
+
+# Interactive funding prompt
+
+_10
+
+flow accounts fund
+
+_10
+
+_10
+
+# Fund by account name from flow.json
+
+_10
+
+flow accounts fund testnet-account
+
+_10
+
+_10
+
+# Fund by address
+
+_10
+
+flow accounts fund 0x8e94eaa81771313a`
 
 ### Manage Account Keys[​](#manage-account-keys "Direct link to Manage Account Keys")
 
@@ -483,7 +523,37 @@ _10
 
 flow transactions send cadence/transactions/TransferTokens.cdc --signer my-account`
 
-📖 **[Learn more about scripts and transactions](/build/tools/flow-cli/scripts/execute-scripts)**
+### Get System Transactions[​](#get-system-transactions "Direct link to Get System Transactions")
+
+`_10
+
+# Get system transaction from latest block
+
+_10
+
+flow transactions get-system latest
+
+_10
+
+_10
+
+# Get specific system transaction by ID
+
+_10
+
+flow transactions get-system latest 07a8...b433
+
+_10
+
+_10
+
+# Get system transaction from specific block height
+
+_10
+
+flow transactions get-system 12345`
+
+📖 **[Learn more about scripts](/build/tools/flow-cli/scripts/execute-scripts)** | **[Learn more about transactions](/build/tools/flow-cli/transactions/send-transactions)**
 
 ## Dependency Management[​](#dependency-management "Direct link to Dependency Management")
 
@@ -520,6 +590,16 @@ flow dependencies install testnet://8a4dce54554b225d.NumberFormatter --account m
 ### Manage Dependencies[​](#manage-dependencies "Direct link to Manage Dependencies")
 
 `_10
+
+# List installed dependencies
+
+_10
+
+flow dependencies list
+
+_10
+
+_10
 
 # Discover available contracts
 
@@ -747,7 +827,7 @@ FLOW_PRIVATE_KEY=abc123 flow project deploy`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/super-commands.md)
 
-Last updated on **Aug 26, 2025** by **Chase Fleming**
+Last updated on **Sep 22, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -770,11 +850,14 @@ Copy as Markdown
   + [Add Configuration Items](#add-configuration-items)
   + [Remove Configuration Items](#remove-configuration-items)
 * [Account Management](#account-management)
+  + [List Accounts](#list-accounts)
   + [Create Accounts](#create-accounts)
+  + [Fund Accounts](#fund-accounts)
   + [Manage Account Keys](#manage-account-keys)
 * [Contract Interactions](#contract-interactions)
   + [Execute Scripts](#execute-scripts)
   + [Send Transactions](#send-transactions)
+  + [Get System Transactions](#get-system-transactions)
 * [Dependency Management](#dependency-management)
   + [Install Dependencies](#install-dependencies)
   + [Manage Dependencies](#manage-dependencies)
