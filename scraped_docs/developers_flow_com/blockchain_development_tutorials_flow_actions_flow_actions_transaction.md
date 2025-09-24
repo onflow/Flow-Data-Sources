@@ -20,7 +20,7 @@ Search
   + [Flow Actions Transaction](/blockchain-development-tutorials/flow-actions/flow-actions-transaction)
   + [Connectors](/blockchain-development-tutorials/flow-actions/connectors)
   + [Basic Combinations](/blockchain-development-tutorials/flow-actions/basic-combinations)
-  + [Introduction to Scheduled Callbacks](/blockchain-development-tutorials/flow-actions/scheduled-callbacks-introduction)
+  + [Introduction to Scheduled Transactions](/blockchain-development-tutorials/flow-actions/scheduled-transactions-introduction)
 * [Token Development and Registration](/blockchain-development-tutorials/tokens)
 * [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
 * [Flow EVM Guides](/blockchain-development-tutorials/evm)
@@ -57,7 +57,7 @@ In this tutorial, you'll learn how to build a transaction that simplifies restak
 
 tip
 
-If you combine this transaction with [scheduled transactions](/blockchain-development-tutorials/flow-actions/scheduled-callbacks-introduction), you can automate it completely!
+If you combine this transaction with [scheduled transactions](/blockchain-development-tutorials/flow-actions/scheduled-transactions-introduction), you can automate it completely!
 
 ## Learning Objectives[​](#learning-objectives "Direct link to Learning Objectives")
 
@@ -739,7 +739,7 @@ This transaction demonstrates how to chain multiple DeFi operations atomically, 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/flow-actions/flow-actions-transaction.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Sep 23, 2025** by **Josh Hannan**
 
 [Previous
 
@@ -814,7 +814,7 @@ Network
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
 * [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/spork)
+* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 

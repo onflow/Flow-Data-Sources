@@ -33,37 +33,21 @@ On this page
 
 # JSON-Cadence Data Interchange Format
 
-## Version[​](#version "Direct link to Version")
-
 > Version 0.3.1
 
 JSON-Cadence is a data interchange format used to represent Cadence values as language-independent JSON objects.
 
 This format includes less type information than a complete [ABI](https://en.wikipedia.org/wiki/Application_binary_interface), and instead promotes the following tenets:
 
-* **Human-readability** - JSON-Cadence is easy to read and comprehend, which speeds up development and debugging.
-* **Compatibility** - JSON is a common format with built-in support in most high-level programming languages, making it easy to parse on a variety of platforms.
-* **Portability** - JSON-Cadence is self-describing and thus can be transported and decoded without accompanying type definitions (i.e. an ABI).
+* **Human-readability** — JSON-Cadence is easy to read and comprehend, which speeds up development and debugging.
+* **Compatibility** — JSON is a common format with built-in support in most high-level programming languages, making it easy to parse on a variety of platforms.
+* **Portability** — JSON-Cadence is self-describing and thus can be transported and decoded without accompanying type definitions (i.e., an ABI).
 
-# Values
+The following provides reference information and examples when working with various values and types.
 
----
+## Values[​](#values "Direct link to Values")
 
-## Void[​](#void "Direct link to Void")
-
-`_10
-
-{
-
-_10
-
-"type": "Void"
-
-_10
-
-}`
-
-### Example[​](#example "Direct link to Example")
+### Void[​](#void "Direct link to Void")
 
 `_10
 
@@ -77,9 +61,23 @@ _10
 
 }`
 
+**Example**
+
+`_10
+
+{
+
+_10
+
+"type": "Void"
+
+_10
+
+}`
+
 ---
 
-## Optional[​](#optional "Direct link to Optional")
+### Optional[​](#optional "Direct link to Optional")
 
 `_10
 
@@ -97,7 +95,7 @@ _10
 
 }`
 
-### Example[​](#example-1 "Direct link to Example")
+**Example**
 
 `_16
 
@@ -157,9 +155,7 @@ _16
 
 }`
 
----
-
-## Bool[​](#bool "Direct link to Bool")
+### Bool[​](#bool "Direct link to Bool")
 
 `_10
 
@@ -177,7 +173,7 @@ _10
 
 }`
 
-### Example[​](#example-2 "Direct link to Example")
+**Example**
 
 `_10
 
@@ -195,9 +191,7 @@ _10
 
 }`
 
----
-
-## String[​](#string "Direct link to String")
+### String[​](#string "Direct link to String")
 
 `_10
 
@@ -215,7 +209,7 @@ _10
 
 }`
 
-### Example[​](#example-3 "Direct link to Example")
+**Example**
 
 `_10
 
@@ -233,9 +227,7 @@ _10
 
 }`
 
----
-
-## Address[​](#address "Direct link to Address")
+### Address[​](#address "Direct link to Address")
 
 `_10
 
@@ -253,7 +245,7 @@ _10
 
 }`
 
-### Example[​](#example-4 "Direct link to Example")
+**Example**
 
 `_10
 
@@ -271,15 +263,13 @@ _10
 
 }`
 
----
+### Integers[​](#integers "Direct link to Integers")
 
-## Integers[​](#integers "Direct link to Integers")
-
-`[U]Int`, `[U]Int8`, `[U]Int16`, `[U]Int32`,`[U]Int64`,`[U]Int128`, `[U]Int256`, `Word8`, `Word16`, `Word32`, `Word64`, `Word128` or `Word256`
+`[U]Int`, `[U]Int8`, `[U]Int16`, `[U]Int32`,`[U]Int64`,`[U]Int128`, `[U]Int256`, `Word8`, `Word16`, `Word32`, `Word64`, `Word128` or `Word256`.
 
 Although JSON supports integer literals up to 64 bits, all integer types are encoded as strings for consistency.
 
-While the static type is not strictly required for decoding, it is provided to inform client of potential range.
+While the static type is not strictly required for decoding, it is provided to inform the client of the potential range.
 
 `_10
 
@@ -297,7 +287,7 @@ _10
 
 }`
 
-### Example[​](#example-5 "Direct link to Example")
+**Example**
 
 `_10
 
@@ -315,11 +305,9 @@ _10
 
 }`
 
----
+### Fixed point numbers[​](#fixed-point-numbers "Direct link to Fixed point numbers")
 
-## Fixed Point Numbers[​](#fixed-point-numbers "Direct link to Fixed Point Numbers")
-
-`[U]Fix64`
+* `[U]Fix64`
 
 Although fixed point numbers are implemented as integers, JSON-Cadence uses a decimal string representation for readability.
 
@@ -339,7 +327,7 @@ _10
 
 }`
 
-### Example[​](#example-6 "Direct link to Example")
+**Example**
 
 `_10
 
@@ -357,9 +345,7 @@ _10
 
 }`
 
----
-
-## Array[​](#array "Direct link to Array")
+### Array[​](#array "Direct link to Array")
 
 `_10
 
@@ -393,7 +379,7 @@ _10
 
 }`
 
-### Example[​](#example-7 "Direct link to Example")
+**Example**
 
 `_17
 
@@ -463,9 +449,7 @@ _17
 
 }`
 
----
-
-## Dictionary[​](#dictionary "Direct link to Dictionary")
+### Dictionary[​](#dictionary "Direct link to Dictionary")
 
 Dictionaries are encoded as a list of key-value pairs to preserve the deterministic ordering implemented by Cadence.
 
@@ -509,7 +493,7 @@ _10
 
 }`
 
-### Example[​](#example-8 "Direct link to Example")
+**Example**
 
 `_16
 
@@ -575,9 +559,7 @@ _16
 
 }`
 
----
-
-## Composites (Struct, Resource, Event, Contract, Enum)[​](#composites-struct-resource-event-contract-enum "Direct link to Composites (Struct, Resource, Event, Contract, Enum)")
+### Composites (Struct, Resource, Event, Contract, Enum)[​](#composites-struct-resource-event-contract-enum "Direct link to Composites (Struct, Resource, Event, Contract, Enum)")
 
 Composite fields are encoded as a list of name-value pairs in the order in which they appear in the composite type declaration.
 
@@ -633,7 +615,7 @@ _13
 
 }`
 
-### Example[​](#example-9 "Direct link to Example")
+**Example**
 
 `_12
 
@@ -683,9 +665,7 @@ _12
 
 }`
 
----
-
-## Path[​](#path "Direct link to Path")
+### Path[​](#path "Direct link to Path")
 
 `_10
 
@@ -715,7 +695,7 @@ _10
 
 }`
 
-### Example[​](#example-10 "Direct link to Example")
+**Example**
 
 `_10
 
@@ -745,9 +725,7 @@ _10
 
 }`
 
----
-
-## Type Value[​](#type-value "Direct link to Type Value")
+### Type value[​](#type-value "Direct link to Type value")
 
 `_10
 
@@ -773,7 +751,7 @@ _10
 
 }`
 
-### Example[​](#example-11 "Direct link to Example")
+**Example**
 
 `_10
 
@@ -807,9 +785,7 @@ _10
 
 }`
 
----
-
-## InclusiveRange[​](#inclusiverange "Direct link to InclusiveRange")
+### InclusiveRange[​](#inclusiverange "Direct link to InclusiveRange")
 
 `_10
 
@@ -843,7 +819,7 @@ _10
 
 }`
 
-### Example[​](#example-12 "Direct link to Example")
+**Example**
 
 `_17
 
@@ -913,9 +889,7 @@ _17
 
 }`
 
----
-
-## Capability[​](#capability "Direct link to Capability")
+### Capability[​](#capability "Direct link to Capability")
 
 `_10
 
@@ -949,7 +923,7 @@ _10
 
 }`
 
-### Example[​](#example-13 "Direct link to Example")
+**Example**
 
 `_10
 
@@ -991,9 +965,7 @@ _10
 
 }`
 
----
-
-## Functions[​](#functions "Direct link to Functions")
+### Functions[​](#functions "Direct link to Functions")
 
 `_10
 
@@ -1019,9 +991,9 @@ _10
 
 }`
 
-Function values can only be exported, they cannot be imported.
+Function values can only be exported — they cannot be imported.
 
-### Example[​](#example-14 "Direct link to Example")
+**Example**
 
 `_13
 
@@ -1075,13 +1047,11 @@ _13
 
 }`
 
----
+## Types[​](#types "Direct link to Types")
 
-# Types
+### Simple Types[​](#simple-types "Direct link to Simple Types")
 
-## Simple Types[​](#simple-types "Direct link to Simple Types")
-
-These are basic types like `Int`, `String`, or `StoragePath`.
+These are basic types such as `Int`, `String`, or `StoragePath`.
 
 `_10
 
@@ -1155,7 +1125,7 @@ Where `kind` is one of:
 * `Word64`
 * `Word8`
 
-### Example[​](#example-15 "Direct link to Example")
+**Example**
 
 `_10
 
@@ -1169,9 +1139,7 @@ _10
 
 }`
 
----
-
-## Optional Types[​](#optional-types "Direct link to Optional Types")
+### Optional types[​](#optional-types "Direct link to Optional types")
 
 `_10
 
@@ -1189,7 +1157,7 @@ _10
 
 }`
 
-### Example[​](#example-16 "Direct link to Example")
+**Example**
 
 `_10
 
@@ -1215,9 +1183,7 @@ _10
 
 }`
 
----
-
-## Variable Sized Array Types[​](#variable-sized-array-types "Direct link to Variable Sized Array Types")
+### Variable sized array types[​](#variable-sized-array-types "Direct link to Variable sized array types")
 
 `_10
 
@@ -1235,7 +1201,7 @@ _10
 
 }`
 
-### Example[​](#example-17 "Direct link to Example")
+**Example**
 
 `_10
 
@@ -1261,9 +1227,7 @@ _10
 
 }`
 
----
-
-## Constant Sized Array Types[​](#constant-sized-array-types "Direct link to Constant Sized Array Types")
+### Constant sized array types[​](#constant-sized-array-types "Direct link to Constant sized array types")
 
 `_10
 
@@ -1285,7 +1249,7 @@ _10
 
 }`
 
-### Example[​](#example-18 "Direct link to Example")
+**Example**
 
 `_10
 
@@ -1315,9 +1279,7 @@ _10
 
 }`
 
----
-
-## Dictionary Types[​](#dictionary-types "Direct link to Dictionary Types")
+### Dictionary types[​](#dictionary-types "Direct link to Dictionary types")
 
 `_10
 
@@ -1339,7 +1301,7 @@ _10
 
 }`
 
-### Example[​](#example-19 "Direct link to Example")
+**Example**
 
 `_10
 
@@ -1377,9 +1339,7 @@ _10
 
 }`
 
----
-
-## Composite Types[​](#composite-types "Direct link to Composite Types")
+### Composite types[​](#composite-types "Direct link to Composite types")
 
 `_15
 
@@ -1441,7 +1401,7 @@ _15
 
 }`
 
-### Example[​](#example-20 "Direct link to Example")
+**Example**
 
 `_24
 
@@ -1539,9 +1499,7 @@ _24
 
 }`
 
----
-
-## Field Types[​](#field-types "Direct link to Field Types")
+### Field types[​](#field-types "Direct link to Field types")
 
 `_10
 
@@ -1559,7 +1517,7 @@ _10
 
 }`
 
-### Example[​](#example-21 "Direct link to Example")
+**Example**
 
 `_10
 
@@ -1585,9 +1543,7 @@ _10
 
 }`
 
----
-
-## Parameter Types[​](#parameter-types "Direct link to Parameter Types")
+### Parameter types[​](#parameter-types "Direct link to Parameter types")
 
 `_10
 
@@ -1609,7 +1565,7 @@ _10
 
 }`
 
-### Example[​](#example-22 "Direct link to Example")
+**Example**
 
 `_10
 
@@ -1639,11 +1595,9 @@ _10
 
 }`
 
----
+### Initializer types[​](#initializer-types "Direct link to Initializer types")
 
-## Initializer Types[​](#initializer-types "Direct link to Initializer Types")
-
-Initializer types are encoded a list of parameters to the initializer.
+Initializer types are encoded as a list of parameters to the initializer.
 
 `_10
 
@@ -1665,7 +1619,7 @@ _10
 
 ]`
 
-### Example[​](#example-23 "Direct link to Example")
+**Example**
 
 `_10
 
@@ -1703,9 +1657,7 @@ _10
 
 ]`
 
----
-
-## Function Types[​](#function-types "Direct link to Function Types")
+### Function types[​](#function-types "Direct link to Function types")
 
 `_11
 
@@ -1751,7 +1703,7 @@ _11
 
 }`
 
-### Example[​](#example-24 "Direct link to Example")
+**Example**
 
 `_17
 
@@ -1821,9 +1773,7 @@ _17
 
 }`
 
----
-
-## Reference Types[​](#reference-types "Direct link to Reference Types")
+### Reference types[​](#reference-types "Direct link to Reference types")
 
 `_12
 
@@ -1873,7 +1823,7 @@ _12
 
 }`
 
-### Example[​](#example-25 "Direct link to Example")
+**Example**
 
 `_17
 
@@ -1943,9 +1893,7 @@ _17
 
 }`
 
----
-
-## Intersection Types[​](#intersection-types "Direct link to Intersection Types")
+### Intersection types[​](#intersection-types "Direct link to Intersection types")
 
 `_10
 
@@ -1983,7 +1931,7 @@ _10
 
 }`
 
-### Example[​](#example-26 "Direct link to Example")
+**Example**
 
 `_20
 
@@ -2065,9 +2013,7 @@ _20
 
 }`
 
----
-
-## Capability Types[​](#capability-types "Direct link to Capability Types")
+### Capability types[​](#capability-types "Direct link to Capability types")
 
 `_10
 
@@ -2085,7 +2031,7 @@ _10
 
 }`
 
-### Example[​](#example-27 "Direct link to Example")
+**Example**
 
 `_13
 
@@ -2139,9 +2085,7 @@ _13
 
 }`
 
----
-
-## Enum Types[​](#enum-types "Direct link to Enum Types")
+### Enum types[​](#enum-types "Direct link to Enum types")
 
 `_12
 
@@ -2191,7 +2135,7 @@ _12
 
 }`
 
-### Example[​](#example-28 "Direct link to Example")
+**Example**
 
 `_16
 
@@ -2257,13 +2201,11 @@ _16
 
 }`
 
-## Repeated Types[​](#repeated-types "Direct link to Repeated Types")
+### Repeated types[​](#repeated-types "Direct link to Repeated types")
 
-When a composite type appears more than once within the same JSON type encoding, either because it is
-recursive or because it is repeated (e.g. in a composite field), the composite is instead
-represented by its type ID.
+When a composite type appears more than once within the same JSON type encoding, either because it is recursive or because it is repeated (e.g., in a composite field), the composite is instead represented by its type ID.
 
-### Example[​](#example-29 "Direct link to Example")
+**Example**
 
 `_20
 
@@ -2345,7 +2287,7 @@ _20
 
 }`
 
-## Inclusive Range Type[​](#inclusive-range-type "Direct link to Inclusive Range Type")
+### Inclusive range types[​](#inclusive-range-types "Direct link to Inclusive range types")
 
 `_10
 
@@ -2363,7 +2305,7 @@ _10
 
 }`
 
-### Example[​](#example-30 "Direct link to Example")
+**Example**
 
 `_10
 
@@ -2401,66 +2343,36 @@ Contract Upgrades with Incompatible Changes](/docs/contract-upgrades)
 
 😞😐😊
 
-* [Version](#version)
-* [Void](#void)
-  + [Example](#example)
-* [Optional](#optional)
-  + [Example](#example-1)
-* [Bool](#bool)
-  + [Example](#example-2)
-* [String](#string)
-  + [Example](#example-3)
-* [Address](#address)
-  + [Example](#example-4)
-* [Integers](#integers)
-  + [Example](#example-5)
-* [Fixed Point Numbers](#fixed-point-numbers)
-  + [Example](#example-6)
-* [Array](#array)
-  + [Example](#example-7)
-* [Dictionary](#dictionary)
-  + [Example](#example-8)
-* [Composites (Struct, Resource, Event, Contract, Enum)](#composites-struct-resource-event-contract-enum)
-  + [Example](#example-9)
-* [Path](#path)
-  + [Example](#example-10)
-* [Type Value](#type-value)
-  + [Example](#example-11)
-* [InclusiveRange](#inclusiverange)
-  + [Example](#example-12)
-* [Capability](#capability)
-  + [Example](#example-13)
-* [Functions](#functions)
-  + [Example](#example-14)
-* [Simple Types](#simple-types)
-  + [Example](#example-15)
-* [Optional Types](#optional-types)
-  + [Example](#example-16)
-* [Variable Sized Array Types](#variable-sized-array-types)
-  + [Example](#example-17)
-* [Constant Sized Array Types](#constant-sized-array-types)
-  + [Example](#example-18)
-* [Dictionary Types](#dictionary-types)
-  + [Example](#example-19)
-* [Composite Types](#composite-types)
-  + [Example](#example-20)
-* [Field Types](#field-types)
-  + [Example](#example-21)
-* [Parameter Types](#parameter-types)
-  + [Example](#example-22)
-* [Initializer Types](#initializer-types)
-  + [Example](#example-23)
-* [Function Types](#function-types)
-  + [Example](#example-24)
-* [Reference Types](#reference-types)
-  + [Example](#example-25)
-* [Intersection Types](#intersection-types)
-  + [Example](#example-26)
-* [Capability Types](#capability-types)
-  + [Example](#example-27)
-* [Enum Types](#enum-types)
-  + [Example](#example-28)
-* [Repeated Types](#repeated-types)
-  + [Example](#example-29)
-* [Inclusive Range Type](#inclusive-range-type)
-  + [Example](#example-30)
+* [Values](#values)
+  + [Void](#void)
+  + [Optional](#optional)
+  + [Bool](#bool)
+  + [String](#string)
+  + [Address](#address)
+  + [Integers](#integers)
+  + [Fixed point numbers](#fixed-point-numbers)
+  + [Array](#array)
+  + [Dictionary](#dictionary)
+  + [Composites (Struct, Resource, Event, Contract, Enum)](#composites-struct-resource-event-contract-enum)
+  + [Path](#path)
+  + [Type value](#type-value)
+  + [InclusiveRange](#inclusiverange)
+  + [Capability](#capability)
+  + [Functions](#functions)
+* [Types](#types)
+  + [Simple Types](#simple-types)
+  + [Optional types](#optional-types)
+  + [Variable sized array types](#variable-sized-array-types)
+  + [Constant sized array types](#constant-sized-array-types)
+  + [Dictionary types](#dictionary-types)
+  + [Composite types](#composite-types)
+  + [Field types](#field-types)
+  + [Parameter types](#parameter-types)
+  + [Initializer types](#initializer-types)
+  + [Function types](#function-types)
+  + [Reference types](#reference-types)
+  + [Intersection types](#intersection-types)
+  + [Capability types](#capability-types)
+  + [Enum types](#enum-types)
+  + [Repeated types](#repeated-types)
+  + [Inclusive range types](#inclusive-range-types)

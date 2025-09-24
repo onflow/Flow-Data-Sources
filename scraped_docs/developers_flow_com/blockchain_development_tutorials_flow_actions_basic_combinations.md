@@ -20,7 +20,7 @@ Search
   + [Flow Actions Transaction](/blockchain-development-tutorials/flow-actions/flow-actions-transaction)
   + [Connectors](/blockchain-development-tutorials/flow-actions/connectors)
   + [Basic Combinations](/blockchain-development-tutorials/flow-actions/basic-combinations)
-  + [Introduction to Scheduled Callbacks](/blockchain-development-tutorials/flow-actions/scheduled-callbacks-introduction)
+  + [Introduction to Scheduled Transactions](/blockchain-development-tutorials/flow-actions/scheduled-transactions-introduction)
 * [Token Development and Registration](/blockchain-development-tutorials/tokens)
 * [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
 * [Flow EVM Guides](/blockchain-development-tutorials/evm)
@@ -1253,7 +1253,7 @@ Last updated on **Aug 26, 2025** by **Felipe Cevallos**
 
 Connectors](/blockchain-development-tutorials/flow-actions/connectors)[Next
 
-Introduction to Scheduled Callbacks](/blockchain-development-tutorials/flow-actions/scheduled-callbacks-introduction)
+Introduction to Scheduled Transactions](/blockchain-development-tutorials/flow-actions/scheduled-transactions-introduction)
 
 ###### Rate this page
 
@@ -1326,7 +1326,7 @@ Network
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
 * [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/spork)
+* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 

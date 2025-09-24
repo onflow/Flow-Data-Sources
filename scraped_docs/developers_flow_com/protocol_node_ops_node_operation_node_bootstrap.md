@@ -36,7 +36,7 @@ Search
     - [Node Roles](/protocol/node-ops/node-operation/node-roles)
     - [Node Setup](/protocol/node-ops/node-operation/node-setup)
     - [Past Network Upgrades](/protocol/node-ops/node-operation/past-upgrades)
-    - [Network Upgrade (Spork) Process](/protocol/node-ops/node-operation/spork)
+    - [Network Upgrade (Spork) Process](/protocol/node-ops/node-operation/network-upgrade)
     - [Slashing Conditions](/protocol/node-ops/node-operation/slashing)
     - [Node Providers](/protocol/node-ops/node-operation/node-providers)
     - [Height coordinated upgrade](/protocol/node-ops/node-operation/hcu)
@@ -54,7 +54,7 @@ On this page
 
 # Node Bootstrap
 
-This guide is for getting a new node staked and running on Flow other than a permissionless Access node. For running a permissionless Access node see [Access node setup](/protocol/node-ops/access-nodes/access-node-setup). For sporking documentation for existing node operators, see [Spork Process](/protocol/node-ops/node-operation/spork).
+This guide is for getting a new node staked and running on Flow other than a permissionless Access node. For running a permissionless Access node see [Access node setup](/protocol/node-ops/access-nodes/access-node-setup). For sporking documentation for existing node operators, see [Spork Process](/protocol/node-ops/node-operation/network-upgrade).
 
 ## Timing[​](#timing "Direct link to Timing")
 
@@ -277,7 +277,7 @@ _31
 
 _31
 
-│ ├─  ─ node-machine-account-key.priv.json
+│ ├── node-machine-account-key.priv.json
 
 _31
 
@@ -605,7 +605,7 @@ Once a valid root snapshot file is downloaded to the node's bootstrap folder, it
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/protocol/node-ops/node-operation/node-bootstrap.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Sep 22, 2025** by **vishal**
 
 [Previous
 
@@ -671,7 +671,7 @@ Network
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
 * [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/spork)
+* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 

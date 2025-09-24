@@ -145,7 +145,7 @@ curl -sL -O storage.googleapis.com/flow-genesis-bootstrap/boot-tools-intel-mac.t
 
 #### Step 3 - Download the root-protocol-state-snapshot.json file for the current spork[​](#step-3---download-the-root-protocol-state-snapshotjson-file-for-the-current-spork "Direct link to Step 3 - Download the root-protocol-state-snapshot.json file for the current spork")
 
-The `root-protocol-state-snapshot.json` is generated for each [spork](/protocol/node-ops/node-operation/spork) and contains the genesis data for that spork.
+The `root-protocol-state-snapshot.json` is generated for each [spork](/protocol/node-ops/node-operation/network-upgrade) and contains the genesis data for that spork.
 It is published and made available after each spork. The download location is specified [here](https://github.com/onflow/flow/blob/master/sporks.json) under [rootProtocolStateSnapshot](https://github.com/onflow/flow/blob/master/sporks.json#L16) and can be downloaded as follows,
 
 For mainnet find the latest spork version from [sporks.json](https://github.com/onflow/flow/blob/master/sporks.json) and then download the `root-protocol-state-snapshot.json` and the signature file for it.
@@ -505,7 +505,7 @@ See [Past Sporks](/protocol/node-ops/node-operation/past-upgrades) for the curre
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/protocol/node-ops/light-nodes/observer-node.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Sep 22, 2025** by **vishal**
 
 [Previous
 
@@ -568,7 +568,7 @@ Network
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
 * [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/spork)
+* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 

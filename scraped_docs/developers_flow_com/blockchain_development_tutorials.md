@@ -46,7 +46,7 @@ Learn how to build composable DeFi applications using the Flow Actions framework
 * [Flow Actions Transactions](/blockchain-development-tutorials/flow-actions/flow-actions-transaction) - Learn how to create transactions that can chain multiple DeFi operations atomically.
 * [Connectors](/blockchain-development-tutorials/flow-actions/connectors) - Build Flow Actions connectors that integrate protocols with Flow Actions primitives, serving as protocol adapters that translate bespoke APIs into standardized interfaces.
 * [Basic Combinations](/blockchain-development-tutorials/flow-actions/basic-combinations) - Learn how to combine Flow Actions primitives to create powerful DeFi workflows using atomic composition, weak guarantees, and event traceability across multiple protocols.
-* [Scheduled Callbacks Introduction](/blockchain-development-tutorials/flow-actions/scheduled-callbacks-introduction) - Learn how to implement scheduled callbacks for time-based smart contract execution on Flow, enabling recurring jobs, deferred actions, and autonomous workflows without external transactions.
+* [Scheduled Transactions Introduction](/blockchain-development-tutorials/flow-actions/scheduled-transactions-introduction) - Learn how to implement scheduled transactions for time-based smart contract execution on Flow, enabling recurring jobs, deferred actions, and autonomous workflows without external transactions.
 
 ## [Cadence Development](/blockchain-development-tutorials/cadence)[​](#cadence-development "Direct link to cadence-development")
 
@@ -150,7 +150,7 @@ Flow will continue to provide quality walkthroughs and tutorials to provide deve
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/index.md)
 
-Last updated on **Sep 12, 2025** by **Vishal**
+Last updated on **Sep 23, 2025** by **Josh Hannan**
 
 [Next
 
@@ -212,7 +212,7 @@ Network
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
 * [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/spork)
+* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 

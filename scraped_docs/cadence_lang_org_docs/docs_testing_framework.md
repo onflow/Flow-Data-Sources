@@ -33,20 +33,13 @@ On this page
 
 # Cadence Testing Framework
 
-The Cadence testing framework provides a convenient way to write tests for Cadence programs in Cadence.
-This functionality is provided by the built-in `Test` contract.
+The Cadence testing framework provides a convenient way to write tests for Cadence programs in Cadence. This functionality is provided by the built-in `Test` contract.
 
 tip
 
-The testing framework can only be used off-chain, e.g. by using the [Flow CLI](https://developers.flow.com/tools/flow-cli).
+The testing framework can only be used offchain (e.g., by using the [Flow CLI](https://developers.flow.com/tools/flow-cli)).
 
-Tests must be written in the form of a Cadence script.
-A test script may contain testing functions that starts with the `test` prefix,
-a `setup` function that always runs before the tests,
-a `tearDown` function that always runs at the end of all test cases,
-a `beforeEach` function that runs before each test case,
-and an `afterEach` function that runs after each test case.
-All the above four functions are optional.
+Tests must be written in the form of a Cadence script. A test script may contain testing functions that starts with the `test` prefix, a `setup` function that always runs before the tests, a `tearDown` function that always runs at the end of all test cases, a `beforeEach` function that runs before each test case, and an `afterEach` function that runs after each test case. All of the above four functions are optional.
 
 `` _42
 
@@ -202,7 +195,7 @@ _42
 
 } ``
 
-## Test Standard Library[​](#test-standard-library "Direct link to Test Standard Library")
+## Test standard library[​](#test-standard-library "Direct link to Test standard library")
 
 The testing framework can be used by importing the built-in `Test` contract:
 
@@ -218,7 +211,7 @@ import Test`
 
 view fun assert(_ condition: Bool, message: String)`
 
-Fails a test-case if the given condition is false, and reports a message which explains why the condition is false.
+Fails a test case if the given condition is false, and reports a message that explains why the condition is false.
 
 The message argument is optional.
 
@@ -254,7 +247,7 @@ _10
 
 view fun fail(message: String)`
 
-Immediately fails a test-case, with a message explaining the reason to fail the test.
+Immediately fails a test case, with a message explaining the reason to fail the test.
 
 The message argument is optional.
 
@@ -336,8 +329,7 @@ _10
 
 fun assertEqual(_ expected: AnyStruct, _ actual: AnyStruct)`
 
-The `assertEqual` function fails the test-case if the given values are not equal, and
-reports a message which explains how the two values differ.
+The `assertEqual` function fails the test case if the given values are not equal, and reports a message that explains how the two values differ.
 
 `_40
 
@@ -489,8 +481,7 @@ _40
 
 fun expectFailure(_ functionWrapper: ((): Void), errorMessageSubstring: String)`
 
-The `expectFailure` function wraps a function call in a closure, and expects it to fail with
-an error message that contains the given error message portion.
+The `expectFailure` function wraps a function call in a closure and expects it to fail with an error message that contains the given error message portion.
 
 `_28
 
@@ -714,13 +705,9 @@ _31
 
 }`
 
-The `test` function defines the evaluation criteria for a value, and returns a boolean indicating whether the value
-conforms to the test criteria defined in the function.
+The `test` function defines the evaluation criteria for a value and returns a boolean indicating whether the value conforms to the test criteria defined in the function.
 
-The `and` and `or` functions can be used to combine this matcher with another matcher to produce a new matcher with
-multiple testing criteria.
-The `and` method returns a new matcher that succeeds if both this and the given matcher are succeeded.
-The `or` method returns a new matcher that succeeds if at-least this or the given matcher is succeeded.
+The `and` and `or` functions can be used to combine this matcher with another matcher to produce a new matcher with multiple testing criteria. The `and` method returns a new matcher that succeeds if both this and the given matcher are succeeded. The `or` method returns a new matcher that succeeds if at least this or the given matcher is succeeded.
 
 A matcher that accepts a generic-typed test function can be constructed using the `newMatcher` function.
 
@@ -862,8 +849,7 @@ The `Test` contract provides some built-in matcher functions for convenience.
 
 view fun equal(_ value: AnyStruct): Matcher`
 
-The `equal` function returns a matcher that succeeds if the tested value is equal to the given value.
-Accepts an `AnyStruct` value.
+The `equal` function returns a matcher that succeeds if the tested value is equal to the given value. Accepts an `AnyStruct` value.
 
 `_10
 
@@ -899,8 +885,7 @@ _10
 
 view fun beGreaterThan(_ value: Number): Matcher`
 
-The `beGreaterThan` function returns a matcher that succeeds if the tested value is a number and
-greater than the given number.
+The `beGreaterThan` function returns a matcher that succeeds if the tested value is a number and greater than the given number.
 
 `_10
 
@@ -936,8 +921,7 @@ _10
 
 view fun beLessThan(_ value: Number): Matcher`
 
-The `beLessThan` function returns a matcher that succeeds if the tested value is a number and
-less than the given number.
+The `beLessThan` function returns a matcher that succeeds if the tested value is a number and less than the given number.
 
 `_10
 
@@ -1009,8 +993,7 @@ _10
 
 view fun beEmpty(): Matcher`
 
-The `beEmpty` function returns a matcher that succeeds if the tested value is an array or dictionary,
-and the tested value contains no elements.
+The `beEmpty` function returns a matcher that succeeds if the tested value is an array or dictionary and the tested value contains no elements.
 
 `_12
 
@@ -1058,8 +1041,7 @@ _12
 
 view fun haveElementCount(_ count: Int): Matcher`
 
-The `haveElementCount` function returns a matcher that succeeds if the tested value is an array or dictionary,
-and has the given number of elements.
+The `haveElementCount` function returns a matcher that succeeds if the tested value is an array or dictionary and has the given number of elements.
 
 `_12
 
@@ -1107,9 +1089,7 @@ _12
 
 view fun contain(_ element: AnyStruct): Matcher`
 
-The `contain` function returns a matcher that succeeds if the tested value is an array that contains
-a value that is equal to the given value, or the tested value is a dictionary
-that contains an entry where the key is equal to the given value.
+The `contain` function returns a matcher that succeeds if the tested value is an array that contains a value that is equal to the given value, or the tested value is a dictionary that contains an entry where the key is equal to the given value.
 
 `_10
 
@@ -1151,9 +1131,7 @@ _10
 
 fun beSucceeded(): Matcher`
 
-The `beSucceeded` function returns a new matcher that checks if the given test value is either
-a ScriptResult or TransactionResult and the ResultStatus is succeeded.
-Returns false in any other case.
+The `beSucceeded` function returns a new matcher that checks if the given test value is either a ScriptResult or TransactionResult and the ResultStatus is succeeded. Returns false in any other case.
 
 `_13
 
@@ -1209,9 +1187,7 @@ _13
 
 fun beFailed(): Matcher`
 
-The `beFailed` function returns a new matcher that checks if the given test value is either
-a ScriptResult or TransactionResult and the ResultStatus is failed.
-Returns false in any other case.
+The `beFailed` function returns a new matcher that checks if the given test value is either a ScriptResult or TransactionResult and the ResultStatus is failed. Returns false in any other case.
 
 `_18
 
@@ -1281,11 +1257,11 @@ _18
 
 The built-in matchers, as well as custom matchers, can be combined with the three available combinators:
 
-* `not`,
-* `or`,
+* `not`
+* `or`
 * `and`
 
-in order to create more elaborate matchers and increase re-usability.
+This assures more elaborate matchers and increases re-usability.
 
 ### not[​](#not "Direct link to not")
 
@@ -1353,9 +1329,7 @@ _15
 
 fun or(_ other: Matcher): Matcher`
 
-The `Matcher.or` function combines this matcher with the given matcher.
-Returns a new matcher that succeeds if this or the given matcher succeed.
-If this matcher succeeds, then the other matcher would not be tested.
+The `Matcher.or` function combines this matcher with the given matcher. Returns a new matcher that succeeds if this or the given matcher succeed. If this matcher succeeds, then the other matcher would not be tested.
 
 `_11
 
@@ -1401,8 +1375,7 @@ _11
 
 fun and(_ other: Matcher): Matcher`
 
-The `Matcher.and` function combines this matcher with the given matcher.
-Returns a new matcher that succeeds if this and the given matcher succeed.
+The `Matcher.and` function combines this matcher with the given matcher. Returns a new matcher that succeeds if this and the given matcher succeed.
 
 `_15
 
@@ -1460,8 +1433,7 @@ _15
 
 ## Blockchain[​](#blockchain "Direct link to Blockchain")
 
-A blockchain is an environment to which transactions can be submitted to, and against which scripts can be run.
-It imitates the behavior of a real network, for testing.
+A blockchain is an environment to which transactions can be submitted to, and against which scripts can be run. It imitates the behavior of a real network for testing.
 
 `` _148
 
@@ -2177,8 +2149,7 @@ _45
 
 ### Creating a blockchain[​](#creating-a-blockchain "Direct link to Creating a blockchain")
 
-A new blockchain instance can be created using the `Test.newEmulatorBlockchain` method.
-It returns a `Blockchain` which is backed by a new [Flow Emulator](https://developers.flow.com/tools/emulator) instance.
+A new blockchain instance can be created using the `Test.newEmulatorBlockchain` method. It returns a `Blockchain`, which is backed by a new [Flow Emulator](https://developers.flow.com/tools/emulator) instance.
 
 `_10
 
@@ -2196,8 +2167,7 @@ let blockchain = Test.newEmulatorBlockchain()`
 
 ### Creating accounts[​](#creating-accounts "Direct link to Creating accounts")
 
-It may be necessary to create accounts during tests for various reasons, such as for deploying contracts, signing transactions, etc.
-An account can be created using the `createAccount` function.
+It may be necessary to create accounts during tests for various reasons, such as for deploying contracts, signing transactions, and so on. An account can be created using the `createAccount` function.
 
 `_12
 
@@ -2241,7 +2211,7 @@ _12
 
 }`
 
-Running the above command, from the command-line, we would get:
+The following response is returned when running the above command from the command line:
 
 `_10
 
@@ -2261,7 +2231,7 @@ _10
 
 - PASS: testExample`
 
-The returned account consists of the `address` of the account, and a `publicKey` associated with it.
+The returned account consists of the `address` of the account and a `publicKey` associated with it.
 
 `_16
 
@@ -2323,8 +2293,7 @@ _16
 
 ### Executing scripts[​](#executing-scripts "Direct link to Executing scripts")
 
-Scripts can be run with the `executeScript` function, which returns a `ScriptResult`.
-The function takes script-code as the first argument, and the script-arguments as an array as the second argument.
+Scripts can be run with the `executeScript` function, which returns a `ScriptResult`. The function takes script code as the first argument, and the script arguments as an array as the second argument.
 
 `` _21
 
@@ -2398,8 +2367,7 @@ _21
 
 } ``
 
-The script result consists of the `status` of the script execution, and a `returnValue` if the script execution was
-successful, or an `error` otherwise (see [errors](#errors) section for more details on errors).
+The script result consists of the `status` of the script execution, a `returnValue` if the script execution was successful, or an `error` otherwise (see [errors](#errors) section for more details on errors).
 
 `_20
 
@@ -2475,8 +2443,7 @@ _20
 
 ### Executing transactions[​](#executing-transactions "Direct link to Executing transactions")
 
-A transaction must be created with the transaction code, a list of authorizes,
-a list of signers that would sign the transaction, and the transaction arguments.
+A transaction must be created with the transaction code, a list of authorizes, a list of signers that would sign the transaction, and the transaction arguments.
 
 `_24
 
@@ -2784,7 +2751,7 @@ _16
 
 ### Commit block[​](#commit-block "Direct link to Commit block")
 
-`commitBlock` block will commit the current block, and will fail if there are any un-executed transactions in the block.
+`commitBlock` block commits the current block and will fail if there are any unexecuted transactions in the block.
 
 `` _24
 
@@ -2998,14 +2965,9 @@ An `Error` is returned if the contract deployment fails. Otherwise, a `nil` is r
 
 ### Configuring import addresses[​](#configuring-import-addresses "Direct link to Configuring import addresses")
 
-A common pattern in Cadence projects is to define the imports as file locations and specify the addresses
-corresponding to each network in the [Flow CLI configuration file](https://developers.flow.com/tools/flow-cli/flow.json/configuration.md#contracts).
-When writing tests for such a project, it may also require to specify the addresses to be used during the tests as well.
-However, during tests, since accounts are created dynamically and the addresses are also generated dynamically,
-specifying the addresses statically in a configuration file is not an option.
+A common pattern in Cadence projects is to define the imports as file locations and specify the addresses corresponding to each network in the [Flow CLI configuration file](https://developers.flow.com/tools/flow-cli/flow.json/configuration.md#contracts). When writing tests for such a project, it may also require to specify the addresses to be used during the tests as well. However, during tests, since accounts are created dynamically and the addresses are also generated dynamically, specifying the addresses statically in a configuration file is not an option.
 
-Hence, the test framework provides a way to specify the addresses using the
-`useConfiguration(_ configuration: Test.Configuration)` function in `Blockchain`.
+Hence, the test framework provides a way to specify the addresses using the `useConfiguration(_ configuration: Test.Configuration)` function in `Blockchain`.
 
 The `Configuration` struct consists of a mapping of import locations to their addresses.
 
@@ -3059,16 +3021,13 @@ _13
 
 tip
 
-The `Blockchain.useConfiguration` is a run-time alternative for
-[statically defining contract addresses in the flow.json config file](https://developers.flow.com/tools/flow-cli/flow.json/configuration.md#advanced-format).
+The `Blockchain.useConfiguration` is a run-time alternative for [statically defining contract addresses](https://developers.flow.com/tools/flow-cli/flow.json/configuration.md#advanced-format) in the flow.json config file.
 
-The configurations can be specified during the test setup as a best-practice.
+The configurations can be specified during the test setup as a best practice.
 
-e.g: Assume running a script that imports the above `Foo.cdc` contract.
-The import location for the contract can be specified using the placeholder `"Foo"`.
-This placeholder can be any unique string.
+For example, assume running a script that imports the above `Foo.cdc` contract. The import location for the contract can be specified using the placeholder `"Foo"`. This placeholder can be any unique string.
 
-Suppose this script is saved in `say_hello.cdc`.
+Suppose this script is saved in `say_hello.cdc`:
 
 `_10
 
@@ -3212,13 +3171,12 @@ _34
 
 }`
 
-The subsequent operations on the blockchain (e.g: contract deployment, script/transaction execution) will resolve the
+The subsequent operations on the blockchain (e.g., contract deployment and script/transaction execution) will resolve the
 import locations to the provided addresses.
 
 ### Errors[​](#errors "Direct link to Errors")
 
-An `Error` maybe returned when an operation (such as executing a script, executing a transaction, etc.) has failed.
-It contains a message indicating why the operation failed.
+An `Error` maybe returned when an operation (such as executing a script, executing a transaction, and so on) has failed. It contains a message indicating why the operation failed.
 
 `_12
 
@@ -3576,10 +3534,9 @@ _33
 
 ## Commonly used contracts[​](#commonly-used-contracts "Direct link to Commonly used contracts")
 
-The commonly used contracts are already deployed on the blockchain, and can be imported without any
-additional setup.
+The commonly used contracts are already deployed on the blockchain and can be imported without any additional setup.
 
-Suppose this script is saved in `get_type_ids.cdc`.
+Suppose this script is saved in `get_type_ids.cdc`:
 
 `_17
 
@@ -3725,9 +3682,7 @@ _22
 
 ## Reading from files[​](#reading-from-files "Direct link to Reading from files")
 
-Writing tests often require constructing source-code of contracts/transactions/scripts in the test script.
-Testing framework provides a convenient way to load programs from a local file, without having to manually construct
-them within the test script.
+Writing tests often require constructing source code of contracts/transactions/scripts in the test script. Testing framework provides a convenient way to load programs from a local file, without having to manually construct them within the test script.
 
 `_10
 
@@ -3821,9 +3776,7 @@ _22
 
 ## Examples[​](#examples "Direct link to Examples")
 
-This [repository](https://github.com/m-Peter/flow-code-coverage) contains some functional examples
-that demonstrate most of the above features, both for contrived and real-world smart contracts.
-It also contains a detailed explanation on using code coverage from within the testing framework.
+This [repository](https://github.com/m-Peter/flow-code-coverage) contains some functional examples that demonstrate most of the above features, both for contrived and real-world smart contracts. It also contains a detailed explanation about using code coverage from within the testing framework.
 
 [Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/testing-framework.mdx)
 
@@ -3835,7 +3788,7 @@ Measuring Time](/docs/measuring-time)
 
 😞😐😊
 
-* [Test Standard Library](#test-standard-library)
+* [Test standard library](#test-standard-library)
 * [Assertions](#assertions)
   + [Test.assert](#testassert)
   + [Test.fail](#testfail)

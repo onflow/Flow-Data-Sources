@@ -36,7 +36,7 @@ Search
     - [Node Roles](/protocol/node-ops/node-operation/node-roles)
     - [Node Setup](/protocol/node-ops/node-operation/node-setup)
     - [Past Network Upgrades](/protocol/node-ops/node-operation/past-upgrades)
-    - [Network Upgrade (Spork) Process](/protocol/node-ops/node-operation/spork)
+    - [Network Upgrade (Spork) Process](/protocol/node-ops/node-operation/network-upgrade)
     - [Slashing Conditions](/protocol/node-ops/node-operation/slashing)
     - [Node Providers](/protocol/node-ops/node-operation/node-providers)
     - [Height coordinated upgrade](/protocol/node-ops/node-operation/hcu)
@@ -59,13 +59,13 @@ On this page
 To enables rapid development of the Flow Protocol, the height coordinated upgrade method is used to roll out non-breaking changes such as bug fixes,
 feature implementations and security fixes.
 
-## HCU versus Spork[​](#hcu-versus-spork "Direct link to HCU versus Spork")
+## HCU versus Network Upgrade[​](#hcu-versus-network-upgrade "Direct link to HCU versus Network Upgrade")
 
-A [spork](/protocol/node-ops/node-operation/spork) requires a coordinated network upgrade process where node operators upgrade their node software and
-re-initialize with a consolidated representation of the previous spork's state.
+A [Network Upgrade (spork)](/protocol/node-ops/node-operation/network-upgrade) requires a coordinated network upgrade process where node operators upgrade their node software and
+re-initialize with a consolidated representation of the previous network upgrade's state.
 It is used to roll out changes which may be non-backward compatible with respect to the protocol and the execution state.
-Spork entails a network downtime as all nodes in the system are upgraded and brought back online.
-Sporks are only executed once every quarter.
+Network upgrade entails a network downtime as all nodes in the system are upgraded and brought back online.
+Network upgrades are only executed once every year.
 
 A height coordinated upgrade (HCU) on the other hand allows the execution and the verification nodes to be upgraded without stopping the network.
 There is no network downtime during an HCU but the transaction execution will stop for few minutes while the execution nodes restart.
@@ -91,7 +91,7 @@ TODO: insert flow cli command here to query the block version details.`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/protocol/node-ops/node-operation/hcu.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Sep 22, 2025** by **vishal**
 
 [Previous
 
@@ -106,7 +106,7 @@ Protocol State Bootstrapping](/protocol/node-ops/node-operation/protocol-state-b
 Copy as Markdown
 
 * [Overview](#overview)
-* [HCU versus Spork](#hcu-versus-spork)
+* [HCU versus Network Upgrade](#hcu-versus-network-upgrade)
 * [HCU process](#hcu-process)
 
 Documentation
@@ -147,7 +147,7 @@ Network
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
 * [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/spork)
+* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 

@@ -87,9 +87,11 @@ Fund a valid Testnet Flow Account using the Flow CLI.
 
 `_10
 
-flow accounts fund <address>`
+flow accounts fund [address|name]`
 
 ## Example Usage[​](#example-usage "Direct link to Example Usage")
+
+### Fund by Address[​](#fund-by-address "Direct link to Fund by Address")
 
 `_10
 
@@ -107,18 +109,60 @@ _10
 
 If there is an issue, please use this link instead: https://testnet-faucet.onflow.org/fund-account?address=8e94eaa81771313a`
 
+### Fund by Account Name[​](#fund-by-account-name "Direct link to Fund by Account Name")
+
+`_10
+
+> flow accounts fund testnet-account
+
+_10
+
+_10
+
+Opening the faucet to fund 0x8e94eaa81771313a on your native browser.
+
+_10
+
+_10
+
+If there is an issue, please use this link instead: https://testnet-faucet.onflow.org/fund-account?address=8e94eaa81771313a`
+
+### Interactive Prompt[​](#interactive-prompt "Direct link to Interactive Prompt")
+
+`_10
+
+> flow accounts fund
+
+_10
+
+_10
+
+? Select account to fund: (Use arrow keys)
+
+_10
+
+❯ testnet-account (0x8e94eaa81771313a)
+
+_10
+
+emulator-account (0x0ae53cb6e3f42a79)`
+
 ## Arguments[​](#arguments "Direct link to Arguments")
 
-### Address[​](#address "Direct link to Address")
+### Address or Account Name (Optional)[​](#address-or-account-name-optional "Direct link to Address or Account Name (Optional)")
 
-* Name: `address`
-* Valid Input: Flow Testnet account address.
+* Name: `address|name`
+* Valid Input: Flow Testnet account address or account name from `flow.json`
 
-Flow [account address](/build/cadence/basics/accounts) (prefixed with `0x` or not).
+You can provide:
+
+* A Flow [account address](/build/cadence/basics/accounts) (prefixed with `0x` or not)
+* An account name configured in your `flow.json`
+* No argument to get an interactive prompt for account selection
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/accounts/account-fund.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Sep 22, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -133,8 +177,11 @@ Generate Keys](/build/tools/flow-cli/keys/generate-keys)
 Copy as Markdown
 
 * [Example Usage](#example-usage)
+  + [Fund by Address](#fund-by-address)
+  + [Fund by Account Name](#fund-by-account-name)
+  + [Interactive Prompt](#interactive-prompt)
 * [Arguments](#arguments)
-  + [Address](#address)
+  + [Address or Account Name (Optional)](#address-or-account-name-optional)
 
 Documentation
 
@@ -174,7 +221,7 @@ Network
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
 * [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/spork)
+* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 

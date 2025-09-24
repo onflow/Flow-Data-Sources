@@ -93,7 +93,7 @@ Querying with a system transaction ID (`[tx_id]`) is part of the Forte network u
 ## Use Cases[​](#use-cases "Direct link to Use Cases")
 
 * System chunk transaction for protocol operations: see [Epoch Scripts and Events](/protocol/staking/epoch-scripts-events) and [Staking rewards via system chunk](/protocol/staking/staking-rewards).
-* Transactions related to scheduled callbacks: see [Introduction to Scheduled Callbacks](https://developers.flow.com/blockchain-development-tutorials/flow-actions/scheduled-callbacks-introduction). Consider `--include fee-events` for callback fee details.
+* Transactions related to scheduled transactions: see [Introduction to Scheduled Transactions](https://developers.flow.com/blockchain-development-tutorials/flow-actions/scheduled-transactions-introduction). Consider `--include fee-events` for scheduled transaction fee details.
 
 ## Example Usage[​](#example-usage "Direct link to Example Usage")
 
@@ -298,7 +298,7 @@ Skip version check during start up to speed up process for slow connections.
 System transactions currently cover:
 
 * System chunk transactions used by protocol operations. See an overview of system chunks and service events: [Epoch Scripts and Events](/protocol/staking/epoch-scripts-events).
-* Scheduled callbacks execution. Learn more: [Introduction to Scheduled Callbacks](https://developers.flow.com/blockchain-development-tutorials/flow-actions/scheduled-callbacks-introduction).
+* Scheduled transaction execution. Learn more: [Introduction to Scheduled Transaction].
 
 More resources:
 
@@ -307,7 +307,7 @@ More resources:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/transactions/get-system-transactions.md)
 
-Last updated on **Sep 22, 2025** by **Jordan Ribbink**
+Last updated on **Sep 23, 2025** by **Josh Hannan**
 
 [Previous
 
@@ -378,7 +378,7 @@ Network
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
 * [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/spork)
+* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 

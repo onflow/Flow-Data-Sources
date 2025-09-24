@@ -36,7 +36,7 @@ Search
     - [Node Roles](/protocol/node-ops/node-operation/node-roles)
     - [Node Setup](/protocol/node-ops/node-operation/node-setup)
     - [Past Network Upgrades](/protocol/node-ops/node-operation/past-upgrades)
-    - [Network Upgrade (Spork) Process](/protocol/node-ops/node-operation/spork)
+    - [Network Upgrade (Spork) Process](/protocol/node-ops/node-operation/network-upgrade)
     - [Slashing Conditions](/protocol/node-ops/node-operation/slashing)
     - [Node Providers](/protocol/node-ops/node-operation/node-providers)
     - [Height coordinated upgrade](/protocol/node-ops/node-operation/hcu)
@@ -557,7 +557,7 @@ warning
 Before starting your node, ensure it is [registered](/protocol/node-ops/node-operation/node-bootstrap#step-2---stake-your-node) and [authorized](/protocol/node-ops/node-operation/node-bootstrap#confirming-authorization).
 
 Ensure you start your node at the appropriate time.
-See [Spork Process](/protocol/node-ops/node-operation/spork) for when to start up a node following a spork.
+See [Spork Process](/protocol/node-ops/node-operation/network-upgrade) for when to start up a node following a spork.
 See [Node Bootstrap](/protocol/node-ops/node-operation/node-bootstrap#timing) for when to start up a newly registered node.
 
 ### Systemd[​](#systemd-1 "Direct link to Systemd")
@@ -656,7 +656,7 @@ consensus_compliance_sealed_height 1.132054e+06`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/protocol/node-ops/node-operation/node-setup.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Sep 22, 2025** by **vishal**
 
 [Previous
 
@@ -727,7 +727,7 @@ Network
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
 * [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/spork)
+* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 

@@ -20,7 +20,7 @@ Search
   + [Flow Actions Transaction](/blockchain-development-tutorials/flow-actions/flow-actions-transaction)
   + [Connectors](/blockchain-development-tutorials/flow-actions/connectors)
   + [Basic Combinations](/blockchain-development-tutorials/flow-actions/basic-combinations)
-  + [Introduction to Scheduled Callbacks](/blockchain-development-tutorials/flow-actions/scheduled-callbacks-introduction)
+  + [Introduction to Scheduled Transactions](/blockchain-development-tutorials/flow-actions/scheduled-transactions-introduction)
 * [Token Development and Registration](/blockchain-development-tutorials/tokens)
 * [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
 * [Flow EVM Guides](/blockchain-development-tutorials/evm)
@@ -36,7 +36,7 @@ On this page
 
 # Flow Actions Tutorials
 
-This series covers how to build decentralized finance applications using the Flow Actions framework and scheduled callbacks, enabling developers to create composable, automated DeFi workflows.
+This series covers how to build decentralized finance applications using the Flow Actions framework and scheduled transactions, enabling developers to create composable, automated DeFi workflows.
 
 warning
 
@@ -49,11 +49,11 @@ These tutorials will be updated, but you may need to refactor your code if the i
 * **[Introduction to Flow Actions](/blockchain-development-tutorials/flow-actions/intro-to-flow-actions)** - Learn about Flow Actions, a suite of standardized Cadence interfaces that enable developers to compose complex DeFi workflows using small, reusable components.
 * **[Connectors](/blockchain-development-tutorials/flow-actions/connectors)** - Understand how connectors bridge standardized Flow Actions interfaces with different DeFi protocols.
 * **[Basic Combinations](/blockchain-development-tutorials/flow-actions/basic-combinations)** - Learn how to combine Flow Actions to create new workflows.
-* **[Scheduled Callbacks Introduction](/blockchain-development-tutorials/flow-actions/scheduled-callbacks-introduction)** - Learn how to implement scheduled callbacks for time-based smart contract execution on Flow.
+* **[Scheduled Transactions Introduction](/blockchain-development-tutorials/flow-actions/scheduled-transactions-introduction)** - Learn how to implement scheduled transactions for time-based smart contract execution on Flow.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/flow-actions/index.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Sep 23, 2025** by **Josh Hannan**
 
 [Previous
 
@@ -107,7 +107,7 @@ Network
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
 * [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/spork)
+* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 

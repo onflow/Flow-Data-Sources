@@ -93,7 +93,7 @@ Once all your contracts are deployed, you can visit [flow-view-source](https://f
 
 Currently, **historical event data is not migrated between sporks,** so you'll need to design your application with this in mind. We recognize the usefulness of historical event data and plan on adding a means of accessing it in the near future. Past spork transactional data is available, [See Previous Spork Access Node Info](/protocol/node-ops/node-operation/past-upgrades)
 
-More Information on [Sporks](/protocol/node-ops/node-operation/spork)
+More Information on [Sporks](/protocol/node-ops/node-operation/network-upgrade)
 
 ### Testnet[​](#testnet "Direct link to Testnet")
 
@@ -149,7 +149,7 @@ Flow Testnet is explicitly for experimentation and testing and should not be use
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/smart-contracts/deploying.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Sep 22, 2025** by **vishal**
 
 [Previous
 
@@ -213,7 +213,7 @@ Network
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
 * [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/spork)
+* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
