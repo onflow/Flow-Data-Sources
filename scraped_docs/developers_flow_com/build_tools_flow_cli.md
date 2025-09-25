@@ -41,7 +41,7 @@ Search
   + [Flow CLI](/build/tools/flow-cli)
 
     - [Install Instructions](/build/tools/flow-cli/install)
-    - [Commands Overview](/build/tools/flow-cli/super-commands)
+    - [Commands Overview](/build/tools/flow-cli/commands)
     - [Accounts](/build/tools/flow-cli/accounts/get-accounts)
     - [Keys](/build/tools/flow-cli/keys/generate-keys)
     - [Deploy Project](/build/tools/flow-cli/deployment/start-emulator)
@@ -92,11 +92,11 @@ macOS, Linux, and Windows.
 
 ## Create Your First Project[​](#create-your-first-project "Direct link to Create Your First Project")
 
-To get started with creating your first Flow project and to learn more about how to use the Flow CLI super commands, please refer to the [Super Commands documentation](/build/tools/flow-cli/super-commands). These commands simplify the setup and development process, allowing you to focus on building your application without worrying about the underlying configurations.
+To get started with creating your first Flow project and to learn more about how to use the Flow CLI commands, please refer to the [Commands documentation](/build/tools/flow-cli/commands). These commands simplify the setup and development process, allowing you to focus on building your application without worrying about the underlying configurations.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/index.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Sep 24, 2025** by **Chase Fleming**
 
 [Previous
 

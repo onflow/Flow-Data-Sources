@@ -123,7 +123,7 @@ There are some additional flags available, but you most likely do not need to ch
 
 ### Download the root protocol state snapshot[​](#download-the-root-protocol-state-snapshot "Direct link to Download the root protocol state snapshot")
 
-The `root-protocol-state-snapshot.json` is generated for each [spork](https://developers.flow.com/protocol/node-ops/node-operation/spork) and contains the genesis data for that spork. It is published and made available after each spork. The download location is specified [here](https://github.com/onflow/flow/blob/master/sporks.json) under [rootProtocolStateSnapshot](https://github.com/onflow/flow/blob/master/sporks.json#L16).
+The `root-protocol-state-snapshot.json` is generated for each [spork](https://developers.flow.com/protocol/node-ops/node-operation/network-upgrade) and contains the genesis data for that spork. It is published and made available after each spork. The download location is specified [here](https://github.com/onflow/flow/blob/master/sporks.json) under [rootProtocolStateSnapshot](https://github.com/onflow/flow/blob/master/sporks.json#L16).
 
 Store the **`root-protocol-state-snapshot.json`** into the **`/bootstrap/public-root-information/`** folder.
 
@@ -372,7 +372,7 @@ Protobuf: <https://github.com/onflow/flow/blob/master/protobuf/flow/executiondat
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/protocol/node-ops/access-nodes/access-node-configuration-options.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Sep 23, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -436,7 +436,7 @@ Network
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
 * [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/spork)
+* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 

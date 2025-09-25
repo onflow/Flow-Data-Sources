@@ -36,7 +36,7 @@ Search
     - [Node Roles](/protocol/node-ops/node-operation/node-roles)
     - [Node Setup](/protocol/node-ops/node-operation/node-setup)
     - [Past Network Upgrades](/protocol/node-ops/node-operation/past-upgrades)
-    - [Network Upgrade (Spork) Process](/protocol/node-ops/node-operation/spork)
+    - [Network Upgrade (Spork) Process](/protocol/node-ops/node-operation/network-upgrade)
     - [Slashing Conditions](/protocol/node-ops/node-operation/slashing)
     - [Node Providers](/protocol/node-ops/node-operation/node-providers)
     - [Height coordinated upgrade](/protocol/node-ops/node-operation/hcu)
@@ -131,7 +131,7 @@ Network
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
 * [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/spork)
+* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 

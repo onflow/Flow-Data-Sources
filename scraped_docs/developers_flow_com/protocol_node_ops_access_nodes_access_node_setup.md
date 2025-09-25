@@ -689,7 +689,7 @@ _19
 
 --loglevel=error`
 
-> If you would like your node to sync from the start of the last network upgrade, then please see the instructions [here](https://developers.flow.com/protocol/node-ops/node-operation/spork)
+> If you would like your node to sync from the start of the last network upgrade, then please see the instructions [here](/protocol/node-ops/node-operation/network-upgrade)
 
 Alternatively, you can build a binary for the access node to run it without using Docker.
 To build the access node binary, see the instructions [here](https://github.com/onflow/flow-go?tab=readme-ov-file#building-a-binary-for-the-access-node).
@@ -928,7 +928,7 @@ Example: there are 115 access nodes already part of the network. Hence, the tota
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/protocol/node-ops/access-nodes/access-node-setup.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Sep 23, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -1002,7 +1002,7 @@ Network
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
 * [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/spork)
+* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 

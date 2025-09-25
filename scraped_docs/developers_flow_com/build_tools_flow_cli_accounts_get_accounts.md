@@ -41,7 +41,7 @@ Search
   + [Flow CLI](/build/tools/flow-cli)
 
     - [Install Instructions](/build/tools/flow-cli/install)
-    - [Commands Overview](/build/tools/flow-cli/super-commands)
+    - [Commands Overview](/build/tools/flow-cli/commands)
     - [Accounts](/build/tools/flow-cli/accounts/get-accounts)
 
       * [Get an Account](/build/tools/flow-cli/accounts/get-accounts)
@@ -251,7 +251,7 @@ Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-Commands Overview](/build/tools/flow-cli/super-commands)[Next
+Commands Overview](/build/tools/flow-cli/commands)[Next
 
 Create an Account](/build/tools/flow-cli/accounts/create-accounts)
 

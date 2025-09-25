@@ -41,7 +41,7 @@ Search
   + [Flow CLI](/build/tools/flow-cli)
 
     - [Install Instructions](/build/tools/flow-cli/install)
-    - [Commands Overview](/build/tools/flow-cli/super-commands)
+    - [Commands Overview](/build/tools/flow-cli/commands)
     - [Accounts](/build/tools/flow-cli/accounts/get-accounts)
     - [Keys](/build/tools/flow-cli/keys/generate-keys)
     - [Deploy Project](/build/tools/flow-cli/deployment/start-emulator)
@@ -190,19 +190,19 @@ If you installed it using Hombrew you can remove it using: `brew uninstall flow-
 
 Now that you have the Flow CLI installed, you can:
 
-* **[Get started with Flow CLI commands](/build/tools/flow-cli/super-commands)** - Learn the essential commands for project development
+* **[Get started with Flow CLI commands](/build/tools/flow-cli/commands)** - Learn the essential commands for project development
 * **[Initialize a new project](/build/tools/flow-cli/flow.json/initialize-configuration)** - Create your first Flow project
 * **[Configure your project](/build/tools/flow-cli/flow.json/configuration)** - Set up your `flow.json` configuration file
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/install.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Sep 24, 2025** by **Chase Fleming**
 
 [Previous
 
 Flow CLI](/build/tools/flow-cli)[Next
 
-Commands Overview](/build/tools/flow-cli/super-commands)
+Commands Overview](/build/tools/flow-cli/commands)
 
 ###### Rate this page
 

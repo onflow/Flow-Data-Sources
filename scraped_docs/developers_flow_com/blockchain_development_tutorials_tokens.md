@@ -67,7 +67,7 @@ Last updated on **Aug 26, 2025** by **Felipe Cevallos**
 
 [Previous
 
-Introduction to Scheduled Callbacks](/blockchain-development-tutorials/flow-actions/scheduled-callbacks-introduction)[Next
+Introduction to Scheduled Transactions](/blockchain-development-tutorials/flow-actions/scheduled-transactions-introduction)[Next
 
 Creating a Fungible Token](/blockchain-development-tutorials/tokens/fungible-token-cadence)
 
@@ -123,7 +123,7 @@ Network
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
 * [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/spork)
+* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 

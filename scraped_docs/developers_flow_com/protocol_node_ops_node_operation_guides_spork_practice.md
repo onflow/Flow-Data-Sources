@@ -40,7 +40,7 @@ Search
     - [Node Roles](/protocol/node-ops/node-operation/node-roles)
     - [Node Setup](/protocol/node-ops/node-operation/node-setup)
     - [Past Network Upgrades](/protocol/node-ops/node-operation/past-upgrades)
-    - [Network Upgrade (Spork) Process](/protocol/node-ops/node-operation/spork)
+    - [Network Upgrade (Spork) Process](/protocol/node-ops/node-operation/network-upgrade)
     - [Slashing Conditions](/protocol/node-ops/node-operation/slashing)
     - [Node Providers](/protocol/node-ops/node-operation/node-providers)
     - [Height coordinated upgrade](/protocol/node-ops/node-operation/hcu)
@@ -63,7 +63,7 @@ On this page
 
 The actual process of Sporking will mostly be covered by the Node Operators Quick Guide, and will not be covered here.
 
-[Spork](/protocol/node-ops/node-operation/spork)
+[Spork](/protocol/node-ops/node-operation/network-upgrade)
 
 Instead, we'll aim to give some instructions for those that want to Practice the process themselves, before joining the Mainnet Spork.
 
@@ -157,7 +157,7 @@ Lastly, if the goal is to practice the entire Sporking procedure, including `tra
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/protocol/node-ops/node-operation/guides/spork-practice.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Sep 22, 2025** by **vishal**
 
 [Previous
 
@@ -214,7 +214,7 @@ Network
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
 * [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/spork)
+* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
