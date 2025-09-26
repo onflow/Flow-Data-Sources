@@ -6,28 +6,28 @@ May the Flow be with You | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [Ecosystem](/ecosystem)
+* [Ecosystem Index](/ecosystem)
 * [Developer Support Hub](/ecosystem/developer-support-hub)
-* [Wallets](/ecosystem/wallets)
-* [Flow Block Explorers](/ecosystem/block-explorers)
-* [Data Indexers](/ecosystem/data-indexers)
-* [Developer Profile](/ecosystem/developer-profile)
-* [DeFi & Liquidity](/ecosystem/defi-liquidity)
-* [Bridges](/ecosystem/bridges)
-* [Collectibles & NFTs](/ecosystem/collectibles)
-* [Community Projects](/ecosystem/projects)
-* [Faucets](/ecosystem/faucets)
 * [Hackathons and Events](/ecosystem/Hackathons and Events)
 
   + [May the Flow be with You](/ecosystem/Hackathons and Events/may-the-flow-be-with-you)
+* [Flow Block Explorers](/ecosystem/block-explorers)
+* [Data Indexers](/ecosystem/data-indexers)
+* [Developer Profile](/ecosystem/developer-profile)
+* [Wallets](/ecosystem/wallets)
+* [DeFi & Liquidity](/ecosystem/defi-liquidity)
+* [Faucets](/ecosystem/faucets)
+* [Bridges](/ecosystem/bridges)
+* [Collectibles & NFTs](/ecosystem/collectibles)
+* [Community Projects](/ecosystem/projects)
 * [Auditors](/ecosystem/auditors)
-* [Ecosystem Overview](/ecosystem/overview)
+* [Get the Flow Down - Flow Learning Resources](/ecosystem/overview)
 
 * [Hackathons and Events](/ecosystem/Hackathons and Events)
 * May the Flow be with You
@@ -319,7 +319,7 @@ Last updated on **Aug 22, 2025** by **Brian Doyle**
 
 Hackathons and Events](/ecosystem/Hackathons and Events)[Next
 
-Auditors](/ecosystem/auditors)
+Flow Block Explorers](/ecosystem/block-explorers)
 
 ###### Rate this page
 
@@ -346,7 +346,7 @@ Copy as Markdown
 
 Documentation
 
-* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
 * [Mobile](/blockchain-development-tutorials/cadence/mobile)
@@ -382,7 +382,7 @@ Network
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
 * [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/spork)
+* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 

@@ -6,30 +6,30 @@ VCs & Funds | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [Ecosystem](/ecosystem)
+* [Ecosystem Index](/ecosystem)
 * [Developer Support Hub](/ecosystem/developer-support-hub)
 
   + [Builder Perks](/ecosystem/developer-support-hub/builder-perks)
   + [Grants](/ecosystem/developer-support-hub/grants)
   + [VCs & Funds](/ecosystem/developer-support-hub/vcs-and-funds)
-* [Wallets](/ecosystem/wallets)
+* [Hackathons and Events](/ecosystem/Hackathons and Events)
 * [Flow Block Explorers](/ecosystem/block-explorers)
 * [Data Indexers](/ecosystem/data-indexers)
 * [Developer Profile](/ecosystem/developer-profile)
+* [Wallets](/ecosystem/wallets)
 * [DeFi & Liquidity](/ecosystem/defi-liquidity)
+* [Faucets](/ecosystem/faucets)
 * [Bridges](/ecosystem/bridges)
 * [Collectibles & NFTs](/ecosystem/collectibles)
 * [Community Projects](/ecosystem/projects)
-* [Faucets](/ecosystem/faucets)
-* [Hackathons and Events](/ecosystem/Hackathons and Events)
 * [Auditors](/ecosystem/auditors)
-* [Ecosystem Overview](/ecosystem/overview)
+* [Get the Flow Down - Flow Learning Resources](/ecosystem/overview)
 
 * [Developer Support Hub](/ecosystem/developer-support-hub)
 * VCs & Funds
@@ -48,11 +48,11 @@ Last updated on **Aug 28, 2025** by **SeanRobb**
 
 Grants](/ecosystem/developer-support-hub/grants)[Next
 
-Wallets](/ecosystem/wallets)
+Hackathons and Events](/ecosystem/Hackathons and Events)
 
 Documentation
 
-* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
 * [Mobile](/blockchain-development-tutorials/cadence/mobile)

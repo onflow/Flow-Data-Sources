@@ -1,43 +1,43 @@
 # Source: https://developers.flow.com/ecosystem
 
-Ecosystem | Flow Developer Portal
+Ecosystem Index | Flow Developer Portal
 
 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [Ecosystem](/ecosystem)
+* [Ecosystem Index](/ecosystem)
 * [Developer Support Hub](/ecosystem/developer-support-hub)
-* [Wallets](/ecosystem/wallets)
+* [Hackathons and Events](/ecosystem/Hackathons and Events)
 * [Flow Block Explorers](/ecosystem/block-explorers)
 * [Data Indexers](/ecosystem/data-indexers)
 * [Developer Profile](/ecosystem/developer-profile)
+* [Wallets](/ecosystem/wallets)
 * [DeFi & Liquidity](/ecosystem/defi-liquidity)
+* [Faucets](/ecosystem/faucets)
 * [Bridges](/ecosystem/bridges)
 * [Collectibles & NFTs](/ecosystem/collectibles)
 * [Community Projects](/ecosystem/projects)
-* [Faucets](/ecosystem/faucets)
-* [Hackathons and Events](/ecosystem/Hackathons and Events)
 * [Auditors](/ecosystem/auditors)
-* [Ecosystem Overview](/ecosystem/overview)
+* [Get the Flow Down - Flow Learning Resources](/ecosystem/overview)
 
-* Ecosystem
+* Ecosystem Index
 
-# Ecosystem
+# Ecosystem Index
 
 [## 🗃️ Developer Support Hub
 
 3 items](/ecosystem/developer-support-hub)
 
-[## 🔑 Wallets
+[## 🗃️ Hackathons and Events
 
-Store, manage, and interact securely with tokens and digital assets on Flow. Discover a range of wallets that offer convenient ways to handle and safeguard your cryptocurrency holdings, ensuring easy access and enhanced security for your transactions and assets.](/ecosystem/wallets)
+1 items](/ecosystem/Hackathons and Events)
 
 [## 🔍 Flow Block Explorers
 
@@ -51,9 +51,17 @@ When building applications that leverage Flow data, developers have multiple Dat
 
 Learn about Developer Profile - Flow's upcoming developer recognition and learning platform. Create your builder profile. In the future, you'll be able to track your learning journey, showcase your projects, and connect with the Flow ecosystem.](/ecosystem/developer-profile)
 
+[## 🔑 Wallets
+
+Store, manage, and interact securely with tokens and digital assets on Flow. Discover a range of wallets that offer convenient ways to handle and safeguard your cryptocurrency holdings, ensuring easy access and enhanced security for your transactions and assets.](/ecosystem/wallets)
+
 [## 💧 DeFi & Liquidity
 
-4 items](/ecosystem/defi-liquidity)
+5 items](/ecosystem/defi-liquidity)
+
+[## 💧 Faucets
+
+Get free Flow tokens for testing. Faucets are like taps for tokens, useful for trying Flow without buying tokens.](/ecosystem/faucets)
 
 [## ⛓️ Bridges
 
@@ -67,19 +75,11 @@ Digital collectibles, NFTs, and trading platforms on Flow blockchain, featuring 
 
 Explore the diverse projects and contributions within the Flow Blockchain community.](/ecosystem/projects)
 
-[## 💧 Faucets
-
-Get free Flow tokens for testing. Faucets are like taps for tokens, useful for trying Flow without buying tokens.](/ecosystem/faucets)
-
-[## 🚀 Hackathons and Events
-
-1 items](/ecosystem/Hackathons and Events)
-
 [## 🔎 Auditors
 
 Third-party auditors for Cadence contract auditing](/ecosystem/auditors)
 
-[## Ecosystem Overview
+[## Get the Flow Down - Flow Learning Resources
 
 Get the Flow Down is a curated collection of the best Flow blockchain tools, tutorials, articles and more! If you have come across an awesome tutorial, tool, community, blog or you have created one yourself, please create a PR!](/ecosystem/overview)
 
@@ -93,7 +93,7 @@ Flow Improvement Proposals (FLIPs) serve as a platform for engaging the Flow com
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/index.mdx)
 
-Last updated on **May 13, 2025** by **Brian Doyle**
+Last updated on **Sep 25, 2025** by **Brian Doyle**
 
 [Next
 
@@ -101,7 +101,7 @@ Developer Support Hub](/ecosystem/developer-support-hub)
 
 Documentation
 
-* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
 * [Mobile](/blockchain-development-tutorials/cadence/mobile)

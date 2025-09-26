@@ -6,18 +6,18 @@ Network Architecture ↗️ | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
 * [Why Flow](/build/flow)
-* [Cadence](/build/cadence/getting-started)
+* [Cadence](/build/cadence/quickstart)
 
-  + [Getting Started](/build/cadence/getting-started)
+  + [Quickstart ↙](/build/cadence/quickstart)
   + [Differences vs. EVM](/build/cadence/differences-vs-evm)
-  + [Flow Protocol](/build/cadence/basics/network-architecture)
+  + [Basics](/build/cadence/basics/network-architecture)
 
     - [Network Architecture ↗️](/build/cadence/basics/network-architecture)
     - [Blocks](/build/cadence/basics/blocks)
@@ -30,26 +30,21 @@ Search
     - [Events](/build/cadence/basics/events)
     - [FLOW Coin](/build/cadence/basics/flow-token)
     - [Smart Contracts ↙](/build/cadence/basics/smart-contracts)
-  + [App Architecture](/build/cadence/app-architecture)
   + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
   + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
   + [Core Smart Contracts](/build/cadence/core-contracts)
-  + [Explore More](/build/cadence/explore-more)
 * [Solidity (EVM)](/build/evm/quickstart)
 
   + [EVM Quickstart](/build/evm/quickstart)
   + [How it Works](/build/evm/how-it-works)
-  + [Using Flow EVM](/build/evm/using)
+  + [EVM Wallet Setup](/build/evm/using)
   + [Network Information](/build/evm/networks)
   + [Fees](/build/evm/fees)
   + [Accounts](/build/evm/accounts)
-  + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
-  + [Faucets ↙](/evm/faucets)
-  + [Block Explorers ↙](/evm/block-explorers)
 * [Tools & SDKs](/build/tools)
 
 * Cadence
-* Flow Protocol
+* Basics
 * Network Architecture ↗️
 
 # Network Architecture ↗️
@@ -68,7 +63,7 @@ Blocks](/build/cadence/basics/blocks)
 
 Documentation
 
-* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
 * [Mobile](/blockchain-development-tutorials/cadence/mobile)

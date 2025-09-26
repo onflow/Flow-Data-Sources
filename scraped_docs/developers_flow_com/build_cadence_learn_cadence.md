@@ -6,19 +6,18 @@ Learn Cadence ↗️ | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
 * [Why Flow](/build/flow)
-* [Cadence](/build/cadence/getting-started)
+* [Cadence](/build/cadence/quickstart)
 
-  + [Getting Started](/build/cadence/getting-started)
+  + [Quickstart ↙](/build/cadence/quickstart)
   + [Differences vs. EVM](/build/cadence/differences-vs-evm)
-  + [Flow Protocol](/build/cadence/basics/network-architecture)
-  + [App Architecture](/build/cadence/app-architecture)
+  + [Basics](/build/cadence/basics/network-architecture)
   + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
     - [Learn Cadence ↗️](/build/cadence/learn-cadence)
@@ -28,18 +27,14 @@ Search
     - [Best Practices](/build/cadence/smart-contracts/best-practices/security-best-practices)
   + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
   + [Core Smart Contracts](/build/cadence/core-contracts)
-  + [Explore More](/build/cadence/explore-more)
 * [Solidity (EVM)](/build/evm/quickstart)
 
   + [EVM Quickstart](/build/evm/quickstart)
   + [How it Works](/build/evm/how-it-works)
-  + [Using Flow EVM](/build/evm/using)
+  + [EVM Wallet Setup](/build/evm/using)
   + [Network Information](/build/evm/networks)
   + [Fees](/build/evm/fees)
   + [Accounts](/build/evm/accounts)
-  + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
-  + [Faucets ↙](/evm/faucets)
-  + [Block Explorers ↙](/evm/block-explorers)
 * [Tools & SDKs](/build/tools)
 
 * Cadence
@@ -56,13 +51,13 @@ Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-App Architecture](/build/cadence/app-architecture)[Next
+Smart Contracts ↙](/build/cadence/basics/smart-contracts)[Next
 
 Smart Contracts on Flow](/build/cadence/smart-contracts/overview)
 
 Documentation
 
-* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
 * [Mobile](/blockchain-development-tutorials/cadence/mobile)

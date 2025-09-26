@@ -6,7 +6,7 @@ Flow Blockchain 101 | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -14,13 +14,13 @@ Search
 
 * [Blockchain Development Tutorials](/blockchain-development-tutorials)
 * [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)
-* [Flow Actions](/blockchain-development-tutorials/flow-actions)
-* [Token Development and Registration](/blockchain-development-tutorials/tokens)
+* [Forte Network Upgrade](/blockchain-development-tutorials/forte)
 * [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
-* [Flow EVM Guides](/blockchain-development-tutorials/evm)
 * [Cadence Tutorials](/blockchain-development-tutorials/cadence)
+* [Flow EVM Guides](/blockchain-development-tutorials/evm)
 * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
 * [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
+* [Token Development and Registration](/blockchain-development-tutorials/tokens)
 * [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
 * [Third-Party Integrations](/blockchain-development-tutorials/integrations)
 
@@ -34,7 +34,7 @@ On this page
 
 ### Build with Cadence
 
-Get started with Flow's native resource-oriented smart contract language. Learn how to deploy, interact, and build secure dApps using Cadence.](../build/cadence/getting-started/contract-interaction)[![solidity](/images/icons/flow-evm.svg)
+Get started with Flow's native resource-oriented smart contract language. Learn how to deploy, interact, and build secure dApps using Cadence.](./cadence/getting-started/smart-contract-interaction)[![solidity](/images/icons/flow-evm.svg)
 
 ### Build with Solidity
 
@@ -142,9 +142,9 @@ Whether you're looking for support, feedback, or collaboration, Flow's community
 
 ### Flow Cadence Quickstart[​](#flow-cadence-quickstart "Direct link to Flow Cadence Quickstart")
 
-* [Contract Interaction](/build/cadence/getting-started/contract-interaction): Interact with your first Cadence smart contract on the Flow testnet.
-* [Local Development](/build/cadence/getting-started/flow-cli): Set up your dev environment, run tests, add already deployed contracts to your environment with Dependency Manager, and deploy and use your first contract with the emulator.
-* [Simple Frontend](/build/cadence/getting-started/fcl-quickstart): Read and write from a smart contract using the hooks from [@onflow/react-sdk](https://developers.flow.com/tools/react-sdk).
+* [Contract Interaction](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction): Interact with your first Cadence smart contract on the Flow testnet.
+* [Local Development](/blockchain-development-tutorials/cadence/getting-started/cadence-environment-setup): Set up your dev environment, run tests, add already deployed contracts to your environment with Dependency Manager, and deploy and use your first contract with the emulator.
+* [Simple Frontend](/blockchain-development-tutorials/cadence/getting-started/building-a-frontend-app): Read and write from a smart contract using the hooks from [@onflow/react-sdk](https://developers.flow.com/tools/react-sdk).
 
 ### Flow EVM Quickstart[​](#flow-evm-quickstart "Direct link to Flow EVM Quickstart")
 
@@ -155,13 +155,13 @@ We also have guides for working with [Rainbowkit](/blockchain-development-tutori
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/flow-101.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Sep 24, 2025** by **Felipe Cevallos**
 
 [Previous
 
 Blockchain Development Tutorials](/blockchain-development-tutorials)[Next
 
-Flow Actions](/blockchain-development-tutorials/flow-actions)
+Forte Network Upgrade](/blockchain-development-tutorials/forte)
 
 ###### Rate this page
 
@@ -186,7 +186,7 @@ Copy as Markdown
 
 Documentation
 
-* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
 * [Mobile](/blockchain-development-tutorials/cadence/mobile)

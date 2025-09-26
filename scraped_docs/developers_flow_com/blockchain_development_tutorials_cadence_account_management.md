@@ -1,12 +1,12 @@
 # Source: https://developers.flow.com/blockchain-development-tutorials/cadence/account-management
 
-Account Linking (FLIP 72) | Flow Developer Portal
+Account Linking | Flow Developer Portal
 
 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -14,26 +14,27 @@ Search
 
 * [Blockchain Development Tutorials](/blockchain-development-tutorials)
 * [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)
-* [Flow Actions](/blockchain-development-tutorials/flow-actions)
-* [Token Development and Registration](/blockchain-development-tutorials/tokens)
+* [Forte Network Upgrade](/blockchain-development-tutorials/forte)
 * [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
-* [Flow EVM Guides](/blockchain-development-tutorials/evm)
 * [Cadence Tutorials](/blockchain-development-tutorials/cadence)
 
-  + [Account Linking (FLIP 72)](/blockchain-development-tutorials/cadence/account-management)
+  + [Getting Started with Cadence](/blockchain-development-tutorials/cadence/getting-started)
+  + [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)
+  + [Account Linking](/blockchain-development-tutorials/cadence/account-management)
 
     - [Building Walletless Applications Using Child Accounts](/blockchain-development-tutorials/cadence/account-management/child-accounts)
     - [Working With Parent Accounts](/blockchain-development-tutorials/cadence/account-management/parent-accounts)
     - [Account Linking With NBA Top Shot](/blockchain-development-tutorials/cadence/account-management/account-linking-with-dapper)
-    - [More Guides](/blockchain-development-tutorials/cadence/account-management/more-guides)
   + [Mobile Development on Flow](/blockchain-development-tutorials/cadence/mobile)
+* [Flow EVM Guides](/blockchain-development-tutorials/evm)
 * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
 * [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
+* [Token Development and Registration](/blockchain-development-tutorials/tokens)
 * [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
 * [Third-Party Integrations](/blockchain-development-tutorials/integrations)
 
 * [Cadence Tutorials](/blockchain-development-tutorials/cadence)
-* Account Linking (FLIP 72)
+* Account Linking
 
 On this page
 
@@ -99,7 +100,7 @@ A link between two existing accounts on Flow can be created in two steps:
 
 These two steps are implemented in Cadence as two transactions:
 
-****************\*\*\*\*****************Create capability\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+**\*\***\*\*\*\***\*\***\*\*\*\***\*\***\*\*\*\***\*\***Create capability\*\*\*\***\*\*\*\***\*\***\*\*\*\***\*\***\*\*\*\***\*\*\*\*
 
 The account B creates and publishes the `&Account` Capability to the account A at the address `0x01`
 
@@ -149,7 +150,7 @@ _12
 
 }`
 
-************\*\*\*\*************Claim capability\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+\***\*\*\*\*\*\*\***\*\*\*\*\***\*\*\*\*\*\*\***Claim capability\***\*\*\*\*\*\*\***\*\*\*\*\***\*\*\*\*\*\*\***
 
 The account A claims the Capability published by account B.
 
@@ -307,11 +308,11 @@ Learn more about it in the [Hybrid Custody documentation](/blockchain-developmen
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/account-management/index.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Sep 25, 2025** by **Brian Doyle**
 
 [Previous
 
-Cadence Tutorials](/blockchain-development-tutorials/cadence)[Next
+Native Data Availability With Cadence Scripts](/blockchain-development-tutorials/cadence/cadence-advantages/native-data-availibility-with-cadence-scripts)[Next
 
 Building Walletless Applications Using Child Accounts](/blockchain-development-tutorials/cadence/account-management/child-accounts)
 
@@ -332,7 +333,7 @@ Copy as Markdown
 
 Documentation
 
-* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
 * [Mobile](/blockchain-development-tutorials/cadence/mobile)

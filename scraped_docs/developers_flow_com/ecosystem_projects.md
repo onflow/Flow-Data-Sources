@@ -6,26 +6,26 @@ Community Projects | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [Ecosystem](/ecosystem)
+* [Ecosystem Index](/ecosystem)
 * [Developer Support Hub](/ecosystem/developer-support-hub)
-* [Wallets](/ecosystem/wallets)
+* [Hackathons and Events](/ecosystem/Hackathons and Events)
 * [Flow Block Explorers](/ecosystem/block-explorers)
 * [Data Indexers](/ecosystem/data-indexers)
 * [Developer Profile](/ecosystem/developer-profile)
+* [Wallets](/ecosystem/wallets)
 * [DeFi & Liquidity](/ecosystem/defi-liquidity)
+* [Faucets](/ecosystem/faucets)
 * [Bridges](/ecosystem/bridges)
 * [Collectibles & NFTs](/ecosystem/collectibles)
 * [Community Projects](/ecosystem/projects)
-* [Faucets](/ecosystem/faucets)
-* [Hackathons and Events](/ecosystem/Hackathons and Events)
 * [Auditors](/ecosystem/auditors)
-* [Ecosystem Overview](/ecosystem/overview)
+* [Get the Flow Down - Flow Learning Resources](/ecosystem/overview)
 
 * Community Projects
 
@@ -37,18 +37,6 @@ Explore an array of exciting, grassroots initiatives, and projects that thrive w
 
 Permissionless Fungible/Non-Fungible Tokens registration on Flow Blockchain with onchain MetadataViews and API for Uniswap JSON file.](https://token-list.fixes.world/)
 
-[## DEV.to Flow Blockchain
-
-A constructive and inclusive social network for software developers where you can interact with others in the Flow community](https://dev.to/onflow)
-
-[## Emerald City Emerald City DAO
-
-The first DAO built on the Flow Blockchain](https://www.ecdao.org/)
-
-[## FLOAT Emerald City DAO
-
-A Flow enabled proof of attendance platform with over 2.2 million FLOATs claimed and 4600+ events created](https://floats.city/)
-
 [## Flow Ecosystem Fund Dapper Labs
 
 The $725 Million Flow Ecosystem Fund is designed to hypercharge innovation and growth across the Flow community.](https://flow.com/flow-grants)
@@ -56,10 +44,6 @@ The $725 Million Flow Ecosystem Fund is designed to hypercharge innovation and g
 [## Flow Bug Bounty Program Flow
 
 Get rewarded for finding security vulnerabilities in on of our products or platforms.](https://flow.com/flow-responsible-disclosure)
-
-[## Buildspace Buildspace
-
-Learn how to deploy your first Flow smart contract using Cadence and build a web3 React app to connect it together](https://buildspace.so/p/nfts-on-flow)
 
 [## Flowverse Flowverse
 
@@ -73,10 +57,6 @@ Flovatar is a next generation NFT creativity platform where people can become cr
 
 Flowty is a one-stop shop for all of your NFT needs on the Flow blockchain. From buying and selling to NFT-backed loans to NFT rentals, we have you covered.](https://www.flowty.io/)
 
-[## Flowser Flowser
-
-Flowser combines all the tools for local development and gives you a clear UI to inspect the local Flow network.](https://flowser.dev/)
-
 [## Overflow bjartek
 
 Overflow is a Go-based DSL for testing and running interactive stories](https://github.com/bjartek/overflow)
@@ -85,27 +65,23 @@ Overflow is a Go-based DSL for testing and running interactive stories](https://
 
 It is an Api to allow users to fetch historical data of Flow blockchain from the findlabs database.](https://findonflow.github.io/findlabs-api/)
 
-[## Flooks Doodles
-
-React hooks to interact with Flow blockchain, making development easy and intuitive. It's wagmi for Flow!](https://www.flooks.io/)
-
 [## Stake & Eggs Chase Fleming
 
 A comprehensive Flow staking dashboard to track performance, estimate rewards, and simulate earnings.](https://stakeandeggs.wtf/)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/projects.mdx)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Sep 25, 2025** by **Brian Doyle**
 
 [Previous
 
 Collectibles & NFTs](/ecosystem/collectibles)[Next
 
-Faucets](/ecosystem/faucets)
+Auditors](/ecosystem/auditors)
 
 Documentation
 
-* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
 * [Mobile](/blockchain-development-tutorials/cadence/mobile)

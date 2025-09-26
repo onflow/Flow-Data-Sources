@@ -6,7 +6,7 @@ Cadence Tutorials | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -14,16 +14,18 @@ Search
 
 * [Blockchain Development Tutorials](/blockchain-development-tutorials)
 * [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)
-* [Flow Actions](/blockchain-development-tutorials/flow-actions)
-* [Token Development and Registration](/blockchain-development-tutorials/tokens)
+* [Forte Network Upgrade](/blockchain-development-tutorials/forte)
 * [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
-* [Flow EVM Guides](/blockchain-development-tutorials/evm)
 * [Cadence Tutorials](/blockchain-development-tutorials/cadence)
 
-  + [Account Linking (FLIP 72)](/blockchain-development-tutorials/cadence/account-management)
+  + [Getting Started with Cadence](/blockchain-development-tutorials/cadence/getting-started)
+  + [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)
+  + [Account Linking](/blockchain-development-tutorials/cadence/account-management)
   + [Mobile Development on Flow](/blockchain-development-tutorials/cadence/mobile)
+* [Flow EVM Guides](/blockchain-development-tutorials/evm)
 * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
 * [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
+* [Token Development and Registration](/blockchain-development-tutorials/tokens)
 * [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
 * [Third-Party Integrations](/blockchain-development-tutorials/integrations)
 
@@ -93,7 +95,7 @@ Discover how to build native mobile applications that leverage Flow's blockchain
 
 After completing these tutorials, you'll be equipped to build sophisticated Cadence applications that leverage Flow's unique capabilities. Consider exploring our other tutorial series:
 
-* **[Flow Actions](/blockchain-development-tutorials/flow-actions)** - Build composable DeFi workflows with standardized interfaces
+* **[Flow Actions](/blockchain-development-tutorials/forte/flow-actions)** - Build composable DeFi workflows with standardized interfaces
 * **[Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)** - Create applications that span both Cadence and Flow EVM
 * **[Native VRF](/blockchain-development-tutorials/native-vrf)** - Implement verifiable random functions in your applications
 * **[Use AI to Build on Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)** - Enhance development with AI-powered tools
@@ -104,13 +106,13 @@ Flow's Cadence offers unparalleled capabilities for building user-friendly block
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/index.md)
 
-Last updated on **Sep 10, 2025** by **0xLisanAlGaib**
+Last updated on **Sep 25, 2025** by **Brian Doyle**
 
 [Previous
 
-Build a Fully-Onchain Image Gallery](/blockchain-development-tutorials/evm/image-gallery)[Next
+Contribute to Flow MCP](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp/contribute-to-mcp)[Next
 
-Account Linking (FLIP 72)](/blockchain-development-tutorials/cadence/account-management)
+Getting Started with Cadence](/blockchain-development-tutorials/cadence/getting-started)
 
 ###### Rate this page
 
@@ -130,7 +132,7 @@ Copy as Markdown
 
 Documentation
 
-* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
 * [Mobile](/blockchain-development-tutorials/cadence/mobile)
