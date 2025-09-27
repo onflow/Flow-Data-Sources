@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/cdc
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/get
 
-cdc | Flow Developer Portal
+get | Flow Developer Portal
 
 
 
@@ -136,13 +136,13 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
-* cdc
+* get
 
 On this page
 
-# cdc
+# get
 
-Creates a template function
+Gets a value from an interaction object using a dot-notation key path.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -156,164 +156,104 @@ _10
 
 _10
 
-sdk.cdc(head, rest)`
+sdk.get(ix, key, fallback)`
 
 Or import directly the specific function:
 
 `_10
 
-import { cdc } from "@onflow/sdk"
+import { get } from "@onflow/sdk"
 
 _10
 
 _10
 
-cdc(head, rest)`
+get(ix, key, fallback)`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`` _30
+`_14
 
-import { template } from "@onflow/util-template"
+import { get, put, initInteraction } from "@onflow/sdk"
 
-_30
+_14
 
-_30
+_14
 
-// String template
+const interaction = initInteraction();
 
-_30
+_14
 
-const simpleTemplate = template("Hello, World!");
+_14
 
-_30
+// Set a value first
 
-console.log(simpleTemplate()); // "Hello, World!"
+_14
 
-_30
+put("user.name", "Alice")(interaction);
 
-_30
+_14
 
-// Template literal with interpolation
+_14
 
-_30
+// Get the value
 
-const name = "Alice";
+_14
 
-_30
+const userName = get(interaction, "user.name"); // "Alice"
 
-const greeting = template`Hello, ${name}!`;
+_14
 
-_30
+const userAge = get(interaction, "user.age", 25); // 25 (fallback)
 
-console.log(greeting()); // "Hello, Alice!"
+_14
 
-_30
+_14
 
-_30
+// Get nested values
 
-// Cadence script template
+_14
 
-_30
+put("config.network.url", "https://access.mainnet.onflow.org")(interaction);
 
-const cadenceScript = template`
+_14
 
-_30
-
-access(all) fun main(greeting: String): String {
-
-_30
-
-return greeting.concat(", from Flow!")
-
-_30
-
-}
-
-_30
-
-`;
-
-_30
-
-console.log(cadenceScript()); // The Cadence script as a string
-
-_30
-
-_30
-
-// Used with FCL for dynamic Cadence code
-
-_30
-
-import * as fcl from "@onflow/fcl";
-
-_30
-
-_30
-
-const contractAddress = "0x123456789abcdef0";
-
-_30
-
-const scriptTemplate = fcl.cadence`
-
-_30
-
-import MyContract from ${contractAddress}
-
-_30
-
-_30
-
-access(all) fun main(): String {
-
-_30
-
-return MyContract.getMessage()
-
-_30
-
-}
-
-_30
-
-`; ``
+const networkUrl = get(interaction, "config.network.url");`
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `head`[​](#head "Direct link to head")
+### `ix`[​](#ix "Direct link to ix")
 
-* Type:
+* Type: [`Interaction`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
+* Description: The interaction object
 
-`_10
+### `key`[​](#key "Direct link to key")
 
-string | TemplateStringsArray | ((x?: unknown) => string)`
+* Type: `string`
+* Description: The dot-notation key path (e.g., "message.arguments")
 
-* Description: - A string, template string array, or template function
+### `fallback` (optional)[​](#fallback-optional "Direct link to fallback-optional")
 
-### `rest` (optional)[​](#rest-optional "Direct link to rest-optional")
-
-* Type: `unknown[]`
-* Description: - The rest of the arguments
+* Type: `any`
+* Description: The fallback value if the key is not found
 
 ## Returns[​](#returns "Direct link to Returns")
 
-`string`
+`any`
 
-A template function
+The value at the key path or the fallback value
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/cdc.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/get.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-cadence](/build/tools/clients/fcl-js/packages-docs/sdk/cadence)[Next
+encodeTxIdFromVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher)[Next
 
-config](/build/tools/clients/fcl-js/packages-docs/sdk/config)
+getAccount](/build/tools/clients/fcl-js/packages-docs/sdk/getAccount)
 
 ###### Rate this page
 
@@ -324,8 +264,9 @@ Copy as Markdown
 * [Import](#import)
 * [Usage](#usage)
 * [Parameters](#parameters)
-  + [`head`](#head)
-  + [`rest` (optional)](#rest-optional)
+  + [`ix`](#ix)
+  + [`key`](#key)
+  + [`fallback` (optional)](#fallback-optional)
 * [Returns](#returns)
 
 Documentation

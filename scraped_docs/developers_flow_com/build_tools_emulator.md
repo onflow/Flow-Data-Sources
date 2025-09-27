@@ -47,27 +47,76 @@ On this page
 
 # Flow Emulator
 
-The Flow Emulator is a lightweight tool that emulates the behaviour of the real Flow network.
+The Flow Emulator is a lightweight tool that emulates the behavior of the real Flow network for local development and testing.
 
-The emulator exposes a gRPC server that implements the Flow Access API,
-which is designed to have near feature parity with the real network API.
+## Installation[​](#installation "Direct link to Installation")
 
-## Running the emulator with the Flow CLI[​](#running-the-emulator-with-the-flow-cli "Direct link to Running the emulator with the Flow CLI")
+The emulator is included with the [Flow CLI](/build/tools/flow-cli). Follow the [installation guide](/build/tools/flow-cli/install) to get started.
 
-The emulator is bundled with the [Flow CLI](/build/tools/flow-cli), a command-line interface for working with Flow.
+## Quick Start[​](#quick-start "Direct link to Quick Start")
 
-### Installation[​](#installation "Direct link to Installation")
+First, create a `flow.json` configuration file:
 
-Follow [these steps](/build/tools/flow-cli/install) to install the Flow CLI on macOS, Linux, and Windows.
+`_10
 
-## Usage[​](#usage "Direct link to Usage")
+flow init --config-only`
 
-To learn more about using the Emulator,
-have a look at [the README of the repository](https://github.com/onflow/flow-emulator/#starting-the-server).
+Then start the Flow Emulator:
+
+`_10
+
+flow emulator`
+
+This starts a local Flow network with:
+
+* gRPC server on port `3569`
+* REST API on `http://localhost:8888`
+* Admin API on port `8080`
+
+## Common Options[​](#common-options "Direct link to Common Options")
+
+`_10
+
+# Start with verbose logging
+
+_10
+
+flow emulator --verbose
+
+_10
+
+_10
+
+# Set custom block time (e.g., 1 second between blocks)
+
+_10
+
+flow emulator --block-time 1s
+
+_10
+
+_10
+
+# Persist state between restarts
+
+_10
+
+flow emulator --persist`
+
+For all available options, see the [CLI commands overview](/build/tools/flow-cli).
+
+## Debugging & Testing[​](#debugging--testing "Direct link to Debugging & Testing")
+
+* **Code Coverage**: Add `--coverage-reporting` flag and visit `http://localhost:8080/emulator/codeCoverage`
+* **Debugging**: Use `#debugger()` pragma in Cadence code for breakpoints
+
+## Additional Resources[​](#additional-resources "Direct link to Additional Resources")
+
+For advanced configuration options, see the [Flow Emulator repository](https://github.com/onflow/flow-emulator/).
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/emulator/index.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Sep 26, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -81,9 +130,11 @@ Flow CLI](/build/tools/flow-cli)
 
 Copy as Markdown
 
-* [Running the emulator with the Flow CLI](#running-the-emulator-with-the-flow-cli)
-  + [Installation](#installation)
-* [Usage](#usage)
+* [Installation](#installation)
+* [Quick Start](#quick-start)
+* [Common Options](#common-options)
+* [Debugging & Testing](#debugging--testing)
+* [Additional Resources](#additional-resources)
 
 Documentation
 

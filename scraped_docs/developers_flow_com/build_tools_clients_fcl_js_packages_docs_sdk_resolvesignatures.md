@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/cdc
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/resolveSignatures
 
-cdc | Flow Developer Portal
+resolveSignatures | Flow Developer Portal
 
 
 
@@ -136,13 +136,13 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
-* cdc
+* resolveSignatures
 
 On this page
 
-# cdc
+# resolveSignatures
 
-Creates a template function
+Resolves signatures for a transaction by coordinating the signing process for inside and outside signers.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -156,164 +156,44 @@ _10
 
 _10
 
-sdk.cdc(head, rest)`
+sdk.resolveSignatures(ix)`
 
 Or import directly the specific function:
 
 `_10
 
-import { cdc } from "@onflow/sdk"
+import { resolveSignatures } from "@onflow/sdk"
 
 _10
 
 _10
 
-cdc(head, rest)`
-
-## Usage[​](#usage "Direct link to Usage")
-
-`` _30
-
-import { template } from "@onflow/util-template"
-
-_30
-
-_30
-
-// String template
-
-_30
-
-const simpleTemplate = template("Hello, World!");
-
-_30
-
-console.log(simpleTemplate()); // "Hello, World!"
-
-_30
-
-_30
-
-// Template literal with interpolation
-
-_30
-
-const name = "Alice";
-
-_30
-
-const greeting = template`Hello, ${name}!`;
-
-_30
-
-console.log(greeting()); // "Hello, Alice!"
-
-_30
-
-_30
-
-// Cadence script template
-
-_30
-
-const cadenceScript = template`
-
-_30
-
-access(all) fun main(greeting: String): String {
-
-_30
-
-return greeting.concat(", from Flow!")
-
-_30
-
-}
-
-_30
-
-`;
-
-_30
-
-console.log(cadenceScript()); // The Cadence script as a string
-
-_30
-
-_30
-
-// Used with FCL for dynamic Cadence code
-
-_30
-
-import * as fcl from "@onflow/fcl";
-
-_30
-
-_30
-
-const contractAddress = "0x123456789abcdef0";
-
-_30
-
-const scriptTemplate = fcl.cadence`
-
-_30
-
-import MyContract from ${contractAddress}
-
-_30
-
-_30
-
-access(all) fun main(): String {
-
-_30
-
-return MyContract.getMessage()
-
-_30
-
-}
-
-_30
-
-`; ``
+resolveSignatures(ix)`
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `head`[​](#head "Direct link to head")
+### `ix`[​](#ix "Direct link to ix")
 
-* Type:
-
-`_10
-
-string | TemplateStringsArray | ((x?: unknown) => string)`
-
-* Description: - A string, template string array, or template function
-
-### `rest` (optional)[​](#rest-optional "Direct link to rest-optional")
-
-* Type: `unknown[]`
-* Description: - The rest of the arguments
+* Type: [`Interaction`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
+* Description: The interaction object containing transaction details
 
 ## Returns[​](#returns "Direct link to Returns")
 
-`string`
+[`Promise<Interaction>`](/build/tools/clients/fcl-js/packages-docs/types#interaction)
 
-A template function
+The interaction object with resolved signatures
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/cdc.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/resolveSignatures.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-cadence](/build/tools/clients/fcl-js/packages-docs/sdk/cadence)[Next
+resolveRefBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/resolveRefBlockId)[Next
 
-config](/build/tools/clients/fcl-js/packages-docs/sdk/config)
+resolveValidators](/build/tools/clients/fcl-js/packages-docs/sdk/resolveValidators)
 
 ###### Rate this page
 
@@ -322,10 +202,8 @@ config](/build/tools/clients/fcl-js/packages-docs/sdk/config)
 Copy as Markdown
 
 * [Import](#import)
-* [Usage](#usage)
 * [Parameters](#parameters)
-  + [`head`](#head)
-  + [`rest` (optional)](#rest-optional)
+  + [`ix`](#ix)
 * [Returns](#returns)
 
 Documentation

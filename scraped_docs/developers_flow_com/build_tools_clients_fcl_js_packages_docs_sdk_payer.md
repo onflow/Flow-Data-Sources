@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/cdc
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/payer
 
-cdc | Flow Developer Portal
+payer | Flow Developer Portal
 
 
 
@@ -136,13 +136,20 @@ Search
 * [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 * [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
-* cdc
+* payer
 
 On this page
 
-# cdc
+# payer
 
-Creates a template function
+A builder function that adds payer account(s) to a transaction.
+
+Every transaction requires at least one payer.
+
+The payer is the account that pays the transaction fee for executing the transaction on the network.
+The payer account must have sufficient Flow tokens to cover the transaction fees.
+
+Read more about [transaction roles](https://docs.onflow.org/concepts/transaction-signing/#payer) and [transaction fees](https://docs.onflow.org/concepts/fees/).
 
 ## Import[​](#import "Direct link to Import")
 
@@ -150,170 +157,225 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as sdk from "@onflow/sdk"
+import * as sdk from '@onflow/sdk';
 
 _10
 
 _10
 
-sdk.cdc(head, rest)`
+sdk.payer(ax);`
 
 Or import directly the specific function:
 
 `_10
 
-import { cdc } from "@onflow/sdk"
+import { payer } from '@onflow/sdk';
 
 _10
 
 _10
 
-cdc(head, rest)`
+payer(ax);`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`` _30
+`` _39
 
-import { template } from "@onflow/util-template"
+import * as fcl from '@onflow/fcl';
 
-_30
+_39
 
-_30
+_39
 
-// String template
+// Using current user as payer (most common case)
 
-_30
+_39
 
-const simpleTemplate = template("Hello, World!");
+await fcl.mutate({
 
-_30
+_39
 
-console.log(simpleTemplate()); // "Hello, World!"
+cadence: `
 
-_30
+_39
 
-_30
+transaction {
 
-// Template literal with interpolation
+_39
 
-_30
+prepare(acct: AuthAccount) {
 
-const name = "Alice";
+_39
 
-_30
+log("Transaction fees paid by: ".concat(acct.address.toString()))
 
-const greeting = template`Hello, ${name}!`;
-
-_30
-
-console.log(greeting()); // "Hello, Alice!"
-
-_30
-
-_30
-
-// Cadence script template
-
-_30
-
-const cadenceScript = template`
-
-_30
-
-access(all) fun main(greeting: String): String {
-
-_30
-
-return greeting.concat(", from Flow!")
-
-_30
+_39
 
 }
 
-_30
-
-`;
-
-_30
-
-console.log(cadenceScript()); // The Cadence script as a string
-
-_30
-
-_30
-
-// Used with FCL for dynamic Cadence code
-
-_30
-
-import * as fcl from "@onflow/fcl";
-
-_30
-
-_30
-
-const contractAddress = "0x123456789abcdef0";
-
-_30
-
-const scriptTemplate = fcl.cadence`
-
-_30
-
-import MyContract from ${contractAddress}
-
-_30
-
-_30
-
-access(all) fun main(): String {
-
-_30
-
-return MyContract.getMessage()
-
-_30
+_39
 
 }
 
-_30
+_39
 
-`; ``
+`,
+
+_39
+
+payer: fcl.authz, // Current user as payer
+
+_39
+
+});
+
+_39
+
+_39
+
+// Using custom payer with builder pattern
+
+_39
+
+await fcl.send([
+
+_39
+
+fcl.transaction`
+
+_39
+
+transaction {
+
+_39
+
+prepare(acct: AuthAccount) {
+
+_39
+
+// Transaction logic
+
+_39
+
+}
+
+_39
+
+}
+
+_39
+
+`,
+
+_39
+
+fcl.proposer(fcl.authz), // Current user as proposer
+
+_39
+
+fcl.authorizations([fcl.authz]), // Current user as authorizer
+
+_39
+
+fcl.payer(customPayerAuthz), // Custom payer pays fees
+
+_39
+
+]);
+
+_39
+
+_39
+
+// Multiple payers (advanced use case)
+
+_39
+
+await fcl.send([
+
+_39
+
+fcl.transaction`
+
+_39
+
+transaction {
+
+_39
+
+prepare(acct: AuthAccount) {
+
+_39
+
+// Transaction logic
+
+_39
+
+}
+
+_39
+
+}
+
+_39
+
+`,
+
+_39
+
+fcl.payer([payerAuthz1, payerAuthz2]), // Multiple payers split fees
+
+_39
+
+]); ``
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `head`[​](#head "Direct link to head")
+### `ax` (optional)[​](#ax-optional "Direct link to ax-optional")
 
 * Type:
 
 `_10
 
-string | TemplateStringsArray | ((x?: unknown) => string)`
+export type AccountAuthorization =
 
-* Description: - A string, template string array, or template function
+_10
 
-### `rest` (optional)[​](#rest-optional "Direct link to rest-optional")
+| (AuthorizationFn & Partial<InteractionAccount>)
 
-* Type: `unknown[]`
-* Description: - The rest of the arguments
+_10
+
+| Partial<InteractionAccount>;`
+
+* Description: An account address or an array of account addresses
 
 ## Returns[​](#returns "Direct link to Returns")
 
-`string`
+`_10
 
-A template function
+export type InteractionBuilderFn = (
+
+_10
+
+ix: Interaction,
+
+_10
+
+) => Interaction | Promise<Interaction>;`
+
+A function that takes an interaction object and returns a new interaction object with the payer(s) added
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/cdc.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/payer.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-cadence](/build/tools/clients/fcl-js/packages-docs/sdk/cadence)[Next
+params](/build/tools/clients/fcl-js/packages-docs/sdk/params)[Next
 
-config](/build/tools/clients/fcl-js/packages-docs/sdk/config)
+ping](/build/tools/clients/fcl-js/packages-docs/sdk/ping)
 
 ###### Rate this page
 
@@ -324,8 +386,7 @@ Copy as Markdown
 * [Import](#import)
 * [Usage](#usage)
 * [Parameters](#parameters)
-  + [`head`](#head)
-  + [`rest` (optional)](#rest-optional)
+  + [`ax` (optional)](#ax-optional)
 * [Returns](#returns)
 
 Documentation
