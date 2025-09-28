@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/ecosystem/defi-liquidity/cross-chain-swaps
+# Source: https://developers.flow.com/ecosystem/defi-liquidity/forte
 
-Cross-chain swaps on Flow EVM | Flow Developer Portal
+Build with Forte ↙ | Flow Developer Portal
 
 
 
@@ -34,61 +34,23 @@ Search
 * [Get the Flow Down - Flow Learning Resources](/ecosystem/overview)
 
 * [DeFi & Liquidity](/ecosystem/defi-liquidity)
-* Cross-chain swaps on Flow EVM
+* Build with Forte ↙
 
-On this page
+# Quickstart
 
-# Cross-chain swaps on Flow EVM
+Go to [Forte](/blockchain-development-tutorials/forte)
 
-The following bridges offer cross-chain swaps (token bridging including swap) to or from Flow EVM.
+;
 
-## Liquidity Pool Based Cross-chain Swaps[​](#liquidity-pool-based-cross-chain-swaps "Direct link to Liquidity Pool Based Cross-chain Swaps")
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/forte.md)
 
-### Stargate[​](#stargate "Direct link to Stargate")
-
-[Stargate](https://stargate.finance) employs unified liquidity pools shared across multiple chains to enable native asset transfers and cross-chain swaps
-without wrapped tokens. It is built on LayerZero's cross-chain messaging protocol.
-
-### Celer[​](#celer "Direct link to Celer")
-
-[Celer](https://cbridge.celer.network) is a hybrid liquidity network bridge that combines multiple bridging models and is based on the Celer
-Inter-Chain Messaging Framework.
-
-## Intent Based Cross-chain Swaps[​](#intent-based-cross-chain-swaps "Direct link to Intent Based Cross-chain Swaps")
-
-Intent based bridges do not depend on pre-funded liquidity pools which can improve user experience, transaction speed and capital efficiency.
-
-### Relay[​](#relay "Direct link to Relay")
-
-[Relay.link](https://relay.link/bridge/base) allows users to specify desired cross-chain swap outcomes for orders.
-
-### DeBridge[​](#debridge "Direct link to DeBridge")
-
-[DeBridge](https://app.debridge.finance/) achieves efficient cross-chain swaps with minimal slippage in a decentralized environment
-through a peer-to-peer transaction mechanism.
-
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/cross-chain-swaps.md)
-
-Last updated on **Mar 14, 2025** by **j pimmel**
+Last updated on **Sep 25, 2025** by **Brian Doyle**
 
 [Previous
 
-DeFi Contracts](/ecosystem/defi-liquidity/defi-contracts)[Next
+DeFi & Liquidity](/ecosystem/defi-liquidity)[Next
 
-Add Token To MetaMask](/ecosystem/defi-liquidity/add-token-to-metamask)
-
-###### Rate this page
-
-😞😐😊
-
-Copy as Markdown
-
-* [Liquidity Pool Based Cross-chain Swaps](#liquidity-pool-based-cross-chain-swaps)
-  + [Stargate](#stargate)
-  + [Celer](#celer)
-* [Intent Based Cross-chain Swaps](#intent-based-cross-chain-swaps)
-  + [Relay](#relay)
-  + [DeBridge](#debridge)
+DeFi Contracts](/ecosystem/defi-liquidity/defi-contracts)
 
 Documentation
 
