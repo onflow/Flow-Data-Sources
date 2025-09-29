@@ -6,7 +6,7 @@ Register Your Assets on Flow | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -14,18 +14,18 @@ Search
 
 * [Blockchain Development Tutorials](/blockchain-development-tutorials)
 * [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)
-* [Flow Actions](/blockchain-development-tutorials/flow-actions)
+* [Forte Network Upgrade](/blockchain-development-tutorials/forte)
+* [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
+* [Cadence Tutorials](/blockchain-development-tutorials/cadence)
+* [Flow EVM Guides](/blockchain-development-tutorials/evm)
+* [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
+* [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
 * [Token Development and Registration](/blockchain-development-tutorials/tokens)
 
   + [Creating a Fungible Token](/blockchain-development-tutorials/tokens/fungible-token-cadence)
   + [Creating an NFT Contract](/blockchain-development-tutorials/tokens/nft-cadence)
   + [Register Cadence Assets](/blockchain-development-tutorials/tokens/register-cadence-assets)
   + [Register ERC20 Token](/blockchain-development-tutorials/tokens/register-erc20-token)
-* [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
-* [Flow EVM Guides](/blockchain-development-tutorials/evm)
-* [Cadence Tutorials](/blockchain-development-tutorials/cadence)
-* [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
-* [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
 * [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
 * [Third-Party Integrations](/blockchain-development-tutorials/integrations)
 
@@ -181,7 +181,7 @@ Copy as Markdown
 
 Documentation
 
-* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
 * [Mobile](/blockchain-development-tutorials/cadence/mobile)

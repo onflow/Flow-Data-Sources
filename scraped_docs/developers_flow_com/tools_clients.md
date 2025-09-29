@@ -6,25 +6,44 @@ Client Tools | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [@onflow/react-sdk](/tools/react-sdk)
-* [Flow Emulator](/tools/emulator)
-* [Flow CLI](/tools/flow-cli)
-* [Cadence VS Code Extension](/tools/vscode-extension)
-* [Flow Dev Wallet](/tools/flow-dev-wallet)
-* [Client Tools](/tools/clients)
+* [Why Flow](/build/flow)
+* [Cadence](/build/cadence/quickstart)
 
-  + [Flow Client Library (FCL)](/tools/clients/fcl-js)
-  + [Flow Go SDK](/tools/clients/flow-go-sdk)
-* [Error Codes](/tools/error-codes)
-* [Wallet Provider Spec](/tools/wallet-provider-spec)
-* [Tools](/tools)
+  + [Quickstart ↙](/build/cadence/quickstart)
+  + [Differences vs. EVM](/build/cadence/differences-vs-evm)
+  + [Basics](/build/cadence/basics/network-architecture)
+  + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
+  + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+  + [Core Smart Contracts](/build/cadence/core-contracts)
+* [Solidity (EVM)](/build/evm/quickstart)
 
+  + [EVM Quickstart](/build/evm/quickstart)
+  + [How it Works](/build/evm/how-it-works)
+  + [EVM Wallet Setup](/build/evm/using)
+  + [Network Information](/build/evm/networks)
+  + [Fees](/build/evm/fees)
+  + [Accounts](/build/evm/accounts)
+* [Tools & SDKs](/build/tools)
+
+  + [@onflow/react-sdk](/build/tools/react-sdk)
+  + [Flow Emulator](/build/tools/emulator)
+  + [Flow CLI](/build/tools/flow-cli)
+  + [Cadence VS Code Extension](/build/tools/vscode-extension)
+  + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
+  + [Client Tools](/build/tools/clients)
+
+    - [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
+    - [Flow Go SDK](/build/tools/clients/flow-go-sdk)
+  + [Error Codes](/build/tools/error-codes)
+  + [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+
+* [Tools & SDKs](/build/tools)
 * Client Tools
 
 On this page
@@ -35,7 +54,7 @@ Flow provides a comprehensive suite of client tools and SDKs designed to help de
 
 ## JavaScript (FCL)[​](#javascript-fcl "Direct link to JavaScript (FCL)")
 
-[Flow Client Library (FCL)](/tools/clients/fcl-js) is the primary JavaScript/TypeScript client for Flow. It provides:
+[Flow Client Library (FCL)](/build/tools/clients/fcl-js) is the primary JavaScript/TypeScript client for Flow. It provides:
 
 * Wallet integration and authentication
 * Transaction and script execution
@@ -45,7 +64,7 @@ Flow provides a comprehensive suite of client tools and SDKs designed to help de
 
 ## Go SDK[​](#go-sdk "Direct link to Go SDK")
 
-[Flow Go SDK](/tools/clients/flow-go-sdk) offers a robust set of packages for Go developers, including:
+[Flow Go SDK](/build/tools/clients/flow-go-sdk) offers a robust set of packages for Go developers, including:
 
 * High-performance blockchain interaction
 * Transaction building and signing
@@ -145,15 +164,15 @@ Flow provides a comprehensive suite of client tools and SDKs designed to help de
 
 Each client tool is designed with specific use cases and developer needs in mind. Choose the one that best fits your development environment and requirements.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/clients/index.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/index.md)
 
-Last updated on **Apr 18, 2025** by **Brian Doyle**
+Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-Flow Dev Wallet](/tools/flow-dev-wallet)[Next
+Flow Dev Wallet](/build/tools/flow-dev-wallet)[Next
 
-Flow Client Library (FCL)](/tools/clients/fcl-js)
+Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 
 ###### Rate this page
 
@@ -175,16 +194,16 @@ Copy as Markdown
 
 Documentation
 
-* [Getting Started](/build/getting-started/contract-interaction)
-* [SDK's & Tools](/tools)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
+* [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/guides/mobile/overview)
-* [FCL](/tools/clients/fcl-js)
-* [Testing](/build/smart-contracts/testing)
-* [CLI](/tools/flow-cli)
-* [Emulator](/tools/emulator)
+* [Mobile](/blockchain-development-tutorials/cadence/mobile)
+* [FCL](/build/tools/clients/fcl-js)
+* [Testing](/build/cadence/smart-contracts/testing)
+* [CLI](/build/tools/flow-cli)
+* [Emulator](/build/tools/emulator)
 * [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/tools/vscode-extension)
+* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
@@ -201,18 +220,17 @@ Start Building
 * [Flow Playground](https://play.flow.com/)
 * [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
 * [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/core-contracts)
-* [EVM](/evm/about)
+* [Core Contracts & Standards](/build/cadence/core-contracts)
+* [EVM](/build/evm/quickstart)
 
 Network
 
 * [Network Status](https://status.flow.com/)
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
-* [Node Operation](/networks/node-ops)
-* [Spork Information](/networks/node-ops/node-operation/spork)
+* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
+* [Node Operation](/protocol/node-ops)
+* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
