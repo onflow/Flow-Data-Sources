@@ -27,7 +27,6 @@ Search
 * [Collectibles & NFTs](/ecosystem/collectibles)
 * [Community Projects](/ecosystem/projects)
 * [Auditors](/ecosystem/auditors)
-* [Get the Flow Down - Flow Learning Resources](/ecosystem/overview)
 
 * [Hackathons and Events](/ecosystem/Hackathons and Events)
 * May the Flow be with You

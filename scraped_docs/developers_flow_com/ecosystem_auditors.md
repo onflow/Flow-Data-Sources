@@ -25,7 +25,6 @@ Search
 * [Collectibles & NFTs](/ecosystem/collectibles)
 * [Community Projects](/ecosystem/projects)
 * [Auditors](/ecosystem/auditors)
-* [Get the Flow Down - Flow Learning Resources](/ecosystem/overview)
 
 * Auditors
 
@@ -65,9 +64,7 @@ Last updated on **Feb 11, 2025** by **bz**
 
 [Previous
 
-Community Projects](/ecosystem/projects)[Next
-
-Get the Flow Down - Flow Learning Resources](/ecosystem/overview)
+Community Projects](/ecosystem/projects)
 
 ###### Rate this page
 

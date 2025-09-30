@@ -31,7 +31,6 @@ Search
 * [Collectibles & NFTs](/ecosystem/collectibles)
 * [Community Projects](/ecosystem/projects)
 * [Auditors](/ecosystem/auditors)
-* [Get the Flow Down - Flow Learning Resources](/ecosystem/overview)
 
 * [DeFi & Liquidity](/ecosystem/defi-liquidity)
 * Add Token To MetaMask

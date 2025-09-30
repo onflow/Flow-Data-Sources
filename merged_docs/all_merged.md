@@ -155770,7 +155770,7 @@ Built-in Functions](/docs/language/built-in-functions)
 
 
 
-# Source: https://cadence-lang.org/docs/language/
+# Source: https://cadence-lang.org/docs/language
 
 The Cadence Programming Language | Cadence
 
@@ -201260,7 +201260,6 @@ Search
 * [Collectibles & NFTs](/ecosystem/collectibles)
 * [Community Projects](/ecosystem/projects)
 * [Auditors](/ecosystem/auditors)
-* [Get the Flow Down - Flow Learning Resources](/ecosystem/overview)
 
 * Auditors
 
@@ -201300,9 +201299,7 @@ Last updated on **Feb 11, 2025** by **bz**
 
 [Previous
 
-Community Projects](/ecosystem/projects)[Next
-
-Get the Flow Down - Flow Learning Resources](/ecosystem/overview)
+Community Projects](/ecosystem/projects)
 
 ###### Rate this page
 
@@ -211756,7 +211753,7 @@ Starting Your Nodes | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -211790,7 +211787,7 @@ Search
     - [Node Roles](/protocol/node-ops/node-operation/node-roles)
     - [Node Setup](/protocol/node-ops/node-operation/node-setup)
     - [Past Network Upgrades](/protocol/node-ops/node-operation/past-upgrades)
-    - [Network Upgrade (Spork) Process](/protocol/node-ops/node-operation/spork)
+    - [Network Upgrade (Spork) Process](/protocol/node-ops/node-operation/network-upgrade)
     - [Slashing Conditions](/protocol/node-ops/node-operation/slashing)
     - [Node Providers](/protocol/node-ops/node-operation/node-providers)
     - [Height coordinated upgrade](/protocol/node-ops/node-operation/hcu)
@@ -212129,7 +212126,7 @@ Copy as Markdown
 
 Documentation
 
-* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
 * [Mobile](/blockchain-development-tutorials/cadence/mobile)
@@ -212165,7 +212162,7 @@ Network
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
 * [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/spork)
+* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
@@ -227203,7 +227200,6 @@ Search
 * [Collectibles & NFTs](/ecosystem/collectibles)
 * [Community Projects](/ecosystem/projects)
 * [Auditors](/ecosystem/auditors)
-* [Get the Flow Down - Flow Learning Resources](/ecosystem/overview)
 
 * Bridges
 
@@ -227375,7 +227371,6 @@ Search
 * [Collectibles & NFTs](/ecosystem/collectibles)
 * [Community Projects](/ecosystem/projects)
 * [Auditors](/ecosystem/auditors)
-* [Get the Flow Down - Flow Learning Resources](/ecosystem/overview)
 
 * [DeFi & Liquidity](/ecosystem/defi-liquidity)
 * Add Token To MetaMask
@@ -234361,7 +234356,6 @@ Search
 * [Collectibles & NFTs](/ecosystem/collectibles)
 * [Community Projects](/ecosystem/projects)
 * [Auditors](/ecosystem/auditors)
-* [Get the Flow Down - Flow Learning Resources](/ecosystem/overview)
 
 * Developer Profile
 
@@ -255948,7 +255942,7 @@ Flow Remix Guide | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -255956,9 +255950,9 @@ Search
 
 * [Blockchain Development Tutorials](/blockchain-development-tutorials)
 * [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)
-* [Flow Actions](/blockchain-development-tutorials/flow-actions)
-* [Token Development and Registration](/blockchain-development-tutorials/tokens)
+* [Forte Network Upgrade](/blockchain-development-tutorials/forte)
 * [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
+* [Cadence Tutorials](/blockchain-development-tutorials/cadence)
 * [Flow EVM Guides](/blockchain-development-tutorials/evm)
 
   + [Flow EVM Setup](/blockchain-development-tutorials/evm/setup)
@@ -255969,9 +255963,9 @@ Search
     - [Remix](/blockchain-development-tutorials/evm/development-tools/remix)
     - [Foundry](/blockchain-development-tutorials/evm/development-tools/foundry)
   + [Build a Fully-Onchain Image Gallery](/blockchain-development-tutorials/evm/image-gallery)
-* [Cadence Tutorials](/blockchain-development-tutorials/cadence)
 * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
 * [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
+* [Token Development and Registration](/blockchain-development-tutorials/tokens)
 * [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
 * [Third-Party Integrations](/blockchain-development-tutorials/integrations)
 
@@ -256241,7 +256235,7 @@ Copy as Markdown
 
 Documentation
 
-* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
 * [Mobile](/blockchain-development-tutorials/cadence/mobile)
@@ -273756,7 +273750,6 @@ Search
 * [Collectibles & NFTs](/ecosystem/collectibles)
 * [Community Projects](/ecosystem/projects)
 * [Auditors](/ecosystem/auditors)
-* [Get the Flow Down - Flow Learning Resources](/ecosystem/overview)
 
 * Hackathons and Events
 
@@ -295109,34 +295102,29 @@ display | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
 * [Why Flow](/build/flow)
-* [Cadence](/build/cadence/getting-started)
+* [Cadence](/build/cadence/quickstart)
 
-  + [Getting Started](/build/cadence/getting-started)
+  + [Quickstart ↙](/build/cadence/quickstart)
   + [Differences vs. EVM](/build/cadence/differences-vs-evm)
-  + [Flow Protocol](/build/cadence/basics/network-architecture)
-  + [App Architecture](/build/cadence/app-architecture)
+  + [Basics](/build/cadence/basics/network-architecture)
   + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
   + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
   + [Core Smart Contracts](/build/cadence/core-contracts)
-  + [Explore More](/build/cadence/explore-more)
 * [Solidity (EVM)](/build/evm/quickstart)
 
   + [EVM Quickstart](/build/evm/quickstart)
   + [How it Works](/build/evm/how-it-works)
-  + [Using Flow EVM](/build/evm/using)
+  + [EVM Wallet Setup](/build/evm/using)
   + [Network Information](/build/evm/networks)
   + [Fees](/build/evm/fees)
   + [Accounts](/build/evm/accounts)
-  + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
-  + [Faucets ↙](/evm/faucets)
-  + [Block Explorers ↙](/evm/block-explorers)
 * [Tools & SDKs](/build/tools)
 
   + [@onflow/react-sdk](/build/tools/react-sdk)
@@ -295313,7 +295301,7 @@ Copy as Markdown
 
 Documentation
 
-* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
 * [Mobile](/blockchain-development-tutorials/cadence/mobile)
@@ -295349,7 +295337,7 @@ Network
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
 * [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/spork)
+* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
@@ -315619,7 +315607,7 @@ Build a Fully-Onchain Image Gallery | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -315627,18 +315615,18 @@ Search
 
 * [Blockchain Development Tutorials](/blockchain-development-tutorials)
 * [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)
-* [Flow Actions](/blockchain-development-tutorials/flow-actions)
-* [Token Development and Registration](/blockchain-development-tutorials/tokens)
+* [Forte Network Upgrade](/blockchain-development-tutorials/forte)
 * [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
+* [Cadence Tutorials](/blockchain-development-tutorials/cadence)
 * [Flow EVM Guides](/blockchain-development-tutorials/evm)
 
   + [Flow EVM Setup](/blockchain-development-tutorials/evm/setup)
   + [Flow EVM Frameworks](/blockchain-development-tutorials/evm/frameworks)
   + [Flow EVM Development Tools](/blockchain-development-tutorials/evm/development-tools)
   + [Build a Fully-Onchain Image Gallery](/blockchain-development-tutorials/evm/image-gallery)
-* [Cadence Tutorials](/blockchain-development-tutorials/cadence)
 * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
 * [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
+* [Token Development and Registration](/blockchain-development-tutorials/tokens)
 * [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
 * [Third-Party Integrations](/blockchain-development-tutorials/integrations)
 
@@ -318484,7 +318472,7 @@ Last updated on **Aug 26, 2025** by **Felipe Cevallos**
 
 Foundry](/blockchain-development-tutorials/evm/development-tools/foundry)[Next
 
-Cadence Tutorials](/blockchain-development-tutorials/cadence)
+Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
 
 ###### Rate this page
 
@@ -318517,7 +318505,7 @@ Copy as Markdown
 
 Documentation
 
-* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
 * [Mobile](/blockchain-development-tutorials/cadence/mobile)
@@ -321162,34 +321150,29 @@ decode | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
 * [Why Flow](/build/flow)
-* [Cadence](/build/cadence/getting-started)
+* [Cadence](/build/cadence/quickstart)
 
-  + [Getting Started](/build/cadence/getting-started)
+  + [Quickstart ↙](/build/cadence/quickstart)
   + [Differences vs. EVM](/build/cadence/differences-vs-evm)
-  + [Flow Protocol](/build/cadence/basics/network-architecture)
-  + [App Architecture](/build/cadence/app-architecture)
+  + [Basics](/build/cadence/basics/network-architecture)
   + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
   + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
   + [Core Smart Contracts](/build/cadence/core-contracts)
-  + [Explore More](/build/cadence/explore-more)
 * [Solidity (EVM)](/build/evm/quickstart)
 
   + [EVM Quickstart](/build/evm/quickstart)
   + [How it Works](/build/evm/how-it-works)
-  + [Using Flow EVM](/build/evm/using)
+  + [EVM Wallet Setup](/build/evm/using)
   + [Network Information](/build/evm/networks)
   + [Fees](/build/evm/fees)
   + [Accounts](/build/evm/accounts)
-  + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
-  + [Faucets ↙](/evm/faucets)
-  + [Block Explorers ↙](/evm/block-explorers)
 * [Tools & SDKs](/build/tools)
 
   + [@onflow/react-sdk](/build/tools/react-sdk)
@@ -321469,7 +321452,7 @@ Copy as Markdown
 
 Documentation
 
-* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
 * [Mobile](/blockchain-development-tutorials/cadence/mobile)
@@ -332320,7 +332303,7 @@ Solving the blockchain trilemma | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -332408,7 +332391,7 @@ Copy as Markdown
 
 Documentation
 
-* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
 * [Mobile](/blockchain-development-tutorials/cadence/mobile)
@@ -348538,7 +348521,6 @@ Search
 * [Collectibles & NFTs](/ecosystem/collectibles)
 * [Community Projects](/ecosystem/projects)
 * [Auditors](/ecosystem/auditors)
-* [Get the Flow Down - Flow Learning Resources](/ecosystem/overview)
 
 * [Hackathons and Events](/ecosystem/Hackathons and Events)
 * May the Flow be with You
@@ -358956,7 +358938,7 @@ Spork Practice | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -359128,7 +359110,7 @@ Copy as Markdown
 
 Documentation
 
-* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
 * [Mobile](/blockchain-development-tutorials/cadence/mobile)
@@ -369716,7 +369698,6 @@ Search
 * [Collectibles & NFTs](/ecosystem/collectibles)
 * [Community Projects](/ecosystem/projects)
 * [Auditors](/ecosystem/auditors)
-* [Get the Flow Down - Flow Learning Resources](/ecosystem/overview)
 
 * Flow Block Explorers
 
@@ -387950,7 +387931,7 @@ Build a Walletless Mobile App (PWA) | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -387958,20 +387939,22 @@ Search
 
 * [Blockchain Development Tutorials](/blockchain-development-tutorials)
 * [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)
-* [Flow Actions](/blockchain-development-tutorials/flow-actions)
-* [Token Development and Registration](/blockchain-development-tutorials/tokens)
+* [Forte Network Upgrade](/blockchain-development-tutorials/forte)
 * [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
-* [Flow EVM Guides](/blockchain-development-tutorials/evm)
 * [Cadence Tutorials](/blockchain-development-tutorials/cadence)
 
-  + [Account Linking (FLIP 72)](/blockchain-development-tutorials/cadence/account-management)
+  + [Getting Started with Cadence](/blockchain-development-tutorials/cadence/getting-started)
+  + [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)
+  + [Account Linking](/blockchain-development-tutorials/cadence/account-management)
   + [Mobile Development on Flow](/blockchain-development-tutorials/cadence/mobile)
 
     - [IOS Development](/blockchain-development-tutorials/cadence/mobile/ios-quickstart)
     - [React Native Development](/blockchain-development-tutorials/cadence/mobile/react-native-quickstart)
     - [Build a Walletless Mobile App (PWA)](/blockchain-development-tutorials/cadence/mobile/walletless-pwa)
+* [Flow EVM Guides](/blockchain-development-tutorials/evm)
 * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
 * [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
+* [Token Development and Registration](/blockchain-development-tutorials/tokens)
 * [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
 * [Third-Party Integrations](/blockchain-development-tutorials/integrations)
 
@@ -388888,7 +388871,7 @@ Last updated on **Aug 26, 2025** by **Felipe Cevallos**
 
 React Native Development](/blockchain-development-tutorials/cadence/mobile/react-native-quickstart)[Next
 
-Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
+Flow EVM Guides](/blockchain-development-tutorials/evm)
 
 ###### Rate this page
 
@@ -388915,7 +388898,7 @@ Copy as Markdown
 
 Documentation
 
-* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
 * [Mobile](/blockchain-development-tutorials/cadence/mobile)
@@ -400271,7 +400254,7 @@ Staking Technical Overview | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -400606,7 +400589,7 @@ Copy as Markdown
 
 Documentation
 
-* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
 * [Mobile](/blockchain-development-tutorials/cadence/mobile)
@@ -408494,7 +408477,6 @@ Search
 * [Collectibles & NFTs](/ecosystem/collectibles)
 * [Community Projects](/ecosystem/projects)
 * [Auditors](/ecosystem/auditors)
-* [Get the Flow Down - Flow Learning Resources](/ecosystem/overview)
 
 * Faucets
 
@@ -420575,7 +420557,6 @@ Search
 * [Collectibles & NFTs](/ecosystem/collectibles)
 * [Community Projects](/ecosystem/projects)
 * [Auditors](/ecosystem/auditors)
-* [Get the Flow Down - Flow Learning Resources](/ecosystem/overview)
 
 * Data Indexers
 
@@ -453155,34 +453136,29 @@ tx | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
 * [Why Flow](/build/flow)
-* [Cadence](/build/cadence/getting-started)
+* [Cadence](/build/cadence/quickstart)
 
-  + [Getting Started](/build/cadence/getting-started)
+  + [Quickstart ↙](/build/cadence/quickstart)
   + [Differences vs. EVM](/build/cadence/differences-vs-evm)
-  + [Flow Protocol](/build/cadence/basics/network-architecture)
-  + [App Architecture](/build/cadence/app-architecture)
+  + [Basics](/build/cadence/basics/network-architecture)
   + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
   + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
   + [Core Smart Contracts](/build/cadence/core-contracts)
-  + [Explore More](/build/cadence/explore-more)
 * [Solidity (EVM)](/build/evm/quickstart)
 
   + [EVM Quickstart](/build/evm/quickstart)
   + [How it Works](/build/evm/how-it-works)
-  + [Using Flow EVM](/build/evm/using)
+  + [EVM Wallet Setup](/build/evm/using)
   + [Network Information](/build/evm/networks)
   + [Fees](/build/evm/fees)
   + [Accounts](/build/evm/accounts)
-  + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
-  + [Faucets ↙](/evm/faucets)
-  + [Block Explorers ↙](/evm/block-explorers)
 * [Tools & SDKs](/build/tools)
 
   + [@onflow/react-sdk](/build/tools/react-sdk)
@@ -453584,7 +453560,7 @@ Copy as Markdown
 
 Documentation
 
-* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
 * [Mobile](/blockchain-development-tutorials/cadence/mobile)
@@ -453619,9 +453595,8 @@ Network
 * [Flowscan Mainnet](https://flowscan.io/)
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
 * [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/spork)
+* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
@@ -455679,7 +455654,6 @@ Search
 * [Collectibles & NFTs](/ecosystem/collectibles)
 * [Community Projects](/ecosystem/projects)
 * [Auditors](/ecosystem/auditors)
-* [Get the Flow Down - Flow Learning Resources](/ecosystem/overview)
 
 * Wallets
 
@@ -459881,7 +459855,6 @@ Search
 * [Collectibles & NFTs](/ecosystem/collectibles)
 * [Community Projects](/ecosystem/projects)
 * [Auditors](/ecosystem/auditors)
-* [Get the Flow Down - Flow Learning Resources](/ecosystem/overview)
 
 * Collectibles & NFTs
 
@@ -484999,34 +484972,29 @@ voucherToTxId | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
 * [Why Flow](/build/flow)
-* [Cadence](/build/cadence/getting-started)
+* [Cadence](/build/cadence/quickstart)
 
-  + [Getting Started](/build/cadence/getting-started)
+  + [Quickstart ↙](/build/cadence/quickstart)
   + [Differences vs. EVM](/build/cadence/differences-vs-evm)
-  + [Flow Protocol](/build/cadence/basics/network-architecture)
-  + [App Architecture](/build/cadence/app-architecture)
+  + [Basics](/build/cadence/basics/network-architecture)
   + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
   + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
   + [Core Smart Contracts](/build/cadence/core-contracts)
-  + [Explore More](/build/cadence/explore-more)
 * [Solidity (EVM)](/build/evm/quickstart)
 
   + [EVM Quickstart](/build/evm/quickstart)
   + [How it Works](/build/evm/how-it-works)
-  + [Using Flow EVM](/build/evm/using)
+  + [EVM Wallet Setup](/build/evm/using)
   + [Network Information](/build/evm/networks)
   + [Fees](/build/evm/fees)
   + [Accounts](/build/evm/accounts)
-  + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
-  + [Faucets ↙](/evm/faucets)
-  + [Block Explorers ↙](/evm/block-explorers)
 * [Tools & SDKs](/build/tools)
 
   + [@onflow/react-sdk](/build/tools/react-sdk)
@@ -485354,7 +485322,7 @@ Copy as Markdown
 
 Documentation
 
-* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
 * [Mobile](/blockchain-development-tutorials/cadence/mobile)
@@ -485390,7 +485358,7 @@ Network
 * [Flowscan Testnet](https://testnet.flowscan.io/)
 * [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
 * [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/spork)
+* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
@@ -489340,7 +489308,6 @@ Search
 * [Collectibles & NFTs](/ecosystem/collectibles)
 * [Community Projects](/ecosystem/projects)
 * [Auditors](/ecosystem/auditors)
-* [Get the Flow Down - Flow Learning Resources](/ecosystem/overview)
 
 * Ecosystem Index
 
@@ -489393,10 +489360,6 @@ Explore the diverse projects and contributions within the Flow Blockchain commun
 [## 🔎 Auditors
 
 Third-party auditors for Cadence contract auditing](/ecosystem/auditors)
-
-[## Get the Flow Down - Flow Learning Resources
-
-Get the Flow Down is a curated collection of the best Flow blockchain tools, tutorials, articles and more! If you have come across an awesome tutorial, tool, community, blog or you have created one yourself, please create a PR!](/ecosystem/overview)
 
 [## 🏛️ Flow Forum
 
@@ -504679,7 +504642,6 @@ Search
 * [Collectibles & NFTs](/ecosystem/collectibles)
 * [Community Projects](/ecosystem/projects)
 * [Auditors](/ecosystem/auditors)
-* [Get the Flow Down - Flow Learning Resources](/ecosystem/overview)
 
 * DeFi & Liquidity
 
@@ -519970,7 +519932,6 @@ Search
 * [Collectibles & NFTs](/ecosystem/collectibles)
 * [Community Projects](/ecosystem/projects)
 * [Auditors](/ecosystem/auditors)
-* [Get the Flow Down - Flow Learning Resources](/ecosystem/overview)
 
 * Community Projects
 
@@ -525817,7 +525778,6 @@ Search
 * [Collectibles & NFTs](/ecosystem/collectibles)
 * [Community Projects](/ecosystem/projects)
 * [Auditors](/ecosystem/auditors)
-* [Get the Flow Down - Flow Learning Resources](/ecosystem/overview)
 
 * [DeFi & Liquidity](/ecosystem/defi-liquidity)
 * Stablecoins & Bridges FAQ
@@ -620322,7 +620282,6 @@ Search
 * [Collectibles & NFTs](/ecosystem/collectibles)
 * [Community Projects](/ecosystem/projects)
 * [Auditors](/ecosystem/auditors)
-* [Get the Flow Down - Flow Learning Resources](/ecosystem/overview)
 
 * [DeFi & Liquidity](/ecosystem/defi-liquidity)
 * DeFi Contracts
@@ -627915,12 +627874,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **98674dc1c9ab5974**
+Cloudflare Ray ID: **986f8a9efd4c255f**
 •
 
 Your IP:
 Click to reveal
-9.234.149.80
+48.214.54.119
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 

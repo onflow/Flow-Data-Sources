@@ -25,7 +25,6 @@ Search
 * [Collectibles & NFTs](/ecosystem/collectibles)
 * [Community Projects](/ecosystem/projects)
 * [Auditors](/ecosystem/auditors)
-* [Get the Flow Down - Flow Learning Resources](/ecosystem/overview)
 
 * Ecosystem Index
 
@@ -78,10 +77,6 @@ Explore the diverse projects and contributions within the Flow Blockchain commun
 [## 🔎 Auditors
 
 Third-party auditors for Cadence contract auditing](/ecosystem/auditors)
-
-[## Get the Flow Down - Flow Learning Resources
-
-Get the Flow Down is a curated collection of the best Flow blockchain tools, tutorials, articles and more! If you have come across an awesome tutorial, tool, community, blog or you have created one yourself, please create a PR!](/ecosystem/overview)
 
 [## 🏛️ Flow Forum
 
