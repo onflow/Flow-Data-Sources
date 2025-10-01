@@ -6,38 +6,35 @@ Network Information | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
 * [Why Flow](/build/flow)
-* [Cadence](/build/cadence/getting-started)
+* [Cadence](/build/cadence/quickstart)
 
-  + [Getting Started](/build/cadence/getting-started)
+  + [Quickstart ↙](/build/cadence/quickstart)
   + [Differences vs. EVM](/build/cadence/differences-vs-evm)
-  + [Flow Protocol](/build/cadence/basics/network-architecture)
-  + [App Architecture](/build/cadence/app-architecture)
+  + [Basics](/build/cadence/basics/network-architecture)
   + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
   + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
   + [Core Smart Contracts](/build/cadence/core-contracts)
-  + [Explore More](/build/cadence/explore-more)
 * [Solidity (EVM)](/build/evm/quickstart)
 
   + [EVM Quickstart](/build/evm/quickstart)
   + [How it Works](/build/evm/how-it-works)
-  + [Using Flow EVM](/build/evm/using)
+  + [EVM Wallet Setup](/build/evm/using)
   + [Network Information](/build/evm/networks)
   + [Fees](/build/evm/fees)
   + [Accounts](/build/evm/accounts)
-  + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
-  + [Faucets ↙](/evm/faucets)
-  + [Block Explorers ↙](/evm/block-explorers)
 * [Tools & SDKs](/build/tools)
 
 * Solidity (EVM)
 * Network Information
+
+On this page
 
 # Network Information
 
@@ -65,19 +62,92 @@ Flow EVM has the following public RPC nodes available:
 | Currency Symbol | FLOW |
 | Block Explorer | <https://evm-testnet.flowscan.io> |
 
+## EVM Specification[​](#evm-specification "Direct link to EVM Specification")
+
+* Flow EVM is a virtual EVM-based blockchain using the latest EVM byte-code interpreter `Geth v1.13`
+* Utilizes `FLOW` token for transactions, with balances denominated in `Atto-FLOW` (1 `FLOW` = 10^18 `Atto-FLOW`)
+* The [EVM Gateway](https://github.com/onflow/flow-evm-gateway) exposes the standard EVM API (Ethereum JSON-RPC)
+* Read more about the implementation in [FLIP 223: EVM integration interface](https://github.com/onflow/flips/blob/main/protocol/20231116-evm-support.md)
+
+## JSON-RPC Methods[​](#json-rpc-methods "Direct link to JSON-RPC Methods")
+
+| Method | Status | Notes |
+| --- | --- | --- |
+| [web3\_clientVersion](https://ethereum.org/en/developers/docs/apis/json-rpc/#web3_clientversion) | ✅ |  |
+| [web3\_sha3](https://ethereum.org/en/developers/docs/apis/json-rpc/#web3_sha3) | ✅ |  |
+| [net\_listening](https://ethereum.org/en/developers/docs/apis/json-rpc/#net_listening) | ✅ |  |
+| [net\_peerCount](https://ethereum.org/en/developers/docs/apis/json-rpc/#net_peercount) | ✅ |  |
+| [net\_version](https://ethereum.org/en/developers/docs/apis/json-rpc/#net_version) | ✅ |  |
+| [eth\_accounts](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_accounts) | 🚧 | Unsupported |
+| [eth\_blockNumber](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_blocknumber) | ✅ |  |
+| [eth\_call](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_call) | ✅ |  |
+| [eth\_chainId](https://eips.ethereum.org/EIPS/eip-695) | ✅ |  |
+| [eth\_coinbase](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_coinbase) | ✅ |  |
+| [eth\_estimateGas](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_estimategas) | ✅ |  |
+| [eth\_gasPrice](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gasprice) | ✅ |  |
+| [eth\_getBalance](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getbalance) | ✅ |  |
+| [eth\_getBlockByHash](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblockbyhash) | ✅ |  |
+| [eth\_getBlockByNumber](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblockbynumber) | ✅ |  |
+| [eth\_getBlockTransactionCountByHash](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblocktransactioncountbyhash) | ✅ |  |
+| [eth\_getBlockTransactionCountByNumber](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblocktransactioncountbynumber) | ✅ |  |
+| [eth\_getBlockReceipts] | ✅ |  |
+| [eth\_getCode](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getcode) | ✅ |  |
+| [eth\_getFilterChanges](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getfilterchanges) | ✅ |  |
+| [eth\_getFilterLogs](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getfilterlogs) | ✅ |  |
+| [eth\_getLogs](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getlogs) | ✅ |  |
+| [eth\_getProof](https://eips.ethereum.org/EIPS/eip-1186) | 🚧 | Unsupported |
+| [eth\_getStorageAt](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getstorageat) | ✅ |  |
+| [eth\_getTransactionByBlockHashAndIndex](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactionbyblockhashandindex) | ✅ |  |
+| [eth\_getTransactionByBlockNumberAndIndex](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactionbyblocknumberandindex) | ✅ |  |
+| [eth\_getTransactionByHash](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactionbyhash) | ✅ |  |
+| [eth\_getTransactionCount](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactioncount) | ✅ |  |
+| [eth\_getTransactionReceipt](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactionreceipt) | ✅ |  |
+| [eth\_getUncleByBlockHashAndIndex](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getunclebyblockhashandindex) | ✅ |  |
+| [eth\_getUncleByBlockNumberAndIndex](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getunclebyblocknumberandindex) | ✅ |  |
+| [eth\_getUncleCountByBlockHash](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getunclecountbyblockhash) | ✅ |  |
+| [eth\_getUncleCountByBlockNumber](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getunclecountbyblocknumber) | ✅ |  |
+| [eth\_newBlockFilter](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_newblockfilter) | ✅ |  |
+| [eth\_newFilter](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_newfilter) | ✅ |  |
+| [eth\_newPendingTransactionFilter](https://openethereum.github.io/JSONRPC-eth-module.html#eth_newpendingtransactionfilter) | ✅ |  |
+| [eth\_sendRawTransaction](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_sendrawtransaction) | ✅ |  |
+| [eth\_sendTransaction](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_sendtransaction) | 🚧 | Unsupported |
+| [eth\_sign](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_sign) | 🚧 | Unsupported |
+| [eth\_signTransaction](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_signtransaction) | 🚧 | Unsupported |
+| [eth\_syncing](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_syncing) | ✅ |  |
+| [eth\_uninstallFilter](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_uninstallfilter) | ✅ |  |
+| [eth\_maxPriorityFeePerGas] | ✅ |  |
+| [eth\_feeHistory] | ✅ |  |
+| [debug\_traceTransaction] | ✅ |  |
+| [debug\_traceBlockByNumber] | ✅ |  |
+| [debug\_traceBlockByHash] | ✅ |  |
+| [debug\_traceCall] | ✅ |  |
+
+**Legend**: ❌ = not supported. 🚧 = work in progress. ✅ = supported.
+
+Read more about the [EVM Gateway](https://github.com/onflow/flow-evm-gateway) on Flow and how it implements the Ethereum JSON-RPC API.
+
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/evm/networks.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Sep 24, 2025** by **Brian Doyle**
 
 [Previous
 
-Using Flow EVM](/build/evm/using)[Next
+EVM Wallet Setup](/build/evm/using)[Next
 
 Fees](/build/evm/fees)
 
+###### Rate this page
+
+😞😐😊
+
+Copy as Markdown
+
+* [EVM Specification](#evm-specification)
+* [JSON-RPC Methods](#json-rpc-methods)
+
 Documentation
 
-* [Getting Started](/build/cadence/getting-started/contract-interaction)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
 * [Tools & SDKs](/build/tools)
 * [Cadence](https://cadence-lang.org/docs/)
 * [Mobile](/blockchain-development-tutorials/cadence/mobile)
