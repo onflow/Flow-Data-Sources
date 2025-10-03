@@ -12,43 +12,21 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 
 Search
 
-* [Why Flow](/build/flow)
-* [Cadence](/build/cadence/quickstart)
+* [Why Flow](/build/flow)* [Cadence](/build/cadence/quickstart)
 
-  + [Quickstart ↙](/build/cadence/quickstart)
-  + [Differences vs. EVM](/build/cadence/differences-vs-evm)
-  + [Basics](/build/cadence/basics/network-architecture)
-  + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
-  + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
-  + [Core Smart Contracts](/build/cadence/core-contracts)
+    + [Quickstart ↙](/build/cadence/quickstart)+ [Differences vs. EVM](/build/cadence/differences-vs-evm)+ [Basics](/build/cadence/basics/network-architecture)
 
-    - [Fungible Token](/build/cadence/core-contracts/fungible-token)
-    - [Flow Token](/build/cadence/core-contracts/flow-token)
-    - [Service Account](/build/cadence/core-contracts/service-account)
-    - [Flow Fees](/build/cadence/core-contracts/flow-fees)
-    - [Staking Table](/build/cadence/core-contracts/staking-contract-reference)
-    - [Epoch Contracts](/build/cadence/core-contracts/epoch-contract-reference)
-    - [Non-Fungible Token](/build/cadence/core-contracts/non-fungible-token)
-    - [NFT Metadata](/build/cadence/core-contracts/nft-metadata)
-    - [NFT Storefront](/build/cadence/core-contracts/nft-storefront)
-    - [Staking Collection](/build/cadence/core-contracts/staking-collection)
-    - [Account Linking](/build/cadence/core-contracts/hybrid-custody)
-    - [EVM](/build/cadence/core-contracts/evm)
-    - [Burner](/build/cadence/core-contracts/burner)
-    - [VM Bridge](/build/cadence/core-contracts/bridge)
-* [Solidity (EVM)](/build/evm/quickstart)
+          + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-  + [EVM Quickstart](/build/evm/quickstart)
-  + [How it Works](/build/evm/how-it-works)
-  + [EVM Wallet Setup](/build/evm/using)
-  + [Network Information](/build/evm/networks)
-  + [Fees](/build/evm/fees)
-  + [Accounts](/build/evm/accounts)
-* [Tools & SDKs](/build/tools)
+            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
 
-* Cadence
-* [Core Smart Contracts](/build/cadence/core-contracts)
-* Flow Token
+              + [Core Smart Contracts](/build/cadence/core-contracts)
+
+                - [Fungible Token](/build/cadence/core-contracts/fungible-token)- [Flow Token](/build/cadence/core-contracts/flow-token)- [Service Account](/build/cadence/core-contracts/service-account)- [Flow Fees](/build/cadence/core-contracts/flow-fees)- [Staking Table](/build/cadence/core-contracts/staking-contract-reference)- [Epoch Contracts](/build/cadence/core-contracts/epoch-contract-reference)- [Non-Fungible Token](/build/cadence/core-contracts/non-fungible-token)- [NFT Metadata](/build/cadence/core-contracts/nft-metadata)- [NFT Storefront](/build/cadence/core-contracts/nft-storefront)- [Staking Collection](/build/cadence/core-contracts/staking-collection)- [Account Linking](/build/cadence/core-contracts/hybrid-custody)- [EVM](/build/cadence/core-contracts/evm)- [Burner](/build/cadence/core-contracts/burner)- [VM Bridge](/build/cadence/core-contracts/bridge)* [Solidity (EVM)](/build/evm/quickstart)
+
+      + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
+
+* * Cadence* [Core Smart Contracts](/build/cadence/core-contracts)* Flow Token
 
 On this page
 
@@ -56,12 +34,9 @@ The `FlowToken` contract defines the FLOW network token.
 
 Source: [FlowToken.cdc](https://github.com/onflow/flow-core-contracts/blob/master/contracts/FlowToken.cdc)
 
-| Network | Contract Address |
-| --- | --- |
-| Emulator | `0x0ae53cb6e3f42a79` |
-| Cadence Testing Framework | `0x0000000000000003` |
-| Testnet | `0x7e60df042a9c0868` |
-| Mainnet | `0x1654653399040a61` |
+|  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Network Contract Address|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | Emulator `0x0ae53cb6e3f42a79`| Cadence Testing Framework `0x0000000000000003`| Testnet `0x7e60df042a9c0868`| Mainnet `0x1654653399040a61` | | | | | | | | | |
 
 # Transactions
 
@@ -107,9 +82,9 @@ Event that is emitted when the contract gets created.
 
 access(all) event TokensInitialized(initialSupply: UFix64)`
 
-| Field | Type | Description |
-| --- | --- | --- |
-| initialSupply | UFix64 | The initial supply of the tokens |
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Field Type Description|  |  |  | | --- | --- | --- | | initialSupply UFix64 The initial supply of the tokens | | | | | |
 
 ### Tokens Withdrawn[​](#tokens-withdrawn "Direct link to Tokens Withdrawn")
 
@@ -123,10 +98,9 @@ Event that is emitted when tokens get withdrawn from a Vault.
 
 access(all) event TokensWithdrawn(amount: UFix64, from: Address?)`
 
-| Field | Type | Description |
-| --- | --- | --- |
-| amount | UFix64 | The amount of tokens withdrawn |
-| from | Address? | Optional address of the account that owns the vault where tokens were withdrawn from. `nil` if the vault is not in an account's storage |
+|  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Field Type Description|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | amount UFix64 The amount of tokens withdrawn|  |  |  | | --- | --- | --- | | from Address? Optional address of the account that owns the vault where tokens were withdrawn from. `nil` if the vault is not in an account's storage | | | | | | | | |
 
 ### Tokens Deposited[​](#tokens-deposited "Direct link to Tokens Deposited")
 
@@ -140,10 +114,9 @@ Event that is emitted when tokens get deposited to a Vault.
 
 access(all) event TokensDeposited(amount: UFix64, to: Address?)`
 
-| Field | Type | Description |
-| --- | --- | --- |
-| amount | UFix64 | The amount of tokens withdrawn |
-| to | Address? | Optional address of the account that owns the vault where tokens were deposited to. `nil` if the vault is not in an account's storage |
+|  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Field Type Description|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | amount UFix64 The amount of tokens withdrawn|  |  |  | | --- | --- | --- | | to Address? Optional address of the account that owns the vault where tokens were deposited to. `nil` if the vault is not in an account's storage | | | | | | | | |
 
 ### Tokens Minted[​](#tokens-minted "Direct link to Tokens Minted")
 
@@ -157,9 +130,9 @@ Event that is emitted when new tokens gets minted.
 
 access(all) event TokensMinted(amount: UFix64)`
 
-| Field | Type | Description |
-| --- | --- | --- |
-| amount | UFix64 | The amount of tokens to mint |
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Field Type Description|  |  |  | | --- | --- | --- | | amount UFix64 The amount of tokens to mint | | | | | |
 
 ### Tokens Burned[​](#tokens-burned "Direct link to Tokens Burned")
 
@@ -173,9 +146,9 @@ Event that is emitted when tokens get destroyed.
 
 access(all) event TokensBurned(amount: UFix64)`
 
-| Field | Type | Description |
-| --- | --- | --- |
-| amount | UFix64 | The amount of tokens to burn |
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Field Type Description|  |  |  | | --- | --- | --- | | amount UFix64 The amount of tokens to burn | | | | | |
 
 ### Minter Created[​](#minter-created "Direct link to Minter Created")
 
@@ -189,9 +162,9 @@ Event that is emitted when a new minter resource gets created.
 
 access(all) event MinterCreated(allowedAmount: UFix64)`
 
-| Field | Type | Description |
-| --- | --- | --- |
-| allowedAmount | UFix64 | The amount of tokens that the minter is allowed to mint |
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Field Type Description|  |  |  | | --- | --- | --- | | allowedAmount UFix64 The amount of tokens that the minter is allowed to mint | | | | | |
 
 ### Burner Created[​](#burner-created "Direct link to Burner Created")
 
@@ -225,62 +198,26 @@ Service Account](/build/cadence/core-contracts/service-account)
 
 Copy as Markdown
 
-* [Flow Token Contract](#flow-token-contract)
-* [Tokens Initialized](#tokens-initialized)
-* [Tokens Withdrawn](#tokens-withdrawn)
-* [Tokens Deposited](#tokens-deposited)
-* [Tokens Minted](#tokens-minted)
-* [Tokens Burned](#tokens-burned)
-* [Minter Created](#minter-created)
-* [Burner Created](#burner-created)
-* [Staking Events](#staking-events)
+* [Flow Token Contract](#flow-token-contract)* [Tokens Initialized](#tokens-initialized)* [Tokens Withdrawn](#tokens-withdrawn)* [Tokens Deposited](#tokens-deposited)* [Tokens Minted](#tokens-minted)* [Tokens Burned](#tokens-burned)* [Minter Created](#minter-created)* [Burner Created](#burner-created)* [Staking Events](#staking-events)
 
 Documentation
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
 
 Start Building
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
 
 Network
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.

@@ -13,24 +13,24 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 Search
 
 * [Flow Networks](/protocol/flow-networks)
-* [Networks](/protocol)
-* [Flow Network Architecture](/protocol/network-architecture)
-* [Staking and Epochs](/protocol/staking)
-* [Node Ops](/protocol/node-ops)
 
-  + [Access Nodes](/protocol/node-ops/access-nodes/access-node-setup)
-  + [EVM Gateway Setup](/protocol/node-ops/evm-gateway/evm-gateway-setup)
+  * [Networks](/protocol)* [Flow Network Architecture](/protocol/network-architecture)
 
-    - [EVM Gateway Setup](/protocol/node-ops/evm-gateway/evm-gateway-setup)
-  + [Light Nodes](/protocol/node-ops/light-nodes/observer-node)
-  + [Participating in the Network](/protocol/node-ops/node-operation/faq)
-* [Accessing Data](/protocol/access-onchain-data)
-* [Governance](/protocol/governance)
-* [Flow Port](/protocol/flow-port)
+      * [Staking and Epochs](/protocol/staking)
 
-* [Node Ops](/protocol/node-ops)
-* EVM Gateway Setup
-* EVM Gateway Setup
+        * [Node Ops](/protocol/node-ops)
+
+          + [Access Nodes](/protocol/node-ops/access-nodes/access-node-setup)
+
+            + [EVM Gateway Setup](/protocol/node-ops/evm-gateway/evm-gateway-setup)
+
+              - [EVM Gateway Setup](/protocol/node-ops/evm-gateway/evm-gateway-setup)+ [Light Nodes](/protocol/node-ops/light-nodes/observer-node)
+
+                + [Participating in the Network](/protocol/node-ops/node-operation/faq)* [Accessing Data](/protocol/access-onchain-data)
+
+            * [Governance](/protocol/governance)* [Flow Port](/protocol/flow-port)
+
+* * [Node Ops](/protocol/node-ops)* EVM Gateway Setup* EVM Gateway Setup
 
 On this page
 
@@ -81,23 +81,15 @@ growth. Listed below are theoretical RPS maximums based on Flow mainnet CPU and 
 
 ### Google Cloud Platform (GCP) VM Types[​](#google-cloud-platform-gcp-vm-types "Direct link to Google Cloud Platform (GCP) VM Types")
 
-| VM Type | vCPUs | Memory (GB) | Estimated Max Requests/s |
-| --- | --- | --- | --- |
-| n2-standard-2 | 2 | 8 | ~2,950 |
-| c4a-standard-1 | 1 | 4 | ~1,475 |
-| c4a-standard-2 | 2 | 8 | ~2,950 |
-| n2-highmem-4 | 4 | 32 | ~11,800 |
-| c3-standard-8 | 8 | 32 | ~29,500 |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| VM Type vCPUs Memory (GB) Estimated Max Requests/s|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | n2-standard-2 2 8 ~2,950|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | c4a-standard-1 1 4 ~1,475|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | c4a-standard-2 2 8 ~2,950|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | n2-highmem-4 4 32 ~11,800|  |  |  |  | | --- | --- | --- | --- | | c3-standard-8 8 32 ~29,500 | | | | | | | | | | | | | | | | | | | | | | | |
 
 ### Amazon Web Services (AWS) EC2 Instance Types[​](#amazon-web-services-aws-ec2-instance-types "Direct link to Amazon Web Services (AWS) EC2 Instance Types")
 
-| Instance Type | vCPUs | Memory (GB) | Estimated Max Requests/s |
-| --- | --- | --- | --- |
-| m6i.large | 2 | 8 | ~2,950 |
-| c6i.large | 2 | 4 | ~3,687 |
-| m6i.xlarge | 4 | 16 | ~11,800 |
-| c6i.2xlarge | 8 | 16 | ~29,500 |
-| t3.2xlarge | 8 | 32 | ~17,700 |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Instance Type vCPUs Memory (GB) Estimated Max Requests/s|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | m6i.large 2 8 ~2,950|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | c6i.large 2 4 ~3,687|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | m6i.xlarge 4 16 ~11,800|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | c6i.2xlarge 8 16 ~29,500|  |  |  |  | | --- | --- | --- | --- | | t3.2xlarge 8 32 ~17,700 | | | | | | | | | | | | | | | | | | | | | | | |
 
 # How To Run EVM Gateway
 
@@ -117,8 +109,7 @@ It is acceptable to create a single Cadence account for the COA and use the EVM 
 
 If you don't already have a Flow account you will need to create one.
 
-* Mainnet
-* Testnet
+* Mainnet* Testnet
 
 1. Install [Flow Wallet](https://wallet.flow.com/)
 2. Once installed you will be able to copy the wallet address, similar to *0x1844efeb3fef2242*
@@ -169,9 +160,7 @@ Visit <https://faucet.flow.com/>, and use the generated `Public Key`, to create 
 To run EVM Gateway on bare metal or in a VM without the use of docker, select the '*Build from source*' tab otherwise refer to the
 '*Build using Docker*' tab.
 
-* Build from source
-* Build using Docker
-* Use Docker registry image
+* Build from source* Build using Docker* Use Docker registry image
 
 This will build the EVM gateway binary from source.
 
@@ -300,8 +289,7 @@ _12
 ACCESS\_NODE\_SPORK\_HOSTS is used by the gateway to track state across Flow sporks. These are generally infrequent with only one planned
 spork per year. A canonical list of required hosts can be found in the EVM Gateway [Makefile](https://github.com/onflow/flow-evm-gateway/blob/main/Makefile#L9).
 
-* Run from binary
-* Run with Docker
+* Run from binary* Run with Docker
 
 **Create EVM Gateway service**
 
@@ -754,74 +742,30 @@ Light Node Setup](/protocol/node-ops/light-nodes/observer-node)
 
 Copy as Markdown
 
-* [Anyone can run EVM Gateway](#anyone-can-run-evm-gateway)
-* [Gas Sponsorship](#gas-sponsorship)
-* [Hardware specifications](#hardware-specifications)
-  + [Google Cloud Platform (GCP) VM Types](#google-cloud-platform-gcp-vm-types)
-  + [Amazon Web Services (AWS) EC2 Instance Types](#amazon-web-services-aws-ec2-instance-types)
-* [Step 1 - Account Creation](#step-1---account-creation)
-  + [Create Flow account to use for COA](#create-flow-account-to-use-for-coa)
-* [Step 2 - Build the gateway](#step-2---build-the-gateway)
-* [Step 3 - Start Your Node](#step-3---start-your-node)
-  + [EVM Coinbase address](#evm-coinbase-address)
-  + [COA Address and Key](#coa-address-and-key)
-  + [Run the gateway](#run-the-gateway)
-  + [Startup bootstrap indexing](#startup-bootstrap-indexing)
-  + [Account and Key Management](#account-and-key-management)
-  + [Monitoring and Metrics](#monitoring-and-metrics)
-  + [Node Status](#node-status)
-* [Troubleshooting](#troubleshooting)
-  + [No signing keys available](#no-signing-keys-available)
-  + [Database version inconsistency/corruption](#database-version-inconsistencycorruption)
-  + [State stream configuration](#state-stream-configuration)
-  + [Access Node not fully synced](#access-node-not-fully-synced)
+* [Anyone can run EVM Gateway](#anyone-can-run-evm-gateway)* [Gas Sponsorship](#gas-sponsorship)* [Hardware specifications](#hardware-specifications)
+      + [Google Cloud Platform (GCP) VM Types](#google-cloud-platform-gcp-vm-types)+ [Amazon Web Services (AWS) EC2 Instance Types](#amazon-web-services-aws-ec2-instance-types)* [Step 1 - Account Creation](#step-1---account-creation)
+        + [Create Flow account to use for COA](#create-flow-account-to-use-for-coa)* [Step 2 - Build the gateway](#step-2---build-the-gateway)* [Step 3 - Start Your Node](#step-3---start-your-node)
+            + [EVM Coinbase address](#evm-coinbase-address)+ [COA Address and Key](#coa-address-and-key)+ [Run the gateway](#run-the-gateway)+ [Startup bootstrap indexing](#startup-bootstrap-indexing)+ [Account and Key Management](#account-and-key-management)+ [Monitoring and Metrics](#monitoring-and-metrics)+ [Node Status](#node-status)* [Troubleshooting](#troubleshooting)
+              + [No signing keys available](#no-signing-keys-available)+ [Database version inconsistency/corruption](#database-version-inconsistencycorruption)+ [State stream configuration](#state-stream-configuration)+ [Access Node not fully synced](#access-node-not-fully-synced)
 
 Documentation
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
 
 Start Building
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
 
 Network
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.

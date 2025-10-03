@@ -13,18 +13,18 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 Search
 
 * [Flow Networks](/protocol/flow-networks)
-* [Networks](/protocol)
-* [Flow Network Architecture](/protocol/network-architecture)
-* [Staking and Epochs](/protocol/staking)
-* [Node Ops](/protocol/node-ops)
-* [Accessing Data](/protocol/access-onchain-data)
 
-  + [Access HTTP API ↗️](/protocol/access-onchain-data/access-http-api)
-  + [WebSockets Stream API](/protocol/access-onchain-data/websockets-stream-api)
-* [Governance](/protocol/governance)
-* [Flow Port](/protocol/flow-port)
+  * [Networks](/protocol)* [Flow Network Architecture](/protocol/network-architecture)
 
-* Accessing Data
+      * [Staking and Epochs](/protocol/staking)
+
+        * [Node Ops](/protocol/node-ops)
+
+          * [Accessing Data](/protocol/access-onchain-data)
+
+            + [Access HTTP API ↗️](/protocol/access-onchain-data/access-http-api)+ [WebSockets Stream API](/protocol/access-onchain-data/websockets-stream-api)* [Governance](/protocol/governance)* [Flow Port](/protocol/flow-port)
+
+* * Accessing Data
 
 On this page
 
@@ -38,10 +38,9 @@ A language-agnostic specification for this API is defined using [Protocol Buffer
 
 ## Flow Access Node Endpoints[​](#flow-access-node-endpoints "Direct link to Flow Access Node Endpoints")
 
-| Network | GRPC | Web GRPC | REST |
-| --- | --- | --- | --- |
-| Mainnet | `access.mainnet.nodes.onflow.org:9000` | `mainnet.onflow.org` | `rest-mainnet.onflow.org` |
-| Testnet | `access.devnet.nodes.onflow.org:9000` | `testnet.onflow.org` | `rest-testnet.onflow.org` |
+|  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Network GRPC Web GRPC REST|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | Mainnet `access.mainnet.nodes.onflow.org:9000` `mainnet.onflow.org` `rest-mainnet.onflow.org`| Testnet `access.devnet.nodes.onflow.org:9000` `testnet.onflow.org` `rest-testnet.onflow.org` | | | | | | | | | | | |
 
 ---
 
@@ -1720,9 +1719,9 @@ _10
 
 }`
 
-| Field | Description |
-| --- | --- |
-| chain\_id | Chain ID helps identify the Flow network. It can be one of `flow-mainnet`, `flow-testnet` or `flow-emulator` |
+|  |  |  |  |
+| --- | --- | --- | --- |
+| Field Description|  |  | | --- | --- | | chain\_id Chain ID helps identify the Flow network. It can be one of `flow-mainnet`, `flow-testnet` or `flow-emulator` | | | |
 
 ---
 
@@ -2021,19 +2020,9 @@ _13
 
 }`
 
-| Field | Description |
-| --- | --- |
-| id | SHA3-256 hash of the entire block payload |
-| height | Height of the block in the chain |
-| parent\_id | ID of the previous block in the chain |
-| timestamp | Timestamp of when the proposer claims it constructed the block.   **NOTE**: It is included by the proposer, there are no guarantees on how much the time stamp can deviate from the true time the block was published.   Consider observing blocks' status changes yourself to get a more reliable value |
-| collection\_guarantees | List of [collection guarantees](#collection-guarantee) |
-| block\_seals | List of [block seals](#block-seal) |
-| signatures | BLS signatures of consensus nodes |
-| execution\_receipt\_metaList | List of [execution-receipt-meta](#execution-receipt-meta) |
-| execution\_result\_list | List of [execution results](#execution-result) |
-| block\_header | A summary of a [block](#block-header) |
-| protocol\_state\_id | The root hash of protocol state. |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Field Description|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | id SHA3-256 hash of the entire block payload|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | height Height of the block in the chain|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | parent\_id ID of the previous block in the chain|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | timestamp Timestamp of when the proposer claims it constructed the block.   **NOTE**: It is included by the proposer, there are no guarantees on how much the time stamp can deviate from the true time the block was published.   Consider observing blocks' status changes yourself to get a more reliable value| collection\_guarantees List of [collection guarantees](#collection-guarantee)| block\_seals List of [block seals](#block-seal)| signatures BLS signatures of consensus nodes|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | execution\_receipt\_metaList List of [execution-receipt-meta](#execution-receipt-meta)| execution\_result\_list List of [execution results](#execution-result)| block\_header A summary of a [block](#block-header)| protocol\_state\_id The root hash of protocol state. | | | | | | | | | | | | | | | | | | | | | | | |
 
 The detailed semantics of block formation are covered in the [block formation guide](/build/cadence/basics/blocks).
 
@@ -2105,20 +2094,9 @@ _16
 
 }`
 
-| Field | Description |
-| --- | --- |
-| id | SHA3-256 hash of the entire block payload |
-| parent\_id | ID of the previous block in the chain |
-| height | Height of the block in the chain |
-| timestamp | The time at which this block was proposed |
-| payload\_hash | A hash of the payload of this block |
-| view | View number during which this block was proposed. |
-| parent\_voter\_ids | An array that represents all the voters ids for the parent block |
-| parent\_voter\_sig\_data | An aggregated signature over the parent block |
-| chain\_id | Chain ID helps identify the Flow network. It can be one of `flow-mainnet`, `flow-testnet` or `flow-emulator` |
-| parent\_voter\_indices | A bitvector that represents all the voters for the parent block |
-| last\_view\_tc | A timeout certificate for previous view, it can be nil. It has to be present if previous round ended with timeout |
-| parent\_view | A number at which parent block was proposed |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Field Description|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | id SHA3-256 hash of the entire block payload|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | parent\_id ID of the previous block in the chain|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | height Height of the block in the chain|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | timestamp The time at which this block was proposed|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | payload\_hash A hash of the payload of this block|  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | view View number during which this block was proposed.|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | parent\_voter\_ids An array that represents all the voters ids for the parent block|  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | parent\_voter\_sig\_data An aggregated signature over the parent block|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | chain\_id Chain ID helps identify the Flow network. It can be one of `flow-mainnet`, `flow-testnet` or `flow-emulator`| parent\_voter\_indices A bitvector that represents all the voters for the parent block|  |  |  |  | | --- | --- | --- | --- | | last\_view\_tc A timeout certificate for previous view, it can be nil. It has to be present if previous round ended with timeout|  |  | | --- | --- | | parent\_view A number at which parent block was proposed | | | | | | | | | | | | | | | | | | | | | | | | | |
 
 ### Block Seal[​](#block-seal "Direct link to Block Seal")
 
@@ -2148,12 +2126,9 @@ _10
 
 }`
 
-| Field | Description |
-| --- | --- |
-| block\_id | ID of the block being sealed |
-| execution\_receipt\_id | ID execution receipt being sealed |
-| execution\_receipt\_signatures | BLS signatures of verification nodes on the execution receipt contents |
-| result\_approval\_signatures | BLS signatures of verification nodes on the result approval contents |
+|  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Field Description|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | block\_id ID of the block being sealed|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | execution\_receipt\_id ID execution receipt being sealed|  |  |  |  | | --- | --- | --- | --- | | execution\_receipt\_signatures BLS signatures of verification nodes on the execution receipt contents|  |  | | --- | --- | | result\_approval\_signatures BLS signatures of verification nodes on the result approval contents | | | | | | | | | |
 
 ### Block Status[​](#block-status "Direct link to Block Status")
 
@@ -2177,11 +2152,9 @@ _10
 
 }`
 
-| Value | Description |
-| --- | --- |
-| UNKNOWN | The block status is not known |
-| FINALIZED | The consensus nodes have finalized the block |
-| SEALED | The verification nodes have verified the block |
+|  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Value Description|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | UNKNOWN The block status is not known|  |  |  |  | | --- | --- | --- | --- | | FINALIZED The consensus nodes have finalized the block|  |  | | --- | --- | | SEALED The verification nodes have verified the block | | | | | | | |
 
 ### Collection[​](#collection "Direct link to Collection")
 
@@ -2203,10 +2176,9 @@ _10
 
 }`
 
-| Field | Description |
-| --- | --- |
-| id | SHA3-256 hash of the collection contents |
-| transaction\_ids | Ordered list of transaction IDs in the collection |
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Field Description|  |  |  |  | | --- | --- | --- | --- | | id SHA3-256 hash of the collection contents|  |  | | --- | --- | | transaction\_ids Ordered list of transaction IDs in the collection | | | | | |
 
 ### Collection Guarantee[​](#collection-guarantee "Direct link to Collection Guarantee")
 
@@ -2244,14 +2216,9 @@ _10
 
 }`
 
-| Field | Description |
-| --- | --- |
-| collection\_id | SHA3-256 hash of the collection contents |
-| signatures | BLS signatures of the collection nodes guaranteeing the collection |
-| reference\_block\_id | Defines expiry of the collection |
-| signature | Guarantor signatures |
-| signer\_ids | An array that represents all the signer ids |
-| signer\_indices | Encoded indices of the signers |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Field Description|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | collection\_id SHA3-256 hash of the collection contents|  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | signatures BLS signatures of the collection nodes guaranteeing the collection|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | reference\_block\_id Defines expiry of the collection|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | signature Guarantor signatures|  |  |  |  | | --- | --- | --- | --- | | signer\_ids An array that represents all the signer ids|  |  | | --- | --- | | signer\_indices Encoded indices of the signers | | | | | | | | | | | | | |
 
 ### Transaction[​](#transaction "Direct link to Transaction")
 
@@ -2345,15 +2312,9 @@ _23
 
 }`
 
-| Field | Description |
-| --- | --- |
-| script | Raw source code for a Cadence script, encoded as UTF-8 bytes |
-| arguments | Arguments passed to the Cadence script, encoded as [JSON-Cadence](https://cadencelang.dev/docs/1.0/json-cadence-spec) bytes |
-| reference\_block\_id | Block ID used to determine transaction expiry |
-| [proposal\_key](#proposal-key) | Account key used to propose the transaction |
-| payer | Address of the payer account |
-| authorizers | Addresses of the transaction authorizers |
-| signatures | [Signatures](#transaction-signature) from all signer accounts |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Field Description|  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | script Raw source code for a Cadence script, encoded as UTF-8 bytes|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | arguments Arguments passed to the Cadence script, encoded as [JSON-Cadence](https://cadencelang.dev/docs/1.0/json-cadence-spec) bytes| reference\_block\_id Block ID used to determine transaction expiry|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | [proposal\_key](#proposal-key) Account key used to propose the transaction|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | payer Address of the payer account|  |  |  |  | | --- | --- | --- | --- | | authorizers Addresses of the transaction authorizers|  |  | | --- | --- | | signatures [Signatures](#transaction-signature) from all signer accounts | | | | | | | | | | | | | | | |
 
 The detailed semantics of transaction creation, signing and submission are covered in the [transaction submission guide](/build/cadence/basics/transactions#signing-a-transaction).
 
@@ -2361,19 +2322,15 @@ The detailed semantics of transaction creation, signing and submission are cover
 
 The proposal key is used to specify a sequence number for the transaction. Sequence numbers are covered in more detail [here](/build/cadence/basics/transactions#sequence-numbers).
 
-| Field | Description |
-| --- | --- |
-| address | Address of proposer account |
-| key\_id | ID of proposal key on the proposal account |
-| sequence\_number | [Sequence number](/build/cadence/basics/transactions#sequence-numbers) for the proposal key |
+|  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Field Description|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | address Address of proposer account|  |  |  |  | | --- | --- | --- | --- | | key\_id ID of proposal key on the proposal account|  |  | | --- | --- | | sequence\_number [Sequence number](/build/cadence/basics/transactions#sequence-numbers) for the proposal key | | | | | | | |
 
 #### Transaction Signature[​](#transaction-signature "Direct link to Transaction Signature")
 
-| Field | Description |
-| --- | --- |
-| address | Address of the account for this signature |
-| key\_id | ID of the account key |
-| signature | Raw signature byte data |
+|  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Field Description|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | address Address of the account for this signature|  |  |  |  | | --- | --- | --- | --- | | key\_id ID of the account key|  |  | | --- | --- | | signature Raw signature byte data | | | | | | | |
 
 #### Transaction Status[​](#transaction-status "Direct link to Transaction Status")
 
@@ -2409,14 +2366,9 @@ _10
 
 }`
 
-| Value | Description |
-| --- | --- |
-| UNKNOWN | The transaction status is not known. |
-| PENDING | The transaction has been received by a collector but not yet finalized in a block. |
-| FINALIZED | The consensus nodes have finalized the block that the transaction is included in |
-| EXECUTED | The execution nodes have produced a result for the transaction |
-| SEALED | The verification nodes have verified the transaction (the block in which the transaction is) and the seal is included in the latest block |
-| EXPIRED | The transaction was submitted past its expiration block height. |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Value Description|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | UNKNOWN The transaction status is not known.|  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | PENDING The transaction has been received by a collector but not yet finalized in a block.|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | FINALIZED The consensus nodes have finalized the block that the transaction is included in|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | EXECUTED The execution nodes have produced a result for the transaction|  |  |  |  | | --- | --- | --- | --- | | SEALED The verification nodes have verified the transaction (the block in which the transaction is) and the seal is included in the latest block|  |  | | --- | --- | | EXPIRED The transaction was submitted past its expiration block height. | | | | | | | | | | | | | |
 
 ### Account[​](#account "Direct link to Account")
 
@@ -2450,13 +2402,9 @@ _10
 
 }`
 
-| Field | Description |
-| --- | --- |
-| address | A unique account identifier |
-| balance | The account balance |
-| code | The code deployed to this account (**deprecated**, use `contracts` instead) |
-| keys | A list of keys configured on this account |
-| contracts | A map of contracts or contract interfaces deployed on this account |
+|  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Field Description|  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | address A unique account identifier|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | balance The account balance|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | code The code deployed to this account (**deprecated**, use `contracts` instead)| keys A list of keys configured on this account|  |  | | --- | --- | | contracts A map of contracts or contract interfaces deployed on this account | | | | | | | | | | | |
 
 The `code` and `contracts` fields contain the raw Cadence source code, encoded as UTF-8 bytes.
 
@@ -2502,15 +2450,9 @@ _10
 
 }`
 
-| Field | Description |
-| --- | --- |
-| id | Index of the key within the account, used as a unique identifier |
-| public\_key | Public key encoded as bytes |
-| sign\_algo | [Signature algorithm](/build/cadence/basics/accounts#signature-and-hash-algorithms) |
-| hash\_algo | [Hash algorithm](/build/cadence/basics/accounts#signature-and-hash-algorithms) |
-| weight | [Weight assigned to the key](/build/cadence/basics/accounts#account-keys) |
-| sequence\_number | [Sequence number for the key](/build/cadence/basics/transactions#sequence-numbers) |
-| revoked | Flag indicating whether or not the key has been revoked |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Field Description|  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | id Index of the key within the account, used as a unique identifier|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | public\_key Public key encoded as bytes|  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | sign\_algo [Signature algorithm](/build/cadence/basics/accounts#signature-and-hash-algorithms)| hash\_algo [Hash algorithm](/build/cadence/basics/accounts#signature-and-hash-algorithms)| weight [Weight assigned to the key](/build/cadence/basics/accounts#account-keys)| sequence\_number [Sequence number for the key](/build/cadence/basics/transactions#sequence-numbers)| revoked Flag indicating whether or not the key has been revoked | | | | | | | | | | | | | | | |
 
 More information on account keys, key weights and sequence numbers can be found [here](/build/cadence/basics/accounts).
 
@@ -2546,13 +2488,9 @@ _10
 
 }`
 
-| Field | Description |
-| --- | --- |
-| type | Fully-qualified unique type identifier for the event |
-| transaction\_id | ID of the transaction the event was emitted from |
-| transaction\_index | Zero-based index of the transaction within the block |
-| event\_index | Zero-based index of the event within the transaction |
-| payload | Event fields encoded as [JSON-Cadence values](https://cadencelang.dev/docs/1.0/json-cadence-spec) |
+|  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Field Description|  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | type Fully-qualified unique type identifier for the event|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | transaction\_id ID of the transaction the event was emitted from|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | transaction\_index Zero-based index of the transaction within the block|  |  |  |  | | --- | --- | --- | --- | | event\_index Zero-based index of the event within the transaction|  |  | | --- | --- | | payload Event fields encoded as [JSON-Cadence values](https://cadencelang.dev/docs/1.0/json-cadence-spec) | | | | | | | | | | | |
 
 ### Execution Result[​](#execution-result "Direct link to Execution Result")
 
@@ -2582,12 +2520,9 @@ _10
 
 }`
 
-| Field | Description |
-| --- | --- |
-| previous\_result\_id | Identifier of parent block execution result |
-| block\_id | ID of the block this execution result corresponds to |
-| chunks | Zero or more chunks |
-| service\_events | Zero or more service events |
+|  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Field Description|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | previous\_result\_id Identifier of parent block execution result|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | block\_id ID of the block this execution result corresponds to|  |  |  |  | | --- | --- | --- | --- | | chunks Zero or more chunks|  |  | | --- | --- | | service\_events Zero or more service events | | | | | | | | | |
 
 ### Execution Receipt Meta[​](#execution-receipt-meta "Direct link to Execution Receipt Meta")
 
@@ -2617,12 +2552,9 @@ _10
 
 }`
 
-| Field | Description |
-| --- | --- |
-| executor\_id | Identifier of the executor node |
-| result\_id | Identifier of block execution result |
-| spocks | SPoCK |
-| executor\_signature | Signature of the executor |
+|  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Field Description|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | executor\_id Identifier of the executor node|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | result\_id Identifier of block execution result|  |  |  |  | | --- | --- | --- | --- | | spocks SPoCK|  |  | | --- | --- | | executor\_signature Signature of the executor | | | | | | | | | |
 
 #### Chunk[​](#chunk "Direct link to Chunk")
 
@@ -2676,18 +2608,9 @@ _12
 
 }`
 
-| Field | Description |
-| --- | --- |
-| CollectionIndex | Identifier of a collection |
-| start\_state | State commitment at start of the chunk |
-| event\_collection | Hash of events emitted by transactions in this chunk |
-| block\_id | Identifier of a block |
-| total\_computation\_used | Total computation used by transactions in this chunk |
-| number\_of\_transactions | Number of transactions in a chunk |
-| index | Index of chunk inside a block (zero-based) |
-| end\_state | State commitment after executing chunk |
-| execution\_data\_id | Identifier of a execution data |
-| state\_delta\_commitment | A commitment over sorted list of register changes |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Field Description|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | CollectionIndex Identifier of a collection|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | start\_state State commitment at start of the chunk|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | event\_collection Hash of events emitted by transactions in this chunk|  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | block\_id Identifier of a block|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | total\_computation\_used Total computation used by transactions in this chunk|  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | number\_of\_transactions Number of transactions in a chunk|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | index Index of chunk inside a block (zero-based)|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | end\_state State commitment after executing chunk|  |  |  |  | | --- | --- | --- | --- | | execution\_data\_id Identifier of a execution data|  |  | | --- | --- | | state\_delta\_commitment A commitment over sorted list of register changes | | | | | | | | | | | | | | | | | | | | | |
 
 #### Service Event[​](#service-event "Direct link to Service Event")
 
@@ -2709,10 +2632,9 @@ _10
 
 }`
 
-| Field | Description |
-| --- | --- |
-| type | Type of an event |
-| payload | JSON-serialized content of an event |
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Field Description|  |  |  |  | | --- | --- | --- | --- | | type Type of an event|  |  | | --- | --- | | payload JSON-serialized content of an event | | | | | |
 
 ## Subscriptions[​](#subscriptions "Direct link to Subscriptions")
 
@@ -2762,13 +2684,9 @@ _10
 
 }`
 
-| Field | Description |
-| --- | --- |
-| start\_block\_id | The first block to search for events. Only one of start\_block\_id and start\_block\_height may be provided, otherwise an InvalidArgument error is returned. If neither are provided, the latest sealed block is used |
-| start\_block\_height | Block height of the first block to search for events. Only one of start\_block\_id and start\_block\_height may be provided, otherwise an InvalidArgument error is returned. If neither are provided, the latest sealed block is used |
-| filter | Filter to apply to events for each block searched. If no filter is provided, all events are returned |
-| heartbeat\_interval | Interval in block heights at which the server should return a heartbeat message to the client |
-| event\_encoding\_version | Preferred event encoding version of the block events payload. Possible variants: CCF, JSON-CDC |
+|  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Field Description|  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | start\_block\_id The first block to search for events. Only one of start\_block\_id and start\_block\_height may be provided, otherwise an InvalidArgument error is returned. If neither are provided, the latest sealed block is used|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | start\_block\_height Block height of the first block to search for events. Only one of start\_block\_id and start\_block\_height may be provided, otherwise an InvalidArgument error is returned. If neither are provided, the latest sealed block is used|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | filter Filter to apply to events for each block searched. If no filter is provided, all events are returned|  |  |  |  | | --- | --- | --- | --- | | heartbeat\_interval Interval in block heights at which the server should return a heartbeat message to the client|  |  | | --- | --- | | event\_encoding\_version Preferred event encoding version of the block events payload. Possible variants: CCF, JSON-CDC | | | | | | | | | | | |
 
 #### Response[​](#response-38 "Direct link to Response")
 
@@ -2830,11 +2748,9 @@ _10
 
 }`
 
-| Field | Description |
-| --- | --- |
-| start\_block\_id | The first block to get execution data for. Only one of start\_block\_id and start\_block\_height may be provided, otherwise an InvalidArgument error is returned. If neither are provided, the latest sealed block is used |
-| start\_block\_height | Block height of the first block to get execution data for. Only one of start\_block\_id and start\_block\_height may be provided, otherwise an InvalidArgument error is returned. If neither are provided, the latest sealed block is used |
-| event\_encoding\_version | Preferred event encoding version of the block events payload. Possible variants: CCF, JSON-CDC |
+|  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Field Description|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | start\_block\_id The first block to get execution data for. Only one of start\_block\_id and start\_block\_height may be provided, otherwise an InvalidArgument error is returned. If neither are provided, the latest sealed block is used|  |  |  |  | | --- | --- | --- | --- | | start\_block\_height Block height of the first block to get execution data for. Only one of start\_block\_id and start\_block\_height may be provided, otherwise an InvalidArgument error is returned. If neither are provided, the latest sealed block is used|  |  | | --- | --- | | event\_encoding\_version Preferred event encoding version of the block events payload. Possible variants: CCF, JSON-CDC | | | | | | | |
 
 #### Response[​](#response-39 "Direct link to Response")
 
@@ -2885,11 +2801,9 @@ _10
 
 }`
 
-| Field | Description |
-| --- | --- |
-| event\_type | A list of full event types to include.   Event types have 2 formats:  \_ Protocol events: `flow.[event name]`  \_ Smart contract events: `A.[contract address].[contract name].[event name]` |
-| contract | A list of contracts who's events should be included. Contracts have the following name formats:  \_ Protocol events: `flow`  \_ Smart contract events: `A.[contract address].[contract name]`  This filter matches on the full contract including its address, not just the contract's name |
-| address | A list of addresses who's events should be included. Addresses must be Flow account addresses in hex format and valid for the network the node is connected to. i.e. only a mainnet address is valid for a mainnet node. Addresses may optionally include the `0x` prefix |
+|  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Field Description|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | event\_type A list of full event types to include.   Event types have 2 formats:  \_ Protocol events: `flow.[event name]`  \_ Smart contract events: `A.[contract address].[contract name].[event name]`| contract A list of contracts who's events should be included. Contracts have the following name formats:  \_ Protocol events: `flow`  \_ Smart contract events: `A.[contract address].[contract name]`  This filter matches on the full contract including its address, not just the contract's name| address A list of addresses who's events should be included. Addresses must be Flow account addresses in hex format and valid for the network the node is connected to. i.e. only a mainnet address is valid for a mainnet node. Addresses may optionally include the `0x` prefix | | | | | | | |
 
 ## Execution data streaming API[​](#execution-data-streaming-api "Direct link to Execution data streaming API")
 
@@ -2905,16 +2819,9 @@ The `ExecutionDataAPI` provides access to block execution data over gRPC, includ
 
 Below is a list of the available CLI flags to control the behavior of the API
 
-| Flag | Type | Description |
-| --- | --- | --- |
-| state-stream-addr | string | Listener address for API. e.g. 0.0.0.0:9003. If no value is provided, the API is disabled. Default is disabled. |
-| execution-data-cache-size | uint32 | Number of block execution data objects to store in the cache. Default is 100. |
-| state-stream-global-max-streams | uint32 | Global maximum number of concurrent streams. Default is 1000. |
-| state-stream-max-message-size | uint | Maximum size for a gRPC response message containing block execution data. Default is 20*1024*1024 (20MB). |
-| state-stream-event-filter-limits | string | Event filter limits for ExecutionData SubscribeEvents API. These define the max number of filters for each type. e.g. EventTypes=100,Addresses=20,Contracts=50. Default is 1000 for each. |
-| state-stream-send-timeout | duration | Maximum wait before timing out while sending a response to a streaming client. Default is 30s. |
-| state-stream-send-buffer-size | uint | Maximum number of unsent responses to buffer for a stream. Default is 10. |
-| state-stream-response-limit | float64 | Max number of responses per second to send over streaming endpoints. This effectively applies a rate limit to responses to help manage resources consumed by each client. This is mostly used when clients are querying data past data. e.g. 3 or 0.5. Default is 0 which means no limit. |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Flag Type Description|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | state-stream-addr string Listener address for API. e.g. 0.0.0.0:9003. If no value is provided, the API is disabled. Default is disabled.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | execution-data-cache-size uint32 Number of block execution data objects to store in the cache. Default is 100.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | state-stream-global-max-streams uint32 Global maximum number of concurrent streams. Default is 1000.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | state-stream-max-message-size uint Maximum size for a gRPC response message containing block execution data. Default is 20*1024*1024 (20MB).| state-stream-event-filter-limits string Event filter limits for ExecutionData SubscribeEvents API. These define the max number of filters for each type. e.g. EventTypes=100,Addresses=20,Contracts=50. Default is 1000 for each.|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | state-stream-send-timeout duration Maximum wait before timing out while sending a response to a streaming client. Default is 30s.|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | state-stream-send-buffer-size uint Maximum number of unsent responses to buffer for a stream. Default is 10.|  |  |  | | --- | --- | --- | | state-stream-response-limit float64 Max number of responses per second to send over streaming endpoints. This effectively applies a rate limit to responses to help manage resources consumed by each client. This is mostly used when clients are querying data past data. e.g. 3 or 0.5. Default is 0 which means no limit. | | | | | | | | | | | | | | | | | | | | | | | | | | |
 
 ℹ️ This API provides access to Execution Data, which can be very large (100s of MB) for a given block. Given the large amount of data, operators should consider their expected usage patters and tune the available settings to limit the resources a single client can use. It may also be useful to use other means of managing traffic, such as reverse proxies or QoS tools.
 
@@ -2934,121 +2841,40 @@ Access HTTP API ↗️](/protocol/access-onchain-data/access-http-api)
 
 Copy as Markdown
 
-* [Flow Access Node Endpoints](#flow-access-node-endpoints)
-* [Ping](#ping)
-* [Block Headers](#block-headers)
-  + [GetLatestBlockHeader](#getlatestblockheader)
-  + [GetBlockHeaderByID](#getblockheaderbyid)
-  + [GetBlockHeaderByHeight](#getblockheaderbyheight)
-* [Blocks](#blocks)
-  + [GetLatestBlock](#getlatestblock)
-  + [GetBlockByID](#getblockbyid)
-  + [GetBlockByHeight](#getblockbyheight)
-* [Collections](#collections)
-  + [GetCollectionByID](#getcollectionbyid)
-  + [GetFullCollectionByID](#getfullcollectionbyid)
-* [Transactions](#transactions)
-  + [SendTransaction](#sendtransaction)
-  + [GetTransaction](#gettransaction)
-  + [GetTransactionsByBlockID](#gettransactionsbyblockid)
-  + [GetTransactionResult](#gettransactionresult)
-  + [GetTransactionResultByIndex](#gettransactionresultbyindex)
-  + [GetTransactionResultsByBlockID](#gettransactionresultsbyblockid)
-  + [GetSystemTransaction](#getsystemtransaction)
-  + [GetSystemTransactionResult](#getsystemtransactionresult)
-* [Accounts](#accounts)
-  + [GetAccount](#getaccount)
-  + [GetAccountAtLatestBlock](#getaccountatlatestblock)
-  + [GetAccountAtBlockHeight](#getaccountatblockheight)
-  + [GetAccountBalanceAtLatestBlock](#getaccountbalanceatlatestblock)
-  + [GetAccountBalanceAtBlockHeight](#getaccountbalanceatblockheight)
-  + [GetAccountKeyAtLatestBlock](#getaccountkeyatlatestblock)
-  + [GetAccountKeyAtBlockHeight](#getaccountkeyatblockheight)
-  + [GetAccountKeysAtLatestBlock](#getaccountkeysatlatestblock)
-  + [GetAccountKeysAtBlockHeight](#getaccountkeysatblockheight)
-* [Scripts](#scripts)
-  + [ExecuteScriptAtLatestBlock](#executescriptatlatestblock)
-  + [ExecuteScriptAtBlockID](#executescriptatblockid)
-  + [ExecuteScriptAtBlockHeight](#executescriptatblockheight)
-* [Events](#events)
-  + [GetEventsForHeightRange](#geteventsforheightrange)
-  + [GetEventsForBlockIDs](#geteventsforblockids)
-* [Network Parameters](#network-parameters)
-  + [GetNetworkParameters](#getnetworkparameters)
-  + [GetNodeVersionInfo](#getnodeversioninfo)
-* [Protocol state snapshot](#protocol-state-snapshot)
-  + [GetLatestProtocolStateSnapshot](#getlatestprotocolstatesnapshot)
-  + [GetProtocolStateSnapshotByBlockID](#getprotocolstatesnapshotbyblockid)
-  + [GetProtocolStateSnapshotByHeight](#getprotocolstatesnapshotbyheight)
-* [Execution results](#execution-results)
-  + [GetExecutionResultForBlockID](#getexecutionresultforblockid)
-  + [GetExecutionResultByID](#getexecutionresultbyid)
-* [Entities](#entities)
-  + [Block](#block)
-  + [Block Header](#block-header)
-  + [Block Seal](#block-seal)
-  + [Block Status](#block-status)
-  + [Collection](#collection)
-  + [Collection Guarantee](#collection-guarantee)
-  + [Transaction](#transaction)
-  + [Account](#account)
-  + [Event](#event)
-  + [Execution Result](#execution-result)
-  + [Execution Receipt Meta](#execution-receipt-meta)
-* [Subscriptions](#subscriptions)
-  + [SubscribeEvents](#subscribeevents)
-  + [SubscribeExecutionData](#subscribeexecutiondata)
-* [Execution data](#execution-data)
-  + [EventFilter](#eventfilter)
-* [Execution data streaming API](#execution-data-streaming-api)
-  + [Execution Data API](#execution-data-api)
+* [Flow Access Node Endpoints](#flow-access-node-endpoints)* [Ping](#ping)* [Block Headers](#block-headers)
+      + [GetLatestBlockHeader](#getlatestblockheader)+ [GetBlockHeaderByID](#getblockheaderbyid)+ [GetBlockHeaderByHeight](#getblockheaderbyheight)* [Blocks](#blocks)
+        + [GetLatestBlock](#getlatestblock)+ [GetBlockByID](#getblockbyid)+ [GetBlockByHeight](#getblockbyheight)* [Collections](#collections)
+          + [GetCollectionByID](#getcollectionbyid)+ [GetFullCollectionByID](#getfullcollectionbyid)* [Transactions](#transactions)
+            + [SendTransaction](#sendtransaction)+ [GetTransaction](#gettransaction)+ [GetTransactionsByBlockID](#gettransactionsbyblockid)+ [GetTransactionResult](#gettransactionresult)+ [GetTransactionResultByIndex](#gettransactionresultbyindex)+ [GetTransactionResultsByBlockID](#gettransactionresultsbyblockid)+ [GetSystemTransaction](#getsystemtransaction)+ [GetSystemTransactionResult](#getsystemtransactionresult)* [Accounts](#accounts)
+              + [GetAccount](#getaccount)+ [GetAccountAtLatestBlock](#getaccountatlatestblock)+ [GetAccountAtBlockHeight](#getaccountatblockheight)+ [GetAccountBalanceAtLatestBlock](#getaccountbalanceatlatestblock)+ [GetAccountBalanceAtBlockHeight](#getaccountbalanceatblockheight)+ [GetAccountKeyAtLatestBlock](#getaccountkeyatlatestblock)+ [GetAccountKeyAtBlockHeight](#getaccountkeyatblockheight)+ [GetAccountKeysAtLatestBlock](#getaccountkeysatlatestblock)+ [GetAccountKeysAtBlockHeight](#getaccountkeysatblockheight)* [Scripts](#scripts)
+                + [ExecuteScriptAtLatestBlock](#executescriptatlatestblock)+ [ExecuteScriptAtBlockID](#executescriptatblockid)+ [ExecuteScriptAtBlockHeight](#executescriptatblockheight)* [Events](#events)
+                  + [GetEventsForHeightRange](#geteventsforheightrange)+ [GetEventsForBlockIDs](#geteventsforblockids)* [Network Parameters](#network-parameters)
+                    + [GetNetworkParameters](#getnetworkparameters)+ [GetNodeVersionInfo](#getnodeversioninfo)* [Protocol state snapshot](#protocol-state-snapshot)
+                      + [GetLatestProtocolStateSnapshot](#getlatestprotocolstatesnapshot)+ [GetProtocolStateSnapshotByBlockID](#getprotocolstatesnapshotbyblockid)+ [GetProtocolStateSnapshotByHeight](#getprotocolstatesnapshotbyheight)* [Execution results](#execution-results)
+                        + [GetExecutionResultForBlockID](#getexecutionresultforblockid)+ [GetExecutionResultByID](#getexecutionresultbyid)* [Entities](#entities)
+                          + [Block](#block)+ [Block Header](#block-header)+ [Block Seal](#block-seal)+ [Block Status](#block-status)+ [Collection](#collection)+ [Collection Guarantee](#collection-guarantee)+ [Transaction](#transaction)+ [Account](#account)+ [Event](#event)+ [Execution Result](#execution-result)+ [Execution Receipt Meta](#execution-receipt-meta)* [Subscriptions](#subscriptions)
+                            + [SubscribeEvents](#subscribeevents)+ [SubscribeExecutionData](#subscribeexecutiondata)* [Execution data](#execution-data)
+                              + [EventFilter](#eventfilter)* [Execution data streaming API](#execution-data-streaming-api)
+                                + [Execution Data API](#execution-data-api)
 
 Documentation
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
 
 Start Building
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
 
 Network
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.

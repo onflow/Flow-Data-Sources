@@ -13,32 +13,18 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 Search
 
 * [Flow Networks](/protocol/flow-networks)
-* [Networks](/protocol)
-* [Flow Network Architecture](/protocol/network-architecture)
-* [Staking and Epochs](/protocol/staking)
 
-  + [Epoch and Staking Terminology](/protocol/staking/epoch-terminology)
-  + [Epoch and Reward Schedule](/protocol/staking/schedule)
-  + [Epoch Preparation Protocol](/protocol/staking/epoch-preparation)
-  + [Stake Slashing](/protocol/staking/stake-slashing)
-  + [Epoch Scripts and Events](/protocol/staking/epoch-scripts-events)
-  + [Staking Technical Overview](/protocol/staking/technical-overview)
-  + [Staking Scripts and Events](/protocol/staking/staking-scripts-events)
-  + [How to Query Staking rewards](/protocol/staking/staking-rewards)
-  + [QC and DKG](/protocol/staking/qc-dkg)
-  + [QC/DKG Scripts and Events](/protocol/staking/qc-dkg-scripts-events)
-  + [Machine Account](/protocol/staking/machine-account)
-  + [FAQs](/protocol/staking/faq)
-  + [Technical Staking Options](/protocol/staking/staking-options)
-  + [Staking Collection Guide](/protocol/staking/staking-collection)
-  + [Basic Staking Guide (Deprecated)](/protocol/staking/staking-guide)
-* [Node Ops](/protocol/node-ops)
-* [Accessing Data](/protocol/access-onchain-data)
-* [Governance](/protocol/governance)
-* [Flow Port](/protocol/flow-port)
+  * [Networks](/protocol)* [Flow Network Architecture](/protocol/network-architecture)
 
-* [Staking and Epochs](/protocol/staking)
-* Basic Staking Guide (Deprecated)
+      * [Staking and Epochs](/protocol/staking)
+
+        + [Epoch and Staking Terminology](/protocol/staking/epoch-terminology)+ [Epoch and Reward Schedule](/protocol/staking/schedule)+ [Epoch Preparation Protocol](/protocol/staking/epoch-preparation)+ [Stake Slashing](/protocol/staking/stake-slashing)+ [Epoch Scripts and Events](/protocol/staking/epoch-scripts-events)+ [Staking Technical Overview](/protocol/staking/technical-overview)+ [Staking Scripts and Events](/protocol/staking/staking-scripts-events)+ [How to Query Staking rewards](/protocol/staking/staking-rewards)+ [QC and DKG](/protocol/staking/qc-dkg)+ [QC/DKG Scripts and Events](/protocol/staking/qc-dkg-scripts-events)+ [Machine Account](/protocol/staking/machine-account)+ [FAQs](/protocol/staking/faq)+ [Technical Staking Options](/protocol/staking/staking-options)+ [Staking Collection Guide](/protocol/staking/staking-collection)+ [Basic Staking Guide (Deprecated)](/protocol/staking/staking-guide)* [Node Ops](/protocol/node-ops)
+
+          * [Accessing Data](/protocol/access-onchain-data)
+
+            * [Governance](/protocol/governance)* [Flow Port](/protocol/flow-port)
+
+* * [Staking and Epochs](/protocol/staking)* Basic Staking Guide (Deprecated)
 
 On this page
 
@@ -61,14 +47,9 @@ This guide covers staking with **FLOW tokens**.
 To register as a node operator with FLOW, the token holder can use the **Register Node** ([SC.11](/build/cadence/core-contracts/staking-contract-reference#staking))
 transaction with the following arguments:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **id** | `String` | The ID of the new node. It must be a 32 byte `String`. The operator is free to choose this value, but it must be unique across all nodes. A recommended process to generate this is to hash the staking public key. |
-| **role** | `UInt8` | The role of the new node. (1: collection, 2: consensus, 3: execution, 4: verification, 5: access) |
-| **networkingAddress** | `String` | The IP address of the new node. (Length must be less than 255 bytes (510 Hex characters)) |
-| **networkingKey** | `String` | The networking public key as a 64 byte hex-encoded `String` (128 hex characters) |
-| **stakingKey** | `String` | The staking public key as a 96 byte hex-encoded `String` (192 hex characters) |
-| **amount** | `UFix64` | The number of FLOW tokens to stake. |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **id** `String` The ID of the new node. It must be a 32 byte `String`. The operator is free to choose this value, but it must be unique across all nodes. A recommended process to generate this is to hash the staking public key.| **role** `UInt8` The role of the new node. (1: collection, 2: consensus, 3: execution, 4: verification, 5: access)|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **networkingAddress** `String` The IP address of the new node. (Length must be less than 255 bytes (510 Hex characters))|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **networkingKey** `String` The networking public key as a 64 byte hex-encoded `String` (128 hex characters)| **stakingKey** `String` The staking public key as a 96 byte hex-encoded `String` (192 hex characters)| **amount** `UFix64` The number of FLOW tokens to stake. | | | | | | | | | | | | | | | | | | | | |
 
 This transaction registers the account as a node operator with the specified node information
 and creates a public link to query the nodes ID from the account address.
@@ -90,9 +71,9 @@ The token holder can stake additional tokens at any time.
 To stake tokens, the token holder can use the **Stake FLOW** ([SC.12](/build/cadence/core-contracts/staking-contract-reference#staking))
 transaction with the following arguments:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **amount** | `UFix64` | The number of FLOW tokens to stake. |
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  | | --- | --- | --- | | **amount** `UFix64` The number of FLOW tokens to stake. | | | | | |
 
 This transaction commits tokens to stake from the token holder's account.
 
@@ -103,9 +84,9 @@ After tokens become unstaked, the token holder can choose to re-stake the unstak
 To staked unstaked tokens, the token holder can use the **Re-stake Unstaked FLOW** ([SC.13](/build/cadence/core-contracts/staking-contract-reference#staking))
 transaction with the following arguments:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **amount** | `UFix64` | The number of unstaked FLOW tokens to stake. |
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  | | --- | --- | --- | | **amount** `UFix64` The number of unstaked FLOW tokens to stake. | | | | | |
 
 ## Re-stake Rewarded Tokens[​](#re-stake-rewarded-tokens "Direct link to Re-stake Rewarded Tokens")
 
@@ -114,9 +95,9 @@ After earning rewards from staking, the token holder can choose to re-stake the 
 To stake rewarded tokens, the token holder can use the **Re-stake Rewarded FLOW** ([SC.14](/build/cadence/core-contracts/staking-contract-reference#staking))
 transaction with the following arguments:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **amount** | `UFix64` | The number of rewarded FLOW tokens to stake. |
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  | | --- | --- | --- | | **amount** `UFix64` The number of rewarded FLOW tokens to stake. | | | | | |
 
 ## Request Unstake Tokens[​](#request-unstake-tokens "Direct link to Request Unstake Tokens")
 
@@ -126,9 +107,9 @@ If the tokens aren't staked yet, they will be uncommitted and available to withd
 To request to unstake staked tokens, the token holder can use
 the **Request Unstaking** ([SC.15](/build/cadence/core-contracts/staking-contract-reference#staking)) transaction.
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **amount** | `UFix64` | The number of rewarded FLOW tokens to request to un-stake. |
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  | | --- | --- | --- | | **amount** `UFix64` The number of rewarded FLOW tokens to request to un-stake. | | | | | |
 
 *Note: this transaction will not succeed if the node operator has delegators and the request
 would put the node operator below the minimum required tokens staked for their node type.
@@ -159,9 +140,9 @@ To withdraw unstaked tokens,
 the token holder can use the **Withdraw Unstaked FLOW** ([SC.17](/build/cadence/core-contracts/staking-contract-reference#staking))
 transaction with the following arguments:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **amount** | `UFix64` | The number of unstaked FLOW tokens to withdraw. |
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  | | --- | --- | --- | | **amount** `UFix64` The number of unstaked FLOW tokens to withdraw. | | | | | |
 
 This transaction moves the unstaked tokens back into the `FlowToken.Vault` owned by the token holder.
 
@@ -173,9 +154,9 @@ To withdraw rewarded tokens,
 the token holder can use the **Withdraw Rewarded FLOW** ([SC.18](/build/cadence/core-contracts/staking-contract-reference#staking))
 transaction with the following arguments:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **amount** | `UFix64` | The number of rewarded FLOW tokens to withdraw. |
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  | | --- | --- | --- | | **amount** `UFix64` The number of rewarded FLOW tokens to withdraw. | | | | | |
 
 This transaction moves the rewarded tokens back into the `FlowToken.Vault` owned by the token holder.
 
@@ -198,10 +179,9 @@ but this would require small changes to these transactions to use the new storag
 To register as a delegator, the token holder can use the **Register Delegator** ([SC.19](/build/cadence/core-contracts/staking-contract-reference#delegating))
 transaction with the following arguments:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **id** | `String` | The ID of the node to delegate to. |
-| **amount** | `UFix64` | The number of FLOW tokens to delegate. |
+|  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | **id** `String` The ID of the node to delegate to.|  |  |  | | --- | --- | --- | | **amount** `UFix64` The number of FLOW tokens to delegate. | | | | | | | | |
 
 This transaction registers the account as a delegator to the node ID they specified.
 
@@ -217,9 +197,9 @@ To delegate new tokens,
 the token holder can use the **Delegate New FLOW** ([SC.20](/build/cadence/core-contracts/staking-contract-reference#delegating))
 transaction with the following arguments:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **amount** | `UFix64` | The number of FLOW tokens to delegate. |
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  | | --- | --- | --- | | **amount** `UFix64` The number of FLOW tokens to delegate. | | | | | |
 
 ## Re-delegate Unstaked Tokens[​](#re-delegate-unstaked-tokens "Direct link to Re-delegate Unstaked Tokens")
 
@@ -229,9 +209,9 @@ To delegate unstaked tokens,
 the token holder can use the **Re-delegate Unstaked FLOW** ([SC.21](/build/cadence/core-contracts/staking-contract-reference#delegating))
 transaction with the following arguments:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **amount** | `UFix64` | The number of unstaked FLOW tokens to delegate. |
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  | | --- | --- | --- | | **amount** `UFix64` The number of unstaked FLOW tokens to delegate. | | | | | |
 
 ## Re-delegate Rewarded Tokens[​](#re-delegate-rewarded-tokens "Direct link to Re-delegate Rewarded Tokens")
 
@@ -250,9 +230,9 @@ If the tokens aren't staked yet, they will be uncommitted and available to withd
 To unstake delegated tokens,
 the token holder can use the **Unstake Delegated FOW** ([SC.23](/build/cadence/core-contracts/staking-contract-reference#delegating))
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **amount** | `UFix64` | The number of FLOW tokens to unstake. |
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  | | --- | --- | --- | | **amount** `UFix64` The number of FLOW tokens to unstake. | | | | | |
 
 *Note: unstaked delegated tokens will be held by the central staking contract for a period of time
 (the rest of the current epoch plus all of the next epoch) before they are
@@ -267,9 +247,9 @@ To withdraw unstaked tokens,
 the token holder can use the **Withdraw Unstaked FLOW** ([SC.24](/build/cadence/core-contracts/staking-contract-reference#delegating))
 transaction with the following arguments:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **amount** | `UFix64` | The number of unstaked FLOW tokens to withdraw. |
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  | | --- | --- | --- | | **amount** `UFix64` The number of unstaked FLOW tokens to withdraw. | | | | | |
 
 This transaction moves the unstaked tokens back into the `FlowToken.Vault` owned by the token holder.
 
@@ -281,9 +261,9 @@ To withdraw rewarded tokens,
 the token holder can use the **Withdraw Rewarded FLOW** ([SC.25](/build/cadence/core-contracts/staking-contract-reference#delegating))
 transaction with the following arguments:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **amount** | `UFix64` | The number of rewarded FLOW tokens to withdraw. |
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  | | --- | --- | --- | | **amount** `UFix64` The number of rewarded FLOW tokens to withdraw. | | | | | |
 
 This transaction moves the rewarded tokens back into the `FlowToken.Vault` owned by the token holder.
 
@@ -315,71 +295,26 @@ Node Operations](/protocol/node-ops)
 Copy as Markdown
 
 * [Setup](#setup)
-  + [Register a New Staked Node](#register-a-new-staked-node)
-* [Stake Tokens](#stake-tokens)
-* [Re-stake Unstaked Tokens](#re-stake-unstaked-tokens)
-* [Re-stake Rewarded Tokens](#re-stake-rewarded-tokens)
-* [Request Unstake Tokens](#request-unstake-tokens)
-* [Unstake All Tokens](#unstake-all-tokens)
-* [Withdraw Unstaked Tokens](#withdraw-unstaked-tokens)
-* [Withdraw Rewarded Tokens](#withdraw-rewarded-tokens)
-* [Stake Multiple Nodes from the Same Account](#stake-multiple-nodes-from-the-same-account)
-* [Setup](#setup-1)
-* [Register as a Delegator](#register-as-a-delegator)
-* [Delegate New Tokens](#delegate-new-tokens)
-* [Re-delegate Unstaked Tokens](#re-delegate-unstaked-tokens)
-* [Re-delegate Rewarded Tokens](#re-delegate-rewarded-tokens)
-* [Unstake Delegated Tokens](#unstake-delegated-tokens)
-* [Withdraw Unstaked Tokens](#withdraw-unstaked-tokens-1)
-* [Withdraw Rewarded Tokens](#withdraw-rewarded-tokens-1)
-* [Delegate to Multiple Nodes from the Same Account](#delegate-to-multiple-nodes-from-the-same-account)
+  + [Register a New Staked Node](#register-a-new-staked-node)* [Stake Tokens](#stake-tokens)* [Re-stake Unstaked Tokens](#re-stake-unstaked-tokens)* [Re-stake Rewarded Tokens](#re-stake-rewarded-tokens)* [Request Unstake Tokens](#request-unstake-tokens)* [Unstake All Tokens](#unstake-all-tokens)* [Withdraw Unstaked Tokens](#withdraw-unstaked-tokens)* [Withdraw Rewarded Tokens](#withdraw-rewarded-tokens)* [Stake Multiple Nodes from the Same Account](#stake-multiple-nodes-from-the-same-account)* [Setup](#setup-1)* [Register as a Delegator](#register-as-a-delegator)* [Delegate New Tokens](#delegate-new-tokens)* [Re-delegate Unstaked Tokens](#re-delegate-unstaked-tokens)* [Re-delegate Rewarded Tokens](#re-delegate-rewarded-tokens)* [Unstake Delegated Tokens](#unstake-delegated-tokens)* [Withdraw Unstaked Tokens](#withdraw-unstaked-tokens-1)* [Withdraw Rewarded Tokens](#withdraw-rewarded-tokens-1)* [Delegate to Multiple Nodes from the Same Account](#delegate-to-multiple-nodes-from-the-same-account)
 
 Documentation
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
 
 Start Building
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
 
 Network
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.

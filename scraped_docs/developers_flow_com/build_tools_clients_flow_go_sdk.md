@@ -12,42 +12,31 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 
 Search
 
-* [Why Flow](/build/flow)
-* [Cadence](/build/cadence/quickstart)
+* [Why Flow](/build/flow)* [Cadence](/build/cadence/quickstart)
 
-  + [Quickstart ↙](/build/cadence/quickstart)
-  + [Differences vs. EVM](/build/cadence/differences-vs-evm)
-  + [Basics](/build/cadence/basics/network-architecture)
-  + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
-  + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
-  + [Core Smart Contracts](/build/cadence/core-contracts)
-* [Solidity (EVM)](/build/evm/quickstart)
+    + [Quickstart ↙](/build/cadence/quickstart)+ [Differences vs. EVM](/build/cadence/differences-vs-evm)+ [Basics](/build/cadence/basics/network-architecture)
 
-  + [EVM Quickstart](/build/evm/quickstart)
-  + [How it Works](/build/evm/how-it-works)
-  + [EVM Wallet Setup](/build/evm/using)
-  + [Network Information](/build/evm/networks)
-  + [Fees](/build/evm/fees)
-  + [Accounts](/build/evm/accounts)
-* [Tools & SDKs](/build/tools)
+          + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-  + [@onflow/react-sdk](/build/tools/react-sdk)
-  + [Flow Emulator](/build/tools/emulator)
-  + [Flow CLI](/build/tools/flow-cli)
-  + [Cadence VS Code Extension](/build/tools/vscode-extension)
-  + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
-  + [Client Tools](/build/tools/clients)
+            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
 
-    - [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
-    - [Flow Go SDK](/build/tools/clients/flow-go-sdk)
+              + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
 
-      * [Migration Guide v0.25.0](/build/tools/clients/flow-go-sdk/migration-v0.25.0)
-  + [Error Codes](/build/tools/error-codes)
-  + [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+      + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
 
-* [Tools & SDKs](/build/tools)
-* [Client Tools](/build/tools/clients)
-* Flow Go SDK
+        + [@onflow/react-sdk](/build/tools/react-sdk)
+
+          + [Flow Emulator](/build/tools/emulator)+ [Flow CLI](/build/tools/flow-cli)
+
+              + [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+
+                    - [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
+
+                      - [Flow Go SDK](/build/tools/clients/flow-go-sdk)
+
+                        * [Migration Guide v0.25.0](/build/tools/clients/flow-go-sdk/migration-v0.25.0)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+
+* * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* Flow Go SDK
 
 On this page
 
@@ -57,7 +46,11 @@ On this page
 
 [**View on GitHub**](https://github.com/onflow/flow-go-sdk)  
   
-[SDK Specifications](../fcl-js/sdk-guidelines/)[Contribute](https://github.com/onflow/flow-go-sdk/blob/master/CONTRIBUTING.md)[Report a Bug](https://github.com/onflow/flow-go-sdk/issues)
+[SDK Specifications](../fcl-js/sdk-guidelines/)
+
+[Contribute](https://github.com/onflow/flow-go-sdk/blob/master/CONTRIBUTING.md)
+
+[Report a Bug](https://github.com/onflow/flow-go-sdk/issues)
 
   
 
@@ -480,14 +473,9 @@ Retrieve transactions from the network by providing a transaction ID. After a tr
 
 📖 **Transaction status** represents the state of transaction in the blockchain. Status can change until it is sealed.
 
-| Status | Final | Description |
-| --- | --- | --- |
-| UNKNOWN | ❌ | The transaction has not yet been seen by the network |
-| PENDING | ❌ | The transaction has not yet been included in a block |
-| FINALIZED | ❌ | The transaction has been included in a block |
-| EXECUTED | ❌ | The transaction has been executed but the result has not yet been sealed |
-| SEALED | ✅ | The transaction has been executed and the result is sealed in a block |
-| EXPIRED | ✅ | The transaction reference block is outdated before being executed |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Status Final Description|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | UNKNOWN ❌ The transaction has not yet been seen by the network|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | PENDING ❌ The transaction has not yet been included in a block|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | FINALIZED ❌ The transaction has been included in a block|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | EXECUTED ❌ The transaction has been executed but the result has not yet been sealed|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | SEALED ✅ The transaction has been executed and the result is sealed in a block|  |  |  | | --- | --- | --- | | EXPIRED ✅ The transaction reference block is outdated before being executed | | | | | | | | | | | | | | | | | | | | |
 
 **[![](https://raw.githubusercontent.com/onflow/sdks/main/templates/documentation/try.svg)](https://github.com/onflow/flow-go-sdk/blob/master/examples/get_transactions/main.go)**
 
@@ -1609,9 +1597,9 @@ Flow supports great flexibility when it comes to transaction signing, we can def
 * Only the envelope must be signed.
 * Proposal key must have full signing weight.
 
-| Account | Key ID | Weight |
-| --- | --- | --- |
-| `0x01` | 1 | 1000 |
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Account Key ID Weight|  |  |  | | --- | --- | --- | | `0x01` 1 1000 | | | | | |
 
 **[![](https://raw.githubusercontent.com/onflow/sdks/main/templates/documentation/try.svg)](https://github.com/onflow/flow-go-sdk/tree/master/examples#single-party-single-signature)**
 
@@ -1701,10 +1689,9 @@ err := tx.SignEnvelope(account1.Address, key1.Index, key1Signer) ``
 * Only the envelope must be signed.
 * Each key has weight 500, so two signatures are required.
 
-| Account | Key ID | Weight |
-| --- | --- | --- |
-| `0x01` | 1 | 500 |
-| `0x01` | 2 | 500 |
+|  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Account Key ID Weight|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | `0x01` 1 500|  |  |  | | --- | --- | --- | | `0x01` 2 500 | | | | | | | | |
 
 **[![](https://raw.githubusercontent.com/onflow/sdks/main/templates/documentation/try.svg)](https://github.com/onflow/flow-go-sdk/tree/master/examples#single-party-multiple-signatures)**
 
@@ -1814,10 +1801,9 @@ err = tx.SignEnvelope(account1.Address, key2.Index, key2Signer) ``
 * Account `0x02` signs the envelope.
   + Account `0x02` must sign last since it is the payer.
 
-| Account | Key ID | Weight |
-| --- | --- | --- |
-| `0x01` | 1 | 1000 |
-| `0x02` | 3 | 1000 |
+|  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Account Key ID Weight|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | `0x01` 1 1000|  |  |  | | --- | --- | --- | | `0x02` 3 1000 | | | | | | | | |
 
 **[![](https://raw.githubusercontent.com/onflow/sdks/main/templates/documentation/try.svg)](https://github.com/onflow/flow-go-sdk/tree/master/examples#multiple-parties)**
 
@@ -1936,10 +1922,9 @@ err = tx.SignEnvelope(account2.Address, key3.Index, key3Signer) ``
   + Account `0x02` must sign last since it is the payer.
 * Account `0x02` is also an authorizer to show how to include two `&Account` objects into an transaction
 
-| Account | Key ID | Weight |
-| --- | --- | --- |
-| `0x01` | 1 | 1000 |
-| `0x02` | 3 | 1000 |
+|  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Account Key ID Weight|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | `0x01` 1 1000|  |  |  | | --- | --- | --- | | `0x02` 3 1000 | | | | | | | | |
 
 **[![](https://raw.githubusercontent.com/onflow/sdks/main/templates/documentation/try.svg)](https://github.com/onflow/flow-go-sdk/tree/master/examples#multiple-parties-two-authorizers)**
 
@@ -2074,12 +2059,9 @@ err = tx.SignEnvelope(account2.Address, key3.Index, key3Signer) ``
   + Account `0x02` must sign last since it is the payer.
 * Both accounts must sign twice (once with each of their keys).
 
-| Account | Key ID | Weight |
-| --- | --- | --- |
-| `0x01` | 1 | 500 |
-| `0x01` | 2 | 500 |
-| `0x02` | 3 | 500 |
-| `0x02` | 4 | 500 |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Account Key ID Weight|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `0x01` 1 500|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `0x01` 2 500|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | `0x02` 3 500|  |  |  | | --- | --- | --- | | `0x02` 4 500 | | | | | | | | | | | | | | |
 
 **[![](https://raw.githubusercontent.com/onflow/sdks/main/templates/documentation/try.svg)](https://github.com/onflow/flow-go-sdk/tree/master/examples#multiple-parties-multiple-signatures)**
 
@@ -3041,81 +3023,29 @@ Migration Guide v0.25.0](/build/tools/clients/flow-go-sdk/migration-v0.25.0)
 
 Copy as Markdown
 
-* [Overview](#overview)
-* [Getting Started](#getting-started)
-  + [Installing](#installing)
-  + [Importing the Library](#importing-the-library)
-* [Connect](#connect)
-* [Querying the Flow Network](#querying-the-flow-network)
-  + [Get Blocks](#get-blocks)
-  + [Get Account](#get-account)
-  + [Get Transactions](#get-transactions)
-  + [Get Events](#get-events)
-  + [Get Collections](#get-collections)
-  + [Execute Scripts](#execute-scripts)
-* [Mutate Flow Network](#mutate-flow-network)
-* [Transactions](#transactions)
-  + [Build Transactions](#build-transactions)
-  + [Sign Transactions](#sign-transactions)
-  + [Single party, single signature](#single-party-single-signature)
-  + [Single party, multiple signatures](#single-party-multiple-signatures)
-  + [Multiple parties](#multiple-parties)
-  + [Multiple parties, two authorizers](#multiple-parties-two-authorizers)
-  + [Multiple parties, multiple signatures](#multiple-parties-multiple-signatures)
-  + [Send Transactions](#send-transactions)
-  + [Create Accounts](#create-accounts)
-  + [Generate Keys](#generate-keys)
-  + [Transferring Flow](#transferring-flow)
-* [Cadence Script](#cadence-script)
-* [Build the Transaction](#build-the-transaction)
-* [Stream Events](#stream-events)
+* [Overview](#overview)* [Getting Started](#getting-started)
+    + [Installing](#installing)+ [Importing the Library](#importing-the-library)* [Connect](#connect)* [Querying the Flow Network](#querying-the-flow-network)
+        + [Get Blocks](#get-blocks)+ [Get Account](#get-account)+ [Get Transactions](#get-transactions)+ [Get Events](#get-events)+ [Get Collections](#get-collections)+ [Execute Scripts](#execute-scripts)* [Mutate Flow Network](#mutate-flow-network)* [Transactions](#transactions)
+            + [Build Transactions](#build-transactions)+ [Sign Transactions](#sign-transactions)+ [Single party, single signature](#single-party-single-signature)+ [Single party, multiple signatures](#single-party-multiple-signatures)+ [Multiple parties](#multiple-parties)+ [Multiple parties, two authorizers](#multiple-parties-two-authorizers)+ [Multiple parties, multiple signatures](#multiple-parties-multiple-signatures)+ [Send Transactions](#send-transactions)+ [Create Accounts](#create-accounts)+ [Generate Keys](#generate-keys)+ [Transferring Flow](#transferring-flow)* [Cadence Script](#cadence-script)* [Build the Transaction](#build-the-transaction)* [Stream Events](#stream-events)
 
 Documentation
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
 
 Start Building
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
 
 Network
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.

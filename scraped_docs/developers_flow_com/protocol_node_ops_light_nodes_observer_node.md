@@ -13,24 +13,24 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 Search
 
 * [Flow Networks](/protocol/flow-networks)
-* [Networks](/protocol)
-* [Flow Network Architecture](/protocol/network-architecture)
-* [Staking and Epochs](/protocol/staking)
-* [Node Ops](/protocol/node-ops)
 
-  + [Access Nodes](/protocol/node-ops/access-nodes/access-node-setup)
-  + [EVM Gateway Setup](/protocol/node-ops/evm-gateway/evm-gateway-setup)
-  + [Light Nodes](/protocol/node-ops/light-nodes/observer-node)
+  * [Networks](/protocol)* [Flow Network Architecture](/protocol/network-architecture)
 
-    - [Light Node Setup](/protocol/node-ops/light-nodes/observer-node)
-  + [Participating in the Network](/protocol/node-ops/node-operation/faq)
-* [Accessing Data](/protocol/access-onchain-data)
-* [Governance](/protocol/governance)
-* [Flow Port](/protocol/flow-port)
+      * [Staking and Epochs](/protocol/staking)
 
-* [Node Ops](/protocol/node-ops)
-* Light Nodes
-* Light Node Setup
+        * [Node Ops](/protocol/node-ops)
+
+          + [Access Nodes](/protocol/node-ops/access-nodes/access-node-setup)
+
+            + [EVM Gateway Setup](/protocol/node-ops/evm-gateway/evm-gateway-setup)
+
+              + [Light Nodes](/protocol/node-ops/light-nodes/observer-node)
+
+                - [Light Node Setup](/protocol/node-ops/light-nodes/observer-node)+ [Participating in the Network](/protocol/node-ops/node-operation/faq)* [Accessing Data](/protocol/access-onchain-data)
+
+            * [Governance](/protocol/governance)* [Flow Port](/protocol/flow-port)
+
+* * [Node Ops](/protocol/node-ops)* Light Nodes* Light Node Setup
 
 On this page
 
@@ -519,63 +519,28 @@ Operator FAQ](/protocol/node-ops/node-operation/faq)
 
 Copy as Markdown
 
-* [Who should run a light node?](#who-should-run-a-light-node)
-* [Running an light node](#running-an-light-node)
-  + [Hardware](#hardware)
-  + [Steps to run a light node](#steps-to-run-a-light-node)
-* [FAQs](#faqs)
-  + [Does the light node need to be staked?](#does-the-light-node-need-to-be-staked)
-  + [Can any access node be used to bootstrap a light node?](#can-any-access-node-be-used-to-bootstrap-a-light-node)
-  + [How can an access node turn ON support for light node?](#how-can-an-access-node-turn-on-support-for-light-node)
-  + [Are light nodes subject to rate limits?](#are-light-nodes-subject-to-rate-limits)
-  + [Flow community access nodes that support connections from light nodes](#flow-community-access-nodes-that-support-connections-from-light-nodes)
+* [Who should run a light node?](#who-should-run-a-light-node)* [Running an light node](#running-an-light-node)
+    + [Hardware](#hardware)+ [Steps to run a light node](#steps-to-run-a-light-node)* [FAQs](#faqs)
+      + [Does the light node need to be staked?](#does-the-light-node-need-to-be-staked)+ [Can any access node be used to bootstrap a light node?](#can-any-access-node-be-used-to-bootstrap-a-light-node)+ [How can an access node turn ON support for light node?](#how-can-an-access-node-turn-on-support-for-light-node)+ [Are light nodes subject to rate limits?](#are-light-nodes-subject-to-rate-limits)+ [Flow community access nodes that support connections from light nodes](#flow-community-access-nodes-that-support-connections-from-light-nodes)
 
 Documentation
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
 
 Start Building
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
 
 Network
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.

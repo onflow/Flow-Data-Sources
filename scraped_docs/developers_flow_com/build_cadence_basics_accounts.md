@@ -12,40 +12,19 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 
 Search
 
-* [Why Flow](/build/flow)
-* [Cadence](/build/cadence/quickstart)
+* [Why Flow](/build/flow)* [Cadence](/build/cadence/quickstart)
 
-  + [Quickstart ↙](/build/cadence/quickstart)
-  + [Differences vs. EVM](/build/cadence/differences-vs-evm)
-  + [Basics](/build/cadence/basics/network-architecture)
+    + [Quickstart ↙](/build/cadence/quickstart)+ [Differences vs. EVM](/build/cadence/differences-vs-evm)+ [Basics](/build/cadence/basics/network-architecture)
 
-    - [Network Architecture ↗️](/build/cadence/basics/network-architecture)
-    - [Blocks](/build/cadence/basics/blocks)
-    - [Collections](/build/cadence/basics/collections)
-    - [Accounts](/build/cadence/basics/accounts)
-    - [Transactions](/build/cadence/basics/transactions)
-    - [Scripts](/build/cadence/basics/scripts)
-    - [Fees](/build/cadence/basics/fees)
-    - [MEV Resistance](/build/cadence/basics/mev-resistance)
-    - [Events](/build/cadence/basics/events)
-    - [FLOW Coin](/build/cadence/basics/flow-token)
-    - [Smart Contracts ↙](/build/cadence/basics/smart-contracts)
-  + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
-  + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
-  + [Core Smart Contracts](/build/cadence/core-contracts)
-* [Solidity (EVM)](/build/evm/quickstart)
+          - [Network Architecture ↗️](/build/cadence/basics/network-architecture)- [Blocks](/build/cadence/basics/blocks)- [Collections](/build/cadence/basics/collections)- [Accounts](/build/cadence/basics/accounts)- [Transactions](/build/cadence/basics/transactions)- [Scripts](/build/cadence/basics/scripts)- [Fees](/build/cadence/basics/fees)- [MEV Resistance](/build/cadence/basics/mev-resistance)- [Events](/build/cadence/basics/events)- [FLOW Coin](/build/cadence/basics/flow-token)- [Smart Contracts ↙](/build/cadence/basics/smart-contracts)+ [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-  + [EVM Quickstart](/build/evm/quickstart)
-  + [How it Works](/build/evm/how-it-works)
-  + [EVM Wallet Setup](/build/evm/using)
-  + [Network Information](/build/evm/networks)
-  + [Fees](/build/evm/fees)
-  + [Accounts](/build/evm/accounts)
-* [Tools & SDKs](/build/tools)
+            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
 
-* Cadence
-* Basics
-* Accounts
+              + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
+
+      + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
+
+* * Cadence* Basics* Accounts
 
 On this page
 
@@ -173,17 +152,15 @@ The signature and hashing algorithms are used during the transaction signing pro
 
 There are two curves commonly used with the ECDSA algorithm, secp256r1 ([OID 1.2.840.10045.3.1.7](http://oid-info.com/get/1.2.840.10045.3.1.7), also called the "NIST P-256." this curve is common for mobile secure enclave support), and secp256k1 ([OID 1.3.132.0.10](http://oid-info.com/get/1.3.132.0.10), the curve used by "Bitcoin"). Please be sure to double-check which parameters you are using before registering a key, as presenting a key using one of the curves under the code and format of the other will generate an error.
 
-| Algorithm | Curve | ID | Code |
-| --- | --- | --- | --- |
-| ECDSA | P-256 | ECDSA\_P256 | 2 |
-| ECDSA | secp256k1 | ECDSA\_secp256k1 | 3 |
+|  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Algorithm Curve ID Code|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | ECDSA P-256 ECDSA\_P256 2|  |  |  |  | | --- | --- | --- | --- | | ECDSA secp256k1 ECDSA\_secp256k1 3 | | | | | | | | | | | |
 
 *Please note that the codes listed here are for the signature algorithms as used by the node API, and they are different from the ones [defined in Cadence](https://cadence-lang.org/docs/language/crypto#signing-algorithms)*
 
-| Algorithm | Output Size | ID | Code |
-| --- | --- | --- | --- |
-| SHA-2 | 256 | SHA2\_256 | 1 |
-| SHA-3 | 256 | SHA3\_256 | 3 |
+|  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Algorithm Output Size ID Code|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | SHA-2 256 SHA2\_256 1|  |  |  |  | | --- | --- | --- | --- | | SHA-3 256 SHA3\_256 3 | | | | | | | | | | | |
 
 Both hashing and signature algorithms are compatible with each other, so you can freely choose from the set.
 
@@ -297,75 +274,34 @@ Transactions](/build/cadence/basics/transactions)
 
 ###### Rate this page
 
-😞😐  😊
+😞😐😊
 
 Copy as Markdown
 
-* [Address](#address)
-* [Balance](#balance)
-  + [Maximum available balance](#maximum-available-balance)
-* [Contracts](#contracts)
-* [Storage](#storage)
-* [Account **Keys**](#account-keys)
-  + [Signature and Hash Algorithms](#signature-and-hash-algorithms)
-  + [**Locked / Keyless Accounts**](#locked--keyless-accounts)
-  + [**Multi-Sig Accounts**](#multi-sig-accounts)
-  + [Key Format](#key-format)
-* [Account Creation](#account-creation)
-  + [**Key Generation**](#key-generation)
-* [Service Accounts](#service-accounts)
-  + [Flow Service Account](#flow-service-account)
-  + [Tokens & Fees](#tokens--fees)
-  + [Network Management](#network-management)
-  + [Governance](#governance)
-* [Accounts Retrieval](#accounts-retrieval)
+* [Address](#address)* [Balance](#balance)
+    + [Maximum available balance](#maximum-available-balance)* [Contracts](#contracts)* [Storage](#storage)* [Account **Keys**](#account-keys)
+          + [Signature and Hash Algorithms](#signature-and-hash-algorithms)+ [**Locked / Keyless Accounts**](#locked--keyless-accounts)+ [**Multi-Sig Accounts**](#multi-sig-accounts)+ [Key Format](#key-format)* [Account Creation](#account-creation)
+            + [**Key Generation**](#key-generation)* [Service Accounts](#service-accounts)
+              + [Flow Service Account](#flow-service-account)+ [Tokens & Fees](#tokens--fees)+ [Network Management](#network-management)+ [Governance](#governance)* [Accounts Retrieval](#accounts-retrieval)
 
 Documentation
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
 
 Start Building
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
 
 Network
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.

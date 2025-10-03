@@ -13,32 +13,18 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 Search
 
 * [Flow Networks](/protocol/flow-networks)
-* [Networks](/protocol)
-* [Flow Network Architecture](/protocol/network-architecture)
-* [Staking and Epochs](/protocol/staking)
 
-  + [Epoch and Staking Terminology](/protocol/staking/epoch-terminology)
-  + [Epoch and Reward Schedule](/protocol/staking/schedule)
-  + [Epoch Preparation Protocol](/protocol/staking/epoch-preparation)
-  + [Stake Slashing](/protocol/staking/stake-slashing)
-  + [Epoch Scripts and Events](/protocol/staking/epoch-scripts-events)
-  + [Staking Technical Overview](/protocol/staking/technical-overview)
-  + [Staking Scripts and Events](/protocol/staking/staking-scripts-events)
-  + [How to Query Staking rewards](/protocol/staking/staking-rewards)
-  + [QC and DKG](/protocol/staking/qc-dkg)
-  + [QC/DKG Scripts and Events](/protocol/staking/qc-dkg-scripts-events)
-  + [Machine Account](/protocol/staking/machine-account)
-  + [FAQs](/protocol/staking/faq)
-  + [Technical Staking Options](/protocol/staking/staking-options)
-  + [Staking Collection Guide](/protocol/staking/staking-collection)
-  + [Basic Staking Guide (Deprecated)](/protocol/staking/staking-guide)
-* [Node Ops](/protocol/node-ops)
-* [Accessing Data](/protocol/access-onchain-data)
-* [Governance](/protocol/governance)
-* [Flow Port](/protocol/flow-port)
+  * [Networks](/protocol)* [Flow Network Architecture](/protocol/network-architecture)
 
-* [Staking and Epochs](/protocol/staking)
-* QC and DKG
+      * [Staking and Epochs](/protocol/staking)
+
+        + [Epoch and Staking Terminology](/protocol/staking/epoch-terminology)+ [Epoch and Reward Schedule](/protocol/staking/schedule)+ [Epoch Preparation Protocol](/protocol/staking/epoch-preparation)+ [Stake Slashing](/protocol/staking/stake-slashing)+ [Epoch Scripts and Events](/protocol/staking/epoch-scripts-events)+ [Staking Technical Overview](/protocol/staking/technical-overview)+ [Staking Scripts and Events](/protocol/staking/staking-scripts-events)+ [How to Query Staking rewards](/protocol/staking/staking-rewards)+ [QC and DKG](/protocol/staking/qc-dkg)+ [QC/DKG Scripts and Events](/protocol/staking/qc-dkg-scripts-events)+ [Machine Account](/protocol/staking/machine-account)+ [FAQs](/protocol/staking/faq)+ [Technical Staking Options](/protocol/staking/staking-options)+ [Staking Collection Guide](/protocol/staking/staking-collection)+ [Basic Staking Guide (Deprecated)](/protocol/staking/staking-guide)* [Node Ops](/protocol/node-ops)
+
+          * [Accessing Data](/protocol/access-onchain-data)
+
+            * [Governance](/protocol/governance)* [Flow Port](/protocol/flow-port)
+
+* * [Staking and Epochs](/protocol/staking)* QC and DKG
 
 On this page
 
@@ -122,10 +108,9 @@ During the Epoch Setup Phase, the node software should submit the votes for the 
 automatically using the **Submit QC Vote** ([QC.02](/build/cadence/core-contracts/epoch-contract-reference#quorum-certificate-transactions-and-scripts))
 transaction with the following arguments.
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **voteSignature** | `String` | The signed message (signed with the node's staking key) |
-| **voteMessage** | `String` | The raw message itself. |
+|  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | **voteSignature** `String` The signed message (signed with the node's staking key)|  |  |  | | --- | --- | --- | | **voteMessage** `String` The raw message itself. | | | | | | | | |
 
 ## Consensus Committee Distributed Key Generation Protocol (DKG)[​](#consensus-committee-distributed-key-generation-protocol-dkg "Direct link to Consensus Committee Distributed Key Generation Protocol (DKG)")
 
@@ -164,9 +149,9 @@ During the Epoch Setup Phase, the node software should post whiteboard messages 
 automatically using the **Post Whiteboard Message** ([DKG.02](/build/cadence/core-contracts/epoch-contract-reference#dkg-transactions-and-scripts))
 transaction with the following arguments.
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **content** | `String` | The content of the whiteboard message |
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  | | --- | --- | --- | | **content** `String` The content of the whiteboard message | | | | | |
 
 #### Send Final Submission[​](#send-final-submission "Direct link to Send Final Submission")
 
@@ -174,9 +159,9 @@ During the Epoch Setup Phase, the node software should send its final submission
 automatically using the **Send Final Submission** ([DKG.03](/build/cadence/core-contracts/epoch-contract-reference#dkg-transactions-and-scripts))
 transaction with the following arguments.
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **submission** | `[String?]` | The final key vector submission for the DKG. |
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  | | --- | --- | --- | | **submission** `[String?]` The final key vector submission for the DKG. | | | | | |
 
 ## Monitor Events and Query State from the QC and DKG Contracts[​](#monitor-events-and-query-state-from-the-qc-and-dkg-contracts "Direct link to Monitor Events and Query State from the QC and DKG Contracts")
 
@@ -199,65 +184,30 @@ QC/DKG Scripts and Events](/protocol/staking/qc-dkg-scripts-events)
 
 Copy as Markdown
 
-* [Epoch Setup Phase](#epoch-setup-phase)
-* [Machine Accounts](#machine-accounts)
-* [Collector Cluster Quorum Certificate Generation Protocol](#collector-cluster-quorum-certificate-generation-protocol)
-  + [`FlowClusterQC` Transactions](#flowclusterqc-transactions)
-    - [Create QC Voter Object](#create-qc-voter-object)
-    - [Submit Vote](#submit-vote)
-* [Consensus Committee Distributed Key Generation Protocol (DKG)](#consensus-committee-distributed-key-generation-protocol-dkg)
-  + [`FlowDKG` Transactions](#flowdkg-transactions)
-    - [Create DKG Participant Object](#create-dkg-participant-object)
-    - [Post Whiteboard Message](#post-whiteboard-message)
-    - [Send Final Submission](#send-final-submission)
-* [Monitor Events and Query State from the QC and DKG Contracts](#monitor-events-and-query-state-from-the-qc-and-dkg-contracts)
+* [Epoch Setup Phase](#epoch-setup-phase)* [Machine Accounts](#machine-accounts)* [Collector Cluster Quorum Certificate Generation Protocol](#collector-cluster-quorum-certificate-generation-protocol)
+      + [`FlowClusterQC` Transactions](#flowclusterqc-transactions)
+        - [Create QC Voter Object](#create-qc-voter-object)- [Submit Vote](#submit-vote)* [Consensus Committee Distributed Key Generation Protocol (DKG)](#consensus-committee-distributed-key-generation-protocol-dkg)
+        + [`FlowDKG` Transactions](#flowdkg-transactions)
+          - [Create DKG Participant Object](#create-dkg-participant-object)- [Post Whiteboard Message](#post-whiteboard-message)- [Send Final Submission](#send-final-submission)* [Monitor Events and Query State from the QC and DKG Contracts](#monitor-events-and-query-state-from-the-qc-and-dkg-contracts)
 
 Documentation
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
 
 Start Building
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
 
 Network
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.

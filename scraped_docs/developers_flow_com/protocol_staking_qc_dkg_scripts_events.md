@@ -13,32 +13,18 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 Search
 
 * [Flow Networks](/protocol/flow-networks)
-* [Networks](/protocol)
-* [Flow Network Architecture](/protocol/network-architecture)
-* [Staking and Epochs](/protocol/staking)
 
-  + [Epoch and Staking Terminology](/protocol/staking/epoch-terminology)
-  + [Epoch and Reward Schedule](/protocol/staking/schedule)
-  + [Epoch Preparation Protocol](/protocol/staking/epoch-preparation)
-  + [Stake Slashing](/protocol/staking/stake-slashing)
-  + [Epoch Scripts and Events](/protocol/staking/epoch-scripts-events)
-  + [Staking Technical Overview](/protocol/staking/technical-overview)
-  + [Staking Scripts and Events](/protocol/staking/staking-scripts-events)
-  + [How to Query Staking rewards](/protocol/staking/staking-rewards)
-  + [QC and DKG](/protocol/staking/qc-dkg)
-  + [QC/DKG Scripts and Events](/protocol/staking/qc-dkg-scripts-events)
-  + [Machine Account](/protocol/staking/machine-account)
-  + [FAQs](/protocol/staking/faq)
-  + [Technical Staking Options](/protocol/staking/staking-options)
-  + [Staking Collection Guide](/protocol/staking/staking-collection)
-  + [Basic Staking Guide (Deprecated)](/protocol/staking/staking-guide)
-* [Node Ops](/protocol/node-ops)
-* [Accessing Data](/protocol/access-onchain-data)
-* [Governance](/protocol/governance)
-* [Flow Port](/protocol/flow-port)
+  * [Networks](/protocol)* [Flow Network Architecture](/protocol/network-architecture)
 
-* [Staking and Epochs](/protocol/staking)
-* QC/DKG Scripts and Events
+      * [Staking and Epochs](/protocol/staking)
+
+        + [Epoch and Staking Terminology](/protocol/staking/epoch-terminology)+ [Epoch and Reward Schedule](/protocol/staking/schedule)+ [Epoch Preparation Protocol](/protocol/staking/epoch-preparation)+ [Stake Slashing](/protocol/staking/stake-slashing)+ [Epoch Scripts and Events](/protocol/staking/epoch-scripts-events)+ [Staking Technical Overview](/protocol/staking/technical-overview)+ [Staking Scripts and Events](/protocol/staking/staking-scripts-events)+ [How to Query Staking rewards](/protocol/staking/staking-rewards)+ [QC and DKG](/protocol/staking/qc-dkg)+ [QC/DKG Scripts and Events](/protocol/staking/qc-dkg-scripts-events)+ [Machine Account](/protocol/staking/machine-account)+ [FAQs](/protocol/staking/faq)+ [Technical Staking Options](/protocol/staking/staking-options)+ [Staking Collection Guide](/protocol/staking/staking-collection)+ [Basic Staking Guide (Deprecated)](/protocol/staking/staking-guide)* [Node Ops](/protocol/node-ops)
+
+          * [Accessing Data](/protocol/access-onchain-data)
+
+            * [Governance](/protocol/governance)* [Flow Port](/protocol/flow-port)
+
+* * [Staking and Epochs](/protocol/staking)* QC/DKG Scripts and Events
 
 On this page
 
@@ -64,9 +50,9 @@ These scripts allow anyone to query information about the state of the QC contra
 To return a struct representing the information associated with a collector cluster,
 can use the **Get Cluster** ([QC.03](/build/cadence/core-contracts/epoch-contract-reference#quorum-certificate-transactions-and-scripts)) script with the following argument:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **clusterIndex** | `UInt16` | The index of the cluster to query |
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  | | --- | --- | --- | | **clusterIndex** `UInt16` The index of the cluster to query | | | | | |
 
 ### Get QC Enabled[​](#get-qc-enabled "Direct link to Get QC Enabled")
 
@@ -78,9 +64,9 @@ can use the **Get QC Enabled** ([QC.04](/build/cadence/core-contracts/epoch-cont
 To return a boolean representing if a node has voted for the current QC, you
 can use the **Get Node Has Voted** ([QC.05](/build/cadence/core-contracts/epoch-contract-reference#quorum-certificate-transactions-and-scripts)) script with the following argument:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **nodeID** | `String` | The node ID to check for |
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  | | --- | --- | --- | | **nodeID** `String` The node ID to check for | | | | | |
 
 ### Get Voting Complete[​](#get-voting-complete "Direct link to Get Voting Complete")
 
@@ -114,9 +100,9 @@ can use the **Get Final Submissions** ([DKG.07](/build/cadence/core-contracts/ep
 To return a boolean representing if a node has sent their final submission for the DKG, you
 can use the **Get Node Has Submitted** ([DKG.08](/build/cadence/core-contracts/epoch-contract-reference#dkg-transactions-and-scripts)) script with the following argument:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **nodeID** | `String` | The node ID to check for |
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  | | --- | --- | --- | | **nodeID** `String` The node ID to check for | | | | | |
 
 ## DKG Events[​](#dkg-events "Direct link to DKG Events")
 
@@ -165,64 +151,27 @@ Machine Account](/protocol/staking/machine-account)
 Copy as Markdown
 
 * [QC Scripts](#qc-scripts)
-  + [Get Clusters](#get-clusters)
-  + [Get QC Enabled](#get-qc-enabled)
-  + [Get Node Has Voted](#get-node-has-voted)
-  + [Get Voting Complete](#get-voting-complete)
-* [DKG Scripts](#dkg-scripts)
-  + [Get DKG Enabled](#get-dkg-enabled)
-  + [Get DKG Completed](#get-dkg-completed)
-  + [Get Whiteboard Messages](#get-whiteboard-messages)
-  + [Get Final Submissions](#get-final-submissions)
-  + [Get Node Has Submitted](#get-node-has-submitted)
-* [DKG Events](#dkg-events)
+  + [Get Clusters](#get-clusters)+ [Get QC Enabled](#get-qc-enabled)+ [Get Node Has Voted](#get-node-has-voted)+ [Get Voting Complete](#get-voting-complete)* [DKG Scripts](#dkg-scripts)
+    + [Get DKG Enabled](#get-dkg-enabled)+ [Get DKG Completed](#get-dkg-completed)+ [Get Whiteboard Messages](#get-whiteboard-messages)+ [Get Final Submissions](#get-final-submissions)+ [Get Node Has Submitted](#get-node-has-submitted)* [DKG Events](#dkg-events)
 
 Documentation
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
 
 Start Building
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
 
 Network
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.

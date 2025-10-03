@@ -54,17 +54,15 @@ Flow token account balanceAccount storage limit and usageOnchain counter current
 
 ![Flow](/images/logos/flow-runner-flow-icon.svg)
 
-**Open**
+Open
 
-**Run
+Run
 
-**Share
+Share
 
-**Download
+Download
 
-**Settings
-
-**
+Settings
 
 Flow token account balance
 
@@ -116,9 +114,9 @@ from: path!
 
 Hover to load interactive examples
 
-**0 Errors
+0 Errors
 
-**Environment: Flow Mainnet****
+Environment: Flow Mainnet
 
 ![tools](/images/icons/flow-tools.svg)
 
@@ -160,126 +158,46 @@ Start building at a hackathon or meet us at an event. Join Flow community events
 
 ### Cadence
 
-* [Why Flow](/build/flow)
-* [Differences vs. EVM](/build/cadence/differences-vs-evm)
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
-* [Basics](/build/cadence/basics/blocks)
-* [Writing and Deploying Smart Contracts](/build/cadence/smart-contracts/overview)
-* [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
-* [Guides](/build/cadence/advanced-concepts/account-abstraction)
-* [Core Smart Contracts](/build/cadence/core-contracts)
-* [Explore More](/build/cadence/explore-more)
+* [Why Flow](/build/flow)* [Differences vs. EVM](/build/cadence/differences-vs-evm)* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Basics](/build/cadence/basics/blocks)* [Writing and Deploying Smart Contracts](/build/cadence/smart-contracts/overview)* [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)* [Guides](/build/cadence/advanced-concepts/account-abstraction)* [Core Smart Contracts](/build/cadence/core-contracts)* [Explore More](/build/cadence/explore-more)
 
 ### EVM
 
-* [EVM Quickstart](/evm/quickstart)
-* [How it Works](/evm/how-it-works)
-* [Using Flow EVM](/evm/using)
-* [Network Information](/evm/networks)
-* [Fees](/evm/fees)
-* [Accounts](/evm/accounts)
-* [Cross-chain Bridges](/ecosystem/bridges)
-* [Faucets](/ecosystem/faucets)
-* [Block Explorers](/ecosystem/block-explorers)
-* [Guides](/evm/guides)
+* [EVM Quickstart](/evm/quickstart)* [How it Works](/evm/how-it-works)* [Using Flow EVM](/evm/using)* [Network Information](/evm/networks)* [Fees](/evm/fees)* [Accounts](/evm/accounts)* [Cross-chain Bridges](/ecosystem/bridges)* [Faucets](/ecosystem/faucets)* [Block Explorers](/ecosystem/block-explorers)* [Guides](/evm/guides)
 
 ### Tools
 
-* [@onflow/react-sdk](/tools/react-sdk)
-* [Flow Emulator](/tools/emulator)
-* [Flow CLI](/tools/flow-cli)
-* [Cadence VS Code Extension](/tools/vscode-extension)
-* [Flow Dev Wallet](/tools/flow-dev-wallet)
-* [Client Tools](/tools/clients)
-* [Error Codes](/tools/error-codes)
-* [Wallet Provider Spec](/tools/wallet-provider-spec)
-* [Tools](/tools)
+* [@onflow/react-sdk](/tools/react-sdk)* [Flow Emulator](/tools/emulator)* [Flow CLI](/tools/flow-cli)* [Cadence VS Code Extension](/tools/vscode-extension)* [Flow Dev Wallet](/tools/flow-dev-wallet)* [Client Tools](/tools/clients)* [Error Codes](/tools/error-codes)* [Wallet Provider Spec](/tools/wallet-provider-spec)* [Tools](/tools)
 
 ### Networks
 
-* [Flow Networks](/protocol/flow-networks)
-* [Mainnet](/protocol/flow-networks/accessing-mainnet)
-* [Testnet](/protocol/flow-networks/accessing-testnet)
-* [Network Architecture](/protocol/network-architecture)
-* [Staking and Epochs](/protocol/staking)
-* [Node Ops](/protocol/node-ops)
-* [Accessing Data](/protocol/access-onchain-data)
-* [Governance](/protocol/governance)
-* [Flow Port](/protocol/flow-port)
+* [Flow Networks](/protocol/flow-networks)* [Mainnet](/protocol/flow-networks/accessing-mainnet)* [Testnet](/protocol/flow-networks/accessing-testnet)* [Network Architecture](/protocol/network-architecture)* [Staking and Epochs](/protocol/staking)* [Node Ops](/protocol/node-ops)* [Accessing Data](/protocol/access-onchain-data)* [Governance](/protocol/governance)* [Flow Port](/protocol/flow-port)
 
 ### Ecosystem
 
-* [Ecosystem](/ecosystem)
-* [Wallets](/ecosystem/wallets)
-* [Flow Block Explorers](/ecosystem/block-explorers)
-* [Data Indexers](/ecosystem/data-indexers)
-* [Developer Profile](/ecosystem/developer-profile)
-* [DeFi & Liquidity](/ecosystem/defi-liquidity)
-* [Bridges](/ecosystem/bridges)
-* [Community Projects](/ecosystem/projects)
-* [Builder Perks](/ecosystem/builder-perks)
-* [VCs & Funds](/ecosystem/vcs-and-funds)
-* [Faucets](/ecosystem/faucets)
-* [Grants](/ecosystem/grants)
-* [Hackathons and Events](/ecosystem/Hackathons%20and%20Events)
-* [Auditors](/ecosystem/auditors)
+* [Ecosystem](/ecosystem)* [Wallets](/ecosystem/wallets)* [Flow Block Explorers](/ecosystem/block-explorers)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [DeFi & Liquidity](/ecosystem/defi-liquidity)* [Bridges](/ecosystem/bridges)* [Community Projects](/ecosystem/projects)* [Builder Perks](/ecosystem/builder-perks)* [VCs & Funds](/ecosystem/vcs-and-funds)* [Faucets](/ecosystem/faucets)* [Grants](/ecosystem/grants)* [Hackathons and Events](/ecosystem/Hackathons%20and%20Events)* [Auditors](/ecosystem/auditors)
 
 ### Tutorials
 
-* [Tutorials](/tutorials)
-* [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
-* [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
-* [Token Launch](/blockchain-development-tutorials/token-launch)
-* [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
-* [FlowtoBooth](/blockchain-development-tutorials/flowtobooth)
-* [Native VRF](/blockchain-development-tutorials/native-vrf)
+* [Tutorials](/tutorials)* [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)* [Token Launch](/blockchain-development-tutorials/token-launch)* [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)* [FlowtoBooth](/blockchain-development-tutorials/flowtobooth)* [Native VRF](/blockchain-development-tutorials/native-vrf)
 
 Documentation
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
 
 Start Building
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
 
 Network
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.
