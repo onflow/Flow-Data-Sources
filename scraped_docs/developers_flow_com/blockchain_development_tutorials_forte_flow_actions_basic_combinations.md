@@ -12,29 +12,27 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 
 Search
 
-* [Blockchain Development Tutorials](/blockchain-development-tutorials)
-* [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)
-* [Forte Network Upgrade](/blockchain-development-tutorials/forte)
+* [Blockchain Development Tutorials](/blockchain-development-tutorials)* [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)* [Forte Network Upgrade](/blockchain-development-tutorials/forte)
 
-  + [Flow Actions](/blockchain-development-tutorials/forte/flow-actions)
+      + [Flow Actions](/blockchain-development-tutorials/forte/flow-actions)
 
-    - [Introduction to Flow Actions](/blockchain-development-tutorials/forte/flow-actions/intro-to-flow-actions)
-    - [Flow Actions Transaction](/blockchain-development-tutorials/forte/flow-actions/flow-actions-transaction)
-    - [Connectors](/blockchain-development-tutorials/forte/flow-actions/connectors)
-    - [Basic Combinations](/blockchain-development-tutorials/forte/flow-actions/basic-combinations)
-  + [Scheduled Transactions](/blockchain-development-tutorials/forte/scheduled-transactions)
-* [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
-* [Cadence Tutorials](/blockchain-development-tutorials/cadence)
-* [Flow EVM Guides](/blockchain-development-tutorials/evm)
-* [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
-* [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
-* [Token Development and Registration](/blockchain-development-tutorials/tokens)
-* [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
-* [Third-Party Integrations](/blockchain-development-tutorials/integrations)
+        - [Introduction to Flow Actions](/blockchain-development-tutorials/forte/flow-actions/intro-to-flow-actions)- [Flow Actions Transaction](/blockchain-development-tutorials/forte/flow-actions/flow-actions-transaction)- [Connectors](/blockchain-development-tutorials/forte/flow-actions/connectors)- [Basic Combinations](/blockchain-development-tutorials/forte/flow-actions/basic-combinations)+ [Scheduled Transactions](/blockchain-development-tutorials/forte/scheduled-transactions)* [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
 
-* [Forte Network Upgrade](/blockchain-development-tutorials/forte)
-* [Flow Actions](/blockchain-development-tutorials/forte/flow-actions)
-* Basic Combinations
+        * [Cadence Tutorials](/blockchain-development-tutorials/cadence)
+
+          * [Flow EVM Guides](/blockchain-development-tutorials/evm)
+
+            * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
+
+              * [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
+
+                * [Token Development and Registration](/blockchain-development-tutorials/tokens)
+
+                  * [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
+
+                    * [Third-Party Integrations](/blockchain-development-tutorials/integrations)
+
+* * [Forte Network Upgrade](/blockchain-development-tutorials/forte)* [Flow Actions](/blockchain-development-tutorials/forte/flow-actions)* Basic Combinations
 
 On this page
 
@@ -1264,79 +1262,31 @@ Scheduled Transactions](/blockchain-development-tutorials/forte/scheduled-transa
 
 Copy as Markdown
 
-* [Learning Objectives](#learning-objectives)
-* [Core Flow Patterns](#core-flow-patterns)
-  + [Linear Flow (Source → Swapper → Sink)](#linear-flow-source--swapper--sink)
-  + [Bidirectional Flow (Source ↔ Sink)](#bidirectional-flow-source--sink)
-  + [Aggregated Flow (Multiple Sources → Aggregator → Sink)](#aggregated-flow-multiple-sources--aggregator--sink)
-* [Common DeFi Workflow Combinations](#common-defi-workflow-combinations)
-  + [Single Token to LP (Zapper)](#single-token-to-lp-zapper)
-  + [Reward Harvesting & Conversion](#reward-harvesting--conversion)
-  + [Liquidity Provision & Yield Farming](#liquidity-provision--yield-farming)
-  + [Cross-VM Bridge & Swap](#cross-vm-bridge--swap)
-  + [Flash Loan Arbitrage](#flash-loan-arbitrage)
-* [Advanced Workflow Combinations](#advanced-workflow-combinations)
-  + [Vault Source + Zapper Integration](#vault-source--zapper-integration)
-  + [Price-Informed Rebalancing](#price-informed-rebalancing)
-  + [Restake & Compound Strategy](#restake--compound-strategy)
-* [Safety Best Practices](#safety-best-practices)
-  + [Always Check Capacity](#always-check-capacity)
-  + [Validate Balances](#validate-balances)
-  + [Use Graceful Degradation](#use-graceful-degradation)
-  + [Resource Management](#resource-management)
-* [Testing Your Combinations](#testing-your-combinations)
-  + [Unit Testing](#unit-testing)
-  + [Integration Testing](#integration-testing)
-  + [Simulation Testing](#simulation-testing)
-* [📚 Next Steps](#-next-steps)
-* [Conclusion](#conclusion)
+* [Learning Objectives](#learning-objectives)* [Core Flow Patterns](#core-flow-patterns)
+    + [Linear Flow (Source → Swapper → Sink)](#linear-flow-source--swapper--sink)+ [Bidirectional Flow (Source ↔ Sink)](#bidirectional-flow-source--sink)+ [Aggregated Flow (Multiple Sources → Aggregator → Sink)](#aggregated-flow-multiple-sources--aggregator--sink)* [Common DeFi Workflow Combinations](#common-defi-workflow-combinations)
+      + [Single Token to LP (Zapper)](#single-token-to-lp-zapper)+ [Reward Harvesting & Conversion](#reward-harvesting--conversion)+ [Liquidity Provision & Yield Farming](#liquidity-provision--yield-farming)+ [Cross-VM Bridge & Swap](#cross-vm-bridge--swap)+ [Flash Loan Arbitrage](#flash-loan-arbitrage)* [Advanced Workflow Combinations](#advanced-workflow-combinations)
+        + [Vault Source + Zapper Integration](#vault-source--zapper-integration)+ [Price-Informed Rebalancing](#price-informed-rebalancing)+ [Restake & Compound Strategy](#restake--compound-strategy)* [Safety Best Practices](#safety-best-practices)
+          + [Always Check Capacity](#always-check-capacity)+ [Validate Balances](#validate-balances)+ [Use Graceful Degradation](#use-graceful-degradation)+ [Resource Management](#resource-management)* [Testing Your Combinations](#testing-your-combinations)
+            + [Unit Testing](#unit-testing)+ [Integration Testing](#integration-testing)+ [Simulation Testing](#simulation-testing)* [📚 Next Steps](#-next-steps)* [Conclusion](#conclusion)
 
 Documentation
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
 
 Start Building
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
 
 Network
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.

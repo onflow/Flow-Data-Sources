@@ -13,32 +13,18 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 Search
 
 * [Flow Networks](/protocol/flow-networks)
-* [Networks](/protocol)
-* [Flow Network Architecture](/protocol/network-architecture)
-* [Staking and Epochs](/protocol/staking)
 
-  + [Epoch and Staking Terminology](/protocol/staking/epoch-terminology)
-  + [Epoch and Reward Schedule](/protocol/staking/schedule)
-  + [Epoch Preparation Protocol](/protocol/staking/epoch-preparation)
-  + [Stake Slashing](/protocol/staking/stake-slashing)
-  + [Epoch Scripts and Events](/protocol/staking/epoch-scripts-events)
-  + [Staking Technical Overview](/protocol/staking/technical-overview)
-  + [Staking Scripts and Events](/protocol/staking/staking-scripts-events)
-  + [How to Query Staking rewards](/protocol/staking/staking-rewards)
-  + [QC and DKG](/protocol/staking/qc-dkg)
-  + [QC/DKG Scripts and Events](/protocol/staking/qc-dkg-scripts-events)
-  + [Machine Account](/protocol/staking/machine-account)
-  + [FAQs](/protocol/staking/faq)
-  + [Technical Staking Options](/protocol/staking/staking-options)
-  + [Staking Collection Guide](/protocol/staking/staking-collection)
-  + [Basic Staking Guide (Deprecated)](/protocol/staking/staking-guide)
-* [Node Ops](/protocol/node-ops)
-* [Accessing Data](/protocol/access-onchain-data)
-* [Governance](/protocol/governance)
-* [Flow Port](/protocol/flow-port)
+  * [Networks](/protocol)* [Flow Network Architecture](/protocol/network-architecture)
 
-* [Staking and Epochs](/protocol/staking)
-* Epoch Scripts and Events
+      * [Staking and Epochs](/protocol/staking)
+
+        + [Epoch and Staking Terminology](/protocol/staking/epoch-terminology)+ [Epoch and Reward Schedule](/protocol/staking/schedule)+ [Epoch Preparation Protocol](/protocol/staking/epoch-preparation)+ [Stake Slashing](/protocol/staking/stake-slashing)+ [Epoch Scripts and Events](/protocol/staking/epoch-scripts-events)+ [Staking Technical Overview](/protocol/staking/technical-overview)+ [Staking Scripts and Events](/protocol/staking/staking-scripts-events)+ [How to Query Staking rewards](/protocol/staking/staking-rewards)+ [QC and DKG](/protocol/staking/qc-dkg)+ [QC/DKG Scripts and Events](/protocol/staking/qc-dkg-scripts-events)+ [Machine Account](/protocol/staking/machine-account)+ [FAQs](/protocol/staking/faq)+ [Technical Staking Options](/protocol/staking/staking-options)+ [Staking Collection Guide](/protocol/staking/staking-collection)+ [Basic Staking Guide (Deprecated)](/protocol/staking/staking-guide)* [Node Ops](/protocol/node-ops)
+
+          * [Accessing Data](/protocol/access-onchain-data)
+
+            * [Governance](/protocol/governance)* [Flow Port](/protocol/flow-port)
+
+* * [Staking and Epochs](/protocol/staking)* Epoch Scripts and Events
 
 On this page
 
@@ -523,9 +509,9 @@ to query the metadata for a particular epoch.
 You can use the **Get Epoch Metadata**([EP.01](/build/cadence/core-contracts/epoch-contract-reference#getting-epoch-info)) script
 with the following arguments:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **epochCounter** | `UInt64` | The counter of the epoch to get metadata for. |
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  | | --- | --- | --- | | **epochCounter** `UInt64` The counter of the epoch to get metadata for. | | | | | |
 
 #### Get Configurable Metadata[​](#get-configurable-metadata "Direct link to Get Configurable Metadata")
 
@@ -651,65 +637,29 @@ Staking Technical Overview](/protocol/staking/technical-overview)
 
 Copy as Markdown
 
-* [Introduction](#introduction)
-* [Monitor Epoch Service Events](#monitor-epoch-service-events)
-  + [What is a Service Event?](#what-is-a-service-event)
-  + [Event Descriptions](#event-descriptions)
-    - [`FlowEpoch.EpochStart`](#flowepochepochstart)
-    - [`FlowEpoch.EpochSetup`](#flowepochepochsetup)
-    - [`FlowEpoch.EpochCommit`](#flowepochepochcommit)
-* [Query Information with Scripts](#query-information-with-scripts)
-  + [Get Epoch Metadata](#get-epoch-metadata)
-  + [Get Configurable Metadata](#get-configurable-metadata)
-  + [Get Epoch Counter](#get-epoch-counter)
-  + [Get Epoch Phase](#get-epoch-phase)
+* [Introduction](#introduction)* [Monitor Epoch Service Events](#monitor-epoch-service-events)
+    + [What is a Service Event?](#what-is-a-service-event)+ [Event Descriptions](#event-descriptions)
+        - [`FlowEpoch.EpochStart`](#flowepochepochstart)- [`FlowEpoch.EpochSetup`](#flowepochepochsetup)- [`FlowEpoch.EpochCommit`](#flowepochepochcommit)* [Query Information with Scripts](#query-information-with-scripts)
+      + [Get Epoch Metadata](#get-epoch-metadata)+ [Get Configurable Metadata](#get-configurable-metadata)+ [Get Epoch Counter](#get-epoch-counter)+ [Get Epoch Phase](#get-epoch-phase)
 
 Documentation
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
 
 Start Building
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
 
 Network
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.

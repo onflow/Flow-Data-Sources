@@ -13,32 +13,18 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 Search
 
 * [Flow Networks](/protocol/flow-networks)
-* [Networks](/protocol)
-* [Flow Network Architecture](/protocol/network-architecture)
-* [Staking and Epochs](/protocol/staking)
 
-  + [Epoch and Staking Terminology](/protocol/staking/epoch-terminology)
-  + [Epoch and Reward Schedule](/protocol/staking/schedule)
-  + [Epoch Preparation Protocol](/protocol/staking/epoch-preparation)
-  + [Stake Slashing](/protocol/staking/stake-slashing)
-  + [Epoch Scripts and Events](/protocol/staking/epoch-scripts-events)
-  + [Staking Technical Overview](/protocol/staking/technical-overview)
-  + [Staking Scripts and Events](/protocol/staking/staking-scripts-events)
-  + [How to Query Staking rewards](/protocol/staking/staking-rewards)
-  + [QC and DKG](/protocol/staking/qc-dkg)
-  + [QC/DKG Scripts and Events](/protocol/staking/qc-dkg-scripts-events)
-  + [Machine Account](/protocol/staking/machine-account)
-  + [FAQs](/protocol/staking/faq)
-  + [Technical Staking Options](/protocol/staking/staking-options)
-  + [Staking Collection Guide](/protocol/staking/staking-collection)
-  + [Basic Staking Guide (Deprecated)](/protocol/staking/staking-guide)
-* [Node Ops](/protocol/node-ops)
-* [Accessing Data](/protocol/access-onchain-data)
-* [Governance](/protocol/governance)
-* [Flow Port](/protocol/flow-port)
+  * [Networks](/protocol)* [Flow Network Architecture](/protocol/network-architecture)
 
-* [Staking and Epochs](/protocol/staking)
-* Staking Collection Guide
+      * [Staking and Epochs](/protocol/staking)
+
+        + [Epoch and Staking Terminology](/protocol/staking/epoch-terminology)+ [Epoch and Reward Schedule](/protocol/staking/schedule)+ [Epoch Preparation Protocol](/protocol/staking/epoch-preparation)+ [Stake Slashing](/protocol/staking/stake-slashing)+ [Epoch Scripts and Events](/protocol/staking/epoch-scripts-events)+ [Staking Technical Overview](/protocol/staking/technical-overview)+ [Staking Scripts and Events](/protocol/staking/staking-scripts-events)+ [How to Query Staking rewards](/protocol/staking/staking-rewards)+ [QC and DKG](/protocol/staking/qc-dkg)+ [QC/DKG Scripts and Events](/protocol/staking/qc-dkg-scripts-events)+ [Machine Account](/protocol/staking/machine-account)+ [FAQs](/protocol/staking/faq)+ [Technical Staking Options](/protocol/staking/staking-options)+ [Staking Collection Guide](/protocol/staking/staking-collection)+ [Basic Staking Guide (Deprecated)](/protocol/staking/staking-guide)* [Node Ops](/protocol/node-ops)
+
+          * [Accessing Data](/protocol/access-onchain-data)
+
+            * [Governance](/protocol/governance)* [Flow Port](/protocol/flow-port)
+
+* * [Staking and Epochs](/protocol/staking)* Staking Collection Guide
 
 On this page
 
@@ -231,10 +217,9 @@ To create a machine account for a node that doesn't already have one,
 you must submit the **Create Machine Account** ([SCO.03](/build/cadence/core-contracts/staking-collection))
 transaction with the following arguments:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **nodeID** | `String` | The ID of the node. |
-| **publicKeys** | `[String]` | The public keys to add to the machine account. |
+|  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | **nodeID** `String` The ID of the node.|  |  |  | | --- | --- | --- | | **publicKeys** `[String]` The public keys to add to the machine account. | | | | | | | | |
 
 If the node is a collector or consensus node, this transaction creates the associated machine account,
 registers the QC or DKG object, stores it in the machine account,
@@ -248,16 +233,9 @@ If no public keys are provided, the transaction will fail.
 To register a new staked node, you must submit the **Register Node** ([SCO.03](/build/cadence/core-contracts/staking-collection))
 transaction with the following arguments:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **id** | `String` | The ID of the new node. It must be a 32 byte `String`. The operator is free to choose this value, but it must be unique across all nodes. A recommended process to generate this is to hash the staking public key. |
-| **role** | `UInt8` | The role of the new node. (1: collection, 2: consensus, 3: execution, 4: verification, 5: access) |
-| **networkingAddress** | `String` | The IP address of the new node. |
-| **networkingKey** | `String` | The networking public key as a hex-encoded string. |
-| **stakingKey** | `String` | The staking public key as a hex-encoded string. |
-| **stakingKeyPoP** | `String` | The staking key Proof-of-Possesion as a hex-encoded string. |
-| **amount** | `UFix64` | The number of FLOW tokens to stake. |
-| **publicKeys** | `[String]?` | The public keys to add to the machine account. `nil` if no machine account |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **id** `String` The ID of the new node. It must be a 32 byte `String`. The operator is free to choose this value, but it must be unique across all nodes. A recommended process to generate this is to hash the staking public key.| **role** `UInt8` The role of the new node. (1: collection, 2: consensus, 3: execution, 4: verification, 5: access)|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **networkingAddress** `String` The IP address of the new node.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **networkingKey** `String` The networking public key as a hex-encoded string.|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **stakingKey** `String` The staking public key as a hex-encoded string.|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **stakingKeyPoP** `String` The staking key Proof-of-Possesion as a hex-encoded string.|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | **amount** `UFix64` The number of FLOW tokens to stake.|  |  |  | | --- | --- | --- | | **publicKeys** `[String]?` The public keys to add to the machine account. `nil` if no machine account | | | | | | | | | | | | | | | | | | | | | | | | | | |
 
 This transaction registers the account as a staker with the specified node information
 and attaches a `NodeStaker` resource to the `Staking Collection`.
@@ -279,10 +257,9 @@ assuming they have the correct number of tokens to perform the action.
 To register a new delegator, you must submit the **Register Delegator** ([SCO.02](/build/cadence/core-contracts/staking-collection))
 transaction with the following arguments:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **id** | `String` | The ID of the node to delegate to. |
-| **amount** | `UFix64` | The number of FLOW tokens to delegate. |
+|  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | **id** `String` The ID of the node to delegate to.|  |  |  | | --- | --- | --- | | **amount** `UFix64` The number of FLOW tokens to delegate. | | | | | | | | |
 
 This transaction registers the account as a delegator to the node identified by the supplied node id.
 It also attaches a `NodeDelegator` resource to the `Staking Collection`.
@@ -306,11 +283,9 @@ The Staking Collection can stake additional tokens for any Node or Delegator man
 The owner of a Staking Collection can use the **Stake New Tokens** ([SCO.06](/build/cadence/core-contracts/staking-collection))
 transaction with the following arguments:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **nodeID** | `String` | The nodeID of the node to stake new tokens to. |
-| **delegatorID** | `Optional(UInt32)` | `nil` if staking for a node. If staking for a delegator, the delegator ID. |
-| **amount** | `UFix64` | The number of FLOW tokens to stake. |
+|  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **nodeID** `String` The nodeID of the node to stake new tokens to.|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | **delegatorID** `Optional(UInt32)` `nil` if staking for a node. If staking for a delegator, the delegator ID.| **amount** `UFix64` The number of FLOW tokens to stake. | | | | | | | | | | | |
 
 info
 
@@ -328,11 +303,9 @@ to re-stake the unstaked tokens to the same Node or Delegator.
 The owner of a Staking Collection can use the **Stake Unstaked Tokens** ([SCO.08](/build/cadence/core-contracts/staking-collection))
 transaction with the following arguments:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **nodeID** | `String` | The nodeID of the node to stake the unstaked tokens to. |
-| **delegatorID** | `Optional(UInt32)` | `nil` if staking for a node. If staking for a delegator, the delegator ID. |
-| **amount** | `UFix64` | The number of FLOW tokens to restake. |
+|  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **nodeID** `String` The nodeID of the node to stake the unstaked tokens to.|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | **delegatorID** `Optional(UInt32)` `nil` if staking for a node. If staking for a delegator, the delegator ID.| **amount** `UFix64` The number of FLOW tokens to restake. | | | | | | | | | | | |
 
 info
 
@@ -348,11 +321,9 @@ can choose to re-stake the rewarded tokens to the same node or delegator.
 The owner of a Staking Collection can use the **Stake Unstaked Tokens** ([SCO.07](/build/cadence/core-contracts/staking-collection))
 transaction with the following arguments:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **nodeID** | `String` | The nodeID of the node to stake the rewarded tokens to. |
-| **delegatorID** | `Optional(UInt32)` | `nil` if staking for a node. If staking for a delegator, the delegator ID. |
-| **amount** | `UFix64` | The number of FLOW tokens to restake. |
+|  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **nodeID** `String` The nodeID of the node to stake the rewarded tokens to.|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | **delegatorID** `Optional(UInt32)` `nil` if staking for a node. If staking for a delegator, the delegator ID.| **amount** `UFix64` The number of FLOW tokens to restake. | | | | | | | | | | | |
 
 info
 
@@ -370,11 +341,9 @@ If the tokens aren't staked yet, they will be uncommitted and available to withd
 The owner of a Staking Collection can use the **Unstake Tokens** ([SCO.05](/build/cadence/core-contracts/staking-collection))
 transaction with the following arguments:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **nodeID** | `String` | The nodeID of the chosen node. |
-| **delegatorID** | `Optional(UInt32)` | `nil` if staking for a node. If staking for a delegator, the delegator ID. |
-| **amount** | `UFix64` | The number of FLOW tokens to restake. |
+|  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **nodeID** `String` The nodeID of the chosen node.|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | **delegatorID** `Optional(UInt32)` `nil` if staking for a node. If staking for a delegator, the delegator ID.| **amount** `UFix64` The number of FLOW tokens to restake. | | | | | | | | | | | |
 
 info
 
@@ -385,10 +354,9 @@ To unstake tokens from an active node, leave the **delegatorID** argument as **n
 The owner of a Staking Collection can use the **Unstake All** ([SCO.09](/build/cadence/core-contracts/staking-collection))
 transaction with the following arguments:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **nodeID** | `String` | The nodeID of the node to unstake all tokens from. |
-| **delegatorID** | `Optional(UInt32)` | `nil` if staking for a node. If staking for a delegator, the delegator ID. |
+|  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | **nodeID** `String` The nodeID of the node to unstake all tokens from.|  |  |  | | --- | --- | --- | | **delegatorID** `Optional(UInt32)` `nil` if staking for a node. If staking for a delegator, the delegator ID. | | | | | | | | |
 
 ### Withdraw Unstaked Tokens[​](#withdraw-unstaked-tokens "Direct link to Withdraw Unstaked Tokens")
 
@@ -398,11 +366,9 @@ the ownder of Staking Collection can withdraw them from the central staking cont
 The owner of a Staking Collection can use the **Withdraw Unstaked Tokens** ([SCO.11](/build/cadence/core-contracts/staking-collection))
 transaction with the following arguments:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **nodeID** | `String` | The nodeID of the node to withdraw the unstaked tokens from. |
-| **delegatorID** | `Optional(UInt32)` | `nil` if staking for a node. If staking for a delegator, the delegator ID. |
-| **amount** | `UFix64` | The number of FLOW tokens to withdraw. |
+|  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **nodeID** `String` The nodeID of the node to withdraw the unstaked tokens from.|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | **delegatorID** `Optional(UInt32)` `nil` if staking for a node. If staking for a delegator, the delegator ID.| **amount** `UFix64` The number of FLOW tokens to withdraw. | | | | | | | | | | | |
 
 info
 
@@ -415,11 +381,9 @@ After earning rewards from staking, the token holder can withdraw them from the 
 The owner of a Staking Collection can use the **Withdraw Rewarded Tokens** ([SCO.10](/build/cadence/core-contracts/staking-collection))
 transaction with the following arguments:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **nodeID** | `String` | The nodeID of the node to withdraw the rewarded tokens from. |
-| **delegatorID** | `Optional(UInt32)` | `nil` if staking for a node. If staking for a delegator, the delegator ID. |
-| **amount** | `UFix64` | The number of FLOW tokens to withdraw. |
+|  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **nodeID** `String` The nodeID of the node to withdraw the rewarded tokens from.|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | **delegatorID** `Optional(UInt32)` `nil` if staking for a node. If staking for a delegator, the delegator ID.| **amount** `UFix64` The number of FLOW tokens to withdraw. | | | | | | | | | | | |
 
 info
 
@@ -441,10 +405,9 @@ It then destroys the NodeStaker or NodeDelegator object from within the Staking 
 The owner of a Staking Collection can use the **Close Stake** ([SCO.12](/build/cadence/core-contracts/staking-collection))
 transaction with the following arguments:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **nodeID** | `String` | The nodeID of the node to close. |
-| **delegatorID** | `Optional(UInt32)` | `nil` if staking for a node. If staking for a delegator, the delegator ID. |
+|  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | **nodeID** `String` The nodeID of the node to close.|  |  |  | | --- | --- | --- | | **delegatorID** `Optional(UInt32)` `nil` if staking for a node. If staking for a delegator, the delegator ID. | | | | | | | | |
 
 info
 
@@ -469,10 +432,9 @@ Transferring a Node will result in loss of custody of any Staked tokens for the 
 The owner of a Staking Collection can use the **Transfer Node** ([SCO.13](/build/cadence/core-contracts/staking-collection))
 transaction with the following arguments:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **nodeID** | `String` | The nodeID of the node to transfer. |
-| **to** | `Address` | The address of the account which contains the Staking Collection to transfer the Node to. |
+|  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | **nodeID** `String` The nodeID of the node to transfer.|  |  |  | | --- | --- | --- | | **to** `Address` The address of the account which contains the Staking Collection to transfer the Node to. | | | | | | | | |
 
 ### Transfer a Delegator[​](#transfer-a-delegator "Direct link to Transfer a Delegator")
 
@@ -493,11 +455,9 @@ Transferring a Delegator will result in loss of custody of any Staked tokens for
 The owner of a Staking Collection can use the **Transfer Delegator** ([SCO.14](/build/cadence/core-contracts/staking-collection))
 transaction with the following arguments:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **nodeID** | `String` | The nodeID of the delegator to transfer. |
-| **delegatorID** | `UInt32` | The delegatorID of the delegator to transfer. |
-| **to** | `Address` | The address of the account which contains the Staking Collection to transfer the Delegator to. |
+|  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **nodeID** `String` The nodeID of the delegator to transfer.|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | **delegatorID** `UInt32` The delegatorID of the delegator to transfer.|  |  |  | | --- | --- | --- | | **to** `Address` The address of the account which contains the Staking Collection to transfer the Delegator to. | | | | | | | | | | | |
 
 ### Update A Node's Networking Address[​](#update-a-nodes-networking-address "Direct link to Update A Node's Networking Address")
 
@@ -513,10 +473,9 @@ This operation can only be performed in the staking auction phase of an epoch.
 The owner of a Staking Collection can use the **Update Networking Address** ([SCO.22](/build/cadence/core-contracts/staking-collection))
 transaction with the following arguments:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **nodeID** | `String` | The nodeID of the node to update. |
-| **newAddress** | `String` | The new networking address |
+|  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | **nodeID** `String` The nodeID of the node to update.|  |  |  | | --- | --- | --- | | **newAddress** `String` The new networking address | | | | | | | | |
 
 # Staking Collection Scripts
 
@@ -527,9 +486,9 @@ These scripts allow anyone to query information about an account's staking colle
 To return an array of structs representing the information associated with each node managed by an account's Staking Collection, anyone
 can use the **Get All Node Info** ([SCO.15](/build/cadence/core-contracts/staking-collection)) script with the following arguments:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **address** | `Addresss` | The Address of the account holding the Staking Collection to query from |
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  | | --- | --- | --- | | **address** `Addresss` The Address of the account holding the Staking Collection to query from | | | | | |
 
 This script returns an array of `FlowIDTableStaking.NodeInfo` [structs](https://github.com/onflow/flow-core-contracts/blob/master/contracts/FlowIDTableStaking.cdc#L264)
 representing the nodes managed by an accounts Staking Collection.
@@ -539,9 +498,9 @@ representing the nodes managed by an accounts Staking Collection.
 To return an array of structs representing the information associated with each delegator managed by an account's Staking Collection, anyone
 can use the **Get All Delegator Info** ([SCO.16](/build/cadence/core-contracts/staking-collection)) script with the following arguments:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **address** | `Addresss` | The Address of the account holding the Staking Collection to query from |
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  | | --- | --- | --- | | **address** `Addresss` The Address of the account holding the Staking Collection to query from | | | | | |
 
 This script returns an array of `FlowIDTableStaking.DelegatorInfo` [structs](https://github.com/onflow/flow-core-contracts/blob/master/contracts/FlowIDTableStaking.cdc#L264)
 representing the delegators managed by an accounts Staking Collection.
@@ -551,9 +510,9 @@ representing the delegators managed by an accounts Staking Collection.
 To return an array of Strings representing the ids associated with each node managed by an account's Staking Collection, anyone
 can use the **Get All Node Ids** ([SCO.17](/build/cadence/core-contracts/staking-collection)) script with the following arguments:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **address** | `Addresss` | The Address of the account holding the Staking Collection to query from |
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  | | --- | --- | --- | | **address** `Addresss` The Address of the account holding the Staking Collection to query from | | | | | |
 
 This script returns an array of `String`
 representing each id of each node managed by an accounts Staking Collection.
@@ -563,9 +522,9 @@ representing each id of each node managed by an accounts Staking Collection.
 To return an array of structs representing the delegator ids associated with each delegation managed by an account's Staking Collection, anyone
 can use the **Get All Delegator Ids** ([SCO.22](/build/cadence/core-contracts/staking-collection)) script with the following arguments:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **address** | `Addresss` | The Address of the account holding the Staking Collection to query from |
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  | | --- | --- | --- | | **address** `Addresss` The Address of the account holding the Staking Collection to query from | | | | | |
 
 This script returns an array of `FlowStakingCollection.DelegatorIDs` [structs](https://github.com/onflow/flow-core-contracts/blob/master/contracts/FlowStakingCollection.cdc#L40)
 representing the delegator Ids of each delegator managed by an accounts Staking Collection.
@@ -575,9 +534,9 @@ representing the delegator Ids of each delegator managed by an accounts Staking 
 To query how many Locked FLOW tokens an account has staked using their Staking Collection, anyone
 can use the **Get Locked Tokens Used** ([SCO.19](/build/cadence/core-contracts/staking-collection)) script with the following arguments:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **address** | `Addresss` | The Address of the account holding the Staking Collection to query from |
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  | | --- | --- | --- | | **address** `Addresss` The Address of the account holding the Staking Collection to query from | | | | | |
 
 This script returns a `UFix64` representing the number of Locked FLOW tokens staked using an accounts Staking Collection.
 
@@ -590,9 +549,9 @@ Note: This number does not include Locked FLOW tokens staked not through an acco
 To query how many Unlocked FLOW tokens an account has staked using their Staking Collection, anyone
 can use the **Get Unlocked Tokens Used** ([SCO.20](/build/cadence/core-contracts/staking-collection)) script with the following arguments:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **address** | `Addresss` | The Address of the account holding the Staking Collection to query from |
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  | | --- | --- | --- | | **address** `Addresss` The Address of the account holding the Staking Collection to query from | | | | | |
 
 This script returns a `UFix64` representing the number of Unlocked FLOW tokens staked using an accounts Staking Collection.
 
@@ -605,11 +564,9 @@ Note: This number does not include Unlocked FLOW tokens staked not through an ac
 To query if a Node or Delegator is managed by an accounts Staking Collection, anyone
 can use the **Get Does Node Exist** ([SCO.21](/build/cadence/core-contracts/staking-collection)) script with the following arguments:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **address** | `Addresss` | The Address of the account holding the Staking Collection to query from |
-| **nodeID** | `String` | The nodeID of the node to check, or the nodeID of the node delegating to to check. |
-| **delegatorID** | `Optional(UInt32)` | The delegatorID of the delegator to check, if checking for a delegator. |
+|  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **address** `Addresss` The Address of the account holding the Staking Collection to query from|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | **nodeID** `String` The nodeID of the node to check, or the nodeID of the node delegating to to check.|  |  |  | | --- | --- | --- | | **delegatorID** `Optional(UInt32)` The delegatorID of the delegator to check, if checking for a delegator. | | | | | | | | | | | |
 
 This script returns a `Bool`.
 
@@ -623,9 +580,9 @@ Otherwise, fill it in with the **delegatorID** of the Delegator.
 To query the machine account information for an account's staking collection, anyone
 can use the **Get Machine Account Info** ([SCO.21](/build/cadence/core-contracts/staking-collection)) script with the following arguments:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **address** | `Addresss` | The Address of the account holding the Staking Collection to query from |
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  | | --- | --- | --- | | **address** `Addresss` The Address of the account holding the Staking Collection to query from | | | | | |
 
 This script returns a `{String: FlowStakingCollection.MachineAccountInfo}`,
 which is a mapping of nodeIDs to the `FlowStakingCollection.MachineAccountInfo` struct.
@@ -646,84 +603,30 @@ Basic Staking Guide (Deprecated)](/protocol/staking/staking-guide)
 
 Copy as Markdown
 
-* [Staker Object Fields](#staker-object-fields)
-* [Vault Capability Fields](#vault-capability-fields)
-* [Machine Account Support](#machine-account-support)
-* [Staking Collection Public Getter Methods](#staking-collection-public-getter-methods)
-* [Setup](#setup)
-  + [Setup a Staking Collection](#setup-a-staking-collection)
-  + [Create a Machine Account for an existing Node](#create-a-machine-account-for-an-existing-node)
-* [Register Stakers](#register-stakers)
-  + [Register a New Staked Node](#register-a-new-staked-node)
-  + [Register a New Staked Delegator](#register-a-new-staked-delegator)
-* [Staking Operations](#staking-operations)
-  + [Stake New Tokens](#stake-new-tokens)
-  + [Re-stake Unstaked Tokens](#re-stake-unstaked-tokens)
-  + [Re-stake Rewarded Tokens](#re-stake-rewarded-tokens)
-  + [Request to Unstake Tokens at the end of the Epoch](#request-to-unstake-tokens-at-the-end-of-the-epoch)
-  + [Unstake All Tokens](#unstake-all-tokens)
-  + [Withdraw Unstaked Tokens](#withdraw-unstaked-tokens)
-  + [Withdraw Rewarded Tokens](#withdraw-rewarded-tokens)
-* [Staking Collection Modification](#staking-collection-modification)
-  + [Close a Node or Delegator](#close-a-node-or-delegator)
-  + [Transfer a Node](#transfer-a-node)
-  + [Transfer a Delegator](#transfer-a-delegator)
-  + [Update A Node's Networking Address](#update-a-nodes-networking-address)
-  + [Get All Node Info](#get-all-node-info)
-  + [Get All Delegator Info](#get-all-delegator-info)
-  + [Get All Node Ids](#get-all-node-ids)
-  + [Get All Delegator Ids](#get-all-delegator-ids)
-  + [Get Locked Tokens Used](#get-locked-tokens-used)
-  + [Get Unlocked Tokens Used](#get-unlocked-tokens-used)
-  + [Get Does Node Exist](#get-does-node-exist)
-  + [Get Machine Account Info](#get-machine-account-info)
+* [Staker Object Fields](#staker-object-fields)* [Vault Capability Fields](#vault-capability-fields)* [Machine Account Support](#machine-account-support)* [Staking Collection Public Getter Methods](#staking-collection-public-getter-methods)* [Setup](#setup)
+          + [Setup a Staking Collection](#setup-a-staking-collection)+ [Create a Machine Account for an existing Node](#create-a-machine-account-for-an-existing-node)* [Register Stakers](#register-stakers)
+            + [Register a New Staked Node](#register-a-new-staked-node)+ [Register a New Staked Delegator](#register-a-new-staked-delegator)* [Staking Operations](#staking-operations)
+              + [Stake New Tokens](#stake-new-tokens)+ [Re-stake Unstaked Tokens](#re-stake-unstaked-tokens)+ [Re-stake Rewarded Tokens](#re-stake-rewarded-tokens)+ [Request to Unstake Tokens at the end of the Epoch](#request-to-unstake-tokens-at-the-end-of-the-epoch)+ [Unstake All Tokens](#unstake-all-tokens)+ [Withdraw Unstaked Tokens](#withdraw-unstaked-tokens)+ [Withdraw Rewarded Tokens](#withdraw-rewarded-tokens)* [Staking Collection Modification](#staking-collection-modification)
+                + [Close a Node or Delegator](#close-a-node-or-delegator)+ [Transfer a Node](#transfer-a-node)+ [Transfer a Delegator](#transfer-a-delegator)+ [Update A Node's Networking Address](#update-a-nodes-networking-address)+ [Get All Node Info](#get-all-node-info)+ [Get All Delegator Info](#get-all-delegator-info)+ [Get All Node Ids](#get-all-node-ids)+ [Get All Delegator Ids](#get-all-delegator-ids)+ [Get Locked Tokens Used](#get-locked-tokens-used)+ [Get Unlocked Tokens Used](#get-unlocked-tokens-used)+ [Get Does Node Exist](#get-does-node-exist)+ [Get Machine Account Info](#get-machine-account-info)
 
 Documentation
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
 
 Start Building
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
 
 Network
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.

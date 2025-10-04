@@ -12,27 +12,25 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 
 Search
 
-* [Blockchain Development Tutorials](/blockchain-development-tutorials)
-* [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)
-* [Forte Network Upgrade](/blockchain-development-tutorials/forte)
-* [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
-* [Cadence Tutorials](/blockchain-development-tutorials/cadence)
-* [Flow EVM Guides](/blockchain-development-tutorials/evm)
-* [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
+* [Blockchain Development Tutorials](/blockchain-development-tutorials)* [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)* [Forte Network Upgrade](/blockchain-development-tutorials/forte)
 
-  + [Batched Tx From Scaffold](/blockchain-development-tutorials/cross-vm-apps/introduction)
-  + [Update Existing wagmi App](/blockchain-development-tutorials/cross-vm-apps/add-to-wagmi)
-  + [Batched EVM Transactions](/blockchain-development-tutorials/cross-vm-apps/batched-evm-transactions)
-  + [Direct Calls to Flow EVM](/blockchain-development-tutorials/cross-vm-apps/direct-calls)
-  + [Interacting with COAs](/blockchain-development-tutorials/cross-vm-apps/interacting-with-coa)
-  + [Cross-VM Bridge](/blockchain-development-tutorials/cross-vm-apps/vm-bridge)
-* [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
-* [Token Development and Registration](/blockchain-development-tutorials/tokens)
-* [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
-* [Third-Party Integrations](/blockchain-development-tutorials/integrations)
+      * [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
 
-* [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
-* Batched EVM Transactions
+        * [Cadence Tutorials](/blockchain-development-tutorials/cadence)
+
+          * [Flow EVM Guides](/blockchain-development-tutorials/evm)
+
+            * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
+
+              + [Batched Tx From Scaffold](/blockchain-development-tutorials/cross-vm-apps/introduction)+ [Update Existing wagmi App](/blockchain-development-tutorials/cross-vm-apps/add-to-wagmi)+ [Batched EVM Transactions](/blockchain-development-tutorials/cross-vm-apps/batched-evm-transactions)+ [Direct Calls to Flow EVM](/blockchain-development-tutorials/cross-vm-apps/direct-calls)+ [Interacting with COAs](/blockchain-development-tutorials/cross-vm-apps/interacting-with-coa)+ [Cross-VM Bridge](/blockchain-development-tutorials/cross-vm-apps/vm-bridge)* [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
+
+                * [Token Development and Registration](/blockchain-development-tutorials/tokens)
+
+                  * [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
+
+                    * [Third-Party Integrations](/blockchain-development-tutorials/integrations)
+
+* * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)* Batched EVM Transactions
 
 On this page
 
@@ -1387,73 +1385,29 @@ Direct Calls to Flow EVM](/blockchain-development-tutorials/cross-vm-apps/direct
 
 Copy as Markdown
 
-* [Objectives](#objectives)
-* [Prerequisites](#prerequisites)
-* [Overview](#overview)
-* [Components](#components)
-  + [Wrap FLOW as WFLOW](#wrap-flow-as-wflow)
-  + [Approve ERC721 Transfer](#approve-erc721-transfer)
-  + [Mint ERC721 Token](#mint-erc721-token)
-* [Interacting with the Contracts](#interacting-with-the-contracts)
-  + [Using MetaMask](#using-metamask)
-  + [Using Flow Wallet](#using-flow-wallet)
-* [Breaking it Down](#breaking-it-down)
-  + [COA Configuration](#coa-configuration)
-  + [Funding the COA](#funding-the-coa)
-  + [Setting our EVM Contract Targets](#setting-our-evm-contract-targets)
-  + [Wrapping FLOW as WFLOW](#wrapping-flow-as-wflow)
-  + [Approving the ERC721 Contract](#approving-the-erc721-contract)
-  + [Minting the ERC721 Token](#minting-the-erc721-token)
-  + [Recap](#recap-1)
-* [Conclusion](#conclusion)
-* [Further Reading](#further-reading)
+* [Objectives](#objectives)* [Prerequisites](#prerequisites)* [Overview](#overview)* [Components](#components)
+        + [Wrap FLOW as WFLOW](#wrap-flow-as-wflow)+ [Approve ERC721 Transfer](#approve-erc721-transfer)+ [Mint ERC721 Token](#mint-erc721-token)* [Interacting with the Contracts](#interacting-with-the-contracts)
+          + [Using MetaMask](#using-metamask)+ [Using Flow Wallet](#using-flow-wallet)* [Breaking it Down](#breaking-it-down)
+            + [COA Configuration](#coa-configuration)+ [Funding the COA](#funding-the-coa)+ [Setting our EVM Contract Targets](#setting-our-evm-contract-targets)+ [Wrapping FLOW as WFLOW](#wrapping-flow-as-wflow)+ [Approving the ERC721 Contract](#approving-the-erc721-contract)+ [Minting the ERC721 Token](#minting-the-erc721-token)+ [Recap](#recap-1)* [Conclusion](#conclusion)* [Further Reading](#further-reading)
 
 Documentation
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
 
 Start Building
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
 
 Network
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.

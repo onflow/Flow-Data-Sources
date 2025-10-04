@@ -13,32 +13,18 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 Search
 
 * [Flow Networks](/protocol/flow-networks)
-* [Networks](/protocol)
-* [Flow Network Architecture](/protocol/network-architecture)
-* [Staking and Epochs](/protocol/staking)
 
-  + [Epoch and Staking Terminology](/protocol/staking/epoch-terminology)
-  + [Epoch and Reward Schedule](/protocol/staking/schedule)
-  + [Epoch Preparation Protocol](/protocol/staking/epoch-preparation)
-  + [Stake Slashing](/protocol/staking/stake-slashing)
-  + [Epoch Scripts and Events](/protocol/staking/epoch-scripts-events)
-  + [Staking Technical Overview](/protocol/staking/technical-overview)
-  + [Staking Scripts and Events](/protocol/staking/staking-scripts-events)
-  + [How to Query Staking rewards](/protocol/staking/staking-rewards)
-  + [QC and DKG](/protocol/staking/qc-dkg)
-  + [QC/DKG Scripts and Events](/protocol/staking/qc-dkg-scripts-events)
-  + [Machine Account](/protocol/staking/machine-account)
-  + [FAQs](/protocol/staking/faq)
-  + [Technical Staking Options](/protocol/staking/staking-options)
-  + [Staking Collection Guide](/protocol/staking/staking-collection)
-  + [Basic Staking Guide (Deprecated)](/protocol/staking/staking-guide)
-* [Node Ops](/protocol/node-ops)
-* [Accessing Data](/protocol/access-onchain-data)
-* [Governance](/protocol/governance)
-* [Flow Port](/protocol/flow-port)
+  * [Networks](/protocol)* [Flow Network Architecture](/protocol/network-architecture)
 
-* [Staking and Epochs](/protocol/staking)
-* Staking Scripts and Events
+      * [Staking and Epochs](/protocol/staking)
+
+        + [Epoch and Staking Terminology](/protocol/staking/epoch-terminology)+ [Epoch and Reward Schedule](/protocol/staking/schedule)+ [Epoch Preparation Protocol](/protocol/staking/epoch-preparation)+ [Stake Slashing](/protocol/staking/stake-slashing)+ [Epoch Scripts and Events](/protocol/staking/epoch-scripts-events)+ [Staking Technical Overview](/protocol/staking/technical-overview)+ [Staking Scripts and Events](/protocol/staking/staking-scripts-events)+ [How to Query Staking rewards](/protocol/staking/staking-rewards)+ [QC and DKG](/protocol/staking/qc-dkg)+ [QC/DKG Scripts and Events](/protocol/staking/qc-dkg-scripts-events)+ [Machine Account](/protocol/staking/machine-account)+ [FAQs](/protocol/staking/faq)+ [Technical Staking Options](/protocol/staking/staking-options)+ [Staking Collection Guide](/protocol/staking/staking-collection)+ [Basic Staking Guide (Deprecated)](/protocol/staking/staking-guide)* [Node Ops](/protocol/node-ops)
+
+          * [Accessing Data](/protocol/access-onchain-data)
+
+            * [Governance](/protocol/governance)* [Flow Port](/protocol/flow-port)
+
+* * [Staking and Epochs](/protocol/staking)* Staking Scripts and Events
 
 On this page
 
@@ -92,16 +78,16 @@ smart contract.](https://github.com/onflow/flow-core-contracts/blob/master/contr
 You can use the **Get Node Info**([SC.08](/build/cadence/core-contracts/staking-contract-reference#getting-staking-info-with-scripts)) script
 with the following arguments:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **nodeID** | `String` | The node ID of the node to search for. |
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  | | --- | --- | --- | | **nodeID** `String` The node ID of the node to search for. | | | | | |
 
 You can also query the info from an address that uses the staking collection by using the **Get Node Info From Address**([SCO.15](/build/cadence/core-contracts/staking-collection#scripts)) script
 with the following arguments:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **address** | `Address` | The address of the account that manages the nodes. |
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  | | --- | --- | --- | | **address** `Address` The address of the account that manages the nodes. | | | | | |
 
 ## Get the total committed balance of a node (with delegators):[​](#get-the-total-committed-balance-of-a-node-with-delegators "Direct link to Get the total committed balance of a node (with delegators):")
 
@@ -111,9 +97,9 @@ which is their total tokens staked + committed, plus all of the staked + committ
 You can use the **Get Node Total Commitment**([SC.09](/build/cadence/core-contracts/staking-contract-reference#getting-staking-info-with-scripts)) script
 with the following argument:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **nodeID** | `String` | The node ID of the node to search for. |
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  | | --- | --- | --- | | **nodeID** `String` The node ID of the node to search for. | | | | | |
 
 ## Get the total committed balance of a node (without delegators):[​](#get-the-total-committed-balance-of-a-node-without-delegators "Direct link to Get the total committed balance of a node (without delegators):")
 
@@ -123,9 +109,9 @@ which is their total tokens staked + committed, plus all of the staked + committ
 You can use the **Get Only Node Total Commitment**([SC.11](/build/cadence/core-contracts/staking-contract-reference#getting-staking-info-with-scripts)) script
 with the following argument:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **nodeID** | `String` | The node ID of the node to search for. |
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  | | --- | --- | --- | | **nodeID** `String` The node ID of the node to search for. | | | | | |
 
 ## Get all the info associated with a single delegator:[​](#get-all-the-info-associated-with-a-single-delegator "Direct link to Get all the info associated with a single delegator:")
 
@@ -136,17 +122,16 @@ smart contract.](https://github.com/onflow/flow-core-contracts/blob/master/contr
 You can use the **Get Delegator Info**([SC.10](/build/cadence/core-contracts/staking-contract-reference#getting-staking-info-with-scripts))
 script with the following arguments:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **nodeID** | `String` | The node ID that the delegator delegates to. |
-| **delegatorID** | `String` | The ID of the delegator to search for. |
+|  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | **nodeID** `String` The node ID that the delegator delegates to.|  |  |  | | --- | --- | --- | | **delegatorID** `String` The ID of the delegator to search for. | | | | | | | | |
 
 You can also query the info from an address by using the **Get Delegator Info From Address**([SCO.16](/build/cadence/core-contracts/staking-collection#scripts)) script
 with the following arguments:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **address** | `Address` | The address of the account that manages the delegator. |
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  | | --- | --- | --- | | **address** `Address` The address of the account that manages the delegator. | | | | | |
 
 ## Get the delegation cut percentage:[​](#get-the-delegation-cut-percentage "Direct link to Get the delegation cut percentage:")
 
@@ -184,9 +169,9 @@ This script requires no arguments.
 You can use the **Get total FLOW staked by node type**([SC.07](/build/cadence/core-contracts/staking-contract-reference#getting-staking-info-with-scripts)) script
 with the following arguments:
 
-| Argument | Type | Description |
-| --- | --- | --- |
-| **nodeType** | `UInt8` | The type of node to search for. |
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Argument Type Description|  |  |  | | --- | --- | --- | | **nodeType** `UInt8` The type of node to search for. | | | | | |
 
 # Staking Events
 
@@ -201,11 +186,9 @@ state of the staking process.
 
 access(all) event NewEpoch(totalStaked: UFix64, totalRewardPayout: UFix64, newEpochCounter: UInt64)`
 
-| Field | Type | Description |
-| --- | --- | --- |
-| totalStaked | UFix64 | The total number of tokens staked for the new Epoch |
-| totalRewardPayout | UFix64 | The total number of tokens that will be paid as rewards for this epoch |
-| newEpochCounter | UInt64 | The epoch counter for this new epoch |
+|  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Field Type Description|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | totalStaked UFix64 The total number of tokens staked for the new Epoch|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | totalRewardPayout UFix64 The total number of tokens that will be paid as rewards for this epoch|  |  |  | | --- | --- | --- | | newEpochCounter UInt64 The epoch counter for this new epoch | | | | | | | | | | | |
 
 Emitted by `FlowIDTableStaking.Admin.moveTokens()` when the tokens are moved between pools, which signals a new epoch.
 
@@ -215,9 +198,9 @@ Emitted by `FlowIDTableStaking.Admin.moveTokens()` when the tokens are moved bet
 
 access(all) event NewWeeklyPayout(newPayout: UFix64)`
 
-| Field | Type | Description |
-| --- | --- | --- |
-| newPayout | UFix64 | The new number of tokens that will be paid at the end of the epoch |
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Field Type Description|  |  |  | | --- | --- | --- | | newPayout UFix64 The new number of tokens that will be paid at the end of the epoch | | | | | |
 
 Emitted by `FlowIDTableStaking.Admin.setEpochTokenPayout()` when the Admin changes the total tokens paid at the end of the epoch.
 
@@ -233,11 +216,9 @@ These are events that concern the operation of a node.
 
 access(all) event NewNodeCreated(nodeID: String, role: UInt8, amountCommitted: UFix64)`
 
-| Field | Type | Description |
-| --- | --- | --- |
-| nodeID | String | The unique ID string for the node. 32 bytes. Usually the hash of the node's public key. |
-| role | UInt8 | The node's role type. From 1 to 5 inclusive. |
-| amountCommitted | UFix64 | The amount of FLOW tokens staked to register the node. This is determined by the `role`. |
+|  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Field Type Description|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | nodeID String The unique ID string for the node. 32 bytes. Usually the hash of the node's public key.|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | role UInt8 The node's role type. From 1 to 5 inclusive.|  |  |  | | --- | --- | --- | | amountCommitted UFix64 The amount of FLOW tokens staked to register the node. This is determined by the `role`. | | | | | | | | | | | |
 
 Emitted by `FlowIDTableStaking.NodeRecord.init()` when a new node is successfully created.
 
@@ -249,10 +230,9 @@ After this event is emitted for your node, you can begin to perform staking tran
 
 access(all) event NodeRemovedAndRefunded(nodeID: String, amount: UFix64)`
 
-| Field | Type | Description |
-| --- | --- | --- |
-| nodeID | String | The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node. |
-| amount | UFix64 | The amount of FLOW tokens returned to the node. |
+|  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Field Type Description|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | nodeID String The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node.| amount UFix64 The amount of FLOW tokens returned to the node. | | | | | | | | |
 
 Emitted by `FlowIDTableStaking.Admin.endStakingAuction()` if the node is being removed from the next epoch
 due to a failure to meet the minimum requirements of committed tokens for the next epoch.
@@ -271,10 +251,9 @@ Events emitted when using delegation are described in the next section.
 
 access(all) event TokensCommitted(nodeID: String, amount: UFix64)`
 
-| Field | Type | Description |
-| --- | --- | --- |
-| nodeID | String | The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node. |
-| amount | UFix64 | The amount of additional FLOW tokens committed to the node. |
+|  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Field Type Description|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | nodeID String The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node.| amount UFix64 The amount of additional FLOW tokens committed to the node. | | | | | | | | |
 
 Emitted whenever additional tokens are staked on the node for the following epoch. Specifically:
 
@@ -293,10 +272,9 @@ After this event, the FLOW tokens will be part of the node's `tokensCommitted` b
 
 access(all) event TokensStaked(nodeID: String, amount: UFix64)`
 
-| Field | Type | Description |
-| --- | --- | --- |
-| nodeID | String | The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node. |
-| amount | UFix64 | The amount of FLOW tokens staked to the node. |
+|  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Field Type Description|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | nodeID String The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node.| amount UFix64 The amount of FLOW tokens staked to the node. | | | | | | | | |
 
 Emitted by `FlowIDTableStaking.Admin.moveTokens()` at the end of an epoch if committed tokens are being added to the node's tokensStaked balance.
 
@@ -308,10 +286,9 @@ After this event, the tokens will be part of the node's staked balance.
 
 access(all) event TokensUnstaking(nodeID: String, amount: UFix64)`
 
-| Field | Type | Description |
-| --- | --- | --- |
-| nodeID | String | The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node. |
-| amount | UFix64 | The amount of FLOW tokens unstaked from the node. |
+|  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Field Type Description|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | nodeID String The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node.| amount UFix64 The amount of FLOW tokens unstaked from the node. | | | | | | | | |
 
 Emitted by `FlowIDTableStaking.Admin.moveTokens()` at the end of an epoch if
 a node operator's staked tokens are being unstaked in response to a request from the node operator.
@@ -323,10 +300,9 @@ After this event, the tokens will be a part of the node operator's `tokensUnstak
 
 access(all) event TokensUnstaked(nodeID: String, amount: UFix64)`
 
-| Field | Type | Description |
-| --- | --- | --- |
-| nodeID | String | The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node. |
-| amount | UFix64 | The amount of FLOW tokens unstaked from the node. |
+|  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Field Type Description|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | nodeID String The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node.| amount UFix64 The amount of FLOW tokens unstaked from the node. | | | | | | | | |
 
 Emitted by `FlowIDTableStaking.NodeStaker.requestUnstaking()` and `FlowIDTableStaking.Admin.moveTokens()`
 when tokens are deposited into the `tokensUnstaked` pool:
@@ -337,10 +313,9 @@ when tokens are deposited into the `tokensUnstaked` pool:
 
 access(all) event RewardsPaid(nodeID: String, amount: UFix64)`
 
-| Field | Type | Description |
-| --- | --- | --- |
-| nodeID | String | The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node. |
-| amount | UFix64 | The amount of FLOW tokens paid to the node this epoch as a reward. |
+|  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Field Type Description|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | nodeID String The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node.| amount UFix64 The amount of FLOW tokens paid to the node this epoch as a reward. | | | | | | | | |
 
 Emitted by `FlowIDTableStaking.Admin.payRewards()` at the end of the epoch to pay rewards to node operators based on the tokens that they have staked.
 
@@ -354,10 +329,9 @@ The Delegator rewards are paid at the same time, see `DelegatorRewardsPaid` belo
 
 access(all) event UnstakedTokensWithdrawn(nodeID: String, amount: UFix64)`
 
-| Field | Type | Description |
-| --- | --- | --- |
-| nodeID | String | The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node. |
-| amount | UFix64 | The amount of unstaked FLOW tokens that the node operator is withdrawing. |
+|  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Field Type Description|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | nodeID String The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node.| amount UFix64 The amount of unstaked FLOW tokens that the node operator is withdrawing. | | | | | | | | |
 
 Emitted by `FlowIDTableStaking.NodeStaker.withdrawUnstakedTokens()` when the node operator calls that function to withdraw part or all of their
 unstaked tokens balance.
@@ -370,10 +344,9 @@ After this event, the FLOW tokens will be withdrawn to a newly created `Fungible
 
 access(all) event RewardTokensWithdrawn(nodeID: String, amount: UFix64)`
 
-| Field | Type | Description |
-| --- | --- | --- |
-| nodeID | String | The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node. |
-| amount | UFix64 | The amount of rewarded FLOW tokens that the node operator is withdrawing. |
+|  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Field Type Description|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | nodeID String The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node.| amount UFix64 The amount of rewarded FLOW tokens that the node operator is withdrawing. | | | | | | | | |
 
 Emitted by `FlowIDTableStaking.NodeStaker.withdrawRewardedTokens()` when the node operator calls that function to withdraw part or all of their
 reward tokens balance.
@@ -390,10 +363,9 @@ These are events that concern FLOW token delegation.
 
 access(all) event NewDelegatorCreated(nodeID: String, delegatorID: UInt32)`
 
-| Field | Type | Description |
-| --- | --- | --- |
-| nodeID | String | The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node. |
-| delegatorID | UFix64 | The ID for the new delegator. Unique within the node but not globally. |
+|  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Field Type Description|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | nodeID String The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node.| delegatorID UFix64 The ID for the new delegator. Unique within the node but not globally. | | | | | | | | |
 
 Emitted by `FlowIDTableStaking.Admin.registerNewDelegator()` when the node operator registers a new delegator for the node.
 
@@ -407,11 +379,9 @@ After this event, the new delegator is registered with the node.
 
 access(all) event DelegatorTokensCommitted(nodeID: String, delegatorID: UInt32, amount: UFix64)`
 
-| Field | Type | Description |
-| --- | --- | --- |
-| nodeID | String | The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node. |
-| delegatorID | UInt32 | The ID for the delegator. |
-| amount | UFix64 | The amount of additional FLOW tokens committed to the node. |
+|  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Field Type Description|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | nodeID String The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node.| delegatorID UInt32 The ID for the delegator.|  |  |  | | --- | --- | --- | | amount UFix64 The amount of additional FLOW tokens committed to the node. | | | | | | | | | | | |
 
 Emitted whenever additional tokens are committed for a delegator for the following epoch. Specifically:
 
@@ -430,11 +400,9 @@ After this event, the FLOW tokens will be part of the delegator's `tokensCommitt
 
 access(all) event DelegatorTokensStaked(nodeID: String, delegatorID: UInt32, amount: UFix64)`
 
-| Field | Type | Description |
-| --- | --- | --- |
-| nodeID | String | The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node. |
-| delegatorID | UInt32 | The ID for the delegator. |
-| amount | UFix64 | The amount of FLOW tokens staked to the node. |
+|  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Field Type Description|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | nodeID String The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node.| delegatorID UInt32 The ID for the delegator.|  |  |  | | --- | --- | --- | | amount UFix64 The amount of FLOW tokens staked to the node. | | | | | | | | | | | |
 
 Emitted by `FlowIDTableStaking.Admin.moveTokens()` at the end of an epoch if committed tokens are being added to the delegator's tokensStaked balance.
 
@@ -446,11 +414,9 @@ After this event, the tokens will be part of the delegator's staked balance.
 
 access(all) event DelegatorTokensUnstaking(nodeID: String, delegatorID: UInt32, amount: UFix64)`
 
-| Field | Type | Description |
-| --- | --- | --- |
-| nodeID | String | The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node. |
-| delegatorID | UInt32 | The ID for the delegator. |
-| amount | UFix64 | The amount of FLOW tokens unstaked from the node. |
+|  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Field Type Description|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | nodeID String The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node.| delegatorID UInt32 The ID for the delegator.|  |  |  | | --- | --- | --- | | amount UFix64 The amount of FLOW tokens unstaked from the node. | | | | | | | | | | | |
 
 Emitted by `FlowIDTableStaking.Admin.moveTokens()` at the end of an epoch if
 a delegator's staked tokens are being unstaked in response to a request from the delegator.
@@ -462,11 +428,9 @@ After this event, the tokens will be a part of the delegator's `tokensUnstaking`
 
 access(all) event DelegatorTokensUnstaked(nodeID: String, delegatorID: UInt32, amount: UFix64)`
 
-| Field | Type | Description |
-| --- | --- | --- |
-| nodeID | String | The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node. |
-| delegatorID | UInt32 | The ID for the delegator. |
-| amount | UFix64 | The amount of FLOW tokens unstaked from the node. |
+|  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Field Type Description|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | nodeID String The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node.| delegatorID UInt32 The ID for the delegator.|  |  |  | | --- | --- | --- | | amount UFix64 The amount of FLOW tokens unstaked from the node. | | | | | | | | | | | |
 
 Emitted by `FlowIDTableStaking.NodeDelegator.requestUnstaking()` and `FlowIDTableStaking.Admin.moveTokens()`
 when tokens are deposited into the delegator's `tokensUnstaked` pool:
@@ -477,11 +441,9 @@ when tokens are deposited into the delegator's `tokensUnstaked` pool:
 
 access(all) event DelegatorRewardsPaid(nodeID: String, delegatorID: UInt32, amount: UFix64)`
 
-| Field | Type | Description |
-| --- | --- | --- |
-| nodeID | String | The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node. |
-| delegatorID | UFix64 | The ID for the delegator. Unique within the node but not globally. |
-| amount | UFix64 | The amount of rewarded FLOW tokens that the delegator is paid. |
+|  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Field Type Description|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | nodeID String The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node.| delegatorID UFix64 The ID for the delegator. Unique within the node but not globally.|  |  |  | | --- | --- | --- | | amount UFix64 The amount of rewarded FLOW tokens that the delegator is paid. | | | | | | | | | | | |
 
 Emitted by `FlowIDTableStaking.Admin.payRewards()` at the end of an epoch when rewards are being paid.
 
@@ -495,11 +457,9 @@ The Node rewards are paid at the same time, see `RewardsPaid` above.
 
 access(all) event DelegatorUnstakedTokensWithdrawn(nodeID: String, delegatorID: UInt32, amount: UFix64)`
 
-| Field | Type | Description |
-| --- | --- | --- |
-| nodeID | String | The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node. |
-| delegatorID | UFix64 | The ID for the delegator. Unique within the node but not globally. |
-| amount | UFix64 | The amount of unstaked FLOW tokens that the delegator is withdrawing. |
+|  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Field Type Description|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | nodeID String The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node.| delegatorID UFix64 The ID for the delegator. Unique within the node but not globally.|  |  |  | | --- | --- | --- | | amount UFix64 The amount of unstaked FLOW tokens that the delegator is withdrawing. | | | | | | | | | | | |
 
 Emitted by `FlowIDTableStaking.NodeDelegator.withdrawUnstakedTokens()` when the delegator calls that function to withdraw part or all of their
 unstaked tokens balance.
@@ -512,11 +472,9 @@ After this event, the FLOW tokens will be withdrawn to a newly created `Fungible
 
 access(all) event DelegatorRewardTokensWithdrawn(nodeID: String, delegatorID: UInt32, amount: UFix64)`
 
-| Field | Type | Description |
-| --- | --- | --- |
-| nodeID | String | The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node. |
-| delegatorID | UFix64 | The ID for the delegator. Unique within the node but not globally. |
-| amount | UFix64 | The amount of rewarded FLOW tokens that the delegator is withdrawing. |
+|  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Field Type Description|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | nodeID String The unique ID string for the node. 32 bytes. The same value emitted in the `NewNodeCreated` event for the node.| delegatorID UFix64 The ID for the delegator. Unique within the node but not globally.|  |  |  | | --- | --- | --- | | amount UFix64 The amount of rewarded FLOW tokens that the delegator is withdrawing. | | | | | | | | | | | |
 
 Emitted by `FlowIDTableStaking.NodeDelegator.withdrawRewardedTokens()` when the delegator calls that function to withdraw part or all of their
 unstaked tokens balance.
@@ -539,88 +497,30 @@ How to Query Staking rewards](/protocol/staking/staking-rewards)
 
 Copy as Markdown
 
-* [Get the list of proposed nodes for the next epoch:](#get-the-list-of-proposed-nodes-for-the-next-epoch)
-* [Get the list of all nodes that are currently staked:](#get-the-list-of-all-nodes-that-are-currently-staked)
-* [Get the list of all Candidate Nodes](#get-the-list-of-all-candidate-nodes)
-* [Get all of the info associated with a single node staker:](#get-all-of-the-info-associated-with-a-single-node-staker)
-* [Get the total committed balance of a node (with delegators):](#get-the-total-committed-balance-of-a-node-with-delegators)
-* [Get the total committed balance of a node (without delegators):](#get-the-total-committed-balance-of-a-node-without-delegators)
-* [Get all the info associated with a single delegator:](#get-all-the-info-associated-with-a-single-delegator)
-* [Get the delegation cut percentage:](#get-the-delegation-cut-percentage)
-* [Get the minimum stake requirements:](#get-the-minimum-stake-requirements)
-* [Get the total weekly reward payout:](#get-the-total-weekly-reward-payout)
-* [Get the total FLOW staked:](#get-the-total-flow-staked)
-* [Get the total FLOW staked by all the nodes of a single node role:](#get-the-total-flow-staked-by-all-the-nodes-of-a-single-node-role)
-* [Global Staking and Epoch Events](#global-staking-and-epoch-events)
-  + [NewEpoch](#newepoch)
-  + [NewWeeklyPayout](#newweeklypayout)
-* [Node Events](#node-events)
-  + [NewNodeCreated](#newnodecreated)
-  + [NodeRemovedAndRefunded](#noderemovedandrefunded)
-* [Token Events](#token-events)
-  + [TokensCommitted](#tokenscommitted)
-  + [TokensStaked](#tokensstaked)
-  + [TokensUnstaking](#tokensunstaking)
-  + [TokensUnstaked](#tokensunstaked)
-  + [RewardsPaid](#rewardspaid)
-  + [UnstakedTokensWithdrawn](#unstakedtokenswithdrawn)
-  + [RewardTokensWithdrawn](#rewardtokenswithdrawn)
-* [Delegator Events](#delegator-events)
-  + [NewDelegatorCreated](#newdelegatorcreated)
-  + [DelegatorTokensCommitted](#delegatortokenscommitted)
-  + [DelegatorTokensStaked](#delegatortokensstaked)
-  + [DelegatorTokensUnstaking](#delegatortokensunstaking)
-  + [DelegatorTokensUnstaked](#delegatortokensunstaked)
-  + [DelegatorRewardsPaid](#delegatorrewardspaid)
-  + [DelegatorUnstakedTokensWithdrawn](#delegatorunstakedtokenswithdrawn)
-  + [DelegatorRewardTokensWithdrawn](#delegatorrewardtokenswithdrawn)
+* [Get the list of proposed nodes for the next epoch:](#get-the-list-of-proposed-nodes-for-the-next-epoch)* [Get the list of all nodes that are currently staked:](#get-the-list-of-all-nodes-that-are-currently-staked)* [Get the list of all Candidate Nodes](#get-the-list-of-all-candidate-nodes)* [Get all of the info associated with a single node staker:](#get-all-of-the-info-associated-with-a-single-node-staker)* [Get the total committed balance of a node (with delegators):](#get-the-total-committed-balance-of-a-node-with-delegators)* [Get the total committed balance of a node (without delegators):](#get-the-total-committed-balance-of-a-node-without-delegators)* [Get all the info associated with a single delegator:](#get-all-the-info-associated-with-a-single-delegator)* [Get the delegation cut percentage:](#get-the-delegation-cut-percentage)* [Get the minimum stake requirements:](#get-the-minimum-stake-requirements)* [Get the total weekly reward payout:](#get-the-total-weekly-reward-payout)* [Get the total FLOW staked:](#get-the-total-flow-staked)* [Get the total FLOW staked by all the nodes of a single node role:](#get-the-total-flow-staked-by-all-the-nodes-of-a-single-node-role)* [Global Staking and Epoch Events](#global-staking-and-epoch-events)
+                          + [NewEpoch](#newepoch)+ [NewWeeklyPayout](#newweeklypayout)* [Node Events](#node-events)
+                            + [NewNodeCreated](#newnodecreated)+ [NodeRemovedAndRefunded](#noderemovedandrefunded)* [Token Events](#token-events)
+                              + [TokensCommitted](#tokenscommitted)+ [TokensStaked](#tokensstaked)+ [TokensUnstaking](#tokensunstaking)+ [TokensUnstaked](#tokensunstaked)+ [RewardsPaid](#rewardspaid)+ [UnstakedTokensWithdrawn](#unstakedtokenswithdrawn)+ [RewardTokensWithdrawn](#rewardtokenswithdrawn)* [Delegator Events](#delegator-events)
+                                + [NewDelegatorCreated](#newdelegatorcreated)+ [DelegatorTokensCommitted](#delegatortokenscommitted)+ [DelegatorTokensStaked](#delegatortokensstaked)+ [DelegatorTokensUnstaking](#delegatortokensunstaking)+ [DelegatorTokensUnstaked](#delegatortokensunstaked)+ [DelegatorRewardsPaid](#delegatorrewardspaid)+ [DelegatorUnstakedTokensWithdrawn](#delegatorunstakedtokenswithdrawn)+ [DelegatorRewardTokensWithdrawn](#delegatorrewardtokenswithdrawn)
 
 Documentation
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
 
 Start Building
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
 
 Network
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.

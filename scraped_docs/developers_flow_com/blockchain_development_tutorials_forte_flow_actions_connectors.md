@@ -12,29 +12,27 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 
 Search
 
-* [Blockchain Development Tutorials](/blockchain-development-tutorials)
-* [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)
-* [Forte Network Upgrade](/blockchain-development-tutorials/forte)
+* [Blockchain Development Tutorials](/blockchain-development-tutorials)* [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)* [Forte Network Upgrade](/blockchain-development-tutorials/forte)
 
-  + [Flow Actions](/blockchain-development-tutorials/forte/flow-actions)
+      + [Flow Actions](/blockchain-development-tutorials/forte/flow-actions)
 
-    - [Introduction to Flow Actions](/blockchain-development-tutorials/forte/flow-actions/intro-to-flow-actions)
-    - [Flow Actions Transaction](/blockchain-development-tutorials/forte/flow-actions/flow-actions-transaction)
-    - [Connectors](/blockchain-development-tutorials/forte/flow-actions/connectors)
-    - [Basic Combinations](/blockchain-development-tutorials/forte/flow-actions/basic-combinations)
-  + [Scheduled Transactions](/blockchain-development-tutorials/forte/scheduled-transactions)
-* [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
-* [Cadence Tutorials](/blockchain-development-tutorials/cadence)
-* [Flow EVM Guides](/blockchain-development-tutorials/evm)
-* [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
-* [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
-* [Token Development and Registration](/blockchain-development-tutorials/tokens)
-* [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
-* [Third-Party Integrations](/blockchain-development-tutorials/integrations)
+        - [Introduction to Flow Actions](/blockchain-development-tutorials/forte/flow-actions/intro-to-flow-actions)- [Flow Actions Transaction](/blockchain-development-tutorials/forte/flow-actions/flow-actions-transaction)- [Connectors](/blockchain-development-tutorials/forte/flow-actions/connectors)- [Basic Combinations](/blockchain-development-tutorials/forte/flow-actions/basic-combinations)+ [Scheduled Transactions](/blockchain-development-tutorials/forte/scheduled-transactions)* [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
 
-* [Forte Network Upgrade](/blockchain-development-tutorials/forte)
-* [Flow Actions](/blockchain-development-tutorials/forte/flow-actions)
-* Connectors
+        * [Cadence Tutorials](/blockchain-development-tutorials/cadence)
+
+          * [Flow EVM Guides](/blockchain-development-tutorials/evm)
+
+            * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
+
+              * [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
+
+                * [Token Development and Registration](/blockchain-development-tutorials/tokens)
+
+                  * [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
+
+                    * [Third-Party Integrations](/blockchain-development-tutorials/integrations)
+
+* * [Forte Network Upgrade](/blockchain-development-tutorials/forte)* [Flow Actions](/blockchain-development-tutorials/forte/flow-actions)* Connectors
 
 On this page
 
@@ -190,42 +188,33 @@ ProtocolA.RewardsSource → SwapConnectors.SwapSource → ProtocolB.StakingSink`
 
 🔄 SOURCE Primitive Implementations
 
-| Connector | Location | Protocol | Purpose |
-| --- | --- | --- | --- |
-| VaultSource | [FungibleTokenConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/FungibleTokenConnectors.cdc) | Generic FungibleToken | Withdraw from vaults with minimum balance protection |
-| VaultSinkAndSource | [FungibleTokenConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/FungibleTokenConnectors.cdc) | Generic FungibleToken | Combined vault operations (dual interface) |
-| SwapSource | [SwapConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/SwapConnectors.cdc) | Generic (composes with Swappers) | Source tokens then swap before returning |
-| PoolRewardsSource | [IncrementFiStakingConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/increment-fi/IncrementFiStakingConnectors.cdc) | IncrementFi Staking | Claim staking rewards from pools |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Connector Location Protocol Purpose|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | VaultSource [FungibleTokenConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/FungibleTokenConnectors.cdc) Generic FungibleToken Withdraw from vaults with minimum balance protection|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | VaultSinkAndSource [FungibleTokenConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/FungibleTokenConnectors.cdc) Generic FungibleToken Combined vault operations (dual interface)|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | SwapSource [SwapConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/SwapConnectors.cdc) Generic (composes with Swappers) Source tokens then swap before returning|  |  |  |  | | --- | --- | --- | --- | | PoolRewardsSource [IncrementFiStakingConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/increment-fi/IncrementFiStakingConnectors.cdc) IncrementFi Staking Claim staking rewards from pools | | | | | | | | | | | | | | | | | | | |
 
 ⬇️ SINK Primitive Implementations
 
-| Connector | Location | Protocol | Purpose |
-| --- | --- | --- | --- |
-| VaultSink | [FungibleTokenConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/FungibleTokenConnectors.cdc) | Generic FungibleToken | Deposit to vaults with capacity limits |
-| VaultSinkAndSource | [FungibleTokenConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/FungibleTokenConnectors.cdc) | Generic FungibleToken | Combined vault operations (dual interface) |
-| SwapSink | [SwapConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/SwapConnectors.cdc) | Generic (composes with Swappers) | Swap tokens before depositing to inner sink |
-| PoolSink | [IncrementFiStakingConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/increment-fi/IncrementFiStakingConnectors.cdc) | IncrementFi Staking | Stake tokens in staking pools |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Connector Location Protocol Purpose|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | VaultSink [FungibleTokenConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/FungibleTokenConnectors.cdc) Generic FungibleToken Deposit to vaults with capacity limits|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | VaultSinkAndSource [FungibleTokenConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/FungibleTokenConnectors.cdc) Generic FungibleToken Combined vault operations (dual interface)|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | SwapSink [SwapConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/SwapConnectors.cdc) Generic (composes with Swappers) Swap tokens before depositing to inner sink|  |  |  |  | | --- | --- | --- | --- | | PoolSink [IncrementFiStakingConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/increment-fi/IncrementFiStakingConnectors.cdc) IncrementFi Staking Stake tokens in staking pools | | | | | | | | | | | | | | | | | | | |
 
 🔀 SWAPPER Primitive Implementations
 
-| Connector | Location | Protocol | Purpose |
-| --- | --- | --- | --- |
-| MultiSwapper | [SwapConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/SwapConnectors.cdc) | Generic (DEX aggregation) | Aggregate multiple swappers for optimal routing |
-| Swapper | [IncrementFiSwapConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/increment-fi/IncrementFiSwapConnectors.cdc) | IncrementFi DEX | Token swapping through SwapRouter |
-| Zapper | [IncrementFiPoolLiquidityConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/increment-fi/IncrementFiPoolLiquidityConnectors.cdc) | IncrementFi Pools | Single-token liquidity provision |
-| UniswapV2EVMSwapper | [UniswapV2SwapConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/evm/UniswapV2SwapConnectors.cdc) | Flow EVM Bridge | Cross-VM UniswapV2-style swapping |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Connector Location Protocol Purpose|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | MultiSwapper [SwapConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/SwapConnectors.cdc) Generic (DEX aggregation) Aggregate multiple swappers for optimal routing|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Swapper [IncrementFiSwapConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/increment-fi/IncrementFiSwapConnectors.cdc) IncrementFi DEX Token swapping through SwapRouter|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | Zapper [IncrementFiPoolLiquidityConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/increment-fi/IncrementFiPoolLiquidityConnectors.cdc) IncrementFi Pools Single-token liquidity provision|  |  |  |  | | --- | --- | --- | --- | | UniswapV2EVMSwapper [UniswapV2SwapConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/evm/UniswapV2SwapConnectors.cdc) Flow EVM Bridge Cross-VM UniswapV2-style swapping | | | | | | | | | | | | | | | | | | | |
 
 💰 PRICEORACLE Primitive Implementations
 
-| Connector | Location | Protocol | Purpose |
-| --- | --- | --- | --- |
-| PriceOracle | [BandOracleConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/band-oracle/BandOracleConnectors.cdc) | Band Protocol | External price feeds with staleness validation |
+|  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Connector Location Protocol Purpose|  |  |  |  | | --- | --- | --- | --- | | PriceOracle [BandOracleConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/band-oracle/BandOracleConnectors.cdc) Band Protocol External price feeds with staleness validation | | | | | | | |
 
 ⚡ FLASHER Primitive Implementations
 
-| Connector | Location | Protocol | Purpose |
-| --- | --- | --- | --- |
-| Flasher | [IncrementFiFlashloanConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/increment-fi/IncrementFiFlashloanConnectors.cdc) | IncrementFi DEX | Flash loans through SwapPair contracts |
+|  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Connector Location Protocol Purpose|  |  |  |  | | --- | --- | --- | --- | | Flasher [IncrementFiFlashloanConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/increment-fi/IncrementFiFlashloanConnectors.cdc) IncrementFi DEX Flash loans through SwapPair contracts | | | | | | | |
 
 ## Guide to Building Connectors[​](#guide-to-building-connectors "Direct link to Guide to Building Connectors")
 
@@ -233,13 +222,9 @@ ProtocolA.RewardsSource → SwapConnectors.SwapSource → ProtocolB.StakingSink`
 
 First, determine which Flow Actions primitive(s) your connector will implement:
 
-| Primitive | When to Use | Example Use Cases |
-| --- | --- | --- |
-| **Source** | Your protocol provides tokens | Vault withdrawals, reward claiming, unstaking |
-| **Sink** | Your protocol accepts tokens | Vault deposits, staking, loan repayments |
-| **Swapper** | Your protocol exchanges tokens | DEX trades, cross-chain bridges, LP provision |
-| **PriceOracle** | Your protocol provides price data | Oracle feeds, TWAP calculations |
-| **Flasher** | Your protocol offers flash loans | Arbitrage opportunities, liquidations |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Primitive When to Use Example Use Cases|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **Source** Your protocol provides tokens Vault withdrawals, reward claiming, unstaking|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **Sink** Your protocol accepts tokens Vault deposits, staking, loan repayments|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **Swapper** Your protocol exchanges tokens DEX trades, cross-chain bridges, LP provision|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | **PriceOracle** Your protocol provides price data Oracle feeds, TWAP calculations|  |  |  | | --- | --- | --- | | **Flasher** Your protocol offers flash loans Arbitrage opportunities, liquidations | | | | | | | | | | | | | | | | | |
 
 ### Analyze Your Protocol[​](#analyze-your-protocol "Direct link to Analyze Your Protocol")
 
@@ -1153,80 +1138,29 @@ Basic Combinations](/blockchain-development-tutorials/forte/flow-actions/basic-c
 Copy as Markdown
 
 * [How Connectors Work](#how-connectors-work)
-  + [Abstraction Layer](#abstraction-layer)
-  + [Interface Implementation](#interface-implementation)
-  + [Composition Pattern](#composition-pattern)
-* [Connector Library](#connector-library)
-* [Guide to Building Connectors](#guide-to-building-connectors)
-  + [Choose Your Primitive](#choose-your-primitive)
-  + [Analyze Your Protocol](#analyze-your-protocol)
-  + [Design Your Connector](#design-your-connector)
-  + [Implement the Interface](#implement-the-interface)
-  + [Add Safety Features](#add-safety-features)
-  + [Support Flow Actions Standards](#support-flow-actions-standards)
-* [Best Practices](#best-practices)
-  + [**Error Handling**](#error-handling)
-  + [**Capacity and Balance Checking**](#capacity-and-balance-checking)
-  + [**Type Safety**](#type-safety)
-  + [**Event Integration**](#event-integration)
-  + [**Resource Management**](#resource-management)
-  + [**Capability Management**](#capability-management)
-  + [**Documentation**](#documentation)
-* [Integration into Flow Actions](#integration-into-flow-actions)
-  + [Deploy Your Connector Contract](#deploy-your-connector-contract)
-  + [Create Usage Transactions](#create-usage-transactions)
-  + [Real Usage Transaction: VaultSink](#real-usage-transaction-vaultsink)
-  + [Create Combinations Examples](#create-combinations-examples)
-  + [Add to Existing Workflows](#add-to-existing-workflows)
-  + [For Your Own Connectors](#for-your-own-connectors)
-* [Conclusion](#conclusion)
+  + [Abstraction Layer](#abstraction-layer)+ [Interface Implementation](#interface-implementation)+ [Composition Pattern](#composition-pattern)* [Connector Library](#connector-library)* [Guide to Building Connectors](#guide-to-building-connectors)
+      + [Choose Your Primitive](#choose-your-primitive)+ [Analyze Your Protocol](#analyze-your-protocol)+ [Design Your Connector](#design-your-connector)+ [Implement the Interface](#implement-the-interface)+ [Add Safety Features](#add-safety-features)+ [Support Flow Actions Standards](#support-flow-actions-standards)* [Best Practices](#best-practices)
+        + [**Error Handling**](#error-handling)+ [**Capacity and Balance Checking**](#capacity-and-balance-checking)+ [**Type Safety**](#type-safety)+ [**Event Integration**](#event-integration)+ [**Resource Management**](#resource-management)+ [**Capability Management**](#capability-management)+ [**Documentation**](#documentation)* [Integration into Flow Actions](#integration-into-flow-actions)
+          + [Deploy Your Connector Contract](#deploy-your-connector-contract)+ [Create Usage Transactions](#create-usage-transactions)+ [Real Usage Transaction: VaultSink](#real-usage-transaction-vaultsink)+ [Create Combinations Examples](#create-combinations-examples)+ [Add to Existing Workflows](#add-to-existing-workflows)+ [For Your Own Connectors](#for-your-own-connectors)* [Conclusion](#conclusion)
 
 Documentation
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
 
 Start Building
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
 
 Network
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.

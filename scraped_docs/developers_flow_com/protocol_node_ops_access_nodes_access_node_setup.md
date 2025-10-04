@@ -13,25 +13,24 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 Search
 
 * [Flow Networks](/protocol/flow-networks)
-* [Networks](/protocol)
-* [Flow Network Architecture](/protocol/network-architecture)
-* [Staking and Epochs](/protocol/staking)
-* [Node Ops](/protocol/node-ops)
 
-  + [Access Nodes](/protocol/node-ops/access-nodes/access-node-setup)
+  * [Networks](/protocol)* [Flow Network Architecture](/protocol/network-architecture)
 
-    - [Access Node Setup](/protocol/node-ops/access-nodes/access-node-setup)
-    - [Execution Data](/protocol/node-ops/access-nodes/access-node-configuration-options)
-  + [EVM Gateway Setup](/protocol/node-ops/evm-gateway/evm-gateway-setup)
-  + [Light Nodes](/protocol/node-ops/light-nodes/observer-node)
-  + [Participating in the Network](/protocol/node-ops/node-operation/faq)
-* [Accessing Data](/protocol/access-onchain-data)
-* [Governance](/protocol/governance)
-* [Flow Port](/protocol/flow-port)
+      * [Staking and Epochs](/protocol/staking)
 
-* [Node Ops](/protocol/node-ops)
-* Access Nodes
-* Access Node Setup
+        * [Node Ops](/protocol/node-ops)
+
+          + [Access Nodes](/protocol/node-ops/access-nodes/access-node-setup)
+
+            - [Access Node Setup](/protocol/node-ops/access-nodes/access-node-setup)- [Execution Data](/protocol/node-ops/access-nodes/access-node-configuration-options)+ [EVM Gateway Setup](/protocol/node-ops/evm-gateway/evm-gateway-setup)
+
+              + [Light Nodes](/protocol/node-ops/light-nodes/observer-node)
+
+                + [Participating in the Network](/protocol/node-ops/node-operation/faq)* [Accessing Data](/protocol/access-onchain-data)
+
+            * [Governance](/protocol/governance)* [Flow Port](/protocol/flow-port)
+
+* * [Node Ops](/protocol/node-ops)* Access Nodes* Access Node Setup
 
 On this page
 
@@ -75,11 +74,9 @@ You can view the exact epoch phase transition time [here](https://dashboard.flow
 
 To summarize,
 
-| **Epoch** | **Epoch Phase** |  |
-| --- | --- | --- |
-| N | Staking auction starts | Three new access node slots are opened. Anyone can register their access nodes |
-| N | Staking auction ends | Three of the nodes registered during this epoch are randomly selected to be a part of the network in the next epoch. No more nodes can register until the next epoch starts. |
-| N+1 | Epoch N+1 starts | The newly selected nodes can now participate in the network. Three new slots are opened. |
+|  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **Epoch** **Epoch Phase** |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | N Staking auction starts Three new access node slots are opened. Anyone can register their access nodes|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | N Staking auction ends Three of the nodes registered during this epoch are randomly selected to be a part of the network in the next epoch. No more nodes can register until the next epoch starts.|  |  |  | | --- | --- | --- | | N+1 Epoch N+1 starts The newly selected nodes can now participate in the network. Three new slots are opened. | | | | | | | | | | | |
 
 ## How To Run a Permissionless Access Node?[​](#how-to-run-a-permissionless-access-node "Direct link to How To Run a Permissionless Access Node?")
 
@@ -454,8 +451,7 @@ The access node can be run as a Docker container with the following command.
 
 Be sure to set `$VERSION` below to the version tag (e.g. `v1.2.3`) corresponding to the latest **released** version [here](https://github.com/onflow/flow-go/releases) for version releases). Set `$NODEID` to your node's ID (see [Generate Your Node Identity](#generate-your-node-identity) section above).
 
-* Mainnet
-* Testnet
+* Mainnet* Testnet
 
 `_19
 
@@ -695,8 +691,7 @@ Alternatively, you can build a binary for the access node to run it without usin
 To build the access node binary, see the instructions [here](https://github.com/onflow/flow-go?tab=readme-ov-file#building-a-binary-for-the-access-node).
 Please make sure to git checkout the latest release tag before building the binary.
 
-* Mainnet
-* Testnet
+* Mainnet* Testnet
 
 `_18
 
@@ -942,74 +937,30 @@ Execution Data](/protocol/node-ops/access-nodes/access-node-configuration-option
 
 Copy as Markdown
 
-* [Who Should Run a Permissionless Access Node?](#who-should-run-a-permissionless-access-node)
-* [Timing](#timing)
-* [Limitations](#limitations)
-* [How To Run a Permissionless Access Node?](#how-to-run-a-permissionless-access-node)
-* [Step 1 - Generate Node Information](#step-1---generate-node-information)
-  + [Download the Bootstrapping Kit](#download-the-bootstrapping-kit)
-  + [Generate Your Node Identity](#generate-your-node-identity)
-* [Step 2 - Stake the Node](#step-2---stake-the-node)
-* [Step 3 - Verify That Your Node ID Was Selected](#step-3---verify-that-your-node-id-was-selected)
-  + [Check Using Flow Port](#check-using-flow-port)
-  + [Check Using Flow CLI](#check-using-flow-cli)
-  + [Epoch Setup Event](#epoch-setup-event)
-* [Step 4 - Start Your Node](#step-4---start-your-node)
-* [Monitoring and Metrics](#monitoring-and-metrics)
-  + [Node Status](#node-status)
-* [FAQs](#faqs)
-  + [Will the access node receive rewards?](#will-the-access-node-receive-rewards)
-  + [Why is there a 100 FLOW token minimum?](#why-is-there-a-100-flow-token-minimum)
-  + [Can the Access node be unstaked?](#can-the-access-node-be-unstaked)
-  + [How to see all the access nodes that have staked?](#how-to-see-all-the-access-nodes-that-have-staked)
-  + [How to check the availability of open access nodes slots for the next epoch?](#how-to-check-the-availability-of-open-access-nodes-slots-for-the-next-epoch)
+* [Who Should Run a Permissionless Access Node?](#who-should-run-a-permissionless-access-node)* [Timing](#timing)* [Limitations](#limitations)* [How To Run a Permissionless Access Node?](#how-to-run-a-permissionless-access-node)* [Step 1 - Generate Node Information](#step-1---generate-node-information)
+          + [Download the Bootstrapping Kit](#download-the-bootstrapping-kit)+ [Generate Your Node Identity](#generate-your-node-identity)* [Step 2 - Stake the Node](#step-2---stake-the-node)* [Step 3 - Verify That Your Node ID Was Selected](#step-3---verify-that-your-node-id-was-selected)
+              + [Check Using Flow Port](#check-using-flow-port)+ [Check Using Flow CLI](#check-using-flow-cli)+ [Epoch Setup Event](#epoch-setup-event)* [Step 4 - Start Your Node](#step-4---start-your-node)* [Monitoring and Metrics](#monitoring-and-metrics)
+                  + [Node Status](#node-status)* [FAQs](#faqs)
+                    + [Will the access node receive rewards?](#will-the-access-node-receive-rewards)+ [Why is there a 100 FLOW token minimum?](#why-is-there-a-100-flow-token-minimum)+ [Can the Access node be unstaked?](#can-the-access-node-be-unstaked)+ [How to see all the access nodes that have staked?](#how-to-see-all-the-access-nodes-that-have-staked)+ [How to check the availability of open access nodes slots for the next epoch?](#how-to-check-the-availability-of-open-access-nodes-slots-for-the-next-epoch)
 
 Documentation
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
 
 Start Building
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
 
 Network
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.

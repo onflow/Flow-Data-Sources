@@ -12,30 +12,31 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 
 Search
 
-* [Blockchain Development Tutorials](/blockchain-development-tutorials)
-* [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)
-* [Forte Network Upgrade](/blockchain-development-tutorials/forte)
-* [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
+* [Blockchain Development Tutorials](/blockchain-development-tutorials)* [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)* [Forte Network Upgrade](/blockchain-development-tutorials/forte)
 
-  + [Large Language Models (LLMs)](/blockchain-development-tutorials/use-AI-to-build-on-flow/llms)
+      * [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
 
-    - [Use ChatGPT](/blockchain-development-tutorials/use-AI-to-build-on-flow/llms/chatgpt)
-    - [Use Gemini AI](/blockchain-development-tutorials/use-AI-to-build-on-flow/llms/gemini)
-    - [Claude Code Flow Guide](/blockchain-development-tutorials/use-AI-to-build-on-flow/llms/claude-code)
-  + [Use Cursor AI](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor)
-  + [AI Agents](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents)
-  + [Flow MCP](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp)
-* [Cadence Tutorials](/blockchain-development-tutorials/cadence)
-* [Flow EVM Guides](/blockchain-development-tutorials/evm)
-* [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
-* [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
-* [Token Development and Registration](/blockchain-development-tutorials/tokens)
-* [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
-* [Third-Party Integrations](/blockchain-development-tutorials/integrations)
+        + [Large Language Models (LLMs)](/blockchain-development-tutorials/use-AI-to-build-on-flow/llms)
 
-* [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
-* [Large Language Models (LLMs)](/blockchain-development-tutorials/use-AI-to-build-on-flow/llms)
-* Claude Code Flow Guide
+          - [Use ChatGPT](/blockchain-development-tutorials/use-AI-to-build-on-flow/llms/chatgpt)- [Use Gemini AI](/blockchain-development-tutorials/use-AI-to-build-on-flow/llms/gemini)- [Claude Code Flow Guide](/blockchain-development-tutorials/use-AI-to-build-on-flow/llms/claude-code)+ [Use Cursor AI](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor)
+
+            + [AI Agents](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents)
+
+              + [Flow MCP](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp)* [Cadence Tutorials](/blockchain-development-tutorials/cadence)
+
+          * [Flow EVM Guides](/blockchain-development-tutorials/evm)
+
+            * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
+
+              * [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
+
+                * [Token Development and Registration](/blockchain-development-tutorials/tokens)
+
+                  * [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
+
+                    * [Third-Party Integrations](/blockchain-development-tutorials/integrations)
+
+* * [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Large Language Models (LLMs)](/blockchain-development-tutorials/use-AI-to-build-on-flow/llms)* Claude Code Flow Guide
 
 On this page
 
@@ -921,14 +922,9 @@ claude mcp add flow-defi-mcp`
 
 ### Essential Claude Code Shortcuts[​](#essential-claude-code-shortcuts "Direct link to Essential Claude Code Shortcuts")
 
-| Shortcut | Function | Flow Development Usage |
-| --- | --- | --- |
-| `#` | Memory mode | Store project architecture decisions |
-| `Shift+Tab` | Auto-accept edits | Quickly accept generated Cadence code |
-| `!` | Bash mode | Execute Flow CLI commands directly |
-| `@` | Add file/folder | Reference contracts, transactions, configs |
-| `Esc` | Cancel operation | Stop incorrect generation/execution |
-| `Ctrl+R` | Verbose output | Detailed debugging for complex issues |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Shortcut Function Flow Development Usage|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `#` Memory mode Store project architecture decisions|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `Shift+Tab` Auto-accept edits Quickly accept generated Cadence code|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `!` Bash mode Execute Flow CLI commands directly|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `@` Add file/folder Reference contracts, transactions, configs|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | `Esc` Cancel operation Stop incorrect generation/execution|  |  |  | | --- | --- | --- | | `Ctrl+R` Verbose output Detailed debugging for complex issues | | | | | | | | | | | | | | | | | | | | |
 
 ### Flow-Specific Usage Patterns[​](#flow-specific-usage-patterns "Direct link to Flow-Specific Usage Patterns")
 
@@ -1032,86 +1028,33 @@ Use Cursor AI](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor)
 
 Copy as Markdown
 
-* [Introduction](#introduction)
-* [Learning Objectives](#learning-objectives)
-* [Prerequisites](#prerequisites)
-  + [Technical Requirements](#technical-requirements)
-* [Claude Code Setup and Configuration](#claude-code-setup-and-configuration)
-  + [What is Claude Code?](#what-is-claude-code)
-  + [Installation and Subscription](#installation-and-subscription)
-  + [Initial Configuration](#initial-configuration)
-  + [CLAUDE.md Files](#claudemd-files)
-* [Workflow Strategies](#workflow-strategies)
-  + [Stage 1: Idea Development](#stage-1-idea-development)
-  + [Stage 2: Visualization](#stage-2-visualization)
-  + [Stage 3: Planning with Claude Code](#stage-3-planning-with-claude-code)
-  + [Stage 4: Build Execution](#stage-4-build-execution)
-* [Advanced Claude Code Features](#advanced-claude-code-features)
-  + [Subagent Utilization](#subagent-utilization)
-  + [Auto-Verification and Iteration](#auto-verification-and-iteration)
-  + [Memory and Context Management](#memory-and-context-management)
-* [Development Workflows and Best Practices](#development-workflows-and-best-practices)
-  + [Test-Driven Development with Claude Code](#test-driven-development-with-claude-code)
-  + [Screenshot-Driven Development](#screenshot-driven-development)
-  + [Checkpoint-Based Development](#checkpoint-based-development)
-  + [Error Resolution and Debugging](#error-resolution-and-debugging)
-  + [Multi-Network Deployment](#multi-network-deployment)
-  + [MCP Server Sharing](#mcp-server-sharing)
-  + [Version Control for AI Configuration](#version-control-for-ai-configuration)
-* [Key Bindings and Shortcuts](#key-bindings-and-shortcuts)
-  + [Essential Claude Code Shortcuts](#essential-claude-code-shortcuts)
-  + [Flow-Specific Usage Patterns](#flow-specific-usage-patterns)
-* [Troubleshooting and Optimization](#troubleshooting-and-optimization)
-  + [Common Issues and Solutions](#common-issues-and-solutions)
-  + [Best Practices for Flow Development](#best-practices-for-flow-development)
-* [Conclusion](#conclusion)
+* [Introduction](#introduction)* [Learning Objectives](#learning-objectives)* [Prerequisites](#prerequisites)
+      + [Technical Requirements](#technical-requirements)* [Claude Code Setup and Configuration](#claude-code-setup-and-configuration)
+        + [What is Claude Code?](#what-is-claude-code)+ [Installation and Subscription](#installation-and-subscription)+ [Initial Configuration](#initial-configuration)+ [CLAUDE.md Files](#claudemd-files)* [Workflow Strategies](#workflow-strategies)
+          + [Stage 1: Idea Development](#stage-1-idea-development)+ [Stage 2: Visualization](#stage-2-visualization)+ [Stage 3: Planning with Claude Code](#stage-3-planning-with-claude-code)+ [Stage 4: Build Execution](#stage-4-build-execution)* [Advanced Claude Code Features](#advanced-claude-code-features)
+            + [Subagent Utilization](#subagent-utilization)+ [Auto-Verification and Iteration](#auto-verification-and-iteration)+ [Memory and Context Management](#memory-and-context-management)* [Development Workflows and Best Practices](#development-workflows-and-best-practices)
+              + [Test-Driven Development with Claude Code](#test-driven-development-with-claude-code)+ [Screenshot-Driven Development](#screenshot-driven-development)+ [Checkpoint-Based Development](#checkpoint-based-development)+ [Error Resolution and Debugging](#error-resolution-and-debugging)+ [Multi-Network Deployment](#multi-network-deployment)+ [MCP Server Sharing](#mcp-server-sharing)+ [Version Control for AI Configuration](#version-control-for-ai-configuration)* [Key Bindings and Shortcuts](#key-bindings-and-shortcuts)
+                + [Essential Claude Code Shortcuts](#essential-claude-code-shortcuts)+ [Flow-Specific Usage Patterns](#flow-specific-usage-patterns)* [Troubleshooting and Optimization](#troubleshooting-and-optimization)
+                  + [Common Issues and Solutions](#common-issues-and-solutions)+ [Best Practices for Flow Development](#best-practices-for-flow-development)* [Conclusion](#conclusion)
 
 Documentation
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
 
 Start Building
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
 
 Network
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.

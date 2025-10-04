@@ -12,39 +12,21 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 
 Search
 
-* [Why Flow](/build/flow)
-* [Cadence](/build/cadence/quickstart)
+* [Why Flow](/build/flow)* [Cadence](/build/cadence/quickstart)
 
-  + [Quickstart ↙](/build/cadence/quickstart)
-  + [Differences vs. EVM](/build/cadence/differences-vs-evm)
-  + [Basics](/build/cadence/basics/network-architecture)
-  + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
+    + [Quickstart ↙](/build/cadence/quickstart)+ [Differences vs. EVM](/build/cadence/differences-vs-evm)+ [Basics](/build/cadence/basics/network-architecture)
 
-    - [Learn Cadence ↗️](/build/cadence/learn-cadence)
-    - [Smart Contracts on Flow](/build/cadence/smart-contracts/overview)
-    - [Deploying Contracts](/build/cadence/smart-contracts/deploying)
-    - [Testing Smart Contracts](/build/cadence/smart-contracts/testing)
-    - [Best Practices](/build/cadence/smart-contracts/best-practices/security-best-practices)
+          + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-      * [Security Best Practices](/build/cadence/smart-contracts/best-practices/security-best-practices)
-      * [Contract Upgrades with Incompatible Changes](/build/cadence/smart-contracts/best-practices/contract-upgrades)
-      * [Development Standards](/build/cadence/smart-contracts/best-practices/project-development-tips)
-  + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
-  + [Core Smart Contracts](/build/cadence/core-contracts)
-* [Solidity (EVM)](/build/evm/quickstart)
+            - [Learn Cadence ↗️](/build/cadence/learn-cadence)- [Smart Contracts on Flow](/build/cadence/smart-contracts/overview)- [Deploying Contracts](/build/cadence/smart-contracts/deploying)- [Testing Smart Contracts](/build/cadence/smart-contracts/testing)- [Best Practices](/build/cadence/smart-contracts/best-practices/security-best-practices)
 
-  + [EVM Quickstart](/build/evm/quickstart)
-  + [How it Works](/build/evm/how-it-works)
-  + [EVM Wallet Setup](/build/evm/using)
-  + [Network Information](/build/evm/networks)
-  + [Fees](/build/evm/fees)
-  + [Accounts](/build/evm/accounts)
-* [Tools & SDKs](/build/tools)
+                      * [Security Best Practices](/build/cadence/smart-contracts/best-practices/security-best-practices)* [Contract Upgrades with Incompatible Changes](/build/cadence/smart-contracts/best-practices/contract-upgrades)* [Development Standards](/build/cadence/smart-contracts/best-practices/project-development-tips)+ [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
 
-* Cadence
-* Writing and Deploying Smart Contracts
-* Best Practices
-* Development Standards
+              + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
+
+      + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
+
+* * Cadence* Writing and Deploying Smart Contracts* Best Practices* Development Standards
 
 On this page
 
@@ -340,68 +322,30 @@ Build Faster with Flow’s Native Account Abstraction](/build/cadence/advanced-c
 Copy as Markdown
 
 * [Context](#context)
-  + [Implementing These Practices](#implementing-these-practices)
-* [Design Process](#design-process)
-  + [Projects should ensure that there is strong technical leadership for their smart contracts](#projects-should-ensure-that-there-is-strong-technical-leadership-for-their-smart-contracts)
-  + [Projects should maintain a well-organized open source Repo for their smart contracts](#projects-should-maintain-a-well-organized-open-source-repo-for-their-smart-contracts)
-* [Development Process Recommendations](#development-process-recommendations)
-  + [The Development process should be iterative, if possible](#the-development-process-should-be-iterative-if-possible)
-  + [Comments and field/function descriptions are essential!](#comments-and-fieldfunction-descriptions-are-essential)
-* [Testing Recommendations](#testing-recommendations)
-* [Managing Project Keys and Deployments](#managing-project-keys-and-deployments)
-  + [Private Keys should be stored securely](#private-keys-should-be-stored-securely)
-  + [Deployments to Testnet or Mainnet should be handled transparently](#deployments-to-testnet-or-mainnet-should-be-handled-transparently)
-* [Responsibilities to the Community](#responsibilities-to-the-community)
-  + [Projects should have thorough documentation](#projects-should-have-thorough-documentation)
-  + [Projects should engage with and respond to their own Community](#projects-should-engage-with-and-respond-to-their-own-community)
-  + [Projects should contribute to the greater Flow and Cadence community](#projects-should-contribute-to-the-greater-flow-and-cadence-community)
+  + [Implementing These Practices](#implementing-these-practices)* [Design Process](#design-process)
+    + [Projects should ensure that there is strong technical leadership for their smart contracts](#projects-should-ensure-that-there-is-strong-technical-leadership-for-their-smart-contracts)+ [Projects should maintain a well-organized open source Repo for their smart contracts](#projects-should-maintain-a-well-organized-open-source-repo-for-their-smart-contracts)* [Development Process Recommendations](#development-process-recommendations)
+      + [The Development process should be iterative, if possible](#the-development-process-should-be-iterative-if-possible)+ [Comments and field/function descriptions are essential!](#comments-and-fieldfunction-descriptions-are-essential)* [Testing Recommendations](#testing-recommendations)* [Managing Project Keys and Deployments](#managing-project-keys-and-deployments)
+          + [Private Keys should be stored securely](#private-keys-should-be-stored-securely)+ [Deployments to Testnet or Mainnet should be handled transparently](#deployments-to-testnet-or-mainnet-should-be-handled-transparently)* [Responsibilities to the Community](#responsibilities-to-the-community)
+            + [Projects should have thorough documentation](#projects-should-have-thorough-documentation)+ [Projects should engage with and respond to their own Community](#projects-should-engage-with-and-respond-to-their-own-community)+ [Projects should contribute to the greater Flow and Cadence community](#projects-should-contribute-to-the-greater-flow-and-cadence-community)
 
 Documentation
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
 
 Start Building
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
 
 Network
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.

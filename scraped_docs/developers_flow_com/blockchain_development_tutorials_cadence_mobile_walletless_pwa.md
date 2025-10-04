@@ -12,30 +12,33 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 
 Search
 
-* [Blockchain Development Tutorials](/blockchain-development-tutorials)
-* [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)
-* [Forte Network Upgrade](/blockchain-development-tutorials/forte)
-* [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
-* [Cadence Tutorials](/blockchain-development-tutorials/cadence)
+* [Blockchain Development Tutorials](/blockchain-development-tutorials)* [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)* [Forte Network Upgrade](/blockchain-development-tutorials/forte)
 
-  + [Getting Started with Cadence](/blockchain-development-tutorials/cadence/getting-started)
-  + [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)
-  + [Account Linking](/blockchain-development-tutorials/cadence/account-management)
-  + [Mobile Development on Flow](/blockchain-development-tutorials/cadence/mobile)
+      * [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
 
-    - [IOS Development](/blockchain-development-tutorials/cadence/mobile/ios-quickstart)
-    - [React Native Development](/blockchain-development-tutorials/cadence/mobile/react-native-quickstart)
-    - [Build a Walletless Mobile App (PWA)](/blockchain-development-tutorials/cadence/mobile/walletless-pwa)
-* [Flow EVM Guides](/blockchain-development-tutorials/evm)
-* [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
-* [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
-* [Token Development and Registration](/blockchain-development-tutorials/tokens)
-* [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
-* [Third-Party Integrations](/blockchain-development-tutorials/integrations)
+        * [Cadence Tutorials](/blockchain-development-tutorials/cadence)
 
-* [Cadence Tutorials](/blockchain-development-tutorials/cadence)
-* [Mobile Development on Flow](/blockchain-development-tutorials/cadence/mobile)
-* Build a Walletless Mobile App (PWA)
+          + [Getting Started with Cadence](/blockchain-development-tutorials/cadence/getting-started)
+
+            + [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)
+
+              + [Account Linking](/blockchain-development-tutorials/cadence/account-management)
+
+                + [Mobile Development on Flow](/blockchain-development-tutorials/cadence/mobile)
+
+                  - [IOS Development](/blockchain-development-tutorials/cadence/mobile/ios-quickstart)- [React Native Development](/blockchain-development-tutorials/cadence/mobile/react-native-quickstart)- [Build a Walletless Mobile App (PWA)](/blockchain-development-tutorials/cadence/mobile/walletless-pwa)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
+
+            * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
+
+              * [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
+
+                * [Token Development and Registration](/blockchain-development-tutorials/tokens)
+
+                  * [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
+
+                    * [Third-Party Integrations](/blockchain-development-tutorials/integrations)
+
+* * [Cadence Tutorials](/blockchain-development-tutorials/cadence)* [Mobile Development on Flow](/blockchain-development-tutorials/cadence/mobile)* Build a Walletless Mobile App (PWA)
 
 On this page
 
@@ -954,69 +957,29 @@ Flow EVM Guides](/blockchain-development-tutorials/evm)
 
 Copy as Markdown
 
-* [Understanding Progressive Web Apps (PWAs)](#understanding-progressive-web-apps-pwas)
-* [****Exploring Walletless Onboarding****](#exploring-walletless-onboarding)
-* [**Dependencies**](#dependencies)
-  + [****Setting up PWA and Testing Locally****](#setting-up-pwa-and-testing-locally)
-  + [Integrating with Magic](#integrating-with-magic)
-  + [****React Context and Provider for User Data****](#react-context-and-provider-for-user-data)
-  + [**Logging in the User**](#logging-in-the-user)
-  + [**Scripts/Transactions with Flow**](#scriptstransactions-with-flow)
-  + [****Account Linking with Flow****](#account-linking-with-flow)
-* [**Game Overview**](#game-overview)
-  + [**Key Game Features:**](#key-game-features)
-* [**Integration with Flow and Magic**](#integration-with-flow-and-magic)
-  + [**Playing the Game:**](#playing-the-game)
-  + [**Minting and Viewing NFTs:**](#minting-and-viewing-nfts)
-  + [**Taking Custody with Account Linking:**](#taking-custody-with-account-linking)
-* [**Conclusion**](#conclusion)
+* [Understanding Progressive Web Apps (PWAs)](#understanding-progressive-web-apps-pwas)* [****Exploring Walletless Onboarding****](#exploring-walletless-onboarding)* [**Dependencies**](#dependencies)
+      + [****Setting up PWA and Testing Locally****](#setting-up-pwa-and-testing-locally)+ [Integrating with Magic](#integrating-with-magic)+ [****React Context and Provider for User Data****](#react-context-and-provider-for-user-data)+ [**Logging in the User**](#logging-in-the-user)+ [**Scripts/Transactions with Flow**](#scriptstransactions-with-flow)+ [****Account Linking with Flow****](#account-linking-with-flow)* [**Game Overview**](#game-overview)
+        + [**Key Game Features:**](#key-game-features)* [**Integration with Flow and Magic**](#integration-with-flow-and-magic)
+          + [**Playing the Game:**](#playing-the-game)+ [**Minting and Viewing NFTs:**](#minting-and-viewing-nfts)+ [**Taking Custody with Account Linking:**](#taking-custody-with-account-linking)* [**Conclusion**](#conclusion)
 
 Documentation
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
 
 Start Building
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
 
 Network
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.

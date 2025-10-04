@@ -13,25 +13,24 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 Search
 
 * [Flow Networks](/protocol/flow-networks)
-* [Networks](/protocol)
-* [Flow Network Architecture](/protocol/network-architecture)
-* [Staking and Epochs](/protocol/staking)
-* [Node Ops](/protocol/node-ops)
 
-  + [Access Nodes](/protocol/node-ops/access-nodes/access-node-setup)
+  * [Networks](/protocol)* [Flow Network Architecture](/protocol/network-architecture)
 
-    - [Access Node Setup](/protocol/node-ops/access-nodes/access-node-setup)
-    - [Execution Data](/protocol/node-ops/access-nodes/access-node-configuration-options)
-  + [EVM Gateway Setup](/protocol/node-ops/evm-gateway/evm-gateway-setup)
-  + [Light Nodes](/protocol/node-ops/light-nodes/observer-node)
-  + [Participating in the Network](/protocol/node-ops/node-operation/faq)
-* [Accessing Data](/protocol/access-onchain-data)
-* [Governance](/protocol/governance)
-* [Flow Port](/protocol/flow-port)
+      * [Staking and Epochs](/protocol/staking)
 
-* [Node Ops](/protocol/node-ops)
-* Access Nodes
-* Execution Data
+        * [Node Ops](/protocol/node-ops)
+
+          + [Access Nodes](/protocol/node-ops/access-nodes/access-node-setup)
+
+            - [Access Node Setup](/protocol/node-ops/access-nodes/access-node-setup)- [Execution Data](/protocol/node-ops/access-nodes/access-node-configuration-options)+ [EVM Gateway Setup](/protocol/node-ops/evm-gateway/evm-gateway-setup)
+
+              + [Light Nodes](/protocol/node-ops/light-nodes/observer-node)
+
+                + [Participating in the Network](/protocol/node-ops/node-operation/faq)* [Accessing Data](/protocol/access-onchain-data)
+
+            * [Governance](/protocol/governance)* [Flow Port](/protocol/flow-port)
+
+* * [Node Ops](/protocol/node-ops)* Access Nodes* Execution Data
 
 On this page
 
@@ -322,16 +321,9 @@ The Execution Sync protocol is enabled by default on Access nodes, and uses the 
 
 Below is a list of the available CLI flags to control the behavior of Execution Sync requester engine.
 
-| Flag | Type | Description |
-| --- | --- | --- |
-| execution-data-sync-enabled | bool | Whether to enable the execution data sync protocol. Default is true |
-| execution-data-dir | string | Directory to use for Execution Data database. Default is in the user’s home directory. |
-| execution-data-start-height | uint64 | Height of first block to sync execution data from when starting with an empty Execution Data database. Default is the node’s root block. |
-| execution-data-max-search-ahead | uint64 | Max number of heights to search ahead of the lowest outstanding execution data height. This limits the number non-consecutive objects that will be downloaded if an earlier block is unavailable. Default is 5000. |
-| execution-data-fetch-timeout | duration | Initial timeout to use when fetching execution data from the network. timeout increases using an incremental backoff until execution-data-max-fetch-timeout. Default is 10m. |
-| execution-data-max-fetch-timeout | duration | Maximum timeout to use when fetching execution data from the network. Default is 10s |
-| execution-data-retry-delay | duration | Initial delay for exponential backoff when fetching execution data fails. Default is 1s |
-| execution-data-max-retry-delay | duration | Maximum delay for exponential backoff when fetching execution data fails. Default is 5m |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Flag Type Description|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | execution-data-sync-enabled bool Whether to enable the execution data sync protocol. Default is true|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | execution-data-dir string Directory to use for Execution Data database. Default is in the user’s home directory.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | execution-data-start-height uint64 Height of first block to sync execution data from when starting with an empty Execution Data database. Default is the node’s root block.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | execution-data-max-search-ahead uint64 Max number of heights to search ahead of the lowest outstanding execution data height. This limits the number non-consecutive objects that will be downloaded if an earlier block is unavailable. Default is 5000.|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | execution-data-fetch-timeout duration Initial timeout to use when fetching execution data from the network. timeout increases using an incremental backoff until execution-data-max-fetch-timeout. Default is 10m.|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | execution-data-max-fetch-timeout duration Maximum timeout to use when fetching execution data from the network. Default is 10s|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | execution-data-retry-delay duration Initial delay for exponential backoff when fetching execution data fails. Default is 1s|  |  |  | | --- | --- | --- | | execution-data-max-retry-delay duration Maximum delay for exponential backoff when fetching execution data fails. Default is 5m | | | | | | | | | | | | | | | | | | | | | | | | | | |
 
 ℹ️ Note: By default, execution data is written to the home directory of the application user. If your node is running in docker, this is most likely in the container’s volume. Depending on how you configure your node, this may cause the node’s boot disk to fill up.
 
@@ -341,28 +333,15 @@ As a best practice, specify a path with `--execution-data-dir`. A sensible defau
 
 Below is a list of the available CLI flags to control the behavior of Execution Data Indexer.
 
-| Flag | Type | Description |
-| --- | --- | --- |
-| execution-data-indexing-enabled | bool | Whether to enable the execution data indexing. Default is false |
-| execution-state-dir | string | Directory to use for execution-state database. Default is in the user’s home directory. |
-| execution-state-checkpoint | string | Location of execution-state checkpoint (root.checkpoint.\*) files. |
-| event-query-mode | string | Mode to use when querying events. one of [local-only, execution-nodes-only(default), failover] |
-| tx-result-query-mode | string | Mode to use when querying transaction results. one of [local-only, execution-nodes-only(default), failover] |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Flag Type Description|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | execution-data-indexing-enabled bool Whether to enable the execution data indexing. Default is false|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | execution-state-dir string Directory to use for execution-state database. Default is in the user’s home directory.|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | execution-state-checkpoint string Location of execution-state checkpoint (root.checkpoint.\*) files.|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | event-query-mode string Mode to use when querying events. one of [local-only, execution-nodes-only(default), failover]|  |  |  | | --- | --- | --- | | tx-result-query-mode string Mode to use when querying transaction results. one of [local-only, execution-nodes-only(default), failover] | | | | | | | | | | | | | | | | | |
 
 Below is a list of the available CLI flags to control the behavior of Script Execution.
 
-| Flag | Type | Description |
-| --- | --- | --- |
-| script-execution-mode | string | Mode to use when executing scripts. one of [local-only, execution-nodes-only, failover, compare ] |
-| script-execution-computation-limit | uint64 | Maximum number of computation units a locally executed script can use. Default: 100000 |
-| script-execution-max-error-length | int | Maximum number characters to include in error message strings. additional characters are truncated. Default: 1000 |
-| script-execution-log-time-threshold | duration | Emit a log for any scripts that take over this threshold. Default: 1s |
-| script-execution-timeout | duration | The timeout value for locally executed scripts. Default: 10s |
-| script-execution-min-height | uint64 | Lowest block height to allow for script execution. Default: no limit |
-| script-execution-max-height | uint64 | Highest block height to allow for script execution. default: no limit |
-| register-cache-type | string | Type of backend cache to use for registers [lru, arc, 2q] |
-| register-cache-size | uint | Number of registers to cache for script execution. Default: 0 (no cache) |
-| program-cache-size | uint | [experimental] number of blocks to cache for cadence programs. use 0 to disable cache. Default: 0. Note: this is an experimental feature and may cause nodes to become unstable under certain workloads. Use with caution. |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Flag Type Description|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | script-execution-mode string Mode to use when executing scripts. one of [local-only, execution-nodes-only, failover, compare ]|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | script-execution-computation-limit uint64 Maximum number of computation units a locally executed script can use. Default: 100000|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | script-execution-max-error-length int Maximum number characters to include in error message strings. additional characters are truncated. Default: 1000|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | script-execution-log-time-threshold duration Emit a log for any scripts that take over this threshold. Default: 1s|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | script-execution-timeout duration The timeout value for locally executed scripts. Default: 10s|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | script-execution-min-height uint64 Lowest block height to allow for script execution. Default: no limit|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | script-execution-max-height uint64 Highest block height to allow for script execution. default: no limit|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | register-cache-type string Type of backend cache to use for registers [lru, arc, 2q]|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | register-cache-size uint Number of registers to cache for script execution. Default: 0 (no cache)|  |  |  | | --- | --- | --- | | program-cache-size uint [experimental] number of blocks to cache for cadence programs. use 0 to disable cache. Default: 0. Note: this is an experimental feature and may cause nodes to become unstable under certain workloads. Use with caution. | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
 
 # Resources
 
@@ -386,64 +365,28 @@ EVM Gateway Setup](/protocol/node-ops/evm-gateway/evm-gateway-setup)
 
 Copy as Markdown
 
-* [Setup node’s directory](#setup-nodes-directory)
-* [Setup execution data indexing](#setup-execution-data-indexing)
-* [**Option 1: Enabling Indexing at the Beginning of a Spork**](#option-1-enabling-indexing-at-the-beginning-of-a-spork)
-  + [Download the root protocol state snapshot](#download-the-root-protocol-state-snapshot)
-  + [Download the root checkpoint](#download-the-root-checkpoint)
-* [**Option 2: Enabling Indexing Mid-Spork**](#option-2-enabling-indexing-mid-spork)
-  + [Identify the root checkpoint](#identify-the-root-checkpoint)
-  + [Download the root checkpoint](#download-the-root-checkpoint-1)
-  + [Download the root protocol state snapshot](#download-the-root-protocol-state-snapshot-1)
-  + [Setup Local Script Execution](#setup-local-script-execution)
-  + [Setup Using Local Data with Transaction Results and Events](#setup-using-local-data-with-transaction-results-and-events)
+* [Setup node’s directory](#setup-nodes-directory)* [Setup execution data indexing](#setup-execution-data-indexing)* [**Option 1: Enabling Indexing at the Beginning of a Spork**](#option-1-enabling-indexing-at-the-beginning-of-a-spork)
+      + [Download the root protocol state snapshot](#download-the-root-protocol-state-snapshot)+ [Download the root checkpoint](#download-the-root-checkpoint)* [**Option 2: Enabling Indexing Mid-Spork**](#option-2-enabling-indexing-mid-spork)
+        + [Identify the root checkpoint](#identify-the-root-checkpoint)+ [Download the root checkpoint](#download-the-root-checkpoint-1)+ [Download the root protocol state snapshot](#download-the-root-protocol-state-snapshot-1)+ [Setup Local Script Execution](#setup-local-script-execution)+ [Setup Using Local Data with Transaction Results and Events](#setup-using-local-data-with-transaction-results-and-events)
 
 Documentation
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
 
 Start Building
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
 
 Network
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.

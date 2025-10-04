@@ -1,6 +1,6 @@
 # Source: https://developers.flow.com/build/cadence/advanced-concepts/metadata-views
 
-NFT Metadata Views | Flow Developer Portal
+Metadata Views | Flow Developer Portal
 
 
 
@@ -12,45 +12,32 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 
 Search
 
-* [Why Flow](/build/flow)
-* [Cadence](/build/cadence/quickstart)
+* [Why Flow](/build/flow)* [Cadence](/build/cadence/quickstart)
 
-  + [Quickstart ↙](/build/cadence/quickstart)
-  + [Differences vs. EVM](/build/cadence/differences-vs-evm)
-  + [Basics](/build/cadence/basics/network-architecture)
-  + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
-  + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+    + [Quickstart ↙](/build/cadence/quickstart)+ [Differences vs. EVM](/build/cadence/differences-vs-evm)+ [Basics](/build/cadence/basics/network-architecture)
 
-    - [Build Faster with Flow’s Native Account Abstraction](/build/cadence/advanced-concepts/account-abstraction)
-    - [FLIX (Flow Interaction Templates)](/build/cadence/advanced-concepts/flix)
-    - [NFT Metadata Views](/build/cadence/advanced-concepts/metadata-views)
-    - [VRF (Randomness) in Cadence](/build/cadence/advanced-concepts/randomness)
-    - [Scaling Transactions from a Single Account](/build/cadence/advanced-concepts/scaling)
-  + [Core Smart Contracts](/build/cadence/core-contracts)
-* [Solidity (EVM)](/build/evm/quickstart)
+          + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-  + [EVM Quickstart](/build/evm/quickstart)
-  + [How it Works](/build/evm/how-it-works)
-  + [EVM Wallet Setup](/build/evm/using)
-  + [Network Information](/build/evm/networks)
-  + [Fees](/build/evm/fees)
-  + [Accounts](/build/evm/accounts)
-* [Tools & SDKs](/build/tools)
+            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
 
-* Cadence
-* Advanced Concepts
-* NFT Metadata Views
+              - [Build Faster with Flow’s Native Account Abstraction](/build/cadence/advanced-concepts/account-abstraction)- [FLIX (Flow Interaction Templates)](/build/cadence/advanced-concepts/flix)- [Scheduled Transactions](/build/cadence/advanced-concepts/scheduled-transactions)- [NFT Metadata Views](/build/cadence/advanced-concepts/metadata-views)- [VRF (Randomness) in Cadence](/build/cadence/advanced-concepts/randomness)- [Scaling Transactions from a Single Account](/build/cadence/advanced-concepts/scaling)+ [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
+
+      + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
+
+* * Cadence* Advanced Concepts* NFT Metadata Views
 
 On this page
 
-# NFT Metadata Views on Flow
+# Metadata Views on Flow
 
 `MetadataViews` on Flow offer a standardized way to represent onchain metadata
-across different NFTs. Through its integration, developers can ensure
-that different platforms and marketplaces can interpret the NFT metadata
+across different resources. This standard is primarily used for NFTs, but it can be used for any resource that wants a flexible standard for metadata, such as [scheduled transactions](/build/cadence/advanced-concepts/scheduled-transactions)
+
+Through integration of the metadata views standard, developers can ensure
+that different platforms and marketplaces can interpret the metadata of their resources
 in a unified manner. This means that when users visit different websites,
 wallets, and marketplaces,
-the NFT metadata will be presented in a consistent manner,
+the metadata will be presented in a consistent manner,
 ensuring a uniform experience across various platforms.
 
 info
@@ -59,6 +46,12 @@ It is important to understand this document so you can make meaningful decisions
 about how to manage your project's metadata as support for metadata views does
 not happen by default. Each project has unique metadata and therefore will have to
 define how they expose it in unique ways.
+
+info
+
+This document primarily uses NFTs as examples for how metadata views can be used,
+but metadata views can be used for any kind of project or resource that wants
+a standard way to represent metadata.
 
 A view is a standard Cadence struct that represents a specific type of metadata,
 such as a [Royalty specification](https://github.com/onflow/flow-nft?tab=readme-ov-file#royalty-view):
@@ -161,11 +154,11 @@ regardless of what marketplace it is using.
 Metadata in Cadence is structured at two distinct levels:
 
 1. **Contract-Level Metadata**: This provides an overarching description
-   of the entire NFT collection/project.
-   Any metadata about individual NFTs is not included here.
-2. **NFT-Level Metadata**: Diving deeper, this metadata relates to individual NFTs.
+   of the entire collection/project.
+   Any metadata about individual resources is not included here.
+2. **Resource-Level Metadata**: Diving deeper, this metadata relates to individual resources, often NFTs.
    It provides context, describes rarity, and highlights other distinctive attributes
-   that distinguish one NFT from another within the same collection.
+   that distinguish one object from another within the same contract or collection.
 
 While these distinct levels describe different aspects of a project,
 they both use the same view system for representing the metadata
@@ -174,7 +167,7 @@ just from different places.
 
 ## Understanding `ViewResolver` and `MetadataViews.Resolver`[​](#understanding-viewresolver-and-metadataviewsresolver "Direct link to understanding-viewresolver-and-metadataviewsresolver")
 
-When considering Flow and how it handles metadata for NFTs,
+When considering Flow and how it handles metadata for resources,
 it is crucial to understand two essential interfaces:
 `ViewResolver` and `MetadataViews.Resolver`.
 [Interfaces](https://cadence-lang.org/docs/language/interfaces)
@@ -187,10 +180,10 @@ that other applications or contracts can rely on.
 
 1. **`ViewResolver` for Contract-Level Metadata**:
    * This interface ensures that **contracts**, particularly those encapsulating NFT collections, conform to the Metadata Views standard.
-   * Through the adoption of this interface, contracts can provide dynamic metadata that represents the entirety of the collection.
+   * Through the adoption of this interface, contracts can provide dynamic metadata that represents the entirety of the project.
 2. **`MetadataViews.Resolver` (`ViewResolver.Resolver` in Cadence 1.0) for NFT-Level Metadata**:
-   * Used within **individual NFT resources**, this interface ensures each token adheres to the Metadata standard format.
-   * It focuses on the distinct attributes of an individual NFT, such as its unique ID, name, description, and other defining characteristics.
+   * Used within **individual resources**, this interface ensures each resource adheres to the Metadata standard format.
+   * It focuses on the distinct attributes of an individual resource, such as its unique ID, name, description, and other defining characteristics.
 
 ### Core Functions[​](#core-functions "Direct link to Core Functions")
 
@@ -200,7 +193,7 @@ Both the `ViewResolver` and `MetadataViews.Resolver` utilize the following core 
 
 This function provides a list of supported metadata view types,
 which can be applied either by the contract (in the case of `ViewResolver`)
-or by an individual NFT (in the case of `MetadataViews.Resolver`).
+or by an individual resource (in the case of `MetadataViews.Resolver`).
 
 `_10
 
@@ -232,7 +225,7 @@ _10
 
 ### `resolveView` Function[​](#resolveview-function "Direct link to resolveview-function")
 
-Whether utilized at the contract or NFT level, this function's role
+Whether utilized at the contract or resource level, this function's role
 is to deliver the actual metadata associated with a given view type.
 
 The caller provides the type of the view they want to query as the only argument,
@@ -272,15 +265,15 @@ _10
 
 As you can see, the return values of `getViews()` can be used as arguments
 for `resolveView()` if you want to just iterate through all the views
-that an NFT implements.
+that a resource implements.
 
-## NFT-Level Metadata Implementation[​](#nft-level-metadata-implementation "Direct link to NFT-Level Metadata Implementation")
+## Resource-Level Metadata Implementation[​](#resource-level-metadata-implementation "Direct link to Resource-Level Metadata Implementation")
 
-NFT-level metadata addresses the unique attributes of individual tokens
-within a collection. It provides structured information for each NFT,
+Resource-level metadata addresses the unique attributes of individual tokens
+within a collection. It provides structured information for each resource,
 including its identifier, descriptive elements, royalties,
 and other associated metadata. Incorporating this level of detail
-ensures consistency and standardization among individual NFTs,
+ensures consistency and standardization among individual resources,
 making them interoperable and recognizable across various platforms and marketplaces.
 
 ### Core Properties[​](#core-properties "Direct link to Core Properties")
@@ -1080,11 +1073,11 @@ It provides an introduction to integrating these standards into your NFT contrac
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/advanced-concepts/metadata-views.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Oct 2, 2025** by **Josh Hannan**
 
 [Previous
 
-FLIX (Flow Interaction Templates)](/build/cadence/advanced-concepts/flix)[Next
+Scheduled Transactions](/build/cadence/advanced-concepts/scheduled-transactions)[Next
 
 VRF (Randomness) in Cadence](/build/cadence/advanced-concepts/randomness)
 
@@ -1094,72 +1087,30 @@ VRF (Randomness) in Cadence](/build/cadence/advanced-concepts/randomness)
 
 Copy as Markdown
 
-* [Two Levels of Metadata: An Overview](#two-levels-of-metadata-an-overview)
-* [Understanding `ViewResolver` and `MetadataViews.Resolver`](#understanding-viewresolver-and-metadataviewsresolver)
-  + [Core Functions](#core-functions)
-  + [`getViews` Function](#getviews-function)
-  + [`resolveView` Function](#resolveview-function)
-* [NFT-Level Metadata Implementation](#nft-level-metadata-implementation)
-  + [Core Properties](#core-properties)
-* [Metadata Views for NFTs](#metadata-views-for-nfts)
-  + [Display](#display)
-  + [Editions](#editions)
-  + [Serial Number Metadata](#serial-number-metadata)
-  + [Royalties Metadata](#royalties-metadata)
-  + [External URL Metadata](#external-url-metadata)
-  + [Traits Metadata](#traits-metadata)
-* [Contract-Level Metadata Implementation](#contract-level-metadata-implementation)
-  + [NFTCollectionData](#nftcollectiondata)
-  + [NFTCollectionDisplay](#nftcollectiondisplay)
-  + [Contract-borrowing Metadata](#contract-borrowing-metadata)
-* [More](#more)
+* [Two Levels of Metadata: An Overview](#two-levels-of-metadata-an-overview)* [Understanding `ViewResolver` and `MetadataViews.Resolver`](#understanding-viewresolver-and-metadataviewsresolver)
+    + [Core Functions](#core-functions)+ [`getViews` Function](#getviews-function)+ [`resolveView` Function](#resolveview-function)* [Resource-Level Metadata Implementation](#resource-level-metadata-implementation)
+      + [Core Properties](#core-properties)* [Metadata Views for NFTs](#metadata-views-for-nfts)
+        + [Display](#display)+ [Editions](#editions)+ [Serial Number Metadata](#serial-number-metadata)+ [Royalties Metadata](#royalties-metadata)+ [External URL Metadata](#external-url-metadata)+ [Traits Metadata](#traits-metadata)* [Contract-Level Metadata Implementation](#contract-level-metadata-implementation)
+          + [NFTCollectionData](#nftcollectiondata)+ [NFTCollectionDisplay](#nftcollectiondisplay)+ [Contract-borrowing Metadata](#contract-borrowing-metadata)* [More](#more)
 
 Documentation
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
 
 Start Building
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
 
 Network
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.
