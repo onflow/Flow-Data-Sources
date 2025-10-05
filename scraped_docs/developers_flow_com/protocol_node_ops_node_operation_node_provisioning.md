@@ -13,42 +13,28 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 Search
 
 * [Flow Networks](/protocol/flow-networks)
-* [Networks](/protocol)
-* [Flow Network Architecture](/protocol/network-architecture)
-* [Staking and Epochs](/protocol/staking)
-* [Node Ops](/protocol/node-ops)
 
-  + [Access Nodes](/protocol/node-ops/access-nodes/access-node-setup)
-  + [EVM Gateway Setup](/protocol/node-ops/evm-gateway/evm-gateway-setup)
-  + [Light Nodes](/protocol/node-ops/light-nodes/observer-node)
-  + [Participating in the Network](/protocol/node-ops/node-operation/faq)
+  * [Networks](/protocol)* [Flow Network Architecture](/protocol/network-architecture)
 
-    - [Operator FAQ](/protocol/node-ops/node-operation/faq)
-    - [Byzantine Attack Response](/protocol/node-ops/node-operation/byzantine-node-attack-response)
-    - [Database Encryption for Existing Node Operators](/protocol/node-ops/node-operation/db-encryption-existing-operator)
-    - [Node Operations Guide](/protocol/node-ops/node-operation/guides/genesis-bootstrap)
-    - [Machine Accounts for Existing Node Operators](/protocol/node-ops/node-operation/machine-existing-operator)
-    - [Node Monitoring](/protocol/node-ops/node-operation/monitoring-nodes)
-    - [Node Bootstrapping](/protocol/node-ops/node-operation/node-bootstrap)
-    - [Node Economics](/protocol/node-ops/node-operation/node-economics)
-    - [Node Migration](/protocol/node-ops/node-operation/node-migration)
-    - [Node Provisioning](/protocol/node-ops/node-operation/node-provisioning)
-    - [Node Roles](/protocol/node-ops/node-operation/node-roles)
-    - [Node Setup](/protocol/node-ops/node-operation/node-setup)
-    - [Past Network Upgrades](/protocol/node-ops/node-operation/past-upgrades)
-    - [Network Upgrade (Spork) Process](/protocol/node-ops/node-operation/network-upgrade)
-    - [Slashing Conditions](/protocol/node-ops/node-operation/slashing)
-    - [Node Providers](/protocol/node-ops/node-operation/node-providers)
-    - [Height coordinated upgrade](/protocol/node-ops/node-operation/hcu)
-    - [Protocol State Bootstrapping](/protocol/node-ops/node-operation/protocol-state-bootstrap)
-    - [Managing disk space](/protocol/node-ops/node-operation/reclaim-disk)
-* [Accessing Data](/protocol/access-onchain-data)
-* [Governance](/protocol/governance)
-* [Flow Port](/protocol/flow-port)
+      * [Staking and Epochs](/protocol/staking)
 
-* [Node Ops](/protocol/node-ops)
-* Participating in the Network
-* Node Provisioning
+        * [Node Ops](/protocol/node-ops)
+
+          + [Access Nodes](/protocol/node-ops/access-nodes/access-node-setup)
+
+            + [EVM Gateway Setup](/protocol/node-ops/evm-gateway/evm-gateway-setup)
+
+              + [Light Nodes](/protocol/node-ops/light-nodes/observer-node)
+
+                + [Participating in the Network](/protocol/node-ops/node-operation/faq)
+
+                  - [Operator FAQ](/protocol/node-ops/node-operation/faq)- [Byzantine Attack Response](/protocol/node-ops/node-operation/byzantine-node-attack-response)- [Database Encryption for Existing Node Operators](/protocol/node-ops/node-operation/db-encryption-existing-operator)- [Node Operations Guide](/protocol/node-ops/node-operation/guides/genesis-bootstrap)
+
+                          - [Machine Accounts for Existing Node Operators](/protocol/node-ops/node-operation/machine-existing-operator)- [Node Monitoring](/protocol/node-ops/node-operation/monitoring-nodes)- [Node Bootstrapping](/protocol/node-ops/node-operation/node-bootstrap)- [Node Economics](/protocol/node-ops/node-operation/node-economics)- [Node Migration](/protocol/node-ops/node-operation/node-migration)- [Node Provisioning](/protocol/node-ops/node-operation/node-provisioning)- [Node Roles](/protocol/node-ops/node-operation/node-roles)- [Node Setup](/protocol/node-ops/node-operation/node-setup)- [Past Network Upgrades](/protocol/node-ops/node-operation/past-upgrades)- [Network Upgrade (Spork) Process](/protocol/node-ops/node-operation/network-upgrade)- [Slashing Conditions](/protocol/node-ops/node-operation/slashing)- [Node Providers](/protocol/node-ops/node-operation/node-providers)- [Height coordinated upgrade](/protocol/node-ops/node-operation/hcu)- [Protocol State Bootstrapping](/protocol/node-ops/node-operation/protocol-state-bootstrap)- [Managing disk space](/protocol/node-ops/node-operation/reclaim-disk)* [Accessing Data](/protocol/access-onchain-data)
+
+            * [Governance](/protocol/governance)* [Flow Port](/protocol/flow-port)
+
+* * [Node Ops](/protocol/node-ops)* Participating in the Network* Node Provisioning
 
 On this page
 
@@ -58,15 +44,9 @@ On this page
 
 The hardware your Node will need varies depending on the role your Node will play in the Flow network. For an overview of the differences see the [Node Roles Overview](/protocol/node-ops/node-operation/node-roles).
 
-| Node Type | CPU | Memory | Disk | Example GCP Instance | Example AWS Instance |
-| --- | --- | --- | --- | --- | --- |
-| **Collection** | 4 cores | 32 GB | 200 GB | n2-highmem-4 | r6i.xlarge |
-| **Consensus** | 2 cores | 16 GB | 200 GB | n2-standard-4 | m6a.xlarge |
-| **Execution** | 128 cores | 864 GB | 9 TB (with maintenance see: [pruning chunk data pack](https://forum.flow.com/t/execution-node-upgrade-to-v0-31-15-and-managing-disk-space-usage/5167) or 30 TB without maintenance) | n2-highmem-128 |  |
-| **Verification** | 2 cores | 16 GB | 200 GB | n2-highmem-2 | r6a.large |
-| **Access** | 16 cores | 64 GB | 750 GB | n2-standard-16 | m6i.4xlarge |
-| **Observer** | 2 cores | 4 GB | 300 GB | n2-standard-4 | m6i.xlarge |
-| **EVM Gateway** | 2 cores | 32 GB | 30 GB | n2-highmem-4 | r6i.xlarge |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Node Type CPU Memory Disk Example GCP Instance Example AWS Instance|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **Collection** 4 cores 32 GB 200 GB n2-highmem-4 r6i.xlarge|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **Consensus** 2 cores 16 GB 200 GB n2-standard-4 m6a.xlarge|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **Execution** 128 cores 864 GB 9 TB (with maintenance see: [pruning chunk data pack](https://forum.flow.com/t/execution-node-upgrade-to-v0-31-15-and-managing-disk-space-usage/5167) or 30 TB without maintenance) n2-highmem-128 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **Verification** 2 cores 16 GB 200 GB n2-highmem-2 r6a.large|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **Access** 16 cores 64 GB 750 GB n2-standard-16 m6i.4xlarge|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **Observer** 2 cores 4 GB 300 GB n2-standard-4 m6i.xlarge|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | **EVM Gateway** 2 cores 32 GB 30 GB n2-highmem-4 r6i.xlarge | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
 
 *Note: The above numbers represent our current best estimate for the state of the network. These will be actively updated as we continue benchmarking the network's performance.*
 
@@ -162,59 +142,27 @@ Node Roles](/protocol/node-ops/node-operation/node-roles)
 
 Copy as Markdown
 
-* [Hardware Requirements](#hardware-requirements)
-* [Networking Requirements](#networking-requirements)
-* [Operating System Requirements](#operating-system-requirements)
-* [Time synchronization](#time-synchronization)
-* [Setup Data Directories & Disks](#setup-data-directories--disks)
-  + [Confidential Data & Files](#confidential-data--files)
+* [Hardware Requirements](#hardware-requirements)* [Networking Requirements](#networking-requirements)* [Operating System Requirements](#operating-system-requirements)* [Time synchronization](#time-synchronization)* [Setup Data Directories & Disks](#setup-data-directories--disks)
+          + [Confidential Data & Files](#confidential-data--files)
 
 Documentation
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
 
 Start Building
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
 
 Network
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.

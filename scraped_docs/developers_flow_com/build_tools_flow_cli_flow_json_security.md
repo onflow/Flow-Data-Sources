@@ -12,60 +12,43 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 
 Search
 
-* [Why Flow](/build/flow)
-* [Cadence](/build/cadence/quickstart)
+* [Why Flow](/build/flow)* [Cadence](/build/cadence/quickstart)
 
-  + [Quickstart ↙](/build/cadence/quickstart)
-  + [Differences vs. EVM](/build/cadence/differences-vs-evm)
-  + [Basics](/build/cadence/basics/network-architecture)
-  + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
-  + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
-  + [Core Smart Contracts](/build/cadence/core-contracts)
-* [Solidity (EVM)](/build/evm/quickstart)
+    + [Quickstart ↙](/build/cadence/quickstart)+ [Differences vs. EVM](/build/cadence/differences-vs-evm)+ [Basics](/build/cadence/basics/network-architecture)
 
-  + [EVM Quickstart](/build/evm/quickstart)
-  + [How it Works](/build/evm/how-it-works)
-  + [EVM Wallet Setup](/build/evm/using)
-  + [Network Information](/build/evm/networks)
-  + [Fees](/build/evm/fees)
-  + [Accounts](/build/evm/accounts)
-* [Tools & SDKs](/build/tools)
+          + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-  + [@onflow/react-sdk](/build/tools/react-sdk)
-  + [Flow Emulator](/build/tools/emulator)
-  + [Flow CLI](/build/tools/flow-cli)
+            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
 
-    - [Install Instructions](/build/tools/flow-cli/install)
-    - [Commands Overview](/build/tools/flow-cli/commands)
-    - [Accounts](/build/tools/flow-cli/accounts/get-accounts)
-    - [Keys](/build/tools/flow-cli/keys/generate-keys)
-    - [Deploy Project](/build/tools/flow-cli/deployment/start-emulator)
-    - [Scripts](/build/tools/flow-cli/scripts/execute-scripts)
-    - [Transactions](/build/tools/flow-cli/transactions/send-transactions)
-    - [Flow.json](/build/tools/flow-cli/flow.json/initialize-configuration)
+              + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
 
-      * [Initialize Configuration](/build/tools/flow-cli/flow.json/initialize-configuration)
-      * [Configuration](/build/tools/flow-cli/flow.json/configuration)
-      * [Manage Configuration](/build/tools/flow-cli/flow.json/manage-configuration)
-      * [Security](/build/tools/flow-cli/flow.json/security)
-    - [Flow Entities](/build/tools/flow-cli/get-flow-data/get-blocks)
-    - [Utils](/build/tools/flow-cli/utils/signature-generate)
-    - [Dependency Manager](/build/tools/flow-cli/dependency-manager)
-    - [Running Cadence Tests](/build/tools/flow-cli/tests)
-    - [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)
-    - [Cadence Linter](/build/tools/flow-cli/lint)
-    - [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)
-    - [Data Collection](/build/tools/flow-cli/data-collection)
-  + [Cadence VS Code Extension](/build/tools/vscode-extension)
-  + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
-  + [Client Tools](/build/tools/clients)
-  + [Error Codes](/build/tools/error-codes)
-  + [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+      + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
 
-* [Tools & SDKs](/build/tools)
-* [Flow CLI](/build/tools/flow-cli)
-* Flow.json
-* Security
+        + [@onflow/react-sdk](/build/tools/react-sdk)
+
+          + [Flow Emulator](/build/tools/emulator)+ [Flow CLI](/build/tools/flow-cli)
+
+              - [Install Instructions](/build/tools/flow-cli/install)- [Commands Overview](/build/tools/flow-cli/commands)- [Accounts](/build/tools/flow-cli/accounts/get-accounts)
+
+                    - [Keys](/build/tools/flow-cli/keys/generate-keys)
+
+                      - [Deploy Project](/build/tools/flow-cli/deployment/start-emulator)
+
+                        - [Scripts](/build/tools/flow-cli/scripts/execute-scripts)
+
+                          - [Transactions](/build/tools/flow-cli/transactions/send-transactions)
+
+                            - [Flow.json](/build/tools/flow-cli/flow.json/initialize-configuration)
+
+                              * [Initialize Configuration](/build/tools/flow-cli/flow.json/initialize-configuration)* [Configuration](/build/tools/flow-cli/flow.json/configuration)* [Manage Configuration](/build/tools/flow-cli/flow.json/manage-configuration)* [Security](/build/tools/flow-cli/flow.json/security)- [Flow Entities](/build/tools/flow-cli/get-flow-data/get-blocks)
+
+                                - [Utils](/build/tools/flow-cli/utils/signature-generate)
+
+                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+
+                    + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+
+* * [Tools & SDKs](/build/tools)* [Flow CLI](/build/tools/flow-cli)* Flow.json* Security
 
 On this page
 
@@ -658,84 +641,34 @@ Get Block](/build/tools/flow-cli/get-flow-data/get-blocks)
 
 Copy as Markdown
 
-* [Security Overview](#security-overview)
-* [File-Based Keys](#file-based-keys)
-  + [Setup](#setup)
-  + [Benefits](#benefits)
-* [Environment Variables](#environment-variables)
-  + [Setup](#setup-1)
-  + [Benefits](#benefits-1)
-* [Private Configuration Files](#private-configuration-files)
-  + [Setup](#setup-2)
-  + [Benefits](#benefits-2)
-* [Environment Files (.env)](#environment-files-env)
-  + [Setup](#setup-3)
-  + [Benefits](#benefits-3)
-* [Multiple Configuration Files](#multiple-configuration-files)
-  + [Priority Order](#priority-order)
-  + [Example](#example)
-  + [Use Cases](#use-cases)
-* [Security Best Practices](#security-best-practices)
-  + [1. Never Commit Private Keys](#1-never-commit-private-keys)
-  + [2. Use Different Keys for Different Environments](#2-use-different-keys-for-different-environments)
-  + [3. Rotate Keys Regularly](#3-rotate-keys-regularly)
-  + [4. Limit Key Permissions](#4-limit-key-permissions)
-  + [5. Secure Key Storage](#5-secure-key-storage)
-* [Common Security Mistakes](#common-security-mistakes)
-  + [❌ Don't Do This](#-dont-do-this)
-  + [✅ Do This Instead](#-do-this-instead)
-* [Troubleshooting](#troubleshooting)
-  + [Environment Variables Not Loading](#environment-variables-not-loading)
-  + [Key File Not Found](#key-file-not-found)
-  + [Multiple Config Files Not Merging](#multiple-config-files-not-merging)
-* [Related Commands](#related-commands)
+* [Security Overview](#security-overview)* [File-Based Keys](#file-based-keys)
+    + [Setup](#setup)+ [Benefits](#benefits)* [Environment Variables](#environment-variables)
+      + [Setup](#setup-1)+ [Benefits](#benefits-1)* [Private Configuration Files](#private-configuration-files)
+        + [Setup](#setup-2)+ [Benefits](#benefits-2)* [Environment Files (.env)](#environment-files-env)
+          + [Setup](#setup-3)+ [Benefits](#benefits-3)* [Multiple Configuration Files](#multiple-configuration-files)
+            + [Priority Order](#priority-order)+ [Example](#example)+ [Use Cases](#use-cases)* [Security Best Practices](#security-best-practices)
+              + [1. Never Commit Private Keys](#1-never-commit-private-keys)+ [2. Use Different Keys for Different Environments](#2-use-different-keys-for-different-environments)+ [3. Rotate Keys Regularly](#3-rotate-keys-regularly)+ [4. Limit Key Permissions](#4-limit-key-permissions)+ [5. Secure Key Storage](#5-secure-key-storage)* [Common Security Mistakes](#common-security-mistakes)
+                + [❌ Don't Do This](#-dont-do-this)+ [✅ Do This Instead](#-do-this-instead)* [Troubleshooting](#troubleshooting)
+                  + [Environment Variables Not Loading](#environment-variables-not-loading)+ [Key File Not Found](#key-file-not-found)+ [Multiple Config Files Not Merging](#multiple-config-files-not-merging)* [Related Commands](#related-commands)
 
 Documentation
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
 
 Start Building
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
 
 Network
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.

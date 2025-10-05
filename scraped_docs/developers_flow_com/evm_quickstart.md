@@ -6,35 +6,53 @@ EVM Quickstart | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [Why EVM on Flow](/evm/about)
-* [How it Works](/evm/how-it-works)
-* [Using Flow EVM](/evm/using)
-* [Network Information](/evm/networks)
-* [EVM Quickstart](/evm/quickstart)
-* [Fees](/evm/fees)
-* [Accounts](/evm/accounts)
-* [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
-* [Faucets ↙](/evm/faucets)
-* [Block Explorers ↙](/evm/block-explorers)
-* [Guides](/evm/guides)
+* [Why Flow](/build/flow)* [Cadence](/build/cadence/quickstart)
 
-* EVM Quickstart
+    + [Quickstart ↙](/build/cadence/quickstart)+ [Differences vs. EVM](/build/cadence/differences-vs-evm)+ [Basics](/build/cadence/basics/network-architecture)
+
+          + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
+
+            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+
+              + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
+
+      + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
+
+* * Solidity (EVM)* EVM Quickstart
 
 On this page
 
 # EVM Quickstart
 
-Flow EVM is an EVM-equivalent blockchain that combines the advantages of Flow, including security, low-cost gas, and native VRF with compatibility with exiting blockchain applications tools, and contracts. If it works on another EVM-equivalent blockchain, it should work on Flow EVM!
+Flow EVM is an EVM-equivalent blockchain that combines the advantages of Flow, including security, low-cost gas, and native VRF with compatibility with existing blockchain applications tools and contracts. If it works on another EVM-equivalent blockchain, it should work on Flow EVM!
 
-This guide is a self-contained quickstart that will walk you through deploying a contract on Flow EVM testnet with [Hardhat](https://hardhat.org/) and testing it with [testnet Flowscan](https://evm-testnet.flowscan.io/).
+This guide is a self-contained quickstart that walks you through deploying a contract on Flow EVM testnet with [Hardhat](https://hardhat.org/) and testing it with [testnet Flowscan](https://evm-testnet.flowscan.io/).
 
-If you prefer, check out our tutorials for [Remix](/evm/guides/remix) and [Foundry](/evm/guides/foundry) for information on how to deploy a contract with those platforms.
+If you prefer, check out our tutorials for [Remix](/blockchain-development-tutorials/evm/development-tools/remix) and [Foundry](/blockchain-development-tutorials/evm/development-tools/foundry) for information on how to deploy a contract with those platforms.
+
+To learn more about wallets and configurations, see [this article](/blockchain-development-tutorials/evm/setup/integrating-metamask).
+
+## Network information[​](#network-information "Direct link to Network information")
+
+Flow EVM has the following public RPC nodes available:
+
+### Mainnet[​](#mainnet "Direct link to Mainnet")
+
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Name Value|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Network Name Flow EVM Mainnet|  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Description The public RPC URL for Flow Mainnet|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | RPC Endpoint <https://mainnet.evm.nodes.onflow.org>| Chain ID 747|  |  |  |  | | --- | --- | --- | --- | | Currency Symbol FLOW|  |  | | --- | --- | | Block Explorer <https://evm.flowscan.io> | | | | | | | | | | | | | |
+
+### Testnet[​](#testnet "Direct link to Testnet")
+
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Name Value|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Network Name Flow EVM Testnet|  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Description The public RPC URL for Flow Testnet|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | RPC Endpoint <https://testnet.evm.nodes.onflow.org>| Chain ID 545|  |  |  |  | | --- | --- | --- | --- | | Currency Symbol FLOW|  |  | | --- | --- | | Block Explorer <https://evm-testnet.flowscan.io> | | | | | | | | | | | | | |
 
 ## Objectives[​](#objectives "Direct link to Objectives")
 
@@ -47,231 +65,233 @@ After completing this guide, you'll be able to:
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-### Traditional Cryptocurrency Wallet[​](#traditional-cryptocurrency-wallet "Direct link to Traditional Cryptocurrency Wallet")
+### Traditional cryptocurrency wallet[​](#traditional-cryptocurrency-wallet "Direct link to Traditional cryptocurrency wallet")
 
-EVM [Accounts](/evm/accounts) created by the Flow wallet have unique properties that allow for powerful features, but they do **not** have recovery phrases or private keys that can be exported in a way that's compatible with [Hardhat](https://hardhat.org/). As a result, you'll need to use a traditional EOA and [MetaMask](https://metamask.io), or the wallet of your choice, to deploy your contracts.
+EVM [Accounts](/build/evm/accounts) created by the Flow wallet have unique properties that allow for powerful features, but they do **not** have recovery phrases or private keys that can be exported in a way that's compatible with [Hardhat](https://hardhat.org/). As a result, you'll need to use a traditional EOA and [MetaMask](https://metamask.io) or the wallet of your choice to deploy your contracts.
 
-## Deploy Your Contract[​](#deploy-your-contract "Direct link to Deploy Your Contract")
+## Deploy your contract[​](#deploy-your-contract "Direct link to Deploy your contract")
 
 For this exercise, we'll use a [Button Clicker Contract](https://github.com/briandoyle81/button-clicker-contract/blob/main/contracts/ClickToken.sol) that's relatively simple, but includes several [OpenZeppelin](https://www.openzeppelin.com/) contracts. This way, we can walk through the process to configure your project to use these common imports.
 
 info
 
-If you **really** want to speedrun this tutorial, fork the [Button Clicker Contract](https://github.com/briandoyle81/button-clicker-contract/blob/main/contracts/ClickToken.sol) repo, run `npm install`, add a `.env` with your deploy wallet key as `DEPLOY_WALLET_1`, and deploy with `npx hardhat ignition deploy ./ignition/modules/ClickToken.ts --network flowTestnet`.
+If you **really** want to speedrun this tutorial:
 
-Then skip to the frontend section.
+1. Fork the [Button Clicker Contract](https://github.com/briandoyle81/button-clicker-contract/blob/main/contracts/ClickToken.sol) repo.
+2. Run `npm install`.
+3. Add a `.env` with your deploy wallet key as `DEPLOY_WALLET_1`.
+4. Deploy with `npx hardhat ignition deploy ./ignition/modules/ClickToken.ts --network flowTestnet`.
 
-### Hardhat Setup[​](#hardhat-setup "Direct link to Hardhat Setup")
+When finished, skip to the frontend section.
 
-Open a terminal window and navigate either to the folder where you wish to create your project folder, or an empty project folder. Run:
+### Hardhat setup[​](#hardhat-setup "Direct link to Hardhat setup")
 
-`_10
+Open a terminal window and navigate either to the folder where you wish to create your project folder or an empty project folder:
 
-npx hardhat init`
+1. Run the following command:
 
-![Hardhat Init](/assets/images/hardhat-init-4b18bd4d51ccfaa9c1758dca1b640ee9.png)
+   `_10
 
-Select `Create a TypeScript project (with Viem)`
+   npx hardhat init`
 
-Enter `.` if you ran the command from an empty folder, or enter a path.
+   ![Hardhat Init](/assets/images/hardhat-init-4b18bd4d51ccfaa9c1758dca1b640ee9.png)
+2. Select **Create a TypeScript project (with Viem)**.
+3. Enter `.` if you ran the command from an empty folder, or enter a path.
+4. Choose the defaults for the remaining options, then open the project in your editor.
 
-Choose the defaults for the remaining options, then open the project in your editor.
+### Environment setup[​](#environment-setup "Direct link to Environment setup")
 
-### Environment Setup[​](#environment-setup "Direct link to Environment Setup")
+To set up an environment:
 
-Add a `.env` and in it, add an environment variable called `DEPLOY_WALLET_1` with your deployment wallet's [private key](https://support.metamask.io/configure/accounts/how-to-export-an-accounts-private-key/).
+1. Add a `.env`.
+2. Within it, add an environment variable called `DEPLOY_WALLET_1` with your deployment wallet's [private key](https://support.metamask.io/configure/accounts/how-to-export-an-accounts-private-key/):
 
-`_10
+   `_10
 
-DEPLOY_WALLET_1=<YOUR_PRIVATE_KEY>`
+   DEPLOY_WALLET_1=<YOUR_PRIVATE_KEY>`
 
 danger
 
 The [private key](https://support.metamask.io/configure/accounts/how-to-export-an-accounts-private-key/) functions the same as the recovery phrase for a wallet. Anyone with the key can drain the wallet at any time! Use separate wallets for development and never commit a key to a repo.
 
-### Hardhat Config[​](#hardhat-config "Direct link to Hardhat Config")
+### Hardhat config[​](#hardhat-config "Direct link to Hardhat config")
 
-We'll be using [OpenZeppelin Contracts](https://www.openzeppelin.com/contracts), so install them, then open the project in your editor:
+We'll be using [OpenZeppelin Contracts](https://www.openzeppelin.com/contracts) in the following steps:
 
-`_10
+1. Install them and then open the project in your editor:
 
-npm install --save-dev @openzeppelin/hardhat-upgrades
+   `_10
 
-_10
+   npm install --save-dev @openzeppelin/hardhat-upgrades
 
-npm install --save-dev @nomicfoundation/hardhat-ethers ethers # peer dependencies`
+   _10
 
-Then install the contracts themselves:
+   npm install --save-dev @nomicfoundation/hardhat-ethers ethers # peer dependencies`
+2. Install the contracts themselves:
 
-`_10
+   `_10
 
-npm install --save-dev @openzeppelin/contracts`
+   npm install --save-dev @openzeppelin/contracts`
+3. To better protect your wallet key, add `dotenv`:
 
-You'll also need `dotenv` to better protect your wallet key, so go ahead and add that too:
+   `_10
 
-`_10
+   npm install dotenv`
+4. Open `hardhat.config`. Below the imports, add the `require` statements for the contracts and `dotenv`:
 
-npm install dotenv`
+   `_10
 
-Open `hardhat.config`. Below the imports, add the `require` statements for the contracts and `dotenv`:
+   require('@openzeppelin/hardhat-upgrades');
 
-`_10
+   _10
 
-require('@openzeppelin/hardhat-upgrades');
+   require('dotenv').config();`
 
-_10
+   The default config is pretty bare. We'll need to add quite a few items. We'll do these one at a time, then provide a complete copy at the end.
+5. Add a `networks` property containing the network information for Flow Testnet and Mainnet:
 
-require('dotenv').config();`
+   `_10
 
-The default config is pretty bare. We'll need to add quite a few items. We'll do these one at a time, then provide a complete copy at the end.
+   networks: {
 
-First, add a `networks` property containing the network information for Flow Testnet and Mainnet:
+   _10
 
-`_10
+   flow: {
 
-networks: {
+   _10
 
-_10
+   url: 'https://mainnet.evm.nodes.onflow.org',
 
-flow: {
+   _10
 
-_10
+   accounts: [process.env.DEPLOY_WALLET_1 as string],
 
-url: 'https://mainnet.evm.nodes.onflow.org',
+   _10
 
-_10
+   },
 
-accounts: [process.env.DEPLOY_WALLET_1 as string],
+   _10
 
-_10
+   flowTestnet: {
 
-},
+   _10
 
-_10
+   url: 'https://testnet.evm.nodes.onflow.org',
 
-flowTestnet: {
+   _10
 
-_10
+   accounts: [process.env.DEPLOY_WALLET_1 as string],
 
-url: 'https://testnet.evm.nodes.onflow.org',
+   _10
 
-_10
+   },
 
-accounts: [process.env.DEPLOY_WALLET_1 as string],
+   _10
 
-_10
+   },`
+6. Add an entry for `etherscan`:
 
-},
+   `_10
 
-_10
+   etherscan: {
 
-},`
+   _10
 
-Then, add an entry for `etherscan`:
+   }`
+7. In it, add a property for `apiKey` and add keys for Flow Mainnet and Testnet. Note that the Etherscan API requires this to be here, but at the time of writing, API keys aren't actually needed. Any text can be used:
 
-`_10
+   `_10
 
-etherscan: {
+   apiKey: {
 
-_10
+   _10
 
-}`
+   // Is not required by blockscout. Can be any non-empty string
 
-In it, add a property for `apiKey` and add keys for Flow Mainnet and Testnet. Note that the Etherscan API requires this to be here, but at the time of writing, API keys aren't actually needed. Any text can be used:
+   _10
 
-`_10
+   'flow': "abc",
 
-apiKey: {
+   _10
 
-_10
+   'flowTestnet': "abc"
 
-// Is not required by blockscout. Can be any non-empty string
+   _10
 
-_10
+   },`
+8. Add `customChains` and the network information for Flow:
 
-'flow': "abc",
+   `_18
 
-_10
+   customChains: [
 
-'flowTestnet': "abc"
+   _18
 
-_10
+   {
 
-},`
+   _18
 
-Next, add `customChains` and the network information for Flow:
+   network: 'flow',
 
-`_18
+   _18
 
-customChains: [
+   chainId: 747,
 
-_18
+   _18
 
-{
+   urls: {
 
-_18
+   _18
 
-network: 'flow',
+   apiURL: 'https://evm.flowscan.io/api',
 
-_18
+   _18
 
-chainId: 747,
+   browserURL: 'https://evm.flowscan.io/',
 
-_18
+   _18
 
-urls: {
+   },
 
-_18
+   _18
 
-apiURL: 'https://evm.flowscan.io/api',
+   },
 
-_18
+   _18
 
-browserURL: 'https://evm.flowscan.io/',
+   {
 
-_18
+   _18
 
-},
+   network: 'flowTestnet',
 
-_18
+   _18
 
-},
+   chainId: 545,
 
-_18
+   _18
 
-{
+   urls: {
 
-_18
+   _18
 
-network: 'flowTestnet',
+   apiURL: 'https://evm-testnet.flowscan.io/api',
 
-_18
+   _18
 
-chainId: 545,
+   browserURL: 'https://evm-testnet.flowscan.io/',
 
-_18
+   _18
 
-urls: {
+   },
 
-_18
+   _18
 
-apiURL: 'https://evm-testnet.flowscan.io/api',
+   },
 
-_18
+   _18
 
-browserURL: 'https://evm-testnet.flowscan.io/',
-
-_18
-
-},
-
-_18
-
-},
-
-_18
-
-];`
+   ];`
 
 You should end up with:
 
@@ -453,9 +473,13 @@ _46
 
 export default config;`
 
-### Contract Setup[​](#contract-setup "Direct link to Contract Setup")
+### Contract setup[​](#contract-setup "Direct link to Contract setup")
 
-Delete `Lock.sol` and add `ClickToken.sol`. In it add, the [Button Clicker Contract](https://github.com/briandoyle81/button-clicker-contract/blob/main/contracts/ClickToken.sol).
+To set up the contract:
+
+1. Delete `Lock.sol`.
+2. Add `ClickToken.sol`.
+3. Within it, add the [Button Clicker Contract](https://github.com/briandoyle81/button-clicker-contract/blob/main/contracts/ClickToken.sol).
 
 warning
 
@@ -463,9 +487,13 @@ Hardhat only installs the most current version of Solidity. `^0.8.27` means that
 
 We won't go into the details of the contract for this tutorial. It's a relatively simple [ERC-20](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/) implementation that mints one token any time the `mintTo` function is called. Perfect for a Button Clicker game!
 
-### Deployment Setup[​](#deployment-setup "Direct link to Deployment Setup")
+### Deployment setup[​](#deployment-setup "Direct link to Deployment setup")
 
-Delete `Lock.ts` from the `ignition/modules` folder, and add `ClickToken.ts`. In it, add:
+To set up the deployment:
+
+1. Delete `Lock.ts` from the `ignition/modules` folder.
+2. Add `ClickToken.ts`.
+3. Within it, add the following:
 
 `_12
 
@@ -507,17 +535,17 @@ _12
 
 export default ClickerModule;`
 
-### Obtain Testnet Funds[​](#obtain-testnet-funds "Direct link to Obtain Testnet Funds")
+### Obtain testnet funds[​](#obtain-testnet-funds "Direct link to Obtain testnet funds")
 
-Visit the [Flow Faucet](https://faucet.flow.com/fund-account) and follow the instructions to add testnet funds. Compared to other networks, the [Flow Faucet](https://faucet.flow.com/fund-account) grants a vast amount of tokens - enough gas for millions of transactions.
+Visit the [Flow Faucet](https://faucet.flow.com/fund-account) and follow the instructions to add testnet funds. Compared to other networks, the [Flow Faucet](https://faucet.flow.com/fund-account) grants a vast amount of tokens — enough gas for millions of transactions.
 
 warning
 
-EVM accounts created by the [Flow Wallet](https://wallet.flow.com/) are [Cadence-Owned Accounts](/evm/accounts#cadence-owned-accounts), or COAs - **Not** EOAs. COAs have many advantages over EOAs, but they are generated differently, which means they don't have a key that's compatible with Hardhat.
+EVM accounts created by the [Flow Wallet](https://wallet.flow.com/) are [Cadence-Owned Accounts](/build/evm/accounts#cadence-owned-accounts) or COAs — **Not** EOAs. COAs have many advantages over EOAs, but they are generated differently, which means they don't have a key that's compatible with Hardhat.
 
 Use your [MetaMask](https://metamask.io) or similar EOA account to deploy contracts on Flow EVM.
 
-### Deploy the Contract[​](#deploy-the-contract "Direct link to Deploy the Contract")
+### Deploy the contract[​](#deploy-the-contract "Direct link to Deploy the contract")
 
 Deploy the contract with:
 
@@ -569,7 +597,7 @@ _13
 
 ClickTokenModule#ClickToken - 0x5Ff8221DfDD1F82fd538391D231502B4b927fbD7`
 
-### Verify the Contract[​](#verify-the-contract "Direct link to Verify the Contract")
+### Verify the contract[​](#verify-the-contract "Direct link to Verify the contract")
 
 Next, verify the contract with:
 
@@ -595,17 +623,18 @@ _10
 
 - https://evm-testnet.flowscan.io//address/0x64366c923d5046F8417Dcd8a0Cb4a789F8722387#code`
 
-## Testing the Contract[​](#testing-the-contract "Direct link to Testing the Contract")
+## Testing the contract[​](#testing-the-contract "Direct link to Testing the contract")
 
-Click the link to open the contract in [testnet Flowscan](https://evm-testnet.flowscan.io/). Click the `Connect` button and connect your wallet, then navigate to the `Contract` tab and `Read/Write contract`.
+To test the contract:
 
-![read write contract](/assets/images/read-write-dd09b9394736ff453da4292fc6e9b5fd.png)
+1. Click the link to open the contract in [testnet Flowscan](https://evm-testnet.flowscan.io/).
+2. Click the `Connect` button and connect your wallet, then navigate to the **Contract > Read/Write contract** tab:
 
-Find the `mintTo` function and expand the UI to mint yourself a few tokens. You can click the `self` button to automatically add your address without needing to copy/paste.
+   ![read write contract](/assets/images/read-write-dd09b9394736ff453da4292fc6e9b5fd.png)
+3. Find the `mintTo` function and expand the UI to mint yourself a few tokens. You can click the `self` button to automatically add your address without needing to copy/paste.
+4. Once you've "earned" a few tokens, use `balanceOf` to see how many tokens you have. You can also use `getAllScores` to get a list of everyone with the tokens, and how many they have.
 
-Once you've "earned" a few tokens, use `balanceOf` to see how many tokens you have. You can also use `getAllScores` to get a list of everyone with the tokens, and how many they have.
-
-### Testing with Free Gas[​](#testing-with-free-gas "Direct link to Testing with Free Gas")
+### Testing with free gas[​](#testing-with-free-gas "Direct link to Testing with free gas")
 
 If you don't have it yet, set up the [Flow Wallet](https://wallet.flow.com/), connect, and try minting some more tokens. You'll see that the wallet automatically sponsors your gas:
 
@@ -633,15 +662,15 @@ In our [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps/introduct
 
 Ready to unlock the full potential of Flow EVM? Start with our [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps/introduction) tutorial to learn how to build your first cross-VM application.
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/evm/quickstart.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/evm/quickstart.md)
 
-Last updated on **Aug 17, 2025** by **0xLisanAlGaib**
+Last updated on **Sep 24, 2025** by **LA Techwriter**
 
 [Previous
 
-Network Information](/evm/networks)[Next
+VM Bridge](/build/cadence/core-contracts/bridge)[Next
 
-Fees](/evm/fees)
+How it Works](/build/evm/how-it-works)
 
 ###### Rate this page
 
@@ -649,69 +678,30 @@ Fees](/evm/fees)
 
 Copy as Markdown
 
-* [Objectives](#objectives)
-* [Prerequisites](#prerequisites)
-  + [Traditional Cryptocurrency Wallet](#traditional-cryptocurrency-wallet)
-* [Deploy Your Contract](#deploy-your-contract)
-  + [Hardhat Setup](#hardhat-setup)
-  + [Environment Setup](#environment-setup)
-  + [Hardhat Config](#hardhat-config)
-  + [Contract Setup](#contract-setup)
-  + [Deployment Setup](#deployment-setup)
-  + [Obtain Testnet Funds](#obtain-testnet-funds)
-  + [Deploy the Contract](#deploy-the-contract)
-  + [Verify the Contract](#verify-the-contract)
-* [Testing the Contract](#testing-the-contract)
-  + [Testing with Free Gas](#testing-with-free-gas)
-* [Conclusion](#conclusion)
+* [Network information](#network-information)
+  + [Mainnet](#mainnet)+ [Testnet](#testnet)* [Objectives](#objectives)* [Prerequisites](#prerequisites)
+      + [Traditional cryptocurrency wallet](#traditional-cryptocurrency-wallet)* [Deploy your contract](#deploy-your-contract)
+        + [Hardhat setup](#hardhat-setup)+ [Environment setup](#environment-setup)+ [Hardhat config](#hardhat-config)+ [Contract setup](#contract-setup)+ [Deployment setup](#deployment-setup)+ [Obtain testnet funds](#obtain-testnet-funds)+ [Deploy the contract](#deploy-the-contract)+ [Verify the contract](#verify-the-contract)* [Testing the contract](#testing-the-contract)
+          + [Testing with free gas](#testing-with-free-gas)* [Conclusion](#conclusion)
 
 Documentation
 
-* [Getting Started](/build/getting-started/contract-interaction)
-* [SDK's & Tools](/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/guides/mobile/overview)
-* [FCL](/tools/clients/fcl-js)
-* [Testing](/build/smart-contracts/testing)
-* [CLI](/tools/flow-cli)
-* [Emulator](/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/tools/vscode-extension)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
 
 Start Building
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/core-contracts)
-* [EVM](/evm/about)
+* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
 
 Network
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
-* [Node Operation](/networks/node-ops)
-* [Spork Information](/networks/node-ops/node-operation/spork)
+* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.

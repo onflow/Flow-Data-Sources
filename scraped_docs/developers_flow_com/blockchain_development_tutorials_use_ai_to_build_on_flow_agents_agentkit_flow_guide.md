@@ -12,29 +12,33 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 
 Search
 
-* [Blockchain Development Tutorials](/blockchain-development-tutorials)
-* [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)
-* [Forte Network Upgrade](/blockchain-development-tutorials/forte)
-* [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
+* [Blockchain Development Tutorials](/blockchain-development-tutorials)* [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)* [Forte Network Upgrade](/blockchain-development-tutorials/forte)
 
-  + [Large Language Models (LLMs)](/blockchain-development-tutorials/use-AI-to-build-on-flow/llms)
-  + [Use Cursor AI](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor)
-  + [AI Agents](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents)
+      * [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
 
-    - [Eliza on Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/eliza)
-    - [Using AgentKit on Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/agentkit-flow-guide)
-  + [Flow MCP](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp)
-* [Cadence Tutorials](/blockchain-development-tutorials/cadence)
-* [Flow EVM Guides](/blockchain-development-tutorials/evm)
-* [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
-* [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
-* [Token Development and Registration](/blockchain-development-tutorials/tokens)
-* [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
-* [Third-Party Integrations](/blockchain-development-tutorials/integrations)
+        + [Large Language Models (LLMs)](/blockchain-development-tutorials/use-AI-to-build-on-flow/llms)
 
-* [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
-* [AI Agents](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents)
-* Using AgentKit on Flow
+          + [Use Cursor AI](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor)
+
+            + [AI Agents](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents)
+
+              - [Eliza on Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/eliza)
+
+                - [Using AgentKit on Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/agentkit-flow-guide)+ [Flow MCP](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp)* [Cadence Tutorials](/blockchain-development-tutorials/cadence)
+
+          * [Flow EVM Guides](/blockchain-development-tutorials/evm)
+
+            * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
+
+              * [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
+
+                * [Token Development and Registration](/blockchain-development-tutorials/tokens)
+
+                  * [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
+
+                    * [Third-Party Integrations](/blockchain-development-tutorials/integrations)
+
+* * [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [AI Agents](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents)* Using AgentKit on Flow
 
 On this page
 
@@ -600,72 +604,30 @@ Flow MCP](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp)
 
 Copy as Markdown
 
-* [Quickstart - Starting From Scratch](#quickstart---starting-from-scratch)
-* [Project Setup](#project-setup)
-  + [Environment Configuration](#environment-configuration)
-  + [Get Your Anthropic API Key](#get-your-anthropic-api-key)
-  + [Wallet Setup with MetaMask](#wallet-setup-with-metamask)
-* [Configure Your LLM](#configure-your-llm)
-  + [Choose a Model](#choose-a-model)
-  + [Update `create-agent.ts`](#update-create-agentts)
-* [Configure Flow and Viem Wallet](#configure-flow-and-viem-wallet)
-  + [Update the Faucet Provider Logic](#update-the-faucet-provider-logic)
-  + [Add Flow Context Message to Agent](#add-flow-context-message-to-agent)
-* [You're Done!](#youre-done)
-* [Starter Project](#starter-project)
-* [Adding AgentKit to an Existing Project](#adding-agentkit-to-an-existing-project)
-  + [Install the Package](#install-the-package)
-  + [Configure Environment](#configure-environment)
-  + [Integrate AgentKit in Your Code](#integrate-agentkit-in-your-code)
-  + [Add Specialized Tools (Optional)](#add-specialized-tools-optional)
-* [Resources](#resources)
+* [Quickstart - Starting From Scratch](#quickstart---starting-from-scratch)* [Project Setup](#project-setup)
+    + [Environment Configuration](#environment-configuration)+ [Get Your Anthropic API Key](#get-your-anthropic-api-key)+ [Wallet Setup with MetaMask](#wallet-setup-with-metamask)* [Configure Your LLM](#configure-your-llm)
+      + [Choose a Model](#choose-a-model)+ [Update `create-agent.ts`](#update-create-agentts)* [Configure Flow and Viem Wallet](#configure-flow-and-viem-wallet)
+        + [Update the Faucet Provider Logic](#update-the-faucet-provider-logic)+ [Add Flow Context Message to Agent](#add-flow-context-message-to-agent)* [You're Done!](#youre-done)* [Starter Project](#starter-project)* [Adding AgentKit to an Existing Project](#adding-agentkit-to-an-existing-project)
+              + [Install the Package](#install-the-package)+ [Configure Environment](#configure-environment)+ [Integrate AgentKit in Your Code](#integrate-agentkit-in-your-code)+ [Add Specialized Tools (Optional)](#add-specialized-tools-optional)* [Resources](#resources)
 
 Documentation
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
 
 Start Building
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
 
 Network
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.

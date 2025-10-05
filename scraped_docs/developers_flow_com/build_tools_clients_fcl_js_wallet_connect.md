@@ -12,54 +12,33 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 
 Search
 
-* [Why Flow](/build/flow)
-* [Cadence](/build/cadence/quickstart)
+* [Why Flow](/build/flow)* [Cadence](/build/cadence/quickstart)
 
-  + [Quickstart ↙](/build/cadence/quickstart)
-  + [Differences vs. EVM](/build/cadence/differences-vs-evm)
-  + [Basics](/build/cadence/basics/network-architecture)
-  + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
-  + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
-  + [Core Smart Contracts](/build/cadence/core-contracts)
-* [Solidity (EVM)](/build/evm/quickstart)
+    + [Quickstart ↙](/build/cadence/quickstart)+ [Differences vs. EVM](/build/cadence/differences-vs-evm)+ [Basics](/build/cadence/basics/network-architecture)
 
-  + [EVM Quickstart](/build/evm/quickstart)
-  + [How it Works](/build/evm/how-it-works)
-  + [EVM Wallet Setup](/build/evm/using)
-  + [Network Information](/build/evm/networks)
-  + [Fees](/build/evm/fees)
-  + [Accounts](/build/evm/accounts)
-* [Tools & SDKs](/build/tools)
+          + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-  + [@onflow/react-sdk](/build/tools/react-sdk)
-  + [Flow Emulator](/build/tools/emulator)
-  + [Flow CLI](/build/tools/flow-cli)
-  + [Cadence VS Code Extension](/build/tools/vscode-extension)
-  + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
-  + [Client Tools](/build/tools/clients)
+            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
 
-    - [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
+              + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
 
-      * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
-      * [Authentication](/build/tools/clients/fcl-js/authentication)
-      * [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)
-      * [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
-      * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)
-      * [Installation](/build/tools/clients/fcl-js/installation)
-      * [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)
-      * [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)
-      * [Scripts](/build/tools/clients/fcl-js/scripts)
-      * [Transactions](/build/tools/clients/fcl-js/transactions)
-      * [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)
-      * [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)
-    - [Flow Go SDK](/build/tools/clients/flow-go-sdk)
-  + [Error Codes](/build/tools/error-codes)
-  + [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+      + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
 
-* [Tools & SDKs](/build/tools)
-* [Client Tools](/build/tools/clients)
-* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
-* WalletConnect 2.0 Manual Configuration
+        + [@onflow/react-sdk](/build/tools/react-sdk)
+
+          + [Flow Emulator](/build/tools/emulator)+ [Flow CLI](/build/tools/flow-cli)
+
+              + [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+
+                    - [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
+
+                      * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
+
+                        * [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
+
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+
+* * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* WalletConnect 2.0 Manual Configuration
 
 On this page
 
@@ -89,12 +68,9 @@ These instructions explain how dApps can also add support for FCL compatible wal
 
 ### Implementation path[​](#implementation-path "Direct link to Implementation path")
 
-|  |  |  |
-| --- | --- | --- |
-| [**1**](#1-add-required-packages) | Add required packages | Install and import minimum `fcl` and `fcl-wc` [versions](#requirements) |
-| [**2**](#2-obtain-a-walletconnect-projectid) | Obtain a WalletConnect `projectID` | Visit [WalletConnect Cloud Registry](https://cloud.walletconnect.com/) and register for public relay server access and an application `projectId` |
-| [**3**](#3-initialize-walletconnect-signclient-and-fclwcserviceplugin) | Initialize WalletConnect `SignClient` and `FclWcServicePlugin` | Initialize WalletConnect `SignClient` and `FclWcServicePlugin` with [configuration options](#configuration-options) |
-| [**4**](#4-add-fclwcserviceplugin-to-fcl-plugin-registry) | Add `FclWcServicePlugin` to FCL Plugin Registry | Inject `FclWcServicePlugin` via `fcl.pluginRegistry.add(FclWcServicePlugin)` |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [**1**](#1-add-required-packages) Add required packages Install and import minimum `fcl` and `fcl-wc` [versions](#requirements)| [**2**](#2-obtain-a-walletconnect-projectid) Obtain a WalletConnect `projectID` Visit [WalletConnect Cloud Registry](https://cloud.walletconnect.com/) and register for public relay server access and an application `projectId`| [**3**](#3-initialize-walletconnect-signclient-and-fclwcserviceplugin) Initialize WalletConnect `SignClient` and `FclWcServicePlugin` Initialize WalletConnect `SignClient` and `FclWcServicePlugin` with [configuration options](#configuration-options)| [**4**](#4-add-fclwcserviceplugin-to-fcl-plugin-registry) Add `FclWcServicePlugin` to FCL Plugin Registry Inject `FclWcServicePlugin` via `fcl.pluginRegistry.add(FclWcServicePlugin)` | | | | | | | | | | | | | | |
 
 ### 1. Add required packages[​](#1-add-required-packages "Direct link to 1. Add required packages")
 
@@ -117,22 +93,15 @@ A `discovery-service` `ServicePlugin` may also include additional opt-in wallets
 
 Initialize WalletConnect `SignClient` and `FclWcServicePlugin` with the following configuration options:
 
-| Name | Type | Default | Description |
-| --- | --- | --- | --- |
-| `projectId` | boolean **(required)** | null | A WalletConnect projectId for public relay server access. Your Project ID can be obtained from [WalletConnect Cloud Dashboard](https://cloud.walletconnect.com/app) |
-| `metadata` | object | `{ }` | Optional dApp metadata to describe your application and define its appearance in a web browser. More details can be found [here](https://docs.walletconnect.com/2.0/swift/sign/dapp-usage) |
-| `includeBaseWC` | boolean | false | Optional configuration to include a generic WalletConnect service in FCL Discovery (UI/API).   ❗ BaseWC Service offers no deeplink support for mobile. |
-| `wcRequestHook` | function | null | Optional function is called on all desktop WalletConnect client session proposals and signing requests. Use this to handle alerting user to check wallet for approval. |
-| `pairingModalOverride` | function | null | Optional function called to allow override of included QRCodeModal. Function receives two arguments:   1. Connection `uri` to display QR code or send to wallet to create pairing.   2. Callback function to manually cancel the request. |
-| `wallets` | array | `[ ]` | Optional list of WalletConnect `authn` services to include in FCL Wallet Discovery (UI/API).   ❗ Only available for use on **`testnet`**. These services will be combined with wallets returned from [WalletConnect cloud registry API](https://cloud.walletconnect.com/) and sent to Discovery for display in UI and inclusion in API response. |
-| `disableNotifications` | boolean | false | Optional flag to disable pending WalletConnect request notifications within the application's UI. |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Name Type Default Description|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `projectId` boolean **(required)** null A WalletConnect projectId for public relay server access. Your Project ID can be obtained from [WalletConnect Cloud Dashboard](https://cloud.walletconnect.com/app)| `metadata` object `{ }` Optional dApp metadata to describe your application and define its appearance in a web browser. More details can be found [here](https://docs.walletconnect.com/2.0/swift/sign/dapp-usage)| `includeBaseWC` boolean false Optional configuration to include a generic WalletConnect service in FCL Discovery (UI/API).   ❗ BaseWC Service offers no deeplink support for mobile.| `wcRequestHook` function null Optional function is called on all desktop WalletConnect client session proposals and signing requests. Use this to handle alerting user to check wallet for approval.|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `pairingModalOverride` function null Optional function called to allow override of included QRCodeModal. Function receives two arguments:   1. Connection `uri` to display QR code or send to wallet to create pairing.   2. Callback function to manually cancel the request.| `wallets` array `[ ]` Optional list of WalletConnect `authn` services to include in FCL Wallet Discovery (UI/API).   ❗ Only available for use on **`testnet`**. These services will be combined with wallets returned from [WalletConnect cloud registry API](https://cloud.walletconnect.com/) and sent to Discovery for display in UI and inclusion in API response.| `disableNotifications` boolean false Optional flag to disable pending WalletConnect request notifications within the application's UI. | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
 
 #### Returns[​](#returns "Direct link to Returns")
 
-| Name | Type | Description |
-| --- | --- | --- |
-| [FclWcServicePlugin](#fclwcserviceplugin) | `ServicePlugin` | A `ServicePlugin` of type `discovery-service`. May also include optional `authn` services to offer through FCL Wallet Discovery (UI/API). |
-| [client](#) | `SignClient` | An initialized WalletConnect [`SignClient`](https://docs.walletconnect.com/2.0/introduction/sign). |
+|  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Name Type Description|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | [FclWcServicePlugin](#fclwcserviceplugin) `ServicePlugin` A `ServicePlugin` of type `discovery-service`. May also include optional `authn` services to offer through FCL Wallet Discovery (UI/API).| [client](#) `SignClient` An initialized WalletConnect [`SignClient`](https://docs.walletconnect.com/2.0/introduction/sign). | | | | | | | | |
 
 `_10
 
@@ -266,13 +235,9 @@ fcl.pluginRegistry.add(FclWcServicePlugin);`
 
 ### ServicePlugin Spec[​](#serviceplugin-spec "Direct link to ServicePlugin Spec")
 
-| Key | Value Type | Description |
-| --- | --- | --- |
-| `name` | string | The name of the plugin. |
-| `f_type` | string | The type of plugin (currently only supports `ServicePlugin` type). |
-| `type` | string | The plugin subtype (currently only supports `discovery-service` type). |
-| `services` | array | A list of services to add to FCL. |
-| `serviceStrategy` | `{ method: string, exec: function }` | The method and corresponding strategy FCL uses to interact with the service. A service with the `service.method` property set to `"WC/RPC"` tells FCL to use the corresponding service strategy if it is supported by the dApp. |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Key Value Type Description|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `name` string The name of the plugin.|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `f_type` string The type of plugin (currently only supports `ServicePlugin` type).| `type` string The plugin subtype (currently only supports `discovery-service` type).| `services` array A list of services to add to FCL.|  |  |  | | --- | --- | --- | | `serviceStrategy` `{ method: string, exec: function }` The method and corresponding strategy FCL uses to interact with the service. A service with the `service.method` property set to `"WC/RPC"` tells FCL to use the corresponding service strategy if it is supported by the dApp. | | | | | | | | | | | | | | | | | |
 
 ---
 
@@ -311,12 +276,9 @@ FCL tells Wallet Discovery which services are supported by the client (installed
 
 ### Implementation path[​](#implementation-path-1 "Direct link to Implementation path")
 
-|  |  |  |
-| --- | --- | --- |
-| **1** | Obtain a WalletConnect `projectId` | Register to receive a `projectId` from the [WalletConnect Cloud Registry](https://cloud.walletconnect.com/). |
-| **2** | Conform to [FCL Wallet Provider Spec](https://github.com/onflow/fcl-js/blob/master/packages/fcl/src/wallet-provider-spec/draft-v4.md) | Compatible wallets must support `flow_authn`, `flow_authz`, and `flow_user_sign` methods and wrap data in the appropriate FCL Response type. Services returned with the `AuthnResponse` of `flow_authn` should set `service.endpoint` to corresponding methods.  **ServiceType** `authz` : `flow_authz`   **ServiceType** `user-signature` : `flow_user_sign` |
-| **3** | Add wallet to WalletConnect Cloud Registry API **(optional)** | Submit your wallet to be included in the [WalletConnect Cloud Registry API and Explorer](https://explorer.walletconnect.com/) |
-| **4** | Responses | All responses need to be wrapped in a [`PollingResponse`](https://github.com/onflow/fcl-js/blob/master/packages/fcl/src/wallet-provider-spec/draft-v4.md#pollingresponse) |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **1** Obtain a WalletConnect `projectId` Register to receive a `projectId` from the [WalletConnect Cloud Registry](https://cloud.walletconnect.com/).| **2** Conform to [FCL Wallet Provider Spec](https://github.com/onflow/fcl-js/blob/master/packages/fcl/src/wallet-provider-spec/draft-v4.md) Compatible wallets must support `flow_authn`, `flow_authz`, and `flow_user_sign` methods and wrap data in the appropriate FCL Response type. Services returned with the `AuthnResponse` of `flow_authn` should set `service.endpoint` to corresponding methods.  **ServiceType** `authz` : `flow_authz`   **ServiceType** `user-signature` : `flow_user_sign`| **3** Add wallet to WalletConnect Cloud Registry API **(optional)** Submit your wallet to be included in the [WalletConnect Cloud Registry API and Explorer](https://explorer.walletconnect.com/)| **4** Responses All responses need to be wrapped in a [`PollingResponse`](https://github.com/onflow/fcl-js/blob/master/packages/fcl/src/wallet-provider-spec/draft-v4.md#pollingresponse) | | | | | | | | | | | | | | |
 
 #### Metadata requirements[​](#metadata-requirements "Direct link to Metadata requirements")
 
@@ -406,65 +368,28 @@ Flow Go SDK](/build/tools/clients/flow-go-sdk)
 Copy as Markdown
 
 * [How does it work?](#how-does-it-work)
-  + [Requirements](#requirements)
-  + [Implementation path](#implementation-path)
-  + [1. Add required packages](#1-add-required-packages)
-  + [2. Obtain a WalletConnect projectID](#2-obtain-a-walletconnect-projectid)
-  + [3. Initialize WalletConnect `SignClient` and `FclWcServicePlugin`](#3-initialize-walletconnect-signclient-and-fclwcserviceplugin)
-  + [4. Add FclWcServicePlugin to FCL Plugin Registry](#4-add-fclwcserviceplugin-to-fcl-plugin-registry)
-  + [ServicePlugin Spec](#serviceplugin-spec)
-* [Integrating With Wallet Discovery](#integrating-with-wallet-discovery)
-  + [How to add your FCL compatible WalletConnect wallet to Discovery (UI/API)](#how-to-add-your-fcl-compatible-walletconnect-wallet-to-discovery-uiapi)
-* [Wallet Provider Spec](#wallet-provider-spec)
-  + [Implementation path](#implementation-path-1)
-* [Next steps](#next-steps)
+  + [Requirements](#requirements)+ [Implementation path](#implementation-path)+ [1. Add required packages](#1-add-required-packages)+ [2. Obtain a WalletConnect projectID](#2-obtain-a-walletconnect-projectid)+ [3. Initialize WalletConnect `SignClient` and `FclWcServicePlugin`](#3-initialize-walletconnect-signclient-and-fclwcserviceplugin)+ [4. Add FclWcServicePlugin to FCL Plugin Registry](#4-add-fclwcserviceplugin-to-fcl-plugin-registry)+ [ServicePlugin Spec](#serviceplugin-spec)* [Integrating With Wallet Discovery](#integrating-with-wallet-discovery)
+    + [How to add your FCL compatible WalletConnect wallet to Discovery (UI/API)](#how-to-add-your-fcl-compatible-walletconnect-wallet-to-discovery-uiapi)* [Wallet Provider Spec](#wallet-provider-spec)
+      + [Implementation path](#implementation-path-1)* [Next steps](#next-steps)
 
 Documentation
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
 
 Start Building
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
 
 Network
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.

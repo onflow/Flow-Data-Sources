@@ -12,28 +12,15 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 
 Search
 
-* [Ecosystem Index](/ecosystem)
-* [Developer Support Hub](/ecosystem/developer-support-hub)
-* [Hackathons and Events](/ecosystem/Hackathons and Events)
-* [Flow Block Explorers](/ecosystem/block-explorers)
-* [Data Indexers](/ecosystem/data-indexers)
-* [Developer Profile](/ecosystem/developer-profile)
-* [Wallets](/ecosystem/wallets)
-* [DeFi & Liquidity](/ecosystem/defi-liquidity)
+* [Ecosystem Index](/ecosystem)* [Developer Support Hub](/ecosystem/developer-support-hub)
 
-  + [Build with Forte ↙](/ecosystem/defi-liquidity/forte)
-  + [DeFi Contracts](/ecosystem/defi-liquidity/defi-contracts)
-  + [Cross-chain swaps on Flow EVM](/ecosystem/defi-liquidity/cross-chain-swaps)
-  + [Add Token To MetaMask](/ecosystem/defi-liquidity/add-token-to-metamask)
-  + [Stablecoins & Bridges FAQ](/ecosystem/defi-liquidity/faq)
-* [Faucets](/ecosystem/faucets)
-* [Bridges](/ecosystem/bridges)
-* [Collectibles & NFTs](/ecosystem/collectibles)
-* [Community Projects](/ecosystem/projects)
-* [Auditors](/ecosystem/auditors)
+    * [Hackathons and Events](/ecosystem/Hackathons and Events)
 
-* [DeFi & Liquidity](/ecosystem/defi-liquidity)
-* Add Token To MetaMask
+      * [Flow Block Explorers](/ecosystem/block-explorers)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
+
+                + [Build with Forte ↙](/ecosystem/defi-liquidity/forte)+ [DeFi Contracts](/ecosystem/defi-liquidity/defi-contracts)+ [Cross-chain swaps on Flow EVM](/ecosystem/defi-liquidity/cross-chain-swaps)+ [Add Token To MetaMask](/ecosystem/defi-liquidity/add-token-to-metamask)+ [Stablecoins & Bridges FAQ](/ecosystem/defi-liquidity/faq)* [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
+
+* * [DeFi & Liquidity](/ecosystem/defi-liquidity)* Add Token To MetaMask
 
 On this page
 
@@ -106,58 +93,27 @@ Stablecoins & Bridges FAQ](/ecosystem/defi-liquidity/faq)
 
 Copy as Markdown
 
-* [Objectives](#objectives)
-* [Add a Token to MetaMask via Flowscan](#add-a-token-to-metamask-via-flowscan)
-* [Add a Custom Token in MetaMask Wallet](#add-a-custom-token-in-metamask-wallet)
-  + [Steps to Add a Custom Token](#steps-to-add-a-custom-token)
-* [How to Find The Token Contract Address](#how-to-find-the-token-contract-address)
+* [Objectives](#objectives)* [Add a Token to MetaMask via Flowscan](#add-a-token-to-metamask-via-flowscan)* [Add a Custom Token in MetaMask Wallet](#add-a-custom-token-in-metamask-wallet)
+      + [Steps to Add a Custom Token](#steps-to-add-a-custom-token)* [How to Find The Token Contract Address](#how-to-find-the-token-contract-address)
 
 Documentation
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
 
 Start Building
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
 
 Network
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.
