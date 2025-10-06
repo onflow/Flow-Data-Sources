@@ -6,33 +6,21 @@ VCs & Funds | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [Ecosystem](/ecosystem)
-* [Developer Support Hub](/ecosystem/developer-support-hub)
+* [Ecosystem Index](/ecosystem)* [Developer Support Hub](/ecosystem/developer-support-hub)
 
-  + [Builder Perks](/ecosystem/developer-support-hub/builder-perks)
-  + [Grants](/ecosystem/developer-support-hub/grants)
-  + [VCs & Funds](/ecosystem/developer-support-hub/vcs-and-funds)
-* [Wallets](/ecosystem/wallets)
-* [Flow Block Explorers](/ecosystem/block-explorers)
-* [Data Indexers](/ecosystem/data-indexers)
-* [Developer Profile](/ecosystem/developer-profile)
-* [DeFi & Liquidity](/ecosystem/defi-liquidity)
-* [Bridges](/ecosystem/bridges)
-* [Collectibles & NFTs](/ecosystem/collectibles)
-* [Community Projects](/ecosystem/projects)
-* [Faucets](/ecosystem/faucets)
-* [Hackathons and Events](/ecosystem/Hackathons and Events)
-* [Auditors](/ecosystem/auditors)
-* [Ecosystem Overview](/ecosystem/overview)
+    + [Builder Perks](/ecosystem/developer-support-hub/builder-perks)+ [Grants](/ecosystem/developer-support-hub/grants)+ [VCs & Funds](/ecosystem/developer-support-hub/vcs-and-funds)* [Hackathons and Events](/ecosystem/Hackathons and Events)
 
-* [Developer Support Hub](/ecosystem/developer-support-hub)
-* VCs & Funds
+      * [Flow Block Explorers](/ecosystem/block-explorers)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
+
+                * [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
+
+* * [Developer Support Hub](/ecosystem/developer-support-hub)* VCs & Funds
 
 # VCs & Funds
 
@@ -48,55 +36,26 @@ Last updated on **Aug 28, 2025** by **SeanRobb**
 
 Grants](/ecosystem/developer-support-hub/grants)[Next
 
-Wallets](/ecosystem/wallets)
+Hackathons and Events](/ecosystem/Hackathons and Events)
 
 Documentation
 
-* [Getting Started](/build/cadence/getting-started/contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
 
 Start Building
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
 
 Network
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/spork)
+* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.

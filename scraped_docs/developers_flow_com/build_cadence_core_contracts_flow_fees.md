@@ -12,43 +12,21 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 
 Search
 
-* [Why Flow](/build/flow)
-* [Cadence](/build/cadence/quickstart)
+* [Why Flow](/build/flow)* [Cadence](/build/cadence/quickstart)
 
-  + [Quickstart ↙](/build/cadence/quickstart)
-  + [Differences vs. EVM](/build/cadence/differences-vs-evm)
-  + [Basics](/build/cadence/basics/network-architecture)
-  + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
-  + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
-  + [Core Smart Contracts](/build/cadence/core-contracts)
+    + [Quickstart ↙](/build/cadence/quickstart)+ [Differences vs. EVM](/build/cadence/differences-vs-evm)+ [Basics](/build/cadence/basics/network-architecture)
 
-    - [Fungible Token](/build/cadence/core-contracts/fungible-token)
-    - [Flow Token](/build/cadence/core-contracts/flow-token)
-    - [Service Account](/build/cadence/core-contracts/service-account)
-    - [Flow Fees](/build/cadence/core-contracts/flow-fees)
-    - [Staking Table](/build/cadence/core-contracts/staking-contract-reference)
-    - [Epoch Contracts](/build/cadence/core-contracts/epoch-contract-reference)
-    - [Non-Fungible Token](/build/cadence/core-contracts/non-fungible-token)
-    - [NFT Metadata](/build/cadence/core-contracts/nft-metadata)
-    - [NFT Storefront](/build/cadence/core-contracts/nft-storefront)
-    - [Staking Collection](/build/cadence/core-contracts/staking-collection)
-    - [Account Linking](/build/cadence/core-contracts/hybrid-custody)
-    - [EVM](/build/cadence/core-contracts/evm)
-    - [Burner](/build/cadence/core-contracts/burner)
-    - [VM Bridge](/build/cadence/core-contracts/bridge)
-* [Solidity (EVM)](/build/evm/quickstart)
+          + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-  + [EVM Quickstart](/build/evm/quickstart)
-  + [How it Works](/build/evm/how-it-works)
-  + [EVM Wallet Setup](/build/evm/using)
-  + [Network Information](/build/evm/networks)
-  + [Fees](/build/evm/fees)
-  + [Accounts](/build/evm/accounts)
-* [Tools & SDKs](/build/tools)
+            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
 
-* Cadence
-* [Core Smart Contracts](/build/cadence/core-contracts)
-* Flow Fees
+              + [Core Smart Contracts](/build/cadence/core-contracts)
+
+                - [Fungible Token](/build/cadence/core-contracts/fungible-token)- [Flow Token](/build/cadence/core-contracts/flow-token)- [Service Account](/build/cadence/core-contracts/service-account)- [Flow Fees](/build/cadence/core-contracts/flow-fees)- [Staking Table](/build/cadence/core-contracts/staking-contract-reference)- [Epoch Contracts](/build/cadence/core-contracts/epoch-contract-reference)- [Non-Fungible Token](/build/cadence/core-contracts/non-fungible-token)- [NFT Metadata](/build/cadence/core-contracts/nft-metadata)- [NFT Storefront](/build/cadence/core-contracts/nft-storefront)- [Staking Collection](/build/cadence/core-contracts/staking-collection)- [Account Linking](/build/cadence/core-contracts/hybrid-custody)- [EVM](/build/cadence/core-contracts/evm)- [Burner](/build/cadence/core-contracts/burner)- [VM Bridge](/build/cadence/core-contracts/bridge)* [Solidity (EVM)](/build/evm/quickstart)
+
+      + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
+
+* * Cadence* [Core Smart Contracts](/build/cadence/core-contracts)* Flow Fees
 
 On this page
 
@@ -60,12 +38,9 @@ The `FlowFees` contract is where all the collected flow fees are gathered.
 
 Source: [FlowFees.cdc](https://github.com/onflow/flow-core-contracts/blob/master/contracts/FlowFees.cdc)
 
-| Network | Contract Address |
-| --- | --- |
-| Emulator | `0xe5a8b7f23e8b548f` |
-| Cadence Testing Framework | `0x0000000000000004` |
-| Testnet | `0x912d5440f7e3769e` |
-| Mainnet | `0xf919ee77447b7497` |
+|  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Network Contract Address|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | Emulator `0xe5a8b7f23e8b548f`| Cadence Testing Framework `0x0000000000000004`| Testnet `0x912d5440f7e3769e`| Mainnet `0xf919ee77447b7497` | | | | | | | | | |
 
 ### Events[​](#events "Direct link to Events")
 
@@ -115,12 +90,9 @@ The `FlowStorageFees` contract defines the parameters and utility methods for st
 
 Source: [FlowStorageFees.cdc](https://github.com/onflow/flow-core-contracts/blob/master/contracts/FlowStorageFees.cdc)
 
-| Network | Contract Address |
-| --- | --- |
-| Emulator | `0xf8d6e0586b0a20c7` |
-| Cadence Testing Framework | `0x0000000000000001` |
-| Testnet | `0x8c5303eaa26202d6` |
-| Mainnet | `0xe467b9dd11fa00df` |
+|  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Network Contract Address|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | Emulator `0xf8d6e0586b0a20c7`| Cadence Testing Framework `0x0000000000000001`| Testnet `0x8c5303eaa26202d6`| Mainnet `0xe467b9dd11fa00df` | | | | | | | | | |
 
 ### Events[​](#events-1 "Direct link to Events")
 
@@ -161,56 +133,27 @@ Staking Table](/build/cadence/core-contracts/staking-contract-reference)
 Copy as Markdown
 
 * [FlowFees](#flowfees)
-  + [Events](#events)
-* [FlowStorageFees](#flowstoragefees)
-  + [Events](#events-1)
+  + [Events](#events)* [FlowStorageFees](#flowstoragefees)
+    + [Events](#events-1)
 
 Documentation
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
 
 Start Building
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
 
 Network
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.
