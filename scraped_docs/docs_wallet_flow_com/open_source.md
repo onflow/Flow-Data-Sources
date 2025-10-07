@@ -76,4 +76,4 @@ Copy
 
 [PreviousDownload](/download/download)[NextMobile Wallet Backup Guide](/tutorial/mobile-wallet-backup-guide)
 
-Last updated 1 year ago
+Last updated 2 years ago
