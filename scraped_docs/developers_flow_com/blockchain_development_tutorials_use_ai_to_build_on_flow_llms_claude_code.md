@@ -1014,7 +1014,7 @@ The combination of AI-powered development assistance with Flow's comprehensive t
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/llms/claude-code.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Oct 7, 2025** by **0xLisanAlGaib**
 
 [Previous
 

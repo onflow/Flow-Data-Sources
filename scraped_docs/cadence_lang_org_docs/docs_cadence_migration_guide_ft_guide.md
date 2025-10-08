@@ -39,45 +39,23 @@ On this page
 
 # Fungible Tokens in Cadence 1.0
 
-On September 4th, 2024 the Flow Mainnet upgraded to Cadence 1.0.
-In addition to many changes to the Cadence programming language,
-the Cadence token standards also got streamlined and improved.
-All applications need to migrate their existing Cadence scripts and transactions for the update.
-If you do not update your code, your application will not function.
+info
 
-This document describes the changes to the Cadence Fungible Token (FT) standard.
-We'll be using the
-[`ExampleToken` contract](https://github.com/onflow/flow-ft/blob/master/contracts/ExampleToken.cdc)
-as an example. Many projects have used `ExampleToken` as a starting point for their projects,
-so it is widely applicable to most NFT developers on Flow.
-The upgrades required for `ExampleToken` will cover 90%+ of what you'll
-need to do to update your contract. Each project most likely has
-additional logic or features that aren't included in `ExampleToken`,
-but hopefully after reading this guide, you'll understand Cadence 1.0
-well enough that you can easily make any other changes that are necessary.
+On September 4th, 2024, the Flow Mainnet upgraded to Cadence 1.0. In addition to many changes to the Cadence programming language, the Cadence token standards also got streamlined and improved. All applications need to migrate their existing Cadence scripts and transactions for the update. If you do not update your code, your application will not function.
 
-As always, there are plenty of people on the Flow team and in the community
-who are happy to help answer any questions you may have, so please reach out
-in Discord if you need any help.
+This document describes the changes to the Cadence Fungible Token (FT) standard. We'll be using the [`ExampleToken` contract](https://github.com/onflow/flow-ft/blob/master/contracts/ExampleToken.cdc) as an example. Many projects have used `ExampleToken` as a starting point for their projects, so it is widely applicable to most NFT developers on Flow. The upgrades required for `ExampleToken` will cover 90%+ of what you'll need to do to update your contract. Each project most likely has additional logic or features that aren't included in `ExampleToken`, but hopefully, after reading this guide, you'll understand Cadence 1.0 well enough that you can easily make any other changes that are necessary.
 
-# Important Info
+As always, there are plenty of people on the Flow team and in the community who are happy to help answer any questions you may have, so please reach out in Discord if you need any help.
 
-Please read [the FLIP](https://github.com/onflow/flips/pull/55)
-that describes the changes to the `FungibleToken` standard first.
+## Important info[​](#important-info "Direct link to Important info")
 
-The updated code for the V2 Fungible Token standard is located in the
-[`master` branch of the flow-ft repo](https://github.com/onflow/flow-ft).
-Please look at the [PR that made the changes](https://github.com/onflow/flow-ft/pull/131)
-to understand how the standard and examples have changed.
-Note the changes to the `FungibleTokenMetadataViews`,
-`Burner`, `FungibleTokenSwitchboard`, and `TokenForwarding` contracts.
+Please read the [FLIP](https://github.com/onflow/flips/pull/55) that describes the changes to the `FungibleToken` standard first.
 
-Additionally, here are the import addresses
-for all of the important contracts related to fungible tokens.
-The second column is the import address if you are testing with a basic version of the emulator.
-The third column contains the import addresses if you are using the Cadence testing framework.
+The updated code for the V2 Fungible Token standard is located in the [`master` branch of the flow-ft repo](https://github.com/onflow/flow-ft). Please look at the [PR that made the changes](https://github.com/onflow/flow-ft/pull/131) to understand how the standard and examples have changed. Note the changes to the `FungibleTokenMetadataViews`, `Burner`, `FungibleTokenSwitchboard`, and `TokenForwarding` contracts.
 
-| Contract | Emulator Import Address | Testing Framework |
+Additionally, here are the import addresses for all of the important contracts related to fungible tokens. The second column is the import address if you are testing with a basic version of the emulator. The third column contains the import addresses if you are using the Cadence testing framework:
+
+| Contract | Emulator import address | Testing framework |
 | --- | --- | --- |
 | `FungibleToken` | `0xee82856bf20e2aa6` | `0x0000000000000002` |
 | `ViewResolver` | `0xf8d6e0586b0a20c7` | `0x0000000000000001` |
@@ -86,44 +64,30 @@ The third column contains the import addresses if you are using the Cadence test
 | `FungibleTokenMetadataViews` | `0xee82856bf20e2aa6` | `0x0000000000000002` |
 | `FungibleTokenSwitchboard` | `0xee82856bf20e2aa6` | `0x0000000000000002` |
 
-See the other guides in this section of the docs for the import
-addresses of other important contracts in the emulator.
+See the other guides in this section of the docs for the import addresses of other important contracts in the emulator.
 
-As for contracts that are important for NFT developers but aren't "core contracts",
-here is information about where to find the Cadence 1.0 versions of each:
+As for contracts that are important for NFT developers but aren't *core contracts*, here is information about where to find the Cadence 1.0 versions of each:
 
-**USDC:** USDC was migrated to standard bridged USDC on Flow. See the [repo](https://github.com/onflow/bridged-usdc) for the latest version of the USDC contract.
+* **USDC** — USDC was migrated to standard bridged USDC on Flow. See the [repo](https://github.com/onflow/bridged-usdc) for the latest version of the USDC contract.
+* **Account Linking and Hybrid Custody** — See [this PR in the hybrid custody repo](https://github.com/onflow/hybrid-custody/pull/164) for updated hybrid custody contracts.
 
-**Account Linking and Hybrid Custody:**
-See [this PR in the hybrid custody repo](https://github.com/onflow/hybrid-custody/pull/164)
-for updated hybrid custody contracts.
-
-[This Discord announcement](https://discord.com/channels/613813861610684416/811693600403357706/1225909248429527140)
-also contains versions of a lot of important contracts.
+[This Discord announcement](https://discord.com/channels/613813861610684416/811693600403357706/1225909248429527140) also contains versions of a lot of important contracts.
 
 Use the [Flow Contract Browser](https://contractbrowser.com/) to find the 1.0 code of other contracts.
 
-# Migration Guide
+## Migration guide[​](#migration-guide "Direct link to Migration guide")
 
-Please see the [NFT Cadence 1.0 migration guide](/docs/cadence-migration-guide/nft-guide).
-While the contracts aren't exactly the same, they share a huge amount of functionality,
-and the changes described in that guide will cover 90% of the changes
-that are needed for fungible tokens, so if you just follow those instructions
-for your fungible token contract, you'll be most of the way there.
+Please see the [NFT Cadence 1.0 migration guide](/docs/cadence-migration-guide/nft-guide). While the contracts aren't exactly the same, they share a large amount of functionality, and the changes described in that guide will cover 90% of the changes that are needed for fungible tokens, so if you just follow those instructions for your fungible token contract, you'll be most of the way there.
 
 Here, we will only describe the changes that are specific to the fungible token standard.
 
-## `Vault` implements `FungibleToken.Vault`[​](#vault-implements-fungibletokenvault "Direct link to vault-implements-fungibletokenvault")
+### `Vault` implements `FungibleToken.Vault`[​](#vault-implements-fungibletokenvault "Direct link to vault-implements-fungibletokenvault")
 
-`FungibleToken.Vault` is no longer a resource type specification.
-It is now an interface that inherits from `Provider`, `Receiver`, `Balance`,
-`ViewResolver.Resolver`, and `Burner.Burnable`.
+`FungibleToken.Vault` is no longer a resource type specification. It is now an interface that inherits from `Provider`, `Receiver`, `Balance`, `ViewResolver.Resolver`, and `Burner Burnable`.
 
-Since `Vault` is an interface, you will need to update every instance in your code
-that refers to `@FungibleToken.Vault` or `&FungibleToken.Vault` to
-`@{FungibleToken.Vault}` or `&{FungibleToken.Vault}` respectively to show
-that it is now an interface specification instead of a concrete type specification.
-Example in `deposit()`:
+Since `Vault` is an interface, you will need to update every instance in your code that refers to `@FungibleToken.Vault` or `&FungibleToken.Vault` to `@{FungibleToken.Vault}` or `&{FungibleToken.Vault}` respectively to show that it is now an interface specification instead of a concrete type specification.
+
+Here's an example in `deposit()`:
 
 `` _10
 
@@ -147,4 +111,6 @@ Core Contracts Guide](/docs/cadence-migration-guide/core-contracts-guide)
 
 😞😐😊
 
-* [`Vault` implements `FungibleToken.Vault`](#vault-implements-fungibletokenvault)
+* [Important info](#important-info)
+* [Migration guide](#migration-guide)
+  + [`Vault` implements `FungibleToken.Vault`](#vault-implements-fungibletokenvault)

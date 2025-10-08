@@ -18,7 +18,7 @@ Search
 
       * [Staking and Epochs](/protocol/staking)
 
-        + [Epoch and Staking Terminology](/protocol/staking/epoch-terminology)+ [Epoch and Reward Schedule](/protocol/staking/schedule)+ [Epoch Preparation Protocol](/protocol/staking/epoch-preparation)+ [Stake Slashing](/protocol/staking/stake-slashing)+ [Epoch Scripts and Events](/protocol/staking/epoch-scripts-events)+ [Staking Technical Overview](/protocol/staking/technical-overview)+ [Staking Scripts and Events](/protocol/staking/staking-scripts-events)+ [How to Query Staking rewards](/protocol/staking/staking-rewards)+ [QC and DKG](/protocol/staking/qc-dkg)+ [QC/DKG Scripts and Events](/protocol/staking/qc-dkg-scripts-events)+ [Machine Account](/protocol/staking/machine-account)+ [FAQs](/protocol/staking/faq)+ [Technical Staking Options](/protocol/staking/staking-options)+ [Staking Collection Guide](/protocol/staking/staking-collection)+ [Basic Staking Guide (Deprecated)](/protocol/staking/staking-guide)* [Node Ops](/protocol/node-ops)
+        + [Epoch and Staking Terminology](/protocol/staking/epoch-terminology)+ [Epoch and Reward Schedule](/protocol/staking/schedule)+ [Epoch Preparation Protocol](/protocol/staking/epoch-preparation)+ [Stake Slashing](/protocol/staking/stake-slashing)+ [Epoch Scripts and Events](/protocol/staking/epoch-scripts-events)+ [Staking Technical Overview](/protocol/staking/technical-overview)+ [Staking Scripts and Events](/protocol/staking/staking-scripts-events)+ [How to Query Staking rewards](/protocol/staking/staking-rewards)+ [QC and DKG](/protocol/staking/qc-dkg)+ [QC/DKG Scripts and Events](/protocol/staking/qc-dkg-scripts-events)+ [Machine Account](/protocol/staking/machine-account)+ [FAQs](/protocol/staking/faq)+ [Technical Staking Options](/protocol/staking/staking-options)+ [Staking Collection Guide](/protocol/staking/staking-collection)* [Node Ops](/protocol/node-ops)
 
           * [Accessing Data](/protocol/access-onchain-data)
 
@@ -44,20 +44,9 @@ and will receive the most support in the future. It is the set-up that Flow Port
 
 The staking collection setup and guide is detailed in the [staking collection guide.](/protocol/staking/staking-collection)
 
-# Staking
-
-The basic method to stake is to stake directly with the `FlowIDTableStaking` smart contract.
-This would involve calling the node or delegator registration functions directly in the staking
-contract and storing the staking objects directly in account storage.
-
-This is probably the simplest way to implement this, but it is not very flexible
-and not recommended.
-
-The basic staking guide is detailed [here](/protocol/staking/staking-guide)
-
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/protocol/staking/13-staking-options.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Oct 7, 2025** by **Brian Doyle**
 
 [Previous
 

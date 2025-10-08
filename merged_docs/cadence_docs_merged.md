@@ -132087,7 +132087,6 @@ While not perfect, number of comments is a reasonable proxy for impact a given c
 You need some software installed to build and test Cadence:
 
 - [Go](https://golang.org/doc/install)
-- [wasm2wat](https://github.com/WebAssembly/wabt)
 
 ### Pull Requests
 

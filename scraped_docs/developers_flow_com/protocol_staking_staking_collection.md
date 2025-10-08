@@ -18,7 +18,7 @@ Search
 
       * [Staking and Epochs](/protocol/staking)
 
-        + [Epoch and Staking Terminology](/protocol/staking/epoch-terminology)+ [Epoch and Reward Schedule](/protocol/staking/schedule)+ [Epoch Preparation Protocol](/protocol/staking/epoch-preparation)+ [Stake Slashing](/protocol/staking/stake-slashing)+ [Epoch Scripts and Events](/protocol/staking/epoch-scripts-events)+ [Staking Technical Overview](/protocol/staking/technical-overview)+ [Staking Scripts and Events](/protocol/staking/staking-scripts-events)+ [How to Query Staking rewards](/protocol/staking/staking-rewards)+ [QC and DKG](/protocol/staking/qc-dkg)+ [QC/DKG Scripts and Events](/protocol/staking/qc-dkg-scripts-events)+ [Machine Account](/protocol/staking/machine-account)+ [FAQs](/protocol/staking/faq)+ [Technical Staking Options](/protocol/staking/staking-options)+ [Staking Collection Guide](/protocol/staking/staking-collection)+ [Basic Staking Guide (Deprecated)](/protocol/staking/staking-guide)* [Node Ops](/protocol/node-ops)
+        + [Epoch and Staking Terminology](/protocol/staking/epoch-terminology)+ [Epoch and Reward Schedule](/protocol/staking/schedule)+ [Epoch Preparation Protocol](/protocol/staking/epoch-preparation)+ [Stake Slashing](/protocol/staking/stake-slashing)+ [Epoch Scripts and Events](/protocol/staking/epoch-scripts-events)+ [Staking Technical Overview](/protocol/staking/technical-overview)+ [Staking Scripts and Events](/protocol/staking/staking-scripts-events)+ [How to Query Staking rewards](/protocol/staking/staking-rewards)+ [QC and DKG](/protocol/staking/qc-dkg)+ [QC/DKG Scripts and Events](/protocol/staking/qc-dkg-scripts-events)+ [Machine Account](/protocol/staking/machine-account)+ [FAQs](/protocol/staking/faq)+ [Technical Staking Options](/protocol/staking/staking-options)+ [Staking Collection Guide](/protocol/staking/staking-collection)* [Node Ops](/protocol/node-ops)
 
           * [Accessing Data](/protocol/access-onchain-data)
 
@@ -41,15 +41,6 @@ A Staking Collection is a resource that allows its owner to manage multiple stak
 objects in a single account via a single storage path, and perform staking actions
 using both locked and unlocked Flow.
 
-Before the staking collection, accounts could use the instructions in
-[the unlocked staking guide](/protocol/staking/staking-guide)
-to stake with tokens. This was a bit restrictive, because that guide (and the corresponding transactions)
-only supports one node and one delegator object
-per account. If a user wanted to have more than one per account,
-they would either have to use custom transactions with custom storage paths for each object,
-or they would have had to use multiple accounts, which comes with many hassles of its own.
-
-The staking collection is a solution to both of these deficiencies.
 When an account is set up to use a staking collection, the staking collection recognizes
 the existing locked account capabilities (if they exist) and unlocked account staking objects,
 and incorporates their functionality so any user can stake for a node or stake as a delegator
@@ -589,13 +580,13 @@ which is a mapping of nodeIDs to the `FlowStakingCollection.MachineAccountInfo` 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/protocol/staking/14-staking-collection.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Oct 7, 2025** by **Brian Doyle**
 
 [Previous
 
 Technical Staking Options](/protocol/staking/staking-options)[Next
 
-Basic Staking Guide (Deprecated)](/protocol/staking/staking-guide)
+Node Operations](/protocol/node-ops)
 
 ###### Rate this page
 

@@ -38,7 +38,7 @@ Search
 
 [## 🗃️ Staking and Epochs
 
-15 items](/protocol/staking)
+14 items](/protocol/staking)
 
 [## 🗃️ Node Ops
 

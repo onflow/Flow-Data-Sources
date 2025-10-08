@@ -12,24 +12,15 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 
 Search
 
-* [Ecosystem Index](/ecosystem)
-* [Developer Support Hub](/ecosystem/developer-support-hub)
-* [Hackathons and Events](/ecosystem/Hackathons and Events)
+* [Ecosystem Index](/ecosystem)* [Developer Support Hub](/ecosystem/developer-support-hub)
 
-  + [May the Flow be with You](/ecosystem/Hackathons and Events/may-the-flow-be-with-you)
-* [Flow Block Explorers](/ecosystem/block-explorers)
-* [Data Indexers](/ecosystem/data-indexers)
-* [Developer Profile](/ecosystem/developer-profile)
-* [Wallets](/ecosystem/wallets)
-* [DeFi & Liquidity](/ecosystem/defi-liquidity)
-* [Faucets](/ecosystem/faucets)
-* [Bridges](/ecosystem/bridges)
-* [Collectibles & NFTs](/ecosystem/collectibles)
-* [Community Projects](/ecosystem/projects)
-* [Auditors](/ecosystem/auditors)
+    * [Hackathons and Events](/ecosystem/Hackathons and Events)
 
-* [Hackathons and Events](/ecosystem/Hackathons and Events)
-* May the Flow be with You
+      + [May the Flow be with You](/ecosystem/Hackathons and Events/may-the-flow-be-with-you)* [Flow Block Explorers](/ecosystem/block-explorers)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
+
+                * [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
+
+* * [Hackathons and Events](/ecosystem/Hackathons and Events)* May the Flow be with You
 
 On this page
 
@@ -89,43 +80,29 @@ Build in public for bonus rewards (see guidelines below)
 
 Leverage onchain randomness to create unpredictable, emergent experiences on Flow. Think: generative art, dynamic NFTs, chance-based mechanics, and randomized gameplay elements.
 
-* May 4: Challenges kickoff
-* May 4-10: Build randomness-powered applications
-* [May 7 (Wed): Twitter Space @ 4:00 PM PST - "Randomness: Building with Unpredictability"](https://x.com/i/spaces/1BdGYqgDedLGX)
-* May 12: Week 1 winners announced!
+* May 4: Challenges kickoff* May 4-10: Build randomness-powered applications* [May 7 (Wed): Twitter Space @ 4:00 PM PST - "Randomness: Building with Unpredictability"](https://x.com/i/spaces/1BdGYqgDedLGX)* May 12: Week 1 winners announced!
 
 #### Useful Resources:
 
-* [How to setup cursor with developer docs for optimal vibe coding](https://developers.flow.com/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor)
-* ["Live app](https://randoms.wtf/)  built using Flow random and  [GitHub](https://github.com/Aliserag/random.wtf)
-* [Implement Randomness with Solidity in 3 min](https://developers.flow.com/evm/guides/vrf)
+* [How to setup cursor with developer docs for optimal vibe coding](https://developers.flow.com/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor)* ["Live app](https://randoms.wtf/ )  built using Flow random and  [GitHub](https://github.com/Aliserag/random.wtf )* [Implement Randomness with Solidity in 3 min](https://developers.flow.com/evm/guides/vrf )
 
 ### Week 2: Actually Fun Games (May 11-17)
 
 Master the ingredients of creating fun and delightful experiences, from replayability, social dynamics and randomness to 'easy to play hard to master' mechanics.
 
-* May 11: Week 2 starts
-* May 11-17: Build Games (either completely new or continue building on your week 1 project)
-* [May 14 (Wed): Twitter Space @ 4:00 PM PST - "How to Build Fun Games"](https://x.com/i/spaces/1yoKMoqmzzjJQ)
-* May 19: Week 2 winners announced!
+* May 11: Week 2 starts* May 11-17: Build Games (either completely new or continue building on your week 1 project)* [May 14 (Wed): Twitter Space @ 4:00 PM PST - "How to Build Fun Games"](https://x.com/i/spaces/1yoKMoqmzzjJQ)* May 19: Week 2 winners announced!
 
 ### Week 3: Generative Art and Worlds (May 18-24)
 
 Utilize generative tools and AI to create evolving, autonomous and algorithmicartistic applications. This theme is broad and inclusive of creative domains, composibility and platforms/launchpads that are easy for others to build off of or extend.
 
-* May 18: Week 3 starts
-* May 18-24: Build generative apps (either completely new or continue building on your week 1 or 2 projects)
-* [May 21 (Wed): Twitter Space @ 4:00 PM PST - "Generative Composiblity: Turning Products into Platforms"](https://x.com/i/spaces/1MnxnwmLabjKO)
-* May 26: Week 3 winners announced!
+* May 18: Week 3 starts* May 18-24: Build generative apps (either completely new or continue building on your week 1 or 2 projects)* [May 21 (Wed): Twitter Space @ 4:00 PM PST - "Generative Composiblity: Turning Products into Platforms"](https://x.com/i/spaces/1MnxnwmLabjKO)* May 26: Week 3 winners announced!
 
 ### Week 4: AI and LLMs (May 25 - June 1st)
 
 How can LLMs make life easier for everyday people or enrich experiences? Experiment with the latest AI models or agentic frameworks to create new levels of depth in your existing projects or create new ones entirely.
 
-* May 25: Week 4 starts
-* May 25 - June 1st: Build AI integrated apps (either completely new or continue building on your week 1, 2 or 3 projects)
-* June 1st: Final submission deadline
-* June 2nd: Week 4 winners and jackpot announced! Note, the jackpot will consist of shortlisted projects that are the most working end-to-end and complex, check the repo for the new leaderboard to see how your project ranks relative to others!
+* May 25: Week 4 starts* May 25 - June 1st: Build AI integrated apps (either completely new or continue building on your week 1, 2 or 3 projects)* June 1st: Final submission deadline* June 2nd: Week 4 winners and jackpot announced! Note, the jackpot will consist of shortlisted projects that are the most working end-to-end and complex, check the repo for the new leaderboard to see how your project ranks relative to others!
 
 ### Looking for a Team?
 
@@ -155,20 +132,11 @@ submissions/
 
 ### 3. Create Your Project Directory
 
-* Create a folder named with your Flow address under `submissions`
-* All your submissions should be placed under this folder
-* Create a folder for each week (`week1`, `week2`, `week3`, `week4`)
-* Each week will have a specific theme/topic for the raffle
+* Create a folder named with your Flow address under `submissions`* All your submissions should be placed under this folder* Create a folder for each week (`week1`, `week2`, `week3`, `week4`)* Each week will have a specific theme/topic for the raffle
 
 ### 4. Make Weekly Submissions
 
-* Daily commits lead to higher likelihood of winning!
-* Create your project folders with descriptive names inside each week's directory
-* Each project must include a README file and source code
-* Include any prompts used for development in the README
-* Send a pull request for each submission
-* Each project submission during a week counts as an entry for that week's raffle
-* All entries accumulate for the end-of-month jackpot raffle
+* Daily commits lead to higher likelihood of winning!* Create your project folders with descriptive names inside each week's directory* Each project must include a README file and source code* Include any prompts used for development in the README* Send a pull request for each submission* Each project submission during a week counts as an entry for that week's raffle* All entries accumulate for the end-of-month jackpot raffle
 
 tip
 
@@ -326,69 +294,29 @@ Flow Block Explorers](/ecosystem/block-explorers)
 
 Copy as Markdown
 
-* [How to Participate](#how-to-participate)
-* [Weekly Schedule](#weekly-schedule)
-* [Process of Committing to the Campaign Repo](#process-of-committing-to-the-campaign-repo)
-  + [Submission Guidelines](#submission-guidelines)
-* [How It Works](#how-it-works)
-  + [Weekly Rewards](#weekly-rewards)
-  + [Weekly Building in Public Bonus](#weekly-building-in-public-bonus)
-* [Building in Public](#building-in-public)
-* [List of Winners](#list-of-winners)
-  + [Week 1: The Randomness Revolution](#week-1-the-randomness-revolution)
-  + [Week 2: Actually Fun Games](#week-2-actually-fun-games)
-  + [Week 3: Generative Art & Worlds](#week-3-generative-art--worlds)
-  + [Week 3: Generative Art and Worlds](#week-3-generative-art-and-worlds)
-  + [Week 4: AI & LLMs](#week-4-ai--llms)
-* [FAQ](#faq)
-* [Stay Connected](#stay-connected)
+* [How to Participate](#how-to-participate)* [Weekly Schedule](#weekly-schedule)* [Process of Committing to the Campaign Repo](#process-of-committing-to-the-campaign-repo)
+      + [Submission Guidelines](#submission-guidelines)* [How It Works](#how-it-works)
+        + [Weekly Rewards](#weekly-rewards)+ [Weekly Building in Public Bonus](#weekly-building-in-public-bonus)* [Building in Public](#building-in-public)* [List of Winners](#list-of-winners)
+            + [Week 1: The Randomness Revolution](#week-1-the-randomness-revolution)+ [Week 2: Actually Fun Games](#week-2-actually-fun-games)+ [Week 3: Generative Art & Worlds](#week-3-generative-art--worlds)+ [Week 3: Generative Art and Worlds](#week-3-generative-art-and-worlds)+ [Week 4: AI & LLMs](#week-4-ai--llms)* [FAQ](#faq)* [Stay Connected](#stay-connected)
 
 Documentation
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
 
 Start Building
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
 
 Network
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.

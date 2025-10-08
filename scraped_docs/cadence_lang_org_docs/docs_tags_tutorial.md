@@ -26,7 +26,7 @@ An introduction to capabilities and how they interact with resources in Cadence
 
 [## First Steps](/docs/tutorial/first-steps)
 
-Welcome to our series of guides that get you up to speed on [Cadence] as quickly as possible! In this program, we jump right into making meaningful projects. Don't worry, we'll point you to the important parts of the language reference as each concept is introduced.
+<iframe
 
 [## Fungible Tokens](/docs/tutorial/fungible-tokens)
 

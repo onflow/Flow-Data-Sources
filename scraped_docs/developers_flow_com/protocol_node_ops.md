@@ -142,7 +142,7 @@ Last updated on **Aug 22, 2025** by **Brian Doyle**
 
 [Previous
 
-Basic Staking Guide (Deprecated)](/protocol/staking/staking-guide)[Next
+Staking Collection Guide](/protocol/staking/staking-collection)[Next
 
 Access Node Setup](/protocol/node-ops/access-nodes/access-node-setup)
 
