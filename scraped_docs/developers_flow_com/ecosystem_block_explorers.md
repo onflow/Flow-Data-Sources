@@ -14,9 +14,7 @@ Search
 
 * [Ecosystem Index](/ecosystem)* [Developer Support Hub](/ecosystem/developer-support-hub)
 
-    * [Hackathons and Events](/ecosystem/Hackathons and Events)
-
-      * [Flow Block Explorers](/ecosystem/block-explorers)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
+    * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
 
                 * [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
 
@@ -89,9 +87,9 @@ Last updated on **Feb 27, 2025** by **BT.Wood(Tang Bo Hao)**
 
 [Previous
 
-May the Flow be with You](/ecosystem/Hackathons and Events/may-the-flow-be-with-you)[Next
+VCs & Funds](/ecosystem/developer-support-hub/vcs-and-funds)[Next
 
-Data Indexers](/ecosystem/data-indexers)
+Hackathons and Events](/ecosystem/hackathons-and-events)
 
 ###### Rate this page
 

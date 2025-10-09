@@ -14,9 +14,7 @@ Search
 
 * [Ecosystem Index](/ecosystem)* [Developer Support Hub](/ecosystem/developer-support-hub)
 
-    + [Builder Perks](/ecosystem/developer-support-hub/builder-perks)+ [Grants](/ecosystem/developer-support-hub/grants)+ [VCs & Funds](/ecosystem/developer-support-hub/vcs-and-funds)* [Hackathons and Events](/ecosystem/Hackathons and Events)
-
-      * [Flow Block Explorers](/ecosystem/block-explorers)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
+    + [Builder Perks](/ecosystem/developer-support-hub/builder-perks)+ [Grants](/ecosystem/developer-support-hub/grants)+ [VCs & Funds](/ecosystem/developer-support-hub/vcs-and-funds)* [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
 
                 * [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
 
@@ -36,7 +34,7 @@ Last updated on **Aug 28, 2025** by **SeanRobb**
 
 Grants](/ecosystem/developer-support-hub/grants)[Next
 
-Hackathons and Events](/ecosystem/Hackathons and Events)
+Flow Block Explorers](/ecosystem/block-explorers)
 
 Documentation
 

@@ -48,6 +48,20 @@ The Forte network upgrade introduces several groundbreaking features that expand
 * **Scheduled Transactions**: Time-based smart contract execution and blockchain automation
 * **Enhanced Composability**: New patterns for building complex, interconnected applications
 
+## Deployed Contract Addresses[​](#deployed-contract-addresses "Direct link to Deployed Contract Addresses")
+
+info
+
+Forte is **live** on testnet.
+
+warning
+
+Forte is scheduled to go live on Mainnet on October 22, 2025.
+
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Contract Testnet [CLI](https://developers.flow.com/build/tools/flow-cli/dependency-manager) Mainnet [CLI](https://developers.flow.com/build/tools/flow-cli/dependency-manager)|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | DeFiActions [0x4c2ff9dd03ab442f](https://testnet.flowscan.io/contract/A.4c2ff9dd03ab442f.DeFiActions?tab=deployments) [0x92195d814edf9cb0](https://flowscan.io/contract/A.92195d814edf9cb0.DeFiActions?tab=deployments) | DeFiActionsMathUtils [0x4c2ff9dd03ab442f](https://testnet.flowscan.io/contract/A.4c2ff9dd03ab442f.DeFiActionsMathUtils?tab=deployments) [0x92195d814edf9cb0](https://flowscan.io/contract/A.92195d814edf9cb0.DeFiActionsMathUtils?tab=deployments) | DeFiActionsUtils [0x4c2ff9dd03ab442f](https://testnet.flowscan.io/contract/A.4c2ff9dd03ab442f.DeFiActionsUtils?tab=deployments) [0x92195d814edf9cb0](https://flowscan.io/contract/A.92195d814edf9cb0.DeFiActionsUtils?tab=deployments) | FungibleTokenConnectors [0x5a7b9cee9aaf4e4e](https://testnet.flowscan.io/contract/A.5a7b9cee9aaf4e4e.FungibleTokenConnectors?tab=deployments) [0x1d9a619393e9fb53](https://flowscan.io/contract/A.1d9a619393e9fb53.FungibleTokenConnectors?tab=deployments) | EVMNativeFLOWConnectors [0xb88ba0e976146cd1](https://testnet.flowscan.io/contract/A.b88ba0e976146cd1.EVMNativeFLOWConnectors?tab=deployments) [0xcc15a0c9c656b648](https://flowscan.io/contract/A.cc15a0c9c656b648.EVMNativeFLOWConnectors?tab=deployments) | EVMTokenConnectors [0xb88ba0e976146cd1](https://testnet.flowscan.io/contract/A.b88ba0e976146cd1.EVMTokenConnectors?tab=deployments) [0xcc15a0c9c656b648](https://flowscan.io/contract/A.cc15a0c9c656b648.EVMTokenConnectors?tab=deployments) | SwapConnectors [0xaddd594cf410166a](https://testnet.flowscan.io/contract/A.addd594cf410166a.SwapConnectors?tab=deployments) [0x0bce04a00aedf132](https://flowscan.io/contract/A.0bce04a00aedf132.SwapConnectors?tab=deployments) | IncrementFiSwapConnectors [0x49bae091e5ea16b5](https://testnet.flowscan.io/contract/A.49bae091e5ea16b5.IncrementFiSwapConnectors?tab=deployments) [0xefa9bd7d1b17f1ed](https://flowscan.io/contract/A.efa9bd7d1b17f1ed.IncrementFiSwapConnectors?tab=deployments) | IncrementFiFlashloanConnectors [0x49bae091e5ea16b5](https://testnet.flowscan.io/contract/A.49bae091e5ea16b5.IncrementFiFlashloanConnectors?tab=deployments) [0xefa9bd7d1b17f1ed](https://flowscan.io/contract/A.efa9bd7d1b17f1ed.IncrementFiFlashloanConnectors?tab=deployments) | IncrementFiPoolLiquidityConnectors [0x49bae091e5ea16b5](https://testnet.flowscan.io/contract/A.49bae091e5ea16b5.IncrementFiPoolLiquidityConnectors?tab=deployments) [0xefa9bd7d1b17f1ed](https://flowscan.io/contract/A.efa9bd7d1b17f1ed.IncrementFiPoolLiquidityConnectors?tab=deployments) | IncrementFiStakingConnectors [0x49bae091e5ea16b5](https://testnet.flowscan.io/contract/A.49bae091e5ea16b5.IncrementFiStakingConnectors?tab=deployments) [0xefa9bd7d1b17f1ed](https://flowscan.io/contract/A.efa9bd7d1b17f1ed.IncrementFiStakingConnectors?tab=deployments) | BandOracleConnectors [0x1a9f5d18d096cd7a](https://testnet.flowscan.io/contract/A.1a9f5d18d096cd7a.BandOracleConnectors?tab=deployments) [0xf627b5c89141ed99](https://flowscan.io/contract/A.f627b5c89141ed99.BandOracleConnectors?tab=deployments) | UniswapV2Connectors [0xfef8e4c5c16ccda5](https://testnet.flowscan.io/contract/A.fef8e4c5c16ccda5.UniswapV2Connectors?tab=deployments) [0x0e5b1dececaca3a8](https://flowscan.io/contract/A.0e5b1dececaca3a8.UniswapV2Connectors?tab=deployments)  | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+
 ## Tutorial Series[​](#tutorial-series "Direct link to Tutorial Series")
 
 ### [Flow Actions](/blockchain-development-tutorials/forte/flow-actions)[​](#flow-actions "Direct link to flow-actions")
@@ -78,7 +92,7 @@ The Forte network upgrade represents a significant evolution of Flow's capabilit
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/index.md)
 
-Last updated on **Sep 24, 2025** by **Brian Doyle**
+Last updated on **Oct 7, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -92,8 +106,8 @@ Flow Actions](/blockchain-development-tutorials/forte/flow-actions)
 
 Copy as Markdown
 
-* [What's New in Forte](#whats-new-in-forte)* [Tutorial Series](#tutorial-series)
-    + [Flow Actions](#flow-actions)+ [Scheduled Transactions](#scheduled-transactions)* [Getting Started](#getting-started)* [Key Benefits](#key-benefits)* [Conclusion](#conclusion)
+* [What's New in Forte](#whats-new-in-forte)* [Deployed Contract Addresses](#deployed-contract-addresses)* [Tutorial Series](#tutorial-series)
+      + [Flow Actions](#flow-actions)+ [Scheduled Transactions](#scheduled-transactions)* [Getting Started](#getting-started)* [Key Benefits](#key-benefits)* [Conclusion](#conclusion)
 
 Documentation
 

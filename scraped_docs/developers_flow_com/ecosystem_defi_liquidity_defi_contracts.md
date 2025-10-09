@@ -14,9 +14,7 @@ Search
 
 * [Ecosystem Index](/ecosystem)* [Developer Support Hub](/ecosystem/developer-support-hub)
 
-    * [Hackathons and Events](/ecosystem/Hackathons and Events)
-
-      * [Flow Block Explorers](/ecosystem/block-explorers)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
+    * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
 
                 + [Build with Forte ↙](/ecosystem/defi-liquidity/forte)+ [DeFi Contracts](/ecosystem/defi-liquidity/defi-contracts)+ [Cross-chain swaps on Flow EVM](/ecosystem/defi-liquidity/cross-chain-swaps)+ [Add Token To MetaMask](/ecosystem/defi-liquidity/add-token-to-metamask)+ [Stablecoins & Bridges FAQ](/ecosystem/defi-liquidity/faq)* [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
 
@@ -54,9 +52,9 @@ Below is a list of commonly used DeFi contracts on Flow:
 
 #### Flow Cadence Mainnet[​](#flow-cadence-mainnet-1 "Direct link to Flow Cadence Mainnet")
 
-|  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Contract Name Flow Cadence Mainnet Address|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [SwapFactory.cdc (IncrementFi)](https://contractbrowser.com/A.b063c16cac85dbd1.SwapFactory) `0xb063c16cac85dbd1`| [SwapPair (IncrementFi)](https://contractbrowser.com/A.ecbda466e7f191c7.SwapPair) `0xecbda466e7f191c7`| [SwapError (IncrementFi)](https://contractbrowser.com/A.b78ef7afa52ff906.SwapError) `0xb78ef7afa52ff906`| [SwapInterfaces (IncrementFi)](https://contractbrowser.com/A.b78ef7afa52ff906.SwapInterfaces) `0xb78ef7afa52ff906`| [SwapConfig (IncrementFi)](https://contractbrowser.com/A.b78ef7afa52ff906.SwapConfig) `0xb78ef7afa52ff906`| [SwapRouter (IncrementFi)](https://contractbrowser.com/A.a6850776a94e6551.SwapRouter) `0xa6850776a94e6551` | | | | | | | | | | | | | |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Contract Name Flow Cadence Mainnet Address [CLI](https://developers.flow.com/build/tools/flow-cli/dependency-manager)|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [SwapFactory.cdc (IncrementFi)](https://flowscan.io/contract/A.b063c16cac85dbd1.SwapFactory) `0xb063c16cac85dbd1` | [SwapPair (IncrementFi)](https://flowscan.io/contract/A.ecbda466e7f191c7.SwapPair) `0xecbda466e7f191c7` | [SwapError (IncrementFi)](https://flowscan.io/contract/A.b78ef7afa52ff906.SwapError) `0xb78ef7afa52ff906` | [SwapInterfaces (IncrementFi)](https://flowscan.io/contract/A.b78ef7afa52ff906.SwapInterfaces) `0xb78ef7afa52ff906` | [SwapConfig (IncrementFi)](https://flowscan.io/contract/A.b78ef7afa52ff906.SwapConfig) `0xb78ef7afa52ff906` | [SwapRouter (IncrementFi)](https://flowscan.io/contract/A.a6850776a94e6551.SwapRouter) `0xa6850776a94e6551`  | | | | | | | | | | | | | | | | | | | | |
 
 ## Bridges & Cross-Chain Messaging[​](#bridges--cross-chain-messaging "Direct link to Bridges & Cross-Chain Messaging")
 
@@ -88,15 +86,15 @@ Below is a list of commonly used DeFi contracts on Flow:
 
 #### Flow Cadence Testnet[​](#flow-cadence-testnet "Direct link to Flow Cadence Testnet")
 
-|  |  |  |  |  |  |
-| --- | --- | --- | --- | --- | --- |
-| Contract Name Flow Cadence Testnet Address|  |  |  |  | | --- | --- | --- | --- | | [PublicPriceOracle.cdc (IncrementFi)](https://contractbrowser.com/A.8232ce4a3aff4e94.PublicPriceOracle) `0x8232ce4a3aff4e94`| [BandOracle.cdc (Band)](https://contractbrowser.com/A.9fb6606c300b5051.BandOracle) `0x9fb6606c300b5051` | | | | | |
+|  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Contract Name Flow Cadence Testnet Address [CLI](https://developers.flow.com/build/tools/flow-cli/dependency-manager)|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | [PublicPriceOracle.cdc (IncrementFi)](https://testnet.flowscan.io/contract/A.8232ce4a3aff4e94.PublicPriceOracle) `0x8232ce4a3aff4e94` | [BandOracle.cdc (Band)](https://testnet.flowscan.io/contract/A.9fb6606c300b5051.BandOracle) `0x9fb6606c300b5051`  | | | | | | | | |
 
 #### Flow Cadence Mainnet[​](#flow-cadence-mainnet-2 "Direct link to Flow Cadence Mainnet")
 
-|  |  |  |  |  |  |
-| --- | --- | --- | --- | --- | --- |
-| Contract Name Flow Cadence Mainnet Address|  |  |  |  | | --- | --- | --- | --- | | [PublicPriceOracle.cdc (IncrementFi)](https://contractbrowser.com/A.ec67451f8a58216a.PublicPriceOracle) `0xec67451f8a58216a`| [BandOracle.cdc (Band) Protocol](https://contractbrowser.com/A.6801a6222ebf784a.BandOracle) `0x6801a6222ebf784a` | | | | | |
+|  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Contract Name Flow Cadence Mainnet Address [CLI](https://developers.flow.com/build/tools/flow-cli/dependency-manager)|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | [PublicPriceOracle.cdc (IncrementFi)](https://flowscan.io/contract/A.ec67451f8a58216a.PublicPriceOracle) `0xec67451f8a58216a` | [BandOracle.cdc (Band) Protocol](https://flowscan.io/contract/A.6801a6222ebf784a.BandOracle) `0x6801a6222ebf784a`  | | | | | | | | |
 
 ## Ethereum Attestation Service[​](#ethereum-attestation-service "Direct link to Ethereum Attestation Service")
 
@@ -116,7 +114,7 @@ Mainnet EAS Explorer: [<https://flow.easscan.credora.io>] (<https://flow.easscan
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/defi-contracts.md)
 
-Last updated on **Oct 2, 2025** by **Giovanni Sanchez**
+Last updated on **Oct 7, 2025** by **Brian Doyle**
 
 [Previous
 

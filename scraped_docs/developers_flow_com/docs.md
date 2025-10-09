@@ -1,4 +1,4 @@
-# Source: https://developers.flow.com/docs/
+# Source: https://developers.flow.com/docs
 
 Flow Developer Portal
 
@@ -152,7 +152,7 @@ Join our weekly developer office hours to get direct support from the Flow team 
 
 ### Hackathons and Events
 
-Start building at a hackathon or meet us at an event. Join Flow community events and competitions.](/ecosystem/Hackathons%20and%20Events)
+Start building at a hackathon or meet us at an event. Join Flow community events and competitions.](/ecosystem/hackathons-and-events)
 
 ## Browse by Category
 
@@ -174,7 +174,7 @@ Start building at a hackathon or meet us at an event. Join Flow community events
 
 ### Ecosystem
 
-* [Ecosystem](/ecosystem)* [Wallets](/ecosystem/wallets)* [Flow Block Explorers](/ecosystem/block-explorers)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [DeFi & Liquidity](/ecosystem/defi-liquidity)* [Bridges](/ecosystem/bridges)* [Community Projects](/ecosystem/projects)* [Builder Perks](/ecosystem/builder-perks)* [VCs & Funds](/ecosystem/vcs-and-funds)* [Faucets](/ecosystem/faucets)* [Grants](/ecosystem/grants)* [Hackathons and Events](/ecosystem/Hackathons%20and%20Events)* [Auditors](/ecosystem/auditors)
+* [Ecosystem](/ecosystem)* [Wallets](/ecosystem/wallets)* [Flow Block Explorers](/ecosystem/block-explorers)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [DeFi & Liquidity](/ecosystem/defi-liquidity)* [Bridges](/ecosystem/bridges)* [Community Projects](/ecosystem/projects)* [Builder Perks](/ecosystem/builder-perks)* [VCs & Funds](/ecosystem/vcs-and-funds)* [Faucets](/ecosystem/faucets)* [Grants](/ecosystem/grants)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Auditors](/ecosystem/auditors)
 
 ### Tutorials
 

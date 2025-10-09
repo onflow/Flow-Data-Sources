@@ -14,9 +14,7 @@ Search
 
 * [Ecosystem Index](/ecosystem)* [Developer Support Hub](/ecosystem/developer-support-hub)
 
-    * [Hackathons and Events](/ecosystem/Hackathons and Events)
-
-      * [Flow Block Explorers](/ecosystem/block-explorers)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
+    * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
 
                 * [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
 
@@ -28,13 +26,13 @@ Search
 
 3 items](/ecosystem/developer-support-hub)
 
-[## 🗃️ Hackathons and Events
-
-1 items](/ecosystem/Hackathons and Events)
-
 [## 🔍 Flow Block Explorers
 
 User-friendly online tools that provide visual representations of blockchain data, facilitating easy navigation through transactions, blocks, addresses, and smart contracts while ensuring real-time insights and transparency.](/ecosystem/block-explorers)
+
+[## Hackathons and Events
+
+Participate in Flow hackathons to build, learn, and win prizes](/ecosystem/hackathons-and-events)
 
 [## Data Indexers
 

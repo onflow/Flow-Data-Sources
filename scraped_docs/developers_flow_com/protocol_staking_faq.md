@@ -13,32 +13,18 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 Search
 
 * [Flow Networks](/protocol/flow-networks)
-* [Networks](/protocol)
-* [Flow Network Architecture](/protocol/network-architecture)
-* [Staking and Epochs](/protocol/staking)
 
-  + [Epoch and Staking Terminology](/protocol/staking/epoch-terminology)
-  + [Epoch and Reward Schedule](/protocol/staking/schedule)
-  + [Epoch Preparation Protocol](/protocol/staking/epoch-preparation)
-  + [Stake Slashing](/protocol/staking/stake-slashing)
-  + [Epoch Scripts and Events](/protocol/staking/epoch-scripts-events)
-  + [Staking Technical Overview](/protocol/staking/technical-overview)
-  + [Staking Scripts and Events](/protocol/staking/staking-scripts-events)
-  + [How to Query Staking rewards](/protocol/staking/staking-rewards)
-  + [QC and DKG](/protocol/staking/qc-dkg)
-  + [QC/DKG Scripts and Events](/protocol/staking/qc-dkg-scripts-events)
-  + [Machine Account](/protocol/staking/machine-account)
-  + [FAQs](/protocol/staking/faq)
-  + [Technical Staking Options](/protocol/staking/staking-options)
-  + [Staking Collection Guide](/protocol/staking/staking-collection)
-  + [Basic Staking Guide (Deprecated)](/protocol/staking/staking-guide)
-* [Node Ops](/protocol/node-ops)
-* [Accessing Data](/protocol/access-onchain-data)
-* [Governance](/protocol/governance)
-* [Flow Port](/protocol/flow-port)
+  * [Networks](/protocol)* [Flow Network Architecture](/protocol/network-architecture)
 
-* [Staking and Epochs](/protocol/staking)
-* FAQs
+      * [Staking and Epochs](/protocol/staking)
+
+        + [Epoch and Staking Terminology](/protocol/staking/epoch-terminology)+ [Epoch and Reward Schedule](/protocol/staking/schedule)+ [Epoch Preparation Protocol](/protocol/staking/epoch-preparation)+ [Stake Slashing](/protocol/staking/stake-slashing)+ [Epoch Scripts and Events](/protocol/staking/epoch-scripts-events)+ [Staking Technical Overview](/protocol/staking/technical-overview)+ [Staking Scripts and Events](/protocol/staking/staking-scripts-events)+ [How to Query Staking rewards](/protocol/staking/staking-rewards)+ [QC and DKG](/protocol/staking/qc-dkg)+ [QC/DKG Scripts and Events](/protocol/staking/qc-dkg-scripts-events)+ [Machine Account](/protocol/staking/machine-account)+ [FAQs](/protocol/staking/faq)+ [Technical Staking Options](/protocol/staking/staking-options)+ [Staking Collection Guide](/protocol/staking/staking-collection)* [Node Ops](/protocol/node-ops)
+
+          * [Accessing Data](/protocol/access-onchain-data)
+
+            * [Governance](/protocol/governance)* [Flow Port](/protocol/flow-port)
+
+* * [Staking and Epochs](/protocol/staking)* FAQs
 
 On this page
 
@@ -47,26 +33,21 @@ On this page
 ### Where will users receive their staking reward for each staking option?[​](#where-will-users-receive-their-staking-reward-for-each-staking-option "Direct link to Where will users receive their staking reward for each staking option?")
 
 Staking rewards are not deposited directly into a user's account.
-They are deposited to the user's rewards pool in their connected staking object
-and can be withdrawn or restaked at any time.
+They are deposited to the user's rewards pool in their connected staking object and can be withdrawn or restaked at any time.
 
-If you staked using Flow Port, then you should be able to see your staking rewards there.
-You can also withdraw the rewards or manually re-stake them through Flow Port.
+If you staked using [Flow Port](https://port.flow.com), then you can see your staking rewards there. You can also withdraw the rewards or manually re-stake them through Flow Port.
 
 If you staked using a staking provider such as Kraken, Blocto or Finoa,
 please ask them how they manage staking rewards.
 
 ### Will staking rewards be automatically re-staked?[​](#will-staking-rewards-be-automatically-re-staked "Direct link to Will staking rewards be automatically re-staked?")
 
-There will be *no* automatic re-staking of staking rewards with Flow Port (i.e. using Ledger or Blocto).
-If you want to re-stake your rewards, you must manually do so yourself.
+There will be *no* automatic re-staking of staking rewards with Flow Port (i.e. using Ledger or Blocto). If you want to re-stake your rewards, you must manually do so yourself.
 
 If you staked using a staking provider such as Kraken, Blocto or Finoa,
 please ask them what their policies are.
 
-DeFi liquid staking strategies such as offered by [incrementFi](https://app.increment.fi/staking)
-are not managed by the protocol or nodes, but are more sophisticated ways
-to manage your staking.
+DeFi liquid staking strategies such as offered by [incrementFi](https://app.increment.fi/staking) are not managed by the protocol or nodes, but are more sophisticated ways to manage your staking.
 
 ### Does it make a difference as to what TYPE of node we delegate to in terms of rewards?[​](#does-it-make-a-difference-as-to-what-type-of-node-we-delegate-to-in-terms-of-rewards "Direct link to Does it make a difference as to what TYPE of node we delegate to in terms of rewards?")
 
@@ -74,51 +55,36 @@ No, rewards are calculated the same for every node type.
 
 ### Can a validator change its fees?[​](#can-a-validator-change-its-fees "Direct link to Can a validator change its fees?")
 
-The network enforces a delegation fee of 8% which cannot be directly changed.
-Any different fees that nodes claim they have are rebates that they
+The network enforces a delegation fee of 8% which cannot be directly changed. Any different fees that nodes claim they have are rebates that they
 offer using their own methods and are not enforced by the protocol.
 
 ### Can a token holder stake to multiple nodes? If yes, how is the stake split between them?[​](#can-a-token-holder-stake-to-multiple-nodes-if-yes-how-is-the-stake-split-between-them "Direct link to Can a token holder stake to multiple nodes? If yes, how is the stake split between them?")
 
-A token holder can delegate to multiple nodes from a single account if they use the
-[Staking Collection](/protocol/staking/staking-collection).
+A token holder can delegate to multiple nodes from a single account if they use the [Staking Collection](/protocol/staking/staking-collection).
 
 The staking collection is enabled by default on Flow port, and many custody providers also support it.
 
 ### Is the wallet key transferred to the staked node?[​](#is-the-wallet-key-transferred-to-the-staked-node "Direct link to Is the wallet key transferred to the staked node?")
 
-No - The keys on the node are different from the wallet keys. The wallet keys always stay in the wallet.
-A node operator generates the staking and networking keys separately which will be used on the node.
+No - The keys on the node are different from the wallet keys. The wallet keys always stay in the wallet. A node operator generates the staking and networking keys separately which will be used on the node.
 
 ### Can I stake through multiple accounts to meet the minimum FLOW required for staking a node?[​](#can-i-stake-through-multiple-accounts-to-meet-the-minimum-flow-required-for-staking-a-node "Direct link to Can I stake through multiple accounts to meet the minimum FLOW required for staking a node?")
 
 No, the minimum stake must come from a single account for all node types.
-Temporarily, the minimum for consensus nodes can come from a combination
-of staking actions from two accounts controlled by the same party.
-
-### How can I reach the Consensus node minimum stake of 500K FLOW[​](#how-can-i-reach-the-consensus-node-minimum-stake-of-500k-flow "Direct link to How can I reach the Consensus node minimum stake of 500K FLOW")
-
-The consensus node minimum of 500K FLOW can be met with a minimum
-250,000 FLOW staking action and additional delegation
-adding a minimum of 250,000 more FLOW from the same entity.
 
 ### Is rewards payout another spork?[​](#is-rewards-payout-another-spork "Direct link to Is rewards payout another spork?")
 
-No, rewards payout is not a spork but is an automatic transaction that happens
-at the beginning of every new epoch.
+No, rewards payout is not a spork but is an automatic transaction that happens at the beginning of every new epoch.
 
 ### Can I query an account address of a node ID or delegator ID?[​](#can-i-query-an-account-address-of-a-node-id-or-delegator-id "Direct link to Can I query an account address of a node ID or delegator ID?")
 
-The staking smart contract does not directly associate a node or delegator with an account address.
-It associates it with the assigned resource object that corresponds to that entry in the contract.
-There can be any number of these objects stored in the same account,
-and they can be moved to different accounts if the owner chooses.
-It is possible to query the information about a node that an address runs though, by using the
-`get_node_info_from_address.cdc` script.
+The staking smart contract does not directly associate a node or delegator with an account address. It associates it with the assigned resource object that corresponds to that entry in the contract. There can be any number of these objects stored in the same account, and they can be moved to different accounts if the owner chooses.
+
+It is possible to query the information about a node that an address runs though, by using the `get_node_info_from_address.cdc` script.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/protocol/staking/12-faq.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Oct 7, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -132,63 +98,26 @@ Technical Staking Options](/protocol/staking/staking-options)
 
 Copy as Markdown
 
-* [Where will users receive their staking reward for each staking option?](#where-will-users-receive-their-staking-reward-for-each-staking-option)
-* [Will staking rewards be automatically re-staked?](#will-staking-rewards-be-automatically-re-staked)
-* [Does it make a difference as to what TYPE of node we delegate to in terms of rewards?](#does-it-make-a-difference-as-to-what-type-of-node-we-delegate-to-in-terms-of-rewards)
-* [Can a validator change its fees?](#can-a-validator-change-its-fees)
-* [Can a token holder stake to multiple nodes? If yes, how is the stake split between them?](#can-a-token-holder-stake-to-multiple-nodes-if-yes-how-is-the-stake-split-between-them)
-* [Is the wallet key transferred to the staked node?](#is-the-wallet-key-transferred-to-the-staked-node)
-* [Can I stake through multiple accounts to meet the minimum FLOW required for staking a node?](#can-i-stake-through-multiple-accounts-to-meet-the-minimum-flow-required-for-staking-a-node)
-* [How can I reach the Consensus node minimum stake of 500K FLOW](#how-can-i-reach-the-consensus-node-minimum-stake-of-500k-flow)
-* [Is rewards payout another spork?](#is-rewards-payout-another-spork)
-* [Can I query an account address of a node ID or delegator ID?](#can-i-query-an-account-address-of-a-node-id-or-delegator-id)
+* [Where will users receive their staking reward for each staking option?](#where-will-users-receive-their-staking-reward-for-each-staking-option)* [Will staking rewards be automatically re-staked?](#will-staking-rewards-be-automatically-re-staked)* [Does it make a difference as to what TYPE of node we delegate to in terms of rewards?](#does-it-make-a-difference-as-to-what-type-of-node-we-delegate-to-in-terms-of-rewards)* [Can a validator change its fees?](#can-a-validator-change-its-fees)* [Can a token holder stake to multiple nodes? If yes, how is the stake split between them?](#can-a-token-holder-stake-to-multiple-nodes-if-yes-how-is-the-stake-split-between-them)* [Is the wallet key transferred to the staked node?](#is-the-wallet-key-transferred-to-the-staked-node)* [Can I stake through multiple accounts to meet the minimum FLOW required for staking a node?](#can-i-stake-through-multiple-accounts-to-meet-the-minimum-flow-required-for-staking-a-node)* [Is rewards payout another spork?](#is-rewards-payout-another-spork)* [Can I query an account address of a node ID or delegator ID?](#can-i-query-an-account-address-of-a-node-id-or-delegator-id)
 
 Documentation
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
 
 Start Building
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
 
 Network
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.

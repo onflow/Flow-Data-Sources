@@ -1,4 +1,4 @@
-# Source: https://developers.flow.com/ecosystem/Hackathons and Events
+# Source: https://developers.flow.com/ecosystem/hackathons-and-events
 
 Hackathons and Events | Flow Developer Portal
 
@@ -14,9 +14,7 @@ Search
 
 * [Ecosystem Index](/ecosystem)* [Developer Support Hub](/ecosystem/developer-support-hub)
 
-    * [Hackathons and Events](/ecosystem/Hackathons and Events)
-
-      + [May the Flow be with You](/ecosystem/Hackathons and Events/may-the-flow-be-with-you)* [Flow Block Explorers](/ecosystem/block-explorers)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
+    * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
 
                 * [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
 
@@ -50,15 +48,15 @@ With substantial prize pools, industry recognition, and the chance to launch you
 
 Stay ahead of upcoming hackathons and exclusive announcements. [Join Flow World Tour on Telegram](https://t.me/flow_world_tour).
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/Hackathons and Events/index.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/hackathons-and-events.md)
 
-Last updated on **Sep 25, 2025** by **Brian Doyle**
+Last updated on **Oct 6, 2025** by **Ali Serag**
 
 [Previous
 
-VCs & Funds](/ecosystem/developer-support-hub/vcs-and-funds)[Next
+Flow Block Explorers](/ecosystem/block-explorers)[Next
 
-May the Flow be with You](/ecosystem/Hackathons and Events/may-the-flow-be-with-you)
+Data Indexers](/ecosystem/data-indexers)
 
 ###### Rate this page
 
