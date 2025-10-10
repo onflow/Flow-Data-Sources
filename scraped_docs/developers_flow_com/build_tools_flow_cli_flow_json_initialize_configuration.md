@@ -68,32 +68,7 @@ This command will:
 * Set up default networks (emulator, testnet, mainnet)
 * Create an emulator service account
 * Generate a basic project structure with `cadence/` directories
-
-## Example Output[​](#example-output "Direct link to Example Output")
-
-`_10
-
-> flow init
-
-_10
-
-_10
-
-Configuration initialized
-
-_10
-
-Service account: 0xf8d6e0586b0a20c7
-
-_10
-
-_10
-
-Start emulator by running: 'flow emulator'
-
-_10
-
-Reset configuration using: 'flow init --reset'`
+* Give you options for project scaffolding
 
 ## Project Structure[​](#project-structure "Direct link to Project Structure")
 
@@ -241,7 +216,7 @@ After initializing your configuration:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/flow.json/initialize-configuration.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Oct 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -255,8 +230,8 @@ Configuration](/build/tools/flow-cli/flow.json/configuration)
 
 Copy as Markdown
 
-* [Basic Usage](#basic-usage)* [Example Output](#example-output)* [Project Structure](#project-structure)* [Configuration Only](#configuration-only)* [Global Configuration](#global-configuration)* [Error Handling](#error-handling)* [Flags](#flags)
-              + [Configuration Only](#configuration-only-1)+ [Global Flags](#global-flags)* [Next Steps](#next-steps)* [Related Commands](#related-commands)
+* [Basic Usage](#basic-usage)* [Project Structure](#project-structure)* [Configuration Only](#configuration-only)* [Global Configuration](#global-configuration)* [Error Handling](#error-handling)* [Flags](#flags)
+            + [Configuration Only](#configuration-only-1)+ [Global Flags](#global-flags)* [Next Steps](#next-steps)* [Related Commands](#related-commands)
 
 Documentation
 

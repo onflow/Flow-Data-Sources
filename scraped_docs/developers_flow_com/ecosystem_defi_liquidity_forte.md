@@ -14,9 +14,7 @@ Search
 
 * [Ecosystem Index](/ecosystem)* [Developer Support Hub](/ecosystem/developer-support-hub)
 
-    * [Hackathons and Events](/ecosystem/Hackathons and Events)
-
-      * [Flow Block Explorers](/ecosystem/block-explorers)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
+    * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
 
                 + [Build with Forte ↙](/ecosystem/defi-liquidity/forte)+ [DeFi Contracts](/ecosystem/defi-liquidity/defi-contracts)+ [Cross-chain swaps on Flow EVM](/ecosystem/defi-liquidity/cross-chain-swaps)+ [Add Token To MetaMask](/ecosystem/defi-liquidity/add-token-to-metamask)+ [Stablecoins & Bridges FAQ](/ecosystem/defi-liquidity/faq)* [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
 
@@ -30,7 +28,7 @@ Go to [Forte](/blockchain-development-tutorials/forte)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/forte.md)
 
-Last updated on **Sep 25, 2025** by **Brian Doyle**
+Last updated on **Oct 8, 2025** by **Brian Doyle**
 
 [Previous
 

@@ -117,7 +117,7 @@ flow init`
 When prompted:
 
 1. **Project name:** Enter your preferred project name
-2. **Install core contracts:** Select `No` for this tutorial
+2. Select `Basic Cadence project (no dependencies)`.
 
 The `flow init` command creates:
 
@@ -281,7 +281,6 @@ _31
 * **Events**: `CounterIncremented` and `CounterDecremented` notify listeners when changes occur
 * **Initializer**: `init()` sets the initial count to 0 when the contract is deployed
 * **Public Functions**:
-
   + `increment()`: Increases count by 1 and emits an event
   + `decrement()`: Decreases count by 1 and emits an event
   + `getCount()`: Returns the current count (read-only, marked with `view`)
@@ -651,7 +650,7 @@ Welcome to the Flow developer community—you're ready to build the future of di
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/getting-started/cadence-environment-setup.md)
 
-Last updated on **Sep 24, 2025** by **Felipe Cevallos**
+Last updated on **Oct 9, 2025** by **Brian Doyle**
 
 [Previous
 

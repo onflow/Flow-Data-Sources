@@ -74,7 +74,7 @@ Once you have the Flow CLI installed, you can set up a new project using the `fl
 
 flow init foobar-nft`
 
-> Note: Select "No" when it asks you to install core contracts for the purposes of this tutorial.
+Select `Basic Cadence project (no dependencies)`.
 
 Upon execution, the command will generate the following directory structure:
 
@@ -2068,7 +2068,7 @@ Congrats, you did it! You're now ready to launch the next fun NFT project on Flo
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/tokens/nft-cadence.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Oct 9, 2025** by **Brian Doyle**
 
 [Previous
 
