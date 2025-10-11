@@ -59,7 +59,7 @@ Flow fixes this problem with **scheduled transactions**. Scheduled Transactions 
 After completing this tutorial, you will be able to:
 
 * Understand the concept of scheduled transactions and how they solve blockchain limitations
-* Explain the key components of the FlowTransactionScheduler system
+* Explain the key components of the `FlowTransactionScheduler` system
 * Implement a basic scheduled transaction using the provided scaffold
 * Analyze the structure and flow of scheduled transaction transactions
 * Create custom scheduled transaction contracts and handlers
@@ -73,9 +73,9 @@ This tutorial assumes you have a modest knowledge of [Cadence](https://cadence-l
 
 ## Getting Started[​](#getting-started "Direct link to Getting Started")
 
-Begin by creating a new repo using the [Scheduled Transactions Scaffold](https://github.com/onflow/scheduledtransactions-scaffold) as a template.
+Begin by running `flow init` and select `Scheduled Transactions project`. Open the project.
 
-This repository has a robust quickstart in the readme. Complete that first. It doesn't seem like much at first. The counter was at `0`, you ran a transaction, now it's at `1`. What's the big deal?
+The readme has a robust getting started guide. Complete that to set up and run the demo scheduled transaction. It doesn't seem like much at first. The counter was at `0`, you ran a transaction, now it's at `1`. What's the big deal?
 
 Let's try again to make it clearer what's happening. Open `cadence/transactions/ScheduleIncrementIn.cdc` and look at the arguments for the transaction:
 
@@ -1920,7 +1920,7 @@ Scheduled transactions open up new possibilities for DeFi applications, enabling
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/scheduled-transactions/scheduled-transactions-introduction.md)
 
-Last updated on **Sep 24, 2025** by **Brian Doyle**
+Last updated on **Oct 9, 2025** by **Brian Doyle**
 
 [Previous
 

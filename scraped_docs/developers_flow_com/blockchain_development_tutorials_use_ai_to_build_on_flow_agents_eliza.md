@@ -12,31 +12,33 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 
 Search
 
-* [Blockchain Development Tutorials](/blockchain-development-tutorials)
-* [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)
-* [Forte Network Upgrade](/blockchain-development-tutorials/forte)
-* [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
+* [Blockchain Development Tutorials](/blockchain-development-tutorials)* [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)* [Forte Network Upgrade](/blockchain-development-tutorials/forte)
 
-  + [Large Language Models (LLMs)](/blockchain-development-tutorials/use-AI-to-build-on-flow/llms)
-  + [Use Cursor AI](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor)
-  + [AI Agents](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents)
+      * [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
 
-    - [Eliza on Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/eliza)
+        + [Large Language Models (LLMs)](/blockchain-development-tutorials/use-AI-to-build-on-flow/llms)
 
-      * [Eliza Plugin Guide](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/eliza/build-plugin)
-    - [Using AgentKit on Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/agentkit-flow-guide)
-  + [Flow MCP](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp)
-* [Cadence Tutorials](/blockchain-development-tutorials/cadence)
-* [Flow EVM Guides](/blockchain-development-tutorials/evm)
-* [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
-* [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
-* [Token Development and Registration](/blockchain-development-tutorials/tokens)
-* [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
-* [Third-Party Integrations](/blockchain-development-tutorials/integrations)
+          + [Use Cursor AI](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor)
 
-* [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
-* [AI Agents](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents)
-* Eliza on Flow
+            + [AI Agents](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents)
+
+              - [Eliza on Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/eliza)
+
+                * [Eliza Plugin Guide](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/eliza/build-plugin)- [Using AgentKit on Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/agentkit-flow-guide)+ [Flow MCP](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp)* [Cadence Tutorials](/blockchain-development-tutorials/cadence)
+
+          * [Flow EVM Guides](/blockchain-development-tutorials/evm)
+
+            * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
+
+              * [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
+
+                * [Token Development and Registration](/blockchain-development-tutorials/tokens)
+
+                  * [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
+
+                    * [Third-Party Integrations](/blockchain-development-tutorials/integrations)
+
+* * [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [AI Agents](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents)* Eliza on Flow
 
 On this page
 
@@ -325,66 +327,28 @@ Eliza Plugin Guide](/blockchain-development-tutorials/use-AI-to-build-on-flow/ag
 
 Copy as Markdown
 
-* [Learning Objectives](#learning-objectives)
-* [Prerequisites](#prerequisites)
-* [Installation](#installation)
-* [Configure Environment](#configure-environment)
-  + [Choose Your Model](#choose-your-model)
-  + [Setup Agent's Flow Account](#setup-agents-flow-account)
-* [Create Your First Agent](#create-your-first-agent)
-  + [Create a Character File](#create-a-character-file)
-  + [**Start the Agent**](#start-the-agent)
-  + [Add / Develop Plugins](#add--develop-plugins)
-  + [**Interact with the Agent**](#interact-with-the-agent)
-* [Common Issues & Solutions](#common-issues--solutions)
-* [Conclusion](#conclusion)
+* [Learning Objectives](#learning-objectives)* [Prerequisites](#prerequisites)* [Installation](#installation)* [Configure Environment](#configure-environment)
+        + [Choose Your Model](#choose-your-model)+ [Setup Agent's Flow Account](#setup-agents-flow-account)* [Create Your First Agent](#create-your-first-agent)
+          + [Create a Character File](#create-a-character-file)+ [**Start the Agent**](#start-the-agent)+ [Add / Develop Plugins](#add--develop-plugins)+ [**Interact with the Agent**](#interact-with-the-agent)* [Common Issues & Solutions](#common-issues--solutions)* [Conclusion](#conclusion)
 
 Documentation
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
 
 Start Building
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
 
 Network
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.

@@ -73,7 +73,7 @@ Create a [new project](/build/tools/flow-cli/flow.json/initialize-configuration)
 
 flow init`
 
-Follow the prompts and create your project. You do **not** need to install any dependencies.
+Follow the prompts and create a `Basic Cadence project (no dependencies)`.
 
 ### Install dependencies[​](#install-dependencies "Direct link to Install dependencies")
 
@@ -377,7 +377,7 @@ _21
 
 info
 
-As with most blockchains, `log`s are not exposed or returned when transactions are run on testnet or mainnet, but they are visible in the console when you use the [emulator](/build/tools/flow-cli/deployment/start-emulator).
+As with most blockchains, `log`s are not exposed or returned when transactions are run on testnet or mainnet, but they are visible in the console when you use the [emulator](/build/tools/emulator).
 
 ### Run on testnet[​](#run-on-testnet "Direct link to Run on testnet")
 
@@ -858,7 +858,7 @@ This approach gives you the freedom to build complex application logic that comp
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/cadence-advantages/compose-with-cadence-transactions.md)
 
-Last updated on **Sep 24, 2025** by **Brian Doyle**
+Last updated on **Oct 10, 2025** by **Brian Doyle**
 
 [Previous
 

@@ -58,6 +58,24 @@ Then start the Flow Emulator:
 
 flow emulator`
 
+You'll see output similar to:
+
+`_10
+
+INFO[0000] ⚙️ Using service account 0xf8d6e0586b0a20c7 serviceAddress=f8d6e0586b0a20c7 ...
+
+_10
+
+INFO[0000] 🌱 Starting Flow Emulator
+
+_10
+
+INFO[0000] 🛠 GRPC server started on 127.0.0.1:3569
+
+_10
+
+INFO[0000] 📡 HTTP server started on 127.0.0.1:8080`
+
 This starts a local Flow network with:
 
 * gRPC server on port `3569`
@@ -66,33 +84,53 @@ This starts a local Flow network with:
 
 ## Common Options[​](#common-options "Direct link to Common Options")
 
-`_10
+`_14
 
 # Start with verbose logging
 
-_10
+_14
 
 flow emulator --verbose
 
-_10
+_14
 
-_10
+_14
 
 # Set custom block time (e.g., 1 second between blocks)
 
-_10
+_14
 
 flow emulator --block-time 1s
 
-_10
+_14
 
-_10
+_14
 
 # Persist state between restarts
 
-_10
+_14
 
-flow emulator --persist`
+flow emulator --persist
+
+_14
+
+_14
+
+# Change the gRPC and REST API ports
+
+_14
+
+flow emulator --port 9000 --rest-port 9001
+
+_14
+
+_14
+
+# For a complete list of available flags, run:
+
+_14
+
+flow emulator --help`
 
 For all available options, see the [CLI commands overview](/build/tools/flow-cli).
 
@@ -101,13 +139,43 @@ For all available options, see the [CLI commands overview](/build/tools/flow-cli
 * **Code Coverage**: Add `--coverage-reporting` flag and visit `http://localhost:8080/emulator/codeCoverage`
 * **Debugging**: Use `#debugger()` pragma in Cadence code for breakpoints
 
+## Snapshots[​](#snapshots "Direct link to Snapshots")
+
+The Flow CLI provides a command to create emulator snapshots, which are points in blockchain history you can later jump to and reset the state to that moment. This can be useful for testing where you establish a beginning state, run tests and after revert back to the initial state.
+
+### Create a new snapshot[​](#create-a-new-snapshot "Direct link to Create a new snapshot")
+
+Create a new emulator snapshot at the current block with a name of `myInitialState`.
+
+`_10
+
+flow emulator snapshot create myInitialState`
+
+### Load an existing snapshot[​](#load-an-existing-snapshot "Direct link to Load an existing snapshot")
+
+To jump to a previously created snapshot we use the load command in combination with the name.
+
+`_10
+
+flow emulator snapshot load myInitialState`
+
+### List all existing snapshots[​](#list-all-existing-snapshots "Direct link to List all existing snapshots")
+
+To list all the existing snapshots we previously created and can load to run:
+
+`_10
+
+flow emulator list`
+
+To learn more about using the Emulator, have a look at the [README of the repository](https://github.com/onflow/flow-emulator).
+
 ## Additional Resources[​](#additional-resources "Direct link to Additional Resources")
 
 For advanced configuration options, see the [Flow Emulator repository](https://github.com/onflow/flow-emulator/).
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/emulator/index.md)
 
-Last updated on **Sep 26, 2025** by **Chase Fleming**
+Last updated on **Oct 9, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -121,7 +189,8 @@ Flow CLI](/build/tools/flow-cli)
 
 Copy as Markdown
 
-* [Installation](#installation)* [Quick Start](#quick-start)* [Common Options](#common-options)* [Debugging & Testing](#debugging--testing)* [Additional Resources](#additional-resources)
+* [Installation](#installation)* [Quick Start](#quick-start)* [Common Options](#common-options)* [Debugging & Testing](#debugging--testing)* [Snapshots](#snapshots)
+          + [Create a new snapshot](#create-a-new-snapshot)+ [Load an existing snapshot](#load-an-existing-snapshot)+ [List all existing snapshots](#list-all-existing-snapshots)* [Additional Resources](#additional-resources)
 
 Documentation
 

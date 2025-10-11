@@ -19,11 +19,11 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **98c1f0fe0f5715cc**
+Cloudflare Ray ID: **98ca2c6b191f237a**
 •
 
 Your IP:
 Click to reveal
-52.225.29.100
+52.159.247.225
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)

@@ -126,7 +126,7 @@ Once you have the Flow CLI installed, you can set up a new project using the `fl
 
 flow init FooToken`
 
-> Note: Select "No" when it asks you to install core contracts for the purposes of this tutorial.
+Select `Basic Cadence project (no dependencies)`.
 
 Upon execution, the command will generate the following directory structure:
 
@@ -2682,7 +2682,7 @@ The transfer transaction also has a [generic version](https://github.com/onflow/
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/tokens/fungible-token-cadence.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Oct 9, 2025** by **Brian Doyle**
 
 [Previous
 

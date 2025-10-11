@@ -178,4 +178,4 @@ If you encounter any issues or have further questions, please reach out to our s
 
 [PreviousMove Assets between Flow and EVM](/tutorial/move-assets-between-flow-and-evm)[NextExtension Wallet Backup Guide](/tutorial/extension-wallet-backup-guide)
 
-Last updated 11 months ago
+Last updated 12 months ago

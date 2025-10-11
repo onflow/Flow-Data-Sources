@@ -32,7 +32,7 @@ Search
 
                     - [Keys](/build/tools/flow-cli/keys/generate-keys)
 
-                      - [Deploy Project](/build/tools/flow-cli/deployment/start-emulator)
+                      - [Deploy Project](/build/tools/flow-cli/deployment/project-contracts)
 
                         - [Scripts](/build/tools/flow-cli/scripts/execute-scripts)
 
@@ -206,7 +206,7 @@ Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-Create Emulator Snapshot](/build/tools/flow-cli/deployment/emulator-snapshot)[Next
+Deploy a Project](/build/tools/flow-cli/deployment/deploy-project-contracts)[Next
 
 Send a Transaction](/build/tools/flow-cli/transactions/send-transactions)
 

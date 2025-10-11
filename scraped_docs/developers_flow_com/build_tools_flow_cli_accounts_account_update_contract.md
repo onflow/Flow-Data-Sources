@@ -32,7 +32,7 @@ Search
 
                     * [Get an Account](/build/tools/flow-cli/accounts/get-accounts)* [Create an Account](/build/tools/flow-cli/accounts/create-accounts)* [Deploy a Contract](/build/tools/flow-cli/accounts/account-add-contract)* [Update a Contract](/build/tools/flow-cli/accounts/account-update-contract)* [Remove a Contract](/build/tools/flow-cli/accounts/account-remove-contract)* [Account Staking Info](/build/tools/flow-cli/accounts/account-staking-info)* [Funding a Testnet Account](/build/tools/flow-cli/accounts/account-fund)- [Keys](/build/tools/flow-cli/keys/generate-keys)
 
-                      - [Deploy Project](/build/tools/flow-cli/deployment/start-emulator)
+                      - [Deploy Project](/build/tools/flow-cli/deployment/project-contracts)
 
                         - [Scripts](/build/tools/flow-cli/scripts/execute-scripts)
 

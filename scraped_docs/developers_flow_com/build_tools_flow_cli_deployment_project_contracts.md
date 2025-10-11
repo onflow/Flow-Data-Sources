@@ -32,9 +32,9 @@ Search
 
                     - [Keys](/build/tools/flow-cli/keys/generate-keys)
 
-                      - [Deploy Project](/build/tools/flow-cli/deployment/start-emulator)
+                      - [Deploy Project](/build/tools/flow-cli/deployment/project-contracts)
 
-                        * [Start Emulator](/build/tools/flow-cli/deployment/start-emulator)* [Add Project Contracts](/build/tools/flow-cli/deployment/project-contracts)* [Deploy a Project](/build/tools/flow-cli/deployment/deploy-project-contracts)* [Create Emulator Snapshot](/build/tools/flow-cli/deployment/emulator-snapshot)- [Scripts](/build/tools/flow-cli/scripts/execute-scripts)
+                        * [Add Project Contracts](/build/tools/flow-cli/deployment/project-contracts)* [Deploy a Project](/build/tools/flow-cli/deployment/deploy-project-contracts)- [Scripts](/build/tools/flow-cli/scripts/execute-scripts)
 
                           - [Transactions](/build/tools/flow-cli/transactions/send-transactions)
 
@@ -148,7 +148,7 @@ Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-Start Emulator](/build/tools/flow-cli/deployment/start-emulator)[Next
+Derive Public Key](/build/tools/flow-cli/keys/derive-keys)[Next
 
 Deploy a Project](/build/tools/flow-cli/deployment/deploy-project-contracts)
 

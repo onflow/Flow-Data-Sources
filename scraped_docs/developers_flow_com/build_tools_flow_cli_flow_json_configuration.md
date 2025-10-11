@@ -32,7 +32,7 @@ Search
 
                     - [Keys](/build/tools/flow-cli/keys/generate-keys)
 
-                      - [Deploy Project](/build/tools/flow-cli/deployment/start-emulator)
+                      - [Deploy Project](/build/tools/flow-cli/deployment/project-contracts)
 
                         - [Scripts](/build/tools/flow-cli/scripts/execute-scripts)
 

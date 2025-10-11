@@ -111,7 +111,7 @@ Once it's installed, you'll need to initialize Flow in your Next.js project. Fro
 
 flow init --config-only`
 
-The `--config-only` flag [initializes a project](/build/tools/flow-cli/commands#init) with the just the config file. This allows the Flow CLI to interact with your project without adding any unnecessary files.
+The `--config-only` flag [initializes a project](/build/tools/flow-cli/commands#init) with the just the config file. This allows the Flow CLI to interact with your project without adding adding the other files you want for most projects.
 
 Next, you'll need to do a little bit of config work so that your project knows how to read Cadence files. Install the Flow Cadence Plugin:
 
@@ -1947,7 +1947,7 @@ Reference solutions are functional, but may not be optimal.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/account-management/account-linking-with-dapper.md)
 
-Last updated on **Sep 24, 2025** by **Felipe Cevallos**
+Last updated on **Oct 9, 2025** by **Brian Doyle**
 
 [Previous
 

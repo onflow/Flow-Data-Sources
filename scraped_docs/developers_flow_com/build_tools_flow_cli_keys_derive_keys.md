@@ -32,7 +32,7 @@ Search
 
                     - [Keys](/build/tools/flow-cli/keys/generate-keys)
 
-                      * [Generate Keys](/build/tools/flow-cli/keys/generate-keys)* [Decode Public Keys](/build/tools/flow-cli/keys/decode-keys)* [Derive Public Key](/build/tools/flow-cli/keys/derive-keys)- [Deploy Project](/build/tools/flow-cli/deployment/start-emulator)
+                      * [Generate Keys](/build/tools/flow-cli/keys/generate-keys)* [Decode Public Keys](/build/tools/flow-cli/keys/decode-keys)* [Derive Public Key](/build/tools/flow-cli/keys/derive-keys)- [Deploy Project](/build/tools/flow-cli/deployment/project-contracts)
 
                         - [Scripts](/build/tools/flow-cli/scripts/execute-scripts)
 
@@ -138,7 +138,7 @@ Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 Decode Public Keys](/build/tools/flow-cli/keys/decode-keys)[Next
 
-Start Emulator](/build/tools/flow-cli/deployment/start-emulator)
+Add Project Contracts](/build/tools/flow-cli/deployment/project-contracts)
 
 ###### Rate this page
 
