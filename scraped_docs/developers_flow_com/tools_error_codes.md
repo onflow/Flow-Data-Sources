@@ -6,23 +6,33 @@ Error Codes | Flow Developer Portal
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [@onflow/react-sdk](/tools/react-sdk)
-* [Flow Emulator](/tools/emulator)
-* [Flow CLI](/tools/flow-cli)
-* [Cadence VS Code Extension](/tools/vscode-extension)
-* [Flow Dev Wallet](/tools/flow-dev-wallet)
-* [Client Tools](/tools/clients)
-* [Error Codes](/tools/error-codes)
-* [Wallet Provider Spec](/tools/wallet-provider-spec)
-* [Tools](/tools)
+* [Why Flow](/build/flow)* [Cadence](/build/cadence/quickstart)
 
-* Error Codes
+    + [Quickstart ↙](/build/cadence/quickstart)+ [Differences vs. EVM](/build/cadence/differences-vs-evm)+ [Basics](/build/cadence/basics/network-architecture)
+
+          + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
+
+            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+
+              + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
+
+      + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
+
+        + [@onflow/react-sdk](/build/tools/react-sdk)
+
+          + [Flow Emulator](/build/tools/emulator)+ [Flow CLI](/build/tools/flow-cli)
+
+              + [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+
+                    + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+
+* * [Tools & SDKs](/build/tools)* Error Codes
 
 On this page
 
@@ -122,7 +132,7 @@ Example:
 Example:
 `[Error Code: 1103] The account with address (xxx) uses 96559611 bytes of storage which is over its capacity (96554500 bytes). Capacity can be increased by adding FLOW tokens to the account.`
 
-For more information refer to [Fees](/build/basics/fees#maximum-available-balance)
+For more information refer to [Fees](/build/cadence/basics/fees#maximum-available-balance)
 
 ### 1105[​](#1105 "Direct link to 1105")
 
@@ -306,15 +316,15 @@ Example:
 Example:
 `...`
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/error-codes.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/error-codes.md)
 
-Last updated on **Apr 18, 2025** by **Brian Doyle**
+Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-Migration Guide v0.25.0](/tools/clients/flow-go-sdk/migration-v0.25.0)[Next
+Migration Guide v0.25.0](/build/tools/clients/flow-go-sdk/migration-v0.25.0)[Next
 
-Wallet Provider Spec](/tools/wallet-provider-spec)
+Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 ###### Rate this page
 
@@ -322,93 +332,26 @@ Wallet Provider Spec](/tools/wallet-provider-spec)
 
 Copy as Markdown
 
-* [1006](#1006)
-* [1007](#1007)
-* [1008](#1008)
-* [1009](#1009)
-* [1051](#1051)
-* [1052](#1052)
-* [1053](#1053)
-* [1054](#1054)
-* [1055](#1055)
-* [1056](#1056)
-* [1057](#1057)
-* [1101](#1101)
-* [1103](#1103)
-* [1105](#1105)
-* [1106](#1106)
-* [1107](#1107)
-* [1108](#1108)
-* [1109](#1109)
-* [1110](#1110)
-* [1111](#1111)
-* [1112](#1112)
-* [1113](#1113)
-* [1114](#1114)
-* [1115](#1115)
-* [1116](#1116)
-* [1118](#1118)
-* [1201](#1201)
-* [1202](#1202)
-* [1203](#1203)
-* [1204](#1204)
-* [1206](#1206)
-* [1251](#1251)
-* [2000](#2000)
-* [2001](#2001)
-* [2002](#2002)
-* [2003](#2003)
-* [2004](#2004)
-* [2006](#2006)
-* [2007](#2007)
+* [1006](#1006)* [1007](#1007)* [1008](#1008)* [1009](#1009)* [1051](#1051)* [1052](#1052)* [1053](#1053)* [1054](#1054)* [1055](#1055)* [1056](#1056)* [1057](#1057)* [1101](#1101)* [1103](#1103)* [1105](#1105)* [1106](#1106)* [1107](#1107)* [1108](#1108)* [1109](#1109)* [1110](#1110)* [1111](#1111)* [1112](#1112)* [1113](#1113)* [1114](#1114)* [1115](#1115)* [1116](#1116)* [1118](#1118)* [1201](#1201)* [1202](#1202)* [1203](#1203)* [1204](#1204)* [1206](#1206)* [1251](#1251)* [2000](#2000)* [2001](#2001)* [2002](#2002)* [2003](#2003)* [2004](#2004)* [2006](#2006)* [2007](#2007)
 
 Documentation
 
-* [Getting Started](/build/getting-started/contract-interaction)
-* [SDK's & Tools](/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/guides/mobile/overview)
-* [FCL](/tools/clients/fcl-js)
-* [Testing](/build/smart-contracts/testing)
-* [CLI](/tools/flow-cli)
-* [Emulator](/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/tools/vscode-extension)
+* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
 
 Community
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
 
 Start Building
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/core-contracts)
-* [EVM](/evm/about)
+* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
 
 Network
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
-* [Node Operation](/networks/node-ops)
-* [Spork Information](/networks/node-ops/node-operation/spork)
+* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
 
 More
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.
