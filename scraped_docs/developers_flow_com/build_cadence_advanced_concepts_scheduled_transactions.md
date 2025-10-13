@@ -20,7 +20,7 @@ Search
 
             + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
 
-              - [Build Faster with Flow’s Native Account Abstraction](/build/cadence/advanced-concepts/account-abstraction)- [FLIX (Flow Interaction Templates)](/build/cadence/advanced-concepts/flix)- [Scheduled Transactions](/build/cadence/advanced-concepts/scheduled-transactions)- [NFT Metadata Views](/build/cadence/advanced-concepts/metadata-views)- [VRF (Randomness) in Cadence](/build/cadence/advanced-concepts/randomness)- [Scaling Transactions from a Single Account](/build/cadence/advanced-concepts/scaling)+ [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
+              - [Build Faster with Flow’s Native Account Abstraction](/build/cadence/advanced-concepts/account-abstraction)- [Scheduled Transactions](/build/cadence/advanced-concepts/scheduled-transactions)- [FLIX (Flow Interaction Templates)](/build/cadence/advanced-concepts/flix)- [NFT Metadata Views](/build/cadence/advanced-concepts/metadata-views)- [VRF (Randomness) in Cadence](/build/cadence/advanced-concepts/randomness)- [Scaling Transactions from a Single Account](/build/cadence/advanced-concepts/scaling)+ [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
 
       + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
 
@@ -1046,9 +1046,9 @@ Last updated on **Oct 2, 2025** by **Josh Hannan**
 
 [Previous
 
-FLIX (Flow Interaction Templates)](/build/cadence/advanced-concepts/flix)[Next
+Build Faster with Flow’s Native Account Abstraction](/build/cadence/advanced-concepts/account-abstraction)[Next
 
-NFT Metadata Views](/build/cadence/advanced-concepts/metadata-views)
+FLIX (Flow Interaction Templates)](/build/cadence/advanced-concepts/flix)
 
 ###### Rate this page
 

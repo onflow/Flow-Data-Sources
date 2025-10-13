@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/params
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/subscribe
 
-params | Flow Developer Portal
+subscribe | Flow Developer Portal
 
 
 
@@ -42,13 +42,17 @@ Search
 
                               * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
-* * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)* params
+* * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)* subscribe
 
 On this page
 
-# params
+# subscribe
 
-Legacy function for setting parameters on an interaction.
+Subscribe to real-time data from the Flow blockchain and automatically decode the responses.
+
+This is a utility function used for subscribing to real-time data from the WebSocket Streaming API. Data returned will be automatically decoded via the 'decode' function.
+
+Available topics include: `events`, `blocks`, `block_headers`, `block_digests`, `transaction_statuses`, `account_statuses`.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -62,42 +66,194 @@ _10
 
 _10
 
-sdk.params(params)`
+sdk.subscribe(subscribeParams, opts)`
 
 Or import directly the specific function:
 
 `_10
 
-import { params } from "@onflow/sdk"
+import { subscribe } from "@onflow/sdk"
 
 _10
 
 _10
 
-params(params)`
+subscribe(subscribeParams, opts)`
+
+## Usage[​](#usage "Direct link to Usage")
+
+`_34
+
+import * as fcl from "@onflow/fcl";
+
+_34
+
+import { SubscriptionTopic } from "@onflow/sdk";
+
+_34
+
+_34
+
+// Subscribe to events
+
+_34
+
+const subscription = fcl.subscribe({
+
+_34
+
+topic: SubscriptionTopic.EVENTS,
+
+_34
+
+args: {
+
+_34
+
+eventTypes: ["A.7e60df042a9c0868.FlowToken.TokensWithdrawn"]
+
+_34
+
+},
+
+_34
+
+onData: (events) => {
+
+_34
+
+console.log("Received events:", events);
+
+_34
+
+},
+
+_34
+
+onError: (error) => {
+
+_34
+
+console.error("Subscription error:", error);
+
+_34
+
+}
+
+_34
+
+});
+
+_34
+
+_34
+
+// Subscribe to blocks
+
+_34
+
+const blockSubscription = fcl.subscribe({
+
+_34
+
+topic: SubscriptionTopic.BLOCKS,
+
+_34
+
+args: {
+
+_34
+
+blockStatus: "finalized"
+
+_34
+
+},
+
+_34
+
+onData: (block) => {
+
+_34
+
+console.log("New block:", block);
+
+_34
+
+},
+
+_34
+
+onError: (error) => {
+
+_34
+
+console.error("Block subscription error:", error);
+
+_34
+
+}
+
+_34
+
+});
+
+_34
+
+_34
+
+// Later, to unsubscribe:
+
+_34
+
+subscription.unsubscribe();
+
+_34
+
+blockSubscription.unsubscribe();`
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `params`[​](#params-1 "Direct link to params-1")
+### `subscribeParams`[​](#subscribeparams "Direct link to subscribeparams")
 
-* Type: `never`
-* Description: The parameters to set
+* Type:
+
+`_10
+
+SubscribeParams<T>`
+
+### `opts` (optional)[​](#opts-optional "Direct link to opts-optional")
+
+* Type:
+
+`_10
+
+{ node?: string; transport?: SdkTransport; }`
+
+* Description: Additional options for the subscription
+
+#### Properties:[​](#properties "Direct link to Properties:")
+
+* **`node`** - Custom node endpoint to be used for the subscription
+* **`transport`** - Custom transport implementation for handling the connection
 
 ## Returns[​](#returns "Direct link to Returns")
 
-`Promise<unknown>`
+[`Subscription`](/build/tools/clients/fcl-js/packages-docs/types#subscription)
+
+A subscription object that allows you to manage the subscription (e.g., to unsubscribe later)
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/params.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/subscribe.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-param](/build/tools/clients/fcl-js/packages-docs/sdk/param)[Next
+send](/build/tools/clients/fcl-js/packages-docs/sdk/send)[Next
 
-payer](/build/tools/clients/fcl-js/packages-docs/sdk/payer)
+subscribeEvents](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeEvents)
 
 ###### Rate this page
 
@@ -105,8 +261,8 @@ payer](/build/tools/clients/fcl-js/packages-docs/sdk/payer)
 
 Copy as Markdown
 
-* [Import](#import)* [Parameters](#parameters)
-    + [`params`](#params-1)* [Returns](#returns)
+* [Import](#import)* [Usage](#usage)* [Parameters](#parameters)
+      + [`subscribeParams`](#subscribeparams)+ [`opts` (optional)](#opts-optional)* [Returns](#returns)
 
 Documentation
 

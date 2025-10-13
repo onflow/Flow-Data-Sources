@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/params
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/sdk/validator
 
-params | Flow Developer Portal
+validator | Flow Developer Portal
 
 
 
@@ -42,13 +42,17 @@ Search
 
                               * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
-* * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)* params
+* * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)* validator
 
 On this page
 
-# params
+# validator
 
-Legacy function for setting parameters on an interaction.
+A builder function that adds a validator to a transaction.
+
+Validators are functions that run during transaction building to check for invalid configurations or parameters.
+They help catch errors early before submitting transactions to the network, preventing failed transactions
+and wasted compute costs.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -56,48 +60,142 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as sdk from "@onflow/sdk"
+import * as sdk from '@onflow/sdk';
 
 _10
 
 _10
 
-sdk.params(params)`
+sdk.validator(cb);`
 
 Or import directly the specific function:
 
 `_10
 
-import { params } from "@onflow/sdk"
+import { validator } from '@onflow/sdk';
 
 _10
 
 _10
 
-params(params)`
+validator(cb);`
+
+## Usage[​](#usage "Direct link to Usage")
+
+`` _21
+
+import * as fcl from '@onflow/fcl';
+
+_21
+
+_21
+
+// Custom validator to ensure account has sufficient balance
+
+_21
+
+const validateBalance = (ix) => {
+
+_21
+
+if (ix.message.computeLimit > 1000) {
+
+_21
+
+throw new Error('Compute limit too high for this account');
+
+_21
+
+}
+
+_21
+
+return ix;
+
+_21
+
+};
+
+_21
+
+_21
+
+await fcl.send([
+
+_21
+
+fcl.transaction`
+
+_21
+
+transaction {
+
+_21
+
+prepare(account: AuthAccount) {
+
+_21
+
+// Transaction logic
+
+_21
+
+}
+
+_21
+
+}
+
+_21
+
+`,
+
+_21
+
+fcl.validator(validateBalance),
+
+_21
+
+fcl.limit(500), // This will pass validation
+
+_21
+
+]); ``
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `params`[​](#params-1 "Direct link to params-1")
+### `cb`[​](#cb "Direct link to cb")
 
-* Type: `never`
-* Description: The parameters to set
+* Type: `Function`
+* Description: The validator function that takes an interaction and returns it (or throws an error if invalid)
 
 ## Returns[​](#returns "Direct link to Returns")
 
-`Promise<unknown>`
+`_10
+
+export type InteractionBuilderFn = (
+
+_10
+
+ix: Interaction,
+
+_10
+
+) => Interaction | Promise<Interaction>;`
+
+A function that processes an interaction object
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/params.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/validator.md)
 
 Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-param](/build/tools/clients/fcl-js/packages-docs/sdk/param)[Next
+update](/build/tools/clients/fcl-js/packages-docs/sdk/update)[Next
 
-payer](/build/tools/clients/fcl-js/packages-docs/sdk/payer)
+voucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/voucherIntercept)
 
 ###### Rate this page
 
@@ -105,8 +203,8 @@ payer](/build/tools/clients/fcl-js/packages-docs/sdk/payer)
 
 Copy as Markdown
 
-* [Import](#import)* [Parameters](#parameters)
-    + [`params`](#params-1)* [Returns](#returns)
+* [Import](#import)* [Usage](#usage)* [Parameters](#parameters)
+      + [`cb`](#cb)* [Returns](#returns)
 
 Documentation
 
