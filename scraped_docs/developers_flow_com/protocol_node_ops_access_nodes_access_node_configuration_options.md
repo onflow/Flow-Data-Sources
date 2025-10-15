@@ -196,14 +196,15 @@ Store the **`root-protocol-state-snapshot.json`** into the **`/bootstrap/public-
 
 Now you have the execution sync setup and the root checkpoint in place, it’s time to configure the node to index all of the data so it can be used for script execution.
 
-There are 2 cli flags that you will need to add:
+There are 3 cli flags that you will need to add:
 
 * `--execution-data-indexing-enabled=true` This will enable the indexer.
+* `--store-tx-result-error-messages=true` This will fetch and index transaction result error messages from execution nodes.
 * `--execution-state-dir` This defines the path where the registers db will be stored. A good default is on the same drive as the protocol db. e.g. `/data/execution-state`
 
 # Start your node
 
-Now that all of the settings to enable indexing are in place, you can start your node.
+Now that all the settings to enable indexing are in place, you can start your node.
 
 At a minimum, you will need the following flags:
 
@@ -213,11 +214,11 @@ At a minimum, you will need the following flags:
 
 _10
 
---execution-state-dir=/data/execution-state
+--store-tx-result-error-messages=true
 
 _10
 
---execution-data-sync-enabled=true
+--execution-state-dir=/data/execution-state
 
 _10
 
@@ -333,9 +334,9 @@ As a best practice, specify a path with `--execution-data-dir`. A sensible defau
 
 Below is a list of the available CLI flags to control the behavior of Execution Data Indexer.
 
-|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Flag Type Description|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | execution-data-indexing-enabled bool Whether to enable the execution data indexing. Default is false|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | execution-state-dir string Directory to use for execution-state database. Default is in the user’s home directory.|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | execution-state-checkpoint string Location of execution-state checkpoint (root.checkpoint.\*) files.|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | event-query-mode string Mode to use when querying events. one of [local-only, execution-nodes-only(default), failover]|  |  |  | | --- | --- | --- | | tx-result-query-mode string Mode to use when querying transaction results. one of [local-only, execution-nodes-only(default), failover] | | | | | | | | | | | | | | | | | |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Flag Type Description|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | execution-data-indexing-enabled bool Whether to enable the execution data indexing. Default is false.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | store-tx-result-error-messages bool Whether to enable storing transaction error messages into the db. Default is false.|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | execution-state-dir string Directory to use for execution-state database. Default is in the user’s home directory.|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | execution-state-checkpoint string Location of execution-state checkpoint (root.checkpoint.\*) files.|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | event-query-mode string Mode to use when querying events. one of [local-only, execution-nodes-only(default), failover]|  |  |  | | --- | --- | --- | | tx-result-query-mode string Mode to use when querying transaction results. one of [local-only, execution-nodes-only(default), failover] | | | | | | | | | | | | | | | | | | | | |
 
 Below is a list of the available CLI flags to control the behavior of Script Execution.
 
@@ -351,7 +352,7 @@ Protobuf: <https://github.com/onflow/flow/blob/master/protobuf/flow/executiondat
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/protocol/node-ops/access-nodes/access-node-configuration-options.md)
 
-Last updated on **Sep 23, 2025** by **Brian Doyle**
+Last updated on **Oct 11, 2025** by **Vishal**
 
 [Previous
 
@@ -369,24 +370,24 @@ Copy as Markdown
       + [Download the root protocol state snapshot](#download-the-root-protocol-state-snapshot)+ [Download the root checkpoint](#download-the-root-checkpoint)* [**Option 2: Enabling Indexing Mid-Spork**](#option-2-enabling-indexing-mid-spork)
         + [Identify the root checkpoint](#identify-the-root-checkpoint)+ [Download the root checkpoint](#download-the-root-checkpoint-1)+ [Download the root protocol state snapshot](#download-the-root-protocol-state-snapshot-1)+ [Setup Local Script Execution](#setup-local-script-execution)+ [Setup Using Local Data with Transaction Results and Events](#setup-using-local-data-with-transaction-results-and-events)
 
-Documentation
+Flow
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
 
-Community
+Cadence
 
-* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
 
-Start Building
+Solidity (EVM)
 
-* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
 
-Network
+Community & Support
 
-* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
 
-More
+Network & Resources
 
-* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
+Copyright © 2025 Flow Foundation. All Rights Reserved.

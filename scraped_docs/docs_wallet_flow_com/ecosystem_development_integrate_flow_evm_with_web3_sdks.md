@@ -106,4 +106,4 @@ const WalletConnect = () => {
 
 [PreviousEcosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)[NextWagmi](/ecosystem-development/integrate-flow-evm-with-web3-sdks/wagmi)
 
-Last updated 8 months ago
+Last updated 9 months ago

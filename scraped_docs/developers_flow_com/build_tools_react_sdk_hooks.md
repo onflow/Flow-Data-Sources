@@ -1,6 +1,6 @@
 # Source: https://developers.flow.com/build/tools/react-sdk/hooks
 
-Flow React SDK Hooks | Flow Developer Portal
+Hooks | Flow Developer Portal
 
 
 
@@ -24,15 +24,15 @@ Search
 
       + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
 
-        + [@onflow/react-sdk](/build/tools/react-sdk)
+        + [Flow React SDK](/build/tools/react-sdk)
 
-          - [Flow React SDK Hooks](/build/tools/react-sdk/hooks)- [Flow React SDK Components](/build/tools/react-sdk/components)+ [Flow Emulator](/build/tools/emulator)+ [Flow CLI](/build/tools/flow-cli)
+          - [Hooks](/build/tools/react-sdk/hooks)- [Components](/build/tools/react-sdk/components)+ [Flow Emulator](/build/tools/emulator)+ [Flow CLI](/build/tools/flow-cli)
 
               + [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
 
                     + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
-* * [Tools & SDKs](/build/tools)* [@onflow/react-sdk](/build/tools/react-sdk)* Flow React SDK Hooks
+* * [Tools & SDKs](/build/tools)* [Flow React SDK](/build/tools/react-sdk)* Hooks
 
 On this page
 
@@ -45,6 +45,8 @@ Many of these hooks are built using [`@tanstack/react-query`](https://tanstack.c
 ## Cadence Hooks[​](#cadence-hooks "Direct link to Cadence Hooks")
 
 ### `useFlowCurrentUser`[​](#useflowcurrentuser "Direct link to useflowcurrentuser")
+
+[Open in Playground →](https://react.flow.com/#useflowcurrentuser)
 
 `_10
 
@@ -125,6 +127,8 @@ _16
 ---
 
 ### `useFlowAccount`[​](#useflowaccount "Direct link to useflowaccount")
+
+[Open in Playground →](https://react.flow.com/#useflowaccount)
 
 `_10
 
@@ -214,6 +218,8 @@ _19
 
 ### `useFlowBlock`[​](#useflowblock "Direct link to useflowblock")
 
+[Open in Playground →](https://react.flow.com/#useflowblock)
+
 `_10
 
 import { useFlowBlock } from "@onflow/react-sdk"`
@@ -286,6 +292,8 @@ _14
 
 ### `useFlowChainId`[​](#useflowchainid "Direct link to useflowchainid")
 
+[Open in Playground →](https://react.flow.com/#useflowchainid)
+
 `_10
 
 import { useFlowChainId } from "@onflow/react-sdk"`
@@ -341,6 +349,8 @@ _10
 
 ### `useFlowClient`[​](#useflowclient "Direct link to useflowclient")
 
+[Open in Playground →](https://react.flow.com/#useflowclient)
+
 This hook returns the `FlowClient` for the current `<FlowProvider />` context.
 
 #### Parameters:[​](#parameters-4 "Direct link to Parameters:")
@@ -350,6 +360,8 @@ This hook returns the `FlowClient` for the current `<FlowProvider />` context.
 ---
 
 ### `useFlowConfig`[​](#useflowconfig "Direct link to useflowconfig")
+
+[Open in Playground →](https://react.flow.com/#useflowconfig)
 
 `_10
 
@@ -398,6 +410,8 @@ _10
 ---
 
 ### `useFlowEvents`[​](#useflowevents "Direct link to useflowevents")
+
+[Open in Playground →](https://react.flow.com/#useflowevents)
 
 `_10
 
@@ -454,6 +468,8 @@ _10
 ---
 
 ### `useFlowQuery`[​](#useflowquery "Direct link to useflowquery")
+
+[Open in Playground →](https://react.flow.com/#useflowquery)
 
 `_10
 
@@ -555,6 +571,8 @@ _22
 ---
 
 ### `useFlowQueryRaw`[​](#useflowqueryraw "Direct link to useflowqueryraw")
+
+[Open in Playground →](https://react.flow.com/#useflowqueryraw)
 
 `_10
 
@@ -660,6 +678,8 @@ _22
 ---
 
 ### `useFlowMutate`[​](#useflowmutate "Direct link to useflowmutate")
+
+[Open in Playground →](https://react.flow.com/#useflowmutate)
 
 `_10
 
@@ -804,6 +824,8 @@ _33
 
 ### `useFlowRevertibleRandom`[​](#useflowrevertiblerandom "Direct link to useflowrevertiblerandom")
 
+[Open in Playground →](https://react.flow.com/#useflowrevertiblerandom)
+
 `_10
 
 import { useFlowRevertibleRandom } from "@onflow/react-sdk"`
@@ -936,6 +958,8 @@ _26
 
 ### `useFlowTransaction`[​](#useflowtransaction "Direct link to useflowtransaction")
 
+[Open in Playground →](https://react.flow.com/#useflowtransaction)
+
 `_10
 
 import { useFlowTransaction } from "@onflow/react-sdk"`
@@ -1026,6 +1050,8 @@ _19
 
 ### `useFlowTransactionStatus`[​](#useflowtransactionstatus "Direct link to useflowtransactionstatus")
 
+[Open in Playground →](https://react.flow.com/#useflowtransactionstatus)
+
 `_10
 
 import { useFlowTransactionStatus } from "@onflow/react-sdk"`
@@ -1071,6 +1097,8 @@ _10
 ---
 
 ### `useDarkMode`[​](#usedarkmode "Direct link to usedarkmode")
+
+[Open in Playground →](https://react.flow.com/#usedarkmode)
 
 `_10
 
@@ -1125,6 +1153,8 @@ _10
 ## Cross-VM Hooks[​](#cross-vm-hooks "Direct link to Cross-VM Hooks")
 
 ### `useCrossVmBatchTransaction`[​](#usecrossvmbatchtransaction "Direct link to usecrossvmbatchtransaction")
+
+[Open in Playground →](https://react.flow.com/#usecrossvmbatchtransaction)
 
 `_10
 
@@ -1383,6 +1413,8 @@ _35
 
 ### `useCrossVmTokenBalance`[​](#usecrossvmtokenbalance "Direct link to usecrossvmtokenbalance")
 
+[Open in Playground →](https://react.flow.com/#usecrossvmtokenbalance)
+
 `_10
 
 import { useCrossVmTokenBalance } from "@onflow/react-sdk"`
@@ -1524,6 +1556,8 @@ _20
 ---
 
 ### `useCrossVmSpendNft`[​](#usecrossvmspendnft "Direct link to usecrossvmspendnft")
+
+[Open in Playground →](https://react.flow.com/#usecrossvmspendnft)
 
 `_10
 
@@ -1714,6 +1748,8 @@ _31
 
 ### `useCrossVmSpendToken`[​](#usecrossvmspendtoken "Direct link to usecrossvmspendtoken")
 
+[Open in Playground →](https://react.flow.com/#usecrossvmspendtoken)
+
 `_10
 
 import { useCrossVmSpendToken } from "@onflow/react-sdk"`
@@ -1903,6 +1939,8 @@ _31
 
 ### `useCrossVmTransactionStatus`[​](#usecrossvmtransactionstatus "Direct link to usecrossvmtransactionstatus")
 
+[Open in Playground →](https://react.flow.com/#usecrossvmtransactionstatus)
+
 `_10
 
 import { useCrossVmTransactionStatus } from "@onflow/react-sdk"`
@@ -2062,13 +2100,13 @@ _26
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/react-sdk/hooks.md)
 
-Last updated on **Sep 25, 2025** by **Felipe Cevallos**
+Last updated on **Oct 7, 2025** by **mfbz**
 
 [Previous
 
-@onflow/react-sdk](/build/tools/react-sdk)[Next
+Flow React SDK](/build/tools/react-sdk)[Next
 
-Flow React SDK Components](/build/tools/react-sdk/components)
+Components](/build/tools/react-sdk/components)
 
 ###### Rate this page
 
@@ -2080,24 +2118,24 @@ Copy as Markdown
   + [`useFlowCurrentUser`](#useflowcurrentuser)+ [Parameters](#parameters)+ [`useFlowAccount`](#useflowaccount)+ [`useFlowBlock`](#useflowblock)+ [`useFlowChainId`](#useflowchainid)+ [`useFlowClient`](#useflowclient)+ [`useFlowConfig`](#useflowconfig)+ [`useFlowEvents`](#useflowevents)+ [`useFlowQuery`](#useflowquery)+ [`useFlowQueryRaw`](#useflowqueryraw)+ [`useFlowMutate`](#useflowmutate)+ [`useFlowRevertibleRandom`](#useflowrevertiblerandom)+ [`useFlowTransaction`](#useflowtransaction)+ [`useFlowTransactionStatus`](#useflowtransactionstatus)+ [`useDarkMode`](#usedarkmode)* [Cross-VM Hooks](#cross-vm-hooks)
     + [`useCrossVmBatchTransaction`](#usecrossvmbatchtransaction)+ [`useCrossVmTokenBalance`](#usecrossvmtokenbalance)+ [`useCrossVmSpendNft`](#usecrossvmspendnft)+ [`useCrossVmSpendToken`](#usecrossvmspendtoken)+ [`useCrossVmTransactionStatus`](#usecrossvmtransactionstatus)
 
-Documentation
+Flow
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
 
-Community
+Cadence
 
-* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
 
-Start Building
+Solidity (EVM)
 
-* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
 
-Network
+Community & Support
 
-* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
 
-More
+Network & Resources
 
-* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
+Copyright © 2025 Flow Foundation. All Rights Reserved.

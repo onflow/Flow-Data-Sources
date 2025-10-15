@@ -70,4 +70,4 @@ Wip
 
 [PreviousMIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)[NextDownload](/download/download)
 
-Last updated 8 months ago
+Last updated 9 months ago

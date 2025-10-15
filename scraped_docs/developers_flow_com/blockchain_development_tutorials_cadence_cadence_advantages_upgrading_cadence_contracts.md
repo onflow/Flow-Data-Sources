@@ -1,0 +1,1565 @@
+# Source: https://developers.flow.com/blockchain-development-tutorials/cadence/cadence-advantages/upgrading-cadence-contracts
+
+Upgrading Cadence Contracts | Flow Developer Portal
+
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Blockchain Development Tutorials](/blockchain-development-tutorials)* [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)* [Forte Network Upgrade](/blockchain-development-tutorials/forte)
+
+      * [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
+
+        * [Cadence Tutorials](/blockchain-development-tutorials/cadence)
+
+          + [Getting Started with Cadence](/blockchain-development-tutorials/cadence/getting-started)
+
+            + [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)
+
+              - [Compose with Cadence Transactions](/blockchain-development-tutorials/cadence/cadence-advantages/compose-with-cadence-transactions)- [Native Data Availability With Cadence Scripts](/blockchain-development-tutorials/cadence/cadence-advantages/native-data-availibility-with-cadence-scripts)- [Upgrading Cadence Contracts](/blockchain-development-tutorials/cadence/cadence-advantages/upgrading-cadence-contracts)+ [Account Linking](/blockchain-development-tutorials/cadence/account-management)
+
+                + [Mobile Development on Flow](/blockchain-development-tutorials/cadence/mobile)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
+
+            * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
+
+              * [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
+
+                * [Token Development and Registration](/blockchain-development-tutorials/tokens)
+
+                  * [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
+
+                    * [Third-Party Integrations](/blockchain-development-tutorials/integrations)
+
+* * [Cadence Tutorials](/blockchain-development-tutorials/cadence)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* Upgrading Cadence Contracts
+
+On this page
+
+# Upgrading Cadence Contracts
+
+In Cadence, you can upgrade deployed contracts by adding new functionality while preserving existing state and maintaining the same contract address. Unlike other blockchain platforms that require complex proxy patterns or complete redeployment, Cadence allows you to seamlessly extend your contracts with new functions and events through multiple incremental upgrades.
+
+This tutorial demonstrates how to upgrade a deployed contract through two scenarios: first adding an event to notify users when the counter reaches an even number, then extending the contract with additional functionality like incrementing by 2 and checking if numbers are even.
+
+## Objectives[​](#objectives "Direct link to Objectives")
+
+After completing this guide, you will be able to:
+
+* **Deploy a contract** to Flow testnet using Flow CLI
+* **Perform incremental contract upgrades** by adding new events and functions
+* **Update deployed contracts multiple times** using the `flow accounts update-contract` command
+* **Test upgraded functionality** with Cadence transactions and scripts
+* **Understand what can and cannot be changed** during contract upgrades
+* **Apply realistic upgrade scenarios** based on user feedback and requirements
+
+## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+
+* [Flow CLI installed](/build/tools/flow-cli/install) and configured
+* Basic familiarity with [Cadence](https://cadence-lang.org/docs/tutorial/first-steps) and [Flow accounts](/build/cadence/basics/accounts)
+* A **funded testnet account** to deploy and update contracts
+  + See [Create accounts](/build/tools/flow-cli/commands#create-accounts) and [Fund accounts](/build/tools/flow-cli/commands#fund-accounts) in the Flow CLI commands
+
+## Contract Upgrade Overview[​](#contract-upgrade-overview "Direct link to Contract Upgrade Overview")
+
+Cadence provides a sophisticated contract upgrade system that allows you to modify deployed contracts while ensuring data consistency and preventing runtime crashes. Understanding what you can and cannot change is crucial for successful upgrades.
+
+### What You CAN Upgrade[​](#what-you-can-upgrade "Direct link to What You CAN Upgrade")
+
+* **Add new functions** - Extend contract functionality with new methods
+* **Add new events** - Emit additional events for monitoring and indexing
+* **Modify function implementations** - Change how existing functions work
+* **Change function signatures** - Update parameters and return types
+* **Remove functions** - Delete functions that are no longer needed
+* **Change access modifiers** - Update visibility of functions and fields
+* **Reorder existing fields** - Field order doesn't affect storage
+
+### What You CANNOT Upgrade[​](#what-you-cannot-upgrade "Direct link to What You CANNOT Upgrade")
+
+* **Add new fields** - Would cause runtime crashes when loading existing data
+* **Change field types** - Would cause deserialization errors
+* **Remove existing fields** - Fields become inaccessible but data remains
+* **Change enum structures** - Raw values must remain consistent
+* **Change contract name** - Contract address must remain the same
+
+### Why These Restrictions Exist[​](#why-these-restrictions-exist "Direct link to Why These Restrictions Exist")
+
+The [Cadence Contract Updatability documentation](https://cadence-lang.org/docs/language/contract-updatability) explains that these restrictions prevent:
+
+* **Runtime crashes** from missing or garbage field values
+* **Data corruption** from type mismatches
+* **Storage inconsistencies** from structural changes
+* **Type confusion** from enum value changes
+
+The validation system ensures that existing stored data remains valid and accessible after upgrades.
+
+## Getting Started[​](#getting-started "Direct link to Getting Started")
+
+Create a new Flow project for this tutorial:
+
+`_10
+
+# Create a new Flow project
+
+_10
+
+flow init upgrading-contracts-tutorial`
+
+Follow the prompts and create a `Basic Cadence project (no dependencies)` then open the new project in your editor.
+
+### Create and Fund Testnet Account[​](#create-and-fund-testnet-account "Direct link to Create and Fund Testnet Account")
+
+You'll need a funded testnet account to deploy and update contracts. In a terminal in the root of your project folder:
+
+`_10
+
+# Create a testnet account
+
+_10
+
+flow accounts create --network testnet`
+
+When prompted:
+
+1. **Account name**: Enter `testnet-account`
+2. Select `testnet` as the network when prompted
+
+Fund your account with testnet FLOW tokens:
+
+`_10
+
+# Fund the account
+
+_10
+
+flow accounts fund testnet-account`
+
+This will open the faucet in your browser where you can request 100,000 testnet FLOW tokens.
+
+info
+
+The faucet provides free testnet tokens for development and testing purposes. These tokens have no real value and are only used on the testnet network.
+
+---
+
+## Deploy the Initial Counter Contract[​](#deploy-the-initial-counter-contract "Direct link to Deploy the Initial Counter Contract")
+
+Let's start by deploying a simple Counter contract to testnet.
+
+Open and review `cadence/contracts/Counter.cdc`. This is a simple contract created with all projects:
+
+`_36
+
+access(all) contract Counter {
+
+_36
+
+_36
+
+access(all) var count: Int
+
+_36
+
+_36
+
+// Event to be emitted when the counter is incremented
+
+_36
+
+access(all) event CounterIncremented(newCount: Int)
+
+_36
+
+_36
+
+// Event to be emitted when the counter is decremented
+
+_36
+
+access(all) event CounterDecremented(newCount: Int)
+
+_36
+
+_36
+
+init() {
+
+_36
+
+self.count = 0
+
+_36
+
+}
+
+_36
+
+_36
+
+// Public function to increment the counter
+
+_36
+
+access(all) fun increment() {
+
+_36
+
+self.count = self.count + 1
+
+_36
+
+emit CounterIncremented(newCount: self.count)
+
+_36
+
+_36
+
+// NEW: Also emit event if the result is even
+
+_36
+
+if self.count % 2 == 0 {
+
+_36
+
+emit CounterIncrementedToEven(newCount: self.count)
+
+_36
+
+}
+
+_36
+
+}
+
+_36
+
+_36
+
+// Public function to decrement the counter
+
+_36
+
+access(all) fun decrement() {
+
+_36
+
+self.count = self.count - 1
+
+_36
+
+emit CounterDecremented(newCount: self.count)
+
+_36
+
+}
+
+_36
+
+_36
+
+// Public function to get the current count
+
+_36
+
+view access(all) fun getCount(): Int {
+
+_36
+
+return self.count
+
+_36
+
+}
+
+_36
+
+}`
+
+### Configure Deployment[​](#configure-deployment "Direct link to Configure Deployment")
+
+Add testnet deployment configuration to your `flow.json`:
+
+`_10
+
+flow config add deployment`
+
+Follow the prompts:
+
+1. **Network**: `testnet`
+2. **Account**: `testnet-account`
+3. **Contract**: `Counter`
+4. **Deploy more contracts**: `no`
+
+Your `flow.json` will now include a testnet deployment section:
+
+`_10
+
+{
+
+_10
+
+"deployments": {
+
+_10
+
+"testnet": {
+
+_10
+
+"testnet-account": ["Counter"]
+
+_10
+
+}
+
+_10
+
+}
+
+_10
+
+}`
+
+### Deploy to Testnet[​](#deploy-to-testnet "Direct link to Deploy to Testnet")
+
+Deploy your Counter contract to testnet:
+
+`_10
+
+flow project deploy --network testnet`
+
+You should see output similar to:
+
+`_10
+
+Deploying 1 contracts for accounts: testnet-account
+
+_10
+
+_10
+
+Counter -> 0x9942a81bc6c3c5b7 (contract deployed successfully)
+
+_10
+
+_10
+
+🎉 All contracts deployed successfully`
+
+### Test the Initial Contract[​](#test-the-initial-contract "Direct link to Test the Initial Contract")
+
+Use the provided transaction to test initial functionality:
+
+Review `cadence/transactions/TestCounter.cdc`. This transaction simply increments the counter:
+
+`_17
+
+import "Counter"
+
+_17
+
+_17
+
+transaction {
+
+_17
+
+_17
+
+prepare(acct: &Account) {
+
+_17
+
+// Authorizes the transaction
+
+_17
+
+}
+
+_17
+
+_17
+
+execute {
+
+_17
+
+// Increment the counter
+
+_17
+
+Counter.increment()
+
+_17
+
+_17
+
+// Retrieve the new count and log it
+
+_17
+
+let newCount = Counter.getCount()
+
+_17
+
+log("New count after incrementing: ".concat(newCount.toString()))
+
+_17
+
+}
+
+_17
+
+}`
+
+info
+
+Cadence transactions are written in Cadence and can call one or more functions on one or more contracts, all with a single user signature. Check out our tutorial to learn how to [Compose with Cadence Transactions](/blockchain-development-tutorials/cadence/cadence-advantages/compose-with-cadence-transactions) to learn more!
+
+Run the test transaction:
+
+`_10
+
+flow transactions send cadence/transactions/IncrementCounter.cdc --signer testnet-account --network testnet`
+
+You should see logs showing the counter incrementing and decrementing as expected.
+
+`_25
+
+Transaction ID: 251ee40a050b8c7298d33f1b73ed94996a9d99deae8559526d9dddae182f7752
+
+_25
+
+_25
+
+Block ID 25cdb14fcbaf47b3fb13e6ec43bdef0ede85a6a580caea758220c53d48493e17
+
+_25
+
+Block Height 284173579
+
+_25
+
+Status ✅ SEALED
+
+_25
+
+ID 251ee40a050b8c7298d33f1b73ed94996a9d99deae8559526d9dddae182f7752
+
+_25
+
+Payer adb1efc5826d3768
+
+_25
+
+Authorizers [adb1efc5826d3768]
+
+_25
+
+_25
+
+Proposal Key:
+
+_25
+
+Address adb1efc5826d3768
+
+_25
+
+Index 0
+
+_25
+
+Sequence 1
+
+_25
+
+_25
+
+No Payload Signatures
+
+_25
+
+_25
+
+Envelope Signature 0: adb1efc5826d3768
+
+_25
+
+Signatures (minimized, use --include signatures)
+
+_25
+
+_25
+
+Events:
+
+_25
+
+Index 0
+
+_25
+
+Type A.adb1efc5826d3768.Counter.CounterIncremented
+
+_25
+
+Tx ID 251ee40a050b8c7298d33f1b73ed94996a9d99deae8559526d9dddae182f7752
+
+_25
+
+Values
+
+_25
+
+- newCount (Int): 1`
+
+---
+
+## Upgrade the Contract - Part 1: Adding Event for Even Numbers[​](#upgrade-the-contract---part-1-adding-event-for-even-numbers "Direct link to Upgrade the Contract - Part 1: Adding Event for Even Numbers")
+
+Let's start with a realistic scenario: What if we've realized it's very important to our users that they know when the counter reaches an even number, but we forgot to add an event for that case? Let's add that functionality first.
+
+### Modify the Counter Contract - First Upgrade[​](#modify-the-counter-contract---first-upgrade "Direct link to Modify the Counter Contract - First Upgrade")
+
+Update `cadence/contracts/Counter.cdc` to add the new event and enhance the existing `increment()` function:
+
+`_39
+
+access(all) contract Counter {
+
+_39
+
+_39
+
+access(all) var count: Int
+
+_39
+
+_39
+
+// Event to be emitted when the counter is incremented
+
+_39
+
+access(all) event CounterIncremented(newCount: Int)
+
+_39
+
+_39
+
+// Event to be emitted when the counter is decremented
+
+_39
+
+access(all) event CounterDecremented(newCount: Int)
+
+_39
+
+_39
+
+// NEW: Event to be emitted when the counter is incremented and the result is even
+
+_39
+
+access(all) event CounterIncrementedToEven(newCount: Int)
+
+_39
+
+_39
+
+init() {
+
+_39
+
+self.count = 0
+
+_39
+
+}
+
+_39
+
+_39
+
+// Public function to increment the counter
+
+_39
+
+access(all) fun increment() {
+
+_39
+
+self.count = self.count + 1
+
+_39
+
+emit CounterIncremented(newCount: self.count)
+
+_39
+
+_39
+
+// NEW: Also emit event if the result is even
+
+_39
+
+if self.count % 2 == 0 {
+
+_39
+
+emit CounterIncrementedToEven(newCount: self.count)
+
+_39
+
+}
+
+_39
+
+}
+
+_39
+
+_39
+
+// Public function to decrement the counter
+
+_39
+
+access(all) fun decrement() {
+
+_39
+
+self.count = self.count - 1
+
+_39
+
+emit CounterDecremented(newCount: self.count)
+
+_39
+
+}
+
+_39
+
+_39
+
+// Public function to get the current count
+
+_39
+
+view access(all) fun getCount(): Int {
+
+_39
+
+return self.count
+
+_39
+
+}
+
+_39
+
+}`
+
+### Key Changes Made - Part 1[​](#key-changes-made---part-1 "Direct link to Key Changes Made - Part 1")
+
+This first upgrade adds:
+
+1. **New event**: `CounterIncrementedToEven` to notify when incrementing results in an even number
+2. **Enhanced existing function**: The `increment()` function now also emits the new event when appropriate
+3. **No new fields**: We only use the existing `count` field to avoid validation errors
+
+info
+
+This demonstrates how you can enhance existing functionality by adding new events and modifying existing function behavior. The original `CounterIncremented` event still works as before, ensuring backward compatibility.
+
+---
+
+## Update the Deployed Contract - Part 1[​](#update-the-deployed-contract---part-1 "Direct link to Update the Deployed Contract - Part 1")
+
+Now let's update the deployed contract on testnet using the Flow CLI update command with our first upgrade.
+
+### Update the Contract[​](#update-the-contract "Direct link to Update the Contract")
+
+Use the [Flow CLI update contract command](/build/tools/flow-cli/accounts/account-update-contract) to upgrade your deployed contract:
+
+`_10
+
+flow accounts update-contract ./cadence/contracts/Counter.cdc --signer testnet-account --network testnet`
+
+You should see output similar to:
+
+`_16
+
+Contract 'Counter' updated on account '0x9942a81bc6c3c5b7'
+
+_16
+
+_16
+
+Address 0x9942a81bc6c3c5b7
+
+_16
+
+Balance 99999999999.70000000
+
+_16
+
+Keys 1
+
+_16
+
+_16
+
+Key 0 Public Key [your public key]
+
+_16
+
+Weight 1000
+
+_16
+
+Signature Algorithm ECDSA_P256
+
+_16
+
+Hash Algorithm SHA3_256
+
+_16
+
+Revoked false
+
+_16
+
+Sequence Number 2
+
+_16
+
+Index 0
+
+_16
+
+_16
+
+Contracts Deployed: 1
+
+_16
+
+Contract: 'Counter'`
+
+tip
+
+The contract has been successfully updated! Notice that:
+
+* The contract address remains the same (`0x9942a81bc6c3c5b7`)
+* The existing state (`count`) is preserved
+* New functionality is now available
+
+### Test the First Upgrade[​](#test-the-first-upgrade "Direct link to Test the First Upgrade")
+
+Let's test the new event functionality. Create a simple transaction to test the enhanced `increment()` function:
+
+`_10
+
+flow generate transaction TestEvenEvent`
+
+Replace the contents of `cadence/scripts/CheckCounter.cdc` with:
+
+`_10
+
+import "Counter"
+
+_10
+
+_10
+
+access(all) fun main(): {String: AnyStruct} {
+
+_10
+
+return {
+
+_10
+
+"count": Counter.getCount(),
+
+_10
+
+"isEven": Counter.isEven()
+
+_10
+
+}
+
+_10
+
+}`
+
+Run the script to check the current state:
+
+`_10
+
+flow scripts execute cadence/scripts/CheckCounter.cdc --network testnet`
+
+You should see output showing the counter state:
+
+`_10
+
+Result: {"count": 1, "isEven": false}`
+
+Notice that:
+
+* The original `count` value is preserved (showing the increment from our earlier test)
+* The new `isEven()` function works correctly (1 is odd, so it returns false)
+
+---
+
+## Upgrade the Contract - Part 2: Adding More Functionality[​](#upgrade-the-contract---part-2-adding-more-functionality "Direct link to Upgrade the Contract - Part 2: Adding More Functionality")
+
+Now that we've successfully added the even number event, let's add more functionality to our contract. This demonstrates how you can make multiple incremental upgrades to extend your contract's capabilities.
+
+### Modify the Counter Contract - Second Upgrade[​](#modify-the-counter-contract---second-upgrade "Direct link to Modify the Counter Contract - Second Upgrade")
+
+Update `cadence/contracts/Counter.cdc` to add the additional functionality:
+
+`_62
+
+access(all) contract Counter {
+
+_62
+
+_62
+
+access(all) var count: Int
+
+_62
+
+_62
+
+// Event to be emitted when the counter is incremented
+
+_62
+
+access(all) event CounterIncremented(newCount: Int)
+
+_62
+
+_62
+
+// Event to be emitted when the counter is decremented
+
+_62
+
+access(all) event CounterDecremented(newCount: Int)
+
+_62
+
+_62
+
+// Event to be emitted when the counter is incremented and the result is even
+
+_62
+
+access(all) event CounterIncrementedToEven(newCount: Int)
+
+_62
+
+_62
+
+// NEW: Event to be emitted when the counter is incremented by 2
+
+_62
+
+access(all) event CounterIncrementedByTwo(newCount: Int)
+
+_62
+
+_62
+
+// NEW: Event to be emitted when the counter is decremented by 2
+
+_62
+
+access(all) event CounterDecrementedByTwo(newCount: Int)
+
+_62
+
+_62
+
+init() {
+
+_62
+
+self.count = 0
+
+_62
+
+}
+
+_62
+
+_62
+
+// Public function to increment the counter
+
+_62
+
+access(all) fun increment() {
+
+_62
+
+self.count = self.count + 1
+
+_62
+
+emit CounterIncremented(newCount: self.count)
+
+_62
+
+_62
+
+// Also emit event if the result is even
+
+_62
+
+if self.count % 2 == 0 {
+
+_62
+
+emit CounterIncrementedToEven(newCount: self.count)
+
+_62
+
+}
+
+_62
+
+}
+
+_62
+
+_62
+
+// Public function to decrement the counter
+
+_62
+
+access(all) fun decrement() {
+
+_62
+
+self.count = self.count - 1
+
+_62
+
+emit CounterDecremented(newCount: self.count)
+
+_62
+
+}
+
+_62
+
+_62
+
+// Public function to get the current count
+
+_62
+
+view access(all) fun getCount(): Int {
+
+_62
+
+return self.count
+
+_62
+
+}
+
+_62
+
+_62
+
+// NEW: Public function to increment the counter by 2
+
+_62
+
+access(all) fun incrementByTwo() {
+
+_62
+
+self.count = self.count + 2
+
+_62
+
+emit CounterIncrementedByTwo(newCount: self.count)
+
+_62
+
+}
+
+_62
+
+_62
+
+// NEW: Public function to decrement the counter by 2
+
+_62
+
+access(all) fun decrementByTwo() {
+
+_62
+
+self.count = self.count - 2
+
+_62
+
+emit CounterDecrementedByTwo(newCount: self.count)
+
+_62
+
+}
+
+_62
+
+_62
+
+// NEW: Public function to check if the current count is even
+
+_62
+
+view access(all) fun isEven(): Bool {
+
+_62
+
+return self.count % 2 == 0
+
+_62
+
+}
+
+_62
+
+}`
+
+### Key Changes Made - Part 2[​](#key-changes-made---part-2 "Direct link to Key Changes Made - Part 2")
+
+This second upgrade adds:
+
+1. **New functions**: `incrementByTwo()` and `decrementByTwo()` that modify the existing counter by 2
+2. **New events**: `CounterIncrementedByTwo` and `CounterDecrementedByTwo` for the new functionality
+3. **New view function**: `isEven()` to check if the current count is even
+4. **Preserved existing functionality**: All previous functionality remains intact
+
+---
+
+## Update the Deployed Contract - Part 2[​](#update-the-deployed-contract---part-2 "Direct link to Update the Deployed Contract - Part 2")
+
+Now let's update the deployed contract with our second upgrade.
+
+### Update the Contract Again[​](#update-the-contract-again "Direct link to Update the Contract Again")
+
+Use the [Flow CLI update contract command](/build/tools/flow-cli/accounts/account-update-contract) to upgrade your deployed contract with the additional functionality:
+
+`_10
+
+flow accounts update-contract ./cadence/contracts/Counter.cdc --signer testnet-account --network testnet`
+
+You should see output similar to:
+
+`_16
+
+Contract 'Counter' updated on account '0x9942a81bc6c3c5b7'
+
+_16
+
+_16
+
+Address 0x9942a81bc6c3c5b7
+
+_16
+
+Balance 99999999999.70000000
+
+_16
+
+Keys 1
+
+_16
+
+_16
+
+Key 0 Public Key [your public key]
+
+_16
+
+Weight 1000
+
+_16
+
+Signature Algorithm ECDSA_P256
+
+_16
+
+Hash Algorithm SHA3_256
+
+_16
+
+Revoked false
+
+_16
+
+Sequence Number 3
+
+_16
+
+Index 0
+
+_16
+
+_16
+
+Contracts Deployed: 1
+
+_16
+
+Contract: 'Counter'`
+
+tip
+
+The contract has been successfully updated again! Notice that:
+
+* The contract address remains the same (`0x9942a81bc6c3c5b7`)
+* The existing state (`count`) is preserved
+* All previous functionality is still available
+* New functionality is now available
+
+### Verify the Update[​](#verify-the-update "Direct link to Verify the Update")
+
+Let's verify that the existing functionality still works and the new functionality is available.
+
+Create a script to check the current state:
+
+`_10
+
+flow generate script CheckCounter`
+
+Replace the contents of `cadence/scripts/CheckCounter.cdc` with:
+
+`_10
+
+import "Counter"
+
+_10
+
+_10
+
+access(all) fun main(): {String: AnyStruct} {
+
+_10
+
+return {
+
+_10
+
+"count": Counter.getCount(),
+
+_10
+
+"isEven": Counter.isEven()
+
+_10
+
+}
+
+_10
+
+}`
+
+Run the script to check the current state:
+
+`_10
+
+flow scripts execute cadence/scripts/CheckCounter.cdc --network testnet`
+
+You should see output showing the counter state:
+
+`_10
+
+Result: {"count": 2, "isEven": true}`
+
+Notice that:
+
+* The original `count` value is preserved (showing the increments from our earlier tests)
+* The new `isEven()` function works correctly (2 is even, so it returns true)
+
+---
+
+## Test the New Functionality[​](#test-the-new-functionality "Direct link to Test the New Functionality")
+
+Now let's create a transaction to test the new even counter functionality.
+
+### Create Test Transaction[​](#create-test-transaction "Direct link to Create Test Transaction")
+
+Create a new transaction to test the upgraded functionality:
+
+`_10
+
+flow generate transaction TestNewCounter`
+
+Replace the contents of `cadence/transactions/TestNewCounter.cdc` with:
+
+`_35
+
+import "Counter"
+
+_35
+
+_35
+
+transaction {
+
+_35
+
+prepare(acct: &Account) {
+
+_35
+
+// Authorizes the transaction
+
+_35
+
+}
+
+_35
+
+_35
+
+execute {
+
+_35
+
+// Test the new functionality
+
+_35
+
+log("Current count: ".concat(Counter.getCount().toString()))
+
+_35
+
+log("Is even: ".concat(Counter.isEven().toString()))
+
+_35
+
+_35
+
+// Test the new incrementByTwo function
+
+_35
+
+Counter.incrementByTwo()
+
+_35
+
+log("After incrementByTwo: ".concat(Counter.getCount().toString()))
+
+_35
+
+log("Is even now: ".concat(Counter.isEven().toString()))
+
+_35
+
+_35
+
+Counter.incrementByTwo()
+
+_35
+
+log("After second incrementByTwo: ".concat(Counter.getCount().toString()))
+
+_35
+
+_35
+
+// Test the new decrementByTwo function
+
+_35
+
+Counter.decrementByTwo()
+
+_35
+
+log("After decrementByTwo: ".concat(Counter.getCount().toString()))
+
+_35
+
+_35
+
+// Verify original functionality still works and test the new event
+
+_35
+
+Counter.increment()
+
+_35
+
+log("After regular increment: ".concat(Counter.getCount().toString()))
+
+_35
+
+log("Is even now: ".concat(Counter.isEven().toString()))
+
+_35
+
+_35
+
+// Increment again to trigger the CounterIncrementedToEven event
+
+_35
+
+Counter.increment()
+
+_35
+
+log("After second increment: ".concat(Counter.getCount().toString()))
+
+_35
+
+log("Is even now: ".concat(Counter.isEven().toString()))
+
+_35
+
+}
+
+_35
+
+}`
+
+### Run the Test Transaction[​](#run-the-test-transaction "Direct link to Run the Test Transaction")
+
+Execute the transaction to test the new functionality:
+
+`_10
+
+flow transactions send cadence/transactions/TestNewCounter.cdc --signer testnet-account --network testnet`
+
+You should see logs showing:
+
+* The counter incrementing by 2 each time with `incrementByTwo()`
+* The counter decrementing by 2 with `decrementByTwo()`
+* The `isEven()` function working correctly
+* The original `increment()` function still working normally
+* The new `CounterIncrementedToEven` event being emitted when incrementing results in an even number
+
+### Verify Final State[​](#verify-final-state "Direct link to Verify Final State")
+
+Run the check script again to see the final state:
+
+`_10
+
+flow scripts execute cadence/scripts/CheckCounter.cdc --network testnet`
+
+You should see output similar to:
+
+`_10
+
+Result: {"count": 6, "isEven": true}`
+
+This confirms that:
+
+* The new functions work correctly with the existing counter
+* The original state was preserved during the upgrade
+* The new functionality is fully operational
+
+---
+
+## Understanding Contract Upgrades in Cadence[​](#understanding-contract-upgrades-in-cadence "Direct link to Understanding Contract Upgrades in Cadence")
+
+Cadence provides a sophisticated contract upgrade system that ensures data consistency while allowing controlled modifications. The [Cadence Contract Updatability documentation](https://cadence-lang.org/docs/language/contract-updatability) provides comprehensive details about the validation rules and restrictions.
+
+### What You Can Upgrade[​](#what-you-can-upgrade-1 "Direct link to What You Can Upgrade")
+
+When upgrading Cadence contracts, you can:
+
+* **Add new state variables** (like `countEven`)
+* **Add new functions** (like `incrementEven()` and `decrementEven()`)
+* **Add new events** (like `EvenCounterIncremented`)
+* **Add new interfaces** and resource types
+* **Modify function implementations** (with careful consideration)
+* **Remove existing functions** (they are not stored as data)
+* **Change function signatures** (parameters, return types)
+* **Change access modifiers** of fields and functions
+* **Reorder existing fields** (order doesn't affect storage)
+
+### What You Cannot Change[​](#what-you-cannot-change "Direct link to What You Cannot Change")
+
+There are important limitations to contract upgrades:
+
+* **Cannot add new fields** to existing structs, resources, or contracts
+  + This would cause runtime crashes when loading existing data
+  + The initializer only runs once during deployment, not on updates
+* **Cannot change the type** of existing state variables
+  + Would cause deserialization errors with stored data
+* **Cannot remove existing state variables** (though they become inaccessible)
+* **Cannot change enum structures** (raw values must remain consistent)
+* **Cannot change the contract name** or address
+
+### Validation Goals[​](#validation-goals "Direct link to Validation Goals")
+
+The contract update validation ensures that:
+
+* **Stored data doesn't change its meaning** when a contract is updated
+* **Decoding and using stored data** does not lead to runtime crashes
+* **Type safety is maintained** across all stored values
+
+warning
+
+The validation system focuses on preventing runtime inconsistencies with stored data. It does not ensure that programs importing the updated contract remain valid - you may need to update dependent code if you change function signatures or remove functions.
+
+### Advanced Upgrade Patterns[​](#advanced-upgrade-patterns "Direct link to Advanced Upgrade Patterns")
+
+#### The `#removedType` Pragma[​](#the-removedtype-pragma "Direct link to the-removedtype-pragma")
+
+For cases where you need to remove a type declaration (which is normally invalid), Cadence provides the `#removedType` pragma. This allows you to "tombstone" a type, preventing it from being re-added with the same name:
+
+`_10
+
+access(all) contract Foo {
+
+_10
+
+// Remove the resource R permanently
+
+_10
+
+#removedType(R)
+
+_10
+
+_10
+
+// Other contract code...
+
+_10
+
+}`
+
+This pragma:
+
+* **Prevents security issues** from type confusion
+* **Cannot be removed** once added (prevents circumventing restrictions)
+* **Only works with composite types**, not interfaces
+
+#### Enum Upgrade Restrictions[​](#enum-upgrade-restrictions "Direct link to Enum Upgrade Restrictions")
+
+Enums have special restrictions due to their raw value representation:
+
+* **Can only add enum cases at the end** of existing cases
+* **Cannot reorder, rename, or remove** existing enum cases
+* **Cannot change the raw type** of an enum
+* **Cannot change enum case names** (would change stored values' meaning)
+
+### Best Practices[​](#best-practices "Direct link to Best Practices")
+
+When upgrading contracts:
+
+1. **Plan upgrades carefully** - Consider future extensibility and avoid breaking changes
+2. **Test thoroughly** - Verify both old and new functionality work correctly
+3. **Use events** - Emit events for new functionality to enable monitoring and indexing
+4. **Document changes** - Keep track of what was added, removed, or modified in each upgrade
+5. **Consider dependent code** - Update any programs that import your contract if you change function signatures
+6. **Use the `#removedType` pragma** - When you need to permanently remove types
+7. **Validate enum changes** - Ensure enum modifications follow the strict rules
+8. **Test with existing data** - Verify upgrades work with real stored state, not just empty contracts
+
+---
+
+## Why This Matters[​](#why-this-matters "Direct link to Why This Matters")
+
+Cadence's contract upgrade model provides several advantages:
+
+* **No proxy patterns needed** - Unlike Ethereum, you don't need complex proxy contracts
+* **State preservation** - Existing data and functionality remain intact
+* **Address stability** - Contract addresses don't change during upgrades
+* **Gas efficiency** - Upgrades are more efficient than redeployment
+* **User experience** - Applications continue working without interruption
+
+This approach allows you to evolve your contracts over time, adding new features and capabilities while maintaining backward compatibility and preserving user data.
+
+## Conclusion[​](#conclusion "Direct link to Conclusion")
+
+In this tutorial, you learned how to upgrade deployed Cadence contracts through multiple incremental upgrades by:
+
+* **Deploying an initial contract** to Flow testnet
+* **Performing a first upgrade** to add an event for even numbers based on user feedback
+* **Testing the first upgrade** to verify the new event functionality works correctly
+* **Performing a second upgrade** to add additional functions and events
+* **Testing the complete upgraded functionality** with comprehensive transactions
+* **Verifying state preservation** and backward compatibility across multiple upgrades
+
+Now that you have completed the tutorial, you should be able to:
+
+* Deploy contracts to Flow testnet using Flow CLI
+* Perform incremental contract upgrades by adding new functions and events
+* Update deployed contracts multiple times while preserving existing state
+* Test upgraded functionality with Cadence transactions and scripts
+* Understand what can and cannot be changed during contract upgrades
+* Apply realistic upgrade scenarios based on user feedback and requirements
+* Plan and execute multiple contract upgrades over time
+
+This incremental upgrade model makes Cadence contracts more flexible and maintainable than traditional smart contract platforms, allowing you to evolve your applications over time based on real user needs without complex migration patterns or breaking changes. The ability to make multiple upgrades while preserving state and maintaining the same contract address provides a powerful foundation for long-term application development.
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/cadence-advantages/upgrading-cadence-contracts.md)
+
+Last updated on **Oct 10, 2025** by **Brian Doyle**
+
+[Previous
+
+Native Data Availability With Cadence Scripts](/blockchain-development-tutorials/cadence/cadence-advantages/native-data-availibility-with-cadence-scripts)[Next
+
+Account Linking](/blockchain-development-tutorials/cadence/account-management)
+
+###### Rate this page
+
+😞😐😊
+
+Copy as Markdown
+
+* [Objectives](#objectives)* [Prerequisites](#prerequisites)* [Contract Upgrade Overview](#contract-upgrade-overview)
+      + [What You CAN Upgrade](#what-you-can-upgrade)+ [What You CANNOT Upgrade](#what-you-cannot-upgrade)+ [Why These Restrictions Exist](#why-these-restrictions-exist)* [Getting Started](#getting-started)
+        + [Create and Fund Testnet Account](#create-and-fund-testnet-account)* [Deploy the Initial Counter Contract](#deploy-the-initial-counter-contract)
+          + [Configure Deployment](#configure-deployment)+ [Deploy to Testnet](#deploy-to-testnet)+ [Test the Initial Contract](#test-the-initial-contract)* [Upgrade the Contract - Part 1: Adding Event for Even Numbers](#upgrade-the-contract---part-1-adding-event-for-even-numbers)
+            + [Modify the Counter Contract - First Upgrade](#modify-the-counter-contract---first-upgrade)+ [Key Changes Made - Part 1](#key-changes-made---part-1)* [Update the Deployed Contract - Part 1](#update-the-deployed-contract---part-1)
+              + [Update the Contract](#update-the-contract)+ [Test the First Upgrade](#test-the-first-upgrade)* [Upgrade the Contract - Part 2: Adding More Functionality](#upgrade-the-contract---part-2-adding-more-functionality)
+                + [Modify the Counter Contract - Second Upgrade](#modify-the-counter-contract---second-upgrade)+ [Key Changes Made - Part 2](#key-changes-made---part-2)* [Update the Deployed Contract - Part 2](#update-the-deployed-contract---part-2)
+                  + [Update the Contract Again](#update-the-contract-again)+ [Verify the Update](#verify-the-update)* [Test the New Functionality](#test-the-new-functionality)
+                    + [Create Test Transaction](#create-test-transaction)+ [Run the Test Transaction](#run-the-test-transaction)+ [Verify Final State](#verify-final-state)* [Understanding Contract Upgrades in Cadence](#understanding-contract-upgrades-in-cadence)
+                      + [What You Can Upgrade](#what-you-can-upgrade-1)+ [What You Cannot Change](#what-you-cannot-change)+ [Validation Goals](#validation-goals)+ [Advanced Upgrade Patterns](#advanced-upgrade-patterns)+ [Best Practices](#best-practices)* [Why This Matters](#why-this-matters)* [Conclusion](#conclusion)
+
+Flow
+
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
+
+Cadence
+
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
+
+Solidity (EVM)
+
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
+
+Community & Support
+
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
+
+Network & Resources
+
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow Foundation. All Rights Reserved.
