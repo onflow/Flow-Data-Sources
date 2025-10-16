@@ -141,4 +141,4 @@ If you encounter any issues or have further questions, please reach out to our s
 
 [PreviousOpen Source](/open-source/open-source)[NextMove Assets between Flow and EVM](/tutorial/move-assets-between-flow-and-evm)
 
-Last updated 12 months ago
+Last updated 1 year ago

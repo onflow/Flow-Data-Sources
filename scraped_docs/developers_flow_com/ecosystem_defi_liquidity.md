@@ -16,7 +16,7 @@ Search
 
     * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
 
-                + [Build with Forte ↙](/ecosystem/defi-liquidity/forte)+ [DeFi Contracts](/ecosystem/defi-liquidity/defi-contracts)+ [Cross-chain swaps on Flow EVM](/ecosystem/defi-liquidity/cross-chain-swaps)+ [Add Token To MetaMask](/ecosystem/defi-liquidity/add-token-to-metamask)+ [Stablecoins & Bridges FAQ](/ecosystem/defi-liquidity/faq)* [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
+                + [Build with Forte ↙](/ecosystem/defi-liquidity/forte)+ [DeFi Contracts](/ecosystem/defi-liquidity/defi-contracts)+ [Cross-chain swaps on Flow EVM](/ecosystem/defi-liquidity/cross-chain-swaps)+ [Add Token To MetaMask](/ecosystem/defi-liquidity/add-token-to-metamask)+ [Stablecoins & Bridges FAQ](/ecosystem/defi-liquidity/faq)+ [Band Oracle](/ecosystem/defi-liquidity/band-oracle)* [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
 
 * * DeFi & Liquidity
 

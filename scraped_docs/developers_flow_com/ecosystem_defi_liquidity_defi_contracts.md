@@ -16,7 +16,7 @@ Search
 
     * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
 
-                + [Build with Forte ↙](/ecosystem/defi-liquidity/forte)+ [DeFi Contracts](/ecosystem/defi-liquidity/defi-contracts)+ [Cross-chain swaps on Flow EVM](/ecosystem/defi-liquidity/cross-chain-swaps)+ [Add Token To MetaMask](/ecosystem/defi-liquidity/add-token-to-metamask)+ [Stablecoins & Bridges FAQ](/ecosystem/defi-liquidity/faq)* [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
+                + [Build with Forte ↙](/ecosystem/defi-liquidity/forte)+ [DeFi Contracts](/ecosystem/defi-liquidity/defi-contracts)+ [Cross-chain swaps on Flow EVM](/ecosystem/defi-liquidity/cross-chain-swaps)+ [Add Token To MetaMask](/ecosystem/defi-liquidity/add-token-to-metamask)+ [Stablecoins & Bridges FAQ](/ecosystem/defi-liquidity/faq)+ [Band Oracle](/ecosystem/defi-liquidity/band-oracle)* [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
 
 * * [DeFi & Liquidity](/ecosystem/defi-liquidity)* DeFi Contracts
 
@@ -46,15 +46,15 @@ Below is a list of commonly used DeFi contracts on Flow:
 
 #### Flow EVM Mainnet[​](#flow-evm-mainnet-1 "Direct link to Flow EVM Mainnet")
 
-|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Contract Name Flow EVM Mainnet Address|  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [StableKittyFactoryNG.sol (KittyPunch)](https://evm.flowscan.io/address/0x4412140D52C1F5834469a061927811Abb6026dB7?tab=contract) `0x4412140D52C1F5834469a061927811Abb6026dB7`| [TwoKittyFactory.sol (KittyPunch)](https://evm.flowscan.io/address/0xf0E48dC92f66E246244dd9F33b02f57b0E69fBa9?tab=contract) `0xf0E48dC92f66E246244dd9F33b02f57b0E69fBa9`| [TriKittyFactory.sol (KittyPunch)](https://evm.flowscan.io/address/0xebd098c60b1089f362AC9cfAd9134CBD29408226?tab=contract) `0xebd098c60b1089f362AC9cfAd9134CBD29408226`| [KittyRouterNgPoolsOnly.sol (KittyPunch)](https://evm.flowscan.io/address/0x87048a97526c4B66b71004927D24F61DEFcD6375?tab=contract) `0x87048a97526c4B66b71004927D24F61DEFcD6375`| [PunchSwapV2Router02.sol (KittyPunch)](https://evm.flowscan.io/address/0xf45AFe28fd5519d5f8C1d4787a4D5f724C0eFa4d?tab=contract) `0xf45AFe28fd5519d5f8C1d4787a4D5f724C0eFa4d`| [PunchSwapV2Factory.sol (KittyPunch)](https://evm.flowscan.io/address/0x29372c22459a4e373851798bFd6808e71EA34A71?tab=contract) `0x29372c22459a4e373851798bFd6808e71EA34A71`| [TrenchesTokensBuyer.sol (KittyPunch)](https://evm.flowscan.io/address/0x6D0e081Acc28eA9ee6b7fD293eC03F97147b026d?tab=contract) `0x6D0e081Acc28eA9ee6b7fD293eC03F97147b026d` | | | | | | | | | | | | | | | |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Contract Name Flow EVM Mainnet Address Docs|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [StableKittyFactoryNG.sol (KittyPunch)](https://evm.flowscan.io/address/0x4412140D52C1F5834469a061927811Abb6026dB7?tab=contract) `0x4412140D52C1F5834469a061927811Abb6026dB7` [Docs](https://kittypunch.gitbook.io/kittypunch-docs)| [TwoKittyFactory.sol (KittyPunch)](https://evm.flowscan.io/address/0xf0E48dC92f66E246244dd9F33b02f57b0E69fBa9?tab=contract) `0xf0E48dC92f66E246244dd9F33b02f57b0E69fBa9` [Docs](https://kittypunch.gitbook.io/kittypunch-docs)| [TriKittyFactory.sol (KittyPunch)](https://evm.flowscan.io/address/0xebd098c60b1089f362AC9cfAd9134CBD29408226?tab=contract) `0xebd098c60b1089f362AC9cfAd9134CBD29408226` [Docs](https://kittypunch.gitbook.io/kittypunch-docs)| [KittyRouterNgPoolsOnly.sol (KittyPunch)](https://evm.flowscan.io/address/0x87048a97526c4B66b71004927D24F61DEFcD6375?tab=contract) `0x87048a97526c4B66b71004927D24F61DEFcD6375` [Docs](https://kittypunch.gitbook.io/kittypunch-docs)| [PunchSwapV2Router02.sol (KittyPunch)](https://evm.flowscan.io/address/0xf45AFe28fd5519d5f8C1d4787a4D5f724C0eFa4d?tab=contract) `0xf45AFe28fd5519d5f8C1d4787a4D5f724C0eFa4d` [Docs](https://kittypunch.gitbook.io/kittypunch-docs)| [PunchSwapV2Factory.sol (KittyPunch)](https://evm.flowscan.io/address/0x29372c22459a4e373851798bFd6808e71EA34A71?tab=contract) `0x29372c22459a4e373851798bFd6808e71EA34A71` [Docs](https://kittypunch.gitbook.io/kittypunch-docs)| [TrenchesTokensBuyer.sol (KittyPunch)](https://evm.flowscan.io/address/0x6D0e081Acc28eA9ee6b7fD293eC03F97147b026d?tab=contract) `0x6D0e081Acc28eA9ee6b7fD293eC03F97147b026d` [Docs](https://kittypunch.gitbook.io/kittypunch-docs) | | | | | | | | | | | | | | | | | | | | | | | |
 
 #### Flow Cadence Mainnet[​](#flow-cadence-mainnet-1 "Direct link to Flow Cadence Mainnet")
 
-|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Contract Name Flow Cadence Mainnet Address [CLI](https://developers.flow.com/build/tools/flow-cli/dependency-manager)|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [SwapFactory.cdc (IncrementFi)](https://flowscan.io/contract/A.b063c16cac85dbd1.SwapFactory) `0xb063c16cac85dbd1` | [SwapPair (IncrementFi)](https://flowscan.io/contract/A.ecbda466e7f191c7.SwapPair) `0xecbda466e7f191c7` | [SwapError (IncrementFi)](https://flowscan.io/contract/A.b78ef7afa52ff906.SwapError) `0xb78ef7afa52ff906` | [SwapInterfaces (IncrementFi)](https://flowscan.io/contract/A.b78ef7afa52ff906.SwapInterfaces) `0xb78ef7afa52ff906` | [SwapConfig (IncrementFi)](https://flowscan.io/contract/A.b78ef7afa52ff906.SwapConfig) `0xb78ef7afa52ff906` | [SwapRouter (IncrementFi)](https://flowscan.io/contract/A.a6850776a94e6551.SwapRouter) `0xa6850776a94e6551`  | | | | | | | | | | | | | | | | | | | | |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Contract Name Flow Cadence Mainnet Address [CLI](https://developers.flow.com/build/tools/flow-cli/dependency-manager) Docs|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [SwapFactory.cdc (IncrementFi)](https://flowscan.io/contract/A.b063c16cac85dbd1.SwapFactory) `0xb063c16cac85dbd1` [Docs](https://docs.increment.fi/)| [SwapPair (IncrementFi)](https://flowscan.io/contract/A.ecbda466e7f191c7.SwapPair) `0xecbda466e7f191c7` [Docs](https://docs.increment.fi/)| [SwapError (IncrementFi)](https://flowscan.io/contract/A.b78ef7afa52ff906.SwapError) `0xb78ef7afa52ff906` [Docs](https://docs.increment.fi/)| [SwapInterfaces (IncrementFi)](https://flowscan.io/contract/A.b78ef7afa52ff906.SwapInterfaces) `0xb78ef7afa52ff906` [Docs](https://docs.increment.fi/)| [SwapConfig (IncrementFi)](https://flowscan.io/contract/A.b78ef7afa52ff906.SwapConfig) `0xb78ef7afa52ff906` [Docs](https://docs.increment.fi/)| [SwapRouter (IncrementFi)](https://flowscan.io/contract/A.a6850776a94e6551.SwapRouter) `0xa6850776a94e6551` [Docs](https://docs.increment.fi/) | | | | | | | | | | | | | | | | | | | | | | | | | | | |
 
 ## Bridges & Cross-Chain Messaging[​](#bridges--cross-chain-messaging "Direct link to Bridges & Cross-Chain Messaging")
 
@@ -86,27 +86,27 @@ Below is a list of commonly used DeFi contracts on Flow:
 
 #### Flow Cadence Testnet[​](#flow-cadence-testnet "Direct link to Flow Cadence Testnet")
 
-|  |  |  |  |  |  |  |  |  |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Contract Name Flow Cadence Testnet Address [CLI](https://developers.flow.com/build/tools/flow-cli/dependency-manager)|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | [PublicPriceOracle.cdc (IncrementFi)](https://testnet.flowscan.io/contract/A.8232ce4a3aff4e94.PublicPriceOracle) `0x8232ce4a3aff4e94` | [BandOracle.cdc (Band)](https://testnet.flowscan.io/contract/A.9fb6606c300b5051.BandOracle) `0x9fb6606c300b5051`  | | | | | | | | |
+|  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Contract Name Flow Cadence Testnet Address [CLI](https://developers.flow.com/build/tools/flow-cli/dependency-manager) Docs|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | [PublicPriceOracle.cdc (IncrementFi)](https://testnet.flowscan.io/contract/A.8232ce4a3aff4e94.PublicPriceOracle) `0x8232ce4a3aff4e94` [Docs](https://docs.increment.fi/)| [BandOracle.cdc (Band)](https://testnet.flowscan.io/contract/A.9fb6606c300b5051.BandOracle) `0x9fb6606c300b5051` [Docs](/ecosystem/defi-liquidity/band-oracle) | | | | | | | | | | | |
 
 #### Flow Cadence Mainnet[​](#flow-cadence-mainnet-2 "Direct link to Flow Cadence Mainnet")
 
-|  |  |  |  |  |  |  |  |  |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Contract Name Flow Cadence Mainnet Address [CLI](https://developers.flow.com/build/tools/flow-cli/dependency-manager)|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | [PublicPriceOracle.cdc (IncrementFi)](https://flowscan.io/contract/A.ec67451f8a58216a.PublicPriceOracle) `0xec67451f8a58216a` | [BandOracle.cdc (Band) Protocol](https://flowscan.io/contract/A.6801a6222ebf784a.BandOracle) `0x6801a6222ebf784a`  | | | | | | | | |
+|  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Contract Name Flow Cadence Mainnet Address [CLI](https://developers.flow.com/build/tools/flow-cli/dependency-manager) Docs|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | [PublicPriceOracle.cdc (IncrementFi)](https://flowscan.io/contract/A.ec67451f8a58216a.PublicPriceOracle) `0xec67451f8a58216a` [Docs](https://docs.increment.fi/)| [BandOracle.cdc (Band) Protocol](https://flowscan.io/contract/A.6801a6222ebf784a.BandOracle) `0x6801a6222ebf784a` [Docs](/ecosystem/defi-liquidity/band-oracle) | | | | | | | | | | | |
 
 ## Ethereum Attestation Service[​](#ethereum-attestation-service "Direct link to Ethereum Attestation Service")
 
 More information can be found on the Credora docs site for [EAS on Flow](https://credora.gitbook.io/eas-for-flow).
 
-Testnet EAS Explorer: [<https://flow-testnet.easscan.credora.io>] (<https://flow-testnet.easscan.credora.io>)
+Testnet EAS Explorer: <https://flow-testnet.easscan.credora.io>
 
 |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- |
 | Contract Name Flow EVM Testnet Address|  |  |  |  | | --- | --- | --- | --- | | [SchemaRegistry.sol (Ethereum Attestation Service)](https://evm-testnet.flowscan.io/address/0x97900F59828Da4187607Cb8F84f49e3944199d18?tab=contract) `0x97900F59828Da4187607Cb8F84f49e3944199d18`| [EAS.sol (Ethereum Attestation Service)](https://evm-testnet.flowscan.io/address/0xBCF2dA8f82fb032A2474c92Ec5b70C95A83fc0cc?tab=contract) `0xBCF2dA8f82fb032A2474c92Ec5b70C95A83fc0cc` | | | | | |
 
-Mainnet EAS Explorer: [<https://flow.easscan.credora.io>] (<https://flow.easscan.credora.io>)
+Mainnet EAS Explorer: <https://flow.easscan.credora.io>
 
 |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- |
@@ -114,7 +114,7 @@ Mainnet EAS Explorer: [<https://flow.easscan.credora.io>] (<https://flow.easscan
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/defi-contracts.md)
 
-Last updated on **Oct 7, 2025** by **Brian Doyle**
+Last updated on **Oct 10, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -130,24 +130,24 @@ Copy as Markdown
 
 * [Stablecoins & Wrapped Assets](#stablecoins--wrapped-assets)* [AMMs & DEXs](#amms--dexs)* [Bridges & Cross-Chain Messaging](#bridges--cross-chain-messaging)* [Omni Fungible Tokens (USD Flow - USDF)](#omni-fungible-tokens-usd-flow---usdf)* [Oracles](#oracles)* [Ethereum Attestation Service](#ethereum-attestation-service)
 
-Documentation
+Flow
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
 
-Community
+Cadence
 
-* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
 
-Start Building
+Solidity (EVM)
 
-* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
 
-Network
+Community & Support
 
-* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
 
-More
+Network & Resources
 
-* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
+Copyright © 2025 Flow Foundation. All Rights Reserved.

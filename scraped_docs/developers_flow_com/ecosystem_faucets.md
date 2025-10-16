@@ -36,7 +36,7 @@ Last updated on **Sep 25, 2025** by **Brian Doyle**
 
 [Previous
 
-Stablecoins & Bridges FAQ](/ecosystem/defi-liquidity/faq)[Next
+Band Oracle](/ecosystem/defi-liquidity/band-oracle)[Next
 
 Bridges](/ecosystem/bridges)
 

@@ -48,7 +48,7 @@ Store, manage, and interact securely with tokens and digital assets on Flow. Dis
 
 [## 💧 DeFi & Liquidity
 
-5 items](/ecosystem/defi-liquidity)
+6 items](/ecosystem/defi-liquidity)
 
 [## 💧 Faucets
 
