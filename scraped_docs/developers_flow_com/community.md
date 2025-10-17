@@ -12,22 +12,13 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 
 Search
 
-* [Ecosystem Index](/ecosystem)
-* [Developer Support Hub](/ecosystem/developer-support-hub)
-* [Hackathons and Events](/ecosystem/Hackathons and Events)
-* [Flow Block Explorers](/ecosystem/block-explorers)
-* [Data Indexers](/ecosystem/data-indexers)
-* [Developer Profile](/ecosystem/developer-profile)
-* [Wallets](/ecosystem/wallets)
-* [DeFi & Liquidity](/ecosystem/defi-liquidity)
-* [Faucets](/ecosystem/faucets)
-* [Bridges](/ecosystem/bridges)
-* [Collectibles & NFTs](/ecosystem/collectibles)
-* [Community Projects](/ecosystem/projects)
-* [Auditors](/ecosystem/auditors)
-* [Get the Flow Down - Flow Learning Resources](/ecosystem/overview)
+* [Ecosystem Index](/ecosystem)* [Developer Support Hub](/ecosystem/developer-support-hub)
 
-* Ecosystem Index
+    * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
+
+                * [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
+
+* * Ecosystem Index
 
 # Ecosystem Index
 
@@ -35,13 +26,13 @@ Search
 
 3 items](/ecosystem/developer-support-hub)
 
-[## 🗃️ Hackathons and Events
-
-1 items](/ecosystem/Hackathons and Events)
-
 [## 🔍 Flow Block Explorers
 
 User-friendly online tools that provide visual representations of blockchain data, facilitating easy navigation through transactions, blocks, addresses, and smart contracts while ensuring real-time insights and transparency.](/ecosystem/block-explorers)
+
+[## Hackathons and Events
+
+Participate in Flow hackathons to build, learn, and win prizes](/ecosystem/hackathons-and-events)
 
 [## Data Indexers
 
@@ -57,7 +48,7 @@ Store, manage, and interact securely with tokens and digital assets on Flow. Dis
 
 [## 💧 DeFi & Liquidity
 
-5 items](/ecosystem/defi-liquidity)
+6 items](/ecosystem/defi-liquidity)
 
 [## 💧 Faucets
 
@@ -79,10 +70,6 @@ Explore the diverse projects and contributions within the Flow Blockchain commun
 
 Third-party auditors for Cadence contract auditing](/ecosystem/auditors)
 
-[## Get the Flow Down - Flow Learning Resources
-
-Get the Flow Down is a curated collection of the best Flow blockchain tools, tutorials, articles and more! If you have come across an awesome tutorial, tool, community, blog or you have created one yourself, please create a PR!](/ecosystem/overview)
-
 [## 🏛️ Flow Forum
 
 Engage with the Flow community, discuss ideas, and seek support on the Flow Blockchain Forum.](https://forum.flow.com/)
@@ -99,52 +86,24 @@ Last updated on **Sep 25, 2025** by **Brian Doyle**
 
 Developer Support Hub](/ecosystem/developer-support-hub)
 
-Documentation
+Flow
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
 
-Community
+Cadence
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
 
-Start Building
+Solidity (EVM)
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
 
-Network
+Community & Support
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
 
-More
+Network & Resources
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
+Copyright © 2025 Flow Foundation. All Rights Reserved.
