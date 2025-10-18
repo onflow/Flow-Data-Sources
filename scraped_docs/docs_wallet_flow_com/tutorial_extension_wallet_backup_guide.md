@@ -101,4 +101,4 @@ If you encounter any issues or have further questions, please reach out to our s
 
 [PreviousMobile Wallet Restore Guide](/tutorial/mobile-wallet-restore-guide)[NextExtension Wallet Restore Guide](/tutorial/extension-wallet-restore-guide)
 
-Last updated 11 months ago
+Last updated 12 months ago

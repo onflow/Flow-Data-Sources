@@ -267,7 +267,7 @@ Are you interested in launching a project on Flow or partnering with us? Visit o
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/flow.md)
 
-Last updated on **Sep 25, 2025** by **Brian Doyle**
+Last updated on **Oct 17, 2025** by **Brian Doyle**
 
 [Next
 

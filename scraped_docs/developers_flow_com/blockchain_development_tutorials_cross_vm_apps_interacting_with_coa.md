@@ -379,6 +379,84 @@ _17
 
 }`
 
+### Creating a Cadence Account and COA together[​](#creating-a-cadence-account-and-coa-together "Direct link to Creating a Cadence Account and COA together")
+
+It is possible to create a new Cadence account and COA within the same transaction. This transaction will need to be signed and paid for by another account, but any account will do. A common process is to set up a backend service to handle this function.
+
+info
+
+During the singular transaction in which an account is created, the `AuthAccount` object for the newly created account is present. As a result, the creating account can access and modify the new account's storage **only** during this transaction.
+
+First, you'll need to use the CLI to [generate keys](/build/tools/flow-cli/keys/generate-keys) for the new account. Then, simply run the following transaction to create the Cadence Account and COA at once.
+
+warning
+
+This is a very minimal example. You may wish to set up vaults and perform other actions during account creation.
+
+`_18
+
+import Crypto
+
+_18
+
+_18
+
+transaction(publicKeys: [Crypto.KeyListEntry]) {
+
+_18
+
+prepare(signer: auth(BorrowValue) &Account) {
+
+_18
+
+_18
+
+let newAccount = Account(payer: signer)
+
+_18
+
+_18
+
+for key in publicKeys {
+
+_18
+
+newAccount.keys.add(publicKey: key.publicKey, hashAlgorithm: key.hashAlgorithm, weight: key.weight)
+
+_18
+
+}
+
+_18
+
+_18
+
+let coa <- EVM.createCadenceOwnedAccount()
+
+_18
+
+let coaPath = /storage/evm
+
+_18
+
+newAccount.storage.save(<-coa, to: coaPath)
+
+_18
+
+let coaCapability = newAccount.capabilities.storage.issue<&EVM.CadenceOwnedAccount>(coaPath)
+
+_18
+
+newAccount.capabilities.publish(coaCapability, at: /public/evm)
+
+_18
+
+}
+
+_18
+
+}`
+
 ## Getting the EVM Address of a COA[​](#getting-the-evm-address-of-a-coa "Direct link to Getting the EVM Address of a COA")
 
 To get the EVM address of a COA, you can use the `address` function from the `EVM` contract. This function returns the
@@ -1797,7 +1875,7 @@ using Cadence.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cross-vm-apps/interacting-with-coa.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Oct 17, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -1811,7 +1889,8 @@ Cross-VM Bridge](/blockchain-development-tutorials/cross-vm-apps/vm-bridge)
 
 Copy as Markdown
 
-* [COA Interface](#coa-interface)* [Importing the EVM Contract](#importing-the-evm-contract)* [Creating a COA](#creating-a-coa)* [Getting the EVM Address of a COA](#getting-the-evm-address-of-a-coa)* [Getting the Flow Balance of a COA](#getting-the-flow-balance-of-a-coa)* [Depositing and Withdrawing Flow Tokens](#depositing-and-withdrawing-flow-tokens)
+* [COA Interface](#coa-interface)* [Importing the EVM Contract](#importing-the-evm-contract)* [Creating a COA](#creating-a-coa)
+      + [Creating a Cadence Account and COA together](#creating-a-cadence-account-and-coa-together)* [Getting the EVM Address of a COA](#getting-the-evm-address-of-a-coa)* [Getting the Flow Balance of a COA](#getting-the-flow-balance-of-a-coa)* [Depositing and Withdrawing Flow Tokens](#depositing-and-withdrawing-flow-tokens)
             + [Depositing Flow Tokens](#depositing-flow-tokens)+ [Withdrawing Flow Tokens](#withdrawing-flow-tokens)* [Direct Calls to Flow EVM](#direct-calls-to-flow-evm)
               + [Transferring FLOW in EVM](#transferring-flow-in-evm)+ [Transfer ERC20](#transfer-erc20)+ [Transfer ERC721](#transfer-erc721)* [Deploying a Contract to Flow EVM](#deploying-a-contract-to-flow-evm)* [More Information](#more-information)
 

@@ -101,7 +101,7 @@ After completing these tutorials, you'll be equipped with the fundamental skills
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/getting-started/index.md)
 
-Last updated on **Sep 24, 2025** by **Felipe Cevallos**
+Last updated on **Oct 17, 2025** by **Brian Doyle**
 
 [Previous
 
