@@ -89,4 +89,4 @@ If you encounter any issues or have further questions, please reach out to our s
 
 [PreviousExtension Wallet Restore Guide](/tutorial/extension-wallet-restore-guide)[NextFLOW wallet init token guide](/tutorial/flow-wallet-init-token-guide)
 
-Last updated 12 months ago
+Last updated 1 year ago
