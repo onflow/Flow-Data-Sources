@@ -1,6 +1,6 @@
 # Source: https://developers.flow.com/tools/react-sdk
 
-@onflow/react-sdk | Flow Developer Portal
+Flow React SDK | Flow Developer Portal
 
 
 
@@ -24,26 +24,21 @@ Search
 
       + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
 
-        + [@onflow/react-sdk](/build/tools/react-sdk)
+        + [Flow React SDK](/build/tools/react-sdk)
 
-          - [Flow React SDK Hooks](/build/tools/react-sdk/hooks)- [Flow React SDK Components](/build/tools/react-sdk/components)+ [Flow Emulator](/build/tools/emulator)+ [Flow CLI](/build/tools/flow-cli)
+          - [Hooks](/build/tools/react-sdk/hooks)- [Components](/build/tools/react-sdk/components)+ [Flow Emulator](/build/tools/emulator)+ [Flow CLI](/build/tools/flow-cli)
 
               + [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
 
                     + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
-* * [Tools & SDKs](/build/tools)* @onflow/react-sdk
+* * [Tools & SDKs](/build/tools)* Flow React SDK
 
 On this page
 
-# @onflow/react-sdk
+# Flow React SDK
 
 **The easiest way to build React apps on Flow.** A lightweight, TypeScript-first library that makes Flow blockchain interactions feel native to React development.
-
-🚀 **Quick to setup** – One provider, minimal configuration  
-⚡ **Built for performance** – Powered by TanStack Query for optimal caching  
-🎨 **Styled beautifully** – Tailwind-based components that match your design  
-🔗 **Cross-VM ready** – Seamlessly bridge between Cadence and Flow EVM
 
 ## Quick Start[​](#quick-start "Direct link to Quick Start")
 
@@ -57,19 +52,19 @@ npm install @onflow/react-sdk`
 
 `_25
 
-import React from "react"
+import React from 'react';
 
 _25
 
-import App from "./App"
+import App from './App';
 
 _25
 
-import { FlowProvider } from "@onflow/react-sdk"
+import { FlowProvider } from '@onflow/react-sdk';
 
 _25
 
-import flowJSON from "../flow.json"
+import flowJSON from '../flow.json';
 
 _25
 
@@ -91,27 +86,27 @@ config={{
 
 _25
 
-accessNodeUrl: "https://access-mainnet.onflow.org",
+accessNodeUrl: 'https://access-mainnet.onflow.org',
 
 _25
 
-flowNetwork: "mainnet",
+flowNetwork: 'mainnet',
 
 _25
 
-appDetailTitle: "My On Chain App",
+appDetailTitle: 'My On Chain App',
 
 _25
 
-appDetailIcon: "https://example.com/icon.png",
+appDetailIcon: 'https://example.com/icon.png',
 
 _25
 
-appDetailDescription: "A decentralized app on Flow",
+appDetailDescription: 'A decentralized app on Flow',
 
 _25
 
-appDetailUrl: "https://myonchainapp.com",
+appDetailUrl: 'https://myonchainapp.com',
 
 _25
 
@@ -139,7 +134,7 @@ _25
 
 _25
 
-)
+);
 
 _25
 
@@ -149,17 +144,145 @@ _25
 
 _25
 
-export default Root`
+export default Root;`
 
 Next.js Users
 
-Place the `FlowProvider` inside your `layout.tsx`. Since React hooks must run on the client, you may need to wrap the provider in a separate file that begins with `'use client'` to avoid issues with server-side rendering.
+Create a client component wrapper for the `FlowProvider`:
+
+`_22
+
+'use client';
+
+_22
+
+_22
+
+import { FlowProvider } from '@onflow/react-sdk';
+
+_22
+
+import flowJSON from '../flow.json';
+
+_22
+
+_22
+
+export default function FlowProviderWrapper({ children }) {
+
+_22
+
+return (
+
+_22
+
+<FlowProvider
+
+_22
+
+config={{
+
+_22
+
+accessNodeUrl: 'https://access-mainnet.onflow.org',
+
+_22
+
+flowNetwork: 'mainnet',
+
+_22
+
+appDetailTitle: 'My On Chain App',
+
+_22
+
+appDetailIcon: 'https://example.com/icon.png',
+
+_22
+
+appDetailDescription: 'A decentralized app on Flow',
+
+_22
+
+appDetailUrl: 'https://myonchainapp.com',
+
+_22
+
+}}
+
+_22
+
+flowJson={flowJSON}
+
+_22
+
+>
+
+_22
+
+{children}
+
+_22
+
+</FlowProvider>
+
+_22
+
+);
+
+_22
+
+}`
+
+Then use it in your `layout.tsx`:
+
+`_11
+
+import FlowProviderWrapper from '@/components/FlowProviderWrapper';
+
+_11
+
+_11
+
+export default function RootLayout({ children }) {
+
+_11
+
+return (
+
+_11
+
+<html>
+
+_11
+
+<body>
+
+_11
+
+<FlowProviderWrapper>{children}</FlowProviderWrapper>
+
+_11
+
+</body>
+
+_11
+
+</html>
+
+_11
+
+);
+
+_11
+
+}`
 
 ### 3. Start Building[​](#3-start-building "Direct link to 3. Start Building")
 
 `` _18
 
-import { useFlowCurrentUser, Connect, useFlowQuery } from "@onflow/react-sdk"
+import { useFlowCurrentUser, Connect, useFlowQuery } from '@onflow/react-sdk';
 
 _18
 
@@ -169,7 +292,7 @@ function MyApp() {
 
 _18
 
-const { user } = useFlowCurrentUser()
+const { user } = useFlowCurrentUser();
 
 _18
 
@@ -187,7 +310,7 @@ args: (arg, t) => [],
 
 _18
 
-})
+});
 
 _18
 
@@ -217,21 +340,15 @@ _18
 
 _18
 
-)
+);
 
 _18
 
 } ``
 
-### Live Demo[​](#live-demo "Direct link to Live Demo")
-
-
-
 ---
 
-## What's Included[​](#whats-included "Direct link to What's Included")
-
-### 🎣 [Hooks](/build/tools/react-sdk/hooks)[​](#-hooks "Direct link to -hooks")
+## 🎣 [Hooks](/build/tools/react-sdk/hooks)[​](#-hooks "Direct link to -hooks")
 
 **Cadence Hooks** for native Flow interactions:
 
@@ -249,7 +366,9 @@ _18
 
 [→ View all hooks](/build/tools/react-sdk/hooks)
 
-### 🎨 [Components](/build/tools/react-sdk/components)[​](#-components "Direct link to -components")
+---
+
+## 🎨 [Components](/build/tools/react-sdk/components)[​](#-components "Direct link to -components")
 
 Beautiful, accessible UI components:
 
@@ -290,15 +409,15 @@ Beautiful, accessible UI components:
 * 🎨 **[Components Documentation](/build/tools/react-sdk/components)** – UI components and theming guide
 * 🔗 **[Configuration Guide](/build/tools/flow-cli/flow.json/configuration)** – Learn about configuring `flow.json`
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/react-sdk/index.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/react-sdk/index.mdx)
 
-Last updated on **Sep 25, 2025** by **Felipe Cevallos**
+Last updated on **Oct 7, 2025** by **mfbz**
 
 [Previous
 
 Tools](/build/tools)[Next
 
-Flow React SDK Hooks](/build/tools/react-sdk/hooks)
+Hooks](/build/tools/react-sdk/hooks)
 
 ###### Rate this page
 
@@ -307,27 +426,26 @@ Flow React SDK Hooks](/build/tools/react-sdk/hooks)
 Copy as Markdown
 
 * [Quick Start](#quick-start)
-  + [1. Install](#1-install)+ [2. Wrap Your App](#2-wrap-your-app)+ [3. Start Building](#3-start-building)+ [Live Demo](#live-demo)* [What's Included](#whats-included)
-    + [🎣 Hooks](#-hooks)+ [🎨 Components](#-components)* [Why Choose React SDK?](#why-choose-react-sdk)* [Need Help?](#need-help)
+  + [1. Install](#1-install)+ [2. Wrap Your App](#2-wrap-your-app)+ [3. Start Building](#3-start-building)* [🎣 Hooks](#-hooks)* [🎨 Components](#-components)* [Why Choose React SDK?](#why-choose-react-sdk)* [Need Help?](#need-help)
 
-Documentation
+Flow
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
 
-Community
+Cadence
 
-* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
 
-Start Building
+Solidity (EVM)
 
-* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
 
-Network
+Community & Support
 
-* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
 
-More
+Network & Resources
 
-* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
+Copyright © 2025 Flow Foundation. All Rights Reserved.

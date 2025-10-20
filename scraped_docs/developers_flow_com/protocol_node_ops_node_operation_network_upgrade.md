@@ -52,12 +52,14 @@ Network Upgrades are approximately once every year.
 Upcoming network upgrades are announced in advance on the `#flow-validators-announcements` [Discord channel](https://discord.gg/flow) and on the [status](https://status.flow.com/) page.
 The `#flow-validators-announcements` channel is also used to coordinate during the upgrade process with all the node operators.
 
+> 📢 [Forte Upgrade](https://status.flow.com/incidents/x91d6t1x1qh4) on Wednesday, Oct 22nd, 2025 at 15:00 UTC
+
 This guide is for existing operators participating in a network upgrade. See [Node Bootstrap](/protocol/node-ops/node-operation/node-bootstrap)
 for a guide to joining the network for the first time.
 
 ## Step 1 - Cleaning Up Previous Spork State[​](#step-1---cleaning-up-previous-spork-state "Direct link to Step 1 - Cleaning Up Previous Spork State")
 
-Once the spork start has been announced on, stop your node and clear your database. The node should stay stopped for the duration of the spork.
+Once the spork start has been announced on Discord, stop your node and clear your database. The node should stay stopped for the duration of the spork.
 
 warning
 
@@ -87,7 +89,9 @@ If you had set the [dynamic bootstrap arguments](https://developers.flow.com/pro
   + For `access` node:
     - It will generally be `testnet-x` or `mainnet-x` if execution data indexing is not enabled.
     - It will generally be `testnet-x-execution` or `mainnet-x-execution` if execution data indexing is enabled. See [here](/protocol/node-ops/access-nodes/access-node-configuration-options) to enable execution date indexing.
-* `YOUR_NODE_TYPE` should be one of `collection`, `consensus`, `execution`, `verification`, `access` based on the node(s) that you are running.
+* `YOUR_NODE_TYPE` should be one of `collection`, `consensus`, `execution`, `verification` based on the node(s) that you are running.
+
+  + For access nodes however, if you have execution data index enabled use the role `execution` to ensure the execution state files (`root.checkpoint*`) are also downloaded. If you do not have execution data indexing enabled, specify the role as `access`.
 
 Example
 
@@ -165,7 +169,14 @@ _19
 
 └── random-beacon.priv.json.39fa54984b8eaa463e129919464f61c8cec3a4389478df79c44eb9bfbf30799a`
 
-2. Start your Flow node via `docker` or `systemd`
+2. Update command line arguments
+
+For the Forte upgrade, remove the `pebble-dir` argument as it has been deprecated. This applies to all node types.
+The node will continue to use the `datadir` argument which points to the location of the node database.
+
+3. Start your Flow node via `docker` or `systemd`
+
+The FlowFoundation team will share the new docker tag at the completion of the upgrade. Please use that docker tag to bring up the node.
 
 See [Node Bootstrap](/protocol/node-ops/node-operation/node-bootstrap) for detailed information on Docker/Systemd configuration.
 
@@ -189,7 +200,7 @@ This error is OK. Your fellow node operators have not turned on/joined the netwo
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/protocol/node-ops/node-operation/network-upgrade.md)
 
-Last updated on **Sep 22, 2025** by **vishal**
+Last updated on **Oct 16, 2025** by **Vishal**
 
 [Previous
 
@@ -206,24 +217,24 @@ Copy as Markdown
 * [Overview](#overview)* [Step 1 - Cleaning Up Previous Spork State](#step-1---cleaning-up-previous-spork-state)* [Step 2 - Start Your Node](#step-2---start-your-node)* [Common Issues](#common-issues)
         + [Error: cannot create connection](#error-cannot-create-connection)
 
-Documentation
+Flow
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
 
-Community
+Cadence
 
-* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
 
-Start Building
+Solidity (EVM)
 
-* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
 
-Network
+Community & Support
 
-* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
 
-More
+Network & Resources
 
-* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
+Copyright © 2025 Flow Foundation. All Rights Reserved.
