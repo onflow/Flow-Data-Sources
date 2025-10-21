@@ -12,36 +12,27 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 
 Search
 
-* [Why Flow](/build/flow)
-* [Cadence](/build/cadence/quickstart)
+* [Why Flow](/build/flow)* [Cadence](/build/cadence/quickstart)
 
-  + [Quickstart ↙](/build/cadence/quickstart)
-  + [Differences vs. EVM](/build/cadence/differences-vs-evm)
-  + [Basics](/build/cadence/basics/network-architecture)
-  + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
-  + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
-  + [Core Smart Contracts](/build/cadence/core-contracts)
-* [Solidity (EVM)](/build/evm/quickstart)
+    + [Quickstart ↙](/build/cadence/quickstart)+ [Differences vs. EVM](/build/cadence/differences-vs-evm)+ [Basics](/build/cadence/basics/network-architecture)
 
-  + [EVM Quickstart](/build/evm/quickstart)
-  + [How it Works](/build/evm/how-it-works)
-  + [EVM Wallet Setup](/build/evm/using)
-  + [Network Information](/build/evm/networks)
-  + [Fees](/build/evm/fees)
-  + [Accounts](/build/evm/accounts)
-* [Tools & SDKs](/build/tools)
+          + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-  + [@onflow/react-sdk](/build/tools/react-sdk)
-  + [Flow Emulator](/build/tools/emulator)
-  + [Flow CLI](/build/tools/flow-cli)
-  + [Cadence VS Code Extension](/build/tools/vscode-extension)
-  + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
-  + [Client Tools](/build/tools/clients)
-  + [Error Codes](/build/tools/error-codes)
-  + [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
 
-* [Tools & SDKs](/build/tools)
-* Flow Emulator
+              + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
+
+      + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
+
+        + [Flow React SDK](/build/tools/react-sdk)
+
+          + [Flow Emulator](/build/tools/emulator)+ [Flow CLI](/build/tools/flow-cli)
+
+              + [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+
+                    + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+
+* * [Tools & SDKs](/build/tools)* Flow Emulator
 
 On this page
 
@@ -67,6 +58,24 @@ Then start the Flow Emulator:
 
 flow emulator`
 
+You'll see output similar to:
+
+`_10
+
+INFO[0000] ⚙️ Using service account 0xf8d6e0586b0a20c7 serviceAddress=f8d6e0586b0a20c7 ...
+
+_10
+
+INFO[0000] 🌱 Starting Flow Emulator
+
+_10
+
+INFO[0000] 🛠 GRPC server started on 127.0.0.1:3569
+
+_10
+
+INFO[0000] 📡 HTTP server started on 127.0.0.1:8080`
+
 This starts a local Flow network with:
 
 * gRPC server on port `3569`
@@ -75,33 +84,53 @@ This starts a local Flow network with:
 
 ## Common Options[​](#common-options "Direct link to Common Options")
 
-`_10
+`_14
 
 # Start with verbose logging
 
-_10
+_14
 
 flow emulator --verbose
 
-_10
+_14
 
-_10
+_14
 
 # Set custom block time (e.g., 1 second between blocks)
 
-_10
+_14
 
 flow emulator --block-time 1s
 
-_10
+_14
 
-_10
+_14
 
 # Persist state between restarts
 
-_10
+_14
 
-flow emulator --persist`
+flow emulator --persist
+
+_14
+
+_14
+
+# Change the gRPC and REST API ports
+
+_14
+
+flow emulator --port 9000 --rest-port 9001
+
+_14
+
+_14
+
+# For a complete list of available flags, run:
+
+_14
+
+flow emulator --help`
 
 For all available options, see the [CLI commands overview](/build/tools/flow-cli).
 
@@ -110,17 +139,47 @@ For all available options, see the [CLI commands overview](/build/tools/flow-cli
 * **Code Coverage**: Add `--coverage-reporting` flag and visit `http://localhost:8080/emulator/codeCoverage`
 * **Debugging**: Use `#debugger()` pragma in Cadence code for breakpoints
 
+## Snapshots[​](#snapshots "Direct link to Snapshots")
+
+The Flow CLI provides a command to create emulator snapshots, which are points in blockchain history you can later jump to and reset the state to that moment. This can be useful for testing where you establish a beginning state, run tests and after revert back to the initial state.
+
+### Create a new snapshot[​](#create-a-new-snapshot "Direct link to Create a new snapshot")
+
+Create a new emulator snapshot at the current block with a name of `myInitialState`.
+
+`_10
+
+flow emulator snapshot create myInitialState`
+
+### Load an existing snapshot[​](#load-an-existing-snapshot "Direct link to Load an existing snapshot")
+
+To jump to a previously created snapshot we use the load command in combination with the name.
+
+`_10
+
+flow emulator snapshot load myInitialState`
+
+### List all existing snapshots[​](#list-all-existing-snapshots "Direct link to List all existing snapshots")
+
+To list all the existing snapshots we previously created and can load to run:
+
+`_10
+
+flow emulator list`
+
+To learn more about using the Emulator, have a look at the [README of the repository](https://github.com/onflow/flow-emulator).
+
 ## Additional Resources[​](#additional-resources "Direct link to Additional Resources")
 
 For advanced configuration options, see the [Flow Emulator repository](https://github.com/onflow/flow-emulator/).
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/emulator/index.md)
 
-Last updated on **Sep 26, 2025** by **Chase Fleming**
+Last updated on **Oct 9, 2025** by **Brian Doyle**
 
 [Previous
 
-Flow React SDK Components](/build/tools/react-sdk/components)[Next
+Components](/build/tools/react-sdk/components)[Next
 
 Flow CLI](/build/tools/flow-cli)
 
@@ -130,58 +189,27 @@ Flow CLI](/build/tools/flow-cli)
 
 Copy as Markdown
 
-* [Installation](#installation)
-* [Quick Start](#quick-start)
-* [Common Options](#common-options)
-* [Debugging & Testing](#debugging--testing)
-* [Additional Resources](#additional-resources)
+* [Installation](#installation)* [Quick Start](#quick-start)* [Common Options](#common-options)* [Debugging & Testing](#debugging--testing)* [Snapshots](#snapshots)
+          + [Create a new snapshot](#create-a-new-snapshot)+ [Load an existing snapshot](#load-an-existing-snapshot)+ [List all existing snapshots](#list-all-existing-snapshots)* [Additional Resources](#additional-resources)
 
-Documentation
+Flow
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
 
-Community
+Cadence
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
 
-Start Building
+Solidity (EVM)
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
 
-Network
+Community & Support
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
 
-More
+Network & Resources
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
+Copyright © 2025 Flow Foundation. All Rights Reserved.
