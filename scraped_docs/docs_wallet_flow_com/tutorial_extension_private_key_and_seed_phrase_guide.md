@@ -27,15 +27,6 @@ Flow Wallet](/)
 
   + [🛠️Ecosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)
   + [🔌Integrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)
-
-    - [Wagmi](/ecosystem-development/integrate-flow-evm-with-web3-sdks/wagmi)
-    - [Rainbowkit](/ecosystem-development/integrate-flow-evm-with-web3-sdks/rainbowkit)
-    - [Etherjs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/etherjs)
-    - [Web3js](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3js)
-    - [Viem](/ecosystem-development/integrate-flow-evm-with-web3-sdks/viem)
-    - [Web3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
-    - [MIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
-    - [Others SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
 * Download
 
   + [📲Download](/download/download)

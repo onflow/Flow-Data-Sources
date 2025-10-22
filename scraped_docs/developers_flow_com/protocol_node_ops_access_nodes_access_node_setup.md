@@ -115,7 +115,7 @@ sha256sum ./boot-tools/bootstrap
 
 _10
 
-460cfcfeb52b40d8b8b0c4641bc4e423bcc90f82068e95f4267803ed32c26d60 ./boot-tools/bootstrap`
+0c2ad1bdf27aaa449a2b54975324ecef7c78fa39512cf8c2448165fedf106eb4 ./boot-tools/bootstrap`
 
 > If you have downloaded the bootstrapping kit previously, ensure the SHA256 hash for it still matches. If not, re-download to ensure you are using the most up-to-date version.
 
@@ -923,7 +923,7 @@ Example: there are 115 access nodes already part of the network. Hence, the tota
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/protocol/node-ops/access-nodes/access-node-setup.md)
 
-Last updated on **Sep 23, 2025** by **Brian Doyle**
+Last updated on **Oct 21, 2025** by **Vishal**
 
 [Previous
 

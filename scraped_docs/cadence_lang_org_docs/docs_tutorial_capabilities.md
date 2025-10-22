@@ -1,6 +1,6 @@
 # Source: https://cadence-lang.org/docs/tutorial/capabilities
 
-Capabilities | Cadence
+Capabilities and Entitlements | Cadence
 
 
 
@@ -20,7 +20,7 @@ Search
   + [First Steps](/docs/tutorial/first-steps)
   + [Hello World](/docs/tutorial/hello-world)
   + [Resources and the Move (<-) Operator](/docs/tutorial/resources)
-  + [Capabilities](/docs/tutorial/capabilities)
+  + [Capabilities and Entitlements](/docs/tutorial/capabilities)
   + [Basic NFT](/docs/tutorial/non-fungible-tokens-1)
   + [Intermediate NFTs](/docs/tutorial/non-fungible-tokens-2)
   + [Fungible Tokens](/docs/tutorial/fungible-tokens)
@@ -39,17 +39,17 @@ Search
 * [Testing](/docs/testing-framework)
 
 * Tutorial
-* Capabilities
+* Capabilities and Entitlements
 
 On this page
 
-# Capabilities
+# Capabilities and Entitlements
 
 This tutorial builds on your understanding of [accounts](/docs/language/accounts/) and [resources](/docs/language/resources). You'll learn how to interact with resources using [capabilities](/docs/language/capabilities) and [entitlements](/docs/language/access-control#entitlements).
 
 Reminder
 
-In Cadence, resources are a composite type like a struct or a class, but with some **special rules**:
+In Cadence, resources are a composite type like a `struct` or a class in other languages, but with some **special rules**:
 
 * Each instance of a resource can only exist in exactly one location and cannot be copied.
 * Resources must be explicitly moved from one location to another when accessed.
@@ -75,6 +75,8 @@ In Cadence, users have complete control over their storage, and their storage is
 
 Capabilities and entitlements are what allows for this detailed control of access to owned assets. They allow a user to indicate which of the functionality of their account and owned objects should be accessible to themselves, their trusted friends, and the public.
 
+![Capabilities and Entitlements](/assets/images/capabilities-entitlements-2a2bf4efcdd1622a356000b31bef7311.jpg)
+
 For example, a user might want to allow a friend of theirs to use some of their money to spend. In this case, they could create an entitled capability that gives the friend access to only this part of their account, instead of having to hand over full control.
 
 Another example is when a user authenticates a trading app for the first time, the trading app could ask the user for a capability object that allows the app to access the trading functionality of a user's account so that the app doesn't need to ask the user for a signature every time it wants to do a trade. The user can choose to empower the app, and that app alone, for this functionality and this functionality alone.
@@ -89,7 +91,7 @@ Next, you'll write a script that anyone can use that links to borrow a [referenc
 
 ## Creating capabilities and references to stored resources[​](#creating-capabilities-and-references-to-stored-resources "Direct link to Creating capabilities and references to stored resources")
 
-Continue working with your code from the previous tutorial. Alternately, open a fresh copy here: [play.flow.com/6f74fe85-465d-4e4f-a534-1895f6a3c0a6](https://play.flow.com/6f74fe85-465d-4e4f-a534-1895f6a3c0a6).
+Continue working with your code from the previous tutorial. Alternately, open a fresh copy here: <https://play.flow.com/8b28da4e-0235-499f-8653-1f55e1b3b725>.
 
 If you started with the playground linked above, be sure to deploy the `HelloResource` contract with account `0x06` and call the `Create Hello` transaction, also with `0x06`.
 
@@ -99,6 +101,7 @@ To prepare:
 
 1. Create a new transaction called `Create Link`.
 2. Import `HelloResource` and stub out a `transaction` with a `prepare` phase.
+
    * Cadence allows for static analysis of imported contracts. You'll get errors in the transactions and scripts that import `HelloResource` from `0x06` if you haven't deployed that contract.
 
    create\_link.cdc
@@ -372,6 +375,7 @@ Now that you've published the capability with `public` `access`, **anyone** who 
 
    * Addresses are **not** strings and thus do **not** have quotes around them.
 4. Use `borrow` to borrow the public capability for your `Create Link` transaction saved in `/public/HelloAssetTutorial`.
+
    * Your script should return `helloReference.hello()`.
    * You've already borrowed something before. Try to implement this on your own. **Hint:** this time, you're borrowing a `capability` from the account, **not** something from `storage`. Don't forget to handle the case where the object can't be found!
 

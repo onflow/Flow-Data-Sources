@@ -20,7 +20,7 @@ Search
   + [First Steps](/docs/tutorial/first-steps)
   + [Hello World](/docs/tutorial/hello-world)
   + [Resources and the Move (<-) Operator](/docs/tutorial/resources)
-  + [Capabilities](/docs/tutorial/capabilities)
+  + [Capabilities and Entitlements](/docs/tutorial/capabilities)
   + [Basic NFT](/docs/tutorial/non-fungible-tokens-1)
   + [Intermediate NFTs](/docs/tutorial/non-fungible-tokens-2)
   + [Fungible Tokens](/docs/tutorial/fungible-tokens)
@@ -976,7 +976,7 @@ You are **not** saving time by skipping the reference implementation. You'll lea
 
 Reference solutions are functional, but may not be optimal.
 
-* [Reference Solution](https://play.flow.com/6f74fe85-465d-4e4f-a534-1895f6a3c0a6)
+* [Reference Solution](https://play.flow.com/8b28da4e-0235-499f-8653-1f55e1b3b725)
 
 **Tags:**
 
@@ -990,7 +990,7 @@ Reference solutions are functional, but may not be optimal.
 
 Hello World](/docs/tutorial/hello-world)[Next
 
-Capabilities](/docs/tutorial/capabilities)
+Capabilities and Entitlements](/docs/tutorial/capabilities)
 
 ###### Rate this page
 

@@ -78,9 +78,11 @@ If you had set the [dynamic bootstrap arguments](https://developers.flow.com/pro
 
 1. Run the transit script to fetch the new genesis info:
 
-   `_10
+Download the latest transit script - see instructions [here](/protocol/node-ops/node-operation/node-bootstrap#download-the-bootstrapping-kit)
 
-   ./boot-tools/transit pull -b ./bootstrap -t ${PULL_TOKEN} -r ${YOUR_NODE_TYPE} --concurrency 10 --timeout 50m`
+`_10
+
+./boot-tools/transit pull -b ./bootstrap -t ${PULL_TOKEN} -r ${YOUR_NODE_TYPE} --concurrency 10 --timeout 50m`
 
 * `PULL_TOKEN` will be provided by the Flow team.
 
@@ -97,11 +99,11 @@ Example
 
 `_19
 
-$ ./boot-tools/transit pull -b ./bootstrap -t mainnet-16 -r consensus
+$ ./boot-tools/transit pull -b ./bootstrap -t mainnet-27 -r consensus
 
 _19
 
-Transit script Commit: a9f6522855e119ad832a97f8b7bce555a163e490
+Transit script Commit: 98a6ac408fdd86dba0011e698d40ebd71f4276fa
 
 _19
 
@@ -200,7 +202,7 @@ This error is OK. Your fellow node operators have not turned on/joined the netwo
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/protocol/node-ops/node-operation/network-upgrade.md)
 
-Last updated on **Oct 16, 2025** by **Vishal**
+Last updated on **Oct 21, 2025** by **Vishal**
 
 [Previous
 

@@ -134,7 +134,7 @@ Last updated on **Sep 10, 2025** by **0xLisanAlGaib**
 
 [Previous
 
-Introduction to Scheduled Transactions](/blockchain-development-tutorials/forte/scheduled-transactions/scheduled-transactions-introduction)[Next
+DeFi Math Utils](/blockchain-development-tutorials/forte/fixed-point-128-bit-math)[Next
 
 Large Language Models (LLMs)](/blockchain-development-tutorials/use-AI-to-build-on-flow/llms)
 

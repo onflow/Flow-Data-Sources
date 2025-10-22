@@ -20,7 +20,7 @@ Search
   + [First Steps](/docs/tutorial/first-steps)
   + [Hello World](/docs/tutorial/hello-world)
   + [Resources and the Move (<-) Operator](/docs/tutorial/resources)
-  + [Capabilities](/docs/tutorial/capabilities)
+  + [Capabilities and Entitlements](/docs/tutorial/capabilities)
   + [Basic NFT](/docs/tutorial/non-fungible-tokens-1)
   + [Intermediate NFTs](/docs/tutorial/non-fungible-tokens-2)
   + [Fungible Tokens](/docs/tutorial/fungible-tokens)
@@ -182,7 +182,7 @@ Hello World](/docs/tutorial/hello-world)
 
 ###### Rate this page
 
-😞😐😊
+😞  😐😊
 
 * [Objectives](#objectives)
 * [The Flow Developer Playground](#the-flow-developer-playground)

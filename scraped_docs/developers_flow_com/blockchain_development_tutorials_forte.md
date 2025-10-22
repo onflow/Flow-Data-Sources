@@ -16,7 +16,9 @@ Search
 
       + [Flow Actions](/blockchain-development-tutorials/forte/flow-actions)
 
-        + [Scheduled Transactions](/blockchain-development-tutorials/forte/scheduled-transactions)* [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
+        + [Scheduled Transactions](/blockchain-development-tutorials/forte/scheduled-transactions)
+
+          + [DeFi Math Utils](/blockchain-development-tutorials/forte/fixed-point-128-bit-math)* [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
 
         * [Cadence Tutorials](/blockchain-development-tutorials/cadence)
 
@@ -76,6 +78,10 @@ Discover how to implement scheduled transactions for time-based smart contract e
 
 Implement device-backed passkeys using the Web Authentication API to register Flow account keys and sign transactions with secure, user-friendly authentication. See the [advanced concepts documentation](/build/cadence/advanced-concepts/passkeys) for detailed implementation guidance.
 
+### [High-Precision Fixed-Point Math](/blockchain-development-tutorials/forte/fixed-point-128-bit-math)[​](#high-precision-fixed-point-math "Direct link to high-precision-fixed-point-math")
+
+Learn about Flow's high-precision mathematical utilities for DeFi applications using UInt128-based 24-decimal fixed-point arithmetic. This tutorial covers how to perform accurate financial calculations, handle rounding modes, and avoid precision loss in complex DeFi operations like liquidity pools, yield farming, and token swaps.
+
 ## Getting Started[​](#getting-started "Direct link to Getting Started")
 
 To begin with Forte tutorials, we recommend starting with:
@@ -96,7 +102,7 @@ The Forte network upgrade represents a significant evolution of Flow's capabilit
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/index.md)
 
-Last updated on **Oct 14, 2025** by **Jordan Ribbink**
+Last updated on **Oct 21, 2025** by **0xLisanAlGaib**
 
 [Previous
 
@@ -111,7 +117,7 @@ Flow Actions](/blockchain-development-tutorials/forte/flow-actions)
 Copy as Markdown
 
 * [What's New in Forte](#whats-new-in-forte)* [Deployed Contract Addresses](#deployed-contract-addresses)* [Tutorial Series](#tutorial-series)
-      + [Flow Actions](#flow-actions)+ [Scheduled Transactions](#scheduled-transactions)+ [Passkeys](#passkeys)* [Getting Started](#getting-started)* [Key Benefits](#key-benefits)* [Conclusion](#conclusion)
+      + [Flow Actions](#flow-actions)+ [Scheduled Transactions](#scheduled-transactions)+ [Passkeys](#passkeys)+ [High-Precision Fixed-Point Math](#high-precision-fixed-point-math)* [Getting Started](#getting-started)* [Key Benefits](#key-benefits)* [Conclusion](#conclusion)
 
 Flow
 

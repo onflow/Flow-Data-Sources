@@ -20,9 +20,9 @@ Search
 
 An introduction to a simplified version of NFTs on Cadence.
 
-[## Capabilities](/docs/tutorial/capabilities)
+[## Capabilities and Entitlements](/docs/tutorial/capabilities)
 
-An introduction to capabilities and how they interact with resources in Cadence
+An introduction to capabilities, entitlements, and how they interact with resources in Cadence
 
 [## First Steps](/docs/tutorial/first-steps)
 

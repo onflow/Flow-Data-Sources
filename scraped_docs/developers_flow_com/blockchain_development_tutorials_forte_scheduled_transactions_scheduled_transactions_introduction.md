@@ -18,7 +18,7 @@ Search
 
         + [Scheduled Transactions](/blockchain-development-tutorials/forte/scheduled-transactions)
 
-          - [Introduction to Scheduled Transactions](/blockchain-development-tutorials/forte/scheduled-transactions/scheduled-transactions-introduction)* [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
+          - [Introduction to Scheduled Transactions](/blockchain-development-tutorials/forte/scheduled-transactions/scheduled-transactions-introduction)+ [DeFi Math Utils](/blockchain-development-tutorials/forte/fixed-point-128-bit-math)* [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
 
         * [Cadence Tutorials](/blockchain-development-tutorials/cadence)
 
@@ -1926,7 +1926,7 @@ Last updated on **Oct 9, 2025** by **Brian Doyle**
 
 Scheduled Transactions](/blockchain-development-tutorials/forte/scheduled-transactions)[Next
 
-Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
+DeFi Math Utils](/blockchain-development-tutorials/forte/fixed-point-128-bit-math)
 
 ###### Rate this page
 
