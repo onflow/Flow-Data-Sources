@@ -76,13 +76,13 @@ You can import the entire package:
 
 `_10
 
-import * as sdk from '@onflow/sdk';`
+import * as sdk from "@onflow/sdk"`
 
 Or import specific functions:
 
 `_10
 
-import { functionName } from '@onflow/sdk';`
+import { functionName } from "@onflow/sdk"`
 
 ## Connect[​](#connect "Direct link to Connect")
 
@@ -92,7 +92,7 @@ Example:
 
 `_10
 
-import { config } from '@onflow/fcl';
+import { config } from "@onflow/fcl"
 
 _10
 
@@ -102,11 +102,11 @@ config({
 
 _10
 
-'accessNode.api': 'https://rest-testnet.onflow.org',
+"accessNode.api": "https://rest-testnet.onflow.org"
 
 _10
 
-});`
+})`
 
 ## Querying the Flow Network[​](#querying-the-flow-network "Direct link to Querying the Flow Network")
 
@@ -156,7 +156,7 @@ A proposal key contains three fields:
 * Key index
 * Sequence number
 
-A transaction is only valid if its declared sequence number matches the current onchain sequence number for that key. The sequence number increments by one after the transaction is executed.
+A transaction is only valid if its declared sequence number matches the current on-chain sequence number for that key. The sequence number increments by one after the transaction is executed.
 
 **Payer** is the account that pays the fees for the transaction. A transaction must specify exactly one payer. The payer is only responsible for paying the network and gas fees; the transaction is not authorized to access resources or code stored in the payer account.
 
@@ -273,7 +273,7 @@ This section contains documentation for all of the functions and namespaces in t
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/index.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Oct 22, 2025** by **Michael Fabozzi**
 
 [Previous
 

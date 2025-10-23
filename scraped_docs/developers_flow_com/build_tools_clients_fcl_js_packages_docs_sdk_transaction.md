@@ -58,185 +58,193 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as sdk from '@onflow/sdk';
+import * as sdk from "@onflow/sdk"
 
 _10
 
 _10
 
-sdk.transaction(args);`
+sdk.transaction(args)`
 
 Or import directly the specific function:
 
 `_10
 
-import { transaction } from '@onflow/sdk';
+import { transaction } from "@onflow/sdk"
 
 _10
 
 _10
 
-transaction(args);`
+transaction(args)`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`` _41
+`` _43
 
-import * as fcl from '@onflow/fcl';
+import * as fcl from "@onflow/fcl"
 
-_41
+_43
 
-_41
+_43
 
 // Basic transaction usage
 
-_41
+_43
 
 await fcl.mutate({
 
-_41
+_43
 
 cadence: `
 
-_41
+_43
 
 transaction(a: Int) {
 
-_41
+_43
 
 prepare(acct: &Account) {
 
-_41
+_43
 
 log(acct)
 
-_41
+_43
 
 log(a)
 
-_41
+_43
 
 }
 
-_41
+_43
 
 }
 
-_41
+_43
 
 `,
 
-_41
+_43
 
-args: (arg, t) => [arg(6, t.Int)],
+args: (arg, t) => [
 
-_41
+_43
 
-limit: 50,
+arg(6, t.Int)
 
-_41
+_43
 
-});
+],
 
-_41
+_43
 
-_41
+limit: 50
+
+_43
+
+})
+
+_43
+
+_43
 
 // Single party, single signature
 
-_41
+_43
 
 // Proposer, payer and authorizer are the same account
 
-_41
+_43
 
 await fcl.mutate({
 
-_41
+_43
 
 cadence: `
 
-_41
+_43
 
 transaction {
 
-_41
+_43
 
 prepare(acct: &Account) {}
 
-_41
+_43
 
 }
 
-_41
+_43
 
 `,
 
-_41
+_43
 
 authz: currentUser, // Optional. Will default to currentUser if not provided.
 
-_41
+_43
 
 limit: 50,
 
-_41
+_43
 
-});
+})
 
-_41
+_43
 
-_41
+_43
 
 // Multiple parties
 
-_41
+_43
 
 // Proposer and authorizer are the same account, but different payer
 
-_41
+_43
 
 await fcl.mutate({
 
-_41
+_43
 
 cadence: `
 
-_41
+_43
 
 transaction {
 
-_41
+_43
 
 prepare(acct: &Account) {}
 
-_41
+_43
 
 }
 
-_41
+_43
 
 `,
 
-_41
+_43
 
 proposer: authzFn,
 
-_41
+_43
 
 payer: authzTwoFn,
 
-_41
+_43
 
 authorizations: [authzFn],
 
-_41
+_43
 
 limit: 50,
 
-_41
+_43
 
-}); ``
+}) ``
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
@@ -258,11 +266,11 @@ export type InteractionBuilderFn = (
 
 _10
 
-ix: Interaction,
+ix: Interaction
 
 _10
 
-) => Interaction | Promise<Interaction>;`
+) => Interaction | Promise<Interaction>`
 
 A function that processes an interaction object
 
@@ -270,7 +278,7 @@ A function that processes an interaction object
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/transaction.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Oct 22, 2025** by **Michael Fabozzi**
 
 [Previous
 

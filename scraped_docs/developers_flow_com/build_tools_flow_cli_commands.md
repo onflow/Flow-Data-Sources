@@ -44,7 +44,7 @@ Search
 
                                 - [Utils](/build/tools/flow-cli/utils/signature-generate)
 
-                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
 
                     + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
@@ -603,6 +603,50 @@ flow dependencies install testnet://8a4dce54554b225d.NumberFormatter`
 
 📖 **[Learn more about dependency management](/build/tools/flow-cli/dependency-manager)**
 
+## Scheduled Transactions[​](#scheduled-transactions "Direct link to Scheduled Transactions")
+
+### Setup Manager Resource[​](#setup-manager-resource "Direct link to Setup Manager Resource")
+
+`_10
+
+# Initialize Manager resource for scheduled transactions
+
+_10
+
+flow schedule setup --network testnet --signer my-account`
+
+### List Scheduled Transactions[​](#list-scheduled-transactions "Direct link to List Scheduled Transactions")
+
+`_10
+
+# List all scheduled transactions for an account
+
+_10
+
+flow schedule list my-account --network testnet`
+
+### Get Transaction Details[​](#get-transaction-details "Direct link to Get Transaction Details")
+
+`_10
+
+# Get details for a specific scheduled transaction
+
+_10
+
+flow schedule get 123 --network testnet`
+
+### Cancel Scheduled Transaction[​](#cancel-scheduled-transaction "Direct link to Cancel Scheduled Transaction")
+
+`_10
+
+# Cancel a scheduled transaction and receive refund
+
+_10
+
+flow schedule cancel 123 --network testnet --signer my-account`
+
+📖 **[Learn more about scheduled transactions](/build/tools/flow-cli/scheduled-transactions)**
+
 ## Development Workflow[​](#development-workflow "Direct link to Development Workflow")
 
 ### Local Development[​](#local-development "Direct link to Local Development")
@@ -811,7 +855,7 @@ FLOW_PRIVATE_KEY=abc123 flow project deploy`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/commands.md)
 
-Last updated on **Sep 24, 2025** by **Chase Fleming**
+Last updated on **Oct 21, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -830,9 +874,10 @@ Copy as Markdown
     + [Add Configuration Items](#add-configuration-items)+ [Remove Configuration Items](#remove-configuration-items)* [Account Management](#account-management)
       + [List Accounts](#list-accounts)+ [Create Accounts](#create-accounts)+ [Fund Accounts](#fund-accounts)+ [Manage Account Keys](#manage-account-keys)* [Contract Interactions](#contract-interactions)
         + [Execute Scripts](#execute-scripts)+ [Send Transactions](#send-transactions)+ [Get System Transactions](#get-system-transactions)* [Dependency Management](#dependency-management)
-          + [Install Dependencies](#install-dependencies)+ [Manage Dependencies](#manage-dependencies)* [Development Workflow](#development-workflow)
-            + [Local Development](#local-development)+ [Testnet Deployment](#testnet-deployment)* [Import Schema](#import-schema)* [Best Practices](#best-practices)
-                + [1. Use Configuration Commands](#1-use-configuration-commands)+ [2. Test Locally First](#2-test-locally-first)+ [3. Use Descriptive Names](#3-use-descriptive-names)+ [4. Secure Your Keys](#4-secure-your-keys)* [Related Documentation](#related-documentation)
+          + [Install Dependencies](#install-dependencies)+ [Manage Dependencies](#manage-dependencies)* [Scheduled Transactions](#scheduled-transactions)
+            + [Setup Manager Resource](#setup-manager-resource)+ [List Scheduled Transactions](#list-scheduled-transactions)+ [Get Transaction Details](#get-transaction-details)+ [Cancel Scheduled Transaction](#cancel-scheduled-transaction)* [Development Workflow](#development-workflow)
+              + [Local Development](#local-development)+ [Testnet Deployment](#testnet-deployment)* [Import Schema](#import-schema)* [Best Practices](#best-practices)
+                  + [1. Use Configuration Commands](#1-use-configuration-commands)+ [2. Test Locally First](#2-test-locally-first)+ [3. Use Descriptive Names](#3-use-descriptive-names)+ [4. Secure Your Keys](#4-secure-your-keys)* [Related Documentation](#related-documentation)
 
 Flow
 

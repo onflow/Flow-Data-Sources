@@ -60,31 +60,31 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as sdk from '@onflow/sdk';
+import * as sdk from "@onflow/sdk"
 
 _10
 
 _10
 
-sdk.validator(cb);`
+sdk.validator(cb)`
 
 Or import directly the specific function:
 
 `_10
 
-import { validator } from '@onflow/sdk';
+import { validator } from "@onflow/sdk"
 
 _10
 
 _10
 
-validator(cb);`
+validator(cb)`
 
 ## Usage[​](#usage "Direct link to Usage")
 
 `` _21
 
-import * as fcl from '@onflow/fcl';
+import * as fcl from "@onflow/fcl";
 
 _21
 
@@ -102,7 +102,7 @@ if (ix.message.computeLimit > 1000) {
 
 _21
 
-throw new Error('Compute limit too high for this account');
+throw new Error("Compute limit too high for this account");
 
 _21
 
@@ -156,7 +156,7 @@ fcl.validator(validateBalance),
 
 _21
 
-fcl.limit(500), // This will pass validation
+fcl.limit(500) // This will pass validation
 
 _21
 
@@ -177,11 +177,11 @@ export type InteractionBuilderFn = (
 
 _10
 
-ix: Interaction,
+ix: Interaction
 
 _10
 
-) => Interaction | Promise<Interaction>;`
+) => Interaction | Promise<Interaction>`
 
 A function that processes an interaction object
 
@@ -189,7 +189,7 @@ A function that processes an interaction object
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/validator.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Oct 22, 2025** by **Michael Fabozzi**
 
 [Previous
 

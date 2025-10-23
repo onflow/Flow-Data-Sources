@@ -63,31 +63,31 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as sdk from '@onflow/sdk';
+import * as sdk from "@onflow/sdk"
 
 _10
 
 _10
 
-sdk.payer(ax);`
+sdk.payer(ax)`
 
 Or import directly the specific function:
 
 `_10
 
-import { payer } from '@onflow/sdk';
+import { payer } from "@onflow/sdk"
 
 _10
 
 _10
 
-payer(ax);`
+payer(ax)`
 
 ## Usage[​](#usage "Direct link to Usage")
 
 `` _39
 
-import * as fcl from '@onflow/fcl';
+import * as fcl from "@onflow/fcl";
 
 _39
 
@@ -129,7 +129,7 @@ _39
 
 _39
 
-payer: fcl.authz, // Current user as payer
+payer: fcl.authz // Current user as payer
 
 _39
 
@@ -183,7 +183,7 @@ fcl.authorizations([fcl.authz]), // Current user as authorizer
 
 _39
 
-fcl.payer(customPayerAuthz), // Custom payer pays fees
+fcl.payer(customPayerAuthz) // Custom payer pays fees
 
 _39
 
@@ -229,7 +229,7 @@ _39
 
 _39
 
-fcl.payer([payerAuthz1, payerAuthz2]), // Multiple payers split fees
+fcl.payer([payerAuthz1, payerAuthz2]) // Multiple payers split fees
 
 _39
 
@@ -251,7 +251,7 @@ _10
 
 _10
 
-| Partial<InteractionAccount>;`
+| Partial<InteractionAccount>`
 
 * Description: An account address or an array of account addresses
 
@@ -263,11 +263,11 @@ export type InteractionBuilderFn = (
 
 _10
 
-ix: Interaction,
+ix: Interaction
 
 _10
 
-) => Interaction | Promise<Interaction>;`
+) => Interaction | Promise<Interaction>`
 
 A function that takes an interaction object and returns a new interaction object with the payer(s) added
 
@@ -275,7 +275,7 @@ A function that takes an interaction object and returns a new interaction object
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/payer.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Oct 22, 2025** by **Michael Fabozzi**
 
 [Previous
 

@@ -24,7 +24,7 @@ Search
 
       + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
 
-        + [@onflow/react-sdk](/build/tools/react-sdk)
+        + [Flow React SDK](/build/tools/react-sdk)
 
           + [Flow Emulator](/build/tools/emulator)+ [Flow CLI](/build/tools/flow-cli)
 
@@ -62,107 +62,91 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as sdk from '@onflow/sdk';
+import * as sdk from "@onflow/sdk"
 
 _10
 
 _10
 
-sdk.getCollection(id);`
+sdk.getCollection(id)`
 
 Or import directly the specific function:
 
 `_10
 
-import { getCollection } from '@onflow/sdk';
+import { getCollection } from "@onflow/sdk"
 
 _10
 
 _10
 
-getCollection(id);`
+getCollection(id)`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`_22
+`_18
 
-import * as fcl from '@onflow/fcl';
+import * as fcl from "@onflow/fcl";
 
-_22
+_18
 
-_22
+_18
 
 // Get a collection and see what transactions it contains
 
-_22
+_18
 
-const collection = await fcl
+const collection = await fcl.send([
 
-_22
+_18
 
-.send([
+fcl.getCollection("cccdb0c67d015dc7f6444e8f62a3244ed650215ed66b90603006c70c5ef1f6e5")
 
-_22
+_18
 
-fcl.getCollection(
+]).then(fcl.decode);
 
-_22
+_18
 
-'cccdb0c67d015dc7f6444e8f62a3244ed650215ed66b90603006c70c5ef1f6e5',
+_18
 
-_22
+console.log("Collection ID:", collection.id);
 
-),
+_18
 
-_22
+console.log("Transaction IDs:", collection.transactionIds);
 
-])
+_18
 
-_22
+console.log("Total transactions:", collection.transactionIds.length);
 
-.then(fcl.decode);
+_18
 
-_22
-
-_22
-
-console.log('Collection ID:', collection.id);
-
-_22
-
-console.log('Transaction IDs:', collection.transactionIds);
-
-_22
-
-console.log('Total transactions:', collection.transactionIds.length);
-
-_22
-
-_22
+_18
 
 // Process each transaction in the collection
 
-_22
+_18
 
 for (const txId of collection.transactionIds) {
 
-_22
+_18
 
-const transaction = await fcl
+const transaction = await fcl.send([
 
-_22
+_18
 
-.send([fcl.getTransaction(txId)])
+fcl.getTransaction(txId)
 
-_22
+_18
 
-.then(fcl.decode);
+]).then(fcl.decode);
 
-_22
+_18
 
-console.log('Transaction:', transaction);
+console.log("Transaction:", transaction);
 
-_22
+_18
 
 }`
 
@@ -180,11 +164,11 @@ export type InteractionBuilderFn = (
 
 _10
 
-ix: Interaction,
+ix: Interaction
 
 _10
 
-) => Interaction | Promise<Interaction>;`
+) => Interaction | Promise<Interaction>`
 
 A function that processes an interaction object
 
@@ -192,7 +176,7 @@ A function that processes an interaction object
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/getCollection.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Oct 22, 2025** by **Michael Fabozzi**
 
 [Previous
 
@@ -209,24 +193,24 @@ Copy as Markdown
 * [Import](#import)* [Usage](#usage)* [Parameters](#parameters)
       + [`id` (optional)](#id-optional)* [Returns](#returns)
 
-Documentation
+Flow
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
 
-Community
+Cadence
 
-* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
 
-Start Building
+Solidity (EVM)
 
-* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
 
-Network
+Community & Support
 
-* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
 
-More
+Network & Resources
 
-* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
+Copyright © 2025 Flow Foundation. All Rights Reserved.
