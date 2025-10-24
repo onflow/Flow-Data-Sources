@@ -16,7 +16,9 @@ Search
 
       + [Flow Actions](/blockchain-development-tutorials/forte/flow-actions)
 
-        - [Introduction to Flow Actions](/blockchain-development-tutorials/forte/flow-actions/intro-to-flow-actions)- [Flow Actions Transaction](/blockchain-development-tutorials/forte/flow-actions/flow-actions-transaction)- [Connectors](/blockchain-development-tutorials/forte/flow-actions/connectors)- [Basic Combinations](/blockchain-development-tutorials/forte/flow-actions/basic-combinations)+ [Scheduled Transactions](/blockchain-development-tutorials/forte/scheduled-transactions)* [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
+        - [Introduction to Flow Actions](/blockchain-development-tutorials/forte/flow-actions/intro-to-flow-actions)- [Flow Actions Transaction](/blockchain-development-tutorials/forte/flow-actions/flow-actions-transaction)- [Connectors](/blockchain-development-tutorials/forte/flow-actions/connectors)- [Basic Combinations](/blockchain-development-tutorials/forte/flow-actions/basic-combinations)+ [Scheduled Transactions](/blockchain-development-tutorials/forte/scheduled-transactions)
+
+          + [DeFi Math Utils](/blockchain-development-tutorials/forte/fixed-point-128-bit-math)* [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
 
         * [Cadence Tutorials](/blockchain-development-tutorials/cadence)
 

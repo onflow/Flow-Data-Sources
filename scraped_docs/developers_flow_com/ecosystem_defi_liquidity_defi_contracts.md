@@ -42,6 +42,12 @@ Below is a list of commonly used DeFi contracts on Flow:
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Token Name Flow Cadence Mainnet Address Flow Cadence Contract Name|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [FLOW](https://www.flowscan.io/ft/token/A.1654653399040a61.FlowToken.Vault) `0x1654653399040a61` FlowToken|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [USDC (stgUSDC)](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_f1815bd50389c46847f0bda824ec8da914045d14.Vault) `0x1e4aa0b87d10b141` EVMVMBridgedToken\_f1815bd50389c46847f0bda824ec8da914045d14|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [USDT (stgUSDT)](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_674843c06ff83502ddb4d37c2e09c01cda38cbc8.Vault) `0x1e4aa0b87d10b141` EVMVMBridgedToken\_674843c06ff83502ddb4d37c2e09c01cda38cbc8|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [USDF (USD Flow)](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_2aabea2058b5ac2d339b163c6ab6f2b6d53aabed.Vault) `0x1e4aa0b87d10b141` EVMVMBridgedToken\_2aabea2058b5ac2d339b163c6ab6f2b6d53aabed|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [USDC.e (Celer)](https://flowscan.io/ft/token/A.f1ab99c82dee3526.USDCFlow.Vault) `0xf1ab99c82dee3526` USDCFlow|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [stFlow (Increment Staked FLOW)](https://flowscan.io/ft/token/A.d6f80565193ad727.stFlowToken.Vault) `0xd6f80565193ad727` stFlowToken|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [ankrFLOWEVM (Ankr Staked FLOW)](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_1b97100ea1d7126c4d60027e231ea4cb25314bdb.Vault) `0x1e4aa0b87d10b141` EVMVMBridgedToken\_1b97100ea1d7126c4d60027e231ea4cb25314bdb|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | [WETH](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_2f6f07cdcf3588944bf4c42ac74ff24bf56e7590.Vault) `0x1e4aa0b87d10b141` EVMVMBridgedToken\_2f6f07cdcf3588944bf4c42ac74ff24bf56e7590|  |  |  | | --- | --- | --- | | [cbBTC](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_a0197b2044d28b08be34d98b23c9312158ea9a18.Vault) `0x1e4aa0b87d10b141` EVMVMBridgedToken\_a0197b2044d28b08be34d98b23c9312158ea9a18 | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
 
+#### Flow Cadence Testnet[​](#flow-cadence-testnet "Direct link to Flow Cadence Testnet")
+
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Token Name Flow Cadence Testnet Address Flow Cadence Contract Name|  |  |  | | --- | --- | --- | | [USDF (Mock)](https://testnet.flowscan.io/ft/token/A.b7ace0a920d2c37d.EVMVMBridgedToken_2aabea2058b5ac2d339b163c6ab6f2b6d53aabed.Vault) `0xb7ace0a920d2c37d` EVMVMBridgedToken\_2aabea2058b5ac2d339b163c6ab6f2b6d53aabed | | | | | |
+
 ## AMMs & DEXs[​](#amms--dexs "Direct link to AMMs & DEXs")
 
 #### Flow EVM Mainnet[​](#flow-evm-mainnet-1 "Direct link to Flow EVM Mainnet")
@@ -84,7 +90,7 @@ Below is a list of commonly used DeFi contracts on Flow:
 | --- | --- | --- | --- | --- | --- |
 | Contract Name Flow EVM Mainnet Address|  |  |  |  | | --- | --- | --- | --- | | [ERC1967Proxy.sol (Pyth)](https://evm.flowscan.io/address/0x2880aB155794e7179c9eE2e38200202908C17B43?tab=contract) `0x2880aB155794e7179c9eE2e38200202908C17B43`| [ERC1967Proxy.sol (Stork)](https://evm.flowscan.io/address/0xacC0a0cF13571d30B4b8637996F5D6D774d4fd62?tab=contract) `0xacC0a0cF13571d30B4b8637996F5D6D774d4fd62` | | | | | |
 
-#### Flow Cadence Testnet[​](#flow-cadence-testnet "Direct link to Flow Cadence Testnet")
+#### Flow Cadence Testnet[​](#flow-cadence-testnet-1 "Direct link to Flow Cadence Testnet")
 
 |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -114,7 +120,7 @@ Mainnet EAS Explorer: <https://flow.easscan.credora.io>
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/defi-contracts.md)
 
-Last updated on **Oct 10, 2025** by **Chase Fleming**
+Last updated on **Oct 21, 2025** by **Jordan Ribbink**
 
 [Previous
 
