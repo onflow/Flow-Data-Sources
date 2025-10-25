@@ -86,4 +86,4 @@ If you encounter any issues or have further questions, please reach out to our s
 
 [PreviousExtension Update Guide](/tutorial/extension-update-guide)[NextExtension Private Key and Seed Phrase Guide](/tutorial/extension-private-key-and-seed-phrase-guide)
 
-Last updated 12 months ago
+Last updated 1 year ago

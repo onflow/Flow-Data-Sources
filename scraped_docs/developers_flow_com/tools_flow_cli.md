@@ -44,7 +44,7 @@ Search
 
                                 - [Utils](/build/tools/flow-cli/utils/signature-generate)
 
-                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
 
                     + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
@@ -77,11 +77,19 @@ macOS, Linux, and Windows.
 
 ## Create Your First Project[​](#create-your-first-project "Direct link to Create Your First Project")
 
-To get started with creating your first Flow project and to learn more about how to use the Flow CLI commands, please refer to the [Commands documentation](/build/tools/flow-cli/commands). These commands simplify the setup and development process, allowing you to focus on building your application without worrying about the underlying configurations.
+Get started by running:
+
+`_10
+
+flow init`
+
+The `flow init` command gets you up and running with a new project setup in one command. Choose from scaffolds for scheduled transactions, DeFi actions, stablecoins, and more, or start with a basic Cadence project.
+
+To learn more about Flow CLI commands and how to use them, please refer to the [Commands documentation](/build/tools/flow-cli/commands).
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/index.md)
 
-Last updated on **Sep 24, 2025** by **Brian Doyle**
+Last updated on **Oct 22, 2025** by **Chase Fleming**
 
 [Previous
 
