@@ -64,53 +64,45 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as sdk from '@onflow/sdk';
+import * as sdk from "@onflow/sdk"
 
 _10
 
 _10
 
-sdk.getBlock(isSealed);`
+sdk.getBlock(isSealed)`
 
 Or import directly the specific function:
 
 `_10
 
-import { getBlock } from '@onflow/sdk';
+import { getBlock } from "@onflow/sdk"
 
 _10
 
 _10
 
-getBlock(isSealed);`
+getBlock(isSealed)`
 
 ## Usage[​](#usage "Direct link to Usage")
 
 `_10
 
-import * as fcl from '@onflow/fcl';
+import * as fcl from "@onflow/fcl";
 
 _10
 
 _10
 
-const latestSealedBlock = await fcl
+const latestSealedBlock = await fcl.send([
 
 _10
 
-.send([
+fcl.getBlock(true) // isSealed = true
 
 _10
 
-fcl.getBlock(true), // isSealed = true
-
-_10
-
-])
-
-_10
-
-.then(fcl.decode);`
+]).then(fcl.decode);`
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
@@ -127,11 +119,11 @@ export type InteractionBuilderFn = (
 
 _10
 
-ix: Interaction,
+ix: Interaction
 
 _10
 
-) => Interaction | Promise<Interaction>;`
+) => Interaction | Promise<Interaction>`
 
 A function that processes an interaction object
 
@@ -139,7 +131,7 @@ A function that processes an interaction object
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/getBlock.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Oct 22, 2025** by **Michael Fabozzi**
 
 [Previous
 

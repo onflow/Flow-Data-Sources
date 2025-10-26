@@ -62,115 +62,111 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as sdk from '@onflow/sdk';
+import * as sdk from "@onflow/sdk"
 
 _10
 
 _10
 
-sdk.atLatestBlock(isSealed);`
+sdk.atLatestBlock(isSealed)`
 
 Or import directly the specific function:
 
 `_10
 
-import { atLatestBlock } from '@onflow/sdk';
+import { atLatestBlock } from "@onflow/sdk"
 
 _10
 
 _10
 
-atLatestBlock(isSealed);`
+atLatestBlock(isSealed)`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`` _24
+`` _23
 
-import * as fcl from '@onflow/fcl';
+import * as fcl from "@onflow/fcl";
 
-_24
+_23
 
-_24
+_23
 
 // Get latest executed block (soft finality)
 
-_24
+_23
 
 await fcl.send([fcl.getBlock(), fcl.atLatestBlock()]).then(fcl.decode);
 
-_24
+_23
 
-_24
+_23
 
 // Get latest sealed block (hard finality)
 
-_24
+_23
 
 await fcl.send([fcl.getBlock(), fcl.atLatestBlock(true)]).then(fcl.decode);
 
-_24
+_23
 
-_24
+_23
 
 // Get account from latest sealed block
 
-_24
+_23
 
-await fcl
+await fcl.send([
 
-_24
+_23
 
-.send([fcl.getAccount('0x1d007d755706c469'), fcl.atLatestBlock(true)])
+fcl.getAccount("0x1d007d755706c469"),
 
-_24
+_23
 
-.then(fcl.decode);
+fcl.atLatestBlock(true)
 
-_24
+_23
 
-_24
+]).then(fcl.decode);
+
+_23
+
+_23
 
 // Execute script against latest executed block
 
-_24
+_23
 
-await fcl
+await fcl.send([
 
-_24
-
-.send([
-
-_24
+_23
 
 fcl.script`
 
-_24
+_23
 
 access(all) fun main(): UFix64 {
 
-_24
+_23
 
 return getCurrentBlock().height
 
-_24
+_23
 
 }
 
-_24
+_23
 
 `,
 
-_24
+_23
 
-fcl.atLatestBlock(),
+fcl.atLatestBlock()
 
-_24
+_23
 
-])
-
-_24
-
-.then(fcl.decode); ``
+]).then(fcl.decode); ``
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
@@ -187,11 +183,11 @@ export type InteractionBuilderFn = (
 
 _10
 
-ix: Interaction,
+ix: Interaction
 
 _10
 
-) => Interaction | Promise<Interaction>;`
+) => Interaction | Promise<Interaction>`
 
 A function that processes a partial interaction object
 
@@ -199,7 +195,7 @@ A function that processes a partial interaction object
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/atLatestBlock.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Oct 22, 2025** by **Michael Fabozzi**
 
 [Previous
 

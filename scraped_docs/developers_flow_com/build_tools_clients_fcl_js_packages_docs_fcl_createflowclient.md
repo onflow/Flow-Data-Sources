@@ -1,6 +1,6 @@
-# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/subscribeEvents
+# Source: https://developers.flow.com/build/tools/clients/fcl-js/packages-docs/fcl/createFlowClient
 
-subscribeEvents | Flow Developer Portal
+createFlowClient | Flow Developer Portal
 
 
 
@@ -42,19 +42,13 @@ Search
 
                               * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
-* * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* subscribeEvents
+* * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* createFlowClient
 
 On this page
 
-# subscribeEvents
+# createFlowClient
 
-Subscribe to events with the given filter and parameters.
-
-Creates a subscription to listen for real-time events from the Flow blockchain. This function configures
-the subscription parameters for filtering specific events based on type, addresses, contracts, and other criteria.
-
-Events are emitted by Cadence code during transaction execution and provide insights into what happened.
-Subscriptions allow you to listen for these events in real-time without polling.
+Creates a Flow client instance with authentication, transaction, and query capabilities.
 
 ## Import[​](#import "Direct link to Import")
 
@@ -68,141 +62,351 @@ _10
 
 _10
 
-fcl.subscribeEvents(eventFilter)`
+fcl.createFlowClient(params)`
 
 Or import directly the specific function:
 
 `_10
 
-import { subscribeEvents } from "@onflow/fcl"
+import { createFlowClient } from "@onflow/fcl"
 
 _10
 
 _10
 
-subscribeEvents(eventFilter)`
-
-## Usage[​](#usage "Direct link to Usage")
-
-`_23
-
-import * as fcl from "@onflow/fcl";
-
-_23
-
-_23
-
-// Subscribe to FlowToken transfer events
-
-_23
-
-const subscription = await fcl.send([
-
-_23
-
-fcl.subscribeEvents({
-
-_23
-
-eventTypes: [
-
-_23
-
-"A.1654653399040a61.FlowToken.TokensWithdrawn",
-
-_23
-
-"A.1654653399040a61.FlowToken.TokensDeposited"
-
-_23
-
-],
-
-_23
-
-startHeight: 1000000, // Start from specific block height
-
-_23
-
-heartbeatInterval: 3000 // 3 second heartbeat
-
-_23
-
-})
-
-_23
-
-]);
-
-_23
-
-_23
-
-// Subscribe to events from specific contracts
-
-_23
-
-const contractSubscription = await fcl.send([
-
-_23
-
-fcl.subscribeEvents({
-
-_23
-
-contracts: ["FlowToken", "FungibleToken"],
-
-_23
-
-addresses: ["0x1654653399040a61"]
-
-_23
-
-})
-
-_23
-
-]);
-
-_23
-
-_23
-
-// Handle the subscription data elsewhere using fcl.subscribe()`
+createFlowClient(params)`
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
-### `eventFilter`[​](#eventfilter "Direct link to eventfilter")
+### `params`[​](#params "Direct link to params")
 
-* Type: [`EventFilter`](/build/tools/clients/fcl-js/packages-docs/types#eventfilter)
+* Type:
+
+`_21
+
+export interface FlowClientConfig {
+
+_21
+
+accessNodeUrl: string
+
+_21
+
+flowNetwork?: string
+
+_21
+
+flowJson?: any
+
+_21
+
+discoveryWallet?: string
+
+_21
+
+discoveryWalletMethod?: string
+
+_21
+
+discoveryAuthnEndpoint?: string
+
+_21
+
+discoveryAuthnInclude?: string[]
+
+_21
+
+walletconnectProjectId?: string
+
+_21
+
+walletconnectDisableNotifications?: boolean
+
+_21
+
+storage?: StorageProvider
+
+_21
+
+appDetailTitle?: string
+
+_21
+
+appDetailIcon?: string
+
+_21
+
+appDetailDescription?: string
+
+_21
+
+appDetailUrl?: string
+
+_21
+
+serviceOpenIdScopes?: string[]
+
+_21
+
+transport?: SdkTransport
+
+_21
+
+computeLimit?: number
+
+_21
+
+customResolver?: any
+
+_21
+
+customDecoders?: any
+
+_21
+
+}`
+
+* Description: Configuration object for the Flow client
 
 ## Returns[​](#returns "Direct link to Returns")
 
-`_10
+`_56
 
-export type InteractionBuilderFn = (
+{
 
-_10
+_56
 
-ix: Interaction
+send: (args?: false | InteractionBuilderFn | (false | InteractionBuilderFn)[], opts?: any) => Promise<any>;
 
-_10
+_56
 
-) => Interaction | Promise<Interaction>`
+subscribe: <T extends SubscriptionTopic>({
 
-A function that processes an interaction object
+_56
+
+topic, args, onData, onError
+
+_56
+
+}: SubscribeParams<T>, opts?: {
+
+_56
+
+node?: string;
+
+_56
+
+transport?: SdkTransport;
+
+_56
+
+}) => Subscription;
+
+_56
+
+subscribeRaw: <T extends SubscriptionTopic>({
+
+_56
+
+topic, args, onData, onError
+
+_56
+
+}: SubscribeRawParams<T>, opts?: {
+
+_56
+
+node?: string;
+
+_56
+
+transport?: SdkTransport;
+
+_56
+
+}) => {
+
+_56
+
+unsubscribe: () => void;
+
+_56
+
+};
+
+_56
+
+account: (address: string, {
+
+_56
+
+height, id, isSealed
+
+_56
+
+}?: AccountQueryOptions, opts?: object) => Promise<Account>;
+
+_56
+
+block: ({
+
+_56
+
+sealed, id, height
+
+_56
+
+}?: BlockQueryOptions, opts?: object) => Promise<Block>;
+
+_56
+
+resolve: (ix: Interaction) => Promise<Interaction>;
+
+_56
+
+decode: (response: any) => Promise<any>;
+
+_56
+
+currentUser: CurrentUserServiceApi;
+
+_56
+
+mutate: (opts?: MutateOptions) => Promise<string>;
+
+_56
+
+query: (opts?: QueryOptions) => Promise<any>;
+
+_56
+
+queryRaw: (opts?: QueryOptions) => Promise<any>;
+
+_56
+
+verifyUserSignatures: (message: string, compSigs: CompositeSignature[], opts?: VerifySignaturesScriptOptions) => Promise<boolean>;
+
+_56
+
+getChainId: (opts?: GetChainIdOptions) => Promise<string>;
+
+_56
+
+tx: {
+
+_56
+
+(transactionId: string, opts?: {
+
+_56
+
+pollRate?: number;
+
+_56
+
+txNotFoundTimeout?: number;
+
+_56
+
+}): {
+
+_56
+
+snapshot: () => Promise<TransactionStatus>;
+
+_56
+
+subscribe: (onData: (txStatus: TransactionStatus) => void, onError?: (err: Error) => void) => () => void;
+
+_56
+
+onceFinalized: () => Promise<TransactionStatus>;
+
+_56
+
+onceExecuted: () => Promise<TransactionStatus>;
+
+_56
+
+onceSealed: () => Promise<TransactionStatus>;
+
+_56
+
+};
+
+_56
+
+isUnknown: (ix: Interaction) => boolean;
+
+_56
+
+isPending: (tx: TransactionStatus) => boolean;
+
+_56
+
+isFinalized: (tx: TransactionStatus) => boolean;
+
+_56
+
+isExecuted: (tx: TransactionStatus) => boolean;
+
+_56
+
+isSealed: (tx: TransactionStatus) => boolean;
+
+_56
+
+isExpired: (tx: TransactionStatus) => boolean;
+
+_56
+
+};
+
+_56
+
+events: (filterOrType?: string | EventFilter) => {
+
+_56
+
+subscribe: (onData: (event: Event) => void, onError?: (error: Error) => void) => () => void;
+
+_56
+
+};
+
+_56
+
+authenticate: (opts?: AuthenticationOptions) => Promise<CurrentUser>;
+
+_56
+
+unauthenticate: () => void;
+
+_56
+
+signUserMessage: (msg: string) => Promise<CompositeSignature[]>;
+
+_56
+
+serialize: (args: (false | InteractionBuilderFn)[] | Interaction, opts?: SerializeOptions) => Promise<string>;
+
+_56
+
+}`
+
+A Flow client object with many methods for interacting with the Flow blockchain
 
 ---
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/subscribeEvents.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/createFlowClient.md)
 
 Last updated on **Oct 22, 2025** by **Michael Fabozzi**
 
 [Previous
 
-subscribe](/build/tools/clients/fcl-js/packages-docs/fcl/subscribe)[Next
+config](/build/tools/clients/fcl-js/packages-docs/fcl/config)[Next
 
-subscribeRaw](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeRaw)
+createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/fcl/createSignableVoucher)
 
 ###### Rate this page
 
@@ -210,8 +414,8 @@ subscribeRaw](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeRaw)
 
 Copy as Markdown
 
-* [Import](#import)* [Usage](#usage)* [Parameters](#parameters)
-      + [`eventFilter`](#eventfilter)* [Returns](#returns)
+* [Import](#import)* [Parameters](#parameters)
+    + [`params`](#params)* [Returns](#returns)
 
 Flow
 

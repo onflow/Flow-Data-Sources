@@ -58,125 +58,109 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as sdk from '@onflow/sdk';
+import * as sdk from "@onflow/sdk"
 
 _10
 
 _10
 
-sdk.ping();`
+sdk.ping()`
 
 Or import directly the specific function:
 
 `_10
 
-import { ping } from '@onflow/sdk';
+import { ping } from "@onflow/sdk"
 
 _10
 
 _10
 
-ping();`
+ping()`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`_26
+`_22
 
-import * as fcl from '@onflow/fcl';
+import * as fcl from "@onflow/fcl";
 
-_26
+_22
 
-_26
+_22
 
 // Simple ping to test connectivity
 
-_26
+_22
 
 try {
 
-_26
+_22
 
 const response = await fcl.send([fcl.ping()]);
 
-_26
+_22
 
-console.log('Access Node is reachable');
+console.log("Access Node is reachable");
 
-_26
+_22
 
 } catch (error) {
 
-_26
+_22
 
-console.error('Access Node is not reachable:', error);
+console.error("Access Node is not reachable:", error);
 
-_26
+_22
 
 }
 
-_26
+_22
 
-_26
+_22
 
 // Use ping for health checks
 
-_26
+_22
 
 const healthCheck = async () => {
 
-_26
+_22
 
 try {
 
-_26
+_22
 
 await fcl.send([fcl.ping()]);
 
-_26
+_22
 
-return { status: 'healthy', timestamp: new Date().toISOString() };
+return { status: "healthy", timestamp: new Date().toISOString() };
 
-_26
+_22
 
 } catch (error) {
 
-_26
+_22
 
-return {
+return { status: "unhealthy", error: error.message, timestamp: new Date().toISOString() };
 
-_26
-
-status: 'unhealthy',
-
-_26
-
-error: error.message,
-
-_26
-
-timestamp: new Date().toISOString(),
-
-_26
-
-};
-
-_26
+_22
 
 }
 
-_26
+_22
 
 };
 
-_26
+_22
 
-_26
+_22
 
 const health = await healthCheck();
 
-_26
+_22
 
-console.log('Health status:', health);`
+console.log("Health status:", health);`
 
 ## Returns[​](#returns "Direct link to Returns")
 
@@ -186,11 +170,11 @@ export type InteractionBuilderFn = (
 
 _10
 
-ix: Interaction,
+ix: Interaction
 
 _10
 
-) => Interaction | Promise<Interaction>;`
+) => Interaction | Promise<Interaction>`
 
 A function that processes an interaction object
 
@@ -198,7 +182,7 @@ A function that processes an interaction object
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/ping.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Oct 22, 2025** by **Michael Fabozzi**
 
 [Previous
 

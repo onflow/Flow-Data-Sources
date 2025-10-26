@@ -86,4 +86,4 @@ If you encounter any issues or have further questions, please reach out to our s
 
 [PreviousFLOW wallet init token guide](/tutorial/flow-wallet-init-token-guide)[NextMobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 
-Last updated 12 months ago
+Last updated 1 year ago
