@@ -42,40 +42,42 @@ On this page
 
 warning
 
-Scheduled transactions are a new feature that is under development and is a part of [FLIP 330](https://github.com/onflow/flips/pull/331/files). Currently, they only work in the emulator and testnet. The specific implementation is closed to being finished but may change as a part of the development process.
+Scheduled transactions are a new feature that is under development and is a part of [FLIP 330](https://github.com/onflow/flips/pull/331/files). Currently, they only work in the emulator and testnet. We're close to finishing the specific implementation, but it but may change during the development process.
 
-These tutorials will be updated, but you may need to refactor your code if the implementation changes.
+We will update these tutorials, but you may need to refactor your code if the implementation changes.
 
-Flow, EVM, and other blockchains are a form of a **single** shared computer that anyone can use and no one has admin privileges, super user roles, or complete control. For this to work, one of the requirements is that it needs to be impossible for any user to freeze the computer, on purpose or by accident.
+# Overview
 
-As a result, most blockchain computers, including EVM and Solana, are not [Turing Complete](https://en.wikipedia.org/wiki/Turing_completeness), because they can't run an unbounded loop. Each transaction must take place within one block, and cannot consume more gas than the limit.
+Flow, EVM, and other blockchains are a form of a **single** shared computer that anyone can use, with no admin privileges, super user roles, or complete control. For this to work, it must be impossible for any user to freeze the computer, on purpose or by accident.
+
+As a result, most blockchain computers, including EVM and Solana, aren't [Turing Complete](https://en.wikipedia.org/wiki/Turing_completeness), because they can't run an unbounded loop. Each transaction must occur within one block, and can't consume more gas than the limit.
 
 While this limitation prevents infinite loops, it makes it so that you can't do anything 100% onchain if you need it to happen at a later time or after a trigger. As a result, developers must often build products that involve a fair amount of traditional infrastructure and requires users to give those developers a great amount of trust that their backend will execute the promised task.
 
-Flow fixes this problem with **scheduled transactions**. Scheduled Transactions let smart contracts execute code at (or after) a chosen time without an external transaction. You schedule work now; the network executes it later. This enables recurring jobs, deferred actions, and autonomous workflows.
+Flow fixes this problem with *scheduled transactions*. Scheduled Transactions let smart contracts execute code at, or after, a chosen time without an external transaction. You schedule work now and the network executes it later. This allows recurring jobs, deferred actions, and autonomous workflows.
 
 ## Learning Objectives[​](#learning-objectives "Direct link to Learning Objectives")
 
-After completing this tutorial, you will be able to:
+After you complete this tutorial, you will be able to:
 
-* Understand the concept of scheduled transactions and how they solve blockchain limitations
-* Explain the key components of the `FlowTransactionScheduler` system
-* Implement a basic scheduled transaction using the provided scaffold
-* Analyze the structure and flow of scheduled transaction transactions
-* Create custom scheduled transaction contracts and handlers
-* Evaluate the benefits and use cases of scheduled transactions in DeFi applications
+* Understand the concept of scheduled transactions and how they solve blockchain limitations.
+* Explain the key components of the `FlowTransactionScheduler` system.
+* Implement a basic scheduled transaction using the provided scaffold.
+* Analyze the structure and flow of scheduled transaction transactions.
+* Create custom scheduled transaction contracts and handlers.
+* Evaluate the benefits and use cases of scheduled transactions in DeFi applications.
 
 # Prerequisites
 
 ## Cadence Programming Language[​](#cadence-programming-language "Direct link to Cadence Programming Language")
 
-This tutorial assumes you have a modest knowledge of [Cadence](https://cadence-lang.org/docs). If you don't, you'll be able to follow along, but you'll get more out of it if you complete our series of [Cadence](https://cadence-lang.org/docs) tutorials. Most developers find it more pleasant than other blockchain languages and it's not hard to pick up.
+This tutorial assumes you have a modest knowledge of [Cadence](https://cadence-lang.org/docs). If you don't, you can follow along, but you'll get more out of it if you complete our series of [Cadence](https://cadence-lang.org/docs) tutorials. Most developers find it more pleasant than other blockchain languages, and it's not hard to pick up.
 
 ## Getting Started[​](#getting-started "Direct link to Getting Started")
 
-Begin by running `flow init` and select `Scheduled Transactions project`. Open the project.
+To start, run `flow init` and select `Scheduled Transactions project`. Open the project.
 
-The readme has a robust getting started guide. Complete that to set up and run the demo scheduled transaction. It doesn't seem like much at first. The counter was at `0`, you ran a transaction, now it's at `1`. What's the big deal?
+The `readme` file has a robust getting started guide. Complete that to set up and run the demo scheduled transaction. It doesn't seem like much at first. The counter was at `0`, you ran a transaction, now it's at `1`. What's the big deal?
 
 Let's try again to make it clearer what's happening. Open `cadence/transactions/ScheduleIncrementIn.cdc` and look at the arguments for the transaction:
 
@@ -105,10 +107,10 @@ _10
 
 The first parameter is the delay in seconds for the scheduled transaction. Let's try running it again. You'll need to be quick on the keyboard, so feel free to use a higher number of `delaySeconds` if you need to. You're going to:
 
-1. Call the script to view the counter
-2. Call the transaction to schedule the counter to increment after 10 seconds
-3. Call the script to view the counter again and verify that it hasn't changed yet
-4. Wait 10 seconds, call it again, and confirm the counter incremented
+1. Call the script to view the counter.
+2. Call the transaction to schedule the counter to increment after 10 seconds.
+3. Call the script to view the counter again and verify that it hasn't changed yet.
+4. Wait 10 seconds, call it again, and confirm the counter incremented.
 
 For your convenience, the updated transaction call is:
 
@@ -278,7 +280,7 @@ Result: 3`
 
 ### Review of the Existing Contract and Transactions[​](#review-of-the-existing-contract-and-transactions "Direct link to Review of the Existing Contract and Transactions")
 
-If you're not familiar with it, review `cadence/contracts/Counter.cdc`. This is the standard contract created by default when you run `flow init`. It's very simple, with a counter and public functions to increment or decrement it.
+If you're not familiar with `cadence/contracts/Counter.cdc` review it. This is the standard contract created by default when you run `flow init`. It's very simple, with a counter and public functions to increment or decrement it.
 
 ### Transaction Handler[​](#transaction-handler "Direct link to Transaction Handler")
 
@@ -410,13 +412,13 @@ _34
 
 }`
 
-This contract is simple. It contains a [resource](https://cadence-lang.org/docs/language/resources) that has a function with the `FlowTransactionScheduler.Execute` [entitlement](https://cadence-lang.org/docs/language/access-control#entitlements). This function contains the code that will be called by the scheduled transaction. It:
+This contract is simple. It contains a [resource](https://cadence-lang.org/docs/language/resources) that has a function with the `FlowTransactionScheduler.Execute` [entitlement](https://cadence-lang.org/docs/language/access-control#entitlements). This function contains the code that the scheduled transaction calls. It:
 
-1. Calls the `increment` function in the `Counter` contract
-2. Fetches the current value in the counter
-3. Logs that value to the console **for the emulator**
+1. Calls the `increment` function in the `Counter` contract.
+2. Fetches the current value in the counter.
+3. Logs that value to the console **for the emulator**.
 
-It also contains functions to get metadata about the handler and a function, `createHandler`, which creates and returns an instance of the `Handler` resource. There are other metadata views that could be good to include in your Handler, but we are sticking to the basic ones for now.
+It also contains functions to get metadata about the handler and a function, `createHandler`, which creates and returns an instance of the `Handler` resource. There are other metadata views that could be good to include in your Handler, but we're sticking to the basic ones for now.
 
 ### Initializing the Transaction Handler[​](#initializing-the-transaction-handler "Direct link to Initializing the Transaction Handler")
 
@@ -546,9 +548,9 @@ _10
 
 It calls the `schedule` function from the `FlowTransactionSchedulerUtils.Manager` contract. This function has parameters for:
 
-* `handlerCap`: The handler [capability] for the code that should be executed.
+* `handlerCap`: The handler [capability] for the code that should execute.
 
-This was created above as a part of the previous transaction with:
+This was created above during the previous transaction with:
 
 `_10
 
@@ -625,7 +627,7 @@ The transaction call has an argument for `delaySeconds`, which is then converted
 
 let future = getCurrentBlock().timestamp + delaySeconds`
 
-* `priority`: The priority this transaction will be given in the event of network congestion. A higher priority means a higher fee for higher precedence.
+* `priority`: The priority this transaction is given in the event of network congestion. A higher priority means a higher fee for higher precedence.
 
 The `priority` argument is supplied in the transaction as a `UInt8` for convenience, then converted into the appropriate [enum](https://cadence-lang.org/docs/language/enumerations) type:
 
@@ -649,11 +651,11 @@ _10
 
 : FlowTransactionScheduler.Priority.Low`
 
-The `executionEffort` is also supplied as an argument in the transaction. This represents the gas limit for your transaction and is used to prepare the estimate for the gas fees that must be paid for the transaction, and directly in the call to `schedule()` the transaction.
+The `executionEffort` is also supplied as an argument in the transaction. This represents the gas limit for your transaction and used to prepare the estimate for the gas fees that must be paid for the transaction, and directly in the call to `schedule()` the transaction.
 
 * `fees`: A [vault](https://developers.flow.com/build/cadence/guides/fungible-token#vaults-on-flow) containing the appropriate amount of gas fees needed to pay for the execution of the scheduled transaction.
 
-To create the vault, the `estimate()` function is first used to calculate the amount needed:
+To create the vault, the `estimate()` function calculates the amount needed:
 
 `_10
 
@@ -679,7 +681,7 @@ _10
 
 )`
 
-Then, an [authorized reference](https://cadence-lang.org/docs/language/references#authorized-references) to the signer's vault is created and used to `withdraw()` the needed funds and [move](https://cadence-lang.org/docs/language/operators/assign-move-force-swap#move-operator--) them into the `fees` variable which is then sent in the `schedule()` function call.
+Then, an [authorized reference](https://cadence-lang.org/docs/language/references#authorized-references) to the signer's vault is created and used to `withdraw()` the needed funds and [move](https://cadence-lang.org/docs/language/operators/assign-move-force-swap#move-operator--) them into the `fees` variable, which is then sent in the `schedule()` function call.
 
 Finally, we also `assert` that some minimums are met to ensure the transaction will be called:
 
@@ -703,9 +705,9 @@ _10
 
 The `FlowTransactionSchedulerUtils.Manager` resource provides a safer and more convenient way to manage scheduled transactions. Instead of directly calling the `FlowTransactionScheduler` contract,
 you can use the Manager resource that manages all your scheduled transactions from a single place and handles many of the common patterns to reduce boilerplate code.
-It also provides many convenient functions to get detailed information about all the transactions you have scheduled by timestamp, handler, etc.
+It also provides many convenient functions to get detailed information about all the transactions you have scheduled by timestamp, handler, and so on.
 When setting up a manager, you also publish a capability for it so it is easy for scripts
-to query your account and also see what transactions you have scheduled!
+to query your account and also see what transactions are scheduled!
 
 ### Setting Up the Manager[​](#setting-up-the-manager "Direct link to Setting Up the Manager")
 
@@ -807,11 +809,11 @@ _10
 
 The Manager also provides utility methods for:
 
-* Scheduling another transaction with a previously used handler
-* Getting scheduled transaction information in many different ways
-* Canceling scheduled transactions
-* Managing transaction handlers
-* Querying transaction status
+* Scheduling another transaction with a previously used handler.
+* Getting scheduled transaction information in many different ways.
+* Canceling scheduled transactions.
+* Managing transaction handlers.
+* Querying transaction status.
 
 ## Writing a New Scheduled Transaction[​](#writing-a-new-scheduled-transaction "Direct link to Writing a New Scheduled Transaction")
 
@@ -819,7 +821,7 @@ With this knowledge, we can create our own scheduled transaction. For this demo,
 
 ### Creating the Contracts[​](#creating-the-contracts "Direct link to Creating the Contracts")
 
-Start by using the [Flow CLI](https://developers.flow.com/tools/flow-cli) to create a new contract called `RickRoll.cdc` and one called `RickRollTransactionHandler.cdc`:
+To start, use the [Flow CLI](https://developers.flow.com/tools/flow-cli) to create a new contract called `RickRoll.cdc` and one called `RickRollTransactionHandler.cdc`:
 
 `_10
 
@@ -829,7 +831,7 @@ _10
 
 flow generate contract RickRollTransactionHandler`
 
-Open the `RickRoll` contract, and add functions to log a fun message to the emulator console, and a variable to track which message to call:
+Open the `RickRoll` contract and add functions to log a fun message to the emulator console, and a variable to track which message to call:
 
 `_29
 
@@ -935,7 +937,7 @@ _29
 
 }`
 
-Next, open `RickRollTransactionHandler.cdc`. Start by importing the `RickRoll` contract, `FlowToken`, `FungibleToken`, and `FlowTransactionScheduler`, and stubbing out the `Handler` and factory:
+Next, open `RickRollTransactionHandler.cdc`. Import the `RickRoll` contract, `FlowToken`, `FungibleToken`, and `FlowTransactionScheduler`, and stub out the `Handler` and factory:
 
 `_17
 
@@ -1123,7 +1125,7 @@ _31
 
 }`
 
-We could move forward with this, but it would be more fun to have each transaction schedule the follow transaction to share the next message. You can do this by moving most of the code found in the transaction to the handler. Start with configuring the `delay`, `future`, `priority`, and `executionEffort`. We'll hardcode these for simplicity:
+We could move forward with this, but it would be more fun to have each transaction schedule the follow transaction to share the next message. To do this, move most of the code found in the transaction to the handler. Start with configuring the `delay`, `future`, `priority`, and `executionEffort`. We'll hardcode these for simplicity:
 
 `_10
 
@@ -1710,7 +1712,7 @@ _78
 
 ### Deployment and Testing[​](#deployment-and-testing "Direct link to Deployment and Testing")
 
-It's now time to deploy and test the new scheduled transaction!: First, add the new contracts to the emulator account in `flow.json` (other contracts may be present):
+It's now time to deploy and test the new scheduled transaction! First, add the new contracts to the emulator account in `flow.json` (other contracts may be present):
 
 `_10
 
@@ -1750,7 +1752,7 @@ Then, deploy the contracts to the emulator:
 
 flow project deploy --network emulator`
 
-And execute the transaction to initialize the new scheduled transaction handler:
+Next, execute the transaction to initialize the new scheduled transaction handler:
 
 `_10
 
@@ -1760,7 +1762,7 @@ _10
 
 --network emulator --signer emulator-account`
 
-Finally, **get ready to quickly switch to the emulator console** and call the transaction to schedule the transaction!:
+Finally, **get ready to quickly switch to the emulator console** and call the transaction to schedule the transaction:
 
 `_10
 
@@ -1794,7 +1796,7 @@ _10
 
 ]'`
 
-In the logs, you'll see similar to:
+In the logs, you'll see content similar to:
 
 `_26
 
@@ -1908,19 +1910,19 @@ In this tutorial, you learned about scheduled transactions, a powerful feature t
 
 Now that you have completed this tutorial, you should be able to:
 
-* Understand the concept of scheduled transactions and how they solve blockchain limitations
-* Explain the key components of the FlowTransactionScheduler system
-* Understand the benefits of the Transaction Scheduler Manager
-* Implement a basic scheduled transaction using the provided scaffold
-* Analyze the structure and flow of scheduled transaction transactions
-* Create custom scheduled transaction contracts and handlers
-* Evaluate the benefits and use cases of scheduled transactions in DeFi applications
+* Understand the concept of scheduled transactions and how they solve blockchain limitations.
+* Explain the key components of the FlowTransactionScheduler system.
+* Understand the benefits of the Transaction Scheduler Manager.
+* Implement a basic scheduled transaction using the provided scaffold.
+* Analyze the structure and flow of scheduled transaction transactions.
+* Create custom scheduled transaction contracts and handlers.
+* Evaluate the benefits and use cases of scheduled transactions in DeFi applications.
 
 Scheduled transactions open up new possibilities for DeFi applications, enabling recurring jobs, deferred actions, and autonomous workflows that were previously impossible on blockchain. This feature represents a significant step forward in making blockchain more practical for real-world applications that require time-based execution.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/scheduled-transactions/scheduled-transactions-introduction.md)
 
-Last updated on **Oct 9, 2025** by **Brian Doyle**
+Last updated on **Oct 27, 2025** by **Brian Doyle**
 
 [Previous
 

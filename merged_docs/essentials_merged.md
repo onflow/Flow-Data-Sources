@@ -132171,27 +132171,27 @@ Copy as Markdown
 * [Example Request](#example-request)
   + [Request Arguments](#request-arguments)* [Example Response](#example-response)
 
-Documentation
+Flow
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
 
-Community
+Cadence
 
-* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
 
-Start Building
+Solidity (EVM)
 
-* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
 
-Network
+Community & Support
 
-* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
 
-More
+Network & Resources
 
-* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
+Copyright © 2025 Flow Foundation. All Rights Reserved.
 
 
 
@@ -148435,15 +148435,19 @@ On this page
 
 warning
 
-Flow Actions are being reviewed and finalized in [FLIP 339](https://github.com/onflow/flips/pull/339/files). The specific implementation may change as a part of this process.
+We are reviewing and finalizing Flow Actions in [FLIP 339](https://github.com/onflow/flips/pull/339/files). The specific implementation may change as a part of this process.
 
-These tutorials will be updated, but you may need to refactor your code if the implementation changes.
+We will update these tutorials, but you may need to refactor your code if the implementation changes.
 
-**Connectors** are the bridge between external DeFi protocols and the standardized Flow Actions primitive interfaces. They act as **protocol adapters** that translate protocol-specific APIs into the universal language of Flow Actions. Think of them as "drivers" that provide a connection between software and piece of hardware without the software developer needing to know how the hardware expects commands to be delivered, or an MCP enabling an agent to use an API in a standardized manner. Flow Actions act as "money LEGOs" with which you can compose various complex operations with simple transactions. These are the benefits of connectors:
+## Overview[​](#overview "Direct link to Overview")
 
-* Abstraction Layer: Connectors act like a universal translator between your application and various DeFi protocols
-* Standardized Interface: All connectors implement the same core methods, making them interchangeable
-* Protocol Integration: They handle the complex interactions with different DeFi services (swaps, staking, lending, etc.)
+**Connectors** are the bridge between external DeFi protocols and the standardized Flow Actions primitive interfaces. They act as **protocol adapters** that translate protocol-specific APIs into the universal language of Flow Actions. Think of them as "drivers" that provide a connection between software and a piece of hardware without the software developer needing to know how the hardware expects to receive commands, or an MCP allowing an agent to use an API in a standardized manner.
+
+Flow Actions act as "money LEGOs" with which you can compose various complex operations with simple transactions. These are the benefits of connectors:
+
+* Abstraction Layer: Connectors act like a universal translator between your application and various decentralized finance (DeFi) protocols.
+* Standardized Interface: All connectors implement the same core methods, which makes them interchangeable.
+* Protocol Integration: They handle the complex interactions with different DeFi services (swaps, staking, lending, and so on).
 
 ## How Connectors Work[​](#how-connectors-work "Direct link to How Connectors Work")
 
@@ -148569,7 +148573,7 @@ fun flashLoan(amount: UFix64, callback: Function) // Flasher`
 
 ### Composition Pattern[​](#composition-pattern "Direct link to Composition Pattern")
 
-Connectors can be combined to create sophisticated workflows:
+You can combine Connetors to create sophisticated workflows:
 
 `_10
 
@@ -148585,31 +148589,31 @@ ProtocolA.RewardsSource → SwapConnectors.SwapSource → ProtocolB.StakingSink`
 
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Connector Location Protocol Purpose|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | VaultSource [FungibleTokenConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/FungibleTokenConnectors.cdc) Generic FungibleToken Withdraw from vaults with minimum balance protection|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | VaultSinkAndSource [FungibleTokenConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/FungibleTokenConnectors.cdc) Generic FungibleToken Combined vault operations (dual interface)|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | SwapSource [SwapConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/SwapConnectors.cdc) Generic (composes with Swappers) Source tokens then swap before returning|  |  |  |  | | --- | --- | --- | --- | | PoolRewardsSource [IncrementFiStakingConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/increment-fi/IncrementFiStakingConnectors.cdc) IncrementFi Staking Claim staking rewards from pools | | | | | | | | | | | | | | | | | | | |
+| Connector Location Protocol Purpose|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | VaultSource [FungibleTokenConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/FungibleTokenConnectors.cdc) Generic FungibleToken Withdraw from vaults with minimum balance protection.|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | VaultSinkAndSource [FungibleTokenConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/FungibleTokenConnectors.cdc) Generic FungibleToken Combined vault operations (dual interface).|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | SwapSource [SwapConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/SwapConnectors.cdc) Generic (composes with Swappers) Source tokens then swap before returning.|  |  |  |  | | --- | --- | --- | --- | | PoolRewardsSource [IncrementFiStakingConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/increment-fi/IncrementFiStakingConnectors.cdc) IncrementFi Staking Claim staking rewards from pools. | | | | | | | | | | | | | | | | | | | |
 
 ⬇️ SINK Primitive Implementations
 
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Connector Location Protocol Purpose|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | VaultSink [FungibleTokenConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/FungibleTokenConnectors.cdc) Generic FungibleToken Deposit to vaults with capacity limits|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | VaultSinkAndSource [FungibleTokenConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/FungibleTokenConnectors.cdc) Generic FungibleToken Combined vault operations (dual interface)|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | SwapSink [SwapConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/SwapConnectors.cdc) Generic (composes with Swappers) Swap tokens before depositing to inner sink|  |  |  |  | | --- | --- | --- | --- | | PoolSink [IncrementFiStakingConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/increment-fi/IncrementFiStakingConnectors.cdc) IncrementFi Staking Stake tokens in staking pools | | | | | | | | | | | | | | | | | | | |
+| Connector Location Protocol Purpose|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | VaultSink [FungibleTokenConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/FungibleTokenConnectors.cdc) Generic FungibleToken Deposit to vaults with capacity limits.|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | VaultSinkAndSource [FungibleTokenConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/FungibleTokenConnectors.cdc) Generic FungibleToken Combined vault operations (dual interface).|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | SwapSink [SwapConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/SwapConnectors.cdc) Generic (composes with Swappers) Swap tokens before depositing to inner sink.|  |  |  |  | | --- | --- | --- | --- | | PoolSink [IncrementFiStakingConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/increment-fi/IncrementFiStakingConnectors.cdc) IncrementFi Staking Stake tokens in staking pools. | | | | | | | | | | | | | | | | | | | |
 
 🔀 SWAPPER Primitive Implementations
 
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Connector Location Protocol Purpose|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | MultiSwapper [SwapConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/SwapConnectors.cdc) Generic (DEX aggregation) Aggregate multiple swappers for optimal routing|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Swapper [IncrementFiSwapConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/increment-fi/IncrementFiSwapConnectors.cdc) IncrementFi DEX Token swapping through SwapRouter|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | Zapper [IncrementFiPoolLiquidityConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/increment-fi/IncrementFiPoolLiquidityConnectors.cdc) IncrementFi Pools Single-token liquidity provision|  |  |  |  | | --- | --- | --- | --- | | UniswapV2EVMSwapper [UniswapV2SwapConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/evm/UniswapV2SwapConnectors.cdc) Flow EVM Bridge Cross-VM UniswapV2-style swapping | | | | | | | | | | | | | | | | | | | |
+| Connector Location Protocol Purpose|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | MultiSwapper [SwapConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/SwapConnectors.cdc) Generic (DEX aggregation) Aggregate multiple swappers for optimal routing.|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Swapper [IncrementFiSwapConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/increment-fi/IncrementFiSwapConnectors.cdc) IncrementFi DEX Token swapping through SwapRouter.|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | Zapper [IncrementFiPoolLiquidityConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/increment-fi/IncrementFiPoolLiquidityConnectors.cdc) IncrementFi Pools Single-token liquidity provision.|  |  |  |  | | --- | --- | --- | --- | | UniswapV2EVMSwapper [UniswapV2SwapConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/evm/UniswapV2SwapConnectors.cdc) Flow EVM Bridge Cross-VM UniswapV2-style swapping. | | | | | | | | | | | | | | | | | | | |
 
 💰 PRICEORACLE Primitive Implementations
 
 |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Connector Location Protocol Purpose|  |  |  |  | | --- | --- | --- | --- | | PriceOracle [BandOracleConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/band-oracle/BandOracleConnectors.cdc) Band Protocol External price feeds with staleness validation | | | | | | | |
+| Connector Location Protocol Purpose|  |  |  |  | | --- | --- | --- | --- | | PriceOracle [BandOracleConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/band-oracle/BandOracleConnectors.cdc) Band Protocol External price feeds with staleness validation. | | | | | | | |
 
 ⚡ FLASHER Primitive Implementations
 
 |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Connector Location Protocol Purpose|  |  |  |  | | --- | --- | --- | --- | | Flasher [IncrementFiFlashloanConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/increment-fi/IncrementFiFlashloanConnectors.cdc) IncrementFi DEX Flash loans through SwapPair contracts | | | | | | | |
+| Connector Location Protocol Purpose|  |  |  |  | | --- | --- | --- | --- | | Flasher [IncrementFiFlashloanConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/increment-fi/IncrementFiFlashloanConnectors.cdc) IncrementFi DEX Flash loans through SwapPair contracts. | | | | | | | |
 
 ## Guide to Building Connectors[​](#guide-to-building-connectors "Direct link to Guide to Building Connectors")
 
@@ -148619,7 +148623,7 @@ First, determine which Flow Actions primitive(s) your connector will implement:
 
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Primitive When to Use Example Use Cases|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **Source** Your protocol provides tokens Vault withdrawals, reward claiming, unstaking|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **Sink** Your protocol accepts tokens Vault deposits, staking, loan repayments|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **Swapper** Your protocol exchanges tokens DEX trades, cross-chain bridges, LP provision|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | **PriceOracle** Your protocol provides price data Oracle feeds, TWAP calculations|  |  |  | | --- | --- | --- | | **Flasher** Your protocol offers flash loans Arbitrage opportunities, liquidations | | | | | | | | | | | | | | | | | |
+| Primitive When to Use Example Use Cases|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **Source** Your protocol provides tokens Vault withdrawals, reward claiming, unstaking.|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **Sink** Your protocol accepts tokens Vault deposits, staking, loan repayments.|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **Swapper** Your protocol exchanges tokens DEX trades, cross-chain bridges, LP provision.|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | **PriceOracle** Your protocol provides price data Oracle feeds, TWAP calculations.|  |  |  | | --- | --- | --- | | **Flasher** Your protocol offers flash loans Arbitrage opportunities, liquidations. | | | | | | | | | | | | | | | | | |
 
 ### Analyze Your Protocol[​](#analyze-your-protocol "Direct link to Analyze Your Protocol")
 
@@ -148667,9 +148671,9 @@ Add required Flow Actions support:
 
 ### **Error Handling**[​](#error-handling "Direct link to error-handling")
 
-* **Graceful Failures**: Return empty results instead of panicking
-* **Validation**: Check all inputs and preconditions
-* **Resource Safety**: Properly handle vault resources in all paths
+* **Graceful Failures**: Return empty results instead of panicking.
+* **Validation**: Check all inputs and preconditions.
+* **Resource Safety**: Properly handle vault resources in all paths.
 
 `_13
 
@@ -148723,9 +148727,9 @@ _13
 
 ### **Capacity and Balance Checking**[​](#capacity-and-balance-checking "Direct link to capacity-and-balance-checking")
 
-* **Always Check First**: Validate capacity/availability before operations
-* **Respect Limits**: Work within available constraints
-* **Handle Edge Cases**: Zero amounts, maximum values, empty vaults
+* **Always Check First**: Validate capacity/availability before operations.
+* **Respect Limits**: Work within available constraints.
+* **Handle Edge Cases**: Zero amounts, maximum values, empty vaults.
 
 `_14
 
@@ -148779,9 +148783,9 @@ _14
 
 ### **Type Safety**[​](#type-safety "Direct link to type-safety")
 
-* **Validate Types**: Ensure vault types match expected types
-* **Early Returns**: Fail fast on type mismatches
-* **Clear Error Messages**: Help developers understand issues
+* **Validate Types**: Ensure vault types match expected types.
+* **Early Returns**: Fail fast on type mismatches.
+* **Clear Error Messages**: Help developers understand issues.
 
 `_10
 
@@ -148815,31 +148819,31 @@ _10
 
 ### **Event Integration**[​](#event-integration "Direct link to event-integration")
 
-* **Leverage Post-conditions**: Flow Actions interfaces emit events automatically
-* **Provide Context**: Include relevant information in events
-* **Support Traceability**: Use UniqueIdentifiers consistently
+* **Leverage Post-conditions**: Flow Actions interfaces emit events automatically.
+* **Provide Context**: Include relevant information in events.
+* **Support Traceability**: Use UniqueIdentifiers consistently.
 
 ### **Resource Management**[​](#resource-management "Direct link to resource-management")
 
-* **Handle Empty Vaults**: Use `DeFiActionsUtils.getEmptyVault()` for consistent empty vault creation
-* **Destroy Properly**: Clean up resources in all code paths
-* **Avoid Resource Leaks**: Ensure all vaults are handled appropriately
+* **Handle Empty Vaults**: Use `DeFiActionsUtils.getEmptyVault()` for consistent empty vault creation.
+* **Destroy Properly**: Clean up resources in all code paths.
+* **Avoid Resource Leaks**: Ensure all vaults are handled appropriately.
 
 ### **Capability Management**[​](#capability-management "Direct link to capability-management")
 
-* **Validate Capabilities**: Check capabilities before using them
-* **Handle Revocation**: Gracefully handle revoked capabilities
-* **Proper Entitlements**: Use correct entitlement levels (auth vs unauth)
+* **Validate Capabilities**: Check capabilities before using them.
+* **Handle Revocation**: Gracefully handle revoked capabilities.
+* **Proper Entitlements**: Use correct entitlement levels (auth vs unauth).
 
 ### **Documentation**[​](#documentation "Direct link to documentation")
 
-* **Clear Comments**: Explain protocol-specific logic
-* **Usage Examples**: Show how to use your connectors
-* **Integration Patterns**: Demonstrate composition with other connectors
+* **Clear Comments**: Explain protocol-specific logic.
+* **Usage Examples**: Show how to use your connectors.
+* **Integration Patterns**: Demonstrate composition with other connectors.
 
 ## Integration into Flow Actions[​](#integration-into-flow-actions "Direct link to Integration into Flow Actions")
 
-We will now go over the process of building a connector and integrating it with Flow Actions. Specifically, we will showcase the process of using the **VaultSink** connector in the [FungibleTokenConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/FungibleTokenConnectors.cdc). It only performs basic token deposits to a vault with capacity limits, implements the Sink interface, has minimal external dependencies (only FungibleToken standard), and requires simple configuration (max balance, deposit vault capability,and unique ID).
+We will now go over how to build a connector and integrate it with Flow Actions. Specifically, we will showcase the process of using the **VaultSink** connector in the [FungibleTokenConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/FungibleTokenConnectors.cdc). It only performs basic token deposits to a vault with capacity limits, implements the Sink interface, has minimal external dependencies (only FungibleToken standard), and requires simple configuration (max balance, deposit vault capability,and unique ID).
 
 The `VaultSink` connector is already deployed and working in Flow Actions. Let's examine how it's integrated:
 
@@ -149301,7 +149305,7 @@ _30
 
 ### Add to Existing Workflows[​](#add-to-existing-workflows "Direct link to Add to Existing Workflows")
 
-The VaultSink can be used in advanced Flow Actions workflows:
+You can use VaultSink in advanced Flow Actions workflows:
 
 `_51
 
@@ -149497,28 +149501,28 @@ _51
 
 When building your own connectors, follow the VaultSink pattern:
 
-1. **Keep constructors simple** - minimal required parameters
-2. **Validate inputs** - check capabilities and preconditions
-3. **Handle errors gracefully** - no-ops instead of panics
-4. **Support Flow Actions standards** - UniqueIdentifier, ComponentInfo
-5. **Test thoroughly** - create usage transactions like the ones shown
-6. **Document clearly** - show real integration examples
+1. **Keep constructors simple** - minimal required parameters.
+2. **Validate inputs** - check capabilities and preconditions.
+3. **Handle errors gracefully** - no-ops instead of panics.
+4. **Support Flow Actions standards** - UniqueIdentifier, ComponentInfo.
+5. **Test thoroughly** - create usage transactions like the ones shown.
+6. **Document clearly** - show real integration examples.
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-The Flow Actions framework provides a comprehensive set of connectors that successfully implement the 5 fundamental DeFi primitives across multiple protocols:
+The Flow Actions framework provides a comprehensive set of connectors that successfully implement the five fundamental DeFi primitives across multiple protocols:
 
-* **20+ Connector Implementations** spanning basic vault operations to complex cross-VM swapping
-* **4 Protocol Integrations**: Generic FungibleToken, IncrementFi, Band Oracle, Flow EVM
-* **Composable Architecture**: Connectors can be combined to create sophisticated financial workflows
-* **Safety-First Design**: Graceful error handling and resource safety throughout
-* **Event-Driven Traceability**: Full workflow tracking and debugging capabilities
+* **20+ Connector Implementations** spanning basic vault operations to complex cross-VM swapping.
+* **4 Protocol Integrations**: Generic FungibleToken, IncrementFi, Band Oracle, Flow EVM.
+* **Composable Architecture**: Combine Connectors to create sophisticated financial workflows.
+* **Safety-First Design**: Graceful error handling and resource safety throughout.
+* **Event-Driven Traceability**: Full workflow tracking and debugging capabilities.
 
-This framework enables developers to build sophisticated DeFi strategies while maintaining the simplicity and reliability of standardized primitive interfaces. The modular design allows for easy extension to additional protocols while preserving composability and atomic execution guarantees.
+This framework allows developers to build sophisticated DeFi strategies while maintaining the simplicity and reliability of standardized primitive interfaces. The modular design allows for easy extension to additional protocols while preserving composability and atomic execution guarantees.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/flow-actions/connectors.md)
 
-Last updated on **Sep 24, 2025** by **Brian Doyle**
+Last updated on **Oct 27, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -149532,11 +149536,11 @@ Basic Combinations](/blockchain-development-tutorials/forte/flow-actions/basic-c
 
 Copy as Markdown
 
-* [How Connectors Work](#how-connectors-work)
-  + [Abstraction Layer](#abstraction-layer)+ [Interface Implementation](#interface-implementation)+ [Composition Pattern](#composition-pattern)* [Connector Library](#connector-library)* [Guide to Building Connectors](#guide-to-building-connectors)
-      + [Choose Your Primitive](#choose-your-primitive)+ [Analyze Your Protocol](#analyze-your-protocol)+ [Design Your Connector](#design-your-connector)+ [Implement the Interface](#implement-the-interface)+ [Add Safety Features](#add-safety-features)+ [Support Flow Actions Standards](#support-flow-actions-standards)* [Best Practices](#best-practices)
-        + [**Error Handling**](#error-handling)+ [**Capacity and Balance Checking**](#capacity-and-balance-checking)+ [**Type Safety**](#type-safety)+ [**Event Integration**](#event-integration)+ [**Resource Management**](#resource-management)+ [**Capability Management**](#capability-management)+ [**Documentation**](#documentation)* [Integration into Flow Actions](#integration-into-flow-actions)
-          + [Deploy Your Connector Contract](#deploy-your-connector-contract)+ [Create Usage Transactions](#create-usage-transactions)+ [Real Usage Transaction: VaultSink](#real-usage-transaction-vaultsink)+ [Create Combinations Examples](#create-combinations-examples)+ [Add to Existing Workflows](#add-to-existing-workflows)+ [For Your Own Connectors](#for-your-own-connectors)* [Conclusion](#conclusion)
+* [Overview](#overview)* [How Connectors Work](#how-connectors-work)
+    + [Abstraction Layer](#abstraction-layer)+ [Interface Implementation](#interface-implementation)+ [Composition Pattern](#composition-pattern)* [Connector Library](#connector-library)* [Guide to Building Connectors](#guide-to-building-connectors)
+        + [Choose Your Primitive](#choose-your-primitive)+ [Analyze Your Protocol](#analyze-your-protocol)+ [Design Your Connector](#design-your-connector)+ [Implement the Interface](#implement-the-interface)+ [Add Safety Features](#add-safety-features)+ [Support Flow Actions Standards](#support-flow-actions-standards)* [Best Practices](#best-practices)
+          + [**Error Handling**](#error-handling)+ [**Capacity and Balance Checking**](#capacity-and-balance-checking)+ [**Type Safety**](#type-safety)+ [**Event Integration**](#event-integration)+ [**Resource Management**](#resource-management)+ [**Capability Management**](#capability-management)+ [**Documentation**](#documentation)* [Integration into Flow Actions](#integration-into-flow-actions)
+            + [Deploy Your Connector Contract](#deploy-your-connector-contract)+ [Create Usage Transactions](#create-usage-transactions)+ [Real Usage Transaction: VaultSink](#real-usage-transaction-vaultsink)+ [Create Combinations Examples](#create-combinations-examples)+ [Add to Existing Workflows](#add-to-existing-workflows)+ [For Your Own Connectors](#for-your-own-connectors)* [Conclusion](#conclusion)
 
 Flow
 
@@ -294017,40 +294021,42 @@ On this page
 
 warning
 
-Scheduled transactions are a new feature that is under development and is a part of [FLIP 330](https://github.com/onflow/flips/pull/331/files). Currently, they only work in the emulator and testnet. The specific implementation is closed to being finished but may change as a part of the development process.
+Scheduled transactions are a new feature that is under development and is a part of [FLIP 330](https://github.com/onflow/flips/pull/331/files). Currently, they only work in the emulator and testnet. We're close to finishing the specific implementation, but it but may change during the development process.
 
-These tutorials will be updated, but you may need to refactor your code if the implementation changes.
+We will update these tutorials, but you may need to refactor your code if the implementation changes.
 
-Flow, EVM, and other blockchains are a form of a **single** shared computer that anyone can use and no one has admin privileges, super user roles, or complete control. For this to work, one of the requirements is that it needs to be impossible for any user to freeze the computer, on purpose or by accident.
+# Overview
 
-As a result, most blockchain computers, including EVM and Solana, are not [Turing Complete](https://en.wikipedia.org/wiki/Turing_completeness), because they can't run an unbounded loop. Each transaction must take place within one block, and cannot consume more gas than the limit.
+Flow, EVM, and other blockchains are a form of a **single** shared computer that anyone can use, with no admin privileges, super user roles, or complete control. For this to work, it must be impossible for any user to freeze the computer, on purpose or by accident.
+
+As a result, most blockchain computers, including EVM and Solana, aren't [Turing Complete](https://en.wikipedia.org/wiki/Turing_completeness), because they can't run an unbounded loop. Each transaction must occur within one block, and can't consume more gas than the limit.
 
 While this limitation prevents infinite loops, it makes it so that you can't do anything 100% onchain if you need it to happen at a later time or after a trigger. As a result, developers must often build products that involve a fair amount of traditional infrastructure and requires users to give those developers a great amount of trust that their backend will execute the promised task.
 
-Flow fixes this problem with **scheduled transactions**. Scheduled Transactions let smart contracts execute code at (or after) a chosen time without an external transaction. You schedule work now; the network executes it later. This enables recurring jobs, deferred actions, and autonomous workflows.
+Flow fixes this problem with *scheduled transactions*. Scheduled Transactions let smart contracts execute code at, or after, a chosen time without an external transaction. You schedule work now and the network executes it later. This allows recurring jobs, deferred actions, and autonomous workflows.
 
 ## Learning Objectives[​](#learning-objectives "Direct link to Learning Objectives")
 
-After completing this tutorial, you will be able to:
+After you complete this tutorial, you will be able to:
 
-* Understand the concept of scheduled transactions and how they solve blockchain limitations
-* Explain the key components of the `FlowTransactionScheduler` system
-* Implement a basic scheduled transaction using the provided scaffold
-* Analyze the structure and flow of scheduled transaction transactions
-* Create custom scheduled transaction contracts and handlers
-* Evaluate the benefits and use cases of scheduled transactions in DeFi applications
+* Understand the concept of scheduled transactions and how they solve blockchain limitations.
+* Explain the key components of the `FlowTransactionScheduler` system.
+* Implement a basic scheduled transaction using the provided scaffold.
+* Analyze the structure and flow of scheduled transaction transactions.
+* Create custom scheduled transaction contracts and handlers.
+* Evaluate the benefits and use cases of scheduled transactions in DeFi applications.
 
 # Prerequisites
 
 ## Cadence Programming Language[​](#cadence-programming-language "Direct link to Cadence Programming Language")
 
-This tutorial assumes you have a modest knowledge of [Cadence](https://cadence-lang.org/docs). If you don't, you'll be able to follow along, but you'll get more out of it if you complete our series of [Cadence](https://cadence-lang.org/docs) tutorials. Most developers find it more pleasant than other blockchain languages and it's not hard to pick up.
+This tutorial assumes you have a modest knowledge of [Cadence](https://cadence-lang.org/docs). If you don't, you can follow along, but you'll get more out of it if you complete our series of [Cadence](https://cadence-lang.org/docs) tutorials. Most developers find it more pleasant than other blockchain languages, and it's not hard to pick up.
 
 ## Getting Started[​](#getting-started "Direct link to Getting Started")
 
-Begin by running `flow init` and select `Scheduled Transactions project`. Open the project.
+To start, run `flow init` and select `Scheduled Transactions project`. Open the project.
 
-The readme has a robust getting started guide. Complete that to set up and run the demo scheduled transaction. It doesn't seem like much at first. The counter was at `0`, you ran a transaction, now it's at `1`. What's the big deal?
+The `readme` file has a robust getting started guide. Complete that to set up and run the demo scheduled transaction. It doesn't seem like much at first. The counter was at `0`, you ran a transaction, now it's at `1`. What's the big deal?
 
 Let's try again to make it clearer what's happening. Open `cadence/transactions/ScheduleIncrementIn.cdc` and look at the arguments for the transaction:
 
@@ -294080,10 +294086,10 @@ _10
 
 The first parameter is the delay in seconds for the scheduled transaction. Let's try running it again. You'll need to be quick on the keyboard, so feel free to use a higher number of `delaySeconds` if you need to. You're going to:
 
-1. Call the script to view the counter
-2. Call the transaction to schedule the counter to increment after 10 seconds
-3. Call the script to view the counter again and verify that it hasn't changed yet
-4. Wait 10 seconds, call it again, and confirm the counter incremented
+1. Call the script to view the counter.
+2. Call the transaction to schedule the counter to increment after 10 seconds.
+3. Call the script to view the counter again and verify that it hasn't changed yet.
+4. Wait 10 seconds, call it again, and confirm the counter incremented.
 
 For your convenience, the updated transaction call is:
 
@@ -294253,7 +294259,7 @@ Result: 3`
 
 ### Review of the Existing Contract and Transactions[​](#review-of-the-existing-contract-and-transactions "Direct link to Review of the Existing Contract and Transactions")
 
-If you're not familiar with it, review `cadence/contracts/Counter.cdc`. This is the standard contract created by default when you run `flow init`. It's very simple, with a counter and public functions to increment or decrement it.
+If you're not familiar with `cadence/contracts/Counter.cdc` review it. This is the standard contract created by default when you run `flow init`. It's very simple, with a counter and public functions to increment or decrement it.
 
 ### Transaction Handler[​](#transaction-handler "Direct link to Transaction Handler")
 
@@ -294385,13 +294391,13 @@ _34
 
 }`
 
-This contract is simple. It contains a [resource](https://cadence-lang.org/docs/language/resources) that has a function with the `FlowTransactionScheduler.Execute` [entitlement](https://cadence-lang.org/docs/language/access-control#entitlements). This function contains the code that will be called by the scheduled transaction. It:
+This contract is simple. It contains a [resource](https://cadence-lang.org/docs/language/resources) that has a function with the `FlowTransactionScheduler.Execute` [entitlement](https://cadence-lang.org/docs/language/access-control#entitlements). This function contains the code that the scheduled transaction calls. It:
 
-1. Calls the `increment` function in the `Counter` contract
-2. Fetches the current value in the counter
-3. Logs that value to the console **for the emulator**
+1. Calls the `increment` function in the `Counter` contract.
+2. Fetches the current value in the counter.
+3. Logs that value to the console **for the emulator**.
 
-It also contains functions to get metadata about the handler and a function, `createHandler`, which creates and returns an instance of the `Handler` resource. There are other metadata views that could be good to include in your Handler, but we are sticking to the basic ones for now.
+It also contains functions to get metadata about the handler and a function, `createHandler`, which creates and returns an instance of the `Handler` resource. There are other metadata views that could be good to include in your Handler, but we're sticking to the basic ones for now.
 
 ### Initializing the Transaction Handler[​](#initializing-the-transaction-handler "Direct link to Initializing the Transaction Handler")
 
@@ -294521,9 +294527,9 @@ _10
 
 It calls the `schedule` function from the `FlowTransactionSchedulerUtils.Manager` contract. This function has parameters for:
 
-* `handlerCap`: The handler [capability] for the code that should be executed.
+* `handlerCap`: The handler [capability] for the code that should execute.
 
-This was created above as a part of the previous transaction with:
+This was created above during the previous transaction with:
 
 `_10
 
@@ -294600,7 +294606,7 @@ The transaction call has an argument for `delaySeconds`, which is then converted
 
 let future = getCurrentBlock().timestamp + delaySeconds`
 
-* `priority`: The priority this transaction will be given in the event of network congestion. A higher priority means a higher fee for higher precedence.
+* `priority`: The priority this transaction is given in the event of network congestion. A higher priority means a higher fee for higher precedence.
 
 The `priority` argument is supplied in the transaction as a `UInt8` for convenience, then converted into the appropriate [enum](https://cadence-lang.org/docs/language/enumerations) type:
 
@@ -294624,11 +294630,11 @@ _10
 
 : FlowTransactionScheduler.Priority.Low`
 
-The `executionEffort` is also supplied as an argument in the transaction. This represents the gas limit for your transaction and is used to prepare the estimate for the gas fees that must be paid for the transaction, and directly in the call to `schedule()` the transaction.
+The `executionEffort` is also supplied as an argument in the transaction. This represents the gas limit for your transaction and used to prepare the estimate for the gas fees that must be paid for the transaction, and directly in the call to `schedule()` the transaction.
 
 * `fees`: A [vault](https://developers.flow.com/build/cadence/guides/fungible-token#vaults-on-flow) containing the appropriate amount of gas fees needed to pay for the execution of the scheduled transaction.
 
-To create the vault, the `estimate()` function is first used to calculate the amount needed:
+To create the vault, the `estimate()` function calculates the amount needed:
 
 `_10
 
@@ -294654,7 +294660,7 @@ _10
 
 )`
 
-Then, an [authorized reference](https://cadence-lang.org/docs/language/references#authorized-references) to the signer's vault is created and used to `withdraw()` the needed funds and [move](https://cadence-lang.org/docs/language/operators/assign-move-force-swap#move-operator--) them into the `fees` variable which is then sent in the `schedule()` function call.
+Then, an [authorized reference](https://cadence-lang.org/docs/language/references#authorized-references) to the signer's vault is created and used to `withdraw()` the needed funds and [move](https://cadence-lang.org/docs/language/operators/assign-move-force-swap#move-operator--) them into the `fees` variable, which is then sent in the `schedule()` function call.
 
 Finally, we also `assert` that some minimums are met to ensure the transaction will be called:
 
@@ -294678,9 +294684,9 @@ _10
 
 The `FlowTransactionSchedulerUtils.Manager` resource provides a safer and more convenient way to manage scheduled transactions. Instead of directly calling the `FlowTransactionScheduler` contract,
 you can use the Manager resource that manages all your scheduled transactions from a single place and handles many of the common patterns to reduce boilerplate code.
-It also provides many convenient functions to get detailed information about all the transactions you have scheduled by timestamp, handler, etc.
+It also provides many convenient functions to get detailed information about all the transactions you have scheduled by timestamp, handler, and so on.
 When setting up a manager, you also publish a capability for it so it is easy for scripts
-to query your account and also see what transactions you have scheduled!
+to query your account and also see what transactions are scheduled!
 
 ### Setting Up the Manager[​](#setting-up-the-manager "Direct link to Setting Up the Manager")
 
@@ -294782,11 +294788,11 @@ _10
 
 The Manager also provides utility methods for:
 
-* Scheduling another transaction with a previously used handler
-* Getting scheduled transaction information in many different ways
-* Canceling scheduled transactions
-* Managing transaction handlers
-* Querying transaction status
+* Scheduling another transaction with a previously used handler.
+* Getting scheduled transaction information in many different ways.
+* Canceling scheduled transactions.
+* Managing transaction handlers.
+* Querying transaction status.
 
 ## Writing a New Scheduled Transaction[​](#writing-a-new-scheduled-transaction "Direct link to Writing a New Scheduled Transaction")
 
@@ -294794,7 +294800,7 @@ With this knowledge, we can create our own scheduled transaction. For this demo,
 
 ### Creating the Contracts[​](#creating-the-contracts "Direct link to Creating the Contracts")
 
-Start by using the [Flow CLI](https://developers.flow.com/tools/flow-cli) to create a new contract called `RickRoll.cdc` and one called `RickRollTransactionHandler.cdc`:
+To start, use the [Flow CLI](https://developers.flow.com/tools/flow-cli) to create a new contract called `RickRoll.cdc` and one called `RickRollTransactionHandler.cdc`:
 
 `_10
 
@@ -294804,7 +294810,7 @@ _10
 
 flow generate contract RickRollTransactionHandler`
 
-Open the `RickRoll` contract, and add functions to log a fun message to the emulator console, and a variable to track which message to call:
+Open the `RickRoll` contract and add functions to log a fun message to the emulator console, and a variable to track which message to call:
 
 `_29
 
@@ -294910,7 +294916,7 @@ _29
 
 }`
 
-Next, open `RickRollTransactionHandler.cdc`. Start by importing the `RickRoll` contract, `FlowToken`, `FungibleToken`, and `FlowTransactionScheduler`, and stubbing out the `Handler` and factory:
+Next, open `RickRollTransactionHandler.cdc`. Import the `RickRoll` contract, `FlowToken`, `FungibleToken`, and `FlowTransactionScheduler`, and stub out the `Handler` and factory:
 
 `_17
 
@@ -295098,7 +295104,7 @@ _31
 
 }`
 
-We could move forward with this, but it would be more fun to have each transaction schedule the follow transaction to share the next message. You can do this by moving most of the code found in the transaction to the handler. Start with configuring the `delay`, `future`, `priority`, and `executionEffort`. We'll hardcode these for simplicity:
+We could move forward with this, but it would be more fun to have each transaction schedule the follow transaction to share the next message. To do this, move most of the code found in the transaction to the handler. Start with configuring the `delay`, `future`, `priority`, and `executionEffort`. We'll hardcode these for simplicity:
 
 `_10
 
@@ -295685,7 +295691,7 @@ _78
 
 ### Deployment and Testing[​](#deployment-and-testing "Direct link to Deployment and Testing")
 
-It's now time to deploy and test the new scheduled transaction!: First, add the new contracts to the emulator account in `flow.json` (other contracts may be present):
+It's now time to deploy and test the new scheduled transaction! First, add the new contracts to the emulator account in `flow.json` (other contracts may be present):
 
 `_10
 
@@ -295725,7 +295731,7 @@ Then, deploy the contracts to the emulator:
 
 flow project deploy --network emulator`
 
-And execute the transaction to initialize the new scheduled transaction handler:
+Next, execute the transaction to initialize the new scheduled transaction handler:
 
 `_10
 
@@ -295735,7 +295741,7 @@ _10
 
 --network emulator --signer emulator-account`
 
-Finally, **get ready to quickly switch to the emulator console** and call the transaction to schedule the transaction!:
+Finally, **get ready to quickly switch to the emulator console** and call the transaction to schedule the transaction:
 
 `_10
 
@@ -295769,7 +295775,7 @@ _10
 
 ]'`
 
-In the logs, you'll see similar to:
+In the logs, you'll see content similar to:
 
 `_26
 
@@ -295883,19 +295889,19 @@ In this tutorial, you learned about scheduled transactions, a powerful feature t
 
 Now that you have completed this tutorial, you should be able to:
 
-* Understand the concept of scheduled transactions and how they solve blockchain limitations
-* Explain the key components of the FlowTransactionScheduler system
-* Understand the benefits of the Transaction Scheduler Manager
-* Implement a basic scheduled transaction using the provided scaffold
-* Analyze the structure and flow of scheduled transaction transactions
-* Create custom scheduled transaction contracts and handlers
-* Evaluate the benefits and use cases of scheduled transactions in DeFi applications
+* Understand the concept of scheduled transactions and how they solve blockchain limitations.
+* Explain the key components of the FlowTransactionScheduler system.
+* Understand the benefits of the Transaction Scheduler Manager.
+* Implement a basic scheduled transaction using the provided scaffold.
+* Analyze the structure and flow of scheduled transaction transactions.
+* Create custom scheduled transaction contracts and handlers.
+* Evaluate the benefits and use cases of scheduled transactions in DeFi applications.
 
 Scheduled transactions open up new possibilities for DeFi applications, enabling recurring jobs, deferred actions, and autonomous workflows that were previously impossible on blockchain. This feature represents a significant step forward in making blockchain more practical for real-world applications that require time-based execution.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/scheduled-transactions/scheduled-transactions-introduction.md)
 
-Last updated on **Oct 9, 2025** by **Brian Doyle**
+Last updated on **Oct 27, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -328497,7 +328503,7 @@ Many of these hooks are built using [`@tanstack/react-query`](https://tanstack.c
 
 import { useFlowCurrentUser } from "@onflow/react-sdk"`
 
-### Parameters[​](#parameters "Direct link to Parameters")
+#### Parameters[​](#parameters "Direct link to Parameters")
 
 * `flowClient?: FlowClient` - Optional `FlowClient` instance
 
@@ -329595,6 +329601,1007 @@ _10
 
 ---
 
+### `useFlowNftMetadata`[​](#useflownftmetadata "Direct link to useflownftmetadata")
+
+[Open in Playground →](https://react.flow.com/#useflownftmetadata)
+
+`_10
+
+import { useFlowNftMetadata } from "@onflow/react-sdk"`
+
+This hook fetches NFT metadata including display information, traits, rarity, and collection details.
+
+#### Parameters:[​](#parameters-12 "Direct link to Parameters:")
+
+* `accountAddress?: string` – Flow address of the account holding the NFT
+* `tokenId?: string | number` – The NFT token ID
+* `publicPathIdentifier?: string` – Public path identifier for the collection
+* `query?: UseQueryOptions<unknown, Error>` – Optional TanStack Query options
+* `flowClient?: FlowClient` - Optional `FlowClient` instance
+
+#### Returns: `UseQueryResult<NftViewResult | null, Error>`[​](#returns-usequeryresultnftviewresult--null-error "Direct link to returns-usequeryresultnftviewresult--null-error")
+
+Where `NftViewResult` is defined as:
+
+`_12
+
+interface NftViewResult {
+
+_12
+
+name: string
+
+_12
+
+description: string
+
+_12
+
+thumbnailUrl: string
+
+_12
+
+externalUrl?: string
+
+_12
+
+collectionName?: string
+
+_12
+
+collectionExternalUrl?: string
+
+_12
+
+tokenID: string
+
+_12
+
+traits?: Record<string, string>
+
+_12
+
+rarity?: string
+
+_12
+
+serialNumber?: string
+
+_12
+
+}`
+
+`_32
+
+function NftMetadataExample() {
+
+_32
+
+const { data: nft, isLoading, error } = useFlowNftMetadata({
+
+_32
+
+accountAddress: "0x1cf0e2f2f715450",
+
+_32
+
+tokenId: "123",
+
+_32
+
+publicPathIdentifier: "exampleNFTCollection",
+
+_32
+
+query: { staleTime: 60000 },
+
+_32
+
+})
+
+_32
+
+_32
+
+if (isLoading) return <p>Loading NFT metadata...</p>
+
+_32
+
+if (error) return <p>Error: {error.message}</p>
+
+_32
+
+if (!nft) return <p>NFT not found</p>
+
+_32
+
+_32
+
+return (
+
+_32
+
+<div>
+
+_32
+
+<h2>{nft.name}</h2>
+
+_32
+
+<img src={nft.thumbnailUrl} alt={nft.name} />
+
+_32
+
+<p>{nft.description}</p>
+
+_32
+
+{nft.collectionName && <p>Collection: {nft.collectionName}</p>}
+
+_32
+
+{nft.rarity && <p>Rarity: {nft.rarity}</p>}
+
+_32
+
+{nft.traits && (
+
+_32
+
+<div>
+
+_32
+
+<h3>Traits:</h3>
+
+_32
+
+<ul>
+
+_32
+
+{Object.entries(nft.traits).map(([key, value]) => (
+
+_32
+
+<li key={key}>{key}: {value}</li>
+
+_32
+
+))}
+
+_32
+
+</ul>
+
+_32
+
+</div>
+
+_32
+
+)}
+
+_32
+
+</div>
+
+_32
+
+)
+
+_32
+
+}`
+
+---
+
+### `useFlowAuthz`[​](#useflowauthz "Direct link to useflowauthz")
+
+`_10
+
+import { useFlowAuthz } from "@onflow/react-sdk"`
+
+A React hook that returns an authorization function for Flow transactions. If no custom authorization is provided, it returns the current user's wallet authorization.
+
+#### Parameters:[​](#parameters-13 "Direct link to Parameters:")
+
+* `authz?: AuthorizationFunction` – Optional custom authorization function
+* `flowClient?: FlowClient` - Optional `FlowClient` instance
+
+Where `AuthorizationFunction` is defined as:
+
+`_10
+
+type AuthorizationFunction = (
+
+_10
+
+account: Partial<InteractionAccount>
+
+_10
+
+) => Partial<InteractionAccount> | Promise<Partial<InteractionAccount>>`
+
+#### Returns: `AuthorizationFunction`[​](#returns-authorizationfunction "Direct link to returns-authorizationfunction")
+
+The authorization function is compatible with Flow transactions' authorizations parameter.
+
+`` _21
+
+// Example 1: Using current user authorization
+
+_21
+
+function CurrentUserAuthExample() {
+
+_21
+
+const authorization = useFlowAuthz()
+
+_21
+
+_21
+
+const sendTransaction = async () => {
+
+_21
+
+const txId = await fcl.mutate({
+
+_21
+
+cadence: `
+
+_21
+
+transaction {
+
+_21
+
+prepare(signer: auth(Storage) &Account) {
+
+_21
+
+log(signer.address)
+
+_21
+
+}
+
+_21
+
+}
+
+_21
+
+`,
+
+_21
+
+authorizations: [authorization],
+
+_21
+
+limit: 100,
+
+_21
+
+})
+
+_21
+
+console.log("Transaction ID:", txId)
+
+_21
+
+}
+
+_21
+
+_21
+
+return <button onClick={sendTransaction}>Send Transaction</button>
+
+_21
+
+} ``
+
+`` _30
+
+// Example 2: Using custom authorization function
+
+_30
+
+function CustomAuthExample() {
+
+_30
+
+const customAuthz = (account) => ({
+
+_30
+
+...account,
+
+_30
+
+addr: "0xCUSTOMOADDRESS",
+
+_30
+
+keyId: 0,
+
+_30
+
+signingFunction: async (signable) => ({
+
+_30
+
+signature: "0x...",
+
+_30
+
+}),
+
+_30
+
+})
+
+_30
+
+_30
+
+const authorization = useFlowAuthz({ authz: customAuthz })
+
+_30
+
+_30
+
+const sendTransaction = async () => {
+
+_30
+
+const txId = await fcl.mutate({
+
+_30
+
+cadence: `
+
+_30
+
+transaction {
+
+_30
+
+prepare(signer: auth(Storage) &Account) {
+
+_30
+
+log(signer.address)
+
+_30
+
+}
+
+_30
+
+}
+
+_30
+
+`,
+
+_30
+
+authorizations: [authorization],
+
+_30
+
+limit: 100,
+
+_30
+
+})
+
+_30
+
+console.log("Transaction ID:", txId)
+
+_30
+
+}
+
+_30
+
+_30
+
+return <button onClick={sendTransaction}>Send Custom Auth Transaction</button>
+
+_30
+
+} ``
+
+---
+
+### `useFlowScheduledTransaction`[​](#useflowscheduledtransaction "Direct link to useflowscheduledtransaction")
+
+[Open in Playground →](https://react.flow.com/#useflowscheduledtransaction)
+
+`_10
+
+import { useFlowScheduledTransaction } from "@onflow/react-sdk"`
+
+Fetches a scheduled transaction by ID.
+
+#### Parameters:[​](#parameters-14 "Direct link to Parameters:")
+
+* `txId?: string` – Scheduled transaction ID
+* `includeHandlerData?: boolean` – Include handler data (default: false)
+* `query?: UseQueryOptions<ScheduledTransaction | null, Error>` – Optional TanStack Query options
+* `flowClient?: FlowClient` - Optional `FlowClient` instance
+
+#### Returns: `UseQueryResult<ScheduledTransaction | null, Error>`[​](#returns-usequeryresultscheduledtransaction--null-error "Direct link to returns-usequeryresultscheduledtransaction--null-error")
+
+Where `ScheduledTransaction` is defined as:
+
+`_15
+
+interface ScheduledTransaction {
+
+_15
+
+id: string
+
+_15
+
+priority: ScheduledTransactionPriority // 0 = Low, 1 = Medium, 2 = High
+
+_15
+
+executionEffort: bigint
+
+_15
+
+status: ScheduledTransactionStatus // 0 = Pending, 1 = Processing, 2 = Completed, 3 = Failed, 4 = Cancelled
+
+_15
+
+fees: {
+
+_15
+
+value: bigint
+
+_15
+
+formatted: string
+
+_15
+
+}
+
+_15
+
+scheduledTimestamp: number
+
+_15
+
+handlerTypeIdentifier: string
+
+_15
+
+handlerAddress: string
+
+_15
+
+handlerUUID?: string // Only included if includeHandlerData is true
+
+_15
+
+handlerResolvedViews?: {[viewType: string]: any} // Only included if includeHandlerData is true
+
+_15
+
+}`
+
+`_20
+
+function ScheduledTransactionDetails({ txId }: { txId: string }) {
+
+_20
+
+const { data: transaction, isLoading, error } = useFlowScheduledTransaction({
+
+_20
+
+txId,
+
+_20
+
+query: { staleTime: 10000 },
+
+_20
+
+})
+
+_20
+
+_20
+
+if (isLoading) return <p>Loading scheduled transaction...</p>
+
+_20
+
+if (error) return <p>Error: {error.message}</p>
+
+_20
+
+if (!transaction) return <p>Transaction not found</p>
+
+_20
+
+_20
+
+return (
+
+_20
+
+<div>
+
+_20
+
+<h2>Scheduled Transaction #{transaction.id}</h2>
+
+_20
+
+<p>Status: {transaction.status}</p>
+
+_20
+
+<p>Priority: {transaction.priority}</p>
+
+_20
+
+<p>Fees: {transaction.fees.formatted} FLOW</p>
+
+_20
+
+<p>Handler: {transaction.handlerTypeIdentifier}</p>
+
+_20
+
+</div>
+
+_20
+
+)
+
+_20
+
+}`
+
+---
+
+### `useFlowScheduledTransactionList`[​](#useflowscheduledtransactionlist "Direct link to useflowscheduledtransactionlist")
+
+[Open in Playground →](https://react.flow.com/#useflowscheduledtransaction)
+
+`_10
+
+import { useFlowScheduledTransactionList } from "@onflow/react-sdk"`
+
+Lists all scheduled transactions for an account.
+
+#### Parameters:[​](#parameters-15 "Direct link to Parameters:")
+
+* `account?: string` – Flow address to query
+* `includeHandlerData?: boolean` – Include handler data (default: false)
+* `query?: UseQueryOptions<ScheduledTransaction[], Error>` – Optional TanStack Query options
+* `flowClient?: FlowClient` - Optional `FlowClient` instance
+
+#### Returns: `UseQueryResult<ScheduledTransaction[], Error>`[​](#returns-usequeryresultscheduledtransaction-error "Direct link to returns-usequeryresultscheduledtransaction-error")
+
+`_24
+
+function ScheduledTransactionsList({ account }: { account: string }) {
+
+_24
+
+const { data: transactions, isLoading, error, refetch } = useFlowScheduledTransactionList({
+
+_24
+
+account,
+
+_24
+
+query: { staleTime: 10000 },
+
+_24
+
+})
+
+_24
+
+_24
+
+if (isLoading) return <p>Loading scheduled transactions...</p>
+
+_24
+
+if (error) return <p>Error: {error.message}</p>
+
+_24
+
+if (!transactions || transactions.length === 0) return <p>No scheduled transactions</p>
+
+_24
+
+_24
+
+return (
+
+_24
+
+<div>
+
+_24
+
+<h2>Scheduled Transactions for {account}</h2>
+
+_24
+
+<button onClick={() => refetch()}>Refresh</button>
+
+_24
+
+<ul>
+
+_24
+
+{transactions.map((tx) => (
+
+_24
+
+<li key={tx.id}>
+
+_24
+
+Transaction #{tx.id} - Status: {tx.status} - Fees: {tx.fees.formatted} FLOW
+
+_24
+
+</li>
+
+_24
+
+))}
+
+_24
+
+</ul>
+
+_24
+
+</div>
+
+_24
+
+)
+
+_24
+
+}`
+
+---
+
+### `useFlowScheduledTransactionCancel`[​](#useflowscheduledtransactioncancel "Direct link to useflowscheduledtransactioncancel")
+
+[Open in Playground →](https://react.flow.com/#useflowscheduledtransaction)
+
+`_10
+
+import { useFlowScheduledTransactionCancel } from "@onflow/react-sdk"`
+
+Cancels a scheduled transaction and refunds fees.
+
+#### Parameters:[​](#parameters-16 "Direct link to Parameters:")
+
+* `mutation?: UseMutationOptions<string, Error, string>` – Optional TanStack Query mutation options
+* `flowClient?: FlowClient` - Optional `FlowClient` instance
+
+#### Returns: `UseFlowScheduledTransactionCancelResult`[​](#returns-useflowscheduledtransactioncancelresult "Direct link to returns-useflowscheduledtransactioncancelresult")
+
+Where `UseFlowScheduledTransactionCancelResult` is defined as:
+
+`_10
+
+interface UseFlowScheduledTransactionCancelResult extends Omit<
+
+_10
+
+UseMutationResult<string, Error>,
+
+_10
+
+"mutate" | "mutateAsync"
+
+_10
+
+> {
+
+_10
+
+cancelTransaction: (txId: string) => void
+
+_10
+
+cancelTransactionAsync: (txId: string) => Promise<string>
+
+_10
+
+}`
+
+`_27
+
+function CancelScheduledTransaction() {
+
+_27
+
+const { cancelTransactionAsync, isPending, error, data: txId } = useFlowScheduledTransactionCancel({
+
+_27
+
+mutation: {
+
+_27
+
+onSuccess: (txId) => console.log("Cancel transaction ID:", txId),
+
+_27
+
+},
+
+_27
+
+})
+
+_27
+
+_27
+
+const handleCancel = async (scheduledTxId: string) => {
+
+_27
+
+try {
+
+_27
+
+const resultTxId = await cancelTransactionAsync(scheduledTxId)
+
+_27
+
+console.log("Successfully canceled scheduled transaction:", resultTxId)
+
+_27
+
+} catch (error) {
+
+_27
+
+console.error("Failed to cancel:", error)
+
+_27
+
+}
+
+_27
+
+}
+
+_27
+
+_27
+
+return (
+
+_27
+
+<div>
+
+_27
+
+<button onClick={() => handleCancel("42")} disabled={isPending}>
+
+_27
+
+Cancel Scheduled Transaction #42
+
+_27
+
+</button>
+
+_27
+
+{isPending && <p>Canceling transaction...</p>}
+
+_27
+
+{error && <p>Error: {error.message}</p>}
+
+_27
+
+{txId && <p>Cancel Transaction ID: {txId}</p>}
+
+_27
+
+</div>
+
+_27
+
+)
+
+_27
+
+}`
+
+---
+
+### `useFlowScheduledTransactionSetup`[​](#useflowscheduledtransactionsetup "Direct link to useflowscheduledtransactionsetup")
+
+[Open in Playground →](https://react.flow.com/#useflowscheduledtransaction)
+
+`_10
+
+import { useFlowScheduledTransactionSetup } from "@onflow/react-sdk"`
+
+Sets up the Transaction Scheduler Manager resource.
+
+#### Parameters:[​](#parameters-17 "Direct link to Parameters:")
+
+* `mutation?: UseMutationOptions<string, Error, void>` – Optional TanStack Query mutation options
+* `flowClient?: FlowClient` - Optional `FlowClient` instance
+
+#### Returns: `UseFlowScheduledTransactionSetupResult`[​](#returns-useflowscheduledtransactionsetupresult "Direct link to returns-useflowscheduledtransactionsetupresult")
+
+Where `UseFlowScheduledTransactionSetupResult` is defined as:
+
+`_10
+
+interface UseFlowScheduledTransactionSetupResult extends Omit<
+
+_10
+
+UseMutationResult<string, Error>,
+
+_10
+
+"mutate" | "mutateAsync"
+
+_10
+
+> {
+
+_10
+
+setup: () => void
+
+_10
+
+setupAsync: () => Promise<string>
+
+_10
+
+}`
+
+`_27
+
+function SchedulerSetup() {
+
+_27
+
+const { setupAsync, isPending, error, data: txId } = useFlowScheduledTransactionSetup({
+
+_27
+
+mutation: {
+
+_27
+
+onSuccess: (txId) => console.log("Setup transaction ID:", txId),
+
+_27
+
+},
+
+_27
+
+})
+
+_27
+
+_27
+
+const handleSetup = async () => {
+
+_27
+
+try {
+
+_27
+
+const resultTxId = await setupAsync()
+
+_27
+
+console.log("Scheduler setup successful:", resultTxId)
+
+_27
+
+} catch (error) {
+
+_27
+
+console.error("Setup failed:", error)
+
+_27
+
+}
+
+_27
+
+}
+
+_27
+
+_27
+
+return (
+
+_27
+
+<div>
+
+_27
+
+<button onClick={handleSetup} disabled={isPending}>
+
+_27
+
+Setup Transaction Scheduler
+
+_27
+
+</button>
+
+_27
+
+{isPending && <p>Setting up scheduler...</p>}
+
+_27
+
+{error && <p>Error: {error.message}</p>}
+
+_27
+
+{txId && <p>Setup Transaction ID: {txId}</p>}
+
+_27
+
+</div>
+
+_27
+
+)
+
+_27
+
+}`
+
+---
+
 ## Cross-VM Hooks[​](#cross-vm-hooks "Direct link to Cross-VM Hooks")
 
 ### `useCrossVmBatchTransaction`[​](#usecrossvmbatchtransaction "Direct link to usecrossvmbatchtransaction")
@@ -329607,7 +330614,7 @@ import { useCrossVmBatchTransaction } from "@onflow/react-sdk"`
 
 This hook allows you to execute multiple EVM transactions in a single atomic Cadence transaction. It is useful for batch processing EVM calls while ensuring they are executed together, either all succeeding or allowing for some to fail without affecting the others.
 
-#### Parameters:[​](#parameters-12 "Direct link to Parameters:")
+#### Parameters:[​](#parameters-18 "Direct link to Parameters:")
 
 * `mutation?: UseMutationOptions<string, Error, UseCrossVmBatchTransactionMutateArgs>` – Optional TanStackQuery mutation options
 * `flowClient?: FlowClient` - Optional `FlowClient` instance
@@ -329866,7 +330873,7 @@ import { useCrossVmTokenBalance } from "@onflow/react-sdk"`
 
 Fetch the balance of a token balance for a given user across both Cadence and EVM environments.
 
-#### Parameters:[​](#parameters-13 "Direct link to Parameters:")
+#### Parameters:[​](#parameters-19 "Direct link to Parameters:")
 
 * `owner: string` – Cadence address of the account whose token balances you want.
 * `vaultIdentifier?: string` – Optional Cadence resource identifier (e.g. "0x1cf0e2f2f715450.FlowToken.Vault") for onchain balance
@@ -330000,388 +331007,6 @@ _20
 
 ---
 
-### `useCrossVmSpendNft`[​](#usecrossvmspendnft "Direct link to usecrossvmspendnft")
-
-[Open in Playground →](https://react.flow.com/#usecrossvmspendnft)
-
-`_10
-
-import { useCrossVmSpendNft } from "@onflow/react-sdk"`
-
-Bridge NFTs from Cadence to Flow EVM and execute arbitrary EVM transactions to atomically spend them.
-
-#### Parameters:[​](#parameters-14 "Direct link to Parameters:")
-
-* `mutation?: UseMutationOptions<string, Error, UseCrossVmSpendFtMutateArgs>` – Optional TanStackQuery mutation options
-* `flowClient?: FlowClient` - Optional `FlowClient` instance
-
-Where `UseCrossVmSpendFtMutateArgs` is defined as:
-
-`_10
-
-interface UseCrossVmSpendFtMutateArgs {
-
-_10
-
-nftIdentifier: string // Cadence NFT identifier (e.g. "0x1cf0e2f2f715450.FlowNFT")
-
-_10
-
-nftIds: string[] // Array of NFT IDs to bridge
-
-_10
-
-calls: EVMBatchCall[] // Array of EVM calls to execute atomically
-
-_10
-
-}`
-
-#### Returns: `UseCrossVmSpendNftResult`[​](#returns-usecrossvmspendnftresult "Direct link to returns-usecrossvmspendnftresult")
-
-Where `UseCrossVmSpendNftResult` is defined as:
-
-`_10
-
-interface UseCrossVmSpendNftResult extends Omit<
-
-_10
-
-UseMutationResult<string, Error, CrossVmSpendNftParams>,
-
-_10
-
-"mutate" | "mutateAsync"
-
-_10
-
-> {
-
-_10
-
-spendNft: (params: CrossVmSpendNftParams) => Promise<string>
-
-_10
-
-spendNftAsync: (params: CrossVmSpendNftParams) => Promise<string>
-
-_10
-
-}`
-
-`_31
-
-function CrossVmSpendNftExample() {
-
-_31
-
-const { spendNft, isPending, error, data: txId } = useCrossVmSpendNft()
-
-_31
-
-_31
-
-const handleSpendNft = () => {
-
-_31
-
-spendNft({
-
-_31
-
-nftIdentifier: "0x1cf0e2f2f715450.FlowNFT", // Cadence NFT identifier
-
-_31
-
-nftIds: ["1"], // Array of NFT IDs to bridge
-
-_31
-
-calls: [
-
-_31
-
-{
-
-_31
-
-abi: contractAbi, // ABI of the EVM contract
-
-_31
-
-contractAddress: "0x1234567890abcdef1234567890abcdef12345678", // EVM contract address
-
-_31
-
-functionName: "transferNFT",
-
-_31
-
-args: ["123"], // Example args
-
-_31
-
-value: "1000000000000000000", // Amount in wei (if applicable)
-
-_31
-
-gasLimit: "21000", // Gas limit for the EVM call
-
-_31
-
-},
-
-_31
-
-],
-
-_31
-
-})
-
-_31
-
-}
-
-_31
-
-_31
-
-return (
-
-_31
-
-<div>
-
-_31
-
-<button onClick={handleSpendNft} disabled={isPending}>
-
-_31
-
-Bridge and Spend NFT
-
-_31
-
-</button>
-
-_31
-
-{isPending && <p>Sending transaction...</p>}
-
-_31
-
-{error && <p>Error: {error.message}</p>}
-
-_31
-
-{txId && <p>Transaction ID: {txId}</p>}
-
-_31
-
-</div>
-
-_31
-
-)
-
-_31
-
-}`
-
----
-
-### `useCrossVmSpendToken`[​](#usecrossvmspendtoken "Direct link to usecrossvmspendtoken")
-
-[Open in Playground →](https://react.flow.com/#usecrossvmspendtoken)
-
-`_10
-
-import { useCrossVmSpendToken } from "@onflow/react-sdk"`
-
-Bridge FTs from Cadence to Flow EVM and execute arbitrary EVM transactions to atomically spend them.
-
-#### Parameters:[​](#parameters-15 "Direct link to Parameters:")
-
-* `mutation?: UseMutationOptions<string, Error, UseCrossVmSpendTokenMutateArgs>` – Optional TanStackQuery mutation options
-* `flowClient?: FlowClient` - Optional `FlowClient` instance
-
-Where `UseCrossVmSpendTokenMutateArgs` is defined as:
-
-`_10
-
-interface UseCrossVmSpendTokenMutateArgs {
-
-_10
-
-vaultIdentifier: string; // Cadence vault identifier (e.g. "0x1cf0e2f2f715450.ExampleToken.Vault")
-
-_10
-
-amount: string; // Amount of tokens to bridge, as a decimal string (e.g. "1.23")
-
-_10
-
-calls: EVMBatchCall[]; // Array of EVM calls to execute after bridging
-
-_10
-
-}`
-
-#### Returns: `UseCrossVmSpendTokenResult`[​](#returns-usecrossvmspendtokenresult "Direct link to returns-usecrossvmspendtokenresult")
-
-Where `UseCrossVmSpendTokenResult` is defined as:
-
-`_10
-
-interface UseCrossVmSpendTokenResult extends Omit<
-
-_10
-
-UseMutationResult<string, Error, UseCrossVmSpendTokenMutateArgs>,
-
-_10
-
-"mutate" | "mutateAsync"
-
-_10
-
-> {
-
-_10
-
-spendToken: (args: UseCrossVmSpendTokenMutateArgs) => void; // Function to trigger the FT bridging and EVM calls
-
-_10
-
-spendTokenAsync: (args: UseCrossVmSpendTokenMutateArgs) => Promise<string>; // Async version of spendToken
-
-_10
-
-}`
-
-`_31
-
-function CrossVmSpendTokenExample() {
-
-_31
-
-const { spendToken, isPending, error, data: txId } = useCrossVmSpendToken()
-
-_31
-
-_31
-
-const handleSpendToken = () => {
-
-_31
-
-spendToken({
-
-_31
-
-vaultIdentifier: "0x1cf0e2f2f715450.ExampleToken.Vault", // Cadence vault identifier
-
-_31
-
-amount: "1.23", // Amount of tokens to bridge to EVM
-
-_31
-
-calls: [
-
-_31
-
-{
-
-_31
-
-abi: myEvmContractAbi, // EVM contract ABI
-
-_31
-
-address: "0x01234567890abcdef01234567890abcdef", // EVM contract address
-
-_31
-
-function: "transfer", // EVM function to call
-
-_31
-
-args: [
-
-_31
-
-"0xabcdef01234567890abcdef01234567890abcdef", // Recipient address
-
-_31
-
-],
-
-_31
-
-},
-
-_31
-
-],
-
-_31
-
-})
-
-_31
-
-}
-
-_31
-
-_31
-
-return (
-
-_31
-
-<div>
-
-_31
-
-<button onClick={handleSpendToken} disabled={isPending}>
-
-_31
-
-Bridge and Spend FTs
-
-_31
-
-</button>
-
-_31
-
-{isPending && <p>Sending transaction...</p>}
-
-_31
-
-{error && <p>Error: {error.message}</p>}
-
-_31
-
-{txId && <p>Cadence Transaction ID: {txId}</p>}
-
-_31
-
-</div>
-
-_31
-
-)
-
-_31
-
-}`
-
----
-
 ### `useCrossVmTransactionStatus`[​](#usecrossvmtransactionstatus "Direct link to usecrossvmtransactionstatus")
 
 [Open in Playground →](https://react.flow.com/#usecrossvmtransactionstatus)
@@ -330392,7 +331017,7 @@ import { useCrossVmTransactionStatus } from "@onflow/react-sdk"`
 
 Subscribes to status updates for a given Cross-VM Flow transaction ID that executes EVM calls. This hook monitors the transaction status and extracts EVM call results if available.
 
-#### Parameters:[​](#parameters-16 "Direct link to Parameters:")
+#### Parameters:[​](#parameters-20 "Direct link to Parameters:")
 
 * `id?: string` – Optional Flow transaction ID to monitor
 * `flowClient?: FlowClient` - Optional `FlowClient` instance
@@ -330543,9 +331168,741 @@ _26
 
 }`
 
+---
+
+### `useCrossVmBridgeNftFromEvm`[​](#usecrossvmbridgenftfromevm "Direct link to usecrossvmbridgenftfromevm")
+
+[Open in Playground →](https://react.flow.com/#usecrossvmbridgenftfromevm)
+
+`_10
+
+import { useCrossVmBridgeNftFromEvm } from "@onflow/react-sdk"`
+
+This hook bridges NFTs from Flow EVM to Cadence. It withdraws an NFT from the signer's COA (Cadence Owned Account) in EVM and deposits it into their Cadence collection.
+
+#### Parameters:[​](#parameters-21 "Direct link to Parameters:")
+
+* `mutation?: UseMutationOptions<string, Error, UseCrossVmBridgeNftFromEvmTxMutateArgs>` – Optional TanStackQuery mutation options
+* `flowClient?: FlowClient` - Optional `FlowClient` instance
+
+#### Returns: `UseCrossVmBridgeNftFromEvmTxResult`[​](#returns-usecrossvmbridgenftfromevmtxresult "Direct link to returns-usecrossvmbridgenftfromevmtxresult")
+
+Where `UseCrossVmBridgeNftFromEvmTxResult` is defined as:
+
+`_10
+
+interface UseCrossVmBridgeNftFromEvmTxResult extends Omit<
+
+_10
+
+UseMutationResult<string, Error>,
+
+_10
+
+"mutate" | "mutateAsync"
+
+_10
+
+> {
+
+_10
+
+crossVmBridgeNftFromEvm: (args: UseCrossVmBridgeNftFromEvmTxMutateArgs) => void
+
+_10
+
+crossVmBridgeNftFromEvmAsync: (args: UseCrossVmBridgeNftFromEvmTxMutateArgs) => Promise<string>
+
+_10
+
+}`
+
+Where `UseCrossVmBridgeNftFromEvmTxMutateArgs` is defined as:
+
+`_10
+
+interface UseCrossVmBridgeNftFromEvmTxMutateArgs {
+
+_10
+
+nftIdentifier: string // Cadence type identifier (e.g., "A.0x123.MyNFT.NFT")
+
+_10
+
+nftId: string // EVM NFT ID as string representation of UInt256
+
+_10
+
+}`
+
+`_25
+
+function BridgeNftFromEvmExample() {
+
+_25
+
+const { crossVmBridgeNftFromEvm, isPending, error, data: txId } = useCrossVmBridgeNftFromEvm({
+
+_25
+
+mutation: {
+
+_25
+
+onSuccess: (txId) => console.log("Transaction ID:", txId),
+
+_25
+
+},
+
+_25
+
+})
+
+_25
+
+_25
+
+const handleBridge = () => {
+
+_25
+
+crossVmBridgeNftFromEvm({
+
+_25
+
+nftIdentifier: "A.0x1cf0e2f2f715450.ExampleNFT.NFT",
+
+_25
+
+nftId: "123",
+
+_25
+
+})
+
+_25
+
+}
+
+_25
+
+_25
+
+return (
+
+_25
+
+<div>
+
+_25
+
+<button onClick={handleBridge} disabled={isPending}>
+
+_25
+
+Bridge NFT from EVM
+
+_25
+
+</button>
+
+_25
+
+{isPending && <p>Bridging NFT...</p>}
+
+_25
+
+{error && <p>Error: {error.message}</p>}
+
+_25
+
+{txId && <p>Transaction ID: {txId}</p>}
+
+_25
+
+</div>
+
+_25
+
+)
+
+_25
+
+}`
+
+---
+
+### `useCrossVmBridgeNftToEvm`[​](#usecrossvmbridgenfttoevm "Direct link to usecrossvmbridgenfttoevm")
+
+[Open in Playground →](https://react.flow.com/#usecrossvmbridgenfttoevm)
+
+`_10
+
+import { useCrossVmBridgeNftToEvm } from "@onflow/react-sdk"`
+
+This hook bridges NFTs from Cadence to Flow EVM and executes arbitrary EVM transactions atomically. It withdraws NFTs from the signer's Cadence collection and deposits them into their COA in EVM, then executes the provided EVM calls.
+
+#### Parameters:[​](#parameters-22 "Direct link to Parameters:")
+
+* `mutation?: UseMutationOptions<string, Error, UseCrossVmBridgeNftToEvmTxMutateArgs>` – Optional TanStackQuery mutation options
+* `flowClient?: FlowClient` - Optional `FlowClient` instance
+
+#### Returns: `UseCrossVmBridgeNftToEvmTxResult`[​](#returns-usecrossvmbridgenfttoevmtxresult "Direct link to returns-usecrossvmbridgenfttoevmtxresult")
+
+Where `UseCrossVmBridgeNftToEvmTxResult` is defined as:
+
+`_10
+
+interface UseCrossVmBridgeNftToEvmTxResult extends Omit<
+
+_10
+
+UseMutationResult<string, Error>,
+
+_10
+
+"mutate" | "mutateAsync"
+
+_10
+
+> {
+
+_10
+
+crossVmBridgeNftToEvm: (args: UseCrossVmBridgeNftToEvmTxMutateArgs) => void
+
+_10
+
+crossVmBridgeNftToEvmAsync: (args: UseCrossVmBridgeNftToEvmTxMutateArgs) => Promise<string>
+
+_10
+
+}`
+
+Where `UseCrossVmBridgeNftToEvmTxMutateArgs` is defined as:
+
+`_10
+
+interface UseCrossVmBridgeNftToEvmTxMutateArgs {
+
+_10
+
+nftIdentifier: string // Cadence NFT type identifier
+
+_10
+
+nftIds: string[] // Array of NFT IDs to bridge
+
+_10
+
+calls: EvmBatchCall[] // Array of EVM calls to execute after bridging
+
+_10
+
+}`
+
+`_34
+
+function BridgeNftToEvmExample() {
+
+_34
+
+const { crossVmBridgeNftToEvm, isPending, error, data: txId } = useCrossVmBridgeNftToEvm({
+
+_34
+
+mutation: {
+
+_34
+
+onSuccess: (txId) => console.log("Transaction ID:", txId),
+
+_34
+
+},
+
+_34
+
+})
+
+_34
+
+_34
+
+const handleBridge = () => {
+
+_34
+
+crossVmBridgeNftToEvm({
+
+_34
+
+nftIdentifier: "A.0x1cf0e2f2f715450.ExampleNFT.NFT",
+
+_34
+
+nftIds: ["1", "2", "3"],
+
+_34
+
+calls: [
+
+_34
+
+{
+
+_34
+
+address: "0x1234567890abcdef1234567890abcdef12345678",
+
+_34
+
+abi: myContractAbi,
+
+_34
+
+functionName: "transferNFT",
+
+_34
+
+args: ["0xRecipient", 1n],
+
+_34
+
+gasLimit: 100000n,
+
+_34
+
+},
+
+_34
+
+],
+
+_34
+
+})
+
+_34
+
+}
+
+_34
+
+_34
+
+return (
+
+_34
+
+<div>
+
+_34
+
+<button onClick={handleBridge} disabled={isPending}>
+
+_34
+
+Bridge NFTs to EVM
+
+_34
+
+</button>
+
+_34
+
+{isPending && <p>Bridging NFTs...</p>}
+
+_34
+
+{error && <p>Error: {error.message}</p>}
+
+_34
+
+{txId && <p>Transaction ID: {txId}</p>}
+
+_34
+
+</div>
+
+_34
+
+)
+
+_34
+
+}`
+
+---
+
+### `useCrossVmBridgeTokenFromEvm`[​](#usecrossvmbridgetokenfromevm "Direct link to usecrossvmbridgetokenfromevm")
+
+[Open in Playground →](https://react.flow.com/#usecrossvmbridgetokenfromevm)
+
+`_10
+
+import { useCrossVmBridgeTokenFromEvm } from "@onflow/react-sdk"`
+
+This hook bridges fungible tokens from Flow EVM to Cadence. It withdraws tokens from the signer's COA in EVM and deposits them into their Cadence vault.
+
+#### Parameters:[​](#parameters-23 "Direct link to Parameters:")
+
+* `mutation?: UseMutationOptions<string, Error, UseCrossVmBridgeTokenFromEvmMutateArgs>` – Optional TanStackQuery mutation options
+* `flowClient?: FlowClient` - Optional `FlowClient` instance
+
+#### Returns: `UseCrossVmBridgeTokenFromEvmResult`[​](#returns-usecrossvmbridgetokenfromevmresult "Direct link to returns-usecrossvmbridgetokenfromevmresult")
+
+Where `UseCrossVmBridgeTokenFromEvmResult` is defined as:
+
+`_10
+
+interface UseCrossVmBridgeTokenFromEvmResult extends Omit<
+
+_10
+
+UseMutationResult<string, Error>,
+
+_10
+
+"mutate" | "mutateAsync"
+
+_10
+
+> {
+
+_10
+
+crossVmBridgeTokenFromEvm: (args: UseCrossVmBridgeTokenFromEvmMutateArgs) => void
+
+_10
+
+crossVmBridgeTokenFromEvmAsync: (args: UseCrossVmBridgeTokenFromEvmMutateArgs) => Promise<string>
+
+_10
+
+}`
+
+Where `UseCrossVmBridgeTokenFromEvmMutateArgs` is defined as:
+
+`_10
+
+interface UseCrossVmBridgeTokenFromEvmMutateArgs {
+
+_10
+
+vaultIdentifier: string // Cadence vault type identifier (e.g., "A.0x123.FlowToken.Vault")
+
+_10
+
+amount: string // Amount as UInt256 string representation
+
+_10
+
+}`
+
+`_25
+
+function BridgeTokenFromEvmExample() {
+
+_25
+
+const { crossVmBridgeTokenFromEvm, isPending, error, data: txId } = useCrossVmBridgeTokenFromEvm({
+
+_25
+
+mutation: {
+
+_25
+
+onSuccess: (txId) => console.log("Transaction ID:", txId),
+
+_25
+
+},
+
+_25
+
+})
+
+_25
+
+_25
+
+const handleBridge = () => {
+
+_25
+
+crossVmBridgeTokenFromEvm({
+
+_25
+
+vaultIdentifier: "A.0x1654653399040a61.FlowToken.Vault",
+
+_25
+
+amount: "1000000000", // Amount in smallest unit
+
+_25
+
+})
+
+_25
+
+}
+
+_25
+
+_25
+
+return (
+
+_25
+
+<div>
+
+_25
+
+<button onClick={handleBridge} disabled={isPending}>
+
+_25
+
+Bridge Tokens from EVM
+
+_25
+
+</button>
+
+_25
+
+{isPending && <p>Bridging tokens...</p>}
+
+_25
+
+{error && <p>Error: {error.message}</p>}
+
+_25
+
+{txId && <p>Transaction ID: {txId}</p>}
+
+_25
+
+</div>
+
+_25
+
+)
+
+_25
+
+}`
+
+---
+
+### `useCrossVmBridgeTokenToEvm`[​](#usecrossvmbridgetokentoevm "Direct link to usecrossvmbridgetokentoevm")
+
+[Open in Playground →](https://react.flow.com/#usecrossvmbridgetokentoevm)
+
+`_10
+
+import { useCrossVmBridgeTokenToEvm } from "@onflow/react-sdk"`
+
+This hook bridges fungible tokens from Cadence to Flow EVM and executes arbitrary EVM transactions atomically. It withdraws tokens from the signer's Cadence vault and deposits them into their COA in EVM, then executes the provided EVM calls.
+
+#### Parameters:[​](#parameters-24 "Direct link to Parameters:")
+
+* `mutation?: UseMutationOptions<string, Error, UseCrossVmBridgeTokenToEvmMutateArgs>` – Optional TanStackQuery mutation options
+* `flowClient?: FlowClient` - Optional `FlowClient` instance
+
+#### Returns: `UseCrossVmBridgeTokenToEvmResult`[​](#returns-usecrossvmbridgetokentoevmresult "Direct link to returns-usecrossvmbridgetokentoevmresult")
+
+Where `UseCrossVmBridgeTokenToEvmResult` is defined as:
+
+`_10
+
+interface UseCrossVmBridgeTokenToEvmResult extends Omit<
+
+_10
+
+UseMutationResult<string, Error>,
+
+_10
+
+"mutate" | "mutateAsync"
+
+_10
+
+> {
+
+_10
+
+crossVmBridgeTokenToEvm: (args: UseCrossVmBridgeTokenToEvmMutateArgs) => void
+
+_10
+
+crossVmBridgeTokenToEvmAsync: (args: UseCrossVmBridgeTokenToEvmMutateArgs) => Promise<string>
+
+_10
+
+}`
+
+Where `UseCrossVmBridgeTokenToEvmMutateArgs` is defined as:
+
+`_10
+
+interface UseCrossVmBridgeTokenToEvmMutateArgs {
+
+_10
+
+vaultIdentifier: string // Cadence vault type identifier
+
+_10
+
+amount: string // Amount as decimal string (e.g., "1.5")
+
+_10
+
+calls: EvmBatchCall[] // Array of EVM calls to execute after bridging
+
+_10
+
+}`
+
+`_34
+
+function BridgeTokenToEvmExample() {
+
+_34
+
+const { crossVmBridgeTokenToEvm, isPending, error, data: txId } = useCrossVmBridgeTokenToEvm({
+
+_34
+
+mutation: {
+
+_34
+
+onSuccess: (txId) => console.log("Transaction ID:", txId),
+
+_34
+
+},
+
+_34
+
+})
+
+_34
+
+_34
+
+const handleBridge = () => {
+
+_34
+
+crossVmBridgeTokenToEvm({
+
+_34
+
+vaultIdentifier: "A.0x1654653399040a61.FlowToken.Vault",
+
+_34
+
+amount: "10.5",
+
+_34
+
+calls: [
+
+_34
+
+{
+
+_34
+
+address: "0x1234567890abcdef1234567890abcdef12345678",
+
+_34
+
+abi: erc20Abi,
+
+_34
+
+functionName: "transfer",
+
+_34
+
+args: ["0xRecipient", 1000000n],
+
+_34
+
+gasLimit: 100000n,
+
+_34
+
+},
+
+_34
+
+],
+
+_34
+
+})
+
+_34
+
+}
+
+_34
+
+_34
+
+return (
+
+_34
+
+<div>
+
+_34
+
+<button onClick={handleBridge} disabled={isPending}>
+
+_34
+
+Bridge Tokens to EVM
+
+_34
+
+</button>
+
+_34
+
+{isPending && <p>Bridging tokens...</p>}
+
+_34
+
+{error && <p>Error: {error.message}</p>}
+
+_34
+
+{txId && <p>Transaction ID: {txId}</p>}
+
+_34
+
+</div>
+
+_34
+
+)
+
+_34
+
+}`
+
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/react-sdk/hooks.md)
 
-Last updated on **Oct 7, 2025** by **mfbz**
+Last updated on **Oct 23, 2025** by **Michael Fabozzi**
 
 [Previous
 
@@ -330560,8 +331917,8 @@ Components](/build/tools/react-sdk/components)
 Copy as Markdown
 
 * [Cadence Hooks](#cadence-hooks)
-  + [`useFlowCurrentUser`](#useflowcurrentuser)+ [Parameters](#parameters)+ [`useFlowAccount`](#useflowaccount)+ [`useFlowBlock`](#useflowblock)+ [`useFlowChainId`](#useflowchainid)+ [`useFlowClient`](#useflowclient)+ [`useFlowConfig`](#useflowconfig)+ [`useFlowEvents`](#useflowevents)+ [`useFlowQuery`](#useflowquery)+ [`useFlowQueryRaw`](#useflowqueryraw)+ [`useFlowMutate`](#useflowmutate)+ [`useFlowRevertibleRandom`](#useflowrevertiblerandom)+ [`useFlowTransaction`](#useflowtransaction)+ [`useFlowTransactionStatus`](#useflowtransactionstatus)+ [`useDarkMode`](#usedarkmode)* [Cross-VM Hooks](#cross-vm-hooks)
-    + [`useCrossVmBatchTransaction`](#usecrossvmbatchtransaction)+ [`useCrossVmTokenBalance`](#usecrossvmtokenbalance)+ [`useCrossVmSpendNft`](#usecrossvmspendnft)+ [`useCrossVmSpendToken`](#usecrossvmspendtoken)+ [`useCrossVmTransactionStatus`](#usecrossvmtransactionstatus)
+  + [`useFlowCurrentUser`](#useflowcurrentuser)+ [`useFlowAccount`](#useflowaccount)+ [`useFlowBlock`](#useflowblock)+ [`useFlowChainId`](#useflowchainid)+ [`useFlowClient`](#useflowclient)+ [`useFlowConfig`](#useflowconfig)+ [`useFlowEvents`](#useflowevents)+ [`useFlowQuery`](#useflowquery)+ [`useFlowQueryRaw`](#useflowqueryraw)+ [`useFlowMutate`](#useflowmutate)+ [`useFlowRevertibleRandom`](#useflowrevertiblerandom)+ [`useFlowTransaction`](#useflowtransaction)+ [`useFlowTransactionStatus`](#useflowtransactionstatus)+ [`useDarkMode`](#usedarkmode)+ [`useFlowNftMetadata`](#useflownftmetadata)+ [`useFlowAuthz`](#useflowauthz)+ [`useFlowScheduledTransaction`](#useflowscheduledtransaction)+ [`useFlowScheduledTransactionList`](#useflowscheduledtransactionlist)+ [`useFlowScheduledTransactionCancel`](#useflowscheduledtransactioncancel)+ [`useFlowScheduledTransactionSetup`](#useflowscheduledtransactionsetup)* [Cross-VM Hooks](#cross-vm-hooks)
+    + [`useCrossVmBatchTransaction`](#usecrossvmbatchtransaction)+ [`useCrossVmTokenBalance`](#usecrossvmtokenbalance)+ [`useCrossVmTransactionStatus`](#usecrossvmtransactionstatus)+ [`useCrossVmBridgeNftFromEvm`](#usecrossvmbridgenftfromevm)+ [`useCrossVmBridgeNftToEvm`](#usecrossvmbridgenfttoevm)+ [`useCrossVmBridgeTokenFromEvm`](#usecrossvmbridgetokenfromevm)+ [`useCrossVmBridgeTokenToEvm`](#usecrossvmbridgetokentoevm)
 
 Flow
 
@@ -425125,12 +426482,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **994e068f5c3ae1b6**
+Cloudflare Ray ID: **9956409aec11f94f**
 •
 
 Your IP:
 Click to reveal
-135.232.200.34
+13.83.160.130
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 

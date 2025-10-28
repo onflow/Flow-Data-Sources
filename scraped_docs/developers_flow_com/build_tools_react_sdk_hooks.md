@@ -52,7 +52,7 @@ Many of these hooks are built using [`@tanstack/react-query`](https://tanstack.c
 
 import { useFlowCurrentUser } from "@onflow/react-sdk"`
 
-### Parameters[​](#parameters "Direct link to Parameters")
+#### Parameters[​](#parameters "Direct link to Parameters")
 
 * `flowClient?: FlowClient` - Optional `FlowClient` instance
 
@@ -1150,6 +1150,1007 @@ _10
 
 ---
 
+### `useFlowNftMetadata`[​](#useflownftmetadata "Direct link to useflownftmetadata")
+
+[Open in Playground →](https://react.flow.com/#useflownftmetadata)
+
+`_10
+
+import { useFlowNftMetadata } from "@onflow/react-sdk"`
+
+This hook fetches NFT metadata including display information, traits, rarity, and collection details.
+
+#### Parameters:[​](#parameters-12 "Direct link to Parameters:")
+
+* `accountAddress?: string` – Flow address of the account holding the NFT
+* `tokenId?: string | number` – The NFT token ID
+* `publicPathIdentifier?: string` – Public path identifier for the collection
+* `query?: UseQueryOptions<unknown, Error>` – Optional TanStack Query options
+* `flowClient?: FlowClient` - Optional `FlowClient` instance
+
+#### Returns: `UseQueryResult<NftViewResult | null, Error>`[​](#returns-usequeryresultnftviewresult--null-error "Direct link to returns-usequeryresultnftviewresult--null-error")
+
+Where `NftViewResult` is defined as:
+
+`_12
+
+interface NftViewResult {
+
+_12
+
+name: string
+
+_12
+
+description: string
+
+_12
+
+thumbnailUrl: string
+
+_12
+
+externalUrl?: string
+
+_12
+
+collectionName?: string
+
+_12
+
+collectionExternalUrl?: string
+
+_12
+
+tokenID: string
+
+_12
+
+traits?: Record<string, string>
+
+_12
+
+rarity?: string
+
+_12
+
+serialNumber?: string
+
+_12
+
+}`
+
+`_32
+
+function NftMetadataExample() {
+
+_32
+
+const { data: nft, isLoading, error } = useFlowNftMetadata({
+
+_32
+
+accountAddress: "0x1cf0e2f2f715450",
+
+_32
+
+tokenId: "123",
+
+_32
+
+publicPathIdentifier: "exampleNFTCollection",
+
+_32
+
+query: { staleTime: 60000 },
+
+_32
+
+})
+
+_32
+
+_32
+
+if (isLoading) return <p>Loading NFT metadata...</p>
+
+_32
+
+if (error) return <p>Error: {error.message}</p>
+
+_32
+
+if (!nft) return <p>NFT not found</p>
+
+_32
+
+_32
+
+return (
+
+_32
+
+<div>
+
+_32
+
+<h2>{nft.name}</h2>
+
+_32
+
+<img src={nft.thumbnailUrl} alt={nft.name} />
+
+_32
+
+<p>{nft.description}</p>
+
+_32
+
+{nft.collectionName && <p>Collection: {nft.collectionName}</p>}
+
+_32
+
+{nft.rarity && <p>Rarity: {nft.rarity}</p>}
+
+_32
+
+{nft.traits && (
+
+_32
+
+<div>
+
+_32
+
+<h3>Traits:</h3>
+
+_32
+
+<ul>
+
+_32
+
+{Object.entries(nft.traits).map(([key, value]) => (
+
+_32
+
+<li key={key}>{key}: {value}</li>
+
+_32
+
+))}
+
+_32
+
+</ul>
+
+_32
+
+</div>
+
+_32
+
+)}
+
+_32
+
+</div>
+
+_32
+
+)
+
+_32
+
+}`
+
+---
+
+### `useFlowAuthz`[​](#useflowauthz "Direct link to useflowauthz")
+
+`_10
+
+import { useFlowAuthz } from "@onflow/react-sdk"`
+
+A React hook that returns an authorization function for Flow transactions. If no custom authorization is provided, it returns the current user's wallet authorization.
+
+#### Parameters:[​](#parameters-13 "Direct link to Parameters:")
+
+* `authz?: AuthorizationFunction` – Optional custom authorization function
+* `flowClient?: FlowClient` - Optional `FlowClient` instance
+
+Where `AuthorizationFunction` is defined as:
+
+`_10
+
+type AuthorizationFunction = (
+
+_10
+
+account: Partial<InteractionAccount>
+
+_10
+
+) => Partial<InteractionAccount> | Promise<Partial<InteractionAccount>>`
+
+#### Returns: `AuthorizationFunction`[​](#returns-authorizationfunction "Direct link to returns-authorizationfunction")
+
+The authorization function is compatible with Flow transactions' authorizations parameter.
+
+`` _21
+
+// Example 1: Using current user authorization
+
+_21
+
+function CurrentUserAuthExample() {
+
+_21
+
+const authorization = useFlowAuthz()
+
+_21
+
+_21
+
+const sendTransaction = async () => {
+
+_21
+
+const txId = await fcl.mutate({
+
+_21
+
+cadence: `
+
+_21
+
+transaction {
+
+_21
+
+prepare(signer: auth(Storage) &Account) {
+
+_21
+
+log(signer.address)
+
+_21
+
+}
+
+_21
+
+}
+
+_21
+
+`,
+
+_21
+
+authorizations: [authorization],
+
+_21
+
+limit: 100,
+
+_21
+
+})
+
+_21
+
+console.log("Transaction ID:", txId)
+
+_21
+
+}
+
+_21
+
+_21
+
+return <button onClick={sendTransaction}>Send Transaction</button>
+
+_21
+
+} ``
+
+`` _30
+
+// Example 2: Using custom authorization function
+
+_30
+
+function CustomAuthExample() {
+
+_30
+
+const customAuthz = (account) => ({
+
+_30
+
+...account,
+
+_30
+
+addr: "0xCUSTOMOADDRESS",
+
+_30
+
+keyId: 0,
+
+_30
+
+signingFunction: async (signable) => ({
+
+_30
+
+signature: "0x...",
+
+_30
+
+}),
+
+_30
+
+})
+
+_30
+
+_30
+
+const authorization = useFlowAuthz({ authz: customAuthz })
+
+_30
+
+_30
+
+const sendTransaction = async () => {
+
+_30
+
+const txId = await fcl.mutate({
+
+_30
+
+cadence: `
+
+_30
+
+transaction {
+
+_30
+
+prepare(signer: auth(Storage) &Account) {
+
+_30
+
+log(signer.address)
+
+_30
+
+}
+
+_30
+
+}
+
+_30
+
+`,
+
+_30
+
+authorizations: [authorization],
+
+_30
+
+limit: 100,
+
+_30
+
+})
+
+_30
+
+console.log("Transaction ID:", txId)
+
+_30
+
+}
+
+_30
+
+_30
+
+return <button onClick={sendTransaction}>Send Custom Auth Transaction</button>
+
+_30
+
+} ``
+
+---
+
+### `useFlowScheduledTransaction`[​](#useflowscheduledtransaction "Direct link to useflowscheduledtransaction")
+
+[Open in Playground →](https://react.flow.com/#useflowscheduledtransaction)
+
+`_10
+
+import { useFlowScheduledTransaction } from "@onflow/react-sdk"`
+
+Fetches a scheduled transaction by ID.
+
+#### Parameters:[​](#parameters-14 "Direct link to Parameters:")
+
+* `txId?: string` – Scheduled transaction ID
+* `includeHandlerData?: boolean` – Include handler data (default: false)
+* `query?: UseQueryOptions<ScheduledTransaction | null, Error>` – Optional TanStack Query options
+* `flowClient?: FlowClient` - Optional `FlowClient` instance
+
+#### Returns: `UseQueryResult<ScheduledTransaction | null, Error>`[​](#returns-usequeryresultscheduledtransaction--null-error "Direct link to returns-usequeryresultscheduledtransaction--null-error")
+
+Where `ScheduledTransaction` is defined as:
+
+`_15
+
+interface ScheduledTransaction {
+
+_15
+
+id: string
+
+_15
+
+priority: ScheduledTransactionPriority // 0 = Low, 1 = Medium, 2 = High
+
+_15
+
+executionEffort: bigint
+
+_15
+
+status: ScheduledTransactionStatus // 0 = Pending, 1 = Processing, 2 = Completed, 3 = Failed, 4 = Cancelled
+
+_15
+
+fees: {
+
+_15
+
+value: bigint
+
+_15
+
+formatted: string
+
+_15
+
+}
+
+_15
+
+scheduledTimestamp: number
+
+_15
+
+handlerTypeIdentifier: string
+
+_15
+
+handlerAddress: string
+
+_15
+
+handlerUUID?: string // Only included if includeHandlerData is true
+
+_15
+
+handlerResolvedViews?: {[viewType: string]: any} // Only included if includeHandlerData is true
+
+_15
+
+}`
+
+`_20
+
+function ScheduledTransactionDetails({ txId }: { txId: string }) {
+
+_20
+
+const { data: transaction, isLoading, error } = useFlowScheduledTransaction({
+
+_20
+
+txId,
+
+_20
+
+query: { staleTime: 10000 },
+
+_20
+
+})
+
+_20
+
+_20
+
+if (isLoading) return <p>Loading scheduled transaction...</p>
+
+_20
+
+if (error) return <p>Error: {error.message}</p>
+
+_20
+
+if (!transaction) return <p>Transaction not found</p>
+
+_20
+
+_20
+
+return (
+
+_20
+
+<div>
+
+_20
+
+<h2>Scheduled Transaction #{transaction.id}</h2>
+
+_20
+
+<p>Status: {transaction.status}</p>
+
+_20
+
+<p>Priority: {transaction.priority}</p>
+
+_20
+
+<p>Fees: {transaction.fees.formatted} FLOW</p>
+
+_20
+
+<p>Handler: {transaction.handlerTypeIdentifier}</p>
+
+_20
+
+</div>
+
+_20
+
+)
+
+_20
+
+}`
+
+---
+
+### `useFlowScheduledTransactionList`[​](#useflowscheduledtransactionlist "Direct link to useflowscheduledtransactionlist")
+
+[Open in Playground →](https://react.flow.com/#useflowscheduledtransaction)
+
+`_10
+
+import { useFlowScheduledTransactionList } from "@onflow/react-sdk"`
+
+Lists all scheduled transactions for an account.
+
+#### Parameters:[​](#parameters-15 "Direct link to Parameters:")
+
+* `account?: string` – Flow address to query
+* `includeHandlerData?: boolean` – Include handler data (default: false)
+* `query?: UseQueryOptions<ScheduledTransaction[], Error>` – Optional TanStack Query options
+* `flowClient?: FlowClient` - Optional `FlowClient` instance
+
+#### Returns: `UseQueryResult<ScheduledTransaction[], Error>`[​](#returns-usequeryresultscheduledtransaction-error "Direct link to returns-usequeryresultscheduledtransaction-error")
+
+`_24
+
+function ScheduledTransactionsList({ account }: { account: string }) {
+
+_24
+
+const { data: transactions, isLoading, error, refetch } = useFlowScheduledTransactionList({
+
+_24
+
+account,
+
+_24
+
+query: { staleTime: 10000 },
+
+_24
+
+})
+
+_24
+
+_24
+
+if (isLoading) return <p>Loading scheduled transactions...</p>
+
+_24
+
+if (error) return <p>Error: {error.message}</p>
+
+_24
+
+if (!transactions || transactions.length === 0) return <p>No scheduled transactions</p>
+
+_24
+
+_24
+
+return (
+
+_24
+
+<div>
+
+_24
+
+<h2>Scheduled Transactions for {account}</h2>
+
+_24
+
+<button onClick={() => refetch()}>Refresh</button>
+
+_24
+
+<ul>
+
+_24
+
+{transactions.map((tx) => (
+
+_24
+
+<li key={tx.id}>
+
+_24
+
+Transaction #{tx.id} - Status: {tx.status} - Fees: {tx.fees.formatted} FLOW
+
+_24
+
+</li>
+
+_24
+
+))}
+
+_24
+
+</ul>
+
+_24
+
+</div>
+
+_24
+
+)
+
+_24
+
+}`
+
+---
+
+### `useFlowScheduledTransactionCancel`[​](#useflowscheduledtransactioncancel "Direct link to useflowscheduledtransactioncancel")
+
+[Open in Playground →](https://react.flow.com/#useflowscheduledtransaction)
+
+`_10
+
+import { useFlowScheduledTransactionCancel } from "@onflow/react-sdk"`
+
+Cancels a scheduled transaction and refunds fees.
+
+#### Parameters:[​](#parameters-16 "Direct link to Parameters:")
+
+* `mutation?: UseMutationOptions<string, Error, string>` – Optional TanStack Query mutation options
+* `flowClient?: FlowClient` - Optional `FlowClient` instance
+
+#### Returns: `UseFlowScheduledTransactionCancelResult`[​](#returns-useflowscheduledtransactioncancelresult "Direct link to returns-useflowscheduledtransactioncancelresult")
+
+Where `UseFlowScheduledTransactionCancelResult` is defined as:
+
+`_10
+
+interface UseFlowScheduledTransactionCancelResult extends Omit<
+
+_10
+
+UseMutationResult<string, Error>,
+
+_10
+
+"mutate" | "mutateAsync"
+
+_10
+
+> {
+
+_10
+
+cancelTransaction: (txId: string) => void
+
+_10
+
+cancelTransactionAsync: (txId: string) => Promise<string>
+
+_10
+
+}`
+
+`_27
+
+function CancelScheduledTransaction() {
+
+_27
+
+const { cancelTransactionAsync, isPending, error, data: txId } = useFlowScheduledTransactionCancel({
+
+_27
+
+mutation: {
+
+_27
+
+onSuccess: (txId) => console.log("Cancel transaction ID:", txId),
+
+_27
+
+},
+
+_27
+
+})
+
+_27
+
+_27
+
+const handleCancel = async (scheduledTxId: string) => {
+
+_27
+
+try {
+
+_27
+
+const resultTxId = await cancelTransactionAsync(scheduledTxId)
+
+_27
+
+console.log("Successfully canceled scheduled transaction:", resultTxId)
+
+_27
+
+} catch (error) {
+
+_27
+
+console.error("Failed to cancel:", error)
+
+_27
+
+}
+
+_27
+
+}
+
+_27
+
+_27
+
+return (
+
+_27
+
+<div>
+
+_27
+
+<button onClick={() => handleCancel("42")} disabled={isPending}>
+
+_27
+
+Cancel Scheduled Transaction #42
+
+_27
+
+</button>
+
+_27
+
+{isPending && <p>Canceling transaction...</p>}
+
+_27
+
+{error && <p>Error: {error.message}</p>}
+
+_27
+
+{txId && <p>Cancel Transaction ID: {txId}</p>}
+
+_27
+
+</div>
+
+_27
+
+)
+
+_27
+
+}`
+
+---
+
+### `useFlowScheduledTransactionSetup`[​](#useflowscheduledtransactionsetup "Direct link to useflowscheduledtransactionsetup")
+
+[Open in Playground →](https://react.flow.com/#useflowscheduledtransaction)
+
+`_10
+
+import { useFlowScheduledTransactionSetup } from "@onflow/react-sdk"`
+
+Sets up the Transaction Scheduler Manager resource.
+
+#### Parameters:[​](#parameters-17 "Direct link to Parameters:")
+
+* `mutation?: UseMutationOptions<string, Error, void>` – Optional TanStack Query mutation options
+* `flowClient?: FlowClient` - Optional `FlowClient` instance
+
+#### Returns: `UseFlowScheduledTransactionSetupResult`[​](#returns-useflowscheduledtransactionsetupresult "Direct link to returns-useflowscheduledtransactionsetupresult")
+
+Where `UseFlowScheduledTransactionSetupResult` is defined as:
+
+`_10
+
+interface UseFlowScheduledTransactionSetupResult extends Omit<
+
+_10
+
+UseMutationResult<string, Error>,
+
+_10
+
+"mutate" | "mutateAsync"
+
+_10
+
+> {
+
+_10
+
+setup: () => void
+
+_10
+
+setupAsync: () => Promise<string>
+
+_10
+
+}`
+
+`_27
+
+function SchedulerSetup() {
+
+_27
+
+const { setupAsync, isPending, error, data: txId } = useFlowScheduledTransactionSetup({
+
+_27
+
+mutation: {
+
+_27
+
+onSuccess: (txId) => console.log("Setup transaction ID:", txId),
+
+_27
+
+},
+
+_27
+
+})
+
+_27
+
+_27
+
+const handleSetup = async () => {
+
+_27
+
+try {
+
+_27
+
+const resultTxId = await setupAsync()
+
+_27
+
+console.log("Scheduler setup successful:", resultTxId)
+
+_27
+
+} catch (error) {
+
+_27
+
+console.error("Setup failed:", error)
+
+_27
+
+}
+
+_27
+
+}
+
+_27
+
+_27
+
+return (
+
+_27
+
+<div>
+
+_27
+
+<button onClick={handleSetup} disabled={isPending}>
+
+_27
+
+Setup Transaction Scheduler
+
+_27
+
+</button>
+
+_27
+
+{isPending && <p>Setting up scheduler...</p>}
+
+_27
+
+{error && <p>Error: {error.message}</p>}
+
+_27
+
+{txId && <p>Setup Transaction ID: {txId}</p>}
+
+_27
+
+</div>
+
+_27
+
+)
+
+_27
+
+}`
+
+---
+
 ## Cross-VM Hooks[​](#cross-vm-hooks "Direct link to Cross-VM Hooks")
 
 ### `useCrossVmBatchTransaction`[​](#usecrossvmbatchtransaction "Direct link to usecrossvmbatchtransaction")
@@ -1162,7 +2163,7 @@ import { useCrossVmBatchTransaction } from "@onflow/react-sdk"`
 
 This hook allows you to execute multiple EVM transactions in a single atomic Cadence transaction. It is useful for batch processing EVM calls while ensuring they are executed together, either all succeeding or allowing for some to fail without affecting the others.
 
-#### Parameters:[​](#parameters-12 "Direct link to Parameters:")
+#### Parameters:[​](#parameters-18 "Direct link to Parameters:")
 
 * `mutation?: UseMutationOptions<string, Error, UseCrossVmBatchTransactionMutateArgs>` – Optional TanStackQuery mutation options
 * `flowClient?: FlowClient` - Optional `FlowClient` instance
@@ -1421,7 +2422,7 @@ import { useCrossVmTokenBalance } from "@onflow/react-sdk"`
 
 Fetch the balance of a token balance for a given user across both Cadence and EVM environments.
 
-#### Parameters:[​](#parameters-13 "Direct link to Parameters:")
+#### Parameters:[​](#parameters-19 "Direct link to Parameters:")
 
 * `owner: string` – Cadence address of the account whose token balances you want.
 * `vaultIdentifier?: string` – Optional Cadence resource identifier (e.g. "0x1cf0e2f2f715450.FlowToken.Vault") for onchain balance
@@ -1555,388 +2556,6 @@ _20
 
 ---
 
-### `useCrossVmSpendNft`[​](#usecrossvmspendnft "Direct link to usecrossvmspendnft")
-
-[Open in Playground →](https://react.flow.com/#usecrossvmspendnft)
-
-`_10
-
-import { useCrossVmSpendNft } from "@onflow/react-sdk"`
-
-Bridge NFTs from Cadence to Flow EVM and execute arbitrary EVM transactions to atomically spend them.
-
-#### Parameters:[​](#parameters-14 "Direct link to Parameters:")
-
-* `mutation?: UseMutationOptions<string, Error, UseCrossVmSpendFtMutateArgs>` – Optional TanStackQuery mutation options
-* `flowClient?: FlowClient` - Optional `FlowClient` instance
-
-Where `UseCrossVmSpendFtMutateArgs` is defined as:
-
-`_10
-
-interface UseCrossVmSpendFtMutateArgs {
-
-_10
-
-nftIdentifier: string // Cadence NFT identifier (e.g. "0x1cf0e2f2f715450.FlowNFT")
-
-_10
-
-nftIds: string[] // Array of NFT IDs to bridge
-
-_10
-
-calls: EVMBatchCall[] // Array of EVM calls to execute atomically
-
-_10
-
-}`
-
-#### Returns: `UseCrossVmSpendNftResult`[​](#returns-usecrossvmspendnftresult "Direct link to returns-usecrossvmspendnftresult")
-
-Where `UseCrossVmSpendNftResult` is defined as:
-
-`_10
-
-interface UseCrossVmSpendNftResult extends Omit<
-
-_10
-
-UseMutationResult<string, Error, CrossVmSpendNftParams>,
-
-_10
-
-"mutate" | "mutateAsync"
-
-_10
-
-> {
-
-_10
-
-spendNft: (params: CrossVmSpendNftParams) => Promise<string>
-
-_10
-
-spendNftAsync: (params: CrossVmSpendNftParams) => Promise<string>
-
-_10
-
-}`
-
-`_31
-
-function CrossVmSpendNftExample() {
-
-_31
-
-const { spendNft, isPending, error, data: txId } = useCrossVmSpendNft()
-
-_31
-
-_31
-
-const handleSpendNft = () => {
-
-_31
-
-spendNft({
-
-_31
-
-nftIdentifier: "0x1cf0e2f2f715450.FlowNFT", // Cadence NFT identifier
-
-_31
-
-nftIds: ["1"], // Array of NFT IDs to bridge
-
-_31
-
-calls: [
-
-_31
-
-{
-
-_31
-
-abi: contractAbi, // ABI of the EVM contract
-
-_31
-
-contractAddress: "0x1234567890abcdef1234567890abcdef12345678", // EVM contract address
-
-_31
-
-functionName: "transferNFT",
-
-_31
-
-args: ["123"], // Example args
-
-_31
-
-value: "1000000000000000000", // Amount in wei (if applicable)
-
-_31
-
-gasLimit: "21000", // Gas limit for the EVM call
-
-_31
-
-},
-
-_31
-
-],
-
-_31
-
-})
-
-_31
-
-}
-
-_31
-
-_31
-
-return (
-
-_31
-
-<div>
-
-_31
-
-<button onClick={handleSpendNft} disabled={isPending}>
-
-_31
-
-Bridge and Spend NFT
-
-_31
-
-</button>
-
-_31
-
-{isPending && <p>Sending transaction...</p>}
-
-_31
-
-{error && <p>Error: {error.message}</p>}
-
-_31
-
-{txId && <p>Transaction ID: {txId}</p>}
-
-_31
-
-</div>
-
-_31
-
-)
-
-_31
-
-}`
-
----
-
-### `useCrossVmSpendToken`[​](#usecrossvmspendtoken "Direct link to usecrossvmspendtoken")
-
-[Open in Playground →](https://react.flow.com/#usecrossvmspendtoken)
-
-`_10
-
-import { useCrossVmSpendToken } from "@onflow/react-sdk"`
-
-Bridge FTs from Cadence to Flow EVM and execute arbitrary EVM transactions to atomically spend them.
-
-#### Parameters:[​](#parameters-15 "Direct link to Parameters:")
-
-* `mutation?: UseMutationOptions<string, Error, UseCrossVmSpendTokenMutateArgs>` – Optional TanStackQuery mutation options
-* `flowClient?: FlowClient` - Optional `FlowClient` instance
-
-Where `UseCrossVmSpendTokenMutateArgs` is defined as:
-
-`_10
-
-interface UseCrossVmSpendTokenMutateArgs {
-
-_10
-
-vaultIdentifier: string; // Cadence vault identifier (e.g. "0x1cf0e2f2f715450.ExampleToken.Vault")
-
-_10
-
-amount: string; // Amount of tokens to bridge, as a decimal string (e.g. "1.23")
-
-_10
-
-calls: EVMBatchCall[]; // Array of EVM calls to execute after bridging
-
-_10
-
-}`
-
-#### Returns: `UseCrossVmSpendTokenResult`[​](#returns-usecrossvmspendtokenresult "Direct link to returns-usecrossvmspendtokenresult")
-
-Where `UseCrossVmSpendTokenResult` is defined as:
-
-`_10
-
-interface UseCrossVmSpendTokenResult extends Omit<
-
-_10
-
-UseMutationResult<string, Error, UseCrossVmSpendTokenMutateArgs>,
-
-_10
-
-"mutate" | "mutateAsync"
-
-_10
-
-> {
-
-_10
-
-spendToken: (args: UseCrossVmSpendTokenMutateArgs) => void; // Function to trigger the FT bridging and EVM calls
-
-_10
-
-spendTokenAsync: (args: UseCrossVmSpendTokenMutateArgs) => Promise<string>; // Async version of spendToken
-
-_10
-
-}`
-
-`_31
-
-function CrossVmSpendTokenExample() {
-
-_31
-
-const { spendToken, isPending, error, data: txId } = useCrossVmSpendToken()
-
-_31
-
-_31
-
-const handleSpendToken = () => {
-
-_31
-
-spendToken({
-
-_31
-
-vaultIdentifier: "0x1cf0e2f2f715450.ExampleToken.Vault", // Cadence vault identifier
-
-_31
-
-amount: "1.23", // Amount of tokens to bridge to EVM
-
-_31
-
-calls: [
-
-_31
-
-{
-
-_31
-
-abi: myEvmContractAbi, // EVM contract ABI
-
-_31
-
-address: "0x01234567890abcdef01234567890abcdef", // EVM contract address
-
-_31
-
-function: "transfer", // EVM function to call
-
-_31
-
-args: [
-
-_31
-
-"0xabcdef01234567890abcdef01234567890abcdef", // Recipient address
-
-_31
-
-],
-
-_31
-
-},
-
-_31
-
-],
-
-_31
-
-})
-
-_31
-
-}
-
-_31
-
-_31
-
-return (
-
-_31
-
-<div>
-
-_31
-
-<button onClick={handleSpendToken} disabled={isPending}>
-
-_31
-
-Bridge and Spend FTs
-
-_31
-
-</button>
-
-_31
-
-{isPending && <p>Sending transaction...</p>}
-
-_31
-
-{error && <p>Error: {error.message}</p>}
-
-_31
-
-{txId && <p>Cadence Transaction ID: {txId}</p>}
-
-_31
-
-</div>
-
-_31
-
-)
-
-_31
-
-}`
-
----
-
 ### `useCrossVmTransactionStatus`[​](#usecrossvmtransactionstatus "Direct link to usecrossvmtransactionstatus")
 
 [Open in Playground →](https://react.flow.com/#usecrossvmtransactionstatus)
@@ -1947,7 +2566,7 @@ import { useCrossVmTransactionStatus } from "@onflow/react-sdk"`
 
 Subscribes to status updates for a given Cross-VM Flow transaction ID that executes EVM calls. This hook monitors the transaction status and extracts EVM call results if available.
 
-#### Parameters:[​](#parameters-16 "Direct link to Parameters:")
+#### Parameters:[​](#parameters-20 "Direct link to Parameters:")
 
 * `id?: string` – Optional Flow transaction ID to monitor
 * `flowClient?: FlowClient` - Optional `FlowClient` instance
@@ -2098,9 +2717,741 @@ _26
 
 }`
 
+---
+
+### `useCrossVmBridgeNftFromEvm`[​](#usecrossvmbridgenftfromevm "Direct link to usecrossvmbridgenftfromevm")
+
+[Open in Playground →](https://react.flow.com/#usecrossvmbridgenftfromevm)
+
+`_10
+
+import { useCrossVmBridgeNftFromEvm } from "@onflow/react-sdk"`
+
+This hook bridges NFTs from Flow EVM to Cadence. It withdraws an NFT from the signer's COA (Cadence Owned Account) in EVM and deposits it into their Cadence collection.
+
+#### Parameters:[​](#parameters-21 "Direct link to Parameters:")
+
+* `mutation?: UseMutationOptions<string, Error, UseCrossVmBridgeNftFromEvmTxMutateArgs>` – Optional TanStackQuery mutation options
+* `flowClient?: FlowClient` - Optional `FlowClient` instance
+
+#### Returns: `UseCrossVmBridgeNftFromEvmTxResult`[​](#returns-usecrossvmbridgenftfromevmtxresult "Direct link to returns-usecrossvmbridgenftfromevmtxresult")
+
+Where `UseCrossVmBridgeNftFromEvmTxResult` is defined as:
+
+`_10
+
+interface UseCrossVmBridgeNftFromEvmTxResult extends Omit<
+
+_10
+
+UseMutationResult<string, Error>,
+
+_10
+
+"mutate" | "mutateAsync"
+
+_10
+
+> {
+
+_10
+
+crossVmBridgeNftFromEvm: (args: UseCrossVmBridgeNftFromEvmTxMutateArgs) => void
+
+_10
+
+crossVmBridgeNftFromEvmAsync: (args: UseCrossVmBridgeNftFromEvmTxMutateArgs) => Promise<string>
+
+_10
+
+}`
+
+Where `UseCrossVmBridgeNftFromEvmTxMutateArgs` is defined as:
+
+`_10
+
+interface UseCrossVmBridgeNftFromEvmTxMutateArgs {
+
+_10
+
+nftIdentifier: string // Cadence type identifier (e.g., "A.0x123.MyNFT.NFT")
+
+_10
+
+nftId: string // EVM NFT ID as string representation of UInt256
+
+_10
+
+}`
+
+`_25
+
+function BridgeNftFromEvmExample() {
+
+_25
+
+const { crossVmBridgeNftFromEvm, isPending, error, data: txId } = useCrossVmBridgeNftFromEvm({
+
+_25
+
+mutation: {
+
+_25
+
+onSuccess: (txId) => console.log("Transaction ID:", txId),
+
+_25
+
+},
+
+_25
+
+})
+
+_25
+
+_25
+
+const handleBridge = () => {
+
+_25
+
+crossVmBridgeNftFromEvm({
+
+_25
+
+nftIdentifier: "A.0x1cf0e2f2f715450.ExampleNFT.NFT",
+
+_25
+
+nftId: "123",
+
+_25
+
+})
+
+_25
+
+}
+
+_25
+
+_25
+
+return (
+
+_25
+
+<div>
+
+_25
+
+<button onClick={handleBridge} disabled={isPending}>
+
+_25
+
+Bridge NFT from EVM
+
+_25
+
+</button>
+
+_25
+
+{isPending && <p>Bridging NFT...</p>}
+
+_25
+
+{error && <p>Error: {error.message}</p>}
+
+_25
+
+{txId && <p>Transaction ID: {txId}</p>}
+
+_25
+
+</div>
+
+_25
+
+)
+
+_25
+
+}`
+
+---
+
+### `useCrossVmBridgeNftToEvm`[​](#usecrossvmbridgenfttoevm "Direct link to usecrossvmbridgenfttoevm")
+
+[Open in Playground →](https://react.flow.com/#usecrossvmbridgenfttoevm)
+
+`_10
+
+import { useCrossVmBridgeNftToEvm } from "@onflow/react-sdk"`
+
+This hook bridges NFTs from Cadence to Flow EVM and executes arbitrary EVM transactions atomically. It withdraws NFTs from the signer's Cadence collection and deposits them into their COA in EVM, then executes the provided EVM calls.
+
+#### Parameters:[​](#parameters-22 "Direct link to Parameters:")
+
+* `mutation?: UseMutationOptions<string, Error, UseCrossVmBridgeNftToEvmTxMutateArgs>` – Optional TanStackQuery mutation options
+* `flowClient?: FlowClient` - Optional `FlowClient` instance
+
+#### Returns: `UseCrossVmBridgeNftToEvmTxResult`[​](#returns-usecrossvmbridgenfttoevmtxresult "Direct link to returns-usecrossvmbridgenfttoevmtxresult")
+
+Where `UseCrossVmBridgeNftToEvmTxResult` is defined as:
+
+`_10
+
+interface UseCrossVmBridgeNftToEvmTxResult extends Omit<
+
+_10
+
+UseMutationResult<string, Error>,
+
+_10
+
+"mutate" | "mutateAsync"
+
+_10
+
+> {
+
+_10
+
+crossVmBridgeNftToEvm: (args: UseCrossVmBridgeNftToEvmTxMutateArgs) => void
+
+_10
+
+crossVmBridgeNftToEvmAsync: (args: UseCrossVmBridgeNftToEvmTxMutateArgs) => Promise<string>
+
+_10
+
+}`
+
+Where `UseCrossVmBridgeNftToEvmTxMutateArgs` is defined as:
+
+`_10
+
+interface UseCrossVmBridgeNftToEvmTxMutateArgs {
+
+_10
+
+nftIdentifier: string // Cadence NFT type identifier
+
+_10
+
+nftIds: string[] // Array of NFT IDs to bridge
+
+_10
+
+calls: EvmBatchCall[] // Array of EVM calls to execute after bridging
+
+_10
+
+}`
+
+`_34
+
+function BridgeNftToEvmExample() {
+
+_34
+
+const { crossVmBridgeNftToEvm, isPending, error, data: txId } = useCrossVmBridgeNftToEvm({
+
+_34
+
+mutation: {
+
+_34
+
+onSuccess: (txId) => console.log("Transaction ID:", txId),
+
+_34
+
+},
+
+_34
+
+})
+
+_34
+
+_34
+
+const handleBridge = () => {
+
+_34
+
+crossVmBridgeNftToEvm({
+
+_34
+
+nftIdentifier: "A.0x1cf0e2f2f715450.ExampleNFT.NFT",
+
+_34
+
+nftIds: ["1", "2", "3"],
+
+_34
+
+calls: [
+
+_34
+
+{
+
+_34
+
+address: "0x1234567890abcdef1234567890abcdef12345678",
+
+_34
+
+abi: myContractAbi,
+
+_34
+
+functionName: "transferNFT",
+
+_34
+
+args: ["0xRecipient", 1n],
+
+_34
+
+gasLimit: 100000n,
+
+_34
+
+},
+
+_34
+
+],
+
+_34
+
+})
+
+_34
+
+}
+
+_34
+
+_34
+
+return (
+
+_34
+
+<div>
+
+_34
+
+<button onClick={handleBridge} disabled={isPending}>
+
+_34
+
+Bridge NFTs to EVM
+
+_34
+
+</button>
+
+_34
+
+{isPending && <p>Bridging NFTs...</p>}
+
+_34
+
+{error && <p>Error: {error.message}</p>}
+
+_34
+
+{txId && <p>Transaction ID: {txId}</p>}
+
+_34
+
+</div>
+
+_34
+
+)
+
+_34
+
+}`
+
+---
+
+### `useCrossVmBridgeTokenFromEvm`[​](#usecrossvmbridgetokenfromevm "Direct link to usecrossvmbridgetokenfromevm")
+
+[Open in Playground →](https://react.flow.com/#usecrossvmbridgetokenfromevm)
+
+`_10
+
+import { useCrossVmBridgeTokenFromEvm } from "@onflow/react-sdk"`
+
+This hook bridges fungible tokens from Flow EVM to Cadence. It withdraws tokens from the signer's COA in EVM and deposits them into their Cadence vault.
+
+#### Parameters:[​](#parameters-23 "Direct link to Parameters:")
+
+* `mutation?: UseMutationOptions<string, Error, UseCrossVmBridgeTokenFromEvmMutateArgs>` – Optional TanStackQuery mutation options
+* `flowClient?: FlowClient` - Optional `FlowClient` instance
+
+#### Returns: `UseCrossVmBridgeTokenFromEvmResult`[​](#returns-usecrossvmbridgetokenfromevmresult "Direct link to returns-usecrossvmbridgetokenfromevmresult")
+
+Where `UseCrossVmBridgeTokenFromEvmResult` is defined as:
+
+`_10
+
+interface UseCrossVmBridgeTokenFromEvmResult extends Omit<
+
+_10
+
+UseMutationResult<string, Error>,
+
+_10
+
+"mutate" | "mutateAsync"
+
+_10
+
+> {
+
+_10
+
+crossVmBridgeTokenFromEvm: (args: UseCrossVmBridgeTokenFromEvmMutateArgs) => void
+
+_10
+
+crossVmBridgeTokenFromEvmAsync: (args: UseCrossVmBridgeTokenFromEvmMutateArgs) => Promise<string>
+
+_10
+
+}`
+
+Where `UseCrossVmBridgeTokenFromEvmMutateArgs` is defined as:
+
+`_10
+
+interface UseCrossVmBridgeTokenFromEvmMutateArgs {
+
+_10
+
+vaultIdentifier: string // Cadence vault type identifier (e.g., "A.0x123.FlowToken.Vault")
+
+_10
+
+amount: string // Amount as UInt256 string representation
+
+_10
+
+}`
+
+`_25
+
+function BridgeTokenFromEvmExample() {
+
+_25
+
+const { crossVmBridgeTokenFromEvm, isPending, error, data: txId } = useCrossVmBridgeTokenFromEvm({
+
+_25
+
+mutation: {
+
+_25
+
+onSuccess: (txId) => console.log("Transaction ID:", txId),
+
+_25
+
+},
+
+_25
+
+})
+
+_25
+
+_25
+
+const handleBridge = () => {
+
+_25
+
+crossVmBridgeTokenFromEvm({
+
+_25
+
+vaultIdentifier: "A.0x1654653399040a61.FlowToken.Vault",
+
+_25
+
+amount: "1000000000", // Amount in smallest unit
+
+_25
+
+})
+
+_25
+
+}
+
+_25
+
+_25
+
+return (
+
+_25
+
+<div>
+
+_25
+
+<button onClick={handleBridge} disabled={isPending}>
+
+_25
+
+Bridge Tokens from EVM
+
+_25
+
+</button>
+
+_25
+
+{isPending && <p>Bridging tokens...</p>}
+
+_25
+
+{error && <p>Error: {error.message}</p>}
+
+_25
+
+{txId && <p>Transaction ID: {txId}</p>}
+
+_25
+
+</div>
+
+_25
+
+)
+
+_25
+
+}`
+
+---
+
+### `useCrossVmBridgeTokenToEvm`[​](#usecrossvmbridgetokentoevm "Direct link to usecrossvmbridgetokentoevm")
+
+[Open in Playground →](https://react.flow.com/#usecrossvmbridgetokentoevm)
+
+`_10
+
+import { useCrossVmBridgeTokenToEvm } from "@onflow/react-sdk"`
+
+This hook bridges fungible tokens from Cadence to Flow EVM and executes arbitrary EVM transactions atomically. It withdraws tokens from the signer's Cadence vault and deposits them into their COA in EVM, then executes the provided EVM calls.
+
+#### Parameters:[​](#parameters-24 "Direct link to Parameters:")
+
+* `mutation?: UseMutationOptions<string, Error, UseCrossVmBridgeTokenToEvmMutateArgs>` – Optional TanStackQuery mutation options
+* `flowClient?: FlowClient` - Optional `FlowClient` instance
+
+#### Returns: `UseCrossVmBridgeTokenToEvmResult`[​](#returns-usecrossvmbridgetokentoevmresult "Direct link to returns-usecrossvmbridgetokentoevmresult")
+
+Where `UseCrossVmBridgeTokenToEvmResult` is defined as:
+
+`_10
+
+interface UseCrossVmBridgeTokenToEvmResult extends Omit<
+
+_10
+
+UseMutationResult<string, Error>,
+
+_10
+
+"mutate" | "mutateAsync"
+
+_10
+
+> {
+
+_10
+
+crossVmBridgeTokenToEvm: (args: UseCrossVmBridgeTokenToEvmMutateArgs) => void
+
+_10
+
+crossVmBridgeTokenToEvmAsync: (args: UseCrossVmBridgeTokenToEvmMutateArgs) => Promise<string>
+
+_10
+
+}`
+
+Where `UseCrossVmBridgeTokenToEvmMutateArgs` is defined as:
+
+`_10
+
+interface UseCrossVmBridgeTokenToEvmMutateArgs {
+
+_10
+
+vaultIdentifier: string // Cadence vault type identifier
+
+_10
+
+amount: string // Amount as decimal string (e.g., "1.5")
+
+_10
+
+calls: EvmBatchCall[] // Array of EVM calls to execute after bridging
+
+_10
+
+}`
+
+`_34
+
+function BridgeTokenToEvmExample() {
+
+_34
+
+const { crossVmBridgeTokenToEvm, isPending, error, data: txId } = useCrossVmBridgeTokenToEvm({
+
+_34
+
+mutation: {
+
+_34
+
+onSuccess: (txId) => console.log("Transaction ID:", txId),
+
+_34
+
+},
+
+_34
+
+})
+
+_34
+
+_34
+
+const handleBridge = () => {
+
+_34
+
+crossVmBridgeTokenToEvm({
+
+_34
+
+vaultIdentifier: "A.0x1654653399040a61.FlowToken.Vault",
+
+_34
+
+amount: "10.5",
+
+_34
+
+calls: [
+
+_34
+
+{
+
+_34
+
+address: "0x1234567890abcdef1234567890abcdef12345678",
+
+_34
+
+abi: erc20Abi,
+
+_34
+
+functionName: "transfer",
+
+_34
+
+args: ["0xRecipient", 1000000n],
+
+_34
+
+gasLimit: 100000n,
+
+_34
+
+},
+
+_34
+
+],
+
+_34
+
+})
+
+_34
+
+}
+
+_34
+
+_34
+
+return (
+
+_34
+
+<div>
+
+_34
+
+<button onClick={handleBridge} disabled={isPending}>
+
+_34
+
+Bridge Tokens to EVM
+
+_34
+
+</button>
+
+_34
+
+{isPending && <p>Bridging tokens...</p>}
+
+_34
+
+{error && <p>Error: {error.message}</p>}
+
+_34
+
+{txId && <p>Transaction ID: {txId}</p>}
+
+_34
+
+</div>
+
+_34
+
+)
+
+_34
+
+}`
+
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/react-sdk/hooks.md)
 
-Last updated on **Oct 7, 2025** by **mfbz**
+Last updated on **Oct 23, 2025** by **Michael Fabozzi**
 
 [Previous
 
@@ -2115,8 +3466,8 @@ Components](/build/tools/react-sdk/components)
 Copy as Markdown
 
 * [Cadence Hooks](#cadence-hooks)
-  + [`useFlowCurrentUser`](#useflowcurrentuser)+ [Parameters](#parameters)+ [`useFlowAccount`](#useflowaccount)+ [`useFlowBlock`](#useflowblock)+ [`useFlowChainId`](#useflowchainid)+ [`useFlowClient`](#useflowclient)+ [`useFlowConfig`](#useflowconfig)+ [`useFlowEvents`](#useflowevents)+ [`useFlowQuery`](#useflowquery)+ [`useFlowQueryRaw`](#useflowqueryraw)+ [`useFlowMutate`](#useflowmutate)+ [`useFlowRevertibleRandom`](#useflowrevertiblerandom)+ [`useFlowTransaction`](#useflowtransaction)+ [`useFlowTransactionStatus`](#useflowtransactionstatus)+ [`useDarkMode`](#usedarkmode)* [Cross-VM Hooks](#cross-vm-hooks)
-    + [`useCrossVmBatchTransaction`](#usecrossvmbatchtransaction)+ [`useCrossVmTokenBalance`](#usecrossvmtokenbalance)+ [`useCrossVmSpendNft`](#usecrossvmspendnft)+ [`useCrossVmSpendToken`](#usecrossvmspendtoken)+ [`useCrossVmTransactionStatus`](#usecrossvmtransactionstatus)
+  + [`useFlowCurrentUser`](#useflowcurrentuser)+ [`useFlowAccount`](#useflowaccount)+ [`useFlowBlock`](#useflowblock)+ [`useFlowChainId`](#useflowchainid)+ [`useFlowClient`](#useflowclient)+ [`useFlowConfig`](#useflowconfig)+ [`useFlowEvents`](#useflowevents)+ [`useFlowQuery`](#useflowquery)+ [`useFlowQueryRaw`](#useflowqueryraw)+ [`useFlowMutate`](#useflowmutate)+ [`useFlowRevertibleRandom`](#useflowrevertiblerandom)+ [`useFlowTransaction`](#useflowtransaction)+ [`useFlowTransactionStatus`](#useflowtransactionstatus)+ [`useDarkMode`](#usedarkmode)+ [`useFlowNftMetadata`](#useflownftmetadata)+ [`useFlowAuthz`](#useflowauthz)+ [`useFlowScheduledTransaction`](#useflowscheduledtransaction)+ [`useFlowScheduledTransactionList`](#useflowscheduledtransactionlist)+ [`useFlowScheduledTransactionCancel`](#useflowscheduledtransactioncancel)+ [`useFlowScheduledTransactionSetup`](#useflowscheduledtransactionsetup)* [Cross-VM Hooks](#cross-vm-hooks)
+    + [`useCrossVmBatchTransaction`](#usecrossvmbatchtransaction)+ [`useCrossVmTokenBalance`](#usecrossvmtokenbalance)+ [`useCrossVmTransactionStatus`](#usecrossvmtransactionstatus)+ [`useCrossVmBridgeNftFromEvm`](#usecrossvmbridgenftfromevm)+ [`useCrossVmBridgeNftToEvm`](#usecrossvmbridgenfttoevm)+ [`useCrossVmBridgeTokenFromEvm`](#usecrossvmbridgetokenfromevm)+ [`useCrossVmBridgeTokenToEvm`](#usecrossvmbridgetokentoevm)
 
 Flow
 
