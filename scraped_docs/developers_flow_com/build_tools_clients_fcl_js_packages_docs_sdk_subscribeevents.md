@@ -4,6 +4,8 @@ subscribeEvents | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -62,31 +64,31 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as sdk from '@onflow/sdk';
+import * as sdk from "@onflow/sdk"
 
 _10
 
 _10
 
-sdk.subscribeEvents(eventFilter);`
+sdk.subscribeEvents(eventFilter)`
 
 Or import directly the specific function:
 
 `_10
 
-import { subscribeEvents } from '@onflow/sdk';
+import { subscribeEvents } from "@onflow/sdk"
 
 _10
 
 _10
 
-subscribeEvents(eventFilter);`
+subscribeEvents(eventFilter)`
 
 ## Usage[​](#usage "Direct link to Usage")
 
 `_23
 
-import * as fcl from '@onflow/fcl';
+import * as fcl from "@onflow/fcl";
 
 _23
 
@@ -108,11 +110,11 @@ eventTypes: [
 
 _23
 
-'A.1654653399040a61.FlowToken.TokensWithdrawn',
+"A.1654653399040a61.FlowToken.TokensWithdrawn",
 
 _23
 
-'A.1654653399040a61.FlowToken.TokensDeposited',
+"A.1654653399040a61.FlowToken.TokensDeposited"
 
 _23
 
@@ -124,11 +126,11 @@ startHeight: 1000000, // Start from specific block height
 
 _23
 
-heartbeatInterval: 3000, // 3 second heartbeat
+heartbeatInterval: 3000 // 3 second heartbeat
 
 _23
 
-}),
+})
 
 _23
 
@@ -150,15 +152,15 @@ fcl.subscribeEvents({
 
 _23
 
-contracts: ['FlowToken', 'FungibleToken'],
+contracts: ["FlowToken", "FungibleToken"],
 
 _23
 
-addresses: ['0x1654653399040a61'],
+addresses: ["0x1654653399040a61"]
 
 _23
 
-}),
+})
 
 _23
 
@@ -184,11 +186,11 @@ export type InteractionBuilderFn = (
 
 _10
 
-ix: Interaction,
+ix: Interaction
 
 _10
 
-) => Interaction | Promise<Interaction>;`
+) => Interaction | Promise<Interaction>`
 
 A function that processes an interaction object
 
@@ -196,7 +198,7 @@ A function that processes an interaction object
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/subscribeEvents.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Oct 22, 2025** by **Michael Fabozzi**
 
 [Previous
 

@@ -6,7 +6,7 @@ Integrate Flow EVM with Web3 SDKs | Flow Wallet
 
 Flow Wallet](/)
 
-`Ctrl``K`
+`Ctrl``k`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers

@@ -6,7 +6,7 @@ Wallet Revoke key guide | Flow Wallet
 
 Flow Wallet](/)
 
-`Ctrl``K`
+`Ctrl``k`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers
@@ -88,4 +88,4 @@ After revoking, the key will be marked as **Revoked**, and access using that key
 
 [PreviousMobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 
-Last updated 3 months ago
+Last updated 4 months ago

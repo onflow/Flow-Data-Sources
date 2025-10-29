@@ -4,6 +4,8 @@ Running Cadence Tests | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -249,15 +251,15 @@ To learn more about writing tests in Cadence, visit the [Cadence Testing Framewo
 
 ---
 
-### Running Specific Tests[​](#running-specific-tests "Direct link to Running Specific Tests")
+### Running Specific Tests and Files[​](#running-specific-tests-and-files "Direct link to Running Specific Tests and Files")
 
-If you wish to run a specific test script rather than all tests, you can provide the path to the test file:
+Run specific test scripts or directories by providing their paths:
 
 `_10
 
-flow test path/to/your/test_script_test.cdc`
+flow test path/to/your/test_script_test.cdc path/to/another_test.cdc tests/subsuite/`
 
-This will execute only the tests contained in the specified file.
+This executes only the tests contained in the specified files and directories.
 
 ---
 
@@ -381,9 +383,65 @@ This command will run only the test function named `testSumOfTwo` across all tes
 
 To dive deeper into testing the functionality of your Cadence scripts and contracts, explore the [Cadence Testing Framework](https://cadence-lang.org/docs/testing-framework) documentation.
 
+---
+
+### Fork Testing Flags[​](#fork-testing-flags "Direct link to Fork Testing Flags")
+
+Run tests against forked mainnet or testnet state. For a step-by-step tutorial, see: [Fork Testing with Cadence](/blockchain-development-tutorials/cadence/fork-testing). For background and best practices, see the guide: [Testing Strategy on Flow](/build/cadence/smart-contracts/testing-strategy).
+
+#### --fork[​](#--fork "Direct link to --fork")
+
+* Type: `string`
+* Default: `""` (empty). If provided without a value, defaults to `mainnet`.
+
+Fork tests from a network defined in `flow.json`. The CLI resolves the GRPC access host and chain ID from the selected network configuration.
+
+`_10
+
+flow test --fork # Uses mainnet by default
+
+_10
+
+flow test --fork testnet # Uses testnet
+
+_10
+
+flow test --fork mynet # Uses a custom network defined in flow.json`
+
+Requirements:
+
+* The network must exist in `flow.json`
+* The network must have a valid `host` configured
+
+#### --fork-host[​](#--fork-host "Direct link to --fork-host")
+
+* Type: `string`
+* Default: `""`
+
+Directly specify a GRPC access node host. This bypasses the `flow.json` network lookup.
+
+`_10
+
+flow test --fork-host access.mainnet.nodes.onflow.org:9000`
+
+See public access node URLs in [Flow Networks](/protocol/flow-networks).
+
+#### --fork-height[​](#--fork-height "Direct link to --fork-height")
+
+* Type: `uint64`
+* Default: `0`
+
+Pin the fork to a specific block height for historical state testing. Only blocks from the current spork (since the most recent network upgrade) are available via public access nodes; earlier blocks are not accessible via public access nodes.
+
+`_10
+
+flow test --fork mainnet --fork-height 85432100`
+
+> Note: Historical data beyond spork boundaries is not available via standard access nodes. See the [Network Upgrade (Spork) Process](/protocol/node-ops/node-operation/network-upgrade).
+
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/tests.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Oct 29, 2025** by **Jordan Ribbink**
 
 [Previous
 
@@ -399,8 +457,8 @@ Copy as Markdown
 
 * [Prerequisites](#prerequisites)
   + [Setting Up Testing Aliases in Contracts](#setting-up-testing-aliases-in-contracts)* [Example Usage](#example-usage)
-    + [Running Specific Tests](#running-specific-tests)* [Flags](#flags)
-      + [**Coverage Report**](#coverage-report)+ [Coverage Report Output File](#coverage-report-output-file)+ [Coverage Code Type](#coverage-code-type)+ [Random Execution of Test Cases](#random-execution-of-test-cases)+ [Seed for Random Execution](#seed-for-random-execution)+ [Run Specific Test by Name](#run-specific-test-by-name)
+    + [Running Specific Tests and Files](#running-specific-tests-and-files)* [Flags](#flags)
+      + [**Coverage Report**](#coverage-report)+ [Coverage Report Output File](#coverage-report-output-file)+ [Coverage Code Type](#coverage-code-type)+ [Random Execution of Test Cases](#random-execution-of-test-cases)+ [Seed for Random Execution](#seed-for-random-execution)+ [Run Specific Test by Name](#run-specific-test-by-name)+ [Fork Testing Flags](#fork-testing-flags)
 
 Flow
 

@@ -4,6 +4,8 @@ Flow Actions | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -40,13 +42,13 @@ On this page
 
 # Flow Actions Tutorials
 
-This series covers how to build decentralized finance applications using the Flow Actions framework, enabling developers to create composable DeFi workflows. These tutorials are part of the Forte network upgrade, which introduces new capabilities to the Flow blockchain.
+This series covers how to build decentralized finance (DeFi) applications using the Flow Actions framework, enabling developers to create composable DeFi workflows. These tutorials are part of the Forte network upgrade, which introduces new capabilities to the Flow blockchain.
 
 warning
 
-Flow Actions are being reviewed and finalized in [FLIP 339](https://github.com/onflow/flips/pull/339/files). The specific implementation may change as a part of this process.
+We are reviewing and finalizing Flow Actions in [FLIP 339](https://github.com/onflow/flips/pull/339/files). The specific implementation may change as a part of this process.
 
-These tutorials will be updated, but you may need to refactor your code if the implementation changes.
+We will update these tutorials, but you may need to refactor your code if the implementation changes.
 
 ## Tutorials[​](#tutorials "Direct link to Tutorials")
 
@@ -57,7 +59,7 @@ These tutorials will be updated, but you may need to refactor your code if the i
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/flow-actions/index.md)
 
-Last updated on **Oct 21, 2025** by **0xLisanAlGaib**
+Last updated on **Oct 28, 2025** by **0xLisanAlGaib**
 
 [Previous
 

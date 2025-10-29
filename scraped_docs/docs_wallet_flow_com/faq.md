@@ -6,7 +6,7 @@ FAQ | Flow Wallet
 
 Flow Wallet](/)
 
-`Ctrl``K`
+`Ctrl``k`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers

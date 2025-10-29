@@ -6,7 +6,7 @@ Extension Private Key and Seed Phrase Guide | Flow Wallet
 
 Flow Wallet](/)
 
-`Ctrl``K`
+`Ctrl``k`
 
 * [👋Welcome to Flow Wallet](/)
 * Ecosystem Primers

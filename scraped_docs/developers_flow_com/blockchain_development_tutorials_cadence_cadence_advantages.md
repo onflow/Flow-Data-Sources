@@ -4,6 +4,8 @@ Cadence Advantages | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -24,7 +26,9 @@ Search
 
               - [Compose with Cadence Transactions](/blockchain-development-tutorials/cadence/cadence-advantages/compose-with-cadence-transactions)- [Native Data Availability With Cadence Scripts](/blockchain-development-tutorials/cadence/cadence-advantages/native-data-availibility-with-cadence-scripts)- [Upgrading Cadence Contracts](/blockchain-development-tutorials/cadence/cadence-advantages/upgrading-cadence-contracts)+ [Account Linking](/blockchain-development-tutorials/cadence/account-management)
 
-                + [Mobile Development on Flow](/blockchain-development-tutorials/cadence/mobile)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
+                + [Mobile Development on Flow](/blockchain-development-tutorials/cadence/mobile)
+
+                  + [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
 
             * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
 
@@ -42,13 +46,13 @@ On this page
 
 # Cadence Advantages
 
-This series explores the unique advantages and capabilities of Cadence smart contracts on Flow, demonstrating how Cadence's innovative features enable powerful development patterns that aren't possible on other blockchain platforms. From native data availability to seamless transaction composition, these tutorials showcase why Cadence represents the future of smart contract development.
+This series explores the unique advantages and capabilities of Cadence smart contracts on Flow, and demonstrates how Cadence's innovative features allow powerful development patterns that aren't possible on other blockchain platforms. From native data availability to seamless transaction composition, these tutorials showcase why Cadence represents the future of smart contract development.
 
 ## Tutorials[​](#tutorials "Direct link to Tutorials")
 
 ### [Compose with Cadence Transactions](/blockchain-development-tutorials/cadence/cadence-advantages/compose-with-cadence-transactions)[​](#compose-with-cadence-transactions "Direct link to compose-with-cadence-transactions")
 
-Learn how to compose with someone else's on-chain contracts by writing a Cadence transaction that conditionally calls a public contract on testnet, then extend it to mint NFTs when conditions are met—no redeploy required. This tutorial demonstrates Cadence's powerful composition model, showing how you can build complex application logic that interacts with multiple contracts in a single atomic transaction. You'll work with the Flow CLI dependency manager, learn to set up NFT collections, and view results using Flowscan.
+Learn how to compose with someone else's on-chain contracts by writing a Cadence transaction that conditionally calls a public contract on testnet, then extend it to mint NFTs when conditions are met, with no redeploy required. This tutorial demonstrates Cadence's powerful composition model, which lets you build complex application logic that interacts with multiple contracts in a single atomic transaction. You'll work with the Flow command line interface (CLI) dependency manager, learn to set up NFT collections, and view results using Flowscan.
 
 ### [Native Data Availability with Cadence Scripts](/blockchain-development-tutorials/cadence/cadence-advantages/native-data-availibility-with-cadence-scripts)[​](#native-data-availability-with-cadence-scripts "Direct link to native-data-availability-with-cadence-scripts")
 
@@ -56,15 +60,20 @@ Discover how Cadence scripts provide native data availability, allowing you to q
 
 ### [Upgrading Cadence Contracts](/blockchain-development-tutorials/cadence/cadence-advantages/upgrading-cadence-contracts)[​](#upgrading-cadence-contracts "Direct link to upgrading-cadence-contracts")
 
-Learn how to upgrade deployed Cadence contracts through multiple incremental upgrades while preserving existing state and maintaining the same contract address. This tutorial demonstrates Cadence's sophisticated contract upgrade system through two realistic scenarios: first adding an event to notify users when the counter reaches an even number, then extending the contract with additional functionality like incrementing by 2 and checking if numbers are even. You'll understand what can and cannot be changed during upgrades, perform multiple contract updates using Flow CLI, and test upgraded functionality with comprehensive transactions and scripts.
+Learn how to upgrade deployed Cadence contracts through multiple incremental upgrades while preserving existing state and maintaining the same contract address. This tutorial demonstrates Cadence's sophisticated contract upgrade system through two realistic scenarios:
+
+* Adding an event to notify users when the counter reaches an even number.
+* Extending the contract with additional functionality like incrementing by two and checking if numbers are even.
+
+You'll understand what you can and can't change during upgrades, perform multiple contract updates using Flow CLI, and test upgraded functionality with comprehensive transactions and scripts.
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-Cadence's unique features—from resource-oriented programming to native data availability, seamless transaction composition, and sophisticated contract upgrade capabilities—represent a fundamental advancement in smart contract development. These tutorials demonstrate how Cadence enables developers to build sophisticated applications with capabilities that simply aren't possible on other blockchain platforms, while maintaining security and developer experience as core principles.
+Cadence's unique features, such as resource-oriented programming to native data availability, seamless transaction composition, and sophisticated contract upgrade capabilities, represent a fundamental advancement in smart contract development. These tutorials demonstrate how Cadence allows developers to build sophisticated applications with capabilities that simply aren't possible on other blockchain platforms, while maintaining security and developer experience as core principles.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/cadence-advantages/index.md)
 
-Last updated on **Oct 10, 2025** by **Brian Doyle**
+Last updated on **Oct 27, 2025** by **cshannon1218**
 
 [Previous
 

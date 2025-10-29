@@ -4,6 +4,8 @@ createSdkClient | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -160,7 +162,105 @@ _10
 
 ## Returns[​](#returns "Direct link to Returns")
 
-`Promise<any>`
+`_25
+
+{
+
+_25
+
+send: (args?: false | InteractionBuilderFn | (false | InteractionBuilderFn)[], opts?: any) => Promise<any>;
+
+_25
+
+subscribe: <T extends SubscriptionTopic>({
+
+_25
+
+topic, args, onData, onError
+
+_25
+
+}: SubscribeParams<T>, opts?: {
+
+_25
+
+node?: string;
+
+_25
+
+transport?: SdkTransport;
+
+_25
+
+}) => Subscription;
+
+_25
+
+subscribeRaw: <T extends SubscriptionTopic>({
+
+_25
+
+topic, args, onData, onError
+
+_25
+
+}: SubscribeRawParams<T>, opts?: {
+
+_25
+
+node?: string;
+
+_25
+
+transport?: SdkTransport;
+
+_25
+
+}) => {
+
+_25
+
+unsubscribe: () => void;
+
+_25
+
+};
+
+_25
+
+account: (address: string, {
+
+_25
+
+height, id, isSealed
+
+_25
+
+}?: AccountQueryOptions, opts?: object) => Promise<Account>;
+
+_25
+
+block: ({
+
+_25
+
+sealed, id, height
+
+_25
+
+}?: BlockQueryOptions, opts?: object) => Promise<Block>;
+
+_25
+
+resolve: (ix: Interaction) => Promise<Interaction>;
+
+_25
+
+decode: (response: any) => Promise<any>;
+
+_25
+
+}`
 
 A client object with methods to interact with the Flow blockchain.
 
@@ -168,7 +268,7 @@ A client object with methods to interact with the Flow blockchain.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/createSdkClient.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Oct 22, 2025** by **Michael Fabozzi**
 
 [Previous
 
