@@ -42,14 +42,6 @@ On this page
 
 # Flow Actions Transaction
 
-warning
-
-We are reviewing and finalizing Flow Actions in [FLIP 339](https://github.com/onflow/flips/pull/339/files). The specific implementation may change as a part of this process.
-
-We will update these tutorials, but you may need to refactor your code if the implementation changes.
-
-## Overview[​](#overview "Direct link to Overview")
-
 [Staking](/protocol/staking) is a simple way to participate in the blockchain process. You supply tokens to help with governance and, in return, you earn a share of the network's rewards. It's a way to grow unused assets and provides a much higher rate of return than a savings account.
 
 warning
@@ -750,7 +742,7 @@ This transaction demonstrates how to chain multiple DeFi operations atomically, 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/flow-actions/flow-actions-transaction.md)
 
-Last updated on **Oct 27, 2025** by **0xLisanAlGaib**
+Last updated on **Oct 29, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -764,11 +756,11 @@ Connectors](/blockchain-development-tutorials/forte/flow-actions/connectors)
 
 Copy as Markdown
 
-* [Overview](#overview)* [Learning Objectives](#learning-objectives)* [Prerequisites](#prerequisites)* [Cadence Programming Language](#cadence-programming-language)* [Getting Started on Mainnet](#getting-started-on-mainnet)
-          + [Staking with IncrementFi](#staking-with-incrementfi)+ [Initialize Your Staking User Certificate](#initialize-your-staking-user-certificate)* [Setting Up the Project](#setting-up-the-project)
-            + [Starting With the Scaffold](#starting-with-the-scaffold)+ [Export Your Wallet Key](#export-your-wallet-key)* [Building the Transaction](#building-the-transaction)
-              + [Import Required Contracts](#import-required-contracts)+ [Define Transaction Parameters](#define-transaction-parameters)+ [Declare Transaction Properties](#declare-transaction-properties)+ [Prepare Phase](#prepare-phase)+ [Token Type Detection and Configuration](#token-type-detection-and-configuration)+ [Build the Flow Actions Chain](#build-the-flow-actions-chain)+ [Post-Condition Safety Check](#post-condition-safety-check)+ [Execute the Transaction](#execute-the-transaction)* [Running the Transaction](#running-the-transaction)
-                + [Interpreting the Results](#interpreting-the-results)* [Running the Transaction on Emulator](#running-the-transaction-on-emulator)* [Conclusion](#conclusion)
+* [Learning Objectives](#learning-objectives)* [Prerequisites](#prerequisites)* [Cadence Programming Language](#cadence-programming-language)* [Getting Started on Mainnet](#getting-started-on-mainnet)
+        + [Staking with IncrementFi](#staking-with-incrementfi)+ [Initialize Your Staking User Certificate](#initialize-your-staking-user-certificate)* [Setting Up the Project](#setting-up-the-project)
+          + [Starting With the Scaffold](#starting-with-the-scaffold)+ [Export Your Wallet Key](#export-your-wallet-key)* [Building the Transaction](#building-the-transaction)
+            + [Import Required Contracts](#import-required-contracts)+ [Define Transaction Parameters](#define-transaction-parameters)+ [Declare Transaction Properties](#declare-transaction-properties)+ [Prepare Phase](#prepare-phase)+ [Token Type Detection and Configuration](#token-type-detection-and-configuration)+ [Build the Flow Actions Chain](#build-the-flow-actions-chain)+ [Post-Condition Safety Check](#post-condition-safety-check)+ [Execute the Transaction](#execute-the-transaction)* [Running the Transaction](#running-the-transaction)
+              + [Interpreting the Results](#interpreting-the-results)* [Running the Transaction on Emulator](#running-the-transaction-on-emulator)* [Conclusion](#conclusion)
 
 Flow
 

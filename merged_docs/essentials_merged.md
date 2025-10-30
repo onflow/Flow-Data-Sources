@@ -4,6 +4,8 @@ Scaling Transactions from a Single Account | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -2570,6 +2572,8 @@ Scripts | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -3819,6 +3823,8 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 Build a Complex Transaction | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -5303,6 +5309,8 @@ VM Bridge Contracts | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -6494,6 +6502,8 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 Common errors | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -11457,6 +11467,8 @@ Build a Transaction | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -12948,6 +12960,8 @@ Query QC/DKG Info with Scripts or Events | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -14123,6 +14137,8 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 Register Your ERC20 Token on Flow EVM | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -29377,6 +29393,8 @@ Flow Network Architecture | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -32520,6 +32538,8 @@ Account statuses | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -32813,27 +32833,27 @@ Copy as Markdown
 * [Example Request](#example-request)
   + [Request Arguments](#request-arguments)* [Example Response](#example-response)
 
-Documentation
+Flow
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
 
-Community
+Cadence
 
-* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
 
-Start Building
+Solidity (EVM)
 
-* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
 
-Network
+Community & Support
 
-* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
 
-More
+Network & Resources
 
-* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
+Copyright © 2025 Flow Foundation. All Rights Reserved.
 
 
 
@@ -35797,9 +35817,11 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 
 # Source: https://developers.flow.com/build/cadence/smart-contracts/testing
 
-Testing Smart Contracts | Flow Developer Portal
+Cadence Testing Framework | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -35815,19 +35837,23 @@ Search
 
           + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-            - [Learn Cadence ↗️](/build/cadence/learn-cadence)- [Smart Contracts on Flow](/build/cadence/smart-contracts/overview)- [Deploying Contracts](/build/cadence/smart-contracts/deploying)- [Testing Smart Contracts](/build/cadence/smart-contracts/testing)- [Best Practices](/build/cadence/smart-contracts/best-practices/security-best-practices)+ [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+            - [Learn Cadence ↗️](/build/cadence/learn-cadence)- [Smart Contracts on Flow](/build/cadence/smart-contracts/overview)- [Deploying Contracts](/build/cadence/smart-contracts/deploying)- [Testing Smart Contracts](/build/cadence/smart-contracts/testing-strategy)- [Cadence Testing Framework](/build/cadence/smart-contracts/testing)- [Best Practices](/build/cadence/smart-contracts/best-practices/security-best-practices)+ [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
 
               + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
 
       + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
 
-* * Cadence* Writing and Deploying Smart Contracts* Testing Smart Contracts
+* * Cadence* Writing and Deploying Smart Contracts* Cadence Testing Framework
 
 On this page
 
 # Testing Smart Contracts
 
 Testing is an essential part of smart contract development to ensure the correctness and reliability of your code. The Cadence Testing Framework provides a convenient way to write tests for your contracts, scripts and transactions which allows you to verify the functionality and correctness of your smart contracts.
+
+info
+
+Looking for high‑level guidance on when to use emulator, forks, or testnet? See [Testing Smart Contracts](/build/cadence/smart-contracts/testing-strategy).
 
 ## Install Flow CLI[​](#install-flow-cli "Direct link to Install Flow CLI")
 
@@ -36284,31 +36310,9 @@ info
 
 The Cadence testing framework utilizes the emulator under the hood.
 
-### Go Tests[​](#go-tests "Direct link to Go Tests")
+### Fork testing (overview)[​](#fork-testing-overview "Direct link to Fork testing (overview)")
 
-Tests in Go can be written using [flow-go-sdk](https://github.com/onflow/flow-go-sdk) and the go test command.
-
-You can find examples of Go tests in the following projects: [flow-core-contracts](https://github.com/onflow/flow-core-contracts/tree/master/lib/go/test), [flow-nft](https://github.com/onflow/flow-nft/tree/master/lib/go/test), [flow-ft](https://github.com/onflow/flow-ft/tree/master/lib/go/test).
-
-info
-
-These tests are tied to the emulator but can be refactored to run on testnet
-
-## Testing Your Application[​](#testing-your-application "Direct link to Testing Your Application")
-
-### Automated Testing of Contract Code[​](#automated-testing-of-contract-code "Direct link to Automated Testing of Contract Code")
-
-All contracts should include test coverage for *all contract functions*. Make sure you've accounted for success and failure cases appropriately.
-
-Tests should also be runnable in automated environments (CI). You can use the [Cadence testing utils](https://cadence-lang.org/docs/testing-framework) to create tests for your smart contract code.
-
-### Stress Testing Live Applications Before Mainnet[​](#stress-testing-live-applications-before-mainnet "Direct link to Stress Testing Live Applications Before Mainnet")
-
-Once you deployed your application to the testnet, you should record how your application handles non-trivial amounts of traffic to ensure there are no issues.
-
-tip
-
-Get familiar with the [Cadence anti-patterns](https://cadence-lang.org/docs/anti-patterns) to avoid avoid problematic or unintended behavior.
+For running tests against a fork of mainnet/testnet, see the dedicated tutorial: [Fork Testing with Cadence (Step-by-Step)](/blockchain-development-tutorials/cadence/fork-testing). For available flags, see [Fork Testing Flags](/build/tools/flow-cli/tests#fork-testing-flags). To interactively explore a forked state outside the test framework, see [Flow Emulator](/build/tools/emulator). For when to use forks vs emulator, see [Testing Strategy on Flow](/build/cadence/smart-contracts/testing-strategy).
 
 ## References[​](#references "Direct link to References")
 
@@ -36321,11 +36325,11 @@ Get familiar with the [Cadence anti-patterns](https://cadence-lang.org/docs/anti
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/smart-contracts/testing.md)
 
-Last updated on **Sep 4, 2025** by **0xLisanAlGaib**
+Last updated on **Oct 29, 2025** by **Jordan Ribbink**
 
 [Previous
 
-Deploying Contracts](/build/cadence/smart-contracts/deploying)[Next
+Testing Smart Contracts](/build/cadence/smart-contracts/testing-strategy)[Next
 
 Security Best Practices](/build/cadence/smart-contracts/best-practices/security-best-practices)
 
@@ -36336,8 +36340,7 @@ Security Best Practices](/build/cadence/smart-contracts/best-practices/security-
 Copy as Markdown
 
 * [Install Flow CLI](#install-flow-cli)* [Create a new project](#create-a-new-project)* [Write a simple smart contract](#write-a-simple-smart-contract)* [Add the smart contract to the config](#add-the-smart-contract-to-the-config)* [Write unit tests](#write-unit-tests)* [Running the test cases](#running-the-test-cases)* [Advanced Testing Techniques](#advanced-testing-techniques)* [Testing Requirements](#testing-requirements)* [Writing Tests](#writing-tests)
-                  + [Cadence tests](#cadence-tests)+ [Go Tests](#go-tests)* [Testing Your Application](#testing-your-application)
-                    + [Automated Testing of Contract Code](#automated-testing-of-contract-code)+ [Stress Testing Live Applications Before Mainnet](#stress-testing-live-applications-before-mainnet)* [References](#references)
+                  + [Cadence tests](#cadence-tests)+ [Fork testing (overview)](#fork-testing-overview)* [References](#references)
 
 Flow
 
@@ -44205,6 +44208,8 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 Byzantine Node Attack Response | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -54038,6 +54043,8 @@ Block headers | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -56809,6 +56816,8 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 Creating a Fungible Token | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -63850,6 +63859,8 @@ Access HTTP API ↗️ | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -64788,6 +64799,8 @@ Send Signed Transaction | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -65090,6 +65103,8 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 Node Migration | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -65434,6 +65449,8 @@ Blocks | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -65749,6 +65766,8 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 Configuration | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -66471,6 +66490,8 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 Connecting to WebSockets via Postman UI | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -67234,8 +67255,6 @@ Search
 On this page
 
 # High-Precision Fixed-Point 128 Bit Math
-
-## Overview[​](#overview "Direct link to Overview")
 
 Dealing with decimals is a notorious issue for most developers on other chains, especially when working with decentralized finance (DeFi). Blockchains are deterministic systems and floating-point arithmetic is non-deterministic across different compilers and architectures, which is why blockchains use fixed-point arithmetic via integers (scaling numbers by a fixed factor).
 
@@ -68327,7 +68346,7 @@ The simple **convert → calculate → convert back** pattern, combined with str
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/fixed-point-128-bit-math.md)
 
-Last updated on **Oct 22, 2025** by **cshannon1218**
+Last updated on **Oct 29, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -68341,13 +68360,13 @@ Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-fl
 
 Copy as Markdown
 
-* [Overview](#overview)* [The Precision Problem](#the-precision-problem)* [The Solution: 24-Decimal Precision](#the-solution-24-decimal-precision)
-      + [The Three-Tier Precision System](#the-three-tier-precision-system)* [Core Constants](#core-constants)* [Rounding Modes](#rounding-modes)
-          + [When to Use Each Mode](#when-to-use-each-mode)* [Core Functions](#core-functions)
-            + [Conversion Functions](#conversion-functions)* [High-Precision Arithmetic](#high-precision-arithmetic)
-              + [Multiplication](#multiplication)+ [Division](#division)+ [UFix64 Division with Rounding](#ufix64-division-with-rounding)* [Common DeFi Use Cases](#common-defi-use-cases)
-                + [Liquidity Pool Pricing (Constant Product AMM)](#liquidity-pool-pricing-constant-product-amm)+ [Compound Interest Calculations](#compound-interest-calculations)+ [Proportional Distribution](#proportional-distribution)+ [Price Impact Calculation](#price-impact-calculation)* [Benefits of High-Precision Math](#benefits-of-high-precision-math)
-                  + [Precision Preservation](#precision-preservation)+ [Overflow Protection](#overflow-protection)* [Best Practices](#best-practices)* [More Resources](#more-resources)* [Key takeaways](#key-takeaways)* [Conclusion](#conclusion)
+* [The Precision Problem](#the-precision-problem)* [The Solution: 24-Decimal Precision](#the-solution-24-decimal-precision)
+    + [The Three-Tier Precision System](#the-three-tier-precision-system)* [Core Constants](#core-constants)* [Rounding Modes](#rounding-modes)
+        + [When to Use Each Mode](#when-to-use-each-mode)* [Core Functions](#core-functions)
+          + [Conversion Functions](#conversion-functions)* [High-Precision Arithmetic](#high-precision-arithmetic)
+            + [Multiplication](#multiplication)+ [Division](#division)+ [UFix64 Division with Rounding](#ufix64-division-with-rounding)* [Common DeFi Use Cases](#common-defi-use-cases)
+              + [Liquidity Pool Pricing (Constant Product AMM)](#liquidity-pool-pricing-constant-product-amm)+ [Compound Interest Calculations](#compound-interest-calculations)+ [Proportional Distribution](#proportional-distribution)+ [Price Impact Calculation](#price-impact-calculation)* [Benefits of High-Precision Math](#benefits-of-high-precision-math)
+                + [Precision Preservation](#precision-preservation)+ [Overflow Protection](#overflow-protection)* [Best Practices](#best-practices)* [More Resources](#more-resources)* [Key takeaways](#key-takeaways)* [Conclusion](#conclusion)
 
 Flow
 
@@ -68863,6 +68882,8 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 Flow Remix Guide | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -77995,6 +78016,8 @@ Security | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -78864,6 +78887,8 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 Supported topics | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -84441,6 +84466,8 @@ Protocol State Bootstrapping | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -86365,6 +86392,8 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 Client Tools | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -98235,6 +98264,8 @@ Node Economics | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -98631,6 +98662,8 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 Past Network Upgrades | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -116189,6 +116222,8 @@ List subscriptions request message format | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -118028,6 +118063,8 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 Flow Account Linking Contract Address | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -133946,6 +133983,8 @@ Managing disk space | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -145166,6 +145205,8 @@ Slashing Conditions | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -145902,6 +145943,8 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 Deploy a Project | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -146867,6 +146910,8 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 Flow Fees Contract | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -154918,6 +154963,8 @@ Flow Emulator | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -154966,11 +155013,11 @@ First, create a `flow.json` configuration file:
 
 flow init --config-only`
 
-Then start the Flow Emulator:
+Then start the Flow Emulator in fork mode (defaults to mainnet when value omitted):
 
 `_10
 
-flow emulator`
+flow emulator --fork`
 
 You'll see output similar to:
 
@@ -154996,66 +155043,231 @@ This starts a local Flow network with:
 * REST API on `http://localhost:8888`
 * Admin API on port `8080`
 
-## Common Options[​](#common-options "Direct link to Common Options")
+## Available Commands[​](#available-commands "Direct link to Available Commands")
 
-`_14
+* `snapshot`: Create/Load/List emulator snapshots. See: [Create Emulator Snapshot](/build/tools/flow-cli/utils/snapshot-save)
 
-# Start with verbose logging
+## Key Flags[​](#key-flags "Direct link to Key Flags")
 
-_14
+* **Networking**
+
+  + `--host <string>`: Host to listen on for gRPC/REST/Admin (default: all interfaces)
+  + `--port, -p <int>`: gRPC port (default `3569`)
+  + `--rest-port <int>`: REST API port (default `8888`)
+  + `--admin-port <int>`: Admin API port (default `8080`)
+  + `--debugger-port <int>`: Debug Adapter Protocol port (default `2345`)
+  + `--grpc-debug`: Enable gRPC server reflection
+  + `--rest-debug`: Enable REST API debug output
+* **State & Persistence**
+
+  + `--persist`: Enable persistent storage (default disabled)
+  + `--dbpath <path>`: Directory for on-disk state (default `./flowdb`)
+  + `--sqlite-url <url>`: Use SQLite storage backend
+  + `--redis-url <url>`: Use Redis storage backend
+  + `--checkpoint-dir <path>`: Load state from checkpoint directory
+  + `--state-hash <string>`: Load state from checkpoint state hash
+* **Forking**
+
+  + `--fork <string>`: Start the emulator in fork mode using a network from `flow.json`. If provided without a value, defaults to `mainnet`.
+  + `--fork-host <host>`: Access node to query when forking Mainnet/Testnet
+  + `--fork-height <uint>`: Starting block height when forking
+* **Cadence & VM**
+
+  + `--block-time, -b <duration>`: Time between sealed blocks (e.g. `1s`, `300ms`)
+  + `--coverage-reporting`: Enable code coverage reporting
+  + `--computation-reporting`: Enable computation reporting
+  + `--legacy-upgrade`: Enable legacy contract upgrade behavior
+  + `--scheduled-transactions`: Enable scheduled transactions (default true)
+  + `--script-gas-limit <int>`: Gas limit for scripts (default `100000`)
+  + `--transaction-max-gas-limit <int>`: Max transaction gas limit (default `9999`)
+  + `--transaction-expiry <int>`: Transaction expiry in blocks (default `10`)
+  + `--skip-tx-validation`: Skip tx signature and sequence number checks
+  + `--simple-addresses`: Use sequential addresses starting with `0x01`
+  + `--storage-limit`: Enforce account storage limit (default true)
+  + `--storage-per-flow <decimal>`: MB of storage per 1 FLOW token
+  + `--token-supply <decimal>`: Initial FLOW token supply (default `1000000000.0`)
+  + `--transaction-fees`: Enable transaction fees
+  + `--setup-evm`: Deploy EVM contracts (default true)
+  + `--setup-vm-bridge`: Deploy VM Bridge contracts (default true)
+* **Service Account & Identity**
+
+  + `--chain-id <emulator|testnet|mainnet>`: Address generation chain (default `emulator`)
+  + `--service-priv-key <hex>` / `--service-pub-key <hex>`: Service account keys
+  + `--service-sig-algo <ECDSA_P256|ECDSA_secp256k1>`: Service key signature algo (default `ECDSA_P256`)
+  + `--service-hash-algo <SHA3_256|SHA2_256>`: Service key hash algo (default `SHA3_256`)
+  + `--min-account-balance <decimal>`: Minimum account balance / account creation cost
+  + `--contracts`: Deploy common contracts on start
+  + `--contract-removal`: Allow contract removal for development (default true)
+  + `--init`: Initialize a new account profile
+* **Logging & Output**
+
+  + `--verbose, -v`: Verbose logging
+  + `--log-format <text|JSON>`: Logging output format (default `text`)
+* **Snapshots**
+
+  + `--snapshot`: Enable snapshots in the emulator
+
+## Examples[​](#examples "Direct link to Examples")
+
+`_32
+
+# Verbose logs
+
+_32
 
 flow emulator --verbose
 
-_14
+_32
 
-_14
+_32
 
-# Set custom block time (e.g., 1 second between blocks)
+# Custom ports
 
-_14
+_32
+
+flow emulator --port 9000 --rest-port 9001 --admin-port 9002
+
+_32
+
+_32
+
+# Custom block time (1 second between blocks)
+
+_32
 
 flow emulator --block-time 1s
 
-_14
+_32
 
-_14
+_32
 
-# Persist state between restarts
+# Persist state on disk
 
-_14
+_32
 
-flow emulator --persist
+flow emulator --persist --dbpath ./flowdb
 
-_14
+_32
 
-_14
+_32
+
+# Fork from Mainnet using flow.json
+
+_32
+
+flow emulator --fork
+
+_32
+
+_32
+
+# Fork from Testnet using flow.json and pin to a height
+
+_32
+
+flow emulator --fork testnet --fork-height 12345678
+
+_32
+
+_32
+
+# Fork from Testnet at a specific height
+
+_32
+
+flow emulator --fork-host access.devnet.nodes.onflow.org:9000 --fork-height 12345678
+
+_32
+
+_32
+
+# Disable fees and use simple addresses for local testing
+
+_32
+
+flow emulator --transaction-fees=false --simple-addresses
+
+_32
+
+_32
+
+# Enable code coverage reporting
+
+_32
+
+flow emulator --coverage-reporting
+
+_32
+
+_32
 
 # Change the gRPC and REST API ports
 
-_14
+_32
 
 flow emulator --port 9000 --rest-port 9001
 
-_14
+_32
 
-_14
+_32
 
 # For a complete list of available flags, run:
 
-_14
+_32
 
 flow emulator --help`
 
-For all available options, see the [CLI commands overview](/build/tools/flow-cli).
+For the complete and current list of flags, run:
+
+`_10
+
+flow emulator --help`
 
 ## Debugging & Testing[​](#debugging--testing "Direct link to Debugging & Testing")
 
 * **Code Coverage**: Add `--coverage-reporting` flag and visit `http://localhost:8080/emulator/codeCoverage`
 * **Debugging**: Use `#debugger()` pragma in Cadence code for breakpoints
+* **Fork mode note**: When using `flow emulator --fork`, only Flow chain state is available. External oracles/APIs and cross-chain reads are not live; mock these or run local stub services for E2E.
 
 ## Snapshots[​](#snapshots "Direct link to Snapshots")
 
 The Flow CLI provides a command to create emulator snapshots, which are points in blockchain history you can later jump to and reset the state to that moment. This can be useful for testing where you establish a beginning state, run tests and after revert back to the initial state.
+
+### Quick snapshot workflow[​](#quick-snapshot-workflow "Direct link to Quick snapshot workflow")
+
+`_10
+
+# 1) Start the emulator with snapshots enabled (in a separate terminal)
+
+_10
+
+flow emulator --snapshot
+
+_10
+
+_10
+
+# 2) Create a snapshot at the current state
+
+_10
+
+flow emulator snapshot create baseline
+
+_10
+
+_10
+
+# 3) Make changes, run tests, etc.
+
+_10
+
+_10
+
+# 4) Reset the emulator back to the snapshot
+
+_10
+
+flow emulator snapshot load baseline`
 
 ### Create a new snapshot[​](#create-a-new-snapshot "Direct link to Create a new snapshot")
 
@@ -155081,15 +155293,13 @@ To list all the existing snapshots we previously created and can load to run:
 
 flow emulator list`
 
-To learn more about using the Emulator, have a look at the [README of the repository](https://github.com/onflow/flow-emulator).
-
 ## Additional Resources[​](#additional-resources "Direct link to Additional Resources")
 
-For advanced configuration options, see the [Flow Emulator repository](https://github.com/onflow/flow-emulator/).
+To learn more about using the Emulator, please have a look at the [public GitHub repository](https://github.com/onflow/flow-emulator).
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/emulator/index.md)
 
-Last updated on **Oct 9, 2025** by **Brian Doyle**
+Last updated on **Oct 29, 2025** by **Jordan Ribbink**
 
 [Previous
 
@@ -155103,8 +155313,8 @@ Flow CLI](/build/tools/flow-cli)
 
 Copy as Markdown
 
-* [Installation](#installation)* [Quick Start](#quick-start)* [Common Options](#common-options)* [Debugging & Testing](#debugging--testing)* [Snapshots](#snapshots)
-          + [Create a new snapshot](#create-a-new-snapshot)+ [Load an existing snapshot](#load-an-existing-snapshot)+ [List all existing snapshots](#list-all-existing-snapshots)* [Additional Resources](#additional-resources)
+* [Installation](#installation)* [Quick Start](#quick-start)* [Available Commands](#available-commands)* [Key Flags](#key-flags)* [Examples](#examples)* [Debugging & Testing](#debugging--testing)* [Snapshots](#snapshots)
+              + [Quick snapshot workflow](#quick-snapshot-workflow)+ [Create a new snapshot](#create-a-new-snapshot)+ [Load an existing snapshot](#load-an-existing-snapshot)+ [List all existing snapshots](#list-all-existing-snapshots)* [Additional Resources](#additional-resources)
 
 Flow
 
@@ -160934,6 +161144,8 @@ Node Roles | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -163771,6 +163983,8 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 Unsubscribe request message format | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -171354,6 +171568,8 @@ Snapshot Save | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -175558,6 +175774,8 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 Network Upgrade (Spork) Process | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -182953,6 +183171,8 @@ Cross-VM Bridge | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -187208,6 +187428,8 @@ Production Deployment | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -187228,7 +187450,9 @@ Search
 
               + [Account Linking](/blockchain-development-tutorials/cadence/account-management)
 
-                + [Mobile Development on Flow](/blockchain-development-tutorials/cadence/mobile)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
+                + [Mobile Development on Flow](/blockchain-development-tutorials/cadence/mobile)
+
+                  + [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
 
             * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
 
@@ -204633,6 +204857,8 @@ Staking Technical Overview | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -206075,6 +206301,8 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 Height coordinated upgrade (HCU) | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -212017,6 +212245,8 @@ NFT Metadata Contract | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -213477,6 +213707,8 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 Flow Staking Contract Reference | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -215845,6 +216077,8 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 Flow Burner Contract Address | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -223550,7 +223784,7 @@ The Forte network upgrade introduces several features that expand Flow's capabil
 
 info
 
-Forte is **live** on testnet and Mainnet.
+Forte is **live** on emulator, testnet, and Mainnet.
 
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -223594,7 +223828,7 @@ The Forte network upgrade represents a significant evolution of Flow's capabilit
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/index.md)
 
-Last updated on **Oct 28, 2025** by **Brian Doyle**
+Last updated on **Oct 29, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -223650,6 +223884,8 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 Update Existing wagmi App | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -226679,6 +226915,325 @@ More
 * [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://developers.flow.com/build/cadence/smart-contracts/testing-strategy
+
+Testing Smart Contracts | Flow Developer Portal
+
+
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Why Flow](/build/flow)* [Cadence](/build/cadence/quickstart)
+
+    + [Quickstart ↙](/build/cadence/quickstart)+ [Differences vs. EVM](/build/cadence/differences-vs-evm)+ [Basics](/build/cadence/basics/network-architecture)
+
+          + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
+
+            - [Learn Cadence ↗️](/build/cadence/learn-cadence)- [Smart Contracts on Flow](/build/cadence/smart-contracts/overview)- [Deploying Contracts](/build/cadence/smart-contracts/deploying)- [Testing Smart Contracts](/build/cadence/smart-contracts/testing-strategy)- [Cadence Testing Framework](/build/cadence/smart-contracts/testing)- [Best Practices](/build/cadence/smart-contracts/best-practices/security-best-practices)+ [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+
+              + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
+
+      + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
+
+* * Cadence* Writing and Deploying Smart Contracts* Testing Smart Contracts
+
+On this page
+
+# Testing Smart Contracts
+
+A single, pragmatic strategy for testing on Flow. Use layers that are deterministic and isolated by default, add realism with forks when needed, and keep a minimal set of live network checks before release.
+
+## At a glance[​](#at-a-glance "Direct link to At a glance")
+
+* **Unit & Property — Test Framework**: Hermetic correctness and invariants
+* **Integration — `flow test --fork`**: Real contracts and data; mutations stay local
+* **Local integration sandbox (interactive, `flow emulator --fork`)**: Drive apps/E2E against production-like state
+* **Staging (testnet)**: Final plumbing and config checks
+* **Post-deploy (read-only)**: Invariant dashboards and alerts
+
+## Layers[​](#layers "Direct link to Layers")
+
+### Unit & Property — Test Framework[​](#unit--property--test-framework "Direct link to Unit & Property — Test Framework")
+
+* Use `flow test`
+* **Use when**: Validating Cadence logic, invariants, access control, error paths, footprint
+* **Why**: Fully deterministic and isolated; highest-regression signal
+* **Run**: Every commit/PR; wide parallelism
+* **Notes**: Write clear success/failure tests, add simple “this should always hold” rules when helpful, and avoid external services
+
+See also: [Running Cadence Tests](/build/tools/flow-cli/tests).
+
+### Integration — `flow test --fork`[​](#integration--flow-test---fork "Direct link to integration--flow-test---fork")
+
+* **Use when**: Interacting with real on-chain contracts/data (FT/NFT standards, AMMs, wallets, oracles, bridges), upgrade checks, historical repro
+* **Why**: Real addresses, capability paths, and resource schemas; catches drift early
+* **Run**: On PRs, run the full forked suite if practical (pinned), or a small quick set; run more cases nightly or on main
+* **Notes**:
+  + Pin with `--fork-height` where reproducibility matters
+  + Prefer local deployment + impersonation over real mainnet accounts
+  + Mutations are local to the forked runtime; the live network is never changed
+  + Be mindful of access-node availability and rate limits
+  + External oracles/protocols: forked tests do not call off-chain services or other chains; mock these or run a local stub
+
+See also: [Fork Testing with Cadence](/blockchain-development-tutorials/cadence/fork-testing), [Fork Testing Flags](/build/tools/flow-cli/tests#fork-testing-flags).
+
+### Local Integration Sandbox — `flow emulator --fork`[​](#local-integration-sandbox--flow-emulator---fork "Direct link to local-integration-sandbox--flow-emulator---fork")
+
+* **Use when**: Driving dapps, wallets, bots, indexers, or exploratory debugging outside the test framework
+* **Why**: Production-like state with local, disposable control; great for E2E and migrations
+* **Run**: Dev machines and focused E2E CI jobs
+* **Notes**:
+
+  + Pin height; run on dedicated ports; impersonation is built-in; mutations are local; off-chain/oracle calls are not live—mock or run local stubs
+  + What to run: Manual exploration and debugging of flows against a forked state; frontend connected to the emulator (e.g., `npm run dev` pointed at `http://localhost:8888`); automated E2E/FE suites (e.g., Cypress/Playwright) against the local fork; headless clients, wallets/bots/indexers, and migration scripts
+  + Not for the canonical Cadence test suite—prefer `flow test --fork` for scripted Cadence tests (see [Fork Testing Flags](/build/tools/flow-cli/tests#fork-testing-flags) and [Running Cadence Tests](/build/tools/flow-cli/tests))
+
+  Quick start example:
+
+  `_10
+
+  # Start a fork (pinning height recommended for reproducibility)
+
+  _10
+
+  flow emulator --fork mainnet --fork-height <BLOCK>`
+
+  `_10
+
+  // In your root component (e.g., App.tsx)
+
+  _10
+
+  import { FlowProvider } from "@onflow/react-sdk";
+
+  _10
+
+  _10
+
+  function App() {
+
+  _10
+
+  return (
+
+  _10
+
+  <FlowProvider config={{ accessNodeUrl: "http://localhost:8888" }}>
+
+  _10
+
+  {/* Your app components */}
+
+  _10
+
+  </FlowProvider>
+
+  _10
+
+  );
+
+  _10
+
+  }`
+
+  `_10
+
+  # Run app
+
+  _10
+
+  npm run dev
+
+  _10
+
+  _10
+
+  # Run E2E tests
+
+  _10
+
+  npx cypress run`
+
+See also: [Flow Emulator](/build/tools/emulator).
+
+### Staging — Testnet[​](#staging--testnet "Direct link to Staging — Testnet")
+
+* **Use when**: Final network plumbing and configuration checks before release
+* **Why**: Validates infra differences you cannot fully simulate
+* **Run**: Pre-release and on infra changes
+* **Notes**:
+
+  + Keep canaries minimal and time-boxed; protocol/partner support may be limited on testnet (not all third-party contracts are deployed or up to date)
+  + What to run: Minimal app smoke tests (login/auth, key flows, mint/transfer, event checks); frontend connected to Testnet with a small Cypress/Playwright smoke set; infra/config checks (endpoints, contract addresses/aliases, env vars, service/test accounts)
+  + Not for the canonical Cadence test suite — prefer `flow test --fork` for scripted tests (see [Fork Testing Flags](/build/tools/flow-cli/tests#fork-testing-flags) and [Running Cadence Tests](/build/tools/flow-cli/tests))
+
+  Quick start example:
+
+  `_10
+
+  // In your root component (e.g., App.tsx)
+
+  _10
+
+  import { FlowProvider } from "@onflow/react-sdk";
+
+  _10
+
+  _10
+
+  function App() {
+
+  _10
+
+  return (
+
+  _10
+
+  <FlowProvider config={{ accessNodeUrl: "https://rest-testnet.onflow.org" }}>
+
+  _10
+
+  {/* Your app components */}
+
+  _10
+
+  </FlowProvider>
+
+  _10
+
+  );
+
+  _10
+
+  }`
+
+  `_10
+
+  # Run app
+
+  _10
+
+  npm run dev
+
+  _10
+
+  _10
+
+  # Run smoke tests
+
+  _10
+
+  npx cypress run --spec "cypress/e2e/smoke.*"`
+
+See also: [Flow Networks](/protocol/flow-networks).
+
+### Post-deploy Monitoring (read-only)[​](#post-deploy-monitoring-read-only "Direct link to Post-deploy Monitoring (read-only)")
+
+* **Use when**: After releases to confirm invariants and event rates
+* **Why**: Detects real-world anomalies quickly
+* **Run**: Continuous dashboards/alerts tied to invariants
+
+## Reproducibility and data management[​](#reproducibility-and-data-management "Direct link to Reproducibility and data management")
+
+* **Pin where reproducibility matters**: Use `--fork-height <block>` for both `flow test --fork` and `flow emulator --fork`. Pins are per‑spork; historical data beyond spork boundaries is unavailable. For best results, keep a per‑spork stable pin and also run a "latest" freshness job.
+* **Named snapshots**: Maintain documented pin heights (e.g., in CI vars or a simple file) with names per dependency/protocol
+* **Refresh policy**: Advance pins via a dedicated “freshness” PR; compare old vs. new pins
+* **Goldens**: Save a few canonical samples (e.g., event payloads, resource layouts, key script outputs) as JSON in your repo, and compare them in CI to catch accidental schema/shape changes. Update the samples intentionally as part of upgrades.
+
+## CI tips[​](#ci-tips "Direct link to CI tips")
+
+* PRs: Run emulator unit/property and forked integration (pinned). Full suite is fine if practical; otherwise a small quick set.
+* Nightly/Main: Add a latest pin job and expand fork coverage as needed.
+* E2E (optional): Use `flow emulator --fork` at a stable pin and run your browser tests.
+
+## Test selection and tagging[​](#test-selection-and-tagging "Direct link to Test selection and tagging")
+
+* **Optional naming helpers**: Use simple suffixes in test names like `_fork`, `_smoke`, `_e2e` if helpful
+* Run the tests you care about by passing files/directories: `flow test FILE1 FILE2 DIR1 ...` (most common)
+* Optionally, use `--name <substring>` to match test functions when it’s convenient
+* **Defaults**: PRs can run the full fork suite (pinned) or a small quick set; nightly runs broader coverage (+ optional E2E)
+
+## Troubleshooting tips[​](#troubleshooting-tips "Direct link to Troubleshooting tips")
+
+* Re-run at the same `--fork-height`, then at latest
+* Compare contract addresses/aliases in `flow.json`
+* Diff event/resource shapes against your stored samples
+* Check access-node health and CI parallelism/sharding
+
+## Do / Don’t[​](#do--dont "Direct link to Do / Don’t")
+
+* **Do**: Keep a fast, hermetic base; pin forks; tag tests; maintain tiny PR smoke sets; document pins and set a simple refresh schedule (e.g., after each spork or monthly)
+* **Don’t**: Make “latest” your default in CI; create or rely on real mainnet accounts; conflate `flow test --fork` with `flow emulator --fork`
+
+## Related docs[​](#related-docs "Direct link to Related docs")
+
+* Guide → Running tests: [Running Cadence Tests](/build/tools/flow-cli/tests)
+* Guide → How-to: [Cadence Testing Framework](/build/cadence/smart-contracts/testing)
+* Tutorial → Step-by-step: [Fork Testing with Cadence](/blockchain-development-tutorials/cadence/fork-testing)
+* Tool → Emulator (including fork mode): [Flow Emulator](/build/tools/emulator)
+* Flags → `flow test --fork`: [Fork Testing Flags](/build/tools/flow-cli/tests#fork-testing-flags)
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/smart-contracts/testing-strategy.md)
+
+Last updated on **Oct 29, 2025** by **Jordan Ribbink**
+
+[Previous
+
+Deploying Contracts](/build/cadence/smart-contracts/deploying)[Next
+
+Cadence Testing Framework](/build/cadence/smart-contracts/testing)
+
+###### Rate this page
+
+😞😐😊
+
+Copy as Markdown
+
+* [At a glance](#at-a-glance)* [Layers](#layers)
+    + [Unit & Property — Test Framework](#unit--property--test-framework)+ [Integration — `flow test --fork`](#integration--flow-test---fork)+ [Local Integration Sandbox — `flow emulator --fork`](#local-integration-sandbox--flow-emulator---fork)+ [Staging — Testnet](#staging--testnet)+ [Post-deploy Monitoring (read-only)](#post-deploy-monitoring-read-only)* [Reproducibility and data management](#reproducibility-and-data-management)* [CI tips](#ci-tips)* [Test selection and tagging](#test-selection-and-tagging)* [Troubleshooting tips](#troubleshooting-tips)* [Do / Don’t](#do--dont)* [Related docs](#related-docs)
+
+Flow
+
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
+
+Cadence
+
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
+
+Solidity (EVM)
+
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
+
+Community & Support
+
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
+
+Network & Resources
+
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow Foundation. All Rights Reserved.
 
 
 
@@ -229932,6 +230487,8 @@ Install Instructions | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -230694,6 +231251,8 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 Staking FAQ | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -233433,6 +233992,8 @@ Build a Complex Transaction | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -233656,6 +234217,8 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 Subscribe request message format | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -239914,6 +240477,8 @@ Query Staking Info with Scripts or Events | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -242442,6 +243007,8 @@ Cadence Security Best Practices | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -242456,9 +243023,9 @@ Search
 
           + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-            - [Learn Cadence ↗️](/build/cadence/learn-cadence)- [Smart Contracts on Flow](/build/cadence/smart-contracts/overview)- [Deploying Contracts](/build/cadence/smart-contracts/deploying)- [Testing Smart Contracts](/build/cadence/smart-contracts/testing)- [Best Practices](/build/cadence/smart-contracts/best-practices/security-best-practices)
+            - [Learn Cadence ↗️](/build/cadence/learn-cadence)- [Smart Contracts on Flow](/build/cadence/smart-contracts/overview)- [Deploying Contracts](/build/cadence/smart-contracts/deploying)- [Testing Smart Contracts](/build/cadence/smart-contracts/testing-strategy)- [Cadence Testing Framework](/build/cadence/smart-contracts/testing)- [Best Practices](/build/cadence/smart-contracts/best-practices/security-best-practices)
 
-                      * [Security Best Practices](/build/cadence/smart-contracts/best-practices/security-best-practices)* [Contract Upgrades with Incompatible Changes](/build/cadence/smart-contracts/best-practices/contract-upgrades)* [Development Standards](/build/cadence/smart-contracts/best-practices/project-development-tips)+ [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+                        * [Security Best Practices](/build/cadence/smart-contracts/best-practices/security-best-practices)* [Contract Upgrades with Incompatible Changes](/build/cadence/smart-contracts/best-practices/contract-upgrades)* [Development Standards](/build/cadence/smart-contracts/best-practices/project-development-tips)+ [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
 
               + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
 
@@ -242543,7 +243110,7 @@ Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-Testing Smart Contracts](/build/cadence/smart-contracts/testing)[Next
+Cadence Testing Framework](/build/cadence/smart-contracts/testing)[Next
 
 Contract Upgrades with Incompatible Changes](/build/cadence/smart-contracts/best-practices/contract-upgrades)
 
@@ -248114,6 +248681,8 @@ MEV Resistance | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -248265,6 +248834,8 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 Batched EVM Transactions Using Cadence | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -250435,7 +251006,7 @@ On this page
 
 warning
 
-Scheduled transactions are part of the Forte network upgrade and are currently available on Flow Emulator (CLI v2.7.0+) and [Flow Testnet]. See the announcement for context: [Forte: Introducing Actions & Agents].
+Scheduled transactions were part of the Forte network upgrade and are available on Flow Mainnet, Flow Emulator (CLI v2.7.0+) and [Flow Testnet]. See the announcement for context: [Forte: Introducing Actions & Agents].
 
 Scheduled transactions on the Flow blockchain enable users and smart contracts to autonomously execute predefined logic at specific future times without external triggers. This powerful feature allows developers to create "wake up" patterns where contracts can schedule themselves to run at predetermined block timestamps, enabling novel blockchain automation patterns.
 
@@ -251443,7 +252014,7 @@ Read FLIP for more details: <https://github.com/onflow/flips/blob/main/protocol/
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/advanced-concepts/scheduled-transactions.md)
 
-Last updated on **Oct 2, 2025** by **Josh Hannan**
+Last updated on **Oct 29, 2025** by **Josh Hannan**
 
 [Previous
 
@@ -253471,6 +254042,8 @@ Contract Upgrades with Incompatible Changes | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -253485,9 +254058,9 @@ Search
 
           + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-            - [Learn Cadence ↗️](/build/cadence/learn-cadence)- [Smart Contracts on Flow](/build/cadence/smart-contracts/overview)- [Deploying Contracts](/build/cadence/smart-contracts/deploying)- [Testing Smart Contracts](/build/cadence/smart-contracts/testing)- [Best Practices](/build/cadence/smart-contracts/best-practices/security-best-practices)
+            - [Learn Cadence ↗️](/build/cadence/learn-cadence)- [Smart Contracts on Flow](/build/cadence/smart-contracts/overview)- [Deploying Contracts](/build/cadence/smart-contracts/deploying)- [Testing Smart Contracts](/build/cadence/smart-contracts/testing-strategy)- [Cadence Testing Framework](/build/cadence/smart-contracts/testing)- [Best Practices](/build/cadence/smart-contracts/best-practices/security-best-practices)
 
-                      * [Security Best Practices](/build/cadence/smart-contracts/best-practices/security-best-practices)* [Contract Upgrades with Incompatible Changes](/build/cadence/smart-contracts/best-practices/contract-upgrades)* [Development Standards](/build/cadence/smart-contracts/best-practices/project-development-tips)+ [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+                        * [Security Best Practices](/build/cadence/smart-contracts/best-practices/security-best-practices)* [Contract Upgrades with Incompatible Changes](/build/cadence/smart-contracts/best-practices/contract-upgrades)* [Development Standards](/build/cadence/smart-contracts/best-practices/project-development-tips)+ [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
 
               + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
 
@@ -253582,6 +254155,8 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 Flow Core Contracts | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -259457,6 +260032,8 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 Batched Tx From Scaffold | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -270053,6 +270630,8 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 Derive Public Key | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -289621,7 +290200,7 @@ Store, manage, and interact securely with tokens and digital assets on Flow. Dis
 
 [## 💧 DeFi & Liquidity
 
-6 items](/ecosystem/defi-liquidity)
+7 items](/ecosystem/defi-liquidity)
 
 [## 💧 Faucets
 
@@ -294413,14 +294992,6 @@ On this page
 
 # Introduction to Scheduled Transactions
 
-warning
-
-Scheduled transactions are a new feature that is under development and is a part of [FLIP 330](https://github.com/onflow/flips/pull/331/files). Currently, they only work in the emulator and testnet. We're close to finishing the specific implementation, but it but may change during the development process.
-
-We will update these tutorials, but you may need to refactor your code if the implementation changes.
-
-# Overview
-
 Flow, EVM, and other blockchains are a form of a **single** shared computer that anyone can use, with no admin privileges, super user roles, or complete control. For this to work, it must be impossible for any user to freeze the computer, on purpose or by accident.
 
 As a result, most blockchain computers, including EVM and Solana, aren't [Turing Complete](https://en.wikipedia.org/wiki/Turing_completeness), because they can't run an unbounded loop. Each transaction must occur within one block, and can't consume more gas than the limit.
@@ -296295,7 +296866,7 @@ Scheduled transactions open up new possibilities for DeFi applications, enabling
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/scheduled-transactions/scheduled-transactions-introduction.md)
 
-Last updated on **Oct 27, 2025** by **Brian Doyle**
+Last updated on **Oct 29, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -308958,6 +309529,8 @@ Governance | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -309091,6 +309664,8 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 Non-Fungible Token Contract | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -312860,6 +313435,8 @@ Secure Randomness with Commit-Reveal in Cadence | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -314955,6 +315532,8 @@ Overview | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -315414,6 +315993,8 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 Operator FAQ | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -316024,6 +316605,8 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 NFT Storefront Smart Contract | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -322963,6 +323546,8 @@ Service Account Contracts | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -325646,6 +326231,8 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 VRF (Randomness) in Solidity | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -335158,6 +335745,8 @@ Access API | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -342111,12 +342700,6 @@ On this page
 
 This series covers how to build decentralized finance (DeFi) applications using the Flow Actions framework, enabling developers to create composable DeFi workflows. These tutorials are part of the Forte network upgrade, which introduces new capabilities to the Flow blockchain.
 
-warning
-
-We are reviewing and finalizing Flow Actions in [FLIP 339](https://github.com/onflow/flips/pull/339/files). The specific implementation may change as a part of this process.
-
-We will update these tutorials, but you may need to refactor your code if the implementation changes.
-
 ## Tutorials[​](#tutorials "Direct link to Tutorials")
 
 * **[Introduction to Flow Actions](/blockchain-development-tutorials/forte/flow-actions/intro-to-flow-actions)** - Learn about Flow Actions, a suite of standardized Cadence interfaces that enable developers to compose complex DeFi workflows using small, reusable components.
@@ -342126,7 +342709,7 @@ We will update these tutorials, but you may need to refactor your code if the im
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/flow-actions/index.md)
 
-Last updated on **Oct 28, 2025** by **0xLisanAlGaib**
+Last updated on **Oct 29, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -344055,6 +344638,8 @@ Sustainability | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -344963,6 +345548,8 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 Collections | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -346107,6 +346694,8 @@ Get a Transaction | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -346493,6 +347082,8 @@ Ethers.js on Flow Blockchain | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -346577,7 +347168,7 @@ _10
 
 const provider = new ethers.providers.JsonRpcProvider(url);`
 
-**Note:** If you want to connect to the Flow testnet, replace the above URL with `https://mainnet.evm.nodes.onflow.org`.
+**Note:** If you want to connect to the Flow mainnet, replace the above URL with `https://mainnet.evm.nodes.onflow.org`.
 
 ## Reading Data from the Blockchain[​](#reading-data-from-the-blockchain "Direct link to Reading Data from the Blockchain")
 
@@ -346695,7 +347286,7 @@ _10
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/frameworks/ethers.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Oct 28, 2025** by **Soumyadeep Sarkar**
 
 [Previous
 
@@ -349698,6 +350289,8 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 Staking and Delegation rewards | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -354421,6 +355014,8 @@ Machine Accounts for Existing Node Operators | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -355097,14 +355692,6 @@ Search
 On this page
 
 # Flow Actions Transaction
-
-warning
-
-We are reviewing and finalizing Flow Actions in [FLIP 339](https://github.com/onflow/flips/pull/339/files). The specific implementation may change as a part of this process.
-
-We will update these tutorials, but you may need to refactor your code if the implementation changes.
-
-## Overview[​](#overview "Direct link to Overview")
 
 [Staking](/protocol/staking) is a simple way to participate in the blockchain process. You supply tokens to help with governance and, in return, you earn a share of the network's rewards. It's a way to grow unused assets and provides a much higher rate of return than a savings account.
 
@@ -355806,7 +356393,7 @@ This transaction demonstrates how to chain multiple DeFi operations atomically, 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/flow-actions/flow-actions-transaction.md)
 
-Last updated on **Oct 27, 2025** by **0xLisanAlGaib**
+Last updated on **Oct 29, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -355820,11 +356407,11 @@ Connectors](/blockchain-development-tutorials/forte/flow-actions/connectors)
 
 Copy as Markdown
 
-* [Overview](#overview)* [Learning Objectives](#learning-objectives)* [Prerequisites](#prerequisites)* [Cadence Programming Language](#cadence-programming-language)* [Getting Started on Mainnet](#getting-started-on-mainnet)
-          + [Staking with IncrementFi](#staking-with-incrementfi)+ [Initialize Your Staking User Certificate](#initialize-your-staking-user-certificate)* [Setting Up the Project](#setting-up-the-project)
-            + [Starting With the Scaffold](#starting-with-the-scaffold)+ [Export Your Wallet Key](#export-your-wallet-key)* [Building the Transaction](#building-the-transaction)
-              + [Import Required Contracts](#import-required-contracts)+ [Define Transaction Parameters](#define-transaction-parameters)+ [Declare Transaction Properties](#declare-transaction-properties)+ [Prepare Phase](#prepare-phase)+ [Token Type Detection and Configuration](#token-type-detection-and-configuration)+ [Build the Flow Actions Chain](#build-the-flow-actions-chain)+ [Post-Condition Safety Check](#post-condition-safety-check)+ [Execute the Transaction](#execute-the-transaction)* [Running the Transaction](#running-the-transaction)
-                + [Interpreting the Results](#interpreting-the-results)* [Running the Transaction on Emulator](#running-the-transaction-on-emulator)* [Conclusion](#conclusion)
+* [Learning Objectives](#learning-objectives)* [Prerequisites](#prerequisites)* [Cadence Programming Language](#cadence-programming-language)* [Getting Started on Mainnet](#getting-started-on-mainnet)
+        + [Staking with IncrementFi](#staking-with-incrementfi)+ [Initialize Your Staking User Certificate](#initialize-your-staking-user-certificate)* [Setting Up the Project](#setting-up-the-project)
+          + [Starting With the Scaffold](#starting-with-the-scaffold)+ [Export Your Wallet Key](#export-your-wallet-key)* [Building the Transaction](#building-the-transaction)
+            + [Import Required Contracts](#import-required-contracts)+ [Define Transaction Parameters](#define-transaction-parameters)+ [Declare Transaction Properties](#declare-transaction-properties)+ [Prepare Phase](#prepare-phase)+ [Token Type Detection and Configuration](#token-type-detection-and-configuration)+ [Build the Flow Actions Chain](#build-the-flow-actions-chain)+ [Post-Condition Safety Check](#post-condition-safety-check)+ [Execute the Transaction](#execute-the-transaction)* [Running the Transaction](#running-the-transaction)
+              + [Interpreting the Results](#interpreting-the-results)* [Running the Transaction on Emulator](#running-the-transaction-on-emulator)* [Conclusion](#conclusion)
 
 Flow
 
@@ -365495,6 +366082,8 @@ Epoch Preparation Protocol | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -366282,6 +366871,8 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 Flow Access API Specification | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -378734,6 +379325,8 @@ Flow Port | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -391018,6 +391611,8 @@ FLOW Coin | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -391208,6 +391803,8 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 Send a Transaction | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -403415,6 +404012,8 @@ Provisioning a Flow node | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -404644,6 +405243,8 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 Send and get transaction statuses | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -415661,7 +416262,7 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
-# Source: https://developers.flow.com/
+# Source: https://developers.flow.com
 
 Flow Developer Portal
 
@@ -422523,6 +423124,8 @@ Stake Slashing | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -428309,12 +428912,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **995e7ff2ed98c651**
+Cloudflare Ray ID: **9966be8f7dd20ffc**
 •
 
 Your IP:
 Click to reveal
-172.178.119.25
+20.171.51.212
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 

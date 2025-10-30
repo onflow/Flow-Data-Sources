@@ -1,8 +1,10 @@
 # Source: https://developers.flow.com/build/cadence/smart-contracts/testing
 
-Testing Smart Contracts | Flow Developer Portal
+Cadence Testing Framework | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -18,19 +20,23 @@ Search
 
           + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-            - [Learn Cadence ↗️](/build/cadence/learn-cadence)- [Smart Contracts on Flow](/build/cadence/smart-contracts/overview)- [Deploying Contracts](/build/cadence/smart-contracts/deploying)- [Testing Smart Contracts](/build/cadence/smart-contracts/testing)- [Best Practices](/build/cadence/smart-contracts/best-practices/security-best-practices)+ [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+            - [Learn Cadence ↗️](/build/cadence/learn-cadence)- [Smart Contracts on Flow](/build/cadence/smart-contracts/overview)- [Deploying Contracts](/build/cadence/smart-contracts/deploying)- [Testing Smart Contracts](/build/cadence/smart-contracts/testing-strategy)- [Cadence Testing Framework](/build/cadence/smart-contracts/testing)- [Best Practices](/build/cadence/smart-contracts/best-practices/security-best-practices)+ [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
 
               + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
 
       + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
 
-* * Cadence* Writing and Deploying Smart Contracts* Testing Smart Contracts
+* * Cadence* Writing and Deploying Smart Contracts* Cadence Testing Framework
 
 On this page
 
 # Testing Smart Contracts
 
 Testing is an essential part of smart contract development to ensure the correctness and reliability of your code. The Cadence Testing Framework provides a convenient way to write tests for your contracts, scripts and transactions which allows you to verify the functionality and correctness of your smart contracts.
+
+info
+
+Looking for high‑level guidance on when to use emulator, forks, or testnet? See [Testing Smart Contracts](/build/cadence/smart-contracts/testing-strategy).
 
 ## Install Flow CLI[​](#install-flow-cli "Direct link to Install Flow CLI")
 
@@ -487,31 +493,9 @@ info
 
 The Cadence testing framework utilizes the emulator under the hood.
 
-### Go Tests[​](#go-tests "Direct link to Go Tests")
+### Fork testing (overview)[​](#fork-testing-overview "Direct link to Fork testing (overview)")
 
-Tests in Go can be written using [flow-go-sdk](https://github.com/onflow/flow-go-sdk) and the go test command.
-
-You can find examples of Go tests in the following projects: [flow-core-contracts](https://github.com/onflow/flow-core-contracts/tree/master/lib/go/test), [flow-nft](https://github.com/onflow/flow-nft/tree/master/lib/go/test), [flow-ft](https://github.com/onflow/flow-ft/tree/master/lib/go/test).
-
-info
-
-These tests are tied to the emulator but can be refactored to run on testnet
-
-## Testing Your Application[​](#testing-your-application "Direct link to Testing Your Application")
-
-### Automated Testing of Contract Code[​](#automated-testing-of-contract-code "Direct link to Automated Testing of Contract Code")
-
-All contracts should include test coverage for *all contract functions*. Make sure you've accounted for success and failure cases appropriately.
-
-Tests should also be runnable in automated environments (CI). You can use the [Cadence testing utils](https://cadence-lang.org/docs/testing-framework) to create tests for your smart contract code.
-
-### Stress Testing Live Applications Before Mainnet[​](#stress-testing-live-applications-before-mainnet "Direct link to Stress Testing Live Applications Before Mainnet")
-
-Once you deployed your application to the testnet, you should record how your application handles non-trivial amounts of traffic to ensure there are no issues.
-
-tip
-
-Get familiar with the [Cadence anti-patterns](https://cadence-lang.org/docs/anti-patterns) to avoid avoid problematic or unintended behavior.
+For running tests against a fork of mainnet/testnet, see the dedicated tutorial: [Fork Testing with Cadence (Step-by-Step)](/blockchain-development-tutorials/cadence/fork-testing). For available flags, see [Fork Testing Flags](/build/tools/flow-cli/tests#fork-testing-flags). To interactively explore a forked state outside the test framework, see [Flow Emulator](/build/tools/emulator). For when to use forks vs emulator, see [Testing Strategy on Flow](/build/cadence/smart-contracts/testing-strategy).
 
 ## References[​](#references "Direct link to References")
 
@@ -524,11 +508,11 @@ Get familiar with the [Cadence anti-patterns](https://cadence-lang.org/docs/anti
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/smart-contracts/testing.md)
 
-Last updated on **Sep 4, 2025** by **0xLisanAlGaib**
+Last updated on **Oct 29, 2025** by **Jordan Ribbink**
 
 [Previous
 
-Deploying Contracts](/build/cadence/smart-contracts/deploying)[Next
+Testing Smart Contracts](/build/cadence/smart-contracts/testing-strategy)[Next
 
 Security Best Practices](/build/cadence/smart-contracts/best-practices/security-best-practices)
 
@@ -539,8 +523,7 @@ Security Best Practices](/build/cadence/smart-contracts/best-practices/security-
 Copy as Markdown
 
 * [Install Flow CLI](#install-flow-cli)* [Create a new project](#create-a-new-project)* [Write a simple smart contract](#write-a-simple-smart-contract)* [Add the smart contract to the config](#add-the-smart-contract-to-the-config)* [Write unit tests](#write-unit-tests)* [Running the test cases](#running-the-test-cases)* [Advanced Testing Techniques](#advanced-testing-techniques)* [Testing Requirements](#testing-requirements)* [Writing Tests](#writing-tests)
-                  + [Cadence tests](#cadence-tests)+ [Go Tests](#go-tests)* [Testing Your Application](#testing-your-application)
-                    + [Automated Testing of Contract Code](#automated-testing-of-contract-code)+ [Stress Testing Live Applications Before Mainnet](#stress-testing-live-applications-before-mainnet)* [References](#references)
+                  + [Cadence tests](#cadence-tests)+ [Fork testing (overview)](#fork-testing-overview)* [References](#references)
 
 Flow
 

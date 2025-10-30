@@ -44,12 +44,6 @@ On this page
 
 This series covers how to build decentralized finance (DeFi) applications using the Flow Actions framework, enabling developers to create composable DeFi workflows. These tutorials are part of the Forte network upgrade, which introduces new capabilities to the Flow blockchain.
 
-warning
-
-We are reviewing and finalizing Flow Actions in [FLIP 339](https://github.com/onflow/flips/pull/339/files). The specific implementation may change as a part of this process.
-
-We will update these tutorials, but you may need to refactor your code if the implementation changes.
-
 ## Tutorials[​](#tutorials "Direct link to Tutorials")
 
 * **[Introduction to Flow Actions](/blockchain-development-tutorials/forte/flow-actions/intro-to-flow-actions)** - Learn about Flow Actions, a suite of standardized Cadence interfaces that enable developers to compose complex DeFi workflows using small, reusable components.
@@ -59,7 +53,7 @@ We will update these tutorials, but you may need to refactor your code if the im
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/flow-actions/index.md)
 
-Last updated on **Oct 28, 2025** by **0xLisanAlGaib**
+Last updated on **Oct 29, 2025** by **Brian Doyle**
 
 [Previous
 

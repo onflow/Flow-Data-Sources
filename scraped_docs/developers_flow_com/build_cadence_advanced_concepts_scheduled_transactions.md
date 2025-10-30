@@ -36,7 +36,7 @@ On this page
 
 warning
 
-Scheduled transactions are part of the Forte network upgrade and are currently available on Flow Emulator (CLI v2.7.0+) and [Flow Testnet]. See the announcement for context: [Forte: Introducing Actions & Agents].
+Scheduled transactions were part of the Forte network upgrade and are available on Flow Mainnet, Flow Emulator (CLI v2.7.0+) and [Flow Testnet]. See the announcement for context: [Forte: Introducing Actions & Agents].
 
 Scheduled transactions on the Flow blockchain enable users and smart contracts to autonomously execute predefined logic at specific future times without external triggers. This powerful feature allows developers to create "wake up" patterns where contracts can schedule themselves to run at predetermined block timestamps, enabling novel blockchain automation patterns.
 
@@ -1044,7 +1044,7 @@ Read FLIP for more details: <https://github.com/onflow/flips/blob/main/protocol/
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/advanced-concepts/scheduled-transactions.md)
 
-Last updated on **Oct 2, 2025** by **Josh Hannan**
+Last updated on **Oct 29, 2025** by **Josh Hannan**
 
 [Previous
 

@@ -42,8 +42,6 @@ On this page
 
 # High-Precision Fixed-Point 128 Bit Math
 
-## Overview[​](#overview "Direct link to Overview")
-
 Dealing with decimals is a notorious issue for most developers on other chains, especially when working with decentralized finance (DeFi). Blockchains are deterministic systems and floating-point arithmetic is non-deterministic across different compilers and architectures, which is why blockchains use fixed-point arithmetic via integers (scaling numbers by a fixed factor).
 
 The issue with this is that these fixed-point integers tend to be very imprecise when using various mathematical operations on them. The more operations you apply to these numbers, the more imprecise these numbers become. However [`DeFiActionsMathUtils`](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/utils/DeFiActionsMathUtils.cdc) provides a standardized library for high-precision mathematical operations in DeFi applications on Flow. The contract extends Cadence's native 8-decimal precision (`UFix64`) to 24 decimals using `UInt128` for intermediate calculations, ensuring accuracy in complex financial computations while maintaining deterministic results across the network.
@@ -1134,7 +1132,7 @@ The simple **convert → calculate → convert back** pattern, combined with str
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/fixed-point-128-bit-math.md)
 
-Last updated on **Oct 22, 2025** by **cshannon1218**
+Last updated on **Oct 29, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -1148,13 +1146,13 @@ Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-fl
 
 Copy as Markdown
 
-* [Overview](#overview)* [The Precision Problem](#the-precision-problem)* [The Solution: 24-Decimal Precision](#the-solution-24-decimal-precision)
-      + [The Three-Tier Precision System](#the-three-tier-precision-system)* [Core Constants](#core-constants)* [Rounding Modes](#rounding-modes)
-          + [When to Use Each Mode](#when-to-use-each-mode)* [Core Functions](#core-functions)
-            + [Conversion Functions](#conversion-functions)* [High-Precision Arithmetic](#high-precision-arithmetic)
-              + [Multiplication](#multiplication)+ [Division](#division)+ [UFix64 Division with Rounding](#ufix64-division-with-rounding)* [Common DeFi Use Cases](#common-defi-use-cases)
-                + [Liquidity Pool Pricing (Constant Product AMM)](#liquidity-pool-pricing-constant-product-amm)+ [Compound Interest Calculations](#compound-interest-calculations)+ [Proportional Distribution](#proportional-distribution)+ [Price Impact Calculation](#price-impact-calculation)* [Benefits of High-Precision Math](#benefits-of-high-precision-math)
-                  + [Precision Preservation](#precision-preservation)+ [Overflow Protection](#overflow-protection)* [Best Practices](#best-practices)* [More Resources](#more-resources)* [Key takeaways](#key-takeaways)* [Conclusion](#conclusion)
+* [The Precision Problem](#the-precision-problem)* [The Solution: 24-Decimal Precision](#the-solution-24-decimal-precision)
+    + [The Three-Tier Precision System](#the-three-tier-precision-system)* [Core Constants](#core-constants)* [Rounding Modes](#rounding-modes)
+        + [When to Use Each Mode](#when-to-use-each-mode)* [Core Functions](#core-functions)
+          + [Conversion Functions](#conversion-functions)* [High-Precision Arithmetic](#high-precision-arithmetic)
+            + [Multiplication](#multiplication)+ [Division](#division)+ [UFix64 Division with Rounding](#ufix64-division-with-rounding)* [Common DeFi Use Cases](#common-defi-use-cases)
+              + [Liquidity Pool Pricing (Constant Product AMM)](#liquidity-pool-pricing-constant-product-amm)+ [Compound Interest Calculations](#compound-interest-calculations)+ [Proportional Distribution](#proportional-distribution)+ [Price Impact Calculation](#price-impact-calculation)* [Benefits of High-Precision Math](#benefits-of-high-precision-math)
+                + [Precision Preservation](#precision-preservation)+ [Overflow Protection](#overflow-protection)* [Best Practices](#best-practices)* [More Resources](#more-resources)* [Key takeaways](#key-takeaways)* [Conclusion](#conclusion)
 
 Flow
 
