@@ -4,6 +4,8 @@ Basic Combinations | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -40,43 +42,41 @@ On this page
 
 # Composing Workflows with Flow Actions
 
-warning
-
-Flow Actions are being reviewed and finalized in [FLIP 339](https://github.com/onflow/flips/pull/339/files). The specific implementation may change as a part of this process.
-
-These tutorials will be updated, but you may need to refactor your code if the implementation changes.
-
-Flow Actions are designed to be **composable** meaning you can chain them together like LEGO blocks to build complex strategies. Each primitive has a standardized interface that works consistently across all protocols, eliminating the need to learn multiple APIs. This composability enables atomic execution of multi-step workflows within single transactions, ensuring either complete success or safe failure. By combining these primitives, developers can create sophisticated DeFi strategies like automated yield farming, cross-protocol arbitrage, and portfolio rebalancing. The [5 Flow Actions Primitives](/blockchain-development-tutorials/forte/flow-actions/intro-to-flow-actions) are:
+Flow Actions are designed to be **composable**, which means you can chain them together like LEGO blocks to build complex strategies. Each primitive has a standardized interface that works consistently across all protocols and eliminates the need to learn multiple APIs. This composability allows atomic execution of multi-step workflows within single transactions, ensuring either complete success or safe failure. When developers combine these primitives, they create sophisticated decentralized finance (DeFi) strategies like automated yield farming, cross-protocol arbitrage, and portfolio rebalancing. The [5 Flow Actions Primitives](/blockchain-development-tutorials/forte/flow-actions/intro-to-flow-actions) are:
 
 * **Source** → Provides tokens on demand by withdrawing from vaults or claiming rewards. Sources respect minimum balance constraints and return empty vaults gracefully when nothing is available.
-* **Sink** → Accepts token deposits up to a specified capacity limit. Sinks perform no-ops when capacity is exceeded rather than reverting, enabling smooth workflow execution.
+* **Sink** → Accepts token deposits up to a specified capacity limit. Sinks perform no-ops rather than reverting when deposits exceed capacity, which allows smooth workflow execution.
 * **Swapper** → Exchanges one token type for another through DEX trades or cross-chain bridges. Swappers support bidirectional operations and provide quote estimation for slippage protection.
 * **PriceOracle** → Provides real-time price data for assets from external feeds or DEX prices. Oracles handle staleness validation and return nil for unavailable prices rather than failing.
 * **Flasher** → Issues flash loans that must be repaid within the same transaction via callback execution. Flashers enable capital-efficient strategies like arbitrage and liquidations without requiring upfront capital.
 
 ## Learning Objectives[​](#learning-objectives "Direct link to Learning Objectives")
 
-After completing this tutorial, you will be able to:
+After you complete this tutorial, you will be able to:
 
-* Understand the key features of Flow Actions including atomic composition, weak guarantees, and event traceability
-* Create and use Sources to provide tokens from various protocols and locations
-* Create and use Sinks to accept tokens up to defined capacity limits
-* Create and use Swappers to exchange tokens between different types with price estimation
-* Create and use Price Oracles to get price data for assets with consistent denomination
-* Create and use Flashers to provide flash loans with atomic repayment requirements
-* Use UniqueIdentifiers to trace and correlate operations across multiple Flow Actions
-* Compose complex DeFi workflows by connecting multiple Actions in a single atomic transaction
+* Understand the key features of Flow Actions including atomic composition, weak guarantees, and event traceability.
+* Create and use Sources to provide tokens from various protocols and locations.
+* Create and use Sinks to accept tokens up to defined capacity limits.
+* Create and use Swappers to exchange tokens between different types with price estimation.
+* Create and use Price Oracles to get price data for assets with consistent denomination.
+* Create and use Flashers to provide flash loans with atomic repayment requirements.
+* Use UniqueIdentifiers to trace and correlate operations across multiple Flow Actions.
+* Compose complex DeFi workflows by connecting multiple Actions in a single atomic transaction.
 
 ## Core Flow Patterns[​](#core-flow-patterns "Direct link to Core Flow Patterns")
 
 ### Linear Flow (Source → Swapper → Sink)[​](#linear-flow-source--swapper--sink "Direct link to Linear Flow (Source → Swapper → Sink)")
 
-The most common pattern: get tokens, convert them, then deposit them.
+The most common pattern
+
+1. Get tokens
+2. Convert them
+3. Deposit them
 
 ![vault source](/assets/images/vault-source-fdd4d13a71b7cb7efe5a644b7b838086.png)
 ![swap vault sink](/assets/images/swap-vaultsink-9f9e5ec19aa980f504dded666deec04b.png)
 
-**Example**: Claim rewards → Swap to different token → Stake in new pool
+**Example**: Claim rewards → Swap to different token → Stake in new pool.
 
 ### Bidirectional Flow (Source ↔ Sink)[​](#bidirectional-flow-source--sink "Direct link to Bidirectional Flow (Source ↔ Sink)")
 
@@ -85,7 +85,7 @@ Two-way operations where you can both deposit and withdraw.
 ![vault source](/assets/images/vault-source-fdd4d13a71b7cb7efe5a644b7b838086.png)
 ![vault sink](/assets/images/vault-sink-52a21926e34bb10ee162d42cd91bdc3f.png)
 
-**Example**: Vault operations with both deposit and withdrawal capabilities
+**Example**: Vault operations with both deposit and withdrawal capabilities.
 
 ### Aggregated Flow (Multiple Sources → Aggregator → Sink)[​](#aggregated-flow-multiple-sources--aggregator--sink "Direct link to Aggregated Flow (Multiple Sources → Aggregator → Sink)")
 
@@ -103,13 +103,13 @@ _10
 
 Source C ↗`
 
-**Example**: Multiple DEX aggregators finding the best swap route
+**Example**: Multiple DEX aggregators finding the best swap route.
 
 ## Common DeFi Workflow Combinations[​](#common-defi-workflow-combinations "Direct link to Common DeFi Workflow Combinations")
 
 ### Single Token to LP (Zapper)[​](#single-token-to-lp-zapper "Direct link to Single Token to LP (Zapper)")
 
-**Goal**: Convert a single token into liquidity provider (LP) tokens in one transaction
+**Goal**: Convert a single token into liquidity provider (LP) tokens in one transaction.
 
 The **Zapper** is a specialized connector that combines swapper and sink functionality. It takes a single token input and outputs LP tokens by automatically handling the token splitting, swapping, and liquidity provision process.
 
@@ -117,11 +117,11 @@ The **Zapper** is a specialized connector that combines swapper and sink functio
 
 **How it works:**
 
-1. Takes single token A as input
-2. Splits it into two portions
-3. Swaps one portion to token B
-4. Provides liquidity with A + B to get LP tokens
-5. Returns LP tokens as output
+1. Takes single token A as input.
+2. Splits it into two portions.
+3. Swaps one portion to token B.
+4. Provides liquidity with A + B to get LP tokens.
+5. Returns LP tokens as output.
 
 `_13
 
@@ -173,22 +173,22 @@ _13
 
 **Benefits:**
 
-* **Simplicity**: Single transaction converts any token to LP position
-* **Efficiency**: Automatically calculates optimal split ratios
-* **Composability**: Output LP tokens work with any sink connector
+* **Simplicity**: Single transaction converts any token to LP position.
+* **Efficiency**: Automatically calculates optimal split ratios.
+* **Composability**: Output LP tokens work with any sink connector.
 
 ### Reward Harvesting & Conversion[​](#reward-harvesting--conversion "Direct link to Reward Harvesting & Conversion")
 
-**Goal**: Claim staking rewards and convert them to a stable token
+**Goal**: Claim staking rewards and convert them to a stable token.
 
 This workflow automatically claims accumulated staking rewards and converts them to a stable asset like USDC. It combines a rewards source, token swapper, and vault sink to create a seamless reward collection and conversion process.
 
 **How it works:**
 
-1. Claims pending rewards from a staking pool using user certificate
-2. Swaps the reward tokens (e.g., FLOW) to stable tokens (e.g., USDC)
-3. Deposits the stable tokens to a vault with capacity limits
-4. Returns any unconverted tokens back to the user
+1. Claims pending rewards from a staking pool using user certificate.
+2. Swaps the reward tokens (for example, FLOW) to stable tokens (for example, USDC).
+3. Deposits the stable tokens to a vault with capacity limits.
+4. Returns any unconverted tokens back to the user.
 
 `_28
 
@@ -298,9 +298,9 @@ vaultSink.depositCapacity(from: &stableTokens)`
 
 **Benefits:**
 
-* **Risk Reduction**: Converts volatile reward tokens to stable assets
-* **Automation**: Single transaction handles claim, swap, and storage
-* **Capital Efficiency**: No manual intervention needed for reward management
+* **Risk Reduction**: Converts volatile reward tokens to stable assets.
+* **Automation**: Single transaction handles claim, swap, and storage.
+* **Capital Efficiency**: No manual intervention needed for reward management.
 
 ### Liquidity Provision & Yield Farming[​](#liquidity-provision--yield-farming "Direct link to Liquidity Provision & Yield Farming")
 
@@ -310,10 +310,10 @@ This workflow takes a single token from your vault, converts it into liquidity p
 
 **How it works:**
 
-1. Withdraws single token (e.g., FLOW) from vault with minimum balance protection
-2. Uses Zapper to split token and create LP position (FLOW/USDC pair)
-3. Stakes the resulting LP tokens in a yield farming pool
-4. Begins earning rewards on the staked LP position
+1. Withdraws single token (for example, FLOW) from vault with minimum balance protection.
+2. Uses Zapper to split token and create LP position (FLOW/USDC pair).
+3. Stakes the resulting LP tokens in a yield farming pool.
+4. Begins earning rewards on the staked LP position.
 
 `_26
 
@@ -415,23 +415,23 @@ stakingSink.depositCapacity(from: &lpTokens)`
 
 **Benefits:**
 
-* **Yield Optimization**: Converts idle tokens to yield-generating LP positions
-* **Single Transaction**: No need for multiple manual steps or approvals
-* **Automatic Staking**: LP tokens immediately start earning rewards
+* **Yield Optimization**: Converts idle tokens to yield-generating LP positions.
+* **Single Transaction**: No need for multiple manual steps or approvals.
+* **Automatic Staking**: LP tokens immediately start earning rewards.
 
 ### Cross-VM Bridge & Swap[​](#cross-vm-bridge--swap "Direct link to Cross-VM Bridge & Swap")
 
-**Goal**: Bridge tokens from Cadence to EVM, swap them, then bridge back
+**Goal**: Bridge tokens from Cadence to EVM, swap them, then bridge back.
 
-This workflow demonstrates Flow's unique cross-VM capabilities by bridging tokens from Cadence to Flow EVM, executing a swap using UniswapV2-style routing, and bridging the results back to Cadence. This enables access to EVM-based DEX liquidity while maintaining Cadence token ownership.
+This workflow demonstrates Flow's unique cross-VM capabilities by bridging tokens from Cadence to Flow EVM, executing a swap using UniswapV2-style routing, and bridging the results back to Cadence. This allows access to EVM-based DEX liquidity while maintaining Cadence token ownership.
 
 **How it works:**
 
-1. Withdraws tokens from Cadence vault with minimum balance protection
-2. Bridges tokens from Cadence to Flow EVM environment
-3. Executes swap using UniswapV2 router on EVM side
-4. Bridges the swapped tokens back to Cadence environment
-5. Deposits final tokens to target Cadence vault
+1. Withdraws tokens from Cadence vault with minimum balance protection.
+2. Bridges tokens from Cadence to Flow EVM environment.
+3. Executes swap using UniswapV2 router on EVM side.
+4. Bridges the swapped tokens back to Cadence environment.
+5. Deposits final tokens to target Cadence vault.
 
 `_28
 
@@ -541,23 +541,23 @@ cadenceSink.depositCapacity(from: &evmTokens)`
 
 **Benefits:**
 
-* **Extended Liquidity**: Access to both Cadence and EVM DEX liquidity
-* **Cross-VM Arbitrage**: Exploit price differences between VM environments
-* **Atomic Execution**: All bridging and swapping happens in single transaction
+* **Extended Liquidity**: Access to both Cadence and EVM DEX liquidity.
+* **Cross-VM Arbitrage**: Exploit price differences between VM environments.
+* **Atomic Execution**: All bridging and swapping happens in single transaction.
 
 ### Flash Loan Arbitrage[​](#flash-loan-arbitrage "Direct link to Flash Loan Arbitrage")
 
-**Goal**: Borrow tokens, execute arbitrage, repay loan with profit
+**Goal**: Borrow tokens, execute arbitrage, repay loan with profit.
 
 This advanced strategy uses flash loans to execute risk-free arbitrage by borrowing tokens, exploiting price differences across multiple DEXs, and repaying the loan with interest while keeping the profit. The entire operation happens atomically within a single transaction.
 
 **How it works:**
 
-1. Borrows tokens via flash loan without collateral requirements
-2. Uses multi-swapper to find optimal arbitrage routes across DEXs
-3. Executes trades to exploit price differences
-4. Repays flash loan with fees from arbitrage profits
-5. Keeps remaining profit after loan repayment
+1. Borrows tokens via flash loan without collateral requirements.
+2. Uses multi-swapper to find optimal arbitrage routes across DEXs.
+3. Executes trades to exploit price differences.
+4. Repays flash loan with fees from arbitrage profits.
+5. Keeps remaining profit after loan repayment.
 
 `_17
 
@@ -625,15 +625,15 @@ flasher.flashLoan(1000.0, callback: arbitrageCallback)`
 
 **Benefits:**
 
-* **Zero Capital Required**: No upfront investment needed for arbitrage
-* **Risk-Free Profit**: Transaction reverts if arbitrage isn't profitable
-* **Market Efficiency**: Helps eliminate price discrepancies across DEXs
+* **Zero Capital Required**: No upfront investment needed for arbitrage.
+* **Risk-Free Profit**: Transaction reverts if arbitrage isn't profitable.
+* **Market Efficiency**: Helps eliminate price discrepancies across DEXs.
 
 ## Advanced Workflow Combinations[​](#advanced-workflow-combinations "Direct link to Advanced Workflow Combinations")
 
 ### Vault Source + Zapper Integration[​](#vault-source--zapper-integration "Direct link to Vault Source + Zapper Integration")
 
-**Goal**: Withdraw tokens from a vault and convert them to LP tokens in a single transaction
+**Goal**: Withdraw tokens from a vault and convert them to LP tokens in a single transaction.
 
 This advanced workflow demonstrates the power of combining VaultSource with Zapper functionality to seamlessly convert idle vault tokens into yield-generating LP positions. The Zapper handles the complex process of splitting the single token and creating balanced liquidity.
 
@@ -641,11 +641,11 @@ This advanced workflow demonstrates the power of combining VaultSource with Zapp
 
 **How it works:**
 
-1. VaultSource withdraws tokens from vault while respecting minimum balance
-2. Zapper receives the single token and splits it optimally
-3. Zapper swaps a portion of token A to token B using internal DEX routing
-4. Zapper provides balanced liquidity (A + B) to the pool
-5. Returns LP tokens that represent the liquidity position
+1. VaultSource withdraws tokens from vault while respecting minimum balance.
+2. Zapper receives the single token and splits it optimally.
+3. Zapper swaps a portion of token A to token B with internal DEX routing.
+4. Zapper provides balanced liquidity (A + B) to the pool.
+5. Returns LP tokens that represent the liquidity position.
 
 `_21
 
@@ -727,24 +727,24 @@ log("LP tokens created: ".concat(lpTokens.balance.toString()))`
 
 **Benefits:**
 
-* **Capital Efficiency**: Converts idle vault tokens to yield-generating LP positions
+* **Capital Efficiency**: Converts idle vault tokens to yield-generating LP positions.
 * **Automated Balancing**: Zapper handles optimal token split calculations automatically
-* **Single Transaction**: Complex multi-step process executed atomically
-* **Minimum Protection**: VaultSource ensures vault never goes below safety threshold
+* **Single Transaction**: Complex multi-step process executed atomically.
+* **Minimum Protection**: VaultSource ensures vault never goes below safety threshold.
 
 ### Price-Informed Rebalancing[​](#price-informed-rebalancing "Direct link to Price-Informed Rebalancing")
 
-**Goal**: Create autonomous rebalancing system based on price feeds
+**Goal**: Create autonomous rebalancing system based on price feeds.
 
-This sophisticated workflow creates an autonomous portfolio management system that maintains target value ratios by monitoring real-time price data. The AutoBalancer combines price oracles, sources, and sinks to automatically rebalance positions when they deviate from target thresholds.
+This sophisticated workflow creates an autonomous portfolio management system that monitors real-time price data to maintain target value ratios. The AutoBalancer combines price oracles, sources, and sinks to automatically rebalance positions when they deviate from target thresholds.
 
 **How it works:**
 
-1. Price oracle provides real-time asset valuations with staleness protection
-2. AutoBalancer tracks historical deposit values vs current market values
-3. When portfolio value exceeds upper threshold (120%), excess is moved to rebalance sink
-4. When portfolio value falls below lower threshold (80%), additional funds are sourced
-5. System maintains target allocation automatically without manual intervention
+1. Price oracle provides real-time asset valuations with staleness protection.
+2. AutoBalancer tracks historical deposit values vs current market values.
+3. When portfolio value exceeds upper threshold (120%), excess is moved to rebalance sink.
+4. When portfolio value falls below lower threshold (80%), additional funds are sourced.
+5. System maintains target allocation automatically without manual intervention.
 
 `_19
 
@@ -820,24 +820,24 @@ autoBalancer.rebalance(force: false) // Autonomous rebalancing`
 
 **Benefits:**
 
-* **Autonomous Operation**: Maintains portfolio balance without manual intervention
-* **Risk Management**: Prevents excessive exposure through automated position sizing
-* **Market Responsive**: Adapts to price movements using real-time oracle data
-* **Threshold Flexibility**: Configurable upper/lower bounds for different risk profiles
+* **Autonomous Operation**: Maintains portfolio balance without manual intervention.
+* **Risk Management**: Prevents excessive exposure through automated position sizing.
+* **Market Responsive**: Adapts to price movements with real-time oracle data.
+* **Threshold Flexibility**: Configurable upper/lower bounds for different risk profiles.
 
 ### Restake & Compound Strategy[​](#restake--compound-strategy "Direct link to Restake & Compound Strategy")
 
-**Goal**: Automatically compound staking rewards back into the pool
+**Goal**: Automatically compound staking rewards back into the pool.
 
 This advanced compounding strategy maximizes yield by automatically claiming staking rewards and converting them back into LP tokens for re-staking. The workflow combines rewards claiming, zapping, and staking into a seamless compound operation that accelerates yield accumulation through reinvestment.
 
 **How it works:**
 
-1. PoolRewardsSource claims accumulated staking rewards from the pool
-2. Zapper receives the reward tokens and converts them to LP tokens
-3. SwapSource orchestrates the rewards → LP token conversion process
-4. PoolSink re-stakes the new LP tokens back into the same pool
-5. Compound interest effect increases overall position size and future rewards
+1. PoolRewardsSource claims accumulated staking rewards from the pool.
+2. Zapper receives the reward tokens and converts them to LP tokens.
+3. SwapSource orchestrates the rewards → LP token conversion process.
+4. PoolSink re-stakes the new LP tokens back into the same pool.
+5. Compound interest effect increases overall position size and future rewards.
 
 `_31
 
@@ -957,16 +957,16 @@ poolSink.depositCapacity(from: lpTokens)`
 
 **Benefits:**
 
-* **Compound Growth**: Exponential yield increase through automatic reinvestment
-* **Gas Efficiency**: Single transaction handles claim, convert, and re-stake operations
-* **Set-and-Forget**: Automated compounding without manual intervention required
-* **Optimal Conversion**: Zapper ensures efficient reward token to LP token conversion
+* **Compound Growth**: Exponential yield increase through automatic reinvestment.
+* **Gas Efficiency**: Single transaction handles claim, convert, and re-stake operations.
+* **Set-and-Forget**: Automated compounding without manual intervention required.
+* **Optimal Conversion**: Zapper ensures efficient reward token to LP token conversion.
 
 ## Safety Best Practices[​](#safety-best-practices "Direct link to Safety Best Practices")
 
 ### Always Check Capacity[​](#always-check-capacity "Direct link to Always Check Capacity")
 
-Prevents transaction failures and enables graceful handling when sinks reach their maximum capacity limits. This is crucial for automated workflows that might encounter varying capacity conditions.
+Prevents transaction failures and allows graceful handling when sinks reach their maximum capacity limits. This is crucial for automated workflows that might encounter varying capacity conditions.
 
 `_10
 
@@ -1020,7 +1020,7 @@ assert(afterBalance >= beforeBalance, message: "Balance should not decrease")`
 
 ### Use Graceful Degradation[​](#use-graceful-degradation "Direct link to Use Graceful Degradation")
 
-Prevents entire workflows from failing when individual components encounter issues. This approach enables robust strategies that can adapt to changing market conditions or temporary protocol unavailability.
+Prevents entire workflows from failing when individual components encounter issues. This approach allows robust strategies that can adapt to changing market conditions or temporary protocol unavailability.
 
 `_10
 
@@ -1052,7 +1052,7 @@ _10
 
 ### Resource Management[​](#resource-management "Direct link to Resource Management")
 
-Proper resource cleanup prevents token loss and ensures all vaults are properly handled, even when transactions partially fail. This is critical in Cadence where resources must be explicitly managed.
+Proper resource cleanup prevents token loss and ensures all vaults are properly handled, even when transactions partially fail. This is critical in Cadence where you must explicitly manage resources.
 
 `_10
 
@@ -1238,9 +1238,9 @@ _16
 
 Now that you understand basic combinations, explore:
 
-1. **Advanced Strategies**: Complex multi-step workflows
-2. **Risk Management**: Advanced safety and monitoring techniques
-3. **Custom Connectors**: Building your own protocol adapters
+1. **Advanced Strategies**: Complex multi-step workflows.
+2. **Risk Management**: Advanced safety and monitoring techniques.
+3. **Custom Connectors**: Building your own protocol adapters.
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
@@ -1250,7 +1250,7 @@ Composability is the core strength of Flow Actions. These examples demonstrate h
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/flow-actions/basic-combinations.md)
 
-Last updated on **Sep 24, 2025** by **Brian Doyle**
+Last updated on **Oct 29, 2025** by **Brian Doyle**
 
 [Previous
 

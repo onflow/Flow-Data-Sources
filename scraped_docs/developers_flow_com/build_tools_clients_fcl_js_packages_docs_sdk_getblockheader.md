@@ -4,6 +4,8 @@ getBlockHeader | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -62,99 +64,103 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as sdk from '@onflow/sdk';
+import * as sdk from "@onflow/sdk"
 
 _10
 
 _10
 
-sdk.getBlockHeader(isSealed);`
+sdk.getBlockHeader(isSealed)`
 
 Or import directly the specific function:
 
 `_10
 
-import { getBlockHeader } from '@onflow/sdk';
+import { getBlockHeader } from "@onflow/sdk"
 
 _10
 
 _10
 
-getBlockHeader(isSealed);`
+getBlockHeader(isSealed)`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`_20
+`_21
 
-import * as fcl from '@onflow/fcl';
+import * as fcl from "@onflow/fcl";
 
-_20
+_21
 
-_20
+_21
 
 // Get latest sealed block header
 
-_20
+_21
 
-const sealedHeader = await fcl
+const sealedHeader = await fcl.send([
 
-_20
+_21
 
-.send([fcl.getBlockHeader(true)])
+fcl.getBlockHeader(true)
 
-_20
+_21
 
-.then(fcl.decode);
+]).then(fcl.decode);
 
-_20
+_21
 
-_20
+_21
 
-console.log('Block height:', sealedHeader.height);
+console.log("Block height:", sealedHeader.height);
 
-_20
+_21
 
-console.log('Block timestamp:', sealedHeader.timestamp);
+console.log("Block timestamp:", sealedHeader.timestamp);
 
-_20
+_21
 
-console.log('Parent block ID:', sealedHeader.parentId);
+console.log("Parent block ID:", sealedHeader.parentId);
 
-_20
+_21
 
-_20
+_21
 
 // Get header for specific block
 
-_20
+_21
 
-const blockHeader = await fcl
+const blockHeader = await fcl.send([
 
-_20
+_21
 
-.send([fcl.getBlockHeader(), fcl.atBlockHeight(12345)])
+fcl.getBlockHeader(),
 
-_20
+_21
 
-.then(fcl.decode);
+fcl.atBlockHeight(12345)
 
-_20
+_21
 
-_20
+]).then(fcl.decode);
+
+_21
+
+_21
 
 // Get latest finalized block header
 
-_20
+_21
 
-const finalizedHeader = await fcl
+const finalizedHeader = await fcl.send([
 
-_20
+_21
 
-.send([fcl.getBlockHeader(false)])
+fcl.getBlockHeader(false)
 
-_20
+_21
 
-.then(fcl.decode);`
+]).then(fcl.decode);`
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
@@ -171,11 +177,11 @@ export type InteractionBuilderFn = (
 
 _10
 
-ix: Interaction,
+ix: Interaction
 
 _10
 
-) => Interaction | Promise<Interaction>;`
+) => Interaction | Promise<Interaction>`
 
 A function that processes an interaction object
 
@@ -183,7 +189,7 @@ A function that processes an interaction object
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/getBlockHeader.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Oct 22, 2025** by **Michael Fabozzi**
 
 [Previous
 

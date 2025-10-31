@@ -155504,7 +155504,7 @@ Built-in Functions](/docs/language/built-in-functions)
 
 
 
-# Source: https://cadence-lang.org/docs/language
+# Source: https://cadence-lang.org/docs/language/
 
 The Cadence Programming Language | Cadence
 
@@ -184020,6 +184020,8 @@ signUp | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -184028,128 +184030,37 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 
 Search
 
-* [Why Flow](/build/flow)
-* [Cadence](/build/cadence/quickstart)
+* [Why Flow](/build/flow)* [Cadence](/build/cadence/quickstart)
 
-  + [Quickstart ↙](/build/cadence/quickstart)
-  + [Differences vs. EVM](/build/cadence/differences-vs-evm)
-  + [Basics](/build/cadence/basics/network-architecture)
-  + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
-  + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
-  + [Core Smart Contracts](/build/cadence/core-contracts)
-* [Solidity (EVM)](/build/evm/quickstart)
+    + [Quickstart ↙](/build/cadence/quickstart)+ [Differences vs. EVM](/build/cadence/differences-vs-evm)+ [Basics](/build/cadence/basics/network-architecture)
 
-  + [EVM Quickstart](/build/evm/quickstart)
-  + [How it Works](/build/evm/how-it-works)
-  + [EVM Wallet Setup](/build/evm/using)
-  + [Network Information](/build/evm/networks)
-  + [Fees](/build/evm/fees)
-  + [Accounts](/build/evm/accounts)
-* [Tools & SDKs](/build/tools)
+          + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-  + [@onflow/react-sdk](/build/tools/react-sdk)
-  + [Flow Emulator](/build/tools/emulator)
-  + [Flow CLI](/build/tools/flow-cli)
-  + [Cadence VS Code Extension](/build/tools/vscode-extension)
-  + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
-  + [Client Tools](/build/tools/clients)
+            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
 
-    - [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
+              + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
 
-      * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
+      + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
 
-        + [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
+        + [Flow React SDK](/build/tools/react-sdk)
 
-          - [account](/build/tools/clients/fcl-js/packages-docs/fcl/account)
-          - [arg](/build/tools/clients/fcl-js/packages-docs/fcl/arg)
-          - [args](/build/tools/clients/fcl-js/packages-docs/fcl/args)
-          - [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockHeight)
-          - [atBlockId](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockId)
-          - [authenticate](/build/tools/clients/fcl-js/packages-docs/fcl/authenticate)
-          - [authorization](/build/tools/clients/fcl-js/packages-docs/fcl/authorization)
-          - [authorizations](/build/tools/clients/fcl-js/packages-docs/fcl/authorizations)
-          - [authz](/build/tools/clients/fcl-js/packages-docs/fcl/authz)
-          - [block](/build/tools/clients/fcl-js/packages-docs/fcl/block)
-          - [build](/build/tools/clients/fcl-js/packages-docs/fcl/build)
-          - [cadence](/build/tools/clients/fcl-js/packages-docs/fcl/cadence)
-          - [cdc](/build/tools/clients/fcl-js/packages-docs/fcl/cdc)
-          - [config](/build/tools/clients/fcl-js/packages-docs/fcl/config)
-          - [createFcl](/build/tools/clients/fcl-js/packages-docs/fcl/createFcl)
-          - [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/fcl/createSignableVoucher)
-          - [currentUser](/build/tools/clients/fcl-js/packages-docs/fcl/currentUser)
-          - [decode](/build/tools/clients/fcl-js/packages-docs/fcl/decode)
-          - [display](/build/tools/clients/fcl-js/packages-docs/fcl/display)
-          - [events](/build/tools/clients/fcl-js/packages-docs/fcl/events)
-          - [getAccount](/build/tools/clients/fcl-js/packages-docs/fcl/getAccount)
-          - [getBlock](/build/tools/clients/fcl-js/packages-docs/fcl/getBlock)
-          - [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/fcl/getBlockHeader)
-          - [getChainId](/build/tools/clients/fcl-js/packages-docs/fcl/getChainId)
-          - [getCollection](/build/tools/clients/fcl-js/packages-docs/fcl/getCollection)
-          - [getEvents](/build/tools/clients/fcl-js/packages-docs/fcl/getEvents)
-          - [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockHeightRange)
-          - [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockIds)
-          - [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/fcl/getNetworkParameters)
-          - [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/getNodeVersionInfo)
-          - [getTransaction](/build/tools/clients/fcl-js/packages-docs/fcl/getTransaction)
-          - [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/fcl/getTransactionStatus)
-          - [invariant](/build/tools/clients/fcl-js/packages-docs/fcl/invariant)
-          - [isBad](/build/tools/clients/fcl-js/packages-docs/fcl/isBad)
-          - [isOk](/build/tools/clients/fcl-js/packages-docs/fcl/isOk)
-          - [limit](/build/tools/clients/fcl-js/packages-docs/fcl/limit)
-          - [logIn](/build/tools/clients/fcl-js/packages-docs/fcl/logIn)
-          - [mutate](/build/tools/clients/fcl-js/packages-docs/fcl/mutate)
-          - [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/nodeVersionInfo)
-          - [param](/build/tools/clients/fcl-js/packages-docs/fcl/param)
-          - [params](/build/tools/clients/fcl-js/packages-docs/fcl/params)
-          - [payer](/build/tools/clients/fcl-js/packages-docs/fcl/payer)
-          - [ping](/build/tools/clients/fcl-js/packages-docs/fcl/ping)
-          - [pipe](/build/tools/clients/fcl-js/packages-docs/fcl/pipe)
-          - [pluginRegistry](/build/tools/clients/fcl-js/packages-docs/fcl/pluginRegistry)
-          - [proposer](/build/tools/clients/fcl-js/packages-docs/fcl/proposer)
-          - [query](/build/tools/clients/fcl-js/packages-docs/fcl/query)
-          - [queryRaw](/build/tools/clients/fcl-js/packages-docs/fcl/queryRaw)
-          - [reauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/reauthenticate)
-          - [ref](/build/tools/clients/fcl-js/packages-docs/fcl/ref)
-          - [sansPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/sansPrefix)
-          - [script](/build/tools/clients/fcl-js/packages-docs/fcl/script)
-          - [send](/build/tools/clients/fcl-js/packages-docs/fcl/send)
-          - [serialize](/build/tools/clients/fcl-js/packages-docs/fcl/serialize)
-          - [signUp](/build/tools/clients/fcl-js/packages-docs/fcl/signUp)
-          - [subscribe](/build/tools/clients/fcl-js/packages-docs/fcl/subscribe)
-          - [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeEvents)
-          - [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeRaw)
-          - [transaction](/build/tools/clients/fcl-js/packages-docs/fcl/transaction)
-          - [tx](/build/tools/clients/fcl-js/packages-docs/fcl/tx)
-          - [unauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/unauthenticate)
-          - [validator](/build/tools/clients/fcl-js/packages-docs/fcl/validator)
-          - [verifyUserSignatures](/build/tools/clients/fcl-js/packages-docs/fcl/verifyUserSignatures)
-          - [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/fcl/voucherIntercept)
-          - [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/fcl/voucherToTxId)
-          - [why](/build/tools/clients/fcl-js/packages-docs/fcl/why)
-          - [withPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/withPrefix)
-        + [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
-        + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)
-      * [Authentication](/build/tools/clients/fcl-js/authentication)
-      * [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)
-      * [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
-      * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)
-      * [Installation](/build/tools/clients/fcl-js/installation)
-      * [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)
-      * [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)
-      * [Scripts](/build/tools/clients/fcl-js/scripts)
-      * [Transactions](/build/tools/clients/fcl-js/transactions)
-      * [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)
-      * [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)
-    - [Flow Go SDK](/build/tools/clients/flow-go-sdk)
-  + [Error Codes](/build/tools/error-codes)
-  + [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+          + [Flow Emulator](/build/tools/emulator)+ [Flow CLI](/build/tools/flow-cli)
 
-* [Tools & SDKs](/build/tools)
-* [Client Tools](/build/tools/clients)
-* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
-* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
-* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
-* signUp
+              + [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+
+                    - [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
+
+                      * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
+
+                        + [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
+
+                          - [account](/build/tools/clients/fcl-js/packages-docs/fcl/account)- [arg](/build/tools/clients/fcl-js/packages-docs/fcl/arg)- [args](/build/tools/clients/fcl-js/packages-docs/fcl/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockId)- [authenticate](/build/tools/clients/fcl-js/packages-docs/fcl/authenticate)- [authorization](/build/tools/clients/fcl-js/packages-docs/fcl/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/fcl/authorizations)- [authz](/build/tools/clients/fcl-js/packages-docs/fcl/authz)- [block](/build/tools/clients/fcl-js/packages-docs/fcl/block)- [build](/build/tools/clients/fcl-js/packages-docs/fcl/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/fcl/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/fcl/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/fcl/config)- [createFlowClient](/build/tools/clients/fcl-js/packages-docs/fcl/createFlowClient)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/fcl/createSignableVoucher)- [currentUser](/build/tools/clients/fcl-js/packages-docs/fcl/currentUser)- [decode](/build/tools/clients/fcl-js/packages-docs/fcl/decode)- [display](/build/tools/clients/fcl-js/packages-docs/fcl/display)- [events](/build/tools/clients/fcl-js/packages-docs/fcl/events)- [getAccount](/build/tools/clients/fcl-js/packages-docs/fcl/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/fcl/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/fcl/getBlockHeader)- [getCollection](/build/tools/clients/fcl-js/packages-docs/fcl/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/fcl/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/fcl/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/fcl/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/fcl/getTransactionStatus)- [invariant](/build/tools/clients/fcl-js/packages-docs/fcl/invariant)- [isBad](/build/tools/clients/fcl-js/packages-docs/fcl/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/fcl/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/fcl/limit)- [logIn](/build/tools/clients/fcl-js/packages-docs/fcl/logIn)- [mutate](/build/tools/clients/fcl-js/packages-docs/fcl/mutate)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/fcl/param)- [params](/build/tools/clients/fcl-js/packages-docs/fcl/params)- [payer](/build/tools/clients/fcl-js/packages-docs/fcl/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/fcl/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/fcl/pipe)- [pluginRegistry](/build/tools/clients/fcl-js/packages-docs/fcl/pluginRegistry)- [proposer](/build/tools/clients/fcl-js/packages-docs/fcl/proposer)- [query](/build/tools/clients/fcl-js/packages-docs/fcl/query)- [queryRaw](/build/tools/clients/fcl-js/packages-docs/fcl/queryRaw)- [reauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/reauthenticate)- [ref](/build/tools/clients/fcl-js/packages-docs/fcl/ref)- [sansPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/sansPrefix)- [script](/build/tools/clients/fcl-js/packages-docs/fcl/script)- [send](/build/tools/clients/fcl-js/packages-docs/fcl/send)- [serialize](/build/tools/clients/fcl-js/packages-docs/fcl/serialize)- [signUp](/build/tools/clients/fcl-js/packages-docs/fcl/signUp)- [subscribe](/build/tools/clients/fcl-js/packages-docs/fcl/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeRaw)- [transaction](/build/tools/clients/fcl-js/packages-docs/fcl/transaction)- [tx](/build/tools/clients/fcl-js/packages-docs/fcl/tx)- [unauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/unauthenticate)- [validator](/build/tools/clients/fcl-js/packages-docs/fcl/validator)- [verifyUserSignatures](/build/tools/clients/fcl-js/packages-docs/fcl/verifyUserSignatures)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/fcl/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/fcl/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/fcl/why)- [withPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/withPrefix)+ [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
+
+                            + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
+
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+
+* * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* signUp
 
 On this page
 
@@ -184250,61 +184161,30 @@ subscribe](/build/tools/clients/fcl-js/packages-docs/fcl/subscribe)
 
 Copy as Markdown
 
-* [Import](#import)
-* [Usage](#usage)
-* [Parameters](#parameters)
-  + [`opts` (optional)](#opts-optional)
-* [Returns](#returns)
+* [Import](#import)* [Usage](#usage)* [Parameters](#parameters)
+      + [`opts` (optional)](#opts-optional)* [Returns](#returns)
 
-Documentation
+Flow
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
 
-Community
+Cadence
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
 
-Start Building
+Solidity (EVM)
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
 
-Network
+Community & Support
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
 
-More
+Network & Resources
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
+Copyright © 2025 Flow Foundation. All Rights Reserved.
 
 
 
@@ -187470,6 +187350,8 @@ resolveRefBlockId | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -187550,7 +187432,15 @@ resolveRefBlockId(opts)`
 
 `_10
 
-{ [key: string]: any; }`
+{
+
+_10
+
+[key: string]: any;
+
+_10
+
+}`
 
 * Description: Optional configuration parameters
 
@@ -187564,7 +187454,7 @@ A function that resolves the reference block ID for an interaction
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/resolveRefBlockId.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Oct 22, 2025** by **Michael Fabozzi**
 
 [Previous
 
@@ -197168,6 +197058,8 @@ block | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -197188,7 +197080,7 @@ Search
 
       + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
 
-        + [@onflow/react-sdk](/build/tools/react-sdk)
+        + [Flow React SDK](/build/tools/react-sdk)
 
           + [Flow Emulator](/build/tools/emulator)+ [Flow CLI](/build/tools/flow-cli)
 
@@ -197340,27 +197232,27 @@ Copy as Markdown
 * [Import](#import)* [Usage](#usage)* [Parameters](#parameters)
       + [`blockQueryOptions` (optional)](#blockqueryoptions-optional)+ [`opts` (optional)](#opts-optional)* [Returns](#returns)
 
-Documentation
+Flow
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
 
-Community
+Cadence
 
-* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
 
-Start Building
+Solidity (EVM)
 
-* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
 
-Network
+Community & Support
 
-* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
 
-More
+Network & Resources
 
-* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
+Copyright © 2025 Flow Foundation. All Rights Reserved.
 
 
 
@@ -218982,6 +218874,8 @@ validator | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -223405,6 +223299,8 @@ How To Add Token To MetaMask | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -223417,7 +223313,7 @@ Search
 
     * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
 
-                + [Build with Forte ↙](/ecosystem/defi-liquidity/forte)+ [DeFi Contracts](/ecosystem/defi-liquidity/defi-contracts)+ [Cross-chain swaps on Flow EVM](/ecosystem/defi-liquidity/cross-chain-swaps)+ [Add Token To MetaMask](/ecosystem/defi-liquidity/add-token-to-metamask)+ [Stablecoins & Bridges FAQ](/ecosystem/defi-liquidity/faq)+ [Band Oracle](/ecosystem/defi-liquidity/band-oracle)* [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
+                + [Build with Forte ↙](/ecosystem/defi-liquidity/forte)+ [DeFi Contracts Mainnet](/ecosystem/defi-liquidity/defi-contracts-mainnet)+ [DeFi Contracts Testnet](/ecosystem/defi-liquidity/defi-contracts-testnet)+ [Cross-chain swaps on Flow EVM](/ecosystem/defi-liquidity/cross-chain-swaps)+ [Add Token To MetaMask](/ecosystem/defi-liquidity/add-token-to-metamask)+ [Stablecoins & Bridges FAQ](/ecosystem/defi-liquidity/faq)+ [Band Oracle](/ecosystem/defi-liquidity/band-oracle)* [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
 
 * * [DeFi & Liquidity](/ecosystem/defi-liquidity)* Add Token To MetaMask
 
@@ -223429,7 +223325,7 @@ info
 
 Want to add a token to MetaMask on Flow EVM?
 
-You can find a list of tokens on Flow at [evm.flowscan.io/tokens](https://evm.flowscan.io/tokens) or check the most popular DeFi token contract addresses [here](/ecosystem/defi-liquidity/defi-contracts)
+You can find a list of tokens on Flow at [evm.flowscan.io/tokens](https://evm.flowscan.io/tokens) or check the most popular DeFi token contract addresses [here](/ecosystem/defi-liquidity/defi-contracts-mainnet)
 
 ## Objectives[​](#objectives "Direct link to Objectives")
 
@@ -223470,7 +223366,7 @@ If you have a token contract address, you can manually add it to MetaMask.
 You can find token contract addresses on:
 
 * [Flowscan Token List](https://evm.flowscan.io/tokens)
-* The [DeFi Contracts](/ecosystem/defi-liquidity/defi-contracts) page
+* The [DeFi Contracts](/ecosystem/defi-liquidity/defi-contracts-mainnet) page
 * [Dexscreener Flow EVM](https://dexscreener.com/flowevm)
 * [Gecko Terminal Flow EVM](https://www.geckoterminal.com/flow-evm/pools)
 
@@ -223478,7 +223374,7 @@ If you're unsure, check the Flow EVM block explorer at [evm.flowscan.io](https:/
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/add-token-to-metamask.md)
 
-Last updated on **Mar 27, 2025** by **bz**
+Last updated on **Oct 29, 2025** by **bz**
 
 [Previous
 
@@ -226630,6 +226526,8 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 Crossmint Integration Guide | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -237684,6 +237582,8 @@ block | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -237692,128 +237592,37 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 
 Search
 
-* [Why Flow](/build/flow)
-* [Cadence](/build/cadence/quickstart)
+* [Why Flow](/build/flow)* [Cadence](/build/cadence/quickstart)
 
-  + [Quickstart ↙](/build/cadence/quickstart)
-  + [Differences vs. EVM](/build/cadence/differences-vs-evm)
-  + [Basics](/build/cadence/basics/network-architecture)
-  + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
-  + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
-  + [Core Smart Contracts](/build/cadence/core-contracts)
-* [Solidity (EVM)](/build/evm/quickstart)
+    + [Quickstart ↙](/build/cadence/quickstart)+ [Differences vs. EVM](/build/cadence/differences-vs-evm)+ [Basics](/build/cadence/basics/network-architecture)
 
-  + [EVM Quickstart](/build/evm/quickstart)
-  + [How it Works](/build/evm/how-it-works)
-  + [EVM Wallet Setup](/build/evm/using)
-  + [Network Information](/build/evm/networks)
-  + [Fees](/build/evm/fees)
-  + [Accounts](/build/evm/accounts)
-* [Tools & SDKs](/build/tools)
+          + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-  + [@onflow/react-sdk](/build/tools/react-sdk)
-  + [Flow Emulator](/build/tools/emulator)
-  + [Flow CLI](/build/tools/flow-cli)
-  + [Cadence VS Code Extension](/build/tools/vscode-extension)
-  + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
-  + [Client Tools](/build/tools/clients)
+            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
 
-    - [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
+              + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
 
-      * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
+      + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
 
-        + [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
+        + [Flow React SDK](/build/tools/react-sdk)
 
-          - [account](/build/tools/clients/fcl-js/packages-docs/fcl/account)
-          - [arg](/build/tools/clients/fcl-js/packages-docs/fcl/arg)
-          - [args](/build/tools/clients/fcl-js/packages-docs/fcl/args)
-          - [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockHeight)
-          - [atBlockId](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockId)
-          - [authenticate](/build/tools/clients/fcl-js/packages-docs/fcl/authenticate)
-          - [authorization](/build/tools/clients/fcl-js/packages-docs/fcl/authorization)
-          - [authorizations](/build/tools/clients/fcl-js/packages-docs/fcl/authorizations)
-          - [authz](/build/tools/clients/fcl-js/packages-docs/fcl/authz)
-          - [block](/build/tools/clients/fcl-js/packages-docs/fcl/block)
-          - [build](/build/tools/clients/fcl-js/packages-docs/fcl/build)
-          - [cadence](/build/tools/clients/fcl-js/packages-docs/fcl/cadence)
-          - [cdc](/build/tools/clients/fcl-js/packages-docs/fcl/cdc)
-          - [config](/build/tools/clients/fcl-js/packages-docs/fcl/config)
-          - [createFcl](/build/tools/clients/fcl-js/packages-docs/fcl/createFcl)
-          - [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/fcl/createSignableVoucher)
-          - [currentUser](/build/tools/clients/fcl-js/packages-docs/fcl/currentUser)
-          - [decode](/build/tools/clients/fcl-js/packages-docs/fcl/decode)
-          - [display](/build/tools/clients/fcl-js/packages-docs/fcl/display)
-          - [events](/build/tools/clients/fcl-js/packages-docs/fcl/events)
-          - [getAccount](/build/tools/clients/fcl-js/packages-docs/fcl/getAccount)
-          - [getBlock](/build/tools/clients/fcl-js/packages-docs/fcl/getBlock)
-          - [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/fcl/getBlockHeader)
-          - [getChainId](/build/tools/clients/fcl-js/packages-docs/fcl/getChainId)
-          - [getCollection](/build/tools/clients/fcl-js/packages-docs/fcl/getCollection)
-          - [getEvents](/build/tools/clients/fcl-js/packages-docs/fcl/getEvents)
-          - [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockHeightRange)
-          - [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockIds)
-          - [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/fcl/getNetworkParameters)
-          - [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/getNodeVersionInfo)
-          - [getTransaction](/build/tools/clients/fcl-js/packages-docs/fcl/getTransaction)
-          - [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/fcl/getTransactionStatus)
-          - [invariant](/build/tools/clients/fcl-js/packages-docs/fcl/invariant)
-          - [isBad](/build/tools/clients/fcl-js/packages-docs/fcl/isBad)
-          - [isOk](/build/tools/clients/fcl-js/packages-docs/fcl/isOk)
-          - [limit](/build/tools/clients/fcl-js/packages-docs/fcl/limit)
-          - [logIn](/build/tools/clients/fcl-js/packages-docs/fcl/logIn)
-          - [mutate](/build/tools/clients/fcl-js/packages-docs/fcl/mutate)
-          - [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/nodeVersionInfo)
-          - [param](/build/tools/clients/fcl-js/packages-docs/fcl/param)
-          - [params](/build/tools/clients/fcl-js/packages-docs/fcl/params)
-          - [payer](/build/tools/clients/fcl-js/packages-docs/fcl/payer)
-          - [ping](/build/tools/clients/fcl-js/packages-docs/fcl/ping)
-          - [pipe](/build/tools/clients/fcl-js/packages-docs/fcl/pipe)
-          - [pluginRegistry](/build/tools/clients/fcl-js/packages-docs/fcl/pluginRegistry)
-          - [proposer](/build/tools/clients/fcl-js/packages-docs/fcl/proposer)
-          - [query](/build/tools/clients/fcl-js/packages-docs/fcl/query)
-          - [queryRaw](/build/tools/clients/fcl-js/packages-docs/fcl/queryRaw)
-          - [reauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/reauthenticate)
-          - [ref](/build/tools/clients/fcl-js/packages-docs/fcl/ref)
-          - [sansPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/sansPrefix)
-          - [script](/build/tools/clients/fcl-js/packages-docs/fcl/script)
-          - [send](/build/tools/clients/fcl-js/packages-docs/fcl/send)
-          - [serialize](/build/tools/clients/fcl-js/packages-docs/fcl/serialize)
-          - [signUp](/build/tools/clients/fcl-js/packages-docs/fcl/signUp)
-          - [subscribe](/build/tools/clients/fcl-js/packages-docs/fcl/subscribe)
-          - [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeEvents)
-          - [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeRaw)
-          - [transaction](/build/tools/clients/fcl-js/packages-docs/fcl/transaction)
-          - [tx](/build/tools/clients/fcl-js/packages-docs/fcl/tx)
-          - [unauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/unauthenticate)
-          - [validator](/build/tools/clients/fcl-js/packages-docs/fcl/validator)
-          - [verifyUserSignatures](/build/tools/clients/fcl-js/packages-docs/fcl/verifyUserSignatures)
-          - [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/fcl/voucherIntercept)
-          - [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/fcl/voucherToTxId)
-          - [why](/build/tools/clients/fcl-js/packages-docs/fcl/why)
-          - [withPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/withPrefix)
-        + [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
-        + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)
-      * [Authentication](/build/tools/clients/fcl-js/authentication)
-      * [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)
-      * [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
-      * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)
-      * [Installation](/build/tools/clients/fcl-js/installation)
-      * [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)
-      * [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)
-      * [Scripts](/build/tools/clients/fcl-js/scripts)
-      * [Transactions](/build/tools/clients/fcl-js/transactions)
-      * [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)
-      * [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)
-    - [Flow Go SDK](/build/tools/clients/flow-go-sdk)
-  + [Error Codes](/build/tools/error-codes)
-  + [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+          + [Flow Emulator](/build/tools/emulator)+ [Flow CLI](/build/tools/flow-cli)
 
-* [Tools & SDKs](/build/tools)
-* [Client Tools](/build/tools/clients)
-* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
-* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
-* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
-* block
+              + [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+
+                    - [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
+
+                      * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
+
+                        + [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
+
+                          - [account](/build/tools/clients/fcl-js/packages-docs/fcl/account)- [arg](/build/tools/clients/fcl-js/packages-docs/fcl/arg)- [args](/build/tools/clients/fcl-js/packages-docs/fcl/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockId)- [authenticate](/build/tools/clients/fcl-js/packages-docs/fcl/authenticate)- [authorization](/build/tools/clients/fcl-js/packages-docs/fcl/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/fcl/authorizations)- [authz](/build/tools/clients/fcl-js/packages-docs/fcl/authz)- [block](/build/tools/clients/fcl-js/packages-docs/fcl/block)- [build](/build/tools/clients/fcl-js/packages-docs/fcl/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/fcl/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/fcl/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/fcl/config)- [createFlowClient](/build/tools/clients/fcl-js/packages-docs/fcl/createFlowClient)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/fcl/createSignableVoucher)- [currentUser](/build/tools/clients/fcl-js/packages-docs/fcl/currentUser)- [decode](/build/tools/clients/fcl-js/packages-docs/fcl/decode)- [display](/build/tools/clients/fcl-js/packages-docs/fcl/display)- [events](/build/tools/clients/fcl-js/packages-docs/fcl/events)- [getAccount](/build/tools/clients/fcl-js/packages-docs/fcl/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/fcl/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/fcl/getBlockHeader)- [getCollection](/build/tools/clients/fcl-js/packages-docs/fcl/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/fcl/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/fcl/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/fcl/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/fcl/getTransactionStatus)- [invariant](/build/tools/clients/fcl-js/packages-docs/fcl/invariant)- [isBad](/build/tools/clients/fcl-js/packages-docs/fcl/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/fcl/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/fcl/limit)- [logIn](/build/tools/clients/fcl-js/packages-docs/fcl/logIn)- [mutate](/build/tools/clients/fcl-js/packages-docs/fcl/mutate)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/fcl/param)- [params](/build/tools/clients/fcl-js/packages-docs/fcl/params)- [payer](/build/tools/clients/fcl-js/packages-docs/fcl/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/fcl/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/fcl/pipe)- [pluginRegistry](/build/tools/clients/fcl-js/packages-docs/fcl/pluginRegistry)- [proposer](/build/tools/clients/fcl-js/packages-docs/fcl/proposer)- [query](/build/tools/clients/fcl-js/packages-docs/fcl/query)- [queryRaw](/build/tools/clients/fcl-js/packages-docs/fcl/queryRaw)- [reauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/reauthenticate)- [ref](/build/tools/clients/fcl-js/packages-docs/fcl/ref)- [sansPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/sansPrefix)- [script](/build/tools/clients/fcl-js/packages-docs/fcl/script)- [send](/build/tools/clients/fcl-js/packages-docs/fcl/send)- [serialize](/build/tools/clients/fcl-js/packages-docs/fcl/serialize)- [signUp](/build/tools/clients/fcl-js/packages-docs/fcl/signUp)- [subscribe](/build/tools/clients/fcl-js/packages-docs/fcl/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeRaw)- [transaction](/build/tools/clients/fcl-js/packages-docs/fcl/transaction)- [tx](/build/tools/clients/fcl-js/packages-docs/fcl/tx)- [unauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/unauthenticate)- [validator](/build/tools/clients/fcl-js/packages-docs/fcl/validator)- [verifyUserSignatures](/build/tools/clients/fcl-js/packages-docs/fcl/verifyUserSignatures)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/fcl/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/fcl/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/fcl/why)- [withPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/withPrefix)+ [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
+
+                            + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
+
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+
+* * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* block
 
 On this page
 
@@ -237944,62 +237753,30 @@ build](/build/tools/clients/fcl-js/packages-docs/fcl/build)
 
 Copy as Markdown
 
-* [Import](#import)
-* [Usage](#usage)
-* [Parameters](#parameters)
-  + [`blockQueryOptions` (optional)](#blockqueryoptions-optional)
-  + [`opts` (optional)](#opts-optional)
-* [Returns](#returns)
+* [Import](#import)* [Usage](#usage)* [Parameters](#parameters)
+      + [`blockQueryOptions` (optional)](#blockqueryoptions-optional)+ [`opts` (optional)](#opts-optional)* [Returns](#returns)
 
-Documentation
+Flow
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
 
-Community
+Cadence
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
 
-Start Building
+Solidity (EVM)
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
 
-Network
+Community & Support
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
 
-More
+Network & Resources
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
+Copyright © 2025 Flow Foundation. All Rights Reserved.
 
 
 
@@ -238018,6 +237795,8 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 atBlockHeight | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -238485,6 +238264,8 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 initInteraction | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -245817,6 +245598,8 @@ resolve | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -246537,6 +246320,8 @@ reauthenticate | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -246557,7 +246342,7 @@ Search
 
       + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
 
-        + [@onflow/react-sdk](/build/tools/react-sdk)
+        + [Flow React SDK](/build/tools/react-sdk)
 
           + [Flow Emulator](/build/tools/emulator)+ [Flow CLI](/build/tools/flow-cli)
 
@@ -246569,7 +246354,7 @@ Search
 
                         + [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
 
-                          - [account](/build/tools/clients/fcl-js/packages-docs/fcl/account)- [arg](/build/tools/clients/fcl-js/packages-docs/fcl/arg)- [args](/build/tools/clients/fcl-js/packages-docs/fcl/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockId)- [authenticate](/build/tools/clients/fcl-js/packages-docs/fcl/authenticate)- [authorization](/build/tools/clients/fcl-js/packages-docs/fcl/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/fcl/authorizations)- [authz](/build/tools/clients/fcl-js/packages-docs/fcl/authz)- [block](/build/tools/clients/fcl-js/packages-docs/fcl/block)- [build](/build/tools/clients/fcl-js/packages-docs/fcl/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/fcl/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/fcl/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/fcl/config)- [createFcl](/build/tools/clients/fcl-js/packages-docs/fcl/createFcl)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/fcl/createSignableVoucher)- [currentUser](/build/tools/clients/fcl-js/packages-docs/fcl/currentUser)- [decode](/build/tools/clients/fcl-js/packages-docs/fcl/decode)- [display](/build/tools/clients/fcl-js/packages-docs/fcl/display)- [events](/build/tools/clients/fcl-js/packages-docs/fcl/events)- [getAccount](/build/tools/clients/fcl-js/packages-docs/fcl/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/fcl/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/fcl/getBlockHeader)- [getChainId](/build/tools/clients/fcl-js/packages-docs/fcl/getChainId)- [getCollection](/build/tools/clients/fcl-js/packages-docs/fcl/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/fcl/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/fcl/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/fcl/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/fcl/getTransactionStatus)- [invariant](/build/tools/clients/fcl-js/packages-docs/fcl/invariant)- [isBad](/build/tools/clients/fcl-js/packages-docs/fcl/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/fcl/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/fcl/limit)- [logIn](/build/tools/clients/fcl-js/packages-docs/fcl/logIn)- [mutate](/build/tools/clients/fcl-js/packages-docs/fcl/mutate)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/fcl/param)- [params](/build/tools/clients/fcl-js/packages-docs/fcl/params)- [payer](/build/tools/clients/fcl-js/packages-docs/fcl/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/fcl/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/fcl/pipe)- [pluginRegistry](/build/tools/clients/fcl-js/packages-docs/fcl/pluginRegistry)- [proposer](/build/tools/clients/fcl-js/packages-docs/fcl/proposer)- [query](/build/tools/clients/fcl-js/packages-docs/fcl/query)- [queryRaw](/build/tools/clients/fcl-js/packages-docs/fcl/queryRaw)- [reauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/reauthenticate)- [ref](/build/tools/clients/fcl-js/packages-docs/fcl/ref)- [sansPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/sansPrefix)- [script](/build/tools/clients/fcl-js/packages-docs/fcl/script)- [send](/build/tools/clients/fcl-js/packages-docs/fcl/send)- [serialize](/build/tools/clients/fcl-js/packages-docs/fcl/serialize)- [signUp](/build/tools/clients/fcl-js/packages-docs/fcl/signUp)- [subscribe](/build/tools/clients/fcl-js/packages-docs/fcl/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeRaw)- [transaction](/build/tools/clients/fcl-js/packages-docs/fcl/transaction)- [tx](/build/tools/clients/fcl-js/packages-docs/fcl/tx)- [unauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/unauthenticate)- [validator](/build/tools/clients/fcl-js/packages-docs/fcl/validator)- [verifyUserSignatures](/build/tools/clients/fcl-js/packages-docs/fcl/verifyUserSignatures)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/fcl/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/fcl/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/fcl/why)- [withPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/withPrefix)+ [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
+                          - [account](/build/tools/clients/fcl-js/packages-docs/fcl/account)- [arg](/build/tools/clients/fcl-js/packages-docs/fcl/arg)- [args](/build/tools/clients/fcl-js/packages-docs/fcl/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockId)- [authenticate](/build/tools/clients/fcl-js/packages-docs/fcl/authenticate)- [authorization](/build/tools/clients/fcl-js/packages-docs/fcl/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/fcl/authorizations)- [authz](/build/tools/clients/fcl-js/packages-docs/fcl/authz)- [block](/build/tools/clients/fcl-js/packages-docs/fcl/block)- [build](/build/tools/clients/fcl-js/packages-docs/fcl/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/fcl/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/fcl/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/fcl/config)- [createFlowClient](/build/tools/clients/fcl-js/packages-docs/fcl/createFlowClient)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/fcl/createSignableVoucher)- [currentUser](/build/tools/clients/fcl-js/packages-docs/fcl/currentUser)- [decode](/build/tools/clients/fcl-js/packages-docs/fcl/decode)- [display](/build/tools/clients/fcl-js/packages-docs/fcl/display)- [events](/build/tools/clients/fcl-js/packages-docs/fcl/events)- [getAccount](/build/tools/clients/fcl-js/packages-docs/fcl/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/fcl/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/fcl/getBlockHeader)- [getCollection](/build/tools/clients/fcl-js/packages-docs/fcl/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/fcl/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/fcl/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/fcl/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/fcl/getTransactionStatus)- [invariant](/build/tools/clients/fcl-js/packages-docs/fcl/invariant)- [isBad](/build/tools/clients/fcl-js/packages-docs/fcl/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/fcl/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/fcl/limit)- [logIn](/build/tools/clients/fcl-js/packages-docs/fcl/logIn)- [mutate](/build/tools/clients/fcl-js/packages-docs/fcl/mutate)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/fcl/param)- [params](/build/tools/clients/fcl-js/packages-docs/fcl/params)- [payer](/build/tools/clients/fcl-js/packages-docs/fcl/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/fcl/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/fcl/pipe)- [pluginRegistry](/build/tools/clients/fcl-js/packages-docs/fcl/pluginRegistry)- [proposer](/build/tools/clients/fcl-js/packages-docs/fcl/proposer)- [query](/build/tools/clients/fcl-js/packages-docs/fcl/query)- [queryRaw](/build/tools/clients/fcl-js/packages-docs/fcl/queryRaw)- [reauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/reauthenticate)- [ref](/build/tools/clients/fcl-js/packages-docs/fcl/ref)- [sansPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/sansPrefix)- [script](/build/tools/clients/fcl-js/packages-docs/fcl/script)- [send](/build/tools/clients/fcl-js/packages-docs/fcl/send)- [serialize](/build/tools/clients/fcl-js/packages-docs/fcl/serialize)- [signUp](/build/tools/clients/fcl-js/packages-docs/fcl/signUp)- [subscribe](/build/tools/clients/fcl-js/packages-docs/fcl/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeRaw)- [transaction](/build/tools/clients/fcl-js/packages-docs/fcl/transaction)- [tx](/build/tools/clients/fcl-js/packages-docs/fcl/tx)- [unauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/unauthenticate)- [validator](/build/tools/clients/fcl-js/packages-docs/fcl/validator)- [verifyUserSignatures](/build/tools/clients/fcl-js/packages-docs/fcl/verifyUserSignatures)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/fcl/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/fcl/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/fcl/why)- [withPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/withPrefix)+ [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
@@ -246679,27 +246464,27 @@ Copy as Markdown
 * [Import](#import)* [Usage](#usage)* [Parameters](#parameters)
       + [`opts` (optional)](#opts-optional)* [Returns](#returns)
 
-Documentation
+Flow
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
 
-Community
+Cadence
 
-* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
 
-Start Building
+Solidity (EVM)
 
-* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
 
-Network
+Community & Support
 
-* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
 
-More
+Network & Resources
 
-* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
+Copyright © 2025 Flow Foundation. All Rights Reserved.
 
 
 
@@ -257179,6 +256964,8 @@ payer | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -259147,6 +258934,8 @@ authorizations | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -259204,31 +258993,31 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as sdk from '@onflow/sdk';
+import * as sdk from "@onflow/sdk"
 
 _10
 
 _10
 
-sdk.authorizations(ax);`
+sdk.authorizations(ax)`
 
 Or import directly the specific function:
 
 `_10
 
-import { authorizations } from '@onflow/sdk';
+import { authorizations } from "@onflow/sdk"
 
 _10
 
 _10
 
-authorizations(ax);`
+authorizations(ax)`
 
 ## Usage[​](#usage "Direct link to Usage")
 
 `` _40
 
-import * as fcl from '@onflow/fcl';
+import * as fcl from "@onflow/fcl";
 
 _40
 
@@ -259270,7 +259059,7 @@ _40
 
 _40
 
-authorizations: [fcl.authz], // Current user authorization
+authorizations: [fcl.authz] // Current user authorization
 
 _40
 
@@ -259316,7 +259105,7 @@ _40
 
 _40
 
-authorizations: [userOneAuthz, userTwoAuthz],
+authorizations: [userOneAuthz, userTwoAuthz]
 
 _40
 
@@ -259374,7 +259163,7 @@ fcl.payer(fcl.authz),
 
 _40
 
-fcl.limit(100),
+fcl.limit(100)
 
 _40
 
@@ -259396,7 +259185,7 @@ _10
 
 _10
 
-| Partial<InteractionAccount>;`
+| Partial<InteractionAccount>`
 
 * Description: An array of authorization functions that produce account authorization details
 
@@ -259408,11 +259197,11 @@ export type InteractionBuilderFn = (
 
 _10
 
-ix: Interaction,
+ix: Interaction
 
 _10
 
-) => Interaction | Promise<Interaction>;`
+) => Interaction | Promise<Interaction>`
 
 A function that processes an interaction object
 
@@ -259420,7 +259209,7 @@ A function that processes an interaction object
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/authorizations.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Oct 22, 2025** by **Michael Fabozzi**
 
 [Previous
 
@@ -264890,6 +264679,8 @@ cadence | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -265657,6 +265448,8 @@ Basic Combinations | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -265693,43 +265486,41 @@ On this page
 
 # Composing Workflows with Flow Actions
 
-warning
-
-Flow Actions are being reviewed and finalized in [FLIP 339](https://github.com/onflow/flips/pull/339/files). The specific implementation may change as a part of this process.
-
-These tutorials will be updated, but you may need to refactor your code if the implementation changes.
-
-Flow Actions are designed to be **composable** meaning you can chain them together like LEGO blocks to build complex strategies. Each primitive has a standardized interface that works consistently across all protocols, eliminating the need to learn multiple APIs. This composability enables atomic execution of multi-step workflows within single transactions, ensuring either complete success or safe failure. By combining these primitives, developers can create sophisticated DeFi strategies like automated yield farming, cross-protocol arbitrage, and portfolio rebalancing. The [5 Flow Actions Primitives](/blockchain-development-tutorials/forte/flow-actions/intro-to-flow-actions) are:
+Flow Actions are designed to be **composable**, which means you can chain them together like LEGO blocks to build complex strategies. Each primitive has a standardized interface that works consistently across all protocols and eliminates the need to learn multiple APIs. This composability allows atomic execution of multi-step workflows within single transactions, ensuring either complete success or safe failure. When developers combine these primitives, they create sophisticated decentralized finance (DeFi) strategies like automated yield farming, cross-protocol arbitrage, and portfolio rebalancing. The [5 Flow Actions Primitives](/blockchain-development-tutorials/forte/flow-actions/intro-to-flow-actions) are:
 
 * **Source** → Provides tokens on demand by withdrawing from vaults or claiming rewards. Sources respect minimum balance constraints and return empty vaults gracefully when nothing is available.
-* **Sink** → Accepts token deposits up to a specified capacity limit. Sinks perform no-ops when capacity is exceeded rather than reverting, enabling smooth workflow execution.
+* **Sink** → Accepts token deposits up to a specified capacity limit. Sinks perform no-ops rather than reverting when deposits exceed capacity, which allows smooth workflow execution.
 * **Swapper** → Exchanges one token type for another through DEX trades or cross-chain bridges. Swappers support bidirectional operations and provide quote estimation for slippage protection.
 * **PriceOracle** → Provides real-time price data for assets from external feeds or DEX prices. Oracles handle staleness validation and return nil for unavailable prices rather than failing.
 * **Flasher** → Issues flash loans that must be repaid within the same transaction via callback execution. Flashers enable capital-efficient strategies like arbitrage and liquidations without requiring upfront capital.
 
 ## Learning Objectives[​](#learning-objectives "Direct link to Learning Objectives")
 
-After completing this tutorial, you will be able to:
+After you complete this tutorial, you will be able to:
 
-* Understand the key features of Flow Actions including atomic composition, weak guarantees, and event traceability
-* Create and use Sources to provide tokens from various protocols and locations
-* Create and use Sinks to accept tokens up to defined capacity limits
-* Create and use Swappers to exchange tokens between different types with price estimation
-* Create and use Price Oracles to get price data for assets with consistent denomination
-* Create and use Flashers to provide flash loans with atomic repayment requirements
-* Use UniqueIdentifiers to trace and correlate operations across multiple Flow Actions
-* Compose complex DeFi workflows by connecting multiple Actions in a single atomic transaction
+* Understand the key features of Flow Actions including atomic composition, weak guarantees, and event traceability.
+* Create and use Sources to provide tokens from various protocols and locations.
+* Create and use Sinks to accept tokens up to defined capacity limits.
+* Create and use Swappers to exchange tokens between different types with price estimation.
+* Create and use Price Oracles to get price data for assets with consistent denomination.
+* Create and use Flashers to provide flash loans with atomic repayment requirements.
+* Use UniqueIdentifiers to trace and correlate operations across multiple Flow Actions.
+* Compose complex DeFi workflows by connecting multiple Actions in a single atomic transaction.
 
 ## Core Flow Patterns[​](#core-flow-patterns "Direct link to Core Flow Patterns")
 
 ### Linear Flow (Source → Swapper → Sink)[​](#linear-flow-source--swapper--sink "Direct link to Linear Flow (Source → Swapper → Sink)")
 
-The most common pattern: get tokens, convert them, then deposit them.
+The most common pattern
+
+1. Get tokens
+2. Convert them
+3. Deposit them
 
 ![vault source](/assets/images/vault-source-fdd4d13a71b7cb7efe5a644b7b838086.png)
 ![swap vault sink](/assets/images/swap-vaultsink-9f9e5ec19aa980f504dded666deec04b.png)
 
-**Example**: Claim rewards → Swap to different token → Stake in new pool
+**Example**: Claim rewards → Swap to different token → Stake in new pool.
 
 ### Bidirectional Flow (Source ↔ Sink)[​](#bidirectional-flow-source--sink "Direct link to Bidirectional Flow (Source ↔ Sink)")
 
@@ -265738,7 +265529,7 @@ Two-way operations where you can both deposit and withdraw.
 ![vault source](/assets/images/vault-source-fdd4d13a71b7cb7efe5a644b7b838086.png)
 ![vault sink](/assets/images/vault-sink-52a21926e34bb10ee162d42cd91bdc3f.png)
 
-**Example**: Vault operations with both deposit and withdrawal capabilities
+**Example**: Vault operations with both deposit and withdrawal capabilities.
 
 ### Aggregated Flow (Multiple Sources → Aggregator → Sink)[​](#aggregated-flow-multiple-sources--aggregator--sink "Direct link to Aggregated Flow (Multiple Sources → Aggregator → Sink)")
 
@@ -265756,13 +265547,13 @@ _10
 
 Source C ↗`
 
-**Example**: Multiple DEX aggregators finding the best swap route
+**Example**: Multiple DEX aggregators finding the best swap route.
 
 ## Common DeFi Workflow Combinations[​](#common-defi-workflow-combinations "Direct link to Common DeFi Workflow Combinations")
 
 ### Single Token to LP (Zapper)[​](#single-token-to-lp-zapper "Direct link to Single Token to LP (Zapper)")
 
-**Goal**: Convert a single token into liquidity provider (LP) tokens in one transaction
+**Goal**: Convert a single token into liquidity provider (LP) tokens in one transaction.
 
 The **Zapper** is a specialized connector that combines swapper and sink functionality. It takes a single token input and outputs LP tokens by automatically handling the token splitting, swapping, and liquidity provision process.
 
@@ -265770,11 +265561,11 @@ The **Zapper** is a specialized connector that combines swapper and sink functio
 
 **How it works:**
 
-1. Takes single token A as input
-2. Splits it into two portions
-3. Swaps one portion to token B
-4. Provides liquidity with A + B to get LP tokens
-5. Returns LP tokens as output
+1. Takes single token A as input.
+2. Splits it into two portions.
+3. Swaps one portion to token B.
+4. Provides liquidity with A + B to get LP tokens.
+5. Returns LP tokens as output.
 
 `_13
 
@@ -265826,22 +265617,22 @@ _13
 
 **Benefits:**
 
-* **Simplicity**: Single transaction converts any token to LP position
-* **Efficiency**: Automatically calculates optimal split ratios
-* **Composability**: Output LP tokens work with any sink connector
+* **Simplicity**: Single transaction converts any token to LP position.
+* **Efficiency**: Automatically calculates optimal split ratios.
+* **Composability**: Output LP tokens work with any sink connector.
 
 ### Reward Harvesting & Conversion[​](#reward-harvesting--conversion "Direct link to Reward Harvesting & Conversion")
 
-**Goal**: Claim staking rewards and convert them to a stable token
+**Goal**: Claim staking rewards and convert them to a stable token.
 
 This workflow automatically claims accumulated staking rewards and converts them to a stable asset like USDC. It combines a rewards source, token swapper, and vault sink to create a seamless reward collection and conversion process.
 
 **How it works:**
 
-1. Claims pending rewards from a staking pool using user certificate
-2. Swaps the reward tokens (e.g., FLOW) to stable tokens (e.g., USDC)
-3. Deposits the stable tokens to a vault with capacity limits
-4. Returns any unconverted tokens back to the user
+1. Claims pending rewards from a staking pool using user certificate.
+2. Swaps the reward tokens (for example, FLOW) to stable tokens (for example, USDC).
+3. Deposits the stable tokens to a vault with capacity limits.
+4. Returns any unconverted tokens back to the user.
 
 `_28
 
@@ -265951,9 +265742,9 @@ vaultSink.depositCapacity(from: &stableTokens)`
 
 **Benefits:**
 
-* **Risk Reduction**: Converts volatile reward tokens to stable assets
-* **Automation**: Single transaction handles claim, swap, and storage
-* **Capital Efficiency**: No manual intervention needed for reward management
+* **Risk Reduction**: Converts volatile reward tokens to stable assets.
+* **Automation**: Single transaction handles claim, swap, and storage.
+* **Capital Efficiency**: No manual intervention needed for reward management.
 
 ### Liquidity Provision & Yield Farming[​](#liquidity-provision--yield-farming "Direct link to Liquidity Provision & Yield Farming")
 
@@ -265963,10 +265754,10 @@ This workflow takes a single token from your vault, converts it into liquidity p
 
 **How it works:**
 
-1. Withdraws single token (e.g., FLOW) from vault with minimum balance protection
-2. Uses Zapper to split token and create LP position (FLOW/USDC pair)
-3. Stakes the resulting LP tokens in a yield farming pool
-4. Begins earning rewards on the staked LP position
+1. Withdraws single token (for example, FLOW) from vault with minimum balance protection.
+2. Uses Zapper to split token and create LP position (FLOW/USDC pair).
+3. Stakes the resulting LP tokens in a yield farming pool.
+4. Begins earning rewards on the staked LP position.
 
 `_26
 
@@ -266068,23 +265859,23 @@ stakingSink.depositCapacity(from: &lpTokens)`
 
 **Benefits:**
 
-* **Yield Optimization**: Converts idle tokens to yield-generating LP positions
-* **Single Transaction**: No need for multiple manual steps or approvals
-* **Automatic Staking**: LP tokens immediately start earning rewards
+* **Yield Optimization**: Converts idle tokens to yield-generating LP positions.
+* **Single Transaction**: No need for multiple manual steps or approvals.
+* **Automatic Staking**: LP tokens immediately start earning rewards.
 
 ### Cross-VM Bridge & Swap[​](#cross-vm-bridge--swap "Direct link to Cross-VM Bridge & Swap")
 
-**Goal**: Bridge tokens from Cadence to EVM, swap them, then bridge back
+**Goal**: Bridge tokens from Cadence to EVM, swap them, then bridge back.
 
-This workflow demonstrates Flow's unique cross-VM capabilities by bridging tokens from Cadence to Flow EVM, executing a swap using UniswapV2-style routing, and bridging the results back to Cadence. This enables access to EVM-based DEX liquidity while maintaining Cadence token ownership.
+This workflow demonstrates Flow's unique cross-VM capabilities by bridging tokens from Cadence to Flow EVM, executing a swap using UniswapV2-style routing, and bridging the results back to Cadence. This allows access to EVM-based DEX liquidity while maintaining Cadence token ownership.
 
 **How it works:**
 
-1. Withdraws tokens from Cadence vault with minimum balance protection
-2. Bridges tokens from Cadence to Flow EVM environment
-3. Executes swap using UniswapV2 router on EVM side
-4. Bridges the swapped tokens back to Cadence environment
-5. Deposits final tokens to target Cadence vault
+1. Withdraws tokens from Cadence vault with minimum balance protection.
+2. Bridges tokens from Cadence to Flow EVM environment.
+3. Executes swap using UniswapV2 router on EVM side.
+4. Bridges the swapped tokens back to Cadence environment.
+5. Deposits final tokens to target Cadence vault.
 
 `_28
 
@@ -266194,23 +265985,23 @@ cadenceSink.depositCapacity(from: &evmTokens)`
 
 **Benefits:**
 
-* **Extended Liquidity**: Access to both Cadence and EVM DEX liquidity
-* **Cross-VM Arbitrage**: Exploit price differences between VM environments
-* **Atomic Execution**: All bridging and swapping happens in single transaction
+* **Extended Liquidity**: Access to both Cadence and EVM DEX liquidity.
+* **Cross-VM Arbitrage**: Exploit price differences between VM environments.
+* **Atomic Execution**: All bridging and swapping happens in single transaction.
 
 ### Flash Loan Arbitrage[​](#flash-loan-arbitrage "Direct link to Flash Loan Arbitrage")
 
-**Goal**: Borrow tokens, execute arbitrage, repay loan with profit
+**Goal**: Borrow tokens, execute arbitrage, repay loan with profit.
 
 This advanced strategy uses flash loans to execute risk-free arbitrage by borrowing tokens, exploiting price differences across multiple DEXs, and repaying the loan with interest while keeping the profit. The entire operation happens atomically within a single transaction.
 
 **How it works:**
 
-1. Borrows tokens via flash loan without collateral requirements
-2. Uses multi-swapper to find optimal arbitrage routes across DEXs
-3. Executes trades to exploit price differences
-4. Repays flash loan with fees from arbitrage profits
-5. Keeps remaining profit after loan repayment
+1. Borrows tokens via flash loan without collateral requirements.
+2. Uses multi-swapper to find optimal arbitrage routes across DEXs.
+3. Executes trades to exploit price differences.
+4. Repays flash loan with fees from arbitrage profits.
+5. Keeps remaining profit after loan repayment.
 
 `_17
 
@@ -266278,15 +266069,15 @@ flasher.flashLoan(1000.0, callback: arbitrageCallback)`
 
 **Benefits:**
 
-* **Zero Capital Required**: No upfront investment needed for arbitrage
-* **Risk-Free Profit**: Transaction reverts if arbitrage isn't profitable
-* **Market Efficiency**: Helps eliminate price discrepancies across DEXs
+* **Zero Capital Required**: No upfront investment needed for arbitrage.
+* **Risk-Free Profit**: Transaction reverts if arbitrage isn't profitable.
+* **Market Efficiency**: Helps eliminate price discrepancies across DEXs.
 
 ## Advanced Workflow Combinations[​](#advanced-workflow-combinations "Direct link to Advanced Workflow Combinations")
 
 ### Vault Source + Zapper Integration[​](#vault-source--zapper-integration "Direct link to Vault Source + Zapper Integration")
 
-**Goal**: Withdraw tokens from a vault and convert them to LP tokens in a single transaction
+**Goal**: Withdraw tokens from a vault and convert them to LP tokens in a single transaction.
 
 This advanced workflow demonstrates the power of combining VaultSource with Zapper functionality to seamlessly convert idle vault tokens into yield-generating LP positions. The Zapper handles the complex process of splitting the single token and creating balanced liquidity.
 
@@ -266294,11 +266085,11 @@ This advanced workflow demonstrates the power of combining VaultSource with Zapp
 
 **How it works:**
 
-1. VaultSource withdraws tokens from vault while respecting minimum balance
-2. Zapper receives the single token and splits it optimally
-3. Zapper swaps a portion of token A to token B using internal DEX routing
-4. Zapper provides balanced liquidity (A + B) to the pool
-5. Returns LP tokens that represent the liquidity position
+1. VaultSource withdraws tokens from vault while respecting minimum balance.
+2. Zapper receives the single token and splits it optimally.
+3. Zapper swaps a portion of token A to token B with internal DEX routing.
+4. Zapper provides balanced liquidity (A + B) to the pool.
+5. Returns LP tokens that represent the liquidity position.
 
 `_21
 
@@ -266380,24 +266171,24 @@ log("LP tokens created: ".concat(lpTokens.balance.toString()))`
 
 **Benefits:**
 
-* **Capital Efficiency**: Converts idle vault tokens to yield-generating LP positions
+* **Capital Efficiency**: Converts idle vault tokens to yield-generating LP positions.
 * **Automated Balancing**: Zapper handles optimal token split calculations automatically
-* **Single Transaction**: Complex multi-step process executed atomically
-* **Minimum Protection**: VaultSource ensures vault never goes below safety threshold
+* **Single Transaction**: Complex multi-step process executed atomically.
+* **Minimum Protection**: VaultSource ensures vault never goes below safety threshold.
 
 ### Price-Informed Rebalancing[​](#price-informed-rebalancing "Direct link to Price-Informed Rebalancing")
 
-**Goal**: Create autonomous rebalancing system based on price feeds
+**Goal**: Create autonomous rebalancing system based on price feeds.
 
-This sophisticated workflow creates an autonomous portfolio management system that maintains target value ratios by monitoring real-time price data. The AutoBalancer combines price oracles, sources, and sinks to automatically rebalance positions when they deviate from target thresholds.
+This sophisticated workflow creates an autonomous portfolio management system that monitors real-time price data to maintain target value ratios. The AutoBalancer combines price oracles, sources, and sinks to automatically rebalance positions when they deviate from target thresholds.
 
 **How it works:**
 
-1. Price oracle provides real-time asset valuations with staleness protection
-2. AutoBalancer tracks historical deposit values vs current market values
-3. When portfolio value exceeds upper threshold (120%), excess is moved to rebalance sink
-4. When portfolio value falls below lower threshold (80%), additional funds are sourced
-5. System maintains target allocation automatically without manual intervention
+1. Price oracle provides real-time asset valuations with staleness protection.
+2. AutoBalancer tracks historical deposit values vs current market values.
+3. When portfolio value exceeds upper threshold (120%), excess is moved to rebalance sink.
+4. When portfolio value falls below lower threshold (80%), additional funds are sourced.
+5. System maintains target allocation automatically without manual intervention.
 
 `_19
 
@@ -266473,24 +266264,24 @@ autoBalancer.rebalance(force: false) // Autonomous rebalancing`
 
 **Benefits:**
 
-* **Autonomous Operation**: Maintains portfolio balance without manual intervention
-* **Risk Management**: Prevents excessive exposure through automated position sizing
-* **Market Responsive**: Adapts to price movements using real-time oracle data
-* **Threshold Flexibility**: Configurable upper/lower bounds for different risk profiles
+* **Autonomous Operation**: Maintains portfolio balance without manual intervention.
+* **Risk Management**: Prevents excessive exposure through automated position sizing.
+* **Market Responsive**: Adapts to price movements with real-time oracle data.
+* **Threshold Flexibility**: Configurable upper/lower bounds for different risk profiles.
 
 ### Restake & Compound Strategy[​](#restake--compound-strategy "Direct link to Restake & Compound Strategy")
 
-**Goal**: Automatically compound staking rewards back into the pool
+**Goal**: Automatically compound staking rewards back into the pool.
 
 This advanced compounding strategy maximizes yield by automatically claiming staking rewards and converting them back into LP tokens for re-staking. The workflow combines rewards claiming, zapping, and staking into a seamless compound operation that accelerates yield accumulation through reinvestment.
 
 **How it works:**
 
-1. PoolRewardsSource claims accumulated staking rewards from the pool
-2. Zapper receives the reward tokens and converts them to LP tokens
-3. SwapSource orchestrates the rewards → LP token conversion process
-4. PoolSink re-stakes the new LP tokens back into the same pool
-5. Compound interest effect increases overall position size and future rewards
+1. PoolRewardsSource claims accumulated staking rewards from the pool.
+2. Zapper receives the reward tokens and converts them to LP tokens.
+3. SwapSource orchestrates the rewards → LP token conversion process.
+4. PoolSink re-stakes the new LP tokens back into the same pool.
+5. Compound interest effect increases overall position size and future rewards.
 
 `_31
 
@@ -266610,16 +266401,16 @@ poolSink.depositCapacity(from: lpTokens)`
 
 **Benefits:**
 
-* **Compound Growth**: Exponential yield increase through automatic reinvestment
-* **Gas Efficiency**: Single transaction handles claim, convert, and re-stake operations
-* **Set-and-Forget**: Automated compounding without manual intervention required
-* **Optimal Conversion**: Zapper ensures efficient reward token to LP token conversion
+* **Compound Growth**: Exponential yield increase through automatic reinvestment.
+* **Gas Efficiency**: Single transaction handles claim, convert, and re-stake operations.
+* **Set-and-Forget**: Automated compounding without manual intervention required.
+* **Optimal Conversion**: Zapper ensures efficient reward token to LP token conversion.
 
 ## Safety Best Practices[​](#safety-best-practices "Direct link to Safety Best Practices")
 
 ### Always Check Capacity[​](#always-check-capacity "Direct link to Always Check Capacity")
 
-Prevents transaction failures and enables graceful handling when sinks reach their maximum capacity limits. This is crucial for automated workflows that might encounter varying capacity conditions.
+Prevents transaction failures and allows graceful handling when sinks reach their maximum capacity limits. This is crucial for automated workflows that might encounter varying capacity conditions.
 
 `_10
 
@@ -266673,7 +266464,7 @@ assert(afterBalance >= beforeBalance, message: "Balance should not decrease")`
 
 ### Use Graceful Degradation[​](#use-graceful-degradation "Direct link to Use Graceful Degradation")
 
-Prevents entire workflows from failing when individual components encounter issues. This approach enables robust strategies that can adapt to changing market conditions or temporary protocol unavailability.
+Prevents entire workflows from failing when individual components encounter issues. This approach allows robust strategies that can adapt to changing market conditions or temporary protocol unavailability.
 
 `_10
 
@@ -266705,7 +266496,7 @@ _10
 
 ### Resource Management[​](#resource-management "Direct link to Resource Management")
 
-Proper resource cleanup prevents token loss and ensures all vaults are properly handled, even when transactions partially fail. This is critical in Cadence where resources must be explicitly managed.
+Proper resource cleanup prevents token loss and ensures all vaults are properly handled, even when transactions partially fail. This is critical in Cadence where you must explicitly manage resources.
 
 `_10
 
@@ -266891,9 +266682,9 @@ _16
 
 Now that you understand basic combinations, explore:
 
-1. **Advanced Strategies**: Complex multi-step workflows
-2. **Risk Management**: Advanced safety and monitoring techniques
-3. **Custom Connectors**: Building your own protocol adapters
+1. **Advanced Strategies**: Complex multi-step workflows.
+2. **Risk Management**: Advanced safety and monitoring techniques.
+3. **Custom Connectors**: Building your own protocol adapters.
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
@@ -266903,7 +266694,7 @@ Composability is the core strength of Flow Actions. These examples demonstrate h
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/flow-actions/basic-combinations.md)
 
-Last updated on **Sep 24, 2025** by **Brian Doyle**
+Last updated on **Oct 29, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -267888,6 +267679,8 @@ query | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -268649,6 +268442,8 @@ config | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -268735,9 +268530,53 @@ Record<string, unknown>`
 
 ## Returns[​](#returns "Direct link to Returns")
 
-`_10
+`_12
 
-{ put: typeof put; get: typeof get; all: typeof all; first: typeof first; update: typeof update; delete: typeof _delete; where: typeof where; subscribe: typeof subscribe; overload: typeof overload; load: typeof load; }`
+{
+
+_12
+
+put: typeof put;
+
+_12
+
+get: typeof get;
+
+_12
+
+all: typeof all;
+
+_12
+
+first: typeof first;
+
+_12
+
+update: typeof update;
+
+_12
+
+delete: typeof _delete;
+
+_12
+
+where: typeof where;
+
+_12
+
+subscribe: typeof subscribe;
+
+_12
+
+overload: typeof overload;
+
+_12
+
+load: typeof load;
+
+_12
+
+}`
 
 The config object
 
@@ -268745,7 +268584,7 @@ The config object
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/config.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Oct 22, 2025** by **Michael Fabozzi**
 
 [Previous
 
@@ -285361,6 +285200,8 @@ Authentication Integration Guide | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -300750,144 +300591,47 @@ put | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [Why Flow](/build/flow)
-* [Cadence](/build/cadence/getting-started)
+* [Why Flow](/build/flow)* [Cadence](/build/cadence/quickstart)
 
-  + [Getting Started](/build/cadence/getting-started)
-  + [Differences vs. EVM](/build/cadence/differences-vs-evm)
-  + [Flow Protocol](/build/cadence/basics/network-architecture)
-  + [App Architecture](/build/cadence/app-architecture)
-  + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
-  + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
-  + [Core Smart Contracts](/build/cadence/core-contracts)
-  + [Explore More](/build/cadence/explore-more)
-* [Solidity (EVM)](/build/evm/quickstart)
+    + [Quickstart ↙](/build/cadence/quickstart)+ [Differences vs. EVM](/build/cadence/differences-vs-evm)+ [Basics](/build/cadence/basics/network-architecture)
 
-  + [EVM Quickstart](/build/evm/quickstart)
-  + [How it Works](/build/evm/how-it-works)
-  + [Using Flow EVM](/build/evm/using)
-  + [Network Information](/build/evm/networks)
-  + [Fees](/build/evm/fees)
-  + [Accounts](/build/evm/accounts)
-  + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
-  + [Faucets ↙](/evm/faucets)
-  + [Block Explorers ↙](/evm/block-explorers)
-* [Tools & SDKs](/build/tools)
+          + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-  + [@onflow/react-sdk](/build/tools/react-sdk)
-  + [Flow Emulator](/build/tools/emulator)
-  + [Flow CLI](/build/tools/flow-cli)
-  + [Cadence VS Code Extension](/build/tools/vscode-extension)
-  + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
-  + [Client Tools](/build/tools/clients)
+            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
 
-    - [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
+              + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
 
-      * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
+      + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
 
-        + [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
-        + [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
+        + [Flow React SDK](/build/tools/react-sdk)
 
-          - [account](/build/tools/clients/fcl-js/packages-docs/sdk/account)
-          - [arg](/build/tools/clients/fcl-js/packages-docs/sdk/arg)
-          - [args](/build/tools/clients/fcl-js/packages-docs/sdk/args)
-          - [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockHeight)
-          - [atBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockId)
-          - [atLatestBlock](/build/tools/clients/fcl-js/packages-docs/sdk/atLatestBlock)
-          - [authorization](/build/tools/clients/fcl-js/packages-docs/sdk/authorization)
-          - [authorizations](/build/tools/clients/fcl-js/packages-docs/sdk/authorizations)
-          - [block](/build/tools/clients/fcl-js/packages-docs/sdk/block)
-          - [build](/build/tools/clients/fcl-js/packages-docs/sdk/build)
-          - [cadence](/build/tools/clients/fcl-js/packages-docs/sdk/cadence)
-          - [cdc](/build/tools/clients/fcl-js/packages-docs/sdk/cdc)
-          - [config](/build/tools/clients/fcl-js/packages-docs/sdk/config)
-          - [createSdkClient](/build/tools/clients/fcl-js/packages-docs/sdk/createSdkClient)
-          - [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/createSignableVoucher)
-          - [decode](/build/tools/clients/fcl-js/packages-docs/sdk/decode)
-          - [destroy](/build/tools/clients/fcl-js/packages-docs/sdk/destroy)
-          - [encodeMessageFromSignable](/build/tools/clients/fcl-js/packages-docs/sdk/encodeMessageFromSignable)
-          - [encodeTransactionEnvelope](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionEnvelope)
-          - [encodeTransactionPayload](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionPayload)
-          - [encodeTxIdFromVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher)
-          - [get](/build/tools/clients/fcl-js/packages-docs/sdk/get)
-          - [getAccount](/build/tools/clients/fcl-js/packages-docs/sdk/getAccount)
-          - [getBlock](/build/tools/clients/fcl-js/packages-docs/sdk/getBlock)
-          - [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/sdk/getBlockHeader)
-          - [getCollection](/build/tools/clients/fcl-js/packages-docs/sdk/getCollection)
-          - [getEvents](/build/tools/clients/fcl-js/packages-docs/sdk/getEvents)
-          - [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockHeightRange)
-          - [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockIds)
-          - [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/sdk/getNetworkParameters)
-          - [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo)
-          - [getTransaction](/build/tools/clients/fcl-js/packages-docs/sdk/getTransaction)
-          - [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/sdk/getTransactionStatus)
-          - [initInteraction](/build/tools/clients/fcl-js/packages-docs/sdk/initInteraction)
-          - [interaction](/build/tools/clients/fcl-js/packages-docs/sdk/interaction)
-          - [isBad](/build/tools/clients/fcl-js/packages-docs/sdk/isBad)
-          - [isOk](/build/tools/clients/fcl-js/packages-docs/sdk/isOk)
-          - [limit](/build/tools/clients/fcl-js/packages-docs/sdk/limit)
-          - [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/nodeVersionInfo)
-          - [param](/build/tools/clients/fcl-js/packages-docs/sdk/param)
-          - [params](/build/tools/clients/fcl-js/packages-docs/sdk/params)
-          - [payer](/build/tools/clients/fcl-js/packages-docs/sdk/payer)
-          - [ping](/build/tools/clients/fcl-js/packages-docs/sdk/ping)
-          - [pipe](/build/tools/clients/fcl-js/packages-docs/sdk/pipe)
-          - [proposer](/build/tools/clients/fcl-js/packages-docs/sdk/proposer)
-          - [put](/build/tools/clients/fcl-js/packages-docs/sdk/put)
-          - [ref](/build/tools/clients/fcl-js/packages-docs/sdk/ref)
-          - [resolve](/build/tools/clients/fcl-js/packages-docs/sdk/resolve)
-          - [resolveAccounts](/build/tools/clients/fcl-js/packages-docs/sdk/resolveAccounts)
-          - [resolveArguments](/build/tools/clients/fcl-js/packages-docs/sdk/resolveArguments)
-          - [resolveCadence](/build/tools/clients/fcl-js/packages-docs/sdk/resolveCadence)
-          - [resolveFinalNormalization](/build/tools/clients/fcl-js/packages-docs/sdk/resolveFinalNormalization)
-          - [resolveProposerSequenceNumber](/build/tools/clients/fcl-js/packages-docs/sdk/resolveProposerSequenceNumber)
-          - [resolveRefBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/resolveRefBlockId)
-          - [resolveSignatures](/build/tools/clients/fcl-js/packages-docs/sdk/resolveSignatures)
-          - [resolveValidators](/build/tools/clients/fcl-js/packages-docs/sdk/resolveValidators)
-          - [resolveVoucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/resolveVoucherIntercept)
-          - [response](/build/tools/clients/fcl-js/packages-docs/sdk/response)
-          - [script](/build/tools/clients/fcl-js/packages-docs/sdk/script)
-          - [send](/build/tools/clients/fcl-js/packages-docs/sdk/send)
-          - [subscribe](/build/tools/clients/fcl-js/packages-docs/sdk/subscribe)
-          - [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeEvents)
-          - [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeRaw)
-          - [TestUtils](/build/tools/clients/fcl-js/packages-docs/sdk/testUtils)
-          - [transaction](/build/tools/clients/fcl-js/packages-docs/sdk/transaction)
-          - [update](/build/tools/clients/fcl-js/packages-docs/sdk/update)
-          - [validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)
-          - [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/voucherIntercept)
-          - [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/sdk/voucherToTxId)
-          - [why](/build/tools/clients/fcl-js/packages-docs/sdk/why)
-        + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)
-      * [Authentication](/build/tools/clients/fcl-js/authentication)
-      * [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)
-      * [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
-      * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)
-      * [Installation](/build/tools/clients/fcl-js/installation)
-      * [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)
-      * [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)
-      * [Scripts](/build/tools/clients/fcl-js/scripts)
-      * [Transactions](/build/tools/clients/fcl-js/transactions)
-      * [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)
-      * [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)
-    - [Flow Go SDK](/build/tools/clients/flow-go-sdk)
-  + [Error Codes](/build/tools/error-codes)
-  + [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+          + [Flow Emulator](/build/tools/emulator)+ [Flow CLI](/build/tools/flow-cli)
 
-* [Tools & SDKs](/build/tools)
-* [Client Tools](/build/tools/clients)
-* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
-* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
-* [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
-* put
+              + [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+
+                    - [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
+
+                      * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
+
+                        + [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
+
+                          + [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
+
+                            - [account](/build/tools/clients/fcl-js/packages-docs/sdk/account)- [arg](/build/tools/clients/fcl-js/packages-docs/sdk/arg)- [args](/build/tools/clients/fcl-js/packages-docs/sdk/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockId)- [atLatestBlock](/build/tools/clients/fcl-js/packages-docs/sdk/atLatestBlock)- [authorization](/build/tools/clients/fcl-js/packages-docs/sdk/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/sdk/authorizations)- [block](/build/tools/clients/fcl-js/packages-docs/sdk/block)- [build](/build/tools/clients/fcl-js/packages-docs/sdk/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/sdk/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/sdk/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/sdk/config)- [createSdkClient](/build/tools/clients/fcl-js/packages-docs/sdk/createSdkClient)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/createSignableVoucher)- [decode](/build/tools/clients/fcl-js/packages-docs/sdk/decode)- [destroy](/build/tools/clients/fcl-js/packages-docs/sdk/destroy)- [encodeMessageFromSignable](/build/tools/clients/fcl-js/packages-docs/sdk/encodeMessageFromSignable)- [encodeTransactionEnvelope](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionEnvelope)- [encodeTransactionPayload](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionPayload)- [encodeTxIdFromVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher)- [get](/build/tools/clients/fcl-js/packages-docs/sdk/get)- [getAccount](/build/tools/clients/fcl-js/packages-docs/sdk/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/sdk/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/sdk/getBlockHeader)- [getCollection](/build/tools/clients/fcl-js/packages-docs/sdk/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/sdk/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/sdk/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/sdk/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/sdk/getTransactionStatus)- [initInteraction](/build/tools/clients/fcl-js/packages-docs/sdk/initInteraction)- [interaction](/build/tools/clients/fcl-js/packages-docs/sdk/interaction)- [isBad](/build/tools/clients/fcl-js/packages-docs/sdk/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/sdk/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/sdk/limit)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/sdk/param)- [params](/build/tools/clients/fcl-js/packages-docs/sdk/params)- [payer](/build/tools/clients/fcl-js/packages-docs/sdk/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/sdk/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/sdk/pipe)- [proposer](/build/tools/clients/fcl-js/packages-docs/sdk/proposer)- [put](/build/tools/clients/fcl-js/packages-docs/sdk/put)- [ref](/build/tools/clients/fcl-js/packages-docs/sdk/ref)- [resolve](/build/tools/clients/fcl-js/packages-docs/sdk/resolve)- [resolveAccounts](/build/tools/clients/fcl-js/packages-docs/sdk/resolveAccounts)- [resolveArguments](/build/tools/clients/fcl-js/packages-docs/sdk/resolveArguments)- [resolveCadence](/build/tools/clients/fcl-js/packages-docs/sdk/resolveCadence)- [resolveFinalNormalization](/build/tools/clients/fcl-js/packages-docs/sdk/resolveFinalNormalization)- [resolveProposerSequenceNumber](/build/tools/clients/fcl-js/packages-docs/sdk/resolveProposerSequenceNumber)- [resolveRefBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/resolveRefBlockId)- [resolveSignatures](/build/tools/clients/fcl-js/packages-docs/sdk/resolveSignatures)- [resolveValidators](/build/tools/clients/fcl-js/packages-docs/sdk/resolveValidators)- [resolveVoucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/resolveVoucherIntercept)- [response](/build/tools/clients/fcl-js/packages-docs/sdk/response)- [script](/build/tools/clients/fcl-js/packages-docs/sdk/script)- [send](/build/tools/clients/fcl-js/packages-docs/sdk/send)- [subscribe](/build/tools/clients/fcl-js/packages-docs/sdk/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeRaw)- [TestUtils](/build/tools/clients/fcl-js/packages-docs/sdk/testUtils)- [transaction](/build/tools/clients/fcl-js/packages-docs/sdk/transaction)- [update](/build/tools/clients/fcl-js/packages-docs/sdk/update)- [validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/sdk/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/sdk/why)+ [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
+
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+
+* * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)* put
 
 On this page
 
@@ -301009,63 +300753,30 @@ ref](/build/tools/clients/fcl-js/packages-docs/sdk/ref)
 
 Copy as Markdown
 
-* [Import](#import)
-* [Usage](#usage)
-* [Parameters](#parameters)
-  + [`key`](#key)
-  + [`value`](#value)
-* [Returns](#returns)
+* [Import](#import)* [Usage](#usage)* [Parameters](#parameters)
+      + [`key`](#key)+ [`value`](#value)* [Returns](#returns)
 
-Documentation
+Flow
 
-* [Getting Started](/build/cadence/getting-started/contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
 
-Community
+Cadence
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
 
-Start Building
+Solidity (EVM)
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
 
-Network
+Community & Support
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/spork)
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
 
-More
+Network & Resources
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
+Copyright © 2025 Flow Foundation. All Rights Reserved.
 
 
 
@@ -312182,6 +311893,8 @@ decode | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -321801,6 +321514,8 @@ Build with Forte ↙ | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -321813,7 +321528,7 @@ Search
 
     * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
 
-                + [Build with Forte ↙](/ecosystem/defi-liquidity/forte)+ [DeFi Contracts](/ecosystem/defi-liquidity/defi-contracts)+ [Cross-chain swaps on Flow EVM](/ecosystem/defi-liquidity/cross-chain-swaps)+ [Add Token To MetaMask](/ecosystem/defi-liquidity/add-token-to-metamask)+ [Stablecoins & Bridges FAQ](/ecosystem/defi-liquidity/faq)+ [Band Oracle](/ecosystem/defi-liquidity/band-oracle)* [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
+                + [Build with Forte ↙](/ecosystem/defi-liquidity/forte)+ [DeFi Contracts Mainnet](/ecosystem/defi-liquidity/defi-contracts-mainnet)+ [DeFi Contracts Testnet](/ecosystem/defi-liquidity/defi-contracts-testnet)+ [Cross-chain swaps on Flow EVM](/ecosystem/defi-liquidity/cross-chain-swaps)+ [Add Token To MetaMask](/ecosystem/defi-liquidity/add-token-to-metamask)+ [Stablecoins & Bridges FAQ](/ecosystem/defi-liquidity/faq)+ [Band Oracle](/ecosystem/defi-liquidity/band-oracle)* [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
 
 * * [DeFi & Liquidity](/ecosystem/defi-liquidity)* Build with Forte ↙
 
@@ -321831,7 +321546,7 @@ Last updated on **Oct 8, 2025** by **Brian Doyle**
 
 DeFi & Liquidity](/ecosystem/defi-liquidity)[Next
 
-DeFi Contracts](/ecosystem/defi-liquidity/defi-contracts)
+DeFi Contracts Mainnet](/ecosystem/defi-liquidity/defi-contracts-mainnet)
 
 Flow
 
@@ -329137,6 +328852,8 @@ Transactions | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -330453,6 +330170,8 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 Register Your Assets on Flow | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -339796,6 +339515,8 @@ ping | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -346738,6 +346459,168 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 
 
 
+# Source: https://developers.flow.com/ecosystem/defi-liquidity/defi-contracts-mainnet
+
+DeFi Contracts on Flow Mainnet | Flow Developer Portal
+
+
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Ecosystem Index](/ecosystem)* [Developer Support Hub](/ecosystem/developer-support-hub)
+
+    * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
+
+                + [Build with Forte ↙](/ecosystem/defi-liquidity/forte)+ [DeFi Contracts Mainnet](/ecosystem/defi-liquidity/defi-contracts-mainnet)+ [DeFi Contracts Testnet](/ecosystem/defi-liquidity/defi-contracts-testnet)+ [Cross-chain swaps on Flow EVM](/ecosystem/defi-liquidity/cross-chain-swaps)+ [Add Token To MetaMask](/ecosystem/defi-liquidity/add-token-to-metamask)+ [Stablecoins & Bridges FAQ](/ecosystem/defi-liquidity/faq)+ [Band Oracle](/ecosystem/defi-liquidity/band-oracle)* [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
+
+* * [DeFi & Liquidity](/ecosystem/defi-liquidity)* DeFi Contracts Mainnet
+
+On this page
+
+# DeFi Contracts on Flow Mainnet
+
+Flow is a Layer 1 blockchain that supports EVM equivalency, offering two environments Flow EVM and Flow Cadence. Fungible and non-fungible tokens can seamlessly transfer between these environments via the native VM token bridge. As a result, many tokens have both a Flow EVM mainnet contract address and a Flow Cadence mainnet contract address, allowing developers to choose their preferred environment.
+
+Below is a list of commonly used DeFi contracts on Flow Mainnet:
+
+[Switch to DeFi Contracts on Testnet](/ecosystem/defi-liquidity/defi-contracts-testnet)
+
+## Stablecoins & Wrapped Assets[​](#stablecoins--wrapped-assets "Direct link to Stablecoins & Wrapped Assets")
+
+#### Flow EVM Mainnet[​](#flow-evm-mainnet "Direct link to Flow EVM Mainnet")
+
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Token Name Flow EVM Mainnet Address|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [WFLOW](https://evm.flowscan.io/token/0xd3bF53DAC106A0290B0483EcBC89d40FcC961f3e) `0xd3bF53DAC106A0290B0483EcBC89d40FcC961f3e`| [USDC (stgUSDC)](https://evm.flowscan.io/token/0xF1815bd50389c46847f0Bda824eC8da914045D14) `0xF1815bd50389c46847f0Bda824eC8da914045D14`| [USDT (stgUSDT)](https://evm.flowscan.io/token/0x674843C06FF83502ddb4D37c2E09C01cdA38cbc8) `0x674843C06FF83502ddb4D37c2E09C01cdA38cbc8`| [USDF (USD Flow)](https://evm.flowscan.io/token/0x2aaBea2058b5aC2D339b163C6Ab6f2b6d53aabED) `0x2aaBea2058b5aC2D339b163C6Ab6f2b6d53aabED`| [USDC.e (Celer)](https://evm.flowscan.io/token/0x7f27352D5F83Db87a5A3E00f4B07Cc2138D8ee52) `0x7f27352D5F83Db87a5A3E00f4B07Cc2138D8ee52`| [stFlow (Increment Staked FLOW)](https://evm.flowscan.io/token/0x5598c0652B899EB40f169Dd5949BdBE0BF36ffDe) `0x5598c0652B899EB40f169Dd5949BdBE0BF36ffDe`| [ankrFLOWEVM (Ankr Staked FLOW)](https://evm.flowscan.io/token/0x1b97100eA1D7126C4d60027e231EA4CB25314bdb) `0x1b97100eA1D7126C4d60027e231EA4CB25314bdb`| [WETH](https://evm.flowscan.io/token/0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590) `0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590`| [cbBTC](https://evm.flowscan.io/token/0xA0197b2044D28b08Be34d98b23c9312158Ea9A18) `0xA0197b2044D28b08Be34d98b23c9312158Ea9A18` | | | | | | | | | | | | | | | | | | | |
+
+#### Flow Cadence Mainnet[​](#flow-cadence-mainnet "Direct link to Flow Cadence Mainnet")
+
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Token Name Flow Cadence Mainnet Address Flow Cadence Contract Name|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [FLOW](https://www.flowscan.io/ft/token/A.1654653399040a61.FlowToken.Vault) `0x1654653399040a61` FlowToken|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [USDC (stgUSDC)](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_f1815bd50389c46847f0bda824ec8da914045d14.Vault) `0x1e4aa0b87d10b141` EVMVMBridgedToken\_f1815bd50389c46847f0bda824ec8da914045d14|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [USDT (stgUSDT)](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_674843c06ff83502ddb4d37c2e09c01cda38cbc8.Vault) `0x1e4aa0b87d10b141` EVMVMBridgedToken\_674843c06ff83502ddb4d37c2e09c01cda38cbc8|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [USDF (USD Flow)](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_2aabea2058b5ac2d339b163c6ab6f2b6d53aabed.Vault) `0x1e4aa0b87d10b141` EVMVMBridgedToken\_2aabea2058b5ac2d339b163c6ab6f2b6d53aabed|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [USDC.e (Celer)](https://flowscan.io/ft/token/A.f1ab99c82dee3526.USDCFlow.Vault) `0xf1ab99c82dee3526` USDCFlow|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [stFlow (Increment Staked FLOW)](https://flowscan.io/ft/token/A.d6f80565193ad727.stFlowToken.Vault) `0xd6f80565193ad727` stFlowToken|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [ankrFLOWEVM (Ankr Staked FLOW)](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_1b97100ea1d7126c4d60027e231ea4cb25314bdb.Vault) `0x1e4aa0b87d10b141` EVMVMBridgedToken\_1b97100ea1d7126c4d60027e231ea4cb25314bdb|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | [WETH](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_2f6f07cdcf3588944bf4c42ac74ff24bf56e7590.Vault) `0x1e4aa0b87d10b141` EVMVMBridgedToken\_2f6f07cdcf3588944bf4c42ac74ff24bf56e7590|  |  |  | | --- | --- | --- | | [cbBTC](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_a0197b2044d28b08be34d98b23c9312158ea9a18.Vault) `0x1e4aa0b87d10b141` EVMVMBridgedToken\_a0197b2044d28b08be34d98b23c9312158ea9a18 | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+
+#### Flow Cadence Testnet[​](#flow-cadence-testnet "Direct link to Flow Cadence Testnet")
+
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Token Name Flow Cadence Testnet Address Flow Cadence Contract Name|  |  |  | | --- | --- | --- | | [USDF (Mock)](https://testnet.flowscan.io/ft/token/A.b7ace0a920d2c37d.EVMVMBridgedToken_2aabea2058b5ac2d339b163c6ab6f2b6d53aabed.Vault) `0xb7ace0a920d2c37d` EVMVMBridgedToken\_2aabea2058b5ac2d339b163c6ab6f2b6d53aabed | | | | | |
+
+## AMMs & DEXs[​](#amms--dexs "Direct link to AMMs & DEXs")
+
+#### Flow EVM Mainnet[​](#flow-evm-mainnet-1 "Direct link to Flow EVM Mainnet")
+
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Contract Name Flow EVM Mainnet Address Docs|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [StableKittyFactoryNG.sol (KittyPunch)](https://evm.flowscan.io/address/0x4412140D52C1F5834469a061927811Abb6026dB7?tab=contract) `0x4412140D52C1F5834469a061927811Abb6026dB7` [Docs](https://kittypunch.gitbook.io/kittypunch-docs)| [TwoKittyFactory.sol (KittyPunch)](https://evm.flowscan.io/address/0xf0E48dC92f66E246244dd9F33b02f57b0E69fBa9?tab=contract) `0xf0E48dC92f66E246244dd9F33b02f57b0E69fBa9` [Docs](https://kittypunch.gitbook.io/kittypunch-docs)| [TriKittyFactory.sol (KittyPunch)](https://evm.flowscan.io/address/0xebd098c60b1089f362AC9cfAd9134CBD29408226?tab=contract) `0xebd098c60b1089f362AC9cfAd9134CBD29408226` [Docs](https://kittypunch.gitbook.io/kittypunch-docs)| [KittyRouterNgPoolsOnly.sol (KittyPunch)](https://evm.flowscan.io/address/0x87048a97526c4B66b71004927D24F61DEFcD6375?tab=contract) `0x87048a97526c4B66b71004927D24F61DEFcD6375` [Docs](https://kittypunch.gitbook.io/kittypunch-docs)| [PunchSwapV2Router02.sol (KittyPunch)](https://evm.flowscan.io/address/0xf45AFe28fd5519d5f8C1d4787a4D5f724C0eFa4d?tab=contract) `0xf45AFe28fd5519d5f8C1d4787a4D5f724C0eFa4d` [Docs](https://kittypunch.gitbook.io/kittypunch-docs)| [PunchSwapV2Factory.sol (KittyPunch)](https://evm.flowscan.io/address/0x29372c22459a4e373851798bFd6808e71EA34A71?tab=contract) `0x29372c22459a4e373851798bFd6808e71EA34A71` [Docs](https://kittypunch.gitbook.io/kittypunch-docs)| [TrenchesTokensBuyer.sol (KittyPunch)](https://evm.flowscan.io/address/0x6D0e081Acc28eA9ee6b7fD293eC03F97147b026d?tab=contract) `0x6D0e081Acc28eA9ee6b7fD293eC03F97147b026d` [Docs](https://kittypunch.gitbook.io/kittypunch-docs) | | | | | | | | | | | | | | | | | | | | | | | |
+
+#### Flow Cadence Mainnet[​](#flow-cadence-mainnet-1 "Direct link to Flow Cadence Mainnet")
+
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Contract Name Flow Cadence Mainnet Address [CLI](https://developers.flow.com/build/tools/flow-cli/dependency-manager) Docs|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [SwapFactory (IncrementFi)](https://flowscan.io/contract/A.b063c16cac85dbd1.SwapFactory) `0xb063c16cac85dbd1` [Docs](https://docs.increment.fi/)| [SwapPair (IncrementFi)](https://flowscan.io/contract/A.ecbda466e7f191c7.SwapPair) `0xecbda466e7f191c7` [Docs](https://docs.increment.fi/)| [SwapError (IncrementFi)](https://flowscan.io/contract/A.b78ef7afa52ff906.SwapError) `0xb78ef7afa52ff906` [Docs](https://docs.increment.fi/)| [SwapInterfaces (IncrementFi)](https://flowscan.io/contract/A.b78ef7afa52ff906.SwapInterfaces) `0xb78ef7afa52ff906` [Docs](https://docs.increment.fi/)| [SwapConfig (IncrementFi)](https://flowscan.io/contract/A.b78ef7afa52ff906.SwapConfig) `0xb78ef7afa52ff906` [Docs](https://docs.increment.fi/)| [SwapRouter (IncrementFi)](https://flowscan.io/contract/A.a6850776a94e6551.SwapRouter) `0xa6850776a94e6551` [Docs](https://docs.increment.fi/) | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+
+## Bridges & Cross-Chain Messaging[​](#bridges--cross-chain-messaging "Direct link to Bridges & Cross-Chain Messaging")
+
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Bridge / Protocol Reference Docs|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Stargate Bridge ([stargate.finance](https://stargate.finance/bridge?srcChain=ethereum&srcToken=0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48&dstChain=flow&dstToken=0xF1815bd50389c46847f0Bda824eC8da914045D14)) [Mainnet Contracts](https://stargateprotocol.gitbook.io/stargate/v2-developer-docs/technical-reference/mainnet-contracts#flow)| Hyperlane Bridge ([trump.hyperlane.xyz](https://trump.hyperlane.xyz/)) [Mainnet Contracts](https://docs.hyperlane.xyz/docs/reference/addresses/mailbox-addresses)| Flow Bridge ([bridge.flow.com](https://bridge.flow.com/)) [Superbridge Docs](https://docs.superbridge.app/)| Celer cBridge ([cbridge.celer.network](https://cbridge.celer.network/1/747/USDC-intermediary)) [Celer cBridge Docs](https://cbridge-docs.celer.network/tutorial/flow-cadence-bridging-guide)| DeBridge ([app.debridge.finance](https://app.debridge.finance/)) [DeBridge Contracts](https://docs.debridge.finance/dln-the-debridge-liquidity-network-protocol/deployed-contracts)| Relay ([relay.link](https://relay.link/bridge)) [Relay Contracts](https://docs.relay.link/resources/contract-addresses)| LayerZero [Mainnet Contracts](https://docs.layerzero.network/v1/developers/evm/technical-reference/deployed-contracts?chains=flow)| Axelar [Axelar Docs](https://docs.axelar.dev/validator/external-chains/flow/) | | | | | | | | | | | | | | | | | |
+
+## Omni Fungible Tokens (PYUSD → USDF)[​](#omni-fungible-tokens-pyusd--usdf "Direct link to Omni Fungible Tokens (PYUSD → USDF)")
+
+#### Solana Mainnet[​](#solana-mainnet "Direct link to Solana Mainnet")
+
+|  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Contract Name Contract Address|  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | PYUSD Program ID `28EyPNAi9BMTvGuCaQrptMXjpWUi7wx8SxAFVoSZxSXe`| PYUSD Mint `2b1kV6DkPAnxd5ixfnxCpjxmKwqjjaYmCZfHsFu24GXo`| PYUSD Mint Authority `22mKJkKjGEQ3rampp5YKaSsaYZ52BUkcnUN6evXGsXzz`| PYUSD Escrow `6z3QyVS36nQ9fk2YvToxqJqXqtAFsSijqgHxpzKyG5xn`| PYUSD OFT Store `2KUb8dcZR9LyrSg4RdkQx91xX6mPQLpS1MEo6gwfvLZk` | | | | | | | | | | | |
+
+#### Ethereum Mainnet[​](#ethereum-mainnet "Direct link to Ethereum Mainnet")
+
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Contract Name Contract Address|  |  |  |  | | --- | --- | --- | --- | | PYUSD Token `0x6c3ea9036406852006290770BEdFcAbA0e23A0e8`| PYUSD Locker `0xFA0e06B54986ad96DE87a8c56Fea76FBD8d493F8` | | | | | |
+
+## Oracles[​](#oracles "Direct link to Oracles")
+
+#### Flow EVM Mainnet[​](#flow-evm-mainnet-2 "Direct link to Flow EVM Mainnet")
+
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Contract Name Flow EVM Mainnet Address|  |  |  |  | | --- | --- | --- | --- | | [ERC1967Proxy.sol (Pyth)](https://evm.flowscan.io/address/0x2880aB155794e7179c9eE2e38200202908C17B43?tab=contract) `0x2880aB155794e7179c9eE2e38200202908C17B43`| [ERC1967Proxy.sol (Stork)](https://evm.flowscan.io/address/0xacC0a0cF13571d30B4b8637996F5D6D774d4fd62?tab=contract) `0xacC0a0cF13571d30B4b8637996F5D6D774d4fd62` | | | | | |
+
+#### Flow Cadence Mainnet[​](#flow-cadence-mainnet-2 "Direct link to Flow Cadence Mainnet")
+
+|  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Contract Name Flow Cadence Mainnet Address [CLI](https://developers.flow.com/build/tools/flow-cli/dependency-manager) Docs|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | [PublicPriceOracle.cdc (IncrementFi)](https://flowscan.io/contract/A.ec67451f8a58216a.PublicPriceOracle) `0xec67451f8a58216a` [Docs](https://docs.increment.fi/)| [BandOracle.cdc (Band) Protocol](https://flowscan.io/contract/A.6801a6222ebf784a.BandOracle) `0x6801a6222ebf784a` [Docs](/ecosystem/defi-liquidity/band-oracle) | | | | | | | | | | | |
+
+## Ethereum Attestation Service[​](#ethereum-attestation-service "Direct link to Ethereum Attestation Service")
+
+More information can be found on the Credora docs site for [EAS on Flow](https://credora.gitbook.io/eas-for-flow).
+
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Contract Name Flow EVM Mainnet Address|  |  |  |  | | --- | --- | --- | --- | | [SchemaRegistry.sol (Ethereum Attestation Service)](https://evm.flowscan.io/address/0xB0cF748a05AEA8D59e15834446CFC95bcFF510F0?tab=contract) `0xB0cF748a05AEA8D59e15834446CFC95bcFF510F0`| [EAS.sol (Ethereum Attestation Service)](https://evm.flowscan.io/address/0xc6376222F6E009A705a34dbF1dF72fEf8efB3964?tab=contract) `0xc6376222F6E009A705a34dbF1dF72fEf8efB3964` | | | | | |
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/defi-contracts-mainnet.md)
+
+Last updated on **Oct 29, 2025** by **bz**
+
+[Previous
+
+Build with Forte ↙](/ecosystem/defi-liquidity/forte)[Next
+
+DeFi Contracts Testnet](/ecosystem/defi-liquidity/defi-contracts-testnet)
+
+###### Rate this page
+
+😞😐😊
+
+Copy as Markdown
+
+* [Stablecoins & Wrapped Assets](#stablecoins--wrapped-assets)* [AMMs & DEXs](#amms--dexs)* [Bridges & Cross-Chain Messaging](#bridges--cross-chain-messaging)* [Omni Fungible Tokens (PYUSD → USDF)](#omni-fungible-tokens-pyusd--usdf)* [Oracles](#oracles)* [Ethereum Attestation Service](#ethereum-attestation-service)
+
+Flow
+
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
+
+Cadence
+
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
+
+Solidity (EVM)
+
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
+
+Community & Support
+
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
+
+Network & Resources
+
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow Foundation. All Rights Reserved.
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://developers.flow.com/build/cadence/guides/account-linking/parent-accounts
 
 Working With Parent Accounts | Flow Developer Portal
@@ -348187,6 +348070,8 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 resolveArguments | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -350542,6 +350427,8 @@ ref | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -352057,6 +351944,8 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 nodeVersionInfo | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -360504,6 +360393,8 @@ getBlockHeader | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -360562,99 +360453,103 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as sdk from '@onflow/sdk';
+import * as sdk from "@onflow/sdk"
 
 _10
 
 _10
 
-sdk.getBlockHeader(isSealed);`
+sdk.getBlockHeader(isSealed)`
 
 Or import directly the specific function:
 
 `_10
 
-import { getBlockHeader } from '@onflow/sdk';
+import { getBlockHeader } from "@onflow/sdk"
 
 _10
 
 _10
 
-getBlockHeader(isSealed);`
+getBlockHeader(isSealed)`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`_20
+`_21
 
-import * as fcl from '@onflow/fcl';
+import * as fcl from "@onflow/fcl";
 
-_20
+_21
 
-_20
+_21
 
 // Get latest sealed block header
 
-_20
+_21
 
-const sealedHeader = await fcl
+const sealedHeader = await fcl.send([
 
-_20
+_21
 
-.send([fcl.getBlockHeader(true)])
+fcl.getBlockHeader(true)
 
-_20
+_21
 
-.then(fcl.decode);
+]).then(fcl.decode);
 
-_20
+_21
 
-_20
+_21
 
-console.log('Block height:', sealedHeader.height);
+console.log("Block height:", sealedHeader.height);
 
-_20
+_21
 
-console.log('Block timestamp:', sealedHeader.timestamp);
+console.log("Block timestamp:", sealedHeader.timestamp);
 
-_20
+_21
 
-console.log('Parent block ID:', sealedHeader.parentId);
+console.log("Parent block ID:", sealedHeader.parentId);
 
-_20
+_21
 
-_20
+_21
 
 // Get header for specific block
 
-_20
+_21
 
-const blockHeader = await fcl
+const blockHeader = await fcl.send([
 
-_20
+_21
 
-.send([fcl.getBlockHeader(), fcl.atBlockHeight(12345)])
+fcl.getBlockHeader(),
 
-_20
+_21
 
-.then(fcl.decode);
+fcl.atBlockHeight(12345)
 
-_20
+_21
 
-_20
+]).then(fcl.decode);
+
+_21
+
+_21
 
 // Get latest finalized block header
 
-_20
+_21
 
-const finalizedHeader = await fcl
+const finalizedHeader = await fcl.send([
 
-_20
+_21
 
-.send([fcl.getBlockHeader(false)])
+fcl.getBlockHeader(false)
 
-_20
+_21
 
-.then(fcl.decode);`
+]).then(fcl.decode);`
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
@@ -360671,11 +360566,11 @@ export type InteractionBuilderFn = (
 
 _10
 
-ix: Interaction,
+ix: Interaction
 
 _10
 
-) => Interaction | Promise<Interaction>;`
+) => Interaction | Promise<Interaction>`
 
 A function that processes an interaction object
 
@@ -360683,7 +360578,7 @@ A function that processes an interaction object
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/getBlockHeader.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Oct 22, 2025** by **Michael Fabozzi**
 
 [Previous
 
@@ -360739,6 +360634,8 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 getNodeVersionInfo | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -360797,75 +360694,83 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as sdk from '@onflow/sdk';
+import * as sdk from "@onflow/sdk"
 
 _10
 
 _10
 
-sdk.getNodeVersionInfo();`
+sdk.getNodeVersionInfo()`
 
 Or import directly the specific function:
 
 `_10
 
-import { getNodeVersionInfo } from '@onflow/sdk';
+import { getNodeVersionInfo } from "@onflow/sdk"
 
 _10
 
 _10
 
-getNodeVersionInfo();`
+getNodeVersionInfo()`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`_14
+`_16
 
-import * as fcl from '@onflow/fcl';
+import * as fcl from "@onflow/fcl";
 
-_14
+_16
 
-_14
+_16
 
 // Get node version information using builder
 
-_14
+_16
 
-const versionInfo = await fcl.send([fcl.getNodeVersionInfo()]).then(fcl.decode);
+const versionInfo = await fcl.send([
 
-_14
+_16
 
-_14
+fcl.getNodeVersionInfo()
 
-console.log('Node version:', versionInfo.semver);
+_16
 
-_14
+]).then(fcl.decode);
 
-console.log('Protocol version:', versionInfo.protocol_version);
+_16
 
-_14
+_16
 
-console.log('Spork ID:', versionInfo.spork_id);
+console.log("Node version:", versionInfo.semver);
 
-_14
+_16
 
-_14
+console.log("Protocol version:", versionInfo.protocol_version);
+
+_16
+
+console.log("Spork ID:", versionInfo.spork_id);
+
+_16
+
+_16
 
 // Use with other builders if needed
 
-_14
+_16
 
 const interaction = await fcl.build([
 
-_14
+_16
 
-fcl.getNodeVersionInfo(),
+fcl.getNodeVersionInfo()
 
-_14
+_16
 
 // other builders can be added here
 
-_14
+_16
 
 ]);`
 
@@ -360877,11 +360782,11 @@ export type InteractionBuilderFn = (
 
 _10
 
-ix: Interaction,
+ix: Interaction
 
 _10
 
-) => Interaction | Promise<Interaction>;`
+) => Interaction | Promise<Interaction>`
 
 A function that processes an interaction object
 
@@ -360889,7 +360794,7 @@ A function that processes an interaction object
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Oct 22, 2025** by **Michael Fabozzi**
 
 [Previous
 
@@ -363554,6 +363459,8 @@ pluginRegistry | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -363586,7 +363493,7 @@ Search
 
                         + [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
 
-                          - [account](/build/tools/clients/fcl-js/packages-docs/fcl/account)- [arg](/build/tools/clients/fcl-js/packages-docs/fcl/arg)- [args](/build/tools/clients/fcl-js/packages-docs/fcl/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockId)- [authenticate](/build/tools/clients/fcl-js/packages-docs/fcl/authenticate)- [authorization](/build/tools/clients/fcl-js/packages-docs/fcl/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/fcl/authorizations)- [authz](/build/tools/clients/fcl-js/packages-docs/fcl/authz)- [block](/build/tools/clients/fcl-js/packages-docs/fcl/block)- [build](/build/tools/clients/fcl-js/packages-docs/fcl/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/fcl/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/fcl/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/fcl/config)- [createFcl](/build/tools/clients/fcl-js/packages-docs/fcl/createFcl)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/fcl/createSignableVoucher)- [currentUser](/build/tools/clients/fcl-js/packages-docs/fcl/currentUser)- [decode](/build/tools/clients/fcl-js/packages-docs/fcl/decode)- [display](/build/tools/clients/fcl-js/packages-docs/fcl/display)- [events](/build/tools/clients/fcl-js/packages-docs/fcl/events)- [getAccount](/build/tools/clients/fcl-js/packages-docs/fcl/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/fcl/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/fcl/getBlockHeader)- [getChainId](/build/tools/clients/fcl-js/packages-docs/fcl/getChainId)- [getCollection](/build/tools/clients/fcl-js/packages-docs/fcl/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/fcl/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/fcl/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/fcl/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/fcl/getTransactionStatus)- [invariant](/build/tools/clients/fcl-js/packages-docs/fcl/invariant)- [isBad](/build/tools/clients/fcl-js/packages-docs/fcl/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/fcl/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/fcl/limit)- [logIn](/build/tools/clients/fcl-js/packages-docs/fcl/logIn)- [mutate](/build/tools/clients/fcl-js/packages-docs/fcl/mutate)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/fcl/param)- [params](/build/tools/clients/fcl-js/packages-docs/fcl/params)- [payer](/build/tools/clients/fcl-js/packages-docs/fcl/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/fcl/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/fcl/pipe)- [pluginRegistry](/build/tools/clients/fcl-js/packages-docs/fcl/pluginRegistry)- [proposer](/build/tools/clients/fcl-js/packages-docs/fcl/proposer)- [query](/build/tools/clients/fcl-js/packages-docs/fcl/query)- [queryRaw](/build/tools/clients/fcl-js/packages-docs/fcl/queryRaw)- [reauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/reauthenticate)- [ref](/build/tools/clients/fcl-js/packages-docs/fcl/ref)- [sansPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/sansPrefix)- [script](/build/tools/clients/fcl-js/packages-docs/fcl/script)- [send](/build/tools/clients/fcl-js/packages-docs/fcl/send)- [serialize](/build/tools/clients/fcl-js/packages-docs/fcl/serialize)- [signUp](/build/tools/clients/fcl-js/packages-docs/fcl/signUp)- [subscribe](/build/tools/clients/fcl-js/packages-docs/fcl/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeRaw)- [transaction](/build/tools/clients/fcl-js/packages-docs/fcl/transaction)- [tx](/build/tools/clients/fcl-js/packages-docs/fcl/tx)- [unauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/unauthenticate)- [validator](/build/tools/clients/fcl-js/packages-docs/fcl/validator)- [verifyUserSignatures](/build/tools/clients/fcl-js/packages-docs/fcl/verifyUserSignatures)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/fcl/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/fcl/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/fcl/why)- [withPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/withPrefix)+ [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
+                          - [account](/build/tools/clients/fcl-js/packages-docs/fcl/account)- [arg](/build/tools/clients/fcl-js/packages-docs/fcl/arg)- [args](/build/tools/clients/fcl-js/packages-docs/fcl/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockId)- [authenticate](/build/tools/clients/fcl-js/packages-docs/fcl/authenticate)- [authorization](/build/tools/clients/fcl-js/packages-docs/fcl/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/fcl/authorizations)- [authz](/build/tools/clients/fcl-js/packages-docs/fcl/authz)- [block](/build/tools/clients/fcl-js/packages-docs/fcl/block)- [build](/build/tools/clients/fcl-js/packages-docs/fcl/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/fcl/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/fcl/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/fcl/config)- [createFlowClient](/build/tools/clients/fcl-js/packages-docs/fcl/createFlowClient)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/fcl/createSignableVoucher)- [currentUser](/build/tools/clients/fcl-js/packages-docs/fcl/currentUser)- [decode](/build/tools/clients/fcl-js/packages-docs/fcl/decode)- [display](/build/tools/clients/fcl-js/packages-docs/fcl/display)- [events](/build/tools/clients/fcl-js/packages-docs/fcl/events)- [getAccount](/build/tools/clients/fcl-js/packages-docs/fcl/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/fcl/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/fcl/getBlockHeader)- [getCollection](/build/tools/clients/fcl-js/packages-docs/fcl/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/fcl/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/fcl/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/fcl/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/fcl/getTransactionStatus)- [invariant](/build/tools/clients/fcl-js/packages-docs/fcl/invariant)- [isBad](/build/tools/clients/fcl-js/packages-docs/fcl/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/fcl/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/fcl/limit)- [logIn](/build/tools/clients/fcl-js/packages-docs/fcl/logIn)- [mutate](/build/tools/clients/fcl-js/packages-docs/fcl/mutate)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/fcl/param)- [params](/build/tools/clients/fcl-js/packages-docs/fcl/params)- [payer](/build/tools/clients/fcl-js/packages-docs/fcl/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/fcl/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/fcl/pipe)- [pluginRegistry](/build/tools/clients/fcl-js/packages-docs/fcl/pluginRegistry)- [proposer](/build/tools/clients/fcl-js/packages-docs/fcl/proposer)- [query](/build/tools/clients/fcl-js/packages-docs/fcl/query)- [queryRaw](/build/tools/clients/fcl-js/packages-docs/fcl/queryRaw)- [reauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/reauthenticate)- [ref](/build/tools/clients/fcl-js/packages-docs/fcl/ref)- [sansPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/sansPrefix)- [script](/build/tools/clients/fcl-js/packages-docs/fcl/script)- [send](/build/tools/clients/fcl-js/packages-docs/fcl/send)- [serialize](/build/tools/clients/fcl-js/packages-docs/fcl/serialize)- [signUp](/build/tools/clients/fcl-js/packages-docs/fcl/signUp)- [subscribe](/build/tools/clients/fcl-js/packages-docs/fcl/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeRaw)- [transaction](/build/tools/clients/fcl-js/packages-docs/fcl/transaction)- [tx](/build/tools/clients/fcl-js/packages-docs/fcl/tx)- [unauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/unauthenticate)- [validator](/build/tools/clients/fcl-js/packages-docs/fcl/validator)- [verifyUserSignatures](/build/tools/clients/fcl-js/packages-docs/fcl/verifyUserSignatures)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/fcl/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/fcl/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/fcl/why)- [withPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/withPrefix)+ [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
@@ -363666,13 +363573,25 @@ _10
 
 `_10
 
-Readonly<{ add: (plugins: any) => void; getPlugins: () => Map<any, any>; }>`
+Readonly<{
+
+_10
+
+add: (plugins: any) => void;
+
+_10
+
+getPlugins: () => Map<any, any>;
+
+_10
+
+}>`
 
 ---
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/pluginRegistry.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Oct 22, 2025** by **Michael Fabozzi**
 
 [Previous
 
@@ -388156,6 +388075,8 @@ Type Definitions | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -392204,6 +392125,178 @@ More
 * [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://developers.flow.com/ecosystem/defi-liquidity/defi-contracts-testnet
+
+DeFi Contracts on Flow Testnet | Flow Developer Portal
+
+
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Ecosystem Index](/ecosystem)* [Developer Support Hub](/ecosystem/developer-support-hub)
+
+    * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
+
+                + [Build with Forte ↙](/ecosystem/defi-liquidity/forte)+ [DeFi Contracts Mainnet](/ecosystem/defi-liquidity/defi-contracts-mainnet)+ [DeFi Contracts Testnet](/ecosystem/defi-liquidity/defi-contracts-testnet)+ [Cross-chain swaps on Flow EVM](/ecosystem/defi-liquidity/cross-chain-swaps)+ [Add Token To MetaMask](/ecosystem/defi-liquidity/add-token-to-metamask)+ [Stablecoins & Bridges FAQ](/ecosystem/defi-liquidity/faq)+ [Band Oracle](/ecosystem/defi-liquidity/band-oracle)* [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
+
+* * [DeFi & Liquidity](/ecosystem/defi-liquidity)* DeFi Contracts Testnet
+
+On this page
+
+# DeFi Contracts on Flow Testnet
+
+Flow is a Layer 1 blockchain that supports EVM equivalency, offering two environments Flow EVM and Flow Cadence. Fungible and non-fungible tokens can seamlessly transfer between these environments via the native VM token bridge. As a result, many tokens have both a Flow EVM mainnet contract address and a Flow Cadence mainnet contract address, allowing developers to choose their preferred environment.
+
+Below is a list of commonly used DeFi contracts on Flow Testnet:
+
+[Switch to DeFi Contracts on Mainnet](/ecosystem/defi-liquidity/defi-contracts-mainnet)
+
+## Stablecoins & Wrapped Assets[​](#stablecoins--wrapped-assets "Direct link to Stablecoins & Wrapped Assets")
+
+#### Flow EVM Testnet[​](#flow-evm-testnet "Direct link to Flow EVM Testnet")
+
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Token EVM Testnet Address How to Get|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | FLOW (native, non-erc20) — [Faucet](https://faucet.flow.com/fund-account)| [WFLOW](https://evm-testnet.flowscan.io/address/0xd3bF53DAC106A0290B0483EcBC89d40FcC961f3e) `0xd3bF53DAC106A0290B0483EcBC89d40FcC961f3e` [Swap](https://flowswap.io/swap?chain=flow-testnet&inputCurrency=NATIVE&outputCurrency=0xd3bF53DAC106A0290B0483EcBC89d40FcC961f3e)| [MOET](https://evm-testnet.flowscan.io/address/0x51f5cc5f50afb81e8f23c926080fa38c3024b238) `0x51f5cc5f50afb81e8f23c926080fa38c3024b238` [Swap](https://flowswap.io/swap?chain=flow-testnet&inputCurrency=NATIVE&outputCurrency=0x51F5cC5f50afB81e8F23C926080FA38C3024b238)| [USDC](https://evm-testnet.flowscan.io/address/0xd431955D55a99EF69BEb96BA34718d0f9fBc91b1) `0xd431955D55a99EF69BEb96BA34718d0f9fBc91b1` [Swap](https://flowswap.io/swap?chain=flow-testnet&inputCurrency=NATIVE&outputCurrency=0xd431955D55a99EF69BEb96BA34718d0f9fBc91b1)| [mUSDC (ERC‑4626)](https://evm-testnet.flowscan.io/address/0x4154d5B0E2931a0A1E5b733f19161aa7D2fc4b95) `0x4154d5B0E2931a0A1E5b733f19161aa7D2fc4b95` [Swap](https://flowswap.io/swap?chain=flow-testnet&inputCurrency=NATIVE&outputCurrency=0x4154d5B0E2931a0A1E5b733f19161aa7D2fc4b95)| [USDF (Mock)](https://evm-testnet.flowscan.io/address/0xd7d43ab7b365f0d0789aE83F4385fA710FfdC98F) `0xd7d43ab7b365f0d0789aE83F4385fA710FfdC98F` [Swap](https://flowswap.io/swap?chain=flow-testnet&inputCurrency=NATIVE&outputCurrency=0xd7d43ab7b365f0d0789aE83F4385fA710FfdC98F)| [USDF (Bridged PYUSD)](https://evm-testnet.flowscan.io/address/0xf2E5A325f7D678DA511E66B1c0Ad7D5ba4dF93D3) `0xf2E5A325f7D678DA511E66B1c0Ad7D5ba4dF93D3` —|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [USDC.e (Celer)](https://evm-testnet.flowscan.io/address/0x9B7550D337bB449b89C6f9C926C3b976b6f4095b) `0x9B7550D337bB449b89C6f9C926C3b976b6f4095b` —|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [ankrFLOW](https://evm-testnet.flowscan.io/address/0xe132751AB5A14ac0bD3Cb40571a9248Ee7a2a9EA) `0xe132751AB5A14ac0bD3Cb40571a9248Ee7a2a9EA` —|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [ankrFLOWEVM](https://evm-testnet.flowscan.io/address/0x8E3DC6E937B560ce6a1Aaa78AfC775228969D16c) `0x8E3DC6E937B560ce6a1Aaa78AfC775228969D16c` —|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [WETH](https://evm-testnet.flowscan.io/address/0x059A77239daFa770977DD9f1E98632C3E4559848) `0x059A77239daFa770977DD9f1E98632C3E4559848` [Mint](https://evm-testnet.flowscan.io/address/0x059A77239daFa770977DD9f1E98632C3E4559848?tab=read_write_contract#0x40c10f19)| [WBTC](https://evm-testnet.flowscan.io/address/0x208d09d2a6Dd176e3e95b3F0DE172A7471C5B2d6) `0x208d09d2a6Dd176e3e95b3F0DE172A7471C5B2d6` [Mint](https://evm-testnet.flowscan.io/address/0x208d09d2a6Dd176e3e95b3F0DE172A7471C5B2d6?tab=read_write_contract#0x40c10f19)| [cbBTC](https://evm-testnet.flowscan.io/address/0x30F44C64725727F2001E6C1eF6e6CE9c7aB91dC3) `0x30F44C64725727F2001E6C1eF6e6CE9c7aB91dC3` [Mint](https://evm-testnet.flowscan.io/address/0x30F44C64725727F2001E6C1eF6e6CE9c7aB91dC3?tab=read_write_contract#0x40c10f19) | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+
+#### Flow Cadence Testnet[​](#flow-cadence-testnet "Direct link to Flow Cadence Testnet")
+
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Token Cadence Testnet Address Cadence Contract Name|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [FLOW](https://testnet.flowscan.io/contract/A.7e60df042a9c0868.FlowToken?tab=deployments) `0x7e60df042a9c0868` `FlowToken`| [MOET](https://testnet.flowscan.io/contract/A.d27920b6384e2a78.MOET?tab=deployments) `0xd27920b6384e2a78` `MOET`| [USDC](https://testnet.flowscan.io/contract/A.dfc20aee650fcbdf.EVMVMBridgedToken_d431955d55a99ef69beb96ba34718d0f9fbc91b1?tab=deployments) `0xdfc20aee650fcbdf` `EVMVMBridgedToken_d431955d55a99ef69beb96ba34718d0f9fbc91b1`| [mUSDC](https://testnet.flowscan.io/contract/A.dfc20aee650fcbdf.EVMVMBridgedToken_4154d5b0e2931a0a1e5b733f19161aa7d2fc4b95?tab=deployments) `0xdfc20aee650fcbdf` `EVMVMBridgedToken_4154d5b0e2931a0a1e5b733f19161aa7d2fc4b95`| [USDF (Mock)](https://testnet.flowscan.io/contract/A.dfc20aee650fcbdf.EVMVMBridgedToken_d7d43ab7b365f0d0789ae83f4385fa710ffdc98f?tab=deployments) `0xdfc20aee650fcbdf` `EVMVMBridgedToken_d7d43ab7b365f0d0789ae83f4385fa710ffdc98f`| [USDF (PYUSD)](https://testnet.flowscan.io/contract/A.dfc20aee650fcbdf.EVMVMBridgedToken_f2e5a325f7d678da511e66b1c0ad7d5ba4df93d3?tab=deployments) `0xdfc20aee650fcbdf` `EVMVMBridgedToken_f2e5a325f7d678da511e66b1c0ad7d5ba4df93d3`| [USDC.e (Celer)](https://testnet.flowscan.io/contract/A.dfc20aee650fcbdf.EVMVMBridgedToken_9b7550d337bb449b89c6f9c926c3b976b6f4095b?tab=deployments) `0xdfc20aee650fcbdf` `EVMVMBridgedToken_9b7550d337bb449b89c6f9c926c3b976b6f4095b`| [ankrFLOWEVM](https://testnet.flowscan.io/contract/A.dfc20aee650fcbdf.EVMVMBridgedToken_8e3dc6e937b560ce6a1aaa78afc775228969d16c?tab=deployments) `0xdfc20aee650fcbdf` `EVMVMBridgedToken_8e3dc6e937b560ce6a1aaa78afc775228969d16c`| [WETH](https://testnet.flowscan.io/contract/A.dfc20aee650fcbdf.EVMVMBridgedToken_059a77239dafa770977dd9f1e98632c3e4559848?tab=deployments) `0xdfc20aee650fcbdf` `EVMVMBridgedToken_059a77239dafa770977dd9f1e98632c3e4559848`| [WBTC](https://testnet.flowscan.io/contract/A.dfc20aee650fcbdf.EVMVMBridgedToken_208d09d2a6dd176e3e95b3f0de172a7471c5b2d6?tab=deployments) `0xdfc20aee650fcbdf` `EVMVMBridgedToken_208d09d2a6dd176e3e95b3f0de172a7471c5b2d6`| [cbBTC](https://testnet.flowscan.io/contract/A.dfc20aee650fcbdf.EVMVMBridgedToken_30f44c64725727f2001e6c1ef6e6ce9c7ab91dc3?tab=deployments) `0xdfc20aee650fcbdf` `EVMVMBridgedToken_30f44c64725727f2001e6c1ef6e6ce9c7ab91dc3` | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+
+## Vaults[​](#vaults "Direct link to Vaults")
+
+#### Flow EVM Testnet[​](#flow-evm-testnet-1 "Direct link to Flow EVM Testnet")
+
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Contract Address|  |  |  |  | | --- | --- | --- | --- | | [MockTauVault](https://evm-testnet.flowscan.io/address/0x72104434BEc686B47a72bCa9b998624238BD2Ffb) `0x72104434BEc686B47a72bCa9b998624238BD2Ffb`| [MockYieldVault](https://evm-testnet.flowscan.io/address/0x217aAC9594EcB6d3f6667A214CF579dd29ce78dd) `0x217aAC9594EcB6d3f6667A214CF579dd29ce78dd` | | | | | |
+
+## AMMs & DEXs[​](#amms--dexs "Direct link to AMMs & DEXs")
+
+#### Flow EVM Testnet[​](#flow-evm-testnet-2 "Direct link to Flow EVM Testnet")
+
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Contract EVM Testnet Address|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [v2\_factory (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x7d726261FB76B264fc20eA1f19D900D760136566) `0x7d726261FB76B264fc20eA1f19D900D760136566`| [v2\_router (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x524E1291c109BE27FDE48De97cAf0B3c0F02A68f) `0x524E1291c109BE27FDE48De97cAf0B3c0F02A68f`| [v2\_usdc\_weth\_pair (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x21E3aa01561d7D869785aAedB14130C5807C5A12) `0x21E3aa01561d7D869785aAedB14130C5807C5A12`| [v3\_factory (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x92657b195e22b69E4779BBD09Fa3CD46F0CF8e39) `0x92657b195e22b69E4779BBD09Fa3CD46F0CF8e39`| [v3\_nft\_position\_manager (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x8b9F96390EC35d5859937c7c5D68Ff6D5CFC312f) `0x8b9F96390EC35d5859937c7c5D68Ff6D5CFC312f`| [v3\_swap\_router (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x2Db6468229F6fB1a77d248Dbb1c386760C257804) `0x2Db6468229F6fB1a77d248Dbb1c386760C257804`| [v3\_quoter\_v2\_address (FlowSwap)](https://testnet.flowscan.io/evm/contract/0xA1e0E4CCACA34a738f03cFB1EAbAb16331FA3E2c) `0xA1e0E4CCACA34a738f03cFB1EAbAb16331FA3E2c`| [v3\_migrator (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x00a101726ff770cd8ed53E8376b9440Bad40CAd9) `0x00a101726ff770cd8ed53E8376b9440Bad40CAd9`| [v3\_staker (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x04400857ad69EaA7dd6fEF1C329E80E50BD30b76) `0x04400857ad69EaA7dd6fEF1C329E80E50BD30b76`| [v3\_tick\_lens (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x36D9bDCbA840F5bcb95EE7bD54a86808aef6581F) `0x36D9bDCbA840F5bcb95EE7bD54a86808aef6581F`| [v3\_nft\_descriptor\_lib (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x6982D5Cb80Cd7E2cb7C0d0B8452841471Bc84Bc2) `0x6982D5Cb80Cd7E2cb7C0d0B8452841471Bc84Bc2`| [v3\_nft\_position\_descriptor (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x61f4e983A72d9BD8429154982A3d9fCF3A1D98d0) `0x61f4e983A72d9BD8429154982A3d9fCF3A1D98d0`| [v3\_descriptor\_proxy (FlowSwap)](https://testnet.flowscan.io/evm/contract/0xE0895150a7c84e8fB9fecCE72F4C80c130C80fDa) `0xE0895150a7c84e8fB9fecCE72F4C80c130C80fDa`| [v3\_pool\_usdc\_weth (FlowSwap)](https://testnet.flowscan.io/evm/contract/0xa4Db57e3d3c6674FA02a2f3a667d3C22Fe17efF4) `0xa4Db57e3d3c6674FA02a2f3a667d3C22Fe17efF4`| [universal\_router (FlowSwap)](https://testnet.flowscan.io/evm/contract/0xB685ab04Dfef74c135A2ed4003441fF124AFF9a0) `0xB685ab04Dfef74c135A2ed4003441fF124AFF9a0`| [permit2 (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x000000000022D473030F116dDEE9F6B43aC78BA3) `0x000000000022D473030F116dDEE9F6B43aC78BA3`| [multicall2 (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x02b9B840CDCEe84510a02cc85f351CAaD41f46CE) `0x02b9B840CDCEe84510a02cc85f351CAaD41f46CE`| [proxy\_admin (FlowSwap)](https://testnet.flowscan.io/evm/contract/0xf4011F45A666dC7eC54445a710c3aae735F7E890) `0xf4011F45A666dC7eC54445a710c3aae735F7E890`| [StableKittyFactoryNG.sol (KittyPunch)](https://evm-testnet.flowscan.io/address/0x0699C35C0104e478f510531F5Dfc3F9313ae49D1) `0x0699C35C0104e478f510531F5Dfc3F9313ae49D1`| [TwoKittyFactory.sol (KittyPunch)](https://evm-testnet.flowscan.io/address/0xeaa5949471C7B31ae97D3a52483028aE595E8e83) `0xeaa5949471C7B31ae97D3a52483028aE595E8e83`| [TriKittyFactory.sol (KittyPunch)](https://evm-testnet.flowscan.io/address/0x62aC6e05Bac04702bF744106499F72f200297121) `0x62aC6e05Bac04702bF744106499F72f200297121`| [KittyRouterNgPoolsOnly.sol (KittyPunch)](https://evm-testnet.flowscan.io/address/0x70e8C797f698De61787A7275628713077723694) `0x70e8C797f698De61787A7275628713077723694`| [PunchSwapV2Router02.sol (KittyPunch)](https://evm-testnet.flowscan.io/address/0xeD53235cC3E9d2d464E9c408B95948836648870B) `0xeD53235cC3E9d2d464E9c408B95948836648870B`| [PunchSwapV2Factory.sol (KittyPunch)](https://evm-testnet.flowscan.io/address/0x0f6C2EF40FA42B2F0E0a9f5987b2f3F8Af3C173f) `0x0f6C2EF40FA42B2F0E0a9f5987b2f3F8Af3C173f` | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+
+#### Flow Cadence Testnet[​](#flow-cadence-testnet-1 "Direct link to Flow Cadence Testnet")
+
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Contract Cadence Testnet Address [CLI](https://developers.flow.com/build/tools/flow-cli/dependency-manager)|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [StableSwapFactory (IncrementFi)](https://testnet.flowscan.io/contract/A.6ca93d49c45a249f.StableSwapFactory?tab=deployments) `0x6ca93d49c45a249f` | [SwapFactory (IncrementFi)](https://testnet.flowscan.io/contract/A.6ca93d49c45a249f.SwapFactory?tab=deployments) `0x6ca93d49c45a249f` | [SwapPair (IncrementFi)](https://testnet.flowscan.io/contract/A.7afd587a5d5e2efe.SwapPair?tab=deployments) `0x7afd587a5d5e2efe` | [SwapConfig (IncrementFi)](https://testnet.flowscan.io/contract/A.8d5b9dd833e176da.SwapConfig?tab=deployments) `0x8d5b9dd833e176da` | [SwapError (IncrementFi)](https://testnet.flowscan.io/contract/A.8d5b9dd833e176da.SwapError?tab=deployments) `0x8d5b9dd833e176da` | [SwapInterfaces (IncrementFi)](https://testnet.flowscan.io/contract/A.8d5b9dd833e176da.SwapInterfaces?tab=deployments) `0x8d5b9dd833e176da`  | | | | | | | | | | | | | | | | | | | | |
+
+## Bridges & Cross-Chain Messaging[​](#bridges--cross-chain-messaging "Direct link to Bridges & Cross-Chain Messaging")
+
+|  |  |  |  |
+| --- | --- | --- | --- |
+| Bridge / Protocol Reference Docs|  |  | | --- | --- | | PYUSD -> USDF (LayerZero OFT) [GitHub Repo](https://github.com/onflow/flow-bridge-app?tab=readme-ov-file#evm-testnets) | | | |
+
+## Omni Fungible Tokens (PYUSD → USDF)[​](#omni-fungible-tokens-pyusd--usdf "Direct link to Omni Fungible Tokens (PYUSD → USDF)")
+
+#### Solana Devnet/Testnet[​](#solana-devnettestnet "Direct link to Solana Devnet/Testnet")
+
+|  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Contract Name Contract Address|  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | PYUSD Program ID `D6RHLYN7x69Cb5Y7dFj9T9uJrJCVT9Bt1LT71xHf7QqK`| PYUSD Mint `CXk2AMBfi3TwaEL2468s6zP8xq9NxTXjp9gjMgzeUynM`| PYUSD Mint Authority `A6v157j6XFJXwtT5VWXX7uLYTUrxcYGXB8R6rxrgr9hQ`| PYUSD Escrow `FKt7QuGTkFWHVt7RVgtEsh3rVRZMaeCdQBseyQ9Vf1PN`| PYUSD OFT Store `CFVgSccTEXbs3hN7gnCHx3FAa1L5j5StsKABTPuMaAYo` | | | | | | | | | | | |
+
+#### Sepolia Testnet[​](#sepolia-testnet "Direct link to Sepolia Testnet")
+
+|  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Contract Name Contract Address|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | MyOFTAdapter `0x9D6e122780974a917952D70646dD50D2C4f906ae`| PYUSDLocker `0xb077Ef2833Fd7b426146839a86100708c37bfa65`| MyFungi `0x39dBc26413e6eEe40265E4a7ddc5abDC64849781` | | | | | | | |
+
+#### Arbitrum Sepolia Testnet[​](#arbitrum-sepolia-testnet "Direct link to Arbitrum Sepolia Testnet")
+
+|  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Contract Name Contract Address|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | MyOFTAdapter `0xDD3BFfb358eF34C2964CB9ce29013D071d59094C`| PYUSDLocker `0x4e2dCCAfe86719B7BFfAc3b1041031dDd07aF5fF`| MyFungi `0x1605B1067Ce0D294786A09368f38063Df50C0e92` | | | | | | | |
+
+## Oracles[​](#oracles "Direct link to Oracles")
+
+#### Flow EVM Testnet[​](#flow-evm-testnet-3 "Direct link to Flow EVM Testnet")
+
+|  |  |  |  |
+| --- | --- | --- | --- |
+| Contract EVM Testnet Address|  |  | | --- | --- | | [Pyth (ERC1967Proxy)](https://evm-testnet.flowscan.io/address/0x2880aB155794e7179c9eE2e38200202908C17B43) `0x2880aB155794e7179c9eE2e38200202908C17B43` | | | |
+
+#### Flow Cadence Testnet[​](#flow-cadence-testnet-2 "Direct link to Flow Cadence Testnet")
+
+|  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Contract Name Flow Cadence Testnet Address [CLI](https://developers.flow.com/build/tools/flow-cli/dependency-manager) Docs|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | [PublicPriceOracle.cdc (IncrementFi)](https://flowscan.io/contract/A.ec67451f8a58216a.PublicPriceOracle) `0x8232ce4a3aff4e94` [Docs](https://docs.increment.fi/)| [BandOracle.cdc (Band)](https://testnet.flowscan.io/contract/A.9fb6606c300b5051.BandOracle) `0x9fb6606c300b5051` [Docs](/ecosystem/defi-liquidity/band-oracle) | | | | | | | | | | | |
+
+## Ethereum Attestation Service[​](#ethereum-attestation-service "Direct link to Ethereum Attestation Service")
+
+More information can be found on the Credora docs site for [EAS on Flow](https://credora.gitbook.io/eas-for-flow).
+
+Testnet EAS Explorer: <https://flow-testnet.easscan.credora.io>
+
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Contract Name Flow EVM Testnet Address|  |  |  |  | | --- | --- | --- | --- | | [SchemaRegistry.sol (Ethereum Attestation Service)](https://evm-testnet.flowscan.io/address/0x97900F59828Da4187607Cb8F84f49e3944199d18?tab=contract) `0x97900F59828Da4187607Cb8F84f49e3944199d18`| [EAS.sol (Ethereum Attestation Service)](https://evm-testnet.flowscan.io/address/0xBCF2dA8f82fb032A2474c92Ec5b70C95A83fc0cc?tab=contract) `0xBCF2dA8f82fb032A2474c92Ec5b70C95A83fc0cc` | | | | | |
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/defi-contracts-testnet.md)
+
+Last updated on **Oct 29, 2025** by **bz**
+
+[Previous
+
+DeFi Contracts Mainnet](/ecosystem/defi-liquidity/defi-contracts-mainnet)[Next
+
+Cross-chain swaps on Flow EVM](/ecosystem/defi-liquidity/cross-chain-swaps)
+
+###### Rate this page
+
+😞😐😊
+
+Copy as Markdown
+
+* [Stablecoins & Wrapped Assets](#stablecoins--wrapped-assets)* [Vaults](#vaults)* [AMMs & DEXs](#amms--dexs)* [Bridges & Cross-Chain Messaging](#bridges--cross-chain-messaging)* [Omni Fungible Tokens (PYUSD → USDF)](#omni-fungible-tokens-pyusd--usdf)* [Oracles](#oracles)* [Ethereum Attestation Service](#ethereum-attestation-service)
+
+Flow
+
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
+
+Cadence
+
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
+
+Solidity (EVM)
+
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
+
+Community & Support
+
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
+
+Network & Resources
+
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow Foundation. All Rights Reserved.
 
 
 
@@ -396601,6 +396694,8 @@ payer | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -397651,6 +397746,8 @@ authorization | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -397671,7 +397768,7 @@ Search
 
       + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
 
-        + [@onflow/react-sdk](/build/tools/react-sdk)
+        + [Flow React SDK](/build/tools/react-sdk)
 
           + [Flow Emulator](/build/tools/emulator)+ [Flow CLI](/build/tools/flow-cli)
 
@@ -397707,35 +397804,35 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as sdk from '@onflow/sdk';
+import * as sdk from "@onflow/sdk"
 
 _10
 
 _10
 
-sdk.authorization(addr, signingFunction, keyId, sequenceNum);`
+sdk.authorization(addr, signingFunction, keyId, sequenceNum)`
 
 Or import directly the specific function:
 
 `_10
 
-import { authorization } from '@onflow/sdk';
+import { authorization } from "@onflow/sdk"
 
 _10
 
 _10
 
-authorization(addr, signingFunction, keyId, sequenceNum);`
+authorization(addr, signingFunction, keyId, sequenceNum)`
 
 ## Usage[​](#usage "Direct link to Usage")
 
 `` _28
 
-import * as fcl from '@onflow/fcl';
+import * as fcl from "@onflow/fcl";
 
 _28
 
-import { ec as EC } from 'elliptic';
+import { ec as EC } from "elliptic";
 
 _28
 
@@ -397757,7 +397854,7 @@ return {
 
 _28
 
-addr: '0x123456789abcdef0',
+addr: "0x123456789abcdef0",
 
 _28
 
@@ -397765,7 +397862,7 @@ keyId: 0,
 
 _28
 
-signature: 'your_signature_here',
+signature: "your_signature_here"
 
 _28
 
@@ -397787,7 +397884,7 @@ const authz = fcl.authorization(
 
 _28
 
-'0x123456789abcdef0', // account address
+"0x123456789abcdef0", // account address
 
 _28
 
@@ -397799,7 +397896,7 @@ _28
 
 _28
 
-42, // sequence number
+42 // sequence number
 
 _28
 
@@ -397829,7 +397926,7 @@ payer: authz,
 
 _28
 
-authorizations: [authz],
+authorizations: [authz]
 
 _28
 
@@ -397852,11 +397949,11 @@ type SigningFn = (
 
 _10
 
-signable?: SignableMessage,
+signable?: SignableMessage
 
 _10
 
-) => SigningResult | Promise<SigningResult>;`
+) => SigningResult | Promise<SigningResult>`
 
 * Description: A function that produces signatures for the account
 
@@ -397874,7 +397971,7 @@ _10
 
 `_10
 
-Partial<InteractionAccount>;`
+Partial<InteractionAccount>`
 
 A partial interaction account object
 
@@ -397882,7 +397979,7 @@ A partial interaction account object
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/authorization.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Oct 22, 2025** by **Michael Fabozzi**
 
 [Previous
 
@@ -397899,27 +397996,27 @@ Copy as Markdown
 * [Import](#import)* [Usage](#usage)* [Parameters](#parameters)
       + [`addr`](#addr)+ [`signingFunction`](#signingfunction)+ [`keyId` (optional)](#keyid-optional)+ [`sequenceNum` (optional)](#sequencenum-optional)* [Returns](#returns)
 
-Documentation
+Flow
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
 
-Community
+Cadence
 
-* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
 
-Start Building
+Solidity (EVM)
 
-* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
 
-Network
+Community & Support
 
-* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
 
-More
+Network & Resources
 
-* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
+Copyright © 2025 Flow Foundation. All Rights Reserved.
 
 
 
@@ -404943,6 +405040,8 @@ isBad | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -404975,7 +405074,7 @@ Search
 
                         + [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
 
-                          - [account](/build/tools/clients/fcl-js/packages-docs/fcl/account)- [arg](/build/tools/clients/fcl-js/packages-docs/fcl/arg)- [args](/build/tools/clients/fcl-js/packages-docs/fcl/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockId)- [authenticate](/build/tools/clients/fcl-js/packages-docs/fcl/authenticate)- [authorization](/build/tools/clients/fcl-js/packages-docs/fcl/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/fcl/authorizations)- [authz](/build/tools/clients/fcl-js/packages-docs/fcl/authz)- [block](/build/tools/clients/fcl-js/packages-docs/fcl/block)- [build](/build/tools/clients/fcl-js/packages-docs/fcl/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/fcl/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/fcl/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/fcl/config)- [createFcl](/build/tools/clients/fcl-js/packages-docs/fcl/createFcl)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/fcl/createSignableVoucher)- [currentUser](/build/tools/clients/fcl-js/packages-docs/fcl/currentUser)- [decode](/build/tools/clients/fcl-js/packages-docs/fcl/decode)- [display](/build/tools/clients/fcl-js/packages-docs/fcl/display)- [events](/build/tools/clients/fcl-js/packages-docs/fcl/events)- [getAccount](/build/tools/clients/fcl-js/packages-docs/fcl/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/fcl/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/fcl/getBlockHeader)- [getChainId](/build/tools/clients/fcl-js/packages-docs/fcl/getChainId)- [getCollection](/build/tools/clients/fcl-js/packages-docs/fcl/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/fcl/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/fcl/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/fcl/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/fcl/getTransactionStatus)- [invariant](/build/tools/clients/fcl-js/packages-docs/fcl/invariant)- [isBad](/build/tools/clients/fcl-js/packages-docs/fcl/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/fcl/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/fcl/limit)- [logIn](/build/tools/clients/fcl-js/packages-docs/fcl/logIn)- [mutate](/build/tools/clients/fcl-js/packages-docs/fcl/mutate)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/fcl/param)- [params](/build/tools/clients/fcl-js/packages-docs/fcl/params)- [payer](/build/tools/clients/fcl-js/packages-docs/fcl/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/fcl/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/fcl/pipe)- [pluginRegistry](/build/tools/clients/fcl-js/packages-docs/fcl/pluginRegistry)- [proposer](/build/tools/clients/fcl-js/packages-docs/fcl/proposer)- [query](/build/tools/clients/fcl-js/packages-docs/fcl/query)- [queryRaw](/build/tools/clients/fcl-js/packages-docs/fcl/queryRaw)- [reauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/reauthenticate)- [ref](/build/tools/clients/fcl-js/packages-docs/fcl/ref)- [sansPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/sansPrefix)- [script](/build/tools/clients/fcl-js/packages-docs/fcl/script)- [send](/build/tools/clients/fcl-js/packages-docs/fcl/send)- [serialize](/build/tools/clients/fcl-js/packages-docs/fcl/serialize)- [signUp](/build/tools/clients/fcl-js/packages-docs/fcl/signUp)- [subscribe](/build/tools/clients/fcl-js/packages-docs/fcl/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeRaw)- [transaction](/build/tools/clients/fcl-js/packages-docs/fcl/transaction)- [tx](/build/tools/clients/fcl-js/packages-docs/fcl/tx)- [unauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/unauthenticate)- [validator](/build/tools/clients/fcl-js/packages-docs/fcl/validator)- [verifyUserSignatures](/build/tools/clients/fcl-js/packages-docs/fcl/verifyUserSignatures)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/fcl/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/fcl/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/fcl/why)- [withPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/withPrefix)+ [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
+                          - [account](/build/tools/clients/fcl-js/packages-docs/fcl/account)- [arg](/build/tools/clients/fcl-js/packages-docs/fcl/arg)- [args](/build/tools/clients/fcl-js/packages-docs/fcl/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockId)- [authenticate](/build/tools/clients/fcl-js/packages-docs/fcl/authenticate)- [authorization](/build/tools/clients/fcl-js/packages-docs/fcl/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/fcl/authorizations)- [authz](/build/tools/clients/fcl-js/packages-docs/fcl/authz)- [block](/build/tools/clients/fcl-js/packages-docs/fcl/block)- [build](/build/tools/clients/fcl-js/packages-docs/fcl/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/fcl/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/fcl/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/fcl/config)- [createFlowClient](/build/tools/clients/fcl-js/packages-docs/fcl/createFlowClient)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/fcl/createSignableVoucher)- [currentUser](/build/tools/clients/fcl-js/packages-docs/fcl/currentUser)- [decode](/build/tools/clients/fcl-js/packages-docs/fcl/decode)- [display](/build/tools/clients/fcl-js/packages-docs/fcl/display)- [events](/build/tools/clients/fcl-js/packages-docs/fcl/events)- [getAccount](/build/tools/clients/fcl-js/packages-docs/fcl/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/fcl/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/fcl/getBlockHeader)- [getCollection](/build/tools/clients/fcl-js/packages-docs/fcl/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/fcl/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/fcl/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/fcl/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/fcl/getTransactionStatus)- [invariant](/build/tools/clients/fcl-js/packages-docs/fcl/invariant)- [isBad](/build/tools/clients/fcl-js/packages-docs/fcl/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/fcl/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/fcl/limit)- [logIn](/build/tools/clients/fcl-js/packages-docs/fcl/logIn)- [mutate](/build/tools/clients/fcl-js/packages-docs/fcl/mutate)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/fcl/param)- [params](/build/tools/clients/fcl-js/packages-docs/fcl/params)- [payer](/build/tools/clients/fcl-js/packages-docs/fcl/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/fcl/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/fcl/pipe)- [pluginRegistry](/build/tools/clients/fcl-js/packages-docs/fcl/pluginRegistry)- [proposer](/build/tools/clients/fcl-js/packages-docs/fcl/proposer)- [query](/build/tools/clients/fcl-js/packages-docs/fcl/query)- [queryRaw](/build/tools/clients/fcl-js/packages-docs/fcl/queryRaw)- [reauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/reauthenticate)- [ref](/build/tools/clients/fcl-js/packages-docs/fcl/ref)- [sansPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/sansPrefix)- [script](/build/tools/clients/fcl-js/packages-docs/fcl/script)- [send](/build/tools/clients/fcl-js/packages-docs/fcl/send)- [serialize](/build/tools/clients/fcl-js/packages-docs/fcl/serialize)- [signUp](/build/tools/clients/fcl-js/packages-docs/fcl/signUp)- [subscribe](/build/tools/clients/fcl-js/packages-docs/fcl/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeRaw)- [transaction](/build/tools/clients/fcl-js/packages-docs/fcl/transaction)- [tx](/build/tools/clients/fcl-js/packages-docs/fcl/tx)- [unauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/unauthenticate)- [validator](/build/tools/clients/fcl-js/packages-docs/fcl/validator)- [verifyUserSignatures](/build/tools/clients/fcl-js/packages-docs/fcl/verifyUserSignatures)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/fcl/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/fcl/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/fcl/why)- [withPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/withPrefix)+ [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
@@ -405244,6 +405343,8 @@ getBlock | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -405427,6 +405528,8 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 getEventsAtBlockHeightRange | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -406095,6 +406198,8 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 atBlockId | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -414186,6 +414291,8 @@ params | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -414329,6 +414436,8 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 Network Status | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -420382,6 +420491,8 @@ Manage Configuration | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -425461,6 +425572,8 @@ sansPrefix | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -425493,7 +425606,7 @@ Search
 
                         + [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
 
-                          - [account](/build/tools/clients/fcl-js/packages-docs/fcl/account)- [arg](/build/tools/clients/fcl-js/packages-docs/fcl/arg)- [args](/build/tools/clients/fcl-js/packages-docs/fcl/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockId)- [authenticate](/build/tools/clients/fcl-js/packages-docs/fcl/authenticate)- [authorization](/build/tools/clients/fcl-js/packages-docs/fcl/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/fcl/authorizations)- [authz](/build/tools/clients/fcl-js/packages-docs/fcl/authz)- [block](/build/tools/clients/fcl-js/packages-docs/fcl/block)- [build](/build/tools/clients/fcl-js/packages-docs/fcl/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/fcl/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/fcl/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/fcl/config)- [createFcl](/build/tools/clients/fcl-js/packages-docs/fcl/createFcl)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/fcl/createSignableVoucher)- [currentUser](/build/tools/clients/fcl-js/packages-docs/fcl/currentUser)- [decode](/build/tools/clients/fcl-js/packages-docs/fcl/decode)- [display](/build/tools/clients/fcl-js/packages-docs/fcl/display)- [events](/build/tools/clients/fcl-js/packages-docs/fcl/events)- [getAccount](/build/tools/clients/fcl-js/packages-docs/fcl/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/fcl/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/fcl/getBlockHeader)- [getChainId](/build/tools/clients/fcl-js/packages-docs/fcl/getChainId)- [getCollection](/build/tools/clients/fcl-js/packages-docs/fcl/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/fcl/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/fcl/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/fcl/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/fcl/getTransactionStatus)- [invariant](/build/tools/clients/fcl-js/packages-docs/fcl/invariant)- [isBad](/build/tools/clients/fcl-js/packages-docs/fcl/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/fcl/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/fcl/limit)- [logIn](/build/tools/clients/fcl-js/packages-docs/fcl/logIn)- [mutate](/build/tools/clients/fcl-js/packages-docs/fcl/mutate)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/fcl/param)- [params](/build/tools/clients/fcl-js/packages-docs/fcl/params)- [payer](/build/tools/clients/fcl-js/packages-docs/fcl/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/fcl/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/fcl/pipe)- [pluginRegistry](/build/tools/clients/fcl-js/packages-docs/fcl/pluginRegistry)- [proposer](/build/tools/clients/fcl-js/packages-docs/fcl/proposer)- [query](/build/tools/clients/fcl-js/packages-docs/fcl/query)- [queryRaw](/build/tools/clients/fcl-js/packages-docs/fcl/queryRaw)- [reauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/reauthenticate)- [ref](/build/tools/clients/fcl-js/packages-docs/fcl/ref)- [sansPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/sansPrefix)- [script](/build/tools/clients/fcl-js/packages-docs/fcl/script)- [send](/build/tools/clients/fcl-js/packages-docs/fcl/send)- [serialize](/build/tools/clients/fcl-js/packages-docs/fcl/serialize)- [signUp](/build/tools/clients/fcl-js/packages-docs/fcl/signUp)- [subscribe](/build/tools/clients/fcl-js/packages-docs/fcl/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeRaw)- [transaction](/build/tools/clients/fcl-js/packages-docs/fcl/transaction)- [tx](/build/tools/clients/fcl-js/packages-docs/fcl/tx)- [unauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/unauthenticate)- [validator](/build/tools/clients/fcl-js/packages-docs/fcl/validator)- [verifyUserSignatures](/build/tools/clients/fcl-js/packages-docs/fcl/verifyUserSignatures)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/fcl/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/fcl/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/fcl/why)- [withPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/withPrefix)+ [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
+                          - [account](/build/tools/clients/fcl-js/packages-docs/fcl/account)- [arg](/build/tools/clients/fcl-js/packages-docs/fcl/arg)- [args](/build/tools/clients/fcl-js/packages-docs/fcl/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockId)- [authenticate](/build/tools/clients/fcl-js/packages-docs/fcl/authenticate)- [authorization](/build/tools/clients/fcl-js/packages-docs/fcl/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/fcl/authorizations)- [authz](/build/tools/clients/fcl-js/packages-docs/fcl/authz)- [block](/build/tools/clients/fcl-js/packages-docs/fcl/block)- [build](/build/tools/clients/fcl-js/packages-docs/fcl/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/fcl/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/fcl/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/fcl/config)- [createFlowClient](/build/tools/clients/fcl-js/packages-docs/fcl/createFlowClient)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/fcl/createSignableVoucher)- [currentUser](/build/tools/clients/fcl-js/packages-docs/fcl/currentUser)- [decode](/build/tools/clients/fcl-js/packages-docs/fcl/decode)- [display](/build/tools/clients/fcl-js/packages-docs/fcl/display)- [events](/build/tools/clients/fcl-js/packages-docs/fcl/events)- [getAccount](/build/tools/clients/fcl-js/packages-docs/fcl/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/fcl/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/fcl/getBlockHeader)- [getCollection](/build/tools/clients/fcl-js/packages-docs/fcl/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/fcl/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/fcl/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/fcl/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/fcl/getTransactionStatus)- [invariant](/build/tools/clients/fcl-js/packages-docs/fcl/invariant)- [isBad](/build/tools/clients/fcl-js/packages-docs/fcl/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/fcl/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/fcl/limit)- [logIn](/build/tools/clients/fcl-js/packages-docs/fcl/logIn)- [mutate](/build/tools/clients/fcl-js/packages-docs/fcl/mutate)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/fcl/param)- [params](/build/tools/clients/fcl-js/packages-docs/fcl/params)- [payer](/build/tools/clients/fcl-js/packages-docs/fcl/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/fcl/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/fcl/pipe)- [pluginRegistry](/build/tools/clients/fcl-js/packages-docs/fcl/pluginRegistry)- [proposer](/build/tools/clients/fcl-js/packages-docs/fcl/proposer)- [query](/build/tools/clients/fcl-js/packages-docs/fcl/query)- [queryRaw](/build/tools/clients/fcl-js/packages-docs/fcl/queryRaw)- [reauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/reauthenticate)- [ref](/build/tools/clients/fcl-js/packages-docs/fcl/ref)- [sansPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/sansPrefix)- [script](/build/tools/clients/fcl-js/packages-docs/fcl/script)- [send](/build/tools/clients/fcl-js/packages-docs/fcl/send)- [serialize](/build/tools/clients/fcl-js/packages-docs/fcl/serialize)- [signUp](/build/tools/clients/fcl-js/packages-docs/fcl/signUp)- [subscribe](/build/tools/clients/fcl-js/packages-docs/fcl/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeRaw)- [transaction](/build/tools/clients/fcl-js/packages-docs/fcl/transaction)- [tx](/build/tools/clients/fcl-js/packages-docs/fcl/tx)- [unauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/unauthenticate)- [validator](/build/tools/clients/fcl-js/packages-docs/fcl/validator)- [verifyUserSignatures](/build/tools/clients/fcl-js/packages-docs/fcl/verifyUserSignatures)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/fcl/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/fcl/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/fcl/why)- [withPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/withPrefix)+ [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
@@ -432863,6 +432976,8 @@ pipe | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -432871,128 +432986,37 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 
 Search
 
-* [Why Flow](/build/flow)
-* [Cadence](/build/cadence/quickstart)
+* [Why Flow](/build/flow)* [Cadence](/build/cadence/quickstart)
 
-  + [Quickstart ↙](/build/cadence/quickstart)
-  + [Differences vs. EVM](/build/cadence/differences-vs-evm)
-  + [Basics](/build/cadence/basics/network-architecture)
-  + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
-  + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
-  + [Core Smart Contracts](/build/cadence/core-contracts)
-* [Solidity (EVM)](/build/evm/quickstart)
+    + [Quickstart ↙](/build/cadence/quickstart)+ [Differences vs. EVM](/build/cadence/differences-vs-evm)+ [Basics](/build/cadence/basics/network-architecture)
 
-  + [EVM Quickstart](/build/evm/quickstart)
-  + [How it Works](/build/evm/how-it-works)
-  + [EVM Wallet Setup](/build/evm/using)
-  + [Network Information](/build/evm/networks)
-  + [Fees](/build/evm/fees)
-  + [Accounts](/build/evm/accounts)
-* [Tools & SDKs](/build/tools)
+          + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-  + [@onflow/react-sdk](/build/tools/react-sdk)
-  + [Flow Emulator](/build/tools/emulator)
-  + [Flow CLI](/build/tools/flow-cli)
-  + [Cadence VS Code Extension](/build/tools/vscode-extension)
-  + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
-  + [Client Tools](/build/tools/clients)
+            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
 
-    - [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
+              + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
 
-      * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
+      + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
 
-        + [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
+        + [Flow React SDK](/build/tools/react-sdk)
 
-          - [account](/build/tools/clients/fcl-js/packages-docs/fcl/account)
-          - [arg](/build/tools/clients/fcl-js/packages-docs/fcl/arg)
-          - [args](/build/tools/clients/fcl-js/packages-docs/fcl/args)
-          - [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockHeight)
-          - [atBlockId](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockId)
-          - [authenticate](/build/tools/clients/fcl-js/packages-docs/fcl/authenticate)
-          - [authorization](/build/tools/clients/fcl-js/packages-docs/fcl/authorization)
-          - [authorizations](/build/tools/clients/fcl-js/packages-docs/fcl/authorizations)
-          - [authz](/build/tools/clients/fcl-js/packages-docs/fcl/authz)
-          - [block](/build/tools/clients/fcl-js/packages-docs/fcl/block)
-          - [build](/build/tools/clients/fcl-js/packages-docs/fcl/build)
-          - [cadence](/build/tools/clients/fcl-js/packages-docs/fcl/cadence)
-          - [cdc](/build/tools/clients/fcl-js/packages-docs/fcl/cdc)
-          - [config](/build/tools/clients/fcl-js/packages-docs/fcl/config)
-          - [createFcl](/build/tools/clients/fcl-js/packages-docs/fcl/createFcl)
-          - [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/fcl/createSignableVoucher)
-          - [currentUser](/build/tools/clients/fcl-js/packages-docs/fcl/currentUser)
-          - [decode](/build/tools/clients/fcl-js/packages-docs/fcl/decode)
-          - [display](/build/tools/clients/fcl-js/packages-docs/fcl/display)
-          - [events](/build/tools/clients/fcl-js/packages-docs/fcl/events)
-          - [getAccount](/build/tools/clients/fcl-js/packages-docs/fcl/getAccount)
-          - [getBlock](/build/tools/clients/fcl-js/packages-docs/fcl/getBlock)
-          - [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/fcl/getBlockHeader)
-          - [getChainId](/build/tools/clients/fcl-js/packages-docs/fcl/getChainId)
-          - [getCollection](/build/tools/clients/fcl-js/packages-docs/fcl/getCollection)
-          - [getEvents](/build/tools/clients/fcl-js/packages-docs/fcl/getEvents)
-          - [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockHeightRange)
-          - [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockIds)
-          - [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/fcl/getNetworkParameters)
-          - [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/getNodeVersionInfo)
-          - [getTransaction](/build/tools/clients/fcl-js/packages-docs/fcl/getTransaction)
-          - [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/fcl/getTransactionStatus)
-          - [invariant](/build/tools/clients/fcl-js/packages-docs/fcl/invariant)
-          - [isBad](/build/tools/clients/fcl-js/packages-docs/fcl/isBad)
-          - [isOk](/build/tools/clients/fcl-js/packages-docs/fcl/isOk)
-          - [limit](/build/tools/clients/fcl-js/packages-docs/fcl/limit)
-          - [logIn](/build/tools/clients/fcl-js/packages-docs/fcl/logIn)
-          - [mutate](/build/tools/clients/fcl-js/packages-docs/fcl/mutate)
-          - [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/nodeVersionInfo)
-          - [param](/build/tools/clients/fcl-js/packages-docs/fcl/param)
-          - [params](/build/tools/clients/fcl-js/packages-docs/fcl/params)
-          - [payer](/build/tools/clients/fcl-js/packages-docs/fcl/payer)
-          - [ping](/build/tools/clients/fcl-js/packages-docs/fcl/ping)
-          - [pipe](/build/tools/clients/fcl-js/packages-docs/fcl/pipe)
-          - [pluginRegistry](/build/tools/clients/fcl-js/packages-docs/fcl/pluginRegistry)
-          - [proposer](/build/tools/clients/fcl-js/packages-docs/fcl/proposer)
-          - [query](/build/tools/clients/fcl-js/packages-docs/fcl/query)
-          - [queryRaw](/build/tools/clients/fcl-js/packages-docs/fcl/queryRaw)
-          - [reauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/reauthenticate)
-          - [ref](/build/tools/clients/fcl-js/packages-docs/fcl/ref)
-          - [sansPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/sansPrefix)
-          - [script](/build/tools/clients/fcl-js/packages-docs/fcl/script)
-          - [send](/build/tools/clients/fcl-js/packages-docs/fcl/send)
-          - [serialize](/build/tools/clients/fcl-js/packages-docs/fcl/serialize)
-          - [signUp](/build/tools/clients/fcl-js/packages-docs/fcl/signUp)
-          - [subscribe](/build/tools/clients/fcl-js/packages-docs/fcl/subscribe)
-          - [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeEvents)
-          - [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeRaw)
-          - [transaction](/build/tools/clients/fcl-js/packages-docs/fcl/transaction)
-          - [tx](/build/tools/clients/fcl-js/packages-docs/fcl/tx)
-          - [unauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/unauthenticate)
-          - [validator](/build/tools/clients/fcl-js/packages-docs/fcl/validator)
-          - [verifyUserSignatures](/build/tools/clients/fcl-js/packages-docs/fcl/verifyUserSignatures)
-          - [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/fcl/voucherIntercept)
-          - [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/fcl/voucherToTxId)
-          - [why](/build/tools/clients/fcl-js/packages-docs/fcl/why)
-          - [withPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/withPrefix)
-        + [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
-        + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)
-      * [Authentication](/build/tools/clients/fcl-js/authentication)
-      * [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)
-      * [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
-      * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)
-      * [Installation](/build/tools/clients/fcl-js/installation)
-      * [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)
-      * [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)
-      * [Scripts](/build/tools/clients/fcl-js/scripts)
-      * [Transactions](/build/tools/clients/fcl-js/transactions)
-      * [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)
-      * [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)
-    - [Flow Go SDK](/build/tools/clients/flow-go-sdk)
-  + [Error Codes](/build/tools/error-codes)
-  + [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+          + [Flow Emulator](/build/tools/emulator)+ [Flow CLI](/build/tools/flow-cli)
 
-* [Tools & SDKs](/build/tools)
-* [Client Tools](/build/tools/clients)
-* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
-* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
-* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
-* pipe
+              + [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+
+                    - [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
+
+                      * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
+
+                        + [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
+
+                          - [account](/build/tools/clients/fcl-js/packages-docs/fcl/account)- [arg](/build/tools/clients/fcl-js/packages-docs/fcl/arg)- [args](/build/tools/clients/fcl-js/packages-docs/fcl/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockId)- [authenticate](/build/tools/clients/fcl-js/packages-docs/fcl/authenticate)- [authorization](/build/tools/clients/fcl-js/packages-docs/fcl/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/fcl/authorizations)- [authz](/build/tools/clients/fcl-js/packages-docs/fcl/authz)- [block](/build/tools/clients/fcl-js/packages-docs/fcl/block)- [build](/build/tools/clients/fcl-js/packages-docs/fcl/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/fcl/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/fcl/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/fcl/config)- [createFlowClient](/build/tools/clients/fcl-js/packages-docs/fcl/createFlowClient)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/fcl/createSignableVoucher)- [currentUser](/build/tools/clients/fcl-js/packages-docs/fcl/currentUser)- [decode](/build/tools/clients/fcl-js/packages-docs/fcl/decode)- [display](/build/tools/clients/fcl-js/packages-docs/fcl/display)- [events](/build/tools/clients/fcl-js/packages-docs/fcl/events)- [getAccount](/build/tools/clients/fcl-js/packages-docs/fcl/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/fcl/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/fcl/getBlockHeader)- [getCollection](/build/tools/clients/fcl-js/packages-docs/fcl/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/fcl/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/fcl/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/fcl/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/fcl/getTransactionStatus)- [invariant](/build/tools/clients/fcl-js/packages-docs/fcl/invariant)- [isBad](/build/tools/clients/fcl-js/packages-docs/fcl/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/fcl/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/fcl/limit)- [logIn](/build/tools/clients/fcl-js/packages-docs/fcl/logIn)- [mutate](/build/tools/clients/fcl-js/packages-docs/fcl/mutate)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/fcl/param)- [params](/build/tools/clients/fcl-js/packages-docs/fcl/params)- [payer](/build/tools/clients/fcl-js/packages-docs/fcl/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/fcl/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/fcl/pipe)- [pluginRegistry](/build/tools/clients/fcl-js/packages-docs/fcl/pluginRegistry)- [proposer](/build/tools/clients/fcl-js/packages-docs/fcl/proposer)- [query](/build/tools/clients/fcl-js/packages-docs/fcl/query)- [queryRaw](/build/tools/clients/fcl-js/packages-docs/fcl/queryRaw)- [reauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/reauthenticate)- [ref](/build/tools/clients/fcl-js/packages-docs/fcl/ref)- [sansPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/sansPrefix)- [script](/build/tools/clients/fcl-js/packages-docs/fcl/script)- [send](/build/tools/clients/fcl-js/packages-docs/fcl/send)- [serialize](/build/tools/clients/fcl-js/packages-docs/fcl/serialize)- [signUp](/build/tools/clients/fcl-js/packages-docs/fcl/signUp)- [subscribe](/build/tools/clients/fcl-js/packages-docs/fcl/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeRaw)- [transaction](/build/tools/clients/fcl-js/packages-docs/fcl/transaction)- [tx](/build/tools/clients/fcl-js/packages-docs/fcl/tx)- [unauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/unauthenticate)- [validator](/build/tools/clients/fcl-js/packages-docs/fcl/validator)- [verifyUserSignatures](/build/tools/clients/fcl-js/packages-docs/fcl/verifyUserSignatures)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/fcl/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/fcl/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/fcl/why)- [withPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/withPrefix)+ [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
+
+                            + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
+
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+
+* * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* pipe
 
 On this page
 
@@ -433172,61 +433196,30 @@ pluginRegistry](/build/tools/clients/fcl-js/packages-docs/fcl/pluginRegistry)
 
 Copy as Markdown
 
-* [Import](#import)
-* [Usage](#usage)
-* [Parameters](#parameters)
-  + [`fns`](#fns)
-* [Returns](#returns)
+* [Import](#import)* [Usage](#usage)* [Parameters](#parameters)
+      + [`fns`](#fns)* [Returns](#returns)
 
-Documentation
+Flow
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
 
-Community
+Cadence
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
 
-Start Building
+Solidity (EVM)
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
 
-Network
+Community & Support
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
 
-More
+Network & Resources
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
+Copyright © 2025 Flow Foundation. All Rights Reserved.
 
 
 
@@ -437232,6 +437225,8 @@ response | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -437485,6 +437480,8 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 tx | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -445176,6 +445173,8 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 Collectibles & NFTs | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -465039,6 +465038,8 @@ account | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -467791,6 +467792,8 @@ Scheduled Transactions | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -467827,7 +467830,7 @@ On this page
 
 # Scheduled Transactions Tutorials
 
-This series covers how to implement scheduled transactions for time-based smart contract execution on Flow, enabling developers to create automated workflows and time-sensitive blockchain applications. These tutorials are part of the Forte network upgrade, which introduces new capabilities to the Flow blockchain.
+This series covers how to implement scheduled transactions for time-based smart contract execution on Flow, which allows developers to create automated workflows and time-sensitive blockchain applications. These tutorials are part of the Forte network upgrade, which introduces new capabilities to the Flow blockchain.
 
 ## Tutorials[​](#tutorials "Direct link to Tutorials")
 
@@ -467835,7 +467838,7 @@ This series covers how to implement scheduled transactions for time-based smart 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/scheduled-transactions/index.md)
 
-Last updated on **Oct 21, 2025** by **0xLisanAlGaib**
+Last updated on **Oct 23, 2025** by **cshannon1218**
 
 [Previous
 
@@ -468868,6 +468871,8 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 voucherToTxId | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -483466,6 +483471,8 @@ ping | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -483699,6 +483706,8 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 Grants | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -487179,6 +487188,8 @@ DeFi & Liquidity | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -487191,7 +487202,7 @@ Search
 
     * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
 
-                + [Build with Forte ↙](/ecosystem/defi-liquidity/forte)+ [DeFi Contracts](/ecosystem/defi-liquidity/defi-contracts)+ [Cross-chain swaps on Flow EVM](/ecosystem/defi-liquidity/cross-chain-swaps)+ [Add Token To MetaMask](/ecosystem/defi-liquidity/add-token-to-metamask)+ [Stablecoins & Bridges FAQ](/ecosystem/defi-liquidity/faq)+ [Band Oracle](/ecosystem/defi-liquidity/band-oracle)* [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
+                + [Build with Forte ↙](/ecosystem/defi-liquidity/forte)+ [DeFi Contracts Mainnet](/ecosystem/defi-liquidity/defi-contracts-mainnet)+ [DeFi Contracts Testnet](/ecosystem/defi-liquidity/defi-contracts-testnet)+ [Cross-chain swaps on Flow EVM](/ecosystem/defi-liquidity/cross-chain-swaps)+ [Add Token To MetaMask](/ecosystem/defi-liquidity/add-token-to-metamask)+ [Stablecoins & Bridges FAQ](/ecosystem/defi-liquidity/faq)+ [Band Oracle](/ecosystem/defi-liquidity/band-oracle)* [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
 
 * * DeFi & Liquidity
 
@@ -487212,7 +487223,7 @@ Flow is designed for **next-generation DeFi**, enabling developers to build high
 
 **Start integrating DeFi on Flow today.**
 
-**[DeFi Contracts](/ecosystem/defi-liquidity/defi-contracts)**  
+**[DeFi Contracts](/ecosystem/defi-liquidity/defi-contracts-mainnet)**  
 **[Cross-chain swaps](/ecosystem/defi-liquidity/cross-chain-swaps)**  
 **[Read the FAQ](/ecosystem/defi-liquidity/faq)**
 
@@ -487301,7 +487312,7 @@ developers seeking to enhance the security and management of tokenized assets wi
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/index.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Oct 29, 2025** by **bz**
 
 [Previous
 
@@ -490302,6 +490313,8 @@ getNodeVersionInfo | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -490334,7 +490347,7 @@ Search
 
                         + [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
 
-                          - [account](/build/tools/clients/fcl-js/packages-docs/fcl/account)- [arg](/build/tools/clients/fcl-js/packages-docs/fcl/arg)- [args](/build/tools/clients/fcl-js/packages-docs/fcl/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockId)- [authenticate](/build/tools/clients/fcl-js/packages-docs/fcl/authenticate)- [authorization](/build/tools/clients/fcl-js/packages-docs/fcl/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/fcl/authorizations)- [authz](/build/tools/clients/fcl-js/packages-docs/fcl/authz)- [block](/build/tools/clients/fcl-js/packages-docs/fcl/block)- [build](/build/tools/clients/fcl-js/packages-docs/fcl/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/fcl/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/fcl/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/fcl/config)- [createFcl](/build/tools/clients/fcl-js/packages-docs/fcl/createFcl)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/fcl/createSignableVoucher)- [currentUser](/build/tools/clients/fcl-js/packages-docs/fcl/currentUser)- [decode](/build/tools/clients/fcl-js/packages-docs/fcl/decode)- [display](/build/tools/clients/fcl-js/packages-docs/fcl/display)- [events](/build/tools/clients/fcl-js/packages-docs/fcl/events)- [getAccount](/build/tools/clients/fcl-js/packages-docs/fcl/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/fcl/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/fcl/getBlockHeader)- [getChainId](/build/tools/clients/fcl-js/packages-docs/fcl/getChainId)- [getCollection](/build/tools/clients/fcl-js/packages-docs/fcl/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/fcl/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/fcl/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/fcl/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/fcl/getTransactionStatus)- [invariant](/build/tools/clients/fcl-js/packages-docs/fcl/invariant)- [isBad](/build/tools/clients/fcl-js/packages-docs/fcl/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/fcl/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/fcl/limit)- [logIn](/build/tools/clients/fcl-js/packages-docs/fcl/logIn)- [mutate](/build/tools/clients/fcl-js/packages-docs/fcl/mutate)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/fcl/param)- [params](/build/tools/clients/fcl-js/packages-docs/fcl/params)- [payer](/build/tools/clients/fcl-js/packages-docs/fcl/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/fcl/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/fcl/pipe)- [pluginRegistry](/build/tools/clients/fcl-js/packages-docs/fcl/pluginRegistry)- [proposer](/build/tools/clients/fcl-js/packages-docs/fcl/proposer)- [query](/build/tools/clients/fcl-js/packages-docs/fcl/query)- [queryRaw](/build/tools/clients/fcl-js/packages-docs/fcl/queryRaw)- [reauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/reauthenticate)- [ref](/build/tools/clients/fcl-js/packages-docs/fcl/ref)- [sansPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/sansPrefix)- [script](/build/tools/clients/fcl-js/packages-docs/fcl/script)- [send](/build/tools/clients/fcl-js/packages-docs/fcl/send)- [serialize](/build/tools/clients/fcl-js/packages-docs/fcl/serialize)- [signUp](/build/tools/clients/fcl-js/packages-docs/fcl/signUp)- [subscribe](/build/tools/clients/fcl-js/packages-docs/fcl/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeRaw)- [transaction](/build/tools/clients/fcl-js/packages-docs/fcl/transaction)- [tx](/build/tools/clients/fcl-js/packages-docs/fcl/tx)- [unauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/unauthenticate)- [validator](/build/tools/clients/fcl-js/packages-docs/fcl/validator)- [verifyUserSignatures](/build/tools/clients/fcl-js/packages-docs/fcl/verifyUserSignatures)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/fcl/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/fcl/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/fcl/why)- [withPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/withPrefix)+ [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
+                          - [account](/build/tools/clients/fcl-js/packages-docs/fcl/account)- [arg](/build/tools/clients/fcl-js/packages-docs/fcl/arg)- [args](/build/tools/clients/fcl-js/packages-docs/fcl/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockId)- [authenticate](/build/tools/clients/fcl-js/packages-docs/fcl/authenticate)- [authorization](/build/tools/clients/fcl-js/packages-docs/fcl/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/fcl/authorizations)- [authz](/build/tools/clients/fcl-js/packages-docs/fcl/authz)- [block](/build/tools/clients/fcl-js/packages-docs/fcl/block)- [build](/build/tools/clients/fcl-js/packages-docs/fcl/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/fcl/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/fcl/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/fcl/config)- [createFlowClient](/build/tools/clients/fcl-js/packages-docs/fcl/createFlowClient)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/fcl/createSignableVoucher)- [currentUser](/build/tools/clients/fcl-js/packages-docs/fcl/currentUser)- [decode](/build/tools/clients/fcl-js/packages-docs/fcl/decode)- [display](/build/tools/clients/fcl-js/packages-docs/fcl/display)- [events](/build/tools/clients/fcl-js/packages-docs/fcl/events)- [getAccount](/build/tools/clients/fcl-js/packages-docs/fcl/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/fcl/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/fcl/getBlockHeader)- [getCollection](/build/tools/clients/fcl-js/packages-docs/fcl/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/fcl/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/fcl/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/fcl/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/fcl/getTransactionStatus)- [invariant](/build/tools/clients/fcl-js/packages-docs/fcl/invariant)- [isBad](/build/tools/clients/fcl-js/packages-docs/fcl/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/fcl/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/fcl/limit)- [logIn](/build/tools/clients/fcl-js/packages-docs/fcl/logIn)- [mutate](/build/tools/clients/fcl-js/packages-docs/fcl/mutate)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/fcl/param)- [params](/build/tools/clients/fcl-js/packages-docs/fcl/params)- [payer](/build/tools/clients/fcl-js/packages-docs/fcl/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/fcl/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/fcl/pipe)- [pluginRegistry](/build/tools/clients/fcl-js/packages-docs/fcl/pluginRegistry)- [proposer](/build/tools/clients/fcl-js/packages-docs/fcl/proposer)- [query](/build/tools/clients/fcl-js/packages-docs/fcl/query)- [queryRaw](/build/tools/clients/fcl-js/packages-docs/fcl/queryRaw)- [reauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/reauthenticate)- [ref](/build/tools/clients/fcl-js/packages-docs/fcl/ref)- [sansPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/sansPrefix)- [script](/build/tools/clients/fcl-js/packages-docs/fcl/script)- [send](/build/tools/clients/fcl-js/packages-docs/fcl/send)- [serialize](/build/tools/clients/fcl-js/packages-docs/fcl/serialize)- [signUp](/build/tools/clients/fcl-js/packages-docs/fcl/signUp)- [subscribe](/build/tools/clients/fcl-js/packages-docs/fcl/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeRaw)- [transaction](/build/tools/clients/fcl-js/packages-docs/fcl/transaction)- [tx](/build/tools/clients/fcl-js/packages-docs/fcl/tx)- [unauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/unauthenticate)- [validator](/build/tools/clients/fcl-js/packages-docs/fcl/validator)- [verifyUserSignatures](/build/tools/clients/fcl-js/packages-docs/fcl/verifyUserSignatures)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/fcl/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/fcl/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/fcl/why)- [withPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/withPrefix)+ [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
@@ -490359,75 +490372,83 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as fcl from '@onflow/fcl';
+import * as fcl from "@onflow/fcl"
 
 _10
 
 _10
 
-fcl.getNodeVersionInfo();`
+fcl.getNodeVersionInfo()`
 
 Or import directly the specific function:
 
 `_10
 
-import { getNodeVersionInfo } from '@onflow/fcl';
+import { getNodeVersionInfo } from "@onflow/fcl"
 
 _10
 
 _10
 
-getNodeVersionInfo();`
+getNodeVersionInfo()`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`_14
+`_16
 
-import * as fcl from '@onflow/fcl';
+import * as fcl from "@onflow/fcl";
 
-_14
+_16
 
-_14
+_16
 
 // Get node version information using builder
 
-_14
+_16
 
-const versionInfo = await fcl.send([fcl.getNodeVersionInfo()]).then(fcl.decode);
+const versionInfo = await fcl.send([
 
-_14
+_16
 
-_14
+fcl.getNodeVersionInfo()
 
-console.log('Node version:', versionInfo.semver);
+_16
 
-_14
+]).then(fcl.decode);
 
-console.log('Protocol version:', versionInfo.protocol_version);
+_16
 
-_14
+_16
 
-console.log('Spork ID:', versionInfo.spork_id);
+console.log("Node version:", versionInfo.semver);
 
-_14
+_16
 
-_14
+console.log("Protocol version:", versionInfo.protocol_version);
+
+_16
+
+console.log("Spork ID:", versionInfo.spork_id);
+
+_16
+
+_16
 
 // Use with other builders if needed
 
-_14
+_16
 
 const interaction = await fcl.build([
 
-_14
+_16
 
-fcl.getNodeVersionInfo(),
+fcl.getNodeVersionInfo()
 
-_14
+_16
 
 // other builders can be added here
 
-_14
+_16
 
 ]);`
 
@@ -490439,11 +490460,11 @@ export type InteractionBuilderFn = (
 
 _10
 
-ix: Interaction,
+ix: Interaction
 
 _10
 
-) => Interaction | Promise<Interaction>;`
+) => Interaction | Promise<Interaction>`
 
 A function that processes an interaction object
 
@@ -490451,7 +490472,7 @@ A function that processes an interaction object
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/getNodeVersionInfo.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Oct 22, 2025** by **Michael Fabozzi**
 
 [Previous
 
@@ -505662,6 +505683,8 @@ EVM Wallet Setup | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -508066,6 +508089,8 @@ Stablecoins & Bridges on Flow FAQ | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -508078,7 +508103,7 @@ Search
 
     * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
 
-                + [Build with Forte ↙](/ecosystem/defi-liquidity/forte)+ [DeFi Contracts](/ecosystem/defi-liquidity/defi-contracts)+ [Cross-chain swaps on Flow EVM](/ecosystem/defi-liquidity/cross-chain-swaps)+ [Add Token To MetaMask](/ecosystem/defi-liquidity/add-token-to-metamask)+ [Stablecoins & Bridges FAQ](/ecosystem/defi-liquidity/faq)+ [Band Oracle](/ecosystem/defi-liquidity/band-oracle)* [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
+                + [Build with Forte ↙](/ecosystem/defi-liquidity/forte)+ [DeFi Contracts Mainnet](/ecosystem/defi-liquidity/defi-contracts-mainnet)+ [DeFi Contracts Testnet](/ecosystem/defi-liquidity/defi-contracts-testnet)+ [Cross-chain swaps on Flow EVM](/ecosystem/defi-liquidity/cross-chain-swaps)+ [Add Token To MetaMask](/ecosystem/defi-liquidity/add-token-to-metamask)+ [Stablecoins & Bridges FAQ](/ecosystem/defi-liquidity/faq)+ [Band Oracle](/ecosystem/defi-liquidity/band-oracle)* [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
 
 * * [DeFi & Liquidity](/ecosystem/defi-liquidity)* Stablecoins & Bridges FAQ
 
@@ -508092,7 +508117,7 @@ Below are common questions regarding stablecoins, liquidity, and bridging on Flo
 
 Does Flow use ETH for gas?
 
-No, Flow uses $FLOW as the gas token. [WETH](/ecosystem/defi-liquidity/defi-contracts#stablecoins--wrapped-assets) is supported on Flow EVM when [bridging](/ecosystem/bridges) from another chain. $WFLOW is used as an ERC20 in DeFi apps and not used for gas.
+No, Flow uses $FLOW as the gas token. [WETH](/ecosystem/defi-liquidity/defi-contracts-mainnet#stablecoins--wrapped-assets) is supported on Flow EVM when [bridging](/ecosystem/bridges) from another chain. $WFLOW is used as an ERC20 in DeFi apps and not used for gas.
 
 How do I pay for gas when bridging into Flow?
 
@@ -508114,7 +508139,7 @@ USDF (USD Flow) - Backed by PYUSD (PayPal USD) issued by PayPal
 What are the smart contract addresses for the stablecoins and bridges on Flow?
 
 You can find all the contract addresses for the stablecoins and bridges on Flow here:  
-[DeFi Contracts on Flow](/ecosystem/defi-liquidity/defi-contracts)
+[DeFi Contracts on Flow](/ecosystem/defi-liquidity/defi-contracts-mainnet)
 
 Where can I trade stablecoins on Flow?
 
@@ -508235,7 +508260,7 @@ You can use any EVM wallet such as Metamask, Coinbase Wallet, and Flow Wallet.
 What stablecoins are currently live on Flow EVM?
 
 You can see a full list of stablecoins here:  
-[DeFi Contracts on Flow](/ecosystem/defi-liquidity/defi-contracts)
+[DeFi Contracts on Flow](/ecosystem/defi-liquidity/defi-contracts-mainnet)
 
 Trading pools for USDF and stgUSDC (USDC via Stargate) are already live and available for immediate use on Flow EVM and can be seamlessly transferred to any Flow Cadence address.
 
@@ -508265,7 +508290,7 @@ Where can I get updates or ask questions?
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/faq.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Oct 29, 2025** by **bz**
 
 [Previous
 
@@ -509464,6 +509489,8 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 validator | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -524813,6 +524840,8 @@ resolveCadence | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -525831,6 +525860,8 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 Claude Code for Flow Development | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -537305,6 +537336,8 @@ isBad | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -537313,131 +537346,37 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 
 Search
 
-* [Why Flow](/build/flow)
-* [Cadence](/build/cadence/quickstart)
+* [Why Flow](/build/flow)* [Cadence](/build/cadence/quickstart)
 
-  + [Quickstart ↙](/build/cadence/quickstart)
-  + [Differences vs. EVM](/build/cadence/differences-vs-evm)
-  + [Basics](/build/cadence/basics/network-architecture)
-  + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
-  + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
-  + [Core Smart Contracts](/build/cadence/core-contracts)
-* [Solidity (EVM)](/build/evm/quickstart)
+    + [Quickstart ↙](/build/cadence/quickstart)+ [Differences vs. EVM](/build/cadence/differences-vs-evm)+ [Basics](/build/cadence/basics/network-architecture)
 
-  + [EVM Quickstart](/build/evm/quickstart)
-  + [How it Works](/build/evm/how-it-works)
-  + [EVM Wallet Setup](/build/evm/using)
-  + [Network Information](/build/evm/networks)
-  + [Fees](/build/evm/fees)
-  + [Accounts](/build/evm/accounts)
-* [Tools & SDKs](/build/tools)
+          + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-  + [@onflow/react-sdk](/build/tools/react-sdk)
-  + [Flow Emulator](/build/tools/emulator)
-  + [Flow CLI](/build/tools/flow-cli)
-  + [Cadence VS Code Extension](/build/tools/vscode-extension)
-  + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
-  + [Client Tools](/build/tools/clients)
+            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
 
-    - [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
+              + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
 
-      * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
+      + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
 
-        + [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
-        + [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
+        + [Flow React SDK](/build/tools/react-sdk)
 
-          - [account](/build/tools/clients/fcl-js/packages-docs/sdk/account)
-          - [arg](/build/tools/clients/fcl-js/packages-docs/sdk/arg)
-          - [args](/build/tools/clients/fcl-js/packages-docs/sdk/args)
-          - [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockHeight)
-          - [atBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockId)
-          - [atLatestBlock](/build/tools/clients/fcl-js/packages-docs/sdk/atLatestBlock)
-          - [authorization](/build/tools/clients/fcl-js/packages-docs/sdk/authorization)
-          - [authorizations](/build/tools/clients/fcl-js/packages-docs/sdk/authorizations)
-          - [block](/build/tools/clients/fcl-js/packages-docs/sdk/block)
-          - [build](/build/tools/clients/fcl-js/packages-docs/sdk/build)
-          - [cadence](/build/tools/clients/fcl-js/packages-docs/sdk/cadence)
-          - [cdc](/build/tools/clients/fcl-js/packages-docs/sdk/cdc)
-          - [config](/build/tools/clients/fcl-js/packages-docs/sdk/config)
-          - [createSdkClient](/build/tools/clients/fcl-js/packages-docs/sdk/createSdkClient)
-          - [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/createSignableVoucher)
-          - [decode](/build/tools/clients/fcl-js/packages-docs/sdk/decode)
-          - [destroy](/build/tools/clients/fcl-js/packages-docs/sdk/destroy)
-          - [encodeMessageFromSignable](/build/tools/clients/fcl-js/packages-docs/sdk/encodeMessageFromSignable)
-          - [encodeTransactionEnvelope](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionEnvelope)
-          - [encodeTransactionPayload](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionPayload)
-          - [encodeTxIdFromVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher)
-          - [get](/build/tools/clients/fcl-js/packages-docs/sdk/get)
-          - [getAccount](/build/tools/clients/fcl-js/packages-docs/sdk/getAccount)
-          - [getBlock](/build/tools/clients/fcl-js/packages-docs/sdk/getBlock)
-          - [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/sdk/getBlockHeader)
-          - [getCollection](/build/tools/clients/fcl-js/packages-docs/sdk/getCollection)
-          - [getEvents](/build/tools/clients/fcl-js/packages-docs/sdk/getEvents)
-          - [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockHeightRange)
-          - [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockIds)
-          - [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/sdk/getNetworkParameters)
-          - [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo)
-          - [getTransaction](/build/tools/clients/fcl-js/packages-docs/sdk/getTransaction)
-          - [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/sdk/getTransactionStatus)
-          - [initInteraction](/build/tools/clients/fcl-js/packages-docs/sdk/initInteraction)
-          - [interaction](/build/tools/clients/fcl-js/packages-docs/sdk/interaction)
-          - [isBad](/build/tools/clients/fcl-js/packages-docs/sdk/isBad)
-          - [isOk](/build/tools/clients/fcl-js/packages-docs/sdk/isOk)
-          - [limit](/build/tools/clients/fcl-js/packages-docs/sdk/limit)
-          - [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/nodeVersionInfo)
-          - [param](/build/tools/clients/fcl-js/packages-docs/sdk/param)
-          - [params](/build/tools/clients/fcl-js/packages-docs/sdk/params)
-          - [payer](/build/tools/clients/fcl-js/packages-docs/sdk/payer)
-          - [ping](/build/tools/clients/fcl-js/packages-docs/sdk/ping)
-          - [pipe](/build/tools/clients/fcl-js/packages-docs/sdk/pipe)
-          - [proposer](/build/tools/clients/fcl-js/packages-docs/sdk/proposer)
-          - [put](/build/tools/clients/fcl-js/packages-docs/sdk/put)
-          - [ref](/build/tools/clients/fcl-js/packages-docs/sdk/ref)
-          - [resolve](/build/tools/clients/fcl-js/packages-docs/sdk/resolve)
-          - [resolveAccounts](/build/tools/clients/fcl-js/packages-docs/sdk/resolveAccounts)
-          - [resolveArguments](/build/tools/clients/fcl-js/packages-docs/sdk/resolveArguments)
-          - [resolveCadence](/build/tools/clients/fcl-js/packages-docs/sdk/resolveCadence)
-          - [resolveFinalNormalization](/build/tools/clients/fcl-js/packages-docs/sdk/resolveFinalNormalization)
-          - [resolveProposerSequenceNumber](/build/tools/clients/fcl-js/packages-docs/sdk/resolveProposerSequenceNumber)
-          - [resolveRefBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/resolveRefBlockId)
-          - [resolveSignatures](/build/tools/clients/fcl-js/packages-docs/sdk/resolveSignatures)
-          - [resolveValidators](/build/tools/clients/fcl-js/packages-docs/sdk/resolveValidators)
-          - [resolveVoucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/resolveVoucherIntercept)
-          - [response](/build/tools/clients/fcl-js/packages-docs/sdk/response)
-          - [script](/build/tools/clients/fcl-js/packages-docs/sdk/script)
-          - [send](/build/tools/clients/fcl-js/packages-docs/sdk/send)
-          - [subscribe](/build/tools/clients/fcl-js/packages-docs/sdk/subscribe)
-          - [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeEvents)
-          - [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeRaw)
-          - [TestUtils](/build/tools/clients/fcl-js/packages-docs/sdk/testUtils)
-          - [transaction](/build/tools/clients/fcl-js/packages-docs/sdk/transaction)
-          - [update](/build/tools/clients/fcl-js/packages-docs/sdk/update)
-          - [validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)
-          - [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/voucherIntercept)
-          - [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/sdk/voucherToTxId)
-          - [why](/build/tools/clients/fcl-js/packages-docs/sdk/why)
-        + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)
-      * [Authentication](/build/tools/clients/fcl-js/authentication)
-      * [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)
-      * [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
-      * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)
-      * [Installation](/build/tools/clients/fcl-js/installation)
-      * [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)
-      * [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)
-      * [Scripts](/build/tools/clients/fcl-js/scripts)
-      * [Transactions](/build/tools/clients/fcl-js/transactions)
-      * [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)
-      * [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)
-    - [Flow Go SDK](/build/tools/clients/flow-go-sdk)
-  + [Error Codes](/build/tools/error-codes)
-  + [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+          + [Flow Emulator](/build/tools/emulator)+ [Flow CLI](/build/tools/flow-cli)
 
-* [Tools & SDKs](/build/tools)
-* [Client Tools](/build/tools/clients)
-* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
-* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
-* [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
-* isBad
+              + [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+
+                    - [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
+
+                      * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
+
+                        + [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
+
+                          + [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
+
+                            - [account](/build/tools/clients/fcl-js/packages-docs/sdk/account)- [arg](/build/tools/clients/fcl-js/packages-docs/sdk/arg)- [args](/build/tools/clients/fcl-js/packages-docs/sdk/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockId)- [atLatestBlock](/build/tools/clients/fcl-js/packages-docs/sdk/atLatestBlock)- [authorization](/build/tools/clients/fcl-js/packages-docs/sdk/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/sdk/authorizations)- [block](/build/tools/clients/fcl-js/packages-docs/sdk/block)- [build](/build/tools/clients/fcl-js/packages-docs/sdk/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/sdk/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/sdk/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/sdk/config)- [createSdkClient](/build/tools/clients/fcl-js/packages-docs/sdk/createSdkClient)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/createSignableVoucher)- [decode](/build/tools/clients/fcl-js/packages-docs/sdk/decode)- [destroy](/build/tools/clients/fcl-js/packages-docs/sdk/destroy)- [encodeMessageFromSignable](/build/tools/clients/fcl-js/packages-docs/sdk/encodeMessageFromSignable)- [encodeTransactionEnvelope](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionEnvelope)- [encodeTransactionPayload](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionPayload)- [encodeTxIdFromVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher)- [get](/build/tools/clients/fcl-js/packages-docs/sdk/get)- [getAccount](/build/tools/clients/fcl-js/packages-docs/sdk/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/sdk/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/sdk/getBlockHeader)- [getCollection](/build/tools/clients/fcl-js/packages-docs/sdk/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/sdk/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/sdk/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/sdk/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/sdk/getTransactionStatus)- [initInteraction](/build/tools/clients/fcl-js/packages-docs/sdk/initInteraction)- [interaction](/build/tools/clients/fcl-js/packages-docs/sdk/interaction)- [isBad](/build/tools/clients/fcl-js/packages-docs/sdk/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/sdk/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/sdk/limit)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/sdk/param)- [params](/build/tools/clients/fcl-js/packages-docs/sdk/params)- [payer](/build/tools/clients/fcl-js/packages-docs/sdk/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/sdk/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/sdk/pipe)- [proposer](/build/tools/clients/fcl-js/packages-docs/sdk/proposer)- [put](/build/tools/clients/fcl-js/packages-docs/sdk/put)- [ref](/build/tools/clients/fcl-js/packages-docs/sdk/ref)- [resolve](/build/tools/clients/fcl-js/packages-docs/sdk/resolve)- [resolveAccounts](/build/tools/clients/fcl-js/packages-docs/sdk/resolveAccounts)- [resolveArguments](/build/tools/clients/fcl-js/packages-docs/sdk/resolveArguments)- [resolveCadence](/build/tools/clients/fcl-js/packages-docs/sdk/resolveCadence)- [resolveFinalNormalization](/build/tools/clients/fcl-js/packages-docs/sdk/resolveFinalNormalization)- [resolveProposerSequenceNumber](/build/tools/clients/fcl-js/packages-docs/sdk/resolveProposerSequenceNumber)- [resolveRefBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/resolveRefBlockId)- [resolveSignatures](/build/tools/clients/fcl-js/packages-docs/sdk/resolveSignatures)- [resolveValidators](/build/tools/clients/fcl-js/packages-docs/sdk/resolveValidators)- [resolveVoucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/resolveVoucherIntercept)- [response](/build/tools/clients/fcl-js/packages-docs/sdk/response)- [script](/build/tools/clients/fcl-js/packages-docs/sdk/script)- [send](/build/tools/clients/fcl-js/packages-docs/sdk/send)- [subscribe](/build/tools/clients/fcl-js/packages-docs/sdk/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeRaw)- [TestUtils](/build/tools/clients/fcl-js/packages-docs/sdk/testUtils)- [transaction](/build/tools/clients/fcl-js/packages-docs/sdk/transaction)- [update](/build/tools/clients/fcl-js/packages-docs/sdk/update)- [validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/sdk/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/sdk/why)+ [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
+
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+
+* * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)* isBad
 
 On this page
 
@@ -537540,61 +537479,30 @@ isOk](/build/tools/clients/fcl-js/packages-docs/sdk/isOk)
 
 Copy as Markdown
 
-* [Import](#import)
-* [Usage](#usage)
-* [Parameters](#parameters)
-  + [`ix`](#ix)
-* [Returns](#returns)
+* [Import](#import)* [Usage](#usage)* [Parameters](#parameters)
+      + [`ix`](#ix)* [Returns](#returns)
 
-Documentation
+Flow
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
 
-Community
+Cadence
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
 
-Start Building
+Solidity (EVM)
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
 
-Network
+Community & Support
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
 
-More
+Network & Resources
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
+Copyright © 2025 Flow Foundation. All Rights Reserved.
 
 
 
@@ -542459,6 +542367,8 @@ Builder Perks | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -542735,6 +542645,8 @@ getNetworkParameters | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -542767,7 +542679,7 @@ Search
 
                         + [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
 
-                          - [account](/build/tools/clients/fcl-js/packages-docs/fcl/account)- [arg](/build/tools/clients/fcl-js/packages-docs/fcl/arg)- [args](/build/tools/clients/fcl-js/packages-docs/fcl/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockId)- [authenticate](/build/tools/clients/fcl-js/packages-docs/fcl/authenticate)- [authorization](/build/tools/clients/fcl-js/packages-docs/fcl/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/fcl/authorizations)- [authz](/build/tools/clients/fcl-js/packages-docs/fcl/authz)- [block](/build/tools/clients/fcl-js/packages-docs/fcl/block)- [build](/build/tools/clients/fcl-js/packages-docs/fcl/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/fcl/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/fcl/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/fcl/config)- [createFcl](/build/tools/clients/fcl-js/packages-docs/fcl/createFcl)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/fcl/createSignableVoucher)- [currentUser](/build/tools/clients/fcl-js/packages-docs/fcl/currentUser)- [decode](/build/tools/clients/fcl-js/packages-docs/fcl/decode)- [display](/build/tools/clients/fcl-js/packages-docs/fcl/display)- [events](/build/tools/clients/fcl-js/packages-docs/fcl/events)- [getAccount](/build/tools/clients/fcl-js/packages-docs/fcl/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/fcl/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/fcl/getBlockHeader)- [getChainId](/build/tools/clients/fcl-js/packages-docs/fcl/getChainId)- [getCollection](/build/tools/clients/fcl-js/packages-docs/fcl/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/fcl/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/fcl/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/fcl/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/fcl/getTransactionStatus)- [invariant](/build/tools/clients/fcl-js/packages-docs/fcl/invariant)- [isBad](/build/tools/clients/fcl-js/packages-docs/fcl/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/fcl/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/fcl/limit)- [logIn](/build/tools/clients/fcl-js/packages-docs/fcl/logIn)- [mutate](/build/tools/clients/fcl-js/packages-docs/fcl/mutate)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/fcl/param)- [params](/build/tools/clients/fcl-js/packages-docs/fcl/params)- [payer](/build/tools/clients/fcl-js/packages-docs/fcl/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/fcl/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/fcl/pipe)- [pluginRegistry](/build/tools/clients/fcl-js/packages-docs/fcl/pluginRegistry)- [proposer](/build/tools/clients/fcl-js/packages-docs/fcl/proposer)- [query](/build/tools/clients/fcl-js/packages-docs/fcl/query)- [queryRaw](/build/tools/clients/fcl-js/packages-docs/fcl/queryRaw)- [reauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/reauthenticate)- [ref](/build/tools/clients/fcl-js/packages-docs/fcl/ref)- [sansPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/sansPrefix)- [script](/build/tools/clients/fcl-js/packages-docs/fcl/script)- [send](/build/tools/clients/fcl-js/packages-docs/fcl/send)- [serialize](/build/tools/clients/fcl-js/packages-docs/fcl/serialize)- [signUp](/build/tools/clients/fcl-js/packages-docs/fcl/signUp)- [subscribe](/build/tools/clients/fcl-js/packages-docs/fcl/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeRaw)- [transaction](/build/tools/clients/fcl-js/packages-docs/fcl/transaction)- [tx](/build/tools/clients/fcl-js/packages-docs/fcl/tx)- [unauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/unauthenticate)- [validator](/build/tools/clients/fcl-js/packages-docs/fcl/validator)- [verifyUserSignatures](/build/tools/clients/fcl-js/packages-docs/fcl/verifyUserSignatures)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/fcl/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/fcl/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/fcl/why)- [withPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/withPrefix)+ [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
+                          - [account](/build/tools/clients/fcl-js/packages-docs/fcl/account)- [arg](/build/tools/clients/fcl-js/packages-docs/fcl/arg)- [args](/build/tools/clients/fcl-js/packages-docs/fcl/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockId)- [authenticate](/build/tools/clients/fcl-js/packages-docs/fcl/authenticate)- [authorization](/build/tools/clients/fcl-js/packages-docs/fcl/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/fcl/authorizations)- [authz](/build/tools/clients/fcl-js/packages-docs/fcl/authz)- [block](/build/tools/clients/fcl-js/packages-docs/fcl/block)- [build](/build/tools/clients/fcl-js/packages-docs/fcl/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/fcl/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/fcl/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/fcl/config)- [createFlowClient](/build/tools/clients/fcl-js/packages-docs/fcl/createFlowClient)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/fcl/createSignableVoucher)- [currentUser](/build/tools/clients/fcl-js/packages-docs/fcl/currentUser)- [decode](/build/tools/clients/fcl-js/packages-docs/fcl/decode)- [display](/build/tools/clients/fcl-js/packages-docs/fcl/display)- [events](/build/tools/clients/fcl-js/packages-docs/fcl/events)- [getAccount](/build/tools/clients/fcl-js/packages-docs/fcl/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/fcl/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/fcl/getBlockHeader)- [getCollection](/build/tools/clients/fcl-js/packages-docs/fcl/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/fcl/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/fcl/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/fcl/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/fcl/getTransactionStatus)- [invariant](/build/tools/clients/fcl-js/packages-docs/fcl/invariant)- [isBad](/build/tools/clients/fcl-js/packages-docs/fcl/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/fcl/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/fcl/limit)- [logIn](/build/tools/clients/fcl-js/packages-docs/fcl/logIn)- [mutate](/build/tools/clients/fcl-js/packages-docs/fcl/mutate)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/fcl/param)- [params](/build/tools/clients/fcl-js/packages-docs/fcl/params)- [payer](/build/tools/clients/fcl-js/packages-docs/fcl/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/fcl/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/fcl/pipe)- [pluginRegistry](/build/tools/clients/fcl-js/packages-docs/fcl/pluginRegistry)- [proposer](/build/tools/clients/fcl-js/packages-docs/fcl/proposer)- [query](/build/tools/clients/fcl-js/packages-docs/fcl/query)- [queryRaw](/build/tools/clients/fcl-js/packages-docs/fcl/queryRaw)- [reauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/reauthenticate)- [ref](/build/tools/clients/fcl-js/packages-docs/fcl/ref)- [sansPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/sansPrefix)- [script](/build/tools/clients/fcl-js/packages-docs/fcl/script)- [send](/build/tools/clients/fcl-js/packages-docs/fcl/send)- [serialize](/build/tools/clients/fcl-js/packages-docs/fcl/serialize)- [signUp](/build/tools/clients/fcl-js/packages-docs/fcl/signUp)- [subscribe](/build/tools/clients/fcl-js/packages-docs/fcl/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeRaw)- [transaction](/build/tools/clients/fcl-js/packages-docs/fcl/transaction)- [tx](/build/tools/clients/fcl-js/packages-docs/fcl/tx)- [unauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/unauthenticate)- [validator](/build/tools/clients/fcl-js/packages-docs/fcl/validator)- [verifyUserSignatures](/build/tools/clients/fcl-js/packages-docs/fcl/verifyUserSignatures)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/fcl/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/fcl/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/fcl/why)- [withPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/withPrefix)+ [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
@@ -542791,75 +542703,83 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as fcl from '@onflow/fcl';
+import * as fcl from "@onflow/fcl"
 
 _10
 
 _10
 
-fcl.getNetworkParameters();`
+fcl.getNetworkParameters()`
 
 Or import directly the specific function:
 
 `_10
 
-import { getNetworkParameters } from '@onflow/fcl';
+import { getNetworkParameters } from "@onflow/fcl"
 
 _10
 
 _10
 
-getNetworkParameters();`
+getNetworkParameters()`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`_14
+`_16
 
-import * as fcl from '@onflow/fcl';
+import * as fcl from "@onflow/fcl";
 
-_14
+_16
 
-_14
+_16
 
 // Get network parameters to verify chain ID
 
-_14
+_16
 
-const params = await fcl.send([fcl.getNetworkParameters()]).then(fcl.decode);
+const params = await fcl.send([
 
-_14
+_16
 
-_14
+fcl.getNetworkParameters()
 
-console.log('Chain ID:', params.chainId);
+_16
 
-_14
+]).then(fcl.decode);
 
-console.log('Network:', params.name);
+_16
 
-_14
+_16
 
-_14
+console.log("Chain ID:", params.chainId);
+
+_16
+
+console.log("Network:", params.name);
+
+_16
+
+_16
 
 // Use this to verify you're connected to the right network
 
-_14
+_16
 
-if (params.chainId === 'flow-mainnet') {
+if (params.chainId === "flow-mainnet") {
 
-_14
+_16
 
-console.log('Connected to Flow Mainnet');
+console.log("Connected to Flow Mainnet");
 
-_14
+_16
 
-} else if (params.chainId === 'flow-testnet') {
+} else if (params.chainId === "flow-testnet") {
 
-_14
+_16
 
-console.log('Connected to Flow Testnet');
+console.log("Connected to Flow Testnet");
 
-_14
+_16
 
 }`
 
@@ -542871,11 +542791,11 @@ export type InteractionBuilderFn = (
 
 _10
 
-ix: Interaction,
+ix: Interaction
 
 _10
 
-) => Interaction | Promise<Interaction>;`
+) => Interaction | Promise<Interaction>`
 
 A function that processes an interaction object
 
@@ -542883,7 +542803,7 @@ A function that processes an interaction object
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/getNetworkParameters.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Oct 22, 2025** by **Michael Fabozzi**
 
 [Previous
 
@@ -543606,6 +543526,8 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 Payment Checkout Integration | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -553321,6 +553243,8 @@ Band Oracle on Flow | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -553333,7 +553257,7 @@ Search
 
     * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
 
-                + [Build with Forte ↙](/ecosystem/defi-liquidity/forte)+ [DeFi Contracts](/ecosystem/defi-liquidity/defi-contracts)+ [Cross-chain swaps on Flow EVM](/ecosystem/defi-liquidity/cross-chain-swaps)+ [Add Token To MetaMask](/ecosystem/defi-liquidity/add-token-to-metamask)+ [Stablecoins & Bridges FAQ](/ecosystem/defi-liquidity/faq)+ [Band Oracle](/ecosystem/defi-liquidity/band-oracle)* [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
+                + [Build with Forte ↙](/ecosystem/defi-liquidity/forte)+ [DeFi Contracts Mainnet](/ecosystem/defi-liquidity/defi-contracts-mainnet)+ [DeFi Contracts Testnet](/ecosystem/defi-liquidity/defi-contracts-testnet)+ [Cross-chain swaps on Flow EVM](/ecosystem/defi-liquidity/cross-chain-swaps)+ [Add Token To MetaMask](/ecosystem/defi-liquidity/add-token-to-metamask)+ [Stablecoins & Bridges FAQ](/ecosystem/defi-liquidity/faq)+ [Band Oracle](/ecosystem/defi-liquidity/band-oracle)* [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
 
 * * [DeFi & Liquidity](/ecosystem/defi-liquidity)* Band Oracle
 
@@ -555159,6 +555083,8 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 Remove a Contract | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -560461,6 +560387,8 @@ Introduction to Flow Actions | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -560497,23 +560425,17 @@ On this page
 
 # Introduction to Flow Actions
 
-warning
+*Actions* are a suite of standardized Cadence interfaces that allow developers to compose complex workflows, starting with decentralized finance (DeFi) workflows, by connecting small, reusable components. Actions provide a "LEGO" framework of blocks where each component performs a single operation (deposit, withdraw, swap, price lookup, flash loan) while maintaining composability with other components. This creates sophisticated workflows executable in a single atomic transaction.
 
-Flow Actions are being reviewed and finalized in [FLIP 339](https://github.com/onflow/flips/pull/339/files). The specific implementation may change as a part of this process.
-
-These tutorials will be updated, but you may need to refactor your code if the implementation changes.
-
-*Actions* are a suite of standardized Cadence interfaces that enable developers to compose complex workflows, starting with DeFi, by connecting small, reusable components. Actions provide a "LEGO" framework of plug-and-play blocks where each component performs a single operation (deposit, withdraw, swap, price lookup, flash loan) while maintaining composability with other components to create sophisticated workflows executable in a single atomic transaction.
-
-By using Flow Actions, developers are to able remove large amounts of bespoke complexity from building DeFi apps and can instead focus on business logic using nouns and verbs.
+By using Flow Actions, developers can remove large amounts of tailored complexity from building DeFi apps and can instead focus on business logic using nouns and verbs.
 
 ## Key Features[​](#key-features "Direct link to Key Features")
 
-* **Atomic Composition** - All operations complete or fail together
-* **Weak Guarantees** - Flexible error handling, no-ops when conditions aren't met
-* **Event Traceability** - UniqueIdentifier system for tracking operations
-* **Protocol Agnostic** - Standardized interfaces across different protocols
-* **Struct-based** - Lightweight, copyable components for efficient composition
+* **Atomic Composition** - All operations complete or fail together.
+* **Weak Guarantees** - Flexible error handling, no-ops when conditions aren't met.
+* **Event Traceability** - UniqueIdentifier system for tracking operations.
+* **Protocol Agnostic** - Standardized interfaces across different protocols.
+* **Struct-based** - Lightweight, copyable components for efficient composition.
 
 ## Learning Objectives[​](#learning-objectives "Direct link to Learning Objectives")
 
@@ -560532,39 +560454,39 @@ After completing this tutorial, you will be able to:
 
 ## Cadence Programming Language[​](#cadence-programming-language "Direct link to Cadence Programming Language")
 
-This tutorial assumes you have a modest knowledge of [Cadence](https://cadence-lang.org/docs). If you don't, you'll be able to follow along, but you'll get more out of it if you complete our series of [Cadence](https://cadence-lang.org/docs) tutorials. Most developers find it more pleasant than other blockchain languages and it's not hard to pick up.
+This tutorial assumes you have a modest knowledge of [Cadence](https://cadence-lang.org/docs). If you don't, you can follow along, but you'll get more out of it if you complete our [Cadence](https://cadence-lang.org/docs) tutorials. Most developers find it easier than other blockchain languages and it's not hard to pick up.
 
 ## Flow Action Types[​](#flow-action-types "Direct link to Flow Action Types")
 
 The first five Flow Actions implement five core primitives to integrate external DeFi protocols.
 
-1. **Source**: Provides tokens on demand (e.g. withdraw from vault, claim rewards, pull liquidity)
+1. **Source**: Provides tokens on demand (for example, withdraw from vault, claim rewards, pull liquidity)
 
 ![source](/assets/images/source-bc4fb0b6e9216d36592df3e6ccf6c4f0.png)
 
-2. **Sink**: Accepts tokens up to capacity (e.g. deposit to vault, repay loan, add liquidity)
+2. **Sink**: Accepts tokens up to capacity (for example, deposit to vault, repay loan, add liquidity)
 
 ![sink](/assets/images/sink-ae5a2433af3f2bb198bbe50f9d31de15.png)
 
-3. **Swapper**: Exchanges one token type for another (e.g. targeted DEX trades, multi-protocol aggregated swaps)
+3. **Swapper**: Exchanges one token type for another (for example, targeted DEX trades, multi-protocol aggregated swaps)
 
 ![swapper](/assets/images/swapper-0640b19d3bb15ca688cb9e4b83a1bf81.png)
 
-4. **PriceOracle**: Provides price data for assets (e.g. external price feeds, DEX prices, price caching)
+4. **PriceOracle**: Provides price data for assets (for example, external price feeds, DEX prices, price caching)
 
 ![price oracle](/assets/images/price-oracle-a63a48489d0e323d944097248db5f567.png)
 
-5. **Flasher**: Provides flash loans with atomic repayment (e.g. arbitrage, liquidations)
+5. **Flasher**: Provides flash loans with atomic repayment (for example, arbitrage, liquidations)
 
 ![flasher](/assets/images/flasher-7c35bdaa53846ef34edee481aa7fee08.png)
 
 ## Connectors[​](#connectors "Direct link to Connectors")
 
-[Connectors](/blockchain-development-tutorials/forte/flow-actions/connectors) create the bridge between the standardized interfaces of Flow Actions and the often bespoke and complicated mechanisms of different DeFi protocols. You can utilize existing connectors written by other developers, or create your own.
+[Connectors](/blockchain-development-tutorials/forte/flow-actions/connectors) create the bridge between the standardized interfaces of Flow Actions and the often customized and complicated mechanisms of different DeFi protocols. You can use existing connectors that other developers wrote, or create your own.
 
-Flow Actions are instantiated by creating an instance of the appropriate [struct] from a connector that provides the desired type of action connected to the desired DeFi protocol.
+To instantiate Flow Actions, create an instance of the appropriate [struct] from a connector that provides the desired type of action connected to the desired DeFi protocol.
 
-Read the [connectors article](/blockchain-development-tutorials/forte/flow-actions/connectors) to learn more about them.
+For more information, read the [connectors article](/blockchain-development-tutorials/forte/flow-actions/connectors).
 
 ## Token Types[​](#token-types "Direct link to Token Types")
 
@@ -560596,19 +560518,19 @@ You'll get:
 
 A.1654653399040a61.FlowToken.Vault`
 
-These types are used by many Flow Actions to provide a safer method of working with tokens than an arbitrary address that may or may not be a token.
+Many Flow Actions use these types to provide a safer method of working with tokens than an arbitrary address that may or may not be a token.
 
 ## Flow Actions[​](#flow-actions "Direct link to Flow Actions")
 
+The following Flow Actions standardize **usage** patterns for common defi-related tasks. By working with them, you - or Artificial Intelligence (AI) agents - can more easily write transactions and functionality regardless of the myriad of different ways each protocol works to accomplish these tasks.
+
 info
 
-The following Flow Actions standardize **usage** patterns for common defi-related tasks. By working with them, you - or ai agents - can more easily write transactions and functionality regardless of the myriad of different ways each protocol works to accomplish these tasks.
-
-That being said, defi protocols and tools operate very differently, which means the calls to instantiate the same kind of action connected to different protocols will vary by protocol and connector.
+Defi protocols and tools operate very differently, which means the calls to instantiate the same kind of action connected to different protocols will vary by protocol and connector.
 
 ### Source[​](#source "Direct link to Source")
 
-A source is a primitive component that can supply a [vault](https://developers.flow.com/build/cadence/guides/fungible-token#vaults-on-flow) containing the requested type and amount of tokens from something the user controls, or has authorized access to. This includes, but is not limited to, personal vaults, accounts in protocols, and rewards.
+A source is a primitive component that can supply a [vault](https://developers.flow.com/build/cadence/guides/fungible-token#vaults-on-flow) which contains the requested type and amount of tokens from something the user controls, or has authorized access to. This includes, but isn't limited to, personal vaults, accounts in protocols, and rewards.
 
 ![source](/assets/images/source-bc4fb0b6e9216d36592df3e6ccf6c4f0.png)
 
@@ -560648,11 +560570,11 @@ _10
 
 }`
 
-In other words, every source is guaranteed to have the above functions and return types allowing you to get the type of vault returned by the source, get an estimate of how many tokens may be withdrawn currently, and actually withdraw those tokens, up to the amount available.
+Every source is guaranteed to have the above functions and return types that allow you to get the type of vault that the source returns, get an estimate of how many tokens users may currently withdraw, and actually withdraw those tokens, up to the amount available.
 
 Sources *degrade gracefully* - If the requested amount of tokens is not available, they return the available amount. They always return a vault, even if that vault is empty.
 
-You create a source by instantiating a struct that conforms to the `Source` interface corresponding to a given protocol [connector](/blockchain-development-tutorials/forte/flow-actions/connectors). For example, if you want to create a source from a generic vault, you can do that by creating a `VaultSource` from [`FungibleTokenConnectors`](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/FungibleTokenConnectors.cdc):
+To create a source, instantiate a struct that conforms to the `Source` interface corresponding to a given protocol [connector](/blockchain-development-tutorials/forte/flow-actions/connectors). For example, to create a source from a generic vault, create a `VaultSource` from [`FungibleTokenConnectors`](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/FungibleTokenConnectors.cdc):
 
 `_20
 
@@ -560728,7 +560650,7 @@ _20
 
 ### Sink[​](#sink "Direct link to Sink")
 
-A sink is the opposite of a source - it's a place to send tokens, up to the limit of the capacity defined in the sink. As with any [resource](https://cadence-lang.org/docs/language/resources), this process is non-destructive. Any remaining tokens are left in the vault provided by the source. They also have flexible limits, meaning the capacity can be dynamic.
+A sink is the opposite of a source - it's a place to send tokens, up to the limit of the capacity defined in the sink. As with any [resource](https://cadence-lang.org/docs/language/resources), this process is non-destructive. Any remaining tokens remain in the vault that the source provides. They also have flexible limits, meaning the capacity can be dynamic.
 
 ![sink](/assets/images/sink-ae5a2433af3f2bb198bbe50f9d31de15.png)
 
@@ -560766,7 +560688,7 @@ _10
 
 }`
 
-You create a sink similar how you create a source, by instantiating an instance of the appropriate `struct` from the [connector](/blockchain-development-tutorials/forte/flow-actions/connectors). For example, to create a sink in a generic vault from, instantiate a `VaultSink` from [`FungibleTokenConnectors`](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/FungibleTokenConnectors.cdc):
+You create a sink similar how you create a source, which is to instantiate an instance of the appropriate `struct` from the [connector](/blockchain-development-tutorials/forte/flow-actions/connectors). For example, to create a sink in a generic vault from, instantiate a `VaultSink` from [`FungibleTokenConnectors`](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/FungibleTokenConnectors.cdc):
 
 `_27
 
@@ -560866,11 +560788,11 @@ _27
 
 ### Swapper[​](#swapper "Direct link to Swapper")
 
-A swapper exchanges tokens between different types with support for bidirectional swaps and price estimation. Bi-directional means that they support swaps in both directions, which is necessary in the event that an inner connector can't accept the full swap output balance.
+A swapper exchanges tokens between different types with support for bidirectional swaps and price estimation. Bi-directional means that they support swaps in both directions, which is necessary if an inner connector can't accept the full swap output balance.
 
 ![swapper](/assets/images/swapper-0640b19d3bb15ca688cb9e4b83a1bf81.png)
 
-They also contain price discovery to provide estimates for the amounts in and out via the [`{Quote}`] object, and the [quote system] enables price caching and execution parameter optimization.
+They also contain price discovery to provide estimates for the amounts in and out via the [`{Quote}`] object, and the [quote system] allows price caching and execution parameter optimization.
 
 Swappers conform to the `Swapper` [interface](https://cadence-lang.org/docs/language/interfaces):
 
@@ -560922,7 +560844,7 @@ _13
 
 } ``
 
-Once again, you create a swapper by instantiating the appropriate `struct` from the appropriate connector. To create a swapper for [IncrementFi](https://app.increment.fi/swap?in=A.1654653399040a61.FlowToken&out=) with the [`IncrementFiSwapConnectors`](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/increment-fi/IncrementFiSwapConnectors.cdc), instantiate `Swapper`:
+To create a swapper, instantiate the appropriate `struct` from the appropriate connector. To create a swapper for [IncrementFi](https://app.increment.fi/swap?in=A.1654653399040a61.FlowToken&out=) with the [`IncrementFiSwapConnectors`](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/increment-fi/IncrementFiSwapConnectors.cdc), instantiate `Swapper`:
 
 `_33
 
@@ -561050,7 +560972,7 @@ _33
 
 ### Price Oracle[​](#price-oracle "Direct link to Price Oracle")
 
-A price [oracle](https://developers.flow.com/ecosystem/defi-liquidity/defi-contracts#oracles) provides price data for assets with a consistent denomination. All prices are returned in the same unit and will return `nil` rather than reverting in the event that a price is unavailable. Prices are indexed by [Cadence type](https://cadence-lang.org/docs/language/types-and-type-system/type-safety), requiring a specific Cadence-based token type for which to serve prices, as opposed to looking up an asset by a generic address.
+A price [oracle](https://developers.flow.com/ecosystem/defi-liquidity/defi-contracts-mainnet#oracles) provides price data for assets with a consistent denomination. All prices are returned in the same unit and will return `nil` rather than reverting in the event that a price is unavailable. Prices are indexed by [Cadence type](https://cadence-lang.org/docs/language/types-and-type-system/type-safety), requiring a specific Cadence-based token type for which to serve prices, as opposed to looking up an asset by a generic address.
 
 ![price oracle](/assets/images/price-oracle-a63a48489d0e323d944097248db5f567.png)
 
@@ -561216,16 +561138,16 @@ If you're not familiar with flash loans, imagine a scenario where you discovered
 
 In theory, you could make an easy 100k by buying the NFT on the first marketplace and then fulfilling the open buy offer on the second marketplace. There's just one big problem - You might not have 1 million dollars liquid just laying around for you to purchase the NFT!
 
-Flash loans solve this problem by enabling you to create one transaction during which you:
+Flash loans allow you to create one transaction during which you:
 
-1. Borrow 1 million dollars
-2. Purchase the NFT
-3. Sell the NFT
-4. Repay 1 million dollars plus a small fee
+1. Borrow 1 million dollars.
+2. Purchase the NFT.
+3. Sell the NFT.
+4. Repay 1 million dollars plus a small fee.
 
 warning
 
-This scenario may be a scam. A scammer could set up this situation as bait and cancel the buy order the instant someone purchases the NFT that is for sale. You'd be left having paid a vast amount of money for something worthless.
+This scenario may be a scam. A scammer could set up this situation as bait and cancel the buy order the instant someone purchases the NFT that is for sale. You'd have paid a vast amount of money for something worthless.
 
 The great thing about Cadence transactions, with or without Actions, is that you can set up an atomic transaction where everything either works, or is reverted. Either you make 100k, or nothing happens except a tiny expenditure of gas.
 
@@ -561517,9 +561439,9 @@ _62
 
 ## Identification and Traceability[​](#identification-and-traceability "Direct link to Identification and Traceability")
 
-The `UniqueIdentifier` enables protocols to trace stack operations via Flow Actions interface-level events, identifying them by IDs. `IdentifiableResource` implementations should ensure that access to the identifier is encapsulated by the structures they identify.
+The `UniqueIdentifier` allows protocols to trace stack operations via Flow Actions interface-level events, identifying them by IDs. `IdentifiableResource` implementations should verify that access to the identifier is encapsulated by the structures they identify.
 
-While Cadence struct types can be created in any context (including being passed in as transaction parameters), the authorized `AuthenticationToken` [capability](https://cadence-lang.org/docs/language/capabilities) ensures that only those issued by the Flow Actions contract can be utilized in connectors, preventing forgery.
+While you can create Cadence struct types in any context (including being passed in as transaction parameters), the authorized `AuthenticationToken` [capability](https://cadence-lang.org/docs/language/capabilities) verifies that only those issued by the Flow Actions contract can be used in connectors, preventing forgery.
 
 For example, to use a `UniqueIdentifier` in a source->swap->sink:
 
@@ -561826,7 +561748,7 @@ _82
 ## Why `UniqueIdentifier` Matters in FlowActions[​](#why-uniqueidentifier-matters-in-flowactions "Direct link to why-uniqueidentifier-matters-in-flowactions")
 
 The `UniqueIdentifier` is used to tag multiple FlowActions connectors as part of the **same logical operation**.  
-By aligning the same ID across connectors (e.g., Source → Swapper → Sink), you can:
+By aligning the same ID across connectors (for example, Source → Swapper → Sink), you can:
 
 ### 1. Event Correlation[​](#1-event-correlation "Direct link to 1. Event Correlation")
 
@@ -561836,12 +561758,12 @@ By aligning the same ID across connectors (e.g., Source → Swapper → Sink), y
 
 ### 2. Stack Tracing[​](#2-stack-tracing "Direct link to 2. Stack Tracing")
 
-* When using composite connectors (e.g., `SwapSource`, `SwapSink`, `MultiSwapper`), IDs allow you to trace the complete path through the stack.
+* When using composite connectors (for example, `SwapSource`, `SwapSink`, `MultiSwapper`), IDs allow you to trace the complete path through the stack.
 * Helpful for debugging and understanding the flow of operations inside complex strategies.
 
 ### 3. Analytics & Attribution[​](#3-analytics--attribution "Direct link to 3. Analytics & Attribution")
 
-* Enables measuring usage of specific strategies or routes.
+* Allows measuring usage of specific strategies or routes.
 * Lets you join data from multiple connectors into a single logical "transaction" for reporting.
 * Supports fee attribution and performance monitoring across multi-step workflows.
 
@@ -561854,7 +561776,7 @@ By aligning the same ID across connectors (e.g., Source → Swapper → Sink), y
 
 In this tutorial, you learned about Flow Actions, a suite of standardized Cadence interfaces that enable developers to compose complex DeFi workflows using small, reusable components. You explored the five core Flow Action types - Source, Sink, Swapper, PriceOracle, and Flasher - and learned how to create and use them with various connectors.
 
-Now that you have completed this tutorial, you should be able to:
+Now that you have completed this tutorial, you can:
 
 * Understand the key features of Flow Actions including atomic composition, weak guarantees, and event traceability
 * Create and use Sources to provide tokens from various protocols and locations
@@ -561867,7 +561789,7 @@ Now that you have completed this tutorial, you should be able to:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/flow-actions/intro-to-flow-actions.md)
 
-Last updated on **Sep 24, 2025** by **Brian Doyle**
+Last updated on **Oct 29, 2025** by **bz**
 
 [Previous
 
@@ -569845,6 +569767,8 @@ script | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -576190,6 +576114,8 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 mutate | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -582897,6 +582823,8 @@ resolveFinalNormalization | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -583248,8 +583176,6 @@ You'll create a complete fork testing setup that demonstrates:
 * Executing transactions using impersonated mainnet accounts
 * A reusable pattern for integration testing your Flow applications
 
-**Time Commitment:** Approximately 30 minutes
-
 ### Reproducibility first[​](#reproducibility-first "Direct link to Reproducibility first")
 
 Pin a specific block height when you need reproducible results:
@@ -583379,7 +583305,7 @@ Your `flow.json` should now have the mainnet and testnet networks configured fro
 
 ## Test Reading Live State[​](#test-reading-live-state "Direct link to Test Reading Live State")
 
-Generate a script to read FlowToken supply:
+Generate a script to read `FlowToken` supply:
 
 `_10
 
@@ -583510,7 +583436,7 @@ note
 
 This creates a local account with a mainnet-format address for fork testing. When you're ready to deploy to actual mainnet, you'll use this same account—see the [Deploying Contracts guide](/build/cadence/smart-contracts/deploying) for details.
 
-### Create a Contract that Uses FlowToken[​](#create-a-contract-that-uses-flowtoken "Direct link to Create a Contract that Uses FlowToken")
+### Create a Contract that Uses `FlowToken`[​](#create-a-contract-that-uses-flowtoken "Direct link to create-a-contract-that-uses-flowtoken")
 
 Generate a new contract:
 
@@ -583654,7 +583580,7 @@ _16
 
 }`
 
-Note: No local private key is required for forked tests. The accounts entry above is included so you can copy/reference the address in your config; keys can be omitted for fork tests. Contracts deploy to the testing environment at `testing` alias, and transactions that interact with forked state can use impersonation. The `Test.deployContract` function will automatically deploy your contract to the testing environment during test execution.
+**Note:** No local private key is required for forked tests. The accounts entry above is included so you can copy/reference the address in your config; keys can be omitted for fork tests. Contracts deploy to the testing environment at `testing` alias, and transactions that interact with forked state can use impersonation. The `Test.deployContract` function will automatically deploy your contract to the testing environment during test execution.
 
 ### Create Scripts for Testing[​](#create-scripts-for-testing "Direct link to Create Scripts for Testing")
 
@@ -584317,7 +584243,7 @@ Fork tests run against Flow chain state only:
 * Price feeds, bridges, indexers, and similar must be mocked (stub contracts or fixtures)
 * For end-to-end, combine with `flow emulator --fork` and a local stub service
 
-### Select tests quickly[​](#select-tests-quickly "Direct link to Select tests quickly")
+### Select Tests Quickly[​](#select-tests-quickly "Direct link to Select Tests Quickly")
 
 * Run specific files or directories:
 
@@ -584371,7 +584297,7 @@ Fork testing bridges the gap between local unit tests and testnet deployments, e
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/fork-testing/index.md)
 
-Last updated on **Oct 29, 2025** by **Jordan Ribbink**
+Last updated on **Oct 30, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -584388,9 +584314,9 @@ Copy as Markdown
 * [What You'll Learn](#what-youll-learn)* [What You'll Build](#what-youll-build)
     + [Reproducibility first](#reproducibility-first)* [Prerequisites](#prerequisites)
       + [Flow CLI](#flow-cli)+ [Basic Cadence Testing Knowledge](#basic-cadence-testing-knowledge)+ [Network Access](#network-access)* [Create Your Project](#create-your-project)* [Install Dependencies](#install-dependencies)* [Test Reading Live State](#test-reading-live-state)* [Deploy and Test Your Contract](#deploy-and-test-your-contract)
-              + [Create a Test Account](#create-a-test-account)+ [Create a Contract that Uses FlowToken](#create-a-contract-that-uses-flowtoken)+ [Configure Contract in flow.json](#configure-contract-in-flowjson)+ [Create Scripts for Testing](#create-scripts-for-testing)+ [Test Your Contract with Forked State](#test-your-contract-with-forked-state)+ [What's Happening Here](#whats-happening-here)* [Execute Transactions with Account Impersonation](#execute-transactions-with-account-impersonation)
+              + [Create a Test Account](#create-a-test-account)+ [Create a Contract that Uses `FlowToken`](#create-a-contract-that-uses-flowtoken)+ [Configure Contract in flow.json](#configure-contract-in-flowjson)+ [Create Scripts for Testing](#create-scripts-for-testing)+ [Test Your Contract with Forked State](#test-your-contract-with-forked-state)+ [What's Happening Here](#whats-happening-here)* [Execute Transactions with Account Impersonation](#execute-transactions-with-account-impersonation)
                 + [Create Transactions](#create-transactions)+ [Test Transaction Execution with Impersonation](#test-transaction-execution-with-impersonation)+ [Key Points About Account Impersonation](#key-points-about-account-impersonation)* [Run All Tests Together](#run-all-tests-together)
-                  + [Additional Options](#additional-options)+ [Select tests quickly](#select-tests-quickly)* [When to Use Fork Testing](#when-to-use-fork-testing)* [Conclusion](#conclusion)
+                  + [Additional Options](#additional-options)+ [Select Tests Quickly](#select-tests-quickly)* [When to Use Fork Testing](#when-to-use-fork-testing)* [Conclusion](#conclusion)
                       + [Next Steps](#next-steps)
 
 Flow
@@ -593776,6 +593702,8 @@ atBlockId | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -595177,6 +595105,8 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 EVM Quickstart | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -598136,6 +598066,8 @@ args | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -598862,7 +598794,7 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
-# Source: https://developers.flow.com
+# Source: https://developers.flow.com/
 
 Flow Developer Portal
 
@@ -611555,12 +611487,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **9966be8f7dd20ffc**
+Cloudflare Ray ID: **996efa21d998f856**
 •
 
 Your IP:
 Click to reveal
-20.171.51.212
+64.236.141.198
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 

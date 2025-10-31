@@ -71,8 +71,6 @@ You'll create a complete fork testing setup that demonstrates:
 * Executing transactions using impersonated mainnet accounts
 * A reusable pattern for integration testing your Flow applications
 
-**Time Commitment:** Approximately 30 minutes
-
 ### Reproducibility first[​](#reproducibility-first "Direct link to Reproducibility first")
 
 Pin a specific block height when you need reproducible results:
@@ -202,7 +200,7 @@ Your `flow.json` should now have the mainnet and testnet networks configured fro
 
 ## Test Reading Live State[​](#test-reading-live-state "Direct link to Test Reading Live State")
 
-Generate a script to read FlowToken supply:
+Generate a script to read `FlowToken` supply:
 
 `_10
 
@@ -333,7 +331,7 @@ note
 
 This creates a local account with a mainnet-format address for fork testing. When you're ready to deploy to actual mainnet, you'll use this same account—see the [Deploying Contracts guide](/build/cadence/smart-contracts/deploying) for details.
 
-### Create a Contract that Uses FlowToken[​](#create-a-contract-that-uses-flowtoken "Direct link to Create a Contract that Uses FlowToken")
+### Create a Contract that Uses `FlowToken`[​](#create-a-contract-that-uses-flowtoken "Direct link to create-a-contract-that-uses-flowtoken")
 
 Generate a new contract:
 
@@ -477,7 +475,7 @@ _16
 
 }`
 
-Note: No local private key is required for forked tests. The accounts entry above is included so you can copy/reference the address in your config; keys can be omitted for fork tests. Contracts deploy to the testing environment at `testing` alias, and transactions that interact with forked state can use impersonation. The `Test.deployContract` function will automatically deploy your contract to the testing environment during test execution.
+**Note:** No local private key is required for forked tests. The accounts entry above is included so you can copy/reference the address in your config; keys can be omitted for fork tests. Contracts deploy to the testing environment at `testing` alias, and transactions that interact with forked state can use impersonation. The `Test.deployContract` function will automatically deploy your contract to the testing environment during test execution.
 
 ### Create Scripts for Testing[​](#create-scripts-for-testing "Direct link to Create Scripts for Testing")
 
@@ -1140,7 +1138,7 @@ Fork tests run against Flow chain state only:
 * Price feeds, bridges, indexers, and similar must be mocked (stub contracts or fixtures)
 * For end-to-end, combine with `flow emulator --fork` and a local stub service
 
-### Select tests quickly[​](#select-tests-quickly "Direct link to Select tests quickly")
+### Select Tests Quickly[​](#select-tests-quickly "Direct link to Select Tests Quickly")
 
 * Run specific files or directories:
 
@@ -1194,7 +1192,7 @@ Fork testing bridges the gap between local unit tests and testnet deployments, e
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/fork-testing/index.md)
 
-Last updated on **Oct 29, 2025** by **Jordan Ribbink**
+Last updated on **Oct 30, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -1211,9 +1209,9 @@ Copy as Markdown
 * [What You'll Learn](#what-youll-learn)* [What You'll Build](#what-youll-build)
     + [Reproducibility first](#reproducibility-first)* [Prerequisites](#prerequisites)
       + [Flow CLI](#flow-cli)+ [Basic Cadence Testing Knowledge](#basic-cadence-testing-knowledge)+ [Network Access](#network-access)* [Create Your Project](#create-your-project)* [Install Dependencies](#install-dependencies)* [Test Reading Live State](#test-reading-live-state)* [Deploy and Test Your Contract](#deploy-and-test-your-contract)
-              + [Create a Test Account](#create-a-test-account)+ [Create a Contract that Uses FlowToken](#create-a-contract-that-uses-flowtoken)+ [Configure Contract in flow.json](#configure-contract-in-flowjson)+ [Create Scripts for Testing](#create-scripts-for-testing)+ [Test Your Contract with Forked State](#test-your-contract-with-forked-state)+ [What's Happening Here](#whats-happening-here)* [Execute Transactions with Account Impersonation](#execute-transactions-with-account-impersonation)
+              + [Create a Test Account](#create-a-test-account)+ [Create a Contract that Uses `FlowToken`](#create-a-contract-that-uses-flowtoken)+ [Configure Contract in flow.json](#configure-contract-in-flowjson)+ [Create Scripts for Testing](#create-scripts-for-testing)+ [Test Your Contract with Forked State](#test-your-contract-with-forked-state)+ [What's Happening Here](#whats-happening-here)* [Execute Transactions with Account Impersonation](#execute-transactions-with-account-impersonation)
                 + [Create Transactions](#create-transactions)+ [Test Transaction Execution with Impersonation](#test-transaction-execution-with-impersonation)+ [Key Points About Account Impersonation](#key-points-about-account-impersonation)* [Run All Tests Together](#run-all-tests-together)
-                  + [Additional Options](#additional-options)+ [Select tests quickly](#select-tests-quickly)* [When to Use Fork Testing](#when-to-use-fork-testing)* [Conclusion](#conclusion)
+                  + [Additional Options](#additional-options)+ [Select Tests Quickly](#select-tests-quickly)* [When to Use Fork Testing](#when-to-use-fork-testing)* [Conclusion](#conclusion)
                       + [Next Steps](#next-steps)
 
 Flow

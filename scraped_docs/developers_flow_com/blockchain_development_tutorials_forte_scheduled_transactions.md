@@ -4,6 +4,8 @@ Scheduled Transactions | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -40,7 +42,7 @@ On this page
 
 # Scheduled Transactions Tutorials
 
-This series covers how to implement scheduled transactions for time-based smart contract execution on Flow, enabling developers to create automated workflows and time-sensitive blockchain applications. These tutorials are part of the Forte network upgrade, which introduces new capabilities to the Flow blockchain.
+This series covers how to implement scheduled transactions for time-based smart contract execution on Flow, which allows developers to create automated workflows and time-sensitive blockchain applications. These tutorials are part of the Forte network upgrade, which introduces new capabilities to the Flow blockchain.
 
 ## Tutorials[​](#tutorials "Direct link to Tutorials")
 
@@ -48,7 +50,7 @@ This series covers how to implement scheduled transactions for time-based smart 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/scheduled-transactions/index.md)
 
-Last updated on **Oct 21, 2025** by **0xLisanAlGaib**
+Last updated on **Oct 23, 2025** by **cshannon1218**
 
 [Previous
 

@@ -4,6 +4,8 @@ getNodeVersionInfo | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -61,75 +63,83 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as sdk from '@onflow/sdk';
+import * as sdk from "@onflow/sdk"
 
 _10
 
 _10
 
-sdk.getNodeVersionInfo();`
+sdk.getNodeVersionInfo()`
 
 Or import directly the specific function:
 
 `_10
 
-import { getNodeVersionInfo } from '@onflow/sdk';
+import { getNodeVersionInfo } from "@onflow/sdk"
 
 _10
 
 _10
 
-getNodeVersionInfo();`
+getNodeVersionInfo()`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`_14
+`_16
 
-import * as fcl from '@onflow/fcl';
+import * as fcl from "@onflow/fcl";
 
-_14
+_16
 
-_14
+_16
 
 // Get node version information using builder
 
-_14
+_16
 
-const versionInfo = await fcl.send([fcl.getNodeVersionInfo()]).then(fcl.decode);
+const versionInfo = await fcl.send([
 
-_14
+_16
 
-_14
+fcl.getNodeVersionInfo()
 
-console.log('Node version:', versionInfo.semver);
+_16
 
-_14
+]).then(fcl.decode);
 
-console.log('Protocol version:', versionInfo.protocol_version);
+_16
 
-_14
+_16
 
-console.log('Spork ID:', versionInfo.spork_id);
+console.log("Node version:", versionInfo.semver);
 
-_14
+_16
 
-_14
+console.log("Protocol version:", versionInfo.protocol_version);
+
+_16
+
+console.log("Spork ID:", versionInfo.spork_id);
+
+_16
+
+_16
 
 // Use with other builders if needed
 
-_14
+_16
 
 const interaction = await fcl.build([
 
-_14
+_16
 
-fcl.getNodeVersionInfo(),
+fcl.getNodeVersionInfo()
 
-_14
+_16
 
 // other builders can be added here
 
-_14
+_16
 
 ]);`
 
@@ -141,11 +151,11 @@ export type InteractionBuilderFn = (
 
 _10
 
-ix: Interaction,
+ix: Interaction
 
 _10
 
-) => Interaction | Promise<Interaction>;`
+) => Interaction | Promise<Interaction>`
 
 A function that processes an interaction object
 
@@ -153,7 +163,7 @@ A function that processes an interaction object
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Oct 22, 2025** by **Michael Fabozzi**
 
 [Previous
 

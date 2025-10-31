@@ -4,6 +4,8 @@ config | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -90,9 +92,53 @@ Record<string, unknown>`
 
 ## Returns[​](#returns "Direct link to Returns")
 
-`_10
+`_12
 
-{ put: typeof put; get: typeof get; all: typeof all; first: typeof first; update: typeof update; delete: typeof _delete; where: typeof where; subscribe: typeof subscribe; overload: typeof overload; load: typeof load; }`
+{
+
+_12
+
+put: typeof put;
+
+_12
+
+get: typeof get;
+
+_12
+
+all: typeof all;
+
+_12
+
+first: typeof first;
+
+_12
+
+update: typeof update;
+
+_12
+
+delete: typeof _delete;
+
+_12
+
+where: typeof where;
+
+_12
+
+subscribe: typeof subscribe;
+
+_12
+
+overload: typeof overload;
+
+_12
+
+load: typeof load;
+
+_12
+
+}`
 
 The config object
 
@@ -100,7 +146,7 @@ The config object
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/config.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Oct 22, 2025** by **Michael Fabozzi**
 
 [Previous
 

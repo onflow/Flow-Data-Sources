@@ -4,6 +4,8 @@ authorizations | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -61,31 +63,31 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as sdk from '@onflow/sdk';
+import * as sdk from "@onflow/sdk"
 
 _10
 
 _10
 
-sdk.authorizations(ax);`
+sdk.authorizations(ax)`
 
 Or import directly the specific function:
 
 `_10
 
-import { authorizations } from '@onflow/sdk';
+import { authorizations } from "@onflow/sdk"
 
 _10
 
 _10
 
-authorizations(ax);`
+authorizations(ax)`
 
 ## Usage[​](#usage "Direct link to Usage")
 
 `` _40
 
-import * as fcl from '@onflow/fcl';
+import * as fcl from "@onflow/fcl";
 
 _40
 
@@ -127,7 +129,7 @@ _40
 
 _40
 
-authorizations: [fcl.authz], // Current user authorization
+authorizations: [fcl.authz] // Current user authorization
 
 _40
 
@@ -173,7 +175,7 @@ _40
 
 _40
 
-authorizations: [userOneAuthz, userTwoAuthz],
+authorizations: [userOneAuthz, userTwoAuthz]
 
 _40
 
@@ -231,7 +233,7 @@ fcl.payer(fcl.authz),
 
 _40
 
-fcl.limit(100),
+fcl.limit(100)
 
 _40
 
@@ -253,7 +255,7 @@ _10
 
 _10
 
-| Partial<InteractionAccount>;`
+| Partial<InteractionAccount>`
 
 * Description: An array of authorization functions that produce account authorization details
 
@@ -265,11 +267,11 @@ export type InteractionBuilderFn = (
 
 _10
 
-ix: Interaction,
+ix: Interaction
 
 _10
 
-) => Interaction | Promise<Interaction>;`
+) => Interaction | Promise<Interaction>`
 
 A function that processes an interaction object
 
@@ -277,7 +279,7 @@ A function that processes an interaction object
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/authorizations.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Oct 22, 2025** by **Michael Fabozzi**
 
 [Previous
 
