@@ -79,6 +79,12 @@ Discover how to build native mobile applications that leverage Flow's blockchain
 * **[React Native Integration](/blockchain-development-tutorials/cadence/mobile/react-native-quickstart)** - Create cross-platform mobile apps with React Native and Flow
 * **[Walletless Mobile Apps](/blockchain-development-tutorials/cadence/mobile/walletless-pwa)** - Implement progressive web apps with walletless onboarding
 
+## Testing[​](#testing "Direct link to Testing")
+
+Learn how to test Cadence smart contracts with a focus on fork testing, which allows you to run tests against real on-chain state from Flow mainnet or testnet.
+
+* **[Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)** - Run Cadence tests against a forked mainnet using real contracts and production data without deploying to live networks
+
 ## Key Features Covered[​](#key-features-covered "Direct link to Key Features Covered")
 
 ### Account Linking & Hybrid Custody[​](#account-linking--hybrid-custody "Direct link to Account Linking & Hybrid Custody")
@@ -117,7 +123,7 @@ Flow's Cadence offers unparalleled capabilities for building user-friendly block
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/index.md)
 
-Last updated on **Sep 25, 2025** by **Brian Doyle**
+Last updated on **Oct 30, 2025** by **Jordan Ribbink**
 
 [Previous
 
@@ -131,8 +137,8 @@ Getting Started with Cadence](/blockchain-development-tutorials/cadence/getting-
 
 Copy as Markdown
 
-* [What You'll Learn](#what-youll-learn)* [Account Management](#account-management)* [Mobile Development](#mobile-development)* [Key Features Covered](#key-features-covered)
-        + [Account Linking & Hybrid Custody](#account-linking--hybrid-custody)+ [Mobile-First Development](#mobile-first-development)+ [Flow-Specific Advantages](#flow-specific-advantages)* [Next Steps](#next-steps)* [Conclusion](#conclusion)
+* [What You'll Learn](#what-youll-learn)* [Account Management](#account-management)* [Mobile Development](#mobile-development)* [Testing](#testing)* [Key Features Covered](#key-features-covered)
+          + [Account Linking & Hybrid Custody](#account-linking--hybrid-custody)+ [Mobile-First Development](#mobile-first-development)+ [Flow-Specific Advantages](#flow-specific-advantages)* [Next Steps](#next-steps)* [Conclusion](#conclusion)
 
 Flow
 

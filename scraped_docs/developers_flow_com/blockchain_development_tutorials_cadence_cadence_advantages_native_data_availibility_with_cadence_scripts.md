@@ -4,6 +4,8 @@ Native Data Availability With Cadence Scripts | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -24,7 +26,9 @@ Search
 
               - [Compose with Cadence Transactions](/blockchain-development-tutorials/cadence/cadence-advantages/compose-with-cadence-transactions)- [Native Data Availability With Cadence Scripts](/blockchain-development-tutorials/cadence/cadence-advantages/native-data-availibility-with-cadence-scripts)- [Upgrading Cadence Contracts](/blockchain-development-tutorials/cadence/cadence-advantages/upgrading-cadence-contracts)+ [Account Linking](/blockchain-development-tutorials/cadence/account-management)
 
-                + [Mobile Development on Flow](/blockchain-development-tutorials/cadence/mobile)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
+                + [Mobile Development on Flow](/blockchain-development-tutorials/cadence/mobile)
+
+                  + [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
 
             * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
 
@@ -42,6 +46,8 @@ On this page
 
 # Native Data Availability With Cadence Scripts
 
+## Overview[​](#overview "Direct link to Overview")
+
 In Solidity, you can only retrieve data from **view** functions that the contract author anticipated and included in the original contract. If the exact query you want is not exposed, teams typically rely on a *data availability service* such as The Graph, Covalent, Alchemy Enhanced APIs, Reservoir, or NFTScan to compute and serve that view.
 
 In Cadence, **scripts** are general-purpose read programs. They can traverse public account storage, read public capabilities, and compose types from multiple contracts to answer new questions without modifying those contracts. You are not limited to the pre-written surface area of a single contract's views.
@@ -52,24 +58,24 @@ In Cadence, a *script* is a read-only program that can access public data across
 
 ## Objectives[​](#objectives "Direct link to Objectives")
 
-After completing this guide, you will be able to:
+After you complete this guide, you will be able to:
 
-* Explain why Cadence **scripts** are more powerful than Solidity **view** functions
-* Use the [Flow CLI Commands](/build/tools/flow-cli/commands) to execute a Cadence script against mainnet
-* Analyze an account for [NBA Top Shot](https://nbatopshot.com/) NFTs held by the account or its child accounts
+* Explain why Cadence **scripts** are more powerful than Solidity **view** functions.
+* Use the [Flow CLI Commands](/build/tools/flow-cli/commands) to execute a Cadence script against mainnet.
+* Analyze an account for [NBA Top Shot](https://nbatopshot.com/) NFTs held by the account or its child accounts.
 * Build the script incrementally to:
-  + Query a parent account for child accounts via [*Hybrid Custody*](/blockchain-development-tutorials/cadence/account-management)
-  + Inspect each child account's storage paths
-  + Detect NFT collections the parent can control
-  + List only NBA Top Shot NFTs with display metadata
-  + Update the script to also list NFL All Day NFT metadata
+  + Query a parent account for child accounts via [*Hybrid Custody*](/blockchain-development-tutorials/cadence/account-management).
+  + Inspect each child account's storage paths.
+  + Detect NFT collections the parent can control.
+  + List only NBA Top Shot NFTs with display metadata.
+  + Update the script to also list NFL All Day NFT metadata.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-* Basic familiarity with [Cadence](https://cadence-lang.org/docs/tutorial/first-steps) and [Flow accounts](/build/cadence/basics/accounts)
-* Flow CLI installed and authenticated for mainnet (see [Flow CLI Commands](/build/tools/flow-cli/commands))
-* The target parent account uses *Hybrid Custody* and controls at least one child account that holds NBA Top Shot NFTs
-  + If you don't have an account that owns NBA Top Shots, you can use `0xfeb88a0fcc175a3d` for this tutorial
+* Basic familiarity with [Cadence](https://cadence-lang.org/docs/tutorial/first-steps) and [Flow accounts](/build/cadence/basics/accounts).
+* Flow command line interface (CLI) installed and authenticated for mainnet (see [Flow CLI Commands](/build/tools/flow-cli/commands)).
+* The target parent account uses *Hybrid Custody* and controls at least one child account that holds NBA Top Shot NFTs.
+  + If you don't have an account that owns NBA Top Shots, you can use `0xfeb88a0fcc175a3d` for this tutorial.
 
 tip
 
@@ -109,13 +115,13 @@ flow generate script TopShotQuery`
 
 This creates a proper Flow project structure with `flow.json` configuration and generates a script template at `cadence/scripts/TopShotQuery.cdc`.
 
-We will **revise one script file** in four passes, running it after each step. This mirrors how you would build and verify a script from scratch.
+We will **revise one script file** in four passes, and run it after each step. This mirrors how you would build and verify a script from scratch.
 
 ---
 
 ## Querying the account to find child accounts[​](#querying-the-account-to-find-child-accounts "Direct link to Querying the account to find child accounts")
 
-Start by writing a script to borrow the parent's *Hybrid Custody* manager and return the child addresses it controls. This verifies that imports resolve and that the parent account is configured as expected.
+To start, write a script that borrows the parent's *Hybrid Custody* manager and returns the child addresses it controls. This verifies that imports resolve and that the parent account is configured as expected.
 
 First, you'll need to install the `HybridCustody` contract from mainnet.
 
@@ -133,7 +139,7 @@ This will install the contract and its own dependencies. You don't need to deplo
 
 warning
 
-Installing dependencies in this way is treated by the language server similar to installing packages in other platforms. You'll need to close and reopen the file or type something to trigger a refresh.
+The language server treats installing dependencies in this way similar to installing packages in other platforms. You'll need to close and reopen the file or type something to trigger a refresh.
 
 Open `scripts/TopShotQuery.cdc` Replace the file contents with:
 
@@ -299,7 +305,7 @@ Run it again:
 
 flow scripts execute cadence/scripts/TopShotQuery.cdc --network mainnet 0xfeb88a0fcc175a3d`
 
-You should see a map from each child address to its storage paths. This tells us where to look for potential collections.
+You'll see a map from each child address to its storage paths. This tells us where to look for potential collections.
 
 `_10
 
@@ -897,13 +903,13 @@ Run the updated script:
 
 flow scripts execute cadence/scripts/TopShotQuery.cdc --network mainnet 0xfeb88a0fcc175a3d`
 
-You should now see both Top Shot and AllDay NFTs in the results (truncated for space):
+You will see both Top Shot and AllDay NFTs in the results (truncated for space):
 
 `_10
 
 Result: {0xa16b948ba2c9a858: {44311697: A.1d7e57aa55817448.MetadataViews.Display(name: "Immanuel Quickley 3 Pointer", description: "", thumbnail: A.1d7e57aa55817448.MetadataViews.HTTPFile(url: "https://assets.nbatopshot.com/media/44311697?width=256")), 8220605: A.1d7e57aa55817448.MetadataViews.Display(name: "Zach Ertz Reception", description: "Normally used to overwhelming his NFC East foes in a different, midnight-green attire, Zach Ertz, in his most productive yardage-based game since 2022, showed in Week 2 that productivity remains well within reach. Challenged to a \u{201c}who wants it more\u{201d}-type battle during a corner route, Ertz adjusted to a floated ball, using both a 6-foot-5 frame and pure strength to rip away a potential interception, turning it into a 21-yard catch for himself. The 12-year veteran helped the Washington Commanders \u{2014} whose seven field goals offset the New York Giants\u{2019} three touchdowns \u{2014} survive for a unique 21-18 win, with Ertz providing four catches (on four targets) and 62 yards on Sept. 15, 2024.", thumbnail: A.1d7e57aa55817448.MetadataViews.HTTPFile(url: "https://media.nflallday.com/editions/3304/media/image?format=jpeg&width=256"))}}`
 
-This demonstrates how Cadence scripts can be easily modified to answer different questions about the same data, unlike Solidity where you'd need to deploy new contracts or rely on external indexers.
+This demonstrates how you can easily modify Cadence scripts to answer different questions about the same data, unlike Solidity, where you'd need to deploy new contracts or rely on external indexers.
 
 ---
 
@@ -944,7 +950,7 @@ This approach gives you the freedom to build applications that can access any on
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/cadence-advantages/native-data-availibility-with-cadence-scripts.md)
 
-Last updated on **Sep 24, 2025** by **Brian Doyle**
+Last updated on **Oct 27, 2025** by **cshannon1218**
 
 [Previous
 
@@ -958,7 +964,7 @@ Upgrading Cadence Contracts](/blockchain-development-tutorials/cadence/cadence-a
 
 Copy as Markdown
 
-* [Objectives](#objectives)* [Prerequisites](#prerequisites)* [Getting Started](#getting-started)* [Querying the account to find child accounts](#querying-the-account-to-find-child-accounts)* [Listing the storage paths found in each child account](#listing-the-storage-paths-found-in-each-child-account)* [Detecting NFT collections the parent can control](#detecting-nft-collections-the-parent-can-control)* [Filtering NFT collection to find and return Top Shots](#filtering-nft-collection-to-find-and-return-top-shots)* [Extending the script to include AllDay NFTs](#extending-the-script-to-include-allday-nfts)* [Troubleshooting](#troubleshooting)* [How This Compares to Solidity](#how-this-compares-to-solidity)* [Conclusion](#conclusion)
+* [Overview](#overview)* [Objectives](#objectives)* [Prerequisites](#prerequisites)* [Getting Started](#getting-started)* [Querying the account to find child accounts](#querying-the-account-to-find-child-accounts)* [Listing the storage paths found in each child account](#listing-the-storage-paths-found-in-each-child-account)* [Detecting NFT collections the parent can control](#detecting-nft-collections-the-parent-can-control)* [Filtering NFT collection to find and return Top Shots](#filtering-nft-collection-to-find-and-return-top-shots)* [Extending the script to include AllDay NFTs](#extending-the-script-to-include-allday-nfts)* [Troubleshooting](#troubleshooting)* [How This Compares to Solidity](#how-this-compares-to-solidity)* [Conclusion](#conclusion)
 
 Flow
 

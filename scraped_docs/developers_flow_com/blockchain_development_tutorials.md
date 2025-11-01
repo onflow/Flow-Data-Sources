@@ -56,8 +56,8 @@ Tutorials covering new features and capabilities introduced in the Forte network
 
 Learn how to build composable DeFi applications using the Flow Actions framework with standardized interfaces and reusable components.
 
-* [Introduction to Flow Actions] - Learn about Flow Actions, a suite of standardized Cadence interfaces that enable developers to compose complex DeFi workflows using small, reusable components like Sources, Sinks, Swappers, PriceOracles, and Flashers.
-* [Flow Actions Transactions] - Learn how to create transactions that can chain multiple DeFi operations atomically.
+* [Introduction to Flow Actions](/blockchain-development-tutorials/forte/flow-actions/intro-to-flow-actions) - Learn about Flow Actions, a suite of standardized Cadence interfaces that enable developers to compose complex DeFi workflows using small, reusable components like Sources, Sinks, Swappers, PriceOracles, and Flashers.
+* [Flow Actions Transactions](/blockchain-development-tutorials/forte/flow-actions/flow-actions-transaction) - Learn how to create transactions that can chain multiple DeFi operations atomically.
 * [Connectors](/blockchain-development-tutorials/forte/flow-actions/connectors) - Build Flow Actions connectors that integrate protocols with Flow Actions primitives, serving as protocol adapters that translate bespoke APIs into standardized interfaces.
 * [Basic Combinations](/blockchain-development-tutorials/forte/flow-actions/basic-combinations) - Learn how to combine Flow Actions primitives to create powerful DeFi workflows using atomic composition, weak guarantees, and event traceability across multiple protocols.
 
@@ -81,6 +81,7 @@ Cadence tutorials covering Flow's native smart contract language for secure and 
   + [Parent Accounts](/blockchain-development-tutorials/cadence/account-management/parent-accounts) - Implement parent account functionality on Flow to manage hierarchical account structures and delegate account operations securely.
   + [Child Accounts](/blockchain-development-tutorials/cadence/account-management/child-accounts) - Create and manage child accounts on Flow for hierarchical account structures and delegated account management with proper access controls.
   + [Account Linking with Dapper](/blockchain-development-tutorials/cadence/account-management/account-linking-with-dapper) - Link Flow accounts with Dapper Wallet to enable seamless user experiences and account management across different wallet providers.
+* [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing) - Run Cadence tests against a forked mainnet using real contracts and production data without deploying to live networks, enabling safe integration testing.
 
 ## [Flow EVM Development](/blockchain-development-tutorials/evm)[​](#flow-evm-development "Direct link to flow-evm-development")
 
@@ -169,7 +170,7 @@ Flow will continue to provide quality walkthroughs and tutorials to provide deve
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/index.md)
 
-Last updated on **Sep 24, 2025** by **Brian Doyle**
+Last updated on **Oct 30, 2025** by **Jordan Ribbink**
 
 [Next
 
