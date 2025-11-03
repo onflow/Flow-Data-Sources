@@ -233027,6 +233027,8 @@ Account Linking With NBA Top Shot | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -233047,7 +233049,9 @@ Search
 
               + [Account Linking](/blockchain-development-tutorials/cadence/account-management)
 
-                - [Building Walletless Applications Using Child Accounts](/blockchain-development-tutorials/cadence/account-management/child-accounts)- [Working With Parent Accounts](/blockchain-development-tutorials/cadence/account-management/parent-accounts)- [Account Linking With NBA Top Shot](/blockchain-development-tutorials/cadence/account-management/account-linking-with-dapper)+ [Mobile Development on Flow](/blockchain-development-tutorials/cadence/mobile)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
+                - [Building Walletless Applications Using Child Accounts](/blockchain-development-tutorials/cadence/account-management/child-accounts)- [Working With Parent Accounts](/blockchain-development-tutorials/cadence/account-management/parent-accounts)- [Account Linking With NBA Top Shot](/blockchain-development-tutorials/cadence/account-management/account-linking-with-dapper)+ [Mobile Development on Flow](/blockchain-development-tutorials/cadence/mobile)
+
+                  + [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)* [Flow EVM Guides](/blockchain-development-tutorials/evm)
 
             * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
 
@@ -331043,6 +331047,8 @@ Connectors | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -331078,14 +331084,6 @@ Search
 On this page
 
 # Connectors
-
-warning
-
-We are reviewing and finalizing Flow Actions in [FLIP 339](https://github.com/onflow/flips/pull/339/files). The specific implementation may change as a part of this process.
-
-We will update these tutorials, but you may need to refactor your code if the implementation changes.
-
-## Overview[​](#overview "Direct link to Overview")
 
 **Connectors** are the bridge between external DeFi protocols and the standardized Flow Actions primitive interfaces. They act as **protocol adapters** that translate protocol-specific APIs into the universal language of Flow Actions. Think of them as "drivers" that provide a connection between software and a piece of hardware without the software developer needing to know how the hardware expects to receive commands, or an MCP allowing an agent to use an API in a standardized manner.
 
@@ -332168,7 +332166,7 @@ This framework allows developers to build sophisticated DeFi strategies while ma
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/flow-actions/connectors.md)
 
-Last updated on **Oct 27, 2025** by **Brian Doyle**
+Last updated on **Oct 29, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -332182,11 +332180,11 @@ Basic Combinations](/blockchain-development-tutorials/forte/flow-actions/basic-c
 
 Copy as Markdown
 
-* [Overview](#overview)* [How Connectors Work](#how-connectors-work)
-    + [Abstraction Layer](#abstraction-layer)+ [Interface Implementation](#interface-implementation)+ [Composition Pattern](#composition-pattern)* [Connector Library](#connector-library)* [Guide to Building Connectors](#guide-to-building-connectors)
-        + [Choose Your Primitive](#choose-your-primitive)+ [Analyze Your Protocol](#analyze-your-protocol)+ [Design Your Connector](#design-your-connector)+ [Implement the Interface](#implement-the-interface)+ [Add Safety Features](#add-safety-features)+ [Support Flow Actions Standards](#support-flow-actions-standards)* [Best Practices](#best-practices)
-          + [**Error Handling**](#error-handling)+ [**Capacity and Balance Checking**](#capacity-and-balance-checking)+ [**Type Safety**](#type-safety)+ [**Event Integration**](#event-integration)+ [**Resource Management**](#resource-management)+ [**Capability Management**](#capability-management)+ [**Documentation**](#documentation)* [Integration into Flow Actions](#integration-into-flow-actions)
-            + [Deploy Your Connector Contract](#deploy-your-connector-contract)+ [Create Usage Transactions](#create-usage-transactions)+ [Real Usage Transaction: VaultSink](#real-usage-transaction-vaultsink)+ [Create Combinations Examples](#create-combinations-examples)+ [Add to Existing Workflows](#add-to-existing-workflows)+ [For Your Own Connectors](#for-your-own-connectors)* [Conclusion](#conclusion)
+* [How Connectors Work](#how-connectors-work)
+  + [Abstraction Layer](#abstraction-layer)+ [Interface Implementation](#interface-implementation)+ [Composition Pattern](#composition-pattern)* [Connector Library](#connector-library)* [Guide to Building Connectors](#guide-to-building-connectors)
+      + [Choose Your Primitive](#choose-your-primitive)+ [Analyze Your Protocol](#analyze-your-protocol)+ [Design Your Connector](#design-your-connector)+ [Implement the Interface](#implement-the-interface)+ [Add Safety Features](#add-safety-features)+ [Support Flow Actions Standards](#support-flow-actions-standards)* [Best Practices](#best-practices)
+        + [**Error Handling**](#error-handling)+ [**Capacity and Balance Checking**](#capacity-and-balance-checking)+ [**Type Safety**](#type-safety)+ [**Event Integration**](#event-integration)+ [**Resource Management**](#resource-management)+ [**Capability Management**](#capability-management)+ [**Documentation**](#documentation)* [Integration into Flow Actions](#integration-into-flow-actions)
+          + [Deploy Your Connector Contract](#deploy-your-connector-contract)+ [Create Usage Transactions](#create-usage-transactions)+ [Real Usage Transaction: VaultSink](#real-usage-transaction-vaultsink)+ [Create Combinations Examples](#create-combinations-examples)+ [Add to Existing Workflows](#add-to-existing-workflows)+ [For Your Own Connectors](#for-your-own-connectors)* [Conclusion](#conclusion)
 
 Flow
 
@@ -365621,6 +365619,8 @@ Cross-chain swaps on Flow EVM | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -365633,7 +365633,7 @@ Search
 
     * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
 
-                + [Build with Forte ↙](/ecosystem/defi-liquidity/forte)+ [DeFi Contracts](/ecosystem/defi-liquidity/defi-contracts)+ [Cross-chain swaps on Flow EVM](/ecosystem/defi-liquidity/cross-chain-swaps)+ [Add Token To MetaMask](/ecosystem/defi-liquidity/add-token-to-metamask)+ [Stablecoins & Bridges FAQ](/ecosystem/defi-liquidity/faq)+ [Band Oracle](/ecosystem/defi-liquidity/band-oracle)* [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
+                + [Build with Forte ↙](/ecosystem/defi-liquidity/forte)+ [DeFi Contracts Mainnet](/ecosystem/defi-liquidity/defi-contracts-mainnet)+ [DeFi Contracts Testnet](/ecosystem/defi-liquidity/defi-contracts-testnet)+ [Cross-chain swaps on Flow EVM](/ecosystem/defi-liquidity/cross-chain-swaps)+ [Add Token To MetaMask](/ecosystem/defi-liquidity/add-token-to-metamask)+ [Stablecoins & Bridges FAQ](/ecosystem/defi-liquidity/faq)+ [Band Oracle](/ecosystem/defi-liquidity/band-oracle)* [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
 
 * * [DeFi & Liquidity](/ecosystem/defi-liquidity)* Cross-chain swaps on Flow EVM
 
@@ -365670,11 +365670,11 @@ through a peer-to-peer transaction mechanism.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/cross-chain-swaps.md)
 
-Last updated on **Mar 14, 2025** by **j pimmel**
+Last updated on **Oct 29, 2025** by **bz**
 
 [Previous
 
-DeFi Contracts](/ecosystem/defi-liquidity/defi-contracts)[Next
+DeFi Contracts Testnet](/ecosystem/defi-liquidity/defi-contracts-testnet)[Next
 
 Add Token To MetaMask](/ecosystem/defi-liquidity/add-token-to-metamask)
 
@@ -410253,6 +410253,8 @@ nodeVersionInfo | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -430261,6 +430263,8 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 Builder Perks | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -501740,6 +501744,8 @@ Community Projects | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -511746,6 +511752,8 @@ Ecosystem Index | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -511790,7 +511798,7 @@ Store, manage, and interact securely with tokens and digital assets on Flow. Dis
 
 [## 💧 DeFi & Liquidity
 
-6 items](/ecosystem/defi-liquidity)
+7 items](/ecosystem/defi-liquidity)
 
 [## 💧 Faucets
 
@@ -515882,6 +515890,8 @@ Blockchain Development Tutorials | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -515932,8 +515942,8 @@ Tutorials covering new features and capabilities introduced in the Forte network
 
 Learn how to build composable DeFi applications using the Flow Actions framework with standardized interfaces and reusable components.
 
-* [Introduction to Flow Actions] - Learn about Flow Actions, a suite of standardized Cadence interfaces that enable developers to compose complex DeFi workflows using small, reusable components like Sources, Sinks, Swappers, PriceOracles, and Flashers.
-* [Flow Actions Transactions] - Learn how to create transactions that can chain multiple DeFi operations atomically.
+* [Introduction to Flow Actions](/blockchain-development-tutorials/forte/flow-actions/intro-to-flow-actions) - Learn about Flow Actions, a suite of standardized Cadence interfaces that enable developers to compose complex DeFi workflows using small, reusable components like Sources, Sinks, Swappers, PriceOracles, and Flashers.
+* [Flow Actions Transactions](/blockchain-development-tutorials/forte/flow-actions/flow-actions-transaction) - Learn how to create transactions that can chain multiple DeFi operations atomically.
 * [Connectors](/blockchain-development-tutorials/forte/flow-actions/connectors) - Build Flow Actions connectors that integrate protocols with Flow Actions primitives, serving as protocol adapters that translate bespoke APIs into standardized interfaces.
 * [Basic Combinations](/blockchain-development-tutorials/forte/flow-actions/basic-combinations) - Learn how to combine Flow Actions primitives to create powerful DeFi workflows using atomic composition, weak guarantees, and event traceability across multiple protocols.
 
@@ -515957,6 +515967,7 @@ Cadence tutorials covering Flow's native smart contract language for secure and 
   + [Parent Accounts](/blockchain-development-tutorials/cadence/account-management/parent-accounts) - Implement parent account functionality on Flow to manage hierarchical account structures and delegate account operations securely.
   + [Child Accounts](/blockchain-development-tutorials/cadence/account-management/child-accounts) - Create and manage child accounts on Flow for hierarchical account structures and delegated account management with proper access controls.
   + [Account Linking with Dapper](/blockchain-development-tutorials/cadence/account-management/account-linking-with-dapper) - Link Flow accounts with Dapper Wallet to enable seamless user experiences and account management across different wallet providers.
+* [Fork Testing](/blockchain-development-tutorials/cadence/fork-testing) - Run Cadence tests against a forked mainnet using real contracts and production data without deploying to live networks, enabling safe integration testing.
 
 ## [Flow EVM Development](/blockchain-development-tutorials/evm)[​](#flow-evm-development "Direct link to flow-evm-development")
 
@@ -516045,7 +516056,7 @@ Flow will continue to provide quality walkthroughs and tutorials to provide deve
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/index.md)
 
-Last updated on **Sep 24, 2025** by **Brian Doyle**
+Last updated on **Oct 30, 2025** by **Jordan Ribbink**
 
 [Next
 
@@ -516061,27 +516072,27 @@ Copy as Markdown
     + [Flow Actions](#flow-actions)+ [Scheduled Transactions](#scheduled-transactions)* [Cadence Development](#cadence-development)* [Flow EVM Development](#flow-evm-development)* [Token Development](#token-development)* [Cross-VM Applications](#cross-vm-applications)* [Native VRF (Built-in Randomness)](#native-vrf-built-in-randomness)* [Gasless Transactions](#gasless-transactions)* [Use AI to Build on the Flow Blockchain](#use-ai-to-build-on-the-flow-blockchain)* [Integrations](#integrations)
                     + [Building in Web3 has never been easier](#building-in-web3-has-never-been-easier)
 
-Documentation
+Flow
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
 
-Community
+Cadence
 
-* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
 
-Start Building
+Solidity (EVM)
 
-* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
 
-Network
+Community & Support
 
-* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
 
-More
+Network & Resources
 
-* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
+Copyright © 2025 Flow Foundation. All Rights Reserved.
 
 
 
@@ -572364,6 +572375,8 @@ Flow CLI | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -582673,6 +582686,8 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 subscribeEvents | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -598894,7 +598909,7 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
-# Source: https://developers.flow.com/
+# Source: https://developers.flow.com
 
 Flow Developer Portal
 
@@ -611595,12 +611610,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **997f7677e87bd653**
+Cloudflare Ray ID: **9987b3d2396db4b8**
 •
 
 Your IP:
 Click to reveal
-20.161.45.113
+64.236.176.232
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 

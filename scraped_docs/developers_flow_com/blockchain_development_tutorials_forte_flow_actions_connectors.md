@@ -4,6 +4,8 @@ Connectors | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -39,14 +41,6 @@ Search
 On this page
 
 # Connectors
-
-warning
-
-We are reviewing and finalizing Flow Actions in [FLIP 339](https://github.com/onflow/flips/pull/339/files). The specific implementation may change as a part of this process.
-
-We will update these tutorials, but you may need to refactor your code if the implementation changes.
-
-## Overview[​](#overview "Direct link to Overview")
 
 **Connectors** are the bridge between external DeFi protocols and the standardized Flow Actions primitive interfaces. They act as **protocol adapters** that translate protocol-specific APIs into the universal language of Flow Actions. Think of them as "drivers" that provide a connection between software and a piece of hardware without the software developer needing to know how the hardware expects to receive commands, or an MCP allowing an agent to use an API in a standardized manner.
 
@@ -1129,7 +1123,7 @@ This framework allows developers to build sophisticated DeFi strategies while ma
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/flow-actions/connectors.md)
 
-Last updated on **Oct 27, 2025** by **Brian Doyle**
+Last updated on **Oct 29, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -1143,11 +1137,11 @@ Basic Combinations](/blockchain-development-tutorials/forte/flow-actions/basic-c
 
 Copy as Markdown
 
-* [Overview](#overview)* [How Connectors Work](#how-connectors-work)
-    + [Abstraction Layer](#abstraction-layer)+ [Interface Implementation](#interface-implementation)+ [Composition Pattern](#composition-pattern)* [Connector Library](#connector-library)* [Guide to Building Connectors](#guide-to-building-connectors)
-        + [Choose Your Primitive](#choose-your-primitive)+ [Analyze Your Protocol](#analyze-your-protocol)+ [Design Your Connector](#design-your-connector)+ [Implement the Interface](#implement-the-interface)+ [Add Safety Features](#add-safety-features)+ [Support Flow Actions Standards](#support-flow-actions-standards)* [Best Practices](#best-practices)
-          + [**Error Handling**](#error-handling)+ [**Capacity and Balance Checking**](#capacity-and-balance-checking)+ [**Type Safety**](#type-safety)+ [**Event Integration**](#event-integration)+ [**Resource Management**](#resource-management)+ [**Capability Management**](#capability-management)+ [**Documentation**](#documentation)* [Integration into Flow Actions](#integration-into-flow-actions)
-            + [Deploy Your Connector Contract](#deploy-your-connector-contract)+ [Create Usage Transactions](#create-usage-transactions)+ [Real Usage Transaction: VaultSink](#real-usage-transaction-vaultsink)+ [Create Combinations Examples](#create-combinations-examples)+ [Add to Existing Workflows](#add-to-existing-workflows)+ [For Your Own Connectors](#for-your-own-connectors)* [Conclusion](#conclusion)
+* [How Connectors Work](#how-connectors-work)
+  + [Abstraction Layer](#abstraction-layer)+ [Interface Implementation](#interface-implementation)+ [Composition Pattern](#composition-pattern)* [Connector Library](#connector-library)* [Guide to Building Connectors](#guide-to-building-connectors)
+      + [Choose Your Primitive](#choose-your-primitive)+ [Analyze Your Protocol](#analyze-your-protocol)+ [Design Your Connector](#design-your-connector)+ [Implement the Interface](#implement-the-interface)+ [Add Safety Features](#add-safety-features)+ [Support Flow Actions Standards](#support-flow-actions-standards)* [Best Practices](#best-practices)
+        + [**Error Handling**](#error-handling)+ [**Capacity and Balance Checking**](#capacity-and-balance-checking)+ [**Type Safety**](#type-safety)+ [**Event Integration**](#event-integration)+ [**Resource Management**](#resource-management)+ [**Capability Management**](#capability-management)+ [**Documentation**](#documentation)* [Integration into Flow Actions](#integration-into-flow-actions)
+          + [Deploy Your Connector Contract](#deploy-your-connector-contract)+ [Create Usage Transactions](#create-usage-transactions)+ [Real Usage Transaction: VaultSink](#real-usage-transaction-vaultsink)+ [Create Combinations Examples](#create-combinations-examples)+ [Add to Existing Workflows](#add-to-existing-workflows)+ [For Your Own Connectors](#for-your-own-connectors)* [Conclusion](#conclusion)
 
 Flow
 
