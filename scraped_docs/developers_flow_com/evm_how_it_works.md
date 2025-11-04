@@ -4,43 +4,29 @@ How Flow EVM Works | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [Why Flow](/build/flow)
-* [Cadence](/build/cadence/getting-started)
+* [Why Flow](/build/flow)* [Cadence](/build/cadence/quickstart)
 
-  + [Getting Started](/build/cadence/getting-started)
-  + [Differences vs. EVM](/build/cadence/differences-vs-evm)
-  + [Flow Protocol](/build/cadence/basics/network-architecture)
-  + [App Architecture](/build/cadence/app-architecture)
-  + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
-  + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
-  + [Guides](/build/cadence/guides/account-linking)
-  + [Core Smart Contracts](/build/cadence/core-contracts)
-  + [Explore More](/build/cadence/explore-more)
-* [Solidity (EVM)](/build/evm/about)
+    + [Quickstart ↙](/build/cadence/quickstart)+ [Differences vs. EVM](/build/cadence/differences-vs-evm)+ [Basics](/build/cadence/basics/network-architecture)
 
-  + [Why EVM on Flow](/build/evm/about)
-  + [How it Works](/build/evm/how-it-works)
-  + [Using Flow EVM](/build/evm/using)
-  + [Network Information](/build/evm/networks)
-  + [EVM Quickstart](/build/evm/quickstart)
-  + [Fees](/build/evm/fees)
-  + [Accounts](/build/evm/accounts)
-  + [Cross-chain Bridges ↙](/evm/cross-chain-bridges)
-  + [Faucets ↙](/evm/faucets)
-  + [Block Explorers ↙](/evm/block-explorers)
-  + [Guides](/build/evm/guides)
-* [Tools & SDKs](/build/tools)
+          + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-* Solidity (EVM)
-* How it Works
+            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+
+              + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
+
+      + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
+
+* * Solidity (EVM)* How it Works
 
 On this page
 
@@ -204,13 +190,13 @@ Flow’s state system provides ways to construct inclusion and non-inclusion pro
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/evm/how-it-works.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Oct 17, 2025** by **Brian Doyle**
 
 [Previous
 
-Why EVM on Flow](/build/evm/about)[Next
+EVM Quickstart](/build/evm/quickstart)[Next
 
-Using Flow EVM](/build/evm/using)
+EVM Wallet Setup](/build/evm/using)
 
 ###### Rate this page
 
@@ -219,68 +205,28 @@ Using Flow EVM](/build/evm/using)
 Copy as Markdown
 
 * [Introduction](#introduction)
-  + [EVM - A Smart Contract In Cadence](#evm---a-smart-contract-in-cadence)
-  + [No Shared Memory Design](#no-shared-memory-design)
-  + [No New Native Token](#no-new-native-token)
-  + [EVM Equivalency](#evm-equivalency)
-* [Gateways](#gateways)
-  + [Gateway As A Light Client](#gateway-as-a-light-client)
-  + [Gateway As a Sequencer](#gateway-as-a-sequencer)
-* [Block hash calculation difference](#block-hash-calculation-difference)
-* [Opcodes](#opcodes)
-* [Precompiled Contracts](#precompiled-contracts)
-* [Special Addresses](#special-addresses)
-  + [Native Token Bridge](#native-token-bridge)
-  + [Cadence-Owned Accounts (COAs)](#cadence-owned-accounts-coas)
-* [Proofs](#proofs)
+  + [EVM - A Smart Contract In Cadence](#evm---a-smart-contract-in-cadence)+ [No Shared Memory Design](#no-shared-memory-design)+ [No New Native Token](#no-new-native-token)+ [EVM Equivalency](#evm-equivalency)* [Gateways](#gateways)
+    + [Gateway As A Light Client](#gateway-as-a-light-client)+ [Gateway As a Sequencer](#gateway-as-a-sequencer)* [Block hash calculation difference](#block-hash-calculation-difference)* [Opcodes](#opcodes)* [Precompiled Contracts](#precompiled-contracts)* [Special Addresses](#special-addresses)
+            + [Native Token Bridge](#native-token-bridge)+ [Cadence-Owned Accounts (COAs)](#cadence-owned-accounts-coas)* [Proofs](#proofs)
 
-Documentation
+Flow
 
-* [Getting Started](/build/cadence/getting-started/contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/cadence/guides/mobile/overview)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
 
-Community
+Cadence
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
 
-Start Building
+Solidity (EVM)
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/about)
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
 
-Network
+Community & Support
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/protocol/node-ops/node-operation/upcoming-sporks)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/spork)
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
 
-More
+Network & Resources
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
+Copyright © 2025 Flow Foundation. All Rights Reserved.

@@ -4,6 +4,8 @@ createSignableVoucher | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -193,9 +195,81 @@ _27
 
 ## Returns[​](#returns "Direct link to Returns")
 
-`_10
+`_19
 
-{ cadence: string; refBlock: string; computeLimit: number; arguments: any[]; proposalKey: { address: string; keyId: string | number; sequenceNum: number; } | { address?: undefined; keyId?: undefined; sequenceNum?: undefined; }; payer: string; authorizers: string[]; payloadSigs: { address: string; keyId: string | number; sig: string; }[]; envelopeSigs: { address: string; keyId: string | number; sig: string; }[]; }`
+{
+
+_19
+
+cadence: string;
+
+_19
+
+refBlock: string;
+
+_19
+
+computeLimit: number;
+
+_19
+
+arguments: any[];
+
+_19
+
+proposalKey: {
+
+_19
+
+address: string;
+
+_19
+
+keyId: string | number;
+
+_19
+
+sequenceNum: number;
+
+_19
+
+} | {
+
+_19
+
+address?: undefined;
+
+_19
+
+keyId?: undefined;
+
+_19
+
+sequenceNum?: undefined;
+
+_19
+
+};
+
+_19
+
+payer: string;
+
+_19
+
+authorizers: string[];
+
+_19
+
+payloadSigs: any[];
+
+_19
+
+envelopeSigs: any[];
+
+_19
+
+}`
 
 A voucher object containing all transaction data and signatures
 
@@ -203,7 +277,7 @@ A voucher object containing all transaction data and signatures
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/createSignableVoucher.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Oct 22, 2025** by **Michael Fabozzi**
 
 [Previous
 

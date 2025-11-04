@@ -36,7 +36,7 @@ Search
 
                       - [Flow Go SDK](/build/tools/clients/flow-go-sdk)
 
-                        * [Migration Guide v0.25.0](/build/tools/clients/flow-go-sdk/migration-v0.25.0)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                        * [Flow Project Configuration](/build/tools/clients/flow-go-sdk/flowkit)* [Migration Guide v0.25.0](/build/tools/clients/flow-go-sdk/migration-v0.25.0)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* Flow Go SDK
 
@@ -3017,7 +3017,7 @@ Last updated on **Sep 10, 2025** by **Pandit Dhamdhere**
 
 WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)[Next
 
-Migration Guide v0.25.0](/build/tools/clients/flow-go-sdk/migration-v0.25.0)
+Flow Project Configuration](/build/tools/clients/flow-go-sdk/flowkit)
 
 ###### Rate this page
 
