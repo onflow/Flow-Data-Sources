@@ -36,7 +36,7 @@ Search
 
                       - [Flow Go SDK](/build/tools/clients/flow-go-sdk)
 
-                        * [Migration Guide v0.25.0](/build/tools/clients/flow-go-sdk/migration-v0.25.0)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                        * [Flow Project Configuration](/build/tools/clients/flow-go-sdk/flowkit)* [Migration Guide v0.25.0](/build/tools/clients/flow-go-sdk/migration-v0.25.0)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Go SDK](/build/tools/clients/flow-go-sdk)* Migration Guide v0.25.0
 
@@ -163,7 +163,7 @@ Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-Flow Go SDK](/build/tools/clients/flow-go-sdk)[Next
+Flow Project Configuration](/build/tools/clients/flow-go-sdk/flowkit)[Next
 
 Error Codes](/build/tools/error-codes)
 
