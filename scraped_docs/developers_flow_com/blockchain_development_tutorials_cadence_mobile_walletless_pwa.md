@@ -44,31 +44,31 @@ Search
 
 On this page
 
-# Overview
+# Build a Walletless Mobile App (PWA)
 
-In this tutorial, we delve into the intricacies of crafting an accessible Progressive Web App (PWA) on the Flow blockchain, tackling the challenge of mobile mainstream accessibility in web3. Recognizing the complexity of current onboarding processes, we will guide you through a streamlined approach, featuring a seamless walletless mobile login to alleviate the often daunting task for new users.
+In this tutorial, we delve into the intricacies of crafting an accessible Progressive Web App (PWA) on the Flow blockchain, tackling the challenge of mobile mainstream accessibility in web3. We recognize the complexity of current onboarding processes, so we'll guide you through a streamlined approach, featuring a seamless walletless mobile login to alleviate the often daunting task for new users.
 
-### Understanding Progressive Web Apps (PWAs)[​](#understanding-progressive-web-apps-pwas "Direct link to Understanding Progressive Web Apps (PWAs)")
+### Understanding PWAs[​](#understanding-pwas "Direct link to Understanding PWAs")
 
-Progressive Web Apps (PWAs) have garnered attention recently, with platforms like [friend.tech](http://friend.tech/) leading the way in popularity. PWAs blur the lines between web pages and mobile applications, offering an immersive, app-like experience directly from your browser. You can easily add a shortcut to your home screen, and the PWA operates just like a native application would. Beyond these capabilities, PWAs also boast offline functionality and support for push notifications, among many [other features](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps).
+PWAs have garnered attention recently, with platforms like [friend.tech](http://friend.tech/) leading the way in popularity. PWAs blur the lines between web pages and mobile applications, offering an immersive, app-like experience directly from your browser. You can easily add a shortcut to your home screen, and the PWA operates just like a native application would. Beyond these capabilities, PWAs also boast offline functionality and support for push notifications, among many [other features](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps).
 
-### ****Exploring Walletless Onboarding****[​](#exploring-walletless-onboarding "Direct link to exploring-walletless-onboarding")
+### ****Explore walletless onboarding****[​](#explore-walletless-onboarding "Direct link to explore-walletless-onboarding")
 
-Walletless onboarding is a groundbreaking feature that enables users to securely interact with decentralized applications (dApps) in a matter of seconds, all without the traditional necessity of creating a blockchain wallet. This method effectively simplifies the user experience, abstracting the complexities of blockchain technology to facilitate swift and straightforward app access. For a deeper dive into walletless onboarding and its integration with Flow, feel free to explore the following resource: [Flow Magic Integration](https://flow.com/post/flow-magic-integration).
+Walletless onboarding is a groundbreaking feature that allows users to securely interact with decentralized applications (dApps) in a matter of seconds, all without the traditional need to create a blockchain wallet. This method effectively simplifies the user experience, abstracting the complexities of blockchain technology to facilitate swift and straightforward app access. For a deeper dive into walletless onboarding and its integration with Flow, feel free to explore the following resource: [Flow Magic Integration](https://flow.com/post/flow-magic-integration).
 
-# Detailed Steps
+# Detailed steps
 
-To effectively follow this tutorial, the developer requires a few essential libraries and integrations. Additionally, there is a ready-made flow scaffold called [FCL PWA](https://github.com/bshahid331/flow-pwa-scaffold) that contains the completed tutorial code, providing a solid foundation for you to build your Progressive Web App (PWA)!
+To effectively follow this tutorial, the developer requires a few essential libraries and integrations. Additionally, there is a ready-made flow scaffold called [FCL PWA](https://github.com/bshahid331/flow-pwa-scaffold) that contains the completed tutorial code, providing a solid foundation for you to build your PWA!
 
 ## **Dependencies**[​](#dependencies "Direct link to dependencies")
 
-1. **Magic Account**: Start by setting up an app on magic.link, during which you will obtain an API key crucial for further steps.
-2. **Magic SDK**: Essential for integrating Magic's functionality in your project, and can be found [here](https://www.npmjs.com/package/magic-sdk).
-3. **Magic Flow SDK**: This SDK enables Magic's integration with Flow. You can install it from [this link](https://www.npmjs.com/package/@magic-ext/flow/v/13.3.0).
+1. **Magic Account**: To start, set up an app on magic.link, where you'll obtain an API key crucial for further steps.
+2. **Magic SDK**: Essential to integrate Magic's functionality in your project, and you can find it [here](https://www.npmjs.com/package/magic-sdk).
+3. **Magic Flow SDK**: This SDK allows Magic's integration with Flow. You can install it from [this link](https://www.npmjs.com/package/@magic-ext/flow/v/13.3.0).
 4. **Flow Client Library ([FCL](https://developers.flow.com/tooling/fcl-js))**: As the JavaScript SDK for the Flow blockchain, FCL allows developers to create applications that seamlessly interact with the Flow blockchain and its smart contracts.
-5. **React**: Our project will be built using the React framework.
+5. **React**: We'll build our project with the React framework.
 
-### ****Setting up PWA and Testing Locally****[​](#setting-up-pwa-and-testing-locally "Direct link to setting-up-pwa-and-testing-locally")
+### ****Set up up PWA and testing locally****[​](#set-up-up-pwa-and-testing-locally "Direct link to set-up-up-pwa-and-testing-locally")
 
 Initiate the creation of a new React app, opting for the PWA template with the following command:
 
@@ -78,19 +78,19 @@ npx create-react-app name-of-our-PWA-app --template cra-template-pwa`
 
 Ensure that **`serviceWorkerRegistration.register()`** in **`index.js`** is appropriately configured to support offline capabilities of your PWA.
 
-Proceed to build your application using your preferred build tool. In this example, we will use Yarn:
+Proceed to build your application with your preferred build tool. In this example, we will use Yarn:
 
 `_10
 
 yarn run build`
 
-Following the build, you can serve your application locally using:
+Following the build, you can serve your application locally with:
 
 `_10
 
 npx serve -s build`
 
-To thoroughly test your PWA, especially on a mobile device, it's highly recommended to use a tool like **`ngrok`**. Start **`ngrok`** and point it to the local port your application is running on:
+To thoroughly test your PWA, especially on a mobile device, we strongly recommend that you use a tool like **`ngrok`**. Start **`ngrok`** and point it to the local port on which your application runs:
 
 `_10
 
@@ -100,7 +100,7 @@ Grab the generated link, and you can now access and test your PWA directly on yo
 
 You can now grab the link and go to it on your mobile device to test the PWA!
 
-### Integrating with Magic[​](#integrating-with-magic "Direct link to Integrating with Magic")
+### Integrate with Magic[​](#integrate-with-magic "Direct link to Integrate with Magic")
 
 Proceed to install the Magic-related dependencies in your project. Ensure you add your Magic app's key as an environment variable for secure access:
 
@@ -108,7 +108,7 @@ Proceed to install the Magic-related dependencies in your project. Ensure you ad
 
 yarn add magic-sdk @magic-ext/flow @onflow/fcl`
 
-Let's create a helper file, **`magic.js`**, to manage our Magic extension setup. Ensure that your environment variable with the Magic API key is correctly set before proceeding.
+Let's create a helper file, **`magic.js`**, to manage our Magic extension setup. Ensure that your environment variable with the Magic API key is correctly set before you proceed.
 
 `_13
 
@@ -158,13 +158,13 @@ _13
 
 export default magic;`
 
-Anytime you need to interface with chain you will use this magic instance.
+Anytime you need to interface with chain, you will use this magic instance.
 
-### ****React Context and Provider for User Data****[​](#react-context-and-provider-for-user-data "Direct link to react-context-and-provider-for-user-data")
+### ****React context and provider for user data****[​](#react-context-and-provider-for-user-data "Direct link to react-context-and-provider-for-user-data")
 
 **`currentUserContext.js`**
 
-This file creates a React context that will be used to share the current user's data across your application.
+This file creates a React context that you'll use to share the current user's data across your application.
 
 **React Context**: It is created using **`React.createContext()`** which provides a way to pass data through the component tree without having to pass props down manually at every level.
 
@@ -186,9 +186,9 @@ export default CurrentUserContext;`
 
 **`currentUserProvider.js`**
 
-This file defines a React provider component that uses the context created above. This provider component will wrap around your application's components, allowing them to access the current user's data.
+This file defines a React provider component that uses the context created above. This provider component will wrap around your application's components, which allows them to access the current user's data.
 
-* **useState**: To create state variables for storing the current user's data and the loading status.
+* **useState**: To create state variables to store the current user's data and the loading status.
 * **useEffect**: To fetch the user's data from Magic when the component mounts.
 * **magic.user.isLoggedIn**: Checks if a user is logged in.
 * **magic.user.getMetadata**: Fetches the user's metadata.
@@ -331,11 +331,11 @@ _37
 
 export default CurrentUserProvider;`
 
-### **Logging in the User**[​](#logging-in-the-user "Direct link to logging-in-the-user")
+### **Log in the user**[​](#log-in-the-user "Direct link to log-in-the-user")
 
-This part shows how to log in a user using Magic's SMS authentication.
+This part shows how to log in a user with Magic's SMS authentication.
 
-* **magic.auth.loginWithSMS**: A function provided by Magic to authenticate users using their phone number.
+* **magic.auth.loginWithSMS**: A function that Magic provides to authenticate users with their phone number.
 * **setCurrentUser**: Updates the user's data in the context.
 
 `_12
@@ -384,8 +384,8 @@ _12
 
 This example shows how to interact with the Flow blockchain using FCL and Magic for authorization.
 
-* **fcl.send**: A function provided by FCL to send transactions or scripts to the Flow blockchain.
-* **AUTHORIZATION\_FUNCTION**: The authorization function provided by Magic for signing transactions.
+* **fcl.send**: A function that FCL provides to send transactions or scripts to the Flow blockchain.
+* **AUTHORIZATION\_FUNCTION**: The authorization function that Magic provides to sign transactions.
 
 `` _26
 
@@ -485,15 +485,15 @@ _26
 
 }; ``
 
-### ****Account Linking with Flow****[​](#account-linking-with-flow "Direct link to account-linking-with-flow")
+### ****Account linking with Flow****[​](#account-linking-with-flow "Direct link to account-linking-with-flow")
 
-Now we can unlock the real power of Flow. Lets say you have another Flow account and you want to link the "magic" account as a child account so that you can take full custody of whatever is in the magic account you can do this via Hybird Custody.
+Now we can unlock the real power of Flow. Lets say you have another Flow account and you want to link the "magic" account as a child account so that you can take full custody of whatever is in the magic account. You can do this via Hybird Custody.
 
 You can view the hybrid custody repo and contracts here: <https://github.com/onflow/hybrid-custody>
 
-We will maintain two accounts within the app. The child(magic) account form earlier and new non custodial FCL flow account. I won't go over how to log in with FCL here and use it but you can do the normal process to obtain the parent account.
+We will maintain two accounts within the app. The child(magic) account from earlier and new non custodial FCL flow account. We won't go over how to log in with FCL here and use it, but you can do the normal process to obtain the parent account.
 
-One you have the parent account and child(magic) account logged in you can link the account by using the following transaction.
+After you log in to the parent account and child(magic) account, you can link the account with the following transaction.
 
 `_72
 
@@ -747,9 +747,9 @@ _72
 
 }`
 
-note
+info
 
-For the sake of this example, well use some pre defined factory and filter implementations. You can find them on the repo but on testnet we can use 0x1055970ee34ef4dc and 0xe2664be06bb0fe62 for the factory and filter address respectively. 0x1055970ee34ef4dc provides NFT capabilities and 0xe2664be06bb0fe62 which is the AllowAllFilter. These generalized implementations likely cover most use cases, but you'll want to weigh the decision to use them according to your risk tolerance and specific scenario
+For the sake of this example, well use some pre defined factory and filter implementations. You can find them on the repo, but on testnet we can use 0x1055970ee34ef4dc and 0xe2664be06bb0fe62 for the factory and filter address respectively. 0x1055970ee34ef4dc provides NFT capabilities and 0xe2664be06bb0fe62 which is the AllowAllFilter. These generalized implementations likely cover most use cases, but you'll want to weigh the decision to use them according to your risk tolerance and specific scenario
 
 Now, for viewing all parent accounts linked to a child account and removing a linked account, you can follow similar patterns, using Cadence scripts and transactions as required.
 
@@ -795,7 +795,7 @@ _12
 
 }`
 
-and finally to remove a linked account you can run the following cadence transaction
+Finally, to remove a linked account, you can run the following cadence transaction:
 
 `` _24
 
@@ -887,11 +887,11 @@ _24
 
 ]); ``
 
-# Video Guide
+# Video guide
 
 [![Video Title](/assets/images/pwa_youtube_thumbnail-bc472a96186e5e5aa558c64d2021aed7.png)](https://www.youtube.com/watch?v=1ZmvfBFdCxY "Video Title")
 
-# **Sample Flow PWA: Balloon Inflation Game**
+# **Sample Flow PWA: Balloon inflation game**
 
 ## **Game Overview**[​](#game-overview "Direct link to game-overview")
 
@@ -907,16 +907,16 @@ The full code for this game can be found here: <https://github.com/onflow/inflat
 
 [![pwa_link_account_thumbnail](/assets/images/pwa_link_account_thumbnail-f50fbb72fef9e1466e2b590ad5f38b5c.png)](https://drive.google.com/file/d/1FZzoLmd5LLGBbO4enzk8LpV1Uwbgc-Ry/view)
 
-### **Key Game Features:**[​](#key-game-features "Direct link to key-game-features")
+### **Key game features:**[​](#key-game-features "Direct link to key-game-features")
 
-1. **Balloon Inflation**:
+1. **Balloon inflation**:
    * As the player inflates the balloon, it expands and changes color.
-   * A hidden inflation threshold is set; surpassing this limit will result in the balloon bursting.
-2. **NFT Minting**:
-   * Satisfied with their balloon's size, players have the option to mint it into an NFT, creating a permanent token of their accomplishment.
-3. **Balloon Collection**:
+   * A hidden inflation threshold is set. If a player exceeds this limit, the ballon bursts.
+2. **NFT minting**:
+   * Satisfied with their balloon's size, players have the option to mint it into an NFT, which creates a permanent token of their accomplishment.
+3. **Balloon collection**:
    * Post-minting, players can view and showcase their collection of balloon NFTs.
-4. **Account Linking and Custody**:
+4. **Account linking and custody**:
    * Players initially interact with the game in a walletless fashion via Magic.
    * When ready to claim full ownership of their balloon NFTs, they can link their Magic account to a non-custodial FCL wallet of their choice.
 
@@ -924,20 +924,20 @@ The full code for this game can be found here: <https://github.com/onflow/inflat
 
 The entire game is crafted upon the previously discussed setup, ensuring a seamless and user-friendly experience.
 
-### **Playing the Game:**[​](#playing-the-game "Direct link to playing-the-game")
+### **Playing the game:**[​](#playing-the-game "Direct link to playing-the-game")
 
-* **Walletless Interaction**: Users can jump right into the game, inflating the balloon and enjoying the gameplay without any blockchain wallet setup.
-* **Inflation and Visuals**: The balloon's size and color change in real-time, providing instant visual feedback to the player.
+* **Walletless interaction**: Users can jump right into the game, inflate the balloon and enjoy the gameplay without any blockchain wallet setup.
+* **Inflation and visuals**: The balloon's size and color change in real-time, which provides instant visual feedback to the player.
 
-### **Minting and Viewing NFTs:**[​](#minting-and-viewing-nfts "Direct link to minting-and-viewing-nfts")
+### **Minting and viewing NFTs:**[​](#minting-and-viewing-nfts "Direct link to minting-and-viewing-nfts")
 
-* **Magic Login for Minting**: To mint their balloon as an NFT, players log in using Magic, embracing a walletless experience.
+* **Magic login for minting**: To mint their balloon as an NFT, players log in with Magic and embrace a walletless experience.
 * **Viewing NFT Collection**: Post-minting, players can easily access and view their collection of balloon NFTs.
 
-### **Taking Custody with Account Linking:**[​](#taking-custody-with-account-linking "Direct link to taking-custody-with-account-linking")
+### **Take custody with Account Linking:**[​](#take-custody-with-account-linking "Direct link to take-custody-with-account-linking")
 
-* **Secure Custody**: Players wishing to secure their balloon NFTs can utilize Account Linking to connect their Magic account to their personal non-custodial FCL wallet.
-* **Full Ownership**: This step ensures that players have complete control and custody over their digital assets.
+* **Secure custody**: Players who want to secure their balloon NFTs can use Account Linking to connect their Magic account to their personal non-custodial FCL wallet.
+* **Full ownership**: This step ensures that players have complete control and custody over their digital assets.
 
 ## **Conclusion**[​](#conclusion "Direct link to conclusion")
 
@@ -945,7 +945,7 @@ The balloon inflation game stands as a testament to the seamless integration of 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/mobile/walletless-pwa.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Nov 4, 2025** by **cshannon1218**
 
 [Previous
 
@@ -959,10 +959,10 @@ Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)
 
 Copy as Markdown
 
-* [Understanding Progressive Web Apps (PWAs)](#understanding-progressive-web-apps-pwas)* [****Exploring Walletless Onboarding****](#exploring-walletless-onboarding)* [**Dependencies**](#dependencies)
-      + [****Setting up PWA and Testing Locally****](#setting-up-pwa-and-testing-locally)+ [Integrating with Magic](#integrating-with-magic)+ [****React Context and Provider for User Data****](#react-context-and-provider-for-user-data)+ [**Logging in the User**](#logging-in-the-user)+ [**Scripts/Transactions with Flow**](#scriptstransactions-with-flow)+ [****Account Linking with Flow****](#account-linking-with-flow)* [**Game Overview**](#game-overview)
-        + [**Key Game Features:**](#key-game-features)* [**Integration with Flow and Magic**](#integration-with-flow-and-magic)
-          + [**Playing the Game:**](#playing-the-game)+ [**Minting and Viewing NFTs:**](#minting-and-viewing-nfts)+ [**Taking Custody with Account Linking:**](#taking-custody-with-account-linking)* [**Conclusion**](#conclusion)
+* [Understanding PWAs](#understanding-pwas)* [****Explore walletless onboarding****](#explore-walletless-onboarding)* [**Dependencies**](#dependencies)
+      + [****Set up up PWA and testing locally****](#set-up-up-pwa-and-testing-locally)+ [Integrate with Magic](#integrate-with-magic)+ [****React context and provider for user data****](#react-context-and-provider-for-user-data)+ [**Log in the user**](#log-in-the-user)+ [**Scripts/Transactions with Flow**](#scriptstransactions-with-flow)+ [****Account linking with Flow****](#account-linking-with-flow)* [**Game Overview**](#game-overview)
+        + [**Key game features:**](#key-game-features)* [**Integration with Flow and Magic**](#integration-with-flow-and-magic)
+          + [**Playing the game:**](#playing-the-game)+ [**Minting and viewing NFTs:**](#minting-and-viewing-nfts)+ [**Take custody with Account Linking:**](#take-custody-with-account-linking)* [**Conclusion**](#conclusion)
 
 Flow
 

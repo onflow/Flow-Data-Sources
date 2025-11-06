@@ -46,13 +46,13 @@ On this page
 
 # Building a Frontend App
 
-Building on the `Counter` contract you deployed in [Cadence Environment Setup](/blockchain-development-tutorials/cadence/getting-started/cadence-environment-setup) and [Smart Contract Interaction](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction), this tutorial shows you how to create a simple Next.js frontend that interacts with the `Counter` smart contract deployed on your local Flow emulator. Instead of using FCL directly, you'll leverage [**@onflow/react-sdk**](/build/tools/react-sdk) to simplify authentication, querying, transactions, and to display real-time transaction status updates using convenient React hooks.
+This tutorial builds on the `Counter` contract you deployed in [Cadence Environment Setup](/blockchain-development-tutorials/cadence/getting-started/cadence-environment-setup) and [Smart Contract Interaction](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction). It shows you how to create a simple `Next.js` frontend that interacts with the `Counter` smart contract deployed on your local Flow emulator. Instead of using FCL directly, you'll leverage [**@onflow/react-sdk**](/build/tools/react-sdk) to simplify authentication, querying, transactions, and to display real-time transaction status updates using convenient React hooks.
 
 ## Objectives[​](#objectives "Direct link to Objectives")
 
-After finishing this guide, you will be able to:
+After you complete this tutorial, you will be able to:
 
-* Wrap your Next.js app with a Flow provider using [**@onflow/react-sdk**](/build/tools/react-sdk).
+* Wrap your `Next.js` app with a Flow provider using [**@onflow/react-sdk**](/build/tools/react-sdk).
 * Read data from a Cadence smart contract (`Counter`) using kit's query hook.
 * Send a transaction to update the smart contract's state using kit's mutation hook.
 * Monitor a transaction's status in real time using kit's transaction hook.
@@ -64,7 +64,7 @@ After finishing this guide, you will be able to:
 * [Flow CLI](/build/tools/flow-cli/install) installed.
 * Node.js and npm installed.
 
-## Setting Up the Next.js App[​](#setting-up-the-nextjs-app "Direct link to Setting Up the Next.js App")
+## Set Up the Next.js app[​](#set-up-the-nextjs-app "Direct link to Set Up the Next.js app")
 
 Follow these steps to set up your Next.js project and integrate [**@onflow/react-sdk**](/build/tools/react-sdk).
 
@@ -72,7 +72,7 @@ tip
 
 You can visit this [React-sdk Demo](https://react-sdk-demo-git-master-onflow.vercel.app/) to see how the hooks and components are used.
 
-### Step 1: Create a New Next.js App[​](#step-1-create-a-new-nextjs-app "Direct link to Step 1: Create a New Next.js App")
+### Step 1: Create a new Next.js app[​](#step-1-create-a-new-nextjs-app "Direct link to Step 1: Create a new Next.js app")
 
 Run the following command in your project directory:
 
@@ -88,7 +88,7 @@ During setup, choose the following options:
 
 This command creates a new Next.js project named `kit-app-quickstart` inside your current directory. We're generating the frontend in a subdirectory so we can next move it into our existing project structure from the previous steps (you can't create an app in a non-empty directory).
 
-### Step 2: Move the Next.js App Up a Directory[​](#step-2-move-the-nextjs-app-up-a-directory "Direct link to Step 2: Move the Next.js App Up a Directory")
+### Step 2: Move the Next.js app Up a directory[​](#step-2-move-the-nextjs-app-up-a-directory "Direct link to Step 2: Move the Next.js app Up a directory")
 
 Move the contents of the `kit-app-quickstart` directory into your project root. You can use the gui in your editor, or the console.
 
@@ -124,7 +124,9 @@ _10
 
 Remove-Item -Recurse -Force .\kit-app-quickstart`
 
-**Note:** When moving hidden files (those beginning with a dot) like `.gitignore`, be cautious not to overwrite any important files.
+tip
+
+When moving hidden files (those beginning with a dot) like `.gitignore`, be cautious not to overwrite any important files.
 
 ### Step 3: Install @onflow/react-sdk[​](#step-3-install-onflowreact-sdk "Direct link to Step 3: Install @onflow/react-sdk")
 
@@ -136,11 +138,11 @@ npm install @onflow/react-sdk`
 
 This library wraps FCL internally and exposes a set of hooks for authentication, querying, sending transactions, and tracking transaction status.
 
-## Configuring the Local Flow Emulator and Dev Wallet[​](#configuring-the-local-flow-emulator-and-dev-wallet "Direct link to Configuring the Local Flow Emulator and Dev Wallet")
+## Configure the local Flow Emulator and Dev Wallet[​](#configure-the-local-flow-emulator-and-dev-wallet "Direct link to Configure the local Flow Emulator and Dev Wallet")
 
 warning
 
-You should already have the Flow emulator running from the local development step. If it's not running, you can start it again — but note that restarting the emulator will clear all blockchain state, including any contracts deployed in [Step 2: Local Development].
+You should already have the Flow emulator running from the local development step. If it's not running, you can start it again — but when you restart the emulator, it will clear all blockchain state, which includes any contracts deployed in [Step 2: Local Development].
 
 ### Start the Flow Emulator (if not already running)[​](#start-the-flow-emulator-if-not-already-running "Direct link to Start the Flow Emulator (if not already running)")
 
@@ -162,9 +164,9 @@ flow dev-wallet`
 
 This will start the [Dev Wallet](/build/tools/flow-dev-wallet) on `http://localhost:8701`, which you'll use for authentication during development.
 
-## Wrapping Your App with FlowProvider[​](#wrapping-your-app-with-flowprovider "Direct link to Wrapping Your App with FlowProvider")
+## Wrap Your app with FlowProvider[​](#wrap-your-app-with-flowprovider "Direct link to Wrap Your app with FlowProvider")
 
-[**@onflow/react-sdk**](/build/tools/react-sdk) provides a `FlowProvider` component that sets up the Flow Client Library configuration. In Next.js using the App Router, add or update your `src/app/layout.tsx` as follows:
+[**@onflow/react-sdk**](/build/tools/react-sdk) provides a `FlowProvider` component that sets up the Flow Client Library configuration. In `Next.js` using the App Router, add or update your `src/app/layout.tsx` as follows:
 
 `_27
 
@@ -274,11 +276,11 @@ This configuration initializes the kit with your local emulator settings and map
 
 For more information on Discovery configurations, refer to the [Wallet Discovery Guide](/build/tools/clients/fcl-js/discovery).
 
-## Interacting With the Chain[​](#interacting-with-the-chain "Direct link to Interacting With the Chain")
+## Interact With the chain[​](#interact-with-the-chain "Direct link to Interact With the chain")
 
 Now that we've set our provider, lets start interacting with the chain.
 
-### Querying the Chain[​](#querying-the-chain "Direct link to Querying the Chain")
+### Query the chain[​](#query-the-chain "Direct link to Query the chain")
 
 First, use the kit's [`useFlowQuery`](/build/tools/react-sdk#useflowquery) hook to read the current counter value from the blockchain.
 
@@ -355,7 +357,7 @@ info
 * **Import Syntax:** The imports (`import "Counter"` and `import "NumberFormatter"`) don't include addresses because those are automatically resolved using the `flow.json` file configured in your `FlowProvider`. This keeps your Cadence scripts portable and environment-independent.
 * **`enabled` Flag:** This controls whether the query should run automatically. Set it to `true` to run on mount, or pass a condition (e.g. `!!user?.addr`) to delay execution until the user is available. This is useful for queries that depend on authentication or other asynchronous data.
 
-### Sending a Transaction[​](#sending-a-transaction "Direct link to Sending a Transaction")
+### Send a transaction[​](#send-a-transaction "Direct link to Send a transaction")
 
 Next, use the kit's [`useFlowMutate`](/build/tools/react-sdk#useflowmutate) hook to send a transaction that increments the counter.
 
@@ -463,9 +465,9 @@ _27
 
 #### Explanation[​](#explanation "Direct link to Explanation")
 
-This sends a Cadence transaction to the blockchain using the `mutate` function. The transaction imports the `Counter` contract and calls its `increment` function. Authorization is handled automatically by the connected wallet during the `prepare` phase. Once submitted, the returned `txId` can be used to track the transaction's status in real time.
+This sends a Cadence transaction to the blockchain using the `mutate` function. The transaction imports the `Counter` contract and calls its `increment` function. The connected wallet handles authorization automatically during the `prepare` phase. After it's submitted, you cna use the returned `txId` to track the transaction's status in real time.
 
-### Subscribing to Transaction Status[​](#subscribing-to-transaction-status "Direct link to Subscribing to Transaction Status")
+### Subscribe to transaction status[​](#subscribe-to-transaction-status "Direct link to Subscribe to transaction status")
 
 Use the kit's [`useFlowTransactionStatus`] hook to monitor and display the transaction status in real time.
 
@@ -524,19 +526,19 @@ _13
   + `2`: **Finalized** – The transaction has been included in a block, but not yet executed.
   + `3`: **Executed** – The transaction code has run successfully, but the result has not yet been sealed.
   + `4`: **Sealed** – The transaction is fully complete, included in a block, and now immutable onchain.
-* We recommend calling `refetch()` when the status reaches **3 (Executed)** to update your UI more quickly after the transaction runs, rather than waiting for sealing.
+* We recommend that you call `refetch()` when the status reaches **3 (Executed)** to update your UI more quickly after the transaction runs, rather than waiting for sealing.
 * The `statusString` property gives a human-readable version of the current status you can display in the UI.
 
-#### Why `Executed` is Recommended for UI Updates:[​](#why-executed-is-recommended-for-ui-updates "Direct link to why-executed-is-recommended-for-ui-updates")
+#### Why we recommend `Executed` for UI Updates:[​](#why-we-recommend-executed-for-ui-updates "Direct link to why-we-recommend-executed-for-ui-updates")
 
 Waiting for `Sealed` provides full onchain confirmation but can introduce a delay — especially in local or test environments. Since most transactions (like incrementing a counter) don't require strong finality guarantees, you can typically refetch data once the transaction reaches `Executed` for a faster, more responsive user experience.
 
 However:
 
-* If you're dealing with critical state changes (e.g., token transfers or contract deployments), prefer waiting for `Sealed`.
+* If you're dealing with critical state changes (for example, token transfers or contract deployments), prefer waiting for `Sealed`.
 * For non-critical UI updates, `Executed` is usually safe and significantly improves perceived performance.
 
-### Integrating Authentication and Building the Complete UI[​](#integrating-authentication-and-building-the-complete-ui "Direct link to Integrating Authentication and Building the Complete UI")
+### Integrate authentication and build the complete UI[​](#integrate-authentication-and-build-the-complete-ui "Direct link to Integrate authentication and build the complete UI")
 
 Finally, integrate the query, mutation, and transaction status hooks with authentication using `useFlowCurrentUser`. Combine all parts to build the complete page.
 
@@ -941,7 +943,7 @@ tip
 
 In this tutorial, we inlined Cadence code for simplicity. For real projects, we recommend storing Cadence in separate `.cdc` files, using the [Cadence VSCode extension](/build/tools/vscode-extension), and importing them with the [`flow-cadence-plugin`](https://github.com/chasefleming/flow-cadence-plugin) for Next.js or Webpack projects.
 
-## Running the App[​](#running-the-app "Direct link to Running the App")
+## Run the app[​](#run-the-app "Direct link to Run the app")
 
 Start your development server:
 
@@ -966,9 +968,9 @@ Then visit <http://localhost:3000> in your browser. You should see:
 * Once logged in, your account address appears with options to **Log Out** and **Increment Count**.
 * When you click **Increment Count**, the transaction is sent; its status updates are displayed in real time below the action buttons, and once the transaction is sealed, the updated count is automatically fetched.
 
-## Wrapping Up[​](#wrapping-up "Direct link to Wrapping Up")
+## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-By following these steps, you've built a simple Next.js dApp that interacts with a Flow smart contract using [**@onflow/react-sdk**](/build/tools/react-sdk). In this guide you learned how to:
+By following these steps, you've built a simple `Next.js` dApp that interacts with a Flow smart contract using [**@onflow/react-sdk**](/build/tools/react-sdk). In this guide you learned how to:
 
 * Wrap your application in a `FlowProvider` to configure blockchain connectivity.
 * Use kit hooks such as `useFlowQuery`, `useFlowMutate`, `useFlowTransactionStatus`, and `useFlowCurrentUser` to manage authentication, query onchain data, submit transactions, and monitor their status.
@@ -978,7 +980,7 @@ For additional details and advanced usage, refer to the [@onflow/react-sdk docum
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/getting-started/building-a-frontend-app.md)
 
-Last updated on **Oct 3, 2025** by **mfbz**
+Last updated on **Oct 30, 2025** by **cshannon1218**
 
 [Previous
 
@@ -992,10 +994,10 @@ Production Deployment](/blockchain-development-tutorials/cadence/getting-started
 
 Copy as Markdown
 
-* [Objectives](#objectives)* [Prerequisites](#prerequisites)* [Setting Up the Next.js App](#setting-up-the-nextjs-app)
-      + [Step 1: Create a New Next.js App](#step-1-create-a-new-nextjs-app)+ [Step 2: Move the Next.js App Up a Directory](#step-2-move-the-nextjs-app-up-a-directory)+ [Step 3: Install @onflow/react-sdk](#step-3-install-onflowreact-sdk)* [Configuring the Local Flow Emulator and Dev Wallet](#configuring-the-local-flow-emulator-and-dev-wallet)
-        + [Start the Flow Emulator (if not already running)](#start-the-flow-emulator-if-not-already-running)+ [Start the Dev Wallet](#start-the-dev-wallet)* [Wrapping Your App with FlowProvider](#wrapping-your-app-with-flowprovider)* [Interacting With the Chain](#interacting-with-the-chain)
-            + [Querying the Chain](#querying-the-chain)+ [Sending a Transaction](#sending-a-transaction)+ [Subscribing to Transaction Status](#subscribing-to-transaction-status)+ [Integrating Authentication and Building the Complete UI](#integrating-authentication-and-building-the-complete-ui)* [Running the App](#running-the-app)* [Wrapping Up](#wrapping-up)
+* [Objectives](#objectives)* [Prerequisites](#prerequisites)* [Set Up the Next.js app](#set-up-the-nextjs-app)
+      + [Step 1: Create a new Next.js app](#step-1-create-a-new-nextjs-app)+ [Step 2: Move the Next.js app Up a directory](#step-2-move-the-nextjs-app-up-a-directory)+ [Step 3: Install @onflow/react-sdk](#step-3-install-onflowreact-sdk)* [Configure the local Flow Emulator and Dev Wallet](#configure-the-local-flow-emulator-and-dev-wallet)
+        + [Start the Flow Emulator (if not already running)](#start-the-flow-emulator-if-not-already-running)+ [Start the Dev Wallet](#start-the-dev-wallet)* [Wrap Your app with FlowProvider](#wrap-your-app-with-flowprovider)* [Interact With the chain](#interact-with-the-chain)
+            + [Query the chain](#query-the-chain)+ [Send a transaction](#send-a-transaction)+ [Subscribe to transaction status](#subscribe-to-transaction-status)+ [Integrate authentication and build the complete UI](#integrate-authentication-and-build-the-complete-ui)* [Run the app](#run-the-app)* [Conclusion](#conclusion)
 
 Flow
 

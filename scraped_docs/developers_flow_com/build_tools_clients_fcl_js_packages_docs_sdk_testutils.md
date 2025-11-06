@@ -4,6 +4,8 @@ TestUtils | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -231,9 +233,69 @@ _10
 
 #### Returns[​](#returns-2 "Direct link to Returns")
 
-`_10
+`_16
 
-Partial<InteractionAccount>; kind: InteractionResolverKind.ACCOUNT; addr: string; keyId: string | number; sequenceNum: number; signature: string; signingFunction: any; role: { proposer: boolean; authorizer: boolean; payer: boolean; param?: boolean; }; authorization: any; }`
+Partial<InteractionAccount>;
+
+_16
+
+kind: InteractionResolverKind.ACCOUNT;
+
+_16
+
+addr: string;
+
+_16
+
+keyId: string | number;
+
+_16
+
+sequenceNum: number;
+
+_16
+
+signature: string;
+
+_16
+
+extensionData?: string;
+
+_16
+
+signingFunction: any;
+
+_16
+
+role: {
+
+_16
+
+proposer: boolean;
+
+_16
+
+authorizer: boolean;
+
+_16
+
+payer: boolean;
+
+_16
+
+param?: boolean;
+
+_16
+
+};
+
+_16
+
+authorization: any;
+
+_16
+
+}`
 
 ### authzResolveMany[​](#authzresolvemany "Direct link to authzResolveMany")
 
@@ -542,7 +604,7 @@ TestUtils.sig(opts)`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/testUtils.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Oct 22, 2025** by **Michael Fabozzi**
 
 [Previous
 

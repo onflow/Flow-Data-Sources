@@ -7015,60 +7015,60 @@ Search
 
 On this page
 
-# Getting Started with Cadence
+# Getting started with Cadence
 
 The Cadence is designed for the next generation of apps, games, and digital assets. This comprehensive tutorial series will guide you from setting up your development environment to deploying production-ready applications on Flow's mainnet while a complete Counter application that demonstrates all essential Flow development patterns.
 
-## What You'll Learn[​](#what-youll-learn "Direct link to What You'll Learn")
+## What you'll learn[​](#what-youll-learn "Direct link to What you'll learn")
 
 In this tutorial series, you'll discover how to:
 
-* Set up a complete Flow development environment with CLI tools and local emulator
-* Build and deploy smart contracts using Cadence
-* Integrate external dependencies and work with Flow's composable ecosystem
-* Create transactions and implement comprehensive testing strategies
-* Build interactive frontend applications using @onflow/react-sdk
-* Deploy applications to testnet and mainnet with production best practices
-* Implement monitoring, security, and maintenance for live blockchain applications
+* Set up a complete Flow development environment with CLI tools and local emulator.
+* Build and deploy smart contracts with Cadence.
+* Integrate external dependencies and work with Flow's composable ecosystem.
+* Create transactions and implement comprehensive testing strategies.
+* Build interactive frontend applications with @onflow/react-sdk.
+* Deploy applications to testnet and mainnet with production best practices.
+* Implement monitoring, security, and maintenance for live blockchain applications.
 
-## What You'll Build[​](#what-youll-build "Direct link to What You'll Build")
+## What you'll build[​](#what-youll-build "Direct link to What you'll build")
 
 Throughout these tutorials, you'll build a complete **Counter Application** that demonstrates the core aspects of Flow development:
 
-* **Smart Contracts**: Counter contract with increment/decrement functionality
-* **External Dependencies**: Integration with NumberFormatter for enhanced display
-* **Frontend Interface**: React-based web application with wallet authentication
-* **Production Deployment**: Live application accessible on Flow's public networks
+* **Smart Contracts**: Counter contract with increment/decrement functionality.
+* **External Dependencies**: Integration with NumberFormatter for enhanced display.
+* **Frontend Interface**: React-based web application with wallet authentication.
+* **Production Deployment**: Live application accessible on Flow's public networks.
 
 By the end, you'll have a fully functional blockchain application and the skills to build your own Flow projects.
 
-## Environment Setup[​](#environment-setup "Direct link to Environment Setup")
+## Environment setup[​](#environment-setup "Direct link to Environment setup")
 
 Learn how to set up your Flow development environment and deploy your first smart contract. This foundational tutorial covers CLI installation, project creation, contract deployment, and basic blockchain interaction patterns using the local Flow emulator.
 
 Tutorial: [Cadence Environment Setup](/blockchain-development-tutorials/cadence/getting-started/cadence-environment-setup)
 
-## Smart Contract Interaction[​](#smart-contract-interaction "Direct link to Smart Contract Interaction")
+## Smart contract interaction[​](#smart-contract-interaction "Direct link to Smart contract interaction")
 
-Master advanced Flow development skills including dependency management, sophisticated transaction patterns, and comprehensive testing strategies. Learn to integrate external contracts, handle complex state changes, and implement test-driven development workflows.
+Gain advanced Flow development skills including dependency management, sophisticated transaction patterns, and comprehensive testing strategies. Learn to integrate external contracts, handle complex state changes, and implement test-driven development workflows.
 
 Tutorial: [Smart Contract Interaction](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
 
-## Building a Frontend App[​](#building-a-frontend-app "Direct link to Building a Frontend App")
+## Building a frontend app[​](#building-a-frontend-app "Direct link to Building a frontend app")
 
-Create a Next.js frontend application that interacts with your Flow smart contracts using @onflow/react-sdk. Implement wallet authentication, real-time data queries, transaction submission, and status monitoring for a complete user experience.
+Create a `Next.js` frontend application that interacts with your Flow smart contracts using `@onflow/react-sdk`. Implement wallet authentication, real-time data queries, transaction submission, and status monitoring for a complete user experience.
 
 Tutorial: [Building a Frontend App](/blockchain-development-tutorials/cadence/getting-started/building-a-frontend-app)
 
-## Production Deployment[​](#production-deployment "Direct link to Production Deployment")
+## Production deployment[​](#production-deployment "Direct link to Production deployment")
 
-Take your application live by deploying to Flow's testnet and mainnet networks. Learn security best practices, production configuration, monitoring strategies, and maintenance practices for managing live blockchain applications.
+To take your application live, deploy to Flow's testnet and mainnet networks. Learn security best practices, production configuration, monitoring strategies, and maintenance practices you can use to manage live blockchain applications.
 
 Tutorial: [Production Deployment](/blockchain-development-tutorials/cadence/getting-started/production-deployment)
 
-## Next Steps[​](#next-steps "Direct link to Next Steps")
+## Next steps[​](#next-steps "Direct link to Next steps")
 
-After completing these tutorials, you'll be equipped with the fundamental skills needed for Flow development. Consider exploring our other tutorial series to expand your blockchain development expertise:
+After you complete these tutorials, you'll have the fundamental skills needed for Flow development. Consider exploring our other tutorial series to expand your blockchain development expertise:
 
 * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps/introduction) - Build applications that integrate Flow EVM and Cadence
 * [Native VRF](/blockchain-development-tutorials/native-vrf) - Implement verifiable random functions in your applications
@@ -7076,7 +7076,7 @@ After completing these tutorials, you'll be equipped with the fundamental skills
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/getting-started/index.md)
 
-Last updated on **Oct 17, 2025** by **Brian Doyle**
+Last updated on **Oct 30, 2025** by **cshannon1218**
 
 [Previous
 
@@ -7090,7 +7090,7 @@ Cadence Environment Setup](/blockchain-development-tutorials/cadence/getting-sta
 
 Copy as Markdown
 
-* [What You'll Learn](#what-youll-learn)* [What You'll Build](#what-youll-build)* [Environment Setup](#environment-setup)* [Smart Contract Interaction](#smart-contract-interaction)* [Building a Frontend App](#building-a-frontend-app)* [Production Deployment](#production-deployment)* [Next Steps](#next-steps)
+* [What you'll learn](#what-youll-learn)* [What you'll build](#what-youll-build)* [Environment setup](#environment-setup)* [Smart contract interaction](#smart-contract-interaction)* [Building a frontend app](#building-a-frontend-app)* [Production deployment](#production-deployment)* [Next steps](#next-steps)
 
 Flow
 
@@ -11794,6 +11794,8 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 subscribeRaw | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -30843,6 +30845,8 @@ isOk | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -30875,7 +30879,7 @@ Search
 
                         + [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
 
-                          - [account](/build/tools/clients/fcl-js/packages-docs/fcl/account)- [arg](/build/tools/clients/fcl-js/packages-docs/fcl/arg)- [args](/build/tools/clients/fcl-js/packages-docs/fcl/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockId)- [authenticate](/build/tools/clients/fcl-js/packages-docs/fcl/authenticate)- [authorization](/build/tools/clients/fcl-js/packages-docs/fcl/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/fcl/authorizations)- [authz](/build/tools/clients/fcl-js/packages-docs/fcl/authz)- [block](/build/tools/clients/fcl-js/packages-docs/fcl/block)- [build](/build/tools/clients/fcl-js/packages-docs/fcl/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/fcl/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/fcl/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/fcl/config)- [createFcl](/build/tools/clients/fcl-js/packages-docs/fcl/createFcl)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/fcl/createSignableVoucher)- [currentUser](/build/tools/clients/fcl-js/packages-docs/fcl/currentUser)- [decode](/build/tools/clients/fcl-js/packages-docs/fcl/decode)- [display](/build/tools/clients/fcl-js/packages-docs/fcl/display)- [events](/build/tools/clients/fcl-js/packages-docs/fcl/events)- [getAccount](/build/tools/clients/fcl-js/packages-docs/fcl/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/fcl/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/fcl/getBlockHeader)- [getChainId](/build/tools/clients/fcl-js/packages-docs/fcl/getChainId)- [getCollection](/build/tools/clients/fcl-js/packages-docs/fcl/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/fcl/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/fcl/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/fcl/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/fcl/getTransactionStatus)- [invariant](/build/tools/clients/fcl-js/packages-docs/fcl/invariant)- [isBad](/build/tools/clients/fcl-js/packages-docs/fcl/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/fcl/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/fcl/limit)- [logIn](/build/tools/clients/fcl-js/packages-docs/fcl/logIn)- [mutate](/build/tools/clients/fcl-js/packages-docs/fcl/mutate)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/fcl/param)- [params](/build/tools/clients/fcl-js/packages-docs/fcl/params)- [payer](/build/tools/clients/fcl-js/packages-docs/fcl/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/fcl/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/fcl/pipe)- [pluginRegistry](/build/tools/clients/fcl-js/packages-docs/fcl/pluginRegistry)- [proposer](/build/tools/clients/fcl-js/packages-docs/fcl/proposer)- [query](/build/tools/clients/fcl-js/packages-docs/fcl/query)- [queryRaw](/build/tools/clients/fcl-js/packages-docs/fcl/queryRaw)- [reauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/reauthenticate)- [ref](/build/tools/clients/fcl-js/packages-docs/fcl/ref)- [sansPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/sansPrefix)- [script](/build/tools/clients/fcl-js/packages-docs/fcl/script)- [send](/build/tools/clients/fcl-js/packages-docs/fcl/send)- [serialize](/build/tools/clients/fcl-js/packages-docs/fcl/serialize)- [signUp](/build/tools/clients/fcl-js/packages-docs/fcl/signUp)- [subscribe](/build/tools/clients/fcl-js/packages-docs/fcl/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeRaw)- [transaction](/build/tools/clients/fcl-js/packages-docs/fcl/transaction)- [tx](/build/tools/clients/fcl-js/packages-docs/fcl/tx)- [unauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/unauthenticate)- [validator](/build/tools/clients/fcl-js/packages-docs/fcl/validator)- [verifyUserSignatures](/build/tools/clients/fcl-js/packages-docs/fcl/verifyUserSignatures)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/fcl/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/fcl/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/fcl/why)- [withPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/withPrefix)+ [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
+                          - [account](/build/tools/clients/fcl-js/packages-docs/fcl/account)- [arg](/build/tools/clients/fcl-js/packages-docs/fcl/arg)- [args](/build/tools/clients/fcl-js/packages-docs/fcl/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockId)- [authenticate](/build/tools/clients/fcl-js/packages-docs/fcl/authenticate)- [authorization](/build/tools/clients/fcl-js/packages-docs/fcl/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/fcl/authorizations)- [authz](/build/tools/clients/fcl-js/packages-docs/fcl/authz)- [block](/build/tools/clients/fcl-js/packages-docs/fcl/block)- [build](/build/tools/clients/fcl-js/packages-docs/fcl/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/fcl/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/fcl/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/fcl/config)- [createFlowClient](/build/tools/clients/fcl-js/packages-docs/fcl/createFlowClient)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/fcl/createSignableVoucher)- [currentUser](/build/tools/clients/fcl-js/packages-docs/fcl/currentUser)- [decode](/build/tools/clients/fcl-js/packages-docs/fcl/decode)- [display](/build/tools/clients/fcl-js/packages-docs/fcl/display)- [events](/build/tools/clients/fcl-js/packages-docs/fcl/events)- [getAccount](/build/tools/clients/fcl-js/packages-docs/fcl/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/fcl/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/fcl/getBlockHeader)- [getCollection](/build/tools/clients/fcl-js/packages-docs/fcl/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/fcl/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/fcl/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/fcl/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/fcl/getTransactionStatus)- [invariant](/build/tools/clients/fcl-js/packages-docs/fcl/invariant)- [isBad](/build/tools/clients/fcl-js/packages-docs/fcl/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/fcl/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/fcl/limit)- [logIn](/build/tools/clients/fcl-js/packages-docs/fcl/logIn)- [mutate](/build/tools/clients/fcl-js/packages-docs/fcl/mutate)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/fcl/param)- [params](/build/tools/clients/fcl-js/packages-docs/fcl/params)- [payer](/build/tools/clients/fcl-js/packages-docs/fcl/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/fcl/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/fcl/pipe)- [pluginRegistry](/build/tools/clients/fcl-js/packages-docs/fcl/pluginRegistry)- [proposer](/build/tools/clients/fcl-js/packages-docs/fcl/proposer)- [query](/build/tools/clients/fcl-js/packages-docs/fcl/query)- [queryRaw](/build/tools/clients/fcl-js/packages-docs/fcl/queryRaw)- [reauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/reauthenticate)- [ref](/build/tools/clients/fcl-js/packages-docs/fcl/ref)- [sansPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/sansPrefix)- [script](/build/tools/clients/fcl-js/packages-docs/fcl/script)- [send](/build/tools/clients/fcl-js/packages-docs/fcl/send)- [serialize](/build/tools/clients/fcl-js/packages-docs/fcl/serialize)- [signUp](/build/tools/clients/fcl-js/packages-docs/fcl/signUp)- [subscribe](/build/tools/clients/fcl-js/packages-docs/fcl/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeRaw)- [transaction](/build/tools/clients/fcl-js/packages-docs/fcl/transaction)- [tx](/build/tools/clients/fcl-js/packages-docs/fcl/tx)- [unauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/unauthenticate)- [validator](/build/tools/clients/fcl-js/packages-docs/fcl/validator)- [verifyUserSignatures](/build/tools/clients/fcl-js/packages-docs/fcl/verifyUserSignatures)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/fcl/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/fcl/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/fcl/why)- [withPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/withPrefix)+ [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
@@ -39668,6 +39672,8 @@ Get Events | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -43511,6 +43517,8 @@ Flow Emulator | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -43559,11 +43567,11 @@ First, create a `flow.json` configuration file:
 
 flow init --config-only`
 
-Then start the Flow Emulator:
+Then start the Flow Emulator in fork mode (defaults to mainnet when value omitted):
 
 `_10
 
-flow emulator`
+flow emulator --fork`
 
 You'll see output similar to:
 
@@ -43589,66 +43597,231 @@ This starts a local Flow network with:
 * REST API on `http://localhost:8888`
 * Admin API on port `8080`
 
-## Common Options[​](#common-options "Direct link to Common Options")
+## Available Commands[​](#available-commands "Direct link to Available Commands")
 
-`_14
+* `snapshot`: Create/Load/List emulator snapshots. See: [Create Emulator Snapshot](/build/tools/flow-cli/utils/snapshot-save)
 
-# Start with verbose logging
+## Key Flags[​](#key-flags "Direct link to Key Flags")
 
-_14
+* **Networking**
+
+  + `--host <string>`: Host to listen on for gRPC/REST/Admin (default: all interfaces)
+  + `--port, -p <int>`: gRPC port (default `3569`)
+  + `--rest-port <int>`: REST API port (default `8888`)
+  + `--admin-port <int>`: Admin API port (default `8080`)
+  + `--debugger-port <int>`: Debug Adapter Protocol port (default `2345`)
+  + `--grpc-debug`: Enable gRPC server reflection
+  + `--rest-debug`: Enable REST API debug output
+* **State & Persistence**
+
+  + `--persist`: Enable persistent storage (default disabled)
+  + `--dbpath <path>`: Directory for on-disk state (default `./flowdb`)
+  + `--sqlite-url <url>`: Use SQLite storage backend
+  + `--redis-url <url>`: Use Redis storage backend
+  + `--checkpoint-dir <path>`: Load state from checkpoint directory
+  + `--state-hash <string>`: Load state from checkpoint state hash
+* **Forking**
+
+  + `--fork <string>`: Start the emulator in fork mode using a network from `flow.json`. If provided without a value, defaults to `mainnet`.
+  + `--fork-host <host>`: Access node to query when forking Mainnet/Testnet
+  + `--fork-height <uint>`: Starting block height when forking
+* **Cadence & VM**
+
+  + `--block-time, -b <duration>`: Time between sealed blocks (e.g. `1s`, `300ms`)
+  + `--coverage-reporting`: Enable code coverage reporting
+  + `--computation-reporting`: Enable computation reporting
+  + `--legacy-upgrade`: Enable legacy contract upgrade behavior
+  + `--scheduled-transactions`: Enable scheduled transactions (default true)
+  + `--script-gas-limit <int>`: Gas limit for scripts (default `100000`)
+  + `--transaction-max-gas-limit <int>`: Max transaction gas limit (default `9999`)
+  + `--transaction-expiry <int>`: Transaction expiry in blocks (default `10`)
+  + `--skip-tx-validation`: Skip tx signature and sequence number checks
+  + `--simple-addresses`: Use sequential addresses starting with `0x01`
+  + `--storage-limit`: Enforce account storage limit (default true)
+  + `--storage-per-flow <decimal>`: MB of storage per 1 FLOW token
+  + `--token-supply <decimal>`: Initial FLOW token supply (default `1000000000.0`)
+  + `--transaction-fees`: Enable transaction fees
+  + `--setup-evm`: Deploy EVM contracts (default true)
+  + `--setup-vm-bridge`: Deploy VM Bridge contracts (default true)
+* **Service Account & Identity**
+
+  + `--chain-id <emulator|testnet|mainnet>`: Address generation chain (default `emulator`)
+  + `--service-priv-key <hex>` / `--service-pub-key <hex>`: Service account keys
+  + `--service-sig-algo <ECDSA_P256|ECDSA_secp256k1>`: Service key signature algo (default `ECDSA_P256`)
+  + `--service-hash-algo <SHA3_256|SHA2_256>`: Service key hash algo (default `SHA3_256`)
+  + `--min-account-balance <decimal>`: Minimum account balance / account creation cost
+  + `--contracts`: Deploy common contracts on start
+  + `--contract-removal`: Allow contract removal for development (default true)
+  + `--init`: Initialize a new account profile
+* **Logging & Output**
+
+  + `--verbose, -v`: Verbose logging
+  + `--log-format <text|JSON>`: Logging output format (default `text`)
+* **Snapshots**
+
+  + `--snapshot`: Enable snapshots in the emulator
+
+## Examples[​](#examples "Direct link to Examples")
+
+`_32
+
+# Verbose logs
+
+_32
 
 flow emulator --verbose
 
-_14
+_32
 
-_14
+_32
 
-# Set custom block time (e.g., 1 second between blocks)
+# Custom ports
 
-_14
+_32
+
+flow emulator --port 9000 --rest-port 9001 --admin-port 9002
+
+_32
+
+_32
+
+# Custom block time (1 second between blocks)
+
+_32
 
 flow emulator --block-time 1s
 
-_14
+_32
 
-_14
+_32
 
-# Persist state between restarts
+# Persist state on disk
 
-_14
+_32
 
-flow emulator --persist
+flow emulator --persist --dbpath ./flowdb
 
-_14
+_32
 
-_14
+_32
+
+# Fork from Mainnet using flow.json
+
+_32
+
+flow emulator --fork
+
+_32
+
+_32
+
+# Fork from Testnet using flow.json and pin to a height
+
+_32
+
+flow emulator --fork testnet --fork-height 12345678
+
+_32
+
+_32
+
+# Fork from Testnet at a specific height
+
+_32
+
+flow emulator --fork-host access.devnet.nodes.onflow.org:9000 --fork-height 12345678
+
+_32
+
+_32
+
+# Disable fees and use simple addresses for local testing
+
+_32
+
+flow emulator --transaction-fees=false --simple-addresses
+
+_32
+
+_32
+
+# Enable code coverage reporting
+
+_32
+
+flow emulator --coverage-reporting
+
+_32
+
+_32
 
 # Change the gRPC and REST API ports
 
-_14
+_32
 
 flow emulator --port 9000 --rest-port 9001
 
-_14
+_32
 
-_14
+_32
 
 # For a complete list of available flags, run:
 
-_14
+_32
 
 flow emulator --help`
 
-For all available options, see the [CLI commands overview](/build/tools/flow-cli).
+For the complete and current list of flags, run:
+
+`_10
+
+flow emulator --help`
 
 ## Debugging & Testing[​](#debugging--testing "Direct link to Debugging & Testing")
 
 * **Code Coverage**: Add `--coverage-reporting` flag and visit `http://localhost:8080/emulator/codeCoverage`
 * **Debugging**: Use `#debugger()` pragma in Cadence code for breakpoints
+* **Fork mode note**: When using `flow emulator --fork`, only Flow chain state is available. External oracles/APIs and cross-chain reads are not live; mock these or run local stub services for E2E.
 
 ## Snapshots[​](#snapshots "Direct link to Snapshots")
 
 The Flow CLI provides a command to create emulator snapshots, which are points in blockchain history you can later jump to and reset the state to that moment. This can be useful for testing where you establish a beginning state, run tests and after revert back to the initial state.
+
+### Quick snapshot workflow[​](#quick-snapshot-workflow "Direct link to Quick snapshot workflow")
+
+`_10
+
+# 1) Start the emulator with snapshots enabled (in a separate terminal)
+
+_10
+
+flow emulator --snapshot
+
+_10
+
+_10
+
+# 2) Create a snapshot at the current state
+
+_10
+
+flow emulator snapshot create baseline
+
+_10
+
+_10
+
+# 3) Make changes, run tests, etc.
+
+_10
+
+_10
+
+# 4) Reset the emulator back to the snapshot
+
+_10
+
+flow emulator snapshot load baseline`
 
 ### Create a new snapshot[​](#create-a-new-snapshot "Direct link to Create a new snapshot")
 
@@ -43674,15 +43847,13 @@ To list all the existing snapshots we previously created and can load to run:
 
 flow emulator list`
 
-To learn more about using the Emulator, have a look at the [README of the repository](https://github.com/onflow/flow-emulator).
-
 ## Additional Resources[​](#additional-resources "Direct link to Additional Resources")
 
-For advanced configuration options, see the [Flow Emulator repository](https://github.com/onflow/flow-emulator/).
+To learn more about using the Emulator, please have a look at the [public GitHub repository](https://github.com/onflow/flow-emulator).
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/emulator/index.md)
 
-Last updated on **Oct 9, 2025** by **Brian Doyle**
+Last updated on **Oct 29, 2025** by **Jordan Ribbink**
 
 [Previous
 
@@ -43696,8 +43867,8 @@ Flow CLI](/build/tools/flow-cli)
 
 Copy as Markdown
 
-* [Installation](#installation)* [Quick Start](#quick-start)* [Common Options](#common-options)* [Debugging & Testing](#debugging--testing)* [Snapshots](#snapshots)
-          + [Create a new snapshot](#create-a-new-snapshot)+ [Load an existing snapshot](#load-an-existing-snapshot)+ [List all existing snapshots](#list-all-existing-snapshots)* [Additional Resources](#additional-resources)
+* [Installation](#installation)* [Quick Start](#quick-start)* [Available Commands](#available-commands)* [Key Flags](#key-flags)* [Examples](#examples)* [Debugging & Testing](#debugging--testing)* [Snapshots](#snapshots)
+              + [Quick snapshot workflow](#quick-snapshot-workflow)+ [Create a new snapshot](#create-a-new-snapshot)+ [Load an existing snapshot](#load-an-existing-snapshot)+ [List all existing snapshots](#list-all-existing-snapshots)* [Additional Resources](#additional-resources)
 
 Flow
 
@@ -75363,13 +75534,13 @@ On this page
 
 # Building a Frontend App
 
-Building on the `Counter` contract you deployed in [Cadence Environment Setup](/blockchain-development-tutorials/cadence/getting-started/cadence-environment-setup) and [Smart Contract Interaction](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction), this tutorial shows you how to create a simple Next.js frontend that interacts with the `Counter` smart contract deployed on your local Flow emulator. Instead of using FCL directly, you'll leverage [**@onflow/react-sdk**](/build/tools/react-sdk) to simplify authentication, querying, transactions, and to display real-time transaction status updates using convenient React hooks.
+This tutorial builds on the `Counter` contract you deployed in [Cadence Environment Setup](/blockchain-development-tutorials/cadence/getting-started/cadence-environment-setup) and [Smart Contract Interaction](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction). It shows you how to create a simple `Next.js` frontend that interacts with the `Counter` smart contract deployed on your local Flow emulator. Instead of using FCL directly, you'll leverage [**@onflow/react-sdk**](/build/tools/react-sdk) to simplify authentication, querying, transactions, and to display real-time transaction status updates using convenient React hooks.
 
 ## Objectives[​](#objectives "Direct link to Objectives")
 
-After finishing this guide, you will be able to:
+After you complete this tutorial, you will be able to:
 
-* Wrap your Next.js app with a Flow provider using [**@onflow/react-sdk**](/build/tools/react-sdk).
+* Wrap your `Next.js` app with a Flow provider using [**@onflow/react-sdk**](/build/tools/react-sdk).
 * Read data from a Cadence smart contract (`Counter`) using kit's query hook.
 * Send a transaction to update the smart contract's state using kit's mutation hook.
 * Monitor a transaction's status in real time using kit's transaction hook.
@@ -75381,7 +75552,7 @@ After finishing this guide, you will be able to:
 * [Flow CLI](/build/tools/flow-cli/install) installed.
 * Node.js and npm installed.
 
-## Setting Up the Next.js App[​](#setting-up-the-nextjs-app "Direct link to Setting Up the Next.js App")
+## Set Up the Next.js app[​](#set-up-the-nextjs-app "Direct link to Set Up the Next.js app")
 
 Follow these steps to set up your Next.js project and integrate [**@onflow/react-sdk**](/build/tools/react-sdk).
 
@@ -75389,7 +75560,7 @@ tip
 
 You can visit this [React-sdk Demo](https://react-sdk-demo-git-master-onflow.vercel.app/) to see how the hooks and components are used.
 
-### Step 1: Create a New Next.js App[​](#step-1-create-a-new-nextjs-app "Direct link to Step 1: Create a New Next.js App")
+### Step 1: Create a new Next.js app[​](#step-1-create-a-new-nextjs-app "Direct link to Step 1: Create a new Next.js app")
 
 Run the following command in your project directory:
 
@@ -75405,7 +75576,7 @@ During setup, choose the following options:
 
 This command creates a new Next.js project named `kit-app-quickstart` inside your current directory. We're generating the frontend in a subdirectory so we can next move it into our existing project structure from the previous steps (you can't create an app in a non-empty directory).
 
-### Step 2: Move the Next.js App Up a Directory[​](#step-2-move-the-nextjs-app-up-a-directory "Direct link to Step 2: Move the Next.js App Up a Directory")
+### Step 2: Move the Next.js app Up a directory[​](#step-2-move-the-nextjs-app-up-a-directory "Direct link to Step 2: Move the Next.js app Up a directory")
 
 Move the contents of the `kit-app-quickstart` directory into your project root. You can use the gui in your editor, or the console.
 
@@ -75441,7 +75612,9 @@ _10
 
 Remove-Item -Recurse -Force .\kit-app-quickstart`
 
-**Note:** When moving hidden files (those beginning with a dot) like `.gitignore`, be cautious not to overwrite any important files.
+tip
+
+When moving hidden files (those beginning with a dot) like `.gitignore`, be cautious not to overwrite any important files.
 
 ### Step 3: Install @onflow/react-sdk[​](#step-3-install-onflowreact-sdk "Direct link to Step 3: Install @onflow/react-sdk")
 
@@ -75453,11 +75626,11 @@ npm install @onflow/react-sdk`
 
 This library wraps FCL internally and exposes a set of hooks for authentication, querying, sending transactions, and tracking transaction status.
 
-## Configuring the Local Flow Emulator and Dev Wallet[​](#configuring-the-local-flow-emulator-and-dev-wallet "Direct link to Configuring the Local Flow Emulator and Dev Wallet")
+## Configure the local Flow Emulator and Dev Wallet[​](#configure-the-local-flow-emulator-and-dev-wallet "Direct link to Configure the local Flow Emulator and Dev Wallet")
 
 warning
 
-You should already have the Flow emulator running from the local development step. If it's not running, you can start it again — but note that restarting the emulator will clear all blockchain state, including any contracts deployed in [Step 2: Local Development].
+You should already have the Flow emulator running from the local development step. If it's not running, you can start it again — but when you restart the emulator, it will clear all blockchain state, which includes any contracts deployed in [Step 2: Local Development].
 
 ### Start the Flow Emulator (if not already running)[​](#start-the-flow-emulator-if-not-already-running "Direct link to Start the Flow Emulator (if not already running)")
 
@@ -75479,9 +75652,9 @@ flow dev-wallet`
 
 This will start the [Dev Wallet](/build/tools/flow-dev-wallet) on `http://localhost:8701`, which you'll use for authentication during development.
 
-## Wrapping Your App with FlowProvider[​](#wrapping-your-app-with-flowprovider "Direct link to Wrapping Your App with FlowProvider")
+## Wrap Your app with FlowProvider[​](#wrap-your-app-with-flowprovider "Direct link to Wrap Your app with FlowProvider")
 
-[**@onflow/react-sdk**](/build/tools/react-sdk) provides a `FlowProvider` component that sets up the Flow Client Library configuration. In Next.js using the App Router, add or update your `src/app/layout.tsx` as follows:
+[**@onflow/react-sdk**](/build/tools/react-sdk) provides a `FlowProvider` component that sets up the Flow Client Library configuration. In `Next.js` using the App Router, add or update your `src/app/layout.tsx` as follows:
 
 `_27
 
@@ -75591,11 +75764,11 @@ This configuration initializes the kit with your local emulator settings and map
 
 For more information on Discovery configurations, refer to the [Wallet Discovery Guide](/build/tools/clients/fcl-js/discovery).
 
-## Interacting With the Chain[​](#interacting-with-the-chain "Direct link to Interacting With the Chain")
+## Interact With the chain[​](#interact-with-the-chain "Direct link to Interact With the chain")
 
 Now that we've set our provider, lets start interacting with the chain.
 
-### Querying the Chain[​](#querying-the-chain "Direct link to Querying the Chain")
+### Query the chain[​](#query-the-chain "Direct link to Query the chain")
 
 First, use the kit's [`useFlowQuery`](/build/tools/react-sdk#useflowquery) hook to read the current counter value from the blockchain.
 
@@ -75672,7 +75845,7 @@ info
 * **Import Syntax:** The imports (`import "Counter"` and `import "NumberFormatter"`) don't include addresses because those are automatically resolved using the `flow.json` file configured in your `FlowProvider`. This keeps your Cadence scripts portable and environment-independent.
 * **`enabled` Flag:** This controls whether the query should run automatically. Set it to `true` to run on mount, or pass a condition (e.g. `!!user?.addr`) to delay execution until the user is available. This is useful for queries that depend on authentication or other asynchronous data.
 
-### Sending a Transaction[​](#sending-a-transaction "Direct link to Sending a Transaction")
+### Send a transaction[​](#send-a-transaction "Direct link to Send a transaction")
 
 Next, use the kit's [`useFlowMutate`](/build/tools/react-sdk#useflowmutate) hook to send a transaction that increments the counter.
 
@@ -75780,9 +75953,9 @@ _27
 
 #### Explanation[​](#explanation "Direct link to Explanation")
 
-This sends a Cadence transaction to the blockchain using the `mutate` function. The transaction imports the `Counter` contract and calls its `increment` function. Authorization is handled automatically by the connected wallet during the `prepare` phase. Once submitted, the returned `txId` can be used to track the transaction's status in real time.
+This sends a Cadence transaction to the blockchain using the `mutate` function. The transaction imports the `Counter` contract and calls its `increment` function. The connected wallet handles authorization automatically during the `prepare` phase. After it's submitted, you cna use the returned `txId` to track the transaction's status in real time.
 
-### Subscribing to Transaction Status[​](#subscribing-to-transaction-status "Direct link to Subscribing to Transaction Status")
+### Subscribe to transaction status[​](#subscribe-to-transaction-status "Direct link to Subscribe to transaction status")
 
 Use the kit's [`useFlowTransactionStatus`] hook to monitor and display the transaction status in real time.
 
@@ -75841,19 +76014,19 @@ _13
   + `2`: **Finalized** – The transaction has been included in a block, but not yet executed.
   + `3`: **Executed** – The transaction code has run successfully, but the result has not yet been sealed.
   + `4`: **Sealed** – The transaction is fully complete, included in a block, and now immutable onchain.
-* We recommend calling `refetch()` when the status reaches **3 (Executed)** to update your UI more quickly after the transaction runs, rather than waiting for sealing.
+* We recommend that you call `refetch()` when the status reaches **3 (Executed)** to update your UI more quickly after the transaction runs, rather than waiting for sealing.
 * The `statusString` property gives a human-readable version of the current status you can display in the UI.
 
-#### Why `Executed` is Recommended for UI Updates:[​](#why-executed-is-recommended-for-ui-updates "Direct link to why-executed-is-recommended-for-ui-updates")
+#### Why we recommend `Executed` for UI Updates:[​](#why-we-recommend-executed-for-ui-updates "Direct link to why-we-recommend-executed-for-ui-updates")
 
 Waiting for `Sealed` provides full onchain confirmation but can introduce a delay — especially in local or test environments. Since most transactions (like incrementing a counter) don't require strong finality guarantees, you can typically refetch data once the transaction reaches `Executed` for a faster, more responsive user experience.
 
 However:
 
-* If you're dealing with critical state changes (e.g., token transfers or contract deployments), prefer waiting for `Sealed`.
+* If you're dealing with critical state changes (for example, token transfers or contract deployments), prefer waiting for `Sealed`.
 * For non-critical UI updates, `Executed` is usually safe and significantly improves perceived performance.
 
-### Integrating Authentication and Building the Complete UI[​](#integrating-authentication-and-building-the-complete-ui "Direct link to Integrating Authentication and Building the Complete UI")
+### Integrate authentication and build the complete UI[​](#integrate-authentication-and-build-the-complete-ui "Direct link to Integrate authentication and build the complete UI")
 
 Finally, integrate the query, mutation, and transaction status hooks with authentication using `useFlowCurrentUser`. Combine all parts to build the complete page.
 
@@ -76258,7 +76431,7 @@ tip
 
 In this tutorial, we inlined Cadence code for simplicity. For real projects, we recommend storing Cadence in separate `.cdc` files, using the [Cadence VSCode extension](/build/tools/vscode-extension), and importing them with the [`flow-cadence-plugin`](https://github.com/chasefleming/flow-cadence-plugin) for Next.js or Webpack projects.
 
-## Running the App[​](#running-the-app "Direct link to Running the App")
+## Run the app[​](#run-the-app "Direct link to Run the app")
 
 Start your development server:
 
@@ -76283,9 +76456,9 @@ Then visit <http://localhost:3000> in your browser. You should see:
 * Once logged in, your account address appears with options to **Log Out** and **Increment Count**.
 * When you click **Increment Count**, the transaction is sent; its status updates are displayed in real time below the action buttons, and once the transaction is sealed, the updated count is automatically fetched.
 
-## Wrapping Up[​](#wrapping-up "Direct link to Wrapping Up")
+## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-By following these steps, you've built a simple Next.js dApp that interacts with a Flow smart contract using [**@onflow/react-sdk**](/build/tools/react-sdk). In this guide you learned how to:
+By following these steps, you've built a simple `Next.js` dApp that interacts with a Flow smart contract using [**@onflow/react-sdk**](/build/tools/react-sdk). In this guide you learned how to:
 
 * Wrap your application in a `FlowProvider` to configure blockchain connectivity.
 * Use kit hooks such as `useFlowQuery`, `useFlowMutate`, `useFlowTransactionStatus`, and `useFlowCurrentUser` to manage authentication, query onchain data, submit transactions, and monitor their status.
@@ -76295,7 +76468,7 @@ For additional details and advanced usage, refer to the [@onflow/react-sdk docum
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/getting-started/building-a-frontend-app.md)
 
-Last updated on **Oct 3, 2025** by **mfbz**
+Last updated on **Oct 30, 2025** by **cshannon1218**
 
 [Previous
 
@@ -76309,10 +76482,10 @@ Production Deployment](/blockchain-development-tutorials/cadence/getting-started
 
 Copy as Markdown
 
-* [Objectives](#objectives)* [Prerequisites](#prerequisites)* [Setting Up the Next.js App](#setting-up-the-nextjs-app)
-      + [Step 1: Create a New Next.js App](#step-1-create-a-new-nextjs-app)+ [Step 2: Move the Next.js App Up a Directory](#step-2-move-the-nextjs-app-up-a-directory)+ [Step 3: Install @onflow/react-sdk](#step-3-install-onflowreact-sdk)* [Configuring the Local Flow Emulator and Dev Wallet](#configuring-the-local-flow-emulator-and-dev-wallet)
-        + [Start the Flow Emulator (if not already running)](#start-the-flow-emulator-if-not-already-running)+ [Start the Dev Wallet](#start-the-dev-wallet)* [Wrapping Your App with FlowProvider](#wrapping-your-app-with-flowprovider)* [Interacting With the Chain](#interacting-with-the-chain)
-            + [Querying the Chain](#querying-the-chain)+ [Sending a Transaction](#sending-a-transaction)+ [Subscribing to Transaction Status](#subscribing-to-transaction-status)+ [Integrating Authentication and Building the Complete UI](#integrating-authentication-and-building-the-complete-ui)* [Running the App](#running-the-app)* [Wrapping Up](#wrapping-up)
+* [Objectives](#objectives)* [Prerequisites](#prerequisites)* [Set Up the Next.js app](#set-up-the-nextjs-app)
+      + [Step 1: Create a new Next.js app](#step-1-create-a-new-nextjs-app)+ [Step 2: Move the Next.js app Up a directory](#step-2-move-the-nextjs-app-up-a-directory)+ [Step 3: Install @onflow/react-sdk](#step-3-install-onflowreact-sdk)* [Configure the local Flow Emulator and Dev Wallet](#configure-the-local-flow-emulator-and-dev-wallet)
+        + [Start the Flow Emulator (if not already running)](#start-the-flow-emulator-if-not-already-running)+ [Start the Dev Wallet](#start-the-dev-wallet)* [Wrap Your app with FlowProvider](#wrap-your-app-with-flowprovider)* [Interact With the chain](#interact-with-the-chain)
+            + [Query the chain](#query-the-chain)+ [Send a transaction](#send-a-transaction)+ [Subscribe to transaction status](#subscribe-to-transaction-status)+ [Integrate authentication and build the complete UI](#integrate-authentication-and-build-the-complete-ui)* [Run the app](#run-the-app)* [Conclusion](#conclusion)
 
 Flow
 
@@ -84175,6 +84348,8 @@ Tools | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -84195,7 +84370,7 @@ Search
 
       + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
 
-        + [@onflow/react-sdk](/build/tools/react-sdk)
+        + [Flow React SDK](/build/tools/react-sdk)
 
           + [Flow Emulator](/build/tools/emulator)+ [Flow CLI](/build/tools/flow-cli)
 
@@ -84235,29 +84410,29 @@ Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 Accounts](/build/evm/accounts)[Next
 
-@onflow/react-sdk](/build/tools/react-sdk)
+Flow React SDK](/build/tools/react-sdk)
 
-Documentation
+Flow
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
 
-Community
+Cadence
 
-* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
 
-Start Building
+Solidity (EVM)
 
-* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
 
-Network
+Community & Support
 
-* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
 
-More
+Network & Resources
 
-* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
+Copyright © 2025 Flow Foundation. All Rights Reserved.
 
 
 
@@ -85495,21 +85670,21 @@ On this page
 
 # Mobile Development on Flow
 
-Building mobile native applications that interact with the blockchain enables a much richer end user experiences and provides access to OS capabilities. With Flow Mobile, developers can build native applications for iOS and Android leveraging SDKs and mobile wallets.
+Building mobile native applications that interact with the blockchain allows a much richer end user experience and provides access to OS capabilities. With Flow Mobile, developers can build native applications for iOS and Android with SDKs and mobile wallets.
 
 ## Why Flow[​](#why-flow "Direct link to Why Flow")
 
-Millions of users with Flow accounts are exploring the ecosystem and looking for applications. Most of these users purchased Flow NFTs and are comfortable with web3 principles.
+Millions of users with Flow accounts explore the ecosystem and look for applications. Most of these users purchased Flow NFTs and are comfortable with web3 principles.
 
-In addition to the existing user base, developers can tap into smart contracts deployed on the Flow blockchain. These contracts, including their onchain state, provide unique possibilities to build experiences that enrich applications users are already using.
+In addition to the existing user base, developers can tap into smart contracts deployed on the Flow blockchain. These contracts, including their onchain state, provide unique possibilities to build experiences that enrich currently-used applications.
 
 The following key capabilities make Flow a standout choice for mobile applications:
 
-* On-device key encryption via Secure Enclave & Keychain
-* Mobile wallet compatibility and support for WalletConnect 2.0
-* Simple, progressive onboarding experience with postponed account linking
-* Seamless in-app experience with onchain interactions without constant signing requests
-* Account flexibility enabling secure account recovery and sharing
+* On-device key encryption via Secure Enclave & Keychain.
+* Mobile wallet compatibility and support for WalletConnect 2.0.
+* Simple, progressive onboarding experience with postponed account linking.
+* Seamless in-app experience with onchain interactions without constant signing requests.
+* Account flexibility enabling secure account recovery and sharing.
 
 ## Why Flow Mobile[​](#why-flow-mobile "Direct link to Why Flow Mobile")
 
@@ -85521,9 +85696,9 @@ Flow is built with mainstream adoption in mind. Mobile applications can leverage
 
 Flow's Client Library makes it very intuitive to sign up and sign in with their wallet of choice. For transaction signing, Flow offers human readable security, so users get a clear understanding of what they are approving. An increased sense of trust for Flow applications is the outcome.
 
-Furthermore, Flow's powerful account model allows for seamless user flows of onchain operations. Apps can perform transactions on behalf of the users (with their approval) in the background, without the need to switch between apps. The account model also allows apps to pay for transactions to postpone fiat on-ramps to get them to experience the value of an application before committing to buying tokens.
+Furthermore, Flow's powerful account model allows for seamless user flows of onchain operations. Apps can perform transactions on behalf of the users (with their approval) in the background, without the need to switch between apps. The account model also allows apps to pay for transactions to postpone fiat on-ramps to get them to experience the value of an application before they commit to buy tokens.
 
-Last but not least, developers can leverage progressive web3 onboarding, in which any identity provider can be used to authenticate users, without having to deal with keys. Developers can create Flow accounts for the users and link them to a wallet at a later point in time.
+Last, but not least, developers can leverage progressive web3 onboarding, in which you can use any identity provider authenticate users, but don't have to deal with keys. Developers can create Flow accounts for the users and link them to a wallet at a later point in time.
 
 ### Security first[​](#security-first "Direct link to Security first")
 
@@ -85537,18 +85712,18 @@ Cadence, Flow's smart contract language, will look and feel very familiar to mob
 
 Developers can leverage the following features to get productive quickly:
 
-* Swift & Kotlin FCL SDKs to auth and interact with the Flow blockchain (query + execute scripts)
-* FCL-compatible mobile wallets
-* User auth using WalletConnect 2.0
-* Basic mobile sample application (MonsterMaker)
+* Swift & Kotlin FCL SDKs to authenticate and interact with the Flow blockchain (query + execute scripts).
+* FCL-compatible mobile wallets.
+* User authentication with WalletConnect 2.0.
+* Basic mobile sample application (MonsterMaker).
 
 ## Guides[​](#guides "Direct link to Guides")
 
 **[iOS Development](/blockchain-development-tutorials/cadence/mobile/ios-quickstart)** - Learn native iOS development on Flow through the Monster Maker sample project, which demonstrates wallet integration, transaction signing, and NFT management. The tutorial covers FCL Swift SDK integration, WalletConnect 2.0 for wallet connectivity, and essential blockchain interactions like querying and mutating data.
 
-**[React Native Development](/blockchain-development-tutorials/cadence/mobile/react-native-quickstart)** - Build cross-platform mobile dApps using React Native and Flow Client Library (FCL). This guide walks through setting up authentication, querying the blockchain, and executing transactions while interacting with the Profile Contract on Flow's testnet to create and edit user profiles.
+**[React Native Development](/blockchain-development-tutorials/cadence/mobile/react-native-quickstart)** - Build cross-platform mobile dApps using React Native and Flow Client Library (FCL). This guide walks through how to set up authentication, query the blockchain, and execute transactions while interacting with the Profile Contract on Flow's testnet to create and edit user profiles.
 
-**[Build a Walletless Mobile App (PWA)](/blockchain-development-tutorials/cadence/mobile/walletless-pwa)** - Create an accessible Progressive Web App with seamless onboarding using Magic integration for walletless authentication. The tutorial covers building a balloon inflation game that demonstrates Magic SDK integration, hybrid custody features, and account linking to transition from custodial to non-custodial ownership.
+**[Build a Walletless Mobile App (PWA)](/blockchain-development-tutorials/cadence/mobile/walletless-pwa)** - Create an accessible Progressive Web App with seamless onboarding with Magic integration for walletless authentication. The tutorial covers how to build a balloon inflation game that demonstrates Magic SDK integration, hybrid custody features, and account linking to transition from custodial to non-custodial ownership.
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
@@ -85556,7 +85731,7 @@ Flow Mobile empowers developers to create native blockchain applications that de
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/mobile/index.md)
 
-Last updated on **Sep 25, 2025** by **Brian Doyle**
+Last updated on **Nov 4, 2025** by **cshannon1218**
 
 [Previous
 
@@ -111877,19 +112052,19 @@ Search
 
 On this page
 
-# React Native Development
+# React Negative Development
 
 **Last Updated:** January 11th 2022
 
-> **Note**: This page will walk you through a very bare bones project to get started building a web3 dapp using the Flow Client Library (FCL). If you are looking for a clonable repo, Flow community members have created quickstart templates for different JavaScript frameworks (e.g. [Next.js](https://github.com/muttoni/fcl-nextjs-quickstart), [SvelteKit](https://github.com/muttoni/fcl-sveltekit-quickstart), [Nuxt](https://github.com/bluesign/nuxt3-fcl)). You can consult the complete list [here](https://github.com/ph0ph0/Get-The-Flow-Down#fcl).
+info
 
-## Introduction[​](#introduction "Direct link to Introduction")
+This page will walk you through a very bare bones project to get started building a web3 dapp using the Flow Client Library (FCL). If you want a clonable repo, Flow community members created quickstart templates for different JavaScript frameworks (for example, [Next.js](https://github.com/muttoni/fcl-nextjs-quickstart), [SvelteKit](https://github.com/muttoni/fcl-sveltekit-quickstart), [Nuxt](https://github.com/bluesign/nuxt3-fcl)). You can consult the complete list [here](https://github.com/ph0ph0/Get-The-Flow-Down#fcl).
 
-FCL-JS is the easiest way to start building decentralized applications. FCL (aka Flow Client Library) wraps much of the logic you'd have to write yourself on other blockchains. Follow this quick start and you'll have a solid overview of how to build a shippable dapp on Flow.
+FCL-JS is the easiest way to start building decentralized applications. Flow Client Library (FCL) wraps much of the logic you'd have to write yourself on other blockchains. Follow this quick start and you'll have a solid overview of how to build a shippable dapp on Flow.
 
-We're going to make an assumption that you know or understand React; however, the concepts should be easy to understand and transfer to another framework. While this tutorial will make use of Cadence (Flow's smart contract language), you do not need to know it. Instead, we recommend later diving into [learning the Cadence language](https://cadence-lang.org/docs/language/) once you've gotten the core FCL concepts down.
+We're going to make an assumption that you know or understand React; however, the concepts should be easy to understand and transfer to another framework. While this tutorial uses Cadence (Flow's smart contract language), you do not need to know it. Instead, we recommend that you later [learn the Cadence language](https://cadence-lang.org/docs/language/) after you've gotten the core FCL concepts down.
 
-In this tutorial, we are going to interact with an existing smart contract on Flow's testnet known as the [Profile Contract](https://testnet.flowdiver.io/contract/A.ba1132bc08f82fe2.Profile). Using this contract, we will create a new profile and edit the profile information, both via a wallet. In order to do this, the FCL concepts we'll cover are:
+In this tutorial, we are going to interact with an current smart contract on Flow's testnet known as the [Profile Contract](https://testnet.flowdiver.io/contract/A.ba1132bc08f82fe2.Profile). With this contract, we will create a new profile and edit the profile information, both via a wallet. To do this, the FCL concepts we'll cover are:
 
 * [Installation](#installation)
 * [Configuration](#configuration)
@@ -111898,7 +112073,7 @@ In this tutorial, we are going to interact with an existing smart contract on Fl
 * [Initializing an Account](#initializing-an-account)
 * [Mutating the Blockchain](#mutating-the-blockchain)
 
-And if you ever have any questions we're always happy to help on [Discord](https://discord.gg/flowblockchain). There are also links at the end of this article for diving deeper into building on Flow.
+If you ever have any questions, we're always happy to help on [Discord](https://discord.gg/flowblockchain). There are also links at the end of this article for diving deeper into how to build on Flow.
 
 ## Installation[​](#installation "Direct link to Installation")
 
@@ -111918,19 +112093,21 @@ Next, install FCL so we can use it in our app.
 
 npm install @onflow/fcl@alpha @react-native-async-storage/async-storage expo-web-browser --save`
 
-Now run the app using the following command in your terminal.
+Now run the app with the following command in your terminal.
 
 `_10
 
 npm run start`
 
-You should now see your app running.
+Your app is now running.
 
 ## Configuration[​](#configuration "Direct link to Configuration")
 
-Now that your app is running, you can configure FCL. Within the main project directory, create a folder called `flow` and create a file called `config.js`. This file will contain configuration information for FCL, such as what Access Node and wallet discovery endpoint to use (e.g. testnet or a local emulator). Add the following contents to the file:
+Now that your app is running, you can configure FCL. Within the main project directory, create a folder called `flow` and create a file called `config.js`. This file contains configuration information for FCL, such as what Access Node and wallet discovery endpoint to use (such as testnet or a local emulator). Add the following contents to the file:
 
-**Note**: These values are required to use FCL with your app.
+info
+
+These values are required to use FCL with your app.
 
 > **Create file:** `./flow/config.js`
 
@@ -111966,9 +112143,9 @@ _10
 
 });`
 
-📣 **Tip**: It's recommend to replace these values with environment variables for easy deployments across different environments like development/production or Testnet/Mainnet.
+📣 **Tip**: We recommend that you replace these values with environment variables for easy deployments across different environments like development/production or Testnet/Mainnet.
 
-* The `accessNode.api` key specifies the address of a Flow access node. Flow provides these, but in the future access to Flow may be provided by other 3rd parties, through their own access nodes.
+* The `accessNode.api` key specifies the address of a Flow access node. Flow provides these, but in the future, third parties ay provide access to Flow through their own access nodes.
 * `discovery.wallet` and `discovery.authn.endpoint` are addresses that point to a service that lists FCL compatible wallets. Flow's FCL Discovery service is a service that FCL wallet providers can be added to, and be made 'discoverable' to any application that uses the `discovery.wallet` and `discovery.authn.endpoint`.
 
 > Learn more about [configuring Discovery](/build/tools/clients/fcl-js/discovery) or [setting configuration values](/build/tools/clients/fcl-js/packages-docs/fcl#setting-configuration-values).
@@ -112009,7 +112186,7 @@ _10
 >
 > })`
 
-The main screen for React Native apps is located in `./App.js` or in `./App.tsx`. So let's finish configuring our dapp by going in the root directory and importing the config file into the top of our `App.js` file. We'll then swap out the default component in `App.js` to look like this:
+The main screen for React Native apps is located in `./App.js` or in `./App.tsx`. So, to finish configuring our dApp, let's go into the root directory and import the config file into the top of our `App.js` file. We'll then swap out the default component in `App.js` to look like this:
 
 > **Replace file:** `./App.js`
 
@@ -112099,11 +112276,11 @@ Now we're ready to start talking to Flow!
 
 ## Authentication[​](#authentication "Direct link to Authentication")
 
-To authenticate a user, you'll need to render a `ServiceDiscovery` component provided by `fcl-react-native`. Alternatively you can build your own component using `useServiceDiscovery`.
+To authenticate a user, you'll need to render a `ServiceDiscovery` component provided by `fcl-react-native`. Alternatively, you can build your own component using `useServiceDiscovery`.
 
-Unauthenticate is as simple as calling `fcl.unauthenticate()`. Once authenticated, FCL sets an object called `fcl.currentUser` which exposes methods for watching changes in user data, signing transactions, and more.
+Unauthenticate is as simple as calling `fcl.unauthenticate()`. After you're authenticated, FCL sets an object called `fcl.currentUser` which exposes methods to watch for changes in user data, signing transactions, and more.
 
-Let's add in a few components and buttons buttons for sign up/login and also subscribe to changes on the `currentUser`. When the user is updated (which it will be after authentication), we'll set the user state in our component to reflect this. To demonstrate user authenticated sessions, we'll conditionally render a component based on if the user is or is not logged in.
+Let's add in a few components and buttons for sign up, login, and to subscribe to changes on the `currentUser`. When the user updates (which happens after authentication), we'll set the user state in our component to reflect this. To demonstrate user authenticated sessions, we'll conditionally render a component based on if the user is or is not logged in.
 
 This is what your file should look like now:
 
@@ -112261,11 +112438,11 @@ _41
 
 });`
 
-You should now be able to log in or sign up a user and unauthenticate them. Upon logging in or signing up your users will see a popup where they can choose between wallet providers. Let's select the [Blocto wallet](https://blocto.portto.io/) for this example to create an account. Upon completing authentication, you'll see the component change and the user's wallet address appear on the screen if you've completed this properly.
+You can now log in or sign up a user and unauthenticate them. After your users log in or sign up, they'll see a popup where they can choose between wallet providers. Let's select the [Blocto wallet](https://blocto.portto.io/) for this example to create an account. After you authenticate, you'll see the component change and the user's wallet address appear if you've completed this properly.
 
-## Querying the Blockchain[​](#querying-the-blockchain "Direct link to Querying the Blockchain")
+## Querying the blockchain[​](#querying-the-blockchain "Direct link to Querying the blockchain")
 
-One of the main things you'll often need to do when building a dapp is query the Flow blockchain and the smart contracts deployed on it for data. Since smart contracts will live on both Testnet and Mainnet, let's put the account address where the smart contract lives into the configuration (remember, it's recommended that you change this later to use environment variables). Let's also give it a key of `Profile` and prefix it with `0x` so that the final key is `0xProfile`. The prefix is important because it tells FCL to pull the corresponding addresses needed from the configuration value.
+One of the main things you'll often need to do when building a dApp is query the Flow blockchain and the smart contracts deployed on it for data. Since smart contracts will live on both Testnet and Mainnet, let's put the account address where the smart contract lives into the configuration (remember, we recommend that you change this later to use environment variables). Let's also give it a key of `Profile` and prefix it with `0x` so that the final key is `0xProfile`. The prefix is important because it tells FCL to pull the corresponding addresses needed from the configuration value.
 
 > **Replace file:** `./flow/config.js`
 
@@ -112305,16 +112482,16 @@ _10
 
 });`
 
-If you want to see the on chain smart contract we'll be speaking with next, you can view the [Profile Contract](https://testnet.flowdiver.io/contract/A.ba1132bc08f82fe2.Profile) source code but again for this tutorial it's not necessary you understand it.
+If you want to see the on chain smart contract that we'll speak with next, you can view the [Profile Contract](https://testnet.flowdiver.io/contract/A.ba1132bc08f82fe2.Profile) source code but again, for this tutorial, it's not necessary you understand it.
 
 **First, lets query the contract to see what the user's profile name is.**
 
-A few things need to happen in order to do that:
+A few things need to happen to do that:
 
 1. We need to import the contract and pass it the user's account address as an argument.
-2. Execute the script using `fcl.query`.
+2. Execute the script with `fcl.query`.
 3. Set the result of the script to the app state in React so we can display the profile name in our browser.
-4. Display "No Profile" if one was not found.
+4. Display "No Profile" if one wasn't found.
 
 Take a look at the new code. We'll explain each new piece as we go. Remember, the cadence code is a separate language from JavaScript used to write smart contracts, so you don't need to spend too much time trying to understand it. (Of course, you're more than welcome to, if you want to!)
 
@@ -112558,7 +112735,7 @@ _64
 
 }); ``
 
-A few things happened. In our `AuthedState` component, we added a button to send a query for the user's profile name and a `Text` to display the result above it. The corresponding `useState` initialization can be seen at the top of the component.
+A few things happened. In our `AuthedState` component, we added a button to send a query for the user's profile name and a `Text` to display the result above it. The corresponding `useState` initialization appears at the top of the component.
 
 The other thing we did is build out the actual query inside of `sendQuery` method. Let's take a look at it more closely:
 
@@ -112600,19 +112777,19 @@ _10
 
 }); ``
 
-Inside the query you'll see we set two things: `cadence` and `args`. Cadence is Flow's smart contract language we mentioned. For this tutorial, when you look at it you just need to notice that it's importing the `Profile` contract from the account we named `0xProfile` earlier in our config file, then also taking an account address, and reading it. That's it until you're ready to [learn more Cadence](https://cadence-lang.org/docs).
+Inside the query, you'll see we set two things: `cadence` and `args`. Cadence is Flow's smart contract language we mentioned. For this tutorial, when you look at it, you just need to notice that it's importing the `Profile` contract from the account we named `0xProfile` earlier in our config file, then also taking an account address, and reading it. That's it until you're ready to [learn more Cadence](https://cadence-lang.org/docs).
 
 In the `args` section, we are simply passing it our user's account address from the user we set in state after authentication and giving it a type of `Address`. For more possible types, [see this reference](/build/tools/clients/fcl-js/packages-docs/types).
 
-Go ahead and click the "Send Query" button. You should see "No Profile." That's because we haven't initialized the account yet.
+Go ahead and click "Send Query". You will see "No Profile." That's because we haven't initialized the account yet.
 
-## Initializing an Account[​](#initializing-an-account "Direct link to Initializing an Account")
+## Initialize an account[​](#initialize-an-account "Direct link to Initialize an account")
 
-For the Profile contract to store a Profile in a user's account, it does so by initializing what is called a "resource." A resource is an ownable piece of data and functionality that can live in the user's account storage. This paradigm is known is as "resource-oriented-programming", a principle that is core to Cadence and differentiates its ownership model from other smart contract languages, [read more here](https://cadence-lang.org/docs/#intuiting-ownership-with-resources). Cadence makes it so that resources can only exist in one place at any time, they must be deliberately created, cannot be copied, and if desired, must be deliberately destroyed.
+For the Profile contract to store a Profile in a user's account, it initializes what is called a "resource." A resource is an ownable piece of data and functionality that can live in the user's account storage. This paradigm is known is as "resource-oriented-programming", a principle that is core to Cadence and differentiates its ownership model from other smart contract languages, [read more here](https://cadence-lang.org/docs/#intuiting-ownership-with-resources). Cadence makes it so that resources can only exist in one place at any time, they must be deliberately created, cannot be copied, and if desired, must be deliberately destroyed.
 
 > There's a lot more to resources in Cadence than we'll cover in this guide, so if you'd like to know more, check out [this Cadence intro](https://cadence-lang.org/docs).
 
-To do this resource initialization on an account, we're going to add another function called `initAccount`. Inside of that function, we're going to add some Cadence code which says, *"Hey, does this account have a profile? If it doesn't, let's add one."* We do that using something called a "transaction." Transactions occur when you want to change the state of the blockchain, in this case, some data in a resource, in a specific account. And there is a cost (transaction fee) in order to do that; unlike a query.
+To do this resource initialization on an account, we're going to add another function called `initAccount`. Inside of that function, we're going to add some Cadence code which says, *"Hey, does this account have a profile? If it doesn't, let's add one."* We do that with something called a "transaction." Transactions occur when you want to change the state of the blockchain, in this case, some data in a resource, in a specific account. And there is a cost (transaction fee) in order to do that; unlike a query.
 
 That's where we jump back into FCL code. Instead of `query`, we use `mutate` for transactions. And because there is a cost, we need to add a few fields that tell Flow who is proposing the transaction, who is authorizing it, who is paying for it, and how much they're willing to pay for it. Those fields — not surprisingly — are called: `proposer`, `authorizer`, `payer`, and `limit`. For more information on these signatory roles, check out [this doc](/build/cadence/basics/transactions#signer-roles).
 
@@ -112728,11 +112905,11 @@ _29
 
 You can see the new fields we talked about. You'll also notice `fcl.authz`. That's shorthand for "use the current user to authorize this transaction", (you could also write it as `fcl.currentUser.authorization`). If you want to learn more about transactions and signing transactions, you can [view the docs here](/build/cadence/basics/transactions). For this example, we'll keep it simple with the user being each of these roles.
 
-You'll also notice we are awaiting a response with our transaction data by using the syntax `fcl.tx(transactionId).onceExecuted()`. This will return when the transaction has been executed by an execution node ("soft-finality"). If you want to wait until the transaction is sealed ("hard-finality"), you can use `onceSealed()` instead.
+You'll also notice we are awaiting a response with our transaction data by using the syntax `fcl.tx(transactionId).onceExecuted()`. This returns when an execution node completes the transaction ("soft-finality"). If you want to wait until the transaction is sealed ("hard-finality"), you can use `onceSealed()` instead.
 
 To learn more about the transaction lifecycle, check out [this doc](/build/cadence/basics/transactions#transaction-lifecycle).
 
-Now your `index.js` file should look like this (we also added a button for calling the `initAccount` function in the `AuthedState`):
+Now your `index.js` file looks like this (we also added a button to call the `initAccount` function in the `AuthedState`):
 
 > **Replace file:** `./App.js`
 
@@ -113080,9 +113257,9 @@ _93
 
 }); ``
 
-Press the "Init Account" button you should see the wallet ask you to approve a transaction. After approving, you will see a transaction response appear in your console (make sure to have that open). It may take a few moments. With the transaction result printed, you can use the `transactionId` to look up the details of the transaction using a [block explorer](https://testnet.flowscan.io/).
+Press "Init Account," and the wallet asks you to approve a transaction. After you approve it, you will see a transaction response appear in your console (make sure to have that open). It may take a few moments. With the transaction result printed, you can use the `transactionId` to look up the details of the transaction using a [block explorer](https://testnet.flowscan.io/).
 
-## Mutating the Blockchain[​](#mutating-the-blockchain "Direct link to Mutating the Blockchain")
+## Mutating the blockchain[​](#mutating-the-blockchain "Direct link to Mutating the blockchain")
 
 Now that we have the profile initialized, we are going to want to mutate it some more. In this example, we'll use the same smart contract provided to change the profile name.
 
@@ -113650,7 +113827,7 @@ _124
 
 }); ``
 
-Now if you click the "Execute Transaction" button you'll see the statuses update next to "Transaction Status." When you see "4" that means it's sealed! Status code meanings [can be found here](/build/tools/clients/fcl-js/packages-docs/types).
+Now if you click "Execute Transaction," you'll see the statuses update next to "Transaction Status." When you see "4" that means it's sealed! Status code meanings [can be found here](/build/tools/clients/fcl-js/packages-docs/types).
 If you query the account profile again, "Profile Name:" should now display "Flow Developer".
 
 That's it! You now have a shippable Flow dapp that can auth, query, init accounts, and mutate the chain. This is just the beginning. There is so much more to know. We have a lot more resources to help you build. To dive deeper, here are a few good places for taking the next steps:
@@ -113674,7 +113851,7 @@ That's it! You now have a shippable Flow dapp that can auth, query, init account
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/mobile/react-native-quickstart.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Nov 4, 2025** by **cshannon1218**
 
 [Previous
 
@@ -113688,7 +113865,7 @@ Build a Walletless Mobile App (PWA)](/blockchain-development-tutorials/cadence/m
 
 Copy as Markdown
 
-* [Introduction](#introduction)* [Installation](#installation)* [Configuration](#configuration)* [Authentication](#authentication)* [Querying the Blockchain](#querying-the-blockchain)* [Initializing an Account](#initializing-an-account)* [Mutating the Blockchain](#mutating-the-blockchain)
+* [Installation](#installation)* [Configuration](#configuration)* [Authentication](#authentication)* [Querying the blockchain](#querying-the-blockchain)* [Initialize an account](#initialize-an-account)* [Mutating the blockchain](#mutating-the-blockchain)
 
 Flow
 
@@ -187477,46 +187654,46 @@ On this page
 
 You've developed locally with the emulator, integrated external dependencies, built sophisticated transactions, implemented comprehensive testing, and created a frontend interface. Now it's time to take your application live and deploy it to Flow's public networks.
 
-This tutorial will guide you through deploying your Counter application to both testnet and mainnet, ensuring your contracts and frontend work seamlessly in production environments. You'll learn the essential practices for managing live blockchain applications, from security considerations to monitoring and maintenance.
+This tutorial will guide you through deploying your Counter application to both testnet and mainnet, ensuring your contracts and frontend work seamlessly in production environments. You'll learn the essential practices for how to manage live blockchain applications, from security considerations to monitoring and maintenance.
 
-## What You'll Learn[​](#what-youll-learn "Direct link to What You'll Learn")
+## What you'll learn[​](#what-youll-learn "Direct link to What you'll learn")
 
-After completing this tutorial, you'll be able to:
+After you complete this tutorial, you'll be able to:
 
-* **Deploy contracts to Flow testnet** with proper account setup and funding
-* **Configure your application** for different network environments (emulator, testnet, mainnet)
-* **Deploy to mainnet** with security best practices and production considerations
-* **Update frontend configuration** to work with live networks
-* **Implement monitoring and maintenance** practices for production applications
-* **Understand the deployment pipeline** from development to production
+* **Deploy contracts to Flow testnet** with proper account setup and funding.
+* **Configure your application** for different network environments (emulator, testnet, mainnet).
+* **Deploy to mainnet** with security best practices and production considerations.
+* **Update frontend configuration** to work with live networks.
+* **Implement monitoring and maintenance** practices for production applications.
+* **Understand the deployment pipeline** from development to production.
 
 **Prerequisites:**
 
-* Completed all previous tutorials ([Environment Setup], [Smart Contract Interaction], [Building a Frontend App])
-* Counter contract and frontend app working locally
-* Flow CLI installed and configured
+* Completed all previous tutorials ([Environment Setup], [Smart Contract Interaction], [Building a Frontend App]).
+* Counter contract and frontend app working locally.
+* Flow CLI installed and configured.
 
 ## Deploy to Testnet[​](#deploy-to-testnet "Direct link to Deploy to Testnet")
 
-Testnet is Flow's public test network that mirrors mainnet functionality without using real FLOW tokens. It's the perfect environment to test your application in a live blockchain environment before committing to mainnet deployment.
+Testnet is Flow's public test network that mirrors mainnet functionality without using real FLOW tokens. It's the perfect environment to test your application in a live blockchain environment before you commit to mainnet deployment.
 
-### Understanding Flow Networks[​](#understanding-flow-networks "Direct link to Understanding Flow Networks")
+### Understanding Flow networks[​](#understanding-flow-networks "Direct link to Understanding Flow networks")
 
 Flow has several networks for different purposes:
 
-* **Emulator**: Local development environment (what you've been using)
-* **Testnet**: Public test network with free test tokens
-* **Mainnet**: Production network with real FLOW tokens
+* **Emulator**: Local development environment (what you currently use).
+* **Testnet**: Public test network with free test tokens.
+* **Mainnet**: Production network with real Flow tokens.
 
 Each network has its own:
 
-* Access nodes and APIs
-* Account addresses and contract deployments
-* Token economics (free on testnet, real value on mainnet)
+* Access nodes and APIs.
+* Account addresses and contract deployments.
+* Token economics (free on testnet, real value on mainnet).
 
-### Create a Testnet Account[​](#create-a-testnet-account "Direct link to Create a Testnet Account")
+### Create a testnet account[​](#create-a-testnet-account "Direct link to Create a testnet account")
 
-First, you'll need a testnet account to deploy your contracts. You can create one using the Flow CLI:
+First, you'll need a testnet account to deploy your contracts. You can create one with the Flow CLI:
 
 `_10
 
@@ -187529,14 +187706,14 @@ When prompted:
 
 This creates a new account on testnet and adds it to your `flow.json` configuration. The CLI will show you the account address and save the private key locally.
 
-### Fund Your Testnet Account[​](#fund-your-testnet-account "Direct link to Fund Your Testnet Account")
+### Fund your testnet account[​](#fund-your-testnet-account "Direct link to Fund your testnet account")
 
-To deploy contracts and send transactions on testnet, you need FLOW tokens. Flow provides a faucet service to get free testnet tokens.
+To deploy contracts and send transactions on testnet, you need Flow tokens. Flow provides a faucet service to get free testnet tokens.
 
-1. Visit the [Flow Testnet Faucet](https://faucet.flow.com/)
-2. Enter your testnet account address
-3. Complete any required verification (captcha, etc.)
-4. Request tokens (you'll receive 1000 FLOW tokens)
+1. Visit the [Flow Testnet Faucet](https://faucet.flow.com/).
+2. Enter your testnet account address.
+3. Complete any required verification (captcha, and so on).
+4. Request tokens (you'll receive 1000 FLOW tokens).
 
 This command automatically requests tokens from the testnet faucet for your account.
 
@@ -187544,7 +187721,7 @@ This command automatically requests tokens from the testnet faucet for your acco
 
 flow accounts fund --network testnet testnet-account`
 
-**Verify Funding:**
+**Verify funding:**
 
 Check your account balance:
 
@@ -187552,11 +187729,11 @@ Check your account balance:
 
 flow accounts list`
 
-You should see your account details with a balance of FLOW tokens.
+You will see your account details with a balance of Flow tokens.
 
-### Configure Testnet Deployment[​](#configure-testnet-deployment "Direct link to Configure Testnet Deployment")
+### Configure testnet deployment[​](#configure-testnet-deployment "Direct link to Configure testnet deployment")
 
-Update your `flow.json` to include testnet deployment configuration. The NumberFormatter contract already exists on testnet, so you only need to deploy your Counter contract.
+Update your `flow.json` to include testnet deployment configuration. The `NumberFormatter` contract already exists on testnet, so you only need to deploy your Counter contract.
 
 `_10
 
@@ -187570,7 +187747,7 @@ Follow the prompts:
 4. **Deploy more contracts**: `yes`
 5. **Contract**: `NumberFormatter`
 
-Your `flow.json` should now include a testnet deployment section:
+Your `flow.json` now includes a testnet deployment section:
 
 `_18
 
@@ -187644,7 +187821,7 @@ _18
 
 }`
 
-### Deploy Counter Contract to Testnet[​](#deploy-counter-contract-to-testnet "Direct link to Deploy Counter Contract to Testnet")
+### Deploy Counter contract to testnet[​](#deploy-counter-contract-to-testnet "Direct link to Deploy Counter contract to testnet")
 
 Deploy your Counter contract to the public testnet:
 
@@ -187652,7 +187829,7 @@ Deploy your Counter contract to the public testnet:
 
 flow project deploy --network testnet`
 
-You should see output similar to:
+You will see output similar to:
 
 `_10
 
@@ -187674,9 +187851,9 @@ _10
 
 🎉 All contracts deployed successfully`
 
-### Test Your Testnet Deployment[​](#test-your-testnet-deployment "Direct link to Test Your Testnet Deployment")
+### Test your testnet deployment[​](#test-your-testnet-deployment "Direct link to Test your testnet deployment")
 
-Verify your contract works on testnet by running a script:
+Verify your contract works on testnet with this script:
 
 `_10
 
@@ -187704,11 +187881,11 @@ flow scripts execute cadence/scripts/GetCounter.cdc --network testnet`
 
 Result: "1"`
 
-Perfect! Your Counter contract is now live on testnet and working correctly.
+Perfect! Your Counter contract is now live on testnet and works correctly.
 
-### Update Frontend for Testnet[​](#update-frontend-for-testnet "Direct link to Update Frontend for Testnet")
+### Update frontend for testnet[​](#update-frontend-for-testnet "Direct link to Update frontend for testnet")
 
-Now update your Next.js application to connect to testnet instead of the emulator.
+Now update your `Next.js` application to connect to testnet instead of the emulator.
 
 **Update `src/app/layout.tsx`:**
 
@@ -187816,13 +187993,13 @@ _27
 
 }`
 
-**Key Changes:**
+**Key changes:**
 
-* `accessNodeUrl`: Changed from localhost to Flow's testnet REST API
-* `flowNetwork`: Changed from 'emulator' to 'testnet'
-* `discoveryWallet`: Updated to use testnet wallet discovery
+* `accessNodeUrl`: Changed from localhost to Flow's testnet REST API.
+* `flowNetwork`: Changed from 'emulator' to 'testnet'.
+* `discoveryWallet`: Updated to use testnet wallet discovery.
 
-### Test Your Testnet Frontend[​](#test-your-testnet-frontend "Direct link to Test Your Testnet Frontend")
+### Test your testnet frontend[​](#test-your-testnet-frontend "Direct link to Test your testnet frontend")
 
 Start your frontend application:
 
@@ -187830,33 +188007,33 @@ Start your frontend application:
 
 npm run dev`
 
-Visit `http://localhost:3000` and you should see:
+Visit `http://localhost:3000` and you will see:
 
-1. **Counter value**: Displays the current count from your testnet contract
-2. **Connect Wallet**: You can now connect using various Flow wallets (not just Dev Wallet)
-3. **Increment functionality**: Transactions are sent to the live testnet
-4. **Real transaction costs**: Small amounts of testnet FLOW are used for gas
+1. **Counter value**: Displays the current count from your testnet contract.
+2. **Connect Wallet**: You can now connect with various Flow wallets (not just Dev Wallet).
+3. **Increment functionality**: Transactions are sent to the live testnet.
+4. **Real transaction costs**: Small amounts of testnet Flow are used for gas.
 
-**Important**: When connecting your wallet, make sure to:
+**Important**: When you connect your wallet, make sure to:
 
-* Switch your wallet to testnet network
-* Use an account that has testnet FLOW tokens
-* Confirm you're interacting with the correct contract address
+* Switch your wallet to Testnet network.
+* Use an account that has testnet Flow tokens.
+* Confirm you're interacting with the correct contract address.
 
-## Deploy to Mainnet[​](#deploy-to-mainnet "Direct link to Deploy to Mainnet")
+## Deploy to mainnet[​](#deploy-to-mainnet "Direct link to Deploy to mainnet")
 
-Mainnet deployment is the final step in your application's journey. Unlike testnet, mainnet uses real FLOW tokens and serves real users, so additional security considerations and best practices are essential.
+Mainnet deployment is the final step in your application's journey. Unlike testnet, mainnet uses real Flow tokens and serves real users, so additional security considerations and best practices are essential.
 
-### Create a Mainnet Account[​](#create-a-mainnet-account "Direct link to Create a Mainnet Account")
+### Create a mainnet account[​](#create-a-mainnet-account "Direct link to Create a mainnet account")
 
-For mainnet, you'll need to acquire FLOW tokens through exchanges or other means, as there's no faucet.
+For mainnet, you'll need to acquire Flow tokens through exchanges or other means, as there's no faucet.
 
 **Option 1: Use Flow Wallet**
 
-1. Download and install [Flow Wallet](https://wallet.flow.com/)
-2. Create a new wallet and securely store your recovery phrase
-3. Purchase FLOW tokens from a supported exchange
-4. Transfer tokens to your Flow Wallet
+1. Download and install [Flow Wallet](https://wallet.flow.com/).
+2. Create a new wallet and securely store your recovery phrase.
+3. Purchase Flow tokens from a supported exchange.
+4. Transfer tokens to your Flow Wallet.
 
 **Option 2: Use Flow CLI**
 
@@ -187869,19 +188046,19 @@ When prompted:
 1. **Account name**: Enter `mainnet-account`
 2. **Select "Mainnet" Network**
 
-### Acquire FLOW Tokens[​](#acquire-flow-tokens "Direct link to Acquire FLOW Tokens")
+### Acquire FLOW tokens[​](#acquire-flow-tokens "Direct link to Acquire FLOW tokens")
 
-You can purchase FLOW tokens from major exchanges like [Coinbase](https://www.coinbase.com/en-in/how-to-buy/flow), [Moonpay](https://www.moonpay.com/buy/flow), and [Binance](https://www.binance.com/en-IN/how-to-buy/flow).
+You can purchase Flow tokens from major exchanges like [Coinbase](https://www.coinbase.com/en-in/how-to-buy/flow), [Moonpay](https://www.moonpay.com/buy/flow), and [Binance](https://www.binance.com/en-IN/how-to-buy/flow).
 
-You can also obtain FLOW directly from the Flow Wallet by clicking the "Buy" button in your account.
+To obtain Flow directly from the Flow Wallet, click "Buy" in your account.
 
 ![flow-wallet-icons](/assets/images/flow-wallet-icons-ce189e72f967cba8eadb9e8a5b9ba7d5.png)
 
-Then click on a provider to purchase FLOW.
+Then, click on a provider to purchase FLOW.
 
 ![provider](/assets/images/provider-d9c0033cd40f0bfee9f4c4e82aea5296.png)
 
-### Configure Mainnet Deployment[​](#configure-mainnet-deployment "Direct link to Configure Mainnet Deployment")
+### Configure mainnet deployment[​](#configure-mainnet-deployment "Direct link to Configure mainnet deployment")
 
 Add mainnet deployment configuration to your `flow.json`:
 
@@ -187897,7 +188074,7 @@ Follow the prompts:
 4. **Deploy more contracts**: `yes`
 5. **Contract**: `NumberFormatter`
 
-Your `flow.json` should now include mainnet configuration:
+Your `flow.json` will now include mainnet configuration:
 
 `_33
 
@@ -188031,7 +188208,7 @@ _33
 
 }`
 
-### Deploy to Mainnet[​](#deploy-to-mainnet-1 "Direct link to Deploy to Mainnet")
+### Deploy to mainnet[​](#deploy-to-mainnet-1 "Direct link to Deploy to mainnet")
 
 Deploy your Counter contract to mainnet:
 
@@ -188039,9 +188216,9 @@ Deploy your Counter contract to mainnet:
 
 flow project deploy --network mainnet`
 
-**⚠️ Important**: This deployment costs real FLOW tokens and cannot be undone.
+**⚠️ Important**: This deployment costs real FLOW tokens and you can't undo it.
 
-You should see output similar to:
+You will see output similar to:
 
 `_10
 
@@ -188063,7 +188240,7 @@ _10
 
 🎉 All contracts deployed successfully`
 
-### Production Frontend Configuration[​](#production-frontend-configuration "Direct link to Production Frontend Configuration")
+### Production frontend configuration[​](#production-frontend-configuration "Direct link to Production frontend configuration")
 
 Create a production build of your frontend configured for mainnet:
 
@@ -188181,7 +188358,7 @@ npm run build`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/getting-started/production-deployment.md)
 
-Last updated on **Sep 25, 2025** by **Brian Doyle**
+Last updated on **Oct 30, 2025** by **cshannon1218**
 
 [Previous
 
@@ -188195,9 +188372,9 @@ Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages
 
 Copy as Markdown
 
-* [What You'll Learn](#what-youll-learn)* [Deploy to Testnet](#deploy-to-testnet)
-    + [Understanding Flow Networks](#understanding-flow-networks)+ [Create a Testnet Account](#create-a-testnet-account)+ [Fund Your Testnet Account](#fund-your-testnet-account)+ [Configure Testnet Deployment](#configure-testnet-deployment)+ [Deploy Counter Contract to Testnet](#deploy-counter-contract-to-testnet)+ [Test Your Testnet Deployment](#test-your-testnet-deployment)+ [Update Frontend for Testnet](#update-frontend-for-testnet)+ [Test Your Testnet Frontend](#test-your-testnet-frontend)* [Deploy to Mainnet](#deploy-to-mainnet)
-      + [Create a Mainnet Account](#create-a-mainnet-account)+ [Acquire FLOW Tokens](#acquire-flow-tokens)+ [Configure Mainnet Deployment](#configure-mainnet-deployment)+ [Deploy to Mainnet](#deploy-to-mainnet-1)+ [Production Frontend Configuration](#production-frontend-configuration)
+* [What you'll learn](#what-youll-learn)* [Deploy to Testnet](#deploy-to-testnet)
+    + [Understanding Flow networks](#understanding-flow-networks)+ [Create a testnet account](#create-a-testnet-account)+ [Fund your testnet account](#fund-your-testnet-account)+ [Configure testnet deployment](#configure-testnet-deployment)+ [Deploy Counter contract to testnet](#deploy-counter-contract-to-testnet)+ [Test your testnet deployment](#test-your-testnet-deployment)+ [Update frontend for testnet](#update-frontend-for-testnet)+ [Test your testnet frontend](#test-your-testnet-frontend)* [Deploy to mainnet](#deploy-to-mainnet)
+      + [Create a mainnet account](#create-a-mainnet-account)+ [Acquire FLOW tokens](#acquire-flow-tokens)+ [Configure mainnet deployment](#configure-mainnet-deployment)+ [Deploy to mainnet](#deploy-to-mainnet-1)+ [Production frontend configuration](#production-frontend-configuration)
 
 Flow
 
@@ -193014,31 +193191,31 @@ Search
 
 On this page
 
-# Overview
+# Build a Walletless Mobile App (PWA)
 
-In this tutorial, we delve into the intricacies of crafting an accessible Progressive Web App (PWA) on the Flow blockchain, tackling the challenge of mobile mainstream accessibility in web3. Recognizing the complexity of current onboarding processes, we will guide you through a streamlined approach, featuring a seamless walletless mobile login to alleviate the often daunting task for new users.
+In this tutorial, we delve into the intricacies of crafting an accessible Progressive Web App (PWA) on the Flow blockchain, tackling the challenge of mobile mainstream accessibility in web3. We recognize the complexity of current onboarding processes, so we'll guide you through a streamlined approach, featuring a seamless walletless mobile login to alleviate the often daunting task for new users.
 
-### Understanding Progressive Web Apps (PWAs)[​](#understanding-progressive-web-apps-pwas "Direct link to Understanding Progressive Web Apps (PWAs)")
+### Understanding PWAs[​](#understanding-pwas "Direct link to Understanding PWAs")
 
-Progressive Web Apps (PWAs) have garnered attention recently, with platforms like [friend.tech](http://friend.tech/) leading the way in popularity. PWAs blur the lines between web pages and mobile applications, offering an immersive, app-like experience directly from your browser. You can easily add a shortcut to your home screen, and the PWA operates just like a native application would. Beyond these capabilities, PWAs also boast offline functionality and support for push notifications, among many [other features](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps).
+PWAs have garnered attention recently, with platforms like [friend.tech](http://friend.tech/) leading the way in popularity. PWAs blur the lines between web pages and mobile applications, offering an immersive, app-like experience directly from your browser. You can easily add a shortcut to your home screen, and the PWA operates just like a native application would. Beyond these capabilities, PWAs also boast offline functionality and support for push notifications, among many [other features](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps).
 
-### ****Exploring Walletless Onboarding****[​](#exploring-walletless-onboarding "Direct link to exploring-walletless-onboarding")
+### ****Explore walletless onboarding****[​](#explore-walletless-onboarding "Direct link to explore-walletless-onboarding")
 
-Walletless onboarding is a groundbreaking feature that enables users to securely interact with decentralized applications (dApps) in a matter of seconds, all without the traditional necessity of creating a blockchain wallet. This method effectively simplifies the user experience, abstracting the complexities of blockchain technology to facilitate swift and straightforward app access. For a deeper dive into walletless onboarding and its integration with Flow, feel free to explore the following resource: [Flow Magic Integration](https://flow.com/post/flow-magic-integration).
+Walletless onboarding is a groundbreaking feature that allows users to securely interact with decentralized applications (dApps) in a matter of seconds, all without the traditional need to create a blockchain wallet. This method effectively simplifies the user experience, abstracting the complexities of blockchain technology to facilitate swift and straightforward app access. For a deeper dive into walletless onboarding and its integration with Flow, feel free to explore the following resource: [Flow Magic Integration](https://flow.com/post/flow-magic-integration).
 
-# Detailed Steps
+# Detailed steps
 
-To effectively follow this tutorial, the developer requires a few essential libraries and integrations. Additionally, there is a ready-made flow scaffold called [FCL PWA](https://github.com/bshahid331/flow-pwa-scaffold) that contains the completed tutorial code, providing a solid foundation for you to build your Progressive Web App (PWA)!
+To effectively follow this tutorial, the developer requires a few essential libraries and integrations. Additionally, there is a ready-made flow scaffold called [FCL PWA](https://github.com/bshahid331/flow-pwa-scaffold) that contains the completed tutorial code, providing a solid foundation for you to build your PWA!
 
 ## **Dependencies**[​](#dependencies "Direct link to dependencies")
 
-1. **Magic Account**: Start by setting up an app on magic.link, during which you will obtain an API key crucial for further steps.
-2. **Magic SDK**: Essential for integrating Magic's functionality in your project, and can be found [here](https://www.npmjs.com/package/magic-sdk).
-3. **Magic Flow SDK**: This SDK enables Magic's integration with Flow. You can install it from [this link](https://www.npmjs.com/package/@magic-ext/flow/v/13.3.0).
+1. **Magic Account**: To start, set up an app on magic.link, where you'll obtain an API key crucial for further steps.
+2. **Magic SDK**: Essential to integrate Magic's functionality in your project, and you can find it [here](https://www.npmjs.com/package/magic-sdk).
+3. **Magic Flow SDK**: This SDK allows Magic's integration with Flow. You can install it from [this link](https://www.npmjs.com/package/@magic-ext/flow/v/13.3.0).
 4. **Flow Client Library ([FCL](https://developers.flow.com/tooling/fcl-js))**: As the JavaScript SDK for the Flow blockchain, FCL allows developers to create applications that seamlessly interact with the Flow blockchain and its smart contracts.
-5. **React**: Our project will be built using the React framework.
+5. **React**: We'll build our project with the React framework.
 
-### ****Setting up PWA and Testing Locally****[​](#setting-up-pwa-and-testing-locally "Direct link to setting-up-pwa-and-testing-locally")
+### ****Set up up PWA and testing locally****[​](#set-up-up-pwa-and-testing-locally "Direct link to set-up-up-pwa-and-testing-locally")
 
 Initiate the creation of a new React app, opting for the PWA template with the following command:
 
@@ -193048,19 +193225,19 @@ npx create-react-app name-of-our-PWA-app --template cra-template-pwa`
 
 Ensure that **`serviceWorkerRegistration.register()`** in **`index.js`** is appropriately configured to support offline capabilities of your PWA.
 
-Proceed to build your application using your preferred build tool. In this example, we will use Yarn:
+Proceed to build your application with your preferred build tool. In this example, we will use Yarn:
 
 `_10
 
 yarn run build`
 
-Following the build, you can serve your application locally using:
+Following the build, you can serve your application locally with:
 
 `_10
 
 npx serve -s build`
 
-To thoroughly test your PWA, especially on a mobile device, it's highly recommended to use a tool like **`ngrok`**. Start **`ngrok`** and point it to the local port your application is running on:
+To thoroughly test your PWA, especially on a mobile device, we strongly recommend that you use a tool like **`ngrok`**. Start **`ngrok`** and point it to the local port on which your application runs:
 
 `_10
 
@@ -193070,7 +193247,7 @@ Grab the generated link, and you can now access and test your PWA directly on yo
 
 You can now grab the link and go to it on your mobile device to test the PWA!
 
-### Integrating with Magic[​](#integrating-with-magic "Direct link to Integrating with Magic")
+### Integrate with Magic[​](#integrate-with-magic "Direct link to Integrate with Magic")
 
 Proceed to install the Magic-related dependencies in your project. Ensure you add your Magic app's key as an environment variable for secure access:
 
@@ -193078,7 +193255,7 @@ Proceed to install the Magic-related dependencies in your project. Ensure you ad
 
 yarn add magic-sdk @magic-ext/flow @onflow/fcl`
 
-Let's create a helper file, **`magic.js`**, to manage our Magic extension setup. Ensure that your environment variable with the Magic API key is correctly set before proceeding.
+Let's create a helper file, **`magic.js`**, to manage our Magic extension setup. Ensure that your environment variable with the Magic API key is correctly set before you proceed.
 
 `_13
 
@@ -193128,13 +193305,13 @@ _13
 
 export default magic;`
 
-Anytime you need to interface with chain you will use this magic instance.
+Anytime you need to interface with chain, you will use this magic instance.
 
-### ****React Context and Provider for User Data****[​](#react-context-and-provider-for-user-data "Direct link to react-context-and-provider-for-user-data")
+### ****React context and provider for user data****[​](#react-context-and-provider-for-user-data "Direct link to react-context-and-provider-for-user-data")
 
 **`currentUserContext.js`**
 
-This file creates a React context that will be used to share the current user's data across your application.
+This file creates a React context that you'll use to share the current user's data across your application.
 
 **React Context**: It is created using **`React.createContext()`** which provides a way to pass data through the component tree without having to pass props down manually at every level.
 
@@ -193156,9 +193333,9 @@ export default CurrentUserContext;`
 
 **`currentUserProvider.js`**
 
-This file defines a React provider component that uses the context created above. This provider component will wrap around your application's components, allowing them to access the current user's data.
+This file defines a React provider component that uses the context created above. This provider component will wrap around your application's components, which allows them to access the current user's data.
 
-* **useState**: To create state variables for storing the current user's data and the loading status.
+* **useState**: To create state variables to store the current user's data and the loading status.
 * **useEffect**: To fetch the user's data from Magic when the component mounts.
 * **magic.user.isLoggedIn**: Checks if a user is logged in.
 * **magic.user.getMetadata**: Fetches the user's metadata.
@@ -193301,11 +193478,11 @@ _37
 
 export default CurrentUserProvider;`
 
-### **Logging in the User**[​](#logging-in-the-user "Direct link to logging-in-the-user")
+### **Log in the user**[​](#log-in-the-user "Direct link to log-in-the-user")
 
-This part shows how to log in a user using Magic's SMS authentication.
+This part shows how to log in a user with Magic's SMS authentication.
 
-* **magic.auth.loginWithSMS**: A function provided by Magic to authenticate users using their phone number.
+* **magic.auth.loginWithSMS**: A function that Magic provides to authenticate users with their phone number.
 * **setCurrentUser**: Updates the user's data in the context.
 
 `_12
@@ -193354,8 +193531,8 @@ _12
 
 This example shows how to interact with the Flow blockchain using FCL and Magic for authorization.
 
-* **fcl.send**: A function provided by FCL to send transactions or scripts to the Flow blockchain.
-* **AUTHORIZATION\_FUNCTION**: The authorization function provided by Magic for signing transactions.
+* **fcl.send**: A function that FCL provides to send transactions or scripts to the Flow blockchain.
+* **AUTHORIZATION\_FUNCTION**: The authorization function that Magic provides to sign transactions.
 
 `` _26
 
@@ -193455,15 +193632,15 @@ _26
 
 }; ``
 
-### ****Account Linking with Flow****[​](#account-linking-with-flow "Direct link to account-linking-with-flow")
+### ****Account linking with Flow****[​](#account-linking-with-flow "Direct link to account-linking-with-flow")
 
-Now we can unlock the real power of Flow. Lets say you have another Flow account and you want to link the "magic" account as a child account so that you can take full custody of whatever is in the magic account you can do this via Hybird Custody.
+Now we can unlock the real power of Flow. Lets say you have another Flow account and you want to link the "magic" account as a child account so that you can take full custody of whatever is in the magic account. You can do this via Hybird Custody.
 
 You can view the hybrid custody repo and contracts here: <https://github.com/onflow/hybrid-custody>
 
-We will maintain two accounts within the app. The child(magic) account form earlier and new non custodial FCL flow account. I won't go over how to log in with FCL here and use it but you can do the normal process to obtain the parent account.
+We will maintain two accounts within the app. The child(magic) account from earlier and new non custodial FCL flow account. We won't go over how to log in with FCL here and use it, but you can do the normal process to obtain the parent account.
 
-One you have the parent account and child(magic) account logged in you can link the account by using the following transaction.
+After you log in to the parent account and child(magic) account, you can link the account with the following transaction.
 
 `_72
 
@@ -193717,9 +193894,9 @@ _72
 
 }`
 
-note
+info
 
-For the sake of this example, well use some pre defined factory and filter implementations. You can find them on the repo but on testnet we can use 0x1055970ee34ef4dc and 0xe2664be06bb0fe62 for the factory and filter address respectively. 0x1055970ee34ef4dc provides NFT capabilities and 0xe2664be06bb0fe62 which is the AllowAllFilter. These generalized implementations likely cover most use cases, but you'll want to weigh the decision to use them according to your risk tolerance and specific scenario
+For the sake of this example, well use some pre defined factory and filter implementations. You can find them on the repo, but on testnet we can use 0x1055970ee34ef4dc and 0xe2664be06bb0fe62 for the factory and filter address respectively. 0x1055970ee34ef4dc provides NFT capabilities and 0xe2664be06bb0fe62 which is the AllowAllFilter. These generalized implementations likely cover most use cases, but you'll want to weigh the decision to use them according to your risk tolerance and specific scenario
 
 Now, for viewing all parent accounts linked to a child account and removing a linked account, you can follow similar patterns, using Cadence scripts and transactions as required.
 
@@ -193765,7 +193942,7 @@ _12
 
 }`
 
-and finally to remove a linked account you can run the following cadence transaction
+Finally, to remove a linked account, you can run the following cadence transaction:
 
 `` _24
 
@@ -193857,11 +194034,11 @@ _24
 
 ]); ``
 
-# Video Guide
+# Video guide
 
 [![Video Title](/assets/images/pwa_youtube_thumbnail-bc472a96186e5e5aa558c64d2021aed7.png)](https://www.youtube.com/watch?v=1ZmvfBFdCxY "Video Title")
 
-# **Sample Flow PWA: Balloon Inflation Game**
+# **Sample Flow PWA: Balloon inflation game**
 
 ## **Game Overview**[​](#game-overview "Direct link to game-overview")
 
@@ -193877,16 +194054,16 @@ The full code for this game can be found here: <https://github.com/onflow/inflat
 
 [![pwa_link_account_thumbnail](/assets/images/pwa_link_account_thumbnail-f50fbb72fef9e1466e2b590ad5f38b5c.png)](https://drive.google.com/file/d/1FZzoLmd5LLGBbO4enzk8LpV1Uwbgc-Ry/view)
 
-### **Key Game Features:**[​](#key-game-features "Direct link to key-game-features")
+### **Key game features:**[​](#key-game-features "Direct link to key-game-features")
 
-1. **Balloon Inflation**:
+1. **Balloon inflation**:
    * As the player inflates the balloon, it expands and changes color.
-   * A hidden inflation threshold is set; surpassing this limit will result in the balloon bursting.
-2. **NFT Minting**:
-   * Satisfied with their balloon's size, players have the option to mint it into an NFT, creating a permanent token of their accomplishment.
-3. **Balloon Collection**:
+   * A hidden inflation threshold is set. If a player exceeds this limit, the ballon bursts.
+2. **NFT minting**:
+   * Satisfied with their balloon's size, players have the option to mint it into an NFT, which creates a permanent token of their accomplishment.
+3. **Balloon collection**:
    * Post-minting, players can view and showcase their collection of balloon NFTs.
-4. **Account Linking and Custody**:
+4. **Account linking and custody**:
    * Players initially interact with the game in a walletless fashion via Magic.
    * When ready to claim full ownership of their balloon NFTs, they can link their Magic account to a non-custodial FCL wallet of their choice.
 
@@ -193894,20 +194071,20 @@ The full code for this game can be found here: <https://github.com/onflow/inflat
 
 The entire game is crafted upon the previously discussed setup, ensuring a seamless and user-friendly experience.
 
-### **Playing the Game:**[​](#playing-the-game "Direct link to playing-the-game")
+### **Playing the game:**[​](#playing-the-game "Direct link to playing-the-game")
 
-* **Walletless Interaction**: Users can jump right into the game, inflating the balloon and enjoying the gameplay without any blockchain wallet setup.
-* **Inflation and Visuals**: The balloon's size and color change in real-time, providing instant visual feedback to the player.
+* **Walletless interaction**: Users can jump right into the game, inflate the balloon and enjoy the gameplay without any blockchain wallet setup.
+* **Inflation and visuals**: The balloon's size and color change in real-time, which provides instant visual feedback to the player.
 
-### **Minting and Viewing NFTs:**[​](#minting-and-viewing-nfts "Direct link to minting-and-viewing-nfts")
+### **Minting and viewing NFTs:**[​](#minting-and-viewing-nfts "Direct link to minting-and-viewing-nfts")
 
-* **Magic Login for Minting**: To mint their balloon as an NFT, players log in using Magic, embracing a walletless experience.
+* **Magic login for minting**: To mint their balloon as an NFT, players log in with Magic and embrace a walletless experience.
 * **Viewing NFT Collection**: Post-minting, players can easily access and view their collection of balloon NFTs.
 
-### **Taking Custody with Account Linking:**[​](#taking-custody-with-account-linking "Direct link to taking-custody-with-account-linking")
+### **Take custody with Account Linking:**[​](#take-custody-with-account-linking "Direct link to take-custody-with-account-linking")
 
-* **Secure Custody**: Players wishing to secure their balloon NFTs can utilize Account Linking to connect their Magic account to their personal non-custodial FCL wallet.
-* **Full Ownership**: This step ensures that players have complete control and custody over their digital assets.
+* **Secure custody**: Players who want to secure their balloon NFTs can use Account Linking to connect their Magic account to their personal non-custodial FCL wallet.
+* **Full ownership**: This step ensures that players have complete control and custody over their digital assets.
 
 ## **Conclusion**[​](#conclusion "Direct link to conclusion")
 
@@ -193915,7 +194092,7 @@ The balloon inflation game stands as a testament to the seamless integration of 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/mobile/walletless-pwa.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Nov 4, 2025** by **cshannon1218**
 
 [Previous
 
@@ -193929,10 +194106,10 @@ Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)
 
 Copy as Markdown
 
-* [Understanding Progressive Web Apps (PWAs)](#understanding-progressive-web-apps-pwas)* [****Exploring Walletless Onboarding****](#exploring-walletless-onboarding)* [**Dependencies**](#dependencies)
-      + [****Setting up PWA and Testing Locally****](#setting-up-pwa-and-testing-locally)+ [Integrating with Magic](#integrating-with-magic)+ [****React Context and Provider for User Data****](#react-context-and-provider-for-user-data)+ [**Logging in the User**](#logging-in-the-user)+ [**Scripts/Transactions with Flow**](#scriptstransactions-with-flow)+ [****Account Linking with Flow****](#account-linking-with-flow)* [**Game Overview**](#game-overview)
-        + [**Key Game Features:**](#key-game-features)* [**Integration with Flow and Magic**](#integration-with-flow-and-magic)
-          + [**Playing the Game:**](#playing-the-game)+ [**Minting and Viewing NFTs:**](#minting-and-viewing-nfts)+ [**Taking Custody with Account Linking:**](#taking-custody-with-account-linking)* [**Conclusion**](#conclusion)
+* [Understanding PWAs](#understanding-pwas)* [****Explore walletless onboarding****](#explore-walletless-onboarding)* [**Dependencies**](#dependencies)
+      + [****Set up up PWA and testing locally****](#set-up-up-pwa-and-testing-locally)+ [Integrate with Magic](#integrate-with-magic)+ [****React context and provider for user data****](#react-context-and-provider-for-user-data)+ [**Log in the user**](#log-in-the-user)+ [**Scripts/Transactions with Flow**](#scriptstransactions-with-flow)+ [****Account linking with Flow****](#account-linking-with-flow)* [**Game Overview**](#game-overview)
+        + [**Key game features:**](#key-game-features)* [**Integration with Flow and Magic**](#integration-with-flow-and-magic)
+          + [**Playing the game:**](#playing-the-game)+ [**Minting and viewing NFTs:**](#minting-and-viewing-nfts)+ [**Take custody with Account Linking:**](#take-custody-with-account-linking)* [**Conclusion**](#conclusion)
 
 Flow
 
@@ -196708,6 +196885,8 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 arg | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -231069,6 +231248,1340 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 
 
 
+# Source: https://developers.flow.com/build/tools/clients/flow-go-sdk/flowkit
+
+Flow Project Configuration | Flow Developer Portal
+
+
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Why Flow](/build/flow)* [Cadence](/build/cadence/quickstart)
+
+    + [Quickstart ↙](/build/cadence/quickstart)+ [Differences vs. EVM](/build/cadence/differences-vs-evm)+ [Basics](/build/cadence/basics/network-architecture)
+
+          + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
+
+            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+
+              + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
+
+      + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
+
+        + [Flow React SDK](/build/tools/react-sdk)
+
+          + [Flow Emulator](/build/tools/emulator)+ [Flow CLI](/build/tools/flow-cli)
+
+              + [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+
+                    - [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
+
+                      - [Flow Go SDK](/build/tools/clients/flow-go-sdk)
+
+                        * [Flow Project Configuration](/build/tools/clients/flow-go-sdk/flowkit)* [Migration Guide v0.25.0](/build/tools/clients/flow-go-sdk/migration-v0.25.0)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+
+* * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Go SDK](/build/tools/clients/flow-go-sdk)* Flow Project Configuration
+
+On this page
+
+# Flowkit Go Tutorial: Working with Flow Project State
+
+## Introduction[​](#introduction "Direct link to Introduction")
+
+**Flowkit** is a Go package for interacting with the Flow blockchain in the context of `flow.json` configuration files. It provides APIs for managing Flow projects, including:
+
+* Loading and managing project configuration (`flow.json`)
+* Resolving import statements in Cadence contracts, scripts, and transactions
+* Deploying contracts to different networks (emulator, testnet, mainnet)
+* Managing accounts, networks, and deployments
+* Executing scripts and building transactions with proper import resolution
+
+Flowkit is the core package used by the Flow CLI and can be integrated into any Go application that needs to interact with Flow projects.
+
+## Installation[​](#installation "Direct link to Installation")
+
+### Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+
+* Go 1.25.0 or higher
+* A Flow project with a `flow.json` configuration file
+
+### Install the Package[​](#install-the-package "Direct link to Install the Package")
+
+Add Flowkit to your Go module:
+
+`_10
+
+go get github.com/onflow/flowkit/v2`
+
+This will install Flowkit v2 and all its dependencies.
+
+### Import in Your Code[​](#import-in-your-code "Direct link to Import in Your Code")
+
+`_10
+
+import (
+
+_10
+
+"github.com/onflow/flowkit/v2"
+
+_10
+
+"github.com/onflow/flowkit/v2/config"
+
+_10
+
+"github.com/onflow/flowkit/v2/project"
+
+_10
+
+"github.com/spf13/afero"
+
+_10
+
+)`
+
+## Loading Project State[​](#loading-project-state "Direct link to Loading Project State")
+
+The first step when working with Flowkit is loading your project's state from `flow.json`.
+
+### Basic Usage[​](#basic-usage "Direct link to Basic Usage")
+
+`_18
+
+package main
+
+_18
+
+_18
+
+import (
+
+_18
+
+"log"
+
+_18
+
+"github.com/onflow/flowkit/v2"
+
+_18
+
+"github.com/spf13/afero"
+
+_18
+
+)
+
+_18
+
+_18
+
+func main() {
+
+_18
+
+// Load flow.json from the current directory
+
+_18
+
+state, err := flowkit.Load([]string{"flow.json"}, afero.Afero{Fs: afero.NewOsFs()})
+
+_18
+
+if err != nil {
+
+_18
+
+log.Fatalf("Failed to load project state: %v", err)
+
+_18
+
+}
+
+_18
+
+_18
+
+// Now you can work with the project state
+
+_18
+
+log.Println("Project state loaded successfully!")
+
+_18
+
+}`
+
+### Creating a New Project State[​](#creating-a-new-project-state "Direct link to Creating a New Project State")
+
+If you need to create a new project from scratch:
+
+`_10
+
+// Initialize an empty state
+
+_10
+
+state, err := flowkit.Init(afero.Afero{Fs: afero.NewOsFs()})
+
+_10
+
+if err != nil {
+
+_10
+
+log.Fatalf("Failed to initialize state: %v", err)
+
+_10
+
+}`
+
+### Accessing State Components[​](#accessing-state-components "Direct link to Accessing State Components")
+
+The `State` object provides access to all project configuration:
+
+`_14
+
+// Get all contracts
+
+_14
+
+contracts := state.Contracts()
+
+_14
+
+_14
+
+// Get all networks
+
+_14
+
+networks := state.Networks()
+
+_14
+
+_14
+
+// Get all accounts
+
+_14
+
+accounts := state.Accounts()
+
+_14
+
+_14
+
+// Get all deployments
+
+_14
+
+deployments := state.Deployments()
+
+_14
+
+_14
+
+// Get the underlying config
+
+_14
+
+config := state.Config()`
+
+## Working with Contracts[​](#working-with-contracts "Direct link to Working with Contracts")
+
+Contracts are Cadence smart contracts defined in your project.
+
+### Getting Contract Information[​](#getting-contract-information "Direct link to Getting Contract Information")
+
+`_13
+
+// Get a contract by name
+
+_13
+
+contract, err := state.Contracts().ByName("MyContract")
+
+_13
+
+if err != nil {
+
+_13
+
+log.Fatalf("Contract not found: %v", err)
+
+_13
+
+}
+
+_13
+
+_13
+
+log.Printf("Contract: %s\n", contract.Name)
+
+_13
+
+log.Printf("Location: %s\n", contract.Location)
+
+_13
+
+_13
+
+// Get all contract names
+
+_13
+
+for _, c := range *state.Contracts() {
+
+_13
+
+log.Printf("Available contract: %s\n", c.Name)
+
+_13
+
+}`
+
+### Getting Deployment Contracts for a Network[​](#getting-deployment-contracts-for-a-network "Direct link to Getting Deployment Contracts for a Network")
+
+When deploying or executing code, you often need contracts with their target addresses:
+
+`_16
+
+import "github.com/onflow/flowkit/v2/config"
+
+_16
+
+_16
+
+// Get all contracts configured for deployment on testnet
+
+_16
+
+contracts, err := state.DeploymentContractsByNetwork(config.TestnetNetwork)
+
+_16
+
+if err != nil {
+
+_16
+
+log.Fatalf("Failed to get deployment contracts: %v", err)
+
+_16
+
+}
+
+_16
+
+_16
+
+// Each contract includes deployment information
+
+_16
+
+for _, contract := range contracts {
+
+_16
+
+log.Printf("Contract: %s\n", contract.Name)
+
+_16
+
+log.Printf(" Location: %s\n", contract.Location())
+
+_16
+
+log.Printf(" Target Account: %s\n", contract.AccountAddress)
+
+_16
+
+log.Printf(" Account Name: %s\n", contract.AccountName)
+
+_16
+
+log.Printf(" Code Size: %d bytes\n", len(contract.Code()))
+
+_16
+
+}`
+
+## Working with Networks[​](#working-with-networks "Direct link to Working with Networks")
+
+Flowkit supports multiple networks including emulator, testnet, and mainnet.
+
+### Available Networks[​](#available-networks "Direct link to Available Networks")
+
+`_10
+
+import "github.com/onflow/flowkit/v2/config"
+
+_10
+
+_10
+
+// Predefined networks
+
+_10
+
+emulator := config.EmulatorNetwork // Local emulator
+
+_10
+
+testnet := config.TestnetNetwork // Flow testnet
+
+_10
+
+mainnet := config.MainnetNetwork // Flow mainnet
+
+_10
+
+_10
+
+log.Printf("Emulator: %s\n", emulator.Host)
+
+_10
+
+log.Printf("Testnet: %s\n", testnet.Host)
+
+_10
+
+log.Printf("Mainnet: %s\n", mainnet.Host)`
+
+### Getting Networks from State[​](#getting-networks-from-state "Direct link to Getting Networks from State")
+
+`_11
+
+// Get all networks defined in flow.json
+
+_11
+
+networks := state.Networks()
+
+_11
+
+_11
+
+// Get a specific network by name
+
+_11
+
+testnet, err := networks.ByName("testnet")
+
+_11
+
+if err != nil {
+
+_11
+
+log.Fatalf("Network not found: %v", err)
+
+_11
+
+}
+
+_11
+
+_11
+
+log.Printf("Network: %s\n", testnet.Name)
+
+_11
+
+log.Printf("Host: %s\n", testnet.Host)`
+
+### Adding or Updating Networks[​](#adding-or-updating-networks "Direct link to Adding or Updating Networks")
+
+`_14
+
+import "github.com/onflow/flowkit/v2/config"
+
+_14
+
+_14
+
+// Add a custom network
+
+_14
+
+networks := state.Networks()
+
+_14
+
+networks.AddOrUpdate(config.Network{
+
+_14
+
+Name: "custom-network",
+
+_14
+
+Host: "localhost:3570",
+
+_14
+
+})
+
+_14
+
+_14
+
+// Save the updated configuration
+
+_14
+
+err := state.SaveDefault()
+
+_14
+
+if err != nil {
+
+_14
+
+log.Fatalf("Failed to save state: %v", err)
+
+_14
+
+}`
+
+### Getting Network-Specific Aliases[​](#getting-network-specific-aliases "Direct link to Getting Network-Specific Aliases")
+
+Network aliases map contract names/locations to their deployed addresses on specific networks:
+
+`_10
+
+import "github.com/onflow/flowkit/v2/config"
+
+_10
+
+_10
+
+// Get aliases for testnet
+
+_10
+
+aliases := state.AliasesForNetwork(config.TestnetNetwork)
+
+_10
+
+_10
+
+// aliases is a map[string]string of location/name -> address
+
+_10
+
+for location, address := range aliases {
+
+_10
+
+log.Printf("%s deployed at %s on testnet\n", location, address)
+
+_10
+
+}`
+
+## Resolving Imports with ImportReplacer[​](#resolving-imports-with-importreplacer "Direct link to Resolving Imports with ImportReplacer")
+
+The `ImportReplacer` resolves import statements in Cadence contracts, scripts, and transactions by replacing relative file paths and contract names with their deployed blockchain addresses.
+
+### Basic Usage[​](#basic-usage-1 "Direct link to Basic Usage")
+
+When you have a Cadence program with imports like `import "Kibble"`, you need to resolve these to blockchain addresses:
+
+`` _37
+
+import "github.com/onflow/flowkit/v2/project"
+
+_37
+
+import "github.com/onflow/flowkit/v2/config"
+
+_37
+
+_37
+
+// Get contracts for your target network
+
+_37
+
+contracts, err := state.DeploymentContractsByNetwork(config.TestnetNetwork)
+
+_37
+
+if err != nil {
+
+_37
+
+log.Fatal(err)
+
+_37
+
+}
+
+_37
+
+_37
+
+// Create an import replacer with your project's contracts
+
+_37
+
+importReplacer := project.NewImportReplacer(contracts, nil)
+
+_37
+
+_37
+
+// Parse your Cadence program
+
+_37
+
+code := []byte(`
+
+_37
+
+import "Kibble"
+
+_37
+
+import "FungibleToken"
+
+_37
+
+_37
+
+transaction {
+
+_37
+
+prepare(signer: &Account) {
+
+_37
+
+// ...
+
+_37
+
+}
+
+_37
+
+}
+
+_37
+
+`)
+
+_37
+
+_37
+
+program, err := project.NewProgram(code, nil, "")
+
+_37
+
+if err != nil {
+
+_37
+
+log.Fatalf("Failed to parse program: %v", err)
+
+_37
+
+}
+
+_37
+
+_37
+
+// Replace imports with deployed addresses
+
+_37
+
+resolvedProgram, err := importReplacer.Replace(program)
+
+_37
+
+if err != nil {
+
+_37
+
+log.Fatalf("Failed to resolve imports: %v", err)
+
+_37
+
+}
+
+_37
+
+_37
+
+// The resolved program now has addresses instead of file paths
+
+_37
+
+log.Printf("Resolved code:\n%s", string(resolvedProgram.Code())) ``
+
+### Integration with Project State[​](#integration-with-project-state "Direct link to Integration with Project State")
+
+The most common pattern is to use network-specific aliases from your project state:
+
+`_33
+
+// Load project state and get network-specific contracts and aliases
+
+_33
+
+state, err := flowkit.Load([]string{"flow.json"}, afero.Afero{Fs: afero.NewOsFs()})
+
+_33
+
+if err != nil {
+
+_33
+
+log.Fatal(err)
+
+_33
+
+}
+
+_33
+
+_33
+
+// Choose your target network
+
+_33
+
+network := config.TestnetNetwork
+
+_33
+
+_33
+
+// Get contracts for this network
+
+_33
+
+contracts, err := state.DeploymentContractsByNetwork(network)
+
+_33
+
+if err != nil {
+
+_33
+
+log.Fatal(err)
+
+_33
+
+}
+
+_33
+
+_33
+
+// Use network-specific aliases for address mapping
+
+_33
+
+importReplacer := project.NewImportReplacer(
+
+_33
+
+contracts,
+
+_33
+
+state.AliasesForNetwork(network),
+
+_33
+
+)
+
+_33
+
+_33
+
+// Parse and resolve your program
+
+_33
+
+program, err := project.NewProgram(scriptCode, nil, "script.cdc")
+
+_33
+
+if err != nil {
+
+_33
+
+log.Fatalf("Failed to parse program: %v", err)
+
+_33
+
+}
+
+_33
+
+resolvedProgram, err := importReplacer.Replace(program)
+
+_33
+
+if err != nil {
+
+_33
+
+log.Fatalf("Failed to resolve imports: %v", err)
+
+_33
+
+}
+
+_33
+
+_33
+
+// Use the resolved program for execution
+
+_33
+
+log.Printf("Ready to execute:\n%s", string(resolvedProgram.Code()))`
+
+## Working with Accounts[​](#working-with-accounts "Direct link to Working with Accounts")
+
+Accounts represent Flow blockchain accounts used for signing transactions and deploying contracts.
+
+### Getting Account Information[​](#getting-account-information "Direct link to Getting Account Information")
+
+`_25
+
+import "github.com/onflow/flow-go-sdk"
+
+_25
+
+_25
+
+accounts := state.Accounts()
+
+_25
+
+_25
+
+// Get account by name
+
+_25
+
+account, err := accounts.ByName("emulator-account")
+
+_25
+
+if err != nil {
+
+_25
+
+log.Fatalf("Account not found: %v", err)
+
+_25
+
+}
+
+_25
+
+_25
+
+log.Printf("Account: %s\n", account.Name)
+
+_25
+
+log.Printf("Address: %s\n", account.Address)
+
+_25
+
+_25
+
+// Get all account names
+
+_25
+
+names := accounts.Names()
+
+_25
+
+for _, name := range names {
+
+_25
+
+log.Printf("Available account: %s\n", name)
+
+_25
+
+}
+
+_25
+
+_25
+
+// Get account by address
+
+_25
+
+addr := flow.HexToAddress("0xf8d6e0586b0a20c7")
+
+_25
+
+account, err = accounts.ByAddress(addr)
+
+_25
+
+if err != nil {
+
+_25
+
+log.Fatalf("Account not found by address: %v", err)
+
+_25
+
+}`
+
+### Getting the Emulator Service Account[​](#getting-the-emulator-service-account "Direct link to Getting the Emulator Service Account")
+
+`_10
+
+// Get the emulator's default service account
+
+_10
+
+serviceAccount, err := state.EmulatorServiceAccount()
+
+_10
+
+if err != nil {
+
+_10
+
+log.Fatalf("Failed to get service account: %v", err)
+
+_10
+
+}
+
+_10
+
+_10
+
+log.Printf("Service account address: %s\n", serviceAccount.Address)`
+
+## Working with Deployments[​](#working-with-deployments "Direct link to Working with Deployments")
+
+Deployments define which contracts should be deployed to which accounts on specific networks.
+
+### Getting Deployment Information[​](#getting-deployment-information "Direct link to Getting Deployment Information")
+
+`_20
+
+deployments := state.Deployments()
+
+_20
+
+_20
+
+// Get all deployments for a network
+
+_20
+
+testnetDeployments := deployments.ByNetwork("testnet")
+
+_20
+
+_20
+
+for _, deployment := range testnetDeployments {
+
+_20
+
+log.Printf("Account: %s\n", deployment.Account)
+
+_20
+
+log.Printf("Network: %s\n", deployment.Network)
+
+_20
+
+log.Printf("Contracts:\n")
+
+_20
+
+_20
+
+for _, contract := range deployment.Contracts {
+
+_20
+
+log.Printf(" - %s\n", contract.Name)
+
+_20
+
+}
+
+_20
+
+}
+
+_20
+
+_20
+
+// Get deployment for specific account and network
+
+_20
+
+deployment := deployments.ByAccountAndNetwork("my-account", "testnet")
+
+_20
+
+if deployment != nil {
+
+_20
+
+log.Printf("Found deployment: %d contracts\n", len(deployment.Contracts))
+
+_20
+
+}`
+
+## Complete Example[​](#complete-example "Direct link to Complete Example")
+
+Here's a complete example that ties everything together:
+
+`` _71
+
+package main
+
+_71
+
+_71
+
+import (
+
+_71
+
+"log"
+
+_71
+
+_71
+
+"github.com/onflow/flowkit/v2"
+
+_71
+
+"github.com/onflow/flowkit/v2/config"
+
+_71
+
+"github.com/onflow/flowkit/v2/project"
+
+_71
+
+"github.com/spf13/afero"
+
+_71
+
+)
+
+_71
+
+_71
+
+func main() {
+
+_71
+
+// 1. Load project state
+
+_71
+
+state, err := flowkit.Load([]string{"flow.json"}, afero.Afero{Fs: afero.NewOsFs()})
+
+_71
+
+if err != nil {
+
+_71
+
+log.Fatalf("Failed to load state: %v", err)
+
+_71
+
+}
+
+_71
+
+_71
+
+// 2. Choose target network
+
+_71
+
+network := config.TestnetNetwork
+
+_71
+
+log.Printf("Using network: %s\n", network.Name)
+
+_71
+
+_71
+
+// 3. Get deployment contracts for the network
+
+_71
+
+contracts, err := state.DeploymentContractsByNetwork(network)
+
+_71
+
+if err != nil {
+
+_71
+
+log.Fatalf("Failed to get contracts: %v", err)
+
+_71
+
+}
+
+_71
+
+_71
+
+log.Printf("Found %d contracts for deployment\n", len(contracts))
+
+_71
+
+for _, contract := range contracts {
+
+_71
+
+log.Printf(" - %s -> %s\n", contract.Name, contract.AccountAddress)
+
+_71
+
+}
+
+_71
+
+_71
+
+// 4. Get network aliases
+
+_71
+
+aliases := state.AliasesForNetwork(network)
+
+_71
+
+log.Printf("Network has %d aliases\n", len(aliases))
+
+_71
+
+_71
+
+// 5. Create import replacer
+
+_71
+
+importReplacer := project.NewImportReplacer(contracts, aliases)
+
+_71
+
+_71
+
+// 6. Resolve imports in a script
+
+_71
+
+scriptCode := []byte(`
+
+_71
+
+import "Kibble"
+
+_71
+
+import "FungibleToken"
+
+_71
+
+_71
+
+access(all) fun main(): String {
+
+_71
+
+return "Hello, Flow!"
+
+_71
+
+}
+
+_71
+
+`)
+
+_71
+
+_71
+
+program, err := project.NewProgram(scriptCode, nil, "script.cdc")
+
+_71
+
+if err != nil {
+
+_71
+
+log.Fatalf("Failed to parse program: %v", err)
+
+_71
+
+}
+
+_71
+
+resolvedProgram, err := importReplacer.Replace(program)
+
+_71
+
+if err != nil {
+
+_71
+
+log.Fatalf("Failed to resolve imports: %v", err)
+
+_71
+
+}
+
+_71
+
+_71
+
+log.Printf("Resolved script:\n%s\n", string(resolvedProgram.Code()))
+
+_71
+
+_71
+
+// 7. Get account for signing
+
+_71
+
+account, err := state.Accounts().ByName("testnet-account")
+
+_71
+
+if err != nil {
+
+_71
+
+log.Fatalf("Failed to get account: %v", err)
+
+_71
+
+}
+
+_71
+
+_71
+
+log.Printf("Using account: %s (%s)\n", account.Name, account.Address)
+
+_71
+
+_71
+
+log.Println("Setup complete! Ready to interact with Flow.")
+
+_71
+
+} ``
+
+## Conclusion[​](#conclusion "Direct link to Conclusion")
+
+Flowkit provides a powerful and flexible API for managing Flow projects in Go. By understanding how to work with project state, contracts, networks, and import resolution, you can build robust applications that interact with the Flow blockchain.
+
+The import replacer is particularly critical for ensuring your Cadence code works correctly across different networks by automatically resolving contract imports to their deployed addresses.
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/flow-go-sdk/flowkit.md)
+
+Last updated on **Nov 4, 2025** by **Jordan Ribbink**
+
+[Previous
+
+Flow Go SDK](/build/tools/clients/flow-go-sdk)[Next
+
+Migration Guide v0.25.0](/build/tools/clients/flow-go-sdk/migration-v0.25.0)
+
+###### Rate this page
+
+😞😐😊
+
+Copy as Markdown
+
+* [Introduction](#introduction)* [Installation](#installation)
+    + [Prerequisites](#prerequisites)+ [Install the Package](#install-the-package)+ [Import in Your Code](#import-in-your-code)* [Loading Project State](#loading-project-state)
+      + [Basic Usage](#basic-usage)+ [Creating a New Project State](#creating-a-new-project-state)+ [Accessing State Components](#accessing-state-components)* [Working with Contracts](#working-with-contracts)
+        + [Getting Contract Information](#getting-contract-information)+ [Getting Deployment Contracts for a Network](#getting-deployment-contracts-for-a-network)* [Working with Networks](#working-with-networks)
+          + [Available Networks](#available-networks)+ [Getting Networks from State](#getting-networks-from-state)+ [Adding or Updating Networks](#adding-or-updating-networks)+ [Getting Network-Specific Aliases](#getting-network-specific-aliases)* [Resolving Imports with ImportReplacer](#resolving-imports-with-importreplacer)
+            + [Basic Usage](#basic-usage-1)+ [Integration with Project State](#integration-with-project-state)* [Working with Accounts](#working-with-accounts)
+              + [Getting Account Information](#getting-account-information)+ [Getting the Emulator Service Account](#getting-the-emulator-service-account)* [Working with Deployments](#working-with-deployments)
+                + [Getting Deployment Information](#getting-deployment-information)* [Complete Example](#complete-example)* [Conclusion](#conclusion)
+
+Flow
+
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
+
+Cadence
+
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
+
+Solidity (EVM)
+
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
+
+Community & Support
+
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
+
+Network & Resources
+
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow Foundation. All Rights Reserved.
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://developers.flow.com/tools/clients/fcl-js/installation
 
 Installation | Flow Developer Portal
@@ -248694,6 +250207,8 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 config | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -284234,78 +285749,78 @@ Search
 
 On this page
 
-# Cadence Tutorials
+# Cadence tutorials
 
-Master Cadence development on Flow through comprehensive tutorials that cover essential concepts and practical implementations. These tutorials guide you through building real-world applications using Flow's unique features like account linking, mobile integration, and advanced account management patterns.
+Master Cadence development on Flow through comprehensive tutorials that cover essential concepts and practical implementations. These tutorials guide you through how to build real-world applications with Flow's unique features like account linking, mobile integration, and advanced account management patterns.
 
-## What You'll Learn[​](#what-youll-learn "Direct link to What You'll Learn")
+## What you'll learn[​](#what-youll-learn "Direct link to What you'll learn")
 
 In this tutorial series, you'll discover how to:
 
-* Implement Flow's unique account linking and hybrid custody models
-* Build native mobile applications with Flow integration
-* Create progressive onboarding experiences for mainstream users
-* Manage complex account relationships and permissions
-* Leverage Flow's native features in mobile environments
-* Build secure, user-friendly blockchain applications
+* Implement Flow's unique account linking and hybrid custody models.
+* Build native mobile applications with Flow integration.
+* Create progressive onboarding experiences for mainstream users.
+* Manage complex account relationships and permissions.
+* Leverage Flow's native features in mobile environments.
+* Build secure, user-friendly blockchain applications.
 
 # Cadence Development Tutorials
 
 ## Account Management[​](#account-management "Direct link to Account Management")
 
-Learn about Flow's revolutionary account linking system that enables shared ownership and progressive onboarding experiences. These tutorials cover the hybrid custody model, parent-child account relationships, and how to implement walletless onboarding that seamlessly transitions users to self-custody.
+Learn about Flow's revolutionary account linking system that allow shared ownership and progressive onboarding experiences. These tutorials cover the hybrid custody model, parent-child account relationships, and how to implement walletless onboarding that seamlessly transitions users to self-custody.
 
 * **[Account Linking Overview](/blockchain-development-tutorials/cadence/account-management)** - Understand Flow's unique account linking concepts and hybrid custody model
-* **[Building with Child Accounts](/blockchain-development-tutorials/cadence/account-management/child-accounts)** - Create walletless applications using progressive onboarding flows
+* **[Building with Child Accounts](/blockchain-development-tutorials/cadence/account-management/child-accounts)** - Create walletless applications with progressive onboarding flows
 * **[Parent Account Management](/blockchain-development-tutorials/cadence/account-management/parent-accounts)** - Implement parent account functionality and account delegation
 * **[Account Linking with Dapper](/blockchain-development-tutorials/cadence/account-management/account-linking-with-dapper)** - Integrate with Dapper Wallet's account linking system
 
 ## Mobile Development[​](#mobile-development "Direct link to Mobile Development")
 
-Discover how to build native mobile applications that leverage Flow's blockchain capabilities. These tutorials cover mobile SDKs, secure key management, wallet integration, and creating rich user experiences on iOS and Android platforms.
+Discover how to build native mobile applications that leverage Flow's blockchain capabilities. These tutorials cover mobile SDKs, secure key management, wallet integration, and how to create rich user experiences on iOS and Android platforms.
 
-* **[Mobile Development Overview](/blockchain-development-tutorials/cadence/mobile)** - Learn about Flow's mobile development capabilities and ecosystem
-* **[iOS Quickstart](/blockchain-development-tutorials/cadence/mobile/ios-quickstart)** - Build your first iOS app with Flow integration
-* **[React Native Integration](/blockchain-development-tutorials/cadence/mobile/react-native-quickstart)** - Create cross-platform mobile apps with React Native and Flow
-* **[Walletless Mobile Apps](/blockchain-development-tutorials/cadence/mobile/walletless-pwa)** - Implement progressive web apps with walletless onboarding
+* **[Mobile Development Overview](/blockchain-development-tutorials/cadence/mobile)** - Learn about Flow's mobile development capabilities and ecosystem.
+* **[iOS Quickstart](/blockchain-development-tutorials/cadence/mobile/ios-quickstart)** - Build your first iOS app with Flow integration.
+* **[React Native Integration](/blockchain-development-tutorials/cadence/mobile/react-native-quickstart)** - Create cross-platform mobile apps with React Native and Flow.
+* **[Walletless Mobile Apps](/blockchain-development-tutorials/cadence/mobile/walletless-pwa)** - Implement progressive web apps with walletless onboarding.
 
 ## Testing[​](#testing "Direct link to Testing")
 
 Learn how to test Cadence smart contracts with a focus on fork testing, which allows you to run tests against real on-chain state from Flow mainnet or testnet.
 
-* **[Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)** - Run Cadence tests against a forked mainnet using real contracts and production data without deploying to live networks
+* **[Fork Testing](/blockchain-development-tutorials/cadence/fork-testing)** - Run Cadence tests against a forked mainnet with real contracts and production data without deploying to live networks.
 
-## Key Features Covered[​](#key-features-covered "Direct link to Key Features Covered")
+## Key features covered[​](#key-features-covered "Direct link to Key features covered")
 
-### Account Linking & Hybrid Custody[​](#account-linking--hybrid-custody "Direct link to Account Linking & Hybrid Custody")
+### Account Linking & hybrid custody[​](#account-linking--hybrid-custody "Direct link to Account Linking & hybrid custody")
 
-* **Progressive Onboarding**: Start users with custodial accounts, transition to self-custody
-* **Shared Ownership**: Enable multiple parties to control and access accounts
-* **Flexible Permissions**: Fine-grained access control through capabilities and entitlements
-* **Seamless Transitions**: Move from custodial to non-custodial without losing assets
+* **Progressive onboarding**: Start users with custodial accounts, transition to self-custody.
+* **Shared ownership**: Allow multiple parties to control and access accounts.
+* **Flexible permissions**: Fine-grained access control through capabilities and entitlements.
+* **Seamless transitions**: Move from custodial to non-custodial without losing assets.
 
-### Mobile-First Development[​](#mobile-first-development "Direct link to Mobile-First Development")
+### Mobile-first development[​](#mobile-first-development "Direct link to Mobile-first development")
 
-* **Native Integration**: Build truly native mobile experiences with blockchain functionality
-* **Secure Key Management**: Leverage device security features for key storage
-* **Wallet Integration**: Connect with popular Flow wallets and WalletConnect
-* **Rich User Experiences**: Create smooth, Web2-like experiences in Web3 apps
+* **Native integration**: Build truly native mobile experiences with blockchain functionality.
+* **Secure key management**: Leverage device security features for key storage.
+* **Wallet integration**: Connect with popular Flow wallets and WalletConnect.
+* **Rich user experiences**: Create smooth, Web2-like experiences in Web3 apps.
 
-### Flow-Specific Advantages[​](#flow-specific-advantages "Direct link to Flow-Specific Advantages")
+### Flow-specific advantages[​](#flow-specific-advantages "Direct link to Flow-specific advantages")
 
-* **Account Abstraction**: Built-in multi-signature and sponsored transactions
-* **Resource Safety**: Cadence's resource-oriented programming prevents common mobile app vulnerabilities
-* **Fast Finality**: Near-instant transaction confirmation for responsive mobile UIs
-* **Low Costs**: Enable micro-transactions and frequent interactions in mobile apps
+* **Account abstraction**: Built-in multi-signature and sponsored transactions.
+* **Resource safety**: Cadence's resource-oriented programming prevents common mobile app vulnerabilities.
+* **Fast finality**: Near-instant transaction confirmation for responsive mobile UIs.
+* **Low costs**: Turn on micro-transactions and frequent interactions in mobile apps.
 
-## Next Steps[​](#next-steps "Direct link to Next Steps")
+## Next steps[​](#next-steps "Direct link to Next steps")
 
-After completing these tutorials, you'll be equipped to build sophisticated Cadence applications that leverage Flow's unique capabilities. Consider exploring our other tutorial series:
+After you complete these tutorials, you'll be equipped to build sophisticated Cadence applications that leverage Flow's unique capabilities. Consider exploring our other tutorial series:
 
-* **[Flow Actions](/blockchain-development-tutorials/forte/flow-actions)** - Build composable DeFi workflows with standardized interfaces
-* **[Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)** - Create applications that span both Cadence and Flow EVM
-* **[Native VRF](/blockchain-development-tutorials/native-vrf)** - Implement verifiable random functions in your applications
-* **[Use AI to Build on Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)** - Enhance development with AI-powered tools
+* **[Flow Actions](/blockchain-development-tutorials/forte/flow-actions)** - Build composable DeFi workflows with standardized interfaces.
+* **[Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)** - Create applications that span both Cadence and Flow EVM.
+* **[Native VRF](/blockchain-development-tutorials/native-vrf)** - Implement verifiable random functions in your applications.
+* **[Use AI to Build on Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)** - Enhance development with AI-powered tools.
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
@@ -284313,7 +285828,7 @@ Flow's Cadence offers unparalleled capabilities for building user-friendly block
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/index.md)
 
-Last updated on **Oct 30, 2025** by **Jordan Ribbink**
+Last updated on **Nov 4, 2025** by **cshannon1218**
 
 [Previous
 
@@ -284327,8 +285842,8 @@ Getting Started with Cadence](/blockchain-development-tutorials/cadence/getting-
 
 Copy as Markdown
 
-* [What You'll Learn](#what-youll-learn)* [Account Management](#account-management)* [Mobile Development](#mobile-development)* [Testing](#testing)* [Key Features Covered](#key-features-covered)
-          + [Account Linking & Hybrid Custody](#account-linking--hybrid-custody)+ [Mobile-First Development](#mobile-first-development)+ [Flow-Specific Advantages](#flow-specific-advantages)* [Next Steps](#next-steps)* [Conclusion](#conclusion)
+* [What you'll learn](#what-youll-learn)* [Account Management](#account-management)* [Mobile Development](#mobile-development)* [Testing](#testing)* [Key features covered](#key-features-covered)
+          + [Account Linking & hybrid custody](#account-linking--hybrid-custody)+ [Mobile-first development](#mobile-first-development)+ [Flow-specific advantages](#flow-specific-advantages)* [Next steps](#next-steps)* [Conclusion](#conclusion)
 
 Flow
 
@@ -304439,6 +305954,8 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 encodeTransactionEnvelope | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -341443,6 +342960,8 @@ serialize | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -341475,7 +342994,7 @@ Search
 
                         + [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
 
-                          - [account](/build/tools/clients/fcl-js/packages-docs/fcl/account)- [arg](/build/tools/clients/fcl-js/packages-docs/fcl/arg)- [args](/build/tools/clients/fcl-js/packages-docs/fcl/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockId)- [authenticate](/build/tools/clients/fcl-js/packages-docs/fcl/authenticate)- [authorization](/build/tools/clients/fcl-js/packages-docs/fcl/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/fcl/authorizations)- [authz](/build/tools/clients/fcl-js/packages-docs/fcl/authz)- [block](/build/tools/clients/fcl-js/packages-docs/fcl/block)- [build](/build/tools/clients/fcl-js/packages-docs/fcl/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/fcl/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/fcl/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/fcl/config)- [createFcl](/build/tools/clients/fcl-js/packages-docs/fcl/createFcl)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/fcl/createSignableVoucher)- [currentUser](/build/tools/clients/fcl-js/packages-docs/fcl/currentUser)- [decode](/build/tools/clients/fcl-js/packages-docs/fcl/decode)- [display](/build/tools/clients/fcl-js/packages-docs/fcl/display)- [events](/build/tools/clients/fcl-js/packages-docs/fcl/events)- [getAccount](/build/tools/clients/fcl-js/packages-docs/fcl/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/fcl/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/fcl/getBlockHeader)- [getChainId](/build/tools/clients/fcl-js/packages-docs/fcl/getChainId)- [getCollection](/build/tools/clients/fcl-js/packages-docs/fcl/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/fcl/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/fcl/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/fcl/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/fcl/getTransactionStatus)- [invariant](/build/tools/clients/fcl-js/packages-docs/fcl/invariant)- [isBad](/build/tools/clients/fcl-js/packages-docs/fcl/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/fcl/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/fcl/limit)- [logIn](/build/tools/clients/fcl-js/packages-docs/fcl/logIn)- [mutate](/build/tools/clients/fcl-js/packages-docs/fcl/mutate)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/fcl/param)- [params](/build/tools/clients/fcl-js/packages-docs/fcl/params)- [payer](/build/tools/clients/fcl-js/packages-docs/fcl/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/fcl/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/fcl/pipe)- [pluginRegistry](/build/tools/clients/fcl-js/packages-docs/fcl/pluginRegistry)- [proposer](/build/tools/clients/fcl-js/packages-docs/fcl/proposer)- [query](/build/tools/clients/fcl-js/packages-docs/fcl/query)- [queryRaw](/build/tools/clients/fcl-js/packages-docs/fcl/queryRaw)- [reauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/reauthenticate)- [ref](/build/tools/clients/fcl-js/packages-docs/fcl/ref)- [sansPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/sansPrefix)- [script](/build/tools/clients/fcl-js/packages-docs/fcl/script)- [send](/build/tools/clients/fcl-js/packages-docs/fcl/send)- [serialize](/build/tools/clients/fcl-js/packages-docs/fcl/serialize)- [signUp](/build/tools/clients/fcl-js/packages-docs/fcl/signUp)- [subscribe](/build/tools/clients/fcl-js/packages-docs/fcl/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeRaw)- [transaction](/build/tools/clients/fcl-js/packages-docs/fcl/transaction)- [tx](/build/tools/clients/fcl-js/packages-docs/fcl/tx)- [unauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/unauthenticate)- [validator](/build/tools/clients/fcl-js/packages-docs/fcl/validator)- [verifyUserSignatures](/build/tools/clients/fcl-js/packages-docs/fcl/verifyUserSignatures)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/fcl/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/fcl/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/fcl/why)- [withPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/withPrefix)+ [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
+                          - [account](/build/tools/clients/fcl-js/packages-docs/fcl/account)- [arg](/build/tools/clients/fcl-js/packages-docs/fcl/arg)- [args](/build/tools/clients/fcl-js/packages-docs/fcl/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/fcl/atBlockId)- [authenticate](/build/tools/clients/fcl-js/packages-docs/fcl/authenticate)- [authorization](/build/tools/clients/fcl-js/packages-docs/fcl/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/fcl/authorizations)- [authz](/build/tools/clients/fcl-js/packages-docs/fcl/authz)- [block](/build/tools/clients/fcl-js/packages-docs/fcl/block)- [build](/build/tools/clients/fcl-js/packages-docs/fcl/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/fcl/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/fcl/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/fcl/config)- [createFlowClient](/build/tools/clients/fcl-js/packages-docs/fcl/createFlowClient)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/fcl/createSignableVoucher)- [currentUser](/build/tools/clients/fcl-js/packages-docs/fcl/currentUser)- [decode](/build/tools/clients/fcl-js/packages-docs/fcl/decode)- [display](/build/tools/clients/fcl-js/packages-docs/fcl/display)- [events](/build/tools/clients/fcl-js/packages-docs/fcl/events)- [getAccount](/build/tools/clients/fcl-js/packages-docs/fcl/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/fcl/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/fcl/getBlockHeader)- [getCollection](/build/tools/clients/fcl-js/packages-docs/fcl/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/fcl/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/fcl/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/fcl/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/fcl/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/fcl/getTransactionStatus)- [invariant](/build/tools/clients/fcl-js/packages-docs/fcl/invariant)- [isBad](/build/tools/clients/fcl-js/packages-docs/fcl/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/fcl/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/fcl/limit)- [logIn](/build/tools/clients/fcl-js/packages-docs/fcl/logIn)- [mutate](/build/tools/clients/fcl-js/packages-docs/fcl/mutate)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/fcl/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/fcl/param)- [params](/build/tools/clients/fcl-js/packages-docs/fcl/params)- [payer](/build/tools/clients/fcl-js/packages-docs/fcl/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/fcl/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/fcl/pipe)- [pluginRegistry](/build/tools/clients/fcl-js/packages-docs/fcl/pluginRegistry)- [proposer](/build/tools/clients/fcl-js/packages-docs/fcl/proposer)- [query](/build/tools/clients/fcl-js/packages-docs/fcl/query)- [queryRaw](/build/tools/clients/fcl-js/packages-docs/fcl/queryRaw)- [reauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/reauthenticate)- [ref](/build/tools/clients/fcl-js/packages-docs/fcl/ref)- [sansPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/sansPrefix)- [script](/build/tools/clients/fcl-js/packages-docs/fcl/script)- [send](/build/tools/clients/fcl-js/packages-docs/fcl/send)- [serialize](/build/tools/clients/fcl-js/packages-docs/fcl/serialize)- [signUp](/build/tools/clients/fcl-js/packages-docs/fcl/signUp)- [subscribe](/build/tools/clients/fcl-js/packages-docs/fcl/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/fcl/subscribeRaw)- [transaction](/build/tools/clients/fcl-js/packages-docs/fcl/transaction)- [tx](/build/tools/clients/fcl-js/packages-docs/fcl/tx)- [unauthenticate](/build/tools/clients/fcl-js/packages-docs/fcl/unauthenticate)- [validator](/build/tools/clients/fcl-js/packages-docs/fcl/validator)- [verifyUserSignatures](/build/tools/clients/fcl-js/packages-docs/fcl/verifyUserSignatures)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/fcl/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/fcl/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/fcl/why)- [withPrefix](/build/tools/clients/fcl-js/packages-docs/fcl/withPrefix)+ [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
@@ -385762,6 +387281,8 @@ TestUtils | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -385989,9 +387510,69 @@ _10
 
 #### Returns[​](#returns-2 "Direct link to Returns")
 
-`_10
+`_16
 
-Partial<InteractionAccount>; kind: InteractionResolverKind.ACCOUNT; addr: string; keyId: string | number; sequenceNum: number; signature: string; signingFunction: any; role: { proposer: boolean; authorizer: boolean; payer: boolean; param?: boolean; }; authorization: any; }`
+Partial<InteractionAccount>;
+
+_16
+
+kind: InteractionResolverKind.ACCOUNT;
+
+_16
+
+addr: string;
+
+_16
+
+keyId: string | number;
+
+_16
+
+sequenceNum: number;
+
+_16
+
+signature: string;
+
+_16
+
+extensionData?: string;
+
+_16
+
+signingFunction: any;
+
+_16
+
+role: {
+
+_16
+
+proposer: boolean;
+
+_16
+
+authorizer: boolean;
+
+_16
+
+payer: boolean;
+
+_16
+
+param?: boolean;
+
+_16
+
+};
+
+_16
+
+authorization: any;
+
+_16
+
+}`
 
 ### authzResolveMany[​](#authzresolvemany "Direct link to authzResolveMany")
 
@@ -386300,7 +387881,7 @@ TestUtils.sig(opts)`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/testUtils.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Oct 22, 2025** by **Michael Fabozzi**
 
 [Previous
 
@@ -400692,32 +402273,32 @@ Search
 
 On this page
 
-# Fork Testing with Cadence
+# Fork testing with Cadence
 
 This tutorial teaches you how to run your Cadence tests against a snapshot of Flow mainnet using `flow test --fork`. You'll learn how to test your contracts against real deployed contracts and production data without needing to deploy anything to a live network or bootstrap test accounts.
 
-Fork testing bridges the gap between isolated local unit tests and testnet deployments. It enables you to validate your contracts work correctly with real on-chain state, test integrations with deployed contracts, and debug issues using historical blockchain data—all in a safe, local environment.
+Fork testing bridges the gap between isolated local unit tests and testnet deployments. It allows you to validate your contracts work correctly with real on-chain state, test integrations with deployed contracts, and debug issues with historical blockchain data—all in a safe, local environment.
 
 ## What You'll Learn[​](#what-youll-learn "Direct link to What You'll Learn")
 
-After completing this tutorial, you'll be able to:
+After you complete this tutorial, you'll be able to:
 
-* **Run Cadence tests against forked networks** using `flow test --fork`
-* **Test contracts that depend on real mainnet contracts** without manual setup
-* **Use account impersonation** to execute transactions as any mainnet account
-* **Read from production blockchain state** in your test suite
-* **Pin tests to specific block heights** for historical debugging
-* **Integrate fork testing** into your development workflow
+* **Run Cadence tests against forked networks** with `flow test --fork`.
+* **Test contracts that depend on real mainnet contracts** without manual setup.
+* **Use account impersonation** to execute transactions as any mainnet account.
+* **Read from production blockchain state** in your test suite.
+* **Pin tests to specific block heights** for historical debugging.
+* **Integrate fork testing** into your development workflow.
 
 ## What You'll Build[​](#what-youll-build "Direct link to What You'll Build")
 
 You'll create a complete fork testing setup that demonstrates:
 
-* Reading from the live FlowToken contract on mainnet
-* Deploying your own contract that interacts with mainnet contracts
-* Testing custom logic against real account balances and state
-* Executing transactions using impersonated mainnet accounts
-* A reusable pattern for integration testing your Flow applications
+* Reading from the live FlowToken contract on mainnet.
+* Deploying your own contract that interacts with mainnet contracts.
+* Testing custom logic against real account balances and state.
+* Executing transactions using impersonated mainnet accounts.
+* A reusable pattern for integration testing your Flow applications.
 
 ### Reproducibility first[​](#reproducibility-first "Direct link to Reproducibility first")
 
@@ -400727,7 +402308,7 @@ Pin a specific block height when you need reproducible results:
 
 flow test --fork mainnet --fork-height <BLOCK_HEIGHT>`
 
-Document the pin heights you rely on (for example in CI variables or a simple file in the repo) and update them via a dedicated freshness PR. For best results, keep a per‑spork stable pin and also run a "latest" freshness job.
+Document the pin heights you rely on (for example, in CI variables or a simple file in the repo) and update them via a dedicated freshness PR. For best results, keep a per‑spork stable pin and also run a "latest" freshness job.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
@@ -400741,11 +402322,11 @@ brew install flow-cli`
 
 For other operating systems, refer to the [installation guide](/build/tools/flow-cli/install).
 
-### Basic Cadence Testing Knowledge[​](#basic-cadence-testing-knowledge "Direct link to Basic Cadence Testing Knowledge")
+### Basic Cadence testing knowledge[​](#basic-cadence-testing-knowledge "Direct link to Basic Cadence testing knowledge")
 
 You should be familiar with writing basic Cadence tests. If you're new to Cadence testing, start with [Testing Smart Contracts](/build/cadence/smart-contracts/testing-strategy) first.
 
-### Network Access[​](#network-access "Direct link to Network Access")
+### Network access[​](#network-access "Direct link to Network access")
 
 You'll need network access to Flow's public access nodes. The tutorial uses these endpoints, which are freely available:
 
@@ -400756,7 +402337,7 @@ info
 
 This tutorial covers `flow test --fork` (running tests against forked network state), which is different from `flow emulator --fork` (starting the emulator in fork mode for manual interaction).
 
-## Create Your Project[​](#create-your-project "Direct link to Create Your Project")
+## Create your project[​](#create-your-project "Direct link to Create your project")
 
 Navigate to your development directory and create a new Flow project:
 
@@ -400784,7 +402365,7 @@ _10
 
 cd fork-testing-demo`
 
-## Install Dependencies[​](#install-dependencies "Direct link to Install Dependencies")
+## Install dependencies[​](#install-dependencies "Direct link to Install dependencies")
 
 Use the [Dependency Manager](/build/tools/flow-cli/dependency-manager) to install the `FlowToken` and `FungibleToken` contracts:
 
@@ -400794,7 +402375,7 @@ flow dependencies install FlowToken FungibleToken`
 
 This downloads the contracts and their dependencies into the `imports/` folder and updates your `flow.json` with the correct addresses and aliases across all networks (mainnet, testnet, emulator).
 
-Your `flow.json` will now include an entry like:
+Your `flow.json` now includes an entry like:
 
 `_12
 
@@ -400844,7 +402425,7 @@ _12
 
 }`
 
-Your `flow.json` should now have the mainnet and testnet networks configured from `flow init`. In fork mode, contract imports automatically resolve to the correct network addresses.
+Your `flow.json` now has the mainnet and testnet networks configured from `flow init`. In fork mode, contract imports automatically resolve to the correct network addresses.
 
 ## Test Reading Live State[​](#test-reading-live-state "Direct link to Test Reading Live State")
 
@@ -400932,13 +402513,13 @@ _13
 
 }`
 
-Notes:
+info
 
 * Use `Test.executeScript()` to read contract state
-* The script imports `FlowToken` by name - the dependency manager handles address resolution
-* In fork mode, this automatically uses the mainnet FlowToken contract
-* Extract the return value with proper type casting and assert on it
-* File paths in `Test.readFile()` are relative to the test file location (use `../scripts/` from `cadence/tests/`)
+* The script imports `FlowToken` by name - the dependency manager handles address resolution.
+* In fork mode, this automatically uses the mainnet FlowToken contract.
+* Extract the return value with proper type casting and assert on it.
+* File paths in `Test.readFile()` are relative to the test file location (use `../scripts/` from `cadence/tests/`).
 
 #### Quick verify[​](#quick-verify "Direct link to Quick verify")
 
@@ -400954,7 +402535,7 @@ Target testnet instead:
 
 flow test cadence/tests/FlowToken_test.cdc --fork testnet`
 
-You should see the test PASS. If not, verify your network host in `flow.json` and that dependencies are installed.
+You will see the test PASS. If not, verify your network host in `flow.json` and that dependencies are installed.
 
 ## Deploy and Test Your Contract[​](#deploy-and-test-your-contract "Direct link to Deploy and Test Your Contract")
 
@@ -400970,8 +402551,8 @@ flow accounts create`
 
 Follow the prompts:
 
-* Select "mainnet" for the network
-* Name your account as desired
+* Select "mainnet" for the network.
+* Name your account as desired.
 
 This will output the new account address. Use this address as the mainnet alias for your contract in flow.json.
 
@@ -401053,11 +402634,11 @@ _18
 
 }`
 
-### Configure Contract in flow.json[​](#configure-contract-in-flowjson "Direct link to Configure Contract in flow.json")
+### Configure contract in flow.json[​](#configure-contract-in-flowjson "Direct link to Configure contract in flow.json")
 
 Add the `TokenChecker` contract configuration to `flow.json`. The contract needs a **mainnet alias** so that imports can resolve properly during fork testing.
 
-Update your `flow.json` to include the contract with aliases, using the address you generated in the previous step:
+Update your `flow.json` to include the contract with aliases, and use the address you generated in the previous step:
 
 `_16
 
@@ -401123,9 +402704,11 @@ _16
 
 }`
 
-**Note:** No local private key is required for forked tests. The accounts entry above is included so you can copy/reference the address in your config; keys can be omitted for fork tests. Contracts deploy to the testing environment at `testing` alias, and transactions that interact with forked state can use impersonation. The `Test.deployContract` function will automatically deploy your contract to the testing environment during test execution.
+info
 
-### Create Scripts for Testing[​](#create-scripts-for-testing "Direct link to Create Scripts for Testing")
+No local private key is required for forked tests. The accounts entry above is included so you can copy and reference the address in your config. You can also omit keys for fork tests. Contracts deploy to the testing environment at `testing` alias, and transactions that interact with forked state can use impersonation. The `Test.deployContract` function will automatically deploy your contract to the testing environment during test execution.
+
+### Create scripts for testing[​](#create-scripts-for-testing "Direct link to Create scripts for testing")
 
 Generate the scripts:
 
@@ -401181,7 +402764,7 @@ _10
 
 }`
 
-### Test Your Contract with Forked State[​](#test-your-contract-with-forked-state "Direct link to Test Your Contract with Forked State")
+### Test Your contract with forked state[​](#test-your-contract-with-forked-state "Direct link to Test Your contract with forked state")
 
 Generate the test file:
 
@@ -401327,14 +402910,14 @@ _37
 
 }`
 
-### What's Happening Here[​](#whats-happening-here "Direct link to What's Happening Here")
+### What's happening here[​](#whats-happening-here "Direct link to What's happening here")
 
-1. **Your contract uses FlowToken**: `TokenChecker` imports and interacts with the real FlowToken contract
-2. **No bootstrapping needed**: When you run with `--fork`, real mainnet accounts (like `0x1654653399040a61`, the Flow service account) already have balances
-3. **Test against real state**: You can query actual accounts and verify your contract logic works with production data
-4. **Local deployment**: Your `TokenChecker` contract is deployed locally to the test environment, but it reads from forked mainnet state
+1. **Your contract uses FlowToken**: `TokenChecker` imports and interacts with the real FlowToken contract.
+2. **No bootstrapping needed**: When you run with `--fork`, real mainnet accounts (like `0x1654653399040a61`, the Flow service account) already have balances.
+3. **Test against real state**: You can query actual accounts and verify your contract logic works with production data.
+4. **Local deployment**: Your `TokenChecker` contract is deployed locally to the test environment, but it reads from forked mainnet state.
 
-## Execute Transactions with Account Impersonation[​](#execute-transactions-with-account-impersonation "Direct link to Execute Transactions with Account Impersonation")
+## Execute transactions with account impersonation[​](#execute-transactions-with-account-impersonation "Direct link to Execute transactions with account impersonation")
 
 Fork testing includes built-in account impersonation—you can execute transactions as **any mainnet account** without needing private keys. This lets you test interactions with real accounts and their existing state.
 
@@ -401490,9 +403073,9 @@ _23
 
 }`
 
-### Test Transaction Execution with Impersonation[​](#test-transaction-execution-with-impersonation "Direct link to Test Transaction Execution with Impersonation")
+### Test transaction execution with impersonation[​](#test-transaction-execution-with-impersonation "Direct link to Test transaction execution with impersonation")
 
-Add this test function to the existing `cadence/tests/TokenChecker_test.cdc` file:
+Add this test function to the current `cadence/tests/TokenChecker_test.cdc` file:
 
 `_61
 
@@ -401722,15 +403305,15 @@ _61
 
 }`
 
-### Key Points About Account Impersonation[​](#key-points-about-account-impersonation "Direct link to Key Points About Account Impersonation")
+### Key points about account impersonation[​](#key-points-about-account-impersonation "Direct link to Key points about account impersonation")
 
-1. **Any account can be used**: Call `Test.getAccount(address)` with any mainnet address
-2. **No private keys needed**: Fork testing has built-in impersonation—you can sign transactions as any account
-3. **Real account state**: The account has its actual mainnet balance, storage, and capabilities
-4. **Mutations are local**: Changes only affect your test environment, not the real network
-5. **Test complex scenarios**: Impersonate whale accounts, protocol accounts, or any user to test edge cases
+1. **Any account can be used**: Call `Test.getAccount(address)` with any mainnet address.
+2. **No private keys needed**: Fork testing has built-in impersonation—you can sign transactions as any account.
+3. **Real account state**: The account has its actual mainnet balance, storage, and capabilities.
+4. **Mutations are local**: Changes only affect your test environment, not the real network.
+5. **Test complex scenarios**: Impersonate whale accounts, protocol accounts, or any user to test edge cases.
 
-## Run All Tests Together[​](#run-all-tests-together "Direct link to Run All Tests Together")
+## Run all tests together[​](#run-all-tests-together "Direct link to Run all tests together")
 
 Now that you have multiple test files, run them all against the forked network:
 
@@ -401738,7 +403321,7 @@ Now that you have multiple test files, run them all against the forked network:
 
 flow test --fork mainnet`
 
-This runs all `*_test.cdc` files in your project against mainnet. You should see:
+This runs all `*_test.cdc` files in your project against mainnet. You will see:
 
 `_10
 
@@ -401766,7 +403349,7 @@ _10
 
 - PASS: testTransactionAsMainnetAccount`
 
-### Additional Options[​](#additional-options "Direct link to Additional Options")
+### Additional options[​](#additional-options "Direct link to Additional options")
 
 You can also fork from testnet (`flow test --fork testnet`) or pin to a specific block height (`--fork-height`). See the [Fork Testing Flags](/build/tools/flow-cli/tests#fork-testing-flags) reference for all available options.
 
@@ -401786,7 +403369,7 @@ Fork tests run against Flow chain state only:
 * Price feeds, bridges, indexers, and similar must be mocked (stub contracts or fixtures)
 * For end-to-end, combine with `flow emulator --fork` and a local stub service
 
-### Select Tests Quickly[​](#select-tests-quickly "Direct link to Select Tests Quickly")
+### Select tests quickly[​](#select-tests-quickly "Direct link to Select tests quickly")
 
 * Run specific files or directories:
 
@@ -401802,16 +403385,16 @@ flow test cadence/tests/TokenChecker_test.cdc --name _smoke --fork mainnet`
 
 * Optional: suffix a few functions with `_smoke` for quick PR runs; run the full suite nightly or on protected branches.
 
-## When to Use Fork Testing[​](#when-to-use-fork-testing "Direct link to When to Use Fork Testing")
+## When to use fork testing[​](#when-to-use-fork-testing "Direct link to When to use fork testing")
 
 Fork testing is most valuable for:
 
-* Integration testing with real onchain contracts and data
-* Pre-deployment validation before mainnet releases
-* Upgrade testing against production state
-* Reproducing issues at a specific block height
-* Testing interactions with high-value or protocol accounts
-* Validating contract behavior with real-world data patterns
+* Integration testing with real onchain contracts and data.
+* Pre-deployment validation before mainnet releases.
+* Upgrade testing against production state.
+* Reproducing issues at a specific block height.
+* Testing interactions with high-value or protocol accounts.
+* Validating contract behavior with real-world data patterns.
 
 For strategy, limitations, and best practices, see the guide: [Testing Smart Contracts](/build/cadence/smart-contracts/testing-strategy).
 
@@ -401819,28 +403402,28 @@ For strategy, limitations, and best practices, see the guide: [Testing Smart Con
 
 In this tutorial, you learned how to use fork testing to validate your Cadence contracts against live Flow network state. You created tests that read from real mainnet contracts, deployed custom contracts that interact with production data, and executed transactions using account impersonation—all without deploying to a live network or bootstrapping test accounts.
 
-Now that you have completed this tutorial, you should be able to:
+Now that you have completed this tutorial, you will be able to:
 
-* **Run Cadence tests against forked networks** using `flow test --fork`
-* **Test contracts that depend on real mainnet contracts** without manual setup
-* **Use account impersonation** to execute transactions as any mainnet account
-* **Read from production blockchain state** in your test suite
-* **Pin tests to specific block heights** for historical debugging
-* **Integrate fork testing** into your development workflow
+* **Run Cadence tests against forked networks** with `flow test --fork`.
+* **Test contracts that depend on real mainnet contracts** without manual setup.
+* **Use account impersonation** to execute transactions as any mainnet account.
+* **Read from production blockchain state** in your test suite.
+* **Pin tests to specific block heights** for historical debugging.
+* **Integrate fork testing** into your development workflow.
 
-Fork testing bridges the gap between local unit tests and testnet deployments, enabling you to catch integration issues early and test against real-world conditions. Use it as part of your pre-deployment validation process, alongside emulator unit tests for determinism and isolation, and testnet deployments for final verification.
+Fork testing bridges the gap between local unit tests and testnet deployments, allowing you to catch integration issues early and test against real-world conditions. Use it as part of your pre-deployment validation process, alongside emulator unit tests for determinism and isolation, and testnet deployments for final verification.
 
 ### Next Steps[​](#next-steps "Direct link to Next Steps")
 
-* Explore additional assertions and helpers in the [Cadence Testing Framework](https://cadence-lang.org/docs/testing-framework)
-* Add more real-world tests that read from standard contracts like Flow NFT
-* Keep unit tests on the emulator for determinism and isolation; run forked integration tests selectively in CI
-* Review the [Fork Testing Flags](/build/tools/flow-cli/tests#fork-testing-flags) reference for advanced options
-* Learn about [Flow Networks](/protocol/flow-networks) and public access nodes
+* Explore additional assertions and helpers in the [Cadence Testing Framework](https://cadence-lang.org/docs/testing-framework).
+* Add more real-world tests that read from standard contracts like Flow NFT.
+* Keep unit tests on the emulator for determinism and isolation; run forked integration tests selectively in CI.
+* Review the [Fork Testing Flags](/build/tools/flow-cli/tests#fork-testing-flags) reference for advanced options.
+* Learn about [Flow Networks](/protocol/flow-networks) and public access nodes.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/fork-testing/index.md)
 
-Last updated on **Oct 30, 2025** by **Chase Fleming**
+Last updated on **Nov 4, 2025** by **cshannon1218**
 
 [Previous
 
@@ -401856,10 +403439,10 @@ Copy as Markdown
 
 * [What You'll Learn](#what-youll-learn)* [What You'll Build](#what-youll-build)
     + [Reproducibility first](#reproducibility-first)* [Prerequisites](#prerequisites)
-      + [Flow CLI](#flow-cli)+ [Basic Cadence Testing Knowledge](#basic-cadence-testing-knowledge)+ [Network Access](#network-access)* [Create Your Project](#create-your-project)* [Install Dependencies](#install-dependencies)* [Test Reading Live State](#test-reading-live-state)* [Deploy and Test Your Contract](#deploy-and-test-your-contract)
-              + [Create a Test Account](#create-a-test-account)+ [Create a Contract that Uses `FlowToken`](#create-a-contract-that-uses-flowtoken)+ [Configure Contract in flow.json](#configure-contract-in-flowjson)+ [Create Scripts for Testing](#create-scripts-for-testing)+ [Test Your Contract with Forked State](#test-your-contract-with-forked-state)+ [What's Happening Here](#whats-happening-here)* [Execute Transactions with Account Impersonation](#execute-transactions-with-account-impersonation)
-                + [Create Transactions](#create-transactions)+ [Test Transaction Execution with Impersonation](#test-transaction-execution-with-impersonation)+ [Key Points About Account Impersonation](#key-points-about-account-impersonation)* [Run All Tests Together](#run-all-tests-together)
-                  + [Additional Options](#additional-options)+ [Select Tests Quickly](#select-tests-quickly)* [When to Use Fork Testing](#when-to-use-fork-testing)* [Conclusion](#conclusion)
+      + [Flow CLI](#flow-cli)+ [Basic Cadence testing knowledge](#basic-cadence-testing-knowledge)+ [Network access](#network-access)* [Create your project](#create-your-project)* [Install dependencies](#install-dependencies)* [Test Reading Live State](#test-reading-live-state)* [Deploy and Test Your Contract](#deploy-and-test-your-contract)
+              + [Create a Test Account](#create-a-test-account)+ [Create a Contract that Uses `FlowToken`](#create-a-contract-that-uses-flowtoken)+ [Configure contract in flow.json](#configure-contract-in-flowjson)+ [Create scripts for testing](#create-scripts-for-testing)+ [Test Your contract with forked state](#test-your-contract-with-forked-state)+ [What's happening here](#whats-happening-here)* [Execute transactions with account impersonation](#execute-transactions-with-account-impersonation)
+                + [Create Transactions](#create-transactions)+ [Test transaction execution with impersonation](#test-transaction-execution-with-impersonation)+ [Key points about account impersonation](#key-points-about-account-impersonation)* [Run all tests together](#run-all-tests-together)
+                  + [Additional options](#additional-options)+ [Select tests quickly](#select-tests-quickly)* [When to use fork testing](#when-to-use-fork-testing)* [Conclusion](#conclusion)
                       + [Next Steps](#next-steps)
 
 Flow
@@ -414440,32 +416023,32 @@ Search
 
 On this page
 
-# Cadence Environment Setup
+# Cadence environment eetup
 
-This comprehensive tutorial will guide you through setting up your complete development environment, deploying your first smart contract, and mastering the fundamentals of Flow development. You'll work hands-on with the Flow CLI, local emulator, and a real smart contract to build practical skills from day one.
+This comprehensive tutorial will guide you through how to set up your complete development environment, deploy your first smart contract, and learn the fundamentals of Flow development. You'll work hands-on with the Flow CLI, local emulator, and a real smart contract to build practical skills from day one.
 
-Flow is a blockchain built for the next generation of apps, games, and digital assets. With its unique multi-role architecture and resource-oriented programming language Cadence, Flow enables developers to create secure, composable, and scalable applications. This tutorial focuses on getting you productive with Flow's developer tools as quickly as possible.
+Flow is a blockchain built for the next generation of apps, games, and digital assets. With its unique multi-role architecture and resource-oriented programming language Cadence, Flow allows developers to create secure, composable, and scalable applications. This tutorial focuses on getting you productive with Flow's developer tools as quickly as possible.
 
-## What You'll Learn[​](#what-youll-learn "Direct link to What You'll Learn")
+## What you'll learn[​](#what-youll-learn "Direct link to What you'll learn")
 
-After completing this tutorial, you'll be able to:
+After you complete this tutorial, you'll be able to:
 
-* **Set up a complete Flow development environment** with CLI tools and VSCode integration
-* **Create and manage Flow projects** using the Flow CLI and understand project structure
-* **Deploy and interact with smart contracts** on the local Flow emulator
-* **Execute scripts and transactions** to read from and modify blockchain state
-* **Understand Flow's account model** and how contracts are deployed to account storage
-* **Navigate the Flow ecosystem** and know where to find help and resources
+* **Set up a complete Flow development environment** with CLI tools and VSCode integration.
+* **Create and manage Flow projects** using the Flow CLI and understand project structure.
+* **Deploy and interact with smart contracts** on the local Flow emulator.
+* **Execute scripts and transactions** to read from and modify blockchain state.
+* **Understand Flow's account model** and how contracts are deployed to account storage.
+* **Navigate the Flow ecosystem** and know where to find help and resources.
 
-## What You'll Build[​](#what-youll-build "Direct link to What You'll Build")
+## What you'll build[​](#what-youll-build "Direct link to What you'll build")
 
-You'll work with a `Counter` contract—a simple but comprehensive example that demonstrates core Flow development patterns. This contract maintains a count value and provides functions to increment, decrement, and read the current count. By the end of this tutorial, you'll have:
+You'll work with a `Counter` contract, a simple but comprehensive example that demonstrates core Flow development patterns. This contract maintains a count value and provides functions to increment, decrement, and read the current count. By the end of this tutorial, you'll have:
 
-* A fully functional local Flow development environment
-* A deployed Counter contract running on your local emulator
-* Scripts to query the contract's state
-* Transactions to modify the contract's state
-* Understanding of how to extend this foundation for more complex applications
+* A fully functional local Flow development environment.
+* A deployed Counter contract running on your local emulator.
+* Scripts to query the contract's state.
+* Transactions to modify the contract's state.
+* Understanding of how to extend this foundation for more complex applications.
 
 **Time Commitment:** Approximately 30-45 minutes
 
@@ -414473,7 +416056,7 @@ You'll work with a `Counter` contract—a simple but comprehensive example that 
 
 * Basic command line familiarity
 * Code editor (VSCode recommended)
-* Node.js installed (for future frontend development)
+* `Node.js` installed (for future frontend development)
 
 ---
 
@@ -414481,13 +416064,13 @@ You'll work with a `Counter` contract—a simple but comprehensive example that 
 
 The [Flow Command Line Interface](/build/tools/flow-cli) (CLI) is a set of tools that developers can use to interact with the Flow blockchain by managing accounts, sending transactions, deploying smart contracts, running the emulator, and more. This quickstart will get you familiar with its main concepts and functionality.
 
-The first thing you'll need to do is install the Flow CLI. If you have [homebrew](https://brew.sh/) installed you can run:
+The first thing you'll need to do is install the Flow CLI. If you have [homebrew](https://brew.sh/) installed, run:
 
 `_10
 
 brew install flow-cli`
 
-**For other operating systems,** please refer to the [installation guide](/build/tools/flow-cli/install) for detailed instructions.
+**For other operating systems,** refer to the [installation guide](/build/tools/flow-cli/install) for detailed instructions.
 
 **Verify Installation:**
 
@@ -414495,18 +416078,18 @@ brew install flow-cli`
 
 flow version`
 
-You should see output showing your Flow CLI version.
+You will see output showing your Flow CLI version.
 
-### Install VSCode Extension[​](#install-vscode-extension "Direct link to Install VSCode Extension")
+### Install VSCode extension[​](#install-vscode-extension "Direct link to Install VSCode extension")
 
 Install the [Flow Cadence VSCode Extension](https://marketplace.visualstudio.com/items?itemName=onflow.cadence) from the marketplace. This extension provides:
 
-* Syntax highlighting for Cadence
-* Code completion and IntelliSense
-* Error checking and diagnostics
-* Integrated development tools
+* Syntax highlighting for Cadence.
+* Code completion and IntelliSense.
+* Error checking and diagnostics.
+* Integrated development tools.
 
-## Create Your First Project[​](#create-your-first-project "Direct link to Create Your First Project")
+## Create your first project[​](#create-your-first-project "Direct link to Create your first project")
 
 Navigate to your desired development directory and create a new Flow project:
 
@@ -414516,13 +416099,13 @@ flow init`
 
 When prompted:
 
-1. **Project name:** Enter your preferred project name
+1. **Project name:** Enter your preferred project name.
 2. Select `Basic Cadence project (no dependencies)`.
 
 The `flow init` command creates:
 
-* **`flow.json`**: Central configuration file containing accounts, contracts, deployments, and network settings
-* **`emulator-account.pkey`**: Private key for the default emulator account
+* **`flow.json`**: Central configuration file containing accounts, contracts, deployments, and network settings.
+* **`emulator-account.pkey`**: Private key for the default emulator account.
 * **`cadence/`**: Directory structure for your Cadence code:
   + `contracts/`: Smart contract files
   + `scripts/`: Read-only blockchain queries
@@ -414539,7 +416122,7 @@ info
 
 For additional details on how `flow.json` is configured, review the [configuration docs](/build/tools/flow-cli/flow.json/configuration).
 
-### Start the Flow Emulator[​](#start-the-flow-emulator "Direct link to Start the Flow Emulator")
+### Start the Flow emulator[​](#start-the-flow-emulator "Direct link to Start the Flow emulator")
 
 The emulator is a local version of the Flow blockchain that you can use to test your contracts and scripts. It's a great way to develop and test your contracts locally - before you try them on the `testnet` or `mainnet`.
 
@@ -414551,16 +416134,16 @@ flow emulator start`
 
 Keep this terminal running. The emulator provides:
 
-* Local blockchain environment
-* Fast transaction processing
-* No real-world costs
-* Complete Flow feature set
+* Local blockchain environment.
+* Fast transaction processing.
+* No real-world costs.
+* Complete Flow feature set.
 
-## Your First Contract[​](#your-first-contract "Direct link to Your First Contract")
+## Your first contract[​](#your-first-contract "Direct link to Your first contract")
 
 Now let's examine, deploy, and interact with the Counter contract that was created in your project.
 
-### Examine the Counter Contract[​](#examine-the-counter-contract "Direct link to Examine the Counter Contract")
+### Examine the Counter contract[​](#examine-the-counter-contract "Direct link to Examine the Counter contract")
 
 Open `cadence/contracts/Counter.cdc` in your editor. Let's break down this contract:
 
@@ -414674,20 +416257,20 @@ _31
 
 }`
 
-**Key Components:**
+**Key components:**
 
-* **Contract Declaration**: `access(all) contract Counter` creates a public contract named Counter
-* **State Variable**: `access(all) var count: Int` stores the counter value, accessible to everyone
-* **Events**: `CounterIncremented` and `CounterDecremented` notify listeners when changes occur
-* **Initializer**: `init()` sets the initial count to 0 when the contract is deployed
+* **Contract Declaration**: `access(all) contract Counter` creates a public contract named Counter.
+* **State Variable**: `access(all) var count: Int` stores the counter value, accessible to everyone.
+* **Events**: `CounterIncremented` and `CounterDecremented` notify listeners when changes occur.
+* **Initializer**: `init()` sets the initial count to 0 when the contract is deployed.
 * **Public Functions**:
   + `increment()`: Increases count by 1 and emits an event
   + `decrement()`: Decreases count by 1 and emits an event
   + `getCount()`: Returns the current count (read-only, marked with `view`)
 
-### Create and Configure Deployment Account[​](#create-and-configure-deployment-account "Direct link to Create and Configure Deployment Account")
+### Create and configure deployment account[​](#create-and-configure-deployment-account "Direct link to Create and configure deployment account")
 
-When you created a project you'll see that a `Counter` contract was added to your [`flow.json` configuration file](/build/tools/flow-cli/flow.json/configuration), but it's not set up for deployment yet. We could deploy it to the automatically created `emulator-account`, but for this example lets also create a new account on the emulator to deploy it to.
+When you create a project, you'll see that a `Counter` contract was added to your [`flow.json` configuration file](/build/tools/flow-cli/flow.json/configuration), but it's not set up for deployment yet. We could deploy it to the automatically created `emulator-account`, but for this example, lets also create a new account on the emulator to deploy it to.
 
 info
 
@@ -414706,7 +416289,7 @@ When prompted:
 
 This adds the new account to your `flow.json` configuration file.You'll now see this account in your [`flow.json`](/build/tools/flow-cli/flow.json/configuration).
 
-Once you have created you accounts, then you can view all your accounts on the with the Flow CLI with:
+After you've created you accounts, then you can view all your accounts on the with the Flow CLI with:
 
 `_24
 
@@ -414792,9 +416375,9 @@ _24
 
 This is a great tool to visualize your different accounts and balances when you are developing.
 
-### Configure Contract Deployment[​](#configure-contract-deployment "Direct link to Configure Contract Deployment")
+### Configure contract deployment[​](#configure-contract-deployment "Direct link to Configure contract deployment")
 
-To deploy the `Counter` contract to the emulator, you'll need to add it to your project configuration. You can do this by running:
+To deploy the `Counter` contract to the emulator, you'll need to add it to your project configuration. To do this, run:
 
 `_10
 
@@ -414809,7 +416392,7 @@ Follow the prompts:
 
 This configures your `flow.json` to deploy the Counter contract to your test account on the emulator.
 
-### Deploy the Contract[​](#deploy-the-contract "Direct link to Deploy the Contract")
+### Deploy the contract[​](#deploy-the-contract "Direct link to Deploy the contract")
 
 To deploy the `Counter` contract to the emulator, run:
 
@@ -414817,7 +416400,7 @@ To deploy the `Counter` contract to the emulator, run:
 
 flow project deploy`
 
-You should see output similar to:
+You'll see output similar to:
 
 `_10
 
@@ -414837,7 +416420,7 @@ _10
 
 That's it! You've just deployed your first contract to the Flow Emulator.
 
-### Verify Deployment with a Script[​](#verify-deployment-with-a-script "Direct link to Verify Deployment with a Script")
+### Verify deployment with a script[​](#verify-deployment-with-a-script "Direct link to Verify deployment with a script")
 
 Scripts are used to read data from the Flow blockchain. There is no state modification. Let's verify the deployment by reading the counter value. Run the included script:
 
@@ -414851,7 +416434,7 @@ You should see:
 
 Result: 0`
 
-This confirms your contract is deployed and functioning correctly. The counter starts at 0, as defined in the contract's `init()` function.
+This confirms your contract is deployed and functional. The counter starts at zero (0), as defined in the contract's `init()` function.
 
 If we wanted to generate a new script, we could run:
 
@@ -414867,11 +416450,11 @@ For more information about generating Cadence files, see the [Generating Cadence
 
 tip
 
-If you'll like to learn more about writing scripts, please check out the docs for [basic scripts](https://developers.flow.com/build/cadence/basics/scripts).
+To learn more about writing scripts, check out the docs for [basic scripts](https://developers.flow.com/build/cadence/basics/scripts).
 
-### Executing Transactions[​](#executing-transactions "Direct link to Executing Transactions")
+### Execute transactions[​](#execute-transactions "Direct link to Execute transactions")
 
-Now let's increment the counter using a transaction:
+Now let's increment the counter with a transaction:
 
 `_10
 
@@ -414885,9 +416468,9 @@ flow transactions send cadence/transactions/IncrementCounter.cdc --signer test-a
 
 The transaction output shows detailed information including:
 
-* Transaction ID and block information
-* Status confirmation (`✅ SEALED`)
-* Events emitted (including `CounterIncremented`)
+* Transaction ID and block information.
+* Status confirmation (`✅ SEALED`).
+* Events emitted (including `CounterIncremented`).
 
 `_33
 
@@ -415013,36 +416596,36 @@ Result: 1`
 
 tip
 
-If you want to learn more about writing transactions, please read the docs for [basic transactions](https://developers.flow.com/build/cadence/basics/transactions).
+To learn more about writing transactions, read the docs for [basic transactions](https://developers.flow.com/build/cadence/basics/transactions).
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
 You've successfully established a solid foundation for building on Flow. Let's recap what you've accomplished and learned. Through this hands-on tutorial, you've successfully built a complete Flow development foundation:
 
-✅ **Complete Flow Development Environment**
+✅ **Complete Flow development environment**
 
-* Flow CLI installed and configured for project management
-* Local Flow emulator running and ready for development
-* Project creation and management workflow with `flow init`
+* Flow CLI installed and configured for project management.
+* Local Flow emulator running and ready for development.
+* Project creation and management workflow with `flow init`.
 
-✅ **Smart Contract Deployment Skills**
+✅ **Smart contract deployment skills**
 
-* Counter contract successfully deployed to your local emulator
-* Account creation and contract deployment configuration mastered
+* Counter contract successfully deployed to your local emulator.
+* Account creation and contract deployment configuration mastered.
 
-✅ **Blockchain Interactions**
+✅ **Blockchain interactions**
 
-* Scripts to query contract state (reading blockchain data)
-* Transactions to modify contract state (writing to blockchain)
-* Real-time interaction with blockchain data through CLI commands
+* Scripts to query contract state (reading blockchain data).
+* Transactions to modify contract state (writing to blockchain).
+* Real-time interaction with blockchain data through CLI commands.
 
-### Resources for Continued Learning[​](#resources-for-continued-learning "Direct link to Resources for Continued Learning")
+### Resources for continued learning[​](#resources-for-continued-learning "Direct link to Resources for continued learning")
 
 As you continue your Flow development journey:
 
-* **[Flow Discord Community](https://discord.com/invite/flow)**: Connect with other developers, get help, and share your projects
-* **[Cadence Language Reference](https://cadence-lang.org)**: Deep dive into Flow's programming language features and best practices
-* **[Flow GitHub](https://github.com/onflow)**: Explore open source tools, examples, and contribute to the ecosystem
+* **[Flow Discord Community](https://discord.com/invite/flow)**: Connect with other developers, get help, and share your projects.
+* **[Cadence Language Reference](https://cadence-lang.org)**: Deep dive into Flow's programming language features and best practices.
+* **[Flow GitHub](https://github.com/onflow)**: Explore open source tools, examples, and contribute to the ecosystem.
 
 The foundation you've built today will serve you well as you explore Flow's capabilities and build applications that take advantage of blockchain's unique properties: permanence, transparency, and decentralization.
 
@@ -415050,7 +416633,7 @@ Welcome to the Flow developer community—you're ready to build the future of di
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/getting-started/cadence-environment-setup.md)
 
-Last updated on **Oct 9, 2025** by **Brian Doyle**
+Last updated on **Oct 30, 2025** by **cshannon1218**
 
 [Previous
 
@@ -415064,11 +416647,11 @@ Smart Contract Interaction](/blockchain-development-tutorials/cadence/getting-st
 
 Copy as Markdown
 
-* [What You'll Learn](#what-youll-learn)* [What You'll Build](#what-youll-build)
-    + [Install Flow CLI](#install-flow-cli)+ [Install VSCode Extension](#install-vscode-extension)* [Create Your First Project](#create-your-first-project)
-      + [Start the Flow Emulator](#start-the-flow-emulator)* [Your First Contract](#your-first-contract)
-        + [Examine the Counter Contract](#examine-the-counter-contract)+ [Create and Configure Deployment Account](#create-and-configure-deployment-account)+ [Configure Contract Deployment](#configure-contract-deployment)+ [Deploy the Contract](#deploy-the-contract)+ [Verify Deployment with a Script](#verify-deployment-with-a-script)+ [Executing Transactions](#executing-transactions)* [Conclusion](#conclusion)
-          + [Resources for Continued Learning](#resources-for-continued-learning)
+* [What you'll learn](#what-youll-learn)* [What you'll build](#what-youll-build)
+    + [Install Flow CLI](#install-flow-cli)+ [Install VSCode extension](#install-vscode-extension)* [Create your first project](#create-your-first-project)
+      + [Start the Flow emulator](#start-the-flow-emulator)* [Your first contract](#your-first-contract)
+        + [Examine the Counter contract](#examine-the-counter-contract)+ [Create and configure deployment account](#create-and-configure-deployment-account)+ [Configure contract deployment](#configure-contract-deployment)+ [Deploy the contract](#deploy-the-contract)+ [Verify deployment with a script](#verify-deployment-with-a-script)+ [Execute transactions](#execute-transactions)* [Conclusion](#conclusion)
+          + [Resources for continued learning](#resources-for-continued-learning)
 
 Flow
 
@@ -416339,7 +417922,7 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
-# Source: https://developers.flow.com/
+# Source: https://developers.flow.com
 
 Flow Developer Portal
 
@@ -428999,12 +430582,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **99982e137fe76b11**
+Cloudflare Ray ID: **99a06aa40895d883**
 •
 
 Your IP:
 Click to reveal
-57.151.129.50
+172.184.211.244
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 
