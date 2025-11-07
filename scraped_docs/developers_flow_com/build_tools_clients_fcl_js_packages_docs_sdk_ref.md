@@ -4,6 +4,8 @@ ref | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -59,31 +61,31 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as sdk from '@onflow/sdk';
+import * as sdk from "@onflow/sdk"
 
 _10
 
 _10
 
-sdk.ref(refBlock);`
+sdk.ref(refBlock)`
 
 Or import directly the specific function:
 
 `_10
 
-import { ref } from '@onflow/sdk';
+import { ref } from "@onflow/sdk"
 
 _10
 
 _10
 
-ref(refBlock);`
+ref(refBlock)`
 
 ## Usage[​](#usage "Direct link to Usage")
 
 `` _20
 
-import * as fcl from '@onflow/fcl';
+import * as fcl from "@onflow/fcl";
 
 _20
 
@@ -125,7 +127,7 @@ _20
 
 _20
 
-fcl.ref('a1b2c3d4e5f6789...'), // Custom reference block ID
+fcl.ref("a1b2c3d4e5f6789..."), // Custom reference block ID
 
 _20
 
@@ -141,7 +143,7 @@ fcl.authorizations([fcl.authz]),
 
 _20
 
-fcl.limit(100),
+fcl.limit(100)
 
 _20
 
@@ -172,11 +174,11 @@ export type InteractionBuilderFn = (
 
 _10
 
-ix: Interaction,
+ix: Interaction
 
 _10
 
-) => Interaction | Promise<Interaction>;`
+) => Interaction | Promise<Interaction>`
 
 A function that processes an interaction object
 
@@ -184,7 +186,7 @@ A function that processes an interaction object
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/ref.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Oct 22, 2025** by **Michael Fabozzi**
 
 [Previous
 

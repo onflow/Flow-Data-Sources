@@ -6581,6 +6581,8 @@ ref | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -6636,31 +6638,31 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as sdk from '@onflow/sdk';
+import * as sdk from "@onflow/sdk"
 
 _10
 
 _10
 
-sdk.ref(refBlock);`
+sdk.ref(refBlock)`
 
 Or import directly the specific function:
 
 `_10
 
-import { ref } from '@onflow/sdk';
+import { ref } from "@onflow/sdk"
 
 _10
 
 _10
 
-ref(refBlock);`
+ref(refBlock)`
 
 ## Usage[​](#usage "Direct link to Usage")
 
 `` _20
 
-import * as fcl from '@onflow/fcl';
+import * as fcl from "@onflow/fcl";
 
 _20
 
@@ -6702,7 +6704,7 @@ _20
 
 _20
 
-fcl.ref('a1b2c3d4e5f6789...'), // Custom reference block ID
+fcl.ref("a1b2c3d4e5f6789..."), // Custom reference block ID
 
 _20
 
@@ -6718,7 +6720,7 @@ fcl.authorizations([fcl.authz]),
 
 _20
 
-fcl.limit(100),
+fcl.limit(100)
 
 _20
 
@@ -6749,11 +6751,11 @@ export type InteractionBuilderFn = (
 
 _10
 
-ix: Interaction,
+ix: Interaction
 
 _10
 
-) => Interaction | Promise<Interaction>;`
+) => Interaction | Promise<Interaction>`
 
 A function that processes an interaction object
 
@@ -6761,7 +6763,7 @@ A function that processes an interaction object
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/ref.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Oct 22, 2025** by **Michael Fabozzi**
 
 [Previous
 
@@ -40448,6 +40450,8 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 resolveSignatures | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -149775,6 +149779,8 @@ decode | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -149795,7 +149801,7 @@ Search
 
       + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
 
-        + [@onflow/react-sdk](/build/tools/react-sdk)
+        + [Flow React SDK](/build/tools/react-sdk)
 
           + [Flow Emulator](/build/tools/emulator)+ [Flow CLI](/build/tools/flow-cli)
 
@@ -149983,27 +149989,27 @@ Copy as Markdown
 * [Import](#import)* [Usage](#usage)* [Parameters](#parameters)
       + [`response`](#response)* [Returns](#returns)
 
-Documentation
+Flow
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
 
-Community
+Cadence
 
-* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
 
-Start Building
+Solidity (EVM)
 
-* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
 
-Network
+Community & Support
 
-* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
 
-More
+Network & Resources
 
-* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
+Copyright © 2025 Flow Foundation. All Rights Reserved.
 
 
 
@@ -150484,43 +150490,43 @@ On this page
 
 # Overview
 
-The following documentation aims to educate you on building a native mobile application on Flow. It first presents Monster Maker, a starter project we've built to represent simple Flow mobile concepts. Next it presents various developer resources related to building mobile native Flow applications.
+The following tutorial aims to educate you on how to build a native mobile application on Flow. It first presents Monster Maker, a starter project we've built to represent simple Flow mobile concepts. Next, it presents various developer resources related to building mobile native Flow applications.
 
 # Monster Maker
 
 ![monster_maker_logo.png](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABEAAAAGQCAYAAACu+RXHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFw2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNy4yLWMwMDAgNzkuNTY2ZWJjNWI0LCAyMDIyLzA1LzA5LTA4OjI1OjU1ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6cGhvdG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgMjMuNCAoTWFjaW50b3NoKSIgeG1wOkNyZWF0ZURhdGU9IjIwMjItMTEtMDhUMDc6Mjc6NDEtMDg6MDAiIHhtcDpNb2RpZnlEYXRlPSIyMDIyLTExLTIyVDEzOjM5OjMyLTA4OjAwIiB4bXA6TWV0YWRhdGFEYXRlPSIyMDIyLTExLTIyVDEzOjM5OjMyLTA4OjAwIiBkYzpmb3JtYXQ9ImltYWdlL3BuZyIgcGhvdG9zaG9wOkNvbG9yTW9kZT0iMyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo0NTU2Njc1Ny02YjM5LTQ1MjMtYWQwNC1lNDllODE5NTZkYmMiIHhtcE1NOkRvY3VtZW50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)
 
-Monster Maker is a native iOS app that allows users to connect a wallet, sign a transaction to mint an NFT (a monster) and display their collection of NFTs (their monsters) within the app. It's meant to be a lightweight sample project to exemplify how to build a mobile native Flow project. If you're looking to build a native mobile application for Flow, exploring the Monster Maker code base first or even building off of it is a great way to get started.
+Monster Maker is a native iOS app that allows users to connect a wallet, sign a transaction to mint an NFT (a monster) and display their collection of NFTs (their monsters) within the app. It's meant to be a lightweight sample project to exemplify how to build a mobile native Flow project. If want to build a native mobile application for Flow, explore the Monster Maker code base first, or you can even build off of it!
 
 👉 ***Note** - We currently only have an iOS project for Monster Maker. That said an Android and web version of the same project is in active development.*
 
-## Github Repo[​](#github-repo "Direct link to Github Repo")
+## Github repo[​](#github-repo "Direct link to Github repo")
 
 The Monster Maker Github Repo can be found here:
 
 <https://github.com/onflow/monster-maker>
 
-## Building to Device[​](#building-to-device "Direct link to Building to Device")
+## Build to device[​](#build-to-device "Direct link to Build to device")
 
-Before you run Monster Maker on your device, please make sure you have installed the [Xcode14](https://apps.apple.com/au/app/xcode/id497799835?mt=12) from Mac App Store. Once you clone the repo, open the [MonsterMaker.xcodeproj](https://github.com/onflow/monster-maker/tree/main/iOS/MonsterMaker.xcodeproj) under the iOS folder.
+Before you run Monster Maker on your device, make sure you've installed the [Xcode14](https://apps.apple.com/au/app/xcode/id497799835?mt=12) from Mac App Store. After you clone the repo, open the [MonsterMaker.xcodeproj](https://github.com/onflow/monster-maker/tree/main/iOS/MonsterMaker.xcodeproj) under the iOS folder.
 
-Xcode should automatically setup the project for you. If you do see any error related to dependencies, run `Xcode Menu -> File -> Packages -> Reset Package Cache` to resolve the issue.
+Xcode automatically sets up the project for you. If you see any errors related to dependencies, run `Xcode Menu -> File -> Packages -> Reset Package Cache` to resolve the issue.
 
-In the meantime, you can choose a simulator or your iPhone to run. For more detail here is the [official doc](https://developer.apple.com/documentation/xcode/running-your-app-in-simulator-or-on-a-device).
-For run in real device, there are a few steps to deal with signing:
+In the meantime, you can choose a simulator or your iPhone to run. For more detail, read the [official doc](https://developer.apple.com/documentation/xcode/running-your-app-in-simulator-or-on-a-device).
+For run in real device, there are a few steps to deal with for signing:
 
-1. Add your apple account to the Xcode which can be accessed from `Xcode Menu -> Settings -> Add account`.
-2. Change the Team to your Personal Apple account from the **Signing & Capabilities** under the project target menu. For more detail, please check the screenshot below.
+1. Add your apple account to the Xcode which you can access from `Xcode Menu -> Settings -> Add account`.
+2. Change the Team to your Personal Apple account from the **Signing & Capabilities** under the project target menu. For more detail, check the screenshot below.
 
    ![XCode Target Setup](/assets/images/xcode_setup-a21fd8b008f0fc0f04d4b8b4355f064a.png)
 
-## Connecting to a Wallet[​](#connecting-to-a-wallet "Direct link to Connecting to a Wallet")
+## Connecting to a wallet[​](#connecting-to-a-wallet "Direct link to Connecting to a wallet")
 
-To connect with wallets, there is native wallet discovery in the app. Once you click on connect, it will bring out the list of the wallets which support `HTTP/POST` or `WC/RPC` method.
+To connect with wallets, there is native wallet discovery in the app. After you click on connect, it brings out the list of the wallets which support `HTTP/POST` or `WC/RPC` method.
 
-### FCL Config[​](#fcl-config "Direct link to FCL Config")
+### FCL config[​](#fcl-config "Direct link to FCL config")
 
-To make sure, the wallet can recognise your dApp, there is a few field you will need to config before connect to a wallet. The account proof config is optional. In addition, you will need to create a project id from [walletconnect](https://cloud.walletconnect.com/app) cloud before you can connect to the `WC/RPC` compatible wallet such as [Flow Wallet](https://wallet.flow.com/).
+To make sure the wallet can recognise your dApp, there are a few fields you need to configure before you connect to a wallet. The account proof config is optional. In addition, you'll need to create a project id from [walletconnect](https://cloud.walletconnect.com/app) cloud before you can connect to the `WC/RPC` compatible wallet such as [Flow Wallet](https://wallet.flow.com/).
 
 `_29
 
@@ -150632,13 +150638,13 @@ _29
 
 ![In Monster Maker, the Connect button triggers opening of Wallet Discovery](/assets/images/connect-08ebc29173f26df99bcad8a5249451de.png)
 
-In Monster Maker, the Connect button triggers opening of Wallet Discovery
+In Monster Maker, click `Connect` to open Wallet Discovery
 
-For the wallet support `HTTP/POST`, it will use webview to show the following actions.
+For the wallet support `HTTP/POST`, it uses webview to show the following actions.
 
-For the wallet support `WC/RPC`, it will use deep-link to the wallet for actions.
+For the wallet support `WC/RPC`, it uses deep-link to the wallet for actions.
 
-You can open the native wallet discovery to make the selection, but also you can connect to the specific wallet as well.
+You can open the native wallet discovery to make the selection, but you can also connect to the specific wallet.
 
 Here is the code snippet of it:
 
@@ -150670,13 +150676,13 @@ _10
 
 try await fcl.authenticate()`
 
-## Signing a Transaction[​](#signing-a-transaction "Direct link to Signing a Transaction")
+## Signing a transaction[​](#signing-a-transaction "Direct link to Signing a transaction")
 
 ![In Monster Maker, Initializing the NFT collection with the Initialize button triggers a transaction.](/assets/images/initialize-741f992eddc54e2734901a8fe3954b89.png)
 
-In Monster Maker, Initializing the NFT collection with the Initialize button triggers a transaction.
+In Monster Maker, click `Initialize` to initialize the NFT colelction. This triggers a transaction.
 
-Similar to what we have on fcl-js, native sdk also use `query` and `mutate` for onchain interactions. To request a signature from user, you can simply use `fcl.mutate` method. By default, the user will be the payer, proposer and authorizer, if you want to add custom authorizer please refer to the code from [Server](https://github.com/onflow/monster-maker/blob/main/server/pages/api/signAsMinter/index.ts) and [iOS](https://github.com/onflow/monster-maker/blob/main/iOS/MonsterMaker/Flow/MintHelper.swift) end.
+Similar to what we have on fcl-js, native sdk also use `query` and `mutate` for onchain interactions. To request a signature from user, you can simply use `fcl.mutate` method. By default, the user is the payer, proposer and authorizer. If you want to add custom authorizer refer to the code from [Server](https://github.com/onflow/monster-maker/blob/main/server/pages/api/signAsMinter/index.ts) and [iOS](https://github.com/onflow/monster-maker/blob/main/iOS/MonsterMaker/Flow/MintHelper.swift) end.
 
 `_23
 
@@ -151080,7 +151086,7 @@ _10
 
 .decode([NFTModel].self)`
 
-# External Resources
+# External resources
 
 **FCL Swift**
 
@@ -151100,16 +151106,16 @@ One of the easiest ways to connect to a wallet via a mobile native dApp is throu
 
 [FCL Wallet Connect](/build/tools/clients/fcl-js/wallet-connect)
 
-**How to Build a Native iOS Dapp**
+**How to build a native iOS dapp**
 
-The Agile Monkeys has written a very comprehensive guide on how to build a native mobile application on iOS and interface with fcl-swift. Found here:
+The Agile Monkeys wrote a very comprehensive guide on how to build a native mobile application on iOS and interface with fcl-swift, which you can view with the link below:
 
 [How to Build a Native iOS Dapper](https://dev.to/theagilemonkeys/how-to-buid-a-native-ios-dapp-that-uses-the-flow-blockchain-as-the-backend-n9k)
 [Source Code](https://github.com/jfsagasti/FlowNotes)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/mobile/ios-quickstart.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Nov 4, 2025** by **cshannon1218**
 
 [Previous
 
@@ -151123,8 +151129,8 @@ React Native Development](/blockchain-development-tutorials/cadence/mobile/react
 
 Copy as Markdown
 
-* [Github Repo](#github-repo)* [Building to Device](#building-to-device)* [Connecting to a Wallet](#connecting-to-a-wallet)
-      + [FCL Config](#fcl-config)+ [Open wallet discovery](#open-wallet-discovery)* [Signing a Transaction](#signing-a-transaction)* [View NFT](#view-nft)
+* [Github repo](#github-repo)* [Build to device](#build-to-device)* [Connecting to a wallet](#connecting-to-a-wallet)
+      + [FCL config](#fcl-config)+ [Open wallet discovery](#open-wallet-discovery)* [Signing a transaction](#signing-a-transaction)* [View NFT](#view-nft)
 
 Flow
 
@@ -241030,6 +241036,8 @@ getCollection | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -243028,6 +243036,8 @@ send | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -243036,131 +243046,37 @@ Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https
 
 Search
 
-* [Why Flow](/build/flow)
-* [Cadence](/build/cadence/quickstart)
+* [Why Flow](/build/flow)* [Cadence](/build/cadence/quickstart)
 
-  + [Quickstart ↙](/build/cadence/quickstart)
-  + [Differences vs. EVM](/build/cadence/differences-vs-evm)
-  + [Basics](/build/cadence/basics/network-architecture)
-  + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
-  + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
-  + [Core Smart Contracts](/build/cadence/core-contracts)
-* [Solidity (EVM)](/build/evm/quickstart)
+    + [Quickstart ↙](/build/cadence/quickstart)+ [Differences vs. EVM](/build/cadence/differences-vs-evm)+ [Basics](/build/cadence/basics/network-architecture)
 
-  + [EVM Quickstart](/build/evm/quickstart)
-  + [How it Works](/build/evm/how-it-works)
-  + [EVM Wallet Setup](/build/evm/using)
-  + [Network Information](/build/evm/networks)
-  + [Fees](/build/evm/fees)
-  + [Accounts](/build/evm/accounts)
-* [Tools & SDKs](/build/tools)
+          + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
 
-  + [@onflow/react-sdk](/build/tools/react-sdk)
-  + [Flow Emulator](/build/tools/emulator)
-  + [Flow CLI](/build/tools/flow-cli)
-  + [Cadence VS Code Extension](/build/tools/vscode-extension)
-  + [Flow Dev Wallet](/build/tools/flow-dev-wallet)
-  + [Client Tools](/build/tools/clients)
+            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
 
-    - [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
+              + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
 
-      * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
+      + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
 
-        + [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
-        + [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
+        + [Flow React SDK](/build/tools/react-sdk)
 
-          - [account](/build/tools/clients/fcl-js/packages-docs/sdk/account)
-          - [arg](/build/tools/clients/fcl-js/packages-docs/sdk/arg)
-          - [args](/build/tools/clients/fcl-js/packages-docs/sdk/args)
-          - [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockHeight)
-          - [atBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockId)
-          - [atLatestBlock](/build/tools/clients/fcl-js/packages-docs/sdk/atLatestBlock)
-          - [authorization](/build/tools/clients/fcl-js/packages-docs/sdk/authorization)
-          - [authorizations](/build/tools/clients/fcl-js/packages-docs/sdk/authorizations)
-          - [block](/build/tools/clients/fcl-js/packages-docs/sdk/block)
-          - [build](/build/tools/clients/fcl-js/packages-docs/sdk/build)
-          - [cadence](/build/tools/clients/fcl-js/packages-docs/sdk/cadence)
-          - [cdc](/build/tools/clients/fcl-js/packages-docs/sdk/cdc)
-          - [config](/build/tools/clients/fcl-js/packages-docs/sdk/config)
-          - [createSdkClient](/build/tools/clients/fcl-js/packages-docs/sdk/createSdkClient)
-          - [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/createSignableVoucher)
-          - [decode](/build/tools/clients/fcl-js/packages-docs/sdk/decode)
-          - [destroy](/build/tools/clients/fcl-js/packages-docs/sdk/destroy)
-          - [encodeMessageFromSignable](/build/tools/clients/fcl-js/packages-docs/sdk/encodeMessageFromSignable)
-          - [encodeTransactionEnvelope](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionEnvelope)
-          - [encodeTransactionPayload](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionPayload)
-          - [encodeTxIdFromVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher)
-          - [get](/build/tools/clients/fcl-js/packages-docs/sdk/get)
-          - [getAccount](/build/tools/clients/fcl-js/packages-docs/sdk/getAccount)
-          - [getBlock](/build/tools/clients/fcl-js/packages-docs/sdk/getBlock)
-          - [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/sdk/getBlockHeader)
-          - [getCollection](/build/tools/clients/fcl-js/packages-docs/sdk/getCollection)
-          - [getEvents](/build/tools/clients/fcl-js/packages-docs/sdk/getEvents)
-          - [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockHeightRange)
-          - [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockIds)
-          - [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/sdk/getNetworkParameters)
-          - [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo)
-          - [getTransaction](/build/tools/clients/fcl-js/packages-docs/sdk/getTransaction)
-          - [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/sdk/getTransactionStatus)
-          - [initInteraction](/build/tools/clients/fcl-js/packages-docs/sdk/initInteraction)
-          - [interaction](/build/tools/clients/fcl-js/packages-docs/sdk/interaction)
-          - [isBad](/build/tools/clients/fcl-js/packages-docs/sdk/isBad)
-          - [isOk](/build/tools/clients/fcl-js/packages-docs/sdk/isOk)
-          - [limit](/build/tools/clients/fcl-js/packages-docs/sdk/limit)
-          - [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/nodeVersionInfo)
-          - [param](/build/tools/clients/fcl-js/packages-docs/sdk/param)
-          - [params](/build/tools/clients/fcl-js/packages-docs/sdk/params)
-          - [payer](/build/tools/clients/fcl-js/packages-docs/sdk/payer)
-          - [ping](/build/tools/clients/fcl-js/packages-docs/sdk/ping)
-          - [pipe](/build/tools/clients/fcl-js/packages-docs/sdk/pipe)
-          - [proposer](/build/tools/clients/fcl-js/packages-docs/sdk/proposer)
-          - [put](/build/tools/clients/fcl-js/packages-docs/sdk/put)
-          - [ref](/build/tools/clients/fcl-js/packages-docs/sdk/ref)
-          - [resolve](/build/tools/clients/fcl-js/packages-docs/sdk/resolve)
-          - [resolveAccounts](/build/tools/clients/fcl-js/packages-docs/sdk/resolveAccounts)
-          - [resolveArguments](/build/tools/clients/fcl-js/packages-docs/sdk/resolveArguments)
-          - [resolveCadence](/build/tools/clients/fcl-js/packages-docs/sdk/resolveCadence)
-          - [resolveFinalNormalization](/build/tools/clients/fcl-js/packages-docs/sdk/resolveFinalNormalization)
-          - [resolveProposerSequenceNumber](/build/tools/clients/fcl-js/packages-docs/sdk/resolveProposerSequenceNumber)
-          - [resolveRefBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/resolveRefBlockId)
-          - [resolveSignatures](/build/tools/clients/fcl-js/packages-docs/sdk/resolveSignatures)
-          - [resolveValidators](/build/tools/clients/fcl-js/packages-docs/sdk/resolveValidators)
-          - [resolveVoucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/resolveVoucherIntercept)
-          - [response](/build/tools/clients/fcl-js/packages-docs/sdk/response)
-          - [script](/build/tools/clients/fcl-js/packages-docs/sdk/script)
-          - [send](/build/tools/clients/fcl-js/packages-docs/sdk/send)
-          - [subscribe](/build/tools/clients/fcl-js/packages-docs/sdk/subscribe)
-          - [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeEvents)
-          - [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeRaw)
-          - [TestUtils](/build/tools/clients/fcl-js/packages-docs/sdk/testUtils)
-          - [transaction](/build/tools/clients/fcl-js/packages-docs/sdk/transaction)
-          - [update](/build/tools/clients/fcl-js/packages-docs/sdk/update)
-          - [validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)
-          - [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/voucherIntercept)
-          - [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/sdk/voucherToTxId)
-          - [why](/build/tools/clients/fcl-js/packages-docs/sdk/why)
-        + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)
-      * [Authentication](/build/tools/clients/fcl-js/authentication)
-      * [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)
-      * [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
-      * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)
-      * [Installation](/build/tools/clients/fcl-js/installation)
-      * [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)
-      * [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)
-      * [Scripts](/build/tools/clients/fcl-js/scripts)
-      * [Transactions](/build/tools/clients/fcl-js/transactions)
-      * [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)
-      * [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)
-    - [Flow Go SDK](/build/tools/clients/flow-go-sdk)
-  + [Error Codes](/build/tools/error-codes)
-  + [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+          + [Flow Emulator](/build/tools/emulator)+ [Flow CLI](/build/tools/flow-cli)
 
-* [Tools & SDKs](/build/tools)
-* [Client Tools](/build/tools/clients)
-* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
-* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
-* [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
-* send
+              + [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+
+                    - [Flow Client Library (FCL)](/build/tools/clients/fcl-js)
+
+                      * [Packages Docs](/build/tools/clients/fcl-js/packages-docs)
+
+                        + [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)
+
+                          + [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)
+
+                            - [account](/build/tools/clients/fcl-js/packages-docs/sdk/account)- [arg](/build/tools/clients/fcl-js/packages-docs/sdk/arg)- [args](/build/tools/clients/fcl-js/packages-docs/sdk/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockId)- [atLatestBlock](/build/tools/clients/fcl-js/packages-docs/sdk/atLatestBlock)- [authorization](/build/tools/clients/fcl-js/packages-docs/sdk/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/sdk/authorizations)- [block](/build/tools/clients/fcl-js/packages-docs/sdk/block)- [build](/build/tools/clients/fcl-js/packages-docs/sdk/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/sdk/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/sdk/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/sdk/config)- [createSdkClient](/build/tools/clients/fcl-js/packages-docs/sdk/createSdkClient)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/createSignableVoucher)- [decode](/build/tools/clients/fcl-js/packages-docs/sdk/decode)- [destroy](/build/tools/clients/fcl-js/packages-docs/sdk/destroy)- [encodeMessageFromSignable](/build/tools/clients/fcl-js/packages-docs/sdk/encodeMessageFromSignable)- [encodeTransactionEnvelope](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionEnvelope)- [encodeTransactionPayload](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionPayload)- [encodeTxIdFromVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher)- [get](/build/tools/clients/fcl-js/packages-docs/sdk/get)- [getAccount](/build/tools/clients/fcl-js/packages-docs/sdk/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/sdk/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/sdk/getBlockHeader)- [getCollection](/build/tools/clients/fcl-js/packages-docs/sdk/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/sdk/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/sdk/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/sdk/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/sdk/getTransactionStatus)- [initInteraction](/build/tools/clients/fcl-js/packages-docs/sdk/initInteraction)- [interaction](/build/tools/clients/fcl-js/packages-docs/sdk/interaction)- [isBad](/build/tools/clients/fcl-js/packages-docs/sdk/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/sdk/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/sdk/limit)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/sdk/param)- [params](/build/tools/clients/fcl-js/packages-docs/sdk/params)- [payer](/build/tools/clients/fcl-js/packages-docs/sdk/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/sdk/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/sdk/pipe)- [proposer](/build/tools/clients/fcl-js/packages-docs/sdk/proposer)- [put](/build/tools/clients/fcl-js/packages-docs/sdk/put)- [ref](/build/tools/clients/fcl-js/packages-docs/sdk/ref)- [resolve](/build/tools/clients/fcl-js/packages-docs/sdk/resolve)- [resolveAccounts](/build/tools/clients/fcl-js/packages-docs/sdk/resolveAccounts)- [resolveArguments](/build/tools/clients/fcl-js/packages-docs/sdk/resolveArguments)- [resolveCadence](/build/tools/clients/fcl-js/packages-docs/sdk/resolveCadence)- [resolveFinalNormalization](/build/tools/clients/fcl-js/packages-docs/sdk/resolveFinalNormalization)- [resolveProposerSequenceNumber](/build/tools/clients/fcl-js/packages-docs/sdk/resolveProposerSequenceNumber)- [resolveRefBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/resolveRefBlockId)- [resolveSignatures](/build/tools/clients/fcl-js/packages-docs/sdk/resolveSignatures)- [resolveValidators](/build/tools/clients/fcl-js/packages-docs/sdk/resolveValidators)- [resolveVoucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/resolveVoucherIntercept)- [response](/build/tools/clients/fcl-js/packages-docs/sdk/response)- [script](/build/tools/clients/fcl-js/packages-docs/sdk/script)- [send](/build/tools/clients/fcl-js/packages-docs/sdk/send)- [subscribe](/build/tools/clients/fcl-js/packages-docs/sdk/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeRaw)- [TestUtils](/build/tools/clients/fcl-js/packages-docs/sdk/testUtils)- [transaction](/build/tools/clients/fcl-js/packages-docs/sdk/transaction)- [update](/build/tools/clients/fcl-js/packages-docs/sdk/update)- [validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/sdk/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/sdk/why)+ [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
+
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+
+* * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)* send
 
 On this page
 
@@ -243312,62 +243228,30 @@ subscribe](/build/tools/clients/fcl-js/packages-docs/sdk/subscribe)
 
 Copy as Markdown
 
-* [Import](#import)
-* [Usage](#usage)
-* [Parameters](#parameters)
-  + [`args` (optional)](#args-optional)
-  + [`opts` (optional)](#opts-optional)
-* [Returns](#returns)
+* [Import](#import)* [Usage](#usage)* [Parameters](#parameters)
+      + [`args` (optional)](#args-optional)+ [`opts` (optional)](#opts-optional)* [Returns](#returns)
 
-Documentation
+Flow
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)
-* [Tools & SDKs](/build/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/blockchain-development-tutorials/cadence/mobile)
-* [FCL](/build/tools/clients/fcl-js)
-* [Testing](/build/cadence/smart-contracts/testing)
-* [CLI](/build/tools/flow-cli)
-* [Emulator](/build/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/build/tools/vscode-extension)
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
 
-Community
+Cadence
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
 
-Start Building
+Solidity (EVM)
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/cadence/core-contracts)
-* [EVM](/build/evm/quickstart)
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
 
-Network
+Community & Support
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)
-* [Node Operation](/protocol/node-ops)
-* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
 
-More
+Network & Resources
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
+Copyright © 2025 Flow Foundation. All Rights Reserved.
 
 
 
@@ -323279,6 +323163,8 @@ proposer | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -323299,7 +323185,7 @@ Search
 
       + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
 
-        + [@onflow/react-sdk](/build/tools/react-sdk)
+        + [Flow React SDK](/build/tools/react-sdk)
 
           + [Flow Emulator](/build/tools/emulator)+ [Flow CLI](/build/tools/flow-cli)
 
@@ -323338,31 +323224,31 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as sdk from '@onflow/sdk';
+import * as sdk from "@onflow/sdk"
 
 _10
 
 _10
 
-sdk.proposer(authz);`
+sdk.proposer(authz)`
 
 Or import directly the specific function:
 
 `_10
 
-import { proposer } from '@onflow/sdk';
+import { proposer } from "@onflow/sdk"
 
 _10
 
 _10
 
-proposer(authz);`
+proposer(authz)`
 
 ## Usage[​](#usage "Direct link to Usage")
 
 `` _28
 
-import * as fcl from '@onflow/fcl';
+import * as fcl from "@onflow/fcl";
 
 _28
 
@@ -323404,7 +323290,7 @@ _28
 
 _28
 
-proposer: fcl.authz,
+proposer: fcl.authz
 
 _28
 
@@ -323462,7 +323348,7 @@ fcl.authorizations([authorizerAuthz]),
 
 _28
 
-fcl.limit(100),
+fcl.limit(100)
 
 _28
 
@@ -323484,7 +323370,7 @@ _10
 
 _10
 
-| Partial<InteractionAccount>;`
+| Partial<InteractionAccount>`
 
 * Description: The authorization object for the proposer
 
@@ -323498,7 +323384,7 @@ A function that takes an interaction object and returns a new interaction object
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/proposer.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Oct 22, 2025** by **Michael Fabozzi**
 
 [Previous
 
@@ -323515,27 +323401,27 @@ Copy as Markdown
 * [Import](#import)* [Usage](#usage)* [Parameters](#parameters)
       + [`authz`](#authz)* [Returns](#returns)
 
-Documentation
+Flow
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
 
-Community
+Cadence
 
-* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
 
-Start Building
+Solidity (EVM)
 
-* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
 
-Network
+Community & Support
 
-* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
 
-More
+Network & Resources
 
-* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
+Copyright © 2025 Flow Foundation. All Rights Reserved.
 
 
 
@@ -343697,11 +343583,11 @@ Flow Data Sources is a comprehensive repository that automatically aggregates an
 
 The repository contains Python scripts that:
 
-* Crawl Flow-related documentation sites, GitHub repositories, and discussions
-* Convert HTML content to Markdown format
-* Extract code examples from GitHub repositories
-* Capture community discussions and Q&A content
-* Merge all content into consolidated files for easy consumption
+* Crawl Flow-related documentation sites, GitHub repositories, and discussions.
+* Convert HTML content to Markdown format.
+* Extract code examples from GitHub repositories.
+* Capture community discussions and Q&A content.
+* Merge all content into consolidated files for easy consumption.
 
 Flow Data Sources automatically pulls content from:
 
@@ -343715,10 +343601,10 @@ Flow Data Sources automatically pulls content from:
 
 ## Key Features[​](#key-features "Direct link to Key Features")
 
-* **Daily Updates**: Content is automatically refreshed to ensure the latest information
-* **Structured Format**: All content is converted to Markdown for consistent processing
-* **Comprehensive Coverage**: Includes official documentation, code examples, and community discussions
-* **Optimized for AI**: Designed specifically for AI tools, chatbots, and RAG pipelines
+* **Daily Updates**: Content is automatically refreshed to ensure the latest information.
+* **Structured Format**: All content is converted to Markdown for consistent processing.
+* **Comprehensive Coverage**: Includes official documentation, code examples, and community discussions.
+* **Optimized for AI**: Designed specifically for AI tools, chatbots, and RAG pipelines.
 
 ## Available Files[​](#available-files "Direct link to Available Files")
 
@@ -343732,33 +343618,33 @@ The repository provides several merged documentation files optimized for differe
 
 ### All Merged Documentation[​](#all-merged-documentation "Direct link to All Merged Documentation")
 
-* **File**: [all\_merged.md](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/all_merged.md)
-* **Content**: Complete comprehensive documentation covering all aspects of Flow development
-* **Use Case**: Most comprehensive knowledge base for AI tools and complex development questions
-* **Size**: Very large file - may require powerful systems for processing
+* **File**: [all\_merged.md](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/all_merged.md).
+* **Content**: Complete comprehensive documentation covering all aspects of Flow development.
+* **Use Case**: Most comprehensive knowledge base for AI tools and complex development questions.
+* **Size**: Very large file - may require powerful systems for processing.
 
 ### Essentials Merged Documentation[​](#essentials-merged-documentation "Direct link to Essentials Merged Documentation")
 
 * **File**: [essentials\_merged.md](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/essentials_merged.md)
-* **Content**: Core Flow and Cadence development essentials
-* **Use Case**: Lighter alternative for systems with resource constraints
-* **Size**: Smaller, more focused content for essential development needs
+* **Content**: Core Flow and Cadence development essentials.
+* **Use Case**: Lighter alternative for systems with resource constraints.
+* **Size**: Smaller, more focused content for essential development needs.
 
 ### Cadence Only Documentation[​](#cadence-only-documentation "Direct link to Cadence Only Documentation")
 
 * **File**: [cadence\_docs\_merged.md](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/cadence_docs_merged.md)
-* **Content**: Streamlined version only including Cadence related documentation and sample codes
-* **Use Case**: Focused on Cadence language development and smart contracts
-* **Size**: Cadence-specific content for specialized development needs
+* **Content**: Streamlined version only including Cadence related documentation and sample codes.
+* **Use Case**: Focused on Cadence language development and smart contracts.
+* **Size**: Cadence-specific content for specialized development needs.
 
 ## How to Use[​](#how-to-use "Direct link to How to Use")
 
-Flow Data Sources can be integrated with:
+You can integrate Flow Data Sources with:
 
-* **ChatGPT Plugins**: Enhance Q&A capabilities with Flow-specific knowledge
-* **Custom Chatbots**: Power Discord/Telegram bots with accurate Flow information
-* **RAG Systems**: Index content in vector databases for semantic search
-* **Development Tools**: Provide context-aware assistance in IDEs like Cursor
+* **ChatGPT Plugins**: Enhance Q&A capabilities with Flow-specific knowledge.
+* **Custom Chatbots**: Power Discord/Telegram bots with accurate Flow information.
+* **RAG Systems**: Index content in vector databases for semantic search.
+* **Development Tools**: Provide context-aware assistance in IDEs like Cursor.
 
 ## Integration with AI Tools[​](#integration-with-ai-tools "Direct link to Integration with AI Tools")
 
@@ -343812,14 +343698,14 @@ For integration with AI tools like Cursor or ChatGPT, use the appropriate URL as
 
 1. **Identify Your Use Case**: Determine whether you need comprehensive or essential documentation coverage
 2. **Choose Your AI Tool**: Select the AI platform you want to integrate with Flow Data Sources
-3. **Follow Integration Guides**: Use the specific tutorial for your chosen AI tool (ChatGPT, Gemini, Cursor, Claude Code, etc.)
-4. **Test and Validate**: Verify the integration works by asking Flow-specific development questions
+3. **Follow Integration Guides**: Use the specific tutorial for your chosen AI tool (ChatGPT, Gemini, Cursor, Claude Code, and so on.)
+4. **Test and Validate**: Ask Flow-specific development questions to verify that the integration works.
 
-The Flow Data Sources repository represents a powerful resource for enhancing AI-assisted Flow development, providing comprehensive and current knowledge that adapts to the rapidly evolving Flow ecosystem.
+The Flow Data Sources repository represents a powerful resource to enhance AI-assisted Flow development, and provides comprehensive and current knowledge that adapts to the rapidly evolving Flow ecosystem.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor/flow-data-sources.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Nov 3, 2025** by **cshannon1218**
 
 [Previous
 
@@ -417922,7 +417808,7 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
-# Source: https://developers.flow.com
+# Source: https://developers.flow.com/
 
 Flow Developer Portal
 
@@ -430582,12 +430468,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **99a06aa40895d883**
+Cloudflare Ray ID: **99a8aa00595eddb3**
 •
 
 Your IP:
 Click to reveal
-172.184.211.244
+57.151.137.179
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 
