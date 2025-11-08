@@ -46,13 +46,15 @@ On this page
 
 # AI Agents
 
-AI agents represent the next evolution in blockchain interaction, combining artificial intelligence with blockchain capabilities to create autonomous systems that can execute complex tasks, interact with smart contracts, and automate workflows. This section explores how to build intelligent agents that leverage Flow's unique features to create powerful, self-directing blockchain applications.
+## Overview[​](#overview "Direct link to Overview")
 
-Unlike traditional chatbots or simple AI assistants, blockchain AI agents can autonomously execute transactions, manage digital assets, interact with DeFi protocols, and coordinate complex multi-step operations across the Flow ecosystem. These agents bridge the gap between AI decision-making and blockchain execution, enabling new forms of automated financial services, gaming mechanics, and decentralized applications.
+AI agents represent the next evolution in blockchain interaction. They combine artificial intelligence with blockchain capabilities to create autonomous systems that can execute complex tasks, interact with smart contracts, and automate workflows. This section explores how to build intelligent agents that leverage Flow's unique features to create powerful, self-directing blockchain applications.
+
+Unlike traditional chatbots or simple AI assistants, blockchain AI agents can autonomously execute transactions, manage digital assets, interact with DeFi protocols, and coordinate complex multi-step operations across the Flow ecosystem. These agents bridge the gap between AI decision-making and blockchain execution, which allows new forms of automated financial services, gaming mechanics, and decentralized applications.
 
 ## [Eliza on Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/eliza)[​](#eliza-on-flow "Direct link to eliza-on-flow")
 
-Learn how to build conversational AI agents on Flow using Eliza, a framework for creating intelligent agents that interact through natural language. Set up agents with customizable personalities, integrate multiple AI models, and connect to Flow's blockchain infrastructure.
+Learn how to build conversational AI agents on Flow using [Eliza](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/eliza), a framework for creating intelligent agents that interact through natural language. Set up agents with customizable personalities, integrate multiple AI models, and connect to Flow's blockchain infrastructure.
 
 ### [Eliza Plugin Development Guide](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/eliza/build-plugin)[​](#eliza-plugin-development-guide "Direct link to eliza-plugin-development-guide")
 
@@ -64,7 +66,7 @@ Create autonomous AI agents that interact with Flow's blockchain using AgentKit.
 
 ## Key Benefits of AI Agents on Flow[​](#key-benefits-of-ai-agents-on-flow "Direct link to Key Benefits of AI Agents on Flow")
 
-**Autonomous Execution**: Agents can independently execute complex blockchain operations without human intervention, from simple token transfers to sophisticated DeFi strategies.
+**Autonomous Execution**: Agents can independently execute complex blockchain operations without human intervention, from simple token transfers to sophisticated decentralized finance (DeFi) strategies.
 
 **Flow-Native Integration**: Leverage Flow's unique multi-role architecture, built-in randomness, and efficient transaction processing for enhanced agent capabilities.
 
@@ -78,11 +80,11 @@ Create autonomous AI agents that interact with Flow's blockchain using AgentKit.
 
 **Conversational Interfaces**: Build Eliza-powered agents that can provide natural language interfaces to Flow applications, helping users navigate complex DeFi protocols or gaming mechanics through conversation.
 
-**Automated Trading**: Build agents that can analyze market conditions, execute trades, and manage portfolios across Flow's DeFi ecosystem while communicating decisions to users.
+**Automated Trading**: Build agents that can analyze market conditions, execute trades, manage portfolios across Flow's DeFi ecosystem, and communicate decisions to users.
 
 **Gaming Automation**: Create intelligent NPCs or automated players that can interact with Flow-based games, manage in-game assets, and execute complex game mechanics with personality-driven responses.
 
-**Portfolio Management**: Develop agents that can automatically rebalance portfolios, compound yields, and optimize asset allocation based on market conditions while providing conversational feedback.
+**Portfolio Management**: Develop agents that can automatically rebalance portfolios, compound yields, optimize asset allocation based on market conditions, and provide conversational feedback.
 
 **Protocol Automation**: Build agents that can interact with complex DeFi protocols, execute arbitrage opportunities, and manage liquidity positions with intelligent decision-making capabilities.
 
@@ -90,11 +92,11 @@ Create autonomous AI agents that interact with Flow's blockchain using AgentKit.
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-AI agents combine artificial intelligence with blockchain capabilities to create autonomous systems on Flow. Whether building conversational agents with Eliza or autonomous systems with AgentKit, these tutorials provide the foundation for creating intelligent blockchain applications that can execute transactions, engage users, and automate complex workflows across the Flow ecosystem.
+AI agents combine artificial intelligence with blockchain capabilities to create autonomous systems on Flow. Whether you want to build conversational agents with Eliza or autonomous systems with AgentKit, these tutorials provide the foundation for you to create intelligent blockchain applications that can execute transactions, engage users, and automate complex workflows across the Flow ecosystem.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/index.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Oct 28, 2025** by **cshannon1218**
 
 [Previous
 
@@ -108,8 +110,8 @@ Eliza on Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/
 
 Copy as Markdown
 
-* [Eliza on Flow](#eliza-on-flow)
-  + [Eliza Plugin Development Guide](#eliza-plugin-development-guide)* [Build Custom AI Agents on Flow with AgentKit](#build-custom-ai-agents-on-flow-with-agentkit)* [Key Benefits of AI Agents on Flow](#key-benefits-of-ai-agents-on-flow)* [Use Cases for AI Agents](#use-cases-for-ai-agents)* [Conclusion](#conclusion)
+* [Overview](#overview)* [Eliza on Flow](#eliza-on-flow)
+    + [Eliza Plugin Development Guide](#eliza-plugin-development-guide)* [Build Custom AI Agents on Flow with AgentKit](#build-custom-ai-agents-on-flow-with-agentkit)* [Key Benefits of AI Agents on Flow](#key-benefits-of-ai-agents-on-flow)* [Use Cases for AI Agents](#use-cases-for-ai-agents)* [Conclusion](#conclusion)
 
 Flow
 

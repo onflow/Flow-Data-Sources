@@ -155504,7 +155504,7 @@ Built-in Functions](/docs/language/built-in-functions)
 
 
 
-# Source: https://cadence-lang.org/docs/language/
+# Source: https://cadence-lang.org/docs/language
 
 The Cadence Programming Language | Cadence
 
@@ -209286,6 +209286,8 @@ Starting Your Nodes | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -248227,15 +248229,15 @@ On this page
 
 # Use Flow Knowledge Base in Cursor
 
-[Cursor](https://www.cursor.com/) is an AI code editor that makes it easy to write code while building Flow apps. This section provides comprehensive guidance on setting up and using Cursor with Flow's extensive documentation ecosystem to enhance your development experience.
+[Cursor](https://www.cursor.com/) is an AI code editor that makes it easy to write code while building Flow apps. This section provides comprehensive guidance on how to set up and use Cursor with Flow's extensive documentation ecosystem to enhance your development experience.
 
 ## Overview[​](#overview "Direct link to Overview")
 
 To get the most out of Cursor for Flow development, you'll need to understand three key components:
 
-1. **Flow Data Sources** - The comprehensive knowledge base that powers AI assistance
-2. **Documentation Indexing** - The process of making Flow documentation available within Cursor
-3. **Cadence Rules** - Persistent AI context that provides specialized Flow development guidance
+1. **Flow Data Sources** - The comprehensive knowledge base that powers AI assistance.
+2. **Documentation Indexing** - The process of making Flow documentation available within Cursor.
+3. **Cadence Rules** - Persistent AI context that provides specialized Flow development guidance.
 
 ## [Flow Data Sources](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor/flow-data-sources)[​](#flow-data-sources "Direct link to flow-data-sources")
 
@@ -248243,22 +248245,22 @@ Learn about Flow's comprehensive, auto-generated documentation repository that s
 
 The Flow Data Sources guide covers:
 
-* What Flow Data Sources contains and how it's organized
-* Different file formats available for various use cases
-* Integration strategies with AI tools
-* Best practices for leveraging this knowledge base
+* What Flow Data Sources contains and how it's organized.
+* Different file formats available for various use cases.
+* Integration strategies with AI tools.
+* Best practices for leveraging this knowledge base.
 
 ## [Indexing Flow Documentation in Cursor](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor/indexing-docs)[​](#indexing-flow-documentation-in-cursor "Direct link to indexing-flow-documentation-in-cursor")
 
-Follow the step-by-step process for setting up Flow documentation within Cursor's AI system. This detailed guide walks you through indexing multiple documentation sources to create a comprehensive Flow development environment.
+Follow the step-by-step process for how to set up Flow documentation within Cursor's AI system. This detailed guide walks you through indexing multiple documentation sources to create a comprehensive Flow development environment.
 
 The indexing documentation covers:
 
-* Adding Flow developer documentation to Cursor
-* Integrating Cadence language documentation
-* Including Flow Data Sources for comprehensive coverage
-* Troubleshooting common indexing issues
-* Best practices for using indexed documentation
+* Adding Flow developer documentation to Cursor.
+* Integrating Cadence language documentation.
+* Including Flow Data Sources for comprehensive coverage.
+* Troubleshooting common indexing issues.
+* Best practices for using indexed documentation.
 
 ## [Cadence Rules](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor/cadence-rules)[​](#cadence-rules "Direct link to cadence-rules")
 
@@ -248266,32 +248268,32 @@ Learn how to use Cursor Rules to enhance AI assistance for Cadence and Flow deve
 
 The Cadence Rules guide covers:
 
-* Understanding Cursor Rules and how they provide persistent AI context
-* Five specialized rules for Flow development: NFT standards, syntax patterns, development workflows, project configuration, and user preferences
-* Creating custom rules for your specific Flow development needs
-* Best practices for rule organization and team collaboration
-* Integration with existing Flow development tools and documentation
+* Understanding Cursor Rules and how they provide persistent AI context.
+* Five specialized rules for Flow development: NFT standards, syntax patterns, development workflows, project configuration, and user preferences.
+* Creating custom rules for your specific Flow development needs.
+* Best practices for rule organization and team collaboration.
+* Integration with current Flow development tools and documentation
 
 ## Getting Started[​](#getting-started "Direct link to Getting Started")
 
-1. **Start with Flow Data Sources**: Understand what documentation is available and how it can enhance your development workflow
-2. **Follow the Indexing Guide**: Set up your Cursor environment with comprehensive Flow documentation
-3. **Configure Cadence Rules**: Implement persistent AI context for consistent Flow development assistance
-4. **Practice with Examples**: Use the indexed documentation and rules to build Flow applications with enhanced AI assistance
+1. **Start with Flow Data Sources**: Understand what documentation is available and how it can enhance your development workflow.
+2. **Follow the Indexing Guide**: Set up your Cursor environment with comprehensive Flow documentation.
+3. **Configure Cadence Rules**: Implement persistent AI context for consistent Flow development assistance.
+4. **Practice with Examples**: Use the indexed documentation and rules to build Flow applications with enhanced AI assistance.
 
 ## Best Practices for Cursor + Flow[​](#best-practices-for-cursor--flow "Direct link to Best Practices for Cursor + Flow")
 
-* **Use Specific References**: Target `@Flow`, `@Cadence`, or `@Flow Data Sources` based on your needs
-* **Leverage Cursor Rules**: Apply `@cadence-nft-standards`, `@cadence-syntax-patterns`, or other specialized rules for consistent guidance
-* **Combine Sources**: Leverage multiple documentation sources and rules for comprehensive assistance
-* **Verify AI Output**: Cross-reference generated code with official documentation
+* **Use Specific References**: Target `@Flow`, `@Cadence`, or `@Flow Data Sources` based on your needs.
+* **Leverage Cursor Rules**: Apply `@cadence-nft-standards`, `@cadence-syntax-patterns`, or other specialized rules for consistent guidance.
+* **Combine Sources**: Leverage multiple documentation sources and rules for comprehensive assistance.
+* **Verify AI Output**: Cross-reference generated code with official documentation.
 * **Stay Updated**: Refresh your documentation indexes and rules periodically for current information
 
 This integrated approach combining comprehensive documentation indexing with persistent AI context through Cursor Rules provides you with consistent, accurate, and specialized assistance throughout your Flow development process.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor/index.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Nov 3, 2025** by **cshannon1218**
 
 [Previous
 
@@ -265180,175 +265182,11 @@ On this page
 
 # React SDK Components
 
-## 🎨 Theming[​](#-theming "Direct link to 🎨 Theming")
-
-### How Theming Works[​](#how-theming-works "Direct link to How Theming Works")
-
-All UI components in `@onflow/react-sdk` are styled using [Tailwind CSS](https://tailwindcss.com/) utility classes. The kit supports both light and dark themes out of the box, using Tailwind's `dark:` variant for dark mode styling.
-
-You can customize the look and feel of the kit by providing a custom theme to the `FlowProvider` via the `theme` prop. This allows you to override default colors and styles to better match your app's branding.
-
-`_17
-
-import { FlowProvider } from "@onflow/react-sdk"
-
-_17
-
-_17
-
-<FlowProvider
-
-_17
-
-config={...}
-
-_17
-
-theme={{
-
-_17
-
-colors: {
-
-_17
-
-primary: {
-
-_17
-
-background: "bg-blue-600 dark:bg-blue-400",
-
-_17
-
-text: "text-white dark:text-blue-900",
-
-_17
-
-hover: "hover:bg-blue-700 dark:hover:bg-blue-300",
-
-_17
-
-},
-
-_17
-
-// ...other color overrides
-
-_17
-
-}
-
-_17
-
-}}
-
-_17
-
->
-
-_17
-
-<App />
-
-_17
-
-</FlowProvider>`
-
----
-
-## 🌙 Dark Mode[​](#-dark-mode "Direct link to 🌙 Dark Mode")
-
-### How Dark Mode Works[​](#how-dark-mode-works "Direct link to How Dark Mode Works")
-
-Dark mode is **fully controlled by the parent app** using the `darkMode` prop on `FlowProvider`. The kit does not manage dark mode state internally—this gives you full control and ensures the kit always matches your app's theme.
-
-* `darkMode={false}` (default): Forces all kit components to use light mode styles.
-* `darkMode={true}`: Forces all kit components to use dark mode styles.
-* You can dynamically change the `darkMode` prop to switch themes at runtime.
-
-**Example:**
-
-`_10
-
-function App() {
-
-_10
-
-// Parent app manages dark mode state
-
-_10
-
-const [isDark, setIsDark] = useState(false)
-
-_10
-
-_10
-
-return (
-
-_10
-
-<FlowProvider config={...} darkMode={isDark}>
-
-_10
-
-<MyFlowComponents />
-
-_10
-
-</FlowProvider>
-
-_10
-
-)
-
-_10
-
-}`
-
-**Accessing Dark Mode State in Components:**
-
-You can use the `useDarkMode` hook to check the current mode inside your components:
-
-`_10
-
-import { useDarkMode } from "@onflow/react-sdk"
-
-_10
-
-_10
-
-function MyComponent() {
-
-_10
-
-// useDarkMode only returns the current state, no setter
-
-_10
-
-const { isDark } = useDarkMode()
-
-_10
-
-return <div>{isDark ? "Dark mode" : "Light mode"}</div>
-
-_10
-
-}`
-
-### Notes[​](#notes "Direct link to Notes")
-
-* The kit does **not** automatically follow system preferences or save user choices. You are responsible for managing and passing the correct `darkMode` value.
-* All kit components will automatically apply the correct Tailwind `dark:` classes based on the `darkMode` prop.
-* For best results, ensure your app's global theme and the kit's `darkMode` prop are always in sync.
-
----
-
 ## Components[​](#components "Direct link to Components")
 
 ### `Connect`[​](#connect "Direct link to connect")
 
-A drop-in wallet connection component with UI for copy address, logout, and balance display.
+A drop-in wallet connection component with UI for copy address, logout, and balance display. Displays user scheduled transactions within its profile modal with support for multiple tokens.
 
 [Open in Playground →](https://react.flow.com/#connect)
 
@@ -265358,9 +265196,17 @@ A drop-in wallet connection component with UI for copy address, logout, and bala
 * `onConnect?: () => void` – Callback triggered after successful authentication
 * `onDisconnect?: () => void` – Callback triggered after logout
 * `balanceType?: "cadence" | "evm" | "combined"` – Specifies which balance to display (default: `"cadence"`). Options:
-  + `"cadence"`: Shows the FLOW token balance from the Cadence side
-  + `"evm"`: Shows the FLOW token balance from the Flow EVM side
-  + `"combined"`: Shows the total combined FLOW token balance from both sides
+  + `"cadence"`: Shows the token balance from the Cadence side
+  + `"evm"`: Shows the token balance from the Flow EVM side
+  + `"combined"`: Shows the total combined token balance from both sides
+* `balanceTokens?: TokenConfig[]` – Optional array of token configurations to display in the balance selector. Each `TokenConfig` requires:
+  + `symbol: string` – Token symbol (e.g. "FLOW", "USDC")
+  + `name: string` – Full token name
+  + Either `vaultIdentifier: string` (for Cadence tokens) or `erc20Address: string` (for EVM tokens)
+* `modalConfig?: ConnectModalConfig` – Optional configuration for the profile modal:
+  + `scheduledTransactions.show?: boolean` – Whether to show the scheduled transactions tab (default: `false`)
+  + `scheduledTransactions.filterHandlerTypes?: string[]` – Optional array of handler type identifiers to filter displayed transactions
+* `modalEnabled?: boolean` – Whether to show the profile modal on click when connected (default: `true`). When `false`, clicking the button when connected will disconnect instead
 
 `_10
 
@@ -265384,9 +265230,56 @@ _10
 
 />`
 
-### Live Demo[​](#live-demo "Direct link to Live Demo")
+#### Live Demo[​](#live-demo "Direct link to Live Demo")
 
 
+
+---
+
+### `Profile`[​](#profile "Direct link to profile")
+
+A standalone component for displaying wallet information including account address, balance and optional scheduled transactions.
+
+[Open in Playground →](https://react.flow.com/#profile)
+
+**Props:**
+
+* `onDisconnect?: () => void` – Callback triggered when the user clicks the disconnect button
+* `balanceType?: "cadence" | "evm" | "combined"` – Specifies which balance to display (default: `"cadence"`). Options:
+  + `"cadence"`: Shows the token balance from the Cadence side
+  + `"evm"`: Shows the token balance from the Flow EVM side
+  + `"combined"`: Shows the total combined token balance from both sides
+* `balanceTokens?: TokenConfig[]` – Optional array of token configurations to display in the balance selector. Each `TokenConfig` requires:
+  + `symbol: string` – Token symbol (e.g. "FLOW", "USDC")
+  + `name: string` – Full token name
+  + Either `vaultIdentifier: string` (for Cadence tokens) or `erc20Address: string` (for EVM tokens)
+* `profileConfig?: ProfileConfig` – Optional configuration for the profile display:
+  + `scheduledTransactions.show?: boolean` – Whether to show the scheduled transactions tab (default: `false`)
+  + `scheduledTransactions.filterHandlerTypes?: string[]` – Optional array of handler type identifiers to filter displayed transactions
+* `className?: string` – Optional custom CSS class
+* `style?: React.CSSProperties` – Optional inline styles
+
+`_10
+
+import { Profile } from "@onflow/react-sdk"
+
+_10
+
+_10
+
+<Profile
+
+_10
+
+balanceType="combined"
+
+_10
+
+onDisconnect={() => console.log("User disconnected")}
+
+_10
+
+/>`
 
 ---
 
@@ -265491,7 +265384,7 @@ _23
 
 /> ``
 
-### Live Demo[​](#live-demo-1 "Direct link to Live Demo")
+#### Live Demo[​](#live-demo-1 "Direct link to Live Demo")
 
 
 
@@ -265555,7 +265448,7 @@ _11
 
 />`
 
-### Live Demo[​](#live-demo-2 "Direct link to Live Demo")
+#### Live Demo[​](#live-demo-2 "Direct link to Live Demo")
 
 
 
@@ -265582,11 +265475,343 @@ _10
 
 <TransactionLink txId="your-tx-id" />`
 
-### Live Demo[​](#live-demo-3 "Direct link to Live Demo")
+#### Live Demo[​](#live-demo-3 "Direct link to Live Demo")
+
+
+
+---
+
+### `NftCard`[​](#nftcard "Direct link to nftcard")
+
+A component for rendering a NFT with image, name, description, collection details, traits and external links. Features include loading states, error handling, dark mode support and optional custom actions.
+
+[Open in Playground →](https://react.flow.com/#nftcard)
+
+**Props:**
+
+* `accountAddress: string` – The Flow account address that owns the NFT
+* `tokenId: string | number` – The ID of the NFT
+* `publicPathIdentifier: string` – The public path identifier for the NFT collection (e.g., "A.0b2a3299cc857e29.TopShot.Collection")
+* `showTraits?: boolean` – Whether to display NFT traits/attributes (default: `false`). Shows up to 4 traits with a button to view all
+* `showExtra?: boolean` – Whether to display additional information like serial number, rarity, and external links (default: `false`)
+* `actions?: NftCardAction[]` – Optional array of custom action buttons displayed in a dropdown menu. Each action requires:
+  + `title: string` – Display text for the action
+  + `onClick: () => Promise<void> | void` – Handler function called when action is clicked
+* `className?: string` – Optional custom CSS class
+* `style?: React.CSSProperties` – Optional inline styles
+
+`_23
+
+import { NftCard } from "@onflow/react-sdk"
+
+_23
+
+_23
+
+<NftCard
+
+_23
+
+accountAddress="0x1234567890abcdef"
+
+_23
+
+tokenId="12345"
+
+_23
+
+publicPathIdentifier="A.0b2a3299cc857e29.TopShot.Collection"
+
+_23
+
+showTraits={true}
+
+_23
+
+showExtra={true}
+
+_23
+
+actions={[
+
+_23
+
+{
+
+_23
+
+title: "Transfer NFT",
+
+_23
+
+onClick: async () => {
+
+_23
+
+// Handle transfer logic
+
+_23
+
+}
+
+_23
+
+},
+
+_23
+
+{
+
+_23
+
+title: "List for Sale",
+
+_23
+
+onClick: async () => {
+
+_23
+
+// Handle listing logic
+
+_23
+
+}
+
+_23
+
+}
+
+_23
+
+]}
+
+_23
+
+/>`
+
+---
+
+### `ScheduledTransactionList`[​](#scheduledtransactionlist "Direct link to scheduledtransactionlist")
+
+A component for displaying scheduled transactions for a Flow account. Shows transaction metadata including thumbnails, descriptions, priority, scheduled time, execution effort, fees and provides an optional transaction cancellation functionality.
+
+[Open in Playground →](https://react.flow.com/#scheduledtransactionlist)
+
+**Props:**
+
+* `address: string` – The Flow account address to fetch scheduled transactions for
+* `filterHandlerTypes?: string[]` – Optional array of handler type identifiers to filter which transactions are displayed. Only transactions with matching `handlerTypeIdentifier` will be shown
+* `cancelEnabled?: boolean` – Whether to show the cancel button for transactions (default: `true`)
+* `className?: string` – Optional custom CSS class
+* `style?: React.CSSProperties` – Optional inline styles
+* `flowClient?: UseFlowScheduledTransactionListArgs["flowClient"]` – Optional custom Flow client instance
+
+`_10
+
+import { ScheduledTransactionList } from "@onflow/react-sdk"
+
+_10
+
+_10
+
+<ScheduledTransactionList
+
+_10
+
+address="0x1234567890abcdef"
+
+_10
+
+filterHandlerTypes={[
+
+_10
+
+"A.1234.MyContract.Handler",
+
+_10
+
+"A.5678.OtherContract.Handler"
+
+_10
+
+]}
+
+_10
+
+cancelEnabled={true}
+
+_10
+
+/>`
+
+---
+
+## Theming[​](#theming "Direct link to Theming")
+
+### How Theming Works[​](#how-theming-works "Direct link to How Theming Works")
+
+All UI components in `@onflow/react-sdk` are styled using [Tailwind CSS](https://tailwindcss.com/) utility classes. The kit supports both light and dark themes out of the box, using Tailwind's `dark:` variant for dark mode styling.
+
+You can customize the look and feel of the kit by providing a custom theme to the `FlowProvider` via the `theme` prop. This allows you to override default colors and styles to better match your app's branding.
+
+`_17
+
+import { FlowProvider } from "@onflow/react-sdk"
+
+_17
+
+_17
+
+<FlowProvider
+
+_17
+
+config={...}
+
+_17
+
+theme={{
+
+_17
+
+colors: {
+
+_17
+
+primary: {
+
+_17
+
+background: "bg-blue-600 dark:bg-blue-400",
+
+_17
+
+text: "text-white dark:text-blue-900",
+
+_17
+
+hover: "hover:bg-blue-700 dark:hover:bg-blue-300",
+
+_17
+
+},
+
+_17
+
+// ...other color overrides
+
+_17
+
+}
+
+_17
+
+}}
+
+_17
+
+>
+
+_17
+
+<App />
+
+_17
+
+</FlowProvider>`
+
+---
+
+## Dark Mode[​](#dark-mode "Direct link to Dark Mode")
+
+### How Dark Mode Works[​](#how-dark-mode-works "Direct link to How Dark Mode Works")
+
+Dark mode is **fully controlled by the parent app** using the `darkMode` prop on `FlowProvider`. The kit does not manage dark mode state internally—this gives you full control and ensures the kit always matches your app's theme.
+
+* `darkMode={false}` (default): Forces all kit components to use light mode styles.
+* `darkMode={true}`: Forces all kit components to use dark mode styles.
+* You can dynamically change the `darkMode` prop to switch themes at runtime.
+
+**Example:**
+
+`_10
+
+function App() {
+
+_10
+
+// Parent app manages dark mode state
+
+_10
+
+const [isDark, setIsDark] = useState(false)
+
+_10
+
+_10
+
+return (
+
+_10
+
+<FlowProvider config={...} darkMode={isDark}>
+
+_10
+
+<MyFlowComponents />
+
+_10
+
+</FlowProvider>
+
+_10
+
+)
+
+_10
+
+}`
+
+**Accessing Dark Mode State in Components:**
+
+You can use the `useDarkMode` hook to check the current mode inside your components:
+
+`_10
+
+import { useDarkMode } from "@onflow/react-sdk"
+
+_10
+
+_10
+
+function MyComponent() {
+
+_10
+
+// useDarkMode only returns the current state, no setter
+
+_10
+
+const { isDark } = useDarkMode()
+
+_10
+
+return <div>{isDark ? "Dark mode" : "Light mode"}</div>
+
+_10
+
+}`
+
+#### Notes[​](#notes "Direct link to Notes")
+
+* The kit does **not** automatically follow system preferences or save user choices. You are responsible for managing and passing the correct `darkMode` value.
+* All kit components will automatically apply the correct Tailwind `dark:` classes based on the `darkMode` prop.
+* For best results, ensure your app's global theme and the kit's `darkMode` prop are always in sync.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/react-sdk/components.md)
 
-Last updated on **Oct 7, 2025** by **mfbz**
+Last updated on **Nov 7, 2025** by **Michael Fabozzi**
 
 [Previous
 
@@ -265600,10 +265825,10 @@ Flow Emulator](/build/tools/emulator)
 
 Copy as Markdown
 
-* [🎨 Theming](#-theming)
-  + [How Theming Works](#how-theming-works)* [🌙 Dark Mode](#-dark-mode)
-    + [How Dark Mode Works](#how-dark-mode-works)+ [Notes](#notes)* [Components](#components)
-      + [`Connect`](#connect)+ [Live Demo](#live-demo)+ [`TransactionButton`](#transactionbutton)+ [Live Demo](#live-demo-1)+ [`TransactionDialog`](#transactiondialog)+ [Live Demo](#live-demo-2)+ [`TransactionLink`](#transactionlink)+ [Live Demo](#live-demo-3)
+* [Components](#components)
+  + [`Connect`](#connect)+ [`Profile`](#profile)+ [`TransactionButton`](#transactionbutton)+ [`TransactionDialog`](#transactiondialog)+ [`TransactionLink`](#transactionlink)+ [`NftCard`](#nftcard)+ [`ScheduledTransactionList`](#scheduledtransactionlist)* [Theming](#theming)
+    + [How Theming Works](#how-theming-works)* [Dark Mode](#dark-mode)
+      + [How Dark Mode Works](#how-dark-mode-works)
 
 Flow
 
@@ -314699,6 +314924,8 @@ Transaction statuses | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -315743,22 +315970,24 @@ On this page
 
 # Eliza Plugin Development Guide
 
-Plugins are a powerful way to extend the functionality of your Eliza AI agents. This guide will walk you through the process of creating custom plugins that can enhance your agent's capabilities, from simple utilities to complex integrations with external services. You'll learn how to leverage the plugin system to create modular and reusable components for your AI agents.
+## Overview[​](#overview "Direct link to Overview")
+
+Plugins are a powerful way to extend the functionality of your Eliza AI agents. This guide will walk you through the process of how to create custom plugins that can enhance your agent's capabilities, from simple utilities to complex integrations with external services. You'll learn how to leverage the plugin system to create modular and reusable components for your AI agents.
 
 ## Learning Objectives[​](#learning-objectives "Direct link to Learning Objectives")
 
-By the end of this tutorial, you will be able to:
+After you complete this tutorial, you will be able to:
 
-* Create a new plugin repository from the template
-* Understand the plugin development workflow
-* Implement custom actions and services
-* Integrate plugins with your Eliza agent
-* Register and publish plugins to the Eliza Plugin Registry
-* Use dependency injection for better plugin architecture
+* Create a new plugin repository from the template.
+* Understand the plugin development workflow.
+* Implement custom actions and services.
+* Integrate plugins with your Eliza agent.
+* Register and publish plugins to the Eliza Plugin Registry.
+* Use dependency injection for better plugin architecture.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-Before getting started with Eliza, ensure you have:
+Before you get started with Eliza, make sure you have:
 
 * [Node.js 23+](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) (using [nvm](https://github.com/nvm-sh/nvm) is recommended)
 * [pnpm 9+](https://pnpm.io/installation)
@@ -315770,17 +315999,19 @@ Before getting started with Eliza, ensure you have:
 
 ## Quickstart[​](#quickstart "Direct link to Quickstart")
 
-Please follow the [Quickstart Guide](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/eliza) to set up your development environment.
+Follow the [Quickstart Guide](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/eliza) to set up your development environment.
 
 ## Plugin Development[​](#plugin-development "Direct link to Plugin Development")
 
 ### Create a Plugin repository from Template[​](#create-a-plugin-repository-from-template "Direct link to Create a Plugin repository from Template")
 
-Visit [Eliza Plugin Template](https://github.com/onflow/eliza-plugin-template) and click on the "Use this template" button to create a new repository.
+Visit [Eliza Plugin Template](https://github.com/onflow/eliza-plugin-template) and click "Use this template" to create a new repository.
 
-Or you can create a new empty repository and copy the files from some examples at [Eliza Plugins](https://github.com/elizaos-plugins) organization.
+Or, you can create a new empty repository and copy the files from some examples at the [Eliza Plugins](https://github.com/elizaos-plugins) organization.
 
-> Note: Flow's Eliza plugin template is using Dependency Injection(`@elizaos-plugins/plugin-di`), you can learn more about the Dependency Injection in the [plugin's README.md](https://github.com/fixes-world/plugin-di). It allows you can use `Class` instead of `Object` for your `Actions`, `Providers`, `Services`, and etc. **If you don't want to use it, you can follow the other examples in Eliza Plugins organiazation.**
+note
+
+Flow's Eliza plugin template uses Dependency Injection(`@elizaos-plugins/plugin-di`). You can learn more about the Dependency Injection in the [plugin's README.md](https://github.com/fixes-world/plugin-di). It allows you can use `Class` instead of `Object` for your `Actions`, `Providers`, `Services`, and so on. **If you don't want to use it, you can follow the other examples in Eliza Plugins organiazation.**
 
 ### Add the Plugin repository to your Eliza project[​](#add-the-plugin-repository-to-your-eliza-project "Direct link to Add the Plugin repository to your Eliza project")
 
@@ -315812,7 +316043,7 @@ Add the plugin to agent's `package.json`
 
 pnpm add @elizaos-plugins/plugin-foo@'workspace:*' --filter ./agent`
 
-Check the `agent/package.json` to ensure the plugin is added, you should see something like this:
+Check the `agent/package.json` to make sure the plugin is added. You'll see something like this:
 
 `_10
 
@@ -315836,7 +316067,7 @@ _10
 
 ### Build the Plugin[​](#build-the-plugin "Direct link to Build the Plugin")
 
-Build the plugin using the following command:
+Build the plugin with the following command:
 
 `_10
 
@@ -315882,7 +316113,7 @@ _10
 
 warning
 
-If you are using Dependency Injection(`@elizaos-plugins/plugin-di`) in your plugin, remember to add it to the `postProcessors` field. And **`clients` field is deprecated** in the latest version of Eliza, so if you want to add clients you also need to use `plugins` field.
+If you use Dependency Injection(`@elizaos-plugins/plugin-di`) in your plugin, remember to add it to the `postProcessors` field. And **`clients` field is deprecated** in the latest version of Eliza, so if you want to add clients, you also need to use `plugins` field.
 
 `_10
 
@@ -315956,7 +316187,7 @@ pnpm start:client`
 
 You need to register your plugin in the [Eliza Plugin Registry](https://github.com/elizaos-plugins/registry) to make it available for other users.
 
-Please follow the guide there, modify the [index.json](https://github.com/elizaos-plugins/registry/blob/main/index.json) and submit a PR to the registry repository.
+Follow the guide there, modify the [index.json](https://github.com/elizaos-plugins/registry/blob/main/index.json) file, and submit a pull request (PR) to the registry repository.
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
@@ -315966,7 +316197,7 @@ Eliza's plugin system provides a powerful way to extend the functionality of you
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/eliza/build-plugin.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Oct 28, 2025** by **cshannon1218**
 
 [Previous
 
@@ -315980,8 +316211,8 @@ Using AgentKit on Flow](/blockchain-development-tutorials/use-AI-to-build-on-flo
 
 Copy as Markdown
 
-* [Learning Objectives](#learning-objectives)* [Prerequisites](#prerequisites)* [Quickstart](#quickstart)* [Plugin Development](#plugin-development)
-        + [Create a Plugin repository from Template](#create-a-plugin-repository-from-template)+ [Add the Plugin repository to your Eliza project](#add-the-plugin-repository-to-your-eliza-project)+ [Build the Plugin](#build-the-plugin)+ [Add Plugin to the `character.json` you want to use](#add-plugin-to-the-characterjson-you-want-to-use)+ [Run the Eliza Agent with your Plugin](#run-the-eliza-agent-with-your-plugin)+ [Interact with the Agent](#interact-with-the-agent)* [Plugin Registration](#plugin-registration)* [Conclusion](#conclusion)
+* [Overview](#overview)* [Learning Objectives](#learning-objectives)* [Prerequisites](#prerequisites)* [Quickstart](#quickstart)* [Plugin Development](#plugin-development)
+          + [Create a Plugin repository from Template](#create-a-plugin-repository-from-template)+ [Add the Plugin repository to your Eliza project](#add-the-plugin-repository-to-your-eliza-project)+ [Build the Plugin](#build-the-plugin)+ [Add Plugin to the `character.json` you want to use](#add-plugin-to-the-characterjson-you-want-to-use)+ [Run the Eliza Agent with your Plugin](#run-the-eliza-agent-with-your-plugin)+ [Interact with the Agent](#interact-with-the-agent)* [Plugin Registration](#plugin-registration)* [Conclusion](#conclusion)
 
 Flow
 
@@ -329633,17 +329864,21 @@ On this page
 
 # Flow Client Library (FCL)
 
-## 🌟 What is FCL?[​](#-what-is-fcl "Direct link to 🌟 What is FCL?")
+info
+
+If you're building a frontend, use the [React SDK](/build/tools/react-sdk). If you're familiar with Solidity and the EVM world, the [React SDK] is to wagmi as FCL is to viem.
+
+## What is FCL?[​](#what-is-fcl "Direct link to What is FCL?")
 
 The **Flow Client Library (FCL) JS** is a package designed to facilitate interactions between dapps, wallets, and the Flow blockchain. It provides a standardized way for applications to connect with users and their wallets, **eliminating the need for custom integrations**.
 
-### 🔑 Key Features:[​](#-key-features "Direct link to 🔑 Key Features:")
+### Key Features:[​](#key-features "Direct link to Key Features:")
 
-* 🔌 **Universal Wallet Support** – Works seamlessly with all FCL-compatible wallets, making authentication simple.
-* 🔐 **Secure Authentication** – Standardized authentication flow ensures a smooth user experience.
-* ⚡ **Blockchain Interactions** – Enables querying, mutating, and interacting with smart contracts on Flow.
-* 🛠️ **Full-Featured Utilities** – Offers built-in functions to streamline blockchain development.
-* 🌍 **Flexible Environment** – Can run in both browser and server environments, though wallet interactions are browser-only.
+* **Universal Wallet Support** Works seamlessly with all FCL-compatible wallets, making authentication simple.
+* **Secure Authentication** Standardized authentication flow ensures a smooth user experience.
+* **Blockchain Interactions** Enables querying, mutating, and interacting with smart contracts on Flow.
+* **Full-Featured Utilities** Offers built-in functions to streamline blockchain development.
+* **Flexible Environment** Can run in both browser and server environments, though wallet interactions are browser-only.
 
 FCL was created to make building Flow-connected applications **easy, secure, and scalable** by defining **standardized communication patterns** between wallets, applications, and users.
 
@@ -329970,7 +330205,7 @@ FCL is built **on top of the Flow SDK**, making it easier to handle authenticati
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/index.md)
 
-Last updated on **Sep 24, 2025** by **Felipe Cevallos**
+Last updated on **Nov 6, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -329984,8 +330219,8 @@ Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 
 Copy as Markdown
 
-* [🌟 What is FCL?](#-what-is-fcl)
-  + [🔑 Key Features:](#-key-features)* [Getting Started](#getting-started)
+* [What is FCL?](#what-is-fcl)
+  + [Key Features:](#key-features)* [Getting Started](#getting-started)
     + [Requirements](#requirements)+ [Installation](#installation)* [FCL for Dapps](#fcl-for-dapps)* [Typescript Support](#typescript-support)* [Next Steps](#next-steps)* [FCL for Wallet Providers](#fcl-for-wallet-providers)
             + [Current Wallet Providers](#current-wallet-providers)+ [Wallet Discovery](#wallet-discovery)+ [Building a FCL compatible wallet](#building-a-fcl-compatible-wallet)* [🛠 Want to Use the Flow SDK Directly?](#-want-to-use-the-flow-sdk-directly)* [Support](#support)
 
@@ -343327,22 +343562,24 @@ On this page
 
 # Quickstart Guide to build AI Agent on Flow with Eliza
 
-Eliza is a powerful framework for building AI agents that can interact with users through natural language. This tutorial will guide you through setting up and deploying an AI agent on the Flow blockchain using Eliza. You'll learn how to create intelligent agents that can understand and respond to user queries, while leveraging Flow's secure and scalable infrastructure.
+## Overview[​](#overview "Direct link to Overview")
+
+Eliza is a powerful framework for building AI agents that can interact with users through natural language. This tutorial will guide you through how to set up and deploy an AI agent on the Flow blockchain with Eliza. You'll learn how to create intelligent agents that can understand and respond to user queries, while leveraging Flow's secure and scalable infrastructure.
 
 ## Learning Objectives[​](#learning-objectives "Direct link to Learning Objectives")
 
-By the end of this tutorial, you will be able to:
+After you complete this tutorial, you will be able to:
 
-* Set up the Eliza development environment
-* Configure and deploy an AI agent on Flow
-* Create and customize character configurations
-* Integrate different AI models with your agent
-* Interact with your AI agent through a web interface
-* Add and develop custom plugins for extended functionality
+* Set up the Eliza development environment.
+* Configure and deploy an AI agent on Flow.
+* Create and customize character configurations.
+* Integrate different AI models with your agent.
+* Interact with your AI agent through a web interface.
+* Add and develop custom plugins for extended functionality.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-Before getting started with Eliza, ensure you have:
+Before you get started started with Eliza, make sure you have:
 
 * [Node.js 23+](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) (using [nvm](https://github.com/nvm-sh/nvm) is recommended)
 * [pnpm 9+](https://pnpm.io/installation)
@@ -343389,7 +343626,7 @@ _10
 
 git checkout main`
 
-Or, If you want to use the origin Eliza, please run:
+Or, If you want to use the origin Eliza, run:
 
 `_10
 
@@ -343419,7 +343656,7 @@ _10
 
 git checkout $(git describe --tags --abbrev=0)`
 
-If you already cloned without submodules, please run:
+If you already cloned without submodules, run:
 
 `_10
 
@@ -343437,9 +343674,9 @@ pnpm install --no-frozen-lockfile`
 
 warning
 
-Please only use the `--no-frozen-lockfile` option when you're initially instantiating the repo or are bumping the version of a package or adding a new package to your package.json. This practice helps maintain consistency in your project's dependencies and prevents unintended changes to the lockfile.
+Only use the `--no-frozen-lockfile` option when you're initially instantiating the repo or bump the version of a package or add a new package to your `package.json` file. This practice helps maintain consistency in your project's dependencies and prevents unintended changes to the lockfile.
 
-If you are using ElizaOnFlow, you need to install Flow Cadence contracts dependencies to ensure `*.cdc` be correctly linted by Cadence extension.
+If you use ElizaOnFlow, you need to install Flow Cadence contracts dependencies to ensure that the Cadence extension correctly lints `*.cdc`.
 
 Install Flow Cadence contracts dependencies:
 
@@ -343455,7 +343692,7 @@ pnpm build`
 
 ## Configure Environment[​](#configure-environment "Direct link to Configure Environment")
 
-Copy .env.example to .env and fill in the appropriate values.
+Copy `.env.example` to `.env` and fill in the appropriate values.
 
 `_10
 
@@ -343463,27 +343700,27 @@ cp .env.example .env`
 
 danger
 
-In normal development, it's a best practice to use a `.env` to protect API keys and other sensitive information. When working with crypto, it's **critical** to be disciplined and always use them, even in test projects or tutorials. If you expose a wallet key, you might lose everything in that wallet immediately, or someone might watch it for years and rug you the day you put something valuable there.
+In normal development, it's a best practice to use a `.env` to protect API keys and other sensitive information. When you work with crypto, it's **critical** to always use them, even in test projects or tutorials. If you expose a wallet key, you might lose everything in that wallet immediately, or someone might watch it for years and rob you the day you put something valuable there.
 
-Edit `.env` and add your values. Do NOT add this file to version control.
+Edit `.env` and add your values. Do **NOT** add this file to version control.
 
 ### Choose Your Model[​](#choose-your-model "Direct link to Choose Your Model")
 
 Eliza supports multiple AI models and you set which model to use inside the character JSON file.
-But remember, once you chosed a model, you need to set up the relevant configuration.
+But remember, after you chosed a model, you need to set up the relevant configuration.
 
-Check full list of supported LLMs in origin Eliza: [Models.ts](https://github.com/elizaOS/eliza/blob/main/packages/core/src/models.ts)
+Check the full list of supported LLMs in origin Eliza: [Models.ts](https://github.com/elizaOS/eliza/blob/main/packages/core/src/models.ts)
 
 Suggested models:
 
-* Use API to access LLM providers
-  + OpenAI: set modelProvider as `openai`, and set `OPENAI_API_KEY` in `.env`
-  + Deepseek: set modelProvider as `deepseek`, and set `DEEPSEEK_API_KEY` in `.env`
-  + Grok: set modelProvider as `grok`, and set `GROK_API_KEY` in `.env`
+* Use API to access LLM providers:
+  + OpenAI: set modelProvider as `openai`, and set `OPENAI_API_KEY` in `.env`.
+  + Deepseek: set modelProvider as `deepseek`, and set `DEEPSEEK_API_KEY` in `.env`.
+  + Grok: set modelProvider as `grok`, and set `GROK_API_KEY` in `.env`.
 * Use local inference
-  + Ollama: set modelProvider as `ollama`, and set `OLLAMA_MODEL` in `.env` to the model name you are using in ollama.
+  + Ollama: set modelProvider as `ollama`, and set `OLLAMA_MODEL` in `.env` to the model name you use in ollama.
 
-> To choose model, you need to set in charactor configuration. For example: OPENAI, please set `modelProvider: "openai"` in charactor JSON file or `modelProvider: ModelProviderName.OPENAI` in `charactor.ts`
+> To choose a model, you need to set in charactor configuration. For example: OPENAI, set `modelProvider: "openai"` in charactor JSON file or `modelProvider: ModelProviderName.OPENAI` in `charactor.ts`
 
 ### Setup Agent's Flow Account[​](#setup-agents-flow-account "Direct link to Setup Agent's Flow Account")
 
@@ -343493,9 +343730,9 @@ Create a new Flow account for the Agent. Learn more: [doc](https://developers.fl
 
 flow accounts create`
 
-> If you are using Testnet, you can get free tokens from [Flow Faucet](https://faucet.flow.com/)
+> If you use Testnet, you can get free tokens from [Flow Faucet](https://faucet.flow.com/)
 
-Set Flow blockchain configuration in `.env` with new generated Flow account.
+Set the Flow blockchain configuration in `.env` with a newly-generated Flow account.
 
 `_10
 
@@ -343513,16 +343750,16 @@ _10
 
 FLOW_ENDPOINT_URL= # Default: <https://mainnet.onflow.org>`
 
-For testnet, please check Flow's [Networks](https://developers.flow.com/protocol/flow-networks) for more information.
+For testnet, check Flow's [Networks](https://developers.flow.com/protocol/flow-networks) for more information.
 
 ## Create Your First Agent[​](#create-your-first-agent "Direct link to Create Your First Agent")
 
 ### Create a Character File[​](#create-a-character-file "Direct link to Create a Character File")
 
-Check out the `deps/eliza/characters/` directory for a number of character files to try out.
-Additionally you can override Eliza's `defaultCharacter` by editting `charactor.ts` which will be default used if no character json provided.
+View the `deps/eliza/characters/` directory for a number of character files to try out.
+Additionally, you can edit `charactor.ts` to override Eliza's `defaultCharacter` file, which is the default character file used if no character json files are provided.
 
-Copy one of the example character files and make it your own
+Copy one of the example character files and make it your own:
 
 `_10
 
@@ -343532,13 +343769,13 @@ cp characters/scooby.character.json characters/sample.character.json`
 
 ### **Start the Agent**[​](#start-the-agent "Direct link to start-the-agent")
 
-Inform it which character you want to run:
+Tell it which character you want to run:
 
 `_10
 
 pnpm start --character="characters/sample.character.json"`
 
-Or you can use `pnpm start:debug` for more debugging logs:
+Or, you can use `pnpm start:debug` for more debugging logs:
 
 `_10
 
@@ -343552,15 +343789,15 @@ pnpm start --characters="characters/sample.character.json, characters/scooby.cha
 
 ### Add / Develop Plugins[​](#add--develop-plugins "Direct link to Add / Develop Plugins")
 
-run `npx elizaos plugins list` to get a list of available plugins or visit [Eliza Plugins Registry](https://elizaos.github.io/registry)
+Run `npx elizaos plugins list` to get a list of available plugins or visit [Eliza Plugins Registry](https://elizaos.github.io/registry)
 
-run `npx elizaos plugins add @elizaos-plugins/plugin-NAME` to install the plugin into your instance
+Run `npx elizaos plugins add @elizaos-plugins/plugin-NAME` to install the plugin into your instance
 
-To create a new plugin **for your own business**, you can refer to the [plugin development guide](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/eliza/build-plugin).
+To create a new plugin **for your own business**, refer to the [plugin development guide](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/eliza/build-plugin).
 
 #### Additional Requirements[​](#additional-requirements "Direct link to Additional Requirements")
 
-You may need to install Sharp. If you see an error when starting up, try installing it with the following command:
+You may need to install Sharp. If you see an error when starting up, install it with the following command:
 
 `_10
 
@@ -343576,27 +343813,27 @@ Open a new terminal window and run the client's http server.
 
 pnpm start:client`
 
-Once the client is running, you'll see a message like this:
+After the client is running, you'll see a message like this:
 
 `_10
 
 ➜ Local: http://localhost:5173/`
 
-Simply click the link or open your browser to `http://localhost:5173/`. You'll see the chat interface connect to the system, and you can begin interacting with your character.
+Click the link or open your browser to `http://localhost:5173/`. You'll see the chat interface connect to the system, and you can now interact with your character.
 
 ## Common Issues & Solutions[​](#common-issues--solutions "Direct link to Common Issues & Solutions")
 
-Please check the orgin Eliza's [Common Issues & Solutions](https://elizaos.github.io/eliza/docs/quickstart/#common-issues--solutions)
+Check the orgin Eliza's [Common Issues & Solutions](https://elizaos.github.io/eliza/docs/quickstart/#common-issues--solutions)
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
 In this tutorial, you've learned how to build and deploy an AI agent on the Flow blockchain using Eliza. You've gained hands-on experience with setting up the development environment, configuring agents, creating character configurations, integrating AI models, and developing custom plugins.
 
-The Eliza framework provides a powerful way to create intelligent agents that can understand and respond to user queries while leveraging Flow's secure and scalable infrastructure. By completing this tutorial, you now have the foundation to build more sophisticated AI agents and create unique user experiences through character customization and plugin development.
+The Eliza framework provides a powerful way to create intelligent agents that can understand and respond to user queries while leveraging Flow's secure and scalable infrastructure. Now taht you've completed this tutorial, you now have the foundation to build more sophisticated AI agents and create unique user experiences through character customization and plugin development.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/eliza/index.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Oct 28, 2025** by **cshannon1218**
 
 [Previous
 
@@ -343610,9 +343847,9 @@ Eliza Plugin Guide](/blockchain-development-tutorials/use-AI-to-build-on-flow/ag
 
 Copy as Markdown
 
-* [Learning Objectives](#learning-objectives)* [Prerequisites](#prerequisites)* [Installation](#installation)* [Configure Environment](#configure-environment)
-        + [Choose Your Model](#choose-your-model)+ [Setup Agent's Flow Account](#setup-agents-flow-account)* [Create Your First Agent](#create-your-first-agent)
-          + [Create a Character File](#create-a-character-file)+ [**Start the Agent**](#start-the-agent)+ [Add / Develop Plugins](#add--develop-plugins)+ [**Interact with the Agent**](#interact-with-the-agent)* [Common Issues & Solutions](#common-issues--solutions)* [Conclusion](#conclusion)
+* [Overview](#overview)* [Learning Objectives](#learning-objectives)* [Prerequisites](#prerequisites)* [Installation](#installation)* [Configure Environment](#configure-environment)
+          + [Choose Your Model](#choose-your-model)+ [Setup Agent's Flow Account](#setup-agents-flow-account)* [Create Your First Agent](#create-your-first-agent)
+            + [Create a Character File](#create-a-character-file)+ [**Start the Agent**](#start-the-agent)+ [Add / Develop Plugins](#add--develop-plugins)+ [**Interact with the Agent**](#interact-with-the-agent)* [Common Issues & Solutions](#common-issues--solutions)* [Conclusion](#conclusion)
 
 Flow
 
@@ -413755,13 +413992,15 @@ On this page
 
 # AI Agents
 
-AI agents represent the next evolution in blockchain interaction, combining artificial intelligence with blockchain capabilities to create autonomous systems that can execute complex tasks, interact with smart contracts, and automate workflows. This section explores how to build intelligent agents that leverage Flow's unique features to create powerful, self-directing blockchain applications.
+## Overview[​](#overview "Direct link to Overview")
 
-Unlike traditional chatbots or simple AI assistants, blockchain AI agents can autonomously execute transactions, manage digital assets, interact with DeFi protocols, and coordinate complex multi-step operations across the Flow ecosystem. These agents bridge the gap between AI decision-making and blockchain execution, enabling new forms of automated financial services, gaming mechanics, and decentralized applications.
+AI agents represent the next evolution in blockchain interaction. They combine artificial intelligence with blockchain capabilities to create autonomous systems that can execute complex tasks, interact with smart contracts, and automate workflows. This section explores how to build intelligent agents that leverage Flow's unique features to create powerful, self-directing blockchain applications.
+
+Unlike traditional chatbots or simple AI assistants, blockchain AI agents can autonomously execute transactions, manage digital assets, interact with DeFi protocols, and coordinate complex multi-step operations across the Flow ecosystem. These agents bridge the gap between AI decision-making and blockchain execution, which allows new forms of automated financial services, gaming mechanics, and decentralized applications.
 
 ## [Eliza on Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/eliza)[​](#eliza-on-flow "Direct link to eliza-on-flow")
 
-Learn how to build conversational AI agents on Flow using Eliza, a framework for creating intelligent agents that interact through natural language. Set up agents with customizable personalities, integrate multiple AI models, and connect to Flow's blockchain infrastructure.
+Learn how to build conversational AI agents on Flow using [Eliza](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/eliza), a framework for creating intelligent agents that interact through natural language. Set up agents with customizable personalities, integrate multiple AI models, and connect to Flow's blockchain infrastructure.
 
 ### [Eliza Plugin Development Guide](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/eliza/build-plugin)[​](#eliza-plugin-development-guide "Direct link to eliza-plugin-development-guide")
 
@@ -413773,7 +414012,7 @@ Create autonomous AI agents that interact with Flow's blockchain using AgentKit.
 
 ## Key Benefits of AI Agents on Flow[​](#key-benefits-of-ai-agents-on-flow "Direct link to Key Benefits of AI Agents on Flow")
 
-**Autonomous Execution**: Agents can independently execute complex blockchain operations without human intervention, from simple token transfers to sophisticated DeFi strategies.
+**Autonomous Execution**: Agents can independently execute complex blockchain operations without human intervention, from simple token transfers to sophisticated decentralized finance (DeFi) strategies.
 
 **Flow-Native Integration**: Leverage Flow's unique multi-role architecture, built-in randomness, and efficient transaction processing for enhanced agent capabilities.
 
@@ -413787,11 +414026,11 @@ Create autonomous AI agents that interact with Flow's blockchain using AgentKit.
 
 **Conversational Interfaces**: Build Eliza-powered agents that can provide natural language interfaces to Flow applications, helping users navigate complex DeFi protocols or gaming mechanics through conversation.
 
-**Automated Trading**: Build agents that can analyze market conditions, execute trades, and manage portfolios across Flow's DeFi ecosystem while communicating decisions to users.
+**Automated Trading**: Build agents that can analyze market conditions, execute trades, manage portfolios across Flow's DeFi ecosystem, and communicate decisions to users.
 
 **Gaming Automation**: Create intelligent NPCs or automated players that can interact with Flow-based games, manage in-game assets, and execute complex game mechanics with personality-driven responses.
 
-**Portfolio Management**: Develop agents that can automatically rebalance portfolios, compound yields, and optimize asset allocation based on market conditions while providing conversational feedback.
+**Portfolio Management**: Develop agents that can automatically rebalance portfolios, compound yields, optimize asset allocation based on market conditions, and provide conversational feedback.
 
 **Protocol Automation**: Build agents that can interact with complex DeFi protocols, execute arbitrage opportunities, and manage liquidity positions with intelligent decision-making capabilities.
 
@@ -413799,11 +414038,11 @@ Create autonomous AI agents that interact with Flow's blockchain using AgentKit.
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-AI agents combine artificial intelligence with blockchain capabilities to create autonomous systems on Flow. Whether building conversational agents with Eliza or autonomous systems with AgentKit, these tutorials provide the foundation for creating intelligent blockchain applications that can execute transactions, engage users, and automate complex workflows across the Flow ecosystem.
+AI agents combine artificial intelligence with blockchain capabilities to create autonomous systems on Flow. Whether you want to build conversational agents with Eliza or autonomous systems with AgentKit, these tutorials provide the foundation for you to create intelligent blockchain applications that can execute transactions, engage users, and automate complex workflows across the Flow ecosystem.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/index.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Oct 28, 2025** by **cshannon1218**
 
 [Previous
 
@@ -413817,8 +414056,8 @@ Eliza on Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/
 
 Copy as Markdown
 
-* [Eliza on Flow](#eliza-on-flow)
-  + [Eliza Plugin Development Guide](#eliza-plugin-development-guide)* [Build Custom AI Agents on Flow with AgentKit](#build-custom-ai-agents-on-flow-with-agentkit)* [Key Benefits of AI Agents on Flow](#key-benefits-of-ai-agents-on-flow)* [Use Cases for AI Agents](#use-cases-for-ai-agents)* [Conclusion](#conclusion)
+* [Overview](#overview)* [Eliza on Flow](#eliza-on-flow)
+    + [Eliza Plugin Development Guide](#eliza-plugin-development-guide)* [Build Custom AI Agents on Flow with AgentKit](#build-custom-ai-agents-on-flow-with-agentkit)* [Key Benefits of AI Agents on Flow](#key-benefits-of-ai-agents-on-flow)* [Use Cases for AI Agents](#use-cases-for-ai-agents)* [Conclusion](#conclusion)
 
 Flow
 
@@ -432635,7 +432874,7 @@ Beautiful, accessible UI components:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/react-sdk/index.mdx)
 
-Last updated on **Oct 28, 2025** by **0xLisanAlGaib**
+Last updated on **Nov 7, 2025** by **Michael Fabozzi**
 
 [Previous
 
@@ -488870,6 +489109,8 @@ Flow React SDK | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -489277,7 +489518,7 @@ Beautiful, accessible UI components:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/react-sdk/index.mdx)
 
-Last updated on **Oct 7, 2025** by **mfbz**
+Last updated on **Nov 7, 2025** by **Michael Fabozzi**
 
 [Previous
 
@@ -605809,6 +606050,8 @@ resolveVoucherIntercept | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -613111,12 +613354,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **99a8aa00595eddb3**
+Cloudflare Ray ID: **99b0e31bcf3f0614**
 •
 
 Your IP:
 Click to reveal
-57.151.137.179
+172.214.44.209
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 

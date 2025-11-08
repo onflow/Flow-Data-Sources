@@ -413,7 +413,7 @@ Beautiful, accessible UI components:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/react-sdk/index.mdx)
 
-Last updated on **Oct 28, 2025** by **0xLisanAlGaib**
+Last updated on **Nov 7, 2025** by **Michael Fabozzi**
 
 [Previous
 
