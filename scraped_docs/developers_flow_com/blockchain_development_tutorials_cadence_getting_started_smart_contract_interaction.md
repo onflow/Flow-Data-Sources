@@ -46,39 +46,39 @@ On this page
 
 # Smart Contract Interaction
 
-Building on your local development setup from the previous tutorial, you'll now master advanced Flow development skills that every professional developer needs. This tutorial focuses on working with external dependencies, building sophisticated transactions, and establishing robust testing practices.
+Building on your local development setup from the previous tutorial, you'll now master advanced Flow development skills that every professional developer needs. This tutorial focuses on how to work with external dependencies, build sophisticated transactions, and establish robust testing practices.
 
-Flow's composability is one of its greatest strengths—contracts can easily import and use functionality from other contracts. You'll learn to leverage this power while building reliable, well-tested applications that interact seamlessly with the broader Flow ecosystem.
+Flow's composability is one of its greatest strengths, becuase contracts can easily import and use functionality from other contracts. You'll learn to leverage this power while building reliable, well-tested applications that interact seamlessly with the broader Flow ecosystem.
 
-## What You'll Learn[​](#what-youll-learn "Direct link to What You'll Learn")
+## What you'll learn[​](#what-youll-learn "Direct link to What you'll learn")
 
-After completing this tutorial, you'll be able to:
+After you complete this tutorial, you'll be able to:
 
-* **Manage external dependencies** using Flow's dependency manager and integrate third-party contracts
-* **Build sophisticated transactions** that interact with multiple contracts and handle complex state changes
-* **Master transaction anatomy** and understand how Cadence transactions work under the hood
-* **Implement comprehensive testing** strategies including edge cases and error conditions
-* **Apply test-driven development** workflows to ensure code quality and reliability
-* **Handle transaction monitoring** and error management in production scenarios
+* **Manage external dependencies** using Flow's dependency manager and integrate third-party contracts.
+* **Build sophisticated transactions** that interact with multiple contracts and handle complex state changes.
+* **Master transaction anatomy** and understand how Cadence transactions work under the hood.
+* **Implement comprehensive testing** strategies including edge cases and error conditions.
+* **Apply test-driven development** workflows to ensure code quality and reliability.
+* **Handle transaction monitoring** and error management in production scenarios.
 
-## What You'll Build[​](#what-youll-build "Direct link to What You'll Build")
+## What you'll build[​](#what-youll-build "Direct link to What you'll build")
 
 Building on your Counter contract, you'll enhance it with external dependencies and create a comprehensive testing suite. By the end of this tutorial, you'll have:
 
-* **Enhanced Counter app** that uses the NumberFormatter contract for better display
-* **Complex transactions** that demonstrate advanced interaction patterns
-* **Comprehensive test suite** covering normal operations, edge cases, and error conditions
-* **Professional workflow** for developing, testing, and deploying contract interactions
+* **Enhanced Counter app** that uses the NumberFormatter contract for better display.
+* **Complex transactions** that demonstrate advanced interaction patterns.
+* **Comprehensive test suite** that covers normal operations, edge cases, and error conditions.
+* **Professional workflow** for you to develop, test, and deploy contract interactions.
 
 **Prerequisites:**
 
-* Completed Environment Setup tutorial
-* Flow CLI, emulator running, and Counter contract deployed
-* Basic understanding of Cadence syntax
+* Completed Environment Setup tutorial.
+* Flow CLI, emulator running, and Counter contract deployed.
+* Basic understanding of Cadence syntax.
 
-## Managing Dependencies[​](#managing-dependencies "Direct link to Managing Dependencies")
+## Manage dependencies[​](#manage-dependencies "Direct link to Manage dependencies")
 
-In addition to creating your own contracts, you can also install contracts that have already been deployed to the network by using the [Dependency Manager](https://developers.flow.com/build/tools/flow-cli/dependency-manager). This is useful for interacting with contracts that are part of the Flow ecosystem or that have been deployed by other developers.
+In addition to creating your own contracts, you can also install contracts that you previously deployed to the network with the [Dependency Manager](https://developers.flow.com/build/tools/flow-cli/dependency-manager). This is useful for interacting with contracts that are part of the Flow ecosystem or that other developers deployed.
 
 Flow's dependency manager allows you to:
 
@@ -88,7 +88,7 @@ Flow's dependency manager allows you to:
 
 For example, let's say we want to format the result of our `GetCounter` script so that we display the number with commas if it's greater than 999. To do that we can install a contract called [`NumberFormatter`](https://contractbrowser.com/A.8a4dce54554b225d.NumberFormatter) from `testnet` that has a function to format numbers.
 
-### Install NumberFormatter Contract[​](#install-numberformatter-contract "Direct link to Install NumberFormatter Contract")
+### Install NumberFormatter contract[​](#install-numberformatter-contract "Direct link to Install NumberFormatter contract")
 
 The [`NumberFormatter`](https://contractbrowser.com/A.8a4dce54554b225d.NumberFormatter) contract provides utilities for formatting numbers with commas, making large numbers more readable. Let's install it from testnet:
 
@@ -98,19 +98,19 @@ flow dependencies install testnet://8a4dce54554b225d.NumberFormatter`
 
 When prompted:
 
-1. **Account to deploy to:** Select `emulator-account` (this will deploy it locally for development)
-2. **Alias for mainnet:** You can skip this by pressing Enter
+1. **Account to deploy to:** Select `emulator-account` (this will deploy it locally for development).
+2. **Alias for mainnet:** To skip this, press Enter.
 
 This command:
 
-* Downloads the NumberFormatter contract from testnet and any of its dependencies
-* Adds it to your `imports/` directory
-* Configures deployment settings in [`flow.json`](https://developers.flow.com/build/tools/flow-cli/flow.json/configuration)
-* Sets up automatic address resolution
+* Downloads the NumberFormatter contract from testnet and any of its dependencies.
+* Adds it to your `imports/` directory.
+* Configures deployment settings in [`flow.json`](https://developers.flow.com/build/tools/flow-cli/flow.json/configuration).
+* Sets up automatic address resolution.
 
 ### Configure Dependencies in flow.json[​](#configure-dependencies-in-flowjson "Direct link to Configure Dependencies in flow.json")
 
-Open your `flow.json` file and notice the new sections:
+Open your `flow.json` file and view the new sections:
 
 `_24
 
@@ -210,19 +210,19 @@ _24
 
 This configuration:
 
-* Maps the `NumberFormatter` dependency to its testnet source
-* Sets up deployment to your emulator account
-* Enables automatic address resolution in your code
+* Maps the `NumberFormatter` dependency to its testnet source.
+* Sets up deployment to your emulator account.
+* Enables automatic address resolution in your code.
 
 ### Deploy External Dependencies[​](#deploy-external-dependencies "Direct link to Deploy External Dependencies")
 
-Now we can deploy the `NumberFormatter` contract to the emulator by running:
+Now we can deploy the `NumberFormatter` contract to the emulator:
 
 `_10
 
 flow project deploy`
 
-You should see output like:
+You will see output like:
 
 `_10
 
@@ -296,9 +296,9 @@ _14
 
 **Key Points:**
 
-* **Import syntax**: `import "Counter"` and `import "NumberFormatter"` don't require addresses
-* **Contract interaction**: We call `NumberFormatter.formatWithCommas()` just like any other function
-* **Return type change**: The script now returns a `String` instead of an `Int`
+* **Import syntax**: `import "Counter"` and `import "NumberFormatter"` don't require addresses.
+* **Contract interaction**: We call `NumberFormatter.formatWithCommas()` just like any other function.
+* **Return type change**: The script now returns a `String` instead of an `Int`.
 
 ### Test the Integration[​](#test-the-integration "Direct link to Test the Integration")
 
@@ -308,15 +308,15 @@ Run your updated script:
 
 flow scripts execute cadence/scripts/GetCounter.cdc`
 
-You should see:
+You will see:
 
 `_10
 
 Result: "1"`
 
-The number is now formatted as a string. Let's create a more impressive example by adding a transaction that increments by 1000.
+The number is now formatted as a string. Let's create a more impressive example and add a transaction that increments by 1000.
 
-### Create a Bulk Increment Transaction[​](#create-a-bulk-increment-transaction "Direct link to Create a Bulk Increment Transaction")
+### Create a bulk increment transaction[​](#create-a-bulk-increment-transaction "Direct link to Create a bulk increment transaction")
 
 Generate a new transaction to demonstrate the NumberFormatter's power:
 
@@ -424,11 +424,11 @@ info
 
 **The Power of Composability**: Notice what just happened—you enhanced your Counter contract's functionality **without modifying the original contract**. This is the power of Flow's composability: you can extend functionality by combining contracts, enabling rapid development and code reuse. Even more importantly, we did this **without needing access or permission.**
 
-## Building Transactions[​](#building-transactions "Direct link to Building Transactions")
+## Build transactions[​](#build-transactions "Direct link to Build transactions")
 
 Transactions are the foundation of blockchain state changes. Unlike scripts (which only read data), transactions can modify contract state, transfer tokens, and emit events. Let's master advanced transaction patterns.
 
-### Understanding Transaction Anatomy[​](#understanding-transaction-anatomy "Direct link to Understanding Transaction Anatomy")
+### Understanding transaction anatomy[​](#understanding-transaction-anatomy "Direct link to Understanding transaction anatomy")
 
 Every Cadence transaction has the same basic structure:
 
@@ -508,16 +508,16 @@ _21
 
 }`
 
-### Transaction Phases Explained[​](#transaction-phases-explained "Direct link to Transaction Phases Explained")
+### Transaction phases explained[​](#transaction-phases-explained "Direct link to Transaction phases explained")
 
-1. **Import Phase**: Declare contract dependencies
-2. **Parameter Declaration**: Define inputs the transaction accepts
-3. **Variable Declaration**: Declare transaction-scoped variables
-4. **Prepare Phase**: Access account storage and capabilities (authorized)
-5. **Execute Phase**: Main logic execution (no storage access)
-6. **Post Phase**: Verify transaction success conditions
+1. **Import Phase**: Declare contract dependencies.
+2. **Parameter Declaration**: Define inputs the transaction accepts.
+3. **Variable Declaration**: Declare transaction-scoped variables.
+4. **Prepare Phase**: Access account storage and capabilities (authorized).
+5. **Execute Phase**: Main logic execution (no storage access).
+6. **Post Phase**: Verify transaction success conditions.
 
-#### Transaction with Parameters[​](#transaction-with-parameters "Direct link to Transaction with Parameters")
+#### Transaction with parameters[​](#transaction-with-parameters "Direct link to Transaction with parameters")
 
 Create a transaction that accepts a custom increment value:
 
@@ -673,7 +673,7 @@ Execute with a parameter:
 
 flow transactions send cadence/transactions/IncrementByAmount.cdc <amount> --network emulator --signer test-account`
 
-## Testing Your Code[​](#testing-your-code "Direct link to Testing Your Code")
+## Test your code[​](#test-your-code "Direct link to Test your code")
 
 Testing is crucial for smart contract development. Flow provides powerful testing capabilities built into the CLI that enable comprehensive test coverage and test-driven development workflows.
 
@@ -683,7 +683,7 @@ Execute the test suite:
 
 flow test`
 
-You should see output confirming the tests pass:
+You will see output that confirms the tests pass:
 
 `_10
 
@@ -751,9 +751,9 @@ _13
 
 This basic test:
 
-1. **Creates a test account** using `Test.createAccount()`
-2. **Deploys the Counter contract** to the test environment
-3. **Verifies deployment succeeded** by checking that no error occurred
+1. **Creates a test account** using `Test.createAccount()`.
+2. **Deploys the Counter contract** to the test environment.
+3. **Verifies deployment succeeded** by checking that no error occurred.
 
 ### Test Integration with Dependencies[​](#test-integration-with-dependencies "Direct link to Test Integration with Dependencies")
 
@@ -849,7 +849,7 @@ _24
 
 }`
 
-The Formatter\_test.cdc test validates that number formatting with commas works correctly by testing two scenarios: numbers under 1,000 (which should have no commas) and numbers over 999 (which should have commas). The test is constructed with two main assertions - first testing that 123 formats as "123" without commas, and second testing that 1234 formats as "1,234" with a comma.
+The `Formatter_test.cdc` test validates that number formatting with commas works correctly by testing two scenarios: numbers under 1,000 (which should have no commas) and numbers over 999 (which should have commas). The test is constructed with two main assertions - first testing that 123 formats as "123" without commas, and second testing that 1234 formats as "1,234" with a comma.
 
 ### Run Your Enhanced Test Suite[​](#run-your-enhanced-test-suite "Direct link to Run Your Enhanced Test Suite")
 
@@ -899,49 +899,49 @@ For a more detailed guide on Cadence testing patterns and advanced techniques, c
 
 Through this tutorial, you've accomplished:
 
-✅ **Dependency Management**
+✅ **Dependency management**
 
-* Successfully integrated the NumberFormatter contract from testnet
-* Learned about Flow's dependency management system and automatic address resolution
-* Demonstrated contract composability by enhancing functionality without modifying source code
-* Configured multi-contract deployments across different environments
+* Successfully integrated the NumberFormatter contract from testnet.
+* Learned about Flow's dependency management system and automatic address resolution.
+* Demonstrated contract composability by enhancing functionality without modifying source code.
+* Configured multi-contract deployments across different environments.
 
-✅ **Transaction Development**
+✅ **Transaction development**
 
-* Understood transaction anatomy including prepare, execute, and post phases
-* Implemented proper input validation and error handling patterns
+* Understood transaction anatomy including prepare, execute, and post phases.
+* Implemented proper input validation and error handling patterns.
 
 ✅ **Testing**
 
 * Implemented test coverage for contract functionality
 * Created integration tests that verify multi-contract interactions
 
-### What You've Learned[​](#what-youve-learned "Direct link to What You've Learned")
+### What you've learned[​](#what-youve-learned "Direct link to What you've learned")
 
 You have learned how to use Flow's dependency management system to install and integrate external contracts (like NumberFormatter), understand the structure of Cadence transactions including their prepare, execute, and post phases, and implement basic testing for contract functionality. You can now work with multi-contract applications and understand how contracts can be composed together to extend functionality.
 
-### Next Steps[​](#next-steps "Direct link to Next Steps")
+### Next steps[​](#next-steps "Direct link to Next steps")
 
 With these skills, you're ready to:
 
-* Build frontend applications that interact with your smart contracts
-* Deploy contracts to live networks (testnet and mainnet)
-* Explore advanced Flow patterns and ecosystem contracts
-* Contribute to the growing Flow developer community
+* Build frontend applications that interact with your smart contracts.
+* Deploy contracts to live networks (testnet and mainnet).
+* Explore advanced Flow patterns and ecosystem contracts.
+* Contribute to the growing Flow developer community.
 
 You've made significant progress in becoming a proficient Flow developer!
 
-### Resources for Continued Learning[​](#resources-for-continued-learning "Direct link to Resources for Continued Learning")
+### Resources for continued learning[​](#resources-for-continued-learning "Direct link to Resources for continued learning")
 
 Continue your Flow mastery with these advanced resources:
 
-* **[Flow Discord Community](https://discord.gg/flow-blockchain)**: Connect with other developers building sophisticated Flow applications
-* **[Cadence Language Reference](https://cadence-lang.org)**: Master advanced language features including resources, capabilities, and access control
-* **[Flow GitHub](https://github.com/onflow)**: Explore production contract examples and contribute to the ecosystem
+* **[Flow Discord Community](https://discord.gg/flow-blockchain)**: Connect with other developers building sophisticated Flow applications.
+* **[Cadence Language Reference](https://cadence-lang.org)**: Master advanced language features including resources, capabilities, and access control.
+* **[Flow GitHub](https://github.com/onflow)**: Explore production contract examples and contribute to the ecosystem.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction.md)
 
-Last updated on **Sep 25, 2025** by **Brian Doyle**
+Last updated on **Oct 30, 2025** by **cshannon1218**
 
 [Previous
 
@@ -955,11 +955,11 @@ Building a Frontend App](/blockchain-development-tutorials/cadence/getting-start
 
 Copy as Markdown
 
-* [What You'll Learn](#what-youll-learn)* [What You'll Build](#what-youll-build)* [Managing Dependencies](#managing-dependencies)
-      + [Install NumberFormatter Contract](#install-numberformatter-contract)+ [Configure Dependencies in flow.json](#configure-dependencies-in-flowjson)+ [Deploy External Dependencies](#deploy-external-dependencies)+ [Integrate External Contract](#integrate-external-contract)+ [Test the Integration](#test-the-integration)+ [Create a Bulk Increment Transaction](#create-a-bulk-increment-transaction)* [Building Transactions](#building-transactions)
-        + [Understanding Transaction Anatomy](#understanding-transaction-anatomy)+ [Transaction Phases Explained](#transaction-phases-explained)* [Testing Your Code](#testing-your-code)
+* [What you'll learn](#what-youll-learn)* [What you'll build](#what-youll-build)* [Manage dependencies](#manage-dependencies)
+      + [Install NumberFormatter contract](#install-numberformatter-contract)+ [Configure Dependencies in flow.json](#configure-dependencies-in-flowjson)+ [Deploy External Dependencies](#deploy-external-dependencies)+ [Integrate External Contract](#integrate-external-contract)+ [Test the Integration](#test-the-integration)+ [Create a bulk increment transaction](#create-a-bulk-increment-transaction)* [Build transactions](#build-transactions)
+        + [Understanding transaction anatomy](#understanding-transaction-anatomy)+ [Transaction phases explained](#transaction-phases-explained)* [Test your code](#test-your-code)
           + [Understanding Existing Tests](#understanding-existing-tests)+ [Test Integration with Dependencies](#test-integration-with-dependencies)+ [Run Your Enhanced Test Suite](#run-your-enhanced-test-suite)* [Conclusion](#conclusion)
-            + [What You've Learned](#what-youve-learned)+ [Next Steps](#next-steps)+ [Resources for Continued Learning](#resources-for-continued-learning)
+            + [What you've learned](#what-youve-learned)+ [Next steps](#next-steps)+ [Resources for continued learning](#resources-for-continued-learning)
 
 Flow
 

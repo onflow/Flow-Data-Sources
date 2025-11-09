@@ -139,7 +139,7 @@ fcl.authenticate();`
 
 ![FCL Default Discovery UI](/assets/images/discovery-c2c95d28a66e86c570491a36e37e0afa.png)
 
-> **Note**: A [Dapper Wallet](https://meetdapper.com/developers) developer account is required. To enable Dapper Wallet inside FCL, you need to [follow this guide](https://docs.meetdapper.com/get-started).
+> **Note**: A [Dapper Wallet](https://meetdapper.com/developers) developer account is required.
 
 * *Interact with smart contracts*: Authorize transactions via the user's chosen wallet
 * *Prove ownership of a wallet address*: Signing and verifying user signed data
@@ -387,7 +387,7 @@ FCL is built **on top of the Flow SDK**, making it easier to handle authenticati
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/index.md)
 
-Last updated on **Nov 6, 2025** by **Brian Doyle**
+Last updated on **Nov 8, 2025** by **Chase Fleming**
 
 [Previous
 
