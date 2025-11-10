@@ -93890,6 +93890,8 @@ atLatestBlock | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -211077,7 +211079,7 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 
 
 
-# Source: https://developers.flow.com/docs
+# Source: https://developers.flow.com/docs/
 
 Flow Developer Portal
 
@@ -233339,6 +233341,8 @@ getTransactionStatus | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -233359,7 +233363,7 @@ Search
 
       + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
 
-        + [@onflow/react-sdk](/build/tools/react-sdk)
+        + [Flow React SDK](/build/tools/react-sdk)
 
           + [Flow Emulator](/build/tools/emulator)+ [Flow CLI](/build/tools/flow-cli)
 
@@ -233395,61 +233399,45 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as sdk from '@onflow/sdk';
+import * as sdk from "@onflow/sdk"
 
 _10
 
 _10
 
-sdk.getTransactionStatus(transactionId);`
+sdk.getTransactionStatus(transactionId)`
 
 Or import directly the specific function:
 
 `_10
 
-import { getTransactionStatus } from '@onflow/sdk';
+import { getTransactionStatus } from "@onflow/sdk"
 
 _10
 
 _10
 
-getTransactionStatus(transactionId);`
+getTransactionStatus(transactionId)`
 
 ## Usage[​](#usage "Direct link to Usage")
 
 `_10
 
-import * as fcl from '@onflow/fcl';
+import * as fcl from "@onflow/fcl";
 
 _10
 
 _10
 
-const status = await fcl
+const status = await fcl.send([
 
 _10
 
-.send([
+fcl.getTransactionStatus("9dda5f281897389b99f103a1c6b180eec9dac870de846449a302103ce38453f3")
 
 _10
 
-fcl.getTransactionStatus(
-
-_10
-
-'9dda5f281897389b99f103a1c6b180eec9dac870de846449a302103ce38453f3',
-
-_10
-
-),
-
-_10
-
-])
-
-_10
-
-.then(fcl.decode);`
+]).then(fcl.decode);`
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
@@ -233466,11 +233454,11 @@ export type InteractionBuilderFn = (
 
 _10
 
-ix: Interaction,
+ix: Interaction
 
 _10
 
-) => Interaction | Promise<Interaction>;`
+) => Interaction | Promise<Interaction>`
 
 A function that processes an interaction object
 
@@ -233478,7 +233466,7 @@ A function that processes an interaction object
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/getTransactionStatus.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Oct 22, 2025** by **Michael Fabozzi**
 
 [Previous
 
@@ -233495,27 +233483,27 @@ Copy as Markdown
 * [Import](#import)* [Usage](#usage)* [Parameters](#parameters)
       + [`transactionId`](#transactionid)* [Returns](#returns)
 
-Documentation
+Flow
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
 
-Community
+Cadence
 
-* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
 
-Start Building
+Solidity (EVM)
 
-* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
 
-Network
+Community & Support
 
-* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
 
-More
+Network & Resources
 
-* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
+Copyright © 2025 Flow Foundation. All Rights Reserved.
 
 
 
@@ -259064,57 +259052,57 @@ On this page
 
 # Indexing Flow Documentation in Cursor
 
-[Cursor](https://www.cursor.com/) is an AI code editor that makes it easy to write code while building Flow apps. To get the most accurate and helpful responses when developing Flow applications, you need to index the relevant Flow documentation within Cursor. This guide walks you through setting up comprehensive Flow knowledge in your Cursor environment.
+[Cursor](https://www.cursor.com/) is an AI code editor that makes it easy to write code while building Flow apps. To get the most accurate and helpful responses when developing Flow applications, you need to index the relevant Flow documentation within Cursor. This guide walks you through how to set up comprehensive Flow knowledge in your Cursor environment.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-* [Cursor](https://www.cursor.com/) installed on your system
-* Active internet connection for documentation indexing
-* Cursor Pro subscription (recommended for full documentation access)
+* [Cursor](https://www.cursor.com/) installed on your system.
+* Active internet connection for documentation indexing.
+* Cursor Pro subscription (recommended for full documentation access).
 
 ## Documentation Sources[​](#documentation-sources "Direct link to Documentation Sources")
 
 For optimal Flow development assistance, you'll want to index three key documentation sources:
 
-1. **Flow Developer Documentation** - Official Flow blockchain and tooling documentation
-2. **Cadence Language Documentation** - Complete Cadence programming language reference
-3. **Flow Data Sources** - Comprehensive, auto-generated knowledge base with current practices
+1. **Flow Developer Documentation** - Official Flow blockchain and tooling documentation.
+2. **Cadence Language Documentation** - Complete Cadence programming language reference.
+3. **Flow Data Sources** - Comprehensive, auto-generated knowledge base with current practices.
 
 ## Installation Steps[​](#installation-steps "Direct link to Installation Steps")
 
 ### Step 1: Access Documentation Settings[​](#step-1-access-documentation-settings "Direct link to Step 1: Access Documentation Settings")
 
-1. Open Cursor and navigate to **Settings** (or press `Cmd/Ctrl + ,`)
-2. Go to **Features > Docs**
-3. Click **"+ Add new doc"** to begin adding documentation sources
+1. Open Cursor and navigate to **Settings** (or press `Cmd/Ctrl + ,`).
+2. Go to **Features > Docs**.
+3. Click **"+ Add new doc"** to begin adding documentation sources.
 
 ![Cursor Settings](/assets/images/use-cursor-1-4c5b9bc11a4106f1ca259b60faa6e871.png)
 
 ### Step 2: Add Flow Developer Documentation[​](#step-2-add-flow-developer-documentation "Direct link to Step 2: Add Flow Developer Documentation")
 
 1. In the URL field, enter: `https://developers.flow.com/tools`
-   * **Note**: Use the `/tools` endpoint as it properly indexes all Flow documentation
-   * Cursor will automatically detect and crawl the entire Flow documentation site
-2. Set the name as **"Flow"**
-3. Click **"Confirm"** to add the documentation
-4. Wait for the indexing process to complete
+   * **Note**: Use the `/tools` endpoint as it properly indexes all Flow documentation.
+   * Cursor will automatically detect and crawl the entire Flow documentation site.
+2. Set the name as **"Flow"**.
+3. Click **"Confirm"** to add the documentation.
+4. Wait for the indexing process to complete.
 
 ![Cursor Settings](/assets/images/use-cursor-2-40225d578bab288f66abe1221315b89d.png)
 
 ### Step 3: Add Cadence Language Documentation[​](#step-3-add-cadence-language-documentation "Direct link to Step 3: Add Cadence Language Documentation")
 
-1. Click **"+ Add new doc"** again
+1. Click **"+ Add new doc"** again.
 2. Enter the Cadence documentation URL: `https://cadence-lang.org/docs/`
-3. Set the name as **"Cadence"**
-4. Click **"Confirm"** to add the documentation
-5. Allow time for indexing to complete
+3. Set the name as **"Cadence"**.
+4. Click **"Confirm"** to add the documentation.
+5. Allow time for indexing to complete.
 
 ### Step 4: Add Flow Data Sources[​](#step-4-add-flow-data-sources "Direct link to Step 4: Add Flow Data Sources")
 
-1. Click **"+ Add new doc"** once more
+1. Click **"+ Add new doc"** again.
 2. Enter the Flow Data Sources URL: `https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/all_merged.md`
-3. Set the name as **"Flow Data Sources"**
-4. Click **"Confirm"** to add the documentation
+3. Set the name as **"Flow Data Sources"**.
+4. Click **"Confirm"** to add the documentation.
 
 Resource Requirements
 
@@ -259123,19 +259111,19 @@ The Flow Data Sources file is very large and comprehensive. For older developmen
 
 ### Step 5: Verify Indexing[​](#step-5-verify-indexing "Direct link to Step 5: Verify Indexing")
 
-1. Monitor the indexing progress in the **Docs** section of Cursor settings
-2. Wait for all three documentation sources to show as "Indexed" or "Ready"
-3. Indexing time varies depending on your internet connection and system performance
+1. Monitor the indexing progress in the **Docs** section of Cursor settings.
+2. Wait for all three documentation sources to show as "Indexed" or "Ready."
+3. Indexing time varies depending on your internet connection and system performance.
 
 ## Using Indexed Documentation[​](#using-indexed-documentation "Direct link to Using Indexed Documentation")
 
-Once indexing is complete, you can reference the documentation in your Cursor prompts:
+After indexing finishes, you can reference the documentation in your Cursor prompts:
 
 ### Reference Syntax[​](#reference-syntax "Direct link to Reference Syntax")
 
-* `@Flow` - Reference Flow developer documentation
-* `@Cadence` - Reference Cadence language documentation
-* `@Flow Data Sources` - Reference the comprehensive Flow knowledge base
+* `@Flow` - Reference Flow developer documentation.
+* `@Cadence` - Reference Cadence language documentation.
+* `@Flow Data Sources` - Reference the comprehensive Flow knowledge base.
 
 ![Cursor Settings](/assets/images/use-cursor-3-ee338cc36953ea4ae1fe236ba9c1a9a5.png)
 
@@ -259149,7 +259137,7 @@ _10
 
 _10
 
-@Cadence What's the syntax for creating a resource in Cadence?
+@Cadence What's the syntax for how to create a resource in Cadence?
 
 _10
 
@@ -259184,58 +259172,58 @@ Using @Flow and @Cadence, help me create a transaction that deploys an NFT contr
 
 **Documentation Not Indexed**:
 
-* Verify all URLs are correct and accessible
-* Check your internet connection stability
-* Try re-adding the documentation source
+* Verify all URLs are correct and accessible.
+* Check your internet connection stability.
+* Try to re-add the documentation source.
 
 **Outdated Information**:
 
-* Refresh documentation by removing and re-adding sources
-* Clear Cursor's cache if available in settings
-* Update to the latest version of Cursor
+* Remove and re-add sources to refresh documentation.
+* Clear Cursor's cache if available in settings.
+* Update to the latest version of Cursor.
 
 **Slow or Failed Indexing**:
 
-* Ensure stable internet connection
-* Try indexing during off-peak hours
-* For Flow Data Sources, switch to the essentials merged file if needed
+* Verify stable internet connection.
+* Try to index during off-peak hours.
+* For Flow Data Sources, switch to the essentials merged file if needed.
 
 **Inaccurate AI Responses**:
 
-* Verify the documentation sources are properly indexed
-* Try more specific prompts with clear context
-* Cross-reference responses with official documentation
+* Verify the documentation sources are properly indexed.
+* Try more specific prompts with clear context.
+* Cross-reference responses with official documentation.
 
 ### Getting Help[​](#getting-help "Direct link to Getting Help")
 
-If you continue experiencing issues:
+If you continue to experience issues:
 
-1. Check the [Cursor documentation](https://docs.cursor.com/) for additional troubleshooting steps
-2. Verify that all documentation URLs are accessible in your browser
-3. Contact Cursor support through their official channels
-4. Consider using alternative documentation sources if specific URLs are problematic
+1. Check the [Cursor documentation](https://docs.cursor.com/) for additional troubleshooting steps.
+2. Verify that all documentation URLs are accessible in your browser.
+3. Contact Cursor support through their official channels.
+4. Consider using alternative documentation sources if specific URLs are problematic.
 
 ## Maintaining Your Setup[​](#maintaining-your-setup "Direct link to Maintaining Your Setup")
 
 ### Regular Maintenance[​](#regular-maintenance "Direct link to Regular Maintenance")
 
-* **Refresh Periodically**: Re-index documentation monthly to ensure current information
-* **Monitor Updates**: Stay aware of major Flow or Cadence documentation updates
-* **Clean Up**: Remove unused documentation sources to improve performance
+* **Refresh Periodically**: Re-index documentation monthly to ensure current information.
+* **Monitor Updates**: Stay aware of major Flow or Cadence documentation updates.
+* **Clean Up**: Remove unused documentation sources to improve performance.
 
 ### Team Collaboration[​](#team-collaboration "Direct link to Team Collaboration")
 
 For development teams:
 
-* Share the same documentation configuration across team members
-* Document your specific setup in your project README
-* Consider creating team-specific documentation sources for internal patterns and practices
+* Share the same documentation configuration across team members.
+* Document your specific setup in your project README.
+* Consider creating team-specific documentation sources for internal patterns and practices.
 
 By following this setup guide, you'll have comprehensive Flow and Cadence documentation available directly within Cursor, enabling more accurate AI assistance and faster development workflows.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor/indexing-docs.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Nov 3, 2025** by **cshannon1218**
 
 [Previous
 
@@ -261156,6 +261144,8 @@ Create an Account | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -261196,7 +261186,7 @@ Search
 
                                 - [Utils](/build/tools/flow-cli/utils/signature-generate)
 
-                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+                                  - [Dependency Manager](/build/tools/flow-cli/dependency-manager)- [Running Cadence Tests](/build/tools/flow-cli/tests)- [Generating Cadence Boilerplate](/build/tools/flow-cli/generate)- [Cadence Linter](/build/tools/flow-cli/lint)- [Scheduled Transactions](/build/tools/flow-cli/scheduled-transactions)- [Flow Interaction Templates (FLIX)](/build/tools/flow-cli/flix)- [Data Collection](/build/tools/flow-cli/data-collection)+ [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
 
                     + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
@@ -264699,6 +264689,8 @@ build | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -264755,129 +264747,141 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as sdk from '@onflow/sdk';
+import * as sdk from "@onflow/sdk"
 
 _10
 
 _10
 
-sdk.build(fns);`
+sdk.build(fns)`
 
 Or import directly the specific function:
 
 `_10
 
-import { build } from '@onflow/sdk';
+import { build } from "@onflow/sdk"
 
 _10
 
 _10
 
-build(fns);`
+build(fns)`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`` _27
+`` _30
 
-import * as fcl from '@onflow/fcl';
+import * as fcl from "@onflow/fcl";
 
-_27
+_30
 
-_27
+_30
 
 // Build a script interaction
 
-_27
+_30
 
 const scriptInteraction = await fcl.build([
 
-_27
+_30
 
 fcl.script`
 
-_27
+_30
 
 access(all) fun main(a: Int, b: Int): Int {
 
-_27
+_30
 
 return a + b
 
-_27
+_30
 
 }
 
-_27
+_30
 
 `,
 
-_27
+_30
 
-fcl.args([fcl.arg(1, fcl.t.Int), fcl.arg(2, fcl.t.Int)]),
+fcl.args([
 
-_27
+_30
+
+fcl.arg(1, fcl.t.Int),
+
+_30
+
+fcl.arg(2, fcl.t.Int)
+
+_30
+
+])
+
+_30
 
 ]);
 
-_27
+_30
 
-_27
+_30
 
 // Build a transaction interaction
 
-_27
+_30
 
 const txInteraction = await fcl.build([
 
-_27
+_30
 
 fcl.transaction`
 
-_27
+_30
 
 transaction(name: String) {
 
-_27
+_30
 
 prepare(account: AuthAccount) {
 
-_27
+_30
 
 log("Hello, " + name)
 
-_27
+_30
 
 }
 
-_27
+_30
 
 }
 
-_27
+_30
 
 `,
 
-_27
+_30
 
-fcl.args([fcl.arg('World', fcl.t.String)]),
+fcl.args([fcl.arg("World", fcl.t.String)]),
 
-_27
+_30
 
 fcl.proposer(proposerAuthz),
 
-_27
+_30
 
 fcl.payer(payerAuthz),
 
-_27
+_30
 
 fcl.authorizations([authorizerAuthz]),
 
-_27
+_30
 
-fcl.limit(100),
+fcl.limit(100)
 
-_27
+_30
 
 ]); ``
 
@@ -264898,7 +264902,7 @@ A promise of an interaction
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/build.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Oct 22, 2025** by **Michael Fabozzi**
 
 [Previous
 
@@ -272707,6 +272711,8 @@ Flow Dev Wallet | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -272727,7 +272733,7 @@ Search
 
       + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
 
-        + [@onflow/react-sdk](/build/tools/react-sdk)
+        + [Flow React SDK](/build/tools/react-sdk)
 
           + [Flow Emulator](/build/tools/emulator)+ [Flow CLI](/build/tools/flow-cli)
 
@@ -273310,27 +273316,27 @@ Copy as Markdown
 * [Getting Started](#getting-started)
   + [Install the `flow-cli`](#install-the-flow-cli)+ [Create a `flow.json` file](#create-a-flowjson-file)+ [Start the Emulator](#start-the-emulator)+ [Start the Dev Wallet](#start-the-dev-wallet)+ [Configuring Your JavaScript Application](#configuring-your-javascript-application)+ [Test harness](#test-harness)+ [Wallet Discovery](#wallet-discovery)+ [Account/Address creation](#accountaddress-creation)+ [Get Flow Balance](#get-flow-balance)* [Contributing](#contributing)* [More](#more)
 
-Documentation
+Flow
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
 
-Community
+Cadence
 
-* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
 
-Start Building
+Solidity (EVM)
 
-* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
 
-Network
+Community & Support
 
-* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
 
-More
+Network & Resources
 
-* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
+Copyright © 2025 Flow Foundation. All Rights Reserved.
 
 
 
@@ -290184,6 +290190,8 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 transaction | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -383076,6 +383084,8 @@ Flow Client Library (FCL) | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -383116,17 +383126,21 @@ On this page
 
 # Flow Client Library (FCL)
 
-## 🌟 What is FCL?[​](#-what-is-fcl "Direct link to 🌟 What is FCL?")
+info
+
+If you're building a frontend, use the [React SDK](/build/tools/react-sdk). If you're familiar with Solidity and the EVM world, the [React SDK] is to wagmi as FCL is to viem.
+
+## What is FCL?[​](#what-is-fcl "Direct link to What is FCL?")
 
 The **Flow Client Library (FCL) JS** is a package designed to facilitate interactions between dapps, wallets, and the Flow blockchain. It provides a standardized way for applications to connect with users and their wallets, **eliminating the need for custom integrations**.
 
-### 🔑 Key Features:[​](#-key-features "Direct link to 🔑 Key Features:")
+### Key Features:[​](#key-features "Direct link to Key Features:")
 
-* 🔌 **Universal Wallet Support** – Works seamlessly with all FCL-compatible wallets, making authentication simple.
-* 🔐 **Secure Authentication** – Standardized authentication flow ensures a smooth user experience.
-* ⚡ **Blockchain Interactions** – Enables querying, mutating, and interacting with smart contracts on Flow.
-* 🛠️ **Full-Featured Utilities** – Offers built-in functions to streamline blockchain development.
-* 🌍 **Flexible Environment** – Can run in both browser and server environments, though wallet interactions are browser-only.
+* **Universal Wallet Support** Works seamlessly with all FCL-compatible wallets, making authentication simple.
+* **Secure Authentication** Standardized authentication flow ensures a smooth user experience.
+* **Blockchain Interactions** Enables querying, mutating, and interacting with smart contracts on Flow.
+* **Full-Featured Utilities** Offers built-in functions to streamline blockchain development.
+* **Flexible Environment** Can run in both browser and server environments, though wallet interactions are browser-only.
 
 FCL was created to make building Flow-connected applications **easy, secure, and scalable** by defining **standardized communication patterns** between wallets, applications, and users.
 
@@ -383205,7 +383219,7 @@ fcl.authenticate();`
 
 ![FCL Default Discovery UI](/assets/images/discovery-c2c95d28a66e86c570491a36e37e0afa.png)
 
-> **Note**: A [Dapper Wallet](https://meetdapper.com/developers) developer account is required. To enable Dapper Wallet inside FCL, you need to [follow this guide](https://docs.meetdapper.com/get-started).
+> **Note**: A [Dapper Wallet](https://meetdapper.com/developers) developer account is required.
 
 * *Interact with smart contracts*: Authorize transactions via the user's chosen wallet
 * *Prove ownership of a wallet address*: Signing and verifying user signed data
@@ -383453,7 +383467,7 @@ FCL is built **on top of the Flow SDK**, making it easier to handle authenticati
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/index.md)
 
-Last updated on **Sep 24, 2025** by **Felipe Cevallos**
+Last updated on **Nov 8, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -383467,8 +383481,8 @@ Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 
 Copy as Markdown
 
-* [🌟 What is FCL?](#-what-is-fcl)
-  + [🔑 Key Features:](#-key-features)* [Getting Started](#getting-started)
+* [What is FCL?](#what-is-fcl)
+  + [Key Features:](#key-features)* [Getting Started](#getting-started)
     + [Requirements](#requirements)+ [Installation](#installation)* [FCL for Dapps](#fcl-for-dapps)* [Typescript Support](#typescript-support)* [Next Steps](#next-steps)* [FCL for Wallet Providers](#fcl-for-wallet-providers)
             + [Current Wallet Providers](#current-wallet-providers)+ [Wallet Discovery](#wallet-discovery)+ [Building a FCL compatible wallet](#building-a-fcl-compatible-wallet)* [🛠 Want to Use the Flow SDK Directly?](#-want-to-use-the-flow-sdk-directly)* [Support](#support)
 
@@ -430707,12 +430721,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **99b9250dca262ccc**
+Cloudflare Ray ID: **99c161c52aa6cefe**
 •
 
 Your IP:
 Click to reveal
-172.215.210.114
+68.220.59.231
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 
@@ -557076,6 +557090,79 @@ Applies few rules are applied:
 
 
 # Source: https://github.com/crash13override/flovatar/blob/main/README.md
+
+# Flovatar
+## Pre-made is so last month, now you can become the creator!
+Instead of collecting pre-generated assets, with Flovatar you can unleash your creativity - no more trade-off between rarity and your own individuality.
+
+You can decide if you want to build a Flovatar that looks just like you, or even better, something that speaks to you with the rarest traits combination! With 11 components, there are over 100 billion unique variations!
+
+Check https://flovatar.com/! 💪
+
+# Contribute
+This repository contains code for contracts, scripts and transaction associated with [Flovatar](https://flovatar.com/) project. Take a look around and if you have ideas how to make it better - we welcome it with open heart! :hearts:
+
+# Integration
+Our contracts are deployed to both networks:
+- `Mainnet` - **0x921ea449dffec68a** - [Flow View Source - Flovatar Account](https://flow-view-source.com/mainnet/account/0x921ea449dffec68a)
+- `Testnet` - **0x9392a4a7c3f49a0b** - [Flow View Source - Flovatar Account](https://flow-view-source.com/testnet/account/0x9392a4a7c3f49a0b)
+
+## Basic Example
+You can use code in [get_flovatars.cdc](/scripts/get_flovatars.cdc) file to get a list of Flovatars living in account's storage. 
+```cadence
+/// Fetch a List of Flovatars on address - Mainnet
+import Flovatar from 0x921ea449dffec68a
+
+pub fun main(address:Address) : [Flovatar.FlovatarData] {
+  return Flovatar.getFlovatars(address: address)
+}
+```
+```js
+import { query, config } from "@onflow/fcl";
+
+config().put("accessNode.api", "https://rest-mainnet.onflow.org");
+
+(async()=>{
+  const getFlovatars = async (address) => {
+    // We will inline code from above here
+    const cadence = `
+      import Flovatar from 0x921ea449dffec68a
+
+      pub fun main(address:Address) : [Flovatar.FlovatarData] {
+        return Flovatar.getFlovatars(address: address)
+      }
+    `;
+    
+    // script expects single argument of type Address
+    const args = (arg, t) => [arg(address, t.Address)];
+    
+    // ...and we are ready to query the network! :)
+    const flovatars = await query({ cadence, args });
+    
+    console.log({ flovatars })
+  }
+  
+  const user = "0x2a0eccae942667be"
+  await getFlovatars(user)
+})()
+```
+
+Example code on how it could be used together with [FCL-JS](https://github.com/onflow/fcl-js) library can be found on [CodeSandbox](https://codesandbox.io/s/dev-to-fcl-05-list-flovatars-at-address-0bibcd)
+
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://github.com/flovatar/flovatar/blob/main/README.md
 
 # Flovatar
 ## Pre-made is so last month, now you can become the creator!

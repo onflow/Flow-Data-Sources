@@ -4,6 +4,8 @@ build | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -60,129 +62,141 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as sdk from '@onflow/sdk';
+import * as sdk from "@onflow/sdk"
 
 _10
 
 _10
 
-sdk.build(fns);`
+sdk.build(fns)`
 
 Or import directly the specific function:
 
 `_10
 
-import { build } from '@onflow/sdk';
+import { build } from "@onflow/sdk"
 
 _10
 
 _10
 
-build(fns);`
+build(fns)`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`` _27
+`` _30
 
-import * as fcl from '@onflow/fcl';
+import * as fcl from "@onflow/fcl";
 
-_27
+_30
 
-_27
+_30
 
 // Build a script interaction
 
-_27
+_30
 
 const scriptInteraction = await fcl.build([
 
-_27
+_30
 
 fcl.script`
 
-_27
+_30
 
 access(all) fun main(a: Int, b: Int): Int {
 
-_27
+_30
 
 return a + b
 
-_27
+_30
 
 }
 
-_27
+_30
 
 `,
 
-_27
+_30
 
-fcl.args([fcl.arg(1, fcl.t.Int), fcl.arg(2, fcl.t.Int)]),
+fcl.args([
 
-_27
+_30
+
+fcl.arg(1, fcl.t.Int),
+
+_30
+
+fcl.arg(2, fcl.t.Int)
+
+_30
+
+])
+
+_30
 
 ]);
 
-_27
+_30
 
-_27
+_30
 
 // Build a transaction interaction
 
-_27
+_30
 
 const txInteraction = await fcl.build([
 
-_27
+_30
 
 fcl.transaction`
 
-_27
+_30
 
 transaction(name: String) {
 
-_27
+_30
 
 prepare(account: AuthAccount) {
 
-_27
+_30
 
 log("Hello, " + name)
 
-_27
+_30
 
 }
 
-_27
+_30
 
 }
 
-_27
+_30
 
 `,
 
-_27
+_30
 
-fcl.args([fcl.arg('World', fcl.t.String)]),
+fcl.args([fcl.arg("World", fcl.t.String)]),
 
-_27
+_30
 
 fcl.proposer(proposerAuthz),
 
-_27
+_30
 
 fcl.payer(payerAuthz),
 
-_27
+_30
 
 fcl.authorizations([authorizerAuthz]),
 
-_27
+_30
 
-fcl.limit(100),
+fcl.limit(100)
 
-_27
+_30
 
 ]); ``
 
@@ -203,7 +217,7 @@ A promise of an interaction
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/build.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Oct 22, 2025** by **Michael Fabozzi**
 
 [Previous
 

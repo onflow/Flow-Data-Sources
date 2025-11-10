@@ -4,6 +4,8 @@ Flow Client Library (FCL) | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -44,17 +46,21 @@ On this page
 
 # Flow Client Library (FCL)
 
-## 🌟 What is FCL?[​](#-what-is-fcl "Direct link to 🌟 What is FCL?")
+info
+
+If you're building a frontend, use the [React SDK](/build/tools/react-sdk). If you're familiar with Solidity and the EVM world, the [React SDK] is to wagmi as FCL is to viem.
+
+## What is FCL?[​](#what-is-fcl "Direct link to What is FCL?")
 
 The **Flow Client Library (FCL) JS** is a package designed to facilitate interactions between dapps, wallets, and the Flow blockchain. It provides a standardized way for applications to connect with users and their wallets, **eliminating the need for custom integrations**.
 
-### 🔑 Key Features:[​](#-key-features "Direct link to 🔑 Key Features:")
+### Key Features:[​](#key-features "Direct link to Key Features:")
 
-* 🔌 **Universal Wallet Support** – Works seamlessly with all FCL-compatible wallets, making authentication simple.
-* 🔐 **Secure Authentication** – Standardized authentication flow ensures a smooth user experience.
-* ⚡ **Blockchain Interactions** – Enables querying, mutating, and interacting with smart contracts on Flow.
-* 🛠️ **Full-Featured Utilities** – Offers built-in functions to streamline blockchain development.
-* 🌍 **Flexible Environment** – Can run in both browser and server environments, though wallet interactions are browser-only.
+* **Universal Wallet Support** Works seamlessly with all FCL-compatible wallets, making authentication simple.
+* **Secure Authentication** Standardized authentication flow ensures a smooth user experience.
+* **Blockchain Interactions** Enables querying, mutating, and interacting with smart contracts on Flow.
+* **Full-Featured Utilities** Offers built-in functions to streamline blockchain development.
+* **Flexible Environment** Can run in both browser and server environments, though wallet interactions are browser-only.
 
 FCL was created to make building Flow-connected applications **easy, secure, and scalable** by defining **standardized communication patterns** between wallets, applications, and users.
 
@@ -133,7 +139,7 @@ fcl.authenticate();`
 
 ![FCL Default Discovery UI](/assets/images/discovery-c2c95d28a66e86c570491a36e37e0afa.png)
 
-> **Note**: A [Dapper Wallet](https://meetdapper.com/developers) developer account is required. To enable Dapper Wallet inside FCL, you need to [follow this guide](https://docs.meetdapper.com/get-started).
+> **Note**: A [Dapper Wallet](https://meetdapper.com/developers) developer account is required.
 
 * *Interact with smart contracts*: Authorize transactions via the user's chosen wallet
 * *Prove ownership of a wallet address*: Signing and verifying user signed data
@@ -381,7 +387,7 @@ FCL is built **on top of the Flow SDK**, making it easier to handle authenticati
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/index.md)
 
-Last updated on **Sep 24, 2025** by **Felipe Cevallos**
+Last updated on **Nov 8, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -395,8 +401,8 @@ Packages Docs](/build/tools/clients/fcl-js/packages-docs)
 
 Copy as Markdown
 
-* [🌟 What is FCL?](#-what-is-fcl)
-  + [🔑 Key Features:](#-key-features)* [Getting Started](#getting-started)
+* [What is FCL?](#what-is-fcl)
+  + [Key Features:](#key-features)* [Getting Started](#getting-started)
     + [Requirements](#requirements)+ [Installation](#installation)* [FCL for Dapps](#fcl-for-dapps)* [Typescript Support](#typescript-support)* [Next Steps](#next-steps)* [FCL for Wallet Providers](#fcl-for-wallet-providers)
             + [Current Wallet Providers](#current-wallet-providers)+ [Wallet Discovery](#wallet-discovery)+ [Building a FCL compatible wallet](#building-a-fcl-compatible-wallet)* [🛠 Want to Use the Flow SDK Directly?](#-want-to-use-the-flow-sdk-directly)* [Support](#support)
 
