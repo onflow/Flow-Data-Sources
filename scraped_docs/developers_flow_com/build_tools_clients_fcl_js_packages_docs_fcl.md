@@ -497,7 +497,7 @@ This section contains documentation for all of the functions and namespaces in t
 * [cadence](/build/tools/clients/fcl-js/packages-docs/fcl/cadence) - Creates a template function
 * [cdc](/build/tools/clients/fcl-js/packages-docs/fcl/cdc) - Creates a template function
 * [config](/build/tools/clients/fcl-js/packages-docs/fcl/config) - Sets the config
-* [createFlowClient](/build/tools/clients/fcl-js/packages-docs/fcl/createFlowClient) - Creates a Flow client instance with authentication, transaction, and query...
+* [createFlowClient](/build/tools/clients/fcl-js/packages-docs/fcl/createFlowClient) - Creates a Flow client instance with scoped configuration. This function...
 * [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/fcl/createSignableVoucher) - Creates a signable voucher object from an interaction for signing purposes. A...
 * [currentUser](/build/tools/clients/fcl-js/packages-docs/fcl/currentUser) - The main current user service for managing user authentication and authorization...
 * [decode](/build/tools/clients/fcl-js/packages-docs/fcl/decode) - Decodes the response from 'fcl.send()' into the appropriate JSON representation...
@@ -554,7 +554,7 @@ This section contains documentation for all of the functions and namespaces in t
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/index.md)
 
-Last updated on **Oct 22, 2025** by **Michael Fabozzi**
+Last updated on **Nov 10, 2025** by **Michael Fabozzi**
 
 [Previous
 

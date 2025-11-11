@@ -40,7 +40,7 @@ Search
 
 On this page
 
-# High-Precision Fixed-Point 128 Bit Math
+# High-precision fixed-point 128 bit math
 
 Dealing with decimals is a notorious issue for most developers on other chains, especially when working with decentralized finance (DeFi). Blockchains are deterministic systems and floating-point arithmetic is non-deterministic across different compilers and architectures, which is why blockchains use fixed-point arithmetic via integers (scaling numbers by a fixed factor).
 
@@ -50,9 +50,9 @@ Through integration of this math utility library, developers can ensure that the
 
 info
 
-While this documentation focuses on DeFi use cases, you can use these mathematical utilities for any application requiring high-precision decimal arithmetic beyond the native 8-decimal limitation of `UFix64`.
+While this document focuses on DeFi use cases, you can use these mathematical utilities for any application requiring high-precision decimal arithmetic beyond the native 8-decimal limitation of `UFix64`.
 
-## The Precision Problem[​](#the-precision-problem "Direct link to The Precision Problem")
+## The precision problem[​](#the-precision-problem "Direct link to The precision problem")
 
 DeFi applications often require multiple sequential calculations, and each operation can introduce rounding errors. When these errors compound over multiple operations, they can lead to:
 
@@ -99,13 +99,13 @@ let finalAmount = output / someRatio // Even more precision lost`
 
 After three-to-four sequential operations, significant cumulative rounding errors can occur, especially when dealing with large amounts. Assuming a rounding error with eight decimals (1.234567885 rounds up to 1.23456789, causing a rounding error of 0.000000005), then after 100 operations with this error and dealing with one million dollars USDF, the protocol loses $0.5 in revenue from this lack of precision. This might not seem like a lot, but if we consider the TVL of Aave, which is around 40 billion USD, then that loss results in $20,000 USD!
 
-## The Solution: 24-Decimal Precision[​](#the-solution-24-decimal-precision "Direct link to The Solution: 24-Decimal Precision")
+## The solution: 24-decimal precision[​](#the-solution-24-decimal-precision "Direct link to The solution: 24-decimal precision")
 
 [`DeFiActionsMathUtils`](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/utils/DeFiActionsMathUtils.cdc) solves this with `UInt128` to represent fixed-point numbers with 24 decimal places (scaling factor of 10^24). This provides 16 additional decimal places for intermediate calculations, dramatically reducing precision loss.
 
 There is still some precision loss occurring, but it is much smaller than with eight decimals.
 
-### The Three-Tier Precision System[​](#the-three-tier-precision-system "Direct link to The Three-Tier Precision System")
+### The three-tier precision system[​](#the-three-tier-precision-system "Direct link to The three-tier precision system")
 
 The contract implements a precision sandwich pattern:
 
@@ -159,7 +159,7 @@ _13
 
 let output = DeFiActionsMathUtils.toUFix64Round(result)`
 
-## Core Constants[​](#core-constants "Direct link to Core Constants")
+## Core constants[​](#core-constants "Direct link to Core constants")
 
 The contract defines several key constants:
 
@@ -177,7 +177,7 @@ access(all) let decimals: UInt8 // 24`
 
 These constants ensure consistent scaling across all operations.
 
-## Rounding Modes[​](#rounding-modes "Direct link to Rounding Modes")
+## Rounding modes[​](#rounding-modes "Direct link to Rounding modes")
 
 Smart rounding is the strategic selection of rounding strategies based on the financial context of your calculation. After performing high-precision calculations at 24 decimals, you must convert the final results back to `UFix64` (8 decimals). How you handle this conversion can protect your protocol from losses, ensure fairness to users, and reduce systematic bias.
 
@@ -229,7 +229,7 @@ _13
 
 }`
 
-### When to Use Each Mode[​](#when-to-use-each-mode "Direct link to When to Use Each Mode")
+### When to use each mode[​](#when-to-use-each-mode "Direct link to When to use each mode")
 
 **RoundDown** - Choose this when you calculate user payouts, withdrawals, or rewards. When you round down, your protocol retains any fractional amounts, which protects against losses from accumulated rounding errors. This is the conservative choice when funds leave your protocol.
 
@@ -271,11 +271,11 @@ _10
 
 let unbiasedValue = DeFiActionsMathUtils.toUFix64(calculatedValue, DeFiActionsMathUtils.RoundingMode.RoundEven)`
 
-## Core Functions[​](#core-functions "Direct link to Core Functions")
+## Core functions[​](#core-functions "Direct link to Core functions")
 
-### Conversion Functions[​](#conversion-functions "Direct link to Conversion Functions")
+### Conversion functions[​](#conversion-functions "Direct link to Conversion functions")
 
-**Converting UFix64 to UInt128**
+**Convert UFix64 to UInt128**
 
 `_10
 
@@ -303,7 +303,7 @@ _10
 
 // highPrecisionPrice = 123456789000000000000000000 (represents 123.45678900... with 24 decimals)`
 
-**Converting UInt128 to UFix64**
+**Convert UInt128 to UFix64**
 
 `_10
 
@@ -357,7 +357,7 @@ _10
 
 // ceilingValue = 1234567.89012346 (rounded up to 8 decimals)`
 
-## High-Precision Arithmetic[​](#high-precision-arithmetic "Direct link to High-Precision Arithmetic")
+## High-precision arithmetic[​](#high-precision-arithmetic "Direct link to High-precision arithmetic")
 
 ### Multiplication[​](#multiplication "Direct link to Multiplication")
 
@@ -435,7 +435,7 @@ _10
 
 // result = 500.0`
 
-### UFix64 Division with Rounding[​](#ufix64-division-with-rounding "Direct link to UFix64 Division with Rounding")
+### UFix64 division with rounding[​](#ufix64-division-with-rounding "Direct link to UFix64 division with rounding")
 
 For convenience, the contract provides direct division functions that handle
 conversion and rounding in one call:
@@ -504,11 +504,11 @@ _14
 
 // perUserFee = 333.33333334`
 
-## Common DeFi Use Cases[​](#common-defi-use-cases "Direct link to Common DeFi Use Cases")
+## Common DeFi use cases[​](#common-defi-use-cases "Direct link to Common DeFi use cases")
 
-### Liquidity Pool Pricing (Constant Product AMM)[​](#liquidity-pool-pricing-constant-product-amm "Direct link to Liquidity Pool Pricing (Constant Product AMM)")
+### Liquidity pool pricing (constant product AMM)[​](#liquidity-pool-pricing-constant-product-amm "Direct link to Liquidity pool pricing (constant product AMM)")
 
-Automated Market Makers like Uniswap use the formula `x * y = k`. Here's how to calculate swap outputs with high precision:
+Automated Market Makers (AMM) like Uniswap use the formula `x * y = k`. Here's how to calculate swap outputs with high precision:
 
 `_35
 
@@ -638,7 +638,7 @@ _35
 
 }`
 
-### Compound Interest Calculations[​](#compound-interest-calculations "Direct link to Compound Interest Calculations")
+### Compound interest calculations[​](#compound-interest-calculations "Direct link to Compound interest calculations")
 
 Calculate compound interest for yield farming rewards:
 
@@ -750,7 +750,7 @@ _30
 
 }`
 
-### Proportional Distribution[​](#proportional-distribution "Direct link to Proportional Distribution")
+### Proportional distribution[​](#proportional-distribution "Direct link to Proportional distribution")
 
 Distribute rewards proportionally among stakeholders:
 
@@ -824,7 +824,7 @@ _19
 
 }`
 
-### Price Impact Calculation[​](#price-impact-calculation "Direct link to Price Impact Calculation")
+### Price impact calculation[​](#price-impact-calculation "Direct link to Price impact calculation")
 
 Calculate the price impact of a large trade:
 
@@ -932,9 +932,9 @@ _29
 
 }`
 
-## Benefits of High-Precision Math[​](#benefits-of-high-precision-math "Direct link to Benefits of High-Precision Math")
+## Benefits of high-precision math[​](#benefits-of-high-precision-math "Direct link to Benefits of high-precision math")
 
-### Precision Preservation[​](#precision-preservation "Direct link to Precision Preservation")
+### Precision preservation[​](#precision-preservation "Direct link to Precision preservation")
 
 The 24-decimal precision provides headroom for complex calculations:
 
@@ -962,7 +962,7 @@ _10
 
 // Still maintains 24 decimals of precision until final conversion`
 
-### Overflow Protection[​](#overflow-protection "Direct link to Overflow Protection")
+### Overflow protection[​](#overflow-protection "Direct link to Overflow protection")
 
 The contract uses `UInt256` for intermediate multiplication to prevent overflow:
 
@@ -1012,7 +1012,7 @@ _10
 
 }`
 
-## Best Practices[​](#best-practices "Direct link to Best Practices")
+## Best practices[​](#best-practices "Direct link to Best practices")
 
 Always Use High Precision for Intermediate Calculations.
 
@@ -1110,7 +1110,7 @@ _10
 
 }`
 
-## More Resources[​](#more-resources "Direct link to More Resources")
+## More resources[​](#more-resources "Direct link to More resources")
 
 * [View the DeFiActionsMathUtils source code](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/utils/DeFiActionsMathUtils.cdc)
 * [Flow DeFi Actions Documentation](https://developers.flow.com/blockchain-development-tutorials/forte/flow-actions)
@@ -1132,7 +1132,7 @@ The simple **convert → calculate → convert back** pattern, combined with str
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/fixed-point-128-bit-math.md)
 
-Last updated on **Oct 29, 2025** by **Brian Doyle**
+Last updated on **Nov 6, 2025** by **cshannon1218**
 
 [Previous
 
@@ -1146,13 +1146,13 @@ Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-fl
 
 Copy as Markdown
 
-* [The Precision Problem](#the-precision-problem)* [The Solution: 24-Decimal Precision](#the-solution-24-decimal-precision)
-    + [The Three-Tier Precision System](#the-three-tier-precision-system)* [Core Constants](#core-constants)* [Rounding Modes](#rounding-modes)
-        + [When to Use Each Mode](#when-to-use-each-mode)* [Core Functions](#core-functions)
-          + [Conversion Functions](#conversion-functions)* [High-Precision Arithmetic](#high-precision-arithmetic)
-            + [Multiplication](#multiplication)+ [Division](#division)+ [UFix64 Division with Rounding](#ufix64-division-with-rounding)* [Common DeFi Use Cases](#common-defi-use-cases)
-              + [Liquidity Pool Pricing (Constant Product AMM)](#liquidity-pool-pricing-constant-product-amm)+ [Compound Interest Calculations](#compound-interest-calculations)+ [Proportional Distribution](#proportional-distribution)+ [Price Impact Calculation](#price-impact-calculation)* [Benefits of High-Precision Math](#benefits-of-high-precision-math)
-                + [Precision Preservation](#precision-preservation)+ [Overflow Protection](#overflow-protection)* [Best Practices](#best-practices)* [More Resources](#more-resources)* [Key takeaways](#key-takeaways)* [Conclusion](#conclusion)
+* [The precision problem](#the-precision-problem)* [The solution: 24-decimal precision](#the-solution-24-decimal-precision)
+    + [The three-tier precision system](#the-three-tier-precision-system)* [Core constants](#core-constants)* [Rounding modes](#rounding-modes)
+        + [When to use each mode](#when-to-use-each-mode)* [Core functions](#core-functions)
+          + [Conversion functions](#conversion-functions)* [High-precision arithmetic](#high-precision-arithmetic)
+            + [Multiplication](#multiplication)+ [Division](#division)+ [UFix64 division with rounding](#ufix64-division-with-rounding)* [Common DeFi use cases](#common-defi-use-cases)
+              + [Liquidity pool pricing (constant product AMM)](#liquidity-pool-pricing-constant-product-amm)+ [Compound interest calculations](#compound-interest-calculations)+ [Proportional distribution](#proportional-distribution)+ [Price impact calculation](#price-impact-calculation)* [Benefits of high-precision math](#benefits-of-high-precision-math)
+                + [Precision preservation](#precision-preservation)+ [Overflow protection](#overflow-protection)* [Best practices](#best-practices)* [More resources](#more-resources)* [Key takeaways](#key-takeaways)* [Conclusion](#conclusion)
 
 Flow
 

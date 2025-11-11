@@ -40,7 +40,13 @@ Search
 
 On this page
 
-# Introduction to Scheduled Transactions
+# Introduction to Scheduled transactions
+
+warning
+
+Scheduled transactions are a new feature that is under development and is a part of [FLIP 330](https://github.com/onflow/flips/pull/331/files). Currently, they only work in the emulator and testnet. We're close to finishing the specific implementation, but it but may change during the development process.
+
+We will update these tutorials, but you may need to refactor your code if the implementation changes.
 
 Flow, EVM, and other blockchains are a form of a **single** shared computer that anyone can use, with no admin privileges, super user roles, or complete control. For this to work, it must be impossible for any user to freeze the computer, on purpose or by accident.
 
@@ -50,7 +56,7 @@ While this limitation prevents infinite loops, it makes it so that you can't do 
 
 Flow fixes this problem with *scheduled transactions*. Scheduled Transactions let smart contracts execute code at, or after, a chosen time without an external transaction. You schedule work now and the network executes it later. This allows recurring jobs, deferred actions, and autonomous workflows.
 
-## Learning Objectives[​](#learning-objectives "Direct link to Learning Objectives")
+## Learning objectives[​](#learning-objectives "Direct link to Learning objectives")
 
 After you complete this tutorial, you will be able to:
 
@@ -63,11 +69,11 @@ After you complete this tutorial, you will be able to:
 
 # Prerequisites
 
-## Cadence Programming Language[​](#cadence-programming-language "Direct link to Cadence Programming Language")
+## Cadence programming language[​](#cadence-programming-language "Direct link to Cadence programming language")
 
 This tutorial assumes you have a modest knowledge of [Cadence](https://cadence-lang.org/docs). If you don't, you can follow along, but you'll get more out of it if you complete our series of [Cadence](https://cadence-lang.org/docs) tutorials. Most developers find it more pleasant than other blockchain languages, and it's not hard to pick up.
 
-## Getting Started[​](#getting-started "Direct link to Getting Started")
+## Get started[​](#get-started "Direct link to Get started")
 
 To start, run `flow init` and select `Scheduled Transactions project`. Open the project.
 
@@ -272,11 +278,11 @@ _37
 
 Result: 3`
 
-### Review of the Existing Contract and Transactions[​](#review-of-the-existing-contract-and-transactions "Direct link to Review of the Existing Contract and Transactions")
+### Review the existing contract and transactions[​](#review-the-existing-contract-and-transactions "Direct link to Review the existing contract and transactions")
 
 If you're not familiar with `cadence/contracts/Counter.cdc` review it. This is the standard contract created by default when you run `flow init`. It's very simple, with a counter and public functions to increment or decrement it.
 
-### Transaction Handler[​](#transaction-handler "Direct link to Transaction Handler")
+### Transaction handler[​](#transaction-handler "Direct link to Transaction handler")
 
 Next, open `cadence/contracts/CounterTransactionHandler.cdc`
 
@@ -414,7 +420,7 @@ This contract is simple. It contains a [resource](https://cadence-lang.org/docs/
 
 It also contains functions to get metadata about the handler and a function, `createHandler`, which creates and returns an instance of the `Handler` resource. There are other metadata views that could be good to include in your Handler, but we're sticking to the basic ones for now.
 
-### Initializing the Transaction Handler[​](#initializing-the-transaction-handler "Direct link to Initializing the Transaction Handler")
+### Initializing the transaction handler[​](#initializing-the-transaction-handler "Direct link to Initializing the transaction handler")
 
 Next, take a look at `cadence/transactions/InitCounterTransactionHandler.cdc`:
 
@@ -504,7 +510,7 @@ _23
 
 This transaction saves an instance of the `Handler` resource to the user's [storage](https://cadence-lang.org/docs/language/accounts/storage). It also tests out/demonstrates how to issue the handler [capability] with the `FlowTransactionScheduler.Execute` [entitlement](https://cadence-lang.org/docs/language/access-control#entitlements) and how to publish an un-entitled capability to the handler so it can be publicly accessible. The use of the name `_` is convention to name a variable we don't intend to use for anything.
 
-### Scheduling the Transaction[​](#scheduling-the-transaction "Direct link to Scheduling the Transaction")
+### Schedule the transaction[​](#schedule-the-transaction "Direct link to Schedule the transaction")
 
 Finally, open `cadence/transactions/ScheduleIncrementIn.cdc` again. This is the most complicated transaction, so we'll break it down. The final call other than the `log` is what actually schedules the transaction:
 
@@ -695,7 +701,7 @@ _10
 
 )`
 
-## Using the FlowTransactionSchedulerUtils.Manager[​](#using-the-flowtransactionschedulerutilsmanager "Direct link to Using the FlowTransactionSchedulerUtils.Manager")
+## Use the FlowTransactionSchedulerUtils.Manager[​](#use-the-flowtransactionschedulerutilsmanager "Direct link to Use the FlowTransactionSchedulerUtils.Manager")
 
 The `FlowTransactionSchedulerUtils.Manager` resource provides a safer and more convenient way to manage scheduled transactions. Instead of directly calling the `FlowTransactionScheduler` contract,
 you can use the Manager resource that manages all your scheduled transactions from a single place and handles many of the common patterns to reduce boilerplate code.
@@ -703,7 +709,7 @@ It also provides many convenient functions to get detailed information about all
 When setting up a manager, you also publish a capability for it so it is easy for scripts
 to query your account and also see what transactions are scheduled!
 
-### Setting Up the Manager[​](#setting-up-the-manager "Direct link to Setting Up the Manager")
+### Set Up the Manager[​](#set-up-the-manager "Direct link to Set Up the Manager")
 
 First, you need to create and store a Manager resource in your account:
 
@@ -765,7 +771,7 @@ _16
 
 }`
 
-### Scheduling Transactions with the Manager[​](#scheduling-transactions-with-the-manager "Direct link to Scheduling Transactions with the Manager")
+### Schedule transactions with the Manager[​](#schedule-transactions-with-the-manager "Direct link to Schedule transactions with the Manager")
 
 The Manager provides a `schedule` method that simplifies the scheduling process:
 
@@ -809,11 +815,11 @@ The Manager also provides utility methods for:
 * Managing transaction handlers.
 * Querying transaction status.
 
-## Writing a New Scheduled Transaction[​](#writing-a-new-scheduled-transaction "Direct link to Writing a New Scheduled Transaction")
+## Write a new scheduled transaction[​](#write-a-new-scheduled-transaction "Direct link to Write a new scheduled transaction")
 
 With this knowledge, we can create our own scheduled transaction. For this demo, we'll simply display a hello from an old friend in the emulator's console logs.
 
-### Creating the Contracts[​](#creating-the-contracts "Direct link to Creating the Contracts")
+### Create the contracts[​](#create-the-contracts "Direct link to Create the contracts")
 
 To start, use the [Flow CLI](https://developers.flow.com/tools/flow-cli) to create a new contract called `RickRoll.cdc` and one called `RickRollTransactionHandler.cdc`:
 
@@ -1310,11 +1316,11 @@ This is because the manager stores a history of handlers that you have used in t
 so that you can easily just specify the type of the handler that you want to schedule for
 and it will schedule it for you.
 
-### Setting Up the Transactions[​](#setting-up-the-transactions "Direct link to Setting Up the Transactions")
+### Set Up the transactions[​](#set-up-the-transactions "Direct link to Set Up the transactions")
 
 Next, you need to add transactions to initialize the new transaction handler, and another to fire off the sequence.
 
-Start by adding `InitRickRollHandler.cdc`:
+To start, add `InitRickRollHandler.cdc`:
 
 `_10
 
@@ -1704,7 +1710,7 @@ _78
 
 }`
 
-### Deployment and Testing[​](#deployment-and-testing "Direct link to Deployment and Testing")
+### Deployment and testing[​](#deployment-and-testing "Direct link to Deployment and testing")
 
 It's now time to deploy and test the new scheduled transaction! First, add the new contracts to the emulator account in `flow.json` (other contracts may be present):
 
@@ -1916,7 +1922,7 @@ Scheduled transactions open up new possibilities for DeFi applications, enabling
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/scheduled-transactions/scheduled-transactions-introduction.md)
 
-Last updated on **Oct 29, 2025** by **Brian Doyle**
+Last updated on **Nov 6, 2025** by **cshannon1218**
 
 [Previous
 
@@ -1930,10 +1936,10 @@ DeFi Math Utils](/blockchain-development-tutorials/forte/fixed-point-128-bit-mat
 
 Copy as Markdown
 
-* [Learning Objectives](#learning-objectives)* [Cadence Programming Language](#cadence-programming-language)* [Getting Started](#getting-started)
-      + [Review of the Existing Contract and Transactions](#review-of-the-existing-contract-and-transactions)+ [Transaction Handler](#transaction-handler)+ [Initializing the Transaction Handler](#initializing-the-transaction-handler)+ [Scheduling the Transaction](#scheduling-the-transaction)* [Using the FlowTransactionSchedulerUtils.Manager](#using-the-flowtransactionschedulerutilsmanager)
-        + [Setting Up the Manager](#setting-up-the-manager)+ [Scheduling Transactions with the Manager](#scheduling-transactions-with-the-manager)* [Writing a New Scheduled Transaction](#writing-a-new-scheduled-transaction)
-          + [Creating the Contracts](#creating-the-contracts)+ [Setting Up the Transactions](#setting-up-the-transactions)+ [Deployment and Testing](#deployment-and-testing)* [Conclusion](#conclusion)
+* [Learning objectives](#learning-objectives)* [Cadence programming language](#cadence-programming-language)* [Get started](#get-started)
+      + [Review the existing contract and transactions](#review-the-existing-contract-and-transactions)+ [Transaction handler](#transaction-handler)+ [Initializing the transaction handler](#initializing-the-transaction-handler)+ [Schedule the transaction](#schedule-the-transaction)* [Use the FlowTransactionSchedulerUtils.Manager](#use-the-flowtransactionschedulerutilsmanager)
+        + [Set Up the Manager](#set-up-the-manager)+ [Schedule transactions with the Manager](#schedule-transactions-with-the-manager)* [Write a new scheduled transaction](#write-a-new-scheduled-transaction)
+          + [Create the contracts](#create-the-contracts)+ [Set Up the transactions](#set-up-the-transactions)+ [Deployment and testing](#deployment-and-testing)* [Conclusion](#conclusion)
 
 Flow
 

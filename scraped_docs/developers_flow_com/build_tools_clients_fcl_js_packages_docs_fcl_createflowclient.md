@@ -50,7 +50,18 @@ On this page
 
 # createFlowClient
 
-Creates a Flow client instance with authentication, transaction, and query capabilities.
+Creates a Flow client instance with scoped configuration.
+
+This function decouples FCL functions from the global state and constructs a new SDK client
+instance bound to a custom context. This allows for better modularity and supports multiple
+FCL instances in the same application, each with their own isolated configuration and state.
+
+Benefits of scoped configuration:
+
+* **Isolation**: Each client has its own configuration, storage, and state
+* **Multi-tenancy**: Connect to different Flow networks simultaneously
+* **Type Safety**: Configuration is validated at compile time via TypeScript
+* **Testing**: Easy to create isolated client instances for testing
 
 ## Import[​](#import "Direct link to Import")
 
@@ -77,6 +88,98 @@ _10
 _10
 
 createFlowClient(params)`
+
+## Usage[​](#usage "Direct link to Usage")
+
+`` _24
+
+// Multiple isolated clients for different networks
+
+_24
+
+import { createFlowClient } from "@onflow/fcl"
+
+_24
+
+_24
+
+const mainnetClient = createFlowClient({
+
+_24
+
+accessNodeUrl: "https://rest-mainnet.onflow.org",
+
+_24
+
+flowNetwork: "mainnet",
+
+_24
+
+appDetailTitle: "My App (Mainnet)",
+
+_24
+
+})
+
+_24
+
+_24
+
+const testnetClient = createFlowClient({
+
+_24
+
+accessNodeUrl: "https://rest-testnet.onflow.org",
+
+_24
+
+flowNetwork: "testnet",
+
+_24
+
+appDetailTitle: "My App (Testnet)",
+
+_24
+
+})
+
+_24
+
+_24
+
+// Query both networks simultaneously
+
+_24
+
+const [mainnetBlock, testnetBlock] = await Promise.all([
+
+_24
+
+mainnetClient.query({
+
+_24
+
+cadence: `access(all) fun main(): UInt64 { return getCurrentBlock().height }`,
+
+_24
+
+}),
+
+_24
+
+testnetClient.query({
+
+_24
+
+cadence: `access(all) fun main(): UInt64 { return getCurrentBlock().height }`,
+
+_24
+
+}),
+
+_24
+
+]) ``
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
@@ -396,13 +499,13 @@ _56
 
 }`
 
-A Flow client object with many methods for interacting with the Flow blockchain
+A Flow client object with methods for interacting with the Flow blockchain
 
 ---
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/createFlowClient.md)
 
-Last updated on **Oct 22, 2025** by **Michael Fabozzi**
+Last updated on **Nov 10, 2025** by **Michael Fabozzi**
 
 [Previous
 
@@ -416,8 +519,8 @@ createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/fcl/createSigna
 
 Copy as Markdown
 
-* [Import](#import)* [Parameters](#parameters)
-    + [`params`](#params)* [Returns](#returns)
+* [Import](#import)* [Usage](#usage)* [Parameters](#parameters)
+      + [`params`](#params)* [Returns](#returns)
 
 Flow
 
