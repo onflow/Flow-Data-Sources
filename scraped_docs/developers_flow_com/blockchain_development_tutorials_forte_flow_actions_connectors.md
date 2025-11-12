@@ -42,6 +42,12 @@ On this page
 
 # Connectors
 
+warning
+
+We are reviewing and finalizing Flow Actions in [FLIP 339](https://github.com/onflow/flips/pull/339/files). The specific implementation may change as a part of this process.
+
+We will update these tutorials, but you may need to refactor your code if the implementation changes.
+
 **Connectors** are the bridge between external DeFi protocols and the standardized Flow Actions primitive interfaces. They act as **protocol adapters** that translate protocol-specific APIs into the universal language of Flow Actions. Think of them as "drivers" that provide a connection between software and a piece of hardware without the software developer needing to know how the hardware expects to receive commands, or an MCP allowing an agent to use an API in a standardized manner.
 
 Flow Actions act as "money LEGOs" with which you can compose various complex operations with simple transactions. These are the benefits of connectors:
@@ -50,9 +56,9 @@ Flow Actions act as "money LEGOs" with which you can compose various complex ope
 * Standardized Interface: All connectors implement the same core methods, which makes them interchangeable.
 * Protocol Integration: They handle the complex interactions with different DeFi services (swaps, staking, lending, and so on).
 
-## How Connectors Work[​](#how-connectors-work "Direct link to How Connectors Work")
+## How connectors work[​](#how-connectors-work "Direct link to How connectors work")
 
-### Abstraction Layer[​](#abstraction-layer "Direct link to Abstraction Layer")
+### Abstraction layer[​](#abstraction-layer "Direct link to Abstraction layer")
 
 Connectors sit between your application logic and protocol-specific contracts:
 
@@ -60,7 +66,7 @@ Connectors sit between your application logic and protocol-specific contracts:
 
 Your DeFi Strategy → Flow Actions Connector → Protocol Contract → Blockchain State`
 
-### Interface Implementation[​](#interface-implementation "Direct link to Interface Implementation")
+### Interface implementation[​](#interface-implementation "Direct link to Interface implementation")
 
 Each connector implements one or more of the five primitive interfaces:
 
@@ -172,7 +178,7 @@ _18
 
 fun flashLoan(amount: UFix64, callback: Function) // Flasher`
 
-### Composition Pattern[​](#composition-pattern "Direct link to Composition Pattern")
+### Composition pattern[​](#composition-pattern "Direct link to Composition pattern")
 
 You can combine Connetors to create sophisticated workflows:
 
@@ -216,9 +222,9 @@ ProtocolA.RewardsSource → SwapConnectors.SwapSource → ProtocolB.StakingSink`
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Connector Location Protocol Purpose|  |  |  |  | | --- | --- | --- | --- | | Flasher [IncrementFiFlashloanConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/increment-fi/IncrementFiFlashloanConnectors.cdc) IncrementFi DEX Flash loans through SwapPair contracts. | | | | | | | |
 
-## Guide to Building Connectors[​](#guide-to-building-connectors "Direct link to Guide to Building Connectors")
+## Guide to building connectors[​](#guide-to-building-connectors "Direct link to Guide to building connectors")
 
-### Choose Your Primitive[​](#choose-your-primitive "Direct link to Choose Your Primitive")
+### Choose your primitive[​](#choose-your-primitive "Direct link to Choose your primitive")
 
 First, determine which Flow Actions primitive(s) your connector will implement:
 
@@ -226,7 +232,7 @@ First, determine which Flow Actions primitive(s) your connector will implement:
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Primitive When to Use Example Use Cases|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **Source** Your protocol provides tokens Vault withdrawals, reward claiming, unstaking.|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **Sink** Your protocol accepts tokens Vault deposits, staking, loan repayments.|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **Swapper** Your protocol exchanges tokens DEX trades, cross-chain bridges, LP provision.|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | **PriceOracle** Your protocol provides price data Oracle feeds, TWAP calculations.|  |  |  | | --- | --- | --- | | **Flasher** Your protocol offers flash loans Arbitrage opportunities, liquidations. | | | | | | | | | | | | | | | | | |
 
-### Analyze Your Protocol[​](#analyze-your-protocol "Direct link to Analyze Your Protocol")
+### Analyze your protocol[​](#analyze-your-protocol "Direct link to Analyze your protocol")
 
 Study your target protocol to understand:
 
@@ -236,7 +242,7 @@ Study your target protocol to understand:
 * **Fee structures** and payment mechanisms
 * **Access controls** and permissions
 
-### Design Your Connector[​](#design-your-connector "Direct link to Design Your Connector")
+### Design your connector[​](#design-your-connector "Direct link to Design your connector")
 
 Plan your connector implementation:
 
@@ -246,11 +252,11 @@ Plan your connector implementation:
 * **Resource management** for token handling
 * **Event emission** for traceability
 
-### Implement the Interface[​](#implement-the-interface "Direct link to Implement the Interface")
+### Implement the interface[​](#implement-the-interface "Direct link to Implement the interface")
 
 Create your connector struct implementing the chosen primitive interface(s).
 
-### Add Safety Features[​](#add-safety-features "Direct link to Add Safety Features")
+### Add safety features[​](#add-safety-features "Direct link to Add safety features")
 
 Implement safety mechanisms:
 
@@ -259,7 +265,7 @@ Implement safety mechanisms:
 * **Graceful error handling** with no-ops
 * **Resource cleanup** for empty vaults
 
-### Support Flow Actions Standards[​](#support-flow-actions-standards "Direct link to Support Flow Actions Standards")
+### Support Flow Actions standards[​](#support-flow-actions-standards "Direct link to Support Flow Actions standards")
 
 Add required Flow Actions support:
 
@@ -268,9 +274,9 @@ Add required Flow Actions support:
 * **ComponentInfo** for introspection
 * **Event emission** integration
 
-## Best Practices[​](#best-practices "Direct link to Best Practices")
+## Best practices[​](#best-practices "Direct link to Best practices")
 
-### **Error Handling**[​](#error-handling "Direct link to error-handling")
+### **Error handling**[​](#error-handling "Direct link to error-handling")
 
 * **Graceful Failures**: Return empty results instead of panicking.
 * **Validation**: Check all inputs and preconditions.
@@ -326,7 +332,7 @@ _13
 
 }`
 
-### **Capacity and Balance Checking**[​](#capacity-and-balance-checking "Direct link to capacity-and-balance-checking")
+### **Capacity and balance checking**[​](#capacity-and-balance-checking "Direct link to capacity-and-balance-checking")
 
 * **Always Check First**: Validate capacity/availability before operations.
 * **Respect Limits**: Work within available constraints.
@@ -382,7 +388,7 @@ _14
 
 }`
 
-### **Type Safety**[​](#type-safety "Direct link to type-safety")
+### **Type safety**[​](#type-safety "Direct link to type-safety")
 
 * **Validate Types**: Ensure vault types match expected types.
 * **Early Returns**: Fail fast on type mismatches.
@@ -418,13 +424,13 @@ _10
 
 }`
 
-### **Event Integration**[​](#event-integration "Direct link to event-integration")
+### **Event integration**[​](#event-integration "Direct link to event-integration")
 
 * **Leverage Post-conditions**: Flow Actions interfaces emit events automatically.
 * **Provide Context**: Include relevant information in events.
 * **Support Traceability**: Use UniqueIdentifiers consistently.
 
-### **Resource Management**[​](#resource-management "Direct link to resource-management")
+### **Resource management**[​](#resource-management "Direct link to resource-management")
 
 * **Handle Empty Vaults**: Use `DeFiActionsUtils.getEmptyVault()` for consistent empty vault creation.
 * **Destroy Properly**: Clean up resources in all code paths.
@@ -452,7 +458,7 @@ The `VaultSink` connector is already deployed and working in Flow Actions. Let's
 **Contract**: `FungibleTokenConnectors`
 **Connector**: `VaultSink` struct that defines the interaction with the connector.
 
-### Deploy Your Connector Contract[​](#deploy-your-connector-contract "Direct link to Deploy Your Connector Contract")
+### Deploy Your Connector contract[​](#deploy-your-connector-contract "Direct link to Deploy Your Connector contract")
 
 Deploy your connector contract with the following command:
 
@@ -510,7 +516,7 @@ _12
 
 }`
 
-### Create Usage Transactions[​](#create-usage-transactions "Direct link to Create Usage Transactions")
+### Create usage transactions[​](#create-usage-transactions "Direct link to Create usage transactions")
 
 Create transaction templates for using your connectors:
 
@@ -600,7 +606,7 @@ _23
 
 }`
 
-### Real Usage Transaction: VaultSink[​](#real-usage-transaction-vaultsink "Direct link to Real Usage Transaction: VaultSink")
+### Real usage transaction: VaultSink[​](#real-usage-transaction-vaultsink "Direct link to Real usage transaction: VaultSink")
 
 Here's the actual working transaction that creates a VaultSink:
 
@@ -788,7 +794,7 @@ _10
 
 --signer emulator`
 
-### Create Combinations Examples[​](#create-combinations-examples "Direct link to Create Combinations Examples")
+### Create combinations examples[​](#create-combinations-examples "Direct link to Create combinations examples")
 
 Show how your connectors work with existing Flow Actions components:
 
@@ -904,7 +910,7 @@ _30
 
 }`
 
-### Add to Existing Workflows[​](#add-to-existing-workflows "Direct link to Add to Existing Workflows")
+### Add to existing workflows[​](#add-to-existing-workflows "Direct link to Add to existing workflows")
 
 You can use VaultSink in advanced Flow Actions workflows:
 
@@ -1098,7 +1104,7 @@ _51
 
 }`
 
-### For Your Own Connectors[​](#for-your-own-connectors "Direct link to For Your Own Connectors")
+### For Your own connectors[​](#for-your-own-connectors "Direct link to For Your own connectors")
 
 When building your own connectors, follow the VaultSink pattern:
 
@@ -1123,7 +1129,7 @@ This framework allows developers to build sophisticated DeFi strategies while ma
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/flow-actions/connectors.md)
 
-Last updated on **Oct 29, 2025** by **Brian Doyle**
+Last updated on **Nov 6, 2025** by **cshannon1218**
 
 [Previous
 
@@ -1137,11 +1143,11 @@ Basic Combinations](/blockchain-development-tutorials/forte/flow-actions/basic-c
 
 Copy as Markdown
 
-* [How Connectors Work](#how-connectors-work)
-  + [Abstraction Layer](#abstraction-layer)+ [Interface Implementation](#interface-implementation)+ [Composition Pattern](#composition-pattern)* [Connector Library](#connector-library)* [Guide to Building Connectors](#guide-to-building-connectors)
-      + [Choose Your Primitive](#choose-your-primitive)+ [Analyze Your Protocol](#analyze-your-protocol)+ [Design Your Connector](#design-your-connector)+ [Implement the Interface](#implement-the-interface)+ [Add Safety Features](#add-safety-features)+ [Support Flow Actions Standards](#support-flow-actions-standards)* [Best Practices](#best-practices)
-        + [**Error Handling**](#error-handling)+ [**Capacity and Balance Checking**](#capacity-and-balance-checking)+ [**Type Safety**](#type-safety)+ [**Event Integration**](#event-integration)+ [**Resource Management**](#resource-management)+ [**Capability Management**](#capability-management)+ [**Documentation**](#documentation)* [Integration into Flow Actions](#integration-into-flow-actions)
-          + [Deploy Your Connector Contract](#deploy-your-connector-contract)+ [Create Usage Transactions](#create-usage-transactions)+ [Real Usage Transaction: VaultSink](#real-usage-transaction-vaultsink)+ [Create Combinations Examples](#create-combinations-examples)+ [Add to Existing Workflows](#add-to-existing-workflows)+ [For Your Own Connectors](#for-your-own-connectors)* [Conclusion](#conclusion)
+* [How connectors work](#how-connectors-work)
+  + [Abstraction layer](#abstraction-layer)+ [Interface implementation](#interface-implementation)+ [Composition pattern](#composition-pattern)* [Connector Library](#connector-library)* [Guide to building connectors](#guide-to-building-connectors)
+      + [Choose your primitive](#choose-your-primitive)+ [Analyze your protocol](#analyze-your-protocol)+ [Design your connector](#design-your-connector)+ [Implement the interface](#implement-the-interface)+ [Add safety features](#add-safety-features)+ [Support Flow Actions standards](#support-flow-actions-standards)* [Best practices](#best-practices)
+        + [**Error handling**](#error-handling)+ [**Capacity and balance checking**](#capacity-and-balance-checking)+ [**Type safety**](#type-safety)+ [**Event integration**](#event-integration)+ [**Resource management**](#resource-management)+ [**Capability Management**](#capability-management)+ [**Documentation**](#documentation)* [Integration into Flow Actions](#integration-into-flow-actions)
+          + [Deploy Your Connector contract](#deploy-your-connector-contract)+ [Create usage transactions](#create-usage-transactions)+ [Real usage transaction: VaultSink](#real-usage-transaction-vaultsink)+ [Create combinations examples](#create-combinations-examples)+ [Add to existing workflows](#add-to-existing-workflows)+ [For Your own connectors](#for-your-own-connectors)* [Conclusion](#conclusion)
 
 Flow
 

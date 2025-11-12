@@ -40,7 +40,13 @@ Search
 
 On this page
 
-# Composing Workflows with Flow Actions
+# Composing workflows with Flow Actions
+
+warning
+
+We are reviewing and finalizing Flow Actions in [FLIP 339](https://github.com/onflow/flips/pull/339/files). The specific implementation may change as a part of this process.
+
+We will update these tutorials, but you may need to refactor your code if the implementation changes.
 
 Flow Actions are designed to be **composable**, which means you can chain them together like LEGO blocks to build complex strategies. Each primitive has a standardized interface that works consistently across all protocols and eliminates the need to learn multiple APIs. This composability allows atomic execution of multi-step workflows within single transactions, ensuring either complete success or safe failure. When developers combine these primitives, they create sophisticated decentralized finance (DeFi) strategies like automated yield farming, cross-protocol arbitrage, and portfolio rebalancing. The [5 Flow Actions Primitives](/blockchain-development-tutorials/forte/flow-actions/intro-to-flow-actions) are:
 
@@ -50,7 +56,7 @@ Flow Actions are designed to be **composable**, which means you can chain them t
 * **PriceOracle** → Provides real-time price data for assets from external feeds or DEX prices. Oracles handle staleness validation and return nil for unavailable prices rather than failing.
 * **Flasher** → Issues flash loans that must be repaid within the same transaction via callback execution. Flashers enable capital-efficient strategies like arbitrage and liquidations without requiring upfront capital.
 
-## Learning Objectives[​](#learning-objectives "Direct link to Learning Objectives")
+## Learning objectives[​](#learning-objectives "Direct link to Learning objectives")
 
 After you complete this tutorial, you will be able to:
 
@@ -63,7 +69,7 @@ After you complete this tutorial, you will be able to:
 * Use UniqueIdentifiers to trace and correlate operations across multiple Flow Actions.
 * Compose complex DeFi workflows by connecting multiple Actions in a single atomic transaction.
 
-## Core Flow Patterns[​](#core-flow-patterns "Direct link to Core Flow Patterns")
+## Core Flow patterns[​](#core-flow-patterns "Direct link to Core Flow patterns")
 
 ### Linear Flow (Source → Swapper → Sink)[​](#linear-flow-source--swapper--sink "Direct link to Linear Flow (Source → Swapper → Sink)")
 
@@ -105,9 +111,9 @@ Source C ↗`
 
 **Example**: Multiple DEX aggregators finding the best swap route.
 
-## Common DeFi Workflow Combinations[​](#common-defi-workflow-combinations "Direct link to Common DeFi Workflow Combinations")
+## Common DeFi workflow combinations[​](#common-defi-workflow-combinations "Direct link to Common DeFi workflow combinations")
 
-### Single Token to LP (Zapper)[​](#single-token-to-lp-zapper "Direct link to Single Token to LP (Zapper)")
+### Single token to LP (Zapper)[​](#single-token-to-lp-zapper "Direct link to Single token to LP (Zapper)")
 
 **Goal**: Convert a single token into liquidity provider (LP) tokens in one transaction.
 
@@ -177,7 +183,7 @@ _13
 * **Efficiency**: Automatically calculates optimal split ratios.
 * **Composability**: Output LP tokens work with any sink connector.
 
-### Reward Harvesting & Conversion[​](#reward-harvesting--conversion "Direct link to Reward Harvesting & Conversion")
+### Reward harvesting and conversion[​](#reward-harvesting-and-conversion "Direct link to Reward harvesting and conversion")
 
 **Goal**: Claim staking rewards and convert them to a stable token.
 
@@ -302,7 +308,7 @@ vaultSink.depositCapacity(from: &stableTokens)`
 * **Automation**: Single transaction handles claim, swap, and storage.
 * **Capital Efficiency**: No manual intervention needed for reward management.
 
-### Liquidity Provision & Yield Farming[​](#liquidity-provision--yield-farming "Direct link to Liquidity Provision & Yield Farming")
+### Liquidity provision & yield farming[​](#liquidity-provision--yield-farming "Direct link to Liquidity provision & yield farming")
 
 **Goal**: Convert single token to LP tokens for yield farming
 
@@ -419,7 +425,7 @@ stakingSink.depositCapacity(from: &lpTokens)`
 * **Single Transaction**: No need for multiple manual steps or approvals.
 * **Automatic Staking**: LP tokens immediately start earning rewards.
 
-### Cross-VM Bridge & Swap[​](#cross-vm-bridge--swap "Direct link to Cross-VM Bridge & Swap")
+### Cross-VM bridge and swap[​](#cross-vm-bridge-and-swap "Direct link to Cross-VM bridge and swap")
 
 **Goal**: Bridge tokens from Cadence to EVM, swap them, then bridge back.
 
@@ -545,7 +551,7 @@ cadenceSink.depositCapacity(from: &evmTokens)`
 * **Cross-VM Arbitrage**: Exploit price differences between VM environments.
 * **Atomic Execution**: All bridging and swapping happens in single transaction.
 
-### Flash Loan Arbitrage[​](#flash-loan-arbitrage "Direct link to Flash Loan Arbitrage")
+### Flash loan arbitrage[​](#flash-loan-arbitrage "Direct link to Flash loan arbitrage")
 
 **Goal**: Borrow tokens, execute arbitrage, repay loan with profit.
 
@@ -629,9 +635,9 @@ flasher.flashLoan(1000.0, callback: arbitrageCallback)`
 * **Risk-Free Profit**: Transaction reverts if arbitrage isn't profitable.
 * **Market Efficiency**: Helps eliminate price discrepancies across DEXs.
 
-## Advanced Workflow Combinations[​](#advanced-workflow-combinations "Direct link to Advanced Workflow Combinations")
+## Advanced Wwrkflow combinations[​](#advanced-wwrkflow-combinations "Direct link to Advanced Wwrkflow combinations")
 
-### Vault Source + Zapper Integration[​](#vault-source--zapper-integration "Direct link to Vault Source + Zapper Integration")
+### VaultSource + Zapper integration[​](#vaultsource--zapper-integration "Direct link to VaultSource + Zapper integration")
 
 **Goal**: Withdraw tokens from a vault and convert them to LP tokens in a single transaction.
 
@@ -732,7 +738,7 @@ log("LP tokens created: ".concat(lpTokens.balance.toString()))`
 * **Single Transaction**: Complex multi-step process executed atomically.
 * **Minimum Protection**: VaultSource ensures vault never goes below safety threshold.
 
-### Price-Informed Rebalancing[​](#price-informed-rebalancing "Direct link to Price-Informed Rebalancing")
+### Price-informed rebalancing[​](#price-informed-rebalancing "Direct link to Price-informed rebalancing")
 
 **Goal**: Create autonomous rebalancing system based on price feeds.
 
@@ -825,7 +831,7 @@ autoBalancer.rebalance(force: false) // Autonomous rebalancing`
 * **Market Responsive**: Adapts to price movements with real-time oracle data.
 * **Threshold Flexibility**: Configurable upper/lower bounds for different risk profiles.
 
-### Restake & Compound Strategy[​](#restake--compound-strategy "Direct link to Restake & Compound Strategy")
+### Restake and compound strategy[​](#restake-and-compound-strategy "Direct link to Restake and compound strategy")
 
 **Goal**: Automatically compound staking rewards back into the pool.
 
@@ -962,9 +968,9 @@ poolSink.depositCapacity(from: lpTokens)`
 * **Set-and-Forget**: Automated compounding without manual intervention required.
 * **Optimal Conversion**: Zapper ensures efficient reward token to LP token conversion.
 
-## Safety Best Practices[​](#safety-best-practices "Direct link to Safety Best Practices")
+## Safety best practices[​](#safety-best-practices "Direct link to Safety best practices")
 
-### Always Check Capacity[​](#always-check-capacity "Direct link to Always Check Capacity")
+### Always check capacity[​](#always-check-capacity "Direct link to Always check capacity")
 
 Prevents transaction failures and allows graceful handling when sinks reach their maximum capacity limits. This is crucial for automated workflows that might encounter varying capacity conditions.
 
@@ -992,7 +998,7 @@ _10
 
 }`
 
-### Validate Balances[​](#validate-balances "Direct link to Validate Balances")
+### Validate balances[​](#validate-balances "Direct link to Validate balances")
 
 Ensures operations behave as expected and helps detect unexpected token loss or gain during complex workflows. Balance validation is essential for financial applications where token accuracy is critical.
 
@@ -1018,7 +1024,7 @@ _10
 
 assert(afterBalance >= beforeBalance, message: "Balance should not decrease")`
 
-### Use Graceful Degradation[​](#use-graceful-degradation "Direct link to Use Graceful Degradation")
+### Use graceful degradation[​](#use-graceful-degradation "Direct link to Use graceful degradation")
 
 Prevents entire workflows from failing when individual components encounter issues. This approach allows robust strategies that can adapt to changing market conditions or temporary protocol unavailability.
 
@@ -1050,7 +1056,7 @@ _10
 
 }`
 
-### Resource Management[​](#resource-management "Direct link to Resource Management")
+### Resource management[​](#resource-management "Direct link to Resource management")
 
 Proper resource cleanup prevents token loss and ensures all vaults are properly handled, even when transactions partially fail. This is critical in Cadence where you must explicitly manage resources.
 
@@ -1090,9 +1096,9 @@ _10
 
 }`
 
-## Testing Your Combinations[​](#testing-your-combinations "Direct link to Testing Your Combinations")
+## Testing your combinations[​](#testing-your-combinations "Direct link to Testing your combinations")
 
-### Unit Testing[​](#unit-testing "Direct link to Unit Testing")
+### Unit testing[​](#unit-testing "Direct link to Unit testing")
 
 Tests individual connectors in isolation to verify they respect their constraints and behave correctly under various conditions. This catches bugs early and ensures each component works as designed.
 
@@ -1126,7 +1132,7 @@ _10
 
 }`
 
-### Integration Testing[​](#integration-testing "Direct link to Integration Testing")
+### Integration testing[​](#integration-testing "Direct link to Integration testing")
 
 Validates that multiple connectors work together correctly in complete workflows. This ensures the composition logic is sound and identifies issues that only appear when components interact.
 
@@ -1172,7 +1178,7 @@ _11
 
 }`
 
-### Simulation Testing[​](#simulation-testing "Direct link to Simulation Testing")
+### Simulation testing[​](#simulation-testing "Direct link to Simulation testing")
 
 Tests strategies under various market conditions using mock data to verify they respond appropriately to price changes, liquidity variations, and other market dynamics. This is essential for strategies that rely on external market data.
 
@@ -1234,7 +1240,7 @@ _16
 
 }`
 
-## 📚 Next Steps[​](#-next-steps "Direct link to 📚 Next Steps")
+## 📚 Next steps[​](#-next-steps "Direct link to 📚 Next steps")
 
 Now that you understand basic combinations, explore:
 
@@ -1250,7 +1256,7 @@ Composability is the core strength of Flow Actions. These examples demonstrate h
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/flow-actions/basic-combinations.md)
 
-Last updated on **Oct 29, 2025** by **Brian Doyle**
+Last updated on **Nov 6, 2025** by **cshannon1218**
 
 [Previous
 
@@ -1264,12 +1270,12 @@ Scheduled Transactions](/blockchain-development-tutorials/forte/scheduled-transa
 
 Copy as Markdown
 
-* [Learning Objectives](#learning-objectives)* [Core Flow Patterns](#core-flow-patterns)
-    + [Linear Flow (Source → Swapper → Sink)](#linear-flow-source--swapper--sink)+ [Bidirectional Flow (Source ↔ Sink)](#bidirectional-flow-source--sink)+ [Aggregated Flow (Multiple Sources → Aggregator → Sink)](#aggregated-flow-multiple-sources--aggregator--sink)* [Common DeFi Workflow Combinations](#common-defi-workflow-combinations)
-      + [Single Token to LP (Zapper)](#single-token-to-lp-zapper)+ [Reward Harvesting & Conversion](#reward-harvesting--conversion)+ [Liquidity Provision & Yield Farming](#liquidity-provision--yield-farming)+ [Cross-VM Bridge & Swap](#cross-vm-bridge--swap)+ [Flash Loan Arbitrage](#flash-loan-arbitrage)* [Advanced Workflow Combinations](#advanced-workflow-combinations)
-        + [Vault Source + Zapper Integration](#vault-source--zapper-integration)+ [Price-Informed Rebalancing](#price-informed-rebalancing)+ [Restake & Compound Strategy](#restake--compound-strategy)* [Safety Best Practices](#safety-best-practices)
-          + [Always Check Capacity](#always-check-capacity)+ [Validate Balances](#validate-balances)+ [Use Graceful Degradation](#use-graceful-degradation)+ [Resource Management](#resource-management)* [Testing Your Combinations](#testing-your-combinations)
-            + [Unit Testing](#unit-testing)+ [Integration Testing](#integration-testing)+ [Simulation Testing](#simulation-testing)* [📚 Next Steps](#-next-steps)* [Conclusion](#conclusion)
+* [Learning objectives](#learning-objectives)* [Core Flow patterns](#core-flow-patterns)
+    + [Linear Flow (Source → Swapper → Sink)](#linear-flow-source--swapper--sink)+ [Bidirectional Flow (Source ↔ Sink)](#bidirectional-flow-source--sink)+ [Aggregated Flow (Multiple Sources → Aggregator → Sink)](#aggregated-flow-multiple-sources--aggregator--sink)* [Common DeFi workflow combinations](#common-defi-workflow-combinations)
+      + [Single token to LP (Zapper)](#single-token-to-lp-zapper)+ [Reward harvesting and conversion](#reward-harvesting-and-conversion)+ [Liquidity provision & yield farming](#liquidity-provision--yield-farming)+ [Cross-VM bridge and swap](#cross-vm-bridge-and-swap)+ [Flash loan arbitrage](#flash-loan-arbitrage)* [Advanced Wwrkflow combinations](#advanced-wwrkflow-combinations)
+        + [VaultSource + Zapper integration](#vaultsource--zapper-integration)+ [Price-informed rebalancing](#price-informed-rebalancing)+ [Restake and compound strategy](#restake-and-compound-strategy)* [Safety best practices](#safety-best-practices)
+          + [Always check capacity](#always-check-capacity)+ [Validate balances](#validate-balances)+ [Use graceful degradation](#use-graceful-degradation)+ [Resource management](#resource-management)* [Testing your combinations](#testing-your-combinations)
+            + [Unit testing](#unit-testing)+ [Integration testing](#integration-testing)+ [Simulation testing](#simulation-testing)* [📚 Next steps](#-next-steps)* [Conclusion](#conclusion)
 
 Flow
 

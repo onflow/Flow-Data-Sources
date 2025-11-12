@@ -42,11 +42,17 @@ On this page
 
 # Introduction to Flow Actions
 
+warning
+
+We are reviewing and finalizing Flow Actions in [FLIP 339](https://github.com/onflow/flips/pull/339/files). The specific implementation may change as a part of this process.
+
+We will update these tutorials, but you may need to refactor your code if the implementation changes.
+
 *Actions* are a suite of standardized Cadence interfaces that allow developers to compose complex workflows, starting with decentralized finance (DeFi) workflows, by connecting small, reusable components. Actions provide a "LEGO" framework of blocks where each component performs a single operation (deposit, withdraw, swap, price lookup, flash loan) while maintaining composability with other components. This creates sophisticated workflows executable in a single atomic transaction.
 
 By using Flow Actions, developers can remove large amounts of tailored complexity from building DeFi apps and can instead focus on business logic using nouns and verbs.
 
-## Key Features[​](#key-features "Direct link to Key Features")
+## Key features[​](#key-features "Direct link to Key features")
 
 * **Atomic Composition** - All operations complete or fail together.
 * **Weak Guarantees** - Flexible error handling, no-ops when conditions aren't met.
@@ -56,7 +62,7 @@ By using Flow Actions, developers can remove large amounts of tailored complexit
 
 ## Learning Objectives[​](#learning-objectives "Direct link to Learning Objectives")
 
-After completing this tutorial, you will be able to:
+After you complete this tutorial, you will be able to:
 
 * Understand the key features of Flow Actions including atomic composition, weak guarantees, and event traceability
 * Create and use Sources to provide tokens from various protocols and locations
@@ -69,11 +75,11 @@ After completing this tutorial, you will be able to:
 
 # Prerequisites
 
-## Cadence Programming Language[​](#cadence-programming-language "Direct link to Cadence Programming Language")
+## Cadence programming language[​](#cadence-programming-language "Direct link to Cadence programming language")
 
 This tutorial assumes you have a modest knowledge of [Cadence](https://cadence-lang.org/docs). If you don't, you can follow along, but you'll get more out of it if you complete our [Cadence](https://cadence-lang.org/docs) tutorials. Most developers find it easier than other blockchain languages and it's not hard to pick up.
 
-## Flow Action Types[​](#flow-action-types "Direct link to Flow Action Types")
+## Flow Action types[​](#flow-action-types "Direct link to Flow Action types")
 
 The first five Flow Actions implement five core primitives to integrate external DeFi protocols.
 
@@ -105,7 +111,7 @@ To instantiate Flow Actions, create an instance of the appropriate [struct] from
 
 For more information, read the [connectors article](/blockchain-development-tutorials/forte/flow-actions/connectors).
 
-## Token Types[​](#token-types "Direct link to Token Types")
+## Token types[​](#token-types "Direct link to Token types")
 
 In Cadence, tokens that adhere to the [Fungible Token Standard](https://developers.flow.com/build/cadence/guides/fungible-token) have types that work with type safety principles.
 
@@ -587,7 +593,7 @@ _33
 
 }`
 
-### Price Oracle[​](#price-oracle "Direct link to Price Oracle")
+### Price oracle[​](#price-oracle "Direct link to Price oracle")
 
 A price [oracle](https://developers.flow.com/ecosystem/defi-liquidity/defi-contracts-mainnet#oracles) provides price data for assets with a consistent denomination. All prices are returned in the same unit and will return `nil` rather than reverting in the event that a price is unavailable. Prices are indexed by [Cadence type](https://cadence-lang.org/docs/language/types-and-type-system/type-safety), requiring a specific Cadence-based token type for which to serve prices, as opposed to looking up an asset by a generic address.
 
@@ -1054,7 +1060,7 @@ _62
 
 }`
 
-## Identification and Traceability[​](#identification-and-traceability "Direct link to Identification and Traceability")
+## Identification and traceability[​](#identification-and-traceability "Direct link to Identification and traceability")
 
 The `UniqueIdentifier` allows protocols to trace stack operations via Flow Actions interface-level events, identifying them by IDs. `IdentifiableResource` implementations should verify that access to the identifier is encapsulated by the structures they identify.
 
@@ -1362,29 +1368,29 @@ _82
 
 }`
 
-## Why `UniqueIdentifier` Matters in FlowActions[​](#why-uniqueidentifier-matters-in-flowactions "Direct link to why-uniqueidentifier-matters-in-flowactions")
+## Why `UniqueIdentifier` matters in FlowActions[​](#why-uniqueidentifier-matters-in-flowactions "Direct link to why-uniqueidentifier-matters-in-flowactions")
 
 The `UniqueIdentifier` is used to tag multiple FlowActions connectors as part of the **same logical operation**.  
 By aligning the same ID across connectors (for example, Source → Swapper → Sink), you can:
 
-### 1. Event Correlation[​](#1-event-correlation "Direct link to 1. Event Correlation")
+### 1. Event correlation[​](#1-event-correlation "Direct link to 1. Event correlation")
 
 * Every connector emits events tagged with its `UniqueIdentifier`.
 * Shared IDs let you filter and group related events in the chain's event stream.
 * Makes it easy to see that a withdrawal, swap, and deposit were part of **one workflow**.
 
-### 2. Stack Tracing[​](#2-stack-tracing "Direct link to 2. Stack Tracing")
+### 2. Stack tracing[​](#2-stack-tracing "Direct link to 2. Stack tracing")
 
 * When using composite connectors (for example, `SwapSource`, `SwapSink`, `MultiSwapper`), IDs allow you to trace the complete path through the stack.
 * Helpful for debugging and understanding the flow of operations inside complex strategies.
 
-### 3. Analytics & Attribution[​](#3-analytics--attribution "Direct link to 3. Analytics & Attribution")
+### 3. Analytics and attribution[​](#3-analytics-and-attribution "Direct link to 3. Analytics and attribution")
 
 * Allows measuring usage of specific strategies or routes.
 * Lets you join data from multiple connectors into a single logical "transaction" for reporting.
 * Supports fee attribution and performance monitoring across multi-step workflows.
 
-### Without a Shared `UniqueIdentifier`[​](#without-a-shared-uniqueidentifier "Direct link to without-a-shared-uniqueidentifier")
+### Without a shared `UniqueIdentifier`[​](#without-a-shared-uniqueidentifier "Direct link to without-a-shared-uniqueidentifier")
 
 * Events from different connectors appear unrelated, even if they occurred in the same transaction.
 * Harder to debug, track, or analyze multi-step processes.
@@ -1406,7 +1412,7 @@ Now that you have completed this tutorial, you can:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/flow-actions/intro-to-flow-actions.md)
 
-Last updated on **Oct 29, 2025** by **bz**
+Last updated on **Nov 6, 2025** by **cshannon1218**
 
 [Previous
 
@@ -1420,9 +1426,9 @@ Flow Actions Transaction](/blockchain-development-tutorials/forte/flow-actions/f
 
 Copy as Markdown
 
-* [Key Features](#key-features)* [Learning Objectives](#learning-objectives)* [Cadence Programming Language](#cadence-programming-language)* [Flow Action Types](#flow-action-types)* [Connectors](#connectors)* [Token Types](#token-types)* [Flow Actions](#flow-actions)
-              + [Source](#source)+ [Sink](#sink)+ [Swapper](#swapper)+ [Price Oracle](#price-oracle)+ [Flasher](#flasher)* [Identification and Traceability](#identification-and-traceability)* [Why `UniqueIdentifier` Matters in FlowActions](#why-uniqueidentifier-matters-in-flowactions)
-                  + [1. Event Correlation](#1-event-correlation)+ [2. Stack Tracing](#2-stack-tracing)+ [3. Analytics & Attribution](#3-analytics--attribution)+ [Without a Shared `UniqueIdentifier`](#without-a-shared-uniqueidentifier)* [Conclusion](#conclusion)
+* [Key features](#key-features)* [Learning Objectives](#learning-objectives)* [Cadence programming language](#cadence-programming-language)* [Flow Action types](#flow-action-types)* [Connectors](#connectors)* [Token types](#token-types)* [Flow Actions](#flow-actions)
+              + [Source](#source)+ [Sink](#sink)+ [Swapper](#swapper)+ [Price oracle](#price-oracle)+ [Flasher](#flasher)* [Identification and traceability](#identification-and-traceability)* [Why `UniqueIdentifier` matters in FlowActions](#why-uniqueidentifier-matters-in-flowactions)
+                  + [1. Event correlation](#1-event-correlation)+ [2. Stack tracing](#2-stack-tracing)+ [3. Analytics and attribution](#3-analytics-and-attribution)+ [Without a shared `UniqueIdentifier`](#without-a-shared-uniqueidentifier)* [Conclusion](#conclusion)
 
 Flow
 

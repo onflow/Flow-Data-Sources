@@ -44,9 +44,7 @@ Search
 
 On this page
 
-# Compose wth Cadence Transactions
-
-## Overview[​](#overview "Direct link to Overview")
+# Compose wth Cadence transactions
 
 In this tutorial, you'll **compose with someone else's contracts** on Flow testnet. You'll write a Cadence transaction that reads public state from a contract named `Counter` and only increments the counter when it is odd. Then you'll extend the transaction to mint NFTs when the counter is odd, demonstrating how to compose multiple contracts in a single transaction. Everything runs against testnet using the Flow CLI and the dependency manager.
 
@@ -71,7 +69,7 @@ After you complete this guide, you will be able to:
   + Create: <https://developers.flow.com/build/tools/flow-cli/commands#create-accounts>
   + Fund: <https://developers.flow.com/build/tools/flow-cli/commands#fund-accounts>
 
-## Getting Started[​](#getting-started "Direct link to Getting Started")
+## Get started[​](#get-started "Direct link to Get started")
 
 Create a [new project](/build/tools/flow-cli/flow.json/initialize-configuration) with the [Flow CLI](/build/tools/flow-cli):
 
@@ -427,13 +425,13 @@ You could trigger this same transaction **from an app** and **signed by a wallet
 
 ---
 
-## Extend with NFT Minting[​](#extend-with-nft-minting "Direct link to Extend with NFT Minting")
+## Extend with NFT minting[​](#extend-with-nft-minting "Direct link to Extend with NFT minting")
 
 Now let's take our composition to the next level by adding NFT minting functionality when the counter is odd. We'll use an example NFT contract that's already deployed on testnet.
 
 This is a silly use case, but it demonstrates the complex use cases you can add to your apps, after contract deployment, and even if you aren't the author of any of the contracts!
 
-### Install the NFT Contract[​](#install-the-nft-contract "Direct link to Install the NFT Contract")
+### Install the NFT contract[​](#install-the-nft-contract "Direct link to Install the NFT contract")
 
 First, let's install the ExampleNFT contract dependency:
 
@@ -445,7 +443,7 @@ warning
 
 This repository uses different deployments for core contracts than those that the Flow CLI installs. If you previously installed core contract dependencies (like `NonFungibleToken`, `MetadataViews`, etc.) using the CLI, manually delete all `dependencies` except `Counter` from your `flow.json` file to avoid conflicts.
 
-### Understanding NFT Minting[​](#understanding-nft-minting "Direct link to Understanding NFT Minting")
+### Understand NFT minting[​](#understand-nft-minting "Direct link to Understand NFT minting")
 
 Let's look at how NFT minting works with this contract. The [MintExampleNFT transaction](https://github.com/mfbz/flow-nft-tester/blob/main/cadence/transactions/MintExampleNFT.cdc) shows the pattern:
 
@@ -569,7 +567,7 @@ _31
 
 You can copy this functionality and adapt it for our use case.
 
-### Update the IncrementIfOdd Transaction[​](#update-the-incrementifodd-transaction "Direct link to Update the IncrementIfOdd Transaction")
+### Update the IncrementIfOdd transaction[​](#update-the-incrementifodd-transaction "Direct link to Update the IncrementIfOdd transaction")
 
 Now let's update our `IncrementIfOdd` transaction to mint an NFT when the counter is odd. You can either modify the existing transaction or create a new one:
 
@@ -733,7 +731,7 @@ _43
 
 }`
 
-### Setup NFT Collection[​](#setup-nft-collection "Direct link to Setup NFT Collection")
+### Setup NFT collection[​](#setup-nft-collection "Direct link to Setup NFT collection")
 
 Before you can mint NFTs, set up an NFT collection in your account. Create a transaction to do this:
 
@@ -827,7 +825,7 @@ You may need to run the regular `IncrementCounter` transaction first to get an o
 
 flow transactions send cadence/transactions/IncrementCounter.cdc --signer testnet-account --network testnet`
 
-### View Your NFT[​](#view-your-nft "Direct link to View Your NFT")
+### View your NFT[​](#view-your-nft "Direct link to View your NFT")
 
 Click the transaction link in the console to view the transaction in [testnet Flowscan](https://testnet.flowscan.io/). After you run the transaction **while the counter is odd**, you'll see an NFT in the `Asset Transfers` tab.
 
@@ -862,7 +860,7 @@ This approach gives you the freedom to build complex application logic that comp
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/cadence-advantages/compose-with-cadence-transactions.md)
 
-Last updated on **Oct 27, 2025** by **cshannon1218**
+Last updated on **Oct 30, 2025** by **cshannon1218**
 
 [Previous
 
@@ -876,10 +874,10 @@ Native Data Availability With Cadence Scripts](/blockchain-development-tutorials
 
 Copy as Markdown
 
-* [Overview](#overview)* [Objectives](#objectives)* [Prerequisites](#prerequisites)* [Getting Started](#getting-started)
-        + [Install dependencies](#install-dependencies)* [Compose with the public `Counter` contract](#compose-with-the-public-counter-contract)
-          + [Run on testnet](#run-on-testnet)* [Extend with NFT Minting](#extend-with-nft-minting)
-            + [Install the NFT Contract](#install-the-nft-contract)+ [Understanding NFT Minting](#understanding-nft-minting)+ [Update the IncrementIfOdd Transaction](#update-the-incrementifodd-transaction)+ [Setup NFT Collection](#setup-nft-collection)+ [Test the Enhanced Transaction](#test-the-enhanced-transaction)+ [View Your NFT](#view-your-nft)* [Why this matters](#why-this-matters)* [Conclusion](#conclusion)
+* [Objectives](#objectives)* [Prerequisites](#prerequisites)* [Get started](#get-started)
+      + [Install dependencies](#install-dependencies)* [Compose with the public `Counter` contract](#compose-with-the-public-counter-contract)
+        + [Run on testnet](#run-on-testnet)* [Extend with NFT minting](#extend-with-nft-minting)
+          + [Install the NFT contract](#install-the-nft-contract)+ [Understand NFT minting](#understand-nft-minting)+ [Update the IncrementIfOdd transaction](#update-the-incrementifodd-transaction)+ [Setup NFT collection](#setup-nft-collection)+ [Test the Enhanced Transaction](#test-the-enhanced-transaction)+ [View your NFT](#view-your-nft)* [Why this matters](#why-this-matters)* [Conclusion](#conclusion)
 
 Flow
 

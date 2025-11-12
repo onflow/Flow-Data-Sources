@@ -1646,38 +1646,38 @@ On this page
 
 # Cadence Rules
 
-## Introduction[​](#introduction "Direct link to Introduction")
+## Overview[​](#overview "Direct link to Overview")
 
-When building with AI, it is hard to make the agent consistently understand what standards it should use when building or generating responses. Cursor Rules mitigates this issue by setting up global rules, project wide rules or document specific rules that are inserted in the agent's context before reading the prompt. With Cursor Rules, you can create an assistant that can consistently understand the intended development process, desired formatted responses, and avoid common mistakes. Consider it your tool to make guard rails for agents that can reduce hallucination and incorrect development flows.
+When building with AI, it's hard to make the agent consistently understand what standards it should use when building or generating responses. To migitate this issue, Cursor Rules sets up global rules, project wide rules or documents specific rules that it inserts in the agent's context before reading the prompt. With Cursor Rules, you can create an assistant that can consistently understand the intended development process, desired formatted responses, and avoid common mistakes. Consider it your tool to make guard rails for agents that can reduce hallucination and incorrect development flows.
 
 In this guide, you'll learn how to configure and use Cursor Rules that transform your AI assistant into a Flow development expert with persistent knowledge of Cadence syntax patterns, NFT standards, project configuration, and development workflows.
 
 ## Learning Objectives[​](#learning-objectives "Direct link to Learning Objectives")
 
-After completing this guide, you'll be able to:
+After you complete this guide, you'll be able to:
 
-* Configure and use Cursor Rules to enhance AI assistance for Flow blockchain development
-* Apply specialized Cadence syntax patterns and NFT development standards through persistent AI context
-* Utilize workflow-based rules to guide project setup, deployment, and debugging processes across the Flow development lifecycle
-* Create your own Cadence Rules in order to supercharge your development on Flow
+* Configure and use Cursor Rules to enhance AI assistance for Flow blockchain development.
+* Apply specialized Cadence syntax patterns and NFT development standards through persistent AI context.
+* Use workflow-based rules to guide project setup, deployment, and debugging processes across the Flow development lifecycle.
+* Create your own Cadence Rules in order to supercharge your development on Flow.
 
 ## What Are Cursor Rules?[​](#what-are-cursor-rules "Direct link to What Are Cursor Rules?")
 
-Cursor rules are a way to shape AI behavior with persistent, reusable instructions that guide how Cursor's Agent and Inline Edit assist you. Rules act as continuous context - embedding your preferences, coding standards, and workflows directly into the AI's decision-making process. Since AI models start fresh with each interaction, rules bridge this gap by automatically injecting your preferences and context into every conversation.
-When active, rules are included at the beginning of the AI's context, providing consistent guidance for code generation, edit suggestions, and workflow assistance.
+Cursor rules shape AI behavior with persistent, reusable instructions that guide how Cursor's Agent and Inline Edit assist you. Rules act as continuous context - embedding your preferences, coding standards, and workflows directly into the AI's decision-making process. Since AI models start fresh with each interaction, rules bridge this gap by automatically injecting your preferences and context into every conversation.
+When active, rules are included at the beginning of the AI's context and provide consistent guidance for code generation, edit suggestions, and workflow assistance.
 
 Cursor offers two rule types:
 
-* **Project Rules**: Live in `.cursor/rules`, version-controlled with your code, and apply to specific projects
-* **User Rules**: Global preferences in Cursor Settings that apply across all your projects
+* **Project Rules**: Live in `.cursor/rules`, version-controlled with your code, and apply to specific projects.
+* **User Rules**: Global preferences in Cursor Settings that apply across all your projects.
 
 ### Rule anatomy[​](#rule-anatomy "Direct link to Rule anatomy")
 
-Each rule file is written in MDC (.mdc), a format supporting metadata and content. Control how rules are applied from the type dropdown which changes properties `description`, `globs`, `alwaysApply`.
+Each rule file is written in MDC (`.mdc`), a format supporting metadata and content. Control how rules are applied from the type dropdown which changes properties `description`, `globs`, `alwaysApply`.
 
 |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Rule Type Description|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | Always Apply Always included in model context|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | Apply to Specific Files Included when files matching a glob pattern are referenced|  |  |  |  | | --- | --- | --- | --- | | Apply Intellegently Available to AI, which decides whether to include it. Must provide a description|  |  | | --- | --- | | Apply Manually Only included when explicitly mentioned using `@ruleName` | | | | | | | | | |
+| Rule Type Description|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | Always Apply Always included in model context.|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | Apply to Specific Files Included when files matching a glob pattern are referenced.|  |  |  |  | | --- | --- | --- | --- | | Apply Intellegently Available to AI, which decides whether to include it. Must provide a description.|  |  | | --- | --- | | Apply Manually Only included when explicitly mentioned using `@ruleName`. | | | | | | | | | |
 
 `_12
 
@@ -1703,19 +1703,19 @@ _12
 
 _12
 
-- Always implement NonFungibleToken interface for NFT contracts
+- Always implement NonFungibleToken interface for NFT contracts.
 
 _12
 
-- Use MetadataViews for marketplace compatibility
+- Use MetadataViews for marketplace compatibility.
 
 _12
 
-- Follow proper resource handling with @ and & symbols
+- Follow proper resource handling with @ and & symbols.
 
 _12
 
-- Include required standard functions and path conventions
+- Include required standard functions and path conventions.
 
 _12
 
@@ -1739,13 +1739,13 @@ Project rules are stored as individual files in `.cursor/rules` and get version-
 
 Project rules excel at:
 
-* Capturing specialized knowledge about your codebase and domain
-* Establishing consistent workflows and development patterns
-* Enforcing coding standards and architectural decisions across your team
+* Capturing specialized knowledge about your codebase and domain.
+* Establishing consistent workflows and development patterns.
+* Enforcing coding standards and architectural decisions across your team.
 
 ### Nested Rules[​](#nested-rules "Direct link to Nested Rules")
 
-Organize rules by placing them in .cursor/rules directories throughout your project. Nested rules automatically attach when files in their directory are referenced.
+To organize rules, place them in `.cursor/rules` directories throughout your project. Nested rules automatically attach when files in their directory are referenced.
 
 `_10
 
@@ -1773,15 +1773,15 @@ _10
 
 ## Creating a rule[​](#creating-a-rule "Direct link to Creating a rule")
 
-Create rules using the Cursor Rule command or going to Cursor Settings > Rules. This creates a new rule file in .cursor/rules. From settings you can see all rules and their status.
+Create rules with the Cursor Rule command or going to Cursor Settings > Rules. This creates a new rule file in `.cursor/rules`. From settings you can see all rules and their status.
 
-Click on the cog icon on the upper right section of the window. Then click the "Rules and Memories" section on the left side bar. Finally click on the "+ Add Rule" button in the User Rules or Project Rules section (depending on your objective).
+Click the cog icon on the upper right section of the window. Then, click "Rules and Memories" on the left side bar. Finally click "+ Add Rule" in the User Rules or Project Rules section (depending on your objective).
 
 ![Creating a Cursor Rule](/assets/images/cursor_rules1-fe26f5ea8e3918056539c887c2a5fce4.png)
 
 ### Generating rules[​](#generating-rules "Direct link to Generating rules")
 
-Generate rules directly in conversations using the `/Generate Cursor Rules` command. Useful when you’ve made decisions about agent behavior and want to reuse them.
+Generate rules directly in conversations with the `/Generate Cursor Rules` command. This is useful when you’ve made decisions about agent behavior and want to reuse them.
 
 ![Generate Cursor Rules](/assets/images/generate_cursor_rules-5881c3dfc79af8d3683d129f99598181.png)
 
@@ -1789,35 +1789,35 @@ Generate rules directly in conversations using the `/Generate Cursor Rules` comm
 
 Good rules are focused, actionable, and scoped.
 
-* Keep rules under 500 lines
-* Split large rules into multiple, composable rules
-* Provide concrete examples or referenced files
-* Avoid vague guidance. Write rules like clear internal docs
-* Reuse rules when repeating prompts in chat
+* Keep rules under 500 lines.
+* Split large rules into multiple, composable rules.
+* Provide concrete examples or referenced files.
+* Avoid vague guidance. Write rules like clear internal docs.
+* Reuse rules when repeating prompts in chat.
 
 ## Cadence Rules[​](#cadence-rules-1 "Direct link to Cadence Rules")
 
-Here are a couple of Cursor Rules made by [claucondor](https://gist.github.com/claucondor/453cb30c56597b53071bb5bbf18d2c9c) made for Flow development and NFTs
+Here are a couple of Cursor Rules made by [claucondor](https://gist.github.com/claucondor/453cb30c56597b53071bb5bbf18d2c9c) for Flow development and NFTs.
 
 ### Cadence NFT Standards[​](#cadence-nft-standards "Direct link to Cadence NFT Standards")
 
 The [cadence-nft-standards.mdc](https://github.com/onflow/cadence-rules/blob/main/cadence-nft-standards.mdc) rule provides comprehensive guidelines for developing NFTs using Cadence on Flow blockchain. It ensures proper implementation of:
 
-* **Core Interface Conformance**: `NonFungibleToken`, `NFT`, and `Collection` interfaces
-* **MetadataViews Integration**: Marketplace-compatible metadata standards
-* **Modular Architecture**: Patterns for complex NFTs with traits, evolution, and breeding
-* **Security Best Practices**: Proper resource handling and capability management
-* **Event Standards**: Consistent event emission for off-chain indexing
+* **Core Interface Conformance**: `NonFungibleToken`, `NFT`, and `Collection` interfaces.
+* **MetadataViews Integration**: Marketplace-compatible metadata standards.
+* **Modular Architecture**: Patterns for complex NFTs with traits, evolution, and breeding.
+* **Security Best Practices**: Proper resource handling and capability management.
+* **Event Standards**: Consistent event emission for off-chain indexing.
 
 **Perfect for:**
 
-* New NFT projects on Flow
-* NFT marketplace integration
-* Complex NFT systems (traits, evolution, breeding)
-* Code reviews and standards compliance
-* Learning Flow NFT development
+* New NFT projects on Flow.
+* NFT marketplace integration.
+* Complex NFT systems (traits, evolution, breeding).
+* Code reviews and standards compliance.
+* Learning Flow NFT development.
 
-**Applies to:** `.cdc` files, NFT transactions, collection setup, metadata implementation
+**Applies to:** `.cdc` files, NFT transactions, collection setup, metadata implementation.
 
 #### Rule Configuration[​](#rule-configuration "Direct link to Rule Configuration")
 
@@ -1827,7 +1827,7 @@ The [cadence-nft-standards.mdc](https://github.com/onflow/cadence-rules/blob/mai
 
 _10
 
-description: Comprehensive standards and best practices for developing Non-Fungible Tokens (NFTs) using Cadence. Ensures proper implementation of NonFungibleToken interfaces, MetadataViews integration for marketplace compatibility, secure resource handling patterns, and advanced modular architectures for complex NFTs with traits, evolution, and breeding mechanics. Includes required standard functions, path conventions, event emission patterns, and security best practices for capability management.
+description: Comprehensive standards and best practices for developing Non-Fungible Tokens (NFTs) with Cadence. Ensures proper implementation of NonFungibleToken interfaces, MetadataViews integration for marketplace compatibility, secure resource handling patterns, and advanced modular architectures for complex NFTs with traits, evolution, and breeding mechanics. Includes required standard functions, path conventions, event emission patterns, and security best practices for capability management.
 
 _10
 
@@ -1851,18 +1851,18 @@ Recommended Apply config: `Apply Intelligently`
 
 #### Key Benefits[​](#key-benefits "Direct link to Key Benefits")
 
-* **Ecosystem Compatibility**: Guaranteed marketplace and wallet integration
-* **Security**: Proper resource handling and capability management
-* **Maintainability**: Modular architecture for complex systems
-* **Performance**: Gas-efficient implementations with lazy initialization
-* **Standards Compliance**: Follows official Flow NFT patterns
+* **Ecosystem Compatibility**: Guaranteed marketplace and wallet integration.
+* **Security**: Proper resource handling and capability management.
+* **Maintainability**: Modular architecture for complex systems.
+* **Performance**: Gas-efficient implementations with lazy initialization.
+* **Standards Compliance**: Follows official Flow NFT patterns.
 
 #### Usage Examples[​](#usage-examples "Direct link to Usage Examples")
 
-* `"Create an NFT contract for collectible cards"` → Guides complete interface implementation
-* `"Make my NFT marketplace compatible"` → Provides MetadataViews patterns
-* `"Build evolving NFTs with traits"` → Suggests modular architecture patterns
-* `"Review my NFT contract"` → Validates against all documented standards
+* `"Create an NFT contract for collectible cards"` → Guides complete interface implementation.
+* `"Make my NFT marketplace compatible"` → Provides MetadataViews patterns.
+* `"Build evolving NFTs with traits"` → Suggests modular architecture patterns.
+* `"Review my NFT contract"` → Validates against all documented standards.
 
 ### Cadence Syntax Patterns[​](#cadence-syntax-patterns "Direct link to Cadence Syntax Patterns")
 
@@ -1870,25 +1870,25 @@ Recommended Apply config: `Apply Intelligently`
 
 The [cadence-syntax-patterns.mdc](https://github.com/onflow/cadence-rules/blob/main/cadence-syntax-patterns.mdc) rule provides comprehensive syntax guidance and error prevention for Cadence development. It covers essential language patterns including:
 
-* **Resource Type Syntax**: Proper use of `@` and `&` symbols for resources and references
-* **Interface Restrictions**: Correct `{}` syntax for interface constraints
-* **Transaction Authorization**: Granular `auth` capabilities and permission patterns
-* **Contract Member Access**: Accessing deployed contract functions and constants
-* **Type Conversion & Arithmetic**: Explicit type handling and numeric operations
-* **Access Control**: Field visibility, entitlements, and `view` function purity
-* **Language Constructs**: Optional binding, loops, string manipulation, switch cases
-* **Debugging Strategies**: Systematic error resolution and prevention techniques
+* **Resource Type Syntax**: Proper use of `@` and `&` symbols for resources and references.
+* **Interface Restrictions**: Correct `{}` syntax for interface constraints.
+* **Transaction Authorization**: Granular `auth` capabilities and permission patterns.
+* **Contract Member Access**: Accessing deployed contract functions and constants.
+* **Type Conversion & Arithmetic**: Explicit type handling and numeric operations.
+* **Access Control**: Field visibility, entitlements, and `view` function purity.
+* **Language Constructs**: Optional binding, loops, string manipulation, switch cases.
+* **Debugging Strategies**: Systematic error resolution and prevention techniques.
 
 **Perfect for:**
 
-* Writing any Cadence contracts or transactions
-* Debugging compilation errors with resources (`@`) or references (`&`)
-* Fixing authorization issues in transactions
-* Learning Cadence syntax and best practices
-* Preventing common type system errors
-* Understanding Flow blockchain development patterns
+* Writing any Cadence contracts or transactions.
+* Debugging compilation errors with resources (`@`) or references (`&`).
+* Fixing authorization issues in transactions.
+* Learning Cadence syntax and best practices.
+* Preventing common type system errors.
+* Understanding Flow blockchain development patterns.
 
-**Applies to:** `.cdc` files, transaction scripts, contract development, Flow CLI usage, error debugging
+**Applies to:** `.cdc` files, transaction scripts, contract development, Flow CLI usage, error debugging.
 
 #### How to Use This Rule[​](#how-to-use-this-rule "Direct link to How to Use This Rule")
 
@@ -1924,12 +1924,12 @@ Recommended Apply config: `Apply Intelligently`
 
 #### Key Benefits[​](#key-benefits-1 "Direct link to Key Benefits")
 
-* **Error Prevention**: Avoids common syntax mistakes before they happen
-* **Faster Debugging**: Systematic approaches to resolve compilation errors
-* **Best Practices**: Language-specific patterns that follow Cadence conventions
-* **Authorization Mastery**: Proper transaction permission handling
-* **Type Safety**: Correct resource handling and type conversions
-* **Performance**: Optimized patterns for gas efficiency
+* **Error Prevention**: Avoids common syntax mistakes before they happen.
+* **Faster Debugging**: Systematic approaches to resolve compilation errors.
+* **Best Practices**: Language-specific patterns that follow Cadence conventions.
+* **Authorization Mastery**: Proper transaction permission handling.
+* **Type Safety**: Correct resource handling and type conversions.
+* **Performance**: Optimized patterns for gas efficiency.
 
 #### Usage Examples[​](#usage-examples-1 "Direct link to Usage Examples")
 
@@ -1943,7 +1943,7 @@ Recommended Apply config: `Apply Intelligently`
 #### Key Syntax Patterns Covered[​](#key-syntax-patterns-covered "Direct link to Key Syntax Patterns Covered")
 
 * **Resources**: `@{NonFungibleToken.NFT}` not `@NonFungibleToken.NFT`
-* **Authorization**: `auth(Storage) &Account` or granular capabilities
+* **Authorization**: `auth(Storage) &Account` or granular capabilities.
 * **Optional Binding**: `if let` syntax (no `guard let`)
 * **Variable Initialization**: All `var` declarations must have initial values
 * **Type Conversion**: Explicit conversion required for arithmetic
@@ -1957,26 +1957,26 @@ Recommended Apply config: `Apply Intelligently`
 
 The [flow-development-workflow.mdc](https://github.com/onflow/cadence-rules/blob/main/flow-development-workflow.mdc) rule provides comprehensive workflow methodology for Flow blockchain development covering the complete development lifecycle. It includes:
 
-* **Documentation-First Approach**: Always reference official Flow documentation and standard examples
-* **Development Sequence**: Emulator → Testnet → Mainnet progression with proper validation
-* **Transaction Authorization**: Granular `auth` capabilities and permission management
-* **Deployment Verification**: Post-deployment validation protocols and testing strategies
-* **FCL Integration**: Frontend configuration, network management, and user experience patterns
-* **Error Resolution**: Systematic debugging approaches and common error prevention
-* **Optimization Techniques**: Computation limit handling and gas efficiency strategies
-* **Testnet Validation**: Comprehensive validation protocols before mainnet deployment
+* **Documentation-First Approach**: Always reference official Flow documentation and standard examples.
+* **Development Sequence**: Emulator → Testnet → Mainnet progression with proper validation.
+* **Transaction Authorization**: Granular `auth` capabilities and permission management.
+* **Deployment Verification**: Post-deployment validation protocols and testing strategies.
+* **FCL Integration**: Frontend configuration, network management, and user experience patterns.
+* **Error Resolution**: Systematic debugging approaches and common error prevention.
+* **Optimization Techniques**: Computation limit handling and gas efficiency strategies.
+* **Testnet Validation**: Comprehensive validation protocols before mainnet deployment.
 
 **Perfect for:**
 
-* Starting new Flow projects or need setup guidance
-* Moving between development stages (emulator → testnet → mainnet)
-* Debugging deployment or transaction authorization issues
-* Integrating frontend applications with FCL
-* Handling computation limits and gas optimization
-* Learning Flow development best practices and official patterns
-* Comprehensive project validation strategies
+* Starting new Flow projects or need setup guidance.
+* Moving between development stages (emulator → testnet → mainnet).
+* Debugging deployment or transaction authorization issues.
+* Integrating frontend applications with FCL.
+* Handling computation limits and gas optimization.
+* Learning Flow development best practices and official patterns.
+* Comprehensive project validation strategies.
 
-**Applies to:** Complete Flow development lifecycle, project setup, deployment, FCL integration, debugging
+**Applies to:** Complete Flow development lifecycle, project setup, deployment, FCL integration, debugging.
 
 #### Manual Reference[​](#manual-reference-2 "Direct link to Manual Reference")
 
@@ -2010,40 +2010,40 @@ Recommended Apply config: `Apply Intelligently`
 
 #### Key Benefits[​](#key-benefits-2 "Direct link to Key Benefits")
 
-* **Systematic Approach**: Step-by-step methodology prevents common mistakes
-* **Official Patterns**: Emphasizes Flow documentation and standard examples
-* **Error Prevention**: Proactive strategies for avoiding deployment and integration issues
-* **Full-Stack Awareness**: Covers both Cadence backend and FCL frontend integration
-* **Optimization Focus**: Gas efficiency and computation limit management
-* **Validation Protocols**: Comprehensive testing before production deployment
+* **Systematic Approach**: Step-by-step methodology prevents common mistakes.
+* **Official Patterns**: Emphasizes Flow documentation and standard examples.
+* **Error Prevention**: Proactive strategies for avoiding deployment and integration issues.
+* **Full-Stack Awareness**: Covers both Cadence backend and FCL frontend integration.
+* **Optimization Focus**: Gas efficiency and computation limit management.
+* **Validation Protocols**: Comprehensive testing before production deployment.
 
 #### Usage Examples[​](#usage-examples-2 "Direct link to Usage Examples")
 
-* `"How do I set up a new Flow project?"` → Guides project setup and configuration
-* `"My transaction authorization is failing"` → Provides auth capability debugging
-* `"Deploy my contract to testnet"` → Shows deployment sequence and verification
-* `"FCL integration not working"` → Suggests configuration and network troubleshooting
-* `"Computation limit exceeded"` → Recommends optimization strategies
-* `"Prepare for mainnet deployment"` → Provides comprehensive validation checklist
+* `"How do I set up a new Flow project?"` → Guides project setup and configuration.
+* `"My transaction authorization is failing"` → Provides auth capability debugging.
+* `"Deploy my contract to testnet"` → Shows deployment sequence and verification.
+* `"FCL integration not working"` → Suggests configuration and network troubleshooting.
+* `"Computation limit exceeded"` → Recommends optimization strategies.
+* `"Prepare for mainnet deployment"` → Provides comprehensive validation checklist.
 
 #### Key Workflow Areas Covered[​](#key-workflow-areas-covered "Direct link to Key Workflow Areas Covered")
 
-* **Project Setup**: `flow.json` configuration, FCL setup, environment management
-* **Authorization**: `auth(Storage)`, `auth(BorrowValue, SaveValue)`, granular capabilities
-* **Development Sequence**: Emulator testing → Frontend integration → Testnet → Validation
-* **Error Resolution**: Syntax errors, deployment errors, FCL errors, computation limits
-* **FCL Best Practices**: Network configuration, contract address management, user authentication
-* **Optimization**: Accumulative processing, loop optimization, gas efficiency
-* **Deployment**: Verification protocols, update strategies, multi-network consistency
-* **Documentation Usage**: When and how to reference official Flow resources
+* **Project Setup**: `flow.json` configuration, FCL setup, environment management.
+* **Authorization**: `auth(Storage)`, `auth(BorrowValue, SaveValue)`, granular capabilities.
+* **Development Sequence**: Emulator testing → Frontend integration → Testnet → Validation.
+* **Error Resolution**: Syntax errors, deployment errors, FCL errors, computation limits.
+* **FCL Best Practices**: Network configuration, contract address management, user authentication.
+* **Optimization**: Accumulative processing, loop optimization, gas efficiency.
+* **Deployment**: Verification protocols, update strategies, multi-network consistency.
+* **Documentation Usage**: When and how to reference official Flow resources.
 
 #### Development Philosophy Emphasized[​](#development-philosophy-emphasized "Direct link to Development Philosophy Emphasized")
 
-* **Documentation-Driven**: Reference official sources before creating custom solutions
-* **Iterative Approach**: Fix issues one at a time, test frequently at each stage
-* **Standard Compliance**: Prefer established Flow patterns over custom implementations
-* **Full-Stack Awareness**: Consider entire stack from contracts to frontend UI
-* **Error-Driven Learning**: Use errors as opportunities to refine understanding
+* **Documentation-Driven**: Reference official sources before creating custom solutions.
+* **Iterative Approach**: Fix issues one at a time, test frequently at each stage.
+* **Standard Compliance**: Prefer established Flow patterns over custom implementations.
+* **Full-Stack Awareness**: Consider entire stack from contracts to frontend UI.
+* **Error-Driven Learning**: Use errors as opportunities to refine understanding.
 
 ### Flow Project Configuration[​](#flow-project-configuration "Direct link to Flow Project Configuration")
 
@@ -2051,26 +2051,26 @@ Recommended Apply config: `Apply Intelligently`
 
 The [flow-project-config.mdc](https://github.com/onflow/cadence-rules/blob/main/flow-project-config.mdc) rule provides comprehensive guidance for Flow project configuration and `flow.json` management. It covers essential configuration patterns including:
 
-* **`flow.json` Structure**: Accounts, contracts, deployments, and networks configuration
-* **Account Management**: Named accounts, addresses, private keys, and signer setup
-* **Contract Registration**: Source paths, network-specific aliases, and pre-deployment setup
-* **Deployment Configuration**: Network-specific deployments and contract mappings
-* **FCL Integration**: Synchronizing backend deployment with frontend address configuration
-* **Network Management**: Multi-network consistency across emulator, testnet, and mainnet
-* **Error Prevention**: Common configuration mistakes and troubleshooting strategies
-* **Address Mapping**: Contract address management and import resolution
+* **`flow.json` Structure**: Accounts, contracts, deployments, and networks configuration.
+* **Account Management**: Named accounts, addresses, private keys, and signer setup.
+* **Contract Registration**: Source paths, network-specific aliases, and pre-deployment setup.
+* **Deployment Configuration**: Network-specific deployments and contract mappings.
+* **FCL Integration**: Synchronizing backend deployment with frontend address configuration.
+* **Network Management**: Multi-network consistency across emulator, testnet, and mainnet.
+* **Error Prevention**: Common configuration mistakes and troubleshooting strategies.
+* **Address Mapping**: Contract address management and import resolution.
 
 **Perfect for:**
 
-* Setting up new Flow projects or configuring `flow.json`
-* Debugging deployment or contract resolution issues
-* Managing FCL integration and address mapping problems
-* Working across different networks (emulator/testnet/mainnet)
-* Troubleshooting CLI errors related to signers or contract imports
-* Account management and private key handling
-* Contract aliasing and deployment configurations
+* Setting up new Flow projects or configuring `flow.json`.
+* Debugging deployment or contract resolution issues.
+* Managing FCL integration and address mapping problems.
+* Working across different networks (emulator/testnet/mainnet).
+* Troubleshooting CLI errors related to signers or contract imports.
+* Account management and private key handling.
+* Contract aliasing and deployment configurations.
 
-**Applies to:** `flow.json`, FCL config files, deployment scripts, network switching, contract imports
+**Applies to:** `flow.json`, FCL config files, deployment scripts, network switching, contract imports.
 
 #### Auto Attached Configuration[​](#auto-attached-configuration-2 "Direct link to Auto Attached Configuration")
 
@@ -2104,49 +2104,49 @@ Recommended Apply config: `Apply Intelligently`
 
 #### Key Benefits[​](#key-benefits-3 "Direct link to Key Benefits")
 
-* **Configuration Accuracy**: Prevents common setup and deployment errors
-* **Multi-Network Support**: Seamless switching between emulator, testnet, and mainnet
-* **FCL Synchronization**: Ensures frontend and backend configurations stay aligned
-* **Error Prevention**: Addresses typos, address mismatches, and path issues proactively
-* **Deployment Success**: Proper account setup and contract registration workflows
-* **Address Management**: Centralized contract address handling across environments
+* **Configuration Accuracy**: Prevents common setup and deployment errors.
+* **Multi-Network Support**: Seamless switching between emulator, testnet, and mainnet.
+* **FCL Synchronization**: Ensures frontend and backend configurations stay aligned.
+* **Error Prevention**: Addresses typos, address mismatches, and path issues proactively.
+* **Deployment Success**: Proper account setup and contract registration workflows.
+* **Address Management**: Centralized contract address handling across environments.
 
 #### Usage Examples[​](#usage-examples-3 "Direct link to Usage Examples")
 
-* `"Configure flow.json for new project"` → Provides complete structure and setup guidance
-* `"Failed to resolve contract import"` → Suggests address mapping and alias fixes
-* `"Wrong signer/network CLI error"` → Guides account and network configuration
-* `"FCL can't find my contract"` → Shows frontend address configuration patterns
-* `"Deploy contract to testnet"` → Provides deployment configuration and verification
-* `"Switch from emulator to testnet"` → Guides network transition and address updates
+* `"Configure flow.json for new project"` → Provides complete structure and setup guidance.
+* `"Failed to resolve contract import"` → Suggests address mapping and alias fixes.
+* `"Wrong signer/network CLI error"` → Guides account and network configuration.
+* `"FCL can't find my contract"` → Shows frontend address configuration patterns.
+* `"Deploy contract to testnet"` → Provides deployment configuration and verification.
+* `"Switch from emulator to testnet"` → Guides network transition and address updates.
 
 #### Key Configuration Areas Covered[​](#key-configuration-areas-covered "Direct link to Key Configuration Areas Covered")
 
-* **Account Setup**: Address accuracy, key file paths, network-specific accounts
-* **Contract Registration**: Source paths, aliases, pre-deployment requirements
-* **Deployment Management**: Signer assignment, contract lists, network specificity
-* **Standard Contract Addresses**: Official addresses for NonFungibleToken, MetadataViews, FungibleToken
-* **FCL Configuration**: Network settings, contract address mapping, environment variables
-* **Error Prevention**: Typo checking, address consistency, permission handling
-* **Multi-Network Patterns**: Network-specific aliases and deployment strategies
-* **CLI Usage**: Correct `--signer`, `--network`, and `--update` flag usage
+* **Account Setup**: Address accuracy, key file paths, network-specific accounts.
+* **Contract Registration**: Source paths, aliases, pre-deployment requirements.
+* **Deployment Management**: Signer assignment, contract lists, network specificity.
+* **Standard Contract Addresses**: Official addresses for NonFungibleToken, MetadataViews, FungibleToken.
+* **FCL Configuration**: Network settings, contract address mapping, environment variables.
+* **Error Prevention**: Typo checking, address consistency, permission handling.
+* **Multi-Network Patterns**: Network-specific aliases and deployment strategies.
+* **CLI Usage**: Correct `--signer`, `--network`, and `--update` flag usage.
 
 #### Common Issues Addressed[​](#common-issues-addressed "Direct link to Common Issues Addressed")
 
-* **"failed to get contract"**: Missing or incorrect aliases in `flow.json`
-* **"failed to resolve import"**: Address mapping issues in FCL configuration
-* **"Permission Denied"**: Key file accessibility and path problems
-* **"transaction failed to decode"**: Network mismatch or FCL configuration errors
-* **Signer/Network Mismatches**: Using emulator accounts on testnet and vice-versa
-* **Address Inconsistencies**: Misaligned addresses between `flow.json` and FCL config
+* **"failed to get contract"**: Missing or incorrect aliases in `flow.json`.
+* **"failed to resolve import"**: Address mapping issues in FCL configuration.
+* **"Permission Denied"**: Key file accessibility and path problems.
+* **"transaction failed to decode"**: Network mismatch or FCL configuration errors.
+* **Signer/Network Mismatches**: Using emulator accounts on testnet and vice-versa.
+* **Address Inconsistencies**: Misaligned addresses between `flow.json` and FCL config.
 
 #### Best Practices Emphasized[​](#best-practices-emphasized "Direct link to Best Practices Emphasized")
 
-* **Pre-deployment Registration**: Always add contracts to `flow.json` before deploying
-* **Address Consistency**: Ensure addresses match across `flow.json`, FCL config, and imports
-* **Environment Variables**: Use `.env` files for network-specific contract addresses
-* **Network Separation**: Maintain distinct configurations for each network environment
-* **Key Security**: Proper `.gitignore` setup for private key files
+* **Pre-deployment Registration**: Always add contracts to `flow.json` before you deploy it.
+* **Address Consistency**: Ensure addresses match across `flow.json`, FCL config, and imports.
+* **Environment Variables**: Use `.env` files for network-specific contract addresses.
+* **Network Separation**: Maintain distinct configurations for each network environment.
+* **Key Security**: Proper `.gitignore` setup for private key files.
 
 ### User Preferences[​](#user-preferences "Direct link to User Preferences")
 
@@ -2154,23 +2154,23 @@ Recommended Apply config: `Apply Intelligently`
 
 The [user-preferences.mdc](https://github.com/onflow/cadence-rules/blob/main/user-preferences.mdc) rule personalizes AI assistance behavior for Flow blockchain development. It defines preferred communication style and development methodology including:
 
-* **Communication Style**: Concise, actionable solutions with proactive error prevention explanations
-* **Development Philosophy**: Documentation-driven approach with official Flow patterns preference
-* **Problem-Solving Methodology**: Root cause analysis, iterative fixes, and pattern recognition
-* **Code Quality Standards**: Standards compliance, consistency, and completeness requirements
-* **Workflow Preferences**: Thorough setup, emulator-first testing, and systematic debugging
-* **Error Resolution Style**: Reference-based solutions and prevention-focused learning
-* **Full-Stack Awareness**: Solutions considering entire stack from Cadence to frontend UI
-* **User Experience Focus**: Clear blockchain interaction feedback and user-friendly interfaces
+* **Communication Style**: Concise, actionable solutions with proactive error prevention explanations.
+* **Development Philosophy**: Documentation-driven approach with official Flow patterns preference.
+* **Problem-Solving Methodology**: Root cause analysis, iterative fixes, and pattern recognition.
+* **Code Quality Standards**: Standards compliance, consistency, and completeness requirements.
+* **Workflow Preferences**: Thorough setup, emulator-first testing, and systematic debugging.
+* **Error Resolution Style**: Reference-based solutions and prevention-focused learning.
+* **Full-Stack Awareness**: Solutions that consider entire stack from Cadence to frontend UI.
+* **User Experience Focus**: Clear blockchain interaction feedback and user-friendly interfaces.
 
 **Perfect for:**
 
-* Ensuring consistent AI behavior across all Flow development projects
-* Matching AI assistance style to your preferred working methodology
-* Getting responses formatted in your preferred communication style
-* Maintaining documentation-driven and standards-compliant approaches
-* Ensuring full-stack consideration in all solutions provided
-* Receiving proactive error prevention guidance with solutions
+* Ensuring consistent AI behavior across all Flow development projects.
+* Matching AI assistance style to your preferred working methodology.
+* Getting responses formatted in your preferred communication style.
+* Maintaining documentation-driven and standards-compliant approaches.
+* Ensuring full-stack consideration in all solutions provided.
+* Receiving proactive error prevention guidance with solutions.
 
 **Applies to:** All AI assistance, communication style, problem-solving approach, solution methodology
 
@@ -2178,9 +2178,9 @@ The [user-preferences.mdc](https://github.com/onflow/cadence-rules/blob/main/use
 
 This rule works as the **behavioral foundation** for your technical Flow rules:
 
-* **Technical Rules** provide **WHAT** information to apply
-* **User Preferences** defines **HOW** to deliver that information
-* **Result**: Consistent, personalized assistance across all Flow development scenarios
+* **Technical Rules** provide **WHAT** information to apply.
+* **User Preferences** defines **HOW** to deliver that information.
+* **Result**: Consistent, personalized assistance across all Flow development scenarios.
 
 #### Always Applied Configuration[​](#always-applied-configuration "Direct link to Always Applied Configuration")
 
@@ -2204,32 +2204,32 @@ Recommended Apply config: `Always Apply`
 
 #### Key Benefits[​](#key-benefits-4 "Direct link to Key Benefits")
 
-* **Consistent Communication**: AI responses match your preferred style and level of detail
-* **Methodology Alignment**: Solutions follow your preferred development philosophy
-* **Error Prevention Focus**: Proactive guidance on avoiding similar issues in the future
-* **Efficiency**: Concise but complete responses without unnecessary verbosity
-* **Standards Compliance**: Emphasis on official Flow patterns and best practices
-* **Full-Stack Perspective**: Solutions consider entire development stack implications
+* **Consistent Communication**: AI responses match your preferred style and level of detail.
+* **Methodology Alignment**: Solutions follow your preferred development philosophy.
+* **Error Prevention Focus**: Proactive guidance on avoiding similar issues in the future.
+* **Efficiency**: Concise, but complete responses without unnecessary verbosity.
+* **Standards Compliance**: Emphasis on official Flow patterns and best practices.
+* **Full-Stack Perspective**: Solutions consider entire development stack implications.
 
 #### How This Rule Affects AI Responses[​](#how-this-rule-affects-ai-responses "Direct link to How This Rule Affects AI Responses")
 
-* **Response Style**: `"Configure flow.json for testnet"` → Provides direct steps + brief prevention tips
-* **Problem-Solving**: `"Authorization error"` → Root cause analysis + pattern to prevent recurrence
-* **Code Solutions**: Always includes reference to official documentation when available
-* **Error Debugging**: Systematic, one-issue-at-a-time approach with testing checkpoints
-* **Architecture Decisions**: Prefer established Flow patterns over custom implementations
-* **Learning Approach**: Uses errors as learning opportunities with rule/pattern references
+* **Response Style**: `"Configure flow.json for testnet"` → Provides direct steps + brief prevention tips.
+* **Problem-Solving**: `"Authorization error"` → Root cause analysis + pattern to prevent recurrence.
+* **Code Solutions**: Always includes reference to official documentation when available.
+* **Error Debugging**: Systematic, one-issue-at-a-time approach with testing checkpoints.
+* **Architecture Decisions**: Prefer established Flow patterns over custom implementations.
+* **Learning Approach**: Uses errors as learning opportunities with rule/pattern references.
 
 #### Behavioral Patterns Defined[​](#behavioral-patterns-defined "Direct link to Behavioral Patterns Defined")
 
-* **Conciseness**: Clear, actionable solutions without excessive explanation
-* **Practical Focus**: Working code examples prioritized over theoretical explanations
-* **Documentation-Driven**: Official Flow, Cadence, FCL docs referenced first
-* **Iterative Methodology**: Fix one issue at a time, test frequently
-* **Standard Compliance**: Established patterns preferred over custom solutions
-* **Root Cause Analysis**: Address underlying issues, not just symptoms
-* **Prevention-Oriented**: Include brief explanations of why errors occurred
-* **Full-Stack Consideration**: Account for contracts, transactions, FCL, and UI implications
+* **Conciseness**: Clear, actionable solutions without excessive explanation.
+* **Practical Focus**: Working code examples prioritized over theoretical explanations.
+* **Documentation-Driven**: Official Flow, Cadence, FCL docs referenced first.
+* **Iterative Methodology**: Fix one issue at a time, test frequently.
+* **Standard Compliance**: Established patterns preferred over custom solutions.
+* **Root Cause Analysis**: Address underlying issues, not just symptoms.
+* **Prevention-Oriented**: Include brief explanations of why errors occurred.
+* **Full-Stack Consideration**: Account for contracts, transactions, FCL, and UI implications.
 
 #### Configuration Recommendation[​](#configuration-recommendation "Direct link to Configuration Recommendation")
 
@@ -2251,7 +2251,7 @@ Now that you have completed this guide, you should be able to:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor/cadence-rules.md)
 
-Last updated on **Sep 3, 2025** by **Felipe Cevallos**
+Last updated on **Nov 3, 2025** by **cshannon1218**
 
 [Previous
 
@@ -2265,7 +2265,7 @@ AI Agents](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents)
 
 Copy as Markdown
 
-* [Introduction](#introduction)* [Learning Objectives](#learning-objectives)* [What Are Cursor Rules?](#what-are-cursor-rules)
+* [Overview](#overview)* [Learning Objectives](#learning-objectives)* [What Are Cursor Rules?](#what-are-cursor-rules)
       + [Rule anatomy](#rule-anatomy)* [User Rules](#user-rules)* [Project rules](#project-rules)
           + [Nested Rules](#nested-rules)* [Creating a rule](#creating-a-rule)
             + [Generating rules](#generating-rules)* [Best practices](#best-practices)* [Cadence Rules](#cadence-rules-1)
@@ -83312,7 +83312,13 @@ Search
 
 On this page
 
-# Composing Workflows with Flow Actions
+# Composing workflows with Flow Actions
+
+warning
+
+We are reviewing and finalizing Flow Actions in [FLIP 339](https://github.com/onflow/flips/pull/339/files). The specific implementation may change as a part of this process.
+
+We will update these tutorials, but you may need to refactor your code if the implementation changes.
 
 Flow Actions are designed to be **composable**, which means you can chain them together like LEGO blocks to build complex strategies. Each primitive has a standardized interface that works consistently across all protocols and eliminates the need to learn multiple APIs. This composability allows atomic execution of multi-step workflows within single transactions, ensuring either complete success or safe failure. When developers combine these primitives, they create sophisticated decentralized finance (DeFi) strategies like automated yield farming, cross-protocol arbitrage, and portfolio rebalancing. The [5 Flow Actions Primitives](/blockchain-development-tutorials/forte/flow-actions/intro-to-flow-actions) are:
 
@@ -83322,7 +83328,7 @@ Flow Actions are designed to be **composable**, which means you can chain them t
 * **PriceOracle** → Provides real-time price data for assets from external feeds or DEX prices. Oracles handle staleness validation and return nil for unavailable prices rather than failing.
 * **Flasher** → Issues flash loans that must be repaid within the same transaction via callback execution. Flashers enable capital-efficient strategies like arbitrage and liquidations without requiring upfront capital.
 
-## Learning Objectives[​](#learning-objectives "Direct link to Learning Objectives")
+## Learning objectives[​](#learning-objectives "Direct link to Learning objectives")
 
 After you complete this tutorial, you will be able to:
 
@@ -83335,7 +83341,7 @@ After you complete this tutorial, you will be able to:
 * Use UniqueIdentifiers to trace and correlate operations across multiple Flow Actions.
 * Compose complex DeFi workflows by connecting multiple Actions in a single atomic transaction.
 
-## Core Flow Patterns[​](#core-flow-patterns "Direct link to Core Flow Patterns")
+## Core Flow patterns[​](#core-flow-patterns "Direct link to Core Flow patterns")
 
 ### Linear Flow (Source → Swapper → Sink)[​](#linear-flow-source--swapper--sink "Direct link to Linear Flow (Source → Swapper → Sink)")
 
@@ -83377,9 +83383,9 @@ Source C ↗`
 
 **Example**: Multiple DEX aggregators finding the best swap route.
 
-## Common DeFi Workflow Combinations[​](#common-defi-workflow-combinations "Direct link to Common DeFi Workflow Combinations")
+## Common DeFi workflow combinations[​](#common-defi-workflow-combinations "Direct link to Common DeFi workflow combinations")
 
-### Single Token to LP (Zapper)[​](#single-token-to-lp-zapper "Direct link to Single Token to LP (Zapper)")
+### Single token to LP (Zapper)[​](#single-token-to-lp-zapper "Direct link to Single token to LP (Zapper)")
 
 **Goal**: Convert a single token into liquidity provider (LP) tokens in one transaction.
 
@@ -83449,7 +83455,7 @@ _13
 * **Efficiency**: Automatically calculates optimal split ratios.
 * **Composability**: Output LP tokens work with any sink connector.
 
-### Reward Harvesting & Conversion[​](#reward-harvesting--conversion "Direct link to Reward Harvesting & Conversion")
+### Reward harvesting and conversion[​](#reward-harvesting-and-conversion "Direct link to Reward harvesting and conversion")
 
 **Goal**: Claim staking rewards and convert them to a stable token.
 
@@ -83574,7 +83580,7 @@ vaultSink.depositCapacity(from: &stableTokens)`
 * **Automation**: Single transaction handles claim, swap, and storage.
 * **Capital Efficiency**: No manual intervention needed for reward management.
 
-### Liquidity Provision & Yield Farming[​](#liquidity-provision--yield-farming "Direct link to Liquidity Provision & Yield Farming")
+### Liquidity provision & yield farming[​](#liquidity-provision--yield-farming "Direct link to Liquidity provision & yield farming")
 
 **Goal**: Convert single token to LP tokens for yield farming
 
@@ -83691,7 +83697,7 @@ stakingSink.depositCapacity(from: &lpTokens)`
 * **Single Transaction**: No need for multiple manual steps or approvals.
 * **Automatic Staking**: LP tokens immediately start earning rewards.
 
-### Cross-VM Bridge & Swap[​](#cross-vm-bridge--swap "Direct link to Cross-VM Bridge & Swap")
+### Cross-VM bridge and swap[​](#cross-vm-bridge-and-swap "Direct link to Cross-VM bridge and swap")
 
 **Goal**: Bridge tokens from Cadence to EVM, swap them, then bridge back.
 
@@ -83817,7 +83823,7 @@ cadenceSink.depositCapacity(from: &evmTokens)`
 * **Cross-VM Arbitrage**: Exploit price differences between VM environments.
 * **Atomic Execution**: All bridging and swapping happens in single transaction.
 
-### Flash Loan Arbitrage[​](#flash-loan-arbitrage "Direct link to Flash Loan Arbitrage")
+### Flash loan arbitrage[​](#flash-loan-arbitrage "Direct link to Flash loan arbitrage")
 
 **Goal**: Borrow tokens, execute arbitrage, repay loan with profit.
 
@@ -83901,9 +83907,9 @@ flasher.flashLoan(1000.0, callback: arbitrageCallback)`
 * **Risk-Free Profit**: Transaction reverts if arbitrage isn't profitable.
 * **Market Efficiency**: Helps eliminate price discrepancies across DEXs.
 
-## Advanced Workflow Combinations[​](#advanced-workflow-combinations "Direct link to Advanced Workflow Combinations")
+## Advanced Wwrkflow combinations[​](#advanced-wwrkflow-combinations "Direct link to Advanced Wwrkflow combinations")
 
-### Vault Source + Zapper Integration[​](#vault-source--zapper-integration "Direct link to Vault Source + Zapper Integration")
+### VaultSource + Zapper integration[​](#vaultsource--zapper-integration "Direct link to VaultSource + Zapper integration")
 
 **Goal**: Withdraw tokens from a vault and convert them to LP tokens in a single transaction.
 
@@ -84004,7 +84010,7 @@ log("LP tokens created: ".concat(lpTokens.balance.toString()))`
 * **Single Transaction**: Complex multi-step process executed atomically.
 * **Minimum Protection**: VaultSource ensures vault never goes below safety threshold.
 
-### Price-Informed Rebalancing[​](#price-informed-rebalancing "Direct link to Price-Informed Rebalancing")
+### Price-informed rebalancing[​](#price-informed-rebalancing "Direct link to Price-informed rebalancing")
 
 **Goal**: Create autonomous rebalancing system based on price feeds.
 
@@ -84097,7 +84103,7 @@ autoBalancer.rebalance(force: false) // Autonomous rebalancing`
 * **Market Responsive**: Adapts to price movements with real-time oracle data.
 * **Threshold Flexibility**: Configurable upper/lower bounds for different risk profiles.
 
-### Restake & Compound Strategy[​](#restake--compound-strategy "Direct link to Restake & Compound Strategy")
+### Restake and compound strategy[​](#restake-and-compound-strategy "Direct link to Restake and compound strategy")
 
 **Goal**: Automatically compound staking rewards back into the pool.
 
@@ -84234,9 +84240,9 @@ poolSink.depositCapacity(from: lpTokens)`
 * **Set-and-Forget**: Automated compounding without manual intervention required.
 * **Optimal Conversion**: Zapper ensures efficient reward token to LP token conversion.
 
-## Safety Best Practices[​](#safety-best-practices "Direct link to Safety Best Practices")
+## Safety best practices[​](#safety-best-practices "Direct link to Safety best practices")
 
-### Always Check Capacity[​](#always-check-capacity "Direct link to Always Check Capacity")
+### Always check capacity[​](#always-check-capacity "Direct link to Always check capacity")
 
 Prevents transaction failures and allows graceful handling when sinks reach their maximum capacity limits. This is crucial for automated workflows that might encounter varying capacity conditions.
 
@@ -84264,7 +84270,7 @@ _10
 
 }`
 
-### Validate Balances[​](#validate-balances "Direct link to Validate Balances")
+### Validate balances[​](#validate-balances "Direct link to Validate balances")
 
 Ensures operations behave as expected and helps detect unexpected token loss or gain during complex workflows. Balance validation is essential for financial applications where token accuracy is critical.
 
@@ -84290,7 +84296,7 @@ _10
 
 assert(afterBalance >= beforeBalance, message: "Balance should not decrease")`
 
-### Use Graceful Degradation[​](#use-graceful-degradation "Direct link to Use Graceful Degradation")
+### Use graceful degradation[​](#use-graceful-degradation "Direct link to Use graceful degradation")
 
 Prevents entire workflows from failing when individual components encounter issues. This approach allows robust strategies that can adapt to changing market conditions or temporary protocol unavailability.
 
@@ -84322,7 +84328,7 @@ _10
 
 }`
 
-### Resource Management[​](#resource-management "Direct link to Resource Management")
+### Resource management[​](#resource-management "Direct link to Resource management")
 
 Proper resource cleanup prevents token loss and ensures all vaults are properly handled, even when transactions partially fail. This is critical in Cadence where you must explicitly manage resources.
 
@@ -84362,9 +84368,9 @@ _10
 
 }`
 
-## Testing Your Combinations[​](#testing-your-combinations "Direct link to Testing Your Combinations")
+## Testing your combinations[​](#testing-your-combinations "Direct link to Testing your combinations")
 
-### Unit Testing[​](#unit-testing "Direct link to Unit Testing")
+### Unit testing[​](#unit-testing "Direct link to Unit testing")
 
 Tests individual connectors in isolation to verify they respect their constraints and behave correctly under various conditions. This catches bugs early and ensures each component works as designed.
 
@@ -84398,7 +84404,7 @@ _10
 
 }`
 
-### Integration Testing[​](#integration-testing "Direct link to Integration Testing")
+### Integration testing[​](#integration-testing "Direct link to Integration testing")
 
 Validates that multiple connectors work together correctly in complete workflows. This ensures the composition logic is sound and identifies issues that only appear when components interact.
 
@@ -84444,7 +84450,7 @@ _11
 
 }`
 
-### Simulation Testing[​](#simulation-testing "Direct link to Simulation Testing")
+### Simulation testing[​](#simulation-testing "Direct link to Simulation testing")
 
 Tests strategies under various market conditions using mock data to verify they respond appropriately to price changes, liquidity variations, and other market dynamics. This is essential for strategies that rely on external market data.
 
@@ -84506,7 +84512,7 @@ _16
 
 }`
 
-## 📚 Next Steps[​](#-next-steps "Direct link to 📚 Next Steps")
+## 📚 Next steps[​](#-next-steps "Direct link to 📚 Next steps")
 
 Now that you understand basic combinations, explore:
 
@@ -84522,7 +84528,7 @@ Composability is the core strength of Flow Actions. These examples demonstrate h
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/flow-actions/basic-combinations.md)
 
-Last updated on **Oct 29, 2025** by **Brian Doyle**
+Last updated on **Nov 6, 2025** by **cshannon1218**
 
 [Previous
 
@@ -84536,12 +84542,12 @@ Scheduled Transactions](/blockchain-development-tutorials/forte/scheduled-transa
 
 Copy as Markdown
 
-* [Learning Objectives](#learning-objectives)* [Core Flow Patterns](#core-flow-patterns)
-    + [Linear Flow (Source → Swapper → Sink)](#linear-flow-source--swapper--sink)+ [Bidirectional Flow (Source ↔ Sink)](#bidirectional-flow-source--sink)+ [Aggregated Flow (Multiple Sources → Aggregator → Sink)](#aggregated-flow-multiple-sources--aggregator--sink)* [Common DeFi Workflow Combinations](#common-defi-workflow-combinations)
-      + [Single Token to LP (Zapper)](#single-token-to-lp-zapper)+ [Reward Harvesting & Conversion](#reward-harvesting--conversion)+ [Liquidity Provision & Yield Farming](#liquidity-provision--yield-farming)+ [Cross-VM Bridge & Swap](#cross-vm-bridge--swap)+ [Flash Loan Arbitrage](#flash-loan-arbitrage)* [Advanced Workflow Combinations](#advanced-workflow-combinations)
-        + [Vault Source + Zapper Integration](#vault-source--zapper-integration)+ [Price-Informed Rebalancing](#price-informed-rebalancing)+ [Restake & Compound Strategy](#restake--compound-strategy)* [Safety Best Practices](#safety-best-practices)
-          + [Always Check Capacity](#always-check-capacity)+ [Validate Balances](#validate-balances)+ [Use Graceful Degradation](#use-graceful-degradation)+ [Resource Management](#resource-management)* [Testing Your Combinations](#testing-your-combinations)
-            + [Unit Testing](#unit-testing)+ [Integration Testing](#integration-testing)+ [Simulation Testing](#simulation-testing)* [📚 Next Steps](#-next-steps)* [Conclusion](#conclusion)
+* [Learning objectives](#learning-objectives)* [Core Flow patterns](#core-flow-patterns)
+    + [Linear Flow (Source → Swapper → Sink)](#linear-flow-source--swapper--sink)+ [Bidirectional Flow (Source ↔ Sink)](#bidirectional-flow-source--sink)+ [Aggregated Flow (Multiple Sources → Aggregator → Sink)](#aggregated-flow-multiple-sources--aggregator--sink)* [Common DeFi workflow combinations](#common-defi-workflow-combinations)
+      + [Single token to LP (Zapper)](#single-token-to-lp-zapper)+ [Reward harvesting and conversion](#reward-harvesting-and-conversion)+ [Liquidity provision & yield farming](#liquidity-provision--yield-farming)+ [Cross-VM bridge and swap](#cross-vm-bridge-and-swap)+ [Flash loan arbitrage](#flash-loan-arbitrage)* [Advanced Wwrkflow combinations](#advanced-wwrkflow-combinations)
+        + [VaultSource + Zapper integration](#vaultsource--zapper-integration)+ [Price-informed rebalancing](#price-informed-rebalancing)+ [Restake and compound strategy](#restake-and-compound-strategy)* [Safety best practices](#safety-best-practices)
+          + [Always check capacity](#always-check-capacity)+ [Validate balances](#validate-balances)+ [Use graceful degradation](#use-graceful-degradation)+ [Resource management](#resource-management)* [Testing your combinations](#testing-your-combinations)
+            + [Unit testing](#unit-testing)+ [Integration testing](#integration-testing)+ [Simulation testing](#simulation-testing)* [📚 Next steps](#-next-steps)* [Conclusion](#conclusion)
 
 Flow
 
@@ -148883,6 +148889,12 @@ On this page
 
 # Connectors
 
+warning
+
+We are reviewing and finalizing Flow Actions in [FLIP 339](https://github.com/onflow/flips/pull/339/files). The specific implementation may change as a part of this process.
+
+We will update these tutorials, but you may need to refactor your code if the implementation changes.
+
 **Connectors** are the bridge between external DeFi protocols and the standardized Flow Actions primitive interfaces. They act as **protocol adapters** that translate protocol-specific APIs into the universal language of Flow Actions. Think of them as "drivers" that provide a connection between software and a piece of hardware without the software developer needing to know how the hardware expects to receive commands, or an MCP allowing an agent to use an API in a standardized manner.
 
 Flow Actions act as "money LEGOs" with which you can compose various complex operations with simple transactions. These are the benefits of connectors:
@@ -148891,9 +148903,9 @@ Flow Actions act as "money LEGOs" with which you can compose various complex ope
 * Standardized Interface: All connectors implement the same core methods, which makes them interchangeable.
 * Protocol Integration: They handle the complex interactions with different DeFi services (swaps, staking, lending, and so on).
 
-## How Connectors Work[​](#how-connectors-work "Direct link to How Connectors Work")
+## How connectors work[​](#how-connectors-work "Direct link to How connectors work")
 
-### Abstraction Layer[​](#abstraction-layer "Direct link to Abstraction Layer")
+### Abstraction layer[​](#abstraction-layer "Direct link to Abstraction layer")
 
 Connectors sit between your application logic and protocol-specific contracts:
 
@@ -148901,7 +148913,7 @@ Connectors sit between your application logic and protocol-specific contracts:
 
 Your DeFi Strategy → Flow Actions Connector → Protocol Contract → Blockchain State`
 
-### Interface Implementation[​](#interface-implementation "Direct link to Interface Implementation")
+### Interface implementation[​](#interface-implementation "Direct link to Interface implementation")
 
 Each connector implements one or more of the five primitive interfaces:
 
@@ -149013,7 +149025,7 @@ _18
 
 fun flashLoan(amount: UFix64, callback: Function) // Flasher`
 
-### Composition Pattern[​](#composition-pattern "Direct link to Composition Pattern")
+### Composition pattern[​](#composition-pattern "Direct link to Composition pattern")
 
 You can combine Connetors to create sophisticated workflows:
 
@@ -149057,9 +149069,9 @@ ProtocolA.RewardsSource → SwapConnectors.SwapSource → ProtocolB.StakingSink`
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Connector Location Protocol Purpose|  |  |  |  | | --- | --- | --- | --- | | Flasher [IncrementFiFlashloanConnectors](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/connectors/increment-fi/IncrementFiFlashloanConnectors.cdc) IncrementFi DEX Flash loans through SwapPair contracts. | | | | | | | |
 
-## Guide to Building Connectors[​](#guide-to-building-connectors "Direct link to Guide to Building Connectors")
+## Guide to building connectors[​](#guide-to-building-connectors "Direct link to Guide to building connectors")
 
-### Choose Your Primitive[​](#choose-your-primitive "Direct link to Choose Your Primitive")
+### Choose your primitive[​](#choose-your-primitive "Direct link to Choose your primitive")
 
 First, determine which Flow Actions primitive(s) your connector will implement:
 
@@ -149067,7 +149079,7 @@ First, determine which Flow Actions primitive(s) your connector will implement:
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Primitive When to Use Example Use Cases|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **Source** Your protocol provides tokens Vault withdrawals, reward claiming, unstaking.|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **Sink** Your protocol accepts tokens Vault deposits, staking, loan repayments.|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | **Swapper** Your protocol exchanges tokens DEX trades, cross-chain bridges, LP provision.|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | **PriceOracle** Your protocol provides price data Oracle feeds, TWAP calculations.|  |  |  | | --- | --- | --- | | **Flasher** Your protocol offers flash loans Arbitrage opportunities, liquidations. | | | | | | | | | | | | | | | | | |
 
-### Analyze Your Protocol[​](#analyze-your-protocol "Direct link to Analyze Your Protocol")
+### Analyze your protocol[​](#analyze-your-protocol "Direct link to Analyze your protocol")
 
 Study your target protocol to understand:
 
@@ -149077,7 +149089,7 @@ Study your target protocol to understand:
 * **Fee structures** and payment mechanisms
 * **Access controls** and permissions
 
-### Design Your Connector[​](#design-your-connector "Direct link to Design Your Connector")
+### Design your connector[​](#design-your-connector "Direct link to Design your connector")
 
 Plan your connector implementation:
 
@@ -149087,11 +149099,11 @@ Plan your connector implementation:
 * **Resource management** for token handling
 * **Event emission** for traceability
 
-### Implement the Interface[​](#implement-the-interface "Direct link to Implement the Interface")
+### Implement the interface[​](#implement-the-interface "Direct link to Implement the interface")
 
 Create your connector struct implementing the chosen primitive interface(s).
 
-### Add Safety Features[​](#add-safety-features "Direct link to Add Safety Features")
+### Add safety features[​](#add-safety-features "Direct link to Add safety features")
 
 Implement safety mechanisms:
 
@@ -149100,7 +149112,7 @@ Implement safety mechanisms:
 * **Graceful error handling** with no-ops
 * **Resource cleanup** for empty vaults
 
-### Support Flow Actions Standards[​](#support-flow-actions-standards "Direct link to Support Flow Actions Standards")
+### Support Flow Actions standards[​](#support-flow-actions-standards "Direct link to Support Flow Actions standards")
 
 Add required Flow Actions support:
 
@@ -149109,9 +149121,9 @@ Add required Flow Actions support:
 * **ComponentInfo** for introspection
 * **Event emission** integration
 
-## Best Practices[​](#best-practices "Direct link to Best Practices")
+## Best practices[​](#best-practices "Direct link to Best practices")
 
-### **Error Handling**[​](#error-handling "Direct link to error-handling")
+### **Error handling**[​](#error-handling "Direct link to error-handling")
 
 * **Graceful Failures**: Return empty results instead of panicking.
 * **Validation**: Check all inputs and preconditions.
@@ -149167,7 +149179,7 @@ _13
 
 }`
 
-### **Capacity and Balance Checking**[​](#capacity-and-balance-checking "Direct link to capacity-and-balance-checking")
+### **Capacity and balance checking**[​](#capacity-and-balance-checking "Direct link to capacity-and-balance-checking")
 
 * **Always Check First**: Validate capacity/availability before operations.
 * **Respect Limits**: Work within available constraints.
@@ -149223,7 +149235,7 @@ _14
 
 }`
 
-### **Type Safety**[​](#type-safety "Direct link to type-safety")
+### **Type safety**[​](#type-safety "Direct link to type-safety")
 
 * **Validate Types**: Ensure vault types match expected types.
 * **Early Returns**: Fail fast on type mismatches.
@@ -149259,13 +149271,13 @@ _10
 
 }`
 
-### **Event Integration**[​](#event-integration "Direct link to event-integration")
+### **Event integration**[​](#event-integration "Direct link to event-integration")
 
 * **Leverage Post-conditions**: Flow Actions interfaces emit events automatically.
 * **Provide Context**: Include relevant information in events.
 * **Support Traceability**: Use UniqueIdentifiers consistently.
 
-### **Resource Management**[​](#resource-management "Direct link to resource-management")
+### **Resource management**[​](#resource-management "Direct link to resource-management")
 
 * **Handle Empty Vaults**: Use `DeFiActionsUtils.getEmptyVault()` for consistent empty vault creation.
 * **Destroy Properly**: Clean up resources in all code paths.
@@ -149293,7 +149305,7 @@ The `VaultSink` connector is already deployed and working in Flow Actions. Let's
 **Contract**: `FungibleTokenConnectors`
 **Connector**: `VaultSink` struct that defines the interaction with the connector.
 
-### Deploy Your Connector Contract[​](#deploy-your-connector-contract "Direct link to Deploy Your Connector Contract")
+### Deploy Your Connector contract[​](#deploy-your-connector-contract "Direct link to Deploy Your Connector contract")
 
 Deploy your connector contract with the following command:
 
@@ -149351,7 +149363,7 @@ _12
 
 }`
 
-### Create Usage Transactions[​](#create-usage-transactions "Direct link to Create Usage Transactions")
+### Create usage transactions[​](#create-usage-transactions "Direct link to Create usage transactions")
 
 Create transaction templates for using your connectors:
 
@@ -149441,7 +149453,7 @@ _23
 
 }`
 
-### Real Usage Transaction: VaultSink[​](#real-usage-transaction-vaultsink "Direct link to Real Usage Transaction: VaultSink")
+### Real usage transaction: VaultSink[​](#real-usage-transaction-vaultsink "Direct link to Real usage transaction: VaultSink")
 
 Here's the actual working transaction that creates a VaultSink:
 
@@ -149629,7 +149641,7 @@ _10
 
 --signer emulator`
 
-### Create Combinations Examples[​](#create-combinations-examples "Direct link to Create Combinations Examples")
+### Create combinations examples[​](#create-combinations-examples "Direct link to Create combinations examples")
 
 Show how your connectors work with existing Flow Actions components:
 
@@ -149745,7 +149757,7 @@ _30
 
 }`
 
-### Add to Existing Workflows[​](#add-to-existing-workflows "Direct link to Add to Existing Workflows")
+### Add to existing workflows[​](#add-to-existing-workflows "Direct link to Add to existing workflows")
 
 You can use VaultSink in advanced Flow Actions workflows:
 
@@ -149939,7 +149951,7 @@ _51
 
 }`
 
-### For Your Own Connectors[​](#for-your-own-connectors "Direct link to For Your Own Connectors")
+### For Your own connectors[​](#for-your-own-connectors "Direct link to For Your own connectors")
 
 When building your own connectors, follow the VaultSink pattern:
 
@@ -149964,7 +149976,7 @@ This framework allows developers to build sophisticated DeFi strategies while ma
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/flow-actions/connectors.md)
 
-Last updated on **Oct 29, 2025** by **Brian Doyle**
+Last updated on **Nov 6, 2025** by **cshannon1218**
 
 [Previous
 
@@ -149978,11 +149990,11 @@ Basic Combinations](/blockchain-development-tutorials/forte/flow-actions/basic-c
 
 Copy as Markdown
 
-* [How Connectors Work](#how-connectors-work)
-  + [Abstraction Layer](#abstraction-layer)+ [Interface Implementation](#interface-implementation)+ [Composition Pattern](#composition-pattern)* [Connector Library](#connector-library)* [Guide to Building Connectors](#guide-to-building-connectors)
-      + [Choose Your Primitive](#choose-your-primitive)+ [Analyze Your Protocol](#analyze-your-protocol)+ [Design Your Connector](#design-your-connector)+ [Implement the Interface](#implement-the-interface)+ [Add Safety Features](#add-safety-features)+ [Support Flow Actions Standards](#support-flow-actions-standards)* [Best Practices](#best-practices)
-        + [**Error Handling**](#error-handling)+ [**Capacity and Balance Checking**](#capacity-and-balance-checking)+ [**Type Safety**](#type-safety)+ [**Event Integration**](#event-integration)+ [**Resource Management**](#resource-management)+ [**Capability Management**](#capability-management)+ [**Documentation**](#documentation)* [Integration into Flow Actions](#integration-into-flow-actions)
-          + [Deploy Your Connector Contract](#deploy-your-connector-contract)+ [Create Usage Transactions](#create-usage-transactions)+ [Real Usage Transaction: VaultSink](#real-usage-transaction-vaultsink)+ [Create Combinations Examples](#create-combinations-examples)+ [Add to Existing Workflows](#add-to-existing-workflows)+ [For Your Own Connectors](#for-your-own-connectors)* [Conclusion](#conclusion)
+* [How connectors work](#how-connectors-work)
+  + [Abstraction layer](#abstraction-layer)+ [Interface implementation](#interface-implementation)+ [Composition pattern](#composition-pattern)* [Connector Library](#connector-library)* [Guide to building connectors](#guide-to-building-connectors)
+      + [Choose your primitive](#choose-your-primitive)+ [Analyze your protocol](#analyze-your-protocol)+ [Design your connector](#design-your-connector)+ [Implement the interface](#implement-the-interface)+ [Add safety features](#add-safety-features)+ [Support Flow Actions standards](#support-flow-actions-standards)* [Best practices](#best-practices)
+        + [**Error handling**](#error-handling)+ [**Capacity and balance checking**](#capacity-and-balance-checking)+ [**Type safety**](#type-safety)+ [**Event integration**](#event-integration)+ [**Resource management**](#resource-management)+ [**Capability Management**](#capability-management)+ [**Documentation**](#documentation)* [Integration into Flow Actions](#integration-into-flow-actions)
+          + [Deploy Your Connector contract](#deploy-your-connector-contract)+ [Create usage transactions](#create-usage-transactions)+ [Real usage transaction: VaultSink](#real-usage-transaction-vaultsink)+ [Create combinations examples](#create-combinations-examples)+ [Add to existing workflows](#add-to-existing-workflows)+ [For Your own connectors](#for-your-own-connectors)* [Conclusion](#conclusion)
 
 Flow
 
@@ -282691,6 +282703,8 @@ encodeTxIdFromVoucher | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -344505,7 +344519,7 @@ Search
 
 On this page
 
-# Flow Actions Tutorials
+# Flow Actions tutorials
 
 This series covers how to build decentralized finance (DeFi) applications using the Flow Actions framework, enabling developers to create composable DeFi workflows. These tutorials are part of the Forte network upgrade, which introduces new capabilities to the Flow blockchain.
 
@@ -344518,7 +344532,7 @@ This series covers how to build decentralized finance (DeFi) applications using 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/flow-actions/index.md)
 
-Last updated on **Oct 29, 2025** by **Brian Doyle**
+Last updated on **Nov 6, 2025** by **cshannon1218**
 
 [Previous
 
@@ -379718,11 +379732,17 @@ On this page
 
 # Introduction to Flow Actions
 
+warning
+
+We are reviewing and finalizing Flow Actions in [FLIP 339](https://github.com/onflow/flips/pull/339/files). The specific implementation may change as a part of this process.
+
+We will update these tutorials, but you may need to refactor your code if the implementation changes.
+
 *Actions* are a suite of standardized Cadence interfaces that allow developers to compose complex workflows, starting with decentralized finance (DeFi) workflows, by connecting small, reusable components. Actions provide a "LEGO" framework of blocks where each component performs a single operation (deposit, withdraw, swap, price lookup, flash loan) while maintaining composability with other components. This creates sophisticated workflows executable in a single atomic transaction.
 
 By using Flow Actions, developers can remove large amounts of tailored complexity from building DeFi apps and can instead focus on business logic using nouns and verbs.
 
-## Key Features[​](#key-features "Direct link to Key Features")
+## Key features[​](#key-features "Direct link to Key features")
 
 * **Atomic Composition** - All operations complete or fail together.
 * **Weak Guarantees** - Flexible error handling, no-ops when conditions aren't met.
@@ -379732,7 +379752,7 @@ By using Flow Actions, developers can remove large amounts of tailored complexit
 
 ## Learning Objectives[​](#learning-objectives "Direct link to Learning Objectives")
 
-After completing this tutorial, you will be able to:
+After you complete this tutorial, you will be able to:
 
 * Understand the key features of Flow Actions including atomic composition, weak guarantees, and event traceability
 * Create and use Sources to provide tokens from various protocols and locations
@@ -379745,11 +379765,11 @@ After completing this tutorial, you will be able to:
 
 # Prerequisites
 
-## Cadence Programming Language[​](#cadence-programming-language "Direct link to Cadence Programming Language")
+## Cadence programming language[​](#cadence-programming-language "Direct link to Cadence programming language")
 
 This tutorial assumes you have a modest knowledge of [Cadence](https://cadence-lang.org/docs). If you don't, you can follow along, but you'll get more out of it if you complete our [Cadence](https://cadence-lang.org/docs) tutorials. Most developers find it easier than other blockchain languages and it's not hard to pick up.
 
-## Flow Action Types[​](#flow-action-types "Direct link to Flow Action Types")
+## Flow Action types[​](#flow-action-types "Direct link to Flow Action types")
 
 The first five Flow Actions implement five core primitives to integrate external DeFi protocols.
 
@@ -379781,7 +379801,7 @@ To instantiate Flow Actions, create an instance of the appropriate [struct] from
 
 For more information, read the [connectors article](/blockchain-development-tutorials/forte/flow-actions/connectors).
 
-## Token Types[​](#token-types "Direct link to Token Types")
+## Token types[​](#token-types "Direct link to Token types")
 
 In Cadence, tokens that adhere to the [Fungible Token Standard](https://developers.flow.com/build/cadence/guides/fungible-token) have types that work with type safety principles.
 
@@ -380263,7 +380283,7 @@ _33
 
 }`
 
-### Price Oracle[​](#price-oracle "Direct link to Price Oracle")
+### Price oracle[​](#price-oracle "Direct link to Price oracle")
 
 A price [oracle](https://developers.flow.com/ecosystem/defi-liquidity/defi-contracts-mainnet#oracles) provides price data for assets with a consistent denomination. All prices are returned in the same unit and will return `nil` rather than reverting in the event that a price is unavailable. Prices are indexed by [Cadence type](https://cadence-lang.org/docs/language/types-and-type-system/type-safety), requiring a specific Cadence-based token type for which to serve prices, as opposed to looking up an asset by a generic address.
 
@@ -380730,7 +380750,7 @@ _62
 
 }`
 
-## Identification and Traceability[​](#identification-and-traceability "Direct link to Identification and Traceability")
+## Identification and traceability[​](#identification-and-traceability "Direct link to Identification and traceability")
 
 The `UniqueIdentifier` allows protocols to trace stack operations via Flow Actions interface-level events, identifying them by IDs. `IdentifiableResource` implementations should verify that access to the identifier is encapsulated by the structures they identify.
 
@@ -381038,29 +381058,29 @@ _82
 
 }`
 
-## Why `UniqueIdentifier` Matters in FlowActions[​](#why-uniqueidentifier-matters-in-flowactions "Direct link to why-uniqueidentifier-matters-in-flowactions")
+## Why `UniqueIdentifier` matters in FlowActions[​](#why-uniqueidentifier-matters-in-flowactions "Direct link to why-uniqueidentifier-matters-in-flowactions")
 
 The `UniqueIdentifier` is used to tag multiple FlowActions connectors as part of the **same logical operation**.  
 By aligning the same ID across connectors (for example, Source → Swapper → Sink), you can:
 
-### 1. Event Correlation[​](#1-event-correlation "Direct link to 1. Event Correlation")
+### 1. Event correlation[​](#1-event-correlation "Direct link to 1. Event correlation")
 
 * Every connector emits events tagged with its `UniqueIdentifier`.
 * Shared IDs let you filter and group related events in the chain's event stream.
 * Makes it easy to see that a withdrawal, swap, and deposit were part of **one workflow**.
 
-### 2. Stack Tracing[​](#2-stack-tracing "Direct link to 2. Stack Tracing")
+### 2. Stack tracing[​](#2-stack-tracing "Direct link to 2. Stack tracing")
 
 * When using composite connectors (for example, `SwapSource`, `SwapSink`, `MultiSwapper`), IDs allow you to trace the complete path through the stack.
 * Helpful for debugging and understanding the flow of operations inside complex strategies.
 
-### 3. Analytics & Attribution[​](#3-analytics--attribution "Direct link to 3. Analytics & Attribution")
+### 3. Analytics and attribution[​](#3-analytics-and-attribution "Direct link to 3. Analytics and attribution")
 
 * Allows measuring usage of specific strategies or routes.
 * Lets you join data from multiple connectors into a single logical "transaction" for reporting.
 * Supports fee attribution and performance monitoring across multi-step workflows.
 
-### Without a Shared `UniqueIdentifier`[​](#without-a-shared-uniqueidentifier "Direct link to without-a-shared-uniqueidentifier")
+### Without a shared `UniqueIdentifier`[​](#without-a-shared-uniqueidentifier "Direct link to without-a-shared-uniqueidentifier")
 
 * Events from different connectors appear unrelated, even if they occurred in the same transaction.
 * Harder to debug, track, or analyze multi-step processes.
@@ -381082,7 +381102,7 @@ Now that you have completed this tutorial, you can:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/flow-actions/intro-to-flow-actions.md)
 
-Last updated on **Oct 29, 2025** by **bz**
+Last updated on **Nov 6, 2025** by **cshannon1218**
 
 [Previous
 
@@ -381096,9 +381116,9 @@ Flow Actions Transaction](/blockchain-development-tutorials/forte/flow-actions/f
 
 Copy as Markdown
 
-* [Key Features](#key-features)* [Learning Objectives](#learning-objectives)* [Cadence Programming Language](#cadence-programming-language)* [Flow Action Types](#flow-action-types)* [Connectors](#connectors)* [Token Types](#token-types)* [Flow Actions](#flow-actions)
-              + [Source](#source)+ [Sink](#sink)+ [Swapper](#swapper)+ [Price Oracle](#price-oracle)+ [Flasher](#flasher)* [Identification and Traceability](#identification-and-traceability)* [Why `UniqueIdentifier` Matters in FlowActions](#why-uniqueidentifier-matters-in-flowactions)
-                  + [1. Event Correlation](#1-event-correlation)+ [2. Stack Tracing](#2-stack-tracing)+ [3. Analytics & Attribution](#3-analytics--attribution)+ [Without a Shared `UniqueIdentifier`](#without-a-shared-uniqueidentifier)* [Conclusion](#conclusion)
+* [Key features](#key-features)* [Learning Objectives](#learning-objectives)* [Cadence programming language](#cadence-programming-language)* [Flow Action types](#flow-action-types)* [Connectors](#connectors)* [Token types](#token-types)* [Flow Actions](#flow-actions)
+              + [Source](#source)+ [Sink](#sink)+ [Swapper](#swapper)+ [Price oracle](#price-oracle)+ [Flasher](#flasher)* [Identification and traceability](#identification-and-traceability)* [Why `UniqueIdentifier` matters in FlowActions](#why-uniqueidentifier-matters-in-flowactions)
+                  + [1. Event correlation](#1-event-correlation)+ [2. Stack tracing](#2-stack-tracing)+ [3. Analytics and attribution](#3-analytics-and-attribution)+ [Without a shared `UniqueIdentifier`](#without-a-shared-uniqueidentifier)* [Conclusion](#conclusion)
 
 Flow
 
@@ -395839,9 +395859,7 @@ Search
 
 On this page
 
-# Compose wth Cadence Transactions
-
-## Overview[​](#overview "Direct link to Overview")
+# Compose wth Cadence transactions
 
 In this tutorial, you'll **compose with someone else's contracts** on Flow testnet. You'll write a Cadence transaction that reads public state from a contract named `Counter` and only increments the counter when it is odd. Then you'll extend the transaction to mint NFTs when the counter is odd, demonstrating how to compose multiple contracts in a single transaction. Everything runs against testnet using the Flow CLI and the dependency manager.
 
@@ -395866,7 +395884,7 @@ After you complete this guide, you will be able to:
   + Create: <https://developers.flow.com/build/tools/flow-cli/commands#create-accounts>
   + Fund: <https://developers.flow.com/build/tools/flow-cli/commands#fund-accounts>
 
-## Getting Started[​](#getting-started "Direct link to Getting Started")
+## Get started[​](#get-started "Direct link to Get started")
 
 Create a [new project](/build/tools/flow-cli/flow.json/initialize-configuration) with the [Flow CLI](/build/tools/flow-cli):
 
@@ -396222,13 +396240,13 @@ You could trigger this same transaction **from an app** and **signed by a wallet
 
 ---
 
-## Extend with NFT Minting[​](#extend-with-nft-minting "Direct link to Extend with NFT Minting")
+## Extend with NFT minting[​](#extend-with-nft-minting "Direct link to Extend with NFT minting")
 
 Now let's take our composition to the next level by adding NFT minting functionality when the counter is odd. We'll use an example NFT contract that's already deployed on testnet.
 
 This is a silly use case, but it demonstrates the complex use cases you can add to your apps, after contract deployment, and even if you aren't the author of any of the contracts!
 
-### Install the NFT Contract[​](#install-the-nft-contract "Direct link to Install the NFT Contract")
+### Install the NFT contract[​](#install-the-nft-contract "Direct link to Install the NFT contract")
 
 First, let's install the ExampleNFT contract dependency:
 
@@ -396240,7 +396258,7 @@ warning
 
 This repository uses different deployments for core contracts than those that the Flow CLI installs. If you previously installed core contract dependencies (like `NonFungibleToken`, `MetadataViews`, etc.) using the CLI, manually delete all `dependencies` except `Counter` from your `flow.json` file to avoid conflicts.
 
-### Understanding NFT Minting[​](#understanding-nft-minting "Direct link to Understanding NFT Minting")
+### Understand NFT minting[​](#understand-nft-minting "Direct link to Understand NFT minting")
 
 Let's look at how NFT minting works with this contract. The [MintExampleNFT transaction](https://github.com/mfbz/flow-nft-tester/blob/main/cadence/transactions/MintExampleNFT.cdc) shows the pattern:
 
@@ -396364,7 +396382,7 @@ _31
 
 You can copy this functionality and adapt it for our use case.
 
-### Update the IncrementIfOdd Transaction[​](#update-the-incrementifodd-transaction "Direct link to Update the IncrementIfOdd Transaction")
+### Update the IncrementIfOdd transaction[​](#update-the-incrementifodd-transaction "Direct link to Update the IncrementIfOdd transaction")
 
 Now let's update our `IncrementIfOdd` transaction to mint an NFT when the counter is odd. You can either modify the existing transaction or create a new one:
 
@@ -396528,7 +396546,7 @@ _43
 
 }`
 
-### Setup NFT Collection[​](#setup-nft-collection "Direct link to Setup NFT Collection")
+### Setup NFT collection[​](#setup-nft-collection "Direct link to Setup NFT collection")
 
 Before you can mint NFTs, set up an NFT collection in your account. Create a transaction to do this:
 
@@ -396622,7 +396640,7 @@ You may need to run the regular `IncrementCounter` transaction first to get an o
 
 flow transactions send cadence/transactions/IncrementCounter.cdc --signer testnet-account --network testnet`
 
-### View Your NFT[​](#view-your-nft "Direct link to View Your NFT")
+### View your NFT[​](#view-your-nft "Direct link to View your NFT")
 
 Click the transaction link in the console to view the transaction in [testnet Flowscan](https://testnet.flowscan.io/). After you run the transaction **while the counter is odd**, you'll see an NFT in the `Asset Transfers` tab.
 
@@ -396657,7 +396675,7 @@ This approach gives you the freedom to build complex application logic that comp
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/cadence-advantages/compose-with-cadence-transactions.md)
 
-Last updated on **Oct 27, 2025** by **cshannon1218**
+Last updated on **Oct 30, 2025** by **cshannon1218**
 
 [Previous
 
@@ -396671,10 +396689,10 @@ Native Data Availability With Cadence Scripts](/blockchain-development-tutorials
 
 Copy as Markdown
 
-* [Overview](#overview)* [Objectives](#objectives)* [Prerequisites](#prerequisites)* [Getting Started](#getting-started)
-        + [Install dependencies](#install-dependencies)* [Compose with the public `Counter` contract](#compose-with-the-public-counter-contract)
-          + [Run on testnet](#run-on-testnet)* [Extend with NFT Minting](#extend-with-nft-minting)
-            + [Install the NFT Contract](#install-the-nft-contract)+ [Understanding NFT Minting](#understanding-nft-minting)+ [Update the IncrementIfOdd Transaction](#update-the-incrementifodd-transaction)+ [Setup NFT Collection](#setup-nft-collection)+ [Test the Enhanced Transaction](#test-the-enhanced-transaction)+ [View Your NFT](#view-your-nft)* [Why this matters](#why-this-matters)* [Conclusion](#conclusion)
+* [Objectives](#objectives)* [Prerequisites](#prerequisites)* [Get started](#get-started)
+      + [Install dependencies](#install-dependencies)* [Compose with the public `Counter` contract](#compose-with-the-public-counter-contract)
+        + [Run on testnet](#run-on-testnet)* [Extend with NFT minting](#extend-with-nft-minting)
+          + [Install the NFT contract](#install-the-nft-contract)+ [Understand NFT minting](#understand-nft-minting)+ [Update the IncrementIfOdd transaction](#update-the-incrementifodd-transaction)+ [Setup NFT collection](#setup-nft-collection)+ [Test the Enhanced Transaction](#test-the-enhanced-transaction)+ [View your NFT](#view-your-nft)* [Why this matters](#why-this-matters)* [Conclusion](#conclusion)
 
 Flow
 
@@ -430838,12 +430856,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **99c99f10e88466cb**
+Cloudflare Ray ID: **99d1db3848cd0609**
 •
 
 Your IP:
 Click to reveal
-57.151.129.50
+172.174.223.102
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 
