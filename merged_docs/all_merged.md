@@ -237145,6 +237145,8 @@ _10
 
 .put('baz', 'buz'); // configures "baz" to be "buz"`
 
+> **Note**: For advanced use cases requiring scoped configuration, isolated client instances, or multi-tenancy support, see the [`createFlowClient` reference documentation](/build/tools/clients/fcl-js/packages-docs/fcl/createFlowClient).
+
 ## Getting Configuration Values[​](#getting-configuration-values "Direct link to Getting Configuration Values")
 
 The `config` instance has an asynchronous `get` method. You can also pass it a fallback value incase the configuration state does not include what you are wanting.
@@ -237440,7 +237442,7 @@ FCL will automatically replace the contract name with the address for the networ
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/configure-fcl.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Nov 10, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -306950,7 +306952,7 @@ Search
 
 On this page
 
-# Build a Fully-Onchain Image Gallery
+# Build a fully-onchain image gallery
 
 info
 
@@ -306958,23 +306960,23 @@ The [FlowtoBooth](https://flowtobooth.vercel.app/) tutorial series teaches you h
 
 It is **not a production best-practice**. While everything in these tutorials works, you'll run into the following problems at production scale:
 
-* RPC Providers will likely rate-limit you for reading this much data at once
-* NFT marketplaces may not display the images, likely due to the above
-* 256\*256 images are huge by blockchain data standards, but too small for modern devices
+* RPC Providers will likely rate-limit you for reading this much data at once.
+* NFT marketplaces may not display the images, likely due to the above.
+* 256\*256 images are huge by blockchain data standards, but too small for modern devices.
 
-If you search for resources on how to store images of any significant size onchain, you'll be told it's either prohibitively expensive or even completely impossible. The reason for this is two-fold - first the size limit for data on transactions is about 40kb. Second, saving 40kb takes almost all of the 30 million gas limit on most blockchains.
+If you search for resources on how to store images of any significant size onchain, you'll be told it's either prohibitively expensive or even completely impossible. The reason for this is two-fold. First, the size limit for data on transactions is about 40kb. Second, to save 40kb takes almost all of the 30 million gas limit on most blockchains.
 
-The former constraint is immutable (though many chains are slowly increasing this limit), which limits the app to images about 256\*256 pixels in size. The latter is heavily dependent on which chain you choose.
+The former constraint is immutable (though many chains are slowly increasing this limit), which limits the app to images about 256\*256 pixels in size. The latter heavily depends on which chain you choose.
 
-At current gas prices on most chains, using all 30 million gas in a block costs **several dollars** - or potentially **thousands** on ETH mainnet. At current prices on Flow, spending 30 million gas costs **less than a penny**, usually 1 or 2 tenths of a cent.
+At current gas prices on most chains, to use all 30 million gas in a block costs **several dollars** - or potentially **thousands** on ETH mainnet. At current prices on Flow, spending 30 million gas costs **less than a penny**, usually one or two tenths of a cent.
 
-Much more computation is available at prices you or your users will be willing to pay for regular interactions. Including, but not limited to:
+Much more computation is available at prices you or your users will want to pay for regular interactions. This includes, but isn't limited to:
 
-* Airdropping hundreds of NFTs with one transaction, for pennies
-* Generation of large mazes
-* Generating large amounts of random numbers (with free [native VRF](/blockchain-development-tutorials/native-vrf/vrf-in-solidity))
-* Extensive string manipulation onchain
-* Simple game AI logic
+* Airdropping hundreds of NFTs with one transaction, for pennies.
+* Generation of large mazes.
+* Generation of large amounts of random numbers (with free [native VRF](/blockchain-development-tutorials/native-vrf/vrf-in-solidity)).
+* Extensive string manipulation onchain.
+* Simple game AI logic.
 
 In this tutorial, we'll build a smart contract that can store and retrieve images onchain. We'll also build a simple frontend to interact with the contract on Flow and another chain.
 
@@ -306982,23 +306984,23 @@ In this tutorial, we'll build a smart contract that can store and retrieve image
 
 ## Objectives[​](#objectives "Direct link to Objectives")
 
-After completing this guide, you'll be able to:
+After you complete this guide, you'll be able to:
 
-* Construct a composable onchain image gallery that can be used permissionlessly by onchain apps and other contracts to store and retrieve images
-* Build an onchain app that can interact with this contract to save and display images
-* Compare the price of spending 30 million gas on Flow with the price on other chains
+* Construct a composable onchain image gallery that can be used permissionlessly by onchain apps and other contracts to store and retrieve images.
+* Build an onchain app that can interact with this contract to save and display images.
+* Compare the price of when you spend 30 million gas on Flow with the price on other chains.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-### Next.js and Modern Frontend Development[​](#nextjs-and-modern-frontend-development "Direct link to Next.js and Modern Frontend Development")
+### Next.js and modern frontend development[​](#nextjs-and-modern-frontend-development "Direct link to Next.js and modern frontend development")
 
-This tutorial uses [Next.js](https://nextjs.org/docs/app/getting-started/installation). You don't need to be an expert, but it's helpful to be comfortable with development using a current React framework. You'll be on your own to select and use a package manager, manage Node versions, and other frontend environment tasks.
+This tutorial uses [Next.js](https://nextjs.org/docs/app/getting-started/installation). You don't need to be an expert, but it's helpful to be comfortable with development in a current React framework. You'll be on your own to select and use a package manager, manage Node versions, and other frontend environment tasks.
 
 ### Solidity[​](#solidity "Direct link to Solidity")
 
-You don't need to be an expert, but you should be comfortable writing code in [Solidity](https://soliditylang.org/). You can use [Hardhat](/blockchain-development-tutorials/evm/development-tools/hardhat), [Foundry](/blockchain-development-tutorials/evm/development-tools/foundry), or even [Remix](/blockchain-development-tutorials/evm/development-tools/remix).
+You don't need to be an expert, but you should be comfortable enough to write code in [Solidity](https://soliditylang.org/). You can use [Hardhat](/blockchain-development-tutorials/evm/development-tools/hardhat), [Foundry](/blockchain-development-tutorials/evm/development-tools/foundry), or even [Remix](/blockchain-development-tutorials/evm/development-tools/remix).
 
-## Build an Image Gallery Contract[​](#build-an-image-gallery-contract "Direct link to Build an Image Gallery Contract")
+## Build an image gallery contract[​](#build-an-image-gallery-contract "Direct link to Build an image gallery contract")
 
 Start a new smart contract project in the toolchain of your choice and install the [OpenZeppelin](https://www.openzeppelin.com/) contracts.
 
@@ -307038,11 +307040,11 @@ _10
 
 }`
 
-We're passing the original owner of the contract as an argument in the constructor to give greater flexibility for ownership when this contract is deployed.
+We pass the original owner of the contract as an argument in the constructor to give greater flexibility for ownership when this contract is deployed.
 
-### Set Up Storage for Images[​](#set-up-storage-for-images "Direct link to Set Up Storage for Images")
+### Set up storage for images[​](#set-up-storage-for-images "Direct link to Set up storage for images")
 
-We'll store the images in a simple `struct` that holds the image as a `base64` encoded `string`and also contains a `string` for the description. Doing so allows the image to be directly used in html and makes it easier to test the contract directly with a block explorer, but has the downside of making the images 33% bigger. Another format would be more efficient.
+We'll store the images in a simple `struct` that holds the image as a `base64` encoded `string`and also contains a `string` for the description. Doing so allows the image to be directly used in HTML and makes it easier to test the contract directly with a block explorer, but it also makes the images 33% bigger. Another format is more efficient.
 
 These will be held in array:
 
@@ -307068,7 +307070,7 @@ _10
 
 Image[] public images;`
 
-### Construct Functions to Add and Delete Images[​](#construct-functions-to-add-and-delete-images "Direct link to Construct Functions to Add and Delete Images")
+### Construct functions to add and delete images[​](#construct-functions-to-add-and-delete-images "Direct link to Construct functions to add and delete images")
 
 Next, add a function that accepts a `_description` and `_base64EncodedImage` and adds them to the array.
 
@@ -307136,11 +307138,11 @@ _10
 
 warning
 
-If the array gets big enough that calling `deleteImage` takes more than 30 million gas, it will brick this function. A safer and more gas-efficient method is to use a `mapping` with a counter as the index, and handling for the case where an index is empty.
+If the array gets big enough that for you to call `deleteImage` takes more than 30 million gas, it will brick this function. A safer and more gas-efficient method is to use a `mapping` with a counter as the index, and handling for the case where an index is empty.
 
-We're doing it this way to provide a way to delete accidentally uploaded images without making things too complex.
+We do it this way to provide a way to delete accidentally uploaded images without making things too complex.
 
-### Retrieval Functions[​](#retrieval-functions "Direct link to Retrieval Functions")
+### Retrieval functions[​](#retrieval-functions "Direct link to Retrieval functions")
 
 Finally, add functions to get one image, get all of the images, and get the number of images in the collection.
 
@@ -307196,9 +307198,9 @@ _14
 
 }`
 
-### Final Contract[​](#final-contract "Direct link to Final Contract")
+### Final contract[​](#final-contract "Direct link to Final contract")
 
-After completing the above, you'll end up with a contract similar to:
+After you complete the above, you'll end up with a contract similar to:
 
 `_49
 
@@ -307376,7 +307378,7 @@ _49
 
 }`
 
-### Create a Factory[​](#create-a-factory "Direct link to Create a Factory")
+### Create a factory[​](#create-a-factory "Direct link to Create a factory")
 
 The image gallery contract you've just constructed is intended to be a utility for other contracts and apps to use freely. You don't want just one gallery for everyone, you need to give the ability for any app or contract to create and deploy private galleries freely.
 
@@ -307428,9 +307430,9 @@ _13
 
 }`
 
-### Tracking Factories[​](#tracking-factories "Direct link to Tracking Factories")
+### Track factories[​](#track-factories "Direct link to Track factories")
 
-Some app designs may need multiple galleries for each user. For example, you might want to be able to give users the ability to collect images in separate galleries for separate topics, dates, or events, similar to how many photo apps work on smartphones.
+Some app designs may need multiple galleries for each user. For example, you might want to give users the ability to collect images in separate galleries for separate topics, dates, or events, similar to how many photo apps work on smartphones.
 
 To facilitate this feature, update your contract to keep track of which galleries have been created by which users. You'll end up with:
 
@@ -307516,7 +307518,7 @@ _23
 
 }`
 
-### Testing the Factory[​](#testing-the-factory "Direct link to Testing the Factory")
+### Test the factory[​](#test-the-factory "Direct link to Test the factory")
 
 Write appropriate unit tests, then deploy and verify the factory on Flow Testnet.
 
@@ -307532,15 +307534,15 @@ Navigate to [evm-testnet.flowscan.io](https://evm-testnet.flowscan.io/), search 
 
 `Connect` your wallet. Use the [Flow Wallet](https://wallet.flow.com/) if you want automatically sponsored gas on both mainnet and testnet, or use the [Flow Faucet](https://faucet.flow.com/fund-account) to grab some testnet funds if you prefer to use another wallet.
 
-Expand the `createImageGallery` function, click the `self` button, and then `Write` the function.
+Expand the `createImageGallery` function, click `self`, and then `Write` the function.
 
 ![createImageGallery](/assets/images/create-image-gallery-7ef57e4a43d78a5a2a3acec0a3483272.png)
 
 Approve the transaction and wait for it to complete. Then, call `getGalleries` for your address to find the address of the gallery you've created.
 
-### Testing the Image Gallery[​](#testing-the-image-gallery "Direct link to Testing the Image Gallery")
+### Test the image gallery[​](#test-the-image-gallery "Direct link to Test the image gallery")
 
-Search for the address of your image gallery contract. It `won't` be verified, but if you're using our exact contract, you will see a message from Flowscan that a verified contract with the same bytecode was found in the Blockscout DB. Click the provided link to complete the verification process.
+Search for the address of your image gallery contract. It `won't` be verified, but if you use our exact contract, you will see a message from Flowscan that a verified contract with the same bytecode was found in the Blockscout DB. Click the provided link to complete the verification process.
 
 info
 
@@ -307562,9 +307564,9 @@ Use the tool to convert an image that is ~30kb or smaller. Copy the string and p
 
 Click `Write` and approve the transaction. Take note of the cost! You've saved an image onchain forever for just a little bit of gas!
 
-Once the transaction goes through, call `getImage` with `0` as the index to retrieve your description and base64-encoded image.
+After the transaction goes through, call `getImage` with `0` as the index to retrieve your description and base64-encoded image.
 
-Paste your image string as the `src` for an `img` tag in an html snippet to confirm it worked.
+Paste your image string as the `src` for an `img` tag in an HTML snippet to confirm it worked.
 
 `_10
 
@@ -307586,9 +307588,9 @@ _10
 
 </div>`
 
-## Building the Frontend[​](#building-the-frontend "Direct link to Building the Frontend")
+## Build the frontend[​](#build-the-frontend "Direct link to Build the frontend")
 
-Now that your contracts are sorted and working, it's time to build an app to interact with it. We'll use [Next.js](https://nextjs.org/docs/app/getting-started/installation) for this, but the components we provide will be adaptable to other React frameworks.
+Now that your contracts are sorted and work, it's time to build an app to interact with it. We'll use [Next.js](https://nextjs.org/docs/app/getting-started/installation) for this, but the components we provide will be adaptable to other React frameworks.
 
 Run:
 
@@ -307596,7 +307598,7 @@ Run:
 
 npx create-next-app`
 
-We're using the default options.
+We'll use' the default options.
 
 Next, install [rainbowkit](https://www.rainbowkit.com/), [wagmi](https://wagmi.sh/), and their related dependencies:
 
@@ -308052,9 +308054,9 @@ _115
 
 } ``
 
-### Add the Connect Button[​](#add-the-connect-button "Direct link to Add the Connect Button")
+### Add the connect button[​](#add-the-connect-button "Direct link to Add the connect button")
 
-Open `page.tsx` and clear out the default content. Replace it with a message about what your app does and add the [rainbowkit](https://www.rainbowkit.com/) `Connect` button. Don't forget to import rainbowkit's css file and the `ConnectButton` component:
+Open `page.tsx` and clear out the default content. Replace it with a message about what your app does and add the [rainbowkit](https://www.rainbowkit.com/) `Connect` button. Don't forget to import rainbowkit's `.css` file and the `ConnectButton` component:
 
 `_25
 
@@ -308154,13 +308156,13 @@ _25
 
 Test the app and make sure you can connect your wallet.
 
-### Import Your Contracts[​](#import-your-contracts "Direct link to Import Your Contracts")
+### Import Your contracts[​](#import-your-contracts "Direct link to Import Your contracts")
 
-Next, you'll need to get your contract ABI and address into your frontend. If you're using Hardhat, you can use the artifacts produced by the Ignition deployment process. If you're using Foundry or Remix, you can adapt this process to the format of artifacts produced by those toolchains.
+Next, you'll need to get your contract ABI and address into your frontend. If you use Hardhat, you can use the artifacts produced by the Ignition deployment process. If you use Foundry or Remix, you can adapt this process to the format of artifacts produced by those toolchains.
 
 tip
 
-If you didn't deploy the Image Gallery contract, do so now to generate an artifact containing the ABI.
+If you didn't deploy the Image Gallery contract, do so now to generate an artifact that contains the ABI.
 
 Add a folder in `app` called `contracts`. Copy the following files from your smart contract project, located in the `ignition` and `ignition/deployments/chain-545` folders:
 
@@ -308256,11 +308258,11 @@ _22
 
 info
 
-Note that we're **not** including an `address` for the `imageGallery` itself. We'll need to set this dynamically as users might have more than one gallery.
+Note that we **won't** include an `address` for the `imageGallery` itself. We'll need to set this dynamically as users might have more than one gallery.
 
-### Add Content[​](#add-content "Direct link to Add Content")
+### Add content[​](#add-content "Direct link to Add content")
 
-You can use a few strategies to organize the components that interact with the blockchain. One is to create a centralized component that stores all of the state related to smart contracts and uses a single instance of `useWriteContract`. Doing so makes it easier to convey the transaction lifecycle to your users, at the cost of re-fetching all the data from your RPC provider after every transaction. This becomes sub-optimal if your app interacts with many contracts, or even different read functions within the same contract.
+You can use a few strategies to organize the components that interact with the blockchain. One is to create a centralized component that stores all of the state related to smart contracts and uses a single instance of `useWriteContract`. This makes it easier to convey the transaction lifecycle to your users, at the cost of re-fetching all the data from your RPC provider after every transaction. This becomes sub-optimal if your app interacts with many contracts, or even different read functions within the same contract.
 
 Add a folder in `app` called `components`, and create a file called `Content.tsx`. In it, add the following:
 
@@ -308677,7 +308679,7 @@ Test the app and make sure you can complete the transaction to create a gallery.
 
 ### Gallery List[​](#gallery-list "Direct link to Gallery List")
 
-Next, you'll need to display the list of a user's galleries and enable them to select which one they want to interact with. A dropdown list will serve this function well. Add a component called `AddressList.tsx`, and in it add:
+Next, you'll need to display the list of a user's galleries and allow them to select which one they want to interact with. A dropdown list will serve this function well. Add a component called `AddressList.tsx`, and in it add:
 
 `_42
 
@@ -308883,13 +308885,13 @@ _10
 
 Test again, and confirm that the address of the gallery you created is in the dropdown and is selectable. The provided code contains a console log as well, to make it easier to copy the address in case you need to check it on Flowscan.
 
-### Display the Images[​](#display-the-images "Direct link to Display the Images")
+### Display the images[​](#display-the-images "Direct link to Display the images")
 
 Next, you need to pull the images for the selected gallery from the contract.
 
 warning
 
-Make sure you're using the same gallery you added an image too earlier. Otherwise, there won't be an image to pull and display!
+Make sure you use the same gallery that you added an image to earlier. Otherwise, there won't be an image to pull and display!
 
 Create a component called `ImageGallery`. All this needs to do is accept a list of images and descriptions and display them. You can style this nicely if you'd like, or use the basic implementation here:
 
@@ -309103,11 +309105,11 @@ _55
 
 export default ImageGallery; ``
 
-Implementing the gallery display will take more additions to `Content.tsx`. You'll need to:
+To implement the gallery display requires more additions to `Content.tsx`. You'll need to:
 
-* Add a state variable for the list of images
-* Implement a second `useContractRead` hook to pull the images from the currently selected gallery address
-* Hook the gallery into the refresh logic
+* Add a state variable for the list of images.
+* Implement a second `useContractRead` hook to pull the images from the currently-selected gallery address.
+* Hook the gallery into the refresh logic.
 
 First, add the state variable to store the gallery array:
 
@@ -309175,7 +309177,7 @@ _10
 
 }, [reload]); ``
 
-Then, add a `useEffect` to update the `images` in state when `galleryData` is received. Users expect the newest images to be shown first, so `reverse` the array before setting it to state.
+Then, add a `useEffect` to update the `images` in state when `galleryData` is received. Users expect the newest images to be shown first, so `reverse` the array before you set it to state.
 
 `_10
 
@@ -309323,13 +309325,13 @@ _28
 
 ); ``
 
-Run the app, log in with your wallet **that has the gallery you created for testing** and select the gallery.
+Run the app, log in with your wallet **that has the gallery you created for testing**, and select the gallery.
 
-You're now displaying an image that is stored onchain **forever**!
+You'll now see an image that is stored onchain **forever**!
 
-## Image Uploader[​](#image-uploader "Direct link to Image Uploader")
+## Image uploader[​](#image-uploader "Direct link to Image uploader")
 
-The last thing to do for this initial implementation is to add functionality so that users can upload their own images through the app and save them onchain without needing to do the base64 conversion on their own.
+The last thing to do for this initial implementation is to add functionality so that users can upload their own images through the app and save them onchain without the need to do the base64 conversion on their own.
 
 For now, we'll just generate an error if the file is too big, but later on we can do that for the user as well.
 
@@ -309587,7 +309589,7 @@ Then add the `ImageUploader` to the `return`:
 
 <ImageUploader setUploadedBase64Image={setUploadedBase64Image} />`
 
-Later on, you'll probably want to make a component for displaying the uploaded image, but for now just add it below the uploader button component:
+Later on, you'll probably want to make a component that displays the uploaded image, but for now just add it below the uploader button component:
 
 `_11
 
@@ -309769,19 +309771,19 @@ Test the app to save your new image, and make sure the error displays if you try
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-In this tutorial, you built a fully functional onchain image gallery using Flow EVM. You created smart contracts that can store images directly on the blockchain and a modern React frontend that allows users to interact with these contracts. The implementation demonstrates how Flow's efficient gas pricing makes operations that would be prohibitively expensive on other chains not just possible, but practical.
+In this tutorial, you built a fully functional onchain image gallery with Flow EVM. You created smart contracts that can store images directly on the blockchain and a modern React frontend that allows users to interact with these contracts. The implementation demonstrates how Flow's efficient gas pricing makes operations that would be prohibitively expensive on other chains not just possible, but practical.
 
 Now that you have completed the tutorial, you should be able to:
 
-* Construct a composable onchain image gallery that can be used permissionlessly by onchain apps and other contracts to store and retrieve images
-* Build an onchain app that can interact with this contract to save and display images
-* Compare the price of spending 30 million gas on Flow with the price on other chains
+* Construct a composable onchain image gallery that can be used permissionlessly by onchain apps and other contracts to store and retrieve images.
+* Build an onchain app that can interact with this contract to save and display images.
+* Compare the price of spending 30 million gas on Flow with the price on other chains.
 
-Now that you've completed this tutorial, you're ready to explore more complex onchain storage patterns and build applications that take advantage of Flow's unique capabilities for storing and processing larger amounts of data than traditionally possible on other chains.
+Now that you've completed this tutorial, you're ready to explore more complex onchain storage patterns and build applications that take advantage of Flow's unique capabilities to store and process larger amounts of data than traditionally possible on other chains.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/image-gallery.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Nov 6, 2025** by **cshannon1218**
 
 [Previous
 
@@ -309796,9 +309798,9 @@ Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
 Copy as Markdown
 
 * [Objectives](#objectives)* [Prerequisites](#prerequisites)
-    + [Next.js and Modern Frontend Development](#nextjs-and-modern-frontend-development)+ [Solidity](#solidity)* [Build an Image Gallery Contract](#build-an-image-gallery-contract)
-      + [Set Up Storage for Images](#set-up-storage-for-images)+ [Construct Functions to Add and Delete Images](#construct-functions-to-add-and-delete-images)+ [Retrieval Functions](#retrieval-functions)+ [Final Contract](#final-contract)+ [Create a Factory](#create-a-factory)+ [Tracking Factories](#tracking-factories)+ [Testing the Factory](#testing-the-factory)+ [Testing the Image Gallery](#testing-the-image-gallery)* [Building the Frontend](#building-the-frontend)
-        + [Provider Setup](#provider-setup)+ [Add the Connect Button](#add-the-connect-button)+ [Import Your Contracts](#import-your-contracts)+ [Add Content](#add-content)+ [Gallery List](#gallery-list)+ [Display the Images](#display-the-images)* [Image Uploader](#image-uploader)* [Conclusion](#conclusion)
+    + [Next.js and modern frontend development](#nextjs-and-modern-frontend-development)+ [Solidity](#solidity)* [Build an image gallery contract](#build-an-image-gallery-contract)
+      + [Set up storage for images](#set-up-storage-for-images)+ [Construct functions to add and delete images](#construct-functions-to-add-and-delete-images)+ [Retrieval functions](#retrieval-functions)+ [Final contract](#final-contract)+ [Create a factory](#create-a-factory)+ [Track factories](#track-factories)+ [Test the factory](#test-the-factory)+ [Test the image gallery](#test-the-image-gallery)* [Build the frontend](#build-the-frontend)
+        + [Provider Setup](#provider-setup)+ [Add the connect button](#add-the-connect-button)+ [Import Your contracts](#import-your-contracts)+ [Add content](#add-content)+ [Gallery List](#gallery-list)+ [Display the images](#display-the-images)* [Image uploader](#image-uploader)* [Conclusion](#conclusion)
 
 Flow
 
@@ -330044,6 +330046,8 @@ _10
 
 fcl.authenticate();`
 
+> **Note**: For advanced configuration patterns including scoped clients and multi-tenancy, see the [`createFlowClient` reference documentation](/build/tools/clients/fcl-js/packages-docs/fcl/createFlowClient).
+
 ![FCL Default Discovery UI](/assets/images/discovery-c2c95d28a66e86c570491a36e37e0afa.png)
 
 > **Note**: A [Dapper Wallet](https://meetdapper.com/developers) developer account is required.
@@ -330294,7 +330298,7 @@ FCL is built **on top of the Flow SDK**, making it easier to handle authenticati
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/index.md)
 
-Last updated on **Nov 8, 2025** by **Chase Fleming**
+Last updated on **Nov 10, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -350174,9 +350178,9 @@ info
 
 Make sure to use `viem` version `2.9.6` or greater. This version contains flow EVM networks
 
-# Using viem
+# Viem & Wagmi
 
-Flow networks have been added to viem chain definitions [viem networks](https://github.com/wevm/viem/tree/main/src/chains/definitions). This allows for convenient flow network configuration when using viem and wagmi.
+Flow networks have been added to viem chain definitions [viem networks](https://github.com/wevm/viem/tree/main/src/chains/definitions). This allows for convenient flow network configuration when you use viem and wagmi.
 
 ## Viem Flow Config[​](#viem-flow-config "Direct link to Viem Flow Config")
 
@@ -350224,19 +350228,20 @@ _11
 
 });`
 
-# Using Next.js and Wagmi
+# Use Next.js and Wagmi
 
-This tutorial will guide you through creating a simple web application, connect to an EVM capable wallet and interact with the "HelloWorld" smart contract to get and set greetings. We will not dive into managing transactions.
+This tutorial will guide you through how to create a simple web application, connect to an EVM capable wallet and interact with the "HelloWorld" smart contract to get and set greetings. We will not dive into how to manage transactions.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-* Node.js installed on your machine
-* A code editor (e.g., Visual Studio Code)
-* Basic knowledge of React and Next.js
+* `Node.js` installed on your machine.
+* A code editor (such as Visual Studio Code).
+* Basic knowledge of React and `Next.js`.
 
-## Step 1: Setting Up the Next.js Project[​](#step-1-setting-up-the-nextjs-project "Direct link to Step 1: Setting Up the Next.js Project")
+## Step 1: Set up the Next.js project[​](#step-1-set-up-the-nextjs-project "Direct link to Step 1: Set up the Next.js project")
 
-This tutorial will be following [Wagmi getting-started manual tutorial](https://wagmi.sh/react/getting-started)
+This tutorial will follow [Wagmi getting-started manual tutorial](https://wagmi.sh/react/getting-started).
+
 First, let's create a Wagmi project named `flow-evm-wagmi`. We will use npm but you are welcome to use yarn or bun.
 
 `_10
@@ -350263,10 +350268,10 @@ _10
 
 npm install`
 
-## Step 2: Configuring Wagmi and Connecting the Wallet[​](#step-2-configuring-wagmi-and-connecting-the-wallet "Direct link to Step 2: Configuring Wagmi and Connecting the Wallet")
+## Step 2: Configure Wagmi and connect the Wallet[​](#step-2-configure-wagmi-and-connect-the-wallet "Direct link to Step 2: Configure Wagmi and connect the Wallet")
 
 Make sure you have Metamask installed and Flow network configured. [Metamask and Flow blockchain](/build/evm/using).
-Wagmi needs to know what networks to be aware of. Let's configure to use Flow Testnet by updating config.ts file with the following:
+Wagmi needs to know what networks to be aware of. Let's configure to use Flow Testnet and update the `config.ts` file with the following:
 
 `_11
 
@@ -350310,7 +350315,7 @@ _11
 
 });`
 
-By default Wagmi configures many wallets, MetaMask, Coinbase Wallet, and WalletConnect as wallet providers. Above we simplify the code to only be interested in the Injected Provider, which we are interested in Metamask. Verify `page.tsx` code looks like the following.
+By default, Wagmi configures many wallets, MetaMask, Coinbase Wallet, and WalletConnect as wallet providers. Above, we simplify the code to only be interested in the Injected Provider, which we are interested in Metamask. Verify `page.tsx` code looks like the following.
 
 `_48
 
@@ -350492,14 +350497,13 @@ export default App;`
 
 ![Connect Metamask](/assets/images/Connect-Metamask-05771fc62a4255dc6553d04615567caf.gif)
 
-This step relies on an already deployed HelloWorld contract. See [Using Remix](/blockchain-development-tutorials/evm/development-tools/remix) to deploy a smart contract on flow evm blockchain.
-Create or edit the simple `page.tsx` file in the app directory to have better styles, that's beyond this tutorial. We will modify `page.txs` to add a new `HelloWorld.tsx`. Replace `YOUR_CONTRACT_ADDRESS` with your deployed address.
+This step relies on an already deployed HelloWorld contract. See [Using Remix](/blockchain-development-tutorials/evm/development-tools/remix) to deploy a smart contract on flow evm blockchain. Create or edit the simple `page.tsx` file in the app directory to have better styles, that's beyond this tutorial. We will modify `page.txs` to add a new `HelloWorld.tsx`. Replace `YOUR_CONTRACT_ADDRESS` with your deployed address.
 
-## Step 3: Creating the Interface for HelloWorld Contract[​](#step-3-creating-the-interface-for-helloworld-contract "Direct link to Step 3: Creating the Interface for HelloWorld Contract")
+## Step 3: Create the interface for HelloWorld contract[​](#step-3-create-the-interface-for-helloworld-contract "Direct link to Step 3: Create the interface for HelloWorld contract")
 
 Now, let's create a component to interact with the HelloWorld contract. Assume your contract is already deployed, and you have its address and ABI.
 
-* Create a new file, HelloWorld.ts, in the components directory.
+* Create a new file, `HelloWorld.ts`, in the components directory.
 * Use Wagmi's hooks to read from and write to the smart contract:
 
 `_47
@@ -350676,7 +350680,7 @@ _47
 
 export default HelloWorld;`
 
-Reminder: aReplace YOUR\_CONTRACT\_ADDRESS with the actual address of your deployed HelloWorld contract.
+Reminder: Replace YOUR\_CONTRACT\_ADDRESS with the actual address of your deployed HelloWorld contract.
 
 Also notice you need the HelloWorld contract ABI, save this to a new file called `HelloWorld.json` in the app directory.
 
@@ -350872,7 +350876,7 @@ _48
 
 }`
 
-## Step 4: Integrating the HelloWorld Component[​](#step-4-integrating-the-helloworld-component "Direct link to Step 4: Integrating the HelloWorld Component")
+## Step 4: Integrate the HelloWorld Component[​](#step-4-integrate-the-helloworld-component "Direct link to Step 4: Integrate the HelloWorld Component")
 
 Finally, import and use the HelloWorld component in your `pages.tsx`, throw it at the bottom of the render section.
 
@@ -350962,13 +350966,13 @@ _22
 
 Now, you have a functional App that can connect to Metamask, display the current greeting from the "HelloWorld" smart contract, and update the greeting.
 
-Test it by updating the greeting, signing a transaction in your Metamask then wait a minute then refresh the website. Handling transactions are outside of this tutorial. We'll leave that as a future task. [Checkout Wagmi documentation](https://wagmi.sh/react/getting-started)
+To test it, update the greeting, sign a transaction in your Metamask, wait a minute, then refresh the website. Handling transactions are outside of this tutorial. We'll leave that as a future task. [Checkout Wagmi documentation](https://wagmi.sh/react/getting-started)
 
 ![Update HelloWorld Greeting](/assets/images/Update-HelloWorld-Greeting-97929700145ed51e0a6226f562fda7c0.gif)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/frameworks/wagmi.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Nov 6, 2025** by **cshannon1218**
 
 [Previous
 
@@ -350982,7 +350986,7 @@ Rainbowkit](/blockchain-development-tutorials/evm/frameworks/rainbowkit)
 
 Copy as Markdown
 
-* [Viem Flow Config](#viem-flow-config)* [Prerequisites](#prerequisites)* [Step 1: Setting Up the Next.js Project](#step-1-setting-up-the-nextjs-project)* [Step 2: Configuring Wagmi and Connecting the Wallet](#step-2-configuring-wagmi-and-connecting-the-wallet)* [Step 3: Creating the Interface for HelloWorld Contract](#step-3-creating-the-interface-for-helloworld-contract)* [Step 4: Integrating the HelloWorld Component](#step-4-integrating-the-helloworld-component)
+* [Viem Flow Config](#viem-flow-config)* [Prerequisites](#prerequisites)* [Step 1: Set up the Next.js project](#step-1-set-up-the-nextjs-project)* [Step 2: Configure Wagmi and connect the Wallet](#step-2-configure-wagmi-and-connect-the-wallet)* [Step 3: Create the interface for HelloWorld contract](#step-3-create-the-interface-for-helloworld-contract)* [Step 4: Integrate the HelloWorld Component](#step-4-integrate-the-helloworld-component)
 
 Flow
 
@@ -380506,6 +380510,8 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 VCs & Funds | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -443754,31 +443760,31 @@ On this page
 
 # Native VRF (Built-in Randomness) Tutorials
 
-Flow is a **blockchain with built-in randomness**, powered by its native **VRF (Verifiable Random Function)** capabilities. Unlike other blockchains that require external oracles, Flow's **Random Beacon** provides cryptographically secure randomness **at the protocol level**. Eliminating extra costs, reducing latency, and improving reliability for decentralized applications.
+Flow is a **blockchain with built-in randomness**, powered by its native **VRF (Verifiable Random Function)** capabilities. Unlike other blockchains that require external oracles, Flow's **Random Beacon** provides cryptographically secure randomness **at the protocol level**. This elimiates extra costs, reduces latency, and improves reliability for decentralized applications.
 
-These tutorials cover how to implement secure randomness directly in both **Cadence** and **Solidity** smart contracts on Flow. Whether you're building on Flow's native environment or Flow EVM, you can generate unbiased, verifiable random values without third-party dependencies.
+These tutorials cover how to implement secure randomness directly in both **Cadence** and **Solidity** smart contracts on Flow. Whether you build on Flow's native environment or Flow EVM, you can generate unbiased, verifiable random values without third-party dependencies.
 
 ## Tutorials[​](#tutorials "Direct link to Tutorials")
 
 ### [Secure Randomness with Commit-Reveal in Cadence](/blockchain-development-tutorials/native-vrf/commit-reveal-cadence)[​](#secure-randomness-with-commit-reveal-in-cadence "Direct link to secure-randomness-with-commit-reveal-in-cadence")
 
-Learn how to implement secure randomness in Cadence using Flow's commit-reveal scheme, ensuring fairness and resistance to manipulation.
+Learn how to implement secure randomness in Cadence with Flow's commit-reveal scheme, which ensures fairness and resistance to manipulation.
 
 ### [VRF (Randomness) in Solidity](/blockchain-development-tutorials/native-vrf/vrf-in-solidity)[​](#vrf-randomness-in-solidity "Direct link to vrf-randomness-in-solidity")
 
-Learn how to use Flow's **native verifiable randomness** in Solidity smart contracts on Flow EVM, including best practices, security considerations, and complete code examples.
+Learn how to use Flow's **native verifiable randomness** in Consumer Decentralized Finance (DeFi) contracts on Flow EVM, which includes best practices, security considerations, and complete code examples.
 
-## Why Flow for Randomness?[​](#why-flow-for-randomness "Direct link to Why Flow for Randomness?")
+## Why Flow for randomness?[​](#why-flow-for-randomness "Direct link to Why Flow for randomness?")
 
-* Protocol-level randomness: No need for external oracles or APIs.
-* Lower costs: Built-in randomness means no extra transaction fees.
-* Enhanced security: Cryptographically secure and verifiable onchain.
-* Cross-language support: Works seamlessly in both Cadence and Solidity.
+* Protocol-level randomness: no need for external oracles or APIs.
+* Lower costs: built-in randomness means no extra transaction fees.
+* Enhanced security: cryptographically secure and verifiable onchain.
+* Cross-language support: Wwrks seamlessly in both Cadence and Consumer DeFi.
 * Speed: Flow is a [fast blockchain](https://flow.com/core-protocol-vision) with the design goal of 1,000,000 transactions per second.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/native-vrf/index.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Nov 11, 2025** by **cshannon1218**
 
 [Previous
 
@@ -443793,7 +443799,7 @@ Secure Randomness with Commit-Reveal in Cadence](/blockchain-development-tutoria
 Copy as Markdown
 
 * [Tutorials](#tutorials)
-  + [Secure Randomness with Commit-Reveal in Cadence](#secure-randomness-with-commit-reveal-in-cadence)+ [VRF (Randomness) in Solidity](#vrf-randomness-in-solidity)* [Why Flow for Randomness?](#why-flow-for-randomness)
+  + [Secure Randomness with Commit-Reveal in Cadence](#secure-randomness-with-commit-reveal-in-cadence)+ [VRF (Randomness) in Solidity](#vrf-randomness-in-solidity)* [Why Flow for randomness?](#why-flow-for-randomness)
 
 Flow
 
@@ -468737,7 +468743,7 @@ On this page
 
 Gas fees are one of the biggest barriers to user adoption in blockchain applications. While Flow's native Cadence transactions support a separate fee payer role, EVM transactions require the sender to pay their own gas fees. This creates friction for users who need to acquire tokens before they can interact with your application.
 
-Flow EVM's architecture provides a unique solution: you can set up a **gas-free EVM endpoint** that sponsors all transaction fees on behalf of your users. This enables seamless user experiences similar to traditional web applications, where users don't need to worry about transaction costs.
+Flow EVM's architecture provides a unique solution: you can set up a **gas-free EVM endpoint** that sponsors all transaction fees on behalf of your users. This allows seamless user experiences similar to traditional web applications, where users don't need to worry about transaction costs.
 
 warning
 
@@ -468745,27 +468751,27 @@ This method only works in situations where you can control the RPC node used to 
 
 ## Objectives[​](#objectives "Direct link to Objectives")
 
-After completing this guide, you'll be able to:
+After you complete this guide, you'll be able to:
 
-* Understand how Flow EVM's transaction model enables gas-free transactions
-* Set up a custom EVM Gateway that sponsors all transaction fees
-* Configure your application to use a gas-free RPC endpoint
-* Implement sponsored transactions for various business scenarios
-* Manage service accounts and keys for concurrent transaction processing
+* Understand how Flow EVM's transaction model allows gas-free transactions.
+* Set up a custom EVM Gateway that sponsors all transaction fees.
+* Configure your application to use a gas-free RPC endpoint.
+* Implement sponsored transactions for various business scenarios.
+* Manage service accounts and keys for concurrent transaction processing.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-### Flow EVM and RPC Endpoints[​](#flow-evm-and-rpc-endpoints "Direct link to Flow EVM and RPC Endpoints")
+### Flow EVM and RPC endpoints[​](#flow-evm-and-rpc-endpoints "Direct link to Flow EVM and RPC endpoints")
 
 This tutorial assumes you're familiar with [Flow EVM](/build/evm/using) and how RPC endpoints work. You should understand the difference between read and write operations, and how transactions are sent through RPC endpoints.
 
-## Getting Started[​](#getting-started "Direct link to Getting Started")
+## Get started[​](#get-started "Direct link to Get started")
 
-This tutorial will guide you through setting up a gas-free EVM endpoint that sponsors all transaction fees for your users. The solution involves:
+This tutorial will guide you through how to set up a gas-free EVM endpoint that sponsors all transaction fees for your users. You'll:
 
-1. Creating a service account to act as the fee payer
-2. Configuring a custom EVM Gateway with gas sponsorship enabled
-3. Setting up your application to use the custom RPC endpoint
+1. Create a service account to act as the fee payer.
+2. Configure a custom EVM Gateway with gas sponsorship turned on.
+3. Sett up your application to use the custom RPC endpoint.
 
 ## Overview[​](#overview "Direct link to Overview")
 
@@ -468775,56 +468781,56 @@ EVM transactions sent through the EVM Gateway are wrapped in a Flow Cadence tran
 
 info
 
-In Cadence, the proposer, payer, and signer of a transaction are separate, natively.
+In Cadence, the proposer, payer, and signer of a transaction are natively separate.
 
 For EVM transactions inside this Cadence transaction, the transaction fees of the EVM transaction are sent from the sender's account and applied to the EVM Gateway's service account. The EVM Gateway pays the Cadence transaction fee, but is reimbursed via the EVM transaction's gas fee, which is directed to its own EVM address as the *coinbase*.
 
 Here are the key points of the Flow EVM Gateway:
 
-* The EVM Gateway works as a proxy to send EVM transactions
-* The EVM Gateway wraps EVM transactions into native Flow Cadence transactions
-* The EVM Gateway has a service account, which is the payer and sender of all native transactions sent through the EVM Gateway
-* The sender of the EVM transaction is the fee payer of its EVM transaction to the EVM Gateway's service account
+* The EVM Gateway works as a proxy to send EVM transactions.
+* The EVM Gateway wraps EVM transactions into native Flow Cadence transactions.
+* The EVM Gateway has a service account, which is the payer and sender of all native transactions sent through the EVM Gateway.
+* The sender of the EVM transaction is the fee payer of its EVM transaction to the EVM Gateway's service account.
 
 ### Why do we need a gas-free EVM endpoint?[​](#why-do-we-need-a-gas-free-evm-endpoint "Direct link to Why do we need a gas-free EVM endpoint?")
 
-From the Flow [transaction model](/build/cadence/basics/transactions#Payer), we know that there is actually a Fee Payer role in native Flow transactions. When the transaction is executed, the fees for the transaction are entirely borne by the Fee Payer role. However, for EVM, the transaction model doesn't separate the signer from the payer. Therefore, when we execute transactions on the EVM, the transaction fees **must** be covered by the sender of the transaction.
+From the Flow [transaction model](/build/cadence/basics/transactions#Payer), we know that there is actually a Fee Payer role in native Flow transactions. When the transaction is executed, the fees for the transaction are entirely borne by the Fee Payer role. However, for EVM, the transaction model doesn't separate the signer from the payer. Therefore, when we execute transactions on the EVM, the sender of the transaction **must** cover the transaction fees.
 
-If someone wants to send an EVM transaction through the default EVM Gateway, the sender's account must have enough balance to cover the transaction fees, unless they're using the Flow wallet, which also sponsors gas. Developers using embedded wallets, or holding user keys on the backend, may prefer to sponsor the transaction fees to create a more user-friendly experience, just as can be done in native Cadence transactions or paymaster solutions on other networks.
+If someone wants to send an EVM transaction through the default EVM Gateway, the sender's account must have enough balance to cover the transaction fees, unless they use the Flow wallet, which also sponsors gas. Developers who use embedded wallets, or hold user keys on the backend, may prefer to sponsor the transaction fees to create a more user-friendly experience, just as can be done in native Cadence transactions or paymaster solutions on other networks.
 
-Here, we provide a solution: you can set up a sponsored transaction EVM endpoint for your backend service, and all transactions sent through this endpoint will be sponsored by your account.
+Here, we provide a solution: you can set up a sponsored transaction EVM endpoint for your backend service, and all transactions sent through this endpoint are sponsored by your account.
 
 ### Who needs the gas-free EVM endpoint?[​](#who-needs-the-gas-free-evm-endpoint "Direct link to Who needs the gas-free EVM endpoint?")
 
 Here are several typical business scenarios suitable for its use:
 
-* Centralized exchanges that wish to improve internal transaction performance for users' deposits and withdrawals
-* Apps with embedded wallets using social login that don't want to require users to deposit money in a new wallet before they're able to interact with the app
-* Games needing to complete onchain tasks to onboard new players who wish to try the game
-* Backends creating and managing large amounts of wallets on behalf of their users
-* Businesses that wish to provide sponsored transactions as a service
+* Centralized exchanges that wish to improve internal transaction performance for users' deposits and withdrawals.
+* Apps with embedded wallets with social login that don't want to require users to deposit money in a new wallet before they can interact with the app.
+* Games that need to complete onchain tasks to onboard new players who wish to try the game.
+* Backends that create and manage large amounts of wallets on behalf of their users.
+* Businesses that wish to provide sponsored transactions as a service.
 
-As long as you can ensure that all your users' transactions are sent through a custom RPC endpoint, you can set up a gas-free EVM Gateway to enable gas-free transactions for your users.
+As long as you can ensure that all your users' transactions are sent through a custom RPC endpoint, you can set up a gas-free EVM Gateway to allow gas-free transactions for your users.
 
 ## How to set up a gas-free EVM endpoint[​](#how-to-set-up-a-gas-free-evm-endpoint "Direct link to How to set up a gas-free EVM endpoint")
 
 Most of the tasks you need to complete are in the guide to set up your own [Custom EVM Gateway](/protocol/node-ops/evm-gateway/evm-gateway-setup). In addition to those tasks, you'll need to:
 
-1. Prepare a Service Account for the EVM Gateway to cover all transaction fees. Please refer to [Account Creation](/protocol/node-ops/evm-gateway/evm-gateway-setup#step-1---account-creation) for more details.
-2. Add enough identical keys to the Service Account to support the concurrent signing of EVM transactions. This is very important because the EVM Gateway will use the Service Account to pay for the gas fees of the EVM transactions, so the Service Account needs to have enough keys to support the concurrent signing of EVM transactions. Please refer to [Account and Key Management](/protocol/node-ops/evm-gateway/evm-gateway-setup#account-and-key-management) for more details.
-3. Set the correct environment variables for the EVM Gateway to enable the gas-free feature. Adjust the environment variables in the [Run the gateway](/protocol/node-ops/evm-gateway/evm-gateway-setup#run-the-gateway) section as follows:
+1. Prepare a Service Account for the EVM Gateway to cover all transaction fees. Refer to [Account Creation](/protocol/node-ops/evm-gateway/evm-gateway-setup#step-1---account-creation) for more details.
+2. Add enough identical keys to the Service Account to support the concurrent signing of EVM transactions. This is very important because the EVM Gateway uses the Service Account to pay for the gas fees of the EVM transactions, so the Service Account needs to have enough keys to support the concurrent signing of EVM transactions. Refer to [Account and Key Management](/protocol/node-ops/evm-gateway/evm-gateway-setup#account-and-key-management) for more details.
+3. Set the correct environment variables for the EVM Gateway to turn on the gas-free feature. Adjust the environment variables in the [Run the gateway](/protocol/node-ops/evm-gateway/evm-gateway-setup#run-the-gateway) section as follows:
 
-* `COINBASE`: The address used to accept EVM transaction fees. In this case, there won't be fees to accept because all fees will be covered by the service account. Regardless, you need to set it with a valid address to ensure the EVM Gateway can start.
-* `COA_ADDRESS`: This is the service account address, which will be used to pay for the gas fees of the EVM transactions. Please input the address of the Service Account you created in step 1, but without the `0x` prefix.
+* `COINBASE`: The address used to accept EVM transaction fees. In this case, there won't be fees to accept because the service account covers all fees. Regardless, you need to set it with a valid address to ensure the EVM Gateway can start.
+* `COA_ADDRESS`: This is the service account address, which will be used to pay for the gas fees of the EVM transactions. Enter the address of the Service Account you created in step 1, but without the `0x` prefix.
   + **Fund this address** to cover transaction fees.
 * `COA_KEY`: You need to set the private key of the Service Account you created in step 1.
 * `GAS_PRICE`: **Critical**: set this to `0` to ensure the linked service account will pay for transactions on users' behalf.
 
 4. Follow the full guide of [Custom EVM Gateway](/protocol/node-ops/evm-gateway/evm-gateway-setup) to complete the EVM gateway setup with these adjustments, and you will get a custom RPC endpoint that will sponsor 100% of the gas fees for any EVM transaction sent through it.
 
-## Configure the RPC Gateway[​](#configure-the-rpc-gateway "Direct link to Configure the RPC Gateway")
+## Configure the RPC gateway[​](#configure-the-rpc-gateway "Direct link to Configure the RPC gateway")
 
-If you're using an embedded wallet solution, such as [Dynamic](https://www.dynamic.xyz/) or [Privy](https://www.privy.io/), you can set which RPC endpoint your app uses to read **and write** transactions. If your users are using browser extension wallets, your selected RPC is **only** used for read calls.
+If you use an embedded wallet solution, such as [Dynamic](https://www.dynamic.xyz/) or [Privy](https://www.privy.io/), you can set which RPC endpoint your app uses to read **and write** transactions. For your users with browser extension wallets, your selected RPC is **only** used for read calls.
 
 With [Wagmi](https://wagmi.sh/), you can configure a custom endpoint in your `config`:
 
@@ -468860,17 +468866,17 @@ _10
 
 In this tutorial, we've explored how to set up a gas-free EVM endpoint for your backend service. This solution provides several significant benefits:
 
-1. **Enhanced User Experience**: Users can execute EVM transactions without worrying about gas fees, making the platform more accessible and user-friendly
-2. **Business Flexibility**: Service providers can cover transaction costs on behalf of their users
-3. **Cost Management**: By centralizing gas fee payments through a service account, businesses can better manage and control their transaction costs
+1. **Enhanced User Experience**: Users can execute EVM transactions and not worry about gas fees, which makes the platform more accessible and user-friendly.
+2. **Business Flexibility**: Service providers can cover transaction costs on behalf of their users.
+3. **Cost Management**: When businesses centralize gas fee payments through a service account, they can better manage and control their transaction costs.
 
-The implementation requires careful setup of a service account with sufficient keys for concurrent transactions and proper configuration of the EVM Gateway environment variables. While this solution requires more initial setup compared to using the default EVM Gateway, the benefits of providing a gas-free experience to users can significantly enhance your platform's usability and adoption.
+The implementation requires careful setup of a service account with sufficient keys for concurrent transactions and proper configuration of the EVM Gateway environment variables. While this solution requires more initial setup compared to if you use the default EVM Gateway, the benefits of providing a gas-free experience to users can significantly enhance your platform's usability and adoption.
 
-Remember that this solution is most effective when you can ensure all user transactions are routed through your custom RPC endpoint. This makes it particularly suitable for centralized services and applications where you have control over the transaction routing.
+Remember that this solution is only effective when you can ensure all user transactions are routed through your custom RPC endpoint. This makes it particularly suitable for centralized services and applications where you control the transaction routing.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/gasless-transactions/sponsored-transactions-evm-endpoint.md)
 
-Last updated on **Sep 11, 2025** by **Brian Doyle**
+Last updated on **Nov 12, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -468885,8 +468891,8 @@ Third-Party Integrations](/blockchain-development-tutorials/integrations)
 Copy as Markdown
 
 * [Objectives](#objectives)* [Prerequisites](#prerequisites)
-    + [Flow EVM and RPC Endpoints](#flow-evm-and-rpc-endpoints)* [Getting Started](#getting-started)* [Overview](#overview)
-        + [Why do we need a gas-free EVM endpoint?](#why-do-we-need-a-gas-free-evm-endpoint)+ [Who needs the gas-free EVM endpoint?](#who-needs-the-gas-free-evm-endpoint)* [How to set up a gas-free EVM endpoint](#how-to-set-up-a-gas-free-evm-endpoint)* [Configure the RPC Gateway](#configure-the-rpc-gateway)* [Conclusion](#conclusion)
+    + [Flow EVM and RPC endpoints](#flow-evm-and-rpc-endpoints)* [Get started](#get-started)* [Overview](#overview)
+        + [Why do we need a gas-free EVM endpoint?](#why-do-we-need-a-gas-free-evm-endpoint)+ [Who needs the gas-free EVM endpoint?](#who-needs-the-gas-free-evm-endpoint)* [How to set up a gas-free EVM endpoint](#how-to-set-up-a-gas-free-evm-endpoint)* [Configure the RPC gateway](#configure-the-rpc-gateway)* [Conclusion](#conclusion)
 
 Flow
 
@@ -477458,8 +477464,8 @@ On this page
 
 # Building Walletless Applications Using Child Accounts
 
-In this doc, we'll dive into a progressive onboarding flow, including the Cadence scripts & transactions that go into
-its implementation in your app. These components will enable any implementing app to create a custodial account, mediate
+In this tutorial, we'll dive into a progressive onboarding flow, including the Cadence scripts & transactions that go into
+its implementation in your app. These components will allow any implementing app to create a custodial account, mediate
 the user's onchain actions on their behalf, and later delegate access of that app-created account to the user's wallet.
 We'll refer to this custodial pattern as the Hybrid Custody Model and the process of delegating control of the app
 account as Account Linking.
@@ -477468,32 +477474,30 @@ account as Account Linking.
 
 * Create a [walletless onboarding](https://flow.com/post/flow-blockchain-mainstream-adoption-easy-onboarding-wallets)
   transaction
-* Link an existing app account as a child to a newly authenticated parent account
-* Get your app to recognize "parent" accounts along with any associated "child" accounts
-* Put it all together to create a blockchain-native onboarding transaction
+* Link an existing app account as a child to a newly authenticated parent account.
+* Get your app to recognize "parent" accounts along with any associated "child" accounts.
+* Put it all together to create a blockchain-native onboarding transaction.
 * View fungible and non-fungible Token metadata relating to assets across all of a user's associated accounts - their
-  wallet-mediated "parent" account and any "child" accounts
-* Facilitate transactions acting on assets in child accounts
+  wallet-mediated "parent" account and any "child" accounts.
+* Facilitate transactions acting on assets in child accounts.
 
 ## Point of Clarity[​](#point-of-clarity "Direct link to Point of Clarity")
 
-Before diving in, let's make a distinction between "account linking" and "linking accounts".
+Before we dive in, let's make a distinction between "account linking" and "linking accounts".
 
 ### Account Linking[​](#account-linking "Direct link to Account Linking")
 
 info
 
-Note that since account linking is a sensitive action, transactions where an account may be linked are designated by a
+Since account linking is a sensitive action, transactions where an account may be linked are designated by a
 topline pragma `#allowAccountLinking`. This lets wallet providers inform users that their account may be linked in the
 signed transaction.
 
-Very simply, account linking is a [feature in Cadence](https://github.com/onflow/flips/pull/53) that let's an
+Very simply, account linking is a [feature in Cadence](https://github.com/onflow/flips/pull/53) that lets an
 [Account](https://cadence-lang.org/docs/language/accounts#authaccount) create a
 [Capability](https://cadence-lang.org/docs/language/capabilities) on itself.
 
-Below is an example demonstrating how to issue an `&Account` Capability from a signing account
-
-transaction:
+Below is an example demonstrating how to issue an `&Account` Capability from a signing account transaction:
 
 link\_account.cdc
 
@@ -477536,9 +477540,9 @@ _10
 }`
 
 From there, the signing account can retrieve the privately linked `&Account` Capability and delegate it to another
-account, revoking the Capability if they wish to revoke delegated access.
+account, which revokes the Capability if they wish to revoke delegated access.
 
-Note that in order to link an account, a transaction must state the `#allowAccountLinking` pragma in the top line of the
+To link an account, a transaction must state the `#allowAccountLinking` pragma in the top line of the
 transaction. This is an interim safety measure so that wallet providers can notify users they're about to sign a
 transaction that may create a Capability on their `Account`.
 
@@ -477546,43 +477550,42 @@ transaction that may create a Capability on their `Account`.
 
 Linking accounts leverages this account link, otherwise known as an **`&Account` Capability**, and encapsulates it. The
 [components and actions](https://github.com/onflow/flips/pull/72) involved in this process - what the Capability is
-encapsulated in, the collection that holds those encapsulations, etc. is what we'll dive into in this doc.
+encapsulated in, the collection that holds those encapsulations, and so on is what we'll dive into in this doc.
 
 ## Terminology[​](#terminology "Direct link to Terminology")
 
-**Parent-Child accounts** - For the moment, we'll call the account created by the app the "child" account and the
-account receiving its `&Account` Capability the "parent" account. Existing methods of account access & delegation (i.e.
-keys) still imply ownership over the account, but insofar as linked accounts are concerned, the account to which both
-the user and the app share access via `&Account` Capability will be considered the "child" account.
+**Parent-Child accounts** - For the moment, we'll call the account that the app creates the "child" account and the
+account that receives its `&Account` Capability the "parent" account. Current methods of account access & delegation (for example,
+keys) still imply ownership over the account, but where linked accounts are concerned, the account to which both
+the user and the app share access via `&Account` Capability are considered the "child" account.
 
-**Walletless onboarding** - An onboarding flow whereby an app creates a custodial account for a user, onboarding them to
-the app, obviating the need for user wallet authentication.
+**Walletless onboarding** - An onboarding flow whereby an app creates a custodial account for a user and onboards them to
+the app, which obviates the need for user wallet authentication.
 
 **Blockchain-native onboarding** - Similar to the already familiar Web3 onboarding flow where a user authenticates with
 their existing wallet, an app onboards a user via wallet authentication while additionally creating a custodial app
 account and linking it with the authenticated account, resulting in a "hybrid custody" model.
 
-**Hybrid Custody Model** - A custodial pattern in which an app and a user maintain access to an app created account and
-user access to that account has been mediated via account linking.
+**Hybrid Custody Model** - A custodial pattern in which an app and a user maintain access to an app-created account and
+user access to that account is mediated via account linking.
 
-**Account Linking** - Technically speaking, account linking in our context consists of giving some other account an
+**Account Linking** - Account linking in our context means to give some other account an
 `&Account` Capability from the granting account. This Capability is maintained in standardized resource called a
-`HybridCustody.Manager`, providing its owning user access to any and all of their linked accounts.
+`HybridCustody.Manager`, which provides its owning user access to any and all of their linked accounts.
 
 **Progressive Onboarding** - An onboarding flow that walks a user up to self-custodial ownership, starting with
-walletless onboarding and later linking the app account with the user's authenticated wallet once the user chooses to do
+walletless onboarding and later linking the app account with the user's authenticated wallet when the user chooses to do
 so.
 
 **Restricted Child Account** - An account delegation where the access on the delegating account is restricted according
-to rules set by the linking child account. The distinctions between this and the subsequent term ("owned" account) will
-be expanding on later.
+to rules set by the linking child account. We will expand on the distinctions between this and the subsequent term ("owned" account) later.
 
 **Owned Account** - An account delegation where the delegatee has unrestricted access on the delegating child account,
-thereby giving the delegatee presiding authority superseding any other "restricted" parent accounts.
+which gives the delegatee presiding authority superseding any other "restricted" parent accounts.
 
 ## Account Linking[​](#account-linking-1 "Direct link to Account Linking")
 
-Linking an account is the process of delegating account access via `&Account` Capability. Of course, we want to do this
+Linking an account delegates account access via `&Account` Capability. Of course, we want to do this
 in a way that allows the receiving account to maintain that Capability and allows easy identification of the accounts on
 either end of the linkage - the user's main "parent" account and the linked "child" account. This is accomplished in the
 `HybridCustody` contract which we'll continue to use in this guidance.
@@ -477593,8 +477596,8 @@ Since account delegation is mediated by developer-defined rules, you should make
 that contain those rules. Contracts involved in defining and enforcing this ruleset are
 [`CapabilityFilter`](https://github.com/onflow/hybrid-custody/blob/main/contracts/CapabilityFilter.cdc) and
 [`CapabilityFactory`](https://github.com/onflow/hybrid-custody/blob/main/contracts/CapabilityFactory.cdc). The former
-enumerates those types that are and are not accessible from a child account while the latter enables the access of those
-allowable Capabilities such that the returned values can be properly typed - e.g. retrieving a Capability that can be
+enumerates those types that are and are not accessible from a child account while the latter allows the access of those
+allowable Capabilities such that the returned values can be properly typed - for example, retrieving a Capability that can be
 cast to `Capability<&NonFungibleToken.Collection>` for example.
 
 Here's how you would configure an `AllowlistFilter` and add allowed types to it:
@@ -477721,7 +477724,7 @@ And the following transaction configures a `CapabilityFactory.Manager`, adding N
 
 info
 
-Note that the Manager configured here enables retrieval of castable Capabilities. It's recommended that you implement
+The Manager configured here allows retrieval of castable Capabilities. We recommend that you implement
 Factory resource definitions to support any NFT Collections related with the use of your application so that users can
 retrieve Typed Capabilities from accounts linked from your app.
 
@@ -477874,18 +477877,16 @@ _39
 ![resources/hybrid_custody_high_level](/assets/images/hybrid_custody_high_level-0fdf5d00b8b4545c3c587ba78a817fd9.png)
 
 *In this scenario, a user custodies a key for their main account which maintains access to a wrapped `Account`
-Capability, providing the user restricted access on the app account. The app maintains custodial access to the account
+Capability. This provides the user restricted access on the app account. The app maintains custodial access to the account
 and regulates the access restrictions to delegatee "parent" accounts.*
 
-Linking accounts can be done in one of two ways. Put simply, the child account needs to get the parent an `Account`
-Capability, and the parent needs to save that Capability so they can retain access. This delegation must be done manner
-that represents each side of the link while safeguarding the integrity of any access restrictions an application puts in
+You can link accounts in one of two ways. Put simply, the child account needs to get the parent an `Account`
+Capability, and the parent needs to save that Capability so they can retain access. This delegation must occur in a way that represents each side of the link and safeguard the integrity of any access restrictions an application puts in
 place on delegated access.
 
 We can achieve issuance from the child account and claim from the parent account pattern by either:
 
-1. Leveraging [Cadence's `Account.Inbox`](https://cadence-lang.org/docs/language/accounts#account-inbox) to publish the
-   Capability from the child account & have the parent claim the Capability in a subsequent transaction.
+1. Leveraging [Cadence's `Account.Inbox`](https://cadence-lang.org/docs/language/accounts#account-inbox) to publish the Capability from the child account & have the parent claim the Capability in a subsequent transaction.
 2. Executing a multi-party signed transaction, signed by both the child and parent accounts.
 
 Let's take a look at both.
@@ -477902,7 +477903,7 @@ those NFTs so the user can easily transfer them between their linked accounts.
 
 #### Publish[​](#publish "Direct link to Publish")
 
-Here, the account delegating access to itself links its `&Account` Capability, and publishes it to be claimed by the
+Here, the account delegates access to itself, which links its `&Account` Capability and publishes it to be claimed by the
 designated parent account.
 
 publish\_to\_parent.cdc
@@ -478027,7 +478028,7 @@ _32
 
 #### Claim[​](#claim "Direct link to Claim")
 
-On the other side, the receiving account claims the published `ChildAccount` Capability, adding it to the signer's
+On the other side, the receiving account claims the published `ChildAccount` Capability, which adds it to the signer's
 `HybridCustody.Manager.childAccounts` indexed on the child account's Address.
 
 redeem\_account.cdc
@@ -478233,7 +478234,7 @@ achieve Hybrid Custody in a single step.
 
 info
 
-Note that while the following code links both accounts in a single transaction, in practicality you may find it easier
+While the following code links both accounts in a single transaction, in practicality you may find it easier
 to execute publish and claim transactions separately depending on your custodial infrastructure.
 
 setup\_multi\_sig.cdc
@@ -478785,16 +478786,12 @@ info
 
 Recall the [prerequisites](#prerequisites) needed to be satisfied before linking an account:
 
-1. CapabilityFilter Filter saved and linked
-2. CapabilityFactory Manager saved and linked as well as Factory implementations supporting the Capability Types you'll
-   want accessible from linked child accounts as Typed Capabilities.
+1. CapabilityFilter Filter saved and linked.
+2. CapabilityFactory Manager saved and linked as well as Factory implementations supporting the Capability Types you'll want accessible from linked child accounts as Typed Capabilities.
 
 #### Account Creation & Linking[​](#account-creation--linking "Direct link to Account Creation & Linking")
 
-Compared to walletless onboarding where a user does not have a Flow account, blockchain-native onboarding assumes a user
-already has a wallet configured and immediately links it with a newly created app account. This enables the app to sign
-transactions on the user's behalf via the new child account while immediately delegating control of that account to the
-onboarding user's main account.
+Compared to walletless onboarding where a user does not have a Flow account, blockchain-native onboarding assumes a user already has a wallet configured and immediately links it with a newly created app account. This allows the app to sign transactions on the user's behalf via the new child account while immediately delegating control of that account to the onboarding user's main account.
 
 After this transaction, both the custodial party (presumably the client/app) and the signing parent account will have
 access to the newly created account - the custodial party via key access and the parent account via their
@@ -479258,11 +479255,11 @@ _123
 
 ## Funding & Custody Patterns[​](#funding--custody-patterns "Direct link to Funding & Custody Patterns")
 
-Aside from implementing onboarding flows & account linking, you'll want to also consider the account funding & custodial
+Aside from implementing onboarding flows and account linking, you'll want to also consider the account funding & custodial
 pattern appropriate for the app you're building. The only pattern compatible with walletless onboarding (and therefore
 the only one showcased above) is one in which the app custodies the child account's key and funds account creation.
 
-In general, the funding pattern for account creation will determine to some extent the backend infrastructure needed to
+In general, the funding pattern for account creation will determine, to some extent, the backend infrastructure needed to
 support your app and the onboarding flow your app can support. For example, if you want to to create a service-less
 client (a totally local app without backend infrastructure), you could forego walletless onboarding in favor of a
 user-funded blockchain-native onboarding to achieve a hybrid custody model. Your app maintains the keys to the app
@@ -479309,7 +479306,7 @@ some other account.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/account-management/child-accounts.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Nov 3, 2025** by **cshannon1218**
 
 [Previous
 
@@ -531628,13 +531625,13 @@ On this page
 
 [ethers.js](https://docs.ethers.org/v5/) is a powerful JavaScript library for interacting with Ethereum and other EVM-compatible blockchain networks.
 
-In this guide, we'll walk you through how to use ethers.js to interact with smart contracts on the Flow Blockchain.
+In this guide, we'll walk you through how to use `ethers.js` to interact with smart contracts on the Flow Blockchain.
 
 ---
 
 ## Installation[​](#installation "Direct link to Installation")
 
-To begin using ethers.js in your project, you'll need to install the package. You can do this by running the following command:
+To begin using `ethers.js` in your project, you'll need to install the package. To do this, run the following command:
 
 `_10
 
@@ -531646,17 +531643,17 @@ npm install --save ethers`
 
 ## Setup[​](#setup "Direct link to Setup")
 
-After installing ethers.js, the next step is to import it into your project.
+After you install `ethers.js`, the next step is to import it into your project.
 
-You can do this by adding the following line of code at the beginning of your JavaScript file:
+To do this, add the following line of code at the beginning of your JavaScript file:
 
 `_10
 
 const ethers = require('ethers');`
 
-## Connecting to Flow[​](#connecting-to-flow "Direct link to Connecting to Flow")
+## Connect to Flow[​](#connect-to-flow "Direct link to Connect to Flow")
 
-To connect to the Flow Blockchain using ethers.js, you need to create a new `JsonRpcProvider` instance with the appropriate RPC URL for Flow:
+To connect to the Flow Blockchain with `ethers.js`, you need to create a new `JsonRpcProvider` instance with the appropriate RPC URL for Flow:
 
 `_10
 
@@ -531674,9 +531671,9 @@ const provider = new ethers.providers.JsonRpcProvider(url);`
 
 **Note:** If you want to connect to the Flow mainnet, replace the above URL with `https://mainnet.evm.nodes.onflow.org`.
 
-## Reading Data from the Blockchain[​](#reading-data-from-the-blockchain "Direct link to Reading Data from the Blockchain")
+## Read data from the Blockchain[​](#read-data-from-the-blockchain "Direct link to Read data from the Blockchain")
 
-Once your provider is set up, you can start reading data from the Flow Blockchain. For instance, to retrieve the latest block number, you can use the `getBlockNumber` method:
+After you set up your provider, you can start reading data from the Flow Blockchain. For instance, to retrieve the latest block number, you can use the `getBlockNumber` method:
 
 `_10
 
@@ -531694,9 +531691,9 @@ _10
 
 }`
 
-## Writing Data to the Blockchain[​](#writing-data-to-the-blockchain "Direct link to Writing Data to the Blockchain")
+## Write data to the Blockchain[​](#write-data-to-the-blockchain "Direct link to Write data to the Blockchain")
 
-To send transactions or write data to the Flow Blockchain, you need to create a `Signer`. This can be done by initializing a new `Wallet` object with your private key and the previously created `Provider`:
+To send transactions or write data to the Flow Blockchain, you need to create a `Signer`. To do this, initialize a new `Wallet` object with your private key and the previously created `Provider`:
 
 `_10
 
@@ -531708,9 +531705,9 @@ const signer = new ethers.Wallet(privateKey, provider);`
 
 **Note:** Replace `'YOUR_PRIVATE_KEY'` with the actual private key of the wallet you want to use.
 
-## Interacting with Smart Contracts[​](#interacting-with-smart-contracts "Direct link to Interacting with Smart Contracts")
+## Interact with smart contracts[​](#interact-with-smart-contracts "Direct link to Interact with smart contracts")
 
-ethers.js also enables interaction with smart contracts on the Flow Blockchain. To do this, create a `Contract` object using the ABI (Application Binary Interface) and the address of the deployed contract:
+ethers.js also allows interaction with smart contracts on the Flow Blockchain. To do this, create a `Contract` object using the Application Binary Interface (ABI) and the address of the deployed contract:
 
 `_10
 
@@ -531752,7 +531749,7 @@ const contract = new ethers.Contract(contractAddress, abi, signer);`
 
 **Note:** Replace `'CONTRACT_ADDRESS'` with the actual address of your deployed contract.
 
-After setting up your `Contract` object, you can call methods on the smart contract as needed:
+After you set up your `Contract` object, you can call methods on the smart contract as needed:
 
 `_10
 
@@ -531790,7 +531787,7 @@ _10
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/frameworks/ethers.md)
 
-Last updated on **Oct 28, 2025** by **Soumyadeep Sarkar**
+Last updated on **Nov 6, 2025** by **cshannon1218**
 
 [Previous
 
@@ -531804,7 +531801,7 @@ Web3.js](/blockchain-development-tutorials/evm/frameworks/web3-js)
 
 Copy as Markdown
 
-* [Installation](#installation)* [Setup](#setup)* [Connecting to Flow](#connecting-to-flow)* [Reading Data from the Blockchain](#reading-data-from-the-blockchain)* [Writing Data to the Blockchain](#writing-data-to-the-blockchain)* [Interacting with Smart Contracts](#interacting-with-smart-contracts)
+* [Installation](#installation)* [Setup](#setup)* [Connect to Flow](#connect-to-flow)* [Read data from the Blockchain](#read-data-from-the-blockchain)* [Write data to the Blockchain](#write-data-to-the-blockchain)* [Interact with smart contracts](#interact-with-smart-contracts)
 
 Flow
 
@@ -540074,6 +540071,12 @@ On this page
 
 # Flow Actions Transaction
 
+warning
+
+We are reviewing and finalizing Flow Actions in [FLIP 339](https://github.com/onflow/flips/pull/339/files). The specific implementation may change as a part of this process.
+
+We will update these tutorials, but you may need to refactor your code if the implementation changes.
+
 [Staking](/protocol/staking) is a simple way to participate in the blockchain process. You supply tokens to help with governance and, in return, you earn a share of the network's rewards. It's a way to grow unused assets and provides a much higher rate of return than a savings account.
 
 warning
@@ -540094,7 +540097,7 @@ tip
 
 If you combine this transaction with [scheduled transactions](/blockchain-development-tutorials/forte/scheduled-transactions/scheduled-transactions-introduction), you can automate it completely!
 
-## Learning Objectives[​](#learning-objectives "Direct link to Learning Objectives")
+## Learning objectives[​](#learning-objectives "Direct link to Learning objectives")
 
 After you complete this tutorial, you will be able to:
 
@@ -540108,11 +540111,11 @@ After you complete this tutorial, you will be able to:
 * Flow CLI: install from the [Flow CLI docs](https://developers.flow.com/tools/flow-cli/install)
 * Cursor + [Cadence Extension](https://marketplace.visualstudio.com/items?itemName=onflow.cadence) (recommended)
 
-## Cadence Programming Language[​](#cadence-programming-language "Direct link to Cadence Programming Language")
+## Cadence programming language[​](#cadence-programming-language "Direct link to Cadence programming language")
 
 This tutorial assumes you have a modest knowledge of [Cadence](https://cadence-lang.org/docs). If you don't, you can still follow along, but we recommend that you complete our series of [Cadence](https://cadence-lang.org/docs) tutorials. Most developers find it more pleasant than other blockchain languages and it's easy to pick up.
 
-## Getting Started on Mainnet[​](#getting-started-on-mainnet "Direct link to Getting Started on Mainnet")
+## Getting started on mainnet[​](#getting-started-on-mainnet "Direct link to Getting started on mainnet")
 
 This demo uses **mainnet** and a real DeFi protocol. Before you write any code, set up your staking position.
 
@@ -540124,7 +540127,7 @@ This tutorial uses a real protocol with real funds. Only work with funds your co
 
 To complete this tutorial, set up a staking position in Increment Fi. If you already have LP tokens, skip to the **Staking LP Token** step.
 
-**Creating an LP Position**
+**Creating an LP position**
 
 First, go to the [Increment Fi Liquidity Pool](https://app.increment.fi/liquidity/add?in=A.1654653399040a61.FlowToken&out=A.d6f80565193ad727.stFlowToken&stable=true) and select 'Single Asset' to provide liquidity with your FLOW tokens.
 
@@ -540132,7 +540135,7 @@ First, go to the [Increment Fi Liquidity Pool](https://app.increment.fi/liquidit
 
 Then, enter the amount of FLOW you want to add as liquidity. Confirm the transaction and continue to the next step.
 
-**Staking LP Token**
+**Staking LP token**
 
 Now that you have LP tokens from the FLOW-stFLOW pool, you can stake these tokens to receive rewards from them. To do this, go to the [IncrementFi Farms](https://app.increment.fi/farm) page and look for the `Flow-stFlow Pool #199` pool. Note that the #199 is the Pool ID (pid). You might need to select the list view first (the middle button in the upper-right section of the LP pools page) in order to properly see the pid.
 
@@ -540148,7 +540151,7 @@ Then, select `Stake LP` and enter the amount of LP tokens to stake into the pool
 
 Now our staking position generates rewards as time passes by. We use Flow Actions to execute a single transaction that can claim the rewards (stFLOW), convert the optimal amount into FLOW, increase the LP position (thus getting more LP tokens), and restake them into the farm.
 
-### Initialize Your Staking User Certificate[​](#initialize-your-staking-user-certificate "Direct link to Initialize Your Staking User Certificate")
+### Initialize Your Staking.UserCertificate[​](#initialize-your-stakingusercertificate "Direct link to Initialize Your Staking.UserCertificate")
 
 IncrementFi uses a `Staking.UserCertificate` internally for some actions, and you'll need this certificate to complete this tutorial. While the platform automatically creates it when you perform other actions on the platform, you can explicitly set it up with the [script on Flow Runner](https://run.dnz.dev/snippet/d1bf715483551879).
 
@@ -540195,13 +540198,13 @@ The UserCertificate is a resource stored in your account's private storage that:
 1. Proves your identity for IncrementFi staking operations.
 2. Allows you to claim rewards from staking pools.
 
-## Setting Up the Project[​](#setting-up-the-project "Direct link to Setting Up the Project")
+## Set up the project[​](#set-up-the-project "Direct link to Set up the project")
 
 To start, use the [Flow Actions Scaffold](https://github.com/onflow/flow-actions-scaffold) repo as a template to create a new repository. Clone your new repository and open it in your editor.
 
 Follow the instructions in the README for **mainnet**.
 
-### Starting With the Scaffold[​](#starting-with-the-scaffold "Direct link to Starting With the Scaffold")
+### Start With the scaffold[​](#start-with-the-scaffold "Direct link to Start With the scaffold")
 
 Create a new repo with the [Flow Actions Scaffold](https://github.com/onflow/flow-actions-scaffold) as a template. Clone your new repo locally and open it in your editor.
 
@@ -540211,7 +540214,7 @@ note
 
 This Scaffold repo is a minimal Flow project with dependencies for Flow Actions and Increment Fi connectors. It only has support for the specific transaction that we execute in this demo (Claim → Zap → Restake for IncrementFi LP rewards)
 
-### Export Your Wallet Key[​](#export-your-wallet-key "Direct link to Export Your Wallet Key")
+### Export Your wallet key[​](#export-your-wallet-key "Direct link to Export Your wallet key")
 
 danger
 
@@ -540263,7 +540266,7 @@ _10
 
 }`
 
-## Building the Transaction[​](#building-the-transaction "Direct link to Building the Transaction")
+## Build the transaction[​](#build-the-transaction "Direct link to Build the transaction")
 
 Now that the dependencies have been properly setup and we have made sure that our account is properly setup, the staking position is established as well as the `Staking.UserCertificate`; we are now ready to finally build the restaking transaction
 
@@ -540277,7 +540280,7 @@ The key pattern we need to create is:
 * **Swap**: Converts tokens (swapping to zap input then zapping to LP tokens)
 * **Sink**: Receives and deposits tokens (staking pools, vaults)
 
-### Import Required Contracts[​](#import-required-contracts "Direct link to Import Required Contracts")
+### Import required contracts[​](#import-required-contracts "Direct link to Import required contracts")
 
 First, import all the contracts you need to build the transaction:
 
@@ -540312,7 +540315,7 @@ import "Staking"`
 * `IncrementFiPoolLiquidityConnectors`: LP token creation (zapping)
 * `Staking`: Core staking contract for user certificates
 
-### Define Transaction Parameters[​](#define-transaction-parameters "Direct link to Define Transaction Parameters")
+### Define transaction parameters[​](#define-transaction-parameters "Direct link to Define transaction parameters")
 
 We will specify the `pid` (Pool ID) as the transaction parameter because it identifies which IncrementFi staking pool to interact with
 
@@ -540328,7 +540331,7 @@ _10
 
 ) {`
 
-### Declare Transaction Properties[​](#declare-transaction-properties "Direct link to Declare Transaction Properties")
+### Declare transaction properties[​](#declare-transaction-properties "Direct link to Declare transaction properties")
 
 Then, declare all the properties needed for the transaction. Here is where you'll use the `Staking.UserCertificate` for authentication staking operations. The `pool` is used to reference the staking pool for validation. The starting balance for post-condition verification is the `startingStake`. The composable source that provides LP tokens is the `swapSource`. The `expectedStakeIncrease` is the minimum expected increase for safety. Finally, the `operationID` serves as the unique identifier for tracing the operation across Flow Actions.
 
@@ -540356,7 +540359,7 @@ _10
 
 let operationID: DeFiActions.UniqueIdentifier`
 
-### Prepare Phase[​](#prepare-phase "Direct link to Prepare Phase")
+### Prepare phase[​](#prepare-phase "Direct link to Prepare phase")
 
 The `prepare` phase runs first in the transaction. You use it to set up and validate a Cadence transaction. It's also the only place where a transaction can interact with a user's account and the [resources] within.
 
@@ -540412,7 +540415,7 @@ _10
 
 self.operationID = DeFiActions.createUniqueIdentifier()`
 
-### Token Type Detection and Configuration[​](#token-type-detection-and-configuration "Direct link to Token Type Detection and Configuration")
+### Token type detection and configuration[​](#token-type-detection-and-configuration "Direct link to Token type detection and configuration")
 
 Use the `pid` from the pool we staked the LP tokens to get the liquidity pair information (what tokens make up this pool). We also convert token identifiers to actual Cadence types and determines if this is a stableswap pool or a regular AMM.
 
@@ -540442,7 +540445,7 @@ _10
 
 let token1Type = IncrementFiStakingConnectors.tokenTypeIdentifierToVaultType(pair.getPairInfoStruct().token1Key)`
 
-### Build the Flow Actions Chain[​](#build-the-flow-actions-chain "Direct link to Build the Flow Actions Chain")
+### Build the Flow Actions chain[​](#build-the-flow-actions-chain "Direct link to Build the Flow Actions chain")
 
 We need to create the `RewardsSource` so that we can claim the available rewards from the staking pool.
 
@@ -540562,7 +540565,7 @@ _10
 
 ).outAmount`
 
-### Post-Condition Safety Check[​](#post-condition-safety-check "Direct link to Post-Condition Safety Check")
+### Post-condition safety check[​](#post-condition-safety-check "Direct link to Post-condition safety check")
 
 This phase runs at the end for condition verification. We verify that the transaction actually increased your staking balance as expected.
 
@@ -540590,7 +540593,7 @@ _10
 
 }`
 
-### Execute the Transaction[​](#execute-the-transaction "Direct link to Execute the Transaction")
+### Execute the transaction[​](#execute-the-transaction "Direct link to Execute the transaction")
 
 `poolSink` creates the staking pool sink in which the LP tokens are deposited.
 
@@ -540654,7 +540657,7 @@ destroy vault`
 
 See what happened? We executed this whole (and quite complex) flow in an atomic manner with a single transaction!
 
-## Running the Transaction[​](#running-the-transaction "Direct link to Running the Transaction")
+## Run the transaction[​](#run-the-transaction "Direct link to Run the transaction")
 
 We are now ready to restake the position with a single transaction!
 
@@ -540676,7 +540679,7 @@ _10
 
 Replace `<YOUR_POOL_PID>` with your actual pool ID (PID) from the IncrementFi Farms page, in this case it is 1999. The PID changes over time.
 
-### Interpreting the Results[​](#interpreting-the-results "Direct link to Interpreting the Results")
+### Interpret the results[​](#interpret-the-results "Direct link to Interpret the results")
 
 After you complete the transaction, you see that the following events occurred:
 
@@ -540686,7 +540689,7 @@ After you complete the transaction, you see that the following events occurred:
 * LP tokens were received.
 * LP tokens were staked back into the #199 pool causing the staking balance to increase.
 
-## Running the Transaction on Emulator[​](#running-the-transaction-on-emulator "Direct link to Running the Transaction on Emulator")
+## Run the transaction on emulator[​](#run-the-transaction-on-emulator "Direct link to Run the transaction on emulator")
 
 You can run this whole transaction on Emulator as well. Although this example used a real pool to demonstrate a real-world use case, we recommend you start any real projects by testing on the Emulator. After cloning the [Flow Actions Scaffold](https://github.com/onflow/flow-actions-scaffold) and installing the dependencies you can run:
 
@@ -540774,7 +540777,7 @@ This transaction demonstrates how to chain multiple DeFi operations atomically, 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/flow-actions/flow-actions-transaction.md)
 
-Last updated on **Oct 29, 2025** by **Brian Doyle**
+Last updated on **Nov 6, 2025** by **cshannon1218**
 
 [Previous
 
@@ -540788,11 +540791,11 @@ Connectors](/blockchain-development-tutorials/forte/flow-actions/connectors)
 
 Copy as Markdown
 
-* [Learning Objectives](#learning-objectives)* [Prerequisites](#prerequisites)* [Cadence Programming Language](#cadence-programming-language)* [Getting Started on Mainnet](#getting-started-on-mainnet)
-        + [Staking with IncrementFi](#staking-with-incrementfi)+ [Initialize Your Staking User Certificate](#initialize-your-staking-user-certificate)* [Setting Up the Project](#setting-up-the-project)
-          + [Starting With the Scaffold](#starting-with-the-scaffold)+ [Export Your Wallet Key](#export-your-wallet-key)* [Building the Transaction](#building-the-transaction)
-            + [Import Required Contracts](#import-required-contracts)+ [Define Transaction Parameters](#define-transaction-parameters)+ [Declare Transaction Properties](#declare-transaction-properties)+ [Prepare Phase](#prepare-phase)+ [Token Type Detection and Configuration](#token-type-detection-and-configuration)+ [Build the Flow Actions Chain](#build-the-flow-actions-chain)+ [Post-Condition Safety Check](#post-condition-safety-check)+ [Execute the Transaction](#execute-the-transaction)* [Running the Transaction](#running-the-transaction)
-              + [Interpreting the Results](#interpreting-the-results)* [Running the Transaction on Emulator](#running-the-transaction-on-emulator)* [Conclusion](#conclusion)
+* [Learning objectives](#learning-objectives)* [Prerequisites](#prerequisites)* [Cadence programming language](#cadence-programming-language)* [Getting started on mainnet](#getting-started-on-mainnet)
+        + [Staking with IncrementFi](#staking-with-incrementfi)+ [Initialize Your Staking.UserCertificate](#initialize-your-stakingusercertificate)* [Set up the project](#set-up-the-project)
+          + [Start With the scaffold](#start-with-the-scaffold)+ [Export Your wallet key](#export-your-wallet-key)* [Build the transaction](#build-the-transaction)
+            + [Import required contracts](#import-required-contracts)+ [Define transaction parameters](#define-transaction-parameters)+ [Declare transaction properties](#declare-transaction-properties)+ [Prepare phase](#prepare-phase)+ [Token type detection and configuration](#token-type-detection-and-configuration)+ [Build the Flow Actions chain](#build-the-flow-actions-chain)+ [Post-condition safety check](#post-condition-safety-check)+ [Execute the transaction](#execute-the-transaction)* [Run the transaction](#run-the-transaction)
+              + [Interpret the results](#interpret-the-results)* [Run the transaction on emulator](#run-the-transaction-on-emulator)* [Conclusion](#conclusion)
 
 Flow
 
@@ -561844,13 +561847,13 @@ On this page
 
 # Wallets & Configurations
 
-This document shows how to integrate the Flow Network programmatically with your Dapp via MetaMask.
+This document shows how to integrate the Flow Network programmatically with your app via MetaMask.
 
-If you want to add it to your wallet now, you can click the buttons below, or follow the [manual process](/build/evm/using).
+If you want to add it to your wallet now, click the buttons below, or follow the [manual process](/build/evm/using).
 
 ## Metamask[​](#metamask "Direct link to Metamask")
 
-Integrating additional networks into MetaMask can pose challenges for users who lack technical expertise and may lead to errors. Simplifying this process can greatly enhance user onboarding for your application. This guide demonstrates how to create a straightforward button within your frontend application to streamline the addition of the Flow network to MetaMask.
+To integrate additional networks into MetaMask can pose challenges for users who lack technical expertise and may lead to errors. If you simplify this process, you can greatly enhance user onboarding for your application. This guide demonstrates how to create a straightforward button within your frontend application to streamline the addition of the Flow network to MetaMask.
 
 ### EIP-3035 & MetaMask[​](#eip-3035--metamask "Direct link to EIP-3035 & MetaMask")
 
@@ -561904,7 +561907,7 @@ _11
 
 };`
 
-### Adding Flow Network[​](#adding-flow-network "Direct link to Adding Flow Network")
+### Add Flow network[​](#add-flow-network "Direct link to Add Flow network")
 
 To add this configuration to MetaMask, call the `wallet_addEthereumChain` method which is exposed by the web3 provider.
 
@@ -561968,11 +561971,11 @@ Users of your app will need to first approve a connection to Metamask. After doi
 
 After they approve, your app will be connected to the Flow network.
 
-By using this approach to add the Flow network to Metamask, you can avoid manual user data entry and ensure that users are ready to interact with your dApp!
+If you use this approach to add the Flow network to Metamask, you can avoid manual user data entry and ensure that users are ready to interact with your dApp!
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/setup/integrating-metamask.mdx)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Nov 12, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -561987,7 +561990,7 @@ Flow EVM Frameworks](/blockchain-development-tutorials/evm/frameworks)
 Copy as Markdown
 
 * [Metamask](#metamask)
-  + [EIP-3035 & MetaMask](#eip-3035--metamask)+ [Flow Network configuration](#flow-network-configuration)+ [Adding Flow Network](#adding-flow-network)+ [User Experience](#user-experience)
+  + [EIP-3035 & MetaMask](#eip-3035--metamask)+ [Flow Network configuration](#flow-network-configuration)+ [Add Flow network](#add-flow-network)+ [User Experience](#user-experience)
 
 Flow
 
@@ -579565,9 +579568,9 @@ On this page
 
 # Gasless Transactions on Flow
 
-Flow is a **blockchain with no gas fees for end users**, making it one of the easiest platforms for developers to onboard new users. **Gasless transactions** are a native feature of the Flow Protocol: the Flow Wallet automatically sponsors transactions on both testnet and mainnet. This allows developers to build seamless Web3 applications without requiring users to manage gas tokens or pay transaction fees.
+Flow is one of the easiest platforms for developers to onboard new users. Currently, the Flow Wallet automatically sponsors transactions on **both testnet and mainnet**. This allows developers to build seamless Web3 applications without requiring users to manage gas tokens or pay transaction fees.
 
-In addition to native sponsorship, Flow also supports multiple methods for gas sponsorship that can be tailored to your application’s needs. You can learn about these approaches in more detail [here](https://developers.flow.com/build/cadence/advanced-concepts/account-abstraction#sponsored-transactions).
+In addition to native sponsorship, Flow also supports multiple methods for gas sponsorship that you can tailor to your application’s needs. You can learn about these approaches in more detail [here](https://developers.flow.com/build/cadence/advanced-concepts/account-abstraction#sponsored-transactions).
 
 The [Flow Wallet](https://wallet.flow.com/) currently sponsors all transactions - on testnet and mainnet! This is possible because [sponsored transactions](/build/cadence/advanced-concepts/account-abstraction#sponsored-transactions) are a native feature of the Flow Protocol. Additional methods for gas sponsorship are available and are described here.
 
@@ -579575,19 +579578,19 @@ The [Flow Wallet](https://wallet.flow.com/) currently sponsors all transactions 
 
 In this tutorial series, you’ll discover how to:
 
-* Configure and deploy a **gas free EVM endpoint** for your backend
-* Enable **gasless transactions** so that users can interact with your app without ever paying gas fees.
-* Use Flow’s EVM Gateway service account to automatically cover gas fees for transactions, ensuring a smooth experience for your users.
+* Configure and deploy a **gas free EVM endpoint** for your backend.
+* Allow **gasless transactions** so that users can interact with your app without ever paying gas fees.
+* Use Flow’s EVM Gateway service account to automatically cover gas fees for transactions, which ensures a smooth experience for your users.
 
-## Tutorial for building on an EVM blockchain without Gas fees[​](#tutorial-for-building-on-an-evm-blockchain-without-gas-fees "Direct link to Tutorial for building on an EVM blockchain without Gas fees")
+## Tutorial for how to build on an EVM blockchain without Gas fees[​](#tutorial-for-how-to-build-on-an-evm-blockchain-without-gas-fees "Direct link to Tutorial for how to build on an EVM blockchain without Gas fees")
 
-Learn how to set up a gas free EVM endpoint for your backend. All transactions sent through this endpoint will not be charged gas fees from the sender’s account. Instead, the EVM Gateway’s service account will sponsor the gas, making transactions completely **gasless for end users**.
+Learn how to set up a gas free EVM endpoint for your backend. All transactions sent through this endpoint aren't charged gas fees from the sender’s account. Instead, the EVM Gateway’s service account will sponsor the gas, which makes transactions completely **gasless for end users**.
 
 Tutorial: [Gas Free EVM Endpoint](/blockchain-development-tutorials/gasless-transactions/sponsored-transactions-evm-endpoint)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/gasless-transactions/index.md)
 
-Last updated on **Sep 12, 2025** by **Vishal**
+Last updated on **Nov 12, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -579601,7 +579604,7 @@ Sponsored Transactions EVM Endpoint](/blockchain-development-tutorials/gasless-t
 
 Copy as Markdown
 
-* [What You'll Learn](#what-youll-learn)* [Tutorial for building on an EVM blockchain without Gas fees](#tutorial-for-building-on-an-evm-blockchain-without-gas-fees)
+* [What You'll Learn](#what-youll-learn)* [Tutorial for how to build on an EVM blockchain without Gas fees](#tutorial-for-how-to-build-on-an-evm-blockchain-without-gas-fees)
 
 Flow
 
@@ -589759,33 +589762,33 @@ On this page
 
 # Flow EVM Frameworks
 
-Modern blockchain development relies on powerful JavaScript and React frameworks that simplify smart contract interactions and provide seamless user experiences. This section covers the most popular frontend frameworks and libraries for building Flow EVM applications, from low-level blockchain interaction libraries to high-level React components for wallet management and user interfaces.
+Modern blockchain development relies on powerful JavaScript and React frameworks that simplify smart contract interactions and provide seamless user experiences. This section covers the most popular frontend frameworks and libraries that you can use to build Flow EVM applications, from low-level blockchain interaction libraries to high-level React components for wallet management and user interfaces.
 
-These frameworks enable developers to build sophisticated decentralized applications using familiar JavaScript and React patterns while leveraging Flow's high-performance EVM environment. Whether you're building simple contract interfaces or complex multi-wallet applications, these tutorials provide practical implementation guidance for integrating proven blockchain development frameworks with Flow EVM.
+These frameworks allow developers to build sophisticated decentralized applications with familiar JavaScript and React patterns while leveraging Flow's high-performance EVM environment. Whether you want to build simple contract interfaces or complex multi-wallet applications, these tutorials provide practical implementation guidance for you to integrate proven blockchain development frameworks with Flow EVM.
 
 ## [Ethers.js](/blockchain-development-tutorials/evm/frameworks/ethers)[​](#ethersjs "Direct link to ethersjs")
 
-Discover how to use ethers.js, the most popular JavaScript library for blockchain interactions, to connect with Flow EVM and manage smart contracts. This guide covers provider setup, reading blockchain data, writing transactions with proper signers, and implementing both read-only queries and state-changing operations. Learn to leverage ethers.js's intuitive interface for comprehensive Flow EVM contract interactions.
+Discover how to use `ethers.js`, the most popular JavaScript library for blockchain interactions, to connect with Flow EVM and manage smart contracts. This guide covers provider setup, how to read blockchain data, how to write transactions with proper signers, and how to implement both read-only queries and state-changing operations. Learn to leverage ethers.js's intuitive interface for comprehensive Flow EVM contract interactions.
 
 ## [Web3.js](/blockchain-development-tutorials/evm/frameworks/web3-js)[​](#web3js "Direct link to web3js")
 
-Master web3.js integration with Flow EVM for comprehensive smart contract development and blockchain interaction capabilities. This tutorial demonstrates initializing web3 instances with Flow endpoints, querying blockchain state, managing accounts with private keys, and executing contract transactions. You'll work through practical examples including a complete Storage contract implementation with read and write operations.
+Master `web3.js` integration with Flow EVM for comprehensive smart contract development and blockchain interaction capabilities. This tutorial demonstrates how to initialize web3 instances with Flow endpoints, how to query blockchain state, how to manage accounts with private keys, and how to execute contract transactions. You'll work through practical examples, such as a complete Storage contract implementation with read and write operations.
 
 ## [Viem & Wagmi](/blockchain-development-tutorials/evm/frameworks/wagmi)[​](#viem--wagmi "Direct link to viem--wagmi")
 
-Build modern React applications on Flow EVM using wagmi and viem with built-in Flow network configurations and React hooks. This comprehensive guide walks through creating Next.js applications with wallet connection capabilities, smart contract interactions using React hooks, and proper error handling for blockchain operations. Learn to implement complete dApps with wagmi's powerful React integration and viem's efficient blockchain interactions.
+Build modern React applications on Flow EVM with wagmi and viem with built-in Flow network configurations and React hooks. This comprehensive guide walks through how to create `Next.js` applications with wallet connection capabilities, smart contract interactions with React hooks, and proper error handling for blockchain operations. Learn to implement complete dApps with wagmi's powerful React integration and viem's efficient blockchain interactions.
 
 ## [RainbowKit](/blockchain-development-tutorials/evm/frameworks/rainbowkit)[​](#rainbowkit "Direct link to rainbowkit")
 
-Integrate advanced wallet connection experiences into your Flow EVM applications using RainbowKit with custom Flow Wallet support. This tutorial demonstrates creating custom wallet connectors, configuring WalletConnect integration for seamless mobile and desktop connections, and implementing comprehensive wallet onboarding flows. You'll build complete wallet connection interfaces that support Flow Wallet alongside other popular Ethereum wallets.
+Integrate advanced wallet connection experiences into your Flow EVM applications using RainbowKit with custom Flow Wallet support. This tutorial demonstrates how to create custom wallet connectors, how to configure WalletConnect integration for seamless mobile and desktop connections, and how to implement comprehensive wallet onboarding flows. You'll build complete wallet connection interfaces that support Flow Wallet alongside other popular Ethereum wallets.
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-These framework guides provide comprehensive coverage of the most popular JavaScript and React tools for Flow EVM development. From low-level blockchain interactions with ethers.js and web3.js to sophisticated React applications with wagmi and RainbowKit, these tutorials offer practical implementation patterns for building modern decentralized applications on Flow's EVM-compatible network.
+These framework guides provide comprehensive coverage of the most popular JavaScript and React tools for Flow EVM development. From low-level blockchain interactions with ethers.js and web3.js to sophisticated React applications with wagmi and RainbowKit, these tutorials offer practical implementation patterns for you to build modern decentralized applications on Flow's EVM-compatible network.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/frameworks/index.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Nov 6, 2025** by **cshannon1218**
 
 [Previous
 
@@ -591095,15 +591098,15 @@ Search
 
 On this page
 
-# Flow EVM Setup
+# Flow EVM setup
 
-Before diving into Flow EVM development, you'll need to configure your development environment and connect the necessary tools. This section covers the essential setup steps required to start building on Flow EVM, from wallet configuration to network integration. These foundational setup guides ensure you have the proper connections and configurations needed for seamless Flow EVM development.
+Before you dive into Flow EVM development, you'll need to configure your development environment and connect the necessary tools. This section covers the essential setup steps required to build on Flow EVM, from wallet configuration to network integration. These foundational setup guides ensure you have the proper connections and configurations needed for seamless Flow EVM development.
 
-Whether you're setting up MetaMask for the first time or integrating Flow network support into your existing dApp, these tutorials provide step-by-step instructions for establishing a robust development environment on Flow's EVM-compatible blockchain.
+Whether you're setting up MetaMask for the first time or integrating Flow network support into your current app, these tutorials provide step-by-step instructions to establish a robust development environment on Flow's EVM-compatible blockchain.
 
 ## [Integrating MetaMask](/blockchain-development-tutorials/evm/setup/integrating-metamask)[​](#integrating-metamask "Direct link to integrating-metamask")
 
-Learn how to programmatically integrate the Flow network with MetaMask wallets using EIP-3035 and the MetaMask Custom Networks API. This guide demonstrates creating user-friendly network addition buttons that automatically configure Flow testnet and mainnet settings in MetaMask without requiring manual user input. You'll implement proper error handling and user experience flows to ensure seamless wallet onboarding for your Flow EVM applications.
+Learn how to programmatically integrate the Flow network with MetaMask wallets with EIP-3035 and the MetaMask Custom Networks API. This guide demonstrates howw to create user-friendly network addition buttons that automatically configure Flow testnet and mainnet settings in MetaMask without manual user input. You'll implement proper error handling and user experience flows to ensure seamless wallet onboarding for your Flow EVM applications.
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
@@ -591111,7 +591114,7 @@ These setup guides provide the foundational knowledge needed to configure develo
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/setup/index.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Nov 12, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -613572,12 +613575,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **99d1db3848cd0609**
+Cloudflare Ray ID: **99da18bb4a7e17d1**
 •
 
 Your IP:
 Click to reveal
-172.174.223.102
+172.184.210.40
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 

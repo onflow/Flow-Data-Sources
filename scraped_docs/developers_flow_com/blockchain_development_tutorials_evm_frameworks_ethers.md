@@ -46,13 +46,13 @@ On this page
 
 [ethers.js](https://docs.ethers.org/v5/) is a powerful JavaScript library for interacting with Ethereum and other EVM-compatible blockchain networks.
 
-In this guide, we'll walk you through how to use ethers.js to interact with smart contracts on the Flow Blockchain.
+In this guide, we'll walk you through how to use `ethers.js` to interact with smart contracts on the Flow Blockchain.
 
 ---
 
 ## Installation[​](#installation "Direct link to Installation")
 
-To begin using ethers.js in your project, you'll need to install the package. You can do this by running the following command:
+To begin using `ethers.js` in your project, you'll need to install the package. To do this, run the following command:
 
 `_10
 
@@ -64,17 +64,17 @@ npm install --save ethers`
 
 ## Setup[​](#setup "Direct link to Setup")
 
-After installing ethers.js, the next step is to import it into your project.
+After you install `ethers.js`, the next step is to import it into your project.
 
-You can do this by adding the following line of code at the beginning of your JavaScript file:
+To do this, add the following line of code at the beginning of your JavaScript file:
 
 `_10
 
 const ethers = require('ethers');`
 
-## Connecting to Flow[​](#connecting-to-flow "Direct link to Connecting to Flow")
+## Connect to Flow[​](#connect-to-flow "Direct link to Connect to Flow")
 
-To connect to the Flow Blockchain using ethers.js, you need to create a new `JsonRpcProvider` instance with the appropriate RPC URL for Flow:
+To connect to the Flow Blockchain with `ethers.js`, you need to create a new `JsonRpcProvider` instance with the appropriate RPC URL for Flow:
 
 `_10
 
@@ -92,9 +92,9 @@ const provider = new ethers.providers.JsonRpcProvider(url);`
 
 **Note:** If you want to connect to the Flow mainnet, replace the above URL with `https://mainnet.evm.nodes.onflow.org`.
 
-## Reading Data from the Blockchain[​](#reading-data-from-the-blockchain "Direct link to Reading Data from the Blockchain")
+## Read data from the Blockchain[​](#read-data-from-the-blockchain "Direct link to Read data from the Blockchain")
 
-Once your provider is set up, you can start reading data from the Flow Blockchain. For instance, to retrieve the latest block number, you can use the `getBlockNumber` method:
+After you set up your provider, you can start reading data from the Flow Blockchain. For instance, to retrieve the latest block number, you can use the `getBlockNumber` method:
 
 `_10
 
@@ -112,9 +112,9 @@ _10
 
 }`
 
-## Writing Data to the Blockchain[​](#writing-data-to-the-blockchain "Direct link to Writing Data to the Blockchain")
+## Write data to the Blockchain[​](#write-data-to-the-blockchain "Direct link to Write data to the Blockchain")
 
-To send transactions or write data to the Flow Blockchain, you need to create a `Signer`. This can be done by initializing a new `Wallet` object with your private key and the previously created `Provider`:
+To send transactions or write data to the Flow Blockchain, you need to create a `Signer`. To do this, initialize a new `Wallet` object with your private key and the previously created `Provider`:
 
 `_10
 
@@ -126,9 +126,9 @@ const signer = new ethers.Wallet(privateKey, provider);`
 
 **Note:** Replace `'YOUR_PRIVATE_KEY'` with the actual private key of the wallet you want to use.
 
-## Interacting with Smart Contracts[​](#interacting-with-smart-contracts "Direct link to Interacting with Smart Contracts")
+## Interact with smart contracts[​](#interact-with-smart-contracts "Direct link to Interact with smart contracts")
 
-ethers.js also enables interaction with smart contracts on the Flow Blockchain. To do this, create a `Contract` object using the ABI (Application Binary Interface) and the address of the deployed contract:
+ethers.js also allows interaction with smart contracts on the Flow Blockchain. To do this, create a `Contract` object using the Application Binary Interface (ABI) and the address of the deployed contract:
 
 `_10
 
@@ -170,7 +170,7 @@ const contract = new ethers.Contract(contractAddress, abi, signer);`
 
 **Note:** Replace `'CONTRACT_ADDRESS'` with the actual address of your deployed contract.
 
-After setting up your `Contract` object, you can call methods on the smart contract as needed:
+After you set up your `Contract` object, you can call methods on the smart contract as needed:
 
 `_10
 
@@ -208,7 +208,7 @@ _10
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/frameworks/ethers.md)
 
-Last updated on **Oct 28, 2025** by **Soumyadeep Sarkar**
+Last updated on **Nov 6, 2025** by **cshannon1218**
 
 [Previous
 
@@ -222,7 +222,7 @@ Web3.js](/blockchain-development-tutorials/evm/frameworks/web3-js)
 
 Copy as Markdown
 
-* [Installation](#installation)* [Setup](#setup)* [Connecting to Flow](#connecting-to-flow)* [Reading Data from the Blockchain](#reading-data-from-the-blockchain)* [Writing Data to the Blockchain](#writing-data-to-the-blockchain)* [Interacting with Smart Contracts](#interacting-with-smart-contracts)
+* [Installation](#installation)* [Setup](#setup)* [Connect to Flow](#connect-to-flow)* [Read data from the Blockchain](#read-data-from-the-blockchain)* [Write data to the Blockchain](#write-data-to-the-blockchain)* [Interact with smart contracts](#interact-with-smart-contracts)
 
 Flow
 

@@ -44,13 +44,13 @@ On this page
 
 # Wallets & Configurations
 
-This document shows how to integrate the Flow Network programmatically with your Dapp via MetaMask.
+This document shows how to integrate the Flow Network programmatically with your app via MetaMask.
 
-If you want to add it to your wallet now, you can click the buttons below, or follow the [manual process](/build/evm/using).
+If you want to add it to your wallet now, click the buttons below, or follow the [manual process](/build/evm/using).
 
 ## Metamask[​](#metamask "Direct link to Metamask")
 
-Integrating additional networks into MetaMask can pose challenges for users who lack technical expertise and may lead to errors. Simplifying this process can greatly enhance user onboarding for your application. This guide demonstrates how to create a straightforward button within your frontend application to streamline the addition of the Flow network to MetaMask.
+To integrate additional networks into MetaMask can pose challenges for users who lack technical expertise and may lead to errors. If you simplify this process, you can greatly enhance user onboarding for your application. This guide demonstrates how to create a straightforward button within your frontend application to streamline the addition of the Flow network to MetaMask.
 
 ### EIP-3035 & MetaMask[​](#eip-3035--metamask "Direct link to EIP-3035 & MetaMask")
 
@@ -104,7 +104,7 @@ _11
 
 };`
 
-### Adding Flow Network[​](#adding-flow-network "Direct link to Adding Flow Network")
+### Add Flow network[​](#add-flow-network "Direct link to Add Flow network")
 
 To add this configuration to MetaMask, call the `wallet_addEthereumChain` method which is exposed by the web3 provider.
 
@@ -168,11 +168,11 @@ Users of your app will need to first approve a connection to Metamask. After doi
 
 After they approve, your app will be connected to the Flow network.
 
-By using this approach to add the Flow network to Metamask, you can avoid manual user data entry and ensure that users are ready to interact with your dApp!
+If you use this approach to add the Flow network to Metamask, you can avoid manual user data entry and ensure that users are ready to interact with your dApp!
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/setup/integrating-metamask.mdx)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Nov 12, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -187,7 +187,7 @@ Flow EVM Frameworks](/blockchain-development-tutorials/evm/frameworks)
 Copy as Markdown
 
 * [Metamask](#metamask)
-  + [EIP-3035 & MetaMask](#eip-3035--metamask)+ [Flow Network configuration](#flow-network-configuration)+ [Adding Flow Network](#adding-flow-network)+ [User Experience](#user-experience)
+  + [EIP-3035 & MetaMask](#eip-3035--metamask)+ [Flow Network configuration](#flow-network-configuration)+ [Add Flow network](#add-flow-network)+ [User Experience](#user-experience)
 
 Flow
 

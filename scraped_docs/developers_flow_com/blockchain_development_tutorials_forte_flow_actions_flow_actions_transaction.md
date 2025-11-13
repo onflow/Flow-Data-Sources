@@ -42,6 +42,12 @@ On this page
 
 # Flow Actions Transaction
 
+warning
+
+We are reviewing and finalizing Flow Actions in [FLIP 339](https://github.com/onflow/flips/pull/339/files). The specific implementation may change as a part of this process.
+
+We will update these tutorials, but you may need to refactor your code if the implementation changes.
+
 [Staking](/protocol/staking) is a simple way to participate in the blockchain process. You supply tokens to help with governance and, in return, you earn a share of the network's rewards. It's a way to grow unused assets and provides a much higher rate of return than a savings account.
 
 warning
@@ -62,7 +68,7 @@ tip
 
 If you combine this transaction with [scheduled transactions](/blockchain-development-tutorials/forte/scheduled-transactions/scheduled-transactions-introduction), you can automate it completely!
 
-## Learning Objectives[​](#learning-objectives "Direct link to Learning Objectives")
+## Learning objectives[​](#learning-objectives "Direct link to Learning objectives")
 
 After you complete this tutorial, you will be able to:
 
@@ -76,11 +82,11 @@ After you complete this tutorial, you will be able to:
 * Flow CLI: install from the [Flow CLI docs](https://developers.flow.com/tools/flow-cli/install)
 * Cursor + [Cadence Extension](https://marketplace.visualstudio.com/items?itemName=onflow.cadence) (recommended)
 
-## Cadence Programming Language[​](#cadence-programming-language "Direct link to Cadence Programming Language")
+## Cadence programming language[​](#cadence-programming-language "Direct link to Cadence programming language")
 
 This tutorial assumes you have a modest knowledge of [Cadence](https://cadence-lang.org/docs). If you don't, you can still follow along, but we recommend that you complete our series of [Cadence](https://cadence-lang.org/docs) tutorials. Most developers find it more pleasant than other blockchain languages and it's easy to pick up.
 
-## Getting Started on Mainnet[​](#getting-started-on-mainnet "Direct link to Getting Started on Mainnet")
+## Getting started on mainnet[​](#getting-started-on-mainnet "Direct link to Getting started on mainnet")
 
 This demo uses **mainnet** and a real DeFi protocol. Before you write any code, set up your staking position.
 
@@ -92,7 +98,7 @@ This tutorial uses a real protocol with real funds. Only work with funds your co
 
 To complete this tutorial, set up a staking position in Increment Fi. If you already have LP tokens, skip to the **Staking LP Token** step.
 
-**Creating an LP Position**
+**Creating an LP position**
 
 First, go to the [Increment Fi Liquidity Pool](https://app.increment.fi/liquidity/add?in=A.1654653399040a61.FlowToken&out=A.d6f80565193ad727.stFlowToken&stable=true) and select 'Single Asset' to provide liquidity with your FLOW tokens.
 
@@ -100,7 +106,7 @@ First, go to the [Increment Fi Liquidity Pool](https://app.increment.fi/liquidit
 
 Then, enter the amount of FLOW you want to add as liquidity. Confirm the transaction and continue to the next step.
 
-**Staking LP Token**
+**Staking LP token**
 
 Now that you have LP tokens from the FLOW-stFLOW pool, you can stake these tokens to receive rewards from them. To do this, go to the [IncrementFi Farms](https://app.increment.fi/farm) page and look for the `Flow-stFlow Pool #199` pool. Note that the #199 is the Pool ID (pid). You might need to select the list view first (the middle button in the upper-right section of the LP pools page) in order to properly see the pid.
 
@@ -116,7 +122,7 @@ Then, select `Stake LP` and enter the amount of LP tokens to stake into the pool
 
 Now our staking position generates rewards as time passes by. We use Flow Actions to execute a single transaction that can claim the rewards (stFLOW), convert the optimal amount into FLOW, increase the LP position (thus getting more LP tokens), and restake them into the farm.
 
-### Initialize Your Staking User Certificate[​](#initialize-your-staking-user-certificate "Direct link to Initialize Your Staking User Certificate")
+### Initialize Your Staking.UserCertificate[​](#initialize-your-stakingusercertificate "Direct link to Initialize Your Staking.UserCertificate")
 
 IncrementFi uses a `Staking.UserCertificate` internally for some actions, and you'll need this certificate to complete this tutorial. While the platform automatically creates it when you perform other actions on the platform, you can explicitly set it up with the [script on Flow Runner](https://run.dnz.dev/snippet/d1bf715483551879).
 
@@ -163,13 +169,13 @@ The UserCertificate is a resource stored in your account's private storage that:
 1. Proves your identity for IncrementFi staking operations.
 2. Allows you to claim rewards from staking pools.
 
-## Setting Up the Project[​](#setting-up-the-project "Direct link to Setting Up the Project")
+## Set up the project[​](#set-up-the-project "Direct link to Set up the project")
 
 To start, use the [Flow Actions Scaffold](https://github.com/onflow/flow-actions-scaffold) repo as a template to create a new repository. Clone your new repository and open it in your editor.
 
 Follow the instructions in the README for **mainnet**.
 
-### Starting With the Scaffold[​](#starting-with-the-scaffold "Direct link to Starting With the Scaffold")
+### Start With the scaffold[​](#start-with-the-scaffold "Direct link to Start With the scaffold")
 
 Create a new repo with the [Flow Actions Scaffold](https://github.com/onflow/flow-actions-scaffold) as a template. Clone your new repo locally and open it in your editor.
 
@@ -179,7 +185,7 @@ note
 
 This Scaffold repo is a minimal Flow project with dependencies for Flow Actions and Increment Fi connectors. It only has support for the specific transaction that we execute in this demo (Claim → Zap → Restake for IncrementFi LP rewards)
 
-### Export Your Wallet Key[​](#export-your-wallet-key "Direct link to Export Your Wallet Key")
+### Export Your wallet key[​](#export-your-wallet-key "Direct link to Export Your wallet key")
 
 danger
 
@@ -231,7 +237,7 @@ _10
 
 }`
 
-## Building the Transaction[​](#building-the-transaction "Direct link to Building the Transaction")
+## Build the transaction[​](#build-the-transaction "Direct link to Build the transaction")
 
 Now that the dependencies have been properly setup and we have made sure that our account is properly setup, the staking position is established as well as the `Staking.UserCertificate`; we are now ready to finally build the restaking transaction
 
@@ -245,7 +251,7 @@ The key pattern we need to create is:
 * **Swap**: Converts tokens (swapping to zap input then zapping to LP tokens)
 * **Sink**: Receives and deposits tokens (staking pools, vaults)
 
-### Import Required Contracts[​](#import-required-contracts "Direct link to Import Required Contracts")
+### Import required contracts[​](#import-required-contracts "Direct link to Import required contracts")
 
 First, import all the contracts you need to build the transaction:
 
@@ -280,7 +286,7 @@ import "Staking"`
 * `IncrementFiPoolLiquidityConnectors`: LP token creation (zapping)
 * `Staking`: Core staking contract for user certificates
 
-### Define Transaction Parameters[​](#define-transaction-parameters "Direct link to Define Transaction Parameters")
+### Define transaction parameters[​](#define-transaction-parameters "Direct link to Define transaction parameters")
 
 We will specify the `pid` (Pool ID) as the transaction parameter because it identifies which IncrementFi staking pool to interact with
 
@@ -296,7 +302,7 @@ _10
 
 ) {`
 
-### Declare Transaction Properties[​](#declare-transaction-properties "Direct link to Declare Transaction Properties")
+### Declare transaction properties[​](#declare-transaction-properties "Direct link to Declare transaction properties")
 
 Then, declare all the properties needed for the transaction. Here is where you'll use the `Staking.UserCertificate` for authentication staking operations. The `pool` is used to reference the staking pool for validation. The starting balance for post-condition verification is the `startingStake`. The composable source that provides LP tokens is the `swapSource`. The `expectedStakeIncrease` is the minimum expected increase for safety. Finally, the `operationID` serves as the unique identifier for tracing the operation across Flow Actions.
 
@@ -324,7 +330,7 @@ _10
 
 let operationID: DeFiActions.UniqueIdentifier`
 
-### Prepare Phase[​](#prepare-phase "Direct link to Prepare Phase")
+### Prepare phase[​](#prepare-phase "Direct link to Prepare phase")
 
 The `prepare` phase runs first in the transaction. You use it to set up and validate a Cadence transaction. It's also the only place where a transaction can interact with a user's account and the [resources] within.
 
@@ -380,7 +386,7 @@ _10
 
 self.operationID = DeFiActions.createUniqueIdentifier()`
 
-### Token Type Detection and Configuration[​](#token-type-detection-and-configuration "Direct link to Token Type Detection and Configuration")
+### Token type detection and configuration[​](#token-type-detection-and-configuration "Direct link to Token type detection and configuration")
 
 Use the `pid` from the pool we staked the LP tokens to get the liquidity pair information (what tokens make up this pool). We also convert token identifiers to actual Cadence types and determines if this is a stableswap pool or a regular AMM.
 
@@ -410,7 +416,7 @@ _10
 
 let token1Type = IncrementFiStakingConnectors.tokenTypeIdentifierToVaultType(pair.getPairInfoStruct().token1Key)`
 
-### Build the Flow Actions Chain[​](#build-the-flow-actions-chain "Direct link to Build the Flow Actions Chain")
+### Build the Flow Actions chain[​](#build-the-flow-actions-chain "Direct link to Build the Flow Actions chain")
 
 We need to create the `RewardsSource` so that we can claim the available rewards from the staking pool.
 
@@ -530,7 +536,7 @@ _10
 
 ).outAmount`
 
-### Post-Condition Safety Check[​](#post-condition-safety-check "Direct link to Post-Condition Safety Check")
+### Post-condition safety check[​](#post-condition-safety-check "Direct link to Post-condition safety check")
 
 This phase runs at the end for condition verification. We verify that the transaction actually increased your staking balance as expected.
 
@@ -558,7 +564,7 @@ _10
 
 }`
 
-### Execute the Transaction[​](#execute-the-transaction "Direct link to Execute the Transaction")
+### Execute the transaction[​](#execute-the-transaction "Direct link to Execute the transaction")
 
 `poolSink` creates the staking pool sink in which the LP tokens are deposited.
 
@@ -622,7 +628,7 @@ destroy vault`
 
 See what happened? We executed this whole (and quite complex) flow in an atomic manner with a single transaction!
 
-## Running the Transaction[​](#running-the-transaction "Direct link to Running the Transaction")
+## Run the transaction[​](#run-the-transaction "Direct link to Run the transaction")
 
 We are now ready to restake the position with a single transaction!
 
@@ -644,7 +650,7 @@ _10
 
 Replace `<YOUR_POOL_PID>` with your actual pool ID (PID) from the IncrementFi Farms page, in this case it is 1999. The PID changes over time.
 
-### Interpreting the Results[​](#interpreting-the-results "Direct link to Interpreting the Results")
+### Interpret the results[​](#interpret-the-results "Direct link to Interpret the results")
 
 After you complete the transaction, you see that the following events occurred:
 
@@ -654,7 +660,7 @@ After you complete the transaction, you see that the following events occurred:
 * LP tokens were received.
 * LP tokens were staked back into the #199 pool causing the staking balance to increase.
 
-## Running the Transaction on Emulator[​](#running-the-transaction-on-emulator "Direct link to Running the Transaction on Emulator")
+## Run the transaction on emulator[​](#run-the-transaction-on-emulator "Direct link to Run the transaction on emulator")
 
 You can run this whole transaction on Emulator as well. Although this example used a real pool to demonstrate a real-world use case, we recommend you start any real projects by testing on the Emulator. After cloning the [Flow Actions Scaffold](https://github.com/onflow/flow-actions-scaffold) and installing the dependencies you can run:
 
@@ -742,7 +748,7 @@ This transaction demonstrates how to chain multiple DeFi operations atomically, 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/flow-actions/flow-actions-transaction.md)
 
-Last updated on **Oct 29, 2025** by **Brian Doyle**
+Last updated on **Nov 6, 2025** by **cshannon1218**
 
 [Previous
 
@@ -756,11 +762,11 @@ Connectors](/blockchain-development-tutorials/forte/flow-actions/connectors)
 
 Copy as Markdown
 
-* [Learning Objectives](#learning-objectives)* [Prerequisites](#prerequisites)* [Cadence Programming Language](#cadence-programming-language)* [Getting Started on Mainnet](#getting-started-on-mainnet)
-        + [Staking with IncrementFi](#staking-with-incrementfi)+ [Initialize Your Staking User Certificate](#initialize-your-staking-user-certificate)* [Setting Up the Project](#setting-up-the-project)
-          + [Starting With the Scaffold](#starting-with-the-scaffold)+ [Export Your Wallet Key](#export-your-wallet-key)* [Building the Transaction](#building-the-transaction)
-            + [Import Required Contracts](#import-required-contracts)+ [Define Transaction Parameters](#define-transaction-parameters)+ [Declare Transaction Properties](#declare-transaction-properties)+ [Prepare Phase](#prepare-phase)+ [Token Type Detection and Configuration](#token-type-detection-and-configuration)+ [Build the Flow Actions Chain](#build-the-flow-actions-chain)+ [Post-Condition Safety Check](#post-condition-safety-check)+ [Execute the Transaction](#execute-the-transaction)* [Running the Transaction](#running-the-transaction)
-              + [Interpreting the Results](#interpreting-the-results)* [Running the Transaction on Emulator](#running-the-transaction-on-emulator)* [Conclusion](#conclusion)
+* [Learning objectives](#learning-objectives)* [Prerequisites](#prerequisites)* [Cadence programming language](#cadence-programming-language)* [Getting started on mainnet](#getting-started-on-mainnet)
+        + [Staking with IncrementFi](#staking-with-incrementfi)+ [Initialize Your Staking.UserCertificate](#initialize-your-stakingusercertificate)* [Set up the project](#set-up-the-project)
+          + [Start With the scaffold](#start-with-the-scaffold)+ [Export Your wallet key](#export-your-wallet-key)* [Build the transaction](#build-the-transaction)
+            + [Import required contracts](#import-required-contracts)+ [Define transaction parameters](#define-transaction-parameters)+ [Declare transaction properties](#declare-transaction-properties)+ [Prepare phase](#prepare-phase)+ [Token type detection and configuration](#token-type-detection-and-configuration)+ [Build the Flow Actions chain](#build-the-flow-actions-chain)+ [Post-condition safety check](#post-condition-safety-check)+ [Execute the transaction](#execute-the-transaction)* [Run the transaction](#run-the-transaction)
+              + [Interpret the results](#interpret-the-results)* [Run the transaction on emulator](#run-the-transaction-on-emulator)* [Conclusion](#conclusion)
 
 Flow
 

@@ -77,6 +77,8 @@ _10
 
 .put('baz', 'buz'); // configures "baz" to be "buz"`
 
+> **Note**: For advanced use cases requiring scoped configuration, isolated client instances, or multi-tenancy support, see the [`createFlowClient` reference documentation](/build/tools/clients/fcl-js/packages-docs/fcl/createFlowClient).
+
 ## Getting Configuration Values[​](#getting-configuration-values "Direct link to Getting Configuration Values")
 
 The `config` instance has an asynchronous `get` method. You can also pass it a fallback value incase the configuration state does not include what you are wanting.
@@ -372,7 +374,7 @@ FCL will automatically replace the contract name with the address for the networ
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/configure-fcl.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Nov 10, 2025** by **Chase Fleming**
 
 [Previous
 

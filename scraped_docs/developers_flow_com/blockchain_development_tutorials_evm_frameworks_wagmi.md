@@ -46,9 +46,9 @@ info
 
 Make sure to use `viem` version `2.9.6` or greater. This version contains flow EVM networks
 
-# Using viem
+# Viem & Wagmi
 
-Flow networks have been added to viem chain definitions [viem networks](https://github.com/wevm/viem/tree/main/src/chains/definitions). This allows for convenient flow network configuration when using viem and wagmi.
+Flow networks have been added to viem chain definitions [viem networks](https://github.com/wevm/viem/tree/main/src/chains/definitions). This allows for convenient flow network configuration when you use viem and wagmi.
 
 ## Viem Flow Config[​](#viem-flow-config "Direct link to Viem Flow Config")
 
@@ -96,19 +96,20 @@ _11
 
 });`
 
-# Using Next.js and Wagmi
+# Use Next.js and Wagmi
 
-This tutorial will guide you through creating a simple web application, connect to an EVM capable wallet and interact with the "HelloWorld" smart contract to get and set greetings. We will not dive into managing transactions.
+This tutorial will guide you through how to create a simple web application, connect to an EVM capable wallet and interact with the "HelloWorld" smart contract to get and set greetings. We will not dive into how to manage transactions.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-* Node.js installed on your machine
-* A code editor (e.g., Visual Studio Code)
-* Basic knowledge of React and Next.js
+* `Node.js` installed on your machine.
+* A code editor (such as Visual Studio Code).
+* Basic knowledge of React and `Next.js`.
 
-## Step 1: Setting Up the Next.js Project[​](#step-1-setting-up-the-nextjs-project "Direct link to Step 1: Setting Up the Next.js Project")
+## Step 1: Set up the Next.js project[​](#step-1-set-up-the-nextjs-project "Direct link to Step 1: Set up the Next.js project")
 
-This tutorial will be following [Wagmi getting-started manual tutorial](https://wagmi.sh/react/getting-started)
+This tutorial will follow [Wagmi getting-started manual tutorial](https://wagmi.sh/react/getting-started).
+
 First, let's create a Wagmi project named `flow-evm-wagmi`. We will use npm but you are welcome to use yarn or bun.
 
 `_10
@@ -135,10 +136,10 @@ _10
 
 npm install`
 
-## Step 2: Configuring Wagmi and Connecting the Wallet[​](#step-2-configuring-wagmi-and-connecting-the-wallet "Direct link to Step 2: Configuring Wagmi and Connecting the Wallet")
+## Step 2: Configure Wagmi and connect the Wallet[​](#step-2-configure-wagmi-and-connect-the-wallet "Direct link to Step 2: Configure Wagmi and connect the Wallet")
 
 Make sure you have Metamask installed and Flow network configured. [Metamask and Flow blockchain](/build/evm/using).
-Wagmi needs to know what networks to be aware of. Let's configure to use Flow Testnet by updating config.ts file with the following:
+Wagmi needs to know what networks to be aware of. Let's configure to use Flow Testnet and update the `config.ts` file with the following:
 
 `_11
 
@@ -182,7 +183,7 @@ _11
 
 });`
 
-By default Wagmi configures many wallets, MetaMask, Coinbase Wallet, and WalletConnect as wallet providers. Above we simplify the code to only be interested in the Injected Provider, which we are interested in Metamask. Verify `page.tsx` code looks like the following.
+By default, Wagmi configures many wallets, MetaMask, Coinbase Wallet, and WalletConnect as wallet providers. Above, we simplify the code to only be interested in the Injected Provider, which we are interested in Metamask. Verify `page.tsx` code looks like the following.
 
 `_48
 
@@ -364,14 +365,13 @@ export default App;`
 
 ![Connect Metamask](/assets/images/Connect-Metamask-05771fc62a4255dc6553d04615567caf.gif)
 
-This step relies on an already deployed HelloWorld contract. See [Using Remix](/blockchain-development-tutorials/evm/development-tools/remix) to deploy a smart contract on flow evm blockchain.
-Create or edit the simple `page.tsx` file in the app directory to have better styles, that's beyond this tutorial. We will modify `page.txs` to add a new `HelloWorld.tsx`. Replace `YOUR_CONTRACT_ADDRESS` with your deployed address.
+This step relies on an already deployed HelloWorld contract. See [Using Remix](/blockchain-development-tutorials/evm/development-tools/remix) to deploy a smart contract on flow evm blockchain. Create or edit the simple `page.tsx` file in the app directory to have better styles, that's beyond this tutorial. We will modify `page.txs` to add a new `HelloWorld.tsx`. Replace `YOUR_CONTRACT_ADDRESS` with your deployed address.
 
-## Step 3: Creating the Interface for HelloWorld Contract[​](#step-3-creating-the-interface-for-helloworld-contract "Direct link to Step 3: Creating the Interface for HelloWorld Contract")
+## Step 3: Create the interface for HelloWorld contract[​](#step-3-create-the-interface-for-helloworld-contract "Direct link to Step 3: Create the interface for HelloWorld contract")
 
 Now, let's create a component to interact with the HelloWorld contract. Assume your contract is already deployed, and you have its address and ABI.
 
-* Create a new file, HelloWorld.ts, in the components directory.
+* Create a new file, `HelloWorld.ts`, in the components directory.
 * Use Wagmi's hooks to read from and write to the smart contract:
 
 `_47
@@ -548,7 +548,7 @@ _47
 
 export default HelloWorld;`
 
-Reminder: aReplace YOUR\_CONTRACT\_ADDRESS with the actual address of your deployed HelloWorld contract.
+Reminder: Replace YOUR\_CONTRACT\_ADDRESS with the actual address of your deployed HelloWorld contract.
 
 Also notice you need the HelloWorld contract ABI, save this to a new file called `HelloWorld.json` in the app directory.
 
@@ -744,7 +744,7 @@ _48
 
 }`
 
-## Step 4: Integrating the HelloWorld Component[​](#step-4-integrating-the-helloworld-component "Direct link to Step 4: Integrating the HelloWorld Component")
+## Step 4: Integrate the HelloWorld Component[​](#step-4-integrate-the-helloworld-component "Direct link to Step 4: Integrate the HelloWorld Component")
 
 Finally, import and use the HelloWorld component in your `pages.tsx`, throw it at the bottom of the render section.
 
@@ -834,13 +834,13 @@ _22
 
 Now, you have a functional App that can connect to Metamask, display the current greeting from the "HelloWorld" smart contract, and update the greeting.
 
-Test it by updating the greeting, signing a transaction in your Metamask then wait a minute then refresh the website. Handling transactions are outside of this tutorial. We'll leave that as a future task. [Checkout Wagmi documentation](https://wagmi.sh/react/getting-started)
+To test it, update the greeting, sign a transaction in your Metamask, wait a minute, then refresh the website. Handling transactions are outside of this tutorial. We'll leave that as a future task. [Checkout Wagmi documentation](https://wagmi.sh/react/getting-started)
 
 ![Update HelloWorld Greeting](/assets/images/Update-HelloWorld-Greeting-97929700145ed51e0a6226f562fda7c0.gif)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/frameworks/wagmi.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Nov 6, 2025** by **cshannon1218**
 
 [Previous
 
@@ -854,7 +854,7 @@ Rainbowkit](/blockchain-development-tutorials/evm/frameworks/rainbowkit)
 
 Copy as Markdown
 
-* [Viem Flow Config](#viem-flow-config)* [Prerequisites](#prerequisites)* [Step 1: Setting Up the Next.js Project](#step-1-setting-up-the-nextjs-project)* [Step 2: Configuring Wagmi and Connecting the Wallet](#step-2-configuring-wagmi-and-connecting-the-wallet)* [Step 3: Creating the Interface for HelloWorld Contract](#step-3-creating-the-interface-for-helloworld-contract)* [Step 4: Integrating the HelloWorld Component](#step-4-integrating-the-helloworld-component)
+* [Viem Flow Config](#viem-flow-config)* [Prerequisites](#prerequisites)* [Step 1: Set up the Next.js project](#step-1-set-up-the-nextjs-project)* [Step 2: Configure Wagmi and connect the Wallet](#step-2-configure-wagmi-and-connect-the-wallet)* [Step 3: Create the interface for HelloWorld contract](#step-3-create-the-interface-for-helloworld-contract)* [Step 4: Integrate the HelloWorld Component](#step-4-integrate-the-helloworld-component)
 
 Flow
 
