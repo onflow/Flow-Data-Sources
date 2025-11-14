@@ -137,6 +137,8 @@ _10
 
 fcl.authenticate();`
 
+> **Note**: For advanced configuration patterns including scoped clients and multi-tenancy, see the [`createFlowClient` reference documentation](/build/tools/clients/fcl-js/packages-docs/fcl/createFlowClient).
+
 ![FCL Default Discovery UI](/assets/images/discovery-c2c95d28a66e86c570491a36e37e0afa.png)
 
 > **Note**: A [Dapper Wallet](https://meetdapper.com/developers) developer account is required.
@@ -387,7 +389,7 @@ FCL is built **on top of the Flow SDK**, making it easier to handle authenticati
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/index.md)
 
-Last updated on **Nov 8, 2025** by **Chase Fleming**
+Last updated on **Nov 10, 2025** by **Chase Fleming**
 
 [Previous
 

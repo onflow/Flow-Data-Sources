@@ -155577,7 +155577,7 @@ Built-in Functions](/docs/language/built-in-functions)
 
 
 
-# Source: https://cadence-lang.org/docs/language/
+# Source: https://cadence-lang.org/docs/language
 
 The Cadence Programming Language | Cadence
 
@@ -232800,9 +232800,9 @@ To install `web3` in your project, run the following command:
 
 npm install web3`
 
-## Initializing Web3 with Flow[​](#initializing-web3-with-flow "Direct link to Initializing Web3 with Flow")
+## Initialize Web3 with Flow[​](#initialize-web3-with-flow "Direct link to Initialize Web3 with Flow")
 
-To use `web3` in your project, start by importing the module and initializing your `Web3` instance with a Flow RPC endpoint.
+To use `web3` in your project, first import the module and initialize your `Web3` instance with a Flow RPC endpoint.
 
 `_10
 
@@ -232814,11 +232814,11 @@ const web3 = new Web3('https://testnet.evm.nodes.onflow.org');`
 
 **Note:** If you want to connect to the Flow testnet, replace the above URL with `https://mainnet.evm.nodes.onflow.org`.
 
-## Querying The Blockchain[​](#querying-the-blockchain "Direct link to Querying The Blockchain")
+## Query The blockchain[​](#query-the-blockchain "Direct link to Query The blockchain")
 
-`web3` provides a number of methods for querying the blockchain, such as getting the latest block number, querying account balances, and more.
+`web3` provides a number of methods for how to query the blockchain, such as to retrieve the latest block number, query account balances, and more.
 
-You can try using some of these methods to verify that your `web3` instance is working correctly.
+You can try with some of these methods to verify that your `web3` instance works correctly.
 
 `_15
 
@@ -232874,15 +232874,15 @@ _15
 
 console.log(gasPrice); // Gas price in attoFlow`
 
-For more information about other queries you can make `web3`, please see the [official documentation](https://docs.web3js.org/).
+For more information about other queries you can make `web3`, see the [official documentation](https://docs.web3js.org/).
 
-## Interacting with Smart Contracts[​](#interacting-with-smart-contracts "Direct link to Interacting with Smart Contracts")
+## Interact with smart contracts[​](#interact-with-smart-contracts "Direct link to Interact with smart contracts")
 
 The `web3` library allows developers to interact with smart contracts via the `web3.eth.Contract` API.
 
 For this example we will use the following `Storage` contract.
 
-We recommend deploying your own contract, which can be done using [Hardhat](/blockchain-development-tutorials/evm/development-tools/hardhat) or [Remix](/blockchain-development-tutorials/evm/development-tools/remix).
+We recommend that you deploy your own contract, which you can do with [Hardhat](/blockchain-development-tutorials/evm/development-tools/hardhat) or [Remix](/blockchain-development-tutorials/evm/development-tools/remix).
 
 `_14
 
@@ -232934,7 +232934,7 @@ _14
 
 }`
 
-The ABI for this contract can be generated using the [`solc` compiler](https://docs.soliditylang.org/en/latest/installing-solidity.html), or another tool such as [Hardhat](/blockchain-development-tutorials/evm/development-tools/hardhat) or [Remix](/blockchain-development-tutorials/evm/development-tools/remix).
+You can generate the ABI for this contract with the [`solc` compiler](https://docs.soliditylang.org/en/latest/installing-solidity.html), or another tool such as [Hardhat](/blockchain-development-tutorials/evm/development-tools/hardhat) or [Remix](/blockchain-development-tutorials/evm/development-tools/remix).
 
 Now that we have both the ABI and address of the contract, we can create a new `Contract` object for use in our application.
 
@@ -233094,11 +233094,11 @@ _40
 
 const contract = new web3.eth.Contract(abi, contractAddress);`
 
-We can now interact with the contract on the network by using the `contract` object.
+We can now interact with the contract on the network ith the `contract` object.
 
-### Reading State[​](#reading-state "Direct link to Reading State")
+### Reading state[​](#reading-state "Direct link to Reading state")
 
-State can be read from the contract by using the `call` function with one of the contract's methods. This will not change the state and will not send a transaction.
+State can be read from the contract via the `call` function with one of the contract's methods. This will not change the state and will not send a transaction.
 
 `` _10
 
@@ -233118,23 +233118,23 @@ _10
 
 console.log(result); // Current value stored in the contract ``
 
-### Changing State[​](#changing-state "Direct link to Changing State")
+### Change state[​](#change-state "Direct link to Change state")
 
-We can mutate the state of the contract by sending a transaction to the network.
+To mutate the state of the contract, we can send a transaction to the network.
 
 In order to send a transaction to the network, you will need an account with sufficient funds to pay for the transaction.
 
 info
 
-If you do not have an account yet, you can create one using the following command from your project's root directory:
+If you do not have an account yet, you can create one with the following command from your project's root directory:
 
 `_10
 
 node -e "console.log(require('web3').eth.accounts.create())"`
 
-Note that this is not a secure way to generate an account, and you should use a more secure method in a production environment.
+This is not a secure way to generate an account, and you should use a more secure method in a production environment.
 
-You can fund your account using the [Flow Faucet](https://faucet.flow.com/fund-account).
+You can fund your account with the [Flow Faucet](https://faucet.flow.com/fund-account).
 
 We can use the `privateKeyToAccount` function to create an `Web3Account` object from our account's private key.
 
@@ -233146,7 +233146,7 @@ _10
 
 const account = web3.eth.accounts.privateKeyToAccount('0x1234');`
 
-Then, we can sign a transaction using the user's account and send it to the network.
+Then, we can sign a transaction with the user's account and send it to the network.
 
 `` _18
 
@@ -233214,7 +233214,7 @@ _18
 
 console.log(result); ``
 
-Now that the transaction has been sent, the contract's state should have been updated. We can verify this by querying the contract's state again:
+Now that the transaction has been sent, the contract's state will have been updated. To verify this, we can query the contract's state again:
 
 `_10
 
@@ -233228,7 +233228,7 @@ For more information about using smart contracts in web3.js, see the [official d
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/frameworks/web3-js.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Nov 6, 2025** by **cshannon1218**
 
 [Previous
 
@@ -233242,8 +233242,8 @@ Viem & Wagmi](/blockchain-development-tutorials/evm/frameworks/wagmi)
 
 Copy as Markdown
 
-* [Prerequisites](#prerequisites)* [Initializing Web3 with Flow](#initializing-web3-with-flow)* [Querying The Blockchain](#querying-the-blockchain)* [Interacting with Smart Contracts](#interacting-with-smart-contracts)
-        + [Reading State](#reading-state)+ [Changing State](#changing-state)
+* [Prerequisites](#prerequisites)* [Initialize Web3 with Flow](#initialize-web3-with-flow)* [Query The blockchain](#query-the-blockchain)* [Interact with smart contracts](#interact-with-smart-contracts)
+        + [Reading state](#reading-state)+ [Change state](#change-state)
 
 Flow
 
@@ -287274,38 +287274,38 @@ Search
 
 On this page
 
-# Using Rainbowkit with Flow Wallet
+# Using Rainbow Kit with FLow Wallet
 
-Integrating Flow Wallet with [RainbowKit](https://www.rainbowkit.com/) allows users to seamlessly connect their Flow accounts through one of the most popular wallet connection interfaces.
+When you integrate Flow Wallet with [RainbowKit](https://www.rainbowkit.com/), you can seamlessly connect your Flow accounts through one of the most popular wallet connection interfaces.
 
-This guide walks you through the process of defining Flow Wallet as a custom wallet in RainbowKit and testing the integration. You can follow along by setting up a new RainbowKit project or use the code in this guide to integrate these steps into your existing dApp.
+This guide walks you through how to define Flow Wallet as a custom wallet in RainbowKit and testing the integration. As you follow along, you can set up up a new RainbowKit project or use the code in this guide to integrate these steps into your current dApp.
 
 ## Objectives[​](#objectives "Direct link to Objectives")
 
-After completing this guide, you'll be able to:
+After you complete this guide, you'll be able to:
 
-* Create a custom Flow Wallet connector compatible with RainbowKit's interface
-* Configure your Wagmi setup to support Flow Wallet connections
-* Implement a complete wallet connection flow for Flow blockchain users
-* Test and verify the Flow Wallet integration in your dApp
+* Create a custom Flow Wallet connector compatible with RainbowKit's interface.
+* Configure your Wagmi setup to support Flow Wallet connections.
+* Implement a complete wallet connection flow for Flow blockchain users.
+* Test and verify the Flow Wallet integration in your dApp.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-### Next.js and Modern Frontend Development[​](#nextjs-and-modern-frontend-development "Direct link to Next.js and Modern Frontend Development")
+### Next.js and modern frontend development[​](#nextjs-and-modern-frontend-development "Direct link to Next.js and modern frontend development")
 
-The RainbowKit starter is built on Next.js, so familiarity with React, hooks, and modern frontend development will help you follow along.
+The RainbowKit starter is built on `Next.js`, so familiarity with React, hooks, and modern frontend development will help you follow along.
 
 ## A Flow Wallet[​](#a-flow-wallet "Direct link to A Flow Wallet")
 
 To use Flow Wallet with RainbowKit, install the Flow Wallet browser extension from the [Chrome Web Store](https://chromewebstore.google.com/detail/flow-wallet/hpclkefagolihohboafpheddmmgdffjm?hl=en).
 
-Once installed, set up your wallet by creating or importing an account. For quick access, pin the extension to your browser toolbar.
+After you install it, create or import an account to set up your wallet. For quick access, pin the extension to your browser toolbar.
 
-## Setting Up Your Environment[​](#setting-up-your-environment "Direct link to Setting Up Your Environment")
+## Set up your environment[​](#set-up-your-environment "Direct link to Set up your environment")
 
-### Initial Setup[​](#initial-setup "Direct link to Initial Setup")
+### Initial setup[​](#initial-setup "Direct link to Initial setup")
 
-The RainbowKit starter is built on Next.js, following its standard project structure and conventions. Create a new project or ensure your existing one has the necessary dependencies:
+The RainbowKit starter is built on`Next.js` and follows its standard project structure and conventions. Create a new project or ensure your current one has the necessary dependencies:
 
 `_10
 
@@ -287323,7 +287323,7 @@ The [RainbowKit](https://www.rainbowkit.com/) components will be available throu
 
 ### Creating the Flow Wallet Connector[​](#creating-the-flow-wallet-connector "Direct link to Creating the Flow Wallet Connector")
 
-The first major step is defining the Flow Wallet connector. Create a new file called `flowWallet.ts` in `src/flowWallet.ts` to house the wallet configuration:
+The first major step is to define the Flow Wallet connector. Create a new file called `flowWallet.ts` in `src/flowWallet.ts` to house the wallet configuration:
 
 `` _64
 
@@ -287577,7 +287577,7 @@ _64
 
 }); ``
 
-### Configuring Wagmi Integration[​](#configuring-wagmi-integration "Direct link to Configuring Wagmi Integration")
+### Configure your Wagmi integration[​](#configure-your-wagmi-integration "Direct link to Configure your Wagmi integration")
 
 Next, update your Wagmi configuration to include Flow Wallet support. Modify your `wagmi.ts` file:
 
@@ -287727,12 +287727,12 @@ To get a Project ID, sign up at WalletConnect Cloud, create a new project, and c
 
 ## Testing Your Integration[​](#testing-your-integration "Direct link to Testing Your Integration")
 
-After implementing the Flow Wallet connector and configuring Wagmi, follow these steps to verify that the integration works correctly in your dApp:
+After you implement the Flow Wallet connector and configure Wagmi, follow these steps to verify that the integration works correctly in your dApp:
 
-1. **Click "Connect Wallet"** – Open your application and click the "Connect Wallet" button.
+1. **Click "Connect Wallet"** – Open your application and click "Connect Wallet."
 2. **Check for Flow Wallet** – Ensure Flow Wallet appears as an option in the RainbowKit wallet selection modal.
    * If you haven't installed the browser extension and set up your wallet yet, you can find install it via the [Chrome Web Store](https://chromewebstore.google.com/detail/flow-wallet/hpclkefagolihohboafpheddmmgdffjm?hl=en).
-3. **Connect the Wallet** – Click on Flow Wallet in the selection modal. If using the browser extension, open it and press "Connect."
+3. **Connect the Wallet** – Click on Flow Wallet in the selection modal. If you use the browser extension, open it and press "Connect."
 
 ![Rainbowkit dAPP UI](/assets/images/rainbowkit-1-5292f800884dbcbb3901551158aa95f6.png)
 
@@ -287742,18 +287742,18 @@ After implementing the Flow Wallet connector and configuring Wagmi, follow these
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-In this tutorial, you learned how to integrate Flow Wallet with [RainbowKit](https://www.rainbowkit.com/), creating a seamless wallet connection experience for your users. You should now be able to:
+In this tutorial, you learned how to integrate Flow Wallet with [RainbowKit](https://www.rainbowkit.com/) and create a seamless wallet connection experience for your users. You should now be able to:
 
-* Create a custom Flow Wallet connector compatible with RainbowKit's interface
-* Configure your Wagmi setup to support Flow Wallet connections
-* Implement a complete wallet connection flow for Flow blockchain users
-* Test and verify the Flow Wallet integration in your dApp
+* Create a custom Flow Wallet connector compatible with RainbowKit's interface.
+* Configure your Wagmi setup to support Flow Wallet connections.
+* Implement a complete wallet connection flow for Flow blockchain users.
+* Test and verify the Flow Wallet integration in your dApp.
 
 Now that you've completed this tutorial, you're ready to enhance your dApp with additional Flow blockchain features such as token transfers, NFT minting, and smart contract interactions.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/frameworks/rainbowkit.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Nov 6, 2025** by **cshannon1218**
 
 [Previous
 
@@ -287768,8 +287768,8 @@ Flow EVM Development Tools](/blockchain-development-tutorials/evm/development-to
 Copy as Markdown
 
 * [Objectives](#objectives)* [Prerequisites](#prerequisites)
-    + [Next.js and Modern Frontend Development](#nextjs-and-modern-frontend-development)* [A Flow Wallet](#a-flow-wallet)* [Setting Up Your Environment](#setting-up-your-environment)
-        + [Initial Setup](#initial-setup)+ [Creating the Flow Wallet Connector](#creating-the-flow-wallet-connector)+ [Configuring Wagmi Integration](#configuring-wagmi-integration)* [Testing Your Integration](#testing-your-integration)* [Conclusion](#conclusion)
+    + [Next.js and modern frontend development](#nextjs-and-modern-frontend-development)* [A Flow Wallet](#a-flow-wallet)* [Set up your environment](#set-up-your-environment)
+        + [Initial setup](#initial-setup)+ [Creating the Flow Wallet Connector](#creating-the-flow-wallet-connector)+ [Configure your Wagmi integration](#configure-your-wagmi-integration)* [Testing Your Integration](#testing-your-integration)* [Conclusion](#conclusion)
 
 Flow
 
@@ -340318,16 +340318,16 @@ On this page
 
 ![Top Shot Preview](/assets/images/top-shot-preview-6c64a2b21e280ea48e213066546e6794.png)
 
-In this tutorial, you'll build a [simple onchain app](https://nextjs-topshot-account-linking.vercel.app) that allows users to sign into your app with their Flow wallet and view [NBA Top Shot](https://nbatopshot.com) Moments that reside in their [Dapper Wallet](https://meetdapper.com) - without those users needing to sign in with Dapper.
+In this tutorial, you'll build a [simple onchain app](https://nextjs-topshot-account-linking.vercel.app) that allows users to sign in to your app with their Flow wallet and view [NBA Top Shot](https://nbatopshot.com) Moments that reside in their [Dapper Wallet](https://meetdapper.com) without those users needing to sign in with Dapper.
 
 ## Objectives[​](#objectives "Direct link to Objectives")
 
-After completing this guide, you'll be able to:
+After you complete this guide, you'll be able to:
 
-* Pull your users' NBA Top Shot Moments into your Flow app without needing to transfer them out of their Dapper wallet
-* Retrieve and list all NFT collections in any child wallet linked to a given Flow address
-* Write a [Cadence](https://cadence-lang.org/docs) script to iterate through the storage of a Flow wallet to find NFT collections
-* Run Cadence Scripts from the frontend
+* Pull your users' NBA Top Shot Moments into your Flow app without needing to transfer them out of their Dapper wallet.
+* Retrieve and list all NFT collections in any child wallet linked to a given Flow address.
+* Write a [Cadence](https://cadence-lang.org/docs) script to iterate through the storage of a Flow wallet to find NFT collections.
+* Run Cadence Scripts from the frontend.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
@@ -340341,7 +340341,7 @@ You'll need a [Flow Wallet](https://wallet.flow.com), but you don't need to depo
 
 ## Moments NFTs[​](#moments-nfts "Direct link to Moments NFTs")
 
-You'll need a [Dapper Wallet](https://meetdapper.com) containing some Moments NFTs, such as [NBA Top Shot](https://nbatopshot.com) Moments.
+You'll need a [Dapper Wallet](https://meetdapper.com) that contains some Moments NFTs, such as [NBA Top Shot](https://nbatopshot.com) Moments.
 
 ## Getting Started[​](#getting-started "Direct link to Getting Started")
 
@@ -340351,7 +340351,7 @@ This tutorial will use a [Next.js](https://nextjs.org/docs/app/getting-started/i
 
 npx create-next-app@latest`
 
-We will be using TypeScript and the App Router, in this tutorial.
+We will use TypeScript and the App Router, in this tutorial.
 
 Open your new project in the editor of your choice, install dependencies, and run the project.
 
@@ -340363,7 +340363,7 @@ _10
 
 yarn run dev`
 
-If everything is working properly, you'll be able to navigate to `localhost:3000` and see the default [Next.js](https://nextjs.org/docs/app/getting-started/installation) page.
+If everything works properly, you can navigate to `localhost:3000` and see the default [Next.js](https://nextjs.org/docs/app/getting-started/installation) page.
 
 ## Flow Cadence Setup[​](#flow-cadence-setup "Direct link to Flow Cadence Setup")
 
@@ -340371,13 +340371,13 @@ You'll need a few more dependencies to efficiently work with Cadence inside of y
 
 ### Flow CLI and Types[​](#flow-cli-and-types "Direct link to Flow CLI and Types")
 
-The [Flow CLI](/build/tools/flow-cli) contains a number of command-line tools for interacting with the Flow ecosystem. If you don't already have it installed, you can add it with Brew (or using [other installation methods](/build/tools/flow-cli/install)):
+The [Flow CLI](/build/tools/flow-cli) contains a number of command-line tools for interacting with the Flow ecosystem. If you don't have it installed, you can add it with Brew (or using [other installation methods](/build/tools/flow-cli/install)):
 
 `_10
 
 brew install flow-cli`
 
-Once it's installed, you'll need to initialize Flow in your Next.js project. From the root, run:
+After it's installed, initialize Flow in your `Next.js` project. From the root, run:
 
 `_10
 
@@ -340441,7 +340441,7 @@ export default nextConfig;`
 
 ## Frontend Setup[​](#frontend-setup "Direct link to Frontend Setup")
 
-We'll use the Flow Client Library [FCL](/build/tools/clients/fcl-js) to manage blockchain interaction from the frontend. It's similar to viem, ethers, or web3.js, but works with the Flow blockchain and transactions and scripts written in Cadence.
+We'll use the Flow Client Library [FCL](/build/tools/clients/fcl-js) to manage blockchain interaction from the frontend. It's similar to `viem`, `ethers`, or `web3.js`, but works with the Flow blockchain and transactions and scripts written in Cadence.
 
 `_10
 
@@ -340455,7 +340455,7 @@ yarn add dotenv`
 
 ### Provider Setup[​](#provider-setup "Direct link to Provider Setup")
 
-A fair amount of boilerplate code is needed to set up your provider. We'll provide it, but since it's not the purpose of this tutorial, we'll be brief on explanations. For more details, check out the [App Quickstart Guide](/blockchain-development-tutorials/cadence/getting-started).
+You'll need a fair amount of boilerplate code to set up your provider. We'll provide it, but since it's not the purpose of this tutorial, we'll be brief on explanations. For more details, check out the [App Quickstart Guide](/blockchain-development-tutorials/cadence/getting-started).
 
 Add `app/providers/AuthProvider.tsx`:
 
@@ -340721,7 +340721,7 @@ Don't forget to replace `<YOUR ID HERE>` with your own [Wallet Connect](https://
 
 ### Implement the Provider and Flow Config[​](#implement-the-provider-and-flow-config "Direct link to Implement the Provider and Flow Config")
 
-Finally, open `layout.tsx`. Start by importing Flow dependencies and the AuthProvider:
+Finally, open `layout.tsx`. TO start, import Flow dependencies and the AuthProvider:
 
 `_10
 
@@ -340773,7 +340773,7 @@ _10
 
 warning
 
-We're going to force some things client side to get this proof-of-concept working quickly. Use Next.js best practices for a production app.
+We're going to force some things client side to get this proof-of-concept working quickly. Use `Next.js` best practices for a production app.
 
 Add a `'use client';` directive to the top of the file and **delete** the import for Metadata and fonts, as well as the code related to them.
 
@@ -340901,7 +340901,7 @@ _30
 
 ### Add the Connect Button[​](#add-the-connect-button "Direct link to Add the Connect Button")
 
-Open `page.tsx` and clean up the demo code leaving only the `<main>` block:
+Open `page.tsx` and clean up the demo code, leaving only the `<main>` block:
 
 `_11
 
@@ -341005,11 +341005,9 @@ Run the app:
 
 yarn dev`
 
-You'll see your `Log In` button in the middle of the window.
-
 ![Welcome](/assets/images/welcome-1e40b6e3dd76a16007b134ad2ad94d67.png)
 
-Click the button and log in with your Flow wallet.
+Click `Log In` in the middle of the window and log in with your Flow wallet.
 
 ![Flow Wallet](/assets/images/flow-wallet-97d0305199c2d9435523b4885fbf7c02.png)
 
@@ -341027,7 +341025,7 @@ The Dapper Wallet requires that you complete KYC before you can use Account Link
 
 ### Discovering the NFTs with a Script[​](#discovering-the-nfts-with-a-script "Direct link to Discovering the NFTs with a Script")
 
-With your accounts linked, your Flow Wallet now has a set of capabilities related to your Dapper Wallet and it's permitted to use those to view and even manipulate those NFTs and assets.
+With your accounts linked, your Flow Wallet now has a set of capabilities related to your Dapper Wallet and it can use those to view and even manipulate those NFTs and assets.
 
 Before you can add a script that can handle this, you'll need to import the `HybridCustody` contract using the [Flow Dependency Manager](/build/tools/flow-cli/dependency-manager):
 
@@ -341159,7 +341157,7 @@ _31
 
 ✅ CapabilityFilter added to flow.json`
 
-Add `app/cadence/scripts/FetchNFTsFromLinkedAccts.cdc`. In it, add this script. Review the inline comments to see what each step is doing:
+Add `app/cadence/scripts/FetchNFTsFromLinkedAccts.cdc`. In it, add this script. Review the inline comments to see what each step does:
 
 `_88
 
@@ -341515,7 +341513,7 @@ _10
 
 import FetchNFTs from '../cadence/scripts/FetchNFTsFromLinkedAccts.cdc';`
 
-As we're using TypeScript, you should add some types as well to manage the data from the NFTs nicely. For now, just add them to this file:
+As we're using TypeScript, add some types as well to manage the data from the NFTs nicely. For now, just add them to this file:
 
 `_21
 
@@ -341619,7 +341617,7 @@ _10
 
 export default DisplayLinkedNFTs;`
 
-In the function, add a state variable to store the data retrieved by the script:
+In the function, add a state variable to store the data that the script retrieves:
 
 `_10
 
@@ -341729,7 +341727,7 @@ Run the app again. If you have linked your account and have NFTs in that account
 
 ### Displaying the Moments[​](#displaying-the-moments "Direct link to Displaying the Moments")
 
-Now that they're here, all to do is display them nicely! Return to `DisplayLinkedNFTs.tsx`. Add a helper function to confirm each returned NFT matches the Moments format. You can update this to handle other NFTs you'd like to show as well.
+Now that they're here, all that's left to do is display them nicely! Return to `DisplayLinkedNFTs.tsx`. Add a helper function to confirm each returned NFT matches the Moments format. You can update this to handle other NFTs you'd like to show as well.
 
 warning
 
@@ -342211,7 +342209,7 @@ In this tutorial, you took your first steps towards building powerful new experi
 
 warning
 
-You are **not** saving time by skipping the the reference implementation. You'll learn much faster by doing the tutorials as presented!
+You **won't** save time if you skipo the the reference implementation. You'll learn much faster if you do the tutorials as presented!
 
 Reference solutions are functional, but may not be optimal.
 
@@ -342219,7 +342217,7 @@ Reference solutions are functional, but may not be optimal.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/account-management/account-linking-with-dapper.md)
 
-Last updated on **Oct 9, 2025** by **Brian Doyle**
+Last updated on **Nov 3, 2025** by **cshannon1218**
 
 [Previous
 
@@ -347114,11 +347112,17 @@ Below is a list of commonly used DeFi contracts on Flow Mainnet:
 
 ## AMMs & DEXs[​](#amms--dexs "Direct link to AMMs & DEXs")
 
-#### Flow EVM Mainnet[​](#flow-evm-mainnet-1 "Direct link to Flow EVM Mainnet")
+#### Flow EVM Mainnet FlowSwap[​](#flow-evm-mainnet-flowswap "Direct link to Flow EVM Mainnet FlowSwap")
+
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Contract EVM Mainnet Address|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [UniswapV2Factory (FlowSwap)](https://www.flowscan.io/evm/contract/0x681D1bFE03522e0727730Ba02a05CD3C0a08fa30) `0x681D1bFE03522e0727730Ba02a05CD3C0a08fa30`| [UniswapV2Router02 (FlowSwap)](https://www.flowscan.io/evm/contract/0x2B30D97457d44dE9fb0329D9a2C1DF6B7ae1401d) `0x2B30D97457d44dE9fb0329D9a2C1DF6B7ae1401d`| [UniswapV2Pair (FlowSwap)](https://www.flowscan.io/evm/contract/0x48d63C4E4481fd0A01Fb82A3B191C6685c361f02) `0x48d63C4E4481fd0A01Fb82A3B191C6685c361f02`| [UniswapV3Factory (FlowSwap)](https://www.flowscan.io/evm/contract/0xca6d7Bb03334bBf135902e1d919a5feccb461632) `0xca6d7Bb03334bBf135902e1d919a5feccb461632`| [NonfungiblePositionManager (FlowSwap)](https://www.flowscan.io/evm/contract/0xf7F20a346E3097C7d38afDDA65c7C802950195C7) `0xf7F20a346E3097C7d38afDDA65c7C802950195C7`| [SwapRouter02 (FlowSwap)](https://www.flowscan.io/evm/contract/0xeEDC6Ff75e1b10B903D9013c358e446a73d35341) `0xeEDC6Ff75e1b10B903D9013c358e446a73d35341`| [QuoterV2 (FlowSwap)](https://www.flowscan.io/evm/contract/0x370A8DF17742867a44e56223EC20D82092242C85) `0x370A8DF17742867a44e56223EC20D82092242C85`| [V3Migrator (FlowSwap)](https://www.flowscan.io/evm/contract/0x5C65D5C7E0154f519B7dC4558915A7016F41aa50) `0x5C65D5C7E0154f519B7dC4558915A7016F41aa50`| [UniswapV3Staker (FlowSwap)](https://www.flowscan.io/evm/contract/0x990A0564B7d90656494Ba7A7E1e874038cc35f5d) `0x990A0564B7d90656494Ba7A7E1e874038cc35f5d`| [TickLens (FlowSwap)](https://www.flowscan.io/evm/contract/0x513A58591c8E502543D629748076857a71C6079D) `0x513A58591c8E502543D629748076857a71C6079D`| [NFTDescriptor (FlowSwap)](https://www.flowscan.io/evm/contract/0x99187C0a0AF166b40C393FAE5FDaC688ed5b6989) `0x99187C0a0AF166b40C393FAE5FDaC688ed5b6989`| [v3\_nft\_position\_descriptor (FlowSwap)](https://www.flowscan.io/evm/contract/0x36D8296B9B73dE9d5Ec09ACc6a7c02cC40Ad9780) `0x36D8296B9B73dE9d5Ec09ACc6a7c02cC40Ad9780`| [TransparentUpgradeableProxy (FlowSwap)](https://www.flowscan.io/evm/contract/0xB231Aa6F8636373f5233eeaD13FFEB199659d484) `0xB231Aa6F8636373f5233eeaD13FFEB199659d484`| [UniswapV3Pool (FlowSwap)](https://www.flowscan.io/evm/contract/0xd21C58aDaf1d1119FE40413b45A5f43d23d58DF3) `0xd21C58aDaf1d1119FE40413b45A5f43d23d58DF3`| [UniversalRouter (FlowSwap)](https://www.flowscan.io/evm/contract/0x5fE87847fe20a6C30921620F52B06a4A3740aa61) `0x5fE87847fe20a6C30921620F52B06a4A3740aa61`| [Permit2 (FlowSwap)](https://www.flowscan.io/evm/contract/0x000000000022D473030F116dDEE9F6B43aC78BA3) `0x000000000022D473030F116dDEE9F6B43aC78BA3`| [FusionXInterfaceMulticall (FlowSwap)](https://www.flowscan.io/evm/contract/0x8B5eB800B8d9cF702ff3DD0047ac31bBD411B82a) `0x8B5eB800B8d9cF702ff3DD0047ac31bBD411B82a`| [proxy\_admin (FlowSwap)](https://www.flowscan.io/evm/contract/0x026932f97995201527B4c9Bc2ea6854C02BB0AdC) `0x026932f97995201527B4c9Bc2ea6854C02BB0AdC` | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+
+#### Flow EVM Mainnet KittyPunch[​](#flow-evm-mainnet-kittypunch "Direct link to Flow EVM Mainnet KittyPunch")
 
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Contract Name Flow EVM Mainnet Address Docs|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [StableKittyFactoryNG.sol (KittyPunch)](https://evm.flowscan.io/address/0x4412140D52C1F5834469a061927811Abb6026dB7?tab=contract) `0x4412140D52C1F5834469a061927811Abb6026dB7` [Docs](https://kittypunch.gitbook.io/kittypunch-docs)| [TwoKittyFactory.sol (KittyPunch)](https://evm.flowscan.io/address/0xf0E48dC92f66E246244dd9F33b02f57b0E69fBa9?tab=contract) `0xf0E48dC92f66E246244dd9F33b02f57b0E69fBa9` [Docs](https://kittypunch.gitbook.io/kittypunch-docs)| [TriKittyFactory.sol (KittyPunch)](https://evm.flowscan.io/address/0xebd098c60b1089f362AC9cfAd9134CBD29408226?tab=contract) `0xebd098c60b1089f362AC9cfAd9134CBD29408226` [Docs](https://kittypunch.gitbook.io/kittypunch-docs)| [KittyRouterNgPoolsOnly.sol (KittyPunch)](https://evm.flowscan.io/address/0x87048a97526c4B66b71004927D24F61DEFcD6375?tab=contract) `0x87048a97526c4B66b71004927D24F61DEFcD6375` [Docs](https://kittypunch.gitbook.io/kittypunch-docs)| [PunchSwapV2Router02.sol (KittyPunch)](https://evm.flowscan.io/address/0xf45AFe28fd5519d5f8C1d4787a4D5f724C0eFa4d?tab=contract) `0xf45AFe28fd5519d5f8C1d4787a4D5f724C0eFa4d` [Docs](https://kittypunch.gitbook.io/kittypunch-docs)| [PunchSwapV2Factory.sol (KittyPunch)](https://evm.flowscan.io/address/0x29372c22459a4e373851798bFd6808e71EA34A71?tab=contract) `0x29372c22459a4e373851798bFd6808e71EA34A71` [Docs](https://kittypunch.gitbook.io/kittypunch-docs)| [TrenchesTokensBuyer.sol (KittyPunch)](https://evm.flowscan.io/address/0x6D0e081Acc28eA9ee6b7fD293eC03F97147b026d?tab=contract) `0x6D0e081Acc28eA9ee6b7fD293eC03F97147b026d` [Docs](https://kittypunch.gitbook.io/kittypunch-docs) | | | | | | | | | | | | | | | | | | | | | | | |
+| Contract Name Flow EVM Mainnet Address Docs|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [StableKittyFactoryNG (KittyPunch)](https://evm.flowscan.io/address/0x4412140D52C1F5834469a061927811Abb6026dB7?tab=contract) `0x4412140D52C1F5834469a061927811Abb6026dB7` [Docs](https://kittypunch.gitbook.io/kittypunch-docs)| [TwoKittyFactory (KittyPunch)](https://evm.flowscan.io/address/0xf0E48dC92f66E246244dd9F33b02f57b0E69fBa9?tab=contract) `0xf0E48dC92f66E246244dd9F33b02f57b0E69fBa9` [Docs](https://kittypunch.gitbook.io/kittypunch-docs)| [TriKittyFactory (KittyPunch)](https://evm.flowscan.io/address/0xebd098c60b1089f362AC9cfAd9134CBD29408226?tab=contract) `0xebd098c60b1089f362AC9cfAd9134CBD29408226` [Docs](https://kittypunch.gitbook.io/kittypunch-docs)| [KittyRouterNgPoolsOnly (KittyPunch)](https://evm.flowscan.io/address/0x87048a97526c4B66b71004927D24F61DEFcD6375?tab=contract) `0x87048a97526c4B66b71004927D24F61DEFcD6375` [Docs](https://kittypunch.gitbook.io/kittypunch-docs)| [PunchSwapV2Router02 (KittyPunch)](https://evm.flowscan.io/address/0xf45AFe28fd5519d5f8C1d4787a4D5f724C0eFa4d?tab=contract) `0xf45AFe28fd5519d5f8C1d4787a4D5f724C0eFa4d` [Docs](https://kittypunch.gitbook.io/kittypunch-docs)| [PunchSwapV2Factory (KittyPunch)](https://evm.flowscan.io/address/0x29372c22459a4e373851798bFd6808e71EA34A71?tab=contract) `0x29372c22459a4e373851798bFd6808e71EA34A71` [Docs](https://kittypunch.gitbook.io/kittypunch-docs)| [TrenchesTokensBuyer (KittyPunch)](https://evm.flowscan.io/address/0x6D0e081Acc28eA9ee6b7fD293eC03F97147b026d?tab=contract) `0x6D0e081Acc28eA9ee6b7fD293eC03F97147b026d` [Docs](https://kittypunch.gitbook.io/kittypunch-docs) | | | | | | | | | | | | | | | | | | | | | | | |
 
 #### Flow Cadence Mainnet[​](#flow-cadence-mainnet-1 "Direct link to Flow Cadence Mainnet")
 
@@ -347148,17 +347152,17 @@ Below is a list of commonly used DeFi contracts on Flow Mainnet:
 
 ## Oracles[​](#oracles "Direct link to Oracles")
 
-#### Flow EVM Mainnet[​](#flow-evm-mainnet-2 "Direct link to Flow EVM Mainnet")
+#### Flow EVM Mainnet[​](#flow-evm-mainnet-1 "Direct link to Flow EVM Mainnet")
 
 |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- |
-| Contract Name Flow EVM Mainnet Address|  |  |  |  | | --- | --- | --- | --- | | [ERC1967Proxy.sol (Pyth)](https://evm.flowscan.io/address/0x2880aB155794e7179c9eE2e38200202908C17B43?tab=contract) `0x2880aB155794e7179c9eE2e38200202908C17B43`| [ERC1967Proxy.sol (Stork)](https://evm.flowscan.io/address/0xacC0a0cF13571d30B4b8637996F5D6D774d4fd62?tab=contract) `0xacC0a0cF13571d30B4b8637996F5D6D774d4fd62` | | | | | |
+| Contract Name Flow EVM Mainnet Address|  |  |  |  | | --- | --- | --- | --- | | [ERC1967Proxy (Pyth)](https://evm.flowscan.io/address/0x2880aB155794e7179c9eE2e38200202908C17B43?tab=contract) `0x2880aB155794e7179c9eE2e38200202908C17B43`| [ERC1967Proxy (Stork)](https://evm.flowscan.io/address/0xacC0a0cF13571d30B4b8637996F5D6D774d4fd62?tab=contract) `0xacC0a0cF13571d30B4b8637996F5D6D774d4fd62` | | | | | |
 
 #### Flow Cadence Mainnet[​](#flow-cadence-mainnet-2 "Direct link to Flow Cadence Mainnet")
 
 |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Contract Name Flow Cadence Mainnet Address [CLI](https://developers.flow.com/build/tools/flow-cli/dependency-manager) Docs|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | [PublicPriceOracle.cdc (IncrementFi)](https://flowscan.io/contract/A.ec67451f8a58216a.PublicPriceOracle) `0xec67451f8a58216a` [Docs](https://docs.increment.fi/)| [BandOracle.cdc (Band) Protocol](https://flowscan.io/contract/A.6801a6222ebf784a.BandOracle) `0x6801a6222ebf784a` [Docs](/ecosystem/defi-liquidity/band-oracle) | | | | | | | | | | | |
+| Contract Name Flow Cadence Mainnet Address [CLI](https://developers.flow.com/build/tools/flow-cli/dependency-manager) Docs|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | [PublicPriceOracle (IncrementFi)](https://flowscan.io/contract/A.ec67451f8a58216a.PublicPriceOracle) `0xec67451f8a58216a` [Docs](https://docs.increment.fi/)| [BandOracle (Band) Protocol](https://flowscan.io/contract/A.6801a6222ebf784a.BandOracle) `0x6801a6222ebf784a` [Docs](/ecosystem/defi-liquidity/band-oracle) | | | | | | | | | | | |
 
 ## Ethereum Attestation Service[​](#ethereum-attestation-service "Direct link to Ethereum Attestation Service")
 
@@ -347166,11 +347170,11 @@ More information can be found on the Credora docs site for [EAS on Flow](https:/
 
 |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- |
-| Contract Name Flow EVM Mainnet Address|  |  |  |  | | --- | --- | --- | --- | | [SchemaRegistry.sol (Ethereum Attestation Service)](https://evm.flowscan.io/address/0xB0cF748a05AEA8D59e15834446CFC95bcFF510F0?tab=contract) `0xB0cF748a05AEA8D59e15834446CFC95bcFF510F0`| [EAS.sol (Ethereum Attestation Service)](https://evm.flowscan.io/address/0xc6376222F6E009A705a34dbF1dF72fEf8efB3964?tab=contract) `0xc6376222F6E009A705a34dbF1dF72fEf8efB3964` | | | | | |
+| Contract Name Flow EVM Mainnet Address|  |  |  |  | | --- | --- | --- | --- | | [SchemaRegistry (Ethereum Attestation Service)](https://evm.flowscan.io/address/0xB0cF748a05AEA8D59e15834446CFC95bcFF510F0?tab=contract) `0xB0cF748a05AEA8D59e15834446CFC95bcFF510F0`| [EAS (Ethereum Attestation Service)](https://evm.flowscan.io/address/0xc6376222F6E009A705a34dbF1dF72fEf8efB3964?tab=contract) `0xc6376222F6E009A705a34dbF1dF72fEf8efB3964` | | | | | |
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/defi-contracts-mainnet.md)
 
-Last updated on **Oct 29, 2025** by **bz**
+Last updated on **Nov 13, 2025** by **cshannon1218**
 
 [Previous
 
@@ -355640,17 +355644,17 @@ Search
 
 On this page
 
-# EVM Guides
+# Flow EVM Guides
 
-Flow EVM provides full Ethereum Virtual Machine compatibility, enabling developers to deploy existing Solidity contracts and use familiar Ethereum development tools on Flow's high-performance blockchain. These guides demonstrate how to leverage popular Ethereum tools and frameworks to build, test, and deploy smart contracts on Flow EVM while taking advantage of Flow's unique features like built-in randomness and efficient transaction processing.
+Flow EVM provides full Ethereum Virtual Machine (EVM) compatibility, which allows developers to deploy current Solidity contracts and use familiar Ethereum development tools on Flow's high-performance blockchain. These guides demonstrate how to leverage popular Ethereum tools and frameworks to build, test, and deploy smart contracts on Flow EVM while taking advantage of Flow's unique features like built-in randomness and efficient transaction processing.
 
 ## [Setup](/blockchain-development-tutorials/evm/setup)[​](#setup "Direct link to setup")
 
-Essential setup guides for Flow EVM development, including MetaMask integration and wallet configuration. Learn how to connect popular Ethereum tools to Flow's EVM-compatible network and prepare your development environment for building on Flow.
+Essential setup guides for Flow EVM development, which includes MetaMask integration and wallet configuration. Learn how to connect popular Ethereum tools to Flow's EVM-compatible network and prepare your development environment to build on Flow.
 
 ## [Frameworks](/blockchain-development-tutorials/evm/frameworks)[​](#frameworks "Direct link to frameworks")
 
-Modern JavaScript and React frameworks for building Flow EVM applications. These guides cover popular blockchain libraries like ethers.js, web3.js, wagmi, and RainbowKit, providing practical implementation patterns for frontend development on Flow.
+Modern JavaScript and React frameworks to build Flow EVM applications. These guides cover popular blockchain libraries like `ethers.js`, `web3.js`, `wagmi`, and RainbowKit. They provide practical implementation patterns for frontend development on Flow.
 
 ## [Development Tools](/blockchain-development-tutorials/evm/development-tools)[​](#development-tools "Direct link to development-tools")
 
@@ -355658,15 +355662,15 @@ Professional Solidity development tools adapted for Flow EVM. Master Foundry's t
 
 ## [Build a Fully-Onchain Image Gallery](/blockchain-development-tutorials/evm/image-gallery)[​](#build-a-fully-onchain-image-gallery "Direct link to build-a-fully-onchain-image-gallery")
 
-Create a decentralized image gallery that stores images directly on the blockchain using Flow's efficient gas pricing. This comprehensive tutorial demonstrates building smart contracts for onchain image storage, implementing factory patterns for user galleries, and creating a modern React frontend with wallet integration. Learn how Flow's low gas costs enable applications that would be prohibitively expensive on other chains.
+Create a decentralized image gallery that stores images directly on the blockchain with Flow's efficient gas pricing. This comprehensive tutorial demonstrates how to build smart contracts for onchain image storage, implement factory patterns for user galleries, and create a modern React frontend with wallet integration. Learn how Flow's low gas costs allow applications that would be prohibitively expensive on other chains.
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-These EVM guides provide comprehensive coverage of the most popular Ethereum development tools and frameworks, adapted for Flow EVM development. Whether you're migrating existing Ethereum applications or building new projects, these tutorials offer practical implementation patterns for wallet integration, contract deployment, and blockchain interaction on Flow's high-performance EVM-compatible network.
+These EVM guides provide comprehensive coverage of the most popular Ethereum development tools and frameworks, adapted for Flow EVM development. Whether you want to migrate Ethereum applications or build new projects, these tutorials offer practical implementation patterns for wallet integration, contract deployment, and blockchain interaction on Flow's high-performance EVM-compatible network.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/index.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Nov 6, 2025** by **cshannon1218**
 
 [Previous
 
@@ -392795,7 +392799,7 @@ Below is a list of commonly used DeFi contracts on Flow Testnet:
 
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Token EVM Testnet Address How to Get|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | FLOW (native, non-erc20) — [Faucet](https://faucet.flow.com/fund-account)| [WFLOW](https://evm-testnet.flowscan.io/address/0xd3bF53DAC106A0290B0483EcBC89d40FcC961f3e) `0xd3bF53DAC106A0290B0483EcBC89d40FcC961f3e` [Swap](https://flowswap.io/swap?chain=flow-testnet&inputCurrency=NATIVE&outputCurrency=0xd3bF53DAC106A0290B0483EcBC89d40FcC961f3e)| [MOET](https://evm-testnet.flowscan.io/address/0x51f5cc5f50afb81e8f23c926080fa38c3024b238) `0x51f5cc5f50afb81e8f23c926080fa38c3024b238` [Swap](https://flowswap.io/swap?chain=flow-testnet&inputCurrency=NATIVE&outputCurrency=0x51F5cC5f50afB81e8F23C926080FA38C3024b238)| [USDC](https://evm-testnet.flowscan.io/address/0xd431955D55a99EF69BEb96BA34718d0f9fBc91b1) `0xd431955D55a99EF69BEb96BA34718d0f9fBc91b1` [Swap](https://flowswap.io/swap?chain=flow-testnet&inputCurrency=NATIVE&outputCurrency=0xd431955D55a99EF69BEb96BA34718d0f9fBc91b1)| [mUSDC (ERC‑4626)](https://evm-testnet.flowscan.io/address/0x4154d5B0E2931a0A1E5b733f19161aa7D2fc4b95) `0x4154d5B0E2931a0A1E5b733f19161aa7D2fc4b95` [Swap](https://flowswap.io/swap?chain=flow-testnet&inputCurrency=NATIVE&outputCurrency=0x4154d5B0E2931a0A1E5b733f19161aa7D2fc4b95)| [USDF (Mock)](https://evm-testnet.flowscan.io/address/0xd7d43ab7b365f0d0789aE83F4385fA710FfdC98F) `0xd7d43ab7b365f0d0789aE83F4385fA710FfdC98F` [Swap](https://flowswap.io/swap?chain=flow-testnet&inputCurrency=NATIVE&outputCurrency=0xd7d43ab7b365f0d0789aE83F4385fA710FfdC98F)| [USDF (Bridged PYUSD)](https://evm-testnet.flowscan.io/address/0xf2E5A325f7D678DA511E66B1c0Ad7D5ba4dF93D3) `0xf2E5A325f7D678DA511E66B1c0Ad7D5ba4dF93D3` —|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [USDC.e (Celer)](https://evm-testnet.flowscan.io/address/0x9B7550D337bB449b89C6f9C926C3b976b6f4095b) `0x9B7550D337bB449b89C6f9C926C3b976b6f4095b` —|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [ankrFLOW](https://evm-testnet.flowscan.io/address/0xe132751AB5A14ac0bD3Cb40571a9248Ee7a2a9EA) `0xe132751AB5A14ac0bD3Cb40571a9248Ee7a2a9EA` —|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [ankrFLOWEVM](https://evm-testnet.flowscan.io/address/0x8E3DC6E937B560ce6a1Aaa78AfC775228969D16c) `0x8E3DC6E937B560ce6a1Aaa78AfC775228969D16c` —|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [WETH](https://evm-testnet.flowscan.io/address/0x059A77239daFa770977DD9f1E98632C3E4559848) `0x059A77239daFa770977DD9f1E98632C3E4559848` [Mint](https://evm-testnet.flowscan.io/address/0x059A77239daFa770977DD9f1E98632C3E4559848?tab=read_write_contract#0x40c10f19)| [WBTC](https://evm-testnet.flowscan.io/address/0x208d09d2a6Dd176e3e95b3F0DE172A7471C5B2d6) `0x208d09d2a6Dd176e3e95b3F0DE172A7471C5B2d6` [Mint](https://evm-testnet.flowscan.io/address/0x208d09d2a6Dd176e3e95b3F0DE172A7471C5B2d6?tab=read_write_contract#0x40c10f19)| [cbBTC](https://evm-testnet.flowscan.io/address/0x30F44C64725727F2001E6C1eF6e6CE9c7aB91dC3) `0x30F44C64725727F2001E6C1eF6e6CE9c7aB91dC3` [Mint](https://evm-testnet.flowscan.io/address/0x30F44C64725727F2001E6C1eF6e6CE9c7aB91dC3?tab=read_write_contract#0x40c10f19) | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+| Token EVM Testnet Address How to Get|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | FLOW (native, non-erc20) — [Faucet](https://faucet.flow.com/fund-account)| [WFLOW](https://evm-testnet.flowscan.io/address/0xd3bF53DAC106A0290B0483EcBC89d40FcC961f3e) `0xd3bF53DAC106A0290B0483EcBC89d40FcC961f3e` [Swap](https://flowswap.io/swap?chain=flow-testnet&inputCurrency=NATIVE&outputCurrency=0xd3bF53DAC106A0290B0483EcBC89d40FcC961f3e)| [MOET](https://evm-testnet.flowscan.io/address/0x51f5cc5f50afb81e8f23c926080fa38c3024b238) `0x51f5cc5f50afb81e8f23c926080fa38c3024b238` [Swap](https://flowswap.io/swap?chain=flow-testnet&inputCurrency=NATIVE&outputCurrency=0x51F5cC5f50afB81e8F23C926080FA38C3024b238)| [MockUSDC](https://evm-testnet.flowscan.io/address/0xd431955D55a99EF69BEb96BA34718d0f9fBc91b1) `0xd431955D55a99EF69BEb96BA34718d0f9fBc91b1` [Swap](https://flowswap.io/swap?chain=flow-testnet&inputCurrency=NATIVE&outputCurrency=0xd431955D55a99EF69BEb96BA34718d0f9fBc91b1)| [mUSDC](https://evm-testnet.flowscan.io/address/0x4154d5B0E2931a0A1E5b733f19161aa7D2fc4b95) `0x4154d5B0E2931a0A1E5b733f19161aa7D2fc4b95` [Swap](https://flowswap.io/swap?chain=flow-testnet&inputCurrency=NATIVE&outputCurrency=0x4154d5B0E2931a0A1E5b733f19161aa7D2fc4b95)| [USDf](https://evm-testnet.flowscan.io/address/0xd7d43ab7b365f0d0789aE83F4385fA710FfdC98F) `0xd7d43ab7b365f0d0789aE83F4385fA710FfdC98F` [Swap](https://flowswap.io/swap?chain=flow-testnet&inputCurrency=NATIVE&outputCurrency=0xd7d43ab7b365f0d0789aE83F4385fA710FfdC98F)| [USD Flow](https://evm-testnet.flowscan.io/address/0xf2E5A325f7D678DA511E66B1c0Ad7D5ba4dF93D3) `0xf2E5A325f7D678DA511E66B1c0Ad7D5ba4dF93D3` —|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [USDC.e](https://evm-testnet.flowscan.io/address/0x9B7550D337bB449b89C6f9C926C3b976b6f4095b) `0x9B7550D337bB449b89C6f9C926C3b976b6f4095b` —|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [ankrFLOW](https://evm-testnet.flowscan.io/address/0xe132751AB5A14ac0bD3Cb40571a9248Ee7a2a9EA) `0xe132751AB5A14ac0bD3Cb40571a9248Ee7a2a9EA` —|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [ankrFLOWEVM](https://evm-testnet.flowscan.io/address/0x8E3DC6E937B560ce6a1Aaa78AfC775228969D16c) `0x8E3DC6E937B560ce6a1Aaa78AfC775228969D16c` —|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [ETHf](https://evm-testnet.flowscan.io/address/0x059A77239daFa770977DD9f1E98632C3E4559848) `0x059A77239daFa770977DD9f1E98632C3E4559848` [Mint](https://evm-testnet.flowscan.io/address/0x059A77239daFa770977DD9f1E98632C3E4559848?tab=read_write_contract#0x40c10f19)| [BTCf](https://evm-testnet.flowscan.io/address/0x208d09d2a6Dd176e3e95b3F0DE172A7471C5B2d6) `0x208d09d2a6Dd176e3e95b3F0DE172A7471C5B2d6` [Mint](https://evm-testnet.flowscan.io/address/0x208d09d2a6Dd176e3e95b3F0DE172A7471C5B2d6?tab=read_write_contract#0x40c10f19)| [cbBTC](https://evm-testnet.flowscan.io/address/0x30F44C64725727F2001E6C1eF6e6CE9c7aB91dC3) `0x30F44C64725727F2001E6C1eF6e6CE9c7aB91dC3` [Mint](https://evm-testnet.flowscan.io/address/0x30F44C64725727F2001E6C1eF6e6CE9c7aB91dC3?tab=read_write_contract#0x40c10f19) | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
 
 #### Flow Cadence Testnet[​](#flow-cadence-testnet "Direct link to Flow Cadence Testnet")
 
@@ -392817,7 +392821,7 @@ Below is a list of commonly used DeFi contracts on Flow Testnet:
 
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Contract EVM Testnet Address|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [v2\_factory (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x7d726261FB76B264fc20eA1f19D900D760136566) `0x7d726261FB76B264fc20eA1f19D900D760136566`| [v2\_router (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x524E1291c109BE27FDE48De97cAf0B3c0F02A68f) `0x524E1291c109BE27FDE48De97cAf0B3c0F02A68f`| [v2\_usdc\_weth\_pair (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x21E3aa01561d7D869785aAedB14130C5807C5A12) `0x21E3aa01561d7D869785aAedB14130C5807C5A12`| [v3\_factory (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x92657b195e22b69E4779BBD09Fa3CD46F0CF8e39) `0x92657b195e22b69E4779BBD09Fa3CD46F0CF8e39`| [v3\_nft\_position\_manager (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x8b9F96390EC35d5859937c7c5D68Ff6D5CFC312f) `0x8b9F96390EC35d5859937c7c5D68Ff6D5CFC312f`| [v3\_swap\_router (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x2Db6468229F6fB1a77d248Dbb1c386760C257804) `0x2Db6468229F6fB1a77d248Dbb1c386760C257804`| [v3\_quoter\_v2\_address (FlowSwap)](https://testnet.flowscan.io/evm/contract/0xA1e0E4CCACA34a738f03cFB1EAbAb16331FA3E2c) `0xA1e0E4CCACA34a738f03cFB1EAbAb16331FA3E2c`| [v3\_migrator (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x00a101726ff770cd8ed53E8376b9440Bad40CAd9) `0x00a101726ff770cd8ed53E8376b9440Bad40CAd9`| [v3\_staker (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x04400857ad69EaA7dd6fEF1C329E80E50BD30b76) `0x04400857ad69EaA7dd6fEF1C329E80E50BD30b76`| [v3\_tick\_lens (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x36D9bDCbA840F5bcb95EE7bD54a86808aef6581F) `0x36D9bDCbA840F5bcb95EE7bD54a86808aef6581F`| [v3\_nft\_descriptor\_lib (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x6982D5Cb80Cd7E2cb7C0d0B8452841471Bc84Bc2) `0x6982D5Cb80Cd7E2cb7C0d0B8452841471Bc84Bc2`| [v3\_nft\_position\_descriptor (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x61f4e983A72d9BD8429154982A3d9fCF3A1D98d0) `0x61f4e983A72d9BD8429154982A3d9fCF3A1D98d0`| [v3\_descriptor\_proxy (FlowSwap)](https://testnet.flowscan.io/evm/contract/0xE0895150a7c84e8fB9fecCE72F4C80c130C80fDa) `0xE0895150a7c84e8fB9fecCE72F4C80c130C80fDa`| [v3\_pool\_usdc\_weth (FlowSwap)](https://testnet.flowscan.io/evm/contract/0xa4Db57e3d3c6674FA02a2f3a667d3C22Fe17efF4) `0xa4Db57e3d3c6674FA02a2f3a667d3C22Fe17efF4`| [universal\_router (FlowSwap)](https://testnet.flowscan.io/evm/contract/0xB685ab04Dfef74c135A2ed4003441fF124AFF9a0) `0xB685ab04Dfef74c135A2ed4003441fF124AFF9a0`| [permit2 (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x000000000022D473030F116dDEE9F6B43aC78BA3) `0x000000000022D473030F116dDEE9F6B43aC78BA3`| [multicall2 (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x02b9B840CDCEe84510a02cc85f351CAaD41f46CE) `0x02b9B840CDCEe84510a02cc85f351CAaD41f46CE`| [proxy\_admin (FlowSwap)](https://testnet.flowscan.io/evm/contract/0xf4011F45A666dC7eC54445a710c3aae735F7E890) `0xf4011F45A666dC7eC54445a710c3aae735F7E890`| [StableKittyFactoryNG.sol (KittyPunch)](https://evm-testnet.flowscan.io/address/0x0699C35C0104e478f510531F5Dfc3F9313ae49D1) `0x0699C35C0104e478f510531F5Dfc3F9313ae49D1`| [TwoKittyFactory.sol (KittyPunch)](https://evm-testnet.flowscan.io/address/0xeaa5949471C7B31ae97D3a52483028aE595E8e83) `0xeaa5949471C7B31ae97D3a52483028aE595E8e83`| [TriKittyFactory.sol (KittyPunch)](https://evm-testnet.flowscan.io/address/0x62aC6e05Bac04702bF744106499F72f200297121) `0x62aC6e05Bac04702bF744106499F72f200297121`| [KittyRouterNgPoolsOnly.sol (KittyPunch)](https://evm-testnet.flowscan.io/address/0x70e8C797f698De61787A7275628713077723694) `0x70e8C797f698De61787A7275628713077723694`| [PunchSwapV2Router02.sol (KittyPunch)](https://evm-testnet.flowscan.io/address/0xeD53235cC3E9d2d464E9c408B95948836648870B) `0xeD53235cC3E9d2d464E9c408B95948836648870B`| [PunchSwapV2Factory.sol (KittyPunch)](https://evm-testnet.flowscan.io/address/0x0f6C2EF40FA42B2F0E0a9f5987b2f3F8Af3C173f) `0x0f6C2EF40FA42B2F0E0a9f5987b2f3F8Af3C173f` | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+| Contract EVM Testnet Address|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [UniswapV2Factory (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x7d726261FB76B264fc20eA1f19D900D760136566) `0x7d726261FB76B264fc20eA1f19D900D760136566`| [UniswapV2Router02 (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x524E1291c109BE27FDE48De97cAf0B3c0F02A68f) `0x524E1291c109BE27FDE48De97cAf0B3c0F02A68f`| [UniswapV2Pair (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x21E3aa01561d7D869785aAedB14130C5807C5A12) `0x21E3aa01561d7D869785aAedB14130C5807C5A12`| [UniswapV3Factory (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x92657b195e22b69E4779BBD09Fa3CD46F0CF8e39) `0x92657b195e22b69E4779BBD09Fa3CD46F0CF8e39`| [NonfungiblePositionManager (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x8b9F96390EC35d5859937c7c5D68Ff6D5CFC312f) `0x8b9F96390EC35d5859937c7c5D68Ff6D5CFC312f`| [SwapRouter02 (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x2Db6468229F6fB1a77d248Dbb1c386760C257804) `0x2Db6468229F6fB1a77d248Dbb1c386760C257804`| [QuoterV2 (FlowSwap)](https://testnet.flowscan.io/evm/contract/0xA1e0E4CCACA34a738f03cFB1EAbAb16331FA3E2c) `0xA1e0E4CCACA34a738f03cFB1EAbAb16331FA3E2c`| [V3Migrator (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x00a101726ff770cd8ed53E8376b9440Bad40CAd9) `0x00a101726ff770cd8ed53E8376b9440Bad40CAd9`| [UniswapV3Staker (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x04400857ad69EaA7dd6fEF1C329E80E50BD30b76) `0x04400857ad69EaA7dd6fEF1C329E80E50BD30b76`| [TickLens (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x36D9bDCbA840F5bcb95EE7bD54a86808aef6581F) `0x36D9bDCbA840F5bcb95EE7bD54a86808aef6581F`| [NFTDescriptor (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x6982D5Cb80Cd7E2cb7C0d0B8452841471Bc84Bc2) `0x6982D5Cb80Cd7E2cb7C0d0B8452841471Bc84Bc2`| [v3\_nft\_position\_descriptor (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x61f4e983A72d9BD8429154982A3d9fCF3A1D98d0) `0x61f4e983A72d9BD8429154982A3d9fCF3A1D98d0`| [TransparentUpgradeableProxy (FlowSwap)](https://testnet.flowscan.io/evm/contract/0xE0895150a7c84e8fB9fecCE72F4C80c130C80fDa) `0xE0895150a7c84e8fB9fecCE72F4C80c130C80fDa`| [UniswapV3Pool (FlowSwap)](https://testnet.flowscan.io/evm/contract/0xa4Db57e3d3c6674FA02a2f3a667d3C22Fe17efF4) `0xa4Db57e3d3c6674FA02a2f3a667d3C22Fe17efF4`| [UniversalRouter (FlowSwap)](https://testnet.flowscan.io/evm/contract/0xB685ab04Dfef74c135A2ed4003441fF124AFF9a0) `0xB685ab04Dfef74c135A2ed4003441fF124AFF9a0`| [Permit2 (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x000000000022D473030F116dDEE9F6B43aC78BA3) `0x000000000022D473030F116dDEE9F6B43aC78BA3`| [FusionXInterfaceMulticall (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x02b9B840CDCEe84510a02cc85f351CAaD41f46CE) `0x02b9B840CDCEe84510a02cc85f351CAaD41f46CE`| [proxy\_admin (FlowSwap)](https://testnet.flowscan.io/evm/contract/0xf4011F45A666dC7eC54445a710c3aae735F7E890) `0xf4011F45A666dC7eC54445a710c3aae735F7E890`| [StableKittyFactoryNG (KittyPunch)](https://evm-testnet.flowscan.io/address/0x0699C35C0104e478f510531F5Dfc3F9313ae49D1) `0x0699C35C0104e478f510531F5Dfc3F9313ae49D1`| [TwoKittyFactory (KittyPunch)](https://evm-testnet.flowscan.io/address/0xeaa5949471C7B31ae97D3a52483028aE595E8e83) `0xeaa5949471C7B31ae97D3a52483028aE595E8e83`| [TriKittyFactory (KittyPunch)](https://evm-testnet.flowscan.io/address/0x62aC6e05Bac04702bF744106499F72f200297121) `0x62aC6e05Bac04702bF744106499F72f200297121`| [KittyRouterNgPoolsOnly (KittyPunch)](https://evm-testnet.flowscan.io/address/0x70e8C797f698De61787A7275628713077723694) `0x70e8C797f698De61787A7275628713077723694`| [PunchSwapV2Router02 (KittyPunch)](https://evm-testnet.flowscan.io/address/0xeD53235cC3E9d2d464E9c408B95948836648870B) `0xeD53235cC3E9d2d464E9c408B95948836648870B`| [PunchSwapV2Factory (KittyPunch)](https://evm-testnet.flowscan.io/address/0x0f6C2EF40FA42B2F0E0a9f5987b2f3F8Af3C173f) `0x0f6C2EF40FA42B2F0E0a9f5987b2f3F8Af3C173f` | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
 
 #### Flow Cadence Testnet[​](#flow-cadence-testnet-1 "Direct link to Flow Cadence Testnet")
 
@@ -392877,7 +392881,7 @@ Testnet EAS Explorer: <https://flow-testnet.easscan.credora.io>
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/defi-contracts-testnet.md)
 
-Last updated on **Oct 29, 2025** by **bz**
+Last updated on **Nov 13, 2025** by **cshannon1218**
 
 [Previous
 
@@ -510744,17 +510748,15 @@ On this page
 
 # VRF (Randomness) in Solidity
 
-## Introduction[​](#introduction "Direct link to Introduction")
-
-Flow provides secure, native onchain randomness that developers can leverage through Cadence Arch, a precompiled contract available on the Flow EVM environment. This guide walks you through how Solidity developers can use Cadence Arch to access Flow's verifiable randomness using Solidity.
+Flow provides secure, native onchain randomness that developers can leverage through Cadence Arch, a precompiled contract available on the Flow EVM environment. This guide walks you through how Consumer Decentralized Finance (DeFi) developers can use Cadence Arch to access Flow's verifiable randomness with Consumer DeFi.
 
 ### What is Cadence Arch?[​](#what-is-cadence-arch "Direct link to What is Cadence Arch?")
 
-[Cadence Arch](https://github.com/onflow/flips/blob/main/protocol/20231116-evm-support.md#cadence-arch) is a precompiled smart contract that allows Solidity developers on Flow EVM to interact with Flow's randomness and other network features like block height. This contract can be accessed using its specific address, and Solidity developers can make static calls to retrieve random values and other information.
+[Cadence Arch](https://github.com/onflow/flips/blob/main/protocol/20231116-evm-support.md#cadence-arch) is a precompiled smart contract that allows DeFi developers on Flow EVM to interact with Flow's randomness and other network features like block height. This contract can be accessed with its specific address, and DeFi developers can make static calls to retrieve random values and other information.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-* Basic Solidity knowledge
+* Basic DeFi knowledge
 * Installed Metamask extension
 * Remix IDE for compilation and deployment
 * Flow EVM Testnet setup in Metamask
@@ -510773,7 +510775,7 @@ Make sure you review the Solidity version of the [commit reveal](https://github.
 
 ## Obtaining testnet FLOW[​](#obtaining-testnet-flow "Direct link to Obtaining testnet FLOW")
 
-You can fund your account with testnet FLOW using the [Flow Faucet](https://testnet-faucet.onflow.org/fund-account).
+You can fund your account with testnet FLOW with the [Flow Faucet](https://testnet-faucet.onflow.org/fund-account).
 
 Enter your Flow-EVM testnet address, and you'll receive testnet FLOW tokens to interact with smart contracts.
 
@@ -510854,7 +510856,7 @@ _17
 
    The `revertibleRandom()` function makes a static call to the `revertibleRandom<uint64>()` function to fetch a pseudo-random number. If the call is successful, it decodes the result as a `uint64` random value.
 
-## Deploying and testing the contract[​](#deploying-and-testing-the-contract "Direct link to Deploying and testing the contract")
+## Deploy and test the contract[​](#deploy-and-test-the-contract "Direct link to Deploy and test the contract")
 
 ### Compile and deploy the contract[​](#compile-and-deploy-the-contract "Direct link to Compile and deploy the contract")
 
@@ -510862,10 +510864,10 @@ _17
 2. Create a new file and paste the Solidity code above.
 
    ![Creating file in Remix](/assets/images/vrf-2-26a148ae96be310f27241d862652992f.png)
-3. Compile the contract by selecting the appropriate Solidity compiler version (0.8.x).
+3. To compile the contract, select the appropriate Consumer DeFi compiler version (0.8.x).
 
    ![Compiling in Remix](/assets/images/vrf-3-694be8b1a09f9a3f960db18b17dc713e.png)
-4. Connect Remix to your Metamask wallet (with Flow EVM testnet) by selecting **Injected Web3** as the environment.
+4. Connect Remix to your Metamask wallet (with Flow EVM testnet). To do this, select **Injected Web3** as the environment.
 
    ![Connecting to MetaMask](/assets/images/vrf-4-e1a05dd1ccfec9650f563a28c44a2c60.png)
 5. Deploy the contract.
@@ -510876,15 +510878,15 @@ _17
 
 After deployment, you can interact with the contract to retrieve a random number.
 
-Call the `revertibleRandom()` function in the left sidebar on the deployed contract. This fetches a pseudo-random number generated by Flow's VRF.
+Call the `revertibleRandom()` function in the left sidebar on the deployed contract. This fetches a pseudo-random number that Flow's VRF generates.
 
 ![Calling revertibleRandom function](/assets/images/vrf-6-a4257b376af1a8c564848cae10ba5122.png)
 
 The result will be a `uint64` random number generated on Flow EVM.
 
-## Generating random numbers in a range[​](#generating-random-numbers-in-a-range "Direct link to Generating random numbers in a range")
+## Generate random numbers in a range[​](#generate-random-numbers-in-a-range "Direct link to Generate random numbers in a range")
 
-For use-cases like games and lotteries, it's useful to generate a random number within a specified range, the following example shows how to get a value between a min and max number.
+For use-cases like games and lotteries, it's useful to generate a random number within a specified range. The following example shows how to get a value between a min and max number.
 
 `_17
 
@@ -510954,12 +510956,12 @@ The above code is susceptible to the [modulo bias](https://research.kudelskisecu
 
 ## Secure randomness with commit-reveal scheme in Solidity[​](#secure-randomness-with-commit-reveal-scheme-in-solidity "Direct link to Secure randomness with commit-reveal scheme in Solidity")
 
-The **`revertibleRandom()`** function can be directly used to generate a pseudo-random number. However, in certain situations, especially involving untrusted callers, this function exposes a vulnerability: the ability of a transaction to **revert after seeing the random result**.
+You can use the **`revertibleRandom()`** function directly to generate a pseudo-random number. However, in certain situations, especially with untrusted callers, this function exposes a vulnerability: the ability of a transaction to **revert after seeing the random result**.
 
 **The Issue with Using `revertibleRandom()` Directly**
 
 * When an untrusted party calls a contract function that uses `revertibleRandom()`, they receive the random number **during the transaction execution**.
-* **Post-selection** is the ability of the caller to abort the transaction if the random outcome is unfavorable. In this case, the user could choose to revert the transaction (for example, if they lose a bet) and attempt to call the function again in hopes of a better outcome.
+* **Post-selection** is the caller's ability to abort the transaction if the random outcome is unfavorable. In this case, the user could choose to revert the transaction (for example, if they lose a bet) and attempt to call the function again in hopes of a better outcome.
 * This can lead to a form of *transaction reversion attack*, where the randomness can be exploited by repeatedly attempting transactions until a favorable result is obtained.
 
 ## Further reading[​](#further-reading "Direct link to Further reading")
@@ -510972,7 +510974,7 @@ You can also view an example in both Solidity and Cadence of a [random coin toss
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/native-vrf/vrf-in-solidity.md)
 
-Last updated on **Sep 24, 2025** by **LA Techwriter**
+Last updated on **Nov 11, 2025** by **cshannon1218**
 
 [Previous
 
@@ -510986,10 +510988,9 @@ Token Development and Registration](/blockchain-development-tutorials/tokens)
 
 Copy as Markdown
 
-* [Introduction](#introduction)
-  + [What is Cadence Arch?](#what-is-cadence-arch)* [Prerequisites](#prerequisites)* [Network information for Flow EVM](#network-information-for-flow-evm)* [Steps to connect Flow EVM testnet to metamask](#steps-to-connect-flow-evm-testnet-to-metamask)* [Solidity commit reveal](#solidity-commit-reveal)* [Obtaining testnet FLOW](#obtaining-testnet-flow)* [Solidity code example: retrieving random numbers](#solidity-code-example-retrieving-random-numbers)
-              + [Explanation of the contract](#explanation-of-the-contract)* [Deploying and testing the contract](#deploying-and-testing-the-contract)
-                + [Compile and deploy the contract](#compile-and-deploy-the-contract)+ [Call revertibleRandom](#call-revertiblerandom)* [Generating random numbers in a range](#generating-random-numbers-in-a-range)* [Secure randomness with commit-reveal scheme in Solidity](#secure-randomness-with-commit-reveal-scheme-in-solidity)* [Further reading](#further-reading)
+* [What is Cadence Arch?](#what-is-cadence-arch)* [Prerequisites](#prerequisites)* [Network information for Flow EVM](#network-information-for-flow-evm)* [Steps to connect Flow EVM testnet to metamask](#steps-to-connect-flow-evm-testnet-to-metamask)* [Solidity commit reveal](#solidity-commit-reveal)* [Obtaining testnet FLOW](#obtaining-testnet-flow)* [Solidity code example: retrieving random numbers](#solidity-code-example-retrieving-random-numbers)
+              + [Explanation of the contract](#explanation-of-the-contract)* [Deploy and test the contract](#deploy-and-test-the-contract)
+                + [Compile and deploy the contract](#compile-and-deploy-the-contract)+ [Call revertibleRandom](#call-revertiblerandom)* [Generate random numbers in a range](#generate-random-numbers-in-a-range)* [Secure randomness with commit-reveal scheme in Solidity](#secure-randomness-with-commit-reveal-scheme-in-solidity)* [Further reading](#further-reading)
 
 Flow
 
@@ -511631,18 +511632,18 @@ On this page
 
 # Working With Parent Accounts
 
-In this doc, we'll continue from the perspective of a wallet or marketplace app seeking to facilitate a unified account
+In this tutorial, we'll continue from the perspective of a wallet or marketplace app seeking to facilitate a unified account
 experience, abstracting away the partitioned access between accounts into a single dashboard for user interactions on
 all their owned assets.
 
 ## Objectives[​](#objectives "Direct link to Objectives")
 
-* Understand the Hybrid Custody account model
-* Differentiate between restricted child accounts and unrestricted owned accounts
-* Get your app to recognize "parent" accounts along with any associated "child" accounts
+* Understand the Hybrid Custody account model.
+* Differentiate between restricted child accounts and unrestricted owned accounts.
+* Get your app to recognize "parent" accounts along with any associated "child" accounts.
 * View Fungible and NonFungible Token metadata relating to assets across all of a user's associated accounts - their
-  wallet-mediated "parent" account and any hybrid custody model "child" accounts
-* Facilitate transactions acting on assets in child accounts
+  wallet-mediated "parent" account and any hybrid custody model "child" accounts.
+* Facilitate transactions acting on assets in child accounts.
 
 ## Design Overview[​](#design-overview "Direct link to Design Overview")
 
@@ -511678,7 +511679,7 @@ Parent accounts own a `Manager` resource which stores Capabilities to `ChildAcco
 Therefore, the presence of a `Manager` in an account implies there are potentially associated accounts for which the
 owning account has delegated access. This resource is intended to be configured with a public Capability that enables
 querying of an account's child account addresses via `getAccountAddresses()` and `getOwnedAccountAddresses()`. As you can
-deduce from these two methods, there is a notion of "owned" accounts which we'll expand on in a bit.
+deduce from these two methods, there is a notion of "owned" accounts which we'll expand on later.
 
 A wallet or marketplace wishing to discover all of a user's accounts and assets within them can do so by first looking
 to the user's `Manager`.
@@ -511689,20 +511690,20 @@ To clarify, insofar as the standard is concerned, an account is a parent account
 and an account is a child account if it contains at minimum an `OwnedAccount` or additionally a `ChildAccount` resource.
 
 Within a user's `Manager`, its mapping of `childAccounts` points to the addresses of its child accounts in each key,
-with corresponding values giving the `Manager` access to those accounts via corresponding `ChildAccount` Capability.
+with corresponding values that give the `Manager` access to those accounts via corresponding `ChildAccount` Capability.
 
 ![HybridCustody Conceptual Overview](/assets/images/hybrid_custody_conceptual_overview-d5155af50fce363671600e0242b4e391.png)
 
 Likewise, the child account's `ChildAccount.parentAddress` (which owns a `Manager`) points to the user's account as its
 parent address. This makes it easy to both identify whether an account is a parent, child, or both, and its associated
-parent/child account(s).
+parent or child account(s).
 
 `OwnedAccount` resources underly all account delegations, so can have multiple parents whereas `ChildAccount`s are 1:1.
 This provides more granular revocation as each parent account has its own Capability path on which its access relies.
 
 #### Restricted vs. Owned Accounts[​](#restricted-vs-owned-accounts "Direct link to Restricted vs. Owned Accounts")
 
-It's worth noting here that `ChildAccount` Capabilities enable access to the underlying account according to rules
+`ChildAccount` Capabilities allow access to the underlying account according to rules
 configured by the child account delegating access. The `ChildAccount` maintains these rules along with an `OwnedAccount`
 Capability within which the `&Account` Capability is stored. Anyone with access to the surface level `ChildAccount`
 can then access the underlying `Account`, but only according the pre-defined rule set. These rules are fundamentally
@@ -511726,7 +511727,7 @@ Capability to itself before publishing the new `ChildAccount` Capability for the
 
 info
 
-Note that by enumerating allowable Types in your `CapabilityFilter.Filter` implementation, you're by default excluding
+If you enumerate allowable Types in your `CapabilityFilter.Filter` implementation, you by default exclude
 access to anything other than the Types you declare as allowable.
 
 As mentioned earlier, `Manager`s also maintain access to "owned" accounts - accounts which define unrestricted access as
@@ -511741,12 +511742,12 @@ Do note that this construction does not prevent an account from having multiple 
 being the parent to other accounts. While initial intuition might lead one to believe that account associations are a
 tree with the user at the root, the graph of associated accounts among child accounts may lead to cycles of association.
 
-We believe it would be unlikely for a use case to demand a user delegates authority over their main account (in fact
-we'd discourage such constructions), but delegating access between child accounts could be useful. As an example,
-consider a set of local game clients across mobile and web platforms, each with self-custodied app accounts having
+We believe it's unlikely for a use case to demand a user delegates authority over their main account (in fact
+we'd discourage such constructions), but it might be useful to delegate access between child accounts. As an example,
+consider a set of local game clients across mobile and web platforms, each with self-custodied app accounts that have
 delegated authority to each other while both are child accounts of the user's main account.
 
-Ultimately, it will be up to the implementing wallet/marketplace how far down the graph of account associations they'd
+Ultimately, it's' up to the implementing wallet or marketplace how far down the graph of account associations they'd
 want to traverse and display to the user.
 
 ## Implementation[​](#implementation "Direct link to Implementation")
@@ -511851,8 +511852,8 @@ Since some accounts hold thousands of NFTs, we recommend breaking up iteration, 
 over accounts and the storage of each account. Batching queries on individual accounts may even be required based on the
 number of NFTs held.
 
-1. Get all associated account addresses (see above)
-2. Looping over each associated account address client-side, get each address's owned NFT metadata
+1. Get all associated account addresses (see above).
+2. Looping over each associated account address client-side, get each address's owned NFT metadata.
 
 For simplicity, we'll show a condensed query, returning NFT display views from all accounts associated with a given
 address for a specified NFT Collection path.
@@ -512076,15 +512077,15 @@ _59
 }`
 
 At the end of this query, the caller will have a mapping of `Display` views indexed on the NFT ID and grouped by account
-Address. Note that this script does not take batching into consideration and assumes that each NFT resolves the
+Address. This script does not take batching into consideration and assumes that each NFT resolves the
 `MetadataViews.Display` view type.
 
 ### Query All Account FungibleToken Balances[​](#query-all-account-fungibletoken-balances "Direct link to Query All Account FungibleToken Balances")
 
-Similar to the previous example, we recommend breaking up this task due to memory limits.
+Similar to the previous example, we recommend that you break up this task due to memory limits.
 
-1. Get all linked account addresses (see above)
-2. Looping over each associated account address client-side, get each address's owned FungibleToken Vault metadata
+1. Get all linked account addresses (see above).
+2. Looping over each associated account address client-side, get each address's owned FungibleToken Vault metadata.
 
 However, we'll condense both of these steps down into one script for simplicity:
 
@@ -512351,9 +512352,9 @@ to aggregate more information about the underlying Vaults.
 
 ### Access NFT in Child Account from Parent Account[​](#access-nft-in-child-account-from-parent-account "Direct link to Access NFT in Child Account from Parent Account")
 
-A user with NFTs in their child accounts will likely want to utilize said NFTs. In this example, the user will sign a
+A user with NFTs in their child accounts will likely want to utilize said NFTs. In this example, the user signs a
 transaction with their authenticated account that retrieves a reference to a child account's
-`NonFungibleToken.Provider`, enabling withdrawal from the child account having signed as the parent account.
+`NonFungibleToken.Provider`, which allows withdrawal from the child account that signs as the parent account.
 
 withdraw\_nft\_from\_child.cdc
 
@@ -512567,8 +512568,7 @@ account and remove it from their `Manager` altogether.
 
 ### Remove a Child Account[​](#remove-a-child-account "Direct link to Remove a Child Account")
 
-As mentioned above, if a user no longer wishes to share access with another party, it's recommended that desired assets
-be transferred from that account to either their main account or other linked accounts and the linked account be removed
+As mentioned above, if a user no longer wishes to share access with another party, we recommended that they transfer desired assets from that account to either their main account or other linked accounts and the linked account be removed
 from their `HybridCustody.Manager`. Let's see how to complete that removal.
 
 remove\_child\_account.cdc
@@ -512614,12 +512614,12 @@ _10
 After removal, the signer no longer has delegated access to the removed account via their `Manager` and the caller is
 removed as a parent of the removed child.
 
-Note also that it's possible for a child account to remove a parent. This is necessary to give application developers
+It's also possible for a child account to remove a parent. This is necessary to give application developers
 and ultimately the owners of these child accounts the ability to revoke secondary access on owned accounts.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/account-management/parent-accounts.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Nov 3, 2025** by **cshannon1218**
 
 [Previous
 
@@ -566028,6 +566028,8 @@ _10
 
 fcl.authenticate();`
 
+> **Note**: For advanced configuration patterns including scoped clients and multi-tenancy, see the [`createFlowClient` reference documentation](/build/tools/clients/fcl-js/packages-docs/fcl/createFlowClient).
+
 ![FCL Default Discovery UI](/assets/images/discovery-c2c95d28a66e86c570491a36e37e0afa.png)
 
 > **Note**: A [Dapper Wallet](https://meetdapper.com/developers) developer account is required.
@@ -566278,7 +566280,7 @@ FCL is built **on top of the Flow SDK**, making it easier to handle authenticati
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/index.md)
 
-Last updated on **Nov 8, 2025** by **Chase Fleming**
+Last updated on **Nov 10, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -576857,42 +576859,40 @@ On this page
 
 # Account Linking
 
-Account linking is a unique Flow concept that enables sharing ownership over [accounts](/build/cadence/basics/accounts). In
-order to understand how we can achieve that we must first understand how accounts on Flow are accessed.
+Account linking is a unique Flow concept that allows sharing ownership over [accounts](/build/cadence/basics/accounts). To understand how we can achieve that, we must first understand how to access accounts on Flow.
 
-Accounts on flow can be accessed in Cadence through two types, `PublicAccount` and `Account`. As the name implies the
+You can access accounts on flow in Cadence through two types, `PublicAccount` and `Account`. As the name implies, the
 `PublicAccount` type gives access to all public account information such as address, balance, storage capacity, etc.,
 but doesn't allow changes to the account. The `Account` type (or more specifically, an
 [entitled](https://cadence-lang.org/docs/language/access-control#entitlements) `&Account`) allows the same access as
-`PublicAccount` but also allows changes to the account, including adding/revoking account keys, managing the deployed
+`PublicAccount` but also allows changes to the account, which includes adding or revoking account keys, managing the deployed
 contracts, as well as linking and publishing Capabilities.
 
 ![Flow account structure](/assets/images/account-structure-835ec18016e0f43c6b4a4fea2e54934f.png)
 
 ## Accessing Account[​](#accessing-account "Direct link to Accessing Account")
 
-Accessing `Account` allows for modification to account storage, so it's essential to safeguard this access by mandating
-that transactions are signed by the account being accessed. [Account
-entitlements](https://cadence-lang.org/docs/language/accounts/#performing-write-operations) enable for more granular
-access control over the specific parts of the account that can be accessed from within the signed transaction. A
+Accessing `Account` allows for modification to account storage, so it's essential to mandate that the account being accessed signs all transactions, which safeguards this access.
+[Account
+entitlements](https://cadence-lang.org/docs/language/accounts/#performing-write-operations) allow for more granular
+access control over the specific parts of the account that you can access from within the signed transaction. A
 transaction can list multiple authorizing account it wants to access as part of the `prepare` section of the
 transaction. Read more about transaction signing in the [transaction documentation](/build/cadence/basics/transactions).
 
-Since access to the `Account` object enables state change, the idea of account ownership actually translates to the
+Since access to the `Account` object allows state change, the idea of account ownership actually translates to the
 ability to access the underlying account. Traditionally, you might consider this the same as having key access on an
 account, but we'll see in just a minute how programmatic, ownership-level access is unlocked with [Capabilities on
 Flow](https://cadence-lang.org/docs/language/capabilities).
 
 ## Account Capabilities[​](#account-capabilities "Direct link to Account Capabilities")
 
-Before proceeding the reader will need a clear understanding of [Cadence
-capabilities](https://cadence-lang.org/docs/language/capabilities) to follow this section. Advanced features such as
-Account Capabilities are powerful but if used incorrectly can put your app or users at risk.
+Before you continue with this section, you'll need a clear understanding of [Cadence
+capabilities](https://cadence-lang.org/docs/language/capabilities). Advanced features such as
+Account Capabilities are powerful, but they can put your app or users at risk if used incorrectly.
 
-Cadence allows the creation of Capabilities to delegate access to account storage, meaning any account obtaining a valid
+Cadence allows for Capabilities creation to delegate access to account storage, which means any account that obtains a valid
 Ccapability to another account object in the storage can access it. This is a powerful feature on its own - accessing
-another account programmatically without the need for an active key on the accessible account. The access to the object
-can be limited when creating a Capability so only intended functions or fields can be accessed.
+another account programmatically without the need for an active key on the accessible account. You can limit the access to the object when you create a Capability so your users can only access intended functions or fields.
 
 Account linking is made possible by the extension of Capabilities on the `Account` object itself. Similar to how storage
 capabilities allow access to a value stored in an account's storage, `&Account` Capabilities allow delegated access to
@@ -576902,13 +576902,13 @@ This Capability can of course be revoked at any time by the delegating account.
 
 ### Creating Account Links[​](#creating-account-links "Direct link to Creating Account Links")
 
-When referring to 'account linking' we mean that an `&Account` Capability is created by the parent account and published
-to another account. The account owning the `&Account` Capability which was made available to another account is the child
+When we refer to 'account linking,' we mean that the parent account creates an `&Account` Capability and published
+to another account. The account that owns the `&Account` Capability which was made available to another account is the child
 account. The account in possession of the Capability given by the child account becomes its parent account.
 
 ![Account linking on Flow relational diagram](/assets/images/account-linking-relational-diagram-9ea0dedfb84460d27a1e78e2a6c40b65.png)
 
-A link between two existing accounts on Flow can be created in two steps:
+You can create a link between two existing accounts on Flow in two steps:
 
 1. A child account creates an `&Account` Capability and publishes it to the parent account.
 2. The parent account, claims that Capability and can access the child's account through it.
@@ -577045,9 +577045,9 @@ _18
 
 ## What is account linking most useful for?[​](#what-is-account-linking-most-useful-for "Direct link to What is account linking most useful for?")
 
-Account linking was specifically designed to enable smooth and seamless custodial onboarding of users to your Flow based
+Account linking was specifically designed to allow smooth and seamless custodial onboarding of users to your Flow based
 application without them first requiring a wallet to do so. This pattern overcomes both the technical hurdle, as well as
-user's reluctance to install a wallet, opening access to Flow applications to every user. Users can experience an app
+user's reluctance to install a wallet, which opens access to Flow applications to every user. Users can experience an app
 without any delay while still offering a path to self-sovreign ownership.
 
 Naturally, users may expect to use their account with another application, or otherwise move assets stored in that
@@ -577056,7 +577056,7 @@ account instead of the user and stores that user's specific state in the app-cre
 can take ownership of the app account providing they possess a full [Flow account](/build/cadence/basics/accounts), typically
 by installing a wallet app.
 
-Account linking enables users to possess multiple linked child accounts from different apps. Complexities associated
+Account linking allows users to possess multiple linked child accounts from different apps. Complexities associated
 with accessing those child accounts are eliminated by abstracting access to them through the user's parent account.
 
 info
@@ -577069,46 +577069,45 @@ already has access to the assets in the child account.
 
 ![Multiple parent-child accounts on Flow](/assets/images/account-linking-multiple-accounts-19cad9db0d1f1abdde126848033b3e43.png)
 
-This shared control over the digital items in the in-app account enables users to establish real ownership of the items
+This shared control over the digital items in the in-app account allows users to establish real ownership of the items
 beyond the context of the app, where they can use their parent account to view inventory, take the items to other apps
 in the ecosystem, such as a marketplace or a game.
 
-Most importantly, users are able to do this without the need to transfer the digital items between accounts, making it
-seamless to continue using the original app while also enjoying their assets in other contexts.
+Most importantly, users can do this without the need to transfer the digital items between accounts, which makes it
+seamless to continue using the original app and enjoy their assets in other contexts.
 
 ## Security Considerations[​](#security-considerations "Direct link to Security Considerations")
 
 Account linking is a *very* powerful Cadence feature, and thus it must be treated with care. So far in this document,
-we've discussed account linking between two accounts we own, even if the child account is managed by a third-party
-application. But, we can't make the same trust assumptions about custodial accounts in the real world.
+we've discussed account linking between two accounts we own, even if a third-party
+application manages the child account. But, we can't make the same trust assumptions about custodial accounts in the real world.
 
-Creating an `&Account` Capability and publishing it to an account we don't own means we are giving that account full
+If we create an `&Account` Capability and publish it to an account we don't own, we give that account full
 access to our account. This should be seen as an anti-pattern.
 
 warning
 
-Creating an `&Account` Capability and sharing it with third-party account effectually the same as giving that person your
+If you create an `&Account` Capability and share it with a third-party account, you effectively give that person your
 account's private keys.
 
 Because unfiltered account linking can be dangerous, Flow introduces the [`HybridCustody`
-contract](/blockchain-development-tutorials/cadence/account-management/parent-accounts) that helps custodial applications regulate access while enabling parent accounts to
+contract](/blockchain-development-tutorials/cadence/account-management/parent-accounts) that helps custodial applications regulate access and allows parent accounts to
 manage their many child accounts and assets within them.
 
 ## Hybrid Custody and Account Linking[​](#hybrid-custody-and-account-linking "Direct link to Hybrid Custody and Account Linking")
 
-Apps need assurances that their own resources are safe from malicious actors, so giving out full access might not be the
-form they want. Using hybrid custody contracts, the app still maintains control of their managed accounts, but they can:
+Apps need assurances that their own resources are safe from malicious actors, so to permit full access might not be what they want. Hybrid custody contracts will allow the app to maintain control of their managed accounts, but they can:
 
 1. Share capabilities freely, with a few built-in controls over the types of capabilities that can be retrieved by
-   parent accounts via helper contracts (the `CapabilityFactory`, and `CapabilityFilter`)
-2. Share additional capabilities (public or private) with a parent account via a `CapabilityDelegator` resource
+   parent accounts via helper contracts (the `CapabilityFactory`, and `CapabilityFilter`).
+2. Share additional capabilities (public or private) with a parent account via a `CapabilityDelegator` resource.
 
 Learn more about it in the [Hybrid Custody documentation](/blockchain-development-tutorials/cadence/account-management/parent-accounts).
 
 ### Guides[​](#guides "Direct link to Guides")
 
 * [Building Walletless Applications Using Child Accounts](/blockchain-development-tutorials/cadence/account-management/child-accounts) covers how apps can leverage Account
-  Linking to create a seamless user experience and enable future self-custody.
+  Linking to create a seamless user experience and allow future self-custody.
 * [Working With Parent Accounts](/blockchain-development-tutorials/cadence/account-management/parent-accounts) covers features enabled by the core `HybridCustody` contract to
   access child account assets from parent accounts. This is useful for apps like marketplaces or wallets that are
   working with accounts that have potential child accounts.
@@ -577125,7 +577124,7 @@ Learn more about it in the [Hybrid Custody documentation](/blockchain-developmen
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/account-management/index.md)
 
-Last updated on **Sep 25, 2025** by **Brian Doyle**
+Last updated on **Nov 3, 2025** by **cshannon1218**
 
 [Previous
 
@@ -600870,7 +600869,7 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
-# Source: https://developers.flow.com/
+# Source: https://developers.flow.com
 
 Flow Developer Portal
 
@@ -613575,12 +613574,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **99da18bb4a7e17d1**
+Cloudflare Ray ID: **99e256c41f66eab9**
 •
 
 Your IP:
 Click to reveal
-172.184.210.40
+57.151.138.240
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 
