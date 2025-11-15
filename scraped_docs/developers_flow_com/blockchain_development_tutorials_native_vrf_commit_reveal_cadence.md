@@ -38,68 +38,74 @@ On this page
 
 # Secure Randomness with Commit-Reveal in Cadence
 
-Randomness is a critical component in blockchain applications, enabling fair and unpredictable outcomes for use cases like gaming, lotteries, and cryptographic protocols. The most basic approach to generating a random number on EVM chains is to utilize block hashes, which combines the block hash with a user-provided seed and hashes them together. The resulting hash can be used as a pseudo-random generator seed. However, this approach has limitations. The block hash can be manipulated by a validator influencing the random source used to compute transactions. The block proposer has the freedom to decide what to include into a block and can through different combinations till they find a favorable random source.
+Randomness is a critical component in blockchain applications. It allows fair and unpredictable outcomes for use cases like gaming, lotteries, and cryptographic protocols.
 
-[Chainlink VRF](https://docs.chain.link/vrf) is a popular tool that improves on this by providing another approach for generating provably random values on Ethereum and other blockchains by relying on a decentralized oracle network to deliver cryptographically secure randomness from off-chain sources. However, this dependence on external oracles introduces several weaknesses, such as cost, latency, and scalability concerns.
+The most basic approach that you can use to generate a random number on EVM chains is to use block hashes, which combines the block hash with a user-provided seed and hashes them together. You can use the has that results as a pseudo-random generator seed. However, this approach has limitations. A validator that influences the random source used to compute transactions can manipulate the block hash. The block proposer can decide what to include into a block and can iterate through different combinations until they find a favorable random source.
 
-In contrast, Flow offers a simpler and more integrated approach with its native onchain Randomness Beacon at the protocol level, eliminating reliance on external oracles and sidestepping their associated risks.
+[Chainlink VRF](https://docs.chain.link/vrf) is a popular tool that improves on this. It provides another approach you can use to generate provably random values on Ethereum and other blockchains. It relies on a decentralized oracle network to deliver cryptographically secure randomness from off-chain sources. However, this dependence on external oracles introduces several weaknesses, such as cost, latency, and scalability concerns.
 
-In addition to instant randomness that is available to any transaction (via `revertibleRandom` function), Flow provides a solution to reverted transaction. Commit-Reveal schemes on Flow also rely on protocol-native secure randomness and they fix the issue of post-selection by trustless users. Commit-Reveal tools on Flow can be used within both Cadence and Solidity smart contracts. This tutorial will focus on the Cadence case.
+In contrast, Flow offers a simpler and more integrated approach with its native onchain Randomness Beacon at the protocol level, which eliminates reliance on external oracles and sidestepping their associated risks.
+
+In addition to instant randomness that is available to any transaction (via `revertibleRandom` function), Flow provides a solution to the problem of a user reverting a transaction with an unfavorable outcome. Commit-Reveal schemes on Flow also rely on protocol-native secure randomness and they fix the issue of post-selection by trustless users. Commit-Reveal tools on Flow can be used within both Cadence and Consumer Decentralized Finance (DeFi) contracts. This tutorial focuses on Cadence.
 
 ## Objectives[​](#objectives "Direct link to Objectives")
 
 By the end of this guide, you will be able to:
 
-* Deploy a Cadence smart contract on the Flow blockchain
-* Implement commit-reveal pattern for randomness to ensure fairness
-* Interact with onchain randomness features on Flow
-* Build and test the Coin Toss game using the Flow Testnet
+* Deploy a Cadence smart contract on the Flow blockchain.
+* Implement commit-reveal pattern for randomness to ensure fairness.
+* Interact with onchain randomness features on Flow.
+* Build and test the Coin Toss game with the Flow Testnet.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
 You'll need the following:
 
-* Flow Testnet Account: An account on the Flow Testnet with test FLOW tokens for deploying contracts and executing transactions (e.g., via [Flow Faucet](https://faucet.flow.com/fund-account)).
-* Flow CLI or Playground: The Flow CLI or Flow Playground for deploying and testing contracts (install via [Flow Docs](https://developers.flow.com)).
+* Flow Testnet Account: an account on the Flow Testnet with test FLOW tokens to deploy contracts and execute transactions (for example, via [Flow Faucet](https://faucet.flow.com/fund-account)).
+* Flow CLI or Playground: the Flow CLI or Flow Playground to deploy and test contracts (install via [Flow Docs](https://developers.flow.com)).
 
 ## Overview[​](#overview "Direct link to Overview")
 
 In this guide, we will explore how to use a commit-reveal scheme based on the Flow Random Beacon to achieve secure, non-revertible randomness. This mechanism mitigates post-selection attacks, where participants attempt to reject unfavorable random outcomes after they are revealed.
 
-To illustrate this concept, we will build a Coin Toss game on Flow, demonstrating how smart contracts can leverage a commit-reveal scheme for fair, tamper-resistant results.
+To illustrate this concept, we will build a Coin Toss game on Flow, which demonstrates how smart contracts can leverage a commit-reveal scheme for fair, tamper-resistant results.
 
 ![Commit Reveal](/assets/images/commit-reveal-781e7a6a3f33610dc3258192029cbd4d.png)
 
 ### What is the Coin Toss Game?[​](#what-is-the-coin-toss-game "Direct link to What is the Coin Toss Game?")
 
-The Coin Toss Game is a decentralized betting game that showcases the commit-reveal pattern. Players place bets without knowing the random outcome, ensuring fairness and resistance to manipulation.
+The Coin Toss Game is a decentralized betting game that showcases the commit-reveal pattern. Players place bets without knowing the random outcome, which ensures fairness and resistance to manipulation.
 
 The game consists of two distinct phases:
 
-1. Commit Phase - The player places a bet by sending Flow tokens to the contract. The contract records the commitment to use a future random value from the Flow Random Beacon. The player receives a Receipt, which they will use to reveal the result later.
-2. Reveal Phase - Once the random value becomes available in the `RandomBeaconHistory` contract, the player submits their Receipt to determine the outcome:
+1. Commit Phase - To place a bet, the player sends Flow tokens to the contract. The contract records the commitment to use a future random value from the Flow Random Beacon. The player receives a Receipt, which they will use to reveal the result later.
+2. Reveal Phase - When the random value becomes available in the `RandomBeaconHistory` contract, the player submits their Receipt to determine the outcome:
    * If the result is 0, the player wins and receives double their bet.
    * If the result is 1, the player loses, and their bet remains in the contract.
 
-### Why Use a Commit-Reveal scheme?[​](#why-use-a-commit-reveal-scheme "Direct link to Why Use a Commit-Reveal scheme?")
+### Why use a Commit-Reveal scheme?[​](#why-use-a-commit-reveal-scheme "Direct link to Why use a Commit-Reveal scheme?")
 
 Similarly to revertible randomness, Commit-Reveal inherits the security of Flow native randomness beacon:
 
 * Ensures security - The Flow Random Beacon provides cryptographically unpredictable and non-biased randomness.
 * Ensure fairness - The Flow Random Beacon uses a Verifiable Random Function (VRF) under the hood which allows any external client or user to verify that randoms were generated fairly.
-* Reduces reliance on external oracles - The randomness is generated natively onchain, avoiding additional complexity, third party risk and cost.
+* Reduces reliance on external oracles - The randomness is generated natively onchain, and avoids additional complexity, third party risk and cost.
 
 In addition, commit-reveal patterns solve the issue of revertible randoms:
 
-* Prevents user manipulation - Players cannot selectively reveal results after seeing the random results.
+* Prevents user manipulation - Players cannot evaluate the outcome and choose to revert the transaction if they do not like the result.
 
-## Building the Coin Toss Contract[​](#building-the-coin-toss-contract "Direct link to Building the Coin Toss Contract")
+info
 
-In this section, we'll walk through constructing the `CoinToss.cdc` contract, which contains the core logic for the Coin Toss game. To function properly, the contract relies on supporting contracts and a proper deployment setup.
+One of the powers of Cadence transactions is that a developer can set post-conditions that must be true, or the transaction will revert. This is very useful for scenarios such as guaranteeing a user receives their purchase in a complex and multi-step transaction, but it also means that they can set conditions to reject the transaction. In an instant-win lottery, this would allow users to test large numbers of tickets for a win without paying the purchase price.
 
-This tutorial will focus specifically on writing and understanding the `CoinToss.cdc` contract, while additional setup details can be found in the [original GitHub repo](https://github.com/onflow/random-coin-toss).
+## Build the Coin Toss contract[​](#build-the-coin-toss-contract "Direct link to Build the Coin Toss contract")
 
-### Step 1: Defining the `CoinToss.cdc` Contract[​](#step-1-defining-the-cointosscdc-contract "Direct link to step-1-defining-the-cointosscdc-contract")
+In this section, we'll walk through how to construct the `CoinToss.cdc` contract, which contains the core logic for the Coin Toss game. To function properly, the contract relies on supporting contracts and a proper deployment setup.
+
+This tutorial will focus specifically on how to write and understand the `CoinToss.cdc` contract, while you can find additional setup details in the [original GitHub repo](https://github.com/onflow/random-coin-toss).
+
+### Step 1: Define the `CoinToss.cdc` contract[​](#step-1-define-the-cointosscdc-contract "Direct link to step-1-define-the-cointosscdc-contract")
 
 Let's define our `CoinToss.cdc` and bring the other supporting contracts.
 
@@ -169,9 +175,9 @@ _18
 
 }`
 
-### Step 2: Implementing the Commit Phase With `flipCoin`[​](#step-2-implementing-the-commit-phase-with-flipcoin "Direct link to step-2-implementing-the-commit-phase-with-flipcoin")
+### Step 2: Implement the commit phase with `flipCoin`[​](#step-2-implement-the-commit-phase-with-flipcoin "Direct link to step-2-implement-the-commit-phase-with-flipcoin")
 
-Let's define the first step in our scheme; the commit phase. We do this through a `flipCoin` public function. In this method, the caller commits a bet. The contract takes note of a future block height and bet amount, returning a `Receipt` resource which is used by the former to reveal the coin toss result and determine their winnings.
+Let's define the first step in our scheme; the commit phase. We do this through a `flipCoin` public function. In this method, the caller commits a bet. The contract takes note of a future block height and bet amount and returns a `Receipt` resource, which the former uses to reveal the coin toss result and determine their winnings.
 
 `_12
 
@@ -217,10 +223,11 @@ _12
 
 }`
 
-### Step 3: Implementing the Reveal Phase With `revealCoin`[​](#step-3-implementing-the-reveal-phase-with-revealcoin "Direct link to step-3-implementing-the-reveal-phase-with-revealcoin")
+### Step 3: Implement the reveal phase With `revealCoin`[​](#step-3-implement-the-reveal-phase-with-revealcoin "Direct link to step-3-implement-the-reveal-phase-with-revealcoin")
 
-Now we implement the reveal phase with the `revealCoin` function. Here the caller provides the Receipt given to them at commitment. The contract then "flips a coin" with `_randomCoin()` providing the Receipt's contained Request. The reveal step is possible only when the protocol random source at the committed block height becomes available.
-If result is 1, user loses, but if it's 0 the user doubles their bet. Note that the caller could condition the revealing transaction, but they've already provided their bet amount so there's no loss for the contract if they do.
+Now we implement the reveal phase with the `revealCoin` function. Here, the caller provides the Receipt they recieve at commitment. The contract then "flips a coin" with `_randomCoin()` providing the Receipt's contained Request. The reveal step is possible only when the protocol random source at the committed block height becomes available.
+
+If result is 1, the user loses, but if it's 0, the user doubles their bet. Note that the caller could condition the revealed transaction, but they've already provided their bet amount, so there's no loss for the contract if they do.
 
 `_23
 
@@ -304,18 +311,18 @@ _23
 
 }`
 
-The final version of `CoinToss.cdc` should look like [this contract code](https://github.com/onflow/random-coin-toss/blob/main/contracts/CoinToss.cdc).
+The final version of `CoinToss.cdc` will look like [this contract code](https://github.com/onflow/random-coin-toss/blob/main/contracts/CoinToss.cdc).
 
-## Testing CoinToss on Flow Testnet[​](#testing-cointoss-on-flow-testnet "Direct link to Testing CoinToss on Flow Testnet")
+## Test CoinToss on Flow Testnet[​](#test-cointoss-on-flow-testnet "Direct link to Test CoinToss on Flow Testnet")
 
-To make things easy, we've already deployed the `CoinToss.cdx` contract for you at this address: [0xb6c99d7ff216a684](https://contractbrowser.com/A.b6c99d7ff216a684.CoinToss). We'll walk through placing a bet and revealing the result using [run.dnz](https://run.dnz.dev/), a Flow-friendly tool similar to Ethereum's Remix.
+To make things easy, we've already deployed the `CoinToss.cdx` contract for you at this address: [0xb6c99d7ff216a684](https://contractbrowser.com/A.b6c99d7ff216a684.CoinToss). We'll walk through how to place a bet and reveal the result with [run.dnz](https://run.dnz.dev/), a Flow-friendly tool similar to Ethereum's Remix.
 
-### Placing a Bet with flipCoin[​](#placing-a-bet-with-flipcoin "Direct link to Placing a Bet with flipCoin")
+### Place a bet with flipCoin[​](#place-a-bet-with-flipcoin "Direct link to Place a bet with flipCoin")
 
-First, you'll submit a bet to the CoinToss contract by withdrawing Flow tokens and storing a receipt. Here's how to get started:
+First, you'll submit a bet to the CoinToss contract. To do this, you'll withdraw Flow tokens and store a receipt. Here's how to get started:
 
-1. Open Your Dev Environment: Head to [run.dnz](https://run.dnz.dev/).
-2. Enter the Transaction Code: Paste the following Cadence code into the editor:
+1. Open Your Dev Environment: head to [run.dnz](https://run.dnz.dev/).
+2. Enter the Transaction Code: paste the following Cadence code into the editor:
 
 `_26
 
@@ -411,16 +418,16 @@ _26
 
 }`
 
-3. Set Your Bet: A modal will pop up asking for the betAmount. Enter a value (e.g., 1.0 for 1 Flow token) and submit
-4. Execute the Transaction: Click "Run," and a WalletConnect window will appear. Choose Blocto, sign in with your email, and hit "Approve" to send the transaction to Testnet.
+3. Set Your Bet: a window will appear that asks for the `betAmount`. Enter a value (such as 1.0 for 1 Flow token) and submit.
+4. Execute the Transaction: click "Run," and a WalletConnect window will appear. Choose Blocto, sign in with your email, and click "Approve" to send the transaction to Testnet.
 
 ![remix5-sc](/assets/images/remix5-cd6636b214a1b17fc4a012322777d3a5.png)
 
 5. Track it: You can take the transaction id to [FlowDiver](https://testnet.flowdiver.io/)[.io](https://testnet.flowdiver.io/tx/9c4f5436535d36a82d4ae35467b37fea8971fa0ab2409dd0d5f861f61e463d98) to have a full view of everything that's going on with this `FlipCoin` transaction.
 
-### Revealing the Coin Toss Result[​](#revealing-the-coin-toss-result "Direct link to Revealing the Coin Toss Result")
+### Reveal the coin toss result[​](#reveal-the-coin-toss-result "Direct link to Reveal the coin toss result")
 
-Let's reveal the outcome of your coin toss to see if you've won. This step uses the receipt from your bet, so ensure you're using the same account that placed the bet. Here's how to do it:
+Let's reveal the outcome of your coin toss to see if you've won. This step uses the receipt from your bet, so ensure you use the same account that placed the bet. Here's how to do it:
 
 1. Return to your Dev Environment: Open [run.dnz](https://run.dnz.dev/) again.
 2. Enter the Reveal Code: Paste the following Cadence transaction into the editor:
@@ -437,7 +444,7 @@ _24
 
 _24
 
-/// Retrieves the saved Receipt and redeems it to reveal the coin toss result, depositing winnings with any luck
+/// Retrieves the saved Receipt, redeems it to reveal the coin toss result, and deposits the winnings with any luck
 
 _24
 
@@ -513,31 +520,31 @@ _24
 
 }`
 
-After running this transaction, we reveal the result of the coin flip and it's 1! Meaning we have won nothing this time, but keep trying!
+After we run this transaction, we reveal the result of the coin flip and it's 1! It means we haven't won anything this time, but keep trying!
 
 You can find the full transaction used for this example, with its result and events, at [FlowDiver.io/tx/](https://testnet.flowdiver.io/tx/a79fb2f947e7803eefe54e48398f6983db4e0d4d5e217d2ba94f8ebdec132957).
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-The commit-reveal scheme, implemented within the context of the Flow Randomness Beacon, provides a robust solution for generating secure and non-revertible randomness in decentralized applications. By leveraging this mechanism, developers can ensure that their applications are:
+The commit-reveal scheme, implemented within the context of the Flow Randomness Beacon, provides a robust solution to generate secure and non-revertible randomness in decentralized applications. When developers leverage this mechanism, they can ensure that their applications are:
 
-* Fair: Outcomes remain unbiased and unpredictable.
-* Resistant to post-selection: Protects against trustless users who cannot reverse their commitments.
+* Fair: outcomes remain unbiased and unpredictable.
+* Resistant to post-selection: protects against trustless users who cannot reverse their commitments.
 
-The CoinToss game serves as a practical example of these principles in action. By walking through its implementation, you've seen firsthand how straightforward yet effective this approach can be—balancing simplicity for developers with robust security for users. As blockchain technology advances, embracing such best practices is essential to creating a decentralized ecosystem that upholds fairness and integrity, empowering developers to innovate with confidence.
+The CoinToss game serves as a practical example of these principles in action. Now that you've walked through its implementation, you've seen firsthand how straightforward yet effective this approach can be, as it balances simplicity for developers with robust security for users. As blockchain technology advances, it's essential that you embrace such best practices to create a decentralized ecosystem that upholds fairness and integrity, which empowers developers to innovate with confidence.
 
 This tutorial has equipped you with hands-on experience and key skills:
 
 * You deployed a Cadence smart contract on the Flow blockchain.
 * You implemented commit-reveal to ensure fairness.
 * You interacted with onchain randomness features on Flow.
-* You built and tested the Coin Toss game using the Flow Testnet.
+* You built and tested the Coin Toss game with the Flow Testnet.
 
-By harnessing the built-in randomness capabilities on Flow, you can now focus on crafting engaging, user-centric experiences without grappling with the complexities or limitations of external systems. This knowledge empowers you to create secure, scalable, and fair decentralized applications.
+When you harness the built-in randomness capabilities on Flow, you can create engaging, user-centric experiences without grappling with the complexities or limitations of external systems. This knowledge empowers you to create secure, scalable, and fair decentralized applications.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/native-vrf/commit-reveal-cadence.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Nov 12, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -552,9 +559,9 @@ VRF (Randomness) in Solidity](/blockchain-development-tutorials/native-vrf/vrf-i
 Copy as Markdown
 
 * [Objectives](#objectives)* [Prerequisites](#prerequisites)* [Overview](#overview)
-      + [What is the Coin Toss Game?](#what-is-the-coin-toss-game)+ [Why Use a Commit-Reveal scheme?](#why-use-a-commit-reveal-scheme)* [Building the Coin Toss Contract](#building-the-coin-toss-contract)
-        + [Step 1: Defining the `CoinToss.cdc` Contract](#step-1-defining-the-cointosscdc-contract)+ [Step 2: Implementing the Commit Phase With `flipCoin`](#step-2-implementing-the-commit-phase-with-flipcoin)+ [Step 3: Implementing the Reveal Phase With `revealCoin`](#step-3-implementing-the-reveal-phase-with-revealcoin)* [Testing CoinToss on Flow Testnet](#testing-cointoss-on-flow-testnet)
-          + [Placing a Bet with flipCoin](#placing-a-bet-with-flipcoin)+ [Revealing the Coin Toss Result](#revealing-the-coin-toss-result)* [Conclusion](#conclusion)
+      + [What is the Coin Toss Game?](#what-is-the-coin-toss-game)+ [Why use a Commit-Reveal scheme?](#why-use-a-commit-reveal-scheme)* [Build the Coin Toss contract](#build-the-coin-toss-contract)
+        + [Step 1: Define the `CoinToss.cdc` contract](#step-1-define-the-cointosscdc-contract)+ [Step 2: Implement the commit phase with `flipCoin`](#step-2-implement-the-commit-phase-with-flipcoin)+ [Step 3: Implement the reveal phase With `revealCoin`](#step-3-implement-the-reveal-phase-with-revealcoin)* [Test CoinToss on Flow Testnet](#test-cointoss-on-flow-testnet)
+          + [Place a bet with flipCoin](#place-a-bet-with-flipcoin)+ [Reveal the coin toss result](#reveal-the-coin-toss-result)* [Conclusion](#conclusion)
 
 Flow
 

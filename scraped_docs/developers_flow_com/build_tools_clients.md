@@ -74,16 +74,6 @@ Flow provides a comprehensive suite of client tools and SDKs designed to help de
 * Event monitoring
 * Easy integration with Python applications
 
-## Ruby[​](#ruby "Direct link to Ruby")
-
-[FlowClient](https://github.com/glucode/flow_client) is a Ruby gRPC client that enables:
-
-* Direct blockchain communication
-* Transaction processing
-* Account management
-* Event handling
-* Ruby-native blockchain integration
-
 ## JVM[​](#jvm "Direct link to JVM")
 
 [Flow JVM SDK](https://github.com/onflow/flow-jvm-sdk) supports JVM-compatible languages (Java, Kotlin, Scala) with:
@@ -93,36 +83,6 @@ Flow provides a comprehensive suite of client tools and SDKs designed to help de
 * Account handling
 * Event subscription
 * Cross-platform compatibility
-
-## Swift[​](#swift "Direct link to Swift")
-
-[flow-swift](https://github.com/Outblock/flow-swift) is designed for iOS development, offering:
-
-* Native iOS integration
-* Wallet connectivity
-* Transaction management
-* Account handling
-* SwiftUI support
-
-## .NET[​](#net "Direct link to .NET")
-
-[flow.net](https://github.com/tyronbrand/flow.net) provides .NET developers with:
-
-* C# and .NET Core support
-* Transaction management
-* Account handling
-* Event monitoring
-* Cross-platform compatibility
-
-## Rust[​](#rust "Direct link to Rust")
-
-[Rust SDK](https://github.com/fee1-dead/flow.rs) offers Rust developers:
-
-* High-performance blockchain interaction
-* Type-safe transaction handling
-* Account management
-* Event subscription
-* Memory safety guarantees
 
 ## PHP[​](#php "Direct link to PHP")
 
@@ -158,7 +118,7 @@ Each client tool is designed with specific use cases and developer needs in mind
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/index.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Oct 30, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -172,7 +132,7 @@ Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 
 Copy as Markdown
 
-* [JavaScript (FCL)](#javascript-fcl)* [Go SDK](#go-sdk)* [Python SDK](#python-sdk)* [Ruby](#ruby)* [JVM](#jvm)* [Swift](#swift)* [.NET](#net)* [Rust](#rust)* [PHP](#php)* [Elixir](#elixir)* [HTTP API](#http-api)
+* [JavaScript (FCL)](#javascript-fcl)* [Go SDK](#go-sdk)* [Python SDK](#python-sdk)* [JVM](#jvm)* [PHP](#php)* [Elixir](#elixir)* [HTTP API](#http-api)
 
 Flow
 

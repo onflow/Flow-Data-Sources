@@ -44,7 +44,7 @@ Search
 
 On this page
 
-# Cadence environment eetup
+# Cadence environment setup
 
 This comprehensive tutorial will guide you through how to set up your complete development environment, deploy your first smart contract, and learn the fundamentals of Flow development. You'll work hands-on with the Flow CLI, local emulator, and a real smart contract to build practical skills from day one.
 
@@ -654,7 +654,7 @@ Welcome to the Flow developer community—you're ready to build the future of di
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/getting-started/cadence-environment-setup.md)
 
-Last updated on **Oct 30, 2025** by **cshannon1218**
+Last updated on **Nov 14, 2025** by **0xLisanAlGaib**
 
 [Previous
 

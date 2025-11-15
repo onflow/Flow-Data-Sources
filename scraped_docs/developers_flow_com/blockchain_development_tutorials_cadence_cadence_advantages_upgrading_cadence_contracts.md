@@ -46,8 +46,6 @@ On this page
 
 # Upgrading Cadence Contracts
 
-## Overview[​](#overview "Direct link to Overview")
-
 In Cadence, you can upgrade deployed contracts by adding new functionality while preserving existing state and maintaining the same contract address. Unlike other blockchain platforms that require complex proxy patterns or complete redeployment, Cadence allows you to seamlessly extend your contracts with new functions and events through multiple incremental upgrades.
 
 This tutorial demonstrates how to upgrade a deployed contract through two scenarios:
@@ -73,11 +71,11 @@ After you complete this guide, you will be able to:
 * A **funded testnet account** to deploy and update contracts.
   + See [Create accounts](/build/tools/flow-cli/commands#create-accounts) and [Fund accounts](/build/tools/flow-cli/commands#fund-accounts) in the Flow CLI commands.
 
-## Contract Upgrade Overview[​](#contract-upgrade-overview "Direct link to Contract Upgrade Overview")
+## Contract upgrade overview[​](#contract-upgrade-overview "Direct link to Contract upgrade overview")
 
 Cadence provides a sophisticated contract upgrade system that allows you to modify deployed contracts while ensuring data consistency and preventing runtime crashes. It's crucial for successful upgrades that you understand what you can and can't change.
 
-### What You CAN Upgrade[​](#what-you-can-upgrade "Direct link to What You CAN Upgrade")
+### What you CAN upgrade[​](#what-you-can-upgrade "Direct link to What you CAN upgrade")
 
 * **Add new functions** - Extend contract functionality with new methods.
 * **Add new events** - Emit additional events for monitoring and indexing.
@@ -87,7 +85,7 @@ Cadence provides a sophisticated contract upgrade system that allows you to modi
 * **Change access modifiers** - Update visibility of functions and fields.
 * **Reorder existing fields** - Field order doesn't affect storage.
 
-### What You CANNOT Upgrade[​](#what-you-cannot-upgrade "Direct link to What You CANNOT Upgrade")
+### What you CANNOT upgrade[​](#what-you-cannot-upgrade "Direct link to What you CANNOT upgrade")
 
 * **Add new fields** - Would cause runtime crashes when loading existing data.
 * **Change field types** - Would cause deserialization errors.
@@ -95,7 +93,7 @@ Cadence provides a sophisticated contract upgrade system that allows you to modi
 * **Change enum structures** - Raw values must remain consistent.
 * **Change contract name** - Contract address must remain the same.
 
-### Why These Restrictions Exist[​](#why-these-restrictions-exist "Direct link to Why These Restrictions Exist")
+### Why these restrictions exist[​](#why-these-restrictions-exist "Direct link to Why these restrictions exist")
 
 The [Cadence Contract Updatability documentation](https://cadence-lang.org/docs/language/contract-updatability) explains that these restrictions prevent:
 
@@ -106,7 +104,7 @@ The [Cadence Contract Updatability documentation](https://cadence-lang.org/docs/
 
 The validation system ensures that existing stored data remains valid and accessible after upgrades.
 
-## Getting Started[​](#getting-started "Direct link to Getting Started")
+## Get started[​](#get-started "Direct link to Get started")
 
 Create a new Flow project for this tutorial:
 
@@ -120,7 +118,7 @@ flow init upgrading-contracts-tutorial`
 
 Follow the prompts and create a `Basic Cadence project (no dependencies)` then open the new project in your editor.
 
-### Create and Fund Testnet Account[​](#create-and-fund-testnet-account "Direct link to Create and Fund Testnet Account")
+### Create and fund testnet account[​](#create-and-fund-testnet-account "Direct link to Create and fund testnet account")
 
 You'll need a funded testnet account to deploy and update contracts. In a terminal in the root of your project folder:
 
@@ -155,7 +153,7 @@ The faucet provides free testnet tokens for development and testing purposes. Th
 
 ---
 
-## Deploy the Initial Counter Contract[​](#deploy-the-initial-counter-contract "Direct link to Deploy the Initial Counter Contract")
+## Deploy the initial counter contract[​](#deploy-the-initial-counter-contract "Direct link to Deploy the initial counter contract")
 
 To start, let's deploy a simple Counter contract to testnet.
 
@@ -289,7 +287,7 @@ _36
 
 }`
 
-### Configure Deployment[​](#configure-deployment "Direct link to Configure Deployment")
+### Configure deployment[​](#configure-deployment "Direct link to Configure deployment")
 
 Add testnet deployment configuration to your `flow.json`:
 
@@ -360,7 +358,7 @@ _10
 
 🎉 All contracts deployed successfully`
 
-### Test the Initial Contract[​](#test-the-initial-contract "Direct link to Test the Initial Contract")
+### Test the initial contract[​](#test-the-initial-contract "Direct link to Test the initial contract")
 
 Use the provided transaction to test initial functionality:
 
@@ -530,11 +528,11 @@ _25
 
 ---
 
-## Upgrade the Contract - Part 1: Adding Event for Even Numbers[​](#upgrade-the-contract---part-1-adding-event-for-even-numbers "Direct link to Upgrade the Contract - Part 1: Adding Event for Even Numbers")
+## Upgrade the contract - Part 1: Add event for even numbers[​](#upgrade-the-contract---part-1-add-event-for-even-numbers "Direct link to Upgrade the contract - Part 1: Add event for even numbers")
 
 Let's start with a realistic scenario: What if we've realized it's very important to our users that they know when the counter reaches an even number, but we forgot to add an event for that case? Let's add that functionality first.
 
-### Modify the Counter Contract - First Upgrade[​](#modify-the-counter-contract---first-upgrade "Direct link to Modify the Counter Contract - First Upgrade")
+### Modify the Counter contract - first upgrade[​](#modify-the-counter-contract---first-upgrade "Direct link to Modify the Counter contract - first upgrade")
 
 Update `cadence/contracts/Counter.cdc` to add the new event and enhance the existing `increment()` function:
 
@@ -676,7 +674,7 @@ _39
 
 }`
 
-### Key Changes Made - Part 1[​](#key-changes-made---part-1 "Direct link to Key Changes Made - Part 1")
+### Key changes made - part 1[​](#key-changes-made---part-1 "Direct link to Key changes made - part 1")
 
 This first upgrade adds:
 
@@ -690,11 +688,11 @@ This demonstrates how you can add new behavior and modify existing function beha
 
 ---
 
-## Update the Deployed Contract - Part 1[​](#update-the-deployed-contract---part-1 "Direct link to Update the Deployed Contract - Part 1")
+## Update the deployed contract - Part 1[​](#update-the-deployed-contract---part-1 "Direct link to Update the deployed contract - Part 1")
 
 Now let's update the deployed contract on testnet using the Flow CLI update command with our first upgrade.
 
-### Update the Contract[​](#update-the-contract "Direct link to Update the Contract")
+### Update the contract[​](#update-the-contract "Direct link to Update the contract")
 
 Use the [Flow CLI update contract command](/build/tools/flow-cli/accounts/account-update-contract) to upgrade your deployed contract:
 
@@ -770,7 +768,7 @@ The contract successfully updated! Notice that:
 * The existing state (`count`) is preserved.
 * New functionality is available.
 
-### Test the First Upgrade[​](#test-the-first-upgrade "Direct link to Test the First Upgrade")
+### Test the first upgrade[​](#test-the-first-upgrade "Direct link to Test the first upgrade")
 
 Let's test the new event functionality. Create a simple transaction to test the enhanced `increment()` function:
 
@@ -829,11 +827,11 @@ Notice that:
 
 ---
 
-## Upgrade the Contract - Part 2: Adding More Functionality[​](#upgrade-the-contract---part-2-adding-more-functionality "Direct link to Upgrade the Contract - Part 2: Adding More Functionality")
+## Upgrade the contract - Part 2: add more functionality[​](#upgrade-the-contract---part-2-add-more-functionality "Direct link to Upgrade the contract - Part 2: add more functionality")
 
 Now that we've successfully added the even number event, let's add more functionality to our contract. This demonstrates how you can make multiple incremental upgrades to extend your contract's capabilities.
 
-### Modify the Counter Contract - Second Upgrade[​](#modify-the-counter-contract---second-upgrade "Direct link to Modify the Counter Contract - Second Upgrade")
+### Modify the Counter contract - second upgrade[​](#modify-the-counter-contract---second-upgrade "Direct link to Modify the Counter contract - second upgrade")
 
 Update `cadence/contracts/Counter.cdc` to add the additional functionality:
 
@@ -1057,7 +1055,7 @@ _62
 
 }`
 
-### Key Changes Made - Part 2[​](#key-changes-made---part-2 "Direct link to Key Changes Made - Part 2")
+### Key changes made - part 2[​](#key-changes-made---part-2 "Direct link to Key changes made - part 2")
 
 This second upgrade adds:
 
@@ -1068,11 +1066,11 @@ This second upgrade adds:
 
 ---
 
-## Update the Deployed Contract - Part 2[​](#update-the-deployed-contract---part-2 "Direct link to Update the Deployed Contract - Part 2")
+## Update the deployed contract - Part 2[​](#update-the-deployed-contract---part-2 "Direct link to Update the deployed contract - Part 2")
 
 Now let's update the deployed contract with our second upgrade.
 
-### Update the Contract Again[​](#update-the-contract-again "Direct link to Update the Contract Again")
+### Update the contract again[​](#update-the-contract-again "Direct link to Update the contract again")
 
 Use the [Flow CLI update contract command](/build/tools/flow-cli/accounts/account-update-contract) to upgrade your deployed contract with the additional functionality:
 
@@ -1149,7 +1147,7 @@ The contract successfully updated again! Notice that:
 * All previous functionality is still available.
 * New functionality is now available.
 
-### Verify the Update[​](#verify-the-update "Direct link to Verify the Update")
+### Verify the update[​](#verify-the-update "Direct link to Verify the update")
 
 Let's verify that the existing functionality still works and the new functionality is available.
 
@@ -1210,11 +1208,11 @@ Notice that:
 
 ---
 
-## Test the New Functionality[​](#test-the-new-functionality "Direct link to Test the New Functionality")
+## Test the new functionality[​](#test-the-new-functionality "Direct link to Test the new functionality")
 
 Now let's create a transaction to test the new even counter functionality.
 
-### Create Test Transaction[​](#create-test-transaction "Direct link to Create Test Transaction")
+### Create test transaction[​](#create-test-transaction "Direct link to Create test transaction")
 
 Create a new transaction to test the upgraded functionality:
 
@@ -1350,7 +1348,7 @@ _35
 
 }`
 
-### Run the Test Transaction[​](#run-the-test-transaction "Direct link to Run the Test Transaction")
+### Run the test transaction[​](#run-the-test-transaction "Direct link to Run the test transaction")
 
 Execute the transaction to test the new functionality:
 
@@ -1366,7 +1364,7 @@ You will see logs that show:
 * The original `increment()` function still working normally
 * The new `CounterIncrementedToEven` event being emitted when incrementing results in an even number
 
-### Verify Final State[​](#verify-final-state "Direct link to Verify Final State")
+### Verify final state[​](#verify-final-state "Direct link to Verify final state")
 
 Run the check script again to see the final state:
 
@@ -1388,11 +1386,11 @@ This confirms that:
 
 ---
 
-## Understanding Contract Upgrades in Cadence[​](#understanding-contract-upgrades-in-cadence "Direct link to Understanding Contract Upgrades in Cadence")
+## Understand contract upgrades in Cadence[​](#understand-contract-upgrades-in-cadence "Direct link to Understand contract upgrades in Cadence")
 
 Cadence provides a sophisticated contract upgrade system that ensures data consistency while allowing controlled modifications. The [Cadence Contract Updatability documentation](https://cadence-lang.org/docs/language/contract-updatability) provides comprehensive details about the validation rules and restrictions.
 
-### What You Can Upgrade[​](#what-you-can-upgrade-1 "Direct link to What You Can Upgrade")
+### What you can upgrade[​](#what-you-can-upgrade-1 "Direct link to What you can upgrade")
 
 When you upgrade Cadence contracts, you can:
 
@@ -1406,7 +1404,7 @@ When you upgrade Cadence contracts, you can:
 * **Change access modifiers** of fields and functions
 * **Reorder existing fields** (order doesn't affect storage)
 
-### What You Cannot Change[​](#what-you-cannot-change "Direct link to What You Cannot Change")
+### What You cannot change[​](#what-you-cannot-change "Direct link to What You cannot change")
 
 There are important limitations to contract upgrades:
 
@@ -1431,9 +1429,9 @@ warning
 
 The validation system focuses on preventing runtime inconsistencies with stored data. It does not ensure that programs which import the updated contract remain valid - you may need to update dependent code if you change function signatures or remove functions.
 
-### Advanced Upgrade Patterns[​](#advanced-upgrade-patterns "Direct link to Advanced Upgrade Patterns")
+### Advanced upgrade patterns[​](#advanced-upgrade-patterns "Direct link to Advanced upgrade patterns")
 
-#### The `#removedType` Pragma[​](#the-removedtype-pragma "Direct link to the-removedtype-pragma")
+#### The `#removedType` pragma[​](#the-removedtype-pragma "Direct link to the-removedtype-pragma")
 
 For cases where you need to remove a type declaration (which is normally invalid), Cadence provides the `#removedType` pragma. This allows you to "tombstone" a type, which prevents it from being re-added with the same name:
 
@@ -1465,7 +1463,7 @@ This pragma:
 * **Cannot be removed** after you add it (prevents circumventing restrictions).
 * **Only works with composite types**, not interfaces.
 
-#### Enum Upgrade Restrictions[​](#enum-upgrade-restrictions "Direct link to Enum Upgrade Restrictions")
+#### Enum upgrade restrictions[​](#enum-upgrade-restrictions "Direct link to Enum upgrade restrictions")
 
 Enums have special restrictions due to their raw value representation:
 
@@ -1474,7 +1472,7 @@ Enums have special restrictions due to their raw value representation:
 * **Cannot change the raw type** of an enum.
 * **Cannot change enum case names** (would change stored values' meaning).
 
-### Best Practices[​](#best-practices "Direct link to Best Practices")
+### Best practices[​](#best-practices "Direct link to Best practices")
 
 When you upgrade contracts:
 
@@ -1489,7 +1487,7 @@ When you upgrade contracts:
 
 ---
 
-## Why This Matters[​](#why-this-matters "Direct link to Why This Matters")
+## Why this matters[​](#why-this-matters "Direct link to Why this matters")
 
 Cadence's contract upgrade model provides several advantages:
 
@@ -1526,7 +1524,7 @@ This incremental upgrade model makes Cadence contracts more flexible and maintai
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/cadence-advantages/upgrading-cadence-contracts.md)
 
-Last updated on **Oct 27, 2025** by **cshannon1218**
+Last updated on **Oct 30, 2025** by **cshannon1218**
 
 [Previous
 
@@ -1540,16 +1538,16 @@ Account Linking](/blockchain-development-tutorials/cadence/account-management)
 
 Copy as Markdown
 
-* [Overview](#overview)* [Objectives](#objectives)* [Prerequisites](#prerequisites)* [Contract Upgrade Overview](#contract-upgrade-overview)
-        + [What You CAN Upgrade](#what-you-can-upgrade)+ [What You CANNOT Upgrade](#what-you-cannot-upgrade)+ [Why These Restrictions Exist](#why-these-restrictions-exist)* [Getting Started](#getting-started)
-          + [Create and Fund Testnet Account](#create-and-fund-testnet-account)* [Deploy the Initial Counter Contract](#deploy-the-initial-counter-contract)
-            + [Configure Deployment](#configure-deployment)+ [Deploy to Testnet](#deploy-to-testnet)+ [Test the Initial Contract](#test-the-initial-contract)* [Upgrade the Contract - Part 1: Adding Event for Even Numbers](#upgrade-the-contract---part-1-adding-event-for-even-numbers)
-              + [Modify the Counter Contract - First Upgrade](#modify-the-counter-contract---first-upgrade)+ [Key Changes Made - Part 1](#key-changes-made---part-1)* [Update the Deployed Contract - Part 1](#update-the-deployed-contract---part-1)
-                + [Update the Contract](#update-the-contract)+ [Test the First Upgrade](#test-the-first-upgrade)* [Upgrade the Contract - Part 2: Adding More Functionality](#upgrade-the-contract---part-2-adding-more-functionality)
-                  + [Modify the Counter Contract - Second Upgrade](#modify-the-counter-contract---second-upgrade)+ [Key Changes Made - Part 2](#key-changes-made---part-2)* [Update the Deployed Contract - Part 2](#update-the-deployed-contract---part-2)
-                    + [Update the Contract Again](#update-the-contract-again)+ [Verify the Update](#verify-the-update)* [Test the New Functionality](#test-the-new-functionality)
-                      + [Create Test Transaction](#create-test-transaction)+ [Run the Test Transaction](#run-the-test-transaction)+ [Verify Final State](#verify-final-state)* [Understanding Contract Upgrades in Cadence](#understanding-contract-upgrades-in-cadence)
-                        + [What You Can Upgrade](#what-you-can-upgrade-1)+ [What You Cannot Change](#what-you-cannot-change)+ [Validation Goals](#validation-goals)+ [Advanced Upgrade Patterns](#advanced-upgrade-patterns)+ [Best Practices](#best-practices)* [Why This Matters](#why-this-matters)* [Conclusion](#conclusion)
+* [Objectives](#objectives)* [Prerequisites](#prerequisites)* [Contract upgrade overview](#contract-upgrade-overview)
+      + [What you CAN upgrade](#what-you-can-upgrade)+ [What you CANNOT upgrade](#what-you-cannot-upgrade)+ [Why these restrictions exist](#why-these-restrictions-exist)* [Get started](#get-started)
+        + [Create and fund testnet account](#create-and-fund-testnet-account)* [Deploy the initial counter contract](#deploy-the-initial-counter-contract)
+          + [Configure deployment](#configure-deployment)+ [Deploy to Testnet](#deploy-to-testnet)+ [Test the initial contract](#test-the-initial-contract)* [Upgrade the contract - Part 1: Add event for even numbers](#upgrade-the-contract---part-1-add-event-for-even-numbers)
+            + [Modify the Counter contract - first upgrade](#modify-the-counter-contract---first-upgrade)+ [Key changes made - part 1](#key-changes-made---part-1)* [Update the deployed contract - Part 1](#update-the-deployed-contract---part-1)
+              + [Update the contract](#update-the-contract)+ [Test the first upgrade](#test-the-first-upgrade)* [Upgrade the contract - Part 2: add more functionality](#upgrade-the-contract---part-2-add-more-functionality)
+                + [Modify the Counter contract - second upgrade](#modify-the-counter-contract---second-upgrade)+ [Key changes made - part 2](#key-changes-made---part-2)* [Update the deployed contract - Part 2](#update-the-deployed-contract---part-2)
+                  + [Update the contract again](#update-the-contract-again)+ [Verify the update](#verify-the-update)* [Test the new functionality](#test-the-new-functionality)
+                    + [Create test transaction](#create-test-transaction)+ [Run the test transaction](#run-the-test-transaction)+ [Verify final state](#verify-final-state)* [Understand contract upgrades in Cadence](#understand-contract-upgrades-in-cadence)
+                      + [What you can upgrade](#what-you-can-upgrade-1)+ [What You cannot change](#what-you-cannot-change)+ [Validation Goals](#validation-goals)+ [Advanced upgrade patterns](#advanced-upgrade-patterns)+ [Best practices](#best-practices)* [Why this matters](#why-this-matters)* [Conclusion](#conclusion)
 
 Flow
 

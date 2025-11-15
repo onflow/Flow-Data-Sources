@@ -109,4 +109,4 @@ See more detail on <https://github.com/Outblock/viem-flow-evm-demo>
 
 [PreviousWeb3js](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3js)[NextWeb3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
 
-Last updated 9 months ago
+Last updated 10 months ago

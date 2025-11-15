@@ -36,38 +36,38 @@ Search
 
 On this page
 
-# Add Flow Cadence to Your wagmi App
+# Add Flow Cadence to your wagmi app
 
-This tutorial demonstrates how to enhance your existing wagmi/RainbowKit application with Flow Cadence capabilities. By integrating the Flow Client Library (FCL) with your EVM stack, you can unlock powerful features like batch transactions with a single signature.
+This tutorial demonstrates how to enhance your existing wagmi/RainbowKit application with Flow Cadence capabilities. When you integrate the Flow Client Library (FCL) with your EVM stack, you can unlock powerful features like batch transactions with a single signature.
 
-## Video Overview[​](#video-overview "Direct link to Video Overview")
+## Video overview[​](#video-overview "Direct link to Video overview")
 
 ## Objectives[​](#objectives "Direct link to Objectives")
 
-After completing this guide, you'll be able to:
+After you complete this guide, you'll be able to:
 
-* Add FCL to your existing wagmi/RainbowKit application
-* Configure FCL to work alongside your EVM wallet connections
-* Implement batch transactions that execute multiple EVM calls in a single Cadence transaction
-* Display both Cadence and EVM addresses in your application
+* Add FCL to your existing wagmi/RainbowKit application.
+* Configure FCL to work alongside your EVM wallet connections.
+* Implement batch transactions that execute multiple EVM calls in a single Cadence transaction.
+* Display both Cadence and EVM addresses in your application.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-### Next.js and Modern Frontend Development[​](#nextjs-and-modern-frontend-development "Direct link to Next.js and Modern Frontend Development")
+### Next.js and modern frontend development[​](#nextjs-and-modern-frontend-development "Direct link to Next.js and modern frontend development")
 
-This tutorial uses [Next.js](https://nextjs.org/docs/app/getting-started/installation). You don't need to be an expert, but it's helpful to be comfortable with development using a current React framework. You'll be on your own to select and use a package manager, manage Node versions, and other frontend environment tasks. If you don't have your own preference, you can just follow along with us and use [npm](https://www.npmjs.com/).
+This tutorial uses [Next.js](https://nextjs.org/docs/app/getting-started/installation). You don't need to be an expert, but it's helpful to be comfortable with development with a current React framework. You'll be on your own to select and use a package manager, manage Node versions, and other frontend environment tasks. If you don't have your own preference, you can just follow along with us and use [npm](https://www.npmjs.com/).
 
-### Solidity and Cadence Smart Contract Development[​](#solidity-and-cadence-smart-contract-development "Direct link to Solidity and Cadence Smart Contract Development")
+### Solidity and Cadence smart contract development[​](#solidity-and-cadence-smart-contract-development "Direct link to Solidity and Cadence smart contract development")
 
-Apps using the hybrid approach can interact with both [Cadence](https://cadence-lang.org/docs) and [Solidity](https://soliditylang.org/) smart contracts. You don't need to be an expert in either of these, but it's helpful to be familiar with how smart contracts work in at least one of these languages.
+Apps that use the hybrid approach can interact with both [Cadence](https://cadence-lang.org/docs) and [Solidity](https://soliditylang.org/) smart contracts. You don't need to be an expert in either of these, but it's helpful to be familiar with how smart contracts work in at least one of these languages.
 
-### Onchain App Frontends[​](#onchain-app-frontends "Direct link to Onchain App Frontends")
+### Onchain app frontends[​](#onchain-app-frontends "Direct link to Onchain app frontends")
 
-We're assuming you're familiar with [wagmi](https://wagmi.sh/), [viem](https://viem.sh/), and [RainbowKit](https://www.rainbowkit.com/). If you're coming from the Cadence, you might want to take a quick look at the getting started guides for these platforms. They're all excellent and will rapidly get you up to speed on how the EVM world commonly connects their apps to their contracts.
+We assume that you're familiar with [wagmi](https://wagmi.sh/), [viem](https://viem.sh/), and [RainbowKit](https://www.rainbowkit.com/). If you come from the Cadence, you might want to take a quick look at the getting started guides for these platforms. They're all excellent and will rapidly get you up to speed on how the EVM world commonly connects their apps to their contracts.
 
-## Create an App[​](#create-an-app "Direct link to Create an App")
+## Create an app[​](#create-an-app "Direct link to Create an app")
 
-Start by creating an app using [RainbowKit](https://www.rainbowkit.com/)'s scaffold:
+To start, create an app with [RainbowKit](https://www.rainbowkit.com/)'s scaffold:
 
 `_10
 
@@ -75,7 +75,7 @@ npm init @rainbow-me/rainbowkit@latest`
 
 ## Install Required Dependencies[​](#install-required-dependencies "Direct link to Install Required Dependencies")
 
-Continue by adding the necessary Flow dependencies to your project:
+Next, add the necessary Flow dependencies to your project:
 
 `_10
 
@@ -83,10 +83,10 @@ npm install @onflow/fcl @onflow/fcl-rainbowkit-adapter`
 
 These packages provide:
 
-* `@onflow/fcl`: The Flow Client Library for interacting with the Cadence VM
-* `@onflow/fcl-rainbowkit-adapter`: An adapter that allows RainbowKit to work with FCL-compatible wallets
+* `@onflow/fcl`: The Flow Client Library for interacting with the Cadence VM.
+* `@onflow/fcl-rainbowkit-adapter`: An adapter that allows RainbowKit to work with FCL-compatible wallets.
 
-## Step 2: Configure FCL in Your wagmi Setup[​](#step-2-configure-fcl-in-your-wagmi-setup "Direct link to Step 2: Configure FCL in Your wagmi Setup")
+## Step 2: Configure FCL in your wagmi setup[​](#step-2-configure-fcl-in-your-wagmi-setup "Direct link to Step 2: Configure FCL in your wagmi setup")
 
 Update your wagmi configuration (`src/wagmi.ts`) to include FCL:
 
@@ -234,11 +234,11 @@ _38
 
 });`
 
-## Step 3: Add the Batch Transaction Utility[​](#step-3-add-the-batch-transaction-utility "Direct link to Step 3: Add the Batch Transaction Utility")
+## Step 3: Add the batch transaction utility[​](#step-3-add-the-batch-transaction-utility "Direct link to Step 3: Add the batch transaction utility")
 
 info
 
-You can skip this step by using a [pre-built utility from the `@onflow/react-sdk`](/build/tools/react-sdk#usecrossvmbatchtransaction) package. However, if you want to understand how batch transactions work under the hood, continue with this custom implementation.
+You can skip this step if you use a [pre-built utility from the `@onflow/react-sdk`](/build/tools/react-sdk#usecrossvmbatchtransaction) package. However, if you want to understand how batch transactions work under the hood, continue with this custom implementation.
 
 Create a custom hook in `src/hooks/useBatchTransactions.ts` to handle batch transactions. This utility allows you to execute multiple EVM transactions in a single Cadence transaction:
 
@@ -1066,7 +1066,7 @@ _219
 
 ## Step 4: Implement the UI[​](#step-4-implement-the-ui "Direct link to Step 4: Implement the UI")
 
-Now, update your application's `page.tsx` to use the batch transaction utility. Update
+Now, update your application's `page.tsx` to use the batch transaction utility. Update:
 
 `_87
 
@@ -1404,41 +1404,41 @@ _87
 
 export default Page;`
 
-## Step 5: Test Your Application[​](#step-5-test-your-application "Direct link to Step 5: Test Your Application")
+## Step 5: Test Your application[​](#step-5-test-your-application "Direct link to Step 5: Test Your application")
 
 1. Start your development server:
 
    `_10
 
    npm run dev`
-2. Connect your wallet using the RainbowKit `ConnectButton`
+2. Connect your wallet with the RainbowKit `ConnectButton`
 
    * Make sure to use a Cadence-compatible wallet like Flow Wallet
-3. Click the "Send Batch Transaction" button
+3. Click "Send Batch Transaction"
 
-   * You'll be prompted to approve the Cadence transaction
-   * This transaction will execute multiple EVM calls in a single atomic operation
+   * You'll be prompted to approve the Cadence transaction.
+   * This transaction will execute multiple EVM calls in a single atomic operation.
 4. Observe the results
 
-   * The Cadence transaction ID will be displayed
-   * The results of each EVM transaction will be shown
+   * The Cadence transaction ID will be displayed.
+   * The results of each EVM transaction will be shown.
 
 ## How It Works[​](#how-it-works "Direct link to How It Works")
 
 When you call `sendBatchTransaction`, the following happens:
 
-1. A Cadence transaction is created that includes all your EVM calls
-2. The transaction is executed using FCL's `mutate` function
-3. The Cadence transaction calls each EVM transaction in sequence
-4. If any transaction fails and `mustPass` is true, the entire batch is rolled back
-5. The results of each EVM transaction are returned
+1. A Cadence transaction is created that includes all your EVM calls.
+2. The transaction is executed with FCL's `mutate` function.
+3. The Cadence transaction calls each EVM transaction in sequence.
+4. If any transaction fails and `mustPass` is true, the entire batch is rolled back.
+5. The results of each EVM transaction are returned.
 
 This approach gives you several advantages:
 
-* **Atomic Operations**: All transactions succeed or fail together
-* **Single Signature**: Users only need to sign one transaction
-* **Gas Efficiency**: Reduced gas costs compared to separate transactions
-* **Simplified UX**: Users don't need to approve multiple transactions
+* **Atomic Operations**: All transactions succeed or fail together.
+* **Single Signature**: Users only need to sign one transaction.
+* **Gas Efficiency**: Reduced gas costs compared to separate transactions.
+* **Simplified UX**: Users don't need to approve multiple transactions.
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
@@ -1450,7 +1450,7 @@ For a complete reference implementation, check out the [FCL + RainbowKit + wagmi
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cross-vm-apps/add-to-wagmi.md)
 
-Last updated on **Oct 3, 2025** by **mfbz**
+Last updated on **Nov 5, 2025** by **cshannon1218**
 
 [Previous
 
@@ -1464,8 +1464,8 @@ Batched EVM Transactions](/blockchain-development-tutorials/cross-vm-apps/batche
 
 Copy as Markdown
 
-* [Video Overview](#video-overview)* [Objectives](#objectives)* [Prerequisites](#prerequisites)
-      + [Next.js and Modern Frontend Development](#nextjs-and-modern-frontend-development)+ [Solidity and Cadence Smart Contract Development](#solidity-and-cadence-smart-contract-development)+ [Onchain App Frontends](#onchain-app-frontends)* [Create an App](#create-an-app)* [Install Required Dependencies](#install-required-dependencies)* [Step 2: Configure FCL in Your wagmi Setup](#step-2-configure-fcl-in-your-wagmi-setup)* [Step 3: Add the Batch Transaction Utility](#step-3-add-the-batch-transaction-utility)* [Step 4: Implement the UI](#step-4-implement-the-ui)* [Step 5: Test Your Application](#step-5-test-your-application)* [How It Works](#how-it-works)* [Conclusion](#conclusion)* [Reference Implementation](#reference-implementation)
+* [Video overview](#video-overview)* [Objectives](#objectives)* [Prerequisites](#prerequisites)
+      + [Next.js and modern frontend development](#nextjs-and-modern-frontend-development)+ [Solidity and Cadence smart contract development](#solidity-and-cadence-smart-contract-development)+ [Onchain app frontends](#onchain-app-frontends)* [Create an app](#create-an-app)* [Install Required Dependencies](#install-required-dependencies)* [Step 2: Configure FCL in your wagmi setup](#step-2-configure-fcl-in-your-wagmi-setup)* [Step 3: Add the batch transaction utility](#step-3-add-the-batch-transaction-utility)* [Step 4: Implement the UI](#step-4-implement-the-ui)* [Step 5: Test Your application](#step-5-test-your-application)* [How It Works](#how-it-works)* [Conclusion](#conclusion)* [Reference Implementation](#reference-implementation)
 
 Flow
 

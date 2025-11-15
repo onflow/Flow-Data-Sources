@@ -7019,7 +7019,7 @@ Search
 
 On this page
 
-# Getting started with Cadence
+# Getting started with cadence
 
 The Cadence is designed for the next generation of apps, games, and digital assets. This comprehensive tutorial series will guide you from setting up your development environment to deploying production-ready applications on Flow's mainnet while a complete Counter application that demonstrates all essential Flow development patterns.
 
@@ -7080,7 +7080,7 @@ After you complete these tutorials, you'll have the fundamental skills needed fo
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/getting-started/index.md)
 
-Last updated on **Oct 30, 2025** by **cshannon1218**
+Last updated on **Nov 14, 2025** by **0xLisanAlGaib**
 
 [Previous
 
@@ -8564,6 +8564,8 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 destroy | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -11291,29 +11293,29 @@ On this page
 
 # Flow EVM Development Tools
 
-Professional smart contract development requires robust tooling for writing, testing, deploying, and managing Solidity contracts. This section covers the most popular and powerful development tools in the Ethereum ecosystem, adapted for Flow EVM development. From command-line frameworks to browser-based IDEs, these tools provide everything needed for comprehensive smart contract development workflows.
+Professional smart contract development requires robust tooling to write, test, deploy, and manage Solidity contracts. This section covers the most popular and powerful development tools in the Ethereum ecosystem, adapted for Flow EVM development. From command-line frameworks to browser-based IDEs, these tools provide everything you need for comprehensive smart contract development workflows.
 
-Each tool offers unique strengths: Foundry excels at testing and gas optimization, Hardhat provides extensive plugin ecosystems and TypeScript support, while Remix enables rapid prototyping without local setup. These tutorials demonstrate how to configure and use each tool effectively with Flow EVM, ensuring you can choose the right development environment for your project needs.
+Each tool offers unique strengths: Foundry excels at testing and gas optimization, Hardhat provides extensive plugin ecosystems and TypeScript support, while Remix allows rapid prototyping without local setup. These tutorials demonstrate how to configure and use each tool effectively with Flow EVM, which allows you to choose the right development environment for your project needs.
 
 ## [Foundry](/blockchain-development-tutorials/evm/development-tools/foundry)[​](#foundry "Direct link to foundry")
 
-Master Foundry's powerful suite of development tools for advanced Solidity contract development, testing, and deployment on Flow EVM. This comprehensive guide covers setting up Foundry projects, writing and testing ERC-20 contracts with extensive test coverage, and deploying to Flow networks with proper configuration and verification. Learn to leverage Foundry's forge, cast, and anvil tools for complete development workflows including contract interaction and state management.
+Master Foundry's powerful suite of development tools for advanced Solidity contract development, testing, and deployment on Flow EVM. This comprehensive guide covers how to set up Foundry projects, write and test ERC-20 contracts with extensive test coverage, and deploy to Flow networks with proper configuration and verification. Learn to leverage Foundry's forge, cast, and anvil tools for complete development workflows, which include contract interaction and state management.
 
 ## [Hardhat](/blockchain-development-tutorials/evm/development-tools/hardhat)[​](#hardhat "Direct link to hardhat")
 
-Build and deploy Solidity smart contracts on Flow EVM using Hardhat's comprehensive development environment with TypeScript support and extensive plugins. This tutorial walks through complete project setup, network configuration for Flow testnet and mainnet, contract deployment with custom scripts, and contract verification on Flow's block explorer. You'll implement end-to-end workflows for HelloWorld contract development, testing, and deployment using Hardhat's powerful plugin ecosystem.
+Build and deploy Solidity smart contracts on Flow EVM with Hardhat's comprehensive development environment with TypeScript support and extensive plugins. This tutorial walks through complete project setup, network configuration for Flow testnet and mainnet, contract deployment with custom scripts, and contract verification on Flow's block explorer. You'll implement end-to-end workflows for HelloWorld contract development, testing, and deployment using Hardhat's powerful plugin ecosystem.
 
 ## [Remix](/blockchain-development-tutorials/evm/development-tools/remix)[​](#remix "Direct link to remix")
 
-Develop and deploy smart contracts directly in the browser using Remix IDE with Flow EVM integration for rapid prototyping and development. This guide demonstrates setting up Remix for Flow development, deploying contracts through MetaMask integration, and interacting with deployed contracts using Remix's built-in debugging and interaction tools. Learn to use Remix for quick contract development, testing, and deployment without requiring local development environment setup.
+Develop and deploy smart contracts directly in the browser with Remix IDE with Flow EVM integration for rapid prototyping and development. This guide demonstrates how to set up Remix for Flow development, deploying contracts through MetaMask integration, and how to interact with deployed contracts with Remix's built-in debugging and interaction tools. Learn to use Remix for quick contract development, testing, and deployment without local development environment setup requirements.
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-These development tool guides provide comprehensive coverage of the most popular Solidity development environments, each optimized for Flow EVM development. Whether you prefer command-line tools like Foundry, comprehensive frameworks like Hardhat, or browser-based development with Remix, these tutorials offer practical workflows for building, testing, and deploying professional smart contracts on Flow's high-performance EVM network.
+These development tool guides provide comprehensive coverage of the most popular Solidity development environments, each optimized for Flow EVM development. Whether you prefer command-line tools like Foundry, comprehensive frameworks like Hardhat, or browser-based development with Remix, these tutorials offer practical workflows to build, test, and deploy professional smart contracts on Flow's high-performance EVM network.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/development-tools/index.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Nov 12, 2025** by **cshannon1218**
 
 [Previous
 
@@ -22134,7 +22136,7 @@ Search
 
 On this page
 
-# Smart Contract Interaction
+# Smart contract interaction
 
 Building on your local development setup from the previous tutorial, you'll now master advanced Flow development skills that every professional developer needs. This tutorial focuses on how to work with external dependencies, build sophisticated transactions, and establish robust testing practices.
 
@@ -23031,7 +23033,7 @@ Continue your Flow mastery with these advanced resources:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction.md)
 
-Last updated on **Oct 30, 2025** by **cshannon1218**
+Last updated on **Nov 14, 2025** by **0xLisanAlGaib**
 
 [Previous
 
@@ -44150,7 +44152,7 @@ Search
 
                       + [Gelato Smart Wallet](/blockchain-development-tutorials/integrations/gelato-sw)+ [Crossmint Integration Guide](/blockchain-development-tutorials/integrations/crossmint)
 
-                          - [Authentication Integration Guide](/blockchain-development-tutorials/integrations/crossmint/authentication)- [Payment Checkout Integration](/blockchain-development-tutorials/integrations/crossmint/payment-checkout)- [Minting Platform Integration](/blockchain-development-tutorials/integrations/crossmint/minting-platform)
+                          - [Authentication Integration Guide](/blockchain-development-tutorials/integrations/crossmint/authentication)- [Payment Checkout Integration](/blockchain-development-tutorials/integrations/crossmint/payment-checkout)- [Minting Platform Integration](/blockchain-development-tutorials/integrations/crossmint/minting-platform)- [Crossmint Smart Wallets](/blockchain-development-tutorials/integrations/crossmint/smart-wallets)
 
 * * [Third-Party Integrations](/blockchain-development-tutorials/integrations)* Crossmint Integration Guide
 
@@ -44158,53 +44160,53 @@ On this page
 
 # Crossmint Integration Guide
 
-Crossmint is an all-in-one platform that brings enterprise-grade blockchain infrastructure to Flow developers. Build complete Web3 applications without requiring users to understand crypto - from embedded wallets and gasless payments to AI agent commerce and stablecoin integration.
+Crossmint is an all-in-one platform that brings enterprise-grade blockchain infrastructure to Flow developers. Build complete Web3 applications without a need for your users to understand crypto - from embedded wallets and gasless payments to AI agent commerce and stablecoin integration.
 
 **Why this matters:**
 
-* **Eliminate barriers**: No gas fees, seed phrases, or complex wallet setup for your users
-* **Enterprise ready**: Bank-grade security trusted by Fortune 500 companies
+* **Eliminate barriers**: No gas fees, seed phrases, or complex wallet setup for your users.
+* **Enterprise ready**: Bank-grade security trusted by Fortune 500 companies.
 
-With Crossmint on Flow, you can create comprehensive blockchain applications that feel like traditional Web2 apps while leveraging Flow's unique capabilities.
+With Crossmint on Flow, you can create comprehensive blockchain applications that feel like traditional Web2 apps and leverage Flow's unique capabilities.
 
 **Core features:** Gasless transactions, fiat payments, token minting
 
 ## 🎯 Available Features[​](#-available-features "Direct link to 🎯 Available Features")
 
-### 1. Minting Platform[​](#1-minting-platform "Direct link to 1. Minting Platform")
+### 1. Minting platform[​](#1-minting-platform "Direct link to 1. Minting platform")
 
 Create and distribute tokens at scale via API and no-code tools. You'll be able to:
 
-* Deploy secure smart contracts on Flow
-* Mint, update, burn, and airdrop tokens at scale
-* Manage metadata and collections
-* API and no-code collection creation
+* Deploy secure smart contracts on Flow.
+* Mint, update, burn, and airdrop tokens at scale.
+* Manage metadata and collections.
+* API and no-code collection creation.
 
 ### 2. Authentication[​](#2-authentication "Direct link to 2. Authentication")
 
 Create wallets for users with seamless authentication. This unlocks:
 
-* Authentication with email, social logins, wallets, and passkeys
-* Smart wallets with custodial and non-custodial options
-* Gasless transactions and improved user experience
-* Data APIs for fetching balances and activity
+* Authentication with email, social logins, wallets, and passkeys.
+* Smart wallets with custodial and non-custodial options.
+* Gasless transactions and improved user experience.
+* Data APIs to fetch balances and activity.
 
-### 3. Fiat and Cross-chain Payment Checkout[​](#3-fiat-and-cross-chain-payment-checkout "Direct link to 3. Fiat and Cross-chain Payment Checkout")
+### 3. Fiat and cross-chain payment checkout[​](#3-fiat-and-cross-chain-payment-checkout "Direct link to 3. Fiat and cross-chain payment checkout")
 
-Digital Asset Checkout supporting fiat and cross-chain payments. Allow your users to buy onchain assets using any of the following payment methods:
+Digital Asset Checkout supports fiat and cross-chain payments. Allow your users to buy onchain assets with any of the following payment methods:
 
-* Credit card, Apple Pay, Google Pay support
-* Cross-chain crypto payments (40+ tokens)
-* No KYC required for most transactions
+* Credit card, Apple Pay, Google Pay support.
+* Cross-chain crypto payments (40+ tokens).
+* No KYC required for most transactions.
 
-### 4. World Store[​](#4-world-store "Direct link to 4. World Store")
+### 4. World store[​](#4-world-store "Direct link to 4. World store")
 
 Access to real-world goods and services via crypto payments such as:
 
-* Over 1 billion products from Amazon, Shopify, flights, and more
-* Pay with FLOW, USDF, and other supported tokens
-* Perfect for expanding crypto utility to real-world commerce
-* API access to global commerce platforms
+* Over one billion products from Amazon, Shopify, flights, and more.
+* Pay with FLOW, USDF, and other supported tokens.
+* Perfect for expanding crypto utility to real-world commerce.
+* API access to global commerce platforms.
 
 ## 🛠 Prerequisites[​](#-prerequisites "Direct link to 🛠 Prerequisites")
 
@@ -44212,38 +44214,38 @@ Make sure you have:
 
 * **Crossmint account:**
 
-  + [Crossmint Console](https://staging.crossmint.com) account
-  + API keys configured for your project
+  + [Crossmint Console](https://staging.crossmint.com) account.
+  + API keys configured for your project.
 * **Flow development environment:**
 
-  + Flow CLI installed and configured
+  + Flow CLI installed and configured.
 * **Technical knowledge:**
 
-  + Basic JavaScript/TypeScript, React hooks
-  + Understanding of Flow (Cadence or EVM)
+  + Basic JavaScript/TypeScript, React hooks.
+  + Understanding of Flow (Cadence or EVM).
 * **Setup:**
 
-  1. Clone or create your Flow project
+  1. Clone or create your Flow project.
   2. Install Crossmint SDK: `npm i @crossmint/client-sdk-react-ui`
-  3. Configure environment variables for API keys
-  4. Onboard thousands of users seamlessly
+  3. Configure environment variables for API keys.
+  4. Onboard thousands of users seamlessly.
 
 ## Guides[​](#guides "Direct link to Guides")
 
-Get up and running with Crossmint on Flow in under 15 minutes:
+Get started with Crossmint on Flow in under 15 minutes:
 
-1. **[Set up authentication](/blockchain-development-tutorials/integrations/crossmint/authentication)** for seamless user onboarding
-2. **[Enable fiat payments](/blockchain-development-tutorials/integrations/crossmint/payment-checkout)** for your Flow assets
-3. **[Minting Platform](/blockchain-development-tutorials/integrations/crossmint/minting-platform)** to create and distribute tokens at scale
+1. **[Set up authentication](/blockchain-development-tutorials/integrations/crossmint/authentication)** to seamlessly onboard users.
+2. **[Enable fiat payments](/blockchain-development-tutorials/integrations/crossmint/payment-checkout)** for your Flow assets.
+3. **[Minting Platform](/blockchain-development-tutorials/integrations/crossmint/minting-platform)** to create and distribute tokens at scale.
 
-If you have trouble during the integrations process, please refer to these documentation sites:
+If you have trouble during the integrations process, refer to these documentation sites:
 
-* **[Crossmint Documentation](https://docs.crossmint.com/)** - Complete platform docs
-* **[Flow Developer Portal](https://developers.flow.com/)** - Flow-specific resources
+* **[Crossmint Documentation](https://docs.crossmint.com/)** - Complete platform docs.
+* **[Flow Developer Portal](https://developers.flow.com/)** - Flow-specific resources.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/integrations/crossmint/index.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Nov 12, 2025** by **cshannon1218**
 
 [Previous
 
@@ -44258,7 +44260,7 @@ Authentication Integration Guide](/blockchain-development-tutorials/integrations
 Copy as Markdown
 
 * [🎯 Available Features](#-available-features)
-  + [1. Minting Platform](#1-minting-platform)+ [2. Authentication](#2-authentication)+ [3. Fiat and Cross-chain Payment Checkout](#3-fiat-and-cross-chain-payment-checkout)+ [4. World Store](#4-world-store)* [🛠 Prerequisites](#-prerequisites)* [Guides](#guides)
+  + [1. Minting platform](#1-minting-platform)+ [2. Authentication](#2-authentication)+ [3. Fiat and cross-chain payment checkout](#3-fiat-and-cross-chain-payment-checkout)+ [4. World store](#4-world-store)* [🛠 Prerequisites](#-prerequisites)* [Guides](#guides)
 
 Flow
 
@@ -50658,16 +50660,16 @@ On this page
 
 ![Top Shot Preview](/assets/images/top-shot-preview-6c64a2b21e280ea48e213066546e6794.png)
 
-In this tutorial, you'll build a [simple onchain app](https://nextjs-topshot-account-linking.vercel.app) that allows users to sign into your app with their Flow wallet and view [NBA Top Shot](https://nbatopshot.com) Moments that reside in their [Dapper Wallet](https://meetdapper.com) - without those users needing to sign in with Dapper.
+In this tutorial, you'll build a [simple onchain app](https://nextjs-topshot-account-linking.vercel.app) that allows users to sign in to your app with their Flow wallet and view [NBA Top Shot](https://nbatopshot.com) Moments that reside in their [Dapper Wallet](https://meetdapper.com) without those users needing to sign in with Dapper.
 
 ## Objectives[​](#objectives "Direct link to Objectives")
 
-After completing this guide, you'll be able to:
+After you complete this guide, you'll be able to:
 
-* Pull your users' NBA Top Shot Moments into your Flow app without needing to transfer them out of their Dapper wallet
-* Retrieve and list all NFT collections in any child wallet linked to a given Flow address
-* Write a [Cadence](https://cadence-lang.org/docs) script to iterate through the storage of a Flow wallet to find NFT collections
-* Run Cadence Scripts from the frontend
+* Pull your users' NBA Top Shot Moments into your Flow app without needing to transfer them out of their Dapper wallet.
+* Retrieve and list all NFT collections in any child wallet linked to a given Flow address.
+* Write a [Cadence](https://cadence-lang.org/docs) script to iterate through the storage of a Flow wallet to find NFT collections.
+* Run Cadence Scripts from the frontend.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
@@ -50681,7 +50683,7 @@ You'll need a [Flow Wallet](https://wallet.flow.com), but you don't need to depo
 
 ## Moments NFTs[​](#moments-nfts "Direct link to Moments NFTs")
 
-You'll need a [Dapper Wallet](https://meetdapper.com) containing some Moments NFTs, such as [NBA Top Shot](https://nbatopshot.com) Moments.
+You'll need a [Dapper Wallet](https://meetdapper.com) that contains some Moments NFTs, such as [NBA Top Shot](https://nbatopshot.com) Moments.
 
 ## Getting Started[​](#getting-started "Direct link to Getting Started")
 
@@ -50691,7 +50693,7 @@ This tutorial will use a [Next.js](https://nextjs.org/docs/app/getting-started/i
 
 npx create-next-app@latest`
 
-We will be using TypeScript and the App Router, in this tutorial.
+We will use TypeScript and the App Router, in this tutorial.
 
 Open your new project in the editor of your choice, install dependencies, and run the project.
 
@@ -50703,7 +50705,7 @@ _10
 
 yarn run dev`
 
-If everything is working properly, you'll be able to navigate to `localhost:3000` and see the default [Next.js](https://nextjs.org/docs/app/getting-started/installation) page.
+If everything works properly, you can navigate to `localhost:3000` and see the default [Next.js](https://nextjs.org/docs/app/getting-started/installation) page.
 
 ## Flow Cadence Setup[​](#flow-cadence-setup "Direct link to Flow Cadence Setup")
 
@@ -50711,13 +50713,13 @@ You'll need a few more dependencies to efficiently work with Cadence inside of y
 
 ### Flow CLI and Types[​](#flow-cli-and-types "Direct link to Flow CLI and Types")
 
-The [Flow CLI](/build/tools/flow-cli) contains a number of command-line tools for interacting with the Flow ecosystem. If you don't already have it installed, you can add it with Brew (or using [other installation methods](/build/tools/flow-cli/install)):
+The [Flow CLI](/build/tools/flow-cli) contains a number of command-line tools for interacting with the Flow ecosystem. If you don't have it installed, you can add it with Brew (or using [other installation methods](/build/tools/flow-cli/install)):
 
 `_10
 
 brew install flow-cli`
 
-Once it's installed, you'll need to initialize Flow in your Next.js project. From the root, run:
+After it's installed, initialize Flow in your `Next.js` project. From the root, run:
 
 `_10
 
@@ -50781,7 +50783,7 @@ export default nextConfig;`
 
 ## Frontend Setup[​](#frontend-setup "Direct link to Frontend Setup")
 
-We'll use the Flow Client Library [FCL](/build/tools/clients/fcl-js) to manage blockchain interaction from the frontend. It's similar to viem, ethers, or web3.js, but works with the Flow blockchain and transactions and scripts written in Cadence.
+We'll use the Flow Client Library [FCL](/build/tools/clients/fcl-js) to manage blockchain interaction from the frontend. It's similar to `viem`, `ethers`, or `web3.js`, but works with the Flow blockchain and transactions and scripts written in Cadence.
 
 `_10
 
@@ -50795,7 +50797,7 @@ yarn add dotenv`
 
 ### Provider Setup[​](#provider-setup "Direct link to Provider Setup")
 
-A fair amount of boilerplate code is needed to set up your provider. We'll provide it, but since it's not the purpose of this tutorial, we'll be brief on explanations. For more details, check out the [App Quickstart Guide](/blockchain-development-tutorials/cadence/getting-started).
+You'll need a fair amount of boilerplate code to set up your provider. We'll provide it, but since it's not the purpose of this tutorial, we'll be brief on explanations. For more details, check out the [App Quickstart Guide](/blockchain-development-tutorials/cadence/getting-started).
 
 Add `app/providers/AuthProvider.tsx`:
 
@@ -51061,7 +51063,7 @@ Don't forget to replace `<YOUR ID HERE>` with your own [Wallet Connect](https://
 
 ### Implement the Provider and Flow Config[​](#implement-the-provider-and-flow-config "Direct link to Implement the Provider and Flow Config")
 
-Finally, open `layout.tsx`. Start by importing Flow dependencies and the AuthProvider:
+Finally, open `layout.tsx`. TO start, import Flow dependencies and the AuthProvider:
 
 `_10
 
@@ -51113,7 +51115,7 @@ _10
 
 warning
 
-We're going to force some things client side to get this proof-of-concept working quickly. Use Next.js best practices for a production app.
+We're going to force some things client side to get this proof-of-concept working quickly. Use `Next.js` best practices for a production app.
 
 Add a `'use client';` directive to the top of the file and **delete** the import for Metadata and fonts, as well as the code related to them.
 
@@ -51241,7 +51243,7 @@ _30
 
 ### Add the Connect Button[​](#add-the-connect-button "Direct link to Add the Connect Button")
 
-Open `page.tsx` and clean up the demo code leaving only the `<main>` block:
+Open `page.tsx` and clean up the demo code, leaving only the `<main>` block:
 
 `_11
 
@@ -51345,11 +51347,9 @@ Run the app:
 
 yarn dev`
 
-You'll see your `Log In` button in the middle of the window.
-
 ![Welcome](/assets/images/welcome-1e40b6e3dd76a16007b134ad2ad94d67.png)
 
-Click the button and log in with your Flow wallet.
+Click `Log In` in the middle of the window and log in with your Flow wallet.
 
 ![Flow Wallet](/assets/images/flow-wallet-97d0305199c2d9435523b4885fbf7c02.png)
 
@@ -51367,7 +51367,7 @@ The Dapper Wallet requires that you complete KYC before you can use Account Link
 
 ### Discovering the NFTs with a Script[​](#discovering-the-nfts-with-a-script "Direct link to Discovering the NFTs with a Script")
 
-With your accounts linked, your Flow Wallet now has a set of capabilities related to your Dapper Wallet and it's permitted to use those to view and even manipulate those NFTs and assets.
+With your accounts linked, your Flow Wallet now has a set of capabilities related to your Dapper Wallet and it can use those to view and even manipulate those NFTs and assets.
 
 Before you can add a script that can handle this, you'll need to import the `HybridCustody` contract using the [Flow Dependency Manager](/build/tools/flow-cli/dependency-manager):
 
@@ -51499,7 +51499,7 @@ _31
 
 ✅ CapabilityFilter added to flow.json`
 
-Add `app/cadence/scripts/FetchNFTsFromLinkedAccts.cdc`. In it, add this script. Review the inline comments to see what each step is doing:
+Add `app/cadence/scripts/FetchNFTsFromLinkedAccts.cdc`. In it, add this script. Review the inline comments to see what each step does:
 
 `_88
 
@@ -51855,7 +51855,7 @@ _10
 
 import FetchNFTs from '../cadence/scripts/FetchNFTsFromLinkedAccts.cdc';`
 
-As we're using TypeScript, you should add some types as well to manage the data from the NFTs nicely. For now, just add them to this file:
+As we're using TypeScript, add some types as well to manage the data from the NFTs nicely. For now, just add them to this file:
 
 `_21
 
@@ -51959,7 +51959,7 @@ _10
 
 export default DisplayLinkedNFTs;`
 
-In the function, add a state variable to store the data retrieved by the script:
+In the function, add a state variable to store the data that the script retrieves:
 
 `_10
 
@@ -52069,7 +52069,7 @@ Run the app again. If you have linked your account and have NFTs in that account
 
 ### Displaying the Moments[​](#displaying-the-moments "Direct link to Displaying the Moments")
 
-Now that they're here, all to do is display them nicely! Return to `DisplayLinkedNFTs.tsx`. Add a helper function to confirm each returned NFT matches the Moments format. You can update this to handle other NFTs you'd like to show as well.
+Now that they're here, all that's left to do is display them nicely! Return to `DisplayLinkedNFTs.tsx`. Add a helper function to confirm each returned NFT matches the Moments format. You can update this to handle other NFTs you'd like to show as well.
 
 warning
 
@@ -52551,7 +52551,7 @@ In this tutorial, you took your first steps towards building powerful new experi
 
 warning
 
-You are **not** saving time by skipping the the reference implementation. You'll learn much faster by doing the tutorials as presented!
+You **won't** save time if you skipo the the reference implementation. You'll learn much faster if you do the tutorials as presented!
 
 Reference solutions are functional, but may not be optimal.
 
@@ -52559,7 +52559,7 @@ Reference solutions are functional, but may not be optimal.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/account-management/account-linking-with-dapper.md)
 
-Last updated on **Oct 9, 2025** by **Brian Doyle**
+Last updated on **Nov 3, 2025** by **cshannon1218**
 
 [Previous
 
@@ -52619,6 +52619,8 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 limit | Flow Developer Portal
 
 
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
@@ -68913,9 +68915,9 @@ On this page
 
 # Using Remix
 
-Remix is an open-source, web-based development environment tailored for EVM smart contract development. It offers developers a comprehensive suite of tools for writing, deploying, and testing smart contracts in Solidity. For more information, visit [Remix](https://remix.ethereum.org/).
+Remix is an open-source, web-based development environment tailored for EVM smart contract development. It offers developers a comprehensive suite of tools to write, deploy, and test smart contracts in Solidity. For more information, visit [Remix](https://remix.ethereum.org/).
 
-## Add the Flow Network to MetaMask[​](#add-the-flow-network-to-metamask "Direct link to Add the Flow Network to MetaMask")
+## Add the Flow network to MetaMask[​](#add-the-flow-network-to-metamask "Direct link to Add the Flow network to MetaMask")
 
 ![Add Flow Network](/assets/images/Remix-adding-metamask-network-4912936e5dad423a4d858266eb9648a7.gif)
 
@@ -68923,13 +68925,13 @@ Navigate to the [Using EVM](/build/evm/using) page to find the button to add the
 
 ## Fund Your Flow Account[​](#fund-your-flow-account "Direct link to Fund Your Flow Account")
 
-Navigate to the [Flow Testnet Faucet](https://faucet.flow.com/fund-account) to obtain FLOW tokens necessary for deploying a smart contract.
+Navigate to the [Flow Testnet Faucet](https://faucet.flow.com/fund-account) to obtain FLOW tokens necessary to deploy a smart contract.
 
-## Deploying a Smart Contract Using Remix[​](#deploying-a-smart-contract-using-remix "Direct link to Deploying a Smart Contract Using Remix")
+## Deploy a smart contract with Remix[​](#deploy-a-smart-contract-with-remix "Direct link to Deploy a smart contract with Remix")
 
-![Deploy Smart Contract](/assets/images/Remix-deploy-contract-flowevm-041b338f872e80325bd497587cfe7e42.gif)
+![Deploy smart contract](/assets/images/Remix-deploy-contract-flowevm-041b338f872e80325bd497587cfe7e42.gif)
 
-### HelloWorld Smart Contract[​](#helloworld-smart-contract "Direct link to HelloWorld Smart Contract")
+### HelloWorld smart contract[​](#helloworld-smart-contract "Direct link to HelloWorld smart contract")
 
 `_25
 
@@ -69023,7 +69025,7 @@ _25
 
 }`
 
-### Steps to Deploy the HelloWorld Smart Contract[​](#steps-to-deploy-the-helloworld-smart-contract "Direct link to Steps to Deploy the HelloWorld Smart Contract")
+### Steps to deploy the HelloWorld smart contract[​](#steps-to-deploy-the-helloworld-smart-contract "Direct link to Steps to deploy the HelloWorld smart contract")
 
 1. Create a file named `HelloWorld.sol`.
 2. Select Solidity Compiler and compile `HelloWorld.sol`.
@@ -69132,21 +69134,21 @@ getGreeting();`
 
 Follow the steps below to change the greeting and retrieve the new greeting.
 
-## Updating the Deployed Smart Contract[​](#updating-the-deployed-smart-contract "Direct link to Updating the Deployed Smart Contract")
+## Updating the deployed smart contract[​](#updating-the-deployed-smart-contract "Direct link to Updating the deployed smart contract")
 
-![Update Smart Contract](/assets/images/Remix-update-greeting-0483aaa0c04ee4fdbcfaa4600a6580d8.gif)
+![Update smart contract](/assets/images/Remix-update-greeting-0483aaa0c04ee4fdbcfaa4600a6580d8.gif)
 
 1. Select the `HelloWorld.sol` file.
 2. Select the `Deploy and Run Transaction` page.
 3. Make sure to select `Injected Provider - Metamask` in Environment dropdown.
-4. Type a new greeting in the text input next to orange `changeGreeting` button.
-5. Click on the orange `changeGreeting` button.
+4. Type a new greeting in the text input next to `changeGreeting`.
+5. Click `changeGreeting`.
 6. Sign the Metamask transaction.
-7. Verify the greeting has changed by re-running `get-greeting.js` script above.
+7. To verify the greeting changed, re-run the `get-greeting.js` script above.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/development-tools/remix.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Nov 12, 2025** by **cshannon1218**
 
 [Previous
 
@@ -69160,9 +69162,9 @@ Foundry](/blockchain-development-tutorials/evm/development-tools/foundry)
 
 Copy as Markdown
 
-* [Add the Flow Network to MetaMask](#add-the-flow-network-to-metamask)* [Fund Your Flow Account](#fund-your-flow-account)* [Deploying a Smart Contract Using Remix](#deploying-a-smart-contract-using-remix)
-      + [HelloWorld Smart Contract](#helloworld-smart-contract)+ [Steps to Deploy the HelloWorld Smart Contract](#steps-to-deploy-the-helloworld-smart-contract)* [Calling the Deployed Smart Contract](#calling-the-deployed-smart-contract)
-        + [Using Ethers.js to Call the HelloWorld Smart Contract](#using-ethersjs-to-call-the-helloworld-smart-contract)* [Updating the Deployed Smart Contract](#updating-the-deployed-smart-contract)
+* [Add the Flow network to MetaMask](#add-the-flow-network-to-metamask)* [Fund Your Flow Account](#fund-your-flow-account)* [Deploy a smart contract with Remix](#deploy-a-smart-contract-with-remix)
+      + [HelloWorld smart contract](#helloworld-smart-contract)+ [Steps to deploy the HelloWorld smart contract](#steps-to-deploy-the-helloworld-smart-contract)* [Calling the Deployed Smart Contract](#calling-the-deployed-smart-contract)
+        + [Using Ethers.js to Call the HelloWorld Smart Contract](#using-ethersjs-to-call-the-helloworld-smart-contract)* [Updating the deployed smart contract](#updating-the-deployed-smart-contract)
 
 Flow
 
@@ -119325,22 +119327,17 @@ On this page
 
 # Interacting with COAs from Cadence
 
-[Cadence Owned Accounts (COAs)](/build/evm/accounts#cadence-owned-accounts) are EVM accounts owned by a Cadence resource and
-are used to interact with Flow EVM from Cadence.
+[Cadence Owned Accounts (COAs)](/build/evm/accounts#cadence-owned-accounts) are EVM accounts that a Cadence resouce owns, and are used to interact with Flow EVM from Cadence.
 
-COAs expose two interfaces for interaction: one on the Cadence side and one on the EVM side. In this guide, we will
-focus on how to interact with COAs with Cadence.
+COAs expose two interfaces for interaction: one on the Cadence side and one on the EVM side. In this guide, we focuses on how to interact with COAs with Cadence.
 
-In this guide we will walk through some basic examples creating and interacting with a COA in Cadence. Your specific
-usage of the COA resource will depend on your own application's requirements (e.g. the COA resource may not live
-directly in `/storage/evm` as in these examples, but may instead be a part of a more complex resource structure).
+In this guide, we will walk through some basic examples that create and and interact with a COA in Cadence. Your specific usage of the COA resource will depend on your own application's requirements (for example, the COA resource may not live directly in `/storage/evm` as in these examples, but may instead be a part of a more complex resource structure).
 
 ## COA Interface[​](#coa-interface "Direct link to COA Interface")
 
-To begin, we can take a look at a simplified version of the `EVM` contract, highlighting parts specific to COAs.
+To begin, we can take a look at a simplified version of the `EVM` contract, and highlight parts specific to COAs.
 
-You can learn more about the `EVM` contract [here](/build/cadence/core-contracts/evm) and the full contract code can
-be found on [GitHub](https://github.com/onflow/flow-go/tree/master/fvm/evm/stdlib/contract.cdc).
+You can learn more about the `EVM` contract [here](/build/cadence/core-contracts/evm) and find the full contract code on [GitHub](https://github.com/onflow/flow-go/tree/master/fvm/evm/stdlib/contract.cdc).
 
 EVM.cdc
 
@@ -119554,14 +119551,11 @@ _56
 
 }`
 
-## Importing the EVM Contract[​](#importing-the-evm-contract "Direct link to Importing the EVM Contract")
+## Import the EVM contract[​](#import-the-evm-contract "Direct link to Import the EVM contract")
 
-The `CadenceOwnedAccount` resource is a part of the `EVM` system contract, so to use any of these functions, you will
-need to begin by importing the `EVM` contract into your Cadence code.
+The `CadenceOwnedAccount` resource is a part of the `EVM` system contract, so to use any of these functions, you will need to import the `EVM` contract into your Cadence code.
 
-To import the `EVM` contract into your Cadence code using the simple import syntax, you can use the following format
-(learn more about configuring contracts in `flow.json`
-[here](/build/tools/flow-cli/flow.json/configuration#contracts)):
+To import the `EVM` contract into your Cadence code using the simple import syntax, you can use the following format (learn more about configuring contracts in `flow.json` [here](/build/tools/flow-cli/flow.json/configuration#contracts)):
 
 `` _10
 
@@ -119593,16 +119587,14 @@ _10
 
 // ...`
 
-To find the deployment addresses of the `EVM` contract, you can refer to the [EVM contract
-documentation](/build/cadence/core-contracts/evm).
+To find the deployment addresses of the `EVM` contract, you can refer to the [EVM contract documentation](/build/cadence/core-contracts/evm).
 
-## Creating a COA[​](#creating-a-coa "Direct link to Creating a COA")
+## Create a COA[​](#create-a-coa "Direct link to Create a COA")
 
 To create a COA, we can use the `createCadenceOwnedAccount` function from the `EVM` contract. This function takes no
-arguments and returns a new `CadenceOwnedAccount` resource which represents this newly created EVM account.
+arguments and returns a new `CadenceOwnedAccount` resource which represents this newly-created EVM account.
 
-For example, we can create this COA in a transaction, saving it to the user's storage and publishing a public capability
-to its reference:
+For example, we can create this COA in a transaction, save it to the user's storage, and publish a public capability to its reference:
 
 create\_coa.cdc
 
@@ -119668,15 +119660,15 @@ _17
 
 }`
 
-### Creating a Cadence Account and COA together[​](#creating-a-cadence-account-and-coa-together "Direct link to Creating a Cadence Account and COA together")
+### Create a Cadence account and COA together[​](#create-a-cadence-account-and-coa-together "Direct link to Create a Cadence account and COA together")
 
-It is possible to create a new Cadence account and COA within the same transaction. This transaction will need to be signed and paid for by another account, but any account will do. A common process is to set up a backend service to handle this function.
+It is possible to create a new Cadence account and COA within the same transaction. Another account will need to sign and pay for this transaction, but any account will do. A common process is to set up a backend service to handle this function.
 
 info
 
-During the singular transaction in which an account is created, the `AuthAccount` object for the newly created account is present. As a result, the creating account can access and modify the new account's storage **only** during this transaction.
+During the singular transaction in which an account is created, the `AuthAccount` object for the newly-created account is present. As a result, the creating account can access and modify the new account's storage **only** during this transaction.
 
-First, you'll need to use the CLI to [generate keys](/build/tools/flow-cli/keys/generate-keys) for the new account. Then, simply run the following transaction to create the Cadence Account and COA at once.
+First, you'll need to use the CLI to [generate keys](/build/tools/flow-cli/keys/generate-keys) for the new account. Then, run the following transaction to create the Cadence Account and COA at one time.
 
 warning
 
@@ -119746,11 +119738,9 @@ _18
 
 }`
 
-## Getting the EVM Address of a COA[​](#getting-the-evm-address-of-a-coa "Direct link to Getting the EVM Address of a COA")
+## Retrieve the EVM Address of a COA[​](#retrieve-the-evm-address-of-a-coa "Direct link to Retrieve the EVM Address of a COA")
 
-To get the EVM address of a COA, you can use the `address` function from the `EVM` contract. This function returns the
-EVM address of the COA as an `EVM.Address` struct. This struct is used to represent addresses within Flow EVM and can
-also be used to query the balance, code, nonce, etc. of an account.
+To get the EVM address of a COA, you can use the `address` function from the `EVM` contract. This function returns the EVM address of the COA as an `EVM.Address` struct. This struct is used to represent addresses within Flow EVM and you cna also use it to query the balance, code, nonce, and so on of an account.
 
 For our example, we could query the address of the COA we just created with the following script:
 
@@ -119814,19 +119804,17 @@ _16
 
 }`
 
-If you'd prefer the hex representation of the address, you instead return using the `EVMAddress.toString()` function:
+If you'd prefer the hex representation of the address, you instead return with the `EVMAddress.toString()` function:
 
 `_10
 
 return coa.address().toString()`
 
-The above will return the EVM address as a string; however note that Cadence does not prefix hex strings with `0x`.
+The above will return the EVM address as a string; however, Cadence does not prefix hex strings with `0x`.
 
-## Getting the Flow Balance of a COA[​](#getting-the-flow-balance-of-a-coa "Direct link to Getting the Flow Balance of a COA")
+## Retrieve the Flow balance of a COA[​](#retrieve-the-flow-balance-of-a-coa "Direct link to Retrieve the Flow balance of a COA")
 
-Like any other Flow EVM or Cadence account, COAs possess a balance of FLOW tokens. To get the current balance of our
-COA, we can use the COA's `balance` function. It will return a `EVM.Balance` struct for the account - these are used to
-represent balances within Flow EVM.
+Like any other Flow EVM or Cadence account, COAs possess a balance of FLOW tokens. To get the current balance of our COA, we can use the COA's `balance` function. It will return a `EVM.Balance` struct for the account - these are used to represent balances within Flow EVM.
 
 This script will query the current balance of our newly created COA:
 
@@ -119922,16 +119910,13 @@ _10
 
 The above script is helpful if you already know the COA address and can provide the hex representation directly.
 
-## Depositing and Withdrawing Flow Tokens[​](#depositing-and-withdrawing-flow-tokens "Direct link to Depositing and Withdrawing Flow Tokens")
+## Deposit and withdraw Flow tokens[​](#deposit-and-withdraw-flow-tokens "Direct link to Deposit and withdraw Flow tokens")
 
-Tokens can be seamlessly transferred between the Flow EVM and Cadence environment using the `deposit` and `withdraw`
-functions provided by the COA resource. Anybody with a valid reference to a COA may deposit Flow tokens into a it,
-however only someone with the `Owner` or `Withdraw` entitlements can withdraw tokens.
+You can seamlessly transfer tokens between the Flow EVM and Cadence environment with the `deposit` and `withdraw` functions that the COA resource provides. Anybody with a valid reference to a COA may deposit Flow tokens into a it, however only someone with the `Owner` or `Withdraw` entitlements can withdraw tokens.
 
-### Depositing Flow Tokens[​](#depositing-flow-tokens "Direct link to Depositing Flow Tokens")
+### Deposit Flow tokens[​](#deposit-flow-tokens "Direct link to Deposit Flow tokens")
 
-The `deposit` function takes a `FlowToken.Vault` resource as an argument, representing the tokens to deposit. It will
-transfer the tokens from the vault into the COA's balance.
+The `deposit` function takes a `FlowToken.Vault` resource as an argument, which represents the tokens to deposit. It will transfer the tokens from the vault into the COA's balance.
 
 This transaction will withdraw Flow tokens from a user's Cadence vault and deposit them into their COA:
 
@@ -120039,16 +120024,13 @@ _27
 
 info
 
-This is a basic example which only transfers tokens between a single user's COA & Flow account. It can be easily
-modified to transfer these tokens between any arbitrary accounts.
+This is a basic example which only transfers tokens between a single user's COA & Flow account. You can easily modify it to transfer these tokens between any arbitrary accounts.
 
-You can also deposit tokens directly into other types of EVM accounts using the `EVM.EVMAddress.deposit` function. See
-the [EVM contract documentation](/build/cadence/core-contracts/evm) for more information.
+You can also deposit tokens directly into other types of EVM accounts with the `EVM.EVMAddress.deposit` function. See the [EVM contract documentation](/build/cadence/core-contracts/evm) for more information.
 
-### Withdrawing Flow Tokens[​](#withdrawing-flow-tokens "Direct link to Withdrawing Flow Tokens")
+### Withdraw Flow tokens[​](#withdraw-flow-tokens "Direct link to Withdraw Flow tokens")
 
-The `withdraw` function takes a `EVM.Balance` struct as an argument, representing the amount of Flow tokens to withdraw,
-and returns a `FlowToken.Vault` resource with the withdrawn tokens.
+The `withdraw` function takes a `EVM.Balance` struct as an argument, which represents the amount of Flow tokens to withdraw, and returns a `FlowToken.Vault` resource with the withdrawn tokens.
 
 We can run the following transaction to withdraw Flow tokens from a user's COA and deposit them into their Flow vault:
 
@@ -120377,10 +120359,9 @@ It's encouraged to either define transactions for each COA call and encoded the 
 or to pass in the human-readable arguments and signature and encode the calldata within the transaction. This ensures a
 more interpretable and therefore transparent transaction.
 
-### Transferring FLOW in EVM[​](#transferring-flow-in-evm "Direct link to Transferring FLOW in EVM")
+### Transfer FLOW in EVM[​](#transfer-flow-in-evm "Direct link to Transfer FLOW in EVM")
 
-Similar to transferring ETH and other native value in other EVMs, you'll want to call to the target EVM address with
-empty calldata and providing the transfer value.
+Similar to when you trasnfer ETH and other native value in other EVMs, you'll want to call to the target EVM address with empty calldata and provide the transfer value.
 
 transfer\_evm\_flow.cdc
 
@@ -120542,8 +120523,7 @@ _42
 
 ### Transfer ERC20[​](#transfer-erc20 "Direct link to Transfer ERC20")
 
-Below is an example transaction demonstrating the common ERC20 transfer. A similar pattern can be used for other
-arbitrary EVM calls.
+Below is an example transaction demonstrating the common ERC20 transfer. You can use a similar pattern for other arbitrary EVM calls.
 
 erc20\_transfer\_from.cdc
 
@@ -120869,12 +120849,9 @@ _41
 
 }`
 
-#### Bulk Transfer ERC721[​](#bulk-transfer-erc721 "Direct link to Bulk Transfer ERC721")
+#### Bulk transfer ERC721[​](#bulk-transfer-erc721 "Direct link to Bulk transfer ERC721")
 
-As covered in the [Batched EVM transactions walkthrough](/blockchain-development-tutorials/cross-vm-apps/batched-evm-transactions), you can script multiple EVM
-calls in a single Cadence transaction. Compared to the single ERC721 transfer, bulk sending multiple tokens isn't much
-more code and allows for greater utility out of a single transaction. Below is an example of a bulk ERC721 token
-transfer.
+As covered in the [Batched EVM transactions walkthrough](/blockchain-development-tutorials/cross-vm-apps/batched-evm-transactions), you can script multiple EVM calls in a single Cadence transaction. Compared to the single ERC721 transfer, to bulk send multiple tokens isn't much more code and allows for greater utility out of a single transaction. Below is an example of a bulk ERC721 token transfer.
 
 erc721\_bulk\_transfer.cdc
 
@@ -121062,12 +121039,11 @@ _48
 
 }`
 
-## Deploying a Contract to Flow EVM[​](#deploying-a-contract-to-flow-evm "Direct link to Deploying a Contract to Flow EVM")
+## Deploy a contract to Flow EVM[​](#deploy-a-contract-to-flow-evm "Direct link to Deploy a contract to Flow EVM")
 
-To deploy a contract to the EVM, you can use the `deploy` function provided by the COA resource. This function takes the
-contract code, gas limit, and value you want to send. It will return the EVM address of the newly deployed contract.
+To deploy a contract to the EVM, you can use the `deploy` function that the COA resource provides. This function takes the contract code, gas limit, and value you want to send. It will return the EVM address of the newly deployed contract.
 
-This transaction will deploy a contract with the given code using the signer's COA:
+This transaction will deploy a contract with the given code with the signer's COA:
 
 deploy\_evm\_contract.cdc
 
@@ -121153,18 +121129,17 @@ _22
 
 }`
 
-## More Information[​](#more-information "Direct link to More Information")
+## More information[​](#more-information "Direct link to More information")
 
-For more information about Cadence Owned Accounts, see [Flow EVM Accounts](/build/evm/accounts).
+For more information about Cadence-owned Accounts, see [Flow EVM Accounts](/build/evm/accounts).
 
-Other useful snippets for interacting with COAs can be found [here](https://fw-internal-doc.gitbook.io/evm).
+Other useful snippets to use when you interact with COAs can be found [here](https://fw-internal-doc.gitbook.io/evm).
 
-Check out the [Batched EVM Transactions walkthrough](/blockchain-development-tutorials/cross-vm-apps/batched-evm-transactions) for details on transaction batching
-using Cadence.
+Check out the [Batched EVM Transactions walkthrough](/blockchain-development-tutorials/cross-vm-apps/batched-evm-transactions) for details on transaction batching with Cadence.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cross-vm-apps/interacting-with-coa.md)
 
-Last updated on **Oct 17, 2025** by **Brian Doyle**
+Last updated on **Nov 5, 2025** by **cshannon1218**
 
 [Previous
 
@@ -121178,10 +121153,10 @@ Cross-VM Bridge](/blockchain-development-tutorials/cross-vm-apps/vm-bridge)
 
 Copy as Markdown
 
-* [COA Interface](#coa-interface)* [Importing the EVM Contract](#importing-the-evm-contract)* [Creating a COA](#creating-a-coa)
-      + [Creating a Cadence Account and COA together](#creating-a-cadence-account-and-coa-together)* [Getting the EVM Address of a COA](#getting-the-evm-address-of-a-coa)* [Getting the Flow Balance of a COA](#getting-the-flow-balance-of-a-coa)* [Depositing and Withdrawing Flow Tokens](#depositing-and-withdrawing-flow-tokens)
-            + [Depositing Flow Tokens](#depositing-flow-tokens)+ [Withdrawing Flow Tokens](#withdrawing-flow-tokens)* [Direct Calls to Flow EVM](#direct-calls-to-flow-evm)
-              + [Transferring FLOW in EVM](#transferring-flow-in-evm)+ [Transfer ERC20](#transfer-erc20)+ [Transfer ERC721](#transfer-erc721)* [Deploying a Contract to Flow EVM](#deploying-a-contract-to-flow-evm)* [More Information](#more-information)
+* [COA Interface](#coa-interface)* [Import the EVM contract](#import-the-evm-contract)* [Create a COA](#create-a-coa)
+      + [Create a Cadence account and COA together](#create-a-cadence-account-and-coa-together)* [Retrieve the EVM Address of a COA](#retrieve-the-evm-address-of-a-coa)* [Retrieve the Flow balance of a COA](#retrieve-the-flow-balance-of-a-coa)* [Deposit and withdraw Flow tokens](#deposit-and-withdraw-flow-tokens)
+            + [Deposit Flow tokens](#deposit-flow-tokens)+ [Withdraw Flow tokens](#withdraw-flow-tokens)* [Direct Calls to Flow EVM](#direct-calls-to-flow-evm)
+              + [Transfer FLOW in EVM](#transfer-flow-in-evm)+ [Transfer ERC20](#transfer-erc20)+ [Transfer ERC721](#transfer-erc721)* [Deploy a contract to Flow EVM](#deploy-a-contract-to-flow-evm)* [More information](#more-information)
 
 Flow
 
@@ -127128,6 +127103,2547 @@ Copy as Markdown
     + [Next.js and modern frontend development](#nextjs-and-modern-frontend-development)+ [Solidity](#solidity)* [Build an image gallery contract](#build-an-image-gallery-contract)
       + [Set up storage for images](#set-up-storage-for-images)+ [Construct functions to add and delete images](#construct-functions-to-add-and-delete-images)+ [Retrieval functions](#retrieval-functions)+ [Final contract](#final-contract)+ [Create a factory](#create-a-factory)+ [Track factories](#track-factories)+ [Test the factory](#test-the-factory)+ [Test the image gallery](#test-the-image-gallery)* [Build the frontend](#build-the-frontend)
         + [Provider Setup](#provider-setup)+ [Add the connect button](#add-the-connect-button)+ [Import Your contracts](#import-your-contracts)+ [Add content](#add-content)+ [Gallery List](#gallery-list)+ [Display the images](#display-the-images)* [Image uploader](#image-uploader)* [Conclusion](#conclusion)
+
+Flow
+
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
+
+Cadence
+
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
+
+Solidity (EVM)
+
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
+
+Community & Support
+
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
+
+Network & Resources
+
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow Foundation. All Rights Reserved.
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://developers.flow.com/blockchain-development-tutorials/integrations/crossmint/smart-wallets
+
+Crossmint Smart Wallets | Flow Developer Portal
+
+
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Blockchain Development Tutorials](/blockchain-development-tutorials)* [Flow Blockchain 101](/blockchain-development-tutorials/flow-101)* [Forte Network Upgrade](/blockchain-development-tutorials/forte)
+
+      * [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)
+
+        * [Cadence Tutorials](/blockchain-development-tutorials/cadence)
+
+          * [Flow EVM Guides](/blockchain-development-tutorials/evm)
+
+            * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
+
+              * [Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/native-vrf)
+
+                * [Token Development and Registration](/blockchain-development-tutorials/tokens)
+
+                  * [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)
+
+                    * [Third-Party Integrations](/blockchain-development-tutorials/integrations)
+
+                      + [Gelato Smart Wallet](/blockchain-development-tutorials/integrations/gelato-sw)+ [Crossmint Integration Guide](/blockchain-development-tutorials/integrations/crossmint)
+
+                          - [Authentication Integration Guide](/blockchain-development-tutorials/integrations/crossmint/authentication)- [Payment Checkout Integration](/blockchain-development-tutorials/integrations/crossmint/payment-checkout)- [Minting Platform Integration](/blockchain-development-tutorials/integrations/crossmint/minting-platform)- [Crossmint Smart Wallets](/blockchain-development-tutorials/integrations/crossmint/smart-wallets)
+
+* * [Third-Party Integrations](/blockchain-development-tutorials/integrations)* [Crossmint Integration Guide](/blockchain-development-tutorials/integrations/crossmint)* Crossmint Smart Wallets
+
+On this page
+
+# Crossmint Smart Wallets Integration Guide
+
+Traditional blockchain wallets create significant friction for mainstream users. Managing seed phrases, understanding gas fees, and connecting multiple wallets are barriers that prevent widespread Web3 adoption. Crossmint Smart Wallets solves these problems by providing **enterprise-grade wallet infrastructure** that enables Web2-like user experiences without compromising on security or decentralization.
+
+With Crossmint Smart Wallets, you can:
+
+* **Eliminate wallet complexity** with email and social login authentication
+* **Remove onboarding friction** by automatically creating wallets for users
+* **Support multiple authentication methods** including email, Google, passkeys, and external wallets
+* **Enable gasless transactions** to improve user experience
+* **Build on Flow** with full support for both mainnet and testnet environments
+* **Scale with confidence** using infrastructure trusted by Fortune 500 companies
+
+This tutorial will guide you through integrating Crossmint Smart Wallets into your Flow application. You'll learn how to set up authentication, automatically create wallets, check balances, transfer tokens, and display transaction historyall with a familiar Web2-style developer experience.
+
+info
+
+Crossmint provides flexible wallet solutions across 50+ blockchains including Flow. This tutorial focuses on the **React implementation** for web applications, but Crossmint also supports Node.js, React Native, Swift (iOS), and Kotlin (Android) platforms.
+
+## Objectives[​](#objectives "Direct link to Objectives")
+
+After completing this guide, you'll be able to:
+
+* Configure a Crossmint account with proper API keys and permissions
+* Implement email and social authentication for automatic wallet creation
+* Display wallet information including address, balance, and ownership details
+* Execute token transfers on Flow using Crossmint's SDK
+* Build an activity feed showing transaction history
+* Handle authentication states and error scenarios properly
+* Deploy your Crossmint-powered application to production
+
+## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+
+Before starting this tutorial, you should have:
+
+* **Development Environment**: Node.js and npm/yarn/pnpm installed
+* **React Knowledge**: Familiarity with React hooks and component patterns
+* **Next.js or Create-React-App**: A React application ready for integration
+* **Basic Blockchain Concepts**: Understanding of wallet addresses and token transfers (helpful but not required)
+
+## Setting Up Your Crossmint Account[​](#setting-up-your-crossmint-account "Direct link to Setting Up Your Crossmint Account")
+
+You need to create a Crossmint account and configure API access before implementing wallet functionality.
+
+### Step 1. Create Your Crossmint Account[​](#step-1-create-your-crossmint-account "Direct link to Step 1. Create Your Crossmint Account")
+
+Sign up on the [Crossmint Console](https://www.crossmint.com/console) to establish an account. For development and testing, use the [Staging Console](https://staging.crossmint.com/console) instead.
+
+tip
+
+Always use the staging environment during development. Staging supports testnet blockchains only, while production supports mainnet deployments.
+
+### Step 2. Create a New Project[​](#step-2-create-a-new-project "Direct link to Step 2. Create a New Project")
+
+After logging into the console:
+
+1. Click **Create New Project**
+2. Enter a project name (e.g., "Flow DApp")
+3. Select your project type (Web Application recommended)
+4. Save your project settings
+
+### Step 3. Generate API Keys[​](#step-3-generate-api-keys "Direct link to Step 3. Generate API Keys")
+
+Navigate to your project dashboard to create a client-side API key:
+
+1. Go to the **API Keys** section
+2. Click **Create New API Key**
+3. Select **Client API Key** (not server key)
+4. Enable the following scopes:
+
+   * `users.create` - Create new users
+   * `users.read` - Read user information
+   * `wallets.read` - Read wallet data
+   * `wallets.create` - Create new wallets
+   * `wallets:transactions.create` - Create transactions
+   * `wallets:transactions.sign` - Sign transactions
+   * `wallets:balance.read` - Read balance information
+   * `wallets.fund` - Fund wallets (staging/development only)
+5. Copy the generated API key to your clipboard
+
+warning
+
+Keep your API keys secure! Never commit them to version control. Use environment variables to store sensitive credentials.
+
+### Step 4. Configure Environment Variables[​](#step-4-configure-environment-variables "Direct link to Step 4. Configure Environment Variables")
+
+Create a `.env` or `.env.local` file in your project root:
+
+`_10
+
+NEXT_PUBLIC_CROSSMINT_API_KEY=your_api_key_here
+
+_10
+
+NEXT_PUBLIC_CHAIN=flow-testnet`
+
+For production deployments, update to:
+
+`_10
+
+NEXT_PUBLIC_CROSSMINT_API_KEY=your_production_api_key
+
+_10
+
+NEXT_PUBLIC_CHAIN=flow`
+
+## Implementing Crossmint Smart Wallets[​](#implementing-crossmint-smart-wallets "Direct link to Implementing Crossmint Smart Wallets")
+
+With your Crossmint account configured, you can now integrate wallet functionality into your React application.
+
+### Step 1. Install Dependencies[​](#step-1-install-dependencies "Direct link to Step 1. Install Dependencies")
+
+Install the Crossmint React SDK:
+
+* pnpm* bun* yarn* npm
+
+`_10
+
+pnpm add @crossmint/client-sdk-react-ui`
+
+`_10
+
+bun add @crossmint/client-sdk-react-ui`
+
+`_10
+
+yarn add @crossmint/client-sdk-react-ui`
+
+`_10
+
+npm install @crossmint/client-sdk-react-ui`
+
+### Step 2. Configure Crossmint Providers[​](#step-2-configure-crossmint-providers "Direct link to Step 2. Configure Crossmint Providers")
+
+Crossmint requires three providers to be set up in a specific hierarchy. These providers handle API configuration, authentication, and wallet management.
+
+* Next.js App Router* Create-React-App
+
+Create a new file `app/providers.tsx`:
+
+`_40
+
+"use client";
+
+_40
+
+_40
+
+import {
+
+_40
+
+CrossmintProvider,
+
+_40
+
+CrossmintAuthProvider,
+
+_40
+
+CrossmintWalletProvider,
+
+_40
+
+} from "@crossmint/client-sdk-react-ui";
+
+_40
+
+_40
+
+if (!process.env.NEXT_PUBLIC_CROSSMINT_API_KEY) {
+
+_40
+
+throw new Error("NEXT_PUBLIC_CROSSMINT_API_KEY is not set");
+
+_40
+
+}
+
+_40
+
+_40
+
+const chain = (process.env.NEXT_PUBLIC_CHAIN ?? "flow-testnet") as any;
+
+_40
+
+_40
+
+export function Providers({ children }: { children: React.ReactNode }) {
+
+_40
+
+return (
+
+_40
+
+<CrossmintProvider apiKey={process.env.NEXT_PUBLIC_CROSSMINT_API_KEY}>
+
+_40
+
+<CrossmintAuthProvider
+
+_40
+
+authModalTitle="Welcome to Flow"
+
+_40
+
+loginMethods={["google", "email"]}
+
+_40
+
+appearance={{
+
+_40
+
+colors: {
+
+_40
+
+accent: "#00EF8B", // Flow brand color
+
+_40
+
+},
+
+_40
+
+}}
+
+_40
+
+>
+
+_40
+
+<CrossmintWalletProvider
+
+_40
+
+createOnLogin={{
+
+_40
+
+chain: chain,
+
+_40
+
+signer: {
+
+_40
+
+type: "email",
+
+_40
+
+},
+
+_40
+
+}}
+
+_40
+
+>
+
+_40
+
+{children}
+
+_40
+
+</CrossmintWalletProvider>
+
+_40
+
+</CrossmintAuthProvider>
+
+_40
+
+</CrossmintProvider>
+
+_40
+
+);
+
+_40
+
+}`
+
+Then wrap your app in `app/layout.tsx`:
+
+`_15
+
+import { Providers } from "./providers";
+
+_15
+
+_15
+
+export default function RootLayout({
+
+_15
+
+children,
+
+_15
+
+}: {
+
+_15
+
+children: React.ReactNode;
+
+_15
+
+}) {
+
+_15
+
+return (
+
+_15
+
+<html lang="en">
+
+_15
+
+<body>
+
+_15
+
+<Providers>{children}</Providers>
+
+_15
+
+</body>
+
+_15
+
+</html>
+
+_15
+
+);
+
+_15
+
+}`
+
+Update your `src/index.tsx` or `src/index.jsx`:
+
+`_41
+
+import React from 'react';
+
+_41
+
+import ReactDOM from 'react-dom/client';
+
+_41
+
+import App from './App';
+
+_41
+
+import {
+
+_41
+
+CrossmintProvider,
+
+_41
+
+CrossmintAuthProvider,
+
+_41
+
+CrossmintWalletProvider,
+
+_41
+
+} from "@crossmint/client-sdk-react-ui";
+
+_41
+
+_41
+
+const chain = process.env.REACT_APP_CHAIN ?? "flow-testnet";
+
+_41
+
+const apiKey = process.env.REACT_APP_CROSSMINT_API_KEY;
+
+_41
+
+_41
+
+if (!apiKey) {
+
+_41
+
+throw new Error("REACT_APP_CROSSMINT_API_KEY is not set");
+
+_41
+
+}
+
+_41
+
+_41
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+_41
+
+root.render(
+
+_41
+
+<React.StrictMode>
+
+_41
+
+<CrossmintProvider apiKey={apiKey}>
+
+_41
+
+<CrossmintAuthProvider
+
+_41
+
+authModalTitle="Welcome to Flow"
+
+_41
+
+loginMethods={["google", "email"]}
+
+_41
+
+appearance={{
+
+_41
+
+colors: {
+
+_41
+
+accent: "#00EF8B",
+
+_41
+
+},
+
+_41
+
+}}
+
+_41
+
+>
+
+_41
+
+<CrossmintWalletProvider
+
+_41
+
+createOnLogin={{
+
+_41
+
+chain: chain,
+
+_41
+
+signer: { type: "email" },
+
+_41
+
+}}
+
+_41
+
+>
+
+_41
+
+<App />
+
+_41
+
+</CrossmintWalletProvider>
+
+_41
+
+</CrossmintAuthProvider>
+
+_41
+
+</CrossmintProvider>
+
+_41
+
+</React.StrictMode>
+
+_41
+
+);`
+
+**Provider Configuration Options:**
+
+* **CrossmintProvider**: Top-level provider requiring only your API key
+* **CrossmintAuthProvider**: Manages authentication with configurable options:
+  + `authModalTitle`: Title displayed in the authentication modal
+  + `loginMethods`: Array of enabled authentication methods (`"email"`, `"google"`, `"apple"`, `"twitter"`, `"farcaster"`)
+  + `appearance`: Customize UI colors and styling
+* **CrossmintWalletProvider**: Handles wallet creation and management:
+  + `createOnLogin.chain`: Target blockchain (e.g., `"flow"`, `"flow-testnet"`)
+  + `createOnLogin.signer.type`: Authentication method for wallet signing (`"email"`, `"passkey"`)
+
+info
+
+The `createOnLogin` configuration enables **automatic wallet creation**. When a user logs in for the first time, Crossmint automatically provisions a wallet on the specified chain. No additional setup required!
+
+### Step 3. Implement Authentication[​](#step-3-implement-authentication "Direct link to Step 3. Implement Authentication")
+
+Create login and logout components using Crossmint's `useAuth` hook.
+
+**LoginButton.tsx:**
+
+`_16
+
+"use client";
+
+_16
+
+_16
+
+import { useAuth } from "@crossmint/client-sdk-react-ui";
+
+_16
+
+_16
+
+export function LoginButton() {
+
+_16
+
+const { login } = useAuth();
+
+_16
+
+_16
+
+return (
+
+_16
+
+<button
+
+_16
+
+className="px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors"
+
+_16
+
+onClick={login}
+
+_16
+
+>
+
+_16
+
+Sign In
+
+_16
+
+</button>
+
+_16
+
+);
+
+_16
+
+}`
+
+**LogoutButton.tsx:**
+
+`_16
+
+"use client";
+
+_16
+
+_16
+
+import { useAuth } from "@crossmint/client-sdk-react-ui";
+
+_16
+
+_16
+
+export function LogoutButton() {
+
+_16
+
+const { logout } = useAuth();
+
+_16
+
+_16
+
+return (
+
+_16
+
+<button
+
+_16
+
+className="px-4 py-2 bg-white text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+
+_16
+
+onClick={logout}
+
+_16
+
+>
+
+_16
+
+Sign Out
+
+_16
+
+</button>
+
+_16
+
+);
+
+_16
+
+}`
+
+**Header.tsx (Conditional rendering):**
+
+`_21
+
+"use client";
+
+_21
+
+_21
+
+import { useAuth, useWallet } from "@crossmint/client-sdk-react-ui";
+
+_21
+
+import { LoginButton } from "./LoginButton";
+
+_21
+
+import { LogoutButton } from "./LogoutButton";
+
+_21
+
+_21
+
+export function Header() {
+
+_21
+
+const { status: authStatus } = useAuth();
+
+_21
+
+const { wallet } = useWallet();
+
+_21
+
+_21
+
+const isLoggedIn = wallet != null && authStatus === "logged-in";
+
+_21
+
+_21
+
+return (
+
+_21
+
+<header className="border-b">
+
+_21
+
+<div className="container mx-auto px-4 py-4 flex justify-between items-center">
+
+_21
+
+<h1 className="text-2xl font-bold">Flow DApp</h1>
+
+_21
+
+{isLoggedIn ? <LogoutButton /> : <LoginButton />}
+
+_21
+
+</div>
+
+_21
+
+</header>
+
+_21
+
+);
+
+_21
+
+}`
+
+### Step 4. Display Wallet Information[​](#step-4-display-wallet-information "Direct link to Step 4. Display Wallet Information")
+
+Create a component to show wallet details using the `useWallet` hook.
+
+**WalletInfo.tsx:**
+
+`` _65
+
+"use client";
+
+_65
+
+_65
+
+import { useState } from "react";
+
+_65
+
+import { useAuth, useWallet } from "@crossmint/client-sdk-react-ui";
+
+_65
+
+_65
+
+export function WalletInfo() {
+
+_65
+
+const { wallet, status } = useWallet();
+
+_65
+
+const { user } = useAuth();
+
+_65
+
+const [copied, setCopied] = useState(false);
+
+_65
+
+_65
+
+if (status === "in-progress") {
+
+_65
+
+return (
+
+_65
+
+<div className="bg-white rounded-lg p-6 border">
+
+_65
+
+<div className="animate-pulse">Loading wallet...</div>
+
+_65
+
+</div>
+
+_65
+
+);
+
+_65
+
+}
+
+_65
+
+_65
+
+if (!wallet) {
+
+_65
+
+return null;
+
+_65
+
+}
+
+_65
+
+_65
+
+const formatAddress = (address: string) => {
+
+_65
+
+return `${address.slice(0, 6)}...${address.slice(-6)}`;
+
+_65
+
+};
+
+_65
+
+_65
+
+const handleCopy = async () => {
+
+_65
+
+await navigator.clipboard.writeText(wallet.address);
+
+_65
+
+setCopied(true);
+
+_65
+
+setTimeout(() => setCopied(false), 2000);
+
+_65
+
+};
+
+_65
+
+_65
+
+return (
+
+_65
+
+<div className="bg-white rounded-lg p-6 border">
+
+_65
+
+<h2 className="text-xl font-semibold mb-4">Wallet Details</h2>
+
+_65
+
+_65
+
+<div className="space-y-3">
+
+_65
+
+<div>
+
+_65
+
+<div className="text-sm text-gray-500 mb-1">Address</div>
+
+_65
+
+<div className="flex items-center gap-2">
+
+_65
+
+<code className="text-sm bg-gray-100 px-3 py-2 rounded">
+
+_65
+
+{formatAddress(wallet.address)}
+
+_65
+
+</code>
+
+_65
+
+<button
+
+_65
+
+onClick={handleCopy}
+
+_65
+
+className="text-sm px-3 py-2 bg-gray-100 rounded hover:bg-gray-200"
+
+_65
+
+>
+
+_65
+
+{copied ? "Copied!" : "Copy"}
+
+_65
+
+</button>
+
+_65
+
+</div>
+
+_65
+
+</div>
+
+_65
+
+_65
+
+<div>
+
+_65
+
+<div className="text-sm text-gray-500 mb-1">Chain</div>
+
+_65
+
+<div className="font-medium">{wallet.chain}</div>
+
+_65
+
+</div>
+
+_65
+
+_65
+
+<div>
+
+_65
+
+<div className="text-sm text-gray-500 mb-1">Owner</div>
+
+_65
+
+<div className="font-medium">{user?.email || wallet.owner}</div>
+
+_65
+
+</div>
+
+_65
+
+</div>
+
+_65
+
+</div>
+
+_65
+
+);
+
+_65
+
+} ``
+
+### Step 5. Display Wallet Balance[​](#step-5-display-wallet-balance "Direct link to Step 5. Display Wallet Balance")
+
+Fetch and display the wallet's token balance using the `wallet.balances()` method.
+
+**WalletBalance.tsx:**
+
+`_69
+
+"use client";
+
+_69
+
+_69
+
+import { useEffect, useState } from "react";
+
+_69
+
+import { Balances, useWallet } from "@crossmint/client-sdk-react-ui";
+
+_69
+
+_69
+
+export function WalletBalance() {
+
+_69
+
+const { wallet } = useWallet();
+
+_69
+
+const [balances, setBalances] = useState<Balances | null>(null);
+
+_69
+
+const [isLoading, setIsLoading] = useState(true);
+
+_69
+
+_69
+
+useEffect(() => {
+
+_69
+
+async function fetchBalances() {
+
+_69
+
+if (!wallet) return;
+
+_69
+
+_69
+
+try {
+
+_69
+
+setIsLoading(true);
+
+_69
+
+const balances = await wallet.balances();
+
+_69
+
+setBalances(balances);
+
+_69
+
+} catch (error) {
+
+_69
+
+console.error("Error fetching wallet balances:", error);
+
+_69
+
+} finally {
+
+_69
+
+setIsLoading(false);
+
+_69
+
+}
+
+_69
+
+}
+
+_69
+
+_69
+
+fetchBalances();
+
+_69
+
+}, [wallet]);
+
+_69
+
+_69
+
+if (isLoading) {
+
+_69
+
+return (
+
+_69
+
+<div className="bg-white rounded-lg p-6 border">
+
+_69
+
+<div className="animate-pulse">Loading balance...</div>
+
+_69
+
+</div>
+
+_69
+
+);
+
+_69
+
+}
+
+_69
+
+_69
+
+const nativeBalance = balances?.nativeToken?.amount
+
+_69
+
+? Number(balances.nativeToken.amount).toFixed(4)
+
+_69
+
+: "0.0000";
+
+_69
+
+_69
+
+return (
+
+_69
+
+<div className="bg-white rounded-lg p-6 border">
+
+_69
+
+<h2 className="text-xl font-semibold mb-4">Balance</h2>
+
+_69
+
+_69
+
+<div className="space-y-4">
+
+_69
+
+<div>
+
+_69
+
+<div className="text-sm text-gray-500 mb-1">
+
+_69
+
+{balances?.nativeToken?.symbol || "FLOW"}
+
+_69
+
+</div>
+
+_69
+
+<div className="text-3xl font-bold">{nativeBalance}</div>
+
+_69
+
+</div>
+
+_69
+
+_69
+
+{balances?.tokens && balances.tokens.length > 0 && (
+
+_69
+
+<div className="pt-4 border-t">
+
+_69
+
+<div className="text-sm font-medium text-gray-700 mb-2">Tokens</div>
+
+_69
+
+{balances.tokens.map((token, index) => (
+
+_69
+
+<div key={index} className="flex justify-between py-2">
+
+_69
+
+<span className="text-gray-600">{token.symbol}</span>
+
+_69
+
+<span className="font-medium">
+
+_69
+
+{Number(token.amount).toFixed(2)}
+
+_69
+
+</span>
+
+_69
+
+</div>
+
+_69
+
+))}
+
+_69
+
+</div>
+
+_69
+
+)}
+
+_69
+
+</div>
+
+_69
+
+</div>
+
+_69
+
+);
+
+_69
+
+}`
+
+### Step 6. Implement Token Transfers[​](#step-6-implement-token-transfers "Direct link to Step 6. Implement Token Transfers")
+
+Create a component for transferring tokens using the `wallet.send()` method.
+
+**TransferTokens.tsx:**
+
+`_117
+
+"use client";
+
+_117
+
+_117
+
+import { useState } from "react";
+
+_117
+
+import { useWallet } from "@crossmint/client-sdk-react-ui";
+
+_117
+
+_117
+
+export function TransferTokens() {
+
+_117
+
+const { wallet } = useWallet();
+
+_117
+
+const [recipient, setRecipient] = useState("");
+
+_117
+
+const [amount, setAmount] = useState("");
+
+_117
+
+const [isLoading, setIsLoading] = useState(false);
+
+_117
+
+const [explorerLink, setExplorerLink] = useState<string | null>(null);
+
+_117
+
+const [error, setError] = useState<string | null>(null);
+
+_117
+
+_117
+
+async function handleTransfer() {
+
+_117
+
+if (!wallet || !recipient || !amount) {
+
+_117
+
+setError("Please fill in all fields");
+
+_117
+
+return;
+
+_117
+
+}
+
+_117
+
+_117
+
+try {
+
+_117
+
+setIsLoading(true);
+
+_117
+
+setError(null);
+
+_117
+
+setExplorerLink(null);
+
+_117
+
+_117
+
+const txn = await wallet.send(
+
+_117
+
+recipient,
+
+_117
+
+"flow", // Token symbol - use native FLOW token
+
+_117
+
+amount
+
+_117
+
+);
+
+_117
+
+_117
+
+setExplorerLink(txn.explorerLink);
+
+_117
+
+_117
+
+// Reset form
+
+_117
+
+setRecipient("");
+
+_117
+
+setAmount("");
+
+_117
+
+} catch (err) {
+
+_117
+
+console.error("Transfer error:", err);
+
+_117
+
+_117
+
+if (err instanceof Error && err.name === "AuthRejectedError") {
+
+_117
+
+// User cancelled the transaction - don't show error
+
+_117
+
+return;
+
+_117
+
+}
+
+_117
+
+_117
+
+setError(err instanceof Error ? err.message : "Transfer failed");
+
+_117
+
+} finally {
+
+_117
+
+setIsLoading(false);
+
+_117
+
+}
+
+_117
+
+}
+
+_117
+
+_117
+
+return (
+
+_117
+
+<div className="bg-white rounded-lg p-6 border">
+
+_117
+
+<h2 className="text-xl font-semibold mb-4">Transfer Tokens</h2>
+
+_117
+
+_117
+
+<div className="space-y-4">
+
+_117
+
+<div>
+
+_117
+
+<label className="block text-sm font-medium text-gray-700 mb-2">
+
+_117
+
+Amount
+
+_117
+
+</label>
+
+_117
+
+<input
+
+_117
+
+type="number"
+
+_117
+
+inputMode="decimal"
+
+_117
+
+step="0.01"
+
+_117
+
+value={amount}
+
+_117
+
+onChange={(e) => setAmount(e.target.value)}
+
+_117
+
+placeholder="0.00"
+
+_117
+
+className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+
+_117
+
+disabled={isLoading}
+
+_117
+
+/>
+
+_117
+
+</div>
+
+_117
+
+_117
+
+<div>
+
+_117
+
+<label className="block text-sm font-medium text-gray-700 mb-2">
+
+_117
+
+Recipient Address
+
+_117
+
+</label>
+
+_117
+
+<input
+
+_117
+
+type="text"
+
+_117
+
+value={recipient}
+
+_117
+
+onChange={(e) => setRecipient(e.target.value)}
+
+_117
+
+placeholder="0x..."
+
+_117
+
+className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent font-mono text-sm"
+
+_117
+
+disabled={isLoading}
+
+_117
+
+/>
+
+_117
+
+</div>
+
+_117
+
+_117
+
+{error && (
+
+_117
+
+<div className="p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
+
+_117
+
+{error}
+
+_117
+
+</div>
+
+_117
+
+)}
+
+_117
+
+_117
+
+{explorerLink && (
+
+_117
+
+<div className="p-3 bg-green-50 border border-green-200 rounded-lg">
+
+_117
+
+<div className="text-green-700 text-sm mb-2">
+
+_117
+
+Transaction successful!
+
+_117
+
+</div>
+
+_117
+
+<a
+
+_117
+
+href={explorerLink}
+
+_117
+
+target="_blank"
+
+_117
+
+rel="noopener noreferrer"
+
+_117
+
+className="text-blue-600 hover:text-blue-800 text-sm underline"
+
+_117
+
+>
+
+_117
+
+View on Explorer �
+
+_117
+
+</a>
+
+_117
+
+</div>
+
+_117
+
+)}
+
+_117
+
+_117
+
+<button
+
+_117
+
+onClick={handleTransfer}
+
+_117
+
+disabled={isLoading || !recipient || !amount}
+
+_117
+
+className="w-full py-3 px-4 bg-black text-white rounded-lg font-medium hover:bg-gray-800 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+
+_117
+
+>
+
+_117
+
+{isLoading ? "Transferring..." : "Transfer"}
+
+_117
+
+</button>
+
+_117
+
+</div>
+
+_117
+
+</div>
+
+_117
+
+);
+
+_117
+
+}`
+
+tip
+
+The `wallet.send()` method throws an `AuthRejectedError` when users cancel the transaction. Handle this separately to avoid showing unnecessary error messages.
+
+### Step 7. Build Activity Feed[​](#step-7-build-activity-feed "Direct link to Step 7. Build Activity Feed")
+
+Display transaction history using the `wallet.experimental_activity()` method with polling for real-time updates.
+
+**ActivityFeed.tsx:**
+
+`` _117
+
+"use client";
+
+_117
+
+_117
+
+import { useEffect, useState } from "react";
+
+_117
+
+import { type Activity, useWallet } from "@crossmint/client-sdk-react-ui";
+
+_117
+
+_117
+
+export function ActivityFeed() {
+
+_117
+
+const { wallet } = useWallet();
+
+_117
+
+const [activity, setActivity] = useState<Activity | null>(null);
+
+_117
+
+const [isLoading, setIsLoading] = useState(true);
+
+_117
+
+_117
+
+useEffect(() => {
+
+_117
+
+if (!wallet) return;
+
+_117
+
+_117
+
+const fetchActivity = async () => {
+
+_117
+
+try {
+
+_117
+
+const activity = await wallet.experimental_activity();
+
+_117
+
+setActivity(activity);
+
+_117
+
+setIsLoading(false);
+
+_117
+
+} catch (error) {
+
+_117
+
+console.error("Failed to fetch activity:", error);
+
+_117
+
+setIsLoading(false);
+
+_117
+
+}
+
+_117
+
+};
+
+_117
+
+_117
+
+// Initial fetch
+
+_117
+
+fetchActivity();
+
+_117
+
+_117
+
+// Poll every 8 seconds for updates
+
+_117
+
+const interval = setInterval(fetchActivity, 8000);
+
+_117
+
+_117
+
+return () => clearInterval(interval);
+
+_117
+
+}, [wallet]);
+
+_117
+
+_117
+
+const formatAddress = (address: string) => {
+
+_117
+
+return `${address.slice(0, 6)}...${address.slice(-6)}`;
+
+_117
+
+};
+
+_117
+
+_117
+
+const formatTimestamp = (timestamp: number) => {
+
+_117
+
+// Handle both seconds and milliseconds
+
+_117
+
+const date = new Date(
+
+_117
+
+timestamp < 10000000000 ? timestamp * 1000 : timestamp
+
+_117
+
+);
+
+_117
+
+const now = new Date();
+
+_117
+
+const diffInMs = now.getTime() - date.getTime();
+
+_117
+
+_117
+
+if (diffInMs < 0) return "just now";
+
+_117
+
+_117
+
+const diffInMinutes = Math.floor(diffInMs / (1000 * 60));
+
+_117
+
+const diffInHours = Math.floor(diffInMs / (1000 * 60 * 60));
+
+_117
+
+const diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
+
+_117
+
+_117
+
+if (diffInMinutes < 1) return "just now";
+
+_117
+
+else if (diffInMinutes < 60) return `${diffInMinutes}m ago`;
+
+_117
+
+else if (diffInHours < 24) return `${diffInHours}h ago`;
+
+_117
+
+else return `${diffInDays}d ago`;
+
+_117
+
+};
+
+_117
+
+_117
+
+if (isLoading) {
+
+_117
+
+return (
+
+_117
+
+<div className="bg-white rounded-lg p-6 border">
+
+_117
+
+<div className="animate-pulse">Loading activity...</div>
+
+_117
+
+</div>
+
+_117
+
+);
+
+_117
+
+}
+
+_117
+
+_117
+
+return (
+
+_117
+
+<div className="bg-white rounded-lg p-6 border">
+
+_117
+
+<h2 className="text-xl font-semibold mb-4">Recent Activity</h2>
+
+_117
+
+_117
+
+{activity?.events && activity.events.length > 0 ? (
+
+_117
+
+<div className="space-y-3">
+
+_117
+
+{activity.events.map((event, index) => {
+
+_117
+
+const isIncoming =
+
+_117
+
+event.to_address?.toLowerCase() === wallet?.address.toLowerCase();
+
+_117
+
+_117
+
+return (
+
+_117
+
+<div
+
+_117
+
+key={event.transaction_hash || index}
+
+_117
+
+className="flex items-center justify-between p-4 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors"
+
+_117
+
+>
+
+_117
+
+<div className="flex-1">
+
+_117
+
+<div className="flex items-center gap-2 mb-1">
+
+_117
+
+<span className={`font-medium ${isIncoming ? "text-green-600" : "text-blue-600"}`}>
+
+_117
+
+{isIncoming ? "Received" : "Sent"}
+
+_117
+
+</span>
+
+_117
+
+<span className="text-xs text-gray-500">
+
+_117
+
+{formatTimestamp(event.timestamp)}
+
+_117
+
+</span>
+
+_117
+
+</div>
+
+_117
+
+<div className="text-sm text-gray-600">
+
+_117
+
+{isIncoming
+
+_117
+
+? `From ${formatAddress(event.from_address)}`
+
+_117
+
+: `To ${formatAddress(event.to_address)}`
+
+_117
+
+}
+
+_117
+
+</div>
+
+_117
+
+</div>
+
+_117
+
+<div className={`text-right ${isIncoming ? "text-green-600" : "text-blue-600"}`}>
+
+_117
+
+<div className="font-semibold">
+
+_117
+
+{isIncoming ? "+" : "-"}{event.amount}
+
+_117
+
+</div>
+
+_117
+
+<div className="text-xs text-gray-500">
+
+_117
+
+{event.token_symbol || "FLOW"}
+
+_117
+
+</div>
+
+_117
+
+</div>
+
+_117
+
+</div>
+
+_117
+
+);
+
+_117
+
+})}
+
+_117
+
+</div>
+
+_117
+
+) : (
+
+_117
+
+<div className="text-center py-8 text-gray-500">
+
+_117
+
+<p>No transactions yet</p>
+
+_117
+
+<p className="text-sm mt-2">Your activity will appear here</p>
+
+_117
+
+</div>
+
+_117
+
+)}
+
+_117
+
+</div>
+
+_117
+
+);
+
+_117
+
+} ``
+
+warning
+
+The `experimental_activity()` method is experimental and may change in future SDK versions. Always handle errors gracefully and provide fallback UI.
+
+### Step 8. Create Main Dashboard[​](#step-8-create-main-dashboard "Direct link to Step 8. Create Main Dashboard")
+
+Combine all components into a cohesive dashboard with proper state management.
+
+**Dashboard.tsx:**
+
+`_24
+
+"use client";
+
+_24
+
+_24
+
+import { WalletInfo } from "./WalletInfo";
+
+_24
+
+import { WalletBalance } from "./WalletBalance";
+
+_24
+
+import { TransferTokens } from "./TransferTokens";
+
+_24
+
+import { ActivityFeed } from "./ActivityFeed";
+
+_24
+
+_24
+
+export function Dashboard() {
+
+_24
+
+return (
+
+_24
+
+<div className="container mx-auto px-4 py-8">
+
+_24
+
+<div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+_24
+
+<div className="space-y-6">
+
+_24
+
+<WalletInfo />
+
+_24
+
+<WalletBalance />
+
+_24
+
+</div>
+
+_24
+
+_24
+
+<div className="space-y-6">
+
+_24
+
+<TransferTokens />
+
+_24
+
+<ActivityFeed />
+
+_24
+
+</div>
+
+_24
+
+</div>
+
+_24
+
+</div>
+
+_24
+
+);
+
+_24
+
+}`
+
+**page.tsx (Main application):**
+
+`_43
+
+"use client";
+
+_43
+
+_43
+
+import { useAuth, useWallet } from "@crossmint/client-sdk-react-ui";
+
+_43
+
+import { Header } from "@/components/Header";
+
+_43
+
+import { Dashboard } from "@/components/Dashboard";
+
+_43
+
+import { LoginButton } from "@/components/LoginButton";
+
+_43
+
+_43
+
+export default function Home() {
+
+_43
+
+const { wallet, status: walletStatus } = useWallet();
+
+_43
+
+const { status: authStatus } = useAuth();
+
+_43
+
+_43
+
+const isLoggedIn = wallet != null && authStatus === "logged-in";
+
+_43
+
+const isLoading = walletStatus === "in-progress" || authStatus === "initializing";
+
+_43
+
+_43
+
+return (
+
+_43
+
+<div className="min-h-screen bg-gray-50">
+
+_43
+
+<Header />
+
+_43
+
+_43
+
+<main className="flex-1">
+
+_43
+
+{isLoading ? (
+
+_43
+
+<div className="flex items-center justify-center min-h-[60vh]">
+
+_43
+
+<div className="text-center">
+
+_43
+
+<div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 mx-auto mb-4"></div>
+
+_43
+
+<p className="text-gray-600">Initializing wallet...</p>
+
+_43
+
+</div>
+
+_43
+
+</div>
+
+_43
+
+) : isLoggedIn ? (
+
+_43
+
+<Dashboard />
+
+_43
+
+) : (
+
+_43
+
+<div className="flex items-center justify-center min-h-[60vh]">
+
+_43
+
+<div className="text-center max-w-md">
+
+_43
+
+<h1 className="text-4xl font-bold mb-4">Welcome to Flow</h1>
+
+_43
+
+<p className="text-gray-600 mb-8">
+
+_43
+
+Sign in to access your wallet and start transacting on Flow blockchain
+
+_43
+
+</p>
+
+_43
+
+<LoginButton />
+
+_43
+
+</div>
+
+_43
+
+</div>
+
+_43
+
+)}
+
+_43
+
+</main>
+
+_43
+
+</div>
+
+_43
+
+);
+
+_43
+
+}`
+
+---
+
+## Additional Platform Support[​](#additional-platform-support "Direct link to Additional Platform Support")
+
+While this tutorial focuses on React for web applications, Crossmint provides SDKs for multiple platforms:
+
+### Node.js (Backend)[​](#nodejs-backend "Direct link to Node.js (Backend)")
+
+For server-side wallet creation and management, use the Node.js SDK:
+
+* [Node.js Quickstart Documentation](https://docs.crossmint.com/wallets/quickstarts/nodejs)
+
+### React Native (Mobile)[​](#react-native-mobile "Direct link to React Native (Mobile)")
+
+For iOS and Android mobile applications:
+
+* [React Native Quickstart Documentation](https://docs.crossmint.com/wallets/quickstarts/react-native)
+
+### Swift (iOS Native)[​](#swift-ios-native "Direct link to Swift (iOS Native)")
+
+For native iOS development:
+
+* Contact [Crossmint Sales](https://www.crossmint.com/contact/sales) for access
+
+### Kotlin (Android Native)[​](#kotlin-android-native "Direct link to Kotlin (Android Native)")
+
+For native Android development:
+
+* Contact [Crossmint Sales](https://www.crossmint.com/contact/sales) for access
+
+---
+
+## Conclusion[​](#conclusion "Direct link to Conclusion")
+
+In this tutorial, you successfully integrated Crossmint Smart Wallets to enable seamless blockchain experiences on Flow. You learned how to implement email-based authentication, automatically create wallets for users, display balances, execute token transfers, and show transaction historyall without requiring users to understand complex blockchain concepts like seed phrases or gas fees.
+
+Now that you have completed the tutorial, you should be able to:
+
+* Configure Crossmint accounts with proper API keys and permissions
+* Implement multiple authentication methods including email and social login
+* Automatically create and manage wallets for users
+* Display wallet information, balances, and transaction history
+* Execute token transfers with proper error handling
+* Build production-ready applications with enterprise-grade wallet infrastructure
+
+Crossmint's wallet infrastructure, combined with Flow's high-performance blockchain, provides a powerful foundation for building user-friendly Web3 applications. By eliminating wallet complexity and onboarding friction, you can create experiences that attract mainstream users while maintaining the security and transparency benefits of blockchain technology.
+
+## Next Steps[​](#next-steps "Direct link to Next Steps")
+
+* Explore [Crossmint's NFT Minting Platform](https://docs.crossmint.com/nft-minting/overview) to add NFT functionality
+* Learn about [Payment Checkout](https://docs.crossmint.com/payments/overview) for credit card and crypto payments
+* Implement [Passkey Authentication](https://docs.crossmint.com/wallets/signers/passkey) for enhanced security
+* Review [Flow Smart Contract Development](/blockchain-development-tutorials/cadence) to build custom on-chain logic
+* Join the [Flow Discord](https://discord.gg/flow) to connect with other developers
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/integrations/crossmint/smart-wallets.md)
+
+Last updated on **Nov 6, 2025** by **Felipe Cevallos**
+
+[Previous
+
+Minting Platform Integration](/blockchain-development-tutorials/integrations/crossmint/minting-platform)
+
+###### Rate this page
+
+😞😐😊
+
+Copy as Markdown
+
+* [Objectives](#objectives)* [Prerequisites](#prerequisites)* [Setting Up Your Crossmint Account](#setting-up-your-crossmint-account)
+      + [Step 1. Create Your Crossmint Account](#step-1-create-your-crossmint-account)+ [Step 2. Create a New Project](#step-2-create-a-new-project)+ [Step 3. Generate API Keys](#step-3-generate-api-keys)+ [Step 4. Configure Environment Variables](#step-4-configure-environment-variables)* [Implementing Crossmint Smart Wallets](#implementing-crossmint-smart-wallets)
+        + [Step 1. Install Dependencies](#step-1-install-dependencies)+ [Step 2. Configure Crossmint Providers](#step-2-configure-crossmint-providers)+ [Step 3. Implement Authentication](#step-3-implement-authentication)+ [Step 4. Display Wallet Information](#step-4-display-wallet-information)+ [Step 5. Display Wallet Balance](#step-5-display-wallet-balance)+ [Step 6. Implement Token Transfers](#step-6-implement-token-transfers)+ [Step 7. Build Activity Feed](#step-7-build-activity-feed)+ [Step 8. Create Main Dashboard](#step-8-create-main-dashboard)* [Additional Platform Support](#additional-platform-support)
+          + [Node.js (Backend)](#nodejs-backend)+ [React Native (Mobile)](#react-native-mobile)+ [Swift (iOS Native)](#swift-ios-native)+ [Kotlin (Android Native)](#kotlin-android-native)* [Conclusion](#conclusion)* [Next Steps](#next-steps)
 
 Flow
 
@@ -177523,43 +180039,43 @@ Search
 
 On this page
 
-# Cross-VM App Tutorials
+# Cross-VM App tutorials
 
-This series covers how to build cross-VM applications that integrate Flow EVM with Flow Cadence, unlocking new capabilities by combining both environments. Flow's unique architecture enables seamless interaction between Cadence smart contracts and EVM-compatible contracts, allowing developers to leverage the best features of both virtual machines in a single application.
+This series covers how to build cross-VM applications that integrate Flow EVM with Flow Cadence, which combines new environments and unlocks new capabilities. Flow's unique architecture allows seamless interaction between Cadence smart contracts and EVM-compatible contracts, which allows developers to leverage the best features of both virtual machines in a single application.
 
 ## Tutorials[​](#tutorials "Direct link to Tutorials")
 
 ### [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps/introduction)[​](#batched-transactions "Direct link to batched-transactions")
 
-Learn to create hybrid applications using FCL, wagmi, and RainbowKit that connect simultaneously to Flow EVM and Flow Cadence. This comprehensive tutorial demonstrates building "Click to Mint," a game where users can mint ERC-20 tokens individually or batch 10 transactions with a single signature using Cadence's powerful multi-call functionality. You'll integrate traditional EVM development tools with Flow's advanced features while maintaining familiar wagmi/viem patterns. The tutorial covers project setup, wallet integration, smart contract interaction, and UI/UX improvements for cross-VM applications.
+Learn to create hybrid applications with Flow Command Line (FCL), wagmi, and RainbowKit that connect simultaneously to Flow EVM and Flow Cadence. This comprehensive tutorial demonstrates how to build "Click to Mint," a game where users can mint ERC-20 tokens individually or batch 10 transactions with a single signature with Cadence's powerful multi-call functionality. You'll integrate traditional EVM development tools with Flow's advanced features while maintaining familiar wagmi/viem patterns. The tutorial covers project setup, wallet integration, smart contract interaction, and UI/UX improvements for cross-VM applications.
 
 ### [Add Flow Cadence to Your wagmi App](/blockchain-development-tutorials/cross-vm-apps/add-to-wagmi)[​](#add-flow-cadence-to-your-wagmi-app "Direct link to add-flow-cadence-to-your-wagmi-app")
 
-Discover how to enhance your existing wagmi/RainbowKit applications by integrating Flow Cadence functionality without rebuilding from scratch. This guide shows you how to add FCL to your current EVM-based dApp to enable advanced features like batched transactions, native randomness, and account abstraction. You'll learn to manage concurrent connections to both Flow EVM and Cadence environments while maintaining your existing user interface and development workflows. The tutorial provides step-by-step integration strategies and best practices for hybrid application architecture.
+Discover how to enhance your wagmi/RainbowKit applications. You can integrate Flow Cadence functionality and not rebuild them from scratch. This guide shows you how to add FCL to your current EVM-based dApp to allow advanced features like batched transactions, native randomness, and account abstraction. You'll learn to manage concurrent connections to both Flow EVM and Cadence environments and maintain your current user interface and development workflows. The tutorial provides step-by-step integration strategies and best practices for hybrid application architecture.
 
 ### [Interacting with COAs](/blockchain-development-tutorials/cross-vm-apps/interacting-with-coa)[​](#interacting-with-coas "Direct link to interacting-with-coas")
 
-Master the creation and management of Cadence Owned Accounts (COAs), which enable Cadence smart contracts to control EVM accounts on Flow. This tutorial covers setting up COAs, understanding their permissions model, and implementing secure interactions between Cadence and EVM environments. You'll learn how to deploy and manage EVM contracts from Cadence, handle cross-VM asset transfers, and implement proper access controls for hybrid applications.
+Master how to create and manage Cadence Owned Accounts (COAs), which allow Cadence smart contracts to control EVM accounts on Flow. This tutorial covers how to set up COAs, details their permissions model, and shows how to implement secure interactions between Cadence and EVM environments. You'll learn how to deploy and manage EVM contracts from Cadence, handle cross-VM asset transfers, and implement proper access controls for hybrid applications.
 
 ### [Batched EVM Transactions](/blockchain-development-tutorials/cross-vm-apps/batched-evm-transactions)[​](#batched-evm-transactions "Direct link to batched-evm-transactions")
 
-Explore advanced techniques for executing multiple EVM transactions atomically within a single Cadence transaction. This guide demonstrates how to batch complex EVM operations like multi-step DeFi protocols, NFT minting sequences, or arbitrage strategies while maintaining transaction atomicity. You'll learn to handle transaction failures gracefully, optimize gas usage across batched calls, and implement error handling for complex multi-transaction workflows.
+Explore advanced techniques for how to execute multiple EVM transactions atomically within a single Cadence transaction. This guide demonstrates how to batch complex EVM operations like multi-step DeFi protocols, NFT minting sequences, or arbitrage strategies and maintain transaction atomicity. You'll learn to handle transaction failures gracefully, optimize gas usage across batched calls, and implement error handling for complex multi-transaction workflows.
 
 ### [Direct Calls to Flow EVM](/blockchain-development-tutorials/cross-vm-apps/direct-calls)[​](#direct-calls-to-flow-evm "Direct link to direct-calls-to-flow-evm")
 
-Learn how Cadence smart contracts can directly interact with Flow EVM without requiring separate user transactions. This technical guide covers making direct calls from Cadence to query EVM state, execute EVM transactions programmatically, and handle responses and errors appropriately. You'll understand gas calculation models, transaction status handling, and best practices for integrating direct EVM calls into your Cadence contracts.
+Learn how Cadence smart contracts can directly interact with Flow EVM without the need to separate user transactions. This technical guide covers how to make direct calls from Cadence to query EVM state, execute EVM transactions programmatically, and handle responses and errors appropriately. You'll understand gas calculation models, transaction status handling, and best practices for how to integrate direct EVM calls into your Cadence contracts.
 
 ### [Cross-VM Bridge](/blockchain-development-tutorials/cross-vm-apps/vm-bridge)[​](#cross-vm-bridge "Direct link to cross-vm-bridge")
 
-Explore the automated bridging of fungible and non-fungible tokens between Flow Cadence and Flow EVM environments. This comprehensive guide covers the Cross-VM Bridge protocol, which enables atomic movement of ERC-20, ERC-721, and Flow native tokens between virtual machines. You'll learn to onboard tokens to the bridge, implement custom token associations, handle bridging fees, and design tokens that work seamlessly across both Cadence and EVM environments.
+Explore the automated bridging of fungible and non-fungible tokens between Flow Cadence and Flow EVM environments. This comprehensive guide covers the Cross-VM Bridge protocol, which allows atomic movement of ERC-20, ERC-721, and Flow native tokens between virtual machines. You'll learn to onboard tokens to the bridge, implement custom token associations, handle bridging fees, and design tokens that work seamlessly across both Cadence and EVM environments.
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-Cross-VM applications represent the future of blockchain development on Flow, combining Cadence's innovative resource-oriented programming with EVM's ecosystem compatibility. These tutorials provide the foundation for building sophisticated applications that leverage both virtual machines, enabling developers to create unique experiences that wouldn't be possible on single-VM blockchains while maintaining compatibility with existing Ethereum tooling and user expectations.
+Cross-VM applications represent the future of blockchain development on Flow, which combines Cadence's innovative resource-oriented programming with EVM's ecosystem compatibility. These tutorials provide the foundation for you to build sophisticated applications that leverage both virtual machines, which allows developers to create unique experiences that wouldn't be possible on single-VM blockchains and maintain compatibility with current Ethereum tooling and user expectations.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cross-vm-apps/index.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Nov 5, 2025** by **cshannon1218**
 
 [Previous
 
@@ -183660,38 +186176,27 @@ On this page
 
 # Cross-VM Bridge
 
-Flow provides the [Cross-VM Bridge](https://www.github.com/onflow/flow-evm-bridge) which enables the movement of
-fungible and non-fungible tokens between Flow-Cadence & Flow-EVM. The Cross-VM Bridge is a contract-based protocol enabling the
-automated and atomic bridging of tokens from Cadence into EVM with their corresponding ERC-20 and ERC-721 token types.
-In the opposite direction, it supports bridging of arbitrary ERC-20 and ERC-721 tokens from EVM to Cadence as their
-corresponding FT or NFT token types.
+Flow provides the [Cross-VM Bridge](https://www.github.com/onflow/flow-evm-bridge) which allows the movement of fungible and non-fungible tokens between Flow-Cadence & Flow-EVM. The Cross-VM Bridge is a contract-based protocol which allows the automated and atomic bridging of tokens from Cadence into EVM with their corresponding ERC-20 and ERC-721 token types.
 
-By default, when a user onboards a new token to the bridge,
-the bridge will deploy a standard token contract in the other VM that only the core bridge
-protocol contracts retain limited control over. This bridge-deployed contract handles basic
-minting and metadata operations that are required for usage in the needed environment.
-If a developer wants to define and connect the NFT contracts on both sides of the bridge,
-they can have each contract point to each other to indicate that they are associated and then
-register that association with the bridge so the token moves between VMs as either definition.
+In the opposite direction, it supports bridging of arbitrary ERC-20 and ERC-721 tokens from EVM to Cadence as their corresponding FT or NFT token types.
 
-The Cross-VM Bridge internalizes the capabilities to deploy new token contracts in either VM state as needed, resolving
-access to, and maintaining links between associated contracts. It additionally automates account and contract calls to
-enforce source VM asset burn or lock, and target VM token mint or unlock.
+By default, when a user onboards a new token to the bridge, the bridge will deploy a standard token contract in the other VM that only the core bridge protocol contracts retain limited control over. This bridge-deployed contract handles basic minting and metadata operations that are required for usage in the needed environment.
 
-Developers wishing to use the Cross-VM Bridge will be required to use a Cadence transaction. Cross-VM bridging
-functionality is not currently available natively in Flow EVM. By extension, this means that the EVM account bridging
-from EVM to Cadence must be a [`CadenceOwnedAccount` (COA)](/blockchain-development-tutorials/cross-vm-apps/interacting-with-coa) as this is the only EVM account
-type that can be controlled from the Cadence runtime.
+If a developer wants to define and connect the NFT contracts on both sides of the bridge, they can have each contract point to each other to indicate that they are associated and then register that association with the bridge so the token moves between VMs as either definition.
 
-This [FLIP-233](https://github.com/onflow/flips/pull/233) outlines the architecture and implementation of the VM bridge.
-An additional [FLIP-318](https://github.com/onflow/flips/blob/main/application/20250131-cross-vm-nft-support.md) describes how developers can create custom associations
+The Cross-VM Bridge internalizes the capabilities to deploy new token contracts in either VM state as needed, resolves access to and maintains links between associated contracts. It also automates account and contract calls to enforce source VM asset burn or lock, and target VM token mint or unlock.
+
+Developers who want to use the Cross-VM Bridge must use a Cadence transaction. Cross-VM bridging functionality is not currently available natively in Flow EVM. By extension, this means that the EVM account bridging
+from EVM to Cadence must be a [`CadenceOwnedAccount` (COA)](/blockchain-development-tutorials/cross-vm-apps/interacting-with-coa) as this is the only EVM account type that can be controlled from the Cadence runtime.
+
+This [FLIP-233](https://github.com/onflow/flips/pull/233) outlines the architecture and implementation of the VM bridge. An additional [FLIP-318](https://github.com/onflow/flips/blob/main/application/20250131-cross-vm-nft-support.md) describes how developers can create custom associations
 between NFTs they define and control in each VM.
-This document will focus on how to use the Cross-VM Bridge and considerations for fungible and non-fungible token
-projects deploying to either Cadence or EVM.
+
+This document will focus on how to use the Cross-VM Bridge and considerations for fungible and non-fungible token projects that deploy to either Cadence or EVM.
 
 ## Deployments[​](#deployments "Direct link to Deployments")
 
-The core bridge contracts can be found at the following addresses:
+You can find the core bridge contracts at the following addresses:
 
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -183708,77 +186213,46 @@ as you'll find the Cadence contracts (see above).
 
 info
 
-All bridging activity in either direction is orchestrated via Cadence on COA EVM accounts. This means that all bridging
-activity must be initiated via a Cadence transaction, not an EVM transaction regardless of the directionality of the
-bridge request. For more information on the interplay between Cadence and EVM, see [How Flow EVM
+All bridging activity in either direction is orchestrated via Cadence on COA EVM accounts. This means that all bridging activity must be initiated via a Cadence transaction, not an EVM transaction regardless of the directionality of the bridge request. For more information on the interplay between Cadence and EVM, see [How Flow EVM
 Works](/build/evm/how-it-works).
 
 ## Overview[​](#overview "Direct link to Overview")
 
-The Flow EVM bridge allows both fungible and non-fungible tokens to move atomically between Cadence and EVM. In the
-context of EVM, fungible tokens are defined as ERC20 tokens, and non-fungible tokens as ERC721 tokens. In Cadence,
-fungible tokens are defined by contracts implementing
-[the `FungibleToken` interface](https://github.com/onflow/flow-ft/blob/master/contracts/FungibleToken.cdc)
-and non-fungible tokens implement
-[the `NonFungibleToken` interface](https://github.com/onflow/flow-nft/blob/master/contracts/NonFungibleToken.cdc).
+The Flow EVM bridge allows both fungible and non-fungible tokens to move atomically between Cadence and EVM. In EVM, fungible tokens are defined as ERC20 tokens, and non-fungible tokens as ERC721 tokens. In Cadence, fungible tokens are defined by contracts that implement [the `FungibleToken` interface](https://github.com/onflow/flow-ft/blob/master/contracts/FungibleToken.cdc)
+and non-fungible tokens implement [the `NonFungibleToken` interface](https://github.com/onflow/flow-nft/blob/master/contracts/NonFungibleToken.cdc).
+You can find full guides to create these projects [here](/blockchain-development-tutorials/tokens/nft-cadence).
 
-You can find full guides for creating these projects [here](/blockchain-development-tutorials/tokens/nft-cadence).
+Like all operations on Flow, there are native fees associated with both computation and storage. To prevent spam and sustain the bridge account's storage consumption, fees are charged for both onboarding assets and bridging assets. In the case where storage consumption is expected, fees are charged based on the storage consumed at the current network storage rate.
 
-Like all operations on Flow, there are native fees associated with both computation and storage. To prevent spam and
-sustain the bridge account's storage consumption, fees are charged for both onboarding assets and bridging assets. In
-the case where storage consumption is expected, fees are charged based on the storage consumed at the current network
-storage rate.
+## Onboard your token to the bridge[​](#onboard-your-token-to-the-bridge "Direct link to Onboard your token to the bridge")
 
-## Onboarding Your token to the Bridge[​](#onboarding-your-token-to-the-bridge "Direct link to Onboarding Your token to the Bridge")
+For the purpose of this guide, we assume that the developer already deployed a token smart contract to their preferred VM (Flow-Cadence or Flow-EVM) and wants to bridge it to the other (target) VM.
 
-For the purpose of this guide, we are assuming that the developer has already deployed
-a token smart contract to their preferred VM (Flow-Cadence or Flow-EVM) and wants
-to bridge it to the other (target) VM.
+For the developer to use their token in the target VM, there must be a contract that defines the asset and how it behaves in the target VM that also allows the bridge to fulfill the asset from Cadence to EVM and vice versa. This contract is separate from the contract in the native VM, but they are "associated" with each other by the mechanisms of the Flow VM bridge.
 
-In order for the developer's token to be usable in the target VM, there must be a contract
-that defines the asset and how it behaves in the target VM that also enables the bridge to
-fulfill the asset from Cadence to EVM and vice versa. This contract is separate from the
-contract in the native VM, but they are "associated" with each other by the mechanisms of
-the Flow VM bridge.
+To create this association, the asset must be "onboarded" to the bridge before bridging operations can be fulfilled. This can happen in two ways:
 
-To create this association, the asset must be "onboarded" to the bridge
-before bridging operations can be fulfilled. This can happen in two ways:
+### Option 1: automatic onboarding[​](#option-1-automatic-onboarding "Direct link to Option 1: automatic onboarding")
 
-### Option 1: Automatic Onboarding[​](#option-1-automatic-onboarding "Direct link to Option 1: Automatic Onboarding")
-
-Any user registers the native token contract with the bridge and the bridge deploys
-a basic templated version of the contract in the target VM. This basic contract is automatically
-associated with the native contract and is used for bridging. The developer has no direct control
-over this bridge-deployed contract because it is controlled by the bridge.
+Any user registers the native token contract with the bridge and the bridge deploys a basic templated version of the contract in the target VM. This basic contract is automatically associated with the native contract and is used for bridging. The developer has no direct control over this bridge-deployed contract because the bridge controls it.
 
 This method is covered in the [Automatic Onboarding Section](#automatic-onboarding)
 
-### Option 2: Custom Association Onboarding[​](#option-2-custom-association-onboarding "Direct link to Option 2: Custom Association Onboarding")
+### Option 2: custom association onboarding[​](#option-2-custom-association-onboarding "Direct link to Option 2: custom association onboarding")
 
-With this option (available for only for NFTs) developers can deploy their own contract to the
-target VM and declare a custom association between it and the native contract. This allows
-them to have more control over both contracts, enabling them to include more sophisticated
-features and mechanisms in their bridged token contracts such as ERC-721C, unique metadata
-views, and more that aren't included in the default bridged template versions.
+With this option (available for only for NFTs), developers can deploy their own contract to the target VM and declare a custom association between it and the native contract. This allows them to have more control over both contracts, which lets them to include more sophisticated features and mechanisms in their bridged token contracts such as ERC-721C, unique metadata views, and more that aren't included in the default bridged template versions.
 
 This method is covered in the [Custom Association Section](#custom-association-onboarding)
 
 info
 
-Before continuing with onboarding your token, you should review
-the [Prep Your Assets for Bridging](#prep-your-assets-for-bridging) section of this document.
-This describes some steps you should follow to make sure that your native asset and/or
-bridged asset are properly set up for you to register them with the bridge.
+Before you continue to onboard your token, review the [Prep Your Assets for Bridging](#prep-your-assets-for-bridging) section of this document. This describes some steps you should follow to make sure that your native asset or bridged asset are properly set up for you to register them with the bridge.
 
-## Automatic Onboarding[​](#automatic-onboarding "Direct link to Automatic Onboarding")
+## Automatic onboarding[​](#automatic-onboarding "Direct link to Automatic onboarding")
 
-Moving from a Cadence-native asset to EVM, automatic onboarding can occur on the fly,
-deploying a template contract in the same transaction as
-the asset is bridged to EVM if the transaction so specifies.
+To move from a Cadence-native asset to EVM, automatic onboarding can occur on the fly, where a template contract deploys in the same transaction as the asset is bridged to EVM if the transaction so specifies.
 
-Moving from EVM to Cadence, however, requires that onboarding occur in a separate transaction due to the fact that a
-Cadence contract is initialized at the end of a transaction and isn't available in the runtime until after the
-transaction has executed.
+To move from EVM to Cadence, however, requires that onboarding occur in a separate transaction due to the fact that a Cadence contract is initialized at the end of a transaction and isn't available in the runtime until after the transaction has executed.
 
 Below are transactions relevant to automatically onboarding assets native to either VM:
 
@@ -184204,24 +186678,16 @@ _55
 
 } ``
 
-## Custom Association Onboarding[​](#custom-association-onboarding "Direct link to Custom Association Onboarding")
+## Custom association onboarding[​](#custom-association-onboarding "Direct link to Custom association onboarding")
 
 With [Custom Associations](https://github.com/onflow/flips/blob/main/application/20250131-cross-vm-nft-support.md),
-developers can deploy NFT contracts in both VMs and associate them with each other,
-allowing them to retain control of the contracts in both VMs as well as implement custom
-use-case specific functionality.
+developers can deploy NFT contracts in both VMs and associate them with each other, which allows them to retain control of the contracts in both VMs as well as implement custom use-case specific functionality.
 
-In order to do this, each contract must implement a special interface
-that tells the bridge what the associated contract is in the other VM.
-The fact that both point to each other validates the intended association,
-preventing spoofing. If the contracts do not point to each other this way,
-they will not be able to be registered as a custom association.
+To do this, each contract must implement a special interface that tells the bridge what the associated contract is in the other VM. The fact that both point to each other validates the intended association, which prevents spoofing. If the contracts do not point to each other this way, you can't register them as a custom association.
 
-Review the [Preparing Custom Associations](#preparing-custom-associations) section
-to learn how to set up each of your contracts for a custom association.
+Review the [Preparing Custom Associations](#preparing-custom-associations) section to learn how to set up each of your contracts for a custom association.
 
-Below is the transaction for onboarding NFTs for a custom association.
-Remember that both the Cadence and the Solidity contract need to be deployed
+Below is the transaction for onboarding NFTs for a custom association. Remember that both the Cadence and the Solidity contract need to be deployed
 and include the special interface conformances to point to each other before registration!
 
 **Onboard an NFT Custom Association:**
@@ -184576,10 +187042,9 @@ _90
 
 ## Bridging[​](#bridging "Direct link to Bridging")
 
-Once an asset has been onboarded, either by automatic or custom association, it can be bridged in either
-direction, referred to by its Cadence type. For Cadence-native assets, this is simply its native type. For EVM-native
-assets, this is in most cases a templated Cadence contract deployed to the bridge account, the name of which is derived
-from the EVM contract address. For instance, an ERC721 contract at address `0x1234` would be onboarded to the bridge as
+After an asset gets onboarded, either by automatic or custom association, it can be bridged in either direction, referred to by its Cadence type. For Cadence-native assets, this is simply its native type.
+
+For EVM-native assets, this is in most cases a templated Cadence contract deployed to the bridge account, the name of which is derived from the EVM contract address. For instance, an ERC721 contract at address `0x1234` would be onboarded to the bridge as
 `EVMVMBridgedNFT_0x1234`, making its type identifier `A.<BRIDGE_ADDRESS>.EVMVMBridgedNFT_0x1234.NFT`.
 
 To get the type identifier for a given NFT, you can use the following code:
@@ -184592,7 +187057,7 @@ _10
 
 nft.getType().identifier ``
 
-You may also retrieve the type associated with a given EVM contract address using the following script:
+You may also retrieve the type associated with a given EVM contract address with the following script:
 
 get\_associated\_type.cdc
 
@@ -184658,8 +187123,7 @@ _16
 
 } ``
 
-Alternatively, given some onboarded Cadence type, you can retrieve the associated EVM address using the following
-script:
+Alternatively, given some onboarded Cadence type, you can retrieve the associated EVM address with the following script:
 
 get\_associated\_address.cdc
 
@@ -184739,9 +187203,7 @@ _19
 
 #### NFTs[​](#nfts "Direct link to NFTs")
 
-Any Cadence NFTs bridging to EVM are escrowed in the bridge account and either minted in a bridge-deployed ERC721
-contract or transferred from escrow to the calling COA in EVM. On the return trip, NFTs are escrowed in EVM - owned by
-the bridge's COA - and either unlocked from escrow if locked or minted from a bridge-owned NFT contract.
+Any Cadence NFTs taht bridge to EVM are escrowed in the bridge account and either minted in a bridge-deployed ERC721 contract or transferred from escrow to the calling COA in EVM. On the return trip, NFTs are escrowed in EVM - owned by the bridge's COA - and either unlocked from escrow if locked or minted from a bridge-owned NFT contract.
 
 Below are transactions relevant to bridging NFTs:
 
@@ -185649,19 +188111,11 @@ _113
 
 }`
 
-#### Fungible Tokens[​](#fungible-tokens "Direct link to Fungible Tokens")
+#### Fungible tokens[​](#fungible-tokens "Direct link to Fungible tokens")
 
-Any Cadence fungible tokens bridging to EVM are escrowed in the bridge account only if they are Cadence-native. If the
-bridge defines the tokens, they are burned. On the return trip the pattern is similar, with the bridge burning
-bridge-defined tokens or escrowing them if they are EVM-native. In all cases, if the bridge has authority to mint on one
-side, it must escrow on the other as the native VM contract is owned by an external party.
+Any Cadence fungible tokens bridging to EVM are escrowed in the bridge account only if they are Cadence-native. If the bridge defines the tokens, they are burned. On the return trip the pattern is similar, as the bridge burns bridge-defined tokens or escrows them if they are EVM-native. In all cases, if the bridge has authority to mint on one side, it must escrow on the other as the native VM contract is owned by an external party.
 
-With fungible tokens in particular, there may be some cases where the Cadence contract is not deployed to the bridge
-account, but the bridge still follows a mint/burn pattern in Cadence. These cases are handled via
-[`TokenHandler`](https://github.com/onflow/flow-evm-bridge/blob/main/cadence/contracts/bridge/interfaces/FlowEVMBridgeHandlerInterfaces.cdc)
-implementations. Also know that moving $FLOW to EVM is built into the `EVMAddress` object so any requests bridging $FLOW
-to EVM will simply leverage this interface; however, moving $FLOW from EVM to Cadence must be done through the COA
-resource.
+With fungible tokens in particular, there may be some cases where the Cadence contract is not deployed to the bridge account, but the bridge still follows a mint/burn pattern in Cadence. These cases are handled via [`TokenHandler`](https://github.com/onflow/flow-evm-bridge/blob/main/cadence/contracts/bridge/interfaces/FlowEVMBridgeHandlerInterfaces.cdc) implementations. Also know that moving $FLOW to EVM is built into the `EVMAddress` object so any requests to bridge $FLOW to EVM will simply leverage this interface; however, moving $FLOW from EVM to Cadence must be done through the COA resource.
 
 Below are transactions relevant to bridging fungible tokens:
 
@@ -186591,23 +189045,15 @@ _122
 
 }`
 
-## Prep Your Assets for Bridging[​](#prep-your-assets-for-bridging "Direct link to Prep Your Assets for Bridging")
+## Prep your assets for bridging[​](#prep-your-assets-for-bridging "Direct link to Prep your assets for bridging")
 
 ### Context[​](#context "Direct link to Context")
 
-To maximize utility to the ecosystem, this bridge is permissionless and open to any fungible or non-fungible token as
-defined by the respective Cadence standards and limited to ERC20 and ERC721 Solidity standards. Ultimately, a project
-does not have to do anything for users to be able to bridge their assets between VMs. However, there are some
-considerations developers may take to enhance the representation of their assets in non-native VMs. These largely relate
-to asset metadata and ensuring that bridging does not compromise critical user assumptions about asset ownership.
+To maximize utility to the ecosystem, this bridge is permissionless and open to any fungible or non-fungible token as defined by the respective Cadence standards and limited to ERC20 and ERC721 Solidity standards. Ultimately, a project does not have to do anything for users to bridge their assets between VMs. However, there are some considerations developers may take to enhance the representation of their assets in non-native VMs. These largely relate to asset metadata and ensuring that bridging does not compromise critical user assumptions about asset ownership.
 
 ### EVMBridgedMetadata[​](#evmbridgedmetadata "Direct link to EVMBridgedMetadata")
 
-Proposed in [@onflow/flow-nft/pull/203](https://github.com/onflow/flow-nft/pull/203), the `EVMBridgedMetadata` view
-presents a mechanism to both represent metadata from bridged EVM assets as well as enable Cadence-native projects to
-specify the representation of their assets in EVM. Implementing this view is not required for assets to be bridged, but
-the bridge does default to it when available as a way to provide projects greater control over their EVM asset
-definitions within the scope of ERC20 and ERC721 standards.
+Proposed in [@onflow/flow-nft/pull/203](https://github.com/onflow/flow-nft/pull/203), the `EVMBridgedMetadata` view presents a mechanism to both represent metadata from bridged EVM assets as well as allow Cadence-native projects to specify the representation of their assets in EVM. It isn'trequired to implement this view to bridge asets, but the bridge does default to it when available as a way to provide projects greater control over their EVM asset definitions within the scope of ERC20 and ERC721 standards.
 
 The interface for this view is as follows:
 
@@ -186683,58 +189129,34 @@ _20
 
 }`
 
-This uri value could be a pointer to some offchain metadata if you expect your metadata to be static. Or you could
-couple the `uri()` method with the utility contract below to serialize the onchain metadata on the fly. Alternatively,
-you may choose to host a metadata proxy which serves the requested token URI content.
+This uri value could be a pointer to some offchain metadata if you expect your metadata to be static. Or you could couple the `uri()` method with the utility contract below to serialize the onchain metadata on the fly. Alternatively, you may choose to host a metadata proxy which serves the requested token URI content.
 
 ### SerializeMetadata[​](#serializemetadata "Direct link to SerializeMetadata")
 
-The key consideration with respect to metadata is the distinct metadata storage patterns between ecosystem. It's
-critical for NFT utility that the metadata be bridged in addition to the representation of the NFTs ownership. However,
-it's commonplace for Cadence NFTs to store metadata onchain while EVM NFTs often store an onchain pointer to metadata
-stored offchain. In order for Cadence NFTs to be properly represented in EVM platforms, the metadata must be bridged in
-a format expected by those platforms and be done in a manner that also preserves the atomicity of bridge requests. The
-path forward on this was decided to be a commitment of serialized Cadence NFT metadata into formats popular in the EVM
-ecosystem.
+The key consideration with respect to metadata is the distinct metadata storage patterns between ecosystem. It's critical for NFT utility that the metadata be bridged in addition to the representation of the NFTs ownership. However, it's commonplace for Cadence NFTs to store metadata onchain while EVM NFTs often store an onchain pointer to metadata stored offchain.
 
-For assets that do not implement `EVMBridgedMetadata`, the bridge will attempt to serialize the metadata of the asset as
-a JSON data URL string. This is done via the [`SerializeMetadata`
-contract](https://github.com/onflow/flow-evm-bridge/blob/main/cadence/contracts/utils/SerializeMetadata.cdc) which
-serializes metadata values into a JSON blob compatible with the OpenSea metadata standard. The serialized metadata is
-then committed as the ERC721 `tokenURI` upon bridging Cadence-native NFTs to EVM. Since Cadence NFTs can easily update
-onchain metadata either by field or by the ownership of sub-NFTs, this serialization pattern enables token URI updates
-on subsequent bridge requests.
+For Cadence NFTs to be properly represented in EVM platforms, the metadata must be bridged in
+a format expected by those platforms and be done in a manner that also preserves the atomicity of bridge requests. The path forward on this was decided to be a commitment of serialized Cadence NFT metadata into formats popular in the EVM ecosystem.
 
-### Preparing Custom Associations[​](#preparing-custom-associations "Direct link to Preparing Custom Associations")
+For assets that do not implement `EVMBridgedMetadata`, the bridge will attempt to serialize the metadata of the asset as a JSON data URL string. This is done via the [`SerializeMetadata` contract](https://github.com/onflow/flow-evm-bridge/blob/main/cadence/contracts/utils/SerializeMetadata.cdc) which serializes metadata values into a JSON blob compatible with the OpenSea metadata standard. The serialized metadata is then committed as the ERC721 `tokenURI` upon bridging Cadence-native NFTs to EVM. Since Cadence NFTs can easily update onchain metadata either by field or by the ownership of sub-NFTs, this serialization pattern enables token URI updates on subsequent bridge requests.
 
-If you are a developer who wants to deploy and manage NFT contracts in both VMs
-and have tokens from each be exchangable for each other,
-you'll have to add some code to your contracts so they point to each other,
-indicating that they each represent the same token in their respective VMs.
+### Prepar custom associations[​](#prepar-custom-associations "Direct link to Prepar custom associations")
 
-For the purposes of these instructions, an NFT is native to a VM if that VM
-is the main source of truth for the contracts and where they are originally minted.
+If you are a developer who wants to deploy and manage NFT contracts in both VMs and have tokens from each be exchangable for each other, you'll have to add some code to your contracts which indicate that they each represent the same token in their respective VMs so they point to each other.
+
+For the purposes of these instructions, an NFT is native to a VM if that VM is the main source of truth for the contracts and where they are originally minted.
 
 This feature is not available for Fungible Tokens at the moment, but may be in the future.
 
 warning
 
-Note that the bridge only supports a single custom association declaration. This
-means that once you register an association between your Cadence NFT & EVM
-contract, the association cannot be updated. If you wish to retain some upgradeability
-to your registered implementations, it's recommended that you both retain keys on
-your Cadence NFT contract account \*\*and \*\* implement an upgradeable Solidity pattern
-when deploying your ERC721, then register the association between your Cadence NFT
-Type & ERC721 proxy (not the implementation address).
+The bridge only supports a single custom association declaration. This means that once you register an association between your Cadence NFT & EVM contract, the association cannot be updated. If you wish to retain some upgradeability to your registered implementations, we recommend that you both retain keys on your Cadence NFT contract account \*\*and \*\* implement an upgradeable Solidity pattern when deploying your ERC721, then register the association between your Cadence NFT Type & ERC721 proxy (not the implementation address).
 
 #### Cadence[​](#cadence "Direct link to Cadence")
 
-All Cadence NFT contracts implement [Metadata Views](/build/cadence/advanced-concepts/metadata-views)
-that return metadata about their NFTs in standard ways
-via the `{Contract}.resolveContractView()` and `{NFT}.resolveView()` methods.
+All Cadence NFT contracts implement [Metadata Views](/build/cadence/advanced-concepts/metadata-views) that return metadata about their NFTs in standard ways via the `{Contract}.resolveContractView()` and `{NFT}.resolveView()` methods.
 
-The following new view (`CrossVMMetadataViews.EVMPointer`) **must** be resolved at the contract level (`ViewResolver.resolveContractView()`) for a given Type
-**and** at the NFT level (`ViewResolver.Resolver.resolveView()`)
+The following new view (`CrossVMMetadataViews.EVMPointer`) **must** be resolved at the contract level (`ViewResolver.resolveContractView()`) for a given Type **and** at the NFT level (`ViewResolver.Resolver.resolveView()`)
 
 `_11
 
@@ -186782,24 +189204,15 @@ _11
 
 This view allows a Cadence contract to specify which Solidity contract it is associated with.
 
-You can see an example of how this view is implemented in
-[the `ExampleNFT` contract](https://github.com/onflow/flow-nft/blob/master/contracts/ExampleNFT.cdc#L173-L195)
-in the Flow Non-Fungible Token repo.
+You can see an example of how this view is implemented in [the `ExampleNFT` contract](https://github.com/onflow/flow-nft/blob/master/contracts/ExampleNFT.cdc#L173-L195) in the Flow Non-Fungible Token repo.
 
-If your EVM contract expects metadata to be passed from Cadence at the time of
-bridging, you must implement the `CrossVMMetadataViews.EVMBytesMetadata`
-view. You'll find this useful for Cadence-native NFTs with dynamic metadata.
-This view will be resolved by the bridge and passed to your EVM contract
-when the `fulfillToEVM` method is called.
+If your EVM contract expects metadata to be passed from Cadence at the time of bridging, you must implement the `CrossVMMetadataViews.EVMBytesMetadata` view. You'll find this useful for Cadence-native NFTs with dynamic metadata. This view will be resolved by the bridge and passed to your EVM contract when the `fulfillToEVM` method is called.
 
-How you handle the bridged bytes in your ERC721 implementation will be a matter
-of overriding the `_beforeFulfillment` and/or `_afterFulfillment` hooks included in the
-`CrossVMBridgeERC721Fulfillment` base contract.
+How you handle the bridged bytes in your ERC721 implementation will be a matter of overriding the `_beforeFulfillment` and/or `_afterFulfillment` hooks included in the `CrossVMBridgeERC721Fulfillment` base contract.
 
 **Flow EVM-Native NFTs**
 
-If the NFT being onboarded to the bridge is native to Flow-EVM, then the associated contract's
-minter resource must implement the `FlowEVMBridgeCustomAssociationTypes.NFTFulfillmentMinter` interface:
+If the NFT being onboarded to the bridge is native to Flow-EVM, then the associated contract's minter resource must implement the `FlowEVMBridgeCustomAssociationTypes.NFTFulfillmentMinter` interface:
 
 `_29
 
@@ -186915,18 +189328,15 @@ _29
 
 }`
 
-You can see an example of an implementation of this interface in
-the [Flow EVM bridge repo ExampleNFT contract](https://github.com/onflow/flow-evm-bridge/blob/flip-318/cadence/contracts/example-assets/cross-vm-nfts/ExampleEVMNativeNFT.cdc#L352-L377).
+You can see an example of an implementation of this interface in the [Flow EVM bridge repo ExampleNFT contract](https://github.com/onflow/flow-evm-bridge/blob/flip-318/cadence/contracts/example-assets/cross-vm-nfts/ExampleEVMNativeNFT.cdc#L352-L377).
 
-A Capability with the `FulfillFromEVM` entitlement is required at the time of registration so the bridge
-can fulfill NFTs bridged from EVM for the first time.
+A Capability with the `FulfillFromEVM` entitlement is required at the time of registration so the bridge can fulfill NFTs bridged from EVM for the first time.
 
 #### Solidity[​](#solidity "Direct link to Solidity")
 
 For custom associations, the following interface **must** be implemented in the IERC721-conforming Solidity contract.
 
-This provides functionality to point to the address and type
-of the associated Cadence NFT.
+This provides functionality to point to the address and type of the associated Cadence NFT.
 
 `_10
 
@@ -186968,14 +189378,9 @@ _10
 
 }`
 
-As an example, [`ICrossVM` is already
-implemented](https://github.com/onflow/flow-evm-bridge/blob/main/solidity/src/interfaces/ICrossVM.sol)
-and in use in the bridged [ERC721](https://github.com/onflow/flow-evm-bridge/blob/flip-318/solidity/src/templates/FlowEVMBridgedERC721.sol#L37-L43)
-and [ERC20](https://github.com/onflow/flow-evm-bridge/blob/flip-318/solidity/src/templates/FlowEVMBridgedERC20.sol#L13-L40) templates.
+As an example, [`ICrossVM` is already implemented](https://github.com/onflow/flow-evm-bridge/blob/main/solidity/src/interfaces/ICrossVM.sol) and in use in the bridged [ERC721](https://github.com/onflow/flow-evm-bridge/blob/flip-318/solidity/src/templates/FlowEVMBridgedERC721.sol#L37-L43) and [ERC20](https://github.com/onflow/flow-evm-bridge/blob/flip-318/solidity/src/templates/FlowEVMBridgedERC20.sol#L13-L40) templates.
 
-If you are registering a custom association for an NFT that is native to Cadence, meaning that your project distributes NFTs to users on the Cadence side,
-then your ERC721 contract will need to implement the `CrossVMBridgeERC721Fulfillment` contract. This is
-a required conformance that does three primary things:
+If you want to register a custom association for an NFT that is native to Cadence, which means that your project distributes NFTs to users on the Cadence side, then your ERC721 contract must implement the `CrossVMBridgeERC721Fulfillment` contract. This is a required conformance that does three primary things:
 
 1. Implements the mint/escrow pattern expected by the VM bridge
 2. Allows for the passing of arbitrary abi-encodable metadata from the Cadence NFT at the time of bridging
@@ -187367,45 +189772,26 @@ _100
 
 } ``
 
-Note the `_beforeFulfillment()` and `_afterFulfillment()` hooks are `virtual`, allowing implementations
-to optionally override the methods and handle the provided metadata passed from your NFT if
-`EVMBytesMetadata` is resolved at the time of bridging. Also, notice that the `fulfillToEVM` method
-is `onlyVMBridge`, allowing on the VM bridge to call the method either minting the NFT if it does not
-exist or transferring the NFT from escrow in a manner consistent with the bridge's mint/escrow pattern.
+The `_beforeFulfillment()` and `_afterFulfillment()` hooks are `virtual`, which allows implementations to optionally override the methods and handle the provided metadata passed from your NFT if `EVMBytesMetadata` is resolved at the time of bridging. Also, notice that the `fulfillToEVM` method is `onlyVMBridge`, which allows the VM bridge to call the method either minting the NFT if it does not exist or transfer the NFT from escrow in a manner consistent with the bridge's mint/escrow pattern.
 
-### Opting Out[​](#opting-out "Direct link to Opting Out")
+### Opt Out[​](#opt-out "Direct link to Opt Out")
 
-It's also recognized that the logic of some use cases may actually be compromised by the act of bridging, particularly
-in such a unique partitioned runtime environment. Such cases might include those that do not maintain ownership
-assumptions implicit to ecosystem standards.
+It's also recognized that the logic of some use cases may actually be compromised by the act of bridging, particularly in such a unique partitioned runtime environment. Such cases might include those that do not maintain ownership assumptions implicit to ecosystem standards.
 
-For instance, an ERC721 implementation may reclaim a user's assets after a month of inactivity. In such a case, bridging
-that ERC721 to Cadence would decouple the representation of ownership of the bridged NFT from the actual ownership in
-the defining ERC721 contract after the token had been reclaimed - there would be no NFT in escrow for the bridge to
-transfer on fulfillment of the NFT back to EVM. In such cases, projects may choose to opt-out of bridging, but
-**importantly must do so before the asset has been onboarded to the bridge**.
+For instance, an ERC721 implementation may reclaim a user's assets after a month of inactivity. In such a case, bridging that ERC721 to Cadence would decouple the representation of ownership of the bridged NFT from the actual ownership in the defining ERC721 contract after the token had been reclaimed - there would be no NFT in escrow for the bridge to transfer on fulfillment of the NFT back to EVM. In such cases, projects may choose to opt-out of bridging, but **importantly must do so before the asset has been onboarded to the bridge**.
 
-For Solidity contracts, opting out is as simple as extending the [`BridgePermissions.sol` abstract
-contract](https://github.com/onflow/flow-evm-bridge/blob/main/solidity/src/interfaces/BridgePermissions.sol) which
-defaults `allowsBridging()` to `false`. The bridge explicitly checks for the implementation of `IBridgePermissions` and
-the value of `allowsBridging()` to validate that the contract has not opted out of bridging.
+For Solidity contracts, opting out is as simple as extending the [`BridgePermissions.sol` abstract contract](https://github.com/onflow/flow-evm-bridge/blob/main/solidity/src/interfaces/BridgePermissions.sol) which defaults `allowsBridging()` to `false`. The bridge explicitly checks for the implementation of `IBridgePermissions` and the value of `allowsBridging()` to validate that the contract has not opted out of bridging.
 
-Similarly, Cadence contracts can implement the [`IBridgePermissions.cdc` contract
-interface](https://github.com/onflow/flow-evm-bridge/blob/main/cadence/contracts/bridge/interfaces/IBridgePermissions.cdc).
-This contract has a single method `allowsBridging()` with a default implementation returning `false`. Again, the bridge
-explicitly checks for the implementation of `IBridgePermissions` and the value of `allowsBridging()` to validate that
-the contract has not opted out of bridging. Should you later choose to enable bridging, you can simply override the
-default implementation and return `true`.
+Similarly, Cadence contracts can implement the [`IBridgePermissions.cdc` contract interface](https://github.com/onflow/flow-evm-bridge/blob/main/cadence/contracts/bridge/interfaces/IBridgePermissions.cdc). This contract has a single method `allowsBridging()` with a default implementation returning `false`. Again, the bridge explicitly checks for the implementation of `IBridgePermissions` and the value of `allowsBridging()` to validate that the contract has not opted out of bridging. Should you later choose to turn on bridging, you can simply override the default implementation and return `true`.
 
-In both cases, `allowsBridging()` gates onboarding to the bridge. Once onboarded - **a permissionless operation anyone
-can execute** - the value of `allowsBridging()` is irrelevant and assets can move between VMs permissionlessly.
+In both cases, `allowsBridging()` gates onboarding to the bridge. After the onboard occurs - **a permissionless operation anyone can execute** - the value of `allowsBridging()` is irrelevant and assets can move between VMs permissionlessly.
 
-## Under the Hood[​](#under-the-hood "Direct link to Under the Hood")
+## Under the hood[​](#under-the-hood "Direct link to Under the hood")
 
 For an in-depth look at the high-level architecture of the bridge, see [FLIP
 #237](https://github.com/onflow/flips/blob/main/application/20231222-evm-vm-bridge.md)
 
-### Additional Resources[​](#additional-resources "Direct link to Additional Resources")
+### Additional resources[​](#additional-resources "Direct link to Additional resources")
 
 For the current state of Flow EVM across various task paths, see the following resources:
 
@@ -187415,7 +189801,7 @@ For the current state of Flow EVM across various task paths, see the following r
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cross-vm-apps/vm-bridge.md)
 
-Last updated on **Aug 28, 2025** by **Brian Doyle**
+Last updated on **Nov 12, 2025** by **cshannon1218**
 
 [Previous
 
@@ -187429,10 +189815,10 @@ Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/na
 
 Copy as Markdown
 
-* [Deployments](#deployments)* [Interacting With the Bridge](#interacting-with-the-bridge)* [Overview](#overview)* [Onboarding Your token to the Bridge](#onboarding-your-token-to-the-bridge)
-        + [Option 1: Automatic Onboarding](#option-1-automatic-onboarding)+ [Option 2: Custom Association Onboarding](#option-2-custom-association-onboarding)* [Automatic Onboarding](#automatic-onboarding)* [Custom Association Onboarding](#custom-association-onboarding)* [Bridging](#bridging)* [Prep Your Assets for Bridging](#prep-your-assets-for-bridging)
-                + [Context](#context)+ [EVMBridgedMetadata](#evmbridgedmetadata)+ [SerializeMetadata](#serializemetadata)+ [Preparing Custom Associations](#preparing-custom-associations)+ [Opting Out](#opting-out)* [Under the Hood](#under-the-hood)
-                  + [Additional Resources](#additional-resources)
+* [Deployments](#deployments)* [Interacting With the Bridge](#interacting-with-the-bridge)* [Overview](#overview)* [Onboard your token to the bridge](#onboard-your-token-to-the-bridge)
+        + [Option 1: automatic onboarding](#option-1-automatic-onboarding)+ [Option 2: custom association onboarding](#option-2-custom-association-onboarding)* [Automatic onboarding](#automatic-onboarding)* [Custom association onboarding](#custom-association-onboarding)* [Bridging](#bridging)* [Prep your assets for bridging](#prep-your-assets-for-bridging)
+                + [Context](#context)+ [EVMBridgedMetadata](#evmbridgedmetadata)+ [SerializeMetadata](#serializemetadata)+ [Prepar custom associations](#prepar-custom-associations)+ [Opt Out](#opt-out)* [Under the hood](#under-the-hood)
+                  + [Additional resources](#additional-resources)
 
 Flow
 
@@ -188759,16 +191145,6 @@ Flow provides a comprehensive suite of client tools and SDKs designed to help de
 * Event monitoring
 * Easy integration with Python applications
 
-## Ruby[​](#ruby "Direct link to Ruby")
-
-[FlowClient](https://github.com/glucode/flow_client) is a Ruby gRPC client that enables:
-
-* Direct blockchain communication
-* Transaction processing
-* Account management
-* Event handling
-* Ruby-native blockchain integration
-
 ## JVM[​](#jvm "Direct link to JVM")
 
 [Flow JVM SDK](https://github.com/onflow/flow-jvm-sdk) supports JVM-compatible languages (Java, Kotlin, Scala) with:
@@ -188778,36 +191154,6 @@ Flow provides a comprehensive suite of client tools and SDKs designed to help de
 * Account handling
 * Event subscription
 * Cross-platform compatibility
-
-## Swift[​](#swift "Direct link to Swift")
-
-[flow-swift](https://github.com/Outblock/flow-swift) is designed for iOS development, offering:
-
-* Native iOS integration
-* Wallet connectivity
-* Transaction management
-* Account handling
-* SwiftUI support
-
-## .NET[​](#net "Direct link to .NET")
-
-[flow.net](https://github.com/tyronbrand/flow.net) provides .NET developers with:
-
-* C# and .NET Core support
-* Transaction management
-* Account handling
-* Event monitoring
-* Cross-platform compatibility
-
-## Rust[​](#rust "Direct link to Rust")
-
-[Rust SDK](https://github.com/fee1-dead/flow.rs) offers Rust developers:
-
-* High-performance blockchain interaction
-* Type-safe transaction handling
-* Account management
-* Event subscription
-* Memory safety guarantees
 
 ## PHP[​](#php "Direct link to PHP")
 
@@ -188843,7 +191189,7 @@ Each client tool is designed with specific use cases and developer needs in mind
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/index.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Oct 30, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -188857,7 +191203,7 @@ Flow Client Library (FCL)](/build/tools/clients/fcl-js)
 
 Copy as Markdown
 
-* [JavaScript (FCL)](#javascript-fcl)* [Go SDK](#go-sdk)* [Python SDK](#python-sdk)* [Ruby](#ruby)* [JVM](#jvm)* [Swift](#swift)* [.NET](#net)* [Rust](#rust)* [PHP](#php)* [Elixir](#elixir)* [HTTP API](#http-api)
+* [JavaScript (FCL)](#javascript-fcl)* [Go SDK](#go-sdk)* [Python SDK](#python-sdk)* [JVM](#jvm)* [PHP](#php)* [Elixir](#elixir)* [HTTP API](#http-api)
 
 Flow
 
@@ -224558,38 +226904,38 @@ Search
 
 On this page
 
-# Add Flow Cadence to Your wagmi App
+# Add Flow Cadence to your wagmi app
 
-This tutorial demonstrates how to enhance your existing wagmi/RainbowKit application with Flow Cadence capabilities. By integrating the Flow Client Library (FCL) with your EVM stack, you can unlock powerful features like batch transactions with a single signature.
+This tutorial demonstrates how to enhance your existing wagmi/RainbowKit application with Flow Cadence capabilities. When you integrate the Flow Client Library (FCL) with your EVM stack, you can unlock powerful features like batch transactions with a single signature.
 
-## Video Overview[​](#video-overview "Direct link to Video Overview")
+## Video overview[​](#video-overview "Direct link to Video overview")
 
 ## Objectives[​](#objectives "Direct link to Objectives")
 
-After completing this guide, you'll be able to:
+After you complete this guide, you'll be able to:
 
-* Add FCL to your existing wagmi/RainbowKit application
-* Configure FCL to work alongside your EVM wallet connections
-* Implement batch transactions that execute multiple EVM calls in a single Cadence transaction
-* Display both Cadence and EVM addresses in your application
+* Add FCL to your existing wagmi/RainbowKit application.
+* Configure FCL to work alongside your EVM wallet connections.
+* Implement batch transactions that execute multiple EVM calls in a single Cadence transaction.
+* Display both Cadence and EVM addresses in your application.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-### Next.js and Modern Frontend Development[​](#nextjs-and-modern-frontend-development "Direct link to Next.js and Modern Frontend Development")
+### Next.js and modern frontend development[​](#nextjs-and-modern-frontend-development "Direct link to Next.js and modern frontend development")
 
-This tutorial uses [Next.js](https://nextjs.org/docs/app/getting-started/installation). You don't need to be an expert, but it's helpful to be comfortable with development using a current React framework. You'll be on your own to select and use a package manager, manage Node versions, and other frontend environment tasks. If you don't have your own preference, you can just follow along with us and use [npm](https://www.npmjs.com/).
+This tutorial uses [Next.js](https://nextjs.org/docs/app/getting-started/installation). You don't need to be an expert, but it's helpful to be comfortable with development with a current React framework. You'll be on your own to select and use a package manager, manage Node versions, and other frontend environment tasks. If you don't have your own preference, you can just follow along with us and use [npm](https://www.npmjs.com/).
 
-### Solidity and Cadence Smart Contract Development[​](#solidity-and-cadence-smart-contract-development "Direct link to Solidity and Cadence Smart Contract Development")
+### Solidity and Cadence smart contract development[​](#solidity-and-cadence-smart-contract-development "Direct link to Solidity and Cadence smart contract development")
 
-Apps using the hybrid approach can interact with both [Cadence](https://cadence-lang.org/docs) and [Solidity](https://soliditylang.org/) smart contracts. You don't need to be an expert in either of these, but it's helpful to be familiar with how smart contracts work in at least one of these languages.
+Apps that use the hybrid approach can interact with both [Cadence](https://cadence-lang.org/docs) and [Solidity](https://soliditylang.org/) smart contracts. You don't need to be an expert in either of these, but it's helpful to be familiar with how smart contracts work in at least one of these languages.
 
-### Onchain App Frontends[​](#onchain-app-frontends "Direct link to Onchain App Frontends")
+### Onchain app frontends[​](#onchain-app-frontends "Direct link to Onchain app frontends")
 
-We're assuming you're familiar with [wagmi](https://wagmi.sh/), [viem](https://viem.sh/), and [RainbowKit](https://www.rainbowkit.com/). If you're coming from the Cadence, you might want to take a quick look at the getting started guides for these platforms. They're all excellent and will rapidly get you up to speed on how the EVM world commonly connects their apps to their contracts.
+We assume that you're familiar with [wagmi](https://wagmi.sh/), [viem](https://viem.sh/), and [RainbowKit](https://www.rainbowkit.com/). If you come from the Cadence, you might want to take a quick look at the getting started guides for these platforms. They're all excellent and will rapidly get you up to speed on how the EVM world commonly connects their apps to their contracts.
 
-## Create an App[​](#create-an-app "Direct link to Create an App")
+## Create an app[​](#create-an-app "Direct link to Create an app")
 
-Start by creating an app using [RainbowKit](https://www.rainbowkit.com/)'s scaffold:
+To start, create an app with [RainbowKit](https://www.rainbowkit.com/)'s scaffold:
 
 `_10
 
@@ -224597,7 +226943,7 @@ npm init @rainbow-me/rainbowkit@latest`
 
 ## Install Required Dependencies[​](#install-required-dependencies "Direct link to Install Required Dependencies")
 
-Continue by adding the necessary Flow dependencies to your project:
+Next, add the necessary Flow dependencies to your project:
 
 `_10
 
@@ -224605,10 +226951,10 @@ npm install @onflow/fcl @onflow/fcl-rainbowkit-adapter`
 
 These packages provide:
 
-* `@onflow/fcl`: The Flow Client Library for interacting with the Cadence VM
-* `@onflow/fcl-rainbowkit-adapter`: An adapter that allows RainbowKit to work with FCL-compatible wallets
+* `@onflow/fcl`: The Flow Client Library for interacting with the Cadence VM.
+* `@onflow/fcl-rainbowkit-adapter`: An adapter that allows RainbowKit to work with FCL-compatible wallets.
 
-## Step 2: Configure FCL in Your wagmi Setup[​](#step-2-configure-fcl-in-your-wagmi-setup "Direct link to Step 2: Configure FCL in Your wagmi Setup")
+## Step 2: Configure FCL in your wagmi setup[​](#step-2-configure-fcl-in-your-wagmi-setup "Direct link to Step 2: Configure FCL in your wagmi setup")
 
 Update your wagmi configuration (`src/wagmi.ts`) to include FCL:
 
@@ -224756,11 +227102,11 @@ _38
 
 });`
 
-## Step 3: Add the Batch Transaction Utility[​](#step-3-add-the-batch-transaction-utility "Direct link to Step 3: Add the Batch Transaction Utility")
+## Step 3: Add the batch transaction utility[​](#step-3-add-the-batch-transaction-utility "Direct link to Step 3: Add the batch transaction utility")
 
 info
 
-You can skip this step by using a [pre-built utility from the `@onflow/react-sdk`](/build/tools/react-sdk#usecrossvmbatchtransaction) package. However, if you want to understand how batch transactions work under the hood, continue with this custom implementation.
+You can skip this step if you use a [pre-built utility from the `@onflow/react-sdk`](/build/tools/react-sdk#usecrossvmbatchtransaction) package. However, if you want to understand how batch transactions work under the hood, continue with this custom implementation.
 
 Create a custom hook in `src/hooks/useBatchTransactions.ts` to handle batch transactions. This utility allows you to execute multiple EVM transactions in a single Cadence transaction:
 
@@ -225588,7 +227934,7 @@ _219
 
 ## Step 4: Implement the UI[​](#step-4-implement-the-ui "Direct link to Step 4: Implement the UI")
 
-Now, update your application's `page.tsx` to use the batch transaction utility. Update
+Now, update your application's `page.tsx` to use the batch transaction utility. Update:
 
 `_87
 
@@ -225926,41 +228272,41 @@ _87
 
 export default Page;`
 
-## Step 5: Test Your Application[​](#step-5-test-your-application "Direct link to Step 5: Test Your Application")
+## Step 5: Test Your application[​](#step-5-test-your-application "Direct link to Step 5: Test Your application")
 
 1. Start your development server:
 
    `_10
 
    npm run dev`
-2. Connect your wallet using the RainbowKit `ConnectButton`
+2. Connect your wallet with the RainbowKit `ConnectButton`
 
    * Make sure to use a Cadence-compatible wallet like Flow Wallet
-3. Click the "Send Batch Transaction" button
+3. Click "Send Batch Transaction"
 
-   * You'll be prompted to approve the Cadence transaction
-   * This transaction will execute multiple EVM calls in a single atomic operation
+   * You'll be prompted to approve the Cadence transaction.
+   * This transaction will execute multiple EVM calls in a single atomic operation.
 4. Observe the results
 
-   * The Cadence transaction ID will be displayed
-   * The results of each EVM transaction will be shown
+   * The Cadence transaction ID will be displayed.
+   * The results of each EVM transaction will be shown.
 
 ## How It Works[​](#how-it-works "Direct link to How It Works")
 
 When you call `sendBatchTransaction`, the following happens:
 
-1. A Cadence transaction is created that includes all your EVM calls
-2. The transaction is executed using FCL's `mutate` function
-3. The Cadence transaction calls each EVM transaction in sequence
-4. If any transaction fails and `mustPass` is true, the entire batch is rolled back
-5. The results of each EVM transaction are returned
+1. A Cadence transaction is created that includes all your EVM calls.
+2. The transaction is executed with FCL's `mutate` function.
+3. The Cadence transaction calls each EVM transaction in sequence.
+4. If any transaction fails and `mustPass` is true, the entire batch is rolled back.
+5. The results of each EVM transaction are returned.
 
 This approach gives you several advantages:
 
-* **Atomic Operations**: All transactions succeed or fail together
-* **Single Signature**: Users only need to sign one transaction
-* **Gas Efficiency**: Reduced gas costs compared to separate transactions
-* **Simplified UX**: Users don't need to approve multiple transactions
+* **Atomic Operations**: All transactions succeed or fail together.
+* **Single Signature**: Users only need to sign one transaction.
+* **Gas Efficiency**: Reduced gas costs compared to separate transactions.
+* **Simplified UX**: Users don't need to approve multiple transactions.
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
@@ -225972,7 +228318,7 @@ For a complete reference implementation, check out the [FCL + RainbowKit + wagmi
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cross-vm-apps/add-to-wagmi.md)
 
-Last updated on **Oct 3, 2025** by **mfbz**
+Last updated on **Nov 5, 2025** by **cshannon1218**
 
 [Previous
 
@@ -225986,8 +228332,8 @@ Batched EVM Transactions](/blockchain-development-tutorials/cross-vm-apps/batche
 
 Copy as Markdown
 
-* [Video Overview](#video-overview)* [Objectives](#objectives)* [Prerequisites](#prerequisites)
-      + [Next.js and Modern Frontend Development](#nextjs-and-modern-frontend-development)+ [Solidity and Cadence Smart Contract Development](#solidity-and-cadence-smart-contract-development)+ [Onchain App Frontends](#onchain-app-frontends)* [Create an App](#create-an-app)* [Install Required Dependencies](#install-required-dependencies)* [Step 2: Configure FCL in Your wagmi Setup](#step-2-configure-fcl-in-your-wagmi-setup)* [Step 3: Add the Batch Transaction Utility](#step-3-add-the-batch-transaction-utility)* [Step 4: Implement the UI](#step-4-implement-the-ui)* [Step 5: Test Your Application](#step-5-test-your-application)* [How It Works](#how-it-works)* [Conclusion](#conclusion)* [Reference Implementation](#reference-implementation)
+* [Video overview](#video-overview)* [Objectives](#objectives)* [Prerequisites](#prerequisites)
+      + [Next.js and modern frontend development](#nextjs-and-modern-frontend-development)+ [Solidity and Cadence smart contract development](#solidity-and-cadence-smart-contract-development)+ [Onchain app frontends](#onchain-app-frontends)* [Create an app](#create-an-app)* [Install Required Dependencies](#install-required-dependencies)* [Step 2: Configure FCL in your wagmi setup](#step-2-configure-fcl-in-your-wagmi-setup)* [Step 3: Add the batch transaction utility](#step-3-add-the-batch-transaction-utility)* [Step 4: Implement the UI](#step-4-implement-the-ui)* [Step 5: Test Your application](#step-5-test-your-application)* [How It Works](#how-it-works)* [Conclusion](#conclusion)* [Reference Implementation](#reference-implementation)
 
 Flow
 
@@ -259354,8 +261700,6 @@ On this page
 
 # Upgrading Cadence Contracts
 
-## Overview[​](#overview "Direct link to Overview")
-
 In Cadence, you can upgrade deployed contracts by adding new functionality while preserving existing state and maintaining the same contract address. Unlike other blockchain platforms that require complex proxy patterns or complete redeployment, Cadence allows you to seamlessly extend your contracts with new functions and events through multiple incremental upgrades.
 
 This tutorial demonstrates how to upgrade a deployed contract through two scenarios:
@@ -259381,11 +261725,11 @@ After you complete this guide, you will be able to:
 * A **funded testnet account** to deploy and update contracts.
   + See [Create accounts](/build/tools/flow-cli/commands#create-accounts) and [Fund accounts](/build/tools/flow-cli/commands#fund-accounts) in the Flow CLI commands.
 
-## Contract Upgrade Overview[​](#contract-upgrade-overview "Direct link to Contract Upgrade Overview")
+## Contract upgrade overview[​](#contract-upgrade-overview "Direct link to Contract upgrade overview")
 
 Cadence provides a sophisticated contract upgrade system that allows you to modify deployed contracts while ensuring data consistency and preventing runtime crashes. It's crucial for successful upgrades that you understand what you can and can't change.
 
-### What You CAN Upgrade[​](#what-you-can-upgrade "Direct link to What You CAN Upgrade")
+### What you CAN upgrade[​](#what-you-can-upgrade "Direct link to What you CAN upgrade")
 
 * **Add new functions** - Extend contract functionality with new methods.
 * **Add new events** - Emit additional events for monitoring and indexing.
@@ -259395,7 +261739,7 @@ Cadence provides a sophisticated contract upgrade system that allows you to modi
 * **Change access modifiers** - Update visibility of functions and fields.
 * **Reorder existing fields** - Field order doesn't affect storage.
 
-### What You CANNOT Upgrade[​](#what-you-cannot-upgrade "Direct link to What You CANNOT Upgrade")
+### What you CANNOT upgrade[​](#what-you-cannot-upgrade "Direct link to What you CANNOT upgrade")
 
 * **Add new fields** - Would cause runtime crashes when loading existing data.
 * **Change field types** - Would cause deserialization errors.
@@ -259403,7 +261747,7 @@ Cadence provides a sophisticated contract upgrade system that allows you to modi
 * **Change enum structures** - Raw values must remain consistent.
 * **Change contract name** - Contract address must remain the same.
 
-### Why These Restrictions Exist[​](#why-these-restrictions-exist "Direct link to Why These Restrictions Exist")
+### Why these restrictions exist[​](#why-these-restrictions-exist "Direct link to Why these restrictions exist")
 
 The [Cadence Contract Updatability documentation](https://cadence-lang.org/docs/language/contract-updatability) explains that these restrictions prevent:
 
@@ -259414,7 +261758,7 @@ The [Cadence Contract Updatability documentation](https://cadence-lang.org/docs/
 
 The validation system ensures that existing stored data remains valid and accessible after upgrades.
 
-## Getting Started[​](#getting-started "Direct link to Getting Started")
+## Get started[​](#get-started "Direct link to Get started")
 
 Create a new Flow project for this tutorial:
 
@@ -259428,7 +261772,7 @@ flow init upgrading-contracts-tutorial`
 
 Follow the prompts and create a `Basic Cadence project (no dependencies)` then open the new project in your editor.
 
-### Create and Fund Testnet Account[​](#create-and-fund-testnet-account "Direct link to Create and Fund Testnet Account")
+### Create and fund testnet account[​](#create-and-fund-testnet-account "Direct link to Create and fund testnet account")
 
 You'll need a funded testnet account to deploy and update contracts. In a terminal in the root of your project folder:
 
@@ -259463,7 +261807,7 @@ The faucet provides free testnet tokens for development and testing purposes. Th
 
 ---
 
-## Deploy the Initial Counter Contract[​](#deploy-the-initial-counter-contract "Direct link to Deploy the Initial Counter Contract")
+## Deploy the initial counter contract[​](#deploy-the-initial-counter-contract "Direct link to Deploy the initial counter contract")
 
 To start, let's deploy a simple Counter contract to testnet.
 
@@ -259597,7 +261941,7 @@ _36
 
 }`
 
-### Configure Deployment[​](#configure-deployment "Direct link to Configure Deployment")
+### Configure deployment[​](#configure-deployment "Direct link to Configure deployment")
 
 Add testnet deployment configuration to your `flow.json`:
 
@@ -259668,7 +262012,7 @@ _10
 
 🎉 All contracts deployed successfully`
 
-### Test the Initial Contract[​](#test-the-initial-contract "Direct link to Test the Initial Contract")
+### Test the initial contract[​](#test-the-initial-contract "Direct link to Test the initial contract")
 
 Use the provided transaction to test initial functionality:
 
@@ -259838,11 +262182,11 @@ _25
 
 ---
 
-## Upgrade the Contract - Part 1: Adding Event for Even Numbers[​](#upgrade-the-contract---part-1-adding-event-for-even-numbers "Direct link to Upgrade the Contract - Part 1: Adding Event for Even Numbers")
+## Upgrade the contract - Part 1: Add event for even numbers[​](#upgrade-the-contract---part-1-add-event-for-even-numbers "Direct link to Upgrade the contract - Part 1: Add event for even numbers")
 
 Let's start with a realistic scenario: What if we've realized it's very important to our users that they know when the counter reaches an even number, but we forgot to add an event for that case? Let's add that functionality first.
 
-### Modify the Counter Contract - First Upgrade[​](#modify-the-counter-contract---first-upgrade "Direct link to Modify the Counter Contract - First Upgrade")
+### Modify the Counter contract - first upgrade[​](#modify-the-counter-contract---first-upgrade "Direct link to Modify the Counter contract - first upgrade")
 
 Update `cadence/contracts/Counter.cdc` to add the new event and enhance the existing `increment()` function:
 
@@ -259984,7 +262328,7 @@ _39
 
 }`
 
-### Key Changes Made - Part 1[​](#key-changes-made---part-1 "Direct link to Key Changes Made - Part 1")
+### Key changes made - part 1[​](#key-changes-made---part-1 "Direct link to Key changes made - part 1")
 
 This first upgrade adds:
 
@@ -259998,11 +262342,11 @@ This demonstrates how you can add new behavior and modify existing function beha
 
 ---
 
-## Update the Deployed Contract - Part 1[​](#update-the-deployed-contract---part-1 "Direct link to Update the Deployed Contract - Part 1")
+## Update the deployed contract - Part 1[​](#update-the-deployed-contract---part-1 "Direct link to Update the deployed contract - Part 1")
 
 Now let's update the deployed contract on testnet using the Flow CLI update command with our first upgrade.
 
-### Update the Contract[​](#update-the-contract "Direct link to Update the Contract")
+### Update the contract[​](#update-the-contract "Direct link to Update the contract")
 
 Use the [Flow CLI update contract command](/build/tools/flow-cli/accounts/account-update-contract) to upgrade your deployed contract:
 
@@ -260078,7 +262422,7 @@ The contract successfully updated! Notice that:
 * The existing state (`count`) is preserved.
 * New functionality is available.
 
-### Test the First Upgrade[​](#test-the-first-upgrade "Direct link to Test the First Upgrade")
+### Test the first upgrade[​](#test-the-first-upgrade "Direct link to Test the first upgrade")
 
 Let's test the new event functionality. Create a simple transaction to test the enhanced `increment()` function:
 
@@ -260137,11 +262481,11 @@ Notice that:
 
 ---
 
-## Upgrade the Contract - Part 2: Adding More Functionality[​](#upgrade-the-contract---part-2-adding-more-functionality "Direct link to Upgrade the Contract - Part 2: Adding More Functionality")
+## Upgrade the contract - Part 2: add more functionality[​](#upgrade-the-contract---part-2-add-more-functionality "Direct link to Upgrade the contract - Part 2: add more functionality")
 
 Now that we've successfully added the even number event, let's add more functionality to our contract. This demonstrates how you can make multiple incremental upgrades to extend your contract's capabilities.
 
-### Modify the Counter Contract - Second Upgrade[​](#modify-the-counter-contract---second-upgrade "Direct link to Modify the Counter Contract - Second Upgrade")
+### Modify the Counter contract - second upgrade[​](#modify-the-counter-contract---second-upgrade "Direct link to Modify the Counter contract - second upgrade")
 
 Update `cadence/contracts/Counter.cdc` to add the additional functionality:
 
@@ -260365,7 +262709,7 @@ _62
 
 }`
 
-### Key Changes Made - Part 2[​](#key-changes-made---part-2 "Direct link to Key Changes Made - Part 2")
+### Key changes made - part 2[​](#key-changes-made---part-2 "Direct link to Key changes made - part 2")
 
 This second upgrade adds:
 
@@ -260376,11 +262720,11 @@ This second upgrade adds:
 
 ---
 
-## Update the Deployed Contract - Part 2[​](#update-the-deployed-contract---part-2 "Direct link to Update the Deployed Contract - Part 2")
+## Update the deployed contract - Part 2[​](#update-the-deployed-contract---part-2 "Direct link to Update the deployed contract - Part 2")
 
 Now let's update the deployed contract with our second upgrade.
 
-### Update the Contract Again[​](#update-the-contract-again "Direct link to Update the Contract Again")
+### Update the contract again[​](#update-the-contract-again "Direct link to Update the contract again")
 
 Use the [Flow CLI update contract command](/build/tools/flow-cli/accounts/account-update-contract) to upgrade your deployed contract with the additional functionality:
 
@@ -260457,7 +262801,7 @@ The contract successfully updated again! Notice that:
 * All previous functionality is still available.
 * New functionality is now available.
 
-### Verify the Update[​](#verify-the-update "Direct link to Verify the Update")
+### Verify the update[​](#verify-the-update "Direct link to Verify the update")
 
 Let's verify that the existing functionality still works and the new functionality is available.
 
@@ -260518,11 +262862,11 @@ Notice that:
 
 ---
 
-## Test the New Functionality[​](#test-the-new-functionality "Direct link to Test the New Functionality")
+## Test the new functionality[​](#test-the-new-functionality "Direct link to Test the new functionality")
 
 Now let's create a transaction to test the new even counter functionality.
 
-### Create Test Transaction[​](#create-test-transaction "Direct link to Create Test Transaction")
+### Create test transaction[​](#create-test-transaction "Direct link to Create test transaction")
 
 Create a new transaction to test the upgraded functionality:
 
@@ -260658,7 +263002,7 @@ _35
 
 }`
 
-### Run the Test Transaction[​](#run-the-test-transaction "Direct link to Run the Test Transaction")
+### Run the test transaction[​](#run-the-test-transaction "Direct link to Run the test transaction")
 
 Execute the transaction to test the new functionality:
 
@@ -260674,7 +263018,7 @@ You will see logs that show:
 * The original `increment()` function still working normally
 * The new `CounterIncrementedToEven` event being emitted when incrementing results in an even number
 
-### Verify Final State[​](#verify-final-state "Direct link to Verify Final State")
+### Verify final state[​](#verify-final-state "Direct link to Verify final state")
 
 Run the check script again to see the final state:
 
@@ -260696,11 +263040,11 @@ This confirms that:
 
 ---
 
-## Understanding Contract Upgrades in Cadence[​](#understanding-contract-upgrades-in-cadence "Direct link to Understanding Contract Upgrades in Cadence")
+## Understand contract upgrades in Cadence[​](#understand-contract-upgrades-in-cadence "Direct link to Understand contract upgrades in Cadence")
 
 Cadence provides a sophisticated contract upgrade system that ensures data consistency while allowing controlled modifications. The [Cadence Contract Updatability documentation](https://cadence-lang.org/docs/language/contract-updatability) provides comprehensive details about the validation rules and restrictions.
 
-### What You Can Upgrade[​](#what-you-can-upgrade-1 "Direct link to What You Can Upgrade")
+### What you can upgrade[​](#what-you-can-upgrade-1 "Direct link to What you can upgrade")
 
 When you upgrade Cadence contracts, you can:
 
@@ -260714,7 +263058,7 @@ When you upgrade Cadence contracts, you can:
 * **Change access modifiers** of fields and functions
 * **Reorder existing fields** (order doesn't affect storage)
 
-### What You Cannot Change[​](#what-you-cannot-change "Direct link to What You Cannot Change")
+### What You cannot change[​](#what-you-cannot-change "Direct link to What You cannot change")
 
 There are important limitations to contract upgrades:
 
@@ -260739,9 +263083,9 @@ warning
 
 The validation system focuses on preventing runtime inconsistencies with stored data. It does not ensure that programs which import the updated contract remain valid - you may need to update dependent code if you change function signatures or remove functions.
 
-### Advanced Upgrade Patterns[​](#advanced-upgrade-patterns "Direct link to Advanced Upgrade Patterns")
+### Advanced upgrade patterns[​](#advanced-upgrade-patterns "Direct link to Advanced upgrade patterns")
 
-#### The `#removedType` Pragma[​](#the-removedtype-pragma "Direct link to the-removedtype-pragma")
+#### The `#removedType` pragma[​](#the-removedtype-pragma "Direct link to the-removedtype-pragma")
 
 For cases where you need to remove a type declaration (which is normally invalid), Cadence provides the `#removedType` pragma. This allows you to "tombstone" a type, which prevents it from being re-added with the same name:
 
@@ -260773,7 +263117,7 @@ This pragma:
 * **Cannot be removed** after you add it (prevents circumventing restrictions).
 * **Only works with composite types**, not interfaces.
 
-#### Enum Upgrade Restrictions[​](#enum-upgrade-restrictions "Direct link to Enum Upgrade Restrictions")
+#### Enum upgrade restrictions[​](#enum-upgrade-restrictions "Direct link to Enum upgrade restrictions")
 
 Enums have special restrictions due to their raw value representation:
 
@@ -260782,7 +263126,7 @@ Enums have special restrictions due to their raw value representation:
 * **Cannot change the raw type** of an enum.
 * **Cannot change enum case names** (would change stored values' meaning).
 
-### Best Practices[​](#best-practices "Direct link to Best Practices")
+### Best practices[​](#best-practices "Direct link to Best practices")
 
 When you upgrade contracts:
 
@@ -260797,7 +263141,7 @@ When you upgrade contracts:
 
 ---
 
-## Why This Matters[​](#why-this-matters "Direct link to Why This Matters")
+## Why this matters[​](#why-this-matters "Direct link to Why this matters")
 
 Cadence's contract upgrade model provides several advantages:
 
@@ -260834,7 +263178,7 @@ This incremental upgrade model makes Cadence contracts more flexible and maintai
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/cadence-advantages/upgrading-cadence-contracts.md)
 
-Last updated on **Oct 27, 2025** by **cshannon1218**
+Last updated on **Oct 30, 2025** by **cshannon1218**
 
 [Previous
 
@@ -260848,16 +263192,16 @@ Account Linking](/blockchain-development-tutorials/cadence/account-management)
 
 Copy as Markdown
 
-* [Overview](#overview)* [Objectives](#objectives)* [Prerequisites](#prerequisites)* [Contract Upgrade Overview](#contract-upgrade-overview)
-        + [What You CAN Upgrade](#what-you-can-upgrade)+ [What You CANNOT Upgrade](#what-you-cannot-upgrade)+ [Why These Restrictions Exist](#why-these-restrictions-exist)* [Getting Started](#getting-started)
-          + [Create and Fund Testnet Account](#create-and-fund-testnet-account)* [Deploy the Initial Counter Contract](#deploy-the-initial-counter-contract)
-            + [Configure Deployment](#configure-deployment)+ [Deploy to Testnet](#deploy-to-testnet)+ [Test the Initial Contract](#test-the-initial-contract)* [Upgrade the Contract - Part 1: Adding Event for Even Numbers](#upgrade-the-contract---part-1-adding-event-for-even-numbers)
-              + [Modify the Counter Contract - First Upgrade](#modify-the-counter-contract---first-upgrade)+ [Key Changes Made - Part 1](#key-changes-made---part-1)* [Update the Deployed Contract - Part 1](#update-the-deployed-contract---part-1)
-                + [Update the Contract](#update-the-contract)+ [Test the First Upgrade](#test-the-first-upgrade)* [Upgrade the Contract - Part 2: Adding More Functionality](#upgrade-the-contract---part-2-adding-more-functionality)
-                  + [Modify the Counter Contract - Second Upgrade](#modify-the-counter-contract---second-upgrade)+ [Key Changes Made - Part 2](#key-changes-made---part-2)* [Update the Deployed Contract - Part 2](#update-the-deployed-contract---part-2)
-                    + [Update the Contract Again](#update-the-contract-again)+ [Verify the Update](#verify-the-update)* [Test the New Functionality](#test-the-new-functionality)
-                      + [Create Test Transaction](#create-test-transaction)+ [Run the Test Transaction](#run-the-test-transaction)+ [Verify Final State](#verify-final-state)* [Understanding Contract Upgrades in Cadence](#understanding-contract-upgrades-in-cadence)
-                        + [What You Can Upgrade](#what-you-can-upgrade-1)+ [What You Cannot Change](#what-you-cannot-change)+ [Validation Goals](#validation-goals)+ [Advanced Upgrade Patterns](#advanced-upgrade-patterns)+ [Best Practices](#best-practices)* [Why This Matters](#why-this-matters)* [Conclusion](#conclusion)
+* [Objectives](#objectives)* [Prerequisites](#prerequisites)* [Contract upgrade overview](#contract-upgrade-overview)
+      + [What you CAN upgrade](#what-you-can-upgrade)+ [What you CANNOT upgrade](#what-you-cannot-upgrade)+ [Why these restrictions exist](#why-these-restrictions-exist)* [Get started](#get-started)
+        + [Create and fund testnet account](#create-and-fund-testnet-account)* [Deploy the initial counter contract](#deploy-the-initial-counter-contract)
+          + [Configure deployment](#configure-deployment)+ [Deploy to Testnet](#deploy-to-testnet)+ [Test the initial contract](#test-the-initial-contract)* [Upgrade the contract - Part 1: Add event for even numbers](#upgrade-the-contract---part-1-add-event-for-even-numbers)
+            + [Modify the Counter contract - first upgrade](#modify-the-counter-contract---first-upgrade)+ [Key changes made - part 1](#key-changes-made---part-1)* [Update the deployed contract - Part 1](#update-the-deployed-contract---part-1)
+              + [Update the contract](#update-the-contract)+ [Test the first upgrade](#test-the-first-upgrade)* [Upgrade the contract - Part 2: add more functionality](#upgrade-the-contract---part-2-add-more-functionality)
+                + [Modify the Counter contract - second upgrade](#modify-the-counter-contract---second-upgrade)+ [Key changes made - part 2](#key-changes-made---part-2)* [Update the deployed contract - Part 2](#update-the-deployed-contract---part-2)
+                  + [Update the contract again](#update-the-contract-again)+ [Verify the update](#verify-the-update)* [Test the new functionality](#test-the-new-functionality)
+                    + [Create test transaction](#create-test-transaction)+ [Run the test transaction](#run-the-test-transaction)+ [Verify final state](#verify-final-state)* [Understand contract upgrades in Cadence](#understand-contract-upgrades-in-cadence)
+                      + [What you can upgrade](#what-you-can-upgrade-1)+ [What You cannot change](#what-you-cannot-change)+ [Validation Goals](#validation-goals)+ [Advanced upgrade patterns](#advanced-upgrade-patterns)+ [Best practices](#best-practices)* [Why this matters](#why-this-matters)* [Conclusion](#conclusion)
 
 Flow
 
@@ -261823,49 +264167,49 @@ On this page
 
 # Batched Tx From Scaffold
 
-Ever since the launch of Flow EVM, it's been possible to *supercharge* your EVM apps by using Flow Cadence features and contracts. Some benefits, such as [native VRF](/blockchain-development-tutorials/native-vrf/vrf-in-solidity) and inexpensive gas without compromising security are built in and either easy or automatic to use. Others, such as the ability to use [Cadence](https://cadence-lang.org/docs) to [structure and call EVM transactions](/blockchain-development-tutorials/cross-vm-apps/batched-evm-transactions), are powerful but complicated to configure and use. They also require developers to manage concurrent connections to both networks.
+Ever since we launched Flow EVM, you can *supercharge* your EVM apps with Flow Cadence features and contracts. Some benefits, such as [native VRF](/blockchain-development-tutorials/native-vrf/vrf-in-solidity) and inexpensive gas that won't compromise security, are built in and either easy to use or automatic. Others, such as the ability to use [Cadence](https://cadence-lang.org/docs) to [structure and call EVM transactions](/blockchain-development-tutorials/cross-vm-apps/batched-evm-transactions), are powerful but complicated to configure and use. They also require developers to manage concurrent connections to both networks.
 
 [FLIP 316](https://github.com/onflow/flips/pull/317) improves the [Flow Client Library (FCL)](/build/tools/clients/fcl-js) to support cross-VM functionality between Flow EVM and Flow Cadence.
 
 For EVM developers, this means that you can use the familiar [wagmi](https://wagmi.sh/), [viem](https://viem.sh/), and [RainbowKit](https://www.rainbowkit.com/) stack you're used to, add FCL, and get features like **multi-call write** with one signature for users with a Cadence-compatible [wallet](/ecosystem/wallets).
 
-In this tutorial, you'll learn how to create [Click to Mint](https://clicktomint.vercel.app/), a simple game that allows players to mint an ERC-20 token by clicking a button. With the power of Flow, they can also click a button, and **complete 10 separate transactions with just one approval!**
+In this tutorial, you'll learn how to create [Click to Mint](https://clicktomint.vercel.app/), a simple game that allows players to click a button to mint an ERC-20 token. With the power of Flow, they can also click a button and **complete 10 separate transactions with just one approval!**
 
 ![Click to Mint](/assets/images/click-to-mint-89f90591b2006954bf4b6b1ff5546e4c.png)
 
 warning
 
-The FCL functionality described in this tutorial is in alpha. Some steps may change. We'll keep the tutorial updated, but please [create an issue](https://github.com/onflow/docs/issues/new/choose) or let us know on [Discord](https://discord.com/channels/613813861610684416/1162086721471647874) if something isn't working for you.
+The FCL functionality described in this tutorial is in alpha. Some steps may change. We'll keep the tutorial updated, but please [create an issue](https://github.com/onflow/docs/issues/new/choose) or let us know on [Discord](https://discord.com/channels/613813861610684416/1162086721471647874) if something doesn't ork for you.
 
 ## Objectives[​](#objectives "Direct link to Objectives")
 
-After completing this guide, you'll be able to:
+After you complete this guide, you'll be able to:
 
-* Build an app that seamlessly integrates Flow Cadence and Flow EVM connections
-* Add Cadence features to your [Rainbowkit](https://www.rainbowkit.com/)/[wagmi](https://wagmi.sh/)/[viem](https://viem.sh/) app
-* Utilize [Flow Client Library (FCL)](/build/tools/clients/fcl-js) to enable multi-call contract writes to Flow EVM
+* Build an app that seamlessly integrates Flow Cadence and Flow EVM connections.
+* Add Cadence features to your [Rainbowkit](https://www.rainbowkit.com/)/[wagmi](https://wagmi.sh/)/[viem](https://viem.sh/) app.
+* Use [Flow Client Library (FCL)](/build/tools/clients/fcl-js) to turn on multi-call contract writes to Flow EVM.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-### Next.js and Modern Frontend Development[​](#nextjs-and-modern-frontend-development "Direct link to Next.js and Modern Frontend Development")
+### Next.js and modern frontend development[​](#nextjs-and-modern-frontend-development "Direct link to Next.js and modern frontend development")
 
-This tutorial uses [Next.js](https://nextjs.org/docs/app/getting-started/installation). You don't need to be an expert, but it's helpful to be comfortable with development using a current React framework. You'll be on your own to select and use a package manager, manage Node versions, and other frontend environment tasks. If you don't have your own preference, you can just follow along with us and use [npm](https://www.npmjs.com/).
+This tutorial uses [Next.js](https://nextjs.org/docs/app/getting-started/installation). You don't need to be an expert, but it's helpful to be comfortable with development with a current React framework. You'll be on your own to select and use a package manager, manage Node versions, and other frontend environment tasks. If you don't have your own preference, you can just follow along with us and use [npm](https://www.npmjs.com/).
 
-### Solidity and Cadence Smart Contract Development[​](#solidity-and-cadence-smart-contract-development "Direct link to Solidity and Cadence Smart Contract Development")
+### Solidity and Cadence smart contract development[​](#solidity-and-cadence-smart-contract-development "Direct link to Solidity and Cadence smart contract development")
 
-Apps using the hybrid approach can interact with both [Cadence](https://cadence-lang.org/docs) and [Solidity](https://soliditylang.org/) smart contracts. You don't need to be an expert in either of these, but it's helpful to be familiar with how smart contracts work in at least one of these languages.
+Apps that use the hybrid approach can interact with both [Cadence](https://cadence-lang.org/docs) and [Solidity](https://soliditylang.org/) smart contracts. You don't need to be an expert in either of these, but it's helpful to be familiar with how smart contracts work in at least one of these languages.
 
-### Onchain App Frontends[​](#onchain-app-frontends "Direct link to Onchain App Frontends")
+### Onchain app frontends[​](#onchain-app-frontends "Direct link to Onchain app frontends")
 
-We're assuming you're familiar with [wagmi](https://wagmi.sh/), [viem](https://viem.sh/), and [RainbowKit](https://www.rainbowkit.com/). If you're coming from the Cadence, you might want to take a quick look at the getting started guides for these platforms. They're all excellent and will rapidly get you up to speed on how the EVM world commonly connects their apps to their contracts.
+We assume you're familiar with [wagmi](https://wagmi.sh/), [viem](https://viem.sh/), and [RainbowKit](https://www.rainbowkit.com/). If you come from the Cadence, you might want to take a quick look at the getting started guides for these platforms. They're all excellent and will rapidly get you up to speed on how the EVM world commonly connects their apps to their contracts.
 
-## Getting Started[​](#getting-started "Direct link to Getting Started")
+## Get started[​](#get-started "Direct link to Get started")
 
-For this tutorial, we'll be starting from a fork of the [FCL + RainbowKit + Wagmi Integration Demo](https://github.com/jribbink/cross-vm-app) built by the team.
+For this tutorial, we'll start from a fork of the [FCL + RainbowKit + Wagmi Integration Demo](https://github.com/jribbink/cross-vm-app) built by the team.
 
 Fork the repo so you can push your work freely to your own copy, then follow the setup instructions.
 
-## Project Overview[​](#project-overview "Direct link to Project Overview")
+## Project overview[​](#project-overview "Direct link to Project overview")
 
 Open the cross-vm app scaffold in your editor, run it, and view the site in your browser:
 
@@ -261883,7 +264227,7 @@ warning
 
 In a production app, you'll want to manage this process carefully. Non-Cadence EVM wallets may be able to connect, but they will **not** be able to use any Cadence features.
 
-## Send Batch Transactions[​](#send-batch-transactions "Direct link to Send Batch Transactions")
+## Send batch transactions[​](#send-batch-transactions "Direct link to Send batch transactions")
 
 The first demo built into this scaffold is **multi-call contract write**.
 
@@ -261899,11 +264243,11 @@ tip
 
 Currently, the Flow wallet sponsors all gas for all transactions signed with the wallet on both testnet **and mainnet!**
 
-### Cadence Parent Transaction[​](#cadence-parent-transaction "Direct link to Cadence Parent Transaction")
+### Cadence parent transaction[​](#cadence-parent-transaction "Direct link to Cadence parent transaction")
 
-The first line is the transaction id of the Flow Cadence transaction that calls **both** of the EVM transactions. Search for it in [Testnet Cadence Flowscan](https://testnet.flowscan.io).
+The first line is the transaction ID of the Flow Cadence transaction that calls **both** of the EVM transactions. Search for it in [Testnet Cadence Flowscan](https://testnet.flowscan.io).
 
-Cadence transactions are more complicated than those in Solidity contracts. Rather than being restricted to running functions present on the contract, they can run arbitrary code as long as the caller has access to all of the resources required by the transaction.
+Cadence transactions are more complicated than those in Solidity contracts. Rather than being restricted to run functions present on the contract, they can run arbitrary code as long as the caller has access to all of the resources required by the transaction.
 
 You can see the code of the transaction in the `Script` tab, but we've included it here for convenience:
 
@@ -262047,19 +264391,19 @@ _38
 
 }`
 
-In this case, it's checking that the caller of the Cadence transaction has permission to control to the EVM account, which is built in for [Cadence Owned Accounts](/build/cadence/basics/accounts). The `execute` phase then iterates through the EVM transactions and uses the Cadence accounts own permissions to sign the EVM transactions.
+In this case, it checks that the caller of the Cadence transaction has permission to control to the EVM account, which is built in for [Cadence Owned Accounts](/build/cadence/basics/accounts). The `execute` phase then iterates through the EVM transactions and uses the Cadence accounts own permissions to sign the EVM transactions.
 
 The loop also handles a check for the optional flag to cancel all of the transactions if any one of them fails. **In other words, you could set up a 20 transaction arbitrage attempt and unwind everything if it fails at any step!**
 
-### EVM Child Transactions[​](#evm-child-transactions "Direct link to EVM Child Transactions")
+### EVM child transactions[​](#evm-child-transactions "Direct link to EVM child transactions")
 
-The next two lines show the transaction hashes for the EVM transactions. You can view this in [Testnet EVM Flowscan](https://evm-testnet.flowscan.io) by searching for the transaction hashes, the same as any other.
+The next two lines show the transaction hashes for the EVM transactions. To view this in [Testnet EVM Flowscan](https://evm-testnet.flowscan.io), search for the transaction hashes, the same as any other.
 
 Look up both transactions.
 
-The first is calling the `deposit()` function to wrap FLOW and move it to EVM.
+The first calls the `deposit()` function to wrap FLOW and move it to EVM.
 
-The second is calling the ERC-20 `approve()` function to give another address the authority to spend those tokens.
+The second calls the ERC-20 `approve()` function to give another address the authority to spend those tokens.
 
 For the demo, the code for this is hard-coded into `src/app/page.tsx`:
 
@@ -262217,7 +264561,7 @@ _38
 
 It's called with the `useBatchTransaction` hook via the `sendBatchTransaction(calls)` function.
 
-## Code Evaluator[​](#code-evaluator "Direct link to Code Evaluator")
+## Code evaluator[​](#code-evaluator "Direct link to Code evaluator")
 
 The demo also has an embedded code evaluator that you can use to experiment with snippets of code from `fcl` or `wagmi`.
 
@@ -262243,15 +264587,15 @@ return block.height;`
 
 Returns the current Cadence VM block number.
 
-## Calling Your Own Contract[​](#calling-your-own-contract "Direct link to Calling Your Own Contract")
+## Calling Your own contract[​](#calling-your-own-contract "Direct link to Calling Your own contract")
 
 Next, we'll update the starter to connect to and call functions in our own contract. For this, we'll use a simple [Button Clicker Contract](https://github.com/briandoyle81/button-clicker-contract/blob/main/contracts/ClickToken.sol). You can deploy your own copy, or use the one deployed at [`0xA7Cf2260e501952c71189D04FAd17c704DFB36e6`](https://evm-testnet.flowscan.io/address/0xA7Cf2260e501952c71189D04FAd17c704DFB36e6?tab=contract).
 
-## Set Up Contract Imports[​](#set-up-contract-imports "Direct link to Set Up Contract Imports")
+## Set Up contract imports[​](#set-up-contract-imports "Direct link to Set Up contract imports")
 
 info
 
-The following steps assume deployment with Hardhat Ignition. If you are using a different deployment method, import the contract address and abi as appropriate.
+The following steps assume deployment with Hardhat Ignition. If you use a different deployment method, import the contract address and abi as appropriate.
 
 In your fork of the app, add a folder called `contracts` to the `src` folder. In it, copy over ['deployed\_addresses.json`] from` ignition/deployments/chain-545`in the Button Clicker repo, and`ignition/deployments/chain-545/ClickTokenModule#ClickToken.json`.
 
@@ -262285,9 +264629,9 @@ _10
 
 }; ``
 
-## Build Traditional Functionality[​](#build-traditional-functionality "Direct link to Build Traditional Functionality")
+## Build traditional functionality[​](#build-traditional-functionality "Direct link to Build traditional functionality")
 
-This isn't a wagmi tutorial, so we'll give you some components to speed up the process. Add a folder called `components` inside `src` and add the following files.
+This isn't a wagmi tutorial, so we'll give you some components to speed up the process. Add a folder called `components` inside `src` and add the following files:
 
 `TheButton.tsx`
 
@@ -263181,7 +265525,7 @@ You'll now see the button and scoreboard from the contract. Test it out and earn
 
 ![scores](data:image/png;base64,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)
 
-## Supercharge your EVM App With Cadence[​](#supercharge-your-evm-app-with-cadence "Direct link to Supercharge your EVM App With Cadence")
+## Supercharge your EVM app With Cadence[​](#supercharge-your-evm-app-with-cadence "Direct link to Supercharge your EVM app With Cadence")
 
 Now let's supercharge it. With the power of Cadence, you can use multi-call write and give your users way more tokens with a single click and single signature!
 
@@ -263221,7 +265565,7 @@ _10
 
 ];`
 
-Try clicking the `Send Batch Transaction Example` button again. You'll have to **manually refresh** the page when the EVM transaction hash appears to see the score update. We haven't wired in the query invalidation yet.
+Click the `Send Batch Transaction Example` button again. You'll have to **manually refresh** the page when the EVM transaction hash appears to see the score update. We haven't wired in the query invalidation yet.
 
 Next, use some JavaScript to put 10 copies of the transaction call into the array:
 
@@ -263249,19 +265593,19 @@ _10
 
 }));`
 
-Click the button again and **manually** refresh page once the transaction hashes appear.
+Click the button again and **manually** refresh page after the transaction hashes appear.
 
 **You just minted 10 tokens from 10 transactions with one signature!**
 
 ## Improve the UI/UX[​](#improve-the-uiux "Direct link to Improve the UI/UX")
 
-While we've got the batched transactions feature working, we've got a few flaws in the user experience that we'll need to resolve, and we should make this a bit nicer looking.
+While the batched transactions feature works, we've got a few flaws in the user experience that we'll need to resolve, and we should make this look a bit nicer.
 
 ### Install Tailwind[​](#install-tailwind "Direct link to Install Tailwind")
 
 warning
 
-We initially tried getting an AI friend to install this for us and it got very confused. Next.js and Tailwind have both had a lot of change recently. As a result, the LLMs don't seem to have caught up just yet.
+We initially tried getting an AI friend to install this for us and it got very confused. `Next.js` and Tailwind have both had a lot of change recently. As a result, the LLMs don't seem to have caught up just yet.
 
 Do this part the old-fashioned way.
 
@@ -263305,9 +265649,9 @@ Then, add the following to the top of `src/styles/global.css`:
 
 Run the app and make sure you see some styling. It won't look nice yet. We'll help you reorganize the components and hook up state monitoring, but it will be up to you to style the app how you'd like. You can check out the [reference repo](https://github.com/briandoyle81/cross-vm-app-1/tree/main) for inspiration, but it's far from perfect or beautiful.
 
-### Update State Display[​](#update-state-display "Direct link to Update State Display")
+### Update state display[​](#update-state-display "Direct link to Update state display")
 
-The first thing we'll need to fix is that the user has to refresh the window manually to see the results of the batched transaction in the scoreboard. Start by moving the functionality in `page.tsx` into a new component, called `SuperButton.tsx`. Note that we're mimicking the pattern in `TheButton.tsx` where the blockchain state is managed in `Content.tsx` and we're passing in the relevant information and functions as props:
+The first thing we'll need to fix is that the user has to refresh the window manually to see the results of the batched transaction in the scoreboard. To start, move the functionality in `page.tsx` into a new component, called `SuperButton.tsx`. We mimic the pattern in `TheButton.tsx` where the blockchain state is managed in `Content.tsx`, and we pass in the relevant information and functions as props:
 
 `_76
 
@@ -263601,7 +265945,7 @@ _76
 
 }`
 
-You should end up with a vastly simplified `page.tsx`:
+You will end up with a vastly simplified `page.tsx`:
 
 `_11
 
@@ -263857,9 +266201,9 @@ _35
 
 ### Testing[​](#testing "Direct link to Testing")
 
-Run the app and make sure it's working as expected, even if in a rather ugly fashion.
+Run the app and make sure it works as expected, even if in a rather ugly fashion.
 
-### Add UI Hints[​](#add-ui-hints "Direct link to Add UI Hints")
+### Add UI hints[​](#add-ui-hints "Direct link to Add UI hints")
 
 With this kind of app, you're likely to have two types of users. Those that have upgraded to the [Flow Wallet] can take advantage of advanced features such as batched transactions, and those who haven't cannot.
 
@@ -263895,17 +266239,17 @@ It's up to you to make the app pretty. If you need inspiration, you can always c
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-In this tutorial, you reviewed the demo starter for building hybrid applications that utilize a common EVM stack and integrate with Flow Cadence. You then added functionality to interface with another contract that mints ERC-20 tokens. Finally, you supercharged your app by using the power of Cadence for EVM multi-call contract writes.
+In this tutorial, you reviewed the demo starter for building hybrid applications that use a common EVM stack and integrate with Flow Cadence. You then added functionality to interface with another contract that mints ERC-20 tokens. Finally, you supercharged your app by using the power of Cadence for EVM multi-call contract writes.
 
-Now that you have completed the tutorial, you should be able to:
+Now that you have completed the tutorial, you will be able to:
 
-* Build an app that seamlessly integrates Flow Cadence and Flow EVM connections
-* Add Cadence features to your [Rainbowkit](https://www.rainbowkit.com/)/[wagmi](https://wagmi.sh/)/[viem](https://viem.sh/) app
-* Utilize [Flow Client Library (FCL)](/build/tools/clients/fcl-js) to enable multi-call contract writes to Flow EVM
+* Build an app that seamlessly integrates Flow Cadence and Flow EVM connections.
+* Add Cadence features to your [Rainbowkit](https://www.rainbowkit.com/)/[wagmi](https://wagmi.sh/)/[viem](https://viem.sh/) app.
+* Use [Flow Client Library (FCL)](/build/tools/clients/fcl-js) to enable multi-call contract writes to Flow EVM.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cross-vm-apps/introduction.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Nov 5, 2025** by **cshannon1218**
 
 [Previous
 
@@ -263920,9 +266264,9 @@ Update Existing wagmi App](/blockchain-development-tutorials/cross-vm-apps/add-t
 Copy as Markdown
 
 * [Objectives](#objectives)* [Prerequisites](#prerequisites)
-    + [Next.js and Modern Frontend Development](#nextjs-and-modern-frontend-development)+ [Solidity and Cadence Smart Contract Development](#solidity-and-cadence-smart-contract-development)+ [Onchain App Frontends](#onchain-app-frontends)* [Getting Started](#getting-started)* [Project Overview](#project-overview)* [Send Batch Transactions](#send-batch-transactions)
-          + [Cadence Parent Transaction](#cadence-parent-transaction)+ [EVM Child Transactions](#evm-child-transactions)* [Code Evaluator](#code-evaluator)* [Calling Your Own Contract](#calling-your-own-contract)* [Set Up Contract Imports](#set-up-contract-imports)* [Build Traditional Functionality](#build-traditional-functionality)* [Supercharge your EVM App With Cadence](#supercharge-your-evm-app-with-cadence)* [Improve the UI/UX](#improve-the-uiux)
-                      + [Install Tailwind](#install-tailwind)+ [Update State Display](#update-state-display)+ [Testing](#testing)+ [Add UI Hints](#add-ui-hints)+ [Styling](#styling)* [Conclusion](#conclusion)
+    + [Next.js and modern frontend development](#nextjs-and-modern-frontend-development)+ [Solidity and Cadence smart contract development](#solidity-and-cadence-smart-contract-development)+ [Onchain app frontends](#onchain-app-frontends)* [Get started](#get-started)* [Project overview](#project-overview)* [Send batch transactions](#send-batch-transactions)
+          + [Cadence parent transaction](#cadence-parent-transaction)+ [EVM child transactions](#evm-child-transactions)* [Code evaluator](#code-evaluator)* [Calling Your own contract](#calling-your-own-contract)* [Set Up contract imports](#set-up-contract-imports)* [Build traditional functionality](#build-traditional-functionality)* [Supercharge your EVM app With Cadence](#supercharge-your-evm-app-with-cadence)* [Improve the UI/UX](#improve-the-uiux)
+                      + [Install Tailwind](#install-tailwind)+ [Update state display](#update-state-display)+ [Testing](#testing)+ [Add UI hints](#add-ui-hints)+ [Styling](#styling)* [Conclusion](#conclusion)
 
 Flow
 
@@ -315268,68 +317612,74 @@ On this page
 
 # Secure Randomness with Commit-Reveal in Cadence
 
-Randomness is a critical component in blockchain applications, enabling fair and unpredictable outcomes for use cases like gaming, lotteries, and cryptographic protocols. The most basic approach to generating a random number on EVM chains is to utilize block hashes, which combines the block hash with a user-provided seed and hashes them together. The resulting hash can be used as a pseudo-random generator seed. However, this approach has limitations. The block hash can be manipulated by a validator influencing the random source used to compute transactions. The block proposer has the freedom to decide what to include into a block and can through different combinations till they find a favorable random source.
+Randomness is a critical component in blockchain applications. It allows fair and unpredictable outcomes for use cases like gaming, lotteries, and cryptographic protocols.
 
-[Chainlink VRF](https://docs.chain.link/vrf) is a popular tool that improves on this by providing another approach for generating provably random values on Ethereum and other blockchains by relying on a decentralized oracle network to deliver cryptographically secure randomness from off-chain sources. However, this dependence on external oracles introduces several weaknesses, such as cost, latency, and scalability concerns.
+The most basic approach that you can use to generate a random number on EVM chains is to use block hashes, which combines the block hash with a user-provided seed and hashes them together. You can use the has that results as a pseudo-random generator seed. However, this approach has limitations. A validator that influences the random source used to compute transactions can manipulate the block hash. The block proposer can decide what to include into a block and can iterate through different combinations until they find a favorable random source.
 
-In contrast, Flow offers a simpler and more integrated approach with its native onchain Randomness Beacon at the protocol level, eliminating reliance on external oracles and sidestepping their associated risks.
+[Chainlink VRF](https://docs.chain.link/vrf) is a popular tool that improves on this. It provides another approach you can use to generate provably random values on Ethereum and other blockchains. It relies on a decentralized oracle network to deliver cryptographically secure randomness from off-chain sources. However, this dependence on external oracles introduces several weaknesses, such as cost, latency, and scalability concerns.
 
-In addition to instant randomness that is available to any transaction (via `revertibleRandom` function), Flow provides a solution to reverted transaction. Commit-Reveal schemes on Flow also rely on protocol-native secure randomness and they fix the issue of post-selection by trustless users. Commit-Reveal tools on Flow can be used within both Cadence and Solidity smart contracts. This tutorial will focus on the Cadence case.
+In contrast, Flow offers a simpler and more integrated approach with its native onchain Randomness Beacon at the protocol level, which eliminates reliance on external oracles and sidestepping their associated risks.
+
+In addition to instant randomness that is available to any transaction (via `revertibleRandom` function), Flow provides a solution to the problem of a user reverting a transaction with an unfavorable outcome. Commit-Reveal schemes on Flow also rely on protocol-native secure randomness and they fix the issue of post-selection by trustless users. Commit-Reveal tools on Flow can be used within both Cadence and Consumer Decentralized Finance (DeFi) contracts. This tutorial focuses on Cadence.
 
 ## Objectives[​](#objectives "Direct link to Objectives")
 
 By the end of this guide, you will be able to:
 
-* Deploy a Cadence smart contract on the Flow blockchain
-* Implement commit-reveal pattern for randomness to ensure fairness
-* Interact with onchain randomness features on Flow
-* Build and test the Coin Toss game using the Flow Testnet
+* Deploy a Cadence smart contract on the Flow blockchain.
+* Implement commit-reveal pattern for randomness to ensure fairness.
+* Interact with onchain randomness features on Flow.
+* Build and test the Coin Toss game with the Flow Testnet.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
 You'll need the following:
 
-* Flow Testnet Account: An account on the Flow Testnet with test FLOW tokens for deploying contracts and executing transactions (e.g., via [Flow Faucet](https://faucet.flow.com/fund-account)).
-* Flow CLI or Playground: The Flow CLI or Flow Playground for deploying and testing contracts (install via [Flow Docs](https://developers.flow.com)).
+* Flow Testnet Account: an account on the Flow Testnet with test FLOW tokens to deploy contracts and execute transactions (for example, via [Flow Faucet](https://faucet.flow.com/fund-account)).
+* Flow CLI or Playground: the Flow CLI or Flow Playground to deploy and test contracts (install via [Flow Docs](https://developers.flow.com)).
 
 ## Overview[​](#overview "Direct link to Overview")
 
 In this guide, we will explore how to use a commit-reveal scheme based on the Flow Random Beacon to achieve secure, non-revertible randomness. This mechanism mitigates post-selection attacks, where participants attempt to reject unfavorable random outcomes after they are revealed.
 
-To illustrate this concept, we will build a Coin Toss game on Flow, demonstrating how smart contracts can leverage a commit-reveal scheme for fair, tamper-resistant results.
+To illustrate this concept, we will build a Coin Toss game on Flow, which demonstrates how smart contracts can leverage a commit-reveal scheme for fair, tamper-resistant results.
 
 ![Commit Reveal](/assets/images/commit-reveal-781e7a6a3f33610dc3258192029cbd4d.png)
 
 ### What is the Coin Toss Game?[​](#what-is-the-coin-toss-game "Direct link to What is the Coin Toss Game?")
 
-The Coin Toss Game is a decentralized betting game that showcases the commit-reveal pattern. Players place bets without knowing the random outcome, ensuring fairness and resistance to manipulation.
+The Coin Toss Game is a decentralized betting game that showcases the commit-reveal pattern. Players place bets without knowing the random outcome, which ensures fairness and resistance to manipulation.
 
 The game consists of two distinct phases:
 
-1. Commit Phase - The player places a bet by sending Flow tokens to the contract. The contract records the commitment to use a future random value from the Flow Random Beacon. The player receives a Receipt, which they will use to reveal the result later.
-2. Reveal Phase - Once the random value becomes available in the `RandomBeaconHistory` contract, the player submits their Receipt to determine the outcome:
+1. Commit Phase - To place a bet, the player sends Flow tokens to the contract. The contract records the commitment to use a future random value from the Flow Random Beacon. The player receives a Receipt, which they will use to reveal the result later.
+2. Reveal Phase - When the random value becomes available in the `RandomBeaconHistory` contract, the player submits their Receipt to determine the outcome:
    * If the result is 0, the player wins and receives double their bet.
    * If the result is 1, the player loses, and their bet remains in the contract.
 
-### Why Use a Commit-Reveal scheme?[​](#why-use-a-commit-reveal-scheme "Direct link to Why Use a Commit-Reveal scheme?")
+### Why use a Commit-Reveal scheme?[​](#why-use-a-commit-reveal-scheme "Direct link to Why use a Commit-Reveal scheme?")
 
 Similarly to revertible randomness, Commit-Reveal inherits the security of Flow native randomness beacon:
 
 * Ensures security - The Flow Random Beacon provides cryptographically unpredictable and non-biased randomness.
 * Ensure fairness - The Flow Random Beacon uses a Verifiable Random Function (VRF) under the hood which allows any external client or user to verify that randoms were generated fairly.
-* Reduces reliance on external oracles - The randomness is generated natively onchain, avoiding additional complexity, third party risk and cost.
+* Reduces reliance on external oracles - The randomness is generated natively onchain, and avoids additional complexity, third party risk and cost.
 
 In addition, commit-reveal patterns solve the issue of revertible randoms:
 
-* Prevents user manipulation - Players cannot selectively reveal results after seeing the random results.
+* Prevents user manipulation - Players cannot evaluate the outcome and choose to revert the transaction if they do not like the result.
 
-## Building the Coin Toss Contract[​](#building-the-coin-toss-contract "Direct link to Building the Coin Toss Contract")
+info
 
-In this section, we'll walk through constructing the `CoinToss.cdc` contract, which contains the core logic for the Coin Toss game. To function properly, the contract relies on supporting contracts and a proper deployment setup.
+One of the powers of Cadence transactions is that a developer can set post-conditions that must be true, or the transaction will revert. This is very useful for scenarios such as guaranteeing a user receives their purchase in a complex and multi-step transaction, but it also means that they can set conditions to reject the transaction. In an instant-win lottery, this would allow users to test large numbers of tickets for a win without paying the purchase price.
 
-This tutorial will focus specifically on writing and understanding the `CoinToss.cdc` contract, while additional setup details can be found in the [original GitHub repo](https://github.com/onflow/random-coin-toss).
+## Build the Coin Toss contract[​](#build-the-coin-toss-contract "Direct link to Build the Coin Toss contract")
 
-### Step 1: Defining the `CoinToss.cdc` Contract[​](#step-1-defining-the-cointosscdc-contract "Direct link to step-1-defining-the-cointosscdc-contract")
+In this section, we'll walk through how to construct the `CoinToss.cdc` contract, which contains the core logic for the Coin Toss game. To function properly, the contract relies on supporting contracts and a proper deployment setup.
+
+This tutorial will focus specifically on how to write and understand the `CoinToss.cdc` contract, while you can find additional setup details in the [original GitHub repo](https://github.com/onflow/random-coin-toss).
+
+### Step 1: Define the `CoinToss.cdc` contract[​](#step-1-define-the-cointosscdc-contract "Direct link to step-1-define-the-cointosscdc-contract")
 
 Let's define our `CoinToss.cdc` and bring the other supporting contracts.
 
@@ -315399,9 +317749,9 @@ _18
 
 }`
 
-### Step 2: Implementing the Commit Phase With `flipCoin`[​](#step-2-implementing-the-commit-phase-with-flipcoin "Direct link to step-2-implementing-the-commit-phase-with-flipcoin")
+### Step 2: Implement the commit phase with `flipCoin`[​](#step-2-implement-the-commit-phase-with-flipcoin "Direct link to step-2-implement-the-commit-phase-with-flipcoin")
 
-Let's define the first step in our scheme; the commit phase. We do this through a `flipCoin` public function. In this method, the caller commits a bet. The contract takes note of a future block height and bet amount, returning a `Receipt` resource which is used by the former to reveal the coin toss result and determine their winnings.
+Let's define the first step in our scheme; the commit phase. We do this through a `flipCoin` public function. In this method, the caller commits a bet. The contract takes note of a future block height and bet amount and returns a `Receipt` resource, which the former uses to reveal the coin toss result and determine their winnings.
 
 `_12
 
@@ -315447,10 +317797,11 @@ _12
 
 }`
 
-### Step 3: Implementing the Reveal Phase With `revealCoin`[​](#step-3-implementing-the-reveal-phase-with-revealcoin "Direct link to step-3-implementing-the-reveal-phase-with-revealcoin")
+### Step 3: Implement the reveal phase With `revealCoin`[​](#step-3-implement-the-reveal-phase-with-revealcoin "Direct link to step-3-implement-the-reveal-phase-with-revealcoin")
 
-Now we implement the reveal phase with the `revealCoin` function. Here the caller provides the Receipt given to them at commitment. The contract then "flips a coin" with `_randomCoin()` providing the Receipt's contained Request. The reveal step is possible only when the protocol random source at the committed block height becomes available.
-If result is 1, user loses, but if it's 0 the user doubles their bet. Note that the caller could condition the revealing transaction, but they've already provided their bet amount so there's no loss for the contract if they do.
+Now we implement the reveal phase with the `revealCoin` function. Here, the caller provides the Receipt they recieve at commitment. The contract then "flips a coin" with `_randomCoin()` providing the Receipt's contained Request. The reveal step is possible only when the protocol random source at the committed block height becomes available.
+
+If result is 1, the user loses, but if it's 0, the user doubles their bet. Note that the caller could condition the revealed transaction, but they've already provided their bet amount, so there's no loss for the contract if they do.
 
 `_23
 
@@ -315534,18 +317885,18 @@ _23
 
 }`
 
-The final version of `CoinToss.cdc` should look like [this contract code](https://github.com/onflow/random-coin-toss/blob/main/contracts/CoinToss.cdc).
+The final version of `CoinToss.cdc` will look like [this contract code](https://github.com/onflow/random-coin-toss/blob/main/contracts/CoinToss.cdc).
 
-## Testing CoinToss on Flow Testnet[​](#testing-cointoss-on-flow-testnet "Direct link to Testing CoinToss on Flow Testnet")
+## Test CoinToss on Flow Testnet[​](#test-cointoss-on-flow-testnet "Direct link to Test CoinToss on Flow Testnet")
 
-To make things easy, we've already deployed the `CoinToss.cdx` contract for you at this address: [0xb6c99d7ff216a684](https://contractbrowser.com/A.b6c99d7ff216a684.CoinToss). We'll walk through placing a bet and revealing the result using [run.dnz](https://run.dnz.dev/), a Flow-friendly tool similar to Ethereum's Remix.
+To make things easy, we've already deployed the `CoinToss.cdx` contract for you at this address: [0xb6c99d7ff216a684](https://contractbrowser.com/A.b6c99d7ff216a684.CoinToss). We'll walk through how to place a bet and reveal the result with [run.dnz](https://run.dnz.dev/), a Flow-friendly tool similar to Ethereum's Remix.
 
-### Placing a Bet with flipCoin[​](#placing-a-bet-with-flipcoin "Direct link to Placing a Bet with flipCoin")
+### Place a bet with flipCoin[​](#place-a-bet-with-flipcoin "Direct link to Place a bet with flipCoin")
 
-First, you'll submit a bet to the CoinToss contract by withdrawing Flow tokens and storing a receipt. Here's how to get started:
+First, you'll submit a bet to the CoinToss contract. To do this, you'll withdraw Flow tokens and store a receipt. Here's how to get started:
 
-1. Open Your Dev Environment: Head to [run.dnz](https://run.dnz.dev/).
-2. Enter the Transaction Code: Paste the following Cadence code into the editor:
+1. Open Your Dev Environment: head to [run.dnz](https://run.dnz.dev/).
+2. Enter the Transaction Code: paste the following Cadence code into the editor:
 
 `_26
 
@@ -315641,16 +317992,16 @@ _26
 
 }`
 
-3. Set Your Bet: A modal will pop up asking for the betAmount. Enter a value (e.g., 1.0 for 1 Flow token) and submit
-4. Execute the Transaction: Click "Run," and a WalletConnect window will appear. Choose Blocto, sign in with your email, and hit "Approve" to send the transaction to Testnet.
+3. Set Your Bet: a window will appear that asks for the `betAmount`. Enter a value (such as 1.0 for 1 Flow token) and submit.
+4. Execute the Transaction: click "Run," and a WalletConnect window will appear. Choose Blocto, sign in with your email, and click "Approve" to send the transaction to Testnet.
 
 ![remix5-sc](/assets/images/remix5-cd6636b214a1b17fc4a012322777d3a5.png)
 
 5. Track it: You can take the transaction id to [FlowDiver](https://testnet.flowdiver.io/)[.io](https://testnet.flowdiver.io/tx/9c4f5436535d36a82d4ae35467b37fea8971fa0ab2409dd0d5f861f61e463d98) to have a full view of everything that's going on with this `FlipCoin` transaction.
 
-### Revealing the Coin Toss Result[​](#revealing-the-coin-toss-result "Direct link to Revealing the Coin Toss Result")
+### Reveal the coin toss result[​](#reveal-the-coin-toss-result "Direct link to Reveal the coin toss result")
 
-Let's reveal the outcome of your coin toss to see if you've won. This step uses the receipt from your bet, so ensure you're using the same account that placed the bet. Here's how to do it:
+Let's reveal the outcome of your coin toss to see if you've won. This step uses the receipt from your bet, so ensure you use the same account that placed the bet. Here's how to do it:
 
 1. Return to your Dev Environment: Open [run.dnz](https://run.dnz.dev/) again.
 2. Enter the Reveal Code: Paste the following Cadence transaction into the editor:
@@ -315667,7 +318018,7 @@ _24
 
 _24
 
-/// Retrieves the saved Receipt and redeems it to reveal the coin toss result, depositing winnings with any luck
+/// Retrieves the saved Receipt, redeems it to reveal the coin toss result, and deposits the winnings with any luck
 
 _24
 
@@ -315743,31 +318094,31 @@ _24
 
 }`
 
-After running this transaction, we reveal the result of the coin flip and it's 1! Meaning we have won nothing this time, but keep trying!
+After we run this transaction, we reveal the result of the coin flip and it's 1! It means we haven't won anything this time, but keep trying!
 
 You can find the full transaction used for this example, with its result and events, at [FlowDiver.io/tx/](https://testnet.flowdiver.io/tx/a79fb2f947e7803eefe54e48398f6983db4e0d4d5e217d2ba94f8ebdec132957).
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-The commit-reveal scheme, implemented within the context of the Flow Randomness Beacon, provides a robust solution for generating secure and non-revertible randomness in decentralized applications. By leveraging this mechanism, developers can ensure that their applications are:
+The commit-reveal scheme, implemented within the context of the Flow Randomness Beacon, provides a robust solution to generate secure and non-revertible randomness in decentralized applications. When developers leverage this mechanism, they can ensure that their applications are:
 
-* Fair: Outcomes remain unbiased and unpredictable.
-* Resistant to post-selection: Protects against trustless users who cannot reverse their commitments.
+* Fair: outcomes remain unbiased and unpredictable.
+* Resistant to post-selection: protects against trustless users who cannot reverse their commitments.
 
-The CoinToss game serves as a practical example of these principles in action. By walking through its implementation, you've seen firsthand how straightforward yet effective this approach can be—balancing simplicity for developers with robust security for users. As blockchain technology advances, embracing such best practices is essential to creating a decentralized ecosystem that upholds fairness and integrity, empowering developers to innovate with confidence.
+The CoinToss game serves as a practical example of these principles in action. Now that you've walked through its implementation, you've seen firsthand how straightforward yet effective this approach can be, as it balances simplicity for developers with robust security for users. As blockchain technology advances, it's essential that you embrace such best practices to create a decentralized ecosystem that upholds fairness and integrity, which empowers developers to innovate with confidence.
 
 This tutorial has equipped you with hands-on experience and key skills:
 
 * You deployed a Cadence smart contract on the Flow blockchain.
 * You implemented commit-reveal to ensure fairness.
 * You interacted with onchain randomness features on Flow.
-* You built and tested the Coin Toss game using the Flow Testnet.
+* You built and tested the Coin Toss game with the Flow Testnet.
 
-By harnessing the built-in randomness capabilities on Flow, you can now focus on crafting engaging, user-centric experiences without grappling with the complexities or limitations of external systems. This knowledge empowers you to create secure, scalable, and fair decentralized applications.
+When you harness the built-in randomness capabilities on Flow, you can create engaging, user-centric experiences without grappling with the complexities or limitations of external systems. This knowledge empowers you to create secure, scalable, and fair decentralized applications.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/native-vrf/commit-reveal-cadence.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Nov 12, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -315782,9 +318133,9 @@ VRF (Randomness) in Solidity](/blockchain-development-tutorials/native-vrf/vrf-i
 Copy as Markdown
 
 * [Objectives](#objectives)* [Prerequisites](#prerequisites)* [Overview](#overview)
-      + [What is the Coin Toss Game?](#what-is-the-coin-toss-game)+ [Why Use a Commit-Reveal scheme?](#why-use-a-commit-reveal-scheme)* [Building the Coin Toss Contract](#building-the-coin-toss-contract)
-        + [Step 1: Defining the `CoinToss.cdc` Contract](#step-1-defining-the-cointosscdc-contract)+ [Step 2: Implementing the Commit Phase With `flipCoin`](#step-2-implementing-the-commit-phase-with-flipcoin)+ [Step 3: Implementing the Reveal Phase With `revealCoin`](#step-3-implementing-the-reveal-phase-with-revealcoin)* [Testing CoinToss on Flow Testnet](#testing-cointoss-on-flow-testnet)
-          + [Placing a Bet with flipCoin](#placing-a-bet-with-flipcoin)+ [Revealing the Coin Toss Result](#revealing-the-coin-toss-result)* [Conclusion](#conclusion)
+      + [What is the Coin Toss Game?](#what-is-the-coin-toss-game)+ [Why use a Commit-Reveal scheme?](#why-use-a-commit-reveal-scheme)* [Build the Coin Toss contract](#build-the-coin-toss-contract)
+        + [Step 1: Define the `CoinToss.cdc` contract](#step-1-define-the-cointosscdc-contract)+ [Step 2: Implement the commit phase with `flipCoin`](#step-2-implement-the-commit-phase-with-flipcoin)+ [Step 3: Implement the reveal phase With `revealCoin`](#step-3-implement-the-reveal-phase-with-revealcoin)* [Test CoinToss on Flow Testnet](#test-cointoss-on-flow-testnet)
+          + [Place a bet with flipCoin](#place-a-bet-with-flipcoin)+ [Reveal the coin toss result](#reveal-the-coin-toss-result)* [Conclusion](#conclusion)
 
 Flow
 
@@ -330038,29 +332389,36 @@ Search
 
 On this page
 
-# Third-Party Integrations
+# Third-Party integrations
 
-Flow's developer-friendly ecosystem extends beyond core blockchain functionality through strategic integrations with leading infrastructure platforms. These integrations eliminate common Web3 friction points, enabling you to build sophisticated applications with traditional Web2 user experiences while leveraging Flow's unique blockchain capabilities.
+Flow's developer-friendly ecosystem extends beyond core blockchain functionality through strategic integrations with leading infrastructure platforms. These integrations eliminate common Web3 friction points, which allows you to build sophisticated applications with traditional Web2 user experiences and leverage Flow's unique blockchain capabilities.
 
 This section provides comprehensive integration guides for platforms that enhance Flow development by addressing key challenges like gas fees, payment processing, user onboarding, and wallet management. Each integration tutorial provides step-by-step implementation guidance, best practices, and real-world examples to help you quickly integrate these powerful services into your Flow applications.
 
-## Available Integrations[​](#available-integrations "Direct link to Available Integrations")
+## Available integrations[​](#available-integrations "Direct link to Available integrations")
 
 ### [Gelato Smart Wallet](/blockchain-development-tutorials/integrations/gelato-sw)[​](#gelato-smart-wallet "Direct link to gelato-smart-wallet")
 
-Eliminate gas fees and improve user experience with Gelato's sponsored transaction infrastructure on Flow EVM. This comprehensive guide shows you how to implement gasless transactions using EIP-7702 features, configure API keys and funding accounts, and integrate the Gelato Smart Wallet SDK for seamless user onboarding. Learn to leverage Flow's low gas costs combined with Gelato's sponsorship infrastructure to create applications that rival traditional Web2 experiences while maintaining blockchain security and transparency.
+Eliminate gas fees and improve user experience with Gelato's sponsored transaction infrastructure on Flow EVM. This comprehensive guide shows you how to implement gasless transactions with EIP-7702 features, configure API keys and funding accounts, and integrate the Gelato Smart Wallet SDK for seamless user onboarding. Learn to leverage Flow's low gas costs combined with Gelato's sponsorship infrastructure to create applications that rival traditional Web2 experiences and maintain blockchain security and transparency.
 
 ### [Crossmint Integration Platform](/blockchain-development-tutorials/integrations/crossmint)[​](#crossmint-integration-platform "Direct link to crossmint-integration-platform")
 
-Build enterprise-grade Web3 applications on Flow with Crossmint's comprehensive blockchain infrastructure platform. This extensive integration guide covers four key areas: authentication with email, social logins, and wallet connections; fiat payment processing supporting credit cards, Apple Pay, and Google Pay; NFT and token minting platform with no-code deployment tools; and access to real-world goods through crypto payments. Crossmint enables you to create complete blockchain applications that feel familiar to Web2 users while leveraging Flow's advanced capabilities.
+Build enterprise-grade Web3 applications on Flow with Crossmint's comprehensive blockchain infrastructure platform. This extensive integration guide covers four key areas:
+
+* Authentication with email, Social logins, and wallet connections.
+* Fiat payment processing supporting credit cards, Apple Pay, and Google Pay
+* NFT and token minting platform with no-code deployment tools
+* Access to real-world goods through crypto payments.
+
+Crossmint allows you to create complete blockchain applications that feel familiar to Web2 users and leverage Flow's advanced capabilities.
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-These third-party integrations demonstrate Flow's commitment to providing developers with the tools needed to build mainstream-ready blockchain applications. By combining Flow's innovative architecture with best-in-class infrastructure platforms, you can eliminate traditional Web3 barriers and create user experiences that drive adoption. Whether you're building DeFi protocols, NFT marketplaces, or consumer applications, these integrations provide the foundation for scalable, user-friendly products that bridge the gap between Web2 expectations and Web3 capabilities.
+These third-party integrations demonstrate Flow's commitment to provide developers with the tools they need to build mainstream-ready blockchain applications. When you combine Flow's innovative architecture with best-in-class infrastructure platforms, you can eliminate traditional Web3 barriers and create user experiences that drive adoption. Whether you want to build decentralized finance (DeFi) protocols, NFT marketplaces, or consumer applications, these integrations provide the foundation for scalable, user-friendly products that bridge the gap between Web2 expectations and Web3 capabilities.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/integrations/index.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Nov 12, 2025** by **cshannon1218**
 
 [Previous
 
@@ -330074,7 +332432,7 @@ Gelato Smart Wallet](/blockchain-development-tutorials/integrations/gelato-sw)
 
 Copy as Markdown
 
-* [Available Integrations](#available-integrations)
+* [Available integrations](#available-integrations)
   + [Gelato Smart Wallet](#gelato-smart-wallet)+ [Crossmint Integration Platform](#crossmint-integration-platform)* [Conclusion](#conclusion)
 
 Flow
@@ -341498,11 +343856,11 @@ On this page
 
 # Direct Calls from Cadence to Flow EVM
 
-Direct calls from Cadence to Flow EVM are essential for enabling Cadence smart contracts to interact seamlessly with the EVM environment hosted on the Flow blockchain. These calls facilitate a range of functionalities including state queries and transaction initiations, allowing Cadence contracts to leverage EVM-based tools and assets.
+Direct calls from Cadence to Flow EVM are essential to allow Cadence smart contracts to interact seamlessly with the EVM environment hosted on the Flow blockchain. These calls facilitate a range of functionalities including state queries and transaction initiations, allowing Cadence contracts to leverage EVM-based tools and assets.
 
-## Making Direct Calls[​](#making-direct-calls "Direct link to Making Direct Calls")
+## Make direct calls[​](#make-direct-calls "Direct link to Make direct calls")
 
-### Accessing Flow EVM[​](#accessing-flow-evm "Direct link to Accessing Flow EVM")
+### Access Flow EVM[​](#access-flow-evm "Direct link to Access Flow EVM")
 
 To interact with Flow EVM, Cadence contracts must first import `EVM` from its service address:
 
@@ -341510,15 +343868,15 @@ To interact with Flow EVM, Cadence contracts must first import `EVM` from its se
 
 import EVM from <ServiceAddress>`
 
-Next, create an `EVMAddress` with a sequence of 20 bytes representing the EVM address:
+Next, create an `EVMAddress` with a sequence of 20 bytes that represents the EVM address:
 
 `_10
 
 let addr = EVM.EVMAddress(bytes: bytes)`
 
-Once you have access to an `EVMAddress`, you can query various pieces of state information such as:
+After you can access an `EVMAddress`, you can query various pieces of state information such as:
 
-* `balance() EVM.Balance` provides the balance of the address. It returns a balance object rather than a basic type to avoid errors when converting from flow to atto-flow.
+* `balance() EVM.Balance` provides the balance of the address. It returns a balance object rather than a basic type to avoid errors when it converts from flow to atto-flow.
 * `nonce() UInt64` retrieves the nonce associated with the address.
 * `code(): [UInt8]` fetches the code at the address; it returns the smart contract code if applicable, and is empty otherwise.
 
@@ -341580,9 +343938,9 @@ _10
 
 }`
 
-### Sending Transactions to Flow EVM[​](#sending-transactions-to-flow-evm "Direct link to Sending Transactions to Flow EVM")
+### Send transactions to Flow EVM[​](#send-transactions-to-flow-evm "Direct link to Send transactions to Flow EVM")
 
-To send transactions to Flow EVM, use the `run` function which executes RLP-encoded transactions. RLP (Recursive Length Prefix) encoding is used to efficiently encode data into a byte-array format, suitable for Ethereum-based environments. Here's an example of wrapping and sending a transaction:
+To send transactions to Flow EVM, use the `run` function which executes RLP-encoded transactions. RLP (Recursive Length Prefix) encoding is used to efficiently encode data into a byte-array format, suitable for Ethereum-based environments. Here's an example of how to wrap and send a transaction:
 
 `_13
 
@@ -341632,35 +343990,35 @@ _13
 
 }`
 
-Using `run` restricts an EVM block to a single EVM transaction, while a future `batchRun` will offer the capability to execute multiple EVM transactions in a batch.
+When you `run`, it restricts an EVM block to a single EVM transaction, while a future `batchRun` will offer the capability to execute multiple EVM transactions in a batch.
 
-### Handling Transaction Responses[​](#handling-transaction-responses "Direct link to Handling Transaction Responses")
+### Handle transaction responses[​](#handle-transaction-responses "Direct link to Handle transaction responses")
 
-Handling responses correctly is crucial to manage the state changes or errors that occur during `EVM` transactions:
+It's crucial that your function handles responses correctly to manage the state changes or errors that occur during `EVM` transactions:
 
-When calling `EVM.run`, it's important to understand that this method does not revert the outer Flow transaction. Developers must therefore carefully handle the response based on the `result.Status` of the EVM transaction execution. There are three main outcomes to consider:
+When you call `EVM.run`, it's important to understand that this method does not revert the outer Flow transaction. Developers must therefore carefully handle the response based on the `result.Status` of the EVM transaction execution. There are three main outcomes to consider:
 
-* `Status.invalid`: This status indicates that the transaction or call failed at the validation step, such as due to a nonce mismatch. Transactions with this status are not executed or included in a block, meaning no state change occurs.
-* `Status.failed`: This status is assigned when the transaction has technically succeeded in terms of being processable, but the EVM reports an error as the outcome, such as running out of gas. Importantly, a failed transaction or call is still included in a block. Attempting to resubmit a failed transaction will result in an `invalid` status on the second try due to a now incorrect nonce.
-* `Status.successful`: This status is given when the transaction or call is successfully executed and no errors are reported by the EVM.
+* `Status.invalid`: This status indicates that the transaction or call failed at the validation step, such as due to a nonce mismatch. Transactions with this status are not executed or included in a block, which means no state change occurs.
+* `Status.failed`: This status is assigned when the transaction has technically succeeded in terms of being processable, but the EVM reports an error as the outcome, such as running out of gas. Importantly, a failed transaction or call is still included in a block. Any attempt to resubmit a failed transaction results in an `invalid` status on the second try due to a now incorrect nonce.
+* `Status.successful`: This status appears when the transaction or call is successfully executed and the EVM doesn't report errors.
 
-For scenarios where transaction validity is critical, developers may choose to use the `mustRun` variation, which reverts the transaction in the case of a validation failure, providing an added layer of error handling.
+For scenarios where transaction validity is critical, developers may choose to use the `mustRun` variation, which reverts the transaction in the case of a validation failure. This provides an added layer of error handling.
 
-### Understanding Gas Usage in EVM Transactions[​](#understanding-gas-usage-in-evm-transactions "Direct link to Understanding Gas Usage in EVM Transactions")
+### Understanding gas usage in EVM transactions[​](#understanding-gas-usage-in-evm-transactions "Direct link to Understanding gas usage in EVM transactions")
 
-Direct calls to Flow EVM require gas, it's important to understand how gas usage is calculated and billed. During the execution of methods that interact with the EVM:
+Direct calls to Flow EVM require gas. It's important to understand how gas usage is calculated and billed. During the execution of methods that interact with the EVM:
 
-* **Gas Aggregation**: The gas used by each call is aggregated throughout the transaction.
-* **Gas Adjustment**: The total gas used is then adjusted based on a multiplier. This multiplier is determined by the network and can be adjusted by the service account to reflect operational costs and network conditions.
-* **Payment of Gas Fees**: The adjusted total gas amount is added to the overall computation fees of the Flow transaction. These fees are paid by the transaction initiator, commonly referred to as the payer.
+* **Gas Aggregation**: The gas that each call uses is aggregated throughout the transaction.
+* **Gas Adjustment**: The total gas used is then adjusted based on a multiplier. This multiplier is determined by the network and the service account can adjust it to reflect operational costs and network conditions.
+* **Payment of Gas Fees**: The adjusted total gas amount is added to the overall computation fees of the Flow transaction. The transaction initiator, commonly referred to as the payer, pays these fees.
 
-## Keep Learning[​](#keep-learning "Direct link to Keep Learning")
+## Keep learning[​](#keep-learning "Direct link to Keep learning")
 
 For more information and a deeper dive into the `EVMAddress`, `Result`, and `Status` objects, see [the contract here](https://github.com/onflow/flow-go/blob/master/fvm/evm/stdlib/contract.cdc).
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cross-vm-apps/direct-calls.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Nov 5, 2025** by **cshannon1218**
 
 [Previous
 
@@ -341674,8 +344032,8 @@ Interacting with COAs](/blockchain-development-tutorials/cross-vm-apps/interacti
 
 Copy as Markdown
 
-* [Making Direct Calls](#making-direct-calls)
-  + [Accessing Flow EVM](#accessing-flow-evm)+ [Sending Transactions to Flow EVM](#sending-transactions-to-flow-evm)+ [Handling Transaction Responses](#handling-transaction-responses)+ [Understanding Gas Usage in EVM Transactions](#understanding-gas-usage-in-evm-transactions)* [Keep Learning](#keep-learning)
+* [Make direct calls](#make-direct-calls)
+  + [Access Flow EVM](#access-flow-evm)+ [Send transactions to Flow EVM](#send-transactions-to-flow-evm)+ [Handle transaction responses](#handle-transaction-responses)+ [Understanding gas usage in EVM transactions](#understanding-gas-usage-in-evm-transactions)* [Keep learning](#keep-learning)
 
 Flow
 
@@ -406159,45 +408517,45 @@ Search
 
 On this page
 
-# Gelato Smart Wallet Integration Guide
+# Gelato Smart Wallet
 
-Gas fees are one of the biggest barriers to blockchain adoption. Users often need to hold native tokens just to pay for transaction fees, creating friction in onboarding and limiting the types of applications that can be built. Gelato Smart Wallet solves this problem by enabling **gasless transactions** on Flow EVM through sponsored transactions.
+Gas fees are one of the biggest barriers to blockchain adoption. Users often need to hold native tokens just to pay for transaction fees, which creates friction in onboarding and limits the types of applications that they can build. To solve this problem, Gelato Smart Wallet activates **gasless transactions** on Flow EVM through sponsored transactions.
 
 With Gelato Smart Wallet, you can:
 
-* **Eliminate gas fees** for your users by sponsoring their transactions
-* **Improve user experience** with seamless onboarding that doesn't require users to hold FLOW tokens
-* **Support EIP-7702** for enhanced smart wallet functionality
-* **Scale your dApp** by removing the cost barrier for user interactions
-* **Leverage Flow's low gas costs** to provide affordable sponsored transactions
+* **Eliminate gas fees** for your users by sponsoring their transactions.
+* **Improve user experience** with seamless onboarding that doesn't require users to hold FLOW tokens.
+* **Support EIP-7702** for enhanced smart wallet functionality.
+* **Scale your dApp** by removing the cost barrier for user interactions.
+* **Leverage Flow's low gas costs** to provide affordable sponsored transactions.
 
-This tutorial will guide you through setting up Gelato Smart Wallet to enable gasless transactions on Flow EVM. You'll learn how to configure the necessary API keys, fund your sponsorship account, and implement gasless transaction functionality in your applications.
+This tutorial will guide you through how to set up Gelato Smart Wallet to activate gasless transactions on Flow EVM. You'll learn how to configure the necessary API keys, fund your sponsorship account, and implement gasless transaction functionality in your applications.
 
 info
 
-This tutorial focuses on **EIP-7702** implementation with Gelato Smart Wallet on Flow EVM. EIP-7702 provides a streamlined experience for users by maintaining the same address as their EOA while adding smart wallet capabilities, enabling enhanced features like gasless transactions and improved user experience.
+This tutorial focuses on **EIP-7702** implementation with Gelato Smart Wallet on Flow EVM. EIP-7702 provides a streamlined experience for users. It maintains the same address as their EOA and adds smart wallet capabilities, which activates enhanced features like gasless transactions and improved user experience.
 
 ## Objectives[​](#objectives "Direct link to Objectives")
 
-After completing this guide, you'll be able to:
+After you complete this guide, you'll be able to:
 
-* Configure a Gelato Smart Wallet account with proper API keys and funding setup
-* Implement gasless transaction functionality using the Gelato Smart Wallet SDK
-* Estimate and execute sponsored transactions on Flow EVM
-* Integrate EIP-7702 features for enhanced user experience
-* Troubleshoot common issues with Gelato Smart Wallet integration
+* Configure a Gelato Smart Wallet account with proper API keys and funding setup.
+* Implement gasless transaction functionality with the Gelato Smart Wallet SDK.
+* Estimate and execute sponsored transactions on Flow EVM.
+* Integrate EIP-7702 features for enhanced user experience.
+* Troubleshoot common issues with Gelato Smart Wallet integration.
 
-## Prerequisites of using Gelato Smart Wallet[​](#prerequisites-of-using-gelato-smart-wallet "Direct link to Prerequisites of using Gelato Smart Wallet")
+## Prerequisites to use Gelato Smart Wallet[​](#prerequisites-to-use-gelato-smart-wallet "Direct link to Prerequisites to use Gelato Smart Wallet")
 
 You need to set up the following in the Gelato App to create a Gelato Sponsor API Key:
 
-### Step 1. Create Your Gelato Account[​](#step-1-create-your-gelato-account "Direct link to Step 1. Create Your Gelato Account")
+### Step 1. create your Gelato account[​](#step-1-create-your-gelato-account "Direct link to Step 1. create your Gelato account")
 
-Sign up on the [Gelato App](https://app.gelato.cloud/) to establish an account. This account is the foundation for setting up relay tasks and managing gas sponsorships.
+Sign up on the [Gelato App](https://app.gelato.cloud/) to establish an account. This account is the foundation to set up relay tasks and manage gas sponsorships.
 
-### Step 2. Deposit Funds into 1Balance[​](#step-2-deposit-funds-into-1balance "Direct link to Step 2. Deposit Funds into 1Balance")
+### Step 2. deposit funds into 1Balance[​](#step-2-deposit-funds-into-1balance "Direct link to Step 2. deposit funds into 1Balance")
 
-To use Gelato for sponsored transactions, you need to deposit funds into 1Balance according to your target environment:
+To use Gelato for sponsored transactions, you need to deposit funds into 1Balance as your target environment requires:
 
 * Mainnets: Deposit USDC.
 * Testnets: Deposit Sepolia ETH.
@@ -406217,7 +408575,7 @@ If you need to fund your account, you can use one of the following third-party f
 * [Chainlink Sepolia Faucet](https://faucets.chain.link/sepolia)
 * [Metamask Sepolia Faucet](https://docs.metamask.io/developer-tools/faucet/)
 
-### Step 3. Create a Relay App[​](#step-3-create-a-relay-app "Direct link to Step 3. Create a Relay App")
+### Step 3. create a relay app[​](#step-3-create-a-relay-app "Direct link to Step 3. create a relay app")
 
 Select the `Relay` tab in the Gelato App and switch to the `Testnet` environment.
 
@@ -406232,9 +408590,9 @@ You'll need to add more information for your smart contracts at a later date.
 
 When set to a specific contract instead of `Any contract`, the API keys will only allow sponsored transactions for calls to the designated methods within the ABI of that contract.
 
-### Step 4. Create/Obtain an API Key[​](#step-4-createobtain-an-api-key "Direct link to Step 4. Create/Obtain an API Key")
+### Step 4. Create or obtain an API key[​](#step-4-create-or-obtain-an-api-key "Direct link to Step 4. Create or obtain an API key")
 
-After creating the Relay App, navigate to its dashboard to locate your Sponsor API Key.
+After you create the Relay App, navigate to its dashboard to locate your Sponsor API Key.
 
 ![Create a Sponsor API Key](/assets/images/gelato-relay-2-51faaf58b72056e7af60b50e22b940a0.png)
 
@@ -406242,13 +408600,13 @@ This key links your Gelato setup with 1Balance for gas sponsorship.
 
 Copy the API key to your clipboard.
 
-## Send Gasless Transactions for your users[​](#send-gasless-transactions-for-your-users "Direct link to Send Gasless Transactions for your users")
+## Send gasless transactions for your users[​](#send-gasless-transactions-for-your-users "Direct link to Send gasless transactions for your users")
 
 After you have created a Sponsor API Key and deposited funds into 1Balance, you can use gasless transactions features for your users.
 
-With the Gelato Smart Wallet SDK, developers can easily set up sponsored transactions for their applications in just a few simple steps, enabling seamless onboarding and interaction without requiring users to hold native tokens.
+With the Gelato Smart Wallet SDK, developers can easily set up sponsored transactions for their applications in just a few simple steps, which allows seamless onboarding and interaction and doesn't require users to hold native tokens.
 
-note
+info
 
 You can find the examples in the [Gelato Smart Wallet SDK](https://github.com/gelatodigital/smartwallet/tree/master/examples) repository.
 
@@ -406272,7 +408630,7 @@ yarn add @gelatonetwork/smartwallet viem`
 
 npm install @gelatonetwork/smartwallet viem`
 
-### Step 2. Setup Smart Wallet Account[​](#step-2-setup-smart-wallet-account "Direct link to Step 2. Setup Smart Wallet Account")
+### Step 2. set up a Smart Wallet account[​](#step-2-set-up-a-smart-wallet-account "Direct link to Step 2. set up a Smart Wallet account")
 
 Import required dependencies:
 
@@ -406319,7 +408677,7 @@ _11
 });`
 
 You can set up a Smart Account as per your needs.  
-Once you create the `gelato` account, the Gelato Smart Account address will be the same as your EOA, enabling EIP-7702 features.
+After you create the `gelato` account, the Gelato Smart Account address will be the same as your EOA, which activates EIP-7702 features.
 
 `_10
 
@@ -406377,7 +408735,7 @@ _10
 
 });`
 
-Once you have a standard viem wallet client, you can wrap it into a Gelato Smart Wallet client with the sponsor API key.
+After you have a standard viem wallet client, you can wrap it into a Gelato Smart Wallet client with the sponsor API key.
 
 `_10
 
@@ -406409,7 +408767,7 @@ _10
 
 });`
 
-### Step 3. Estimate or Send a Gasless Transaction[​](#step-3-estimate-or-send-a-gasless-transaction "Direct link to Step 3. Estimate or Send a Gasless Transaction")
+### Step 3. estimate or send a gasless transaction[​](#step-3-estimate-or-send-a-gasless-transaction "Direct link to Step 3. estimate or send a gasless transaction")
 
 Now you can estimate or send a gasless transaction with the Gelato Smart Wallet client.
 
@@ -406629,21 +408987,21 @@ _27
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-In this tutorial, you successfully integrated Gelato Smart Wallet to enable gasless transactions on Flow EVM. You learned how to set up the necessary infrastructure, configure API keys, fund sponsorship accounts, and implement gasless transaction functionality in your applications. The implementation demonstrates how Flow's low gas costs combined with Gelato's sponsored transaction infrastructure can create seamless user experiences that eliminate the friction of gas fees.
+In this tutorial, you successfully integrated Gelato Smart Wallet to activate gasless transactions on Flow EVM. You learned how to set up the necessary infrastructure, configure API keys, fund sponsorship accounts, and implement gasless transaction functionality in your applications. The implementation demonstrates how Flow's low gas costs combined with Gelato's sponsored transaction infrastructure can create seamless user experiences that eliminate the friction of gas fees.
 
 Now that you have completed the tutorial, you should be able to:
 
-* Configure a Gelato Smart Wallet account with proper API keys and funding setup
-* Implement gasless transaction functionality using the Gelato Smart Wallet SDK
-* Estimate and execute sponsored transactions on Flow EVM
-* Integrate EIP-7702 features for enhanced user experience
-* Troubleshoot common issues with Gelato Smart Wallet integration
+* Configure a Gelato Smart Wallet account with proper API keys and funding setup.
+* Implement gasless transaction functionality with the Gelato Smart Wallet SDK.
+* Estimate and execute sponsored transactions on Flow EVM.
+* Integrate EIP-7702 features for enhanced user experience.
+* Troubleshoot common issues with Gelato Smart Wallet integration.
 
-The combination of Flow's efficient gas pricing and Gelato's sponsored transaction infrastructure opens up new possibilities for building user-friendly dApps. By eliminating the need for users to hold native tokens for gas fees, you can create onboarding experiences that rival traditional Web2 applications while maintaining the security and transparency of blockchain technology.
+The combination of Flow's efficient gas prices and Gelato's sponsored transaction infrastructure opens up new possibilities for you to build user-friendly dApps. When you eliminate the need for users to hold native tokens for gas fees, you can create onboarding experiences that rival traditional Web2 applications and maintain the security and transparency of blockchain technology.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/integrations/gelato-sw.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Nov 12, 2025** by **cshannon1218**
 
 [Previous
 
@@ -406657,9 +409015,9 @@ Crossmint Integration Guide](/blockchain-development-tutorials/integrations/cros
 
 Copy as Markdown
 
-* [Objectives](#objectives)* [Prerequisites of using Gelato Smart Wallet](#prerequisites-of-using-gelato-smart-wallet)
-    + [Step 1. Create Your Gelato Account](#step-1-create-your-gelato-account)+ [Step 2. Deposit Funds into 1Balance](#step-2-deposit-funds-into-1balance)+ [Step 3. Create a Relay App](#step-3-create-a-relay-app)+ [Step 4. Create/Obtain an API Key](#step-4-createobtain-an-api-key)* [Send Gasless Transactions for your users](#send-gasless-transactions-for-your-users)
-      + [Step 1. Install all relevant dependencies](#step-1-install-all-relevant-dependencies)+ [Step 2. Setup Smart Wallet Account](#step-2-setup-smart-wallet-account)+ [Step 3. Estimate or Send a Gasless Transaction](#step-3-estimate-or-send-a-gasless-transaction)* [Conclusion](#conclusion)
+* [Objectives](#objectives)* [Prerequisites to use Gelato Smart Wallet](#prerequisites-to-use-gelato-smart-wallet)
+    + [Step 1. create your Gelato account](#step-1-create-your-gelato-account)+ [Step 2. deposit funds into 1Balance](#step-2-deposit-funds-into-1balance)+ [Step 3. create a relay app](#step-3-create-a-relay-app)+ [Step 4. Create or obtain an API key](#step-4-create-or-obtain-an-api-key)* [Send gasless transactions for your users](#send-gasless-transactions-for-your-users)
+      + [Step 1. Install all relevant dependencies](#step-1-install-all-relevant-dependencies)+ [Step 2. set up a Smart Wallet account](#step-2-set-up-a-smart-wallet-account)+ [Step 3. estimate or send a gasless transaction](#step-3-estimate-or-send-a-gasless-transaction)* [Conclusion](#conclusion)
 
 Flow
 
@@ -416297,7 +418655,7 @@ Search
 
 On this page
 
-# Cadence environment eetup
+# Cadence environment setup
 
 This comprehensive tutorial will guide you through how to set up your complete development environment, deploy your first smart contract, and learn the fundamentals of Flow development. You'll work hands-on with the Flow CLI, local emulator, and a real smart contract to build practical skills from day one.
 
@@ -416907,7 +419265,7 @@ Welcome to the Flow developer community—you're ready to build the future of di
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/getting-started/cadence-environment-setup.md)
 
-Last updated on **Oct 30, 2025** by **cshannon1218**
+Last updated on **Nov 14, 2025** by **0xLisanAlGaib**
 
 [Previous
 
@@ -418196,7 +420554,7 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
-# Source: https://developers.flow.com
+# Source: https://developers.flow.com/
 
 Flow Developer Portal
 
@@ -419654,8 +422012,6 @@ On this page
 
 # Native Data Availability With Cadence Scripts
 
-## Overview[​](#overview "Direct link to Overview")
-
 In Solidity, you can only retrieve data from **view** functions that the contract author anticipated and included in the original contract. If the exact query you want is not exposed, teams typically rely on a *data availability service* such as The Graph, Covalent, Alchemy Enhanced APIs, Reservoir, or NFTScan to compute and serve that view.
 
 In Cadence, **scripts** are general-purpose read programs. They can traverse public account storage, read public capabilities, and compose types from multiple contracts to answer new questions without modifying those contracts. You are not limited to the pre-written surface area of a single contract's views.
@@ -419689,7 +422045,7 @@ tip
 
 If you are new to [*Hybrid Custody*](/blockchain-development-tutorials/cadence/account-management), the high-level idea is that in Cadence, a parent account can manage one or more child accounts through managed capabilities. This guide uses those capabilities to enumerate NFT collections the parent can control.
 
-## Getting Started[​](#getting-started "Direct link to Getting Started")
+## Get started[​](#get-started "Direct link to Get started")
 
 Create a new Flow project and generate a script file:
 
@@ -419727,7 +422083,7 @@ We will **revise one script file** in four passes, and run it after each step. T
 
 ---
 
-## Querying the account to find child accounts[​](#querying-the-account-to-find-child-accounts "Direct link to Querying the account to find child accounts")
+## Query the account to find child accounts[​](#query-the-account-to-find-child-accounts "Direct link to Query the account to find child accounts")
 
 To start, write a script that borrows the parent's *Hybrid Custody* manager and returns the child addresses it controls. This verifies that imports resolve and that the parent account is configured as expected.
 
@@ -420528,7 +422884,7 @@ This demonstrates how you can easily modify Cadence scripts to answer different 
 * If you see empty results in Step 4, confirm `isTopShot` matches the identifiers you observed in Step 3.
 * If you are not using *Hybrid Custody*, you can adapt Steps 2-4 to use `getAccount(child)` and scan **publicly exposed** `{NonFungibleToken.CollectionPublic}` capabilities, but you will not be able to assert provider access.
 
-## How This Compares to Solidity[​](#how-this-compares-to-solidity "Direct link to How This Compares to Solidity")
+## How This compares to Solidity[​](#how-this-compares-to-solidity "Direct link to How This compares to Solidity")
 
 * **Solidity views are fixed**: You can only retrieve what the contract author exposed via `view` or `pure` functions. If you need a different aggregation or cross-contract traversal, you typically rely on a *data availability service* or write a new contract to expose that view.
 * **Cadence scripts are flexible**: You compose types across modules, traverse account storage, and read public capabilities at query time. You do not need to redeploy contracts to answer new questions.
@@ -420558,7 +422914,7 @@ This approach gives you the freedom to build applications that can access any on
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/cadence-advantages/native-data-availibility-with-cadence-scripts.md)
 
-Last updated on **Oct 27, 2025** by **cshannon1218**
+Last updated on **Oct 30, 2025** by **cshannon1218**
 
 [Previous
 
@@ -420572,7 +422928,7 @@ Upgrading Cadence Contracts](/blockchain-development-tutorials/cadence/cadence-a
 
 Copy as Markdown
 
-* [Overview](#overview)* [Objectives](#objectives)* [Prerequisites](#prerequisites)* [Getting Started](#getting-started)* [Querying the account to find child accounts](#querying-the-account-to-find-child-accounts)* [Listing the storage paths found in each child account](#listing-the-storage-paths-found-in-each-child-account)* [Detecting NFT collections the parent can control](#detecting-nft-collections-the-parent-can-control)* [Filtering NFT collection to find and return Top Shots](#filtering-nft-collection-to-find-and-return-top-shots)* [Extending the script to include AllDay NFTs](#extending-the-script-to-include-allday-nfts)* [Troubleshooting](#troubleshooting)* [How This Compares to Solidity](#how-this-compares-to-solidity)* [Conclusion](#conclusion)
+* [Objectives](#objectives)* [Prerequisites](#prerequisites)* [Get started](#get-started)* [Query the account to find child accounts](#query-the-account-to-find-child-accounts)* [Listing the storage paths found in each child account](#listing-the-storage-paths-found-in-each-child-account)* [Detecting NFT collections the parent can control](#detecting-nft-collections-the-parent-can-control)* [Filtering NFT collection to find and return Top Shots](#filtering-nft-collection-to-find-and-return-top-shots)* [Extending the script to include AllDay NFTs](#extending-the-script-to-include-allday-nfts)* [Troubleshooting](#troubleshooting)* [How This compares to Solidity](#how-this-compares-to-solidity)* [Conclusion](#conclusion)
 
 Flow
 
@@ -428315,7 +430671,7 @@ const WalletConnect = () => {
 
 [PreviousEcosystem Developer Grants](/ecosystem-development/ecosystem-developer-grants)[NextWagmi](/ecosystem-development/integrate-flow-evm-with-web3-sdks/wagmi)
 
-Last updated 9 months ago
+Last updated 10 months ago
 
 
 
@@ -428627,7 +430983,7 @@ See more detail on <https://github.com/Outblock/web3js-flow-evm-demo>
 
 [PreviousEtherjs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/etherjs)[NextViem](/ecosystem-development/integrate-flow-evm-with-web3-sdks/viem)
 
-Last updated 9 months ago
+Last updated 10 months ago
 
 
 
@@ -428758,7 +431114,7 @@ See more detail on <https://github.com/Outblock/flow-evm-rainbow>
 
 [PreviousWagmi](/ecosystem-development/integrate-flow-evm-with-web3-sdks/wagmi)[NextEtherjs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/etherjs)
 
-Last updated 9 months ago
+Last updated 10 months ago
 
 
 
@@ -429269,7 +431625,7 @@ Wip
 
 [PreviousMIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)[NextDownload](/download/download)
 
-Last updated 9 months ago
+Last updated 10 months ago
 
 
 
@@ -430150,7 +432506,7 @@ See more detail on <https://github.com/Outblock/viem-flow-evm-demo>
 
 [PreviousWeb3js](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3js)[NextWeb3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)
 
-Last updated 9 months ago
+Last updated 10 months ago
 
 
 
@@ -430677,7 +433033,7 @@ See more detail on <https://github.com/Outblock/wagmi-project>
 
 [PreviousIntegrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)[NextRainbowkit](/ecosystem-development/integrate-flow-evm-with-web3-sdks/rainbowkit)
 
-Last updated 9 months ago
+Last updated 10 months ago
 
 
 
@@ -430823,7 +433179,7 @@ See more detail on <https://github.com/Outblock/web3-onboard-flow-evm-demo>
 
 [PreviousViem](/ecosystem-development/integrate-flow-evm-with-web3-sdks/viem)[NextMIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
 
-Last updated 9 months ago
+Last updated 10 months ago
 
 
 
@@ -430858,12 +433214,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **99e256c41f66eab9**
+Cloudflare Ray ID: **99ea92357a3782d5**
 •
 
 Your IP:
 Click to reveal
-57.151.138.240
+20.109.86.227
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 
@@ -431839,7 +434195,7 @@ See more detail on <https://github.com/Outblock/mipd-flow-evm-demo>
 
 [PreviousWeb3-Onboard](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3-onboard)[NextOthers SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks/others-sdks)
 
-Last updated 9 months ago
+Last updated 10 months ago
 
 
 
@@ -432774,7 +435130,7 @@ See more detail on <https://github.com/Outblock/etherjs-flow-evm-demo>
 
 [PreviousRainbowkit](/ecosystem-development/integrate-flow-evm-with-web3-sdks/rainbowkit)[NextWeb3js](/ecosystem-development/integrate-flow-evm-with-web3-sdks/web3js)
 
-Last updated 9 months ago
+Last updated 10 months ago
 
 
 

@@ -44,7 +44,7 @@ Search
 
 On this page
 
-# Smart Contract Interaction
+# Smart contract interaction
 
 Building on your local development setup from the previous tutorial, you'll now master advanced Flow development skills that every professional developer needs. This tutorial focuses on how to work with external dependencies, build sophisticated transactions, and establish robust testing practices.
 
@@ -941,7 +941,7 @@ Continue your Flow mastery with these advanced resources:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction.md)
 
-Last updated on **Oct 30, 2025** by **cshannon1218**
+Last updated on **Nov 14, 2025** by **0xLisanAlGaib**
 
 [Previous
 

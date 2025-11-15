@@ -130,4 +130,4 @@ See more detail on <https://github.com/Outblock/web3-onboard-flow-evm-demo>
 
 [PreviousViem](/ecosystem-development/integrate-flow-evm-with-web3-sdks/viem)[NextMIPD](/ecosystem-development/integrate-flow-evm-with-web3-sdks/mipd)
 
-Last updated 9 months ago
+Last updated 10 months ago

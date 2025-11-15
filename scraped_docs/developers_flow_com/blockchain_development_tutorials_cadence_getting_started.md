@@ -44,7 +44,7 @@ Search
 
 On this page
 
-# Getting started with Cadence
+# Getting started with cadence
 
 The Cadence is designed for the next generation of apps, games, and digital assets. This comprehensive tutorial series will guide you from setting up your development environment to deploying production-ready applications on Flow's mainnet while a complete Counter application that demonstrates all essential Flow development patterns.
 
@@ -105,7 +105,7 @@ After you complete these tutorials, you'll have the fundamental skills needed fo
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/getting-started/index.md)
 
-Last updated on **Oct 30, 2025** by **cshannon1218**
+Last updated on **Nov 14, 2025** by **0xLisanAlGaib**
 
 [Previous
 

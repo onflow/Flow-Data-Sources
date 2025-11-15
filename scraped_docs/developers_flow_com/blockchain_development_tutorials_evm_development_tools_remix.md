@@ -44,9 +44,9 @@ On this page
 
 # Using Remix
 
-Remix is an open-source, web-based development environment tailored for EVM smart contract development. It offers developers a comprehensive suite of tools for writing, deploying, and testing smart contracts in Solidity. For more information, visit [Remix](https://remix.ethereum.org/).
+Remix is an open-source, web-based development environment tailored for EVM smart contract development. It offers developers a comprehensive suite of tools to write, deploy, and test smart contracts in Solidity. For more information, visit [Remix](https://remix.ethereum.org/).
 
-## Add the Flow Network to MetaMask[​](#add-the-flow-network-to-metamask "Direct link to Add the Flow Network to MetaMask")
+## Add the Flow network to MetaMask[​](#add-the-flow-network-to-metamask "Direct link to Add the Flow network to MetaMask")
 
 ![Add Flow Network](/assets/images/Remix-adding-metamask-network-4912936e5dad423a4d858266eb9648a7.gif)
 
@@ -54,13 +54,13 @@ Navigate to the [Using EVM](/build/evm/using) page to find the button to add the
 
 ## Fund Your Flow Account[​](#fund-your-flow-account "Direct link to Fund Your Flow Account")
 
-Navigate to the [Flow Testnet Faucet](https://faucet.flow.com/fund-account) to obtain FLOW tokens necessary for deploying a smart contract.
+Navigate to the [Flow Testnet Faucet](https://faucet.flow.com/fund-account) to obtain FLOW tokens necessary to deploy a smart contract.
 
-## Deploying a Smart Contract Using Remix[​](#deploying-a-smart-contract-using-remix "Direct link to Deploying a Smart Contract Using Remix")
+## Deploy a smart contract with Remix[​](#deploy-a-smart-contract-with-remix "Direct link to Deploy a smart contract with Remix")
 
-![Deploy Smart Contract](/assets/images/Remix-deploy-contract-flowevm-041b338f872e80325bd497587cfe7e42.gif)
+![Deploy smart contract](/assets/images/Remix-deploy-contract-flowevm-041b338f872e80325bd497587cfe7e42.gif)
 
-### HelloWorld Smart Contract[​](#helloworld-smart-contract "Direct link to HelloWorld Smart Contract")
+### HelloWorld smart contract[​](#helloworld-smart-contract "Direct link to HelloWorld smart contract")
 
 `_25
 
@@ -154,7 +154,7 @@ _25
 
 }`
 
-### Steps to Deploy the HelloWorld Smart Contract[​](#steps-to-deploy-the-helloworld-smart-contract "Direct link to Steps to Deploy the HelloWorld Smart Contract")
+### Steps to deploy the HelloWorld smart contract[​](#steps-to-deploy-the-helloworld-smart-contract "Direct link to Steps to deploy the HelloWorld smart contract")
 
 1. Create a file named `HelloWorld.sol`.
 2. Select Solidity Compiler and compile `HelloWorld.sol`.
@@ -263,21 +263,21 @@ getGreeting();`
 
 Follow the steps below to change the greeting and retrieve the new greeting.
 
-## Updating the Deployed Smart Contract[​](#updating-the-deployed-smart-contract "Direct link to Updating the Deployed Smart Contract")
+## Updating the deployed smart contract[​](#updating-the-deployed-smart-contract "Direct link to Updating the deployed smart contract")
 
-![Update Smart Contract](/assets/images/Remix-update-greeting-0483aaa0c04ee4fdbcfaa4600a6580d8.gif)
+![Update smart contract](/assets/images/Remix-update-greeting-0483aaa0c04ee4fdbcfaa4600a6580d8.gif)
 
 1. Select the `HelloWorld.sol` file.
 2. Select the `Deploy and Run Transaction` page.
 3. Make sure to select `Injected Provider - Metamask` in Environment dropdown.
-4. Type a new greeting in the text input next to orange `changeGreeting` button.
-5. Click on the orange `changeGreeting` button.
+4. Type a new greeting in the text input next to `changeGreeting`.
+5. Click `changeGreeting`.
 6. Sign the Metamask transaction.
-7. Verify the greeting has changed by re-running `get-greeting.js` script above.
+7. To verify the greeting changed, re-run the `get-greeting.js` script above.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/development-tools/remix.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Nov 12, 2025** by **cshannon1218**
 
 [Previous
 
@@ -291,9 +291,9 @@ Foundry](/blockchain-development-tutorials/evm/development-tools/foundry)
 
 Copy as Markdown
 
-* [Add the Flow Network to MetaMask](#add-the-flow-network-to-metamask)* [Fund Your Flow Account](#fund-your-flow-account)* [Deploying a Smart Contract Using Remix](#deploying-a-smart-contract-using-remix)
-      + [HelloWorld Smart Contract](#helloworld-smart-contract)+ [Steps to Deploy the HelloWorld Smart Contract](#steps-to-deploy-the-helloworld-smart-contract)* [Calling the Deployed Smart Contract](#calling-the-deployed-smart-contract)
-        + [Using Ethers.js to Call the HelloWorld Smart Contract](#using-ethersjs-to-call-the-helloworld-smart-contract)* [Updating the Deployed Smart Contract](#updating-the-deployed-smart-contract)
+* [Add the Flow network to MetaMask](#add-the-flow-network-to-metamask)* [Fund Your Flow Account](#fund-your-flow-account)* [Deploy a smart contract with Remix](#deploy-a-smart-contract-with-remix)
+      + [HelloWorld smart contract](#helloworld-smart-contract)+ [Steps to deploy the HelloWorld smart contract](#steps-to-deploy-the-helloworld-smart-contract)* [Calling the Deployed Smart Contract](#calling-the-deployed-smart-contract)
+        + [Using Ethers.js to Call the HelloWorld Smart Contract](#using-ethersjs-to-call-the-helloworld-smart-contract)* [Updating the deployed smart contract](#updating-the-deployed-smart-contract)
 
 Flow
 

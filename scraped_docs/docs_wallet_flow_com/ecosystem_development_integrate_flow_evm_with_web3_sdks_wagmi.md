@@ -135,4 +135,4 @@ See more detail on <https://github.com/Outblock/wagmi-project>
 
 [PreviousIntegrate Flow EVM with Web3 SDKs](/ecosystem-development/integrate-flow-evm-with-web3-sdks)[NextRainbowkit](/ecosystem-development/integrate-flow-evm-with-web3-sdks/rainbowkit)
 
-Last updated 9 months ago
+Last updated 10 months ago

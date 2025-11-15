@@ -46,8 +46,6 @@ On this page
 
 # Native Data Availability With Cadence Scripts
 
-## Overview[​](#overview "Direct link to Overview")
-
 In Solidity, you can only retrieve data from **view** functions that the contract author anticipated and included in the original contract. If the exact query you want is not exposed, teams typically rely on a *data availability service* such as The Graph, Covalent, Alchemy Enhanced APIs, Reservoir, or NFTScan to compute and serve that view.
 
 In Cadence, **scripts** are general-purpose read programs. They can traverse public account storage, read public capabilities, and compose types from multiple contracts to answer new questions without modifying those contracts. You are not limited to the pre-written surface area of a single contract's views.
@@ -81,7 +79,7 @@ tip
 
 If you are new to [*Hybrid Custody*](/blockchain-development-tutorials/cadence/account-management), the high-level idea is that in Cadence, a parent account can manage one or more child accounts through managed capabilities. This guide uses those capabilities to enumerate NFT collections the parent can control.
 
-## Getting Started[​](#getting-started "Direct link to Getting Started")
+## Get started[​](#get-started "Direct link to Get started")
 
 Create a new Flow project and generate a script file:
 
@@ -119,7 +117,7 @@ We will **revise one script file** in four passes, and run it after each step. T
 
 ---
 
-## Querying the account to find child accounts[​](#querying-the-account-to-find-child-accounts "Direct link to Querying the account to find child accounts")
+## Query the account to find child accounts[​](#query-the-account-to-find-child-accounts "Direct link to Query the account to find child accounts")
 
 To start, write a script that borrows the parent's *Hybrid Custody* manager and returns the child addresses it controls. This verifies that imports resolve and that the parent account is configured as expected.
 
@@ -920,7 +918,7 @@ This demonstrates how you can easily modify Cadence scripts to answer different 
 * If you see empty results in Step 4, confirm `isTopShot` matches the identifiers you observed in Step 3.
 * If you are not using *Hybrid Custody*, you can adapt Steps 2-4 to use `getAccount(child)` and scan **publicly exposed** `{NonFungibleToken.CollectionPublic}` capabilities, but you will not be able to assert provider access.
 
-## How This Compares to Solidity[​](#how-this-compares-to-solidity "Direct link to How This Compares to Solidity")
+## How This compares to Solidity[​](#how-this-compares-to-solidity "Direct link to How This compares to Solidity")
 
 * **Solidity views are fixed**: You can only retrieve what the contract author exposed via `view` or `pure` functions. If you need a different aggregation or cross-contract traversal, you typically rely on a *data availability service* or write a new contract to expose that view.
 * **Cadence scripts are flexible**: You compose types across modules, traverse account storage, and read public capabilities at query time. You do not need to redeploy contracts to answer new questions.
@@ -950,7 +948,7 @@ This approach gives you the freedom to build applications that can access any on
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/cadence-advantages/native-data-availibility-with-cadence-scripts.md)
 
-Last updated on **Oct 27, 2025** by **cshannon1218**
+Last updated on **Oct 30, 2025** by **cshannon1218**
 
 [Previous
 
@@ -964,7 +962,7 @@ Upgrading Cadence Contracts](/blockchain-development-tutorials/cadence/cadence-a
 
 Copy as Markdown
 
-* [Overview](#overview)* [Objectives](#objectives)* [Prerequisites](#prerequisites)* [Getting Started](#getting-started)* [Querying the account to find child accounts](#querying-the-account-to-find-child-accounts)* [Listing the storage paths found in each child account](#listing-the-storage-paths-found-in-each-child-account)* [Detecting NFT collections the parent can control](#detecting-nft-collections-the-parent-can-control)* [Filtering NFT collection to find and return Top Shots](#filtering-nft-collection-to-find-and-return-top-shots)* [Extending the script to include AllDay NFTs](#extending-the-script-to-include-allday-nfts)* [Troubleshooting](#troubleshooting)* [How This Compares to Solidity](#how-this-compares-to-solidity)* [Conclusion](#conclusion)
+* [Objectives](#objectives)* [Prerequisites](#prerequisites)* [Get started](#get-started)* [Query the account to find child accounts](#query-the-account-to-find-child-accounts)* [Listing the storage paths found in each child account](#listing-the-storage-paths-found-in-each-child-account)* [Detecting NFT collections the parent can control](#detecting-nft-collections-the-parent-can-control)* [Filtering NFT collection to find and return Top Shots](#filtering-nft-collection-to-find-and-return-top-shots)* [Extending the script to include AllDay NFTs](#extending-the-script-to-include-allday-nfts)* [Troubleshooting](#troubleshooting)* [How This compares to Solidity](#how-this-compares-to-solidity)* [Conclusion](#conclusion)
 
 Flow
 
