@@ -44,7 +44,7 @@ Search
 
 On this page
 
-# Production Deployment
+# Production deployment
 
 You've developed locally with the emulator, integrated external dependencies, built sophisticated transactions, implemented comprehensive testing, and created a frontend interface. Now it's time to take your application live and deploy it to Flow's public networks.
 
@@ -752,7 +752,7 @@ npm run build`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/getting-started/production-deployment.md)
 
-Last updated on **Oct 30, 2025** by **cshannon1218**
+Last updated on **Nov 14, 2025** by **0xLisanAlGaib**
 
 [Previous
 

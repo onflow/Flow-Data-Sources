@@ -46,11 +46,11 @@ On this page
 
 # Contribute to Flow MCP
 
-This tutorial will guide you through the process of contributing to the Flow MCP server. The [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) is an open standard developed by Anthropic that enables AI applications to interact seamlessly with external tools, systems, and data sources.
+This tutorial will guide you through the process of contributing to the Flow MCP server. The [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) is an open standard developed by Anthropic that allows AI applications to interact seamlessly with external tools, systems, and data sources.
 
-## Learning Objectives[​](#learning-objectives "Direct link to Learning Objectives")
+## Learning objectives[​](#learning-objectives "Direct link to Learning objectives")
 
-After completing this tutorial, you should be able to:
+After you complete this tutorial, you should be able to:
 
 * Set up and build the Flow MCP server development environment.
 * Create and register a new Action Tool, including schema, handler, and tests.
@@ -59,31 +59,31 @@ After completing this tutorial, you should be able to:
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-* [Bun](https://bun.sh/) - the JavaScript runtime
-* [Flow MCP server](https://github.com/outblock/flow-mcp) - the Flow MCP server repository
+* [Bun](https://bun.sh/) - the JavaScript runtime.
+* [Flow MCP server](https://github.com/outblock/flow-mcp) - the Flow MCP server repository.
 
 ## Installation[​](#installation "Direct link to Installation")
 
-1. Fork the [Flow MCP server](https://github.com/outblock/flow-mcp) repository
-2. Clone the repository
+1. Fork the [Flow MCP server](https://github.com/outblock/flow-mcp) repository.
+2. Clone the repository:
 
    `_10
 
    git clone https://github.com/your-username/flow-mcp.git`
-3. Install the dependencies
+3. Install the dependencies:
 
    `_10
 
    bun install`
-4. Build the project
+4. Build the project:
 
    `_10
 
    bun build`
 
-## Create new Action Tool for Flow MCP[​](#create-new-action-tool-for-flow-mcp "Direct link to Create new Action Tool for Flow MCP")
+## Create new action tool for Flow MCP[​](#create-new-action-tool-for-flow-mcp "Direct link to Create new action tool for Flow MCP")
 
-1. Create a new folder in the `src/tools` directory
+1. Create a new folder in the `src/tools` directory:
 
    `_10
 
@@ -118,8 +118,8 @@ After completing this tutorial, you should be able to:
 
    If you want to add new Cadence files for your new tool, you can add them in the `src/cadence` directory. The `bun` will compile the Cadence files into `String`, so the dedicated Cadence files will help the project to be more organized.
 
-   And it is recommended to add a test for your new tool in the `src/tools/your-tool-name/your-tool.test.ts` file.
-3. Add a prompt export in the `src/prompts` directory which is used to ensure MCP client can understand the new tool. You can refer to the existing tools for examples.
+   And we recommended that you add a test for your new tool in the `src/tools/your-tool-name/your-tool.test.ts` file.
+3. Add a prompt export in the `src/prompts` directory which is used to confirm that MCP clients can understand the new tool. You can refer to the existing tools for examples.
 4. Add your new tool to the `src/tools/index.ts` file.
 
    `_10
@@ -145,18 +145,18 @@ After completing this tutorial, you should be able to:
    _10
 
    };`
-5. Run the test to ensure your new tool works as expected
+5. Run the test to confirm your new tool works as expected:
 
    `_10
 
    bun test`
 6. Commit and push your changes to your forked repository, and create a pull request.
 
-We will review your pull request and merge it if it is ready.
+We will review your pull request and merge it if it's ready.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp/contribute-to-mcp.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Oct 30, 2025** by **cshannon1218**
 
 [Previous
 
@@ -170,7 +170,7 @@ Cadence Tutorials](/blockchain-development-tutorials/cadence)
 
 Copy as Markdown
 
-* [Learning Objectives](#learning-objectives)* [Prerequisites](#prerequisites)* [Installation](#installation)* [Create new Action Tool for Flow MCP](#create-new-action-tool-for-flow-mcp)
+* [Learning objectives](#learning-objectives)* [Prerequisites](#prerequisites)* [Installation](#installation)* [Create new action tool for Flow MCP](#create-new-action-tool-for-flow-mcp)
 
 Flow
 

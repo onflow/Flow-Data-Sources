@@ -177,11 +177,11 @@ What stablecoins are currently live on Flow EVM?
 You can see a full list of stablecoins here:  
 [DeFi Contracts on Flow](/ecosystem/defi-liquidity/defi-contracts-mainnet)
 
-Trading pools for USDF and stgUSDC (USDC via Stargate) are already live and available for immediate use on Flow EVM and can be seamlessly transferred to any Flow Cadence address.
+Trading pools for USDF and USDC (USDC via Stargate) are already live and available for immediate use on Flow EVM and can be seamlessly transferred to any Flow Cadence address.
 
-Should Cadence applications switch to USDF or stgUSDC?
+Should Cadence applications switch to USDF or USDC?
 
-Cadence applications can use USDC.e as the default, but they now also have the option to support USDF or stgUSDC based on their needs.
+Cadence applications can use USDC.e as the default, but they now also have the option to support USDF or USDC based on their needs.
 
 If you have questions you can join [Flow Discord](https://discord.gg/flow) to get free technical support.
 
@@ -205,7 +205,7 @@ Where can I get updates or ask questions?
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/faq.md)
 
-Last updated on **Oct 29, 2025** by **bz**
+Last updated on **Nov 13, 2025** by **Brian Doyle**
 
 [Previous
 

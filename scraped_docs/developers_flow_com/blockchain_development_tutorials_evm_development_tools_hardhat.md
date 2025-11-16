@@ -44,7 +44,7 @@ On this page
 
 # Flow Hardhat Guide
 
-Hardhat is an Ethereum development tool designed to facilitate the deployment, testing, and debugging of smart contracts. It provides a streamlined experience for developers working with Solidity contracts.
+Hardhat is an Ethereum development tool designed to facilitate the deployment, testing, and debugging of Solidity smart contracts. It provides a streamlined experience for developers who work with with Solidity contracts.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
@@ -52,7 +52,7 @@ Hardhat is an Ethereum development tool designed to facilitate the deployment, t
 
 Node v18 or higher, available for [download here](https://nodejs.org/en/download).
 
-For those new to Hardhat, we recommend exploring the [official documentation](https://hardhat.org/tutorial/creating-a-new-hardhat-project) to get acquainted. The following instructions utilize `npm` to initialize a project and install dependencies:
+For those new to Hardhat, we recommend that you exploare the [official documentation](https://hardhat.org/tutorial/creating-a-new-hardhat-project) to get acquainted. The following instructions use `npm` to initialize a project and install dependencies:
 
 ### Wallet[​](#wallet "Direct link to Wallet")
 
@@ -86,13 +86,13 @@ npx hardhat init`
 
 > When prompted, select TypeScript and to use `@nomicfoundation/hardhat-toolbox` to follow along with this guide.
 
-### Fund Your Wallet[​](#fund-your-wallet "Direct link to Fund Your Wallet")
+### Fund Your wallet[​](#fund-your-wallet "Direct link to Fund Your wallet")
 
-To deploy smart contracts, ensure your wallet has **$FLOW**. Obtain funds by navigating to the Flow [Faucet](https://faucet.flow.com/fund-account) and entering your wallet address.
+To deploy smart contracts, ensure your wallet has **$FLOW**. To obtain funds, navigate to the Flow [Faucet](https://faucet.flow.com/fund-account) and enter your wallet address.
 
-## Deploying a Smart Contract with Hardhat[​](#deploying-a-smart-contract-with-hardhat "Direct link to Deploying a Smart Contract with Hardhat")
+## Deploy a smart contract with Hardhat[​](#deploy-a-smart-contract-with-hardhat "Direct link to Deploy a smart contract with Hardhat")
 
-This section guides you through the process of deploying smart contracts on the Flow network using Hardhat.
+This section guides you through the process of how to deploy smart contracts on the Flow network with Hardhat.
 
 ### Configuration[​](#configuration "Direct link to Configuration")
 
@@ -154,11 +154,11 @@ _15
 
 export default config; ``
 
-To keep this example straightforward, we've included the account's private key directly in `hardhat.config.ts`. However, it is crucial to avoid committing private keys to your Git repository for security reasons. Instead, opt for using environment variables for safer handling of sensitive information.
+To keep this example straightforward, we've included the account's private key directly in `hardhat.config.ts`. However, it is crucial to not commit private keys to your Git repository for security reasons. Instead, use environment variables to safely handle sensitive information.
 
-### Deploying HelloWorld Smart Contract[​](#deploying-helloworld-smart-contract "Direct link to Deploying HelloWorld Smart Contract")
+### Deploy HelloWorld smart contract[​](#deploy-helloworld-smart-contract "Direct link to Deploy HelloWorld smart contract")
 
-## HelloWorld Smart Contract[​](#helloworld-smart-contract "Direct link to HelloWorld Smart Contract")
+## HelloWorld smart contract[​](#helloworld-smart-contract "Direct link to HelloWorld smart contract")
 
 `_25
 
@@ -252,7 +252,7 @@ _25
 
 }`
 
-Deploying:
+Deploy:
 
 1. Create a file named `HelloWorld.sol` under `contracts` directory.
 2. Add above `HelloWorld.sol` contract code to new file.
@@ -340,7 +340,7 @@ HelloWorld address: 0x3Fe94f43Fb5CdB8268A801f274521a07F7b99dfb`
 
 You can now search for your deployed contract on the [Flowscan block explorer](https://evm-testnet.flowscan.io/)!
 
-### Get HelloWorld Contract Greeting[​](#get-helloworld-contract-greeting "Direct link to Get HelloWorld Contract Greeting")
+### Get HelloWorld contract greeting[​](#get-helloworld-contract-greeting "Direct link to Get HelloWorld contract greeting")
 
 Now, we want to get the greeting from the deployed `HelloWorld` smart contract.
 
@@ -435,9 +435,9 @@ _23
 Steps:
 
 1. Create a `getGreeting.ts` file in the `scripts` directory.
-2. Paste contents of script above. Make sure to update the contract address with the one from deployment in earlier step.
+2. Paste contents of script above. Make sure to update the contract address with the one from deployment in an earlier step.
 3. Call script to get the greeting, `npx hardhat run scripts/getGreeting.ts --network testnet`
-4. The output should be as follows:
+4. The output will be as follows:
 
 `_10
 
@@ -447,7 +447,7 @@ _10
 
 The greeting is: Hello, World!`
 
-### Update Greeting on HelloWorld Smart Contract[​](#update-greeting-on-helloworld-smart-contract "Direct link to Update Greeting on HelloWorld Smart Contract")
+### Update greeting on HelloWorld smart contract[​](#update-greeting-on-helloworld-smart-contract "Direct link to Update greeting on HelloWorld smart contract")
 
 Next, we'll add a script to update the greeting and log it.
 
@@ -592,7 +592,7 @@ Here are the steps to follow:
 1. Create an `updateGreeting.ts` script in the `scripts` directory.
 2. Paste in the TypeScript above, make sure to update the contract address with the one from deployment in earlier step.
 3. Call the new script, `NEW_GREETING='Howdy!' npx hardhat run ./scripts/updateGreeting.ts --network testnet`
-4. The output should be
+4. The output will be:
 
 `_10
 
@@ -614,9 +614,9 @@ _10
 
 The greeting is: Howdy!`
 
-### Verifying Contract[​](#verifying-contract "Direct link to Verifying Contract")
+### Verify contract[​](#verify-contract "Direct link to Verify contract")
 
-To verify your contract on [Flowscan](https://evm-testnet.flowscan.io/), you can update your Hardhat config file as such including the correct chainID, apiURL and browserURL:
+To verify your contract on [Flowscan](https://evm-testnet.flowscan.io/), you can update your Hardhat config file. To do this, include the correct chainID, apiURL and browserURL:
 
 `_37
 
@@ -768,7 +768,7 @@ npx hardhat verify --network testnet DEPLOYED_CONTRACT_ADDRESS "Constructor argu
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/development-tools/hardhat.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Nov 12, 2025** by **cshannon1218**
 
 [Previous
 
@@ -783,9 +783,9 @@ Remix](/blockchain-development-tutorials/evm/development-tools/remix)
 Copy as Markdown
 
 * [Prerequisites](#prerequisites)
-  + [Node](#node)+ [Wallet](#wallet)+ [Fund Your Wallet](#fund-your-wallet)* [Deploying a Smart Contract with Hardhat](#deploying-a-smart-contract-with-hardhat)
-    + [Configuration](#configuration)+ [Deploying HelloWorld Smart Contract](#deploying-helloworld-smart-contract)* [HelloWorld Smart Contract](#helloworld-smart-contract)
-      + [Get HelloWorld Contract Greeting](#get-helloworld-contract-greeting)+ [Update Greeting on HelloWorld Smart Contract](#update-greeting-on-helloworld-smart-contract)+ [Verifying Contract](#verifying-contract)
+  + [Node](#node)+ [Wallet](#wallet)+ [Fund Your wallet](#fund-your-wallet)* [Deploy a smart contract with Hardhat](#deploy-a-smart-contract-with-hardhat)
+    + [Configuration](#configuration)+ [Deploy HelloWorld smart contract](#deploy-helloworld-smart-contract)* [HelloWorld smart contract](#helloworld-smart-contract)
+      + [Get HelloWorld contract greeting](#get-helloworld-contract-greeting)+ [Update greeting on HelloWorld smart contract](#update-greeting-on-helloworld-smart-contract)+ [Verify contract](#verify-contract)
 
 Flow
 
