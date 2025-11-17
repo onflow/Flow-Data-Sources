@@ -155577,7 +155577,7 @@ Built-in Functions](/docs/language/built-in-functions)
 
 
 
-# Source: https://cadence-lang.org/docs/language
+# Source: https://cadence-lang.org/docs/language/
 
 The Cadence Programming Language | Cadence
 
@@ -365119,6 +365119,8 @@ send | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -449468,7 +449470,7 @@ On this page
 
 Adding Flow MCP to Cursor gives you powerful AI-driven tools directly inside your code editor. It allows Cursor's AI to understand, query, and interact with Flow blockchain data and smart contracts through a standard protocol called the Model Context Protocol (MCP).
 
-Specifically, it enables you to:
+Specifically, it lets you:
 
 * Ask the AI in Cursor to fetch onchain data such as account balances, account information, or contract source code without leaving your editor.
 * Speed up development by letting AI perform blockchain queries that would normally require manual steps.
@@ -449478,20 +449480,20 @@ Specifically, it enables you to:
 
 This tutorial will guide you through setting up and using Flow MCP in [Cursor](https://www.cursor.com/) to enhance your Flow blockchain development experience with AI assistance.
 
-## Learning Objectives[​](#learning-objectives "Direct link to Learning Objectives")
+## Learning objectives[​](#learning-objectives "Direct link to Learning objectives")
 
-After completing this tutorial, you should be able to:
+After you complete this tutorial, you should be able to:
 
 * Configure Cursor to connect with the Flow MCP server using the MCP protocol.
 * Install and launch the Flow MCP server locally through Cursor.
-* Identify when Flow MCP tools are successfully loaded and ready inside Cursor.
+* Identify when Flow MCP tools successfully load and are ready inside Cursor.
 * Use Flow MCP tools to retrieve blockchain data such as account balances, account details, and contract source code.
 * Troubleshoot common setup and connectivity issues between Cursor and Flow MCP.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-* [Cursor](https://www.cursor.com/) - the AI code editor
-* [Flow MCP GitHub Repository](https://github.com/outblock/flow-mcp) - the Flow MCP server repository
+* [Cursor](https://www.cursor.com/) - the AI code editor.
+* [Flow MCP GitHub Repository](https://github.com/outblock/flow-mcp) - the Flow MCP server repository.
 
 ## Installation[​](#installation "Direct link to Installation")
 
@@ -449541,21 +449543,21 @@ After completing this tutorial, you should be able to:
    }`
 3. Restart Cursor to load the new MCP configuration.
 
-   You need to wait for the MCP server to start. Once it's ready, you will see there will be a green spot in the left side of `flow-mcp` server name label and all tools for Flow MCP will be displayed.
+   You need to wait for the MCP server to start. After it's ready, a green spot appears in the left side of `flow-mcp` server name label, and all tools for Flow MCP display.
 
    ![Flow MCP server ready](/assets/images/flow-mcp-enabled-58b9ed77b93836e1fc1cc077d0367c50.png)
 
 ## How to use Flow MCP in Cursor[​](#how-to-use-flow-mcp-in-cursor "Direct link to How to use Flow MCP in Cursor")
 
-### Checking Flow Balance[​](#checking-flow-balance "Direct link to Checking Flow Balance")
+### Check Flow balance[​](#check-flow-balance "Direct link to Check Flow balance")
 
 ![Sample Image 1](/assets/images/sample-1-e626610744a305d993e0689b51025213.png)
 
-### Viewing Account Information[​](#viewing-account-information "Direct link to Viewing Account Information")
+### View account information[​](#view-account-information "Direct link to View account information")
 
 ![Sample Image 2](/assets/images/sample-2-e3f080df0c2de4c123e01ea7ce123401.png)
 
-### Getting Contract Source Code[​](#getting-contract-source-code "Direct link to Getting Contract Source Code")
+### Get contract source code[​](#get-contract-source-code "Direct link to Get contract source code")
 
 ![Sample Image 3](/assets/images/sample-3-3a0d098a17c974fff8e5ab528fb41eef.png)
 
@@ -449563,13 +449565,13 @@ After completing this tutorial, you should be able to:
 
 If you encounter any issues:
 
-1. Ensure the MCP server is properly installed
-2. Verify the configuration file is in the correct location
-3. Check that the paths in the configuration are correct
-4. Try restarting Cursor
-5. Check the console for any error messages
+1. Ensure the MCP server is properly installed.
+2. Verify the configuration file is in the correct location.
+3. Check that the paths in the configuration are correct.
+4. Try restarting Cursor.
+5. Check the console for any error messages.
 
-## Additional Resources[​](#additional-resources "Direct link to Additional Resources")
+## Additional resources[​](#additional-resources "Direct link to Additional resources")
 
 * [Flow MCP GitHub Repository](https://github.com/outblock/flow-mcp)
 * [Cursor Documentation](https://cursor.sh/docs)
@@ -449579,12 +449581,12 @@ If you encounter any issues:
 
 For issues or questions:
 
-* Open an issue on the [Flow MCP GitHub Repository](https://github.com/outblock/flow-mcp)
-* Join the [Flow Discord](https://discord.gg/flow) community
+* Open an issue on the [Flow MCP GitHub Repository](https://github.com/outblock/flow-mcp).
+* Join the [Flow Discord](https://discord.gg/flow) community.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp/use-mcp-in-cursor.md)
 
-Last updated on **Oct 7, 2025** by **0xLisanAlGaib**
+Last updated on **Nov 5, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -449598,8 +449600,8 @@ Contribute to Flow MCP](/blockchain-development-tutorials/use-AI-to-build-on-flo
 
 Copy as Markdown
 
-* [Learning Objectives](#learning-objectives)* [Prerequisites](#prerequisites)* [Installation](#installation)* [How to use Flow MCP in Cursor](#how-to-use-flow-mcp-in-cursor)
-        + [Checking Flow Balance](#checking-flow-balance)+ [Viewing Account Information](#viewing-account-information)+ [Getting Contract Source Code](#getting-contract-source-code)* [Troubleshooting](#troubleshooting)* [Additional Resources](#additional-resources)* [Support](#support)
+* [Learning objectives](#learning-objectives)* [Prerequisites](#prerequisites)* [Installation](#installation)* [How to use Flow MCP in Cursor](#how-to-use-flow-mcp-in-cursor)
+        + [Check Flow balance](#check-flow-balance)+ [View account information](#view-account-information)+ [Get contract source code](#get-contract-source-code)* [Troubleshooting](#troubleshooting)* [Additional resources](#additional-resources)* [Support](#support)
 
 Flow
 
@@ -615837,12 +615839,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **99f2d2e91979314f**
+Cloudflare Ray ID: **99fb0ebe1d93fa1b**
 •
 
 Your IP:
 Click to reveal
-20.168.110.177
+135.232.232.16
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 
