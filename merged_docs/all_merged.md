@@ -547803,59 +547803,59 @@ Search
 
                       + [Gelato Smart Wallet](/blockchain-development-tutorials/integrations/gelato-sw)+ [Crossmint Integration Guide](/blockchain-development-tutorials/integrations/crossmint)
 
-                          - [Authentication Integration Guide](/blockchain-development-tutorials/integrations/crossmint/authentication)- [Payment Checkout Integration](/blockchain-development-tutorials/integrations/crossmint/payment-checkout)- [Minting Platform Integration](/blockchain-development-tutorials/integrations/crossmint/minting-platform)
+                          - [Authentication Integration Guide](/blockchain-development-tutorials/integrations/crossmint/authentication)- [Payment Checkout Integration](/blockchain-development-tutorials/integrations/crossmint/payment-checkout)- [Minting Platform Integration](/blockchain-development-tutorials/integrations/crossmint/minting-platform)- [Crossmint Smart Wallets](/blockchain-development-tutorials/integrations/crossmint/smart-wallets)
 
 * * [Third-Party Integrations](/blockchain-development-tutorials/integrations)* [Crossmint Integration Guide](/blockchain-development-tutorials/integrations/crossmint)* Payment Checkout Integration
 
 On this page
 
-# Payment Checkout Integration Guide
+# Payment checkout integration guide
 
 Enable seamless fiat and cryptocurrency payments for your Flow assets. Crossmint's checkout solution supports credit cards, Apple Pay, Google Pay, and cross-chain crypto payments, allowing users to buy Flow NFTs and tokens without holding FLOW tokens.
 
 ## Overview[​](#overview "Direct link to Overview")
 
-Crossmint Checkout eliminates payment friction by supporting multiple payment methods and handling complex blockchain interactions behind the scenes. Users can buy your Flow assets using familiar payment methods.
+Crossmint Checkout supports multiple payment methods and handles complex blockchain interactions behind the scenes, which eliminates payment friction. Users can buy your Flow assets with familiar payment methods.
 
-> **Key Benefits:**
+> **Key benefits:**
 >
-> * **No wallet required** - guest checkout available
-> * **Global coverage** - 197 countries supported
-> * **No buyer KYC** for most transactions
-> * **Cross-chain payments** - Pay with any crypto, receive on Flow
+> * **No wallet required** - guest checkout available.
+> * **Global coverage** - 197 countries supported.
+> * **No buyer KYC** for most transactions.
+> * **Cross-chain payments** - Pay with any crypto, receive on Flow.
 
-## What You'll Build[​](#what-youll-build "Direct link to What You'll Build")
+## What you'll build[​](#what-youll-build "Direct link to What you'll build")
 
-You'll integrate checkout functionality that enables:
+You'll integrate checkout functionality that activates:
 
-* Credit card payments for Flow NFTs and tokens
-* Apple Pay and Google Pay support
-* Cross-chain crypto payments
-* Guest checkout (no wallet required)
+* Credit card payments for Flow NFTs and tokens.
+* Apple Pay and Google Pay support.
+* Cross-chain crypto payments.
+* Guest checkout (no wallet required).
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-* Crossmint account with checkout enabled
-* Flow collection created or imported
-* Basic understanding of payment flows
-* For production: KYB verification completed
+* Crossmint account with checkout activated.
+* Flow collection created or imported.
+* Basic understanding of payment flows.
+* For production: KYB verification completed.
 
-## Step 1: Collection Setup[​](#step-1-collection-setup "Direct link to Step 1: Collection Setup")
+## Step 1: Collection setup[​](#step-1-collection-setup "Direct link to Step 1: Collection setup")
 
-### Create or Import Collection[​](#create-or-import-collection "Direct link to Create or Import Collection")
+### Create or import collection[​](#create-or-import-collection "Direct link to Create or import collection")
 
-**Option A: Create New Collection**
+**Option A: create new collection**
 
-1. Go to [Crossmint Console](https://staging.crossmint.com) > **Collections**
-2. Click **Create Collection**
-3. Choose **Flow** blockchain
+1. Go to [Crossmint Console](https://staging.crossmint.com) > **Collections**.
+2. Click **Create Collection**.
+3. Choose **Flow** blockchain.
 4. Configure collection settings:
    * Network: Flow Testnet/Mainnet
    * Contract type: ERC-721 (EVM) or Cadence NFT
    * Pricing in USD or FLOW
    * Maximum supply and metadata
 
-**Option B: Import Existing Collection**
+**Option B: Import current collection**
 
 `_11
 
@@ -547901,22 +547901,22 @@ _11
 
 });`
 
-### Configure Payment Settings[​](#configure-payment-settings "Direct link to Configure Payment Settings")
+### Configure payment settings[​](#configure-payment-settings "Direct link to Configure payment settings")
 
 In your collection settings:
 
-1. Go to **Payments > Settings**
+1. Go to **Payments > Settings**.
 2. Choose fee structure:
-   * **Buyer pays fees**: User pays NFT price + fees
-   * **Seller pays fees**: User pays exact price, you pay fees
-3. Set accepted payment methods
-4. Configure webhooks for order updates
+   * **Buyer pays fees**: user pays NFT price + fees.
+   * **Seller pays fees**: user pays exact price, you pay fees.
+3. Set accepted payment methods.
+4. Configure webhooks for order updates.
 
 ## Step 2: Hosted Checkout Integration[​](#step-2-hosted-checkout-integration "Direct link to Step 2: Hosted Checkout Integration")
 
 The fastest way to get started - Crossmint hosts the entire checkout experience.
 
-### Basic Hosted Checkout[​](#basic-hosted-checkout "Direct link to Basic Hosted Checkout")
+### Basic hosted checkout[​](#basic-hosted-checkout "Direct link to Basic hosted checkout")
 
 `` _39
 
@@ -548066,7 +548066,7 @@ _39
 
 } ``
 
-### Advanced Hosted Checkout[​](#advanced-hosted-checkout "Direct link to Advanced Hosted Checkout")
+### Advanced hosted checkout[​](#advanced-hosted-checkout "Direct link to Advanced hosted checkout")
 
 `` _42
 
@@ -548234,11 +548234,11 @@ _42
 
 ---
 
-## Step 3: Embedded Checkout Integration[​](#step-3-embedded-checkout-integration "Direct link to Step 3: Embedded Checkout Integration")
+## Step 3: embedded checkout integration[​](#step-3-embedded-checkout-integration "Direct link to Step 3: embedded checkout integration")
 
 Embed checkout directly in your application with full UI control.
 
-### Basic Embedded Checkout[​](#basic-embedded-checkout "Direct link to Basic Embedded Checkout")
+### Basic embedded checkout[​](#basic-embedded-checkout "Direct link to Basic embedded checkout")
 
 `_44
 
@@ -548412,7 +548412,7 @@ _44
 
 }`
 
-### Custom Styled Embedded Checkout[​](#custom-styled-embedded-checkout "Direct link to Custom Styled Embedded Checkout")
+### Custom styled embedded checkout[​](#custom-styled-embedded-checkout "Direct link to Custom styled embedded checkout")
 
 `_73
 
@@ -548706,7 +548706,7 @@ _73
 
 For maximum customization, use the headless API to build completely custom checkout flows.
 
-### Order Creation Service[​](#order-creation-service "Direct link to Order Creation Service")
+### Order creation service[​](#order-creation-service "Direct link to Order creation service")
 
 `` _136
 
@@ -549230,7 +549230,7 @@ _136
 
 export const checkoutService = new CheckoutService(); ``
 
-### Custom Checkout Component[​](#custom-checkout-component "Direct link to Custom Checkout Component")
+### Custom checkout component[​](#custom-checkout-component "Direct link to Custom checkout component")
 
 `` _128
 
@@ -549718,11 +549718,11 @@ _128
 
 ---
 
-## Step 5: Webhook Integration[​](#step-5-webhook-integration "Direct link to Step 5: Webhook Integration")
+## Step 5: webhook integration[​](#step-5-webhook-integration "Direct link to Step 5: webhook integration")
 
 Set up webhooks to handle order status updates in real-time.
 
-### Webhook Handler[​](#webhook-handler "Direct link to Webhook Handler")
+### Webhook handler[​](#webhook-handler "Direct link to Webhook handler")
 
 `_63
 
@@ -549954,7 +549954,7 @@ _63
 
 ---
 
-## Step 6: Multi-Payment Method Component[​](#step-6-multi-payment-method-component "Direct link to Step 6: Multi-Payment Method Component")
+## Step 6: multi-payment method component[​](#step-6-multi-payment-method-component "Direct link to Step 6: multi-payment method component")
 
 Create a comprehensive checkout that supports all payment methods:
 
@@ -550388,16 +550388,16 @@ _112
 
 }`
 
-## Key Takeaways[​](#key-takeaways "Direct link to Key Takeaways")
+## Key takeaways[​](#key-takeaways "Direct link to Key takeaways")
 
-* **Multiple Integration Options**: Hosted, embedded, or headless - choose what fits your needs
-* **Universal Payment Support**: Credit cards, mobile payments, and 40+ cryptocurrencies
-* **Flow Native**: Optimized for both Flow EVM and Cadence ecosystems
-* **Global Scale**: Support for 197 countries with no buyer KYC
+* **Multiple Integration Options**: hosted, embedded, or headless - choose what fits your needs.
+* **Universal Payment Support**: credit cards, mobile payments, and over 40 cryptocurrencies.
+* **Flow Native**: optimized for both Flow EVM and Cadence ecosystems.
+* **Global Scale**: support for 197 countries with no buyer KYC.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/integrations/crossmint/payment-checkout.md)
 
-Last updated on **Aug 17, 2025** by **0xLisanAlGaib**
+Last updated on **Nov 12, 2025** by **cshannon1218**
 
 [Previous
 
@@ -550411,12 +550411,12 @@ Minting Platform Integration](/blockchain-development-tutorials/integrations/cro
 
 Copy as Markdown
 
-* [Overview](#overview)* [What You'll Build](#what-youll-build)* [Prerequisites](#prerequisites)* [Step 1: Collection Setup](#step-1-collection-setup)
-        + [Create or Import Collection](#create-or-import-collection)+ [Configure Payment Settings](#configure-payment-settings)* [Step 2: Hosted Checkout Integration](#step-2-hosted-checkout-integration)
-          + [Basic Hosted Checkout](#basic-hosted-checkout)+ [Advanced Hosted Checkout](#advanced-hosted-checkout)* [Step 3: Embedded Checkout Integration](#step-3-embedded-checkout-integration)
-            + [Basic Embedded Checkout](#basic-embedded-checkout)+ [Custom Styled Embedded Checkout](#custom-styled-embedded-checkout)* [Step 4: Headless Checkout Integration](#step-4-headless-checkout-integration)
-              + [Order Creation Service](#order-creation-service)+ [Custom Checkout Component](#custom-checkout-component)* [Step 5: Webhook Integration](#step-5-webhook-integration)
-                + [Webhook Handler](#webhook-handler)* [Step 6: Multi-Payment Method Component](#step-6-multi-payment-method-component)* [Key Takeaways](#key-takeaways)
+* [Overview](#overview)* [What you'll build](#what-youll-build)* [Prerequisites](#prerequisites)* [Step 1: Collection setup](#step-1-collection-setup)
+        + [Create or import collection](#create-or-import-collection)+ [Configure payment settings](#configure-payment-settings)* [Step 2: Hosted Checkout Integration](#step-2-hosted-checkout-integration)
+          + [Basic hosted checkout](#basic-hosted-checkout)+ [Advanced hosted checkout](#advanced-hosted-checkout)* [Step 3: embedded checkout integration](#step-3-embedded-checkout-integration)
+            + [Basic embedded checkout](#basic-embedded-checkout)+ [Custom styled embedded checkout](#custom-styled-embedded-checkout)* [Step 4: Headless Checkout Integration](#step-4-headless-checkout-integration)
+              + [Order creation service](#order-creation-service)+ [Custom checkout component](#custom-checkout-component)* [Step 5: webhook integration](#step-5-webhook-integration)
+                + [Webhook handler](#webhook-handler)* [Step 6: multi-payment method component](#step-6-multi-payment-method-component)* [Key takeaways](#key-takeaways)
 
 Flow
 
@@ -603136,7 +603136,7 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
-# Source: https://developers.flow.com/
+# Source: https://developers.flow.com
 
 Flow Developer Portal
 
@@ -615839,12 +615839,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **99fb0ebe1d93fa1b**
+Cloudflare Ray ID: **9a034b83abf515cc**
 •
 
 Your IP:
 Click to reveal
-135.232.232.16
+52.159.244.161
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 
