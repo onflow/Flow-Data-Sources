@@ -44,7 +44,7 @@ There are two ways to register your token: **manually** via a web interface or *
 
 ---
 
-## Manual Registration (~1 min)[​](#manual-registration-1-min "Direct link to Manual Registration (~1 min)")
+## Manual registration (~1 min)[​](#manual-registration-1-min "Direct link to Manual registration (~1 min)")
 
 The following works for both fungible and non-fungible tokens on Flow Cadence or Flow EVM.
 
@@ -61,24 +61,24 @@ warning
 
 ERC-20 tokens registered with this method will use the default logo of Flow Official Assets.
 
-If you want to register your ERC-20 token on Flow EVM with your customized logo, you should follow the [Register ERC-20 Token on Flow EVM](/blockchain-development-tutorials/tokens/register-erc20-token) guide.
+If you want to register your ERC-20 token on Flow EVM with your customized logo, follow the [Register ERC-20 Token on Flow EVM](/blockchain-development-tutorials/tokens/register-erc20-token) guide.
 
 ---
 
-## Programmatic Registration[​](#programmatic-registration "Direct link to Programmatic Registration")
+## Programmatic registration[​](#programmatic-registration "Direct link to Programmatic registration")
 
 For seamless automation, you can integrate token registration into your token deployment workflow.
 
-You can use the following Cadence transaction to register your Fungible or Non-Fungible token on Flow Cadence or Flow EVM.
+You can use this Cadence transaction to register your Fungible or Non-Fungible token on Flow Cadence or Flow EVM.
 
 ### Register Fungible Token or Non-Fungible Token automatically on Flow Cadence[​](#register-fungible-token-or-non-fungible-token-automatically-on-flow-cadence "Direct link to Register Fungible Token or Non-Fungible Token automatically on Flow Cadence")
 
 Use a standalone Cadence transaction to register your Fungible Token or Non-Fungible Token on Flow Cadence.
 
 * Use this **Cadence transaction**: [register-standard-asset.cdc](https://github.com/fixes-world/token-list/blob/main/cadence/transactions/register-standard-asset.cdc).
-* This transaction should be executed **right after deploying your Fungible Token or Non-Fungible Token contract**.
+* Execute this transaction **right after you deploy your Fungible Token or Non-Fungible Token contract**.
 
-Or you can also pick up some code from the [register-standard-asset.cdc](https://github.com/fixes-world/token-list/blob/main/cadence/transactions/register-standard-asset.cdc) file to make your own Cadence transaction with the same logic for more seamless integration. Here is an example:
+Or, you can also pick up some code from the [register-standard-asset.cdc](https://github.com/fixes-world/token-list/blob/main/cadence/transactions/register-standard-asset.cdc) file to make your own Cadence transaction with the same logic for more seamless integration. Here is an example:
 
 `_15
 
@@ -138,10 +138,10 @@ _15
 
 }`
 
-### Register ERC-20 or ERC-721 Tokens automatically on Flow EVM[​](#register-erc-20-or-erc-721-tokens-automatically-on-flow-evm "Direct link to Register ERC-20 or ERC-721 Tokens automatically on Flow EVM")
+### Register ERC-20 or ERC-721 tokens automatically on Flow EVM[​](#register-erc-20-or-erc-721-tokens-automatically-on-flow-evm "Direct link to Register ERC-20 or ERC-721 tokens automatically on Flow EVM")
 
 * Use this **Cadence transaction**: [register-evm-asset.cdc](https://github.com/fixes-world/token-list/blob/main/cadence/transactions/register-evm-asset.cdc)
-* This transaction should be executed **right after deploying your ERC-20 or ERC-721 contract**.
+* Execute this transaction **right after you deploy your ERC-20 or ERC-721 contract**.
 
 warning
 
@@ -161,7 +161,7 @@ For any issues, refer to the [Token List GitHub Repository](https://github.com/f
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/tokens/register-cadence-assets.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Nov 18, 2025** by **cshannon1218**
 
 [Previous
 
@@ -175,8 +175,8 @@ Register ERC20 Token](/blockchain-development-tutorials/tokens/register-erc20-to
 
 Copy as Markdown
 
-* [Manual Registration (~1 min)](#manual-registration-1-min)* [Programmatic Registration](#programmatic-registration)
-    + [Register Fungible Token or Non-Fungible Token automatically on Flow Cadence](#register-fungible-token-or-non-fungible-token-automatically-on-flow-cadence)+ [Register ERC-20 or ERC-721 Tokens automatically on Flow EVM](#register-erc-20-or-erc-721-tokens-automatically-on-flow-evm)+ [Next Steps](#next-steps)
+* [Manual registration (~1 min)](#manual-registration-1-min)* [Programmatic registration](#programmatic-registration)
+    + [Register Fungible Token or Non-Fungible Token automatically on Flow Cadence](#register-fungible-token-or-non-fungible-token-automatically-on-flow-cadence)+ [Register ERC-20 or ERC-721 tokens automatically on Flow EVM](#register-erc-20-or-erc-721-tokens-automatically-on-flow-evm)+ [Next Steps](#next-steps)
 
 Flow
 

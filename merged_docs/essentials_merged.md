@@ -4285,7 +4285,7 @@ Search
 
                             - [account](/build/tools/clients/fcl-js/packages-docs/sdk/account)- [arg](/build/tools/clients/fcl-js/packages-docs/sdk/arg)- [args](/build/tools/clients/fcl-js/packages-docs/sdk/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockId)- [atLatestBlock](/build/tools/clients/fcl-js/packages-docs/sdk/atLatestBlock)- [authorization](/build/tools/clients/fcl-js/packages-docs/sdk/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/sdk/authorizations)- [block](/build/tools/clients/fcl-js/packages-docs/sdk/block)- [build](/build/tools/clients/fcl-js/packages-docs/sdk/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/sdk/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/sdk/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/sdk/config)- [createSdkClient](/build/tools/clients/fcl-js/packages-docs/sdk/createSdkClient)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/createSignableVoucher)- [decode](/build/tools/clients/fcl-js/packages-docs/sdk/decode)- [destroy](/build/tools/clients/fcl-js/packages-docs/sdk/destroy)- [encodeMessageFromSignable](/build/tools/clients/fcl-js/packages-docs/sdk/encodeMessageFromSignable)- [encodeTransactionEnvelope](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionEnvelope)- [encodeTransactionPayload](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionPayload)- [encodeTxIdFromVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher)- [get](/build/tools/clients/fcl-js/packages-docs/sdk/get)- [getAccount](/build/tools/clients/fcl-js/packages-docs/sdk/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/sdk/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/sdk/getBlockHeader)- [getCollection](/build/tools/clients/fcl-js/packages-docs/sdk/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/sdk/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/sdk/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/sdk/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/sdk/getTransactionStatus)- [initInteraction](/build/tools/clients/fcl-js/packages-docs/sdk/initInteraction)- [interaction](/build/tools/clients/fcl-js/packages-docs/sdk/interaction)- [isBad](/build/tools/clients/fcl-js/packages-docs/sdk/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/sdk/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/sdk/limit)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/sdk/param)- [params](/build/tools/clients/fcl-js/packages-docs/sdk/params)- [payer](/build/tools/clients/fcl-js/packages-docs/sdk/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/sdk/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/sdk/pipe)- [proposer](/build/tools/clients/fcl-js/packages-docs/sdk/proposer)- [put](/build/tools/clients/fcl-js/packages-docs/sdk/put)- [ref](/build/tools/clients/fcl-js/packages-docs/sdk/ref)- [resolve](/build/tools/clients/fcl-js/packages-docs/sdk/resolve)- [resolveAccounts](/build/tools/clients/fcl-js/packages-docs/sdk/resolveAccounts)- [resolveArguments](/build/tools/clients/fcl-js/packages-docs/sdk/resolveArguments)- [resolveCadence](/build/tools/clients/fcl-js/packages-docs/sdk/resolveCadence)- [resolveFinalNormalization](/build/tools/clients/fcl-js/packages-docs/sdk/resolveFinalNormalization)- [resolveProposerSequenceNumber](/build/tools/clients/fcl-js/packages-docs/sdk/resolveProposerSequenceNumber)- [resolveRefBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/resolveRefBlockId)- [resolveSignatures](/build/tools/clients/fcl-js/packages-docs/sdk/resolveSignatures)- [resolveValidators](/build/tools/clients/fcl-js/packages-docs/sdk/resolveValidators)- [resolveVoucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/resolveVoucherIntercept)- [response](/build/tools/clients/fcl-js/packages-docs/sdk/response)- [script](/build/tools/clients/fcl-js/packages-docs/sdk/script)- [send](/build/tools/clients/fcl-js/packages-docs/sdk/send)- [subscribe](/build/tools/clients/fcl-js/packages-docs/sdk/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeRaw)- [TestUtils](/build/tools/clients/fcl-js/packages-docs/sdk/testUtils)- [transaction](/build/tools/clients/fcl-js/packages-docs/sdk/transaction)- [update](/build/tools/clients/fcl-js/packages-docs/sdk/update)- [validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/sdk/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/sdk/why)+ [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)* isOk
 
@@ -4798,7 +4798,7 @@ Search
 
                             - [account](/build/tools/clients/fcl-js/packages-docs/sdk/account)- [arg](/build/tools/clients/fcl-js/packages-docs/sdk/arg)- [args](/build/tools/clients/fcl-js/packages-docs/sdk/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockId)- [atLatestBlock](/build/tools/clients/fcl-js/packages-docs/sdk/atLatestBlock)- [authorization](/build/tools/clients/fcl-js/packages-docs/sdk/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/sdk/authorizations)- [block](/build/tools/clients/fcl-js/packages-docs/sdk/block)- [build](/build/tools/clients/fcl-js/packages-docs/sdk/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/sdk/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/sdk/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/sdk/config)- [createSdkClient](/build/tools/clients/fcl-js/packages-docs/sdk/createSdkClient)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/createSignableVoucher)- [decode](/build/tools/clients/fcl-js/packages-docs/sdk/decode)- [destroy](/build/tools/clients/fcl-js/packages-docs/sdk/destroy)- [encodeMessageFromSignable](/build/tools/clients/fcl-js/packages-docs/sdk/encodeMessageFromSignable)- [encodeTransactionEnvelope](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionEnvelope)- [encodeTransactionPayload](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionPayload)- [encodeTxIdFromVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher)- [get](/build/tools/clients/fcl-js/packages-docs/sdk/get)- [getAccount](/build/tools/clients/fcl-js/packages-docs/sdk/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/sdk/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/sdk/getBlockHeader)- [getCollection](/build/tools/clients/fcl-js/packages-docs/sdk/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/sdk/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/sdk/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/sdk/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/sdk/getTransactionStatus)- [initInteraction](/build/tools/clients/fcl-js/packages-docs/sdk/initInteraction)- [interaction](/build/tools/clients/fcl-js/packages-docs/sdk/interaction)- [isBad](/build/tools/clients/fcl-js/packages-docs/sdk/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/sdk/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/sdk/limit)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/sdk/param)- [params](/build/tools/clients/fcl-js/packages-docs/sdk/params)- [payer](/build/tools/clients/fcl-js/packages-docs/sdk/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/sdk/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/sdk/pipe)- [proposer](/build/tools/clients/fcl-js/packages-docs/sdk/proposer)- [put](/build/tools/clients/fcl-js/packages-docs/sdk/put)- [ref](/build/tools/clients/fcl-js/packages-docs/sdk/ref)- [resolve](/build/tools/clients/fcl-js/packages-docs/sdk/resolve)- [resolveAccounts](/build/tools/clients/fcl-js/packages-docs/sdk/resolveAccounts)- [resolveArguments](/build/tools/clients/fcl-js/packages-docs/sdk/resolveArguments)- [resolveCadence](/build/tools/clients/fcl-js/packages-docs/sdk/resolveCadence)- [resolveFinalNormalization](/build/tools/clients/fcl-js/packages-docs/sdk/resolveFinalNormalization)- [resolveProposerSequenceNumber](/build/tools/clients/fcl-js/packages-docs/sdk/resolveProposerSequenceNumber)- [resolveRefBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/resolveRefBlockId)- [resolveSignatures](/build/tools/clients/fcl-js/packages-docs/sdk/resolveSignatures)- [resolveValidators](/build/tools/clients/fcl-js/packages-docs/sdk/resolveValidators)- [resolveVoucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/resolveVoucherIntercept)- [response](/build/tools/clients/fcl-js/packages-docs/sdk/response)- [script](/build/tools/clients/fcl-js/packages-docs/sdk/script)- [send](/build/tools/clients/fcl-js/packages-docs/sdk/send)- [subscribe](/build/tools/clients/fcl-js/packages-docs/sdk/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeRaw)- [TestUtils](/build/tools/clients/fcl-js/packages-docs/sdk/testUtils)- [transaction](/build/tools/clients/fcl-js/packages-docs/sdk/transaction)- [update](/build/tools/clients/fcl-js/packages-docs/sdk/update)- [validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/sdk/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/sdk/why)+ [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)* resolveRefBlockId
 
@@ -5684,7 +5684,7 @@ Search
 
                         * [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* Interaction Templates
 
@@ -6621,7 +6621,7 @@ Search
 
                             - [account](/build/tools/clients/fcl-js/packages-docs/sdk/account)- [arg](/build/tools/clients/fcl-js/packages-docs/sdk/arg)- [args](/build/tools/clients/fcl-js/packages-docs/sdk/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockId)- [atLatestBlock](/build/tools/clients/fcl-js/packages-docs/sdk/atLatestBlock)- [authorization](/build/tools/clients/fcl-js/packages-docs/sdk/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/sdk/authorizations)- [block](/build/tools/clients/fcl-js/packages-docs/sdk/block)- [build](/build/tools/clients/fcl-js/packages-docs/sdk/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/sdk/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/sdk/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/sdk/config)- [createSdkClient](/build/tools/clients/fcl-js/packages-docs/sdk/createSdkClient)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/createSignableVoucher)- [decode](/build/tools/clients/fcl-js/packages-docs/sdk/decode)- [destroy](/build/tools/clients/fcl-js/packages-docs/sdk/destroy)- [encodeMessageFromSignable](/build/tools/clients/fcl-js/packages-docs/sdk/encodeMessageFromSignable)- [encodeTransactionEnvelope](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionEnvelope)- [encodeTransactionPayload](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionPayload)- [encodeTxIdFromVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher)- [get](/build/tools/clients/fcl-js/packages-docs/sdk/get)- [getAccount](/build/tools/clients/fcl-js/packages-docs/sdk/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/sdk/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/sdk/getBlockHeader)- [getCollection](/build/tools/clients/fcl-js/packages-docs/sdk/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/sdk/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/sdk/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/sdk/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/sdk/getTransactionStatus)- [initInteraction](/build/tools/clients/fcl-js/packages-docs/sdk/initInteraction)- [interaction](/build/tools/clients/fcl-js/packages-docs/sdk/interaction)- [isBad](/build/tools/clients/fcl-js/packages-docs/sdk/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/sdk/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/sdk/limit)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/sdk/param)- [params](/build/tools/clients/fcl-js/packages-docs/sdk/params)- [payer](/build/tools/clients/fcl-js/packages-docs/sdk/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/sdk/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/sdk/pipe)- [proposer](/build/tools/clients/fcl-js/packages-docs/sdk/proposer)- [put](/build/tools/clients/fcl-js/packages-docs/sdk/put)- [ref](/build/tools/clients/fcl-js/packages-docs/sdk/ref)- [resolve](/build/tools/clients/fcl-js/packages-docs/sdk/resolve)- [resolveAccounts](/build/tools/clients/fcl-js/packages-docs/sdk/resolveAccounts)- [resolveArguments](/build/tools/clients/fcl-js/packages-docs/sdk/resolveArguments)- [resolveCadence](/build/tools/clients/fcl-js/packages-docs/sdk/resolveCadence)- [resolveFinalNormalization](/build/tools/clients/fcl-js/packages-docs/sdk/resolveFinalNormalization)- [resolveProposerSequenceNumber](/build/tools/clients/fcl-js/packages-docs/sdk/resolveProposerSequenceNumber)- [resolveRefBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/resolveRefBlockId)- [resolveSignatures](/build/tools/clients/fcl-js/packages-docs/sdk/resolveSignatures)- [resolveValidators](/build/tools/clients/fcl-js/packages-docs/sdk/resolveValidators)- [resolveVoucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/resolveVoucherIntercept)- [response](/build/tools/clients/fcl-js/packages-docs/sdk/response)- [script](/build/tools/clients/fcl-js/packages-docs/sdk/script)- [send](/build/tools/clients/fcl-js/packages-docs/sdk/send)- [subscribe](/build/tools/clients/fcl-js/packages-docs/sdk/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeRaw)- [TestUtils](/build/tools/clients/fcl-js/packages-docs/sdk/testUtils)- [transaction](/build/tools/clients/fcl-js/packages-docs/sdk/transaction)- [update](/build/tools/clients/fcl-js/packages-docs/sdk/update)- [validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/sdk/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/sdk/why)+ [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)* ref
 
@@ -35166,7 +35166,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* @onflow/fcl
 
@@ -36336,7 +36336,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* validator
 
@@ -37224,36 +37224,34 @@ On this page
 info
 
 This guide is an in-depth tutorial on launching NFT contracts from scratch.
-To launch in 2 minutes using a tool check out [Touchstone](https://www.touchstone.city/)
+To launch in two minutes with a tool, check out [Touchstone]
 
 ## What are NFTs[​](#what-are-nfts "Direct link to What are NFTs")
 
 NFTs, or Non-Fungible Tokens, represent a unique digital asset verified
-using blockchain technology. Unlike cryptocurrencies such as Bitcoin,
+with blockchain technology. Unlike cryptocurrencies such as Bitcoin,
 which are fungible and can be exchanged on a one-for-one basis,
 NFTs are distinct and cannot be exchanged on a like-for-like basis.
-This uniqueness and indivisibility make them ideal for representing
+This uniqueness and indivisibility make them ideal to represent
 rare and valuable items like art, collectibles, tickets and even real estate.
 Their blockchain-backed nature ensures the authenticity and ownership of these digital assets.
 
-## Setting Up a Project[​](#setting-up-a-project "Direct link to Setting Up a Project")
+## Set up a project[​](#set-up-a-project "Direct link to Set up a project")
 
-To start creating an NFT on the Flow blockchain, you'll first need some tools and configurations in place.
+To create an NFT on the Flow blockchain, you'll first need some tools and configurations in place.
 
-### Installing Flow CLI[​](#installing-flow-cli "Direct link to Installing Flow CLI")
+### Instal Flow CLI[​](#instal-flow-cli "Direct link to Instal Flow CLI")
 
 The **Flow CLI** (Command Line Interface) provides a suite of tools
 that allow developers to interact seamlessly with the Flow blockchain.
 
-If you haven't installed the Flow CLI yet and have [Homebrew](https://brew.sh/) installed,
-you can run `brew install flow-cli`. If you don't have Homebrew,
-please follow [the installation guide here](/build/tools/flow-cli/install).
+If you haven't installed the Flow CLI yet and have [Homebrew](https://brew.sh/)installed, you can run `brew install flow-cli`. If you don't have Homebrew, follow the [Flow CLI installation guide](/build/tools/flow-cli/install).
 
-### Initializing a New Project[​](#initializing-a-new-project "Direct link to Initializing a New Project")
+### Initialize a New Project[​](#initialize-a-new-project "Direct link to Initialize a New Project")
 
 > 💡 Note: Here is [a link to the completed code](https://github.com/onflow/foobar-nft) if you want to skip ahead or reference as you follow along.
 
-Once you have the Flow CLI installed, you can set up a new project using the `flow init` command. This command initializes the necessary directory structure and a `flow.json` configuration file (a way to configure your project for contract sources, deployments, accounts, and more):
+After you install the Flow CLI, you can set up a new project with the `flow init` command. This command initializes the necessary directory structure and a `flow.json` configuration file (a way to configure your project for contract sources, deployments, accounts, and more):
 
 `_10
 
@@ -37293,8 +37291,7 @@ Now, navigate into the project directory:
 
 cd foobar-nft`
 
-To begin, let's create a contract file named `FooBar` for the `FooBar` token,
-which will be the focus of this tutorial. To do this, we can use the boilerplate `generate` command from the Flow CLI:
+To begin, let's create a contract file named `FooBar` for the `FooBar` token, which is the focus of this tutorial. To do this, we can use the boilerplate `generate` command from the Flow CLI:
 
 `_10
 
@@ -37314,9 +37311,7 @@ _10
 
 }`
 
-Now, add these contracts to your `flow.json`.
-These are important contracts that your contract will import that
-are pre-deployed to the emulator.
+Now, add these contracts to your `flow.json`. These are important contracts that your contract will import that are pre-deployed to the emulator.
 
 `_17
 
@@ -37386,18 +37381,13 @@ _17
 
 }`
 
-## Setting Up Our NFT on the Contract[​](#setting-up-our-nft-on-the-contract "Direct link to Setting Up Our NFT on the Contract")
+## Set up our NFT on the contract[​](#set-up-our-nft-on-the-contract "Direct link to Set up our NFT on the contract")
 
-### Understanding Resources[​](#understanding-resources "Direct link to Understanding Resources")
+### understand resources[​](#understand-resources "Direct link to understand resources")
 
-On the Flow blockchain, "[Resources](https://cadence-lang.org/docs/tutorial/resources-compose)"
-are a key feature of the Cadence programming language.
-They represent unique, non-duplicable assets, ensuring that they can only exist
-in one place at a time. This concept is crucial for representing NFTs on Flow,
-as it guarantees their uniqueness.
+On the Flow blockchain, "[Resources](https://cadence-lang.org/docs/language/resources)" are a key feature of the Cadence programming language. They represent unique, non-duplicable assets, and ensure that they can only exist in one place at a time. This concept is crucial for representing NFTs on Flow, as it guarantees their uniqueness.
 
-To begin, let's define a basic `NFT` resource.
-This resource requires an `init` method, which is invoked when the resource is instantiated:
+To begin, let's define a basic `NFT` resource. This resource requires an `init` method, which is invoked when the resource is instantiated:
 
 `_10
 
@@ -37427,8 +37417,9 @@ _10
 
 }`
 
-Every resource in Cadence has a unique identifier assigned to it.
-We can use it to set an ID for our NFT. Here's how you can do that:
+Every resource in Cadence has a unique identifier assigned to it. We can use it to set an ID for our NFT.
+
+Here's how you can do that:
 
 `_12
 
@@ -37472,8 +37463,8 @@ _12
 
 }`
 
-To control the creation of NFTs, it's essential to have a mechanism
-that restricts their minting. This ensures that not just anyone can create an NFT and inflate its supply.
+To control the creation of NFTs, it's essential to have a mechanism that restricts their minting. This ensures that not just anyone can create an NFT and inflate its supply.
+
 To achieve this, you can introduce an `NFTMinter` resource that contains a `createNFT` function:
 
 `_14
@@ -37524,8 +37515,8 @@ _14
 
 }`
 
-In this example, the `NFTMinter` resource will be stored on the contract account's storage.
-This means that only the contract account will have the ability to mint new NFTs.
+In this example, the `NFTMinter` resource is stored on the contract account's storage. This means that only the contract account will have the ability to mint new NFTs.
+
 To set this up, add the following line to the contract's `init` function:
 
 `_10
@@ -37556,15 +37547,12 @@ _10
 
 }`
 
-### Setting Up an NFT Collection[​](#setting-up-an-nft-collection "Direct link to Setting Up an NFT Collection")
+### Set Up an NFT Collection[​](#set-up-an-nft-collection "Direct link to Set Up an NFT Collection")
 
-Storing individual NFTs directly in an account's storage can cause issues,
-especially if you want to store multiple NFTs.
-Instead, it's required to create a collection that can hold multiple NFTs.
-This collection can then be stored in the account's storage.
+If you store individual NFTs directly in an account's storage, it can cause issues, especially if you want to store multiple NFTs.
+Instead, you must create a collection that can hold multiple NFTs. You can then store this collection in the account's storage.
 
-Start by creating a new resource named `Collection`.
-This resource will act as a container for your NFTs, storing them in a dictionary indexed by their IDs.
+To start, create a new resource named `Collection`. This resource will act as a container for your NFTs, and stores them in a dictionary indexed by their IDs.
 
 `_16
 
@@ -37618,21 +37606,15 @@ _16
 
 }`
 
-## Fitting the Flow NFT Standard[​](#fitting-the-flow-nft-standard "Direct link to Fitting the Flow NFT Standard")
+## Fit the Flow NFT standard[​](#fit-the-flow-nft-standard "Direct link to Fit the Flow NFT standard")
 
-To ensure compatibility and interoperability within the Flow ecosystem,
-it's crucial that your NFT contract adheres to the [Flow NFT standard](https://github.com/onflow/flow-nft).
-This standard defines the events, functions, resources, metadata and other elements that a contract should have.
-By following this standard, your NFTs will be compatible with various marketplaces, apps, and other services within the Flow ecosystem.
+To ensure compatibility and interoperability within the Flow ecosystem, it's crucial that your NFT contract adheres to the Flow [NFT standard](https://github.com/onflow/flow-nft). This standard defines the events, functions, resources, metadata and other elements that a contract should have. When you follow this standard, your NFTs will be compatible with various marketplaces, apps, and other services within the Flow ecosystem.
 
-### Applying the Standard[​](#applying-the-standard "Direct link to Applying the Standard")
+### Apply the Standard[​](#apply-the-standard "Direct link to Apply the Standard")
 
-To start, you need to inform the Flow blockchain that your contract will implement the `NonFungibleToken` standard.
-Since it's a standard, there's no need for deployment.
-It's already available on the Emulator, Testnet, and Mainnet for the community's benefit.
+To start, you need to inform the Flow blockchain that your contract will implement the `NonFungibleToken` standard. Since it's a standard, there's no need for deployment. It's already available on the Emulator, Testnet, and Mainnet for the community's benefit.
 
-Begin by importing the token standard into your contract
-and adding the correct interface conformances to FooBar, NFT, and Collection:
+To start, import the token standard into your contract and add the correct interface conformances to FooBar, NFT, and Collection:
 
 `_36
 
@@ -37758,23 +37740,11 @@ _36
 
 }`
 
-As you can see, we also added standard paths for the Collection and Minter
+As you can see, we also added standard paths for the Collection and Minter.
 
-These interface conformances for [NFT](https://github.com/onflow/flow-nft/blob/master/contracts/NonFungibleToken.cdc#L98)
-and [Collection](https://github.com/onflow/flow-nft/blob/master/contracts/NonFungibleToken.cdc#L190)
-inherit from other interfaces that provide important functionality and restrictions
-for your NFT and Collection types.
+These interface conformances for [NFT] and [Collection](https://github.com/onflow/flow-nft/blob/master/contracts/NonFungibleToken.cdc#L190) inherit from other interfaces that provide important functionality and restrictions for your NFT and Collection types.
 
-To allow accounts to create their own collections, add a function
-in the main contract that creates a new `Collection` and returns it.
-This function takes a `nftType: Type` argument that allows the caller
-to specify which type of `Collection` they want to create.
-Contracts that implement multiple `NFT` and/or `Collection` types can use this argument,
-but since your contract is only implementing one `NFT` and `Collection` type,
-it can ignore the argument.
-You'll also want to add a simpler one directly
-to the `NFT` and `Collection` definitions
-so users can directly create a collection from an existing collection:
+To allow accounts to create their own collections, add a function in the main contract that creates a new `Collection` and returns it. This function takes a `nftType: Type` argument that allows the caller to specify which type of `Collection` they want to create. Contracts that implement multiple `NFT` and/or `Collection` types can use this argument, but since your contract only implements one `NFT` and `Collection` type, it can ignore the argument. You'll also want to add a simpler one directly to the `NFT` and `Collection` definitions so users can directly create a collection from a current collection:
 
 `_35
 
@@ -38016,17 +37986,9 @@ _15
 
 }`
 
-As you can see, this function has an `access(NonFungibleToken.Withdraw)` access modifier.
-This is an example of entitlements in Cadence.
-[Entitlements](https://cadence-lang.org/docs/language/access-control#entitlements)
-are a way for developers to restrict access to privileged fields and functions
-in a composite type like a resource when a reference is created for it.
-In this example, the `withdraw()` function is always accessible to code that
-controls the full `Collection` object, but if a reference is created for it,
-the `withdraw()` function can only be called if the reference
-is authorized by the owner with `NonFungibleToken.Withdraw`,
-which is [a standard entitlement](https://github.com/onflow/flow-nft/blob/master/contracts/NonFungibleToken.cdc#L58)
-defined by the `NonFungibleToken` contract:
+As you can see, this function has an `access(NonFungibleToken.Withdraw)` access modifier. This is an example of entitlements in Cadence. [Entitlements](https://cadence-lang.org/docs/language/access-control#entitlements) are a way for developers to restrict access to privileged fields and functions in a composite type like a resource when a reference is created for it.
+
+In this example, the `withdraw()` function is always accessible to code that controls the full `Collection` object, but if a reference is created for it, the `withdraw()` function can only be called if the reference is authorized by the owner with `NonFungibleToken.Withdraw`, which is a [standard entitlement] defined by the `NonFungibleToken` contract:
 
 `_10
 
@@ -38036,21 +37998,13 @@ _10
 
 <auth(NonFungibleToken.Withdraw) &{NonFungibleToken.Collection}>`
 
-Entitlements are important to understand because they are what protects
-privileged functionality in your resource objects from being accessed by third-parties.
-It is recommended to read the [entitlements documentation](https://cadence-lang.org/docs/language/access-control#entitlements)
-to understand how to use the feature properly.
+It's important to understand entitlements because they protect privileged functionality in your resource objects from third-party access. We recommended that you read the [Entitlements](https://cadence-lang.org/docs/language/access-control#entitlements) documentation to understand how to use the feature properly.
 
-[References](https://cadence-lang.org/docs/language/references) can be freely up-casted and down-casted in Cadence, so it is important
-for privileged functionality to be protected by an entitlement so that it can
-only be accessed if it is authorized.
+[References](https://cadence-lang.org/docs/language/references) can be freely up-casted and down-casted in Cadence, so it is important for you to use an entitlement to protect privileged functionality so that it can only be accessed if it is authorized.
 
 ### Standard NFT Events[​](#standard-nft-events "Direct link to Standard NFT Events")
 
-Many projects rely on events the signal when withdrawals or deposits happen.
-Luckily, the `NonFungibleToken` standard handles the definition and emission
-of events for projects, so there is no need for you to add any events
-to your implementation for withdraw and deposit.
+Many projects rely on events the signal when withdrawals or deposits happen. Luckily, the `NonFungibleToken` standard handles the definition and emission of events for projects, so there is no need for you to add any events to your implementation for withdraw and deposit.
 
 Here are the `FungibleToken` event definitions:
 
@@ -38112,8 +38066,7 @@ _15
 
 access(all) event Deposited(type: String, id: UInt64, uuid: UInt64, to: Address?, collectionUUID: UInt64) ``
 
-These events are [emitted by the `Collection` interface](https://github.com/onflow/flow-nft/blob/master/contracts/NonFungibleToken.cdc#L202)
-in the `NonFungibleToken` contract whenever the relevant function is called on any implementation.
+These events are emitted by the [`Collection` interface](https://github.com/onflow/flow-nft/blob/master/contracts/NonFungibleToken.cdc#L202) in the `NonFungibleToken` contract whenever the relevant function is called on any implementation.
 
 There is also a `NonFungibleToken.NFT.ResourceDestroyed` event that is emitted every time an NFT is destroyed:
 
@@ -38129,19 +38082,13 @@ _10
 
 access(all) event ResourceDestroyed(id: UInt64 = self.id, uuid: UInt64 = self.uuid)`
 
-`ResourceDestroyed` events are standard events that can be added to any resource definition
-to be emitted when the resource is destroyed. Learn more about them [in the Cadence docs](https://cadence-lang.org/docs/language/resources#destroy-events).
+`ResourceDestroyed` events are standard events that can be added to any resource definition to be emitted when the resource is destroyed. Learn more about them [in the Cadence docs](https://cadence-lang.org/docs/language/resources#destroy-events).
 
-Additionally, check out the optional [`Burner` contract](/build/cadence/core-contracts/burner),
-which is the standard that all projects should use for handling the destruction of any resource.
+Additionally, check out the optional [`Burner` contract](/build/cadence/core-contracts/burner), which is the standard that all projects should use to handle any resource's destruction.
 
-Lastly, there is a [standard `NonFungibleToken.Updated` event](https://github.com/onflow/flow-nft/blob/master/contracts/NonFungibleToken.cdc#L63-L77)
-that your contract can emit if the NFT is updated in any way.
-This is optional though, so no need to include support for it in your implementation.
+Lastly, there is a [standard `NonFungibleToken.Updated` event] that your contract can emit if the NFT is updated in any way. This is optional though, so no need to include support for it in your implementation.
 
-To facilitate querying, you'll also want a function to retrieve
-important information from the collection, like what types it supports
-and all the NFT IDs within a collection:
+To facilitate querying, you'll also want a function to retrieve important information from the collection, like what types it supports and all the NFT IDs within a collection:
 
 `_23
 
@@ -38227,18 +38174,12 @@ _23
 
 }`
 
-### Supporting NFT Metadata[​](#supporting-nft-metadata "Direct link to Supporting NFT Metadata")
+### Supporting NFT metadata[​](#supporting-nft-metadata "Direct link to Supporting NFT metadata")
 
-The Non-Fungible Token standard also enforces that implementations
-provide functionality to return a set of standard views about the tokens
-via the [ViewResolver](https://github.com/onflow/flow-nft/blob/master/contracts/ViewResolver.cdc)
-and [MetadataViews](https://github.com/onflow/flow-nft/blob/master/contracts/MetadataViews.cdc) definitions.
-(You will need to add these imports to your contract)
-These provide developers with standard ways of representing metadata
-about a given token such as token symbols, images, royalties, editions,
-website links, and standard account paths and types that third-parties can access in a standard way.
-You can see the [metadata views documentation](/build/cadence/advanced-concepts/metadata-views)
-for a more thorough guide using a NFT contract as an example.
+The Non-Fungible Token standard also enforces that implementations provide functionality to return a set of standard views about the tokens via the [ViewResolver]
+and [MetadataViews](https://github.com/onflow/flow-nft/blob/master/contracts/MetadataViews.cdc) definitions. (You will need to add these imports to your contract)
+
+These provide developers with standard ways of representing metadata about a given token such as token symbols, images, royalties, editions, website links, and standard account paths and types that third-parties can access in a standard way. You can see the [metadata views documentation](/build/cadence/advanced-concepts/metadata-views) for a more thorough guide that uses a NFT contract as an example.
 
 For now, you can add this code to your contract to support the important metadata:
 
@@ -38658,24 +38599,15 @@ _110
 
 }`
 
-If you ever plan on making your NFTs more complex, you should look into
-adding views for `Edition`, `EVMBridgedMetadata`, `Traits`, and `Royalties`.
-These views make it much easier for third-party sites like marketplaces
-and NFT information aggregators to clearly display information
-about your projects on their apps and websites and are critical
-for every project to include if we want to have a vibrant and interoperable
-ecosystem.
+If you ever plan to make your NFTs more complex, you could add views for `Edition`, `EVMBridgedMetadata`, `Traits`, and `Royalties`. These views make it much easier for third-party sites like marketplaces and NFT information aggregators to clearly display information about your projects on their apps and websites and are critical for every project to include if we want to have a vibrant and interoperable ecosystem.
 
-## Flow VM Bridge NFTs[​](#flow-vm-bridge-nfts "Direct link to Flow VM Bridge NFTs")
+## Flow VM bridge NFTs[​](#flow-vm-bridge-nfts "Direct link to Flow VM bridge NFTs")
 
-Flow provides an EVM environment where projects can deploy
-their solidity smart contracts as an easier on-ramp to building on Flow.
-The [Cross-VM Bridge](https://www.github.com/onflow/flow-evm-bridge) enables the movement of
-fungible and non-fungible tokens between Flow-Cadence & Flow-EVM.
+Flow provides an EVM environment where projects can deploy their solidity smart contracts as an easier on-ramp to building on Flow. The [Cross-VM Bridge](https://www.github.com/onflow/flow-evm-bridge) allows the movement of fungible and non-fungible tokens between Flow-Cadence & Flow-EVM.
 
-Learn about how you can [bridge your NFTs to Flow-EVM](/blockchain-development-tutorials/cross-vm-apps/vm-bridge#cross-vm-bridge) and how you can build your NFT project [to be compatible with the Flow VM bridge](/blockchain-development-tutorials/cross-vm-apps/vm-bridge#prep-your-assets-for-bridging).
+Learn about how you can [bridge your NFTs to Flow-EVM](/blockchain-development-tutorials/cross-vm-apps/vm-bridge#cross-vm-bridge) and how you can [build your NFT project](/blockchain-development-tutorials/cross-vm-apps/vm-bridge#prep-your-assets-for-bridging) to be compatible with the Flow VM bridge.
 
-## Deploying the Contract[​](#deploying-the-contract "Direct link to Deploying the Contract")
+## Deploy the Contract[​](#deploy-the-contract "Direct link to Deploy the Contract")
 
 With your contract ready, it's time to deploy it.
 First, add the `FooBar` contract to the `flow.json` configuration file:
@@ -38700,17 +38632,17 @@ Next, configure the deployment settings by running the following command:
 
 flow config add deployment`
 
-Choose the `emulator` for the network and `emulator-account`
-for the account to deploy to.
-Then, select the `FooBar` contract (you may need to scroll down).
-This will update your `flow.json` configuration.
-After that, you can select `No` when asked to deploy another contract.
+Choose the `emulator` for the network and `emulator-account` for the account to deploy to. Then, select the `FooBar` contract (you may need to scroll down). This will update your `flow.json` configuration. After that, you can select `No` when asked to deploy another contract.
 
-To start the Flow emulator, run (you may need to approve a prompt to allow connection the first time):
+To start the Flow emulator, run:
 
 `_10
 
 flow emulator start`
+
+info
+
+you may need to approve a prompt to allow connection the first time
 
 In a separate terminal or command prompt, deploy the contract:
 
@@ -38720,10 +38652,9 @@ flow project deploy`
 
 You'll then see a message that says `All contracts deployed successfully`.
 
-## Creating an NFTCollection[​](#creating-an-nftcollection "Direct link to Creating an NFTCollection")
+## Create an NFTCollection[​](#create-an-nftcollection "Direct link to Create an NFTCollection")
 
-To manage multiple NFTs, you'll need an NFT collection.
-Start by creating a transaction file for this purpose (we can use the `generate` command again):
+To manage multiple NFTs, you'll need an NFT collection. To start, create a transaction file for this purpose (we can use the `generate` command again):
 
 `_10
 
@@ -38731,15 +38662,9 @@ flow generate transaction setup_foobar_collection`
 
 This creates a transaction file at `cadence/transactions/setup_foobar_collection.cdc`.
 
-Transactions, on the other hand, are pieces of Cadence code
-that can mutate the state of the blockchain.
-Transactions need to be signed by one or more accounts,
-and they can have multiple phases, represented by different blocks of code.
+Transactions, on the other hand, are pieces of Cadence code that can mutate the state of the blockchain. Transactions need to be signed by one or more accounts, and they can have multiple phases, represented by different blocks of code.
 
-In this file, import the necessary contracts and define a transaction
-to create a new collection, storing it in the account's storage.
-Additionally, the transaction creates a capability that allows others
-to get a public reference to the collection to read from its methods.
+In this file, import the necessary contracts and define a transaction to create a new collection, and store it in the account's storage. Additionally, the transaction creates a capability that allows others to get a public reference to the collection to read from its methods.
 
 This capability ensures secure, restricted access to specific functionalities or information within a resource.
 
@@ -38819,9 +38744,7 @@ _22
 
 }`
 
-There are also examples of [generic transactions](https://github.com/onflow/flow-nft/blob/master/transactions/setup_account_from_address.cdc)
-that you can use to setup an account for ANY non-fungible token using metadata views!
-You should check those out and try to use generic transactions whenever it is possible.
+There are also examples of [generic transactions](https://github.com/onflow/flow-nft/blob/master/transactions/setup_account_from_address.cdc) that you can use to setup an account for ANY non-fungible token using metadata views! You should check those out and try to use generic transactions whenever it is possible.
 
 To store this new NFT collection, create a new account:
 
@@ -38839,12 +38762,9 @@ Congratulations! You've successfully created an NFT collection for the `test-acc
 
 ## Get an Account's NFTs[​](#get-an-accounts-nfts "Direct link to Get an Account's NFTs")
 
-To retrieve the NFTs associated with an account, you'll need a script.
-Scripts are read-only operations that allow you to query the blockchain.
-They don't modify the blockchain's state, and therefore,
-they don't require gas fees or signatures (read more about scripts here).
+To retrieve the NFTs associated with an account, you'll need a script. Scripts are read-only operations that allow you to query the blockchain. They don't modify the blockchain's state, and therefore, they don't require gas fees or signatures (read more about scripts here).
 
-Start by creating a script file using the `generate` command again:
+To start, create a script file with the `generate` command again:
 
 `_10
 
@@ -38910,7 +38830,7 @@ flow scripts execute cadence/scripts/get_foobar_ids.cdc 0x123`
 
 Since you haven't added any NFTs to the collection yet, the result will be an empty array.
 
-## Minting and Depositing an NFT to a Collection[​](#minting-and-depositing-an-nft-to-a-collection "Direct link to Minting and Depositing an NFT to a Collection")
+## Mint and Deposit an NFT to a Collection[​](#mint-and-deposit-an-nft-to-a-collection "Direct link to Mint and Deposit an NFT to a Collection")
 
 To mint and deposit an NFT into a collection, create a new transaction file:
 
@@ -38918,10 +38838,7 @@ To mint and deposit an NFT into a collection, create a new transaction file:
 
 flow generate transaction mint_foobar_nft`
 
-In this file, define a transaction that takes a recipient's address as an argument.
-This transaction will borrow the minting capability from the contract account,
-borrow the recipient's collection capability, create a new NFT using the minter,
-and deposit it into the recipient's collection:
+In this file, define a transaction that takes a recipient's address as an argument. This transaction will borrow the minting capability from the contract account, borrow the recipient's collection capability, create a new NFT with the minter, and deposit it into the recipient's collection:
 
 `_35
 
@@ -39049,36 +38966,35 @@ _35
 
 }`
 
-To run this transaction, use the Flow CLI. Remember, the contract account
-(which has the minting resource) should be the one signing the transaction.
-Pass the test account's address (from the `flow.json` file) as the recipient argument
-(note: replace `0x123` with the address for `test-acct` from `flow.json`):
+To run this transaction, use the Flow CLI. Remember, the contract account (which has the minting resource) should be the one that signs the transaction. Pass the test account's address (from the `flow.json` file) as the recipient argument:
+
+:info
+
+replace `0x123` with the address for `test-acct` from `flow.json`)
+
+:::
 
 `_10
 
 flow transactions send cadence/transactions/mint_foobar_nft.cdc 0x123 --signer emulator-account --network emulator`
 
-After executing the transaction, you can run the earlier script to verify
-that the NFT was added to the `test-acct`'s collection (remember to replace `0x123`):
+After you execute the transaction, run the earlier script to verify that the NFT was added to the `test-acct`'s collection (remember to replace `0x123`):
 
 `_10
 
 flow scripts execute cadence/scripts/get_foobar_ids.cdc 0x123`
 
-You should now see a value in the `test-acct`'s collection array!
+You will now see a value in the `test-acct`'s collection array!
 
-## Transferring an NFT to Another Account[​](#transferring-an-nft-to-another-account "Direct link to Transferring an NFT to Another Account")
+## Transfer an NFT to Another Account[​](#transfer-an-nft-to-another-account "Direct link to Transfer an NFT to Another Account")
 
-To transfer an NFT to another account, create a new transaction file using `generate`:
+To transfer an NFT to another account, create a new transaction file with `generate`:
 
 `_10
 
 flow generate transaction transfer_foobar_nft`
 
-In this file, define a transaction that takes a recipient's address and the ID
-of the NFT you want to transfer as arguments.
-This transaction will borrow the sender's collection, get the recipient's capability,
-withdraw the NFT from the sender's collection, and deposit it into the recipient's collection:
+In this file, define a transaction that takes a recipient's address and the ID of the NFT you want to transfer as arguments. This transaction will borrow the sender's collection, get the recipient's capability, withdraw the NFT from the sender's collection, and deposit it into the recipient's collection:
 
 `_37
 
@@ -39222,9 +39138,7 @@ Name it `test-acct-2` and select `Emulator` as the network. Next, create a colle
 
 flow transactions send cadence/transactions/setup_foobar_collection.cdc --signer test-acct-2 --network emulator`
 
-Now, run the transaction to transfer the NFT from `test-acct` to `test-acct-2`
-using the addresses from the `flow.json` file (replace `0x124` with `test-acct-2`'s address.
-Also note that `0` is the `id` of the `NFT` we'll be transferring):
+Now, run the transaction to transfer the NFT from `test-acct` to `test-acct-2` with the addresses from the `flow.json` file (replace `0x124` with `test-acct-2`'s address. Also note that `0` is the `id` of the `NFT` we'll be transferring):
 
 `_10
 
@@ -39236,24 +39150,30 @@ To verify the transfer, you can run the earlier script for `test-acct-2` (replac
 
 flow scripts execute cadence/scripts/get_foobar_ids.cdc 0x123`
 
-The transfer transaction also has a [generic version](https://github.com/onflow/flow-nft/blob/master/transactions/generic_transfer_with_address.cdc)
-that developers are encouraged to use!
+The transfer transaction also has a [generic version](https://github.com/onflow/flow-nft/blob/master/transactions/generic_transfer_with_address.cdc) that developers are encouraged to use!
 
 Congrats, you did it! You're now ready to launch the next fun NFT project on Flow.
 
 ## More[​](#more "Direct link to More")
 
-* Explore [an example NFT repository](https://github.com/nvdtf/flow-nft-scaffold/blob/main/cadence/contracts/exampleNFT/ExampleNFT.cdc)
-* Dive into the details of [the NFT Standard](https://github.com/onflow/flow-nft)
+* Explore an [example NFT repository](https://github.com/nvdtf/flow-nft-scaffold/blob/main/cadence/contracts/exampleNFT/ExampleNFT.cdc)
+* Dive into the details of the [NFT Standard](https://github.com/onflow/flow-nft)
 * Check out the [`Burner` contract](/build/cadence/core-contracts/burner), which is the standard
   that all projects should use for handling the destruction of any resource.
-* For a deeper dive into `MetadataViews`, consult the [introduction guide](/build/cadence/advanced-concepts/metadata-views) or [the FLIP that introduced this feature](https://github.com/onflow/flips/blob/main/application/20210916-nft-metadata.md).
-* Learn about how you can [bridge your NFTs to Flow-EVM](/blockchain-development-tutorials/cross-vm-apps/vm-bridge#cross-vm-bridge) and how you can build your NFT project [to be compatible with the Flow VM bridge](/blockchain-development-tutorials/cross-vm-apps/vm-bridge#prep-your-assets-for-bridging).
-* Use a [no code tool for creating NFT projects on Flow](https://www.touchstone.city/)
+* For a deeper dive into `MetadataViews`, consult the [introduction guide](/build/cadence/advanced-concepts/metadata-views) or [the FLIP that introduced this feature].
+* Learn about how you can [bridge your NFTs to Flow-EVM](/blockchain-development-tutorials/cross-vm-apps/vm-bridge#cross-vm-bridge)and how you can [build your FT project] to be compatible with the Flow VM bridge.
+* Use a no code tool to create NFT projects on Flow with [Touchstone].
+
+[NFT]: <https://github.com/onflow/flow-nft/blob/master/contracts/NonFungibleToken.cdc#L98>)
+[standard entitlement]: <https://github.com/onflow/flow-nft/blob/master/contracts/NonFungibleToken.cdc#L58>
+[standard `NonFungibleToken.Updated` event]: <https://github.com/onflow/flow-nft/blob/master/contracts/NonFungibleToken.cdc#L63-L77>
+[the FLIP that introduced this feature]: <https://github.com/onflow/flips/blob/main/application/20210916-nft-metadata.md>.
+[Touchstone]: <https://www.touchstone.city/>
+[ViewResolver]: <https://github.com/onflow/flow-nft/blob/master/contracts/ViewResolver.cdc>
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/tokens/nft-cadence.md)
 
-Last updated on **Oct 9, 2025** by **Brian Doyle**
+Last updated on **Nov 18, 2025** by **cshannon1218**
 
 [Previous
 
@@ -39267,10 +39187,10 @@ Register Cadence Assets](/blockchain-development-tutorials/tokens/register-caden
 
 Copy as Markdown
 
-* [What are NFTs](#what-are-nfts)* [Setting Up a Project](#setting-up-a-project)
-    + [Installing Flow CLI](#installing-flow-cli)+ [Initializing a New Project](#initializing-a-new-project)* [Setting Up Our NFT on the Contract](#setting-up-our-nft-on-the-contract)
-      + [Understanding Resources](#understanding-resources)+ [Setting Up an NFT Collection](#setting-up-an-nft-collection)* [Fitting the Flow NFT Standard](#fitting-the-flow-nft-standard)
-        + [Applying the Standard](#applying-the-standard)+ [Standard NFT Events](#standard-nft-events)+ [Supporting NFT Metadata](#supporting-nft-metadata)* [Flow VM Bridge NFTs](#flow-vm-bridge-nfts)* [Deploying the Contract](#deploying-the-contract)* [Creating an NFTCollection](#creating-an-nftcollection)* [Get an Account's NFTs](#get-an-accounts-nfts)* [Minting and Depositing an NFT to a Collection](#minting-and-depositing-an-nft-to-a-collection)* [Transferring an NFT to Another Account](#transferring-an-nft-to-another-account)* [More](#more)
+* [What are NFTs](#what-are-nfts)* [Set up a project](#set-up-a-project)
+    + [Instal Flow CLI](#instal-flow-cli)+ [Initialize a New Project](#initialize-a-new-project)* [Set up our NFT on the contract](#set-up-our-nft-on-the-contract)
+      + [understand resources](#understand-resources)+ [Set Up an NFT Collection](#set-up-an-nft-collection)* [Fit the Flow NFT standard](#fit-the-flow-nft-standard)
+        + [Apply the Standard](#apply-the-standard)+ [Standard NFT Events](#standard-nft-events)+ [Supporting NFT metadata](#supporting-nft-metadata)* [Flow VM bridge NFTs](#flow-vm-bridge-nfts)* [Deploy the Contract](#deploy-the-contract)* [Create an NFTCollection](#create-an-nftcollection)* [Get an Account's NFTs](#get-an-accounts-nfts)* [Mint and Deposit an NFT to a Collection](#mint-and-deposit-an-nft-to-a-collection)* [Transfer an NFT to Another Account](#transfer-an-nft-to-another-account)* [More](#more)
 
 Flow
 
@@ -40199,7 +40119,7 @@ Search
 
                             - [account](/build/tools/clients/fcl-js/packages-docs/sdk/account)- [arg](/build/tools/clients/fcl-js/packages-docs/sdk/arg)- [args](/build/tools/clients/fcl-js/packages-docs/sdk/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockId)- [atLatestBlock](/build/tools/clients/fcl-js/packages-docs/sdk/atLatestBlock)- [authorization](/build/tools/clients/fcl-js/packages-docs/sdk/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/sdk/authorizations)- [block](/build/tools/clients/fcl-js/packages-docs/sdk/block)- [build](/build/tools/clients/fcl-js/packages-docs/sdk/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/sdk/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/sdk/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/sdk/config)- [createSdkClient](/build/tools/clients/fcl-js/packages-docs/sdk/createSdkClient)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/createSignableVoucher)- [decode](/build/tools/clients/fcl-js/packages-docs/sdk/decode)- [destroy](/build/tools/clients/fcl-js/packages-docs/sdk/destroy)- [encodeMessageFromSignable](/build/tools/clients/fcl-js/packages-docs/sdk/encodeMessageFromSignable)- [encodeTransactionEnvelope](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionEnvelope)- [encodeTransactionPayload](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionPayload)- [encodeTxIdFromVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher)- [get](/build/tools/clients/fcl-js/packages-docs/sdk/get)- [getAccount](/build/tools/clients/fcl-js/packages-docs/sdk/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/sdk/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/sdk/getBlockHeader)- [getCollection](/build/tools/clients/fcl-js/packages-docs/sdk/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/sdk/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/sdk/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/sdk/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/sdk/getTransactionStatus)- [initInteraction](/build/tools/clients/fcl-js/packages-docs/sdk/initInteraction)- [interaction](/build/tools/clients/fcl-js/packages-docs/sdk/interaction)- [isBad](/build/tools/clients/fcl-js/packages-docs/sdk/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/sdk/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/sdk/limit)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/sdk/param)- [params](/build/tools/clients/fcl-js/packages-docs/sdk/params)- [payer](/build/tools/clients/fcl-js/packages-docs/sdk/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/sdk/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/sdk/pipe)- [proposer](/build/tools/clients/fcl-js/packages-docs/sdk/proposer)- [put](/build/tools/clients/fcl-js/packages-docs/sdk/put)- [ref](/build/tools/clients/fcl-js/packages-docs/sdk/ref)- [resolve](/build/tools/clients/fcl-js/packages-docs/sdk/resolve)- [resolveAccounts](/build/tools/clients/fcl-js/packages-docs/sdk/resolveAccounts)- [resolveArguments](/build/tools/clients/fcl-js/packages-docs/sdk/resolveArguments)- [resolveCadence](/build/tools/clients/fcl-js/packages-docs/sdk/resolveCadence)- [resolveFinalNormalization](/build/tools/clients/fcl-js/packages-docs/sdk/resolveFinalNormalization)- [resolveProposerSequenceNumber](/build/tools/clients/fcl-js/packages-docs/sdk/resolveProposerSequenceNumber)- [resolveRefBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/resolveRefBlockId)- [resolveSignatures](/build/tools/clients/fcl-js/packages-docs/sdk/resolveSignatures)- [resolveValidators](/build/tools/clients/fcl-js/packages-docs/sdk/resolveValidators)- [resolveVoucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/resolveVoucherIntercept)- [response](/build/tools/clients/fcl-js/packages-docs/sdk/response)- [script](/build/tools/clients/fcl-js/packages-docs/sdk/script)- [send](/build/tools/clients/fcl-js/packages-docs/sdk/send)- [subscribe](/build/tools/clients/fcl-js/packages-docs/sdk/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeRaw)- [TestUtils](/build/tools/clients/fcl-js/packages-docs/sdk/testUtils)- [transaction](/build/tools/clients/fcl-js/packages-docs/sdk/transaction)- [update](/build/tools/clients/fcl-js/packages-docs/sdk/update)- [validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/sdk/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/sdk/why)+ [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)* voucherToTxId
 
@@ -54435,7 +54355,7 @@ Search
 
                         * [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* How to Configure FCL
 
@@ -83324,19 +83244,19 @@ We are reviewing and finalizing Flow Actions in [FLIP 339](https://github.com/on
 
 We will update these tutorials, but you may need to refactor your code if the implementation changes.
 
-Flow Actions are designed to be **composable**, which means you can chain them together like LEGO blocks to build complex strategies. Each primitive has a standardized interface that works consistently across all protocols and eliminates the need to learn multiple APIs. This composability allows atomic execution of multi-step workflows within single transactions, ensuring either complete success or safe failure. When developers combine these primitives, they create sophisticated decentralized finance (DeFi) strategies like automated yield farming, cross-protocol arbitrage, and portfolio rebalancing. The [5 Flow Actions Primitives](/blockchain-development-tutorials/forte/flow-actions/intro-to-flow-actions) are:
+Flow Actions are designed to be **composable**, which means you can chain them together like LEGO blocks to build complex strategies. Each primitive has a standardized interface that works consistently across all protocols and eliminates the need to learn multiple APIs. This composability allows atomic execution of multi-step workflows within single transactions, which ensures either complete success or safe failure. When developers combine these primitives, they create sophisticated decentralized finance (DeFi) strategies like automated yield farming, cross-protocol arbitrage, and portfolio rebalancing. The [5 Flow Actions Primitives](/blockchain-development-tutorials/forte/flow-actions/intro-to-flow-actions) are:
 
-* **Source** → Provides tokens on demand by withdrawing from vaults or claiming rewards. Sources respect minimum balance constraints and return empty vaults gracefully when nothing is available.
-* **Sink** → Accepts token deposits up to a specified capacity limit. Sinks perform no-ops rather than reverting when deposits exceed capacity, which allows smooth workflow execution.
+* **Source** → Provides tokens on demand by withdrawl from vaults or reward claims. Sources respect minimum balance constraints and return empty vaults gracefully when nothing is available.
+* **Sink** → Accepts token deposits up to a specified capacity limit. Sinks perform no-ops rather than revert when deposits exceed capacity, which allows smooth workflow execution.
 * **Swapper** → Exchanges one token type for another through DEX trades or cross-chain bridges. Swappers support bidirectional operations and provide quote estimation for slippage protection.
 * **PriceOracle** → Provides real-time price data for assets from external feeds or DEX prices. Oracles handle staleness validation and return nil for unavailable prices rather than failing.
-* **Flasher** → Issues flash loans that must be repaid within the same transaction via callback execution. Flashers enable capital-efficient strategies like arbitrage and liquidations without requiring upfront capital.
+* **Flasher** → Issues flash loans that must be repaid within the same transaction via callback execution. Flashers allow capital-efficient strategies like arbitrage and liquidations without the need for upfront capital.
 
 ## Learning objectives[​](#learning-objectives "Direct link to Learning objectives")
 
 After you complete this tutorial, you will be able to:
 
-* Understand the key features of Flow Actions including atomic composition, weak guarantees, and event traceability.
+* Understand the key features of Flow Actions, which includes atomic composition, weak guarantees, and event traceability.
 * Create and use Sources to provide tokens from various protocols and locations.
 * Create and use Sinks to accept tokens up to defined capacity limits.
 * Create and use Swappers to exchange tokens between different types with price estimation.
@@ -83385,7 +83305,7 @@ _10
 
 Source C ↗`
 
-**Example**: Multiple DEX aggregators finding the best swap route.
+**Example**: Multiple DEX aggregators find the best swap route.
 
 ## Common DeFi workflow combinations[​](#common-defi-workflow-combinations "Direct link to Common DeFi workflow combinations")
 
@@ -83451,7 +83371,7 @@ _13
 
 _13
 
-// Now you have LP tokens ready for staking or further use`
+// Now you have LP tokens ready to stake or for further use.`
 
 **Benefits:**
 
@@ -83467,7 +83387,7 @@ This workflow automatically claims accumulated staking rewards and converts them
 
 **How it works:**
 
-1. Claims pending rewards from a staking pool using user certificate.
+1. Claims pending rewards from a staking pool with user certificate.
 2. Swaps the reward tokens (for example, FLOW) to stable tokens (for example, USDC).
 3. Deposits the stable tokens to a vault with capacity limits.
 4. Returns any unconverted tokens back to the user.
@@ -83580,9 +83500,9 @@ vaultSink.depositCapacity(from: &stableTokens)`
 
 **Benefits:**
 
-* **Risk Reduction**: Converts volatile reward tokens to stable assets.
-* **Automation**: Single transaction handles claim, swap, and storage.
-* **Capital Efficiency**: No manual intervention needed for reward management.
+* **Risk Reduction**: converts volatile reward tokens to stable assets.
+* **Automation**: single transaction handles claim, swap, and storage.
+* **Capital Efficiency**: no manual intervention needed for reward management.
 
 ### Liquidity provision & yield farming[​](#liquidity-provision--yield-farming "Direct link to Liquidity provision & yield farming")
 
@@ -83595,7 +83515,7 @@ This workflow takes a single token from your vault, converts it into liquidity p
 1. Withdraws single token (for example, FLOW) from vault with minimum balance protection.
 2. Uses Zapper to split token and create LP position (FLOW/USDC pair).
 3. Stakes the resulting LP tokens in a yield farming pool.
-4. Begins earning rewards on the staked LP position.
+4. Begins to earn rewards on the staked LP position.
 
 `_26
 
@@ -83697,21 +83617,21 @@ stakingSink.depositCapacity(from: &lpTokens)`
 
 **Benefits:**
 
-* **Yield Optimization**: Converts idle tokens to yield-generating LP positions.
-* **Single Transaction**: No need for multiple manual steps or approvals.
+* **Yield Optimization**: converts idle tokens to yield-generating LP positions.
+* **Single Transaction**: no need for multiple manual steps or approvals.
 * **Automatic Staking**: LP tokens immediately start earning rewards.
 
 ### Cross-VM bridge and swap[​](#cross-vm-bridge-and-swap "Direct link to Cross-VM bridge and swap")
 
 **Goal**: Bridge tokens from Cadence to EVM, swap them, then bridge back.
 
-This workflow demonstrates Flow's unique cross-VM capabilities by bridging tokens from Cadence to Flow EVM, executing a swap using UniswapV2-style routing, and bridging the results back to Cadence. This allows access to EVM-based DEX liquidity while maintaining Cadence token ownership.
+This workflow demonstrates Flow's unique cross-VM capabilities by bridging tokens from Cadence to Flow EVM, executes a swap with UniswapV2-style routing, and bridges the results back to Cadence. This allows access to EVM-based DEX liquidity and maintain Cadence token ownership.
 
 **How it works:**
 
 1. Withdraws tokens from Cadence vault with minimum balance protection.
 2. Bridges tokens from Cadence to Flow EVM environment.
-3. Executes swap using UniswapV2 router on EVM side.
+3. Executes swap with UniswapV2 router on EVM side.
 4. Bridges the swapped tokens back to Cadence environment.
 5. Deposits final tokens to target Cadence vault.
 
@@ -83823,15 +83743,15 @@ cadenceSink.depositCapacity(from: &evmTokens)`
 
 **Benefits:**
 
-* **Extended Liquidity**: Access to both Cadence and EVM DEX liquidity.
-* **Cross-VM Arbitrage**: Exploit price differences between VM environments.
-* **Atomic Execution**: All bridging and swapping happens in single transaction.
+* **Extended Liquidity**: access to both Cadence and EVM DEX liquidity.
+* **Cross-VM Arbitrage**: exploit price differences between VM environments.
+* **Atomic Execution**: all bridges and swaps happen in single transaction.
 
 ### Flash loan arbitrage[​](#flash-loan-arbitrage "Direct link to Flash loan arbitrage")
 
 **Goal**: Borrow tokens, execute arbitrage, repay loan with profit.
 
-This advanced strategy uses flash loans to execute risk-free arbitrage by borrowing tokens, exploiting price differences across multiple DEXs, and repaying the loan with interest while keeping the profit. The entire operation happens atomically within a single transaction.
+This advanced strategy uses flash loans to execute risk-free arbitrage. To do this, it borrows tokens, exploits price differences across multiple DEXs, and repays the loan with interest while it keeps the profit. The entire operation happens atomically within a single transaction.
 
 **How it works:**
 
@@ -83839,7 +83759,7 @@ This advanced strategy uses flash loans to execute risk-free arbitrage by borrow
 2. Uses multi-swapper to find optimal arbitrage routes across DEXs.
 3. Executes trades to exploit price differences.
 4. Repays flash loan with fees from arbitrage profits.
-5. Keeps remaining profit after loan repayment.
+5. Keeps profits that remain profit after loan repayment.
 
 `_17
 
@@ -83911,7 +83831,7 @@ flasher.flashLoan(1000.0, callback: arbitrageCallback)`
 * **Risk-Free Profit**: Transaction reverts if arbitrage isn't profitable.
 * **Market Efficiency**: Helps eliminate price discrepancies across DEXs.
 
-## Advanced Wwrkflow combinations[​](#advanced-wwrkflow-combinations "Direct link to Advanced Wwrkflow combinations")
+## Advanced Workflow combinations[​](#advanced-workflow-combinations "Direct link to Advanced Workflow combinations")
 
 ### VaultSource + Zapper integration[​](#vaultsource--zapper-integration "Direct link to VaultSource + Zapper integration")
 
@@ -84009,9 +83929,9 @@ log("LP tokens created: ".concat(lpTokens.balance.toString()))`
 
 **Benefits:**
 
-* **Capital Efficiency**: Converts idle vault tokens to yield-generating LP positions.
+* **Capital Efficiency**: converts idle vault tokens to yield-generating LP positions.
 * **Automated Balancing**: Zapper handles optimal token split calculations automatically
-* **Single Transaction**: Complex multi-step process executed atomically.
+* **Single Transaction**: complex multi-step process executed atomically.
 * **Minimum Protection**: VaultSource ensures vault never goes below safety threshold.
 
 ### Price-informed rebalancing[​](#price-informed-rebalancing "Direct link to Price-informed rebalancing")
@@ -84102,16 +84022,16 @@ autoBalancer.rebalance(force: false) // Autonomous rebalancing`
 
 **Benefits:**
 
-* **Autonomous Operation**: Maintains portfolio balance without manual intervention.
-* **Risk Management**: Prevents excessive exposure through automated position sizing.
-* **Market Responsive**: Adapts to price movements with real-time oracle data.
-* **Threshold Flexibility**: Configurable upper/lower bounds for different risk profiles.
+* **Autonomous Operation**: maintains portfolio balance without manual intervention.
+* **Risk Management**: prevents excessive exposure through automated position sizing.
+* **Market Responsive**: adapts to price movements with real-time oracle data.
+* **Threshold Flexibility**: configurable upper/lower bounds for different risk profiles.
 
 ### Restake and compound strategy[​](#restake-and-compound-strategy "Direct link to Restake and compound strategy")
 
 **Goal**: Automatically compound staking rewards back into the pool.
 
-This advanced compounding strategy maximizes yield by automatically claiming staking rewards and converting them back into LP tokens for re-staking. The workflow combines rewards claiming, zapping, and staking into a seamless compound operation that accelerates yield accumulation through reinvestment.
+This advanced compounding strategy maximizes yield; it automatically claims staking rewards and converts them back into LP tokens for re-staking. The workflow combines rewards claims, zaps, and staking into a seamless compound operation that accelerates yield accumulation through reinvestment.
 
 **How it works:**
 
@@ -84239,9 +84159,9 @@ poolSink.depositCapacity(from: lpTokens)`
 
 **Benefits:**
 
-* **Compound Growth**: Exponential yield increase through automatic reinvestment.
-* **Gas Efficiency**: Single transaction handles claim, convert, and re-stake operations.
-* **Set-and-Forget**: Automated compounding without manual intervention required.
+* **Compound Growth**: exponential yield increase through automatic reinvestment.
+* **Gas Efficiency**: single transaction handles claim, convert, and re-stake operations.
+* **Set-and-Forget**: automated compounding without manual intervention required.
 * **Optimal Conversion**: Zapper ensures efficient reward token to LP token conversion.
 
 ## Safety best practices[​](#safety-best-practices "Direct link to Safety best practices")
@@ -84302,7 +84222,7 @@ assert(afterBalance >= beforeBalance, message: "Balance should not decrease")`
 
 ### Use graceful degradation[​](#use-graceful-degradation "Direct link to Use graceful degradation")
 
-Prevents entire workflows from failing when individual components encounter issues. This approach allows robust strategies that can adapt to changing market conditions or temporary protocol unavailability.
+Prevents entire workflows from failure when individual components encounter issues. This approach allows robust strategies that can adapt to volatile market conditions or temporary protocol unavailability.
 
 `_10
 
@@ -84372,9 +84292,9 @@ _10
 
 }`
 
-## Testing your combinations[​](#testing-your-combinations "Direct link to Testing your combinations")
+## Test your combinations[​](#test-your-combinations "Direct link to Test your combinations")
 
-### Unit testing[​](#unit-testing "Direct link to Unit testing")
+### Unit tests[​](#unit-tests "Direct link to Unit tests")
 
 Tests individual connectors in isolation to verify they respect their constraints and behave correctly under various conditions. This catches bugs early and ensures each component works as designed.
 
@@ -84408,7 +84328,7 @@ _10
 
 }`
 
-### Integration testing[​](#integration-testing "Direct link to Integration testing")
+### Integration tests[​](#integration-tests "Direct link to Integration tests")
 
 Validates that multiple connectors work together correctly in complete workflows. This ensures the composition logic is sound and identifies issues that only appear when components interact.
 
@@ -84454,7 +84374,7 @@ _11
 
 }`
 
-### Simulation testing[​](#simulation-testing "Direct link to Simulation testing")
+### Simulation tests[​](#simulation-tests "Direct link to Simulation tests")
 
 Tests strategies under various market conditions using mock data to verify they respond appropriately to price changes, liquidity variations, and other market dynamics. This is essential for strategies that rely on external market data.
 
@@ -84520,9 +84440,9 @@ _16
 
 Now that you understand basic combinations, explore:
 
-1. **Advanced Strategies**: Complex multi-step workflows.
-2. **Risk Management**: Advanced safety and monitoring techniques.
-3. **Custom Connectors**: Building your own protocol adapters.
+1. **Advanced Strategies**: complex multi-step workflows.
+2. **Risk Management**: advanced safety and monitoring techniques.
+3. **Custom Connectors**: build your own protocol adapters.
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
@@ -84532,7 +84452,7 @@ Composability is the core strength of Flow Actions. These examples demonstrate h
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/flow-actions/basic-combinations.md)
 
-Last updated on **Nov 6, 2025** by **cshannon1218**
+Last updated on **Nov 18, 2025** by **cshannon1218**
 
 [Previous
 
@@ -84548,10 +84468,10 @@ Copy as Markdown
 
 * [Learning objectives](#learning-objectives)* [Core Flow patterns](#core-flow-patterns)
     + [Linear Flow (Source → Swapper → Sink)](#linear-flow-source--swapper--sink)+ [Bidirectional Flow (Source ↔ Sink)](#bidirectional-flow-source--sink)+ [Aggregated Flow (Multiple Sources → Aggregator → Sink)](#aggregated-flow-multiple-sources--aggregator--sink)* [Common DeFi workflow combinations](#common-defi-workflow-combinations)
-      + [Single token to LP (Zapper)](#single-token-to-lp-zapper)+ [Reward harvesting and conversion](#reward-harvesting-and-conversion)+ [Liquidity provision & yield farming](#liquidity-provision--yield-farming)+ [Cross-VM bridge and swap](#cross-vm-bridge-and-swap)+ [Flash loan arbitrage](#flash-loan-arbitrage)* [Advanced Wwrkflow combinations](#advanced-wwrkflow-combinations)
+      + [Single token to LP (Zapper)](#single-token-to-lp-zapper)+ [Reward harvesting and conversion](#reward-harvesting-and-conversion)+ [Liquidity provision & yield farming](#liquidity-provision--yield-farming)+ [Cross-VM bridge and swap](#cross-vm-bridge-and-swap)+ [Flash loan arbitrage](#flash-loan-arbitrage)* [Advanced Workflow combinations](#advanced-workflow-combinations)
         + [VaultSource + Zapper integration](#vaultsource--zapper-integration)+ [Price-informed rebalancing](#price-informed-rebalancing)+ [Restake and compound strategy](#restake-and-compound-strategy)* [Safety best practices](#safety-best-practices)
-          + [Always check capacity](#always-check-capacity)+ [Validate balances](#validate-balances)+ [Use graceful degradation](#use-graceful-degradation)+ [Resource management](#resource-management)* [Testing your combinations](#testing-your-combinations)
-            + [Unit testing](#unit-testing)+ [Integration testing](#integration-testing)+ [Simulation testing](#simulation-testing)* [📚 Next steps](#-next-steps)* [Conclusion](#conclusion)
+          + [Always check capacity](#always-check-capacity)+ [Validate balances](#validate-balances)+ [Use graceful degradation](#use-graceful-degradation)+ [Resource management](#resource-management)* [Test your combinations](#test-your-combinations)
+            + [Unit tests](#unit-tests)+ [Integration tests](#integration-tests)+ [Simulation tests](#simulation-tests)* [📚 Next steps](#-next-steps)* [Conclusion](#conclusion)
 
 Flow
 
@@ -88106,7 +88026,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* getTransactionStatus
 
@@ -102997,7 +102917,7 @@ Last updated on **Sep 10, 2025** by **Pandit Dhamdhere**
 
 [Previous
 
-WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)[Next
+Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)[Next
 
 Flow Project Configuration](/build/tools/clients/flow-go-sdk/flowkit)
 
@@ -105331,7 +105251,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* display
 
@@ -106704,7 +106624,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* queryRaw
 
@@ -149240,7 +149160,7 @@ Search
 
                         * [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* Transactions
 
@@ -150571,7 +150491,7 @@ There are two ways to register your token: **manually** via a web interface or *
 
 ---
 
-## Manual Registration (~1 min)[​](#manual-registration-1-min "Direct link to Manual Registration (~1 min)")
+## Manual registration (~1 min)[​](#manual-registration-1-min "Direct link to Manual registration (~1 min)")
 
 The following works for both fungible and non-fungible tokens on Flow Cadence or Flow EVM.
 
@@ -150588,24 +150508,24 @@ warning
 
 ERC-20 tokens registered with this method will use the default logo of Flow Official Assets.
 
-If you want to register your ERC-20 token on Flow EVM with your customized logo, you should follow the [Register ERC-20 Token on Flow EVM](/blockchain-development-tutorials/tokens/register-erc20-token) guide.
+If you want to register your ERC-20 token on Flow EVM with your customized logo, follow the [Register ERC-20 Token on Flow EVM](/blockchain-development-tutorials/tokens/register-erc20-token) guide.
 
 ---
 
-## Programmatic Registration[​](#programmatic-registration "Direct link to Programmatic Registration")
+## Programmatic registration[​](#programmatic-registration "Direct link to Programmatic registration")
 
 For seamless automation, you can integrate token registration into your token deployment workflow.
 
-You can use the following Cadence transaction to register your Fungible or Non-Fungible token on Flow Cadence or Flow EVM.
+You can use this Cadence transaction to register your Fungible or Non-Fungible token on Flow Cadence or Flow EVM.
 
 ### Register Fungible Token or Non-Fungible Token automatically on Flow Cadence[​](#register-fungible-token-or-non-fungible-token-automatically-on-flow-cadence "Direct link to Register Fungible Token or Non-Fungible Token automatically on Flow Cadence")
 
 Use a standalone Cadence transaction to register your Fungible Token or Non-Fungible Token on Flow Cadence.
 
 * Use this **Cadence transaction**: [register-standard-asset.cdc](https://github.com/fixes-world/token-list/blob/main/cadence/transactions/register-standard-asset.cdc).
-* This transaction should be executed **right after deploying your Fungible Token or Non-Fungible Token contract**.
+* Execute this transaction **right after you deploy your Fungible Token or Non-Fungible Token contract**.
 
-Or you can also pick up some code from the [register-standard-asset.cdc](https://github.com/fixes-world/token-list/blob/main/cadence/transactions/register-standard-asset.cdc) file to make your own Cadence transaction with the same logic for more seamless integration. Here is an example:
+Or, you can also pick up some code from the [register-standard-asset.cdc](https://github.com/fixes-world/token-list/blob/main/cadence/transactions/register-standard-asset.cdc) file to make your own Cadence transaction with the same logic for more seamless integration. Here is an example:
 
 `_15
 
@@ -150665,10 +150585,10 @@ _15
 
 }`
 
-### Register ERC-20 or ERC-721 Tokens automatically on Flow EVM[​](#register-erc-20-or-erc-721-tokens-automatically-on-flow-evm "Direct link to Register ERC-20 or ERC-721 Tokens automatically on Flow EVM")
+### Register ERC-20 or ERC-721 tokens automatically on Flow EVM[​](#register-erc-20-or-erc-721-tokens-automatically-on-flow-evm "Direct link to Register ERC-20 or ERC-721 tokens automatically on Flow EVM")
 
 * Use this **Cadence transaction**: [register-evm-asset.cdc](https://github.com/fixes-world/token-list/blob/main/cadence/transactions/register-evm-asset.cdc)
-* This transaction should be executed **right after deploying your ERC-20 or ERC-721 contract**.
+* Execute this transaction **right after you deploy your ERC-20 or ERC-721 contract**.
 
 warning
 
@@ -150688,7 +150608,7 @@ For any issues, refer to the [Token List GitHub Repository](https://github.com/f
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/tokens/register-cadence-assets.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Nov 18, 2025** by **cshannon1218**
 
 [Previous
 
@@ -150702,8 +150622,8 @@ Register ERC20 Token](/blockchain-development-tutorials/tokens/register-erc20-to
 
 Copy as Markdown
 
-* [Manual Registration (~1 min)](#manual-registration-1-min)* [Programmatic Registration](#programmatic-registration)
-    + [Register Fungible Token or Non-Fungible Token automatically on Flow Cadence](#register-fungible-token-or-non-fungible-token-automatically-on-flow-cadence)+ [Register ERC-20 or ERC-721 Tokens automatically on Flow EVM](#register-erc-20-or-erc-721-tokens-automatically-on-flow-evm)+ [Next Steps](#next-steps)
+* [Manual registration (~1 min)](#manual-registration-1-min)* [Programmatic registration](#programmatic-registration)
+    + [Register Fungible Token or Non-Fungible Token automatically on Flow Cadence](#register-fungible-token-or-non-fungible-token-automatically-on-flow-cadence)+ [Register ERC-20 or ERC-721 tokens automatically on Flow EVM](#register-erc-20-or-erc-721-tokens-automatically-on-flow-evm)+ [Next Steps](#next-steps)
 
 Flow
 
@@ -159917,7 +159837,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* ping
 
@@ -164272,7 +164192,7 @@ Search
 
                             - [account](/build/tools/clients/fcl-js/packages-docs/sdk/account)- [arg](/build/tools/clients/fcl-js/packages-docs/sdk/arg)- [args](/build/tools/clients/fcl-js/packages-docs/sdk/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockId)- [atLatestBlock](/build/tools/clients/fcl-js/packages-docs/sdk/atLatestBlock)- [authorization](/build/tools/clients/fcl-js/packages-docs/sdk/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/sdk/authorizations)- [block](/build/tools/clients/fcl-js/packages-docs/sdk/block)- [build](/build/tools/clients/fcl-js/packages-docs/sdk/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/sdk/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/sdk/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/sdk/config)- [createSdkClient](/build/tools/clients/fcl-js/packages-docs/sdk/createSdkClient)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/createSignableVoucher)- [decode](/build/tools/clients/fcl-js/packages-docs/sdk/decode)- [destroy](/build/tools/clients/fcl-js/packages-docs/sdk/destroy)- [encodeMessageFromSignable](/build/tools/clients/fcl-js/packages-docs/sdk/encodeMessageFromSignable)- [encodeTransactionEnvelope](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionEnvelope)- [encodeTransactionPayload](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionPayload)- [encodeTxIdFromVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher)- [get](/build/tools/clients/fcl-js/packages-docs/sdk/get)- [getAccount](/build/tools/clients/fcl-js/packages-docs/sdk/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/sdk/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/sdk/getBlockHeader)- [getCollection](/build/tools/clients/fcl-js/packages-docs/sdk/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/sdk/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/sdk/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/sdk/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/sdk/getTransactionStatus)- [initInteraction](/build/tools/clients/fcl-js/packages-docs/sdk/initInteraction)- [interaction](/build/tools/clients/fcl-js/packages-docs/sdk/interaction)- [isBad](/build/tools/clients/fcl-js/packages-docs/sdk/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/sdk/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/sdk/limit)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/sdk/param)- [params](/build/tools/clients/fcl-js/packages-docs/sdk/params)- [payer](/build/tools/clients/fcl-js/packages-docs/sdk/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/sdk/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/sdk/pipe)- [proposer](/build/tools/clients/fcl-js/packages-docs/sdk/proposer)- [put](/build/tools/clients/fcl-js/packages-docs/sdk/put)- [ref](/build/tools/clients/fcl-js/packages-docs/sdk/ref)- [resolve](/build/tools/clients/fcl-js/packages-docs/sdk/resolve)- [resolveAccounts](/build/tools/clients/fcl-js/packages-docs/sdk/resolveAccounts)- [resolveArguments](/build/tools/clients/fcl-js/packages-docs/sdk/resolveArguments)- [resolveCadence](/build/tools/clients/fcl-js/packages-docs/sdk/resolveCadence)- [resolveFinalNormalization](/build/tools/clients/fcl-js/packages-docs/sdk/resolveFinalNormalization)- [resolveProposerSequenceNumber](/build/tools/clients/fcl-js/packages-docs/sdk/resolveProposerSequenceNumber)- [resolveRefBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/resolveRefBlockId)- [resolveSignatures](/build/tools/clients/fcl-js/packages-docs/sdk/resolveSignatures)- [resolveValidators](/build/tools/clients/fcl-js/packages-docs/sdk/resolveValidators)- [resolveVoucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/resolveVoucherIntercept)- [response](/build/tools/clients/fcl-js/packages-docs/sdk/response)- [script](/build/tools/clients/fcl-js/packages-docs/sdk/script)- [send](/build/tools/clients/fcl-js/packages-docs/sdk/send)- [subscribe](/build/tools/clients/fcl-js/packages-docs/sdk/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeRaw)- [TestUtils](/build/tools/clients/fcl-js/packages-docs/sdk/testUtils)- [transaction](/build/tools/clients/fcl-js/packages-docs/sdk/transaction)- [update](/build/tools/clients/fcl-js/packages-docs/sdk/update)- [validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/sdk/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/sdk/why)+ [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)* createSignableVoucher
 
@@ -172431,7 +172351,7 @@ Search
 
                             - [account](/build/tools/clients/fcl-js/packages-docs/sdk/account)- [arg](/build/tools/clients/fcl-js/packages-docs/sdk/arg)- [args](/build/tools/clients/fcl-js/packages-docs/sdk/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockId)- [atLatestBlock](/build/tools/clients/fcl-js/packages-docs/sdk/atLatestBlock)- [authorization](/build/tools/clients/fcl-js/packages-docs/sdk/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/sdk/authorizations)- [block](/build/tools/clients/fcl-js/packages-docs/sdk/block)- [build](/build/tools/clients/fcl-js/packages-docs/sdk/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/sdk/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/sdk/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/sdk/config)- [createSdkClient](/build/tools/clients/fcl-js/packages-docs/sdk/createSdkClient)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/createSignableVoucher)- [decode](/build/tools/clients/fcl-js/packages-docs/sdk/decode)- [destroy](/build/tools/clients/fcl-js/packages-docs/sdk/destroy)- [encodeMessageFromSignable](/build/tools/clients/fcl-js/packages-docs/sdk/encodeMessageFromSignable)- [encodeTransactionEnvelope](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionEnvelope)- [encodeTransactionPayload](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionPayload)- [encodeTxIdFromVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher)- [get](/build/tools/clients/fcl-js/packages-docs/sdk/get)- [getAccount](/build/tools/clients/fcl-js/packages-docs/sdk/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/sdk/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/sdk/getBlockHeader)- [getCollection](/build/tools/clients/fcl-js/packages-docs/sdk/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/sdk/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/sdk/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/sdk/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/sdk/getTransactionStatus)- [initInteraction](/build/tools/clients/fcl-js/packages-docs/sdk/initInteraction)- [interaction](/build/tools/clients/fcl-js/packages-docs/sdk/interaction)- [isBad](/build/tools/clients/fcl-js/packages-docs/sdk/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/sdk/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/sdk/limit)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/sdk/param)- [params](/build/tools/clients/fcl-js/packages-docs/sdk/params)- [payer](/build/tools/clients/fcl-js/packages-docs/sdk/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/sdk/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/sdk/pipe)- [proposer](/build/tools/clients/fcl-js/packages-docs/sdk/proposer)- [put](/build/tools/clients/fcl-js/packages-docs/sdk/put)- [ref](/build/tools/clients/fcl-js/packages-docs/sdk/ref)- [resolve](/build/tools/clients/fcl-js/packages-docs/sdk/resolve)- [resolveAccounts](/build/tools/clients/fcl-js/packages-docs/sdk/resolveAccounts)- [resolveArguments](/build/tools/clients/fcl-js/packages-docs/sdk/resolveArguments)- [resolveCadence](/build/tools/clients/fcl-js/packages-docs/sdk/resolveCadence)- [resolveFinalNormalization](/build/tools/clients/fcl-js/packages-docs/sdk/resolveFinalNormalization)- [resolveProposerSequenceNumber](/build/tools/clients/fcl-js/packages-docs/sdk/resolveProposerSequenceNumber)- [resolveRefBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/resolveRefBlockId)- [resolveSignatures](/build/tools/clients/fcl-js/packages-docs/sdk/resolveSignatures)- [resolveValidators](/build/tools/clients/fcl-js/packages-docs/sdk/resolveValidators)- [resolveVoucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/resolveVoucherIntercept)- [response](/build/tools/clients/fcl-js/packages-docs/sdk/response)- [script](/build/tools/clients/fcl-js/packages-docs/sdk/script)- [send](/build/tools/clients/fcl-js/packages-docs/sdk/send)- [subscribe](/build/tools/clients/fcl-js/packages-docs/sdk/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeRaw)- [TestUtils](/build/tools/clients/fcl-js/packages-docs/sdk/testUtils)- [transaction](/build/tools/clients/fcl-js/packages-docs/sdk/transaction)- [update](/build/tools/clients/fcl-js/packages-docs/sdk/update)- [validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/sdk/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/sdk/why)+ [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)* nodeVersionInfo
 
@@ -180327,7 +180247,7 @@ Search
 
                             - [account](/build/tools/clients/fcl-js/packages-docs/sdk/account)- [arg](/build/tools/clients/fcl-js/packages-docs/sdk/arg)- [args](/build/tools/clients/fcl-js/packages-docs/sdk/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockId)- [atLatestBlock](/build/tools/clients/fcl-js/packages-docs/sdk/atLatestBlock)- [authorization](/build/tools/clients/fcl-js/packages-docs/sdk/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/sdk/authorizations)- [block](/build/tools/clients/fcl-js/packages-docs/sdk/block)- [build](/build/tools/clients/fcl-js/packages-docs/sdk/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/sdk/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/sdk/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/sdk/config)- [createSdkClient](/build/tools/clients/fcl-js/packages-docs/sdk/createSdkClient)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/createSignableVoucher)- [decode](/build/tools/clients/fcl-js/packages-docs/sdk/decode)- [destroy](/build/tools/clients/fcl-js/packages-docs/sdk/destroy)- [encodeMessageFromSignable](/build/tools/clients/fcl-js/packages-docs/sdk/encodeMessageFromSignable)- [encodeTransactionEnvelope](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionEnvelope)- [encodeTransactionPayload](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionPayload)- [encodeTxIdFromVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher)- [get](/build/tools/clients/fcl-js/packages-docs/sdk/get)- [getAccount](/build/tools/clients/fcl-js/packages-docs/sdk/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/sdk/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/sdk/getBlockHeader)- [getCollection](/build/tools/clients/fcl-js/packages-docs/sdk/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/sdk/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/sdk/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/sdk/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/sdk/getTransactionStatus)- [initInteraction](/build/tools/clients/fcl-js/packages-docs/sdk/initInteraction)- [interaction](/build/tools/clients/fcl-js/packages-docs/sdk/interaction)- [isBad](/build/tools/clients/fcl-js/packages-docs/sdk/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/sdk/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/sdk/limit)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/sdk/param)- [params](/build/tools/clients/fcl-js/packages-docs/sdk/params)- [payer](/build/tools/clients/fcl-js/packages-docs/sdk/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/sdk/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/sdk/pipe)- [proposer](/build/tools/clients/fcl-js/packages-docs/sdk/proposer)- [put](/build/tools/clients/fcl-js/packages-docs/sdk/put)- [ref](/build/tools/clients/fcl-js/packages-docs/sdk/ref)- [resolve](/build/tools/clients/fcl-js/packages-docs/sdk/resolve)- [resolveAccounts](/build/tools/clients/fcl-js/packages-docs/sdk/resolveAccounts)- [resolveArguments](/build/tools/clients/fcl-js/packages-docs/sdk/resolveArguments)- [resolveCadence](/build/tools/clients/fcl-js/packages-docs/sdk/resolveCadence)- [resolveFinalNormalization](/build/tools/clients/fcl-js/packages-docs/sdk/resolveFinalNormalization)- [resolveProposerSequenceNumber](/build/tools/clients/fcl-js/packages-docs/sdk/resolveProposerSequenceNumber)- [resolveRefBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/resolveRefBlockId)- [resolveSignatures](/build/tools/clients/fcl-js/packages-docs/sdk/resolveSignatures)- [resolveValidators](/build/tools/clients/fcl-js/packages-docs/sdk/resolveValidators)- [resolveVoucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/resolveVoucherIntercept)- [response](/build/tools/clients/fcl-js/packages-docs/sdk/response)- [script](/build/tools/clients/fcl-js/packages-docs/sdk/script)- [send](/build/tools/clients/fcl-js/packages-docs/sdk/send)- [subscribe](/build/tools/clients/fcl-js/packages-docs/sdk/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeRaw)- [TestUtils](/build/tools/clients/fcl-js/packages-docs/sdk/testUtils)- [transaction](/build/tools/clients/fcl-js/packages-docs/sdk/transaction)- [update](/build/tools/clients/fcl-js/packages-docs/sdk/update)- [validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/sdk/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/sdk/why)+ [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)* encodeMessageFromSignable
 
@@ -181123,7 +181043,7 @@ Search
 
                             - [account](/build/tools/clients/fcl-js/packages-docs/sdk/account)- [arg](/build/tools/clients/fcl-js/packages-docs/sdk/arg)- [args](/build/tools/clients/fcl-js/packages-docs/sdk/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockId)- [atLatestBlock](/build/tools/clients/fcl-js/packages-docs/sdk/atLatestBlock)- [authorization](/build/tools/clients/fcl-js/packages-docs/sdk/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/sdk/authorizations)- [block](/build/tools/clients/fcl-js/packages-docs/sdk/block)- [build](/build/tools/clients/fcl-js/packages-docs/sdk/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/sdk/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/sdk/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/sdk/config)- [createSdkClient](/build/tools/clients/fcl-js/packages-docs/sdk/createSdkClient)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/createSignableVoucher)- [decode](/build/tools/clients/fcl-js/packages-docs/sdk/decode)- [destroy](/build/tools/clients/fcl-js/packages-docs/sdk/destroy)- [encodeMessageFromSignable](/build/tools/clients/fcl-js/packages-docs/sdk/encodeMessageFromSignable)- [encodeTransactionEnvelope](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionEnvelope)- [encodeTransactionPayload](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionPayload)- [encodeTxIdFromVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher)- [get](/build/tools/clients/fcl-js/packages-docs/sdk/get)- [getAccount](/build/tools/clients/fcl-js/packages-docs/sdk/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/sdk/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/sdk/getBlockHeader)- [getCollection](/build/tools/clients/fcl-js/packages-docs/sdk/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/sdk/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/sdk/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/sdk/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/sdk/getTransactionStatus)- [initInteraction](/build/tools/clients/fcl-js/packages-docs/sdk/initInteraction)- [interaction](/build/tools/clients/fcl-js/packages-docs/sdk/interaction)- [isBad](/build/tools/clients/fcl-js/packages-docs/sdk/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/sdk/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/sdk/limit)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/sdk/param)- [params](/build/tools/clients/fcl-js/packages-docs/sdk/params)- [payer](/build/tools/clients/fcl-js/packages-docs/sdk/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/sdk/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/sdk/pipe)- [proposer](/build/tools/clients/fcl-js/packages-docs/sdk/proposer)- [put](/build/tools/clients/fcl-js/packages-docs/sdk/put)- [ref](/build/tools/clients/fcl-js/packages-docs/sdk/ref)- [resolve](/build/tools/clients/fcl-js/packages-docs/sdk/resolve)- [resolveAccounts](/build/tools/clients/fcl-js/packages-docs/sdk/resolveAccounts)- [resolveArguments](/build/tools/clients/fcl-js/packages-docs/sdk/resolveArguments)- [resolveCadence](/build/tools/clients/fcl-js/packages-docs/sdk/resolveCadence)- [resolveFinalNormalization](/build/tools/clients/fcl-js/packages-docs/sdk/resolveFinalNormalization)- [resolveProposerSequenceNumber](/build/tools/clients/fcl-js/packages-docs/sdk/resolveProposerSequenceNumber)- [resolveRefBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/resolveRefBlockId)- [resolveSignatures](/build/tools/clients/fcl-js/packages-docs/sdk/resolveSignatures)- [resolveValidators](/build/tools/clients/fcl-js/packages-docs/sdk/resolveValidators)- [resolveVoucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/resolveVoucherIntercept)- [response](/build/tools/clients/fcl-js/packages-docs/sdk/response)- [script](/build/tools/clients/fcl-js/packages-docs/sdk/script)- [send](/build/tools/clients/fcl-js/packages-docs/sdk/send)- [subscribe](/build/tools/clients/fcl-js/packages-docs/sdk/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeRaw)- [TestUtils](/build/tools/clients/fcl-js/packages-docs/sdk/testUtils)- [transaction](/build/tools/clients/fcl-js/packages-docs/sdk/transaction)- [update](/build/tools/clients/fcl-js/packages-docs/sdk/update)- [validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/sdk/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/sdk/why)+ [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)* getNodeVersionInfo
 
@@ -191653,7 +191573,7 @@ Search
 
                         * [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* Proving Ownership of a Flow Account
 
@@ -208407,7 +208327,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* Type Definitions
 
@@ -208982,7 +208902,7 @@ Search
 
                         * [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* Authentication
 
@@ -212319,7 +212239,7 @@ Search
 
                             - [account](/build/tools/clients/fcl-js/packages-docs/sdk/account)- [arg](/build/tools/clients/fcl-js/packages-docs/sdk/arg)- [args](/build/tools/clients/fcl-js/packages-docs/sdk/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockId)- [atLatestBlock](/build/tools/clients/fcl-js/packages-docs/sdk/atLatestBlock)- [authorization](/build/tools/clients/fcl-js/packages-docs/sdk/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/sdk/authorizations)- [block](/build/tools/clients/fcl-js/packages-docs/sdk/block)- [build](/build/tools/clients/fcl-js/packages-docs/sdk/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/sdk/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/sdk/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/sdk/config)- [createSdkClient](/build/tools/clients/fcl-js/packages-docs/sdk/createSdkClient)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/createSignableVoucher)- [decode](/build/tools/clients/fcl-js/packages-docs/sdk/decode)- [destroy](/build/tools/clients/fcl-js/packages-docs/sdk/destroy)- [encodeMessageFromSignable](/build/tools/clients/fcl-js/packages-docs/sdk/encodeMessageFromSignable)- [encodeTransactionEnvelope](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionEnvelope)- [encodeTransactionPayload](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionPayload)- [encodeTxIdFromVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher)- [get](/build/tools/clients/fcl-js/packages-docs/sdk/get)- [getAccount](/build/tools/clients/fcl-js/packages-docs/sdk/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/sdk/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/sdk/getBlockHeader)- [getCollection](/build/tools/clients/fcl-js/packages-docs/sdk/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/sdk/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/sdk/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/sdk/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/sdk/getTransactionStatus)- [initInteraction](/build/tools/clients/fcl-js/packages-docs/sdk/initInteraction)- [interaction](/build/tools/clients/fcl-js/packages-docs/sdk/interaction)- [isBad](/build/tools/clients/fcl-js/packages-docs/sdk/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/sdk/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/sdk/limit)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/sdk/param)- [params](/build/tools/clients/fcl-js/packages-docs/sdk/params)- [payer](/build/tools/clients/fcl-js/packages-docs/sdk/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/sdk/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/sdk/pipe)- [proposer](/build/tools/clients/fcl-js/packages-docs/sdk/proposer)- [put](/build/tools/clients/fcl-js/packages-docs/sdk/put)- [ref](/build/tools/clients/fcl-js/packages-docs/sdk/ref)- [resolve](/build/tools/clients/fcl-js/packages-docs/sdk/resolve)- [resolveAccounts](/build/tools/clients/fcl-js/packages-docs/sdk/resolveAccounts)- [resolveArguments](/build/tools/clients/fcl-js/packages-docs/sdk/resolveArguments)- [resolveCadence](/build/tools/clients/fcl-js/packages-docs/sdk/resolveCadence)- [resolveFinalNormalization](/build/tools/clients/fcl-js/packages-docs/sdk/resolveFinalNormalization)- [resolveProposerSequenceNumber](/build/tools/clients/fcl-js/packages-docs/sdk/resolveProposerSequenceNumber)- [resolveRefBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/resolveRefBlockId)- [resolveSignatures](/build/tools/clients/fcl-js/packages-docs/sdk/resolveSignatures)- [resolveValidators](/build/tools/clients/fcl-js/packages-docs/sdk/resolveValidators)- [resolveVoucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/resolveVoucherIntercept)- [response](/build/tools/clients/fcl-js/packages-docs/sdk/response)- [script](/build/tools/clients/fcl-js/packages-docs/sdk/script)- [send](/build/tools/clients/fcl-js/packages-docs/sdk/send)- [subscribe](/build/tools/clients/fcl-js/packages-docs/sdk/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeRaw)- [TestUtils](/build/tools/clients/fcl-js/packages-docs/sdk/testUtils)- [transaction](/build/tools/clients/fcl-js/packages-docs/sdk/transaction)- [update](/build/tools/clients/fcl-js/packages-docs/sdk/update)- [validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/sdk/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/sdk/why)+ [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)* resolveProposerSequenceNumber
 
@@ -226521,7 +226441,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* atBlockId
 
@@ -229402,7 +229322,7 @@ Search
 
                             - [account](/build/tools/clients/fcl-js/packages-docs/sdk/account)- [arg](/build/tools/clients/fcl-js/packages-docs/sdk/arg)- [args](/build/tools/clients/fcl-js/packages-docs/sdk/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockId)- [atLatestBlock](/build/tools/clients/fcl-js/packages-docs/sdk/atLatestBlock)- [authorization](/build/tools/clients/fcl-js/packages-docs/sdk/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/sdk/authorizations)- [block](/build/tools/clients/fcl-js/packages-docs/sdk/block)- [build](/build/tools/clients/fcl-js/packages-docs/sdk/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/sdk/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/sdk/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/sdk/config)- [createSdkClient](/build/tools/clients/fcl-js/packages-docs/sdk/createSdkClient)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/createSignableVoucher)- [decode](/build/tools/clients/fcl-js/packages-docs/sdk/decode)- [destroy](/build/tools/clients/fcl-js/packages-docs/sdk/destroy)- [encodeMessageFromSignable](/build/tools/clients/fcl-js/packages-docs/sdk/encodeMessageFromSignable)- [encodeTransactionEnvelope](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionEnvelope)- [encodeTransactionPayload](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionPayload)- [encodeTxIdFromVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher)- [get](/build/tools/clients/fcl-js/packages-docs/sdk/get)- [getAccount](/build/tools/clients/fcl-js/packages-docs/sdk/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/sdk/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/sdk/getBlockHeader)- [getCollection](/build/tools/clients/fcl-js/packages-docs/sdk/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/sdk/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/sdk/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/sdk/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/sdk/getTransactionStatus)- [initInteraction](/build/tools/clients/fcl-js/packages-docs/sdk/initInteraction)- [interaction](/build/tools/clients/fcl-js/packages-docs/sdk/interaction)- [isBad](/build/tools/clients/fcl-js/packages-docs/sdk/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/sdk/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/sdk/limit)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/sdk/param)- [params](/build/tools/clients/fcl-js/packages-docs/sdk/params)- [payer](/build/tools/clients/fcl-js/packages-docs/sdk/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/sdk/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/sdk/pipe)- [proposer](/build/tools/clients/fcl-js/packages-docs/sdk/proposer)- [put](/build/tools/clients/fcl-js/packages-docs/sdk/put)- [ref](/build/tools/clients/fcl-js/packages-docs/sdk/ref)- [resolve](/build/tools/clients/fcl-js/packages-docs/sdk/resolve)- [resolveAccounts](/build/tools/clients/fcl-js/packages-docs/sdk/resolveAccounts)- [resolveArguments](/build/tools/clients/fcl-js/packages-docs/sdk/resolveArguments)- [resolveCadence](/build/tools/clients/fcl-js/packages-docs/sdk/resolveCadence)- [resolveFinalNormalization](/build/tools/clients/fcl-js/packages-docs/sdk/resolveFinalNormalization)- [resolveProposerSequenceNumber](/build/tools/clients/fcl-js/packages-docs/sdk/resolveProposerSequenceNumber)- [resolveRefBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/resolveRefBlockId)- [resolveSignatures](/build/tools/clients/fcl-js/packages-docs/sdk/resolveSignatures)- [resolveValidators](/build/tools/clients/fcl-js/packages-docs/sdk/resolveValidators)- [resolveVoucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/resolveVoucherIntercept)- [response](/build/tools/clients/fcl-js/packages-docs/sdk/response)- [script](/build/tools/clients/fcl-js/packages-docs/sdk/script)- [send](/build/tools/clients/fcl-js/packages-docs/sdk/send)- [subscribe](/build/tools/clients/fcl-js/packages-docs/sdk/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeRaw)- [TestUtils](/build/tools/clients/fcl-js/packages-docs/sdk/testUtils)- [transaction](/build/tools/clients/fcl-js/packages-docs/sdk/transaction)- [update](/build/tools/clients/fcl-js/packages-docs/sdk/update)- [validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/sdk/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/sdk/why)+ [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* @onflow/sdk
 
@@ -238826,22 +238746,19 @@ On this page
 
 info
 
-This guide is an in-depth tutorial on launching a Fungible Token contract from scratch. To launch in 2 minutes using a tool check out [Toucans](https://toucans.ecdao.org/)
+This guide is an in-depth tutorial on launching a Fungible Token contract from scratch. To launch in two minutes with a tool, check out [Toucans](https://toucans.ecdao.org/)
 
-## What are Fungible Tokens?[​](#what-are-fungible-tokens "Direct link to What are Fungible Tokens?")
+## What are fungible tokens?[​](#what-are-fungible-tokens "Direct link to What are fungible tokens?")
 
-Fungible tokens are digital assets that are interchangeable and indistinguishable with other tokens of the same type. This means that each token is identical in specification to every other token in circulation. Think of them like traditional money; every dollar bill has the same value as every other dollar bill. Fungible tokens play a crucial role in web3 ecosystems, serving as both a means of payment and an incentive for network participation. They can take on various roles including currencies, structured financial instruments, shares of index funds, and even voting rights in decentralized autonomous organizations.
+Fungible tokens are digital assets that are interchangeable and indistinguishable with other tokens of the same type. This means that each token is identical in specification to every other token in circulation. Think of them like traditional money; every dollar bill has the same value as every other dollar bill.
+
+Fungible tokens play a crucial role in web3 ecosystems. They serve as both a means of payment and an incentive for network participation. They can take on various roles, such as currencies, structured financial instruments, shares of index funds, and even voting rights in decentralized autonomous organizations.
 
 ## Vaults on Flow[​](#vaults-on-flow "Direct link to Vaults on Flow")
 
-On the Flow blockchain and in the Cadence programming language,
-fungible tokens are stored in structures called resources.
-Resources are objects in Cadence that store data,
-but have special restrictions about how they can be stored and transferred,
-making them perfect for representing digital objects with real value.
+On the Flow blockchain and in the Cadence programming language, fungible tokens are stored in structures called resources. Resources are objects in Cadence that store data, but have special restrictions about how they can be stored and transferred, which makes them perfect to represent digital objects with real value.
 
-You can learn more about resources in the Cadence [documentation](https://cadence-lang.org/docs/language/resources)
-and [tutorials](https://cadence-lang.org/docs/tutorial/resources).
+You can learn more about resources in the [Cadence documentation](https://cadence-lang.org/docs/language/resources) and [Cadence tutorials](https://cadence-lang.org/docs/tutorial/resources).
 
 For fungible tokens specifically, tokens are represented by a resource type called a `Vault`:
 
@@ -238865,50 +238782,42 @@ _10
 
 }`
 
-Think of a `Vault` as a digital piggy bank.
-Users who own fungible tokens store vault objects that track their balances
-directly in their account storage. This is opposed to languages
-that track user balances in a central ledger smart contract.
+Think of a `Vault` as a digital piggy bank. Users who own fungible tokens store vault objects that track their balances directly in their account storage. This is opposed to languages that track user balances in a central ledger smart contract.
 
 When you transfer tokens from one vault to another:
 
-1. The transferor's vault creates a temporary vault holding the transfer amount.
+1. The transferor's vault creates a temporary vault that contains the transfer amount.
 2. The original vault's balance decreases by the transfer amount.
-3. The recipient's vault receives the tokens from the temporary vault
-   and adds the temporary vault's balance to the its own balance.
+3. The recipient's vault receives the tokens from the temporary vault and adds the temporary vault's balance to the its own balance.
 4. The temporary vault is then destroyed.
 
 This process ensures secure and accurate token transfers on the Flow blockchain.
 
-## Fungible Token Standard[​](#fungible-token-standard "Direct link to Fungible Token Standard")
+## Fungible token standard[​](#fungible-token-standard "Direct link to Fungible token standard")
 
-The [Fungible Token Standard](https://github.com/onflow/flow-ft) defines how a fungible token should behave on Flow.
-Wallets and other platforms need to recognize these tokens,
-so they adhere to a specific interface, which defines fields like balance,
-totalSupply, withdraw functionality, and more.
-This interface ensures that all fungible tokens on Flow have a consistent structure and behavior.
-Clink the link to the fungible token standard to see the full standard
-and learn about specific features and requirements.
+The [Fungible Token Standard] defines how a fungible token should behave on Flow. Wallets and other platforms need to recognize these tokens, so they adhere to a specific interface, which defines fields like balance, totalSupply, withdraw functionality, and more. This interface ensures that all fungible tokens on Flow have a consistent structure and behavior.
 
-[Learn more about interfaces here](https://developers.flow.com/cadence/language/interfaces).
+Clink the link to the fungible token standard to see the full standard and learn about specific features and requirements.
 
-## Setting Up a Project[​](#setting-up-a-project "Direct link to Setting Up a Project")
+[Learn more about interfaces here](https://cadence-lang.org/docs/language/interfaces).
 
-To start creating a Fungible Token on the Flow blockchain, you'll first need some tools and configurations in place.
+## Set up a project[​](#set-up-a-project "Direct link to Set up a project")
 
-### Installing Flow CLI[​](#installing-flow-cli "Direct link to Installing Flow CLI")
+To create a fungible token on the Flow blockchain, you'll first need some tools and configurations in place.
+
+### Install Flow CLI[​](#install-flow-cli "Direct link to Install Flow CLI")
 
 The **Flow CLI** (Command Line Interface) provides a suite of tools that allow developers to interact seamlessly with the Flow blockchain.
 
-If you haven't installed the Flow CLI yet and have [Homebrew](https://brew.sh/) installed,
-you can run `brew install flow-cli`. If you don't have Homebrew,
-please follow [the installation guide here](https://developers.flow.com/tools/flow-cli/install).
+If you haven't installed the Flow CLI yet and have [Homebrew](https://brew.sh/) installed, you can run `brew install flow-cli`. If you don't have Homebrew, follow the [Flow CLI installation guide](/build/tools/flow-cli/install).
 
-### Initializing a New Project[​](#initializing-a-new-project "Direct link to Initializing a New Project")
+### Initialize a new project[​](#initialize-a-new-project "Direct link to Initialize a new project")
 
-> 💡 Note: Here is [a link to the completed code](https://github.com/onflow/FooToken) if you want to skip ahead or reference as you follow along.
+info
 
-Once you have the Flow CLI installed, you can set up a new project using the `flow init` command. This command initializes the necessary directory structure and a `flow.json` configuration file (a way to configure your project for contract sources, deployments, accounts, and more):
+> 💡 Here is a link to the [completed code](https://github.com/onflow/FooToken) if you want to skip ahead or reference as you follow along.
+
+After you've installed the Flow CLI, you can set up a new project with the `flow init` command. This command initializes the necessary directory structure and a `flow.json` configuration file (a way to configure your project for contract sources, deployments, accounts, and more):
 
 `_10
 
@@ -238916,7 +238825,7 @@ flow init FooToken`
 
 Select `Basic Cadence project (no dependencies)`.
 
-Upon execution, the command will generate the following directory structure:
+When you execute the command, it generates the following directory structure:
 
 `_10
 
@@ -238948,19 +238857,9 @@ Now, navigate into the project directory:
 
 cd FooToken`
 
-In our configuration file, called `flow.json`, for the network we want to use,
-we are going to state the address the `FungibleToken` contract is deployed
-to via `aliases` in a new `contracts` section. Since it is a standard contract,
-it has already been deployed to the emulator, a tool that runs and emulates
-a local development version of the Flow Blockchain, for us.
-You can find addresses for other networks, like Testnet and Mainnet, on the [Fungible Token Standard repo](https://github.com/onflow/flow-ft).
+In our configuration file, called `flow.json`, for the network we want to use, we'll state the address the `FungibleToken` contract is deployed to via `aliases` in a new `contracts` section. Since it is a standard contract, it has already been deployed to the emulator, a tool that runs and emulates a local development version of the Flow Blockchain, for us. You can find addresses for other networks, like Testnet and Mainnet, on the [Fungible Token Standard] repo.
 
-We'll also need to add the addresses for `ViewResolver`, `MetadataViews`,
-and `FungibleTokenMetadataViews`, which are other important contracts to use.
-These contracts are deployed to the Flow emulator by default,
-so there is not need to copy their code into your repo.
-The addresses below are the addresses in the emulator that your contract
-will import them from.
+We'll also need to add the addresses for `ViewResolver`, `MetadataViews`, and `FungibleTokenMetadataViews`, which are other important contracts to use. These contracts are deployed to the Flow emulator by default, so there is not need to copy their code into your repo. The addresses below are the addresses in the emulator that your contract will import them from.
 
 `_22
 
@@ -239050,9 +238949,9 @@ _22
 
 }`
 
-## Writing Our Token Contract[​](#writing-our-token-contract "Direct link to Writing Our Token Contract")
+## Write Our token contract[​](#write-our-token-contract "Direct link to Write Our token contract")
 
-Next let's create a `FooToken` contract at `cadence/contract/FooToken.cdc` using the boilerplate `generate` command from the Flow CLI:
+Next let's create a `FooToken` contract at `cadence/contract/FooToken.cdc` with the boilerplate `generate` command from the Flow CLI:
 
 `_10
 
@@ -239066,10 +238965,9 @@ In this contract file, we want to import our `FungibleToken` contract that we've
 
 import "FungibleToken"`
 
-In this same file, let's create our contract which implements the `FungibleToken` contract interface (it does so by setting it following the `FooToken:`).
-We'll also include fields for standard storage and public paths
-for our resource definitions.
-In our `init` — which runs on the contract's first deployment and is used to set initial values — let's set an starting total supply of 1,000 tokens for this example.
+In this same file, let's create our contract which implements the `FungibleToken` contract interface (to do this, it sets it after the `FooToken:`). We'll also include fields for standard storage and public paths for our resource definitions.
+
+In our `init` — which runs on the contract's first deployment and is used to set initial values — let's set an initial total supply of 1,000 tokens for this example.
 
 `_16
 
@@ -239129,12 +239027,9 @@ _16
 
 }`
 
-### Creating a Vault[​](#creating-a-vault "Direct link to Creating a Vault")
+### Create a vault[​](#create-a-vault "Direct link to Create a vault")
 
-Inside of this contract, we'll need to create a resource for a `Vault`.
-The `FungibleToken` standard requires that your vault implements the `FungibleToken.Vault` interface.
-This interface inherits from [many other interfaces](https://github.com/onflow/flow-ft/blob/master/contracts/FungibleToken.cdc#L140)
-which enforce different functionality that you can learn about in the standard.
+Inside of this contract, we'll need to create a resource for a `Vault`. The `FungibleToken` standard requires that your vault implements the `FungibleToken.Vault` interface. This interface inherits from [many other interfaces](https://github.com/onflow/flow-ft/blob/master/contracts/FungibleToken.cdc#L140), which enforce different functionality that you can learn about in the standard.
 
 `_16
 
@@ -239190,16 +239085,9 @@ _16
 
 }`
 
-In order to give an account a vault, we need to create a function
-that creates a vault of our FooToken type and returns it to the account.
-This function takes a `vaultType: Type` argument that allows the caller
-to specify which type of `Vault` they want to create.
-Contracts that implement multiple `Vault` types can use this argument,
-but since your contract is only implementing one `Vault` type,
-it can ignore the argument.
+In order to give an account a vault, we need to create a function that creates a vault of our `FooToken` type and returns it to the account. This function takes a `vaultType: Type` argument that allows the caller to specify which type of `Vault` they want to create. Contracts that implement multiple `Vault` types can use this argument, but since your contract only implements one `Vault` type, it can ignore the argument.
 
-A simpler version of this function with no parameter
-should also be added to your `Vault` implementation.
+You should also add a simpler version of this function with no parameter to your `Vault` implementation.
 
 `_24
 
@@ -239281,9 +239169,7 @@ _24
 
 }`
 
-Inside our `Vault` resource, we also need a way to withdraw balances.
-To do that, we need to add a `withdraw()` function that returns a new vault
-with the transfer amount and decrements the existing balance.
+Inside our `Vault` resource, we also need a way to withdraw balances. To do that, we need to add a `withdraw()` function that returns a new vault with the transfer amount and decrements the current balance.
 
 `_20
 
@@ -239351,17 +239237,11 @@ _20
 
 }`
 
-As you can see, this function has an `access(FungibleToken.Withdraw)` access modifier.
-This is an example of entitlements in Cadence.
-[Entitlements](https://cadence-lang.org/docs/language/access-control#entitlements)
-are a way for developers to restrict access to privileged fields and functions
-in a composite type like a resource when a reference is created for it.
-In this example, the `withdraw()` function is always accessible to code that
-controls the full `Vault` object, but if a reference is created for it,
-the `withdraw()` function can only be called if the reference
-is authorized by the owner with `FungibleToken.Withdraw`,
-which is [a standard entitlement](https://github.com/onflow/flow-ft/blob/master/contracts/FungibleToken.cdc#L53)
-defined by the FungibleToken contract:
+As you can see, this function has an `access(FungibleToken.Withdraw)` access modifier. This is an example of entitlements in Cadence. [Entitlements](https://cadence-lang.org/docs/language/access-control#entitlements) are a way for developers to restrict access to privileged fields and functions in a composite type like a resource when a reference is created for it. They are what protects third-party access to the privileged functionality in your resource objects. We recommend that you read the [Entitlements](https://cadence-lang.org/docs/language/access-control#entitlements) documentation to understand how to use the feature properly.
+
+[References](https://cadence-lang.org/docs/language/references)can be freely up-casted and down-casted in Cadence, so it is important for privileged functionality to be protected by an entitlement so that it can only be accessed if it is authorized.
+
+In this example, the `withdraw()` function is always accessible to code that controls the full `Vault` object, but if a reference is created for it, the `withdraw()` function can only be called if the reference is authorized by the owner with `FungibleToken.Withdraw`, which is a [standard entitlement](https://github.com/onflow/flow-ft/blob/master/contracts/FungibleToken.cdc#L53) defined by the FungibleToken contract:
 
 `_10
 
@@ -239371,19 +239251,7 @@ _10
 
 <auth(FungibleToken.Withdraw) &{FungibleToken.Vault}>`
 
-Entitlements are important to understand because they are what protects
-privileged functionality in your resource objects from being accessed by third-parties.
-It is recommended to read the [entitlements documentation](https://cadence-lang.org/docs/language/access-control#entitlements)
-to understand how to use the feature properly.
-
-[References](https://cadence-lang.org/docs/language/references) can be freely up-casted and down-casted in Cadence, so it is important
-for privileged functionality to be protected by an entitlement so that it can
-only be accessed if it is authorized.
-
-In addition to withdrawing, the vault also needs a way to deposit.
-We'll [typecast](https://cadence-lang.org/docs/language/operators#casting-operators)
-to make sure we are dealing with the correct token, update the vault balance,
-and destroy the vault. Add this code to your resource:
+In addition to withdrawl, the vault also needs a way to deposit. We'll [typecast](https://cadence-lang.org/docs/language/operators/casting-operators) to make sure we are dealing with the correct token, update the vault balance, and destroy the vault. Add this code to your resource:
 
 `_22
 
@@ -239457,10 +239325,7 @@ _22
 
 }`
 
-Many projects rely on events the signal when withdrawals, deposits, or burns happen.
-Luckily, the `FungibleToken` standard handles the definition and emission
-of events for projects, so there is no need for you to add any events
-to your implementation for withdraw, deposit, and burn.
+Many projects rely on events the signal when withdrawals, deposits, or burns happen. Luckily, the `FungibleToken` standard handles the definition and emission of events for projects, so there is no need for you to add any events to your implementation for withdraw, deposit, and burn.
 
 Here are the `FungibleToken` event definitions:
 
@@ -239492,20 +239357,13 @@ _10
 
 access(all) event Burned(type: String, amount: UFix64, fromUUID: UInt64)`
 
-These events are [emitted by the `Vault` interface](https://github.com/onflow/flow-ft/blob/master/contracts/FungibleToken.cdc#L198)
-in the `FungibleToken` contract whenever the relevant function is called on any implementation.
+These events are emitted by the [`Vault` interface](https://github.com/onflow/flow-ft/blob/master/contracts/FungibleToken.cdc#L198) in the `FungibleToken` contract whenever the relevant function is called on any implementation.
 
-One important piece to understand about the `Burned` event in particular
-is that in order for it to be emitted when a `Vault` is burned, it needs to
-be burnt via [the `Burner` contract's `burn()` method](https://github.com/onflow/flow-ft/blob/master/contracts/utility/Burner.cdc#L23).
+One important piece to understand about the `Burned` event in particular is that for it to be emitted when a `Vault` is burned, it needs to be burnt via [the `Burner` contract's `burn()` method](https://github.com/onflow/flow-ft/blob/master/contracts/utility/Burner.cdc#L23).
 
-The [`Burner` contract](/build/cadence/core-contracts/burner) defines a standard
-that all projects should use for handling the destruction of any resource.
-It allows projects to define custom logic that can be executed when a resource is destroyed,
-like emitting events, or updating a field in the contract to show that the resource was destroyed.
+The [`Burner` contract](/build/cadence/core-contracts/burner) defines a standard that all projects should use to handle the destruction of any resource. It allows projects to define custom logic that can be executed when a resource is destroyed, like emitting events, or update a field in the contract to show that the resource was destroyed.
 
-This will call the resource's `burnCallback()` function, which emits the event.
-You'll need to also add this function to your token contract now:
+This will call the resource's `burnCallback()` function, which emits the event. You'll need to also add this function to your token contract now:
 
 `` _24
 
@@ -239587,11 +239445,9 @@ _24
 
 } ``
 
-If you ever need to destroy a `Vault` with a non-zero balance,
-you should destroy it via the `Burner.burn` method so this important function can be called.
+If you ever need to destroy a `Vault` with a non-zero balance, you should destroy it via the `Burner.burn` method so this important function can be called.
 
-There are three other utility methods that need to be added to your `Vault`
-to get various information:
+There are three other utility methods that need to be added to your `Vault` to get various information:
 
 `_33
 
@@ -239705,20 +239561,11 @@ _33
 
 }`
 
-### Adding Support for Metadata Views[​](#adding-support-for-metadata-views "Direct link to Adding Support for Metadata Views")
+### Add support for metadata views[​](#add-support-for-metadata-views "Direct link to Add support for metadata views")
 
-The Fungible Token standard also enforces that implementations
-provide functionality to return a set of standard views about the tokens
-via the [ViewResolver](https://github.com/onflow/flow-nft/blob/master/contracts/ViewResolver.cdc)
-and [FungibleTokenMetadataViews](https://github.com/onflow/flow-ft/blob/master/contracts/FungibleTokenMetadataViews.cdc) definitions.
-(You will need to add these imports to your contract now)
-These provide developers with standard ways of representing metadata
-about a given token such as supply, token symbols, website links, and standard
-account paths and types that third-parties can access in a standard way.
-You can see the [metadata views documentation](/build/cadence/advanced-concepts/metadata-views)
-for a more thorough guide using a NFT contract as an example.
+The Fungible Token standard also enforces that implementations provide functionality to return a set of standard views about the tokens via the [ViewResolver](https://github.com/onflow/flow-nft/blob/master/contracts/ViewResolver.cdc) and [FungibleTokenMetadataViews](https://github.com/onflow/flow-ft/blob/master/contracts/FungibleTokenMetadataViews.cdc) definitions. (You will need to add these imports to your contract now.) These provide developers with standard ways to represent metadata about a given token such as supply, token symbols, website links, and standard account paths and types that third-parties can access in a standard way.
 
-For now, you can add this code to your contract to support the important metadata views:
+You can see the [metadata views documentation](/build/cadence/advanced-concepts/metadata-views) for a more thorough guide that uses an NFT contract as an example. For now, you can add this code to your contract to support the important metadata views:
 
 `_83
 
@@ -240030,9 +239877,9 @@ _83
 
 }`
 
-### Creating a Minter[​](#creating-a-minter "Direct link to Creating a Minter")
+### Create a minter[​](#create-a-minter "Direct link to Create a minter")
 
-Let's create a minter resource which is used to mint vaults that have tokens in them. We can keep track of tokens we are minting with totalSupply
+Let's create a minter resource which is used to mint vaults that have tokens in them. We can keep track of tokens we mint with totalSupply.
 
 If we want the ability to create new tokens, we'll need a way to mint them. To do that, let's create another resource on the `FooToken` contract. This will have a `mintToken`function which can increase the total supply of the token.
 
@@ -240150,10 +239997,7 @@ _31
 
 }`
 
-We also want to decide which account/s we want to give this ability to.
-In our example, we'll give it to the account where the contract is deployed.
-We can set this in the contract init function below the setting of total supply
-so that when the contract is created the minter is stored on the same account.
+We also want to decide which accounts we want to give this ability to. In our example, we'll give it to the account where the contract is deployed. We can set this in the contract init function below the setting of total supply so that when the contract is created, the minter is stored on the same account.
 
 `_13
 
@@ -240201,7 +240045,7 @@ _13
 
 }`
 
-After each of these steps, your `FooToken.cdc` contract file should now look like this:
+After each of these steps, your `FooToken.cdc` contract file will now look like this:
 
 `` _172
 
@@ -240841,10 +240685,9 @@ _172
 
 } ``
 
-## Deploying the Contract[​](#deploying-the-contract "Direct link to Deploying the Contract")
+## Deploy the contract[​](#deploy-the-contract "Direct link to Deploy the contract")
 
-In order to use the contract, we need to deploy it to the network we want to use it on.
-In our case we are going to deploy it to emulator while developing.
+To use the contract, we need to deploy it to the network we want to use it on. In our case, we'll deploy it to emulator while we develop it.
 
 Back in our `flow.json`, let's add our `FooToken` to the `contracts` after `FungibleToken` with the path of the source code:
 
@@ -240852,9 +240695,7 @@ Back in our `flow.json`, let's add our `FooToken` to the `contracts` after `Fung
 
 "FooToken": "cadence/contracts/FooToken.cdc"`
 
-Let's also add a new `deployments` section to `flow.json` with the network
-we want to deploy it to, `emulator`, the account we want it deployed to `emulator-account`,
-and the list of contracts we want deployed in the array.
+Let's also add a new `deployments` section to `flow.json` with the network we want to deploy it to, `emulator`, the account we want it deployed to `emulator-account`, and the list of contracts we want deployed in the array.
 
 `_10
 
@@ -240876,8 +240717,7 @@ _10
 
 }`
 
-Next, using the Flow CLI, we will start the emulator. As mentioned,
-this will give us a local development environment for the Flow Blockchain.
+Next, via the Flow CLI, we will start the emulator. As mentioned, this will give us a local development environment for the Flow Blockchain.
 
 `_10
 
@@ -240889,13 +240729,11 @@ Open a new terminal and run the following to deploy your project:
 
 flow project deploy`
 
-Congrats, you've deployed your contract to the Flow Blockchain emulator.
-To read more about deploying your project to other environments,
-see the [CLI docs](https://developers.flow.com/tools/flow-cli/deployment/deploy-project-contracts).
+Congrats, you've deployed your contract to the Flow Blockchain emulator. To read more about how to deploy your project to other environments, see the [Deploy Project Contracts with CLI](/build/tools/flow-cli/deployment/deploy-project-contracts) docs.
 
-## Reading the Token's Total Supply[​](#reading-the-tokens-total-supply "Direct link to Reading the Token's Total Supply")
+## Read the token's total supply[​](#read-the-tokens-total-supply "Direct link to Read the token's total supply")
 
-Let's now check that our total supply was initialized with 1,000 FooTokens. Go ahead and create a script called `get_total_supply.cdc` using the `generate` command.
+Let's now check that our total supply was initialized with 1,000 FooTokens. Go ahead and create a script called `get_total_supply.cdc` with the `generate` command.
 
 `_10
 
@@ -240921,36 +240759,28 @@ _10
 
 }`
 
-To run this using the CLI, enter this in your terminal:
+To run this with the CLI, enter this in your terminal:
 
 `_10
 
 flow scripts execute cadence/scripts/get_total_supply.cdc`
 
-In the terminal where you started the emulator, you should see `Result: 1000.0`
+In the terminal where you started the emulator, you will see `Result: 1000.0`
 
-To learn more about running scripts using Flow CLI, [see the docs](https://developers.flow.com/tools/flow-cli/scripts/execute-scripts).
+To learn more about how to run scripts with Flow CLI, see the [Execute Scripts in Flow CLI](/build/tools/flow-cli/scripts/execute-scripts) docs.
 
-## Giving Accounts the Ability to Receive Tokens[​](#giving-accounts-the-ability-to-receive-tokens "Direct link to Giving Accounts the Ability to Receive Tokens")
+## Give accounts the ability to receive tokens[​](#give-accounts-the-ability-to-receive-tokens "Direct link to Give accounts the ability to receive tokens")
 
-On Flow, newly created accounts cannot receive arbitrary assets.
-They need to be initialized to receive resources.
-In our case, we want to give accounts tokens and we'll need to create
-a `Vault` (which acts as a receiver) on each account that we want
-to have the ability to receive tokens. To do this, we'll need to run a transaction
-which will create the vault and set it in their storage
-using the `createEmptyVault()` function we created earlier on the contract.
+On Flow, newly-created accounts cannot receive arbitrary assets. They need to be initialized to receive resources.
+In our case, we want to give accounts tokens and we'll need to create a `Vault` (which acts as a receiver) on each account that we want to have the ability to receive tokens. To do this, we'll need to run a transaction which will create the vault and set it in their storage with the `createEmptyVault()` function we created earlier on the contract.
 
-Let's first create the file at `cadence/transactions/setup_ft_account.cdc` using the `generate` command:
+Let's first create the file at `cadence/transactions/setup_ft_account.cdc` with the `generate` command:
 
 `_10
 
 flow generate transaction setup_ft_account`
 
-Then add this code to it.
-This will call the `createEmptyVault` function, save it in storage,
-and create a capability for the vault which will later allow us to read from it
-(To learn more about capabilities, see [the Cadence docs here](https://developers.flow.com/cadence/language/capabilities)).
+Then add this code to it. This will call the `createEmptyVault` function, save it in storage, and create a capability for the vault which will later allow us to read from it. To learn more about capabilities, see the [Cadence Capabilities](https://cadence-lang.org/docs/language/capabilities) docs
 
 `_24
 
@@ -241036,11 +240866,10 @@ _24
 
 }`
 
-There are also examples of [generic transactions](https://github.com/onflow/flow-ft/blob/master/transactions/metadata/setup_account_from_address.cdc)
-that you can use to setup an account for ANY fungible token using metadata views!
-You should check those out and try to use generic transactions whenever it is possible.
+There are also examples of [generic transactions](https://github.com/onflow/flow-ft/blob/master/transactions/metadata/setup_account_from_address.cdc) that you can use to setup an account for ANY fungible token with metadata views!
+Check those out and try to use generic transactions whenever it is possible.
 
-Next let's create a new emulator account using the CLI. We'll use this account to create a new vault and mint tokens into it. Run:
+Next let's create a new emulator account with the CLI. We'll use this account to create a new vault and mint tokens into it. Run:
 
 `_10
 
@@ -241060,11 +240889,11 @@ To call our setup account transaction from the CLI, we'll run the following:
 
 flow transactions send ./cadence/transactions/setup_ft_account.cdc --signer test-acct --network emulator`
 
-To learn more about running transactions using CLI, [see the docs](https://developers.flow.com/tools/flow-cli/transactions/send-transactions).
+To learn more about how to run transactions with Flow CLI, see the [Send a Transaction](/build/tools/flow-cli/transactions/send-transactions) docs.
 
-## Reading a Vault's Balance[​](#reading-a-vaults-balance "Direct link to Reading a Vault's Balance")
+## Read a vault's balance[​](#read-a-vaults-balance "Direct link to Read a vault's balance")
 
-Let's now read the balance of the newly created account (`test-acct`) to check it's zero.
+Let's now read the balance of the newly-created account (`test-acct`) to check that it's zero.
 
 Create this new script file `cadence/scripts/get_footoken_balance.cdc`:
 
@@ -241130,20 +240959,17 @@ _15
 
 }`
 
-To run this script using the CLI, enter the following in your terminal.
-Note: you'll need to replace `123` with the address created by CLI
-in your `flow.json` for the `test-acct` address.
+To run this script with the CLI, enter the following in your terminal. You'll need to replace `123` with the address created by Flow CLI in your `flow.json` for the `test-acct` address.
 
 `_10
 
 flow scripts execute cadence/scripts/get_footoken_balance.cdc 123 // change "123" to test-acct address`
 
-You should see a balance of zero logged.
+You will see a balance of zero logged.
 
-## Minting More Tokens[​](#minting-more-tokens "Direct link to Minting More Tokens")
+## Mint more tokens[​](#mint-more-tokens "Direct link to Mint more tokens")
 
-Now that we have an account with a vault, let's mint some tokens into it
-using the Minter we created on the contract account.
+Now that we have an account with a vault, let's mint some tokens into it with the Minter we created on the contract account.
 
 To do this, let's create a new transaction file `cadence/transactions/mint_footoken.cdc`:
 
@@ -241151,9 +240977,7 @@ To do this, let's create a new transaction file `cadence/transactions/mint_footo
 
 flow generate transaction mint_footoken`
 
-Next, let's add the following code to the `mint_footoken.cdc` file.
-This code will attempt to borrow the minting capability
-and mint 20 new tokens into the receivers account.
+Next, let's add the following code to the `mint_footoken.cdc` file. This code will attempt to borrow the minting capability and mint 20 new tokens into the receivers account.
 
 `_33
 
@@ -241269,9 +241093,7 @@ _33
 
 }`
 
-To run this transaction, enter this in your terminal.
-Note: `123` should be replaced with address of `test-acct` found in your `flow.json`.
-This command also states to sign with our `emulator-account` on the Emulator network.
+To run this transaction, enter this in your terminal. Replace `123` with the `test-acct` address found in your `flow.json`. This command also states to sign with our `emulator-account` on the Emulator network.
 
 `_10
 
@@ -241283,9 +241105,9 @@ Let's go ahead and read the vault again. Remember to replace `123` with the corr
 
 flow scripts execute cadence/scripts/get_footoken_balance.cdc 123`
 
-It should now say 20 tokens are in the vault.
+It will now say 20 tokens are in the vault.
 
-## Transferring Tokens Between Accounts[​](#transferring-tokens-between-accounts "Direct link to Transferring Tokens Between Accounts")
+## Transfer tokens between accounts[​](#transfer-tokens-between-accounts "Direct link to Transfer tokens between accounts")
 
 The final functionality we'll add is the ability to transfer tokens from one account to another.
 
@@ -241295,9 +241117,7 @@ To do that, create a new `cadence/transactions/transfer_footoken.cdc` transactio
 
 flow generate transaction transfer_footoken`
 
-Let's add the code which states that the signer of the transaction
-will withdraw from their vault and put it into the receiver's vault
-which will be passed as a transaction argument.
+Let's add the code which states that the signer of the transaction will withdraw from their vault and put it into the receiver's vault, which will be passed as a transaction argument.
 
 `_36
 
@@ -241445,7 +241265,7 @@ Don't forget the new account will need a vault added, so let's run the following
 
 flow transactions send ./cadence/transactions/setup_ft_account.cdc --signer test-acct-2 --network emulator`
 
-Now, let's send 1 token from our earlier account to the new account. Remember to replace `123` with account address of `test-acct-2`.
+Now, let's send one token from our earlier account to the new account. Remember to replace `123` with account address of `test-acct-2`.
 
 `_10
 
@@ -241457,20 +241277,20 @@ After that, read the balance of `test-acct-2` (replace the address `123`).
 
 flow scripts execute cadence/scripts/get_footoken_balance.cdc 123`
 
-You should now see 1 token in `test-acct-2` account!
+You will now see one token in `test-acct-2` account!
 
 The transfer transaction also has a [generic version](https://github.com/onflow/flow-ft/blob/master/transactions/generic_transfer_with_address.cdc) that developers are encouraged to use!
 
 ## More[​](#more "Direct link to More")
 
-* [View a repo of this example code](https://github.com/onflow/FooToken)
-* [Review an `ExampleToken` contract implementing all of the remaining FungibleToken interface](https://github.com/onflow/flow-ft/blob/master/contracts/ExampleToken.cdc)
-* [View the Flow Token Standard](https://github.com/onflow/flow-ft/blob/master/contracts/FungibleToken.cdc)
-* Learn about how you can [bridge your FTs to Flow-EVM](/blockchain-development-tutorials/cross-vm-apps/vm-bridge#cross-vm-bridge) and how you can build your FT project [to be compatible with the Flow VM bridge](/blockchain-development-tutorials/cross-vm-apps/vm-bridge#prep-your-assets-for-bridging).
+* View a repo of this [completed code](https://github.com/onflow/FooToken).
+* Review an [`ExampleToken`](https://github.com/onflow/flow-ft/blob/master/contracts/ExampleToken.cdc) contract that implements all of the remaining FungibleToken interface.
+* View the [Flow Token Standard](https://github.com/onflow/flow-ft)
+* Learn about how you can [bridge your FTs to Flow-EVM](/blockchain-development-tutorials/cross-vm-apps/vm-bridge#cross-vm-bridge) and how you can [build your FT project](/blockchain-development-tutorials/cross-vm-apps/vm-bridge#prep-your-assets-for-bridging) to be compatible with the Flow VM bridge.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/tokens/fungible-token-cadence.md)
 
-Last updated on **Oct 9, 2025** by **Brian Doyle**
+Last updated on **Nov 18, 2025** by **cshannon1218**
 
 [Previous
 
@@ -241484,9 +241304,9 @@ Creating an NFT Contract](/blockchain-development-tutorials/tokens/nft-cadence)
 
 Copy as Markdown
 
-* [What are Fungible Tokens?](#what-are-fungible-tokens)* [Vaults on Flow](#vaults-on-flow)* [Fungible Token Standard](#fungible-token-standard)* [Setting Up a Project](#setting-up-a-project)
-        + [Installing Flow CLI](#installing-flow-cli)+ [Initializing a New Project](#initializing-a-new-project)* [Writing Our Token Contract](#writing-our-token-contract)
-          + [Creating a Vault](#creating-a-vault)+ [Adding Support for Metadata Views](#adding-support-for-metadata-views)+ [Creating a Minter](#creating-a-minter)* [Deploying the Contract](#deploying-the-contract)* [Reading the Token's Total Supply](#reading-the-tokens-total-supply)* [Giving Accounts the Ability to Receive Tokens](#giving-accounts-the-ability-to-receive-tokens)* [Reading a Vault's Balance](#reading-a-vaults-balance)* [Minting More Tokens](#minting-more-tokens)* [Transferring Tokens Between Accounts](#transferring-tokens-between-accounts)* [More](#more)
+* [What are fungible tokens?](#what-are-fungible-tokens)* [Vaults on Flow](#vaults-on-flow)* [Fungible token standard](#fungible-token-standard)* [Set up a project](#set-up-a-project)
+        + [Install Flow CLI](#install-flow-cli)+ [Initialize a new project](#initialize-a-new-project)* [Write Our token contract](#write-our-token-contract)
+          + [Create a vault](#create-a-vault)+ [Add support for metadata views](#add-support-for-metadata-views)+ [Create a minter](#create-a-minter)* [Deploy the contract](#deploy-the-contract)* [Read the token's total supply](#read-the-tokens-total-supply)* [Give accounts the ability to receive tokens](#give-accounts-the-ability-to-receive-tokens)* [Read a vault's balance](#read-a-vaults-balance)* [Mint more tokens](#mint-more-tokens)* [Transfer tokens between accounts](#transfer-tokens-between-accounts)* [More](#more)
 
 Flow
 
@@ -258290,24 +258110,24 @@ On this page
 
 # Use AI To Build On Flow
 
-Artificial Intelligence tools can significantly enhance your Flow development experience by providing intelligent assistance, code generation, and documentation access. This tutorial series will guide you through integrating various AI tools with Flow development to boost your productivity and code quality.
+Artificial Intelligence (AI) tools can significantly enhance your Flow development experience by providing intelligent assistance, code generation, and documentation access. This tutorial series will guide you through integrating various AI tools with Flow development to boost your productivity and code quality.
 
 ## What You'll Learn[​](#what-youll-learn "Direct link to What You'll Learn")
 
 In this tutorial series, you'll discover how to:
 
-* Configure AI-powered development environments for Flow
-* Access Flow documentation directly from AI assistants
-* Generate Cadence and Solidity code with AI assistance
-* Debug and troubleshoot Flow applications with AI support
-* Leverage AI for testing and optimization
-* Build AI agents that interact with Flow using AgentKit
+* Configure AI-powered development environments for Flow.
+* Access Flow documentation directly from AI assistants.
+* Generate Cadence and Solidity code with AI assistance.
+* Debug and troubleshoot Flow applications with AI support.
+* Leverage AI for testing and optimization.
+* Build AI agents that interact with Flow using AgentKit.
 
 # AI Tutorials for Flow
 
 ## Using Claude Code with Flow[​](#using-claude-code-with-flow "Direct link to Using Claude Code with Flow")
 
-Master systematic AI-powered Flow development with Claude Code, a terminal-integrated coding assistant designed for iterative blockchain development. This comprehensive guide teaches you to implement a four-stage development methodology (Idea → Visualization → Planning → Build) while leveraging unlimited context windows, subagent capabilities, and persistent project memory. Learn to configure CLAUDE.md files for Flow-specific instructions, integrate MCP servers for blockchain interactions, and implement checkpoint-based workflows that ensure reliable smart contract development from emulator to mainnet deployment.
+Master systematic AI-powered Flow development with Claude Code, a terminal-integrated coding assistant designed for iterative blockchain development. This comprehensive guide teaches you to implement a four-stage development methodology (Idea → Visualization → Planning → Build) while leveraging unlimited context windows, subagent capabilities, and persistent project memory. Learn to configure `CLAUDE.md` files for Flow-specific instructions, integrate MCP servers for blockchain interactions, and implement checkpoint-based workflows that ensure reliable smart contract development from emulator to mainnet deployment.
 
 Tutorial: [Claude Code for Flow Development](/blockchain-development-tutorials/use-AI-to-build-on-flow/llms/claude-code)
 
@@ -258319,7 +258139,7 @@ Tutorial: [Use Flow Knowledge Base in Cursor](/blockchain-development-tutorials/
 
 ## Using Chat GPT with Flow[​](#using-chat-gpt-with-flow "Direct link to Using Chat GPT with Flow")
 
-Build your own expert AI assistant by creating a custom GPT specifically engineered to master the Flow blockchain and its Cadence smart contract language. This specialized tool will act as your personal pair programmer, providing highly accurate and context-aware answers to your most challenging development questions. By doing this, you're not just using a generic AI; you're creating a specialist trained on the exact documentation, code patterns, and best practices relevant to your work.
+Build your own expert AI assistant by creating a custom GPT specifically engineered to master the Flow blockchain and its Cadence smart contract language. This specialized tool will act as your personal pair programmer, providing highly accurate and context-aware answers to your most challenging development questions. By doing this, you're not just using a generic AI, you're creating a specialist trained on the exact documentation, code patterns, and best practices relevant to your work.
 
 Tutorial: [Use Flow Knowledge Base in ChatGPT](/blockchain-development-tutorials/use-AI-to-build-on-flow/llms/chatgpt)
 
@@ -258331,19 +258151,19 @@ Tutorial: [Data Sources](/blockchain-development-tutorials/use-AI-to-build-on-fl
 
 ## Eliza Integration[​](#eliza-integration "Direct link to Eliza Integration")
 
-Learn about using Eliza on Flow, a versatile framework for constructing sophisticated AI agents that communicate with users through natural language. This guide walks you through the entire process of configuring and launching an AI agent built with Eliza directly onto the Flow blockchain. You will discover how to engineer intelligent agents capable of comprehending and addressing user prompts, all while harnessing the power of Flow's inherently secure and scalable onchain infrastructure.
+Learn about how to use Eliza on Flow, a versatile framework for constructing sophisticated AI agents that communicate with users through natural language. This guide walks you through the entire process of configuring and launching an AI agent built with Eliza directly onto the Flow blockchain. You'll discover how to engineer intelligent agents capable of comprehending and addressing user prompts, all while harnessing the power of Flow's inherently secure and scalable onchain infrastructure.
 
 Tutorial: [Eliza on Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/eliza)
 
 ## Build AI Agents with AgentKit[​](#build-ai-agents-with-agentkit "Direct link to Build AI Agents with AgentKit")
 
-Learn how to build AI agents on Flow with AgentKit, a versatile and modular developer toolkit that is not tied to any single platform. It is engineered to dramatically accelerate the process of building, deploying, and refining AI agents by supplying pre-configured environments and a library of ready-to-use templates. This guide will walk you through the steps to launch your own custom agent on Flow's EVM-compatible testnet, leveraging the powerful combination of the Langchain framework and Anthropic's Claude large language model.
+Learn how to build AI agents on Flow with AgentKit, a versatile and modular developer toolkit that is not tied to any single platform. It's engineered to dramatically accelerate the process of building, deploying, and refining AI agents by supplying pre-configured environments and a library of ready-to-use templates. This guide walks you through the steps to launch your own custom agent on Flow's EVM-compatible testnet, leveraging the powerful combination of the Langchain framework and Anthropic's Claude large language model.
 
 Tutorial: [Build AI Agents with AgentKit](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/agentkit-flow-guide)
 
 ## MCP Guides[​](#mcp-guides "Direct link to MCP Guides")
 
-Learn how to construct a custom Flow MCP (Model Context Protocol) server or utilize an existing one to empower your AI tools. These tutorials will guide you through the process of equipping your AI applications with the unique capability to directly interact with the Flow blockchain, enabling them to perform onchain operations and access real-time data.
+Learn how to construct a custom Flow MCP (Model Context Protocol) server or use an existing one to empower your AI tools. These tutorials guide you through how to equip your AI applications with the unique capability to directly interact with the Flow blockchain, which allows them to perform onchain operations and access real-time data.
 
 Tutorial: [Flow MCP](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp)
 
@@ -258355,22 +258175,22 @@ Tutorial: [Cadence Rules](/blockchain-development-tutorials/use-AI-to-build-on-f
 
 ## Best Practices[​](#best-practices "Direct link to Best Practices")
 
-When using AI tools with Flow development:
+When you use AI tools with Flow development:
 
-* Always verify AI-generated code against Flow documentation
-* Use specific prompts that reference Flow concepts and terminology
-* Combine AI assistance with your own understanding of Flow architecture
-* Keep your AI tools updated with the latest Flow documentation
-* Test AI-generated code thoroughly before deploying to production
-* Consider the security implications of AI agents interacting with your contracts
+* Always verify AI-generated code against Flow documentation.
+* Use specific prompts that reference Flow concepts and terminology.
+* Combine AI assistance with your own understanding of Flow architecture.
+* Keep your AI tools updated with the latest Flow documentation.
+* Test AI-generated code thoroughly before deploying to production.
+* Consider the security implications of AI agents interacting with your contracts.
 
 ## Next Steps[​](#next-steps "Direct link to Next Steps")
 
-After completing these tutorials, you'll be equipped to leverage AI tools effectively in your Flow development workflow. Consider exploring our other tutorial series to deepen your understanding of Flow development:
+After compleyou completeting these tutorials, you'll be equipped to leverage AI tools effectively in your Flow development workflow. Consider exploring our other tutorial series to deepen your understanding of Flow development:
 
-* [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps/introduction) - Build applications that integrate Flow EVM and Cadence
-* [Native VRF](/blockchain-development-tutorials/native-vrf) - Implement verifiable random functions in your applications
-* [Token Launch](/blockchain-development-tutorials/tokens) - Create and launch tokens on Flow
+* [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps/introduction) - Build applications that integrate Flow EVM and Cadence.
+* [Native VRF](/blockchain-development-tutorials/native-vrf) - Implement verifiable random functions in your applications.
+* [Token Launch](/blockchain-development-tutorials/tokens) - Create and launch tokens on Flow.
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
@@ -258378,7 +258198,7 @@ Flow is the ideal platform for AI-enhanced blockchain development. The combinati
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/index.md)
 
-Last updated on **Sep 10, 2025** by **0xLisanAlGaib**
+Last updated on **Oct 27, 2025** by **cshannon1218**
 
 [Previous
 
@@ -279643,7 +279463,7 @@ Search
 
                         * [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* Signing and Verifying Arbitrary Data
 
@@ -279845,7 +279665,7 @@ Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 Transactions](/build/tools/clients/fcl-js/transactions)[Next
 
-WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)
+Flow Go SDK](/build/tools/clients/flow-go-sdk)
 
 ###### Rate this page
 
@@ -281505,7 +281325,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* args
 
@@ -285004,7 +284824,7 @@ Search
 
                             - [account](/build/tools/clients/fcl-js/packages-docs/sdk/account)- [arg](/build/tools/clients/fcl-js/packages-docs/sdk/arg)- [args](/build/tools/clients/fcl-js/packages-docs/sdk/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockId)- [atLatestBlock](/build/tools/clients/fcl-js/packages-docs/sdk/atLatestBlock)- [authorization](/build/tools/clients/fcl-js/packages-docs/sdk/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/sdk/authorizations)- [block](/build/tools/clients/fcl-js/packages-docs/sdk/block)- [build](/build/tools/clients/fcl-js/packages-docs/sdk/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/sdk/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/sdk/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/sdk/config)- [createSdkClient](/build/tools/clients/fcl-js/packages-docs/sdk/createSdkClient)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/createSignableVoucher)- [decode](/build/tools/clients/fcl-js/packages-docs/sdk/decode)- [destroy](/build/tools/clients/fcl-js/packages-docs/sdk/destroy)- [encodeMessageFromSignable](/build/tools/clients/fcl-js/packages-docs/sdk/encodeMessageFromSignable)- [encodeTransactionEnvelope](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionEnvelope)- [encodeTransactionPayload](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionPayload)- [encodeTxIdFromVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher)- [get](/build/tools/clients/fcl-js/packages-docs/sdk/get)- [getAccount](/build/tools/clients/fcl-js/packages-docs/sdk/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/sdk/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/sdk/getBlockHeader)- [getCollection](/build/tools/clients/fcl-js/packages-docs/sdk/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/sdk/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/sdk/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/sdk/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/sdk/getTransactionStatus)- [initInteraction](/build/tools/clients/fcl-js/packages-docs/sdk/initInteraction)- [interaction](/build/tools/clients/fcl-js/packages-docs/sdk/interaction)- [isBad](/build/tools/clients/fcl-js/packages-docs/sdk/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/sdk/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/sdk/limit)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/sdk/param)- [params](/build/tools/clients/fcl-js/packages-docs/sdk/params)- [payer](/build/tools/clients/fcl-js/packages-docs/sdk/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/sdk/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/sdk/pipe)- [proposer](/build/tools/clients/fcl-js/packages-docs/sdk/proposer)- [put](/build/tools/clients/fcl-js/packages-docs/sdk/put)- [ref](/build/tools/clients/fcl-js/packages-docs/sdk/ref)- [resolve](/build/tools/clients/fcl-js/packages-docs/sdk/resolve)- [resolveAccounts](/build/tools/clients/fcl-js/packages-docs/sdk/resolveAccounts)- [resolveArguments](/build/tools/clients/fcl-js/packages-docs/sdk/resolveArguments)- [resolveCadence](/build/tools/clients/fcl-js/packages-docs/sdk/resolveCadence)- [resolveFinalNormalization](/build/tools/clients/fcl-js/packages-docs/sdk/resolveFinalNormalization)- [resolveProposerSequenceNumber](/build/tools/clients/fcl-js/packages-docs/sdk/resolveProposerSequenceNumber)- [resolveRefBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/resolveRefBlockId)- [resolveSignatures](/build/tools/clients/fcl-js/packages-docs/sdk/resolveSignatures)- [resolveValidators](/build/tools/clients/fcl-js/packages-docs/sdk/resolveValidators)- [resolveVoucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/resolveVoucherIntercept)- [response](/build/tools/clients/fcl-js/packages-docs/sdk/response)- [script](/build/tools/clients/fcl-js/packages-docs/sdk/script)- [send](/build/tools/clients/fcl-js/packages-docs/sdk/send)- [subscribe](/build/tools/clients/fcl-js/packages-docs/sdk/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeRaw)- [TestUtils](/build/tools/clients/fcl-js/packages-docs/sdk/testUtils)- [transaction](/build/tools/clients/fcl-js/packages-docs/sdk/transaction)- [update](/build/tools/clients/fcl-js/packages-docs/sdk/update)- [validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/sdk/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/sdk/why)+ [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)* encodeTxIdFromVoucher
 
@@ -304722,7 +304542,7 @@ Search
 
                             - [account](/build/tools/clients/fcl-js/packages-docs/sdk/account)- [arg](/build/tools/clients/fcl-js/packages-docs/sdk/arg)- [args](/build/tools/clients/fcl-js/packages-docs/sdk/args)- [atBlockHeight](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockHeight)- [atBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/atBlockId)- [atLatestBlock](/build/tools/clients/fcl-js/packages-docs/sdk/atLatestBlock)- [authorization](/build/tools/clients/fcl-js/packages-docs/sdk/authorization)- [authorizations](/build/tools/clients/fcl-js/packages-docs/sdk/authorizations)- [block](/build/tools/clients/fcl-js/packages-docs/sdk/block)- [build](/build/tools/clients/fcl-js/packages-docs/sdk/build)- [cadence](/build/tools/clients/fcl-js/packages-docs/sdk/cadence)- [cdc](/build/tools/clients/fcl-js/packages-docs/sdk/cdc)- [config](/build/tools/clients/fcl-js/packages-docs/sdk/config)- [createSdkClient](/build/tools/clients/fcl-js/packages-docs/sdk/createSdkClient)- [createSignableVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/createSignableVoucher)- [decode](/build/tools/clients/fcl-js/packages-docs/sdk/decode)- [destroy](/build/tools/clients/fcl-js/packages-docs/sdk/destroy)- [encodeMessageFromSignable](/build/tools/clients/fcl-js/packages-docs/sdk/encodeMessageFromSignable)- [encodeTransactionEnvelope](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionEnvelope)- [encodeTransactionPayload](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTransactionPayload)- [encodeTxIdFromVoucher](/build/tools/clients/fcl-js/packages-docs/sdk/encodeTxIdFromVoucher)- [get](/build/tools/clients/fcl-js/packages-docs/sdk/get)- [getAccount](/build/tools/clients/fcl-js/packages-docs/sdk/getAccount)- [getBlock](/build/tools/clients/fcl-js/packages-docs/sdk/getBlock)- [getBlockHeader](/build/tools/clients/fcl-js/packages-docs/sdk/getBlockHeader)- [getCollection](/build/tools/clients/fcl-js/packages-docs/sdk/getCollection)- [getEvents](/build/tools/clients/fcl-js/packages-docs/sdk/getEvents)- [getEventsAtBlockHeightRange](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockHeightRange)- [getEventsAtBlockIds](/build/tools/clients/fcl-js/packages-docs/sdk/getEventsAtBlockIds)- [getNetworkParameters](/build/tools/clients/fcl-js/packages-docs/sdk/getNetworkParameters)- [getNodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/getNodeVersionInfo)- [getTransaction](/build/tools/clients/fcl-js/packages-docs/sdk/getTransaction)- [getTransactionStatus](/build/tools/clients/fcl-js/packages-docs/sdk/getTransactionStatus)- [initInteraction](/build/tools/clients/fcl-js/packages-docs/sdk/initInteraction)- [interaction](/build/tools/clients/fcl-js/packages-docs/sdk/interaction)- [isBad](/build/tools/clients/fcl-js/packages-docs/sdk/isBad)- [isOk](/build/tools/clients/fcl-js/packages-docs/sdk/isOk)- [limit](/build/tools/clients/fcl-js/packages-docs/sdk/limit)- [nodeVersionInfo](/build/tools/clients/fcl-js/packages-docs/sdk/nodeVersionInfo)- [param](/build/tools/clients/fcl-js/packages-docs/sdk/param)- [params](/build/tools/clients/fcl-js/packages-docs/sdk/params)- [payer](/build/tools/clients/fcl-js/packages-docs/sdk/payer)- [ping](/build/tools/clients/fcl-js/packages-docs/sdk/ping)- [pipe](/build/tools/clients/fcl-js/packages-docs/sdk/pipe)- [proposer](/build/tools/clients/fcl-js/packages-docs/sdk/proposer)- [put](/build/tools/clients/fcl-js/packages-docs/sdk/put)- [ref](/build/tools/clients/fcl-js/packages-docs/sdk/ref)- [resolve](/build/tools/clients/fcl-js/packages-docs/sdk/resolve)- [resolveAccounts](/build/tools/clients/fcl-js/packages-docs/sdk/resolveAccounts)- [resolveArguments](/build/tools/clients/fcl-js/packages-docs/sdk/resolveArguments)- [resolveCadence](/build/tools/clients/fcl-js/packages-docs/sdk/resolveCadence)- [resolveFinalNormalization](/build/tools/clients/fcl-js/packages-docs/sdk/resolveFinalNormalization)- [resolveProposerSequenceNumber](/build/tools/clients/fcl-js/packages-docs/sdk/resolveProposerSequenceNumber)- [resolveRefBlockId](/build/tools/clients/fcl-js/packages-docs/sdk/resolveRefBlockId)- [resolveSignatures](/build/tools/clients/fcl-js/packages-docs/sdk/resolveSignatures)- [resolveValidators](/build/tools/clients/fcl-js/packages-docs/sdk/resolveValidators)- [resolveVoucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/resolveVoucherIntercept)- [response](/build/tools/clients/fcl-js/packages-docs/sdk/response)- [script](/build/tools/clients/fcl-js/packages-docs/sdk/script)- [send](/build/tools/clients/fcl-js/packages-docs/sdk/send)- [subscribe](/build/tools/clients/fcl-js/packages-docs/sdk/subscribe)- [subscribeEvents](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeEvents)- [subscribeRaw](/build/tools/clients/fcl-js/packages-docs/sdk/subscribeRaw)- [TestUtils](/build/tools/clients/fcl-js/packages-docs/sdk/testUtils)- [transaction](/build/tools/clients/fcl-js/packages-docs/sdk/transaction)- [update](/build/tools/clients/fcl-js/packages-docs/sdk/update)- [validator](/build/tools/clients/fcl-js/packages-docs/sdk/validator)- [voucherIntercept](/build/tools/clients/fcl-js/packages-docs/sdk/voucherIntercept)- [voucherToTxId](/build/tools/clients/fcl-js/packages-docs/sdk/voucherToTxId)- [why](/build/tools/clients/fcl-js/packages-docs/sdk/why)+ [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/sdk](/build/tools/clients/fcl-js/packages-docs/sdk)* getTransaction
 
@@ -329829,7 +329649,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* authz
 
@@ -359345,35 +359165,35 @@ On this page
 
 # Token Development and Registration
 
-Flow supports token development through two primary approaches: native Cadence contracts that leverage Flow's unique resource-oriented programming model, and EVM-compatible contracts that enable easy migration from Ethereum. This section provides comprehensive guides for creating tokens using both approaches, along with registration processes to ensure ecosystem visibility.
+Flow supports token development through two primary approaches: native Cadence contracts that leverage Flow's unique resource-oriented programming model, and EVM-compatible contracts that enable easy migration from Ethereum. This section provides comprehensive guides for how to create tokens with both approaches, along with registration processes to ensure ecosystem visibility.
 
-## Cadence Token Development[​](#cadence-token-development "Direct link to Cadence Token Development")
+## Cadence token development[​](#cadence-token-development "Direct link to Cadence token development")
 
 ### [Creating a Fungible Token](/blockchain-development-tutorials/tokens/fungible-token-cadence)[​](#creating-a-fungible-token "Direct link to creating-a-fungible-token")
 
-Learn how to build a complete fungible token contract using Cadence's resource-based programming model. This comprehensive guide covers implementing the Flow Fungible Token standard, managing token vaults for secure storage, creating minter resources for controlled token creation, and deploying with proper metadata views. You'll build a production-ready token that integrates seamlessly with Flow's ecosystem including wallets, exchanges, and DeFi protocols.
+Learn how to build a complete fungible token contract with Cadence's resource-based programming model. This comprehensive guide covers how to implement the Flow Fungible Token standard, manage token vaults for secure storage, create minter resources for controlled token creation, and deploy with proper metadata views. You'll build a production-ready token that integrates seamlessly with Flow's ecosystem, such as wallets, exchanges, and DeFi protocols.
 
 ### [Creating an NFT Contract](/blockchain-development-tutorials/tokens/nft-cadence)[​](#creating-an-nft-contract "Direct link to creating-an-nft-contract")
 
-Master the development of non-fungible token contracts using Flow's powerful Cadence language. This detailed tutorial walks through implementing the Flow NFT standard, creating collection resources for efficient NFT management, building minting mechanisms with access controls, and adding comprehensive metadata support. Learn to create NFTs that work perfectly with marketplaces, wallets, and other Flow ecosystem applications.
+Master the development of non-fungible token contracts with Flow's powerful Cadence language. This detailed tutorial walks through how to implement the Flow NFT standard, create collection resources for efficient NFT management, build minting mechanisms with access controls, and add comprehensive metadata support. Learn to create NFTs that work perfectly with marketplaces, wallets, and other Flow ecosystem applications.
 
 ### [Register Your Assets in Cadence](/blockchain-development-tutorials/tokens/register-cadence-assets)[​](#register-your-assets-in-cadence "Direct link to register-your-assets-in-cadence")
 
-Complete the registration process for your Cadence-based fungible and non-fungible tokens to ensure visibility across the Flow ecosystem. This guide covers submitting your tokens to official registries, providing required metadata and documentation, following community standards for token information, and integrating with major wallets and applications like Flow Wallet and IncrementFi.
+Complete the registration process for your Cadence-based fungible and non-fungible tokens to ensure visibility across the Flow ecosystem. This guide covers how to submit your tokens to official registries, provide required metadata and documentation, follow community standards for token information, and integrate with major wallets and applications like Flow Wallet and IncrementFi.
 
 ## Flow EVM Token Development[​](#flow-evm-token-development "Direct link to Flow EVM Token Development")
 
 ### [Register Your ERC20 Token](/blockchain-development-tutorials/tokens/register-erc20-token)[​](#register-your-erc20-token "Direct link to register-your-erc20-token")
 
-Register your ERC20 tokens deployed on Flow EVM to appear in wallets and ecosystem applications. This guide details the GitHub Pull Request process for adding tokens to the Flow standard token list, providing proper token metadata and logos, meeting verification requirements, and ensuring compatibility with Flow Wallet, MetaMask, and other ecosystem tools.
+Register your ERC20 tokens deployed on Flow EVM to appear in wallets and ecosystem applications. This guide details the GitHub Pull Request process to add tokens to the Flow standard token list, provide proper token metadata and logos, meet verification requirements, and ensure compatibility with Flow Wallet, MetaMask, and other ecosystem tools.
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-Flow's dual approach to token development provides developers with flexibility to choose the best paradigm for their projects. Whether leveraging Cadence's innovative resource model for enhanced security and composability, or using familiar EVM patterns for quick deployment, these guides ensure your tokens integrate seamlessly with Flow's thriving ecosystem of wallets, exchanges, and applications.
+Flow's dual approach to token development provides developers with flexibility to choose the best paradigm for their projects. Whether you want to leverage Cadence's innovative resource model for enhanced security and composability, or use familiar EVM patterns for quick deployment, these guides ensure your tokens integrate seamlessly with Flow's thriving ecosystem of wallets, exchanges, and applications.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/tokens/index.md)
 
-Last updated on **Sep 25, 2025** by **Brian Doyle**
+Last updated on **Nov 17, 2025** by **cshannon1218**
 
 [Previous
 
@@ -359387,7 +359207,7 @@ Creating a Fungible Token](/blockchain-development-tutorials/tokens/fungible-tok
 
 Copy as Markdown
 
-* [Cadence Token Development](#cadence-token-development)
+* [Cadence token development](#cadence-token-development)
   + [Creating a Fungible Token](#creating-a-fungible-token)+ [Creating an NFT Contract](#creating-an-nft-contract)+ [Register Your Assets in Cadence](#register-your-assets-in-cadence)* [Flow EVM Token Development](#flow-evm-token-development)
     + [Register Your ERC20 Token](#register-your-erc20-token)* [Conclusion](#conclusion)
 
@@ -359702,14 +359522,14 @@ After you complete this tutorial, you will be able to:
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-* Flow CLI: install from the [Flow CLI docs](https://developers.flow.com/tools/flow-cli/install)
+* Flow CLI: install from the [Flow CLI docs](/build/tools/flow-cli/install)
 * Cursor + [Cadence Extension](https://marketplace.visualstudio.com/items?itemName=onflow.cadence) (recommended)
 
 ## Cadence programming language[​](#cadence-programming-language "Direct link to Cadence programming language")
 
-This tutorial assumes you have a modest knowledge of [Cadence](https://cadence-lang.org/docs). If you don't, you can still follow along, but we recommend that you complete our series of [Cadence](https://cadence-lang.org/docs) tutorials. Most developers find it more pleasant than other blockchain languages and it's easy to pick up.
+This tutorial assumes you have a modest knowledge of [Cadence](https://cadence-lang.org/docs/). If you don't, you can still follow along, but we recommend that you complete our series of [Cadence](https://cadence-lang.org/docs/) tutorials. Most developers find it more pleasant than other blockchain languages and it's easy to pick up.
 
-## Getting started on mainnet[​](#getting-started-on-mainnet "Direct link to Getting started on mainnet")
+## Get started on mainnet[​](#get-started-on-mainnet "Direct link to Get started on mainnet")
 
 This demo uses **mainnet** and a real DeFi protocol. Before you write any code, set up your staking position.
 
@@ -359717,11 +359537,11 @@ danger
 
 This tutorial uses a real protocol with real funds. Only work with funds your comfortable losing in the event of an error or mistake. Cadence is much safer than Solidity, you can make a mistake and all investment involves risk.
 
-### Staking with IncrementFi[​](#staking-with-incrementfi "Direct link to Staking with IncrementFi")
+### Stake with IncrementFi[​](#stake-with-incrementfi "Direct link to Stake with IncrementFi")
 
 To complete this tutorial, set up a staking position in Increment Fi. If you already have LP tokens, skip to the **Staking LP Token** step.
 
-**Creating an LP position**
+**Create an LP position**
 
 First, go to the [Increment Fi Liquidity Pool](https://app.increment.fi/liquidity/add?in=A.1654653399040a61.FlowToken&out=A.d6f80565193ad727.stFlowToken&stable=true) and select 'Single Asset' to provide liquidity with your FLOW tokens.
 
@@ -360371,7 +360191,7 @@ This transaction demonstrates how to chain multiple DeFi operations atomically, 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/flow-actions/flow-actions-transaction.md)
 
-Last updated on **Nov 6, 2025** by **cshannon1218**
+Last updated on **Nov 18, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -360385,8 +360205,8 @@ Connectors](/blockchain-development-tutorials/forte/flow-actions/connectors)
 
 Copy as Markdown
 
-* [Learning objectives](#learning-objectives)* [Prerequisites](#prerequisites)* [Cadence programming language](#cadence-programming-language)* [Getting started on mainnet](#getting-started-on-mainnet)
-        + [Staking with IncrementFi](#staking-with-incrementfi)+ [Initialize Your Staking.UserCertificate](#initialize-your-stakingusercertificate)* [Set up the project](#set-up-the-project)
+* [Learning objectives](#learning-objectives)* [Prerequisites](#prerequisites)* [Cadence programming language](#cadence-programming-language)* [Get started on mainnet](#get-started-on-mainnet)
+        + [Stake with IncrementFi](#stake-with-incrementfi)+ [Initialize Your Staking.UserCertificate](#initialize-your-stakingusercertificate)* [Set up the project](#set-up-the-project)
           + [Start With the scaffold](#start-with-the-scaffold)+ [Export Your wallet key](#export-your-wallet-key)* [Build the transaction](#build-the-transaction)
             + [Import required contracts](#import-required-contracts)+ [Define transaction parameters](#define-transaction-parameters)+ [Declare transaction properties](#declare-transaction-properties)+ [Prepare phase](#prepare-phase)+ [Token type detection and configuration](#token-type-detection-and-configuration)+ [Build the Flow Actions chain](#build-the-flow-actions-chain)+ [Post-condition safety check](#post-condition-safety-check)+ [Execute the transaction](#execute-the-transaction)* [Run the transaction](#run-the-transaction)
               + [Interpret the results](#interpret-the-results)* [Run the transaction on emulator](#run-the-transaction-on-emulator)* [Conclusion](#conclusion)
@@ -363971,7 +363791,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* why
 
@@ -364367,7 +364187,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* createFlowClient
 
@@ -370821,7 +370641,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* logIn
 
@@ -392090,7 +391910,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* createSignableVoucher
 
@@ -397809,7 +397629,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* mutate
 
@@ -404275,7 +404095,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* subscribeEvents
 
@@ -404670,7 +404490,7 @@ Search
 
                         * [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* Installation
 
@@ -420463,7 +420283,7 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
-# Source: https://developers.flow.com
+# Source: https://developers.flow.com/
 
 Flow Developer Portal
 
@@ -426216,7 +426036,7 @@ Search
 
                         * [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* Scripts
 
@@ -433123,12 +432943,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **9a034b83abf515cc**
+Cloudflare Ray ID: **9a0b8917780ceac0**
 •
 
 Your IP:
 Click to reveal
-52.159.244.161
+64.236.169.98
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 

@@ -79,14 +79,14 @@ After you complete this tutorial, you will be able to:
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-* Flow CLI: install from the [Flow CLI docs](https://developers.flow.com/tools/flow-cli/install)
+* Flow CLI: install from the [Flow CLI docs](/build/tools/flow-cli/install)
 * Cursor + [Cadence Extension](https://marketplace.visualstudio.com/items?itemName=onflow.cadence) (recommended)
 
 ## Cadence programming language[​](#cadence-programming-language "Direct link to Cadence programming language")
 
-This tutorial assumes you have a modest knowledge of [Cadence](https://cadence-lang.org/docs). If you don't, you can still follow along, but we recommend that you complete our series of [Cadence](https://cadence-lang.org/docs) tutorials. Most developers find it more pleasant than other blockchain languages and it's easy to pick up.
+This tutorial assumes you have a modest knowledge of [Cadence](https://cadence-lang.org/docs/). If you don't, you can still follow along, but we recommend that you complete our series of [Cadence](https://cadence-lang.org/docs/) tutorials. Most developers find it more pleasant than other blockchain languages and it's easy to pick up.
 
-## Getting started on mainnet[​](#getting-started-on-mainnet "Direct link to Getting started on mainnet")
+## Get started on mainnet[​](#get-started-on-mainnet "Direct link to Get started on mainnet")
 
 This demo uses **mainnet** and a real DeFi protocol. Before you write any code, set up your staking position.
 
@@ -94,11 +94,11 @@ danger
 
 This tutorial uses a real protocol with real funds. Only work with funds your comfortable losing in the event of an error or mistake. Cadence is much safer than Solidity, you can make a mistake and all investment involves risk.
 
-### Staking with IncrementFi[​](#staking-with-incrementfi "Direct link to Staking with IncrementFi")
+### Stake with IncrementFi[​](#stake-with-incrementfi "Direct link to Stake with IncrementFi")
 
 To complete this tutorial, set up a staking position in Increment Fi. If you already have LP tokens, skip to the **Staking LP Token** step.
 
-**Creating an LP position**
+**Create an LP position**
 
 First, go to the [Increment Fi Liquidity Pool](https://app.increment.fi/liquidity/add?in=A.1654653399040a61.FlowToken&out=A.d6f80565193ad727.stFlowToken&stable=true) and select 'Single Asset' to provide liquidity with your FLOW tokens.
 
@@ -748,7 +748,7 @@ This transaction demonstrates how to chain multiple DeFi operations atomically, 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/flow-actions/flow-actions-transaction.md)
 
-Last updated on **Nov 6, 2025** by **cshannon1218**
+Last updated on **Nov 18, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -762,8 +762,8 @@ Connectors](/blockchain-development-tutorials/forte/flow-actions/connectors)
 
 Copy as Markdown
 
-* [Learning objectives](#learning-objectives)* [Prerequisites](#prerequisites)* [Cadence programming language](#cadence-programming-language)* [Getting started on mainnet](#getting-started-on-mainnet)
-        + [Staking with IncrementFi](#staking-with-incrementfi)+ [Initialize Your Staking.UserCertificate](#initialize-your-stakingusercertificate)* [Set up the project](#set-up-the-project)
+* [Learning objectives](#learning-objectives)* [Prerequisites](#prerequisites)* [Cadence programming language](#cadence-programming-language)* [Get started on mainnet](#get-started-on-mainnet)
+        + [Stake with IncrementFi](#stake-with-incrementfi)+ [Initialize Your Staking.UserCertificate](#initialize-your-stakingusercertificate)* [Set up the project](#set-up-the-project)
           + [Start With the scaffold](#start-with-the-scaffold)+ [Export Your wallet key](#export-your-wallet-key)* [Build the transaction](#build-the-transaction)
             + [Import required contracts](#import-required-contracts)+ [Define transaction parameters](#define-transaction-parameters)+ [Declare transaction properties](#declare-transaction-properties)+ [Prepare phase](#prepare-phase)+ [Token type detection and configuration](#token-type-detection-and-configuration)+ [Build the Flow Actions chain](#build-the-flow-actions-chain)+ [Post-condition safety check](#post-condition-safety-check)+ [Execute the transaction](#execute-the-transaction)* [Run the transaction](#run-the-transaction)
               + [Interpret the results](#interpret-the-results)* [Run the transaction on emulator](#run-the-transaction-on-emulator)* [Conclusion](#conclusion)

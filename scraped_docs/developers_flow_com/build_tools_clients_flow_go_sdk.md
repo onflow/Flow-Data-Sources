@@ -3015,7 +3015,7 @@ Last updated on **Sep 10, 2025** by **Pandit Dhamdhere**
 
 [Previous
 
-WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)[Next
+Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)[Next
 
 Flow Project Configuration](/build/tools/clients/flow-go-sdk/flowkit)
 
