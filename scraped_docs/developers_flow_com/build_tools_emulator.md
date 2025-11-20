@@ -119,8 +119,8 @@ This starts a local Flow network with:
   + `--computation-reporting`: Enable computation reporting
   + `--legacy-upgrade`: Enable legacy contract upgrade behavior
   + `--scheduled-transactions`: Enable scheduled transactions (default true)
-  + `--script-gas-limit <int>`: Gas limit for scripts (default `100000`)
-  + `--transaction-max-gas-limit <int>`: Max transaction gas limit (default `9999`)
+  + `--script-compute-limit <int>`: Compute unit limit for scripts (default `100000`)
+  + `--transaction-max-compute-limit <int>`: Max transaction compute unit limit (default `9999`)
   + `--transaction-expiry <int>`: Transaction expiry in blocks (default `10`)
   + `--skip-tx-validation`: Skip tx signature and sequence number checks
   + `--simple-addresses`: Use sequential addresses starting with `0x01`
@@ -340,7 +340,7 @@ To learn more about using the Emulator, please have a look at the [public GitHub
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/emulator/index.md)
 
-Last updated on **Oct 29, 2025** by **Jordan Ribbink**
+Last updated on **Nov 12, 2025** by **Brian Doyle**
 
 [Previous
 

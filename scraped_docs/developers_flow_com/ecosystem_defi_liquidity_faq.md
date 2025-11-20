@@ -30,9 +30,9 @@ Below are common questions regarding stablecoins, liquidity, and bridging on Flo
 
 ## Bridging and Gas[​](#bridging-and-gas "Direct link to Bridging and Gas")
 
-Does Flow use ETH for gas?
+Does Flow EVM use ETH for gas?
 
-No, Flow uses $FLOW as the gas token. [WETH](/ecosystem/defi-liquidity/defi-contracts-mainnet#stablecoins--wrapped-assets) is supported on Flow EVM when [bridging](/ecosystem/bridges) from another chain. $WFLOW is used as an ERC20 in DeFi apps and not used for gas.
+No, Flow uses $FLOW as the compute unit (gas) token. [WETH](/ecosystem/defi-liquidity/defi-contracts-mainnet#stablecoins--wrapped-assets) is supported on Flow EVM when [bridging](/ecosystem/bridges) from another chain. $WFLOW is used as an ERC20 in DeFi apps and not used for gas.
 
 How do I pay for gas when bridging into Flow?
 
@@ -205,7 +205,7 @@ Where can I get updates or ask questions?
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/defi-liquidity/faq.md)
 
-Last updated on **Nov 13, 2025** by **Brian Doyle**
+Last updated on **Nov 19, 2025** by **Brian Doyle**
 
 [Previous
 

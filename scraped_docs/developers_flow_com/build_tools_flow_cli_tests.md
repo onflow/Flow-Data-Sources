@@ -389,6 +389,42 @@ To dive deeper into testing the functionality of your Cadence scripts and contra
 
 Run tests against forked mainnet or testnet state. For a step-by-step tutorial, see: [Fork Testing with Cadence](/blockchain-development-tutorials/cadence/fork-testing). For background and best practices, see the guide: [Testing Strategy on Flow](/build/cadence/smart-contracts/testing-strategy).
 
+#### Configuring Fork Tests[​](#configuring-fork-tests "Direct link to Configuring Fork Tests")
+
+**Recommended**: Use the `#test_fork` pragma in your test file:
+
+`_10
+
+#test_fork(network: "mainnet", height: nil)
+
+_10
+
+_10
+
+import Test
+
+_10
+
+_10
+
+access(all) fun testAgainstMainnet() {
+
+_10
+
+// Test runs against mainnet state
+
+_10
+
+}`
+
+Then run with:
+
+`_10
+
+flow test`
+
+The pragma configures fork testing directly in your test files, making tests self-documenting. You can also use CLI flags (documented below) to override or configure fork tests without modifying test files.
+
 #### --fork[​](#--fork "Direct link to --fork")
 
 * Type: `string`
@@ -441,7 +477,7 @@ flow test --fork mainnet --fork-height 85432100`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/tests.md)
 
-Last updated on **Oct 29, 2025** by **Jordan Ribbink**
+Last updated on **Nov 19, 2025** by **Jordan Ribbink**
 
 [Previous
 

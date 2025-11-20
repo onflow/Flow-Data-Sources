@@ -38,7 +38,7 @@ Search
 
                         * [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* Wallet Discovery
 
@@ -427,9 +427,31 @@ _10
 
 });`
 
+### WalletConnect Configuration[​](#walletconnect-configuration "Direct link to WalletConnect Configuration")
+
+To configure WalletConnect, add a WalletConnect project ID to the FCL config:
+
+`_10
+
+import * as fcl from '@onflow/fcl';
+
+_10
+
+_10
+
+fcl.config({
+
+_10
+
+'walletconnect.projectId': 'YOUR_WALLETCONNECT_PROJECT_ID',
+
+_10
+
+});`
+
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/discovery.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Nov 18, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -446,7 +468,7 @@ Copy as Markdown
 * [Wallet Discovery](#wallet-discovery)* [UI Version](#ui-version)
     + [Branding Discovery UI](#branding-discovery-ui)* [API Version](#api-version)* [Network Configuration](#network-configuration)
         + [Discovery UI URLs](#discovery-ui-urls)+ [Discovery API Endpoints](#discovery-api-endpoints)* [Other Configuration](#other-configuration)
-          + [Include Opt-In Wallets](#include-opt-in-wallets)+ [Exclude Wallets](#exclude-wallets)
+          + [Include Opt-In Wallets](#include-opt-in-wallets)+ [Exclude Wallets](#exclude-wallets)+ [WalletConnect Configuration](#walletconnect-configuration)
 
 Flow
 

@@ -40,7 +40,7 @@ Search
 
 On this page
 
-# Introduction to Scheduled transactions
+# Introduction to scheduled transactions
 
 warning
 
@@ -50,7 +50,7 @@ We will update these tutorials, but you may need to refactor your code if the im
 
 Flow, EVM, and other blockchains are a form of a **single** shared computer that anyone can use, with no admin privileges, super user roles, or complete control. For this to work, it must be impossible for any user to freeze the computer, on purpose or by accident.
 
-As a result, most blockchain computers, including EVM and Solana, aren't [Turing Complete](https://en.wikipedia.org/wiki/Turing_completeness), because they can't run an unbounded loop. Each transaction must occur within one block, and can't consume more gas than the limit.
+As a result, most blockchain computers, including EVM and Solana, aren't [Turing Complete](https://en.wikipedia.org/wiki/Turing_completeness), because they can't run an unbounded loop. Each transaction must occur within one block, and can't consume more compute units, or gas, than the limit.
 
 While this limitation prevents infinite loops, it makes it so that you can't do anything 100% onchain if you need it to happen at a later time or after a trigger. As a result, developers must often build products that involve a fair amount of traditional infrastructure and requires users to give those developers a great amount of trust that their backend will execute the promised task.
 
@@ -278,7 +278,7 @@ _37
 
 Result: 3`
 
-### Review the existing contract and transactions[​](#review-the-existing-contract-and-transactions "Direct link to Review the existing contract and transactions")
+### Review the current contract and transactions[​](#review-the-current-contract-and-transactions "Direct link to Review the current contract and transactions")
 
 If you're not familiar with `cadence/contracts/Counter.cdc` review it. This is the standard contract created by default when you run `flow init`. It's very simple, with a counter and public functions to increment or decrement it.
 
@@ -420,7 +420,7 @@ This contract is simple. It contains a [resource](https://cadence-lang.org/docs/
 
 It also contains functions to get metadata about the handler and a function, `createHandler`, which creates and returns an instance of the `Handler` resource. There are other metadata views that could be good to include in your Handler, but we're sticking to the basic ones for now.
 
-### Initializing the transaction handler[​](#initializing-the-transaction-handler "Direct link to Initializing the transaction handler")
+### Initialize the transaction handler[​](#initialize-the-transaction-handler "Direct link to Initialize the transaction handler")
 
 Next, take a look at `cadence/transactions/InitCounterTransactionHandler.cdc`:
 
@@ -651,9 +651,9 @@ _10
 
 : FlowTransactionScheduler.Priority.Low`
 
-The `executionEffort` is also supplied as an argument in the transaction. This represents the gas limit for your transaction and used to prepare the estimate for the gas fees that must be paid for the transaction, and directly in the call to `schedule()` the transaction.
+The `executionEffort` is also supplied as an argument in the transaction. This represents the compute unit limit for your transaction and used to prepare the estimate for the compute unit fees that must be paid for the transaction, and directly in the call to `schedule()` the transaction.
 
-* `fees`: A [vault](https://developers.flow.com/build/cadence/guides/fungible-token#vaults-on-flow) containing the appropriate amount of gas fees needed to pay for the execution of the scheduled transaction.
+* `fees`: A [vault](https://developers.flow.com/build/cadence/guides/fungible-token#vaults-on-flow) containing the appropriate amount of compute unit fees needed to pay for the execution of the scheduled transaction.
 
 To create the vault, the `estimate()` function calculates the amount needed:
 
@@ -709,7 +709,7 @@ It also provides many convenient functions to get detailed information about all
 When setting up a manager, you also publish a capability for it so it is easy for scripts
 to query your account and also see what transactions are scheduled!
 
-### Set Up the Manager[​](#set-up-the-manager "Direct link to Set Up the Manager")
+### Set up the Manager[​](#set-up-the-manager "Direct link to Set up the Manager")
 
 First, you need to create and store a Manager resource in your account:
 
@@ -1922,7 +1922,7 @@ Scheduled transactions open up new possibilities for DeFi applications, enabling
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/scheduled-transactions/scheduled-transactions-introduction.md)
 
-Last updated on **Nov 6, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -1937,8 +1937,8 @@ DeFi Math Utils](/blockchain-development-tutorials/forte/fixed-point-128-bit-mat
 Copy as Markdown
 
 * [Learning objectives](#learning-objectives)* [Cadence programming language](#cadence-programming-language)* [Get started](#get-started)
-      + [Review the existing contract and transactions](#review-the-existing-contract-and-transactions)+ [Transaction handler](#transaction-handler)+ [Initializing the transaction handler](#initializing-the-transaction-handler)+ [Schedule the transaction](#schedule-the-transaction)* [Use the FlowTransactionSchedulerUtils.Manager](#use-the-flowtransactionschedulerutilsmanager)
-        + [Set Up the Manager](#set-up-the-manager)+ [Schedule transactions with the Manager](#schedule-transactions-with-the-manager)* [Write a new scheduled transaction](#write-a-new-scheduled-transaction)
+      + [Review the current contract and transactions](#review-the-current-contract-and-transactions)+ [Transaction handler](#transaction-handler)+ [Initialize the transaction handler](#initialize-the-transaction-handler)+ [Schedule the transaction](#schedule-the-transaction)* [Use the FlowTransactionSchedulerUtils.Manager](#use-the-flowtransactionschedulerutilsmanager)
+        + [Set up the Manager](#set-up-the-manager)+ [Schedule transactions with the Manager](#schedule-transactions-with-the-manager)* [Write a new scheduled transaction](#write-a-new-scheduled-transaction)
           + [Create the contracts](#create-the-contracts)+ [Set Up the transactions](#set-up-the-transactions)+ [Deployment and testing](#deployment-and-testing)* [Conclusion](#conclusion)
 
 Flow

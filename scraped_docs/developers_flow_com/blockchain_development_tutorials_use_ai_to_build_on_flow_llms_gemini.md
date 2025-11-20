@@ -44,9 +44,9 @@ On this page
 
 # Use Flow Knowledge Base in Gemini AI
 
-[Gemini AI](https://gemini.google.com/) is Google's AI assistant that can help with tasks such as writing, coding, and answering questions. It adapts to context and user input to provide relevant, conversational responses. Gemini AI can be integrated into developer workflows to assist with documentation, debugging, and productivity.
+[Gemini AI](https://gemini.google.com/) is Google's AI assistant that can help with tasks such as writing, coding, and answering questions. It adapts to context and user input to provide relevant, conversational responses. You can integrate Gemini AI into developer workflows to assist with documentation, debugging, and productivity.
 
-This guide walks you through creating a **Custom GEM** using Gemini AI that can reference the [Flow Data Sources](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor/flow-data-sources) file to answer questions.
+This guide walks you through creating a **Custom GEM** with Gemini AI that can reference the [Flow Data Sources](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor/flow-data-sources) file to answer questions.
 
 warning
 
@@ -54,22 +54,22 @@ You'll need a [Gemini Advanced subscription](https://gemini.google.com/advanced)
 
 ## Step 1: Access Gem Manager[​](#step-1-access-gem-manager "Direct link to Step 1: Access Gem Manager")
 
-1. Log in to [Gemini AI](https://gemini.google.com/)
-2. In the sidebar on the left click on **Explore Gems**
+1. Log in to [Gemini AI](https://gemini.google.com/).
+2. In the sidebar on the left, click **Explore Gems**.
 
 ---
 
-## Step 2: Create a New Gem[​](#step-2-create-a-new-gem "Direct link to Step 2: Create a New Gem")
+## Step 2: Create a new Gem[​](#step-2-create-a-new-gem "Direct link to Step 2: Create a new Gem")
 
-1. In the **Gem Manager** screen, click the **"New Gem"** button.
+1. In the **Gem Manager** screen, click **"New Gem"**.
 
 ---
 
-## Step 3: Configure Your Gem[​](#step-3-configure-your-gem "Direct link to Step 3: Configure Your Gem")
+## Step 3: Configure your Gem[​](#step-3-configure-your-gem "Direct link to Step 3: Configure your Gem")
 
 Gemini AI will now guide you through setting up your custom Gem. Configure the name, description and instructions for your GEM to follow.
 
-### Suggested Configuration[​](#suggested-configuration "Direct link to Suggested Configuration")
+### Suggested configuration[​](#suggested-configuration "Direct link to Suggested configuration")
 
 **Name**: FlowGem
 
@@ -91,23 +91,23 @@ Key behaviors:
 
 _11
 
-- Always reference the uploaded Flow documentation when answering questions
+- Always reference the uploaded Flow documentation when answering questions.
 
 _11
 
-- Provide practical, actionable advice for Flow developers
+- Provide practical, actionable advice for Flow developers.
 
 _11
 
-- Include relevant code examples when applicable
+- Include relevant code examples when applicable.
 
 _11
 
-- Stay up-to-date with the latest Flow ecosystem developments
+- Stay up-to-date with the latest Flow ecosystem developments.
 
 _11
 
-- Be eager to help and imagine you are a knowledgeable Flow developer
+- Be eager to help and imagine you are a knowledgeable Flow developer.
 
 _11
 
@@ -121,14 +121,14 @@ You can further customize your personalized agent by providing more files and de
 
 ## Step 4: Upload Knowledge Base[​](#step-4-upload-knowledge-base "Direct link to Step 4: Upload Knowledge Base")
 
-1. In the **Knowledge** section, upload the [Flow Data Sources All Merged](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/all_merged.md) file
-2. Configure the Gem to reference this file as its primary knowledge source
+1. In the **Knowledge** section, upload the [Flow Data Sources All Merged](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/all_merged.md) file.
+2. Configure the Gem to reference this file as its primary knowledge source.
 
 ---
 
-## Step 5: Test Your Gem[​](#step-5-test-your-gem "Direct link to Step 5: Test Your Gem")
+## Step 5: Test your Gem[​](#step-5-test-your-gem "Direct link to Step 5: Test your Gem")
 
-Once the Gem is configured, test it by asking Flow-related questions:
+After you configure the Gem, ask it Flow-related questions to test it:
 
 * "How do I deploy a smart contract to Flow Testnet?"
 * "What's the syntax for Cadence resources?"
@@ -136,13 +136,12 @@ Once the Gem is configured, test it by asking Flow-related questions:
 
 ---
 
-## Step 6: Save and Deploy[​](#step-6-save-and-deploy "Direct link to Step 6: Save and Deploy")
+## Step 6: Save and deploy[​](#step-6-save-and-deploy "Direct link to Step 6: Save and deploy")
 
-When you're satisfied with the performance:
+When you're satisfied with the performance, click **"Create Gem"** to finalize.
 
-* Click **"Create Gem"** to finalize
-* Your Gem will be available in your Gem Manager
-* You can share it with your team or keep it private
+* Your Gem will be available in your Gem Manager.
+* You can share it with your team or keep it private.
 
 ---
 
@@ -152,7 +151,7 @@ You've now created a custom Gem that uses Flow's comprehensive documentation as 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/llms/gemini.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Oct 30, 2025** by **cshannon1218**
 
 [Previous
 
@@ -166,8 +165,8 @@ Claude Code Flow Guide](/blockchain-development-tutorials/use-AI-to-build-on-flo
 
 Copy as Markdown
 
-* [Step 1: Access Gem Manager](#step-1-access-gem-manager)* [Step 2: Create a New Gem](#step-2-create-a-new-gem)* [Step 3: Configure Your Gem](#step-3-configure-your-gem)
-      + [Suggested Configuration](#suggested-configuration)* [Step 4: Upload Knowledge Base](#step-4-upload-knowledge-base)* [Step 5: Test Your Gem](#step-5-test-your-gem)* [Step 6: Save and Deploy](#step-6-save-and-deploy)* [Conclusion](#conclusion)
+* [Step 1: Access Gem Manager](#step-1-access-gem-manager)* [Step 2: Create a new Gem](#step-2-create-a-new-gem)* [Step 3: Configure your Gem](#step-3-configure-your-gem)
+      + [Suggested configuration](#suggested-configuration)* [Step 4: Upload Knowledge Base](#step-4-upload-knowledge-base)* [Step 5: Test your Gem](#step-5-test-your-gem)* [Step 6: Save and deploy](#step-6-save-and-deploy)* [Conclusion](#conclusion)
 
 Flow
 

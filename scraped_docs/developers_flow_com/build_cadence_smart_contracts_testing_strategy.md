@@ -37,7 +37,7 @@ A single, pragmatic strategy for testing on Flow. Use layers that are determinis
 ## At a glance[​](#at-a-glance "Direct link to At a glance")
 
 * **Unit & Property — Test Framework**: Hermetic correctness and invariants
-* **Integration — `flow test --fork`**: Real contracts and data; mutations stay local
+* **Integration — Fork Testing**: Real contracts and data; mutations stay local
 * **Local integration sandbox (interactive, `flow emulator --fork`)**: Drive apps/E2E against production-like state
 * **Staging (testnet)**: Final plumbing and config checks
 * **Post-deploy (read-only)**: Invariant dashboards and alerts
@@ -54,13 +54,14 @@ A single, pragmatic strategy for testing on Flow. Use layers that are determinis
 
 See also: [Running Cadence Tests](/build/tools/flow-cli/tests).
 
-### Integration — `flow test --fork`[​](#integration--flow-test---fork "Direct link to integration--flow-test---fork")
+### Integration — Fork Testing[​](#integration--fork-testing "Direct link to Integration — Fork Testing")
 
 * **Use when**: Interacting with real on-chain contracts/data (FT/NFT standards, AMMs, wallets, oracles, bridges), upgrade checks, historical repro
 * **Why**: Real addresses, capability paths, and resource schemas; catches drift early
 * **Run**: On PRs, run the full forked suite if practical (pinned), or a small quick set; run more cases nightly or on main
+* **How**: Configure with `#test_fork(network: "mainnet", height: nil)` in your test file, or use `flow test --fork` CLI flags
 * **Notes**:
-  + Pin with `--fork-height` where reproducibility matters
+  + Pin with `height: 85432100` in the pragma (or `--fork-height` CLI flag) where reproducibility matters
   + Prefer local deployment + impersonation over real mainnet accounts
   + Mutations are local to the forked runtime; the live network is never changed
   + Be mindful of access-node availability and rate limits
@@ -77,7 +78,7 @@ See also: [Fork Testing with Cadence](/blockchain-development-tutorials/cadence/
 
   + Pin height; run on dedicated ports; impersonation is built-in; mutations are local; off-chain/oracle calls are not live—mock or run local stubs
   + What to run: Manual exploration and debugging of flows against a forked state; frontend connected to the emulator (e.g., `npm run dev` pointed at `http://localhost:8888`); automated E2E/FE suites (e.g., Cypress/Playwright) against the local fork; headless clients, wallets/bots/indexers, and migration scripts
-  + Not for the canonical Cadence test suite—prefer `flow test --fork` for scripted Cadence tests (see [Fork Testing Flags](/build/tools/flow-cli/tests#fork-testing-flags) and [Running Cadence Tests](/build/tools/flow-cli/tests))
+  + Not for the canonical Cadence test suite—prefer fork testing with `flow test` for scripted Cadence tests (see [Fork Testing Flags](/build/tools/flow-cli/tests#fork-testing-flags) and [Running Cadence Tests](/build/tools/flow-cli/tests))
 
   Quick start example:
 
@@ -95,7 +96,7 @@ See also: [Fork Testing with Cadence](/blockchain-development-tutorials/cadence/
 
   _10
 
-  import { FlowProvider } from "@onflow/react-sdk";
+  import { FlowProvider } from '@onflow/react-sdk';
 
   _10
 
@@ -109,7 +110,7 @@ See also: [Fork Testing with Cadence](/blockchain-development-tutorials/cadence/
 
   _10
 
-  <FlowProvider config={{ accessNodeUrl: "http://localhost:8888" }}>
+  <FlowProvider config={{ accessNodeUrl: 'http://localhost:8888' }}>
 
   _10
 
@@ -156,45 +157,53 @@ See also: [Flow Emulator](/build/tools/emulator).
 
   + Keep canaries minimal and time-boxed; protocol/partner support may be limited on testnet (not all third-party contracts are deployed or up to date)
   + What to run: Minimal app smoke tests (login/auth, key flows, mint/transfer, event checks); frontend connected to Testnet with a small Cypress/Playwright smoke set; infra/config checks (endpoints, contract addresses/aliases, env vars, service/test accounts)
-  + Not for the canonical Cadence test suite — prefer `flow test --fork` for scripted tests (see [Fork Testing Flags](/build/tools/flow-cli/tests#fork-testing-flags) and [Running Cadence Tests](/build/tools/flow-cli/tests))
+  + Not for the canonical Cadence test suite — prefer fork testing with `flow test` for scripted tests (see [Fork Testing Flags](/build/tools/flow-cli/tests#fork-testing-flags) and [Running Cadence Tests](/build/tools/flow-cli/tests))
 
   Quick start example:
 
-  `_10
+  `_12
 
   // In your root component (e.g., App.tsx)
 
-  _10
+  _12
 
-  import { FlowProvider } from "@onflow/react-sdk";
+  import { FlowProvider } from '@onflow/react-sdk';
 
-  _10
+  _12
 
-  _10
+  _12
 
   function App() {
 
-  _10
+  _12
 
   return (
 
-  _10
+  _12
 
-  <FlowProvider config={{ accessNodeUrl: "https://rest-testnet.onflow.org" }}>
+  <FlowProvider
 
-  _10
+  _12
+
+  config={{ accessNodeUrl: 'https://rest-testnet.onflow.org' }}
+
+  _12
+
+  >
+
+  _12
 
   {/* Your app components */}
 
-  _10
+  _12
 
   </FlowProvider>
 
-  _10
+  _12
 
   );
 
-  _10
+  _12
 
   }`
 
@@ -254,7 +263,7 @@ See also: [Flow Networks](/protocol/flow-networks).
 ## Do / Don’t[​](#do--dont "Direct link to Do / Don’t")
 
 * **Do**: Keep a fast, hermetic base; pin forks; tag tests; maintain tiny PR smoke sets; document pins and set a simple refresh schedule (e.g., after each spork or monthly)
-* **Don’t**: Make “latest” your default in CI; create or rely on real mainnet accounts; conflate `flow test --fork` with `flow emulator --fork`
+* **Don't**: Make "latest" your default in CI; create or rely on real mainnet accounts; conflate fork testing (`flow test`) with the emulator's fork mode (`flow emulator --fork`)
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
@@ -262,11 +271,11 @@ See also: [Flow Networks](/protocol/flow-networks).
 * Guide → How-to: [Cadence Testing Framework](/build/cadence/smart-contracts/testing)
 * Tutorial → Step-by-step: [Fork Testing with Cadence](/blockchain-development-tutorials/cadence/fork-testing)
 * Tool → Emulator (including fork mode): [Flow Emulator](/build/tools/emulator)
-* Flags → `flow test --fork`: [Fork Testing Flags](/build/tools/flow-cli/tests#fork-testing-flags)
+* Reference → Fork testing flags: [Fork Testing Flags](/build/tools/flow-cli/tests#fork-testing-flags)
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/smart-contracts/testing-strategy.md)
 
-Last updated on **Oct 29, 2025** by **Jordan Ribbink**
+Last updated on **Nov 19, 2025** by **Jordan Ribbink**
 
 [Previous
 
@@ -281,7 +290,7 @@ Cadence Testing Framework](/build/cadence/smart-contracts/testing)
 Copy as Markdown
 
 * [At a glance](#at-a-glance)* [Layers](#layers)
-    + [Unit & Property — Test Framework](#unit--property--test-framework)+ [Integration — `flow test --fork`](#integration--flow-test---fork)+ [Local Integration Sandbox — `flow emulator --fork`](#local-integration-sandbox--flow-emulator---fork)+ [Staging — Testnet](#staging--testnet)+ [Post-deploy Monitoring (read-only)](#post-deploy-monitoring-read-only)* [Reproducibility and data management](#reproducibility-and-data-management)* [CI tips](#ci-tips)* [Test selection and tagging](#test-selection-and-tagging)* [Troubleshooting tips](#troubleshooting-tips)* [Do / Don’t](#do--dont)* [Related docs](#related-docs)
+    + [Unit & Property — Test Framework](#unit--property--test-framework)+ [Integration — Fork Testing](#integration--fork-testing)+ [Local Integration Sandbox — `flow emulator --fork`](#local-integration-sandbox--flow-emulator---fork)+ [Staging — Testnet](#staging--testnet)+ [Post-deploy Monitoring (read-only)](#post-deploy-monitoring-read-only)* [Reproducibility and data management](#reproducibility-and-data-management)* [CI tips](#ci-tips)* [Test selection and tagging](#test-selection-and-tagging)* [Troubleshooting tips](#troubleshooting-tips)* [Do / Don’t](#do--dont)* [Related docs](#related-docs)
 
 Flow
 

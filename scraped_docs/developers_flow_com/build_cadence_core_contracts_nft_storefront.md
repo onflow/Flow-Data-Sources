@@ -142,9 +142,9 @@ During the listing purchase all saleCuts are paid automatically. This also inclu
 
 ### Considerations[​](#considerations-1 "Direct link to Considerations")
 
-1. **Auto cleanup -** `NFTStorefrontV2` offers a unique ability to do auto cleanup of duplicate listings during a purchase. It comes with a drawback if one NFT has thousands of duplicate listings. It will become the bottleneck during purchasing one of the listings as it will likely trigger an out-of-gas error.
+1. **Auto cleanup -** `NFTStorefrontV2` offers a unique ability to do auto cleanup of duplicate listings during a purchase. It comes with a drawback if one NFT has thousands of duplicate listings. It will become the bottleneck during purchasing one of the listings as it will likely trigger an out-of-compute error.
 
-   **Note -** *We recommended NOT to have more than 50 (TBD) duplicate listings of any given NFT.*
+   **Note -** *We recommended NOT to have more than 50 duplicate listings of any given NFT.*
 2. **Unsupported receiver capability** - A common pitfall during the purchase of an NFT that some saleCut receivers don't have a supported receiver capability because that entitled sale cut would transfer to first valid sale cut receiver. However, it can be partially solved by providing the generic receiver using the [`FungibleTokenSwitchboard`](https://github.com/onflow/flow-ft/blob/master/contracts/FungibleTokenSwitchboard.cdc) contract and adding all the currency capabilities the beneficiary wants to receive. More on the `FungibleTokenSwitchboard` can be read in [Fungible Token Switchboard](https://github.com/onflow/flow-ft#fungible-token-switchboard)
 
 ## Enabling creator royalties for NFTs[​](#enabling-creator-royalties-for-nfts "Direct link to Enabling creator royalties for NFTs")
@@ -635,7 +635,7 @@ A entitled receiver has not been paid during the sale of the NFT.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/core-contracts/10-nft-storefront.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Nov 12, 2025** by **Brian Doyle**
 
 [Previous
 

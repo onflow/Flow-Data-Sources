@@ -60,7 +60,7 @@ Other defining features of Flow include:
 * **Fast finality**, making applications responsive and user-friendly.
 * **Resistance to Miner Extractable Value (MEV)**, protecting users from front-running.
 * **EVM equivalence**, allowing developers to deploy Solidity contracts on Flow EVM.
-* **Low gas fees**, which make applications affordable and accessible to users.
+* **Low compute fees (on the Cadence side) and low gas fees (on the EVM side)**, which make applications affordable and accessible to users.
 
 Flow has already powered some of the most successful Web3 products to date, including:
 
@@ -163,7 +163,7 @@ We also have guides for working with [Rainbowkit](/blockchain-development-tutori
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/flow-101.md)
 
-Last updated on **Sep 24, 2025** by **Felipe Cevallos**
+Last updated on **Nov 18, 2025** by **Brian Doyle**
 
 [Previous
 

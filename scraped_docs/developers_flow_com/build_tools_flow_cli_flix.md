@@ -1154,13 +1154,13 @@ Specify the name of the account that will be used as payer in the transaction.
 
 Specify the name of the account(s) that will be used as authorizer(s) in the transaction. If you want to provide multiple authorizers separate them using commas (e.g. `alice,bob`)
 
-### Gas Limit[​](#gas-limit "Direct link to Gas Limit")
+### Compute Limit[​](#compute-limit "Direct link to Compute Limit")
 
-* Flag: `--gas-limit`
+* Flag: `--compute-limit`
 * Valid inputs: an integer greater than zero.
 * Default: `1000`
 
-Specify the gas limit for this transaction.
+Specify the compute unit (gas) limit for this transaction.
 
 ### Host[​](#host "Direct link to Host")
 
@@ -1242,7 +1242,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/flix.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Nov 12, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -1259,7 +1259,7 @@ Copy as Markdown
 * [Introduction](#introduction)
   + [Execute](#execute)+ [Execute Usage](#execute-usage)+ [Generate](#generate)+ [Generate Usage](#generate-usage)+ [Cadence Doc Pragma:](#cadence-doc-pragma)+ [Package](#package)+ [Package Usage](#package-usage)+ [Example Package Output](#example-package-output)* [Resources](#resources)* [Arguments](#arguments)* [Flags](#flags)
         + [Arguments JSON](#arguments-json)* [Pre Fill](#pre-fill)* [Block Height](#block-height)* [Block ID](#block-id)
-              + [Signer](#signer)+ [Proposer](#proposer)+ [Payer](#payer)+ [Authorizer](#authorizer)+ [Gas Limit](#gas-limit)+ [Host](#host)+ [Network Key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version Check](#version-check)
+              + [Signer](#signer)+ [Proposer](#proposer)+ [Payer](#payer)+ [Authorizer](#authorizer)+ [Compute Limit](#compute-limit)+ [Host](#host)+ [Network Key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version Check](#version-check)
 
 Flow
 

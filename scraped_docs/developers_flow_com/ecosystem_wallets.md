@@ -30,7 +30,7 @@ Store, manage, and interact securely with tokens and digital assets on Flow. Dis
 
 ## Flow Wallet[​](#flow-wallet "Direct link to Flow Wallet")
 
-[Flow Wallet](https://wallet.flow.com/) - The is the most popular Flow-native wallet, it sponsors all gas fees for users and interacts seamlessly with both Cadence and EVM dApps in the ecosystem.
+[Flow Wallet](https://wallet.flow.com/) - The is the most popular Flow-native wallet, it sponsors all compute unit (gas) fees for users and interacts seamlessly with both Cadence and EVM dApps in the ecosystem.
 
 ## Ledger[​](#ledger "Direct link to Ledger")
 
@@ -68,7 +68,7 @@ Store, manage, and interact securely with tokens and digital assets on Flow. Dis
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/wallets.md)
 
-Last updated on **Sep 25, 2025** by **Brian Doyle**
+Last updated on **Nov 12, 2025** by **Brian Doyle**
 
 [Previous
 

@@ -58,7 +58,7 @@ Documentation for core types used throughout the Flow Client Library (FCL).
 
 `_10
 
-import { type Account } from "@onflow/fcl"`
+import { type Account } from '@onflow/fcl';`
 
 **Properties:**
 
@@ -70,7 +70,7 @@ import { type Account } from "@onflow/fcl"`
 
 `_10
 
-import { type AccountKey } from "@onflow/fcl"`
+import { type AccountKey } from '@onflow/fcl';`
 
 **Properties:**
 
@@ -82,7 +82,7 @@ import { type AccountKey } from "@onflow/fcl"`
 
 `_10
 
-import { type AccountStatusEvent } from "@onflow/fcl"`
+import { type AccountStatusEvent } from '@onflow/fcl';`
 
 **Properties:**
 
@@ -94,7 +94,7 @@ import { type AccountStatusEvent } from "@onflow/fcl"`
 
 `_10
 
-import { type Block } from "@onflow/fcl"`
+import { type Block } from '@onflow/fcl';`
 
 **Properties:**
 
@@ -106,7 +106,7 @@ import { type Block } from "@onflow/fcl"`
 
 `_10
 
-import { type BlockDigest } from "@onflow/fcl"`
+import { type BlockDigest } from '@onflow/fcl';`
 
 BlockDigest holds lightweight block information which includes only block id, block height and block timestamp.
 
@@ -120,7 +120,7 @@ BlockDigest holds lightweight block information which includes only block id, bl
 
 `_10
 
-import { type BlockHeader } from "@onflow/fcl"`
+import { type BlockHeader } from '@onflow/fcl';`
 
 Header contains all meta-data for a block, as well as a hash representing
 the combined payload of the entire block. It is what consensus nodes agree
@@ -136,7 +136,7 @@ on after validating the contents against the payload hash.
 
 `_10
 
-import { type BlockHeartbeat } from "@onflow/fcl"`
+import { type BlockHeartbeat } from '@onflow/fcl';`
 
 **Properties:**
 
@@ -148,7 +148,7 @@ import { type BlockHeartbeat } from "@onflow/fcl"`
 
 `_10
 
-import { type BlockSeal } from "@onflow/fcl"`
+import { type BlockSeal } from '@onflow/fcl';`
 
 **Properties:**
 
@@ -160,7 +160,7 @@ import { type BlockSeal } from "@onflow/fcl"`
 
 `_10
 
-import { type CollectionGuarantee } from "@onflow/fcl"`
+import { type CollectionGuarantee } from '@onflow/fcl';`
 
 **Properties:**
 
@@ -172,7 +172,7 @@ import { type CollectionGuarantee } from "@onflow/fcl"`
 
 `_10
 
-import { type CompositeSignature } from "@onflow/fcl"`
+import { type CompositeSignature } from '@onflow/fcl';`
 
 **Properties:**
 
@@ -184,7 +184,7 @@ import { type CompositeSignature } from "@onflow/fcl"`
 
 `_10
 
-import { type CurrentUser } from "@onflow/fcl"`
+import { type CurrentUser } from '@onflow/fcl';`
 
 **Properties:**
 
@@ -196,7 +196,7 @@ import { type CurrentUser } from "@onflow/fcl"`
 
 `_10
 
-import { type Event } from "@onflow/fcl"`
+import { type Event } from '@onflow/fcl';`
 
 **Properties:**
 
@@ -208,7 +208,7 @@ import { type Event } from "@onflow/fcl"`
 
 `_10
 
-import { type EventFilter } from "@onflow/fcl"`
+import { type EventFilter } from '@onflow/fcl';`
 
 **Properties:**
 
@@ -220,7 +220,7 @@ import { type EventFilter } from "@onflow/fcl"`
 
 `_10
 
-import { type Interaction } from "@onflow/fcl"`
+import { type Interaction } from '@onflow/fcl';`
 
 **Properties:**
 
@@ -232,7 +232,7 @@ import { type Interaction } from "@onflow/fcl"`
 
 `_10
 
-import { type InteractionAccount } from "@onflow/fcl"`
+import { type InteractionAccount } from '@onflow/fcl';`
 
 **Properties:**
 
@@ -244,7 +244,7 @@ import { type InteractionAccount } from "@onflow/fcl"`
 
 `_10
 
-import { type Key } from "@onflow/fcl"`
+import { type Key } from '@onflow/fcl';`
 
 **Properties:**
 
@@ -256,7 +256,7 @@ import { type Key } from "@onflow/fcl"`
 
 `_10
 
-import { type NodeVersionInfo } from "@onflow/fcl"`
+import { type NodeVersionInfo } from '@onflow/fcl';`
 
 **Properties:**
 
@@ -268,7 +268,7 @@ import { type NodeVersionInfo } from "@onflow/fcl"`
 
 `_10
 
-import { type Provider } from "@onflow/fcl"`
+import { type Provider } from '@onflow/fcl';`
 
 **Properties:**
 
@@ -280,7 +280,7 @@ import { type Provider } from "@onflow/fcl"`
 
 `_10
 
-import { type Service } from "@onflow/fcl"`
+import { type Service } from '@onflow/fcl';`
 
 **Properties:**
 
@@ -292,7 +292,7 @@ import { type Service } from "@onflow/fcl"`
 
 `_10
 
-import { type Signature } from "@onflow/fcl"`
+import { type Signature } from '@onflow/fcl';`
 
 **Properties:**
 
@@ -304,25 +304,25 @@ import { type Signature } from "@onflow/fcl"`
 
 `_10
 
-import { type StreamConnection } from "@onflow/fcl"`
+import { type StreamConnection } from '@onflow/fcl';`
 
 ### Transaction[​](#transaction "Direct link to Transaction")
 
 `_10
 
-import { type Transaction } from "@onflow/fcl"`
+import { type Transaction } from '@onflow/fcl';`
 
 **Properties:**
 
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Name Type Description|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `script` `string` The Cadence code used to execute this transaction.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `args` `string[]` The JSON-CDC encoded arguments passed in to the transaction.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `referenceBlockId` `string` The reference block id for this transaction.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `gasLimit` `number` The gas limit for the transaction.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `proposalKey` `Key` The key used by the proposer of this transaction.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `sequenceNumber` `string` Sequence number of the key used by the proposer of this transaction.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `keyId` `number` The ID of the key in the account used by the proposer of this transaction.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `address` `string` The address of the proposer of this transaction.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `payer` `string` Address of the payer of the transaction.|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `proposer` `string` Address of the proposer of this transaction.|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `authorizers` `string[]` Array of addresses of authorizers of this transaction.|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | `payloadSignatures` `Signature[]` The payload signatures for the transaction.|  |  |  | | --- | --- | --- | | `envelopeSignatures` `Signature[]` The envelope signatures for the transaction. | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+| Name Type Description|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `script` `string` The Cadence code used to execute this transaction.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `args` `string[]` The JSON-CDC encoded arguments passed in to the transaction.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `referenceBlockId` `string` The reference block id for this transaction.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `computeLimit` `number` The compute unit limit for the transaction.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `proposalKey` `Key` The key used by the proposer of this transaction.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `sequenceNumber` `string` Sequence number of the key used by the proposer of this transaction.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `keyId` `number` The ID of the key in the account used by the proposer of this transaction.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `address` `string` The address of the proposer of this transaction.|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `payer` `string` Address of the payer of the transaction.|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `proposer` `string` Address of the proposer of this transaction.|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `authorizers` `string[]` Array of addresses of authorizers of this transaction.|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | `payloadSignatures` `Signature[]` The payload signatures for the transaction.|  |  |  | | --- | --- | --- | | `envelopeSignatures` `Signature[]` The envelope signatures for the transaction. | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
 
 ### TransactionStatus[​](#transactionstatus "Direct link to TransactionStatus")
 
 `_10
 
-import { type TransactionStatus } from "@onflow/fcl"`
+import { type TransactionStatus } from '@onflow/fcl';`
 
 **Properties:**
 
@@ -336,7 +336,7 @@ import { type TransactionStatus } from "@onflow/fcl"`
 
 `_10
 
-import { type EventStream } from "@onflow/fcl"`
+import { type EventStream } from '@onflow/fcl';`
 
 **Properties:**
 
@@ -348,7 +348,7 @@ import { type EventStream } from "@onflow/fcl"`
 
 `_10
 
-import { type RawSubscriptionData } from "@onflow/fcl"`
+import { type RawSubscriptionData } from '@onflow/fcl';`
 
 Raw data returned by a subscription, which will vary depending on the topic and is not decoded
 
@@ -356,7 +356,7 @@ Raw data returned by a subscription, which will vary depending on the topic and 
 
 `_10
 
-import { type SdkTransport } from "@onflow/fcl"`
+import { type SdkTransport } from '@onflow/fcl';`
 
 Transport interface for the Flow SDK that provides methods for sending interactions and subscribing to data
 
@@ -370,7 +370,7 @@ Transport interface for the Flow SDK that provides methods for sending interacti
 
 `_10
 
-import { type Subscription } from "@onflow/fcl"`
+import { type Subscription } from '@onflow/fcl';`
 
 A subscription object that allows managing the subscription lifecycle
 
@@ -384,7 +384,7 @@ A subscription object that allows managing the subscription lifecycle
 
 `_10
 
-import { type SubscriptionArgs } from "@onflow/fcl"`
+import { type SubscriptionArgs } from '@onflow/fcl';`
 
 Arguments for a subscription, which will vary depending on the topic
 
@@ -392,7 +392,7 @@ Arguments for a subscription, which will vary depending on the topic
 
 `_10
 
-import { type SubscriptionData } from "@onflow/fcl"`
+import { type SubscriptionData } from '@onflow/fcl';`
 
 The data returned by a subscription, which will vary depending on the topic
 
@@ -402,7 +402,7 @@ The data returned by a subscription, which will vary depending on the topic
 
 `_10
 
-import { FvmErrorCode } from "@onflow/fcl"`
+import { FvmErrorCode } from '@onflow/fcl';`
 
 Error codes defined by the Flow Virtual Machine (FVM) for various types of errors that can occur during transaction execution
 
@@ -416,7 +416,7 @@ Error codes defined by the Flow Virtual Machine (FVM) for various types of error
 
 `_10
 
-import { HashAlgorithm } from "@onflow/fcl"`
+import { HashAlgorithm } from '@onflow/fcl';`
 
 **Members:**
 
@@ -428,7 +428,7 @@ import { HashAlgorithm } from "@onflow/fcl"`
 
 `_10
 
-import { InteractionResolverKind } from "@onflow/fcl"`
+import { InteractionResolverKind } from '@onflow/fcl';`
 
 Represents different kinds of interaction resolvers
 
@@ -442,7 +442,7 @@ Represents different kinds of interaction resolvers
 
 `_10
 
-import { InteractionStatus } from "@onflow/fcl"`
+import { InteractionStatus } from '@onflow/fcl';`
 
 Status of an interaction with the Flow blockchain
 
@@ -456,7 +456,7 @@ Status of an interaction with the Flow blockchain
 
 `_10
 
-import { InteractionTag } from "@onflow/fcl"`
+import { InteractionTag } from '@onflow/fcl';`
 
 Represents different types of interactions with the Flow blockchain
 
@@ -470,7 +470,7 @@ Represents different types of interactions with the Flow blockchain
 
 `_10
 
-import { SignatureAlgorithm } from "@onflow/fcl"`
+import { SignatureAlgorithm } from '@onflow/fcl';`
 
 **Members:**
 
@@ -482,7 +482,7 @@ import { SignatureAlgorithm } from "@onflow/fcl"`
 
 `_10
 
-import { SubscriptionTopic } from "@onflow/fcl"`
+import { SubscriptionTopic } from '@onflow/fcl';`
 
 Represents different topics that can be subscribed to for real-time data from the Flow blockchain
 
@@ -496,7 +496,7 @@ Represents different topics that can be subscribed to for real-time data from th
 
 `_10
 
-import { TransactionExecutionStatus } from "@onflow/fcl"`
+import { TransactionExecutionStatus } from '@onflow/fcl';`
 
 The execution status of the transaction.
 
@@ -510,7 +510,7 @@ The execution status of the transaction.
 
 `_10
 
-import { TransactionRole } from "@onflow/fcl"`
+import { TransactionRole } from '@onflow/fcl';`
 
 Represents different roles in a transaction
 
@@ -524,7 +524,7 @@ Represents different roles in a transaction
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/types/index.md)
 
-Last updated on **Oct 22, 2025** by **Michael Fabozzi**
+Last updated on **Nov 12, 2025** by **Brian Doyle**
 
 [Previous
 

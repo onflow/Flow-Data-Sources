@@ -103,6 +103,8 @@ After three-to-four sequential operations, significant cumulative rounding error
 
 [`DeFiActionsMathUtils`](https://github.com/onflow/FlowActions/blob/main/cadence/contracts/utils/DeFiActionsMathUtils.cdc) solves this with `UInt128` to represent fixed-point numbers with 24 decimal places (scaling factor of 10^24). This provides 16 additional decimal places for intermediate calculations, dramatically reducing precision loss.
 
+warning
+
 There is still some precision loss occurring, but it is much smaller than with eight decimals.
 
 ### The three-tier precision system[​](#the-three-tier-precision-system "Direct link to The three-tier precision system")
@@ -1132,7 +1134,7 @@ The simple **convert → calculate → convert back** pattern, combined with str
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/fixed-point-128-bit-math.md)
 
-Last updated on **Nov 6, 2025** by **cshannon1218**
+Last updated on **Nov 18, 2025** by **Brian Doyle**
 
 [Previous
 

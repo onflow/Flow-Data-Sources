@@ -62,7 +62,7 @@ Flow is unique in supporting two powerful programming languages for smart contra
 * **Cadence**: A modern programming language developed by smart contract application builders.
 * **Solidity**: The industry-standard language for EVM development, fully supported on Flow with full EVM equivalence.
 
-EVM and Cadence environments both use FLOW as gas for transactions and are connected by a native bridge that allows seamless and cheap communication between them. Fungible and non-fungible tokens can also be seamlessly transferred between environments using the native VM token bridge, taking place instantly in a single atomic transaction.
+EVM and Cadence environments both use FLOW for transactions fees (gas on the EVM side and compute unit of the Cadence side) and are connected by a native bridge that allows seamless and cheap communication between them. Fungible and non-fungible tokens can also be seamlessly transferred between environments using the native VM token bridge, taking place instantly in a single atomic transaction.
 
 This means developers can choose the language that best fits their needs while maintaining full interoperability between both environments.
 
@@ -101,15 +101,15 @@ EVM-equivalency on Flow works behind-the-scenes by implementing a minimal transa
 * **Scalable and Secure Architecture**: The [multi-role architecture](https://flow.com/post/flow-blockchain-multi-node-architecture-advantages) of Flow allows the network to [scale without sharding](https://www.flow.com/post/flow-blockchain-multi-node-architecture-advantages) to serve billions of users without reducing the decentralization of consensus and verification.
 * **True, fast finality**: For most other networks, it takes minutes, [a day](https://docs.zksync.io/zk-stack/concepts/finality#finality-on-zksync-era), or even [a week](https://docs.optimism.io/stack/rollup/overview#fault-proofs) to reach hard finality — the point at which a transaction cannot be reversed. On Flow, the median time for finality is [under 10 seconds](/build/cadence/basics/transactions#flow), without compromising security.
 * **Consumer onboarding**: Flow was designed for mainstream consumers, with payment onramps catalyzing a safe and low-friction path from fiat to crypto.
-* **Efficient gas costs**: The Flow blockchain is extremely efficient, allowing apps to do more computation at lower costs.
+* **Efficient compute unit and gas costs**: The Flow blockchain is extremely efficient both on the Cadence side and the EVM side, allowing apps to do more computation at lower costs.
 
 ### MEV resilience[​](#mev-resilience "Direct link to MEV resilience")
 
 The [MEV Resilient](/build/cadence/basics/mev-resistance) design on Flow offers DeFi builders improved market efficiency, fairness, trust, and long-term viability for their apps. Since Flow EVM transactions are composed and executed within a Cadence transaction, block production is handled by the [multi-role architecture](https://flow.com/post/flow-blockchain-multi-node-architecture-advantages) on Flow.
 
-This robust MEV resilience is a significant difference from other EVM-compatible networks and results in reasonably priced and predictable gas fees. The impracticality of frontrunning or other attacks improves the user experience by eliminating failed transactions and invisible fees.
+This robust MEV resilience is a significant difference from other EVM-compatible networks and results in reasonably priced and predictable compute unit (gas) fees. The impracticality of frontrunning or other attacks improves the user experience by eliminating failed transactions and invisible fees.
 
-### Scalability, performance, and low gas fees[​](#scalability-performance-and-low-gas-fees "Direct link to Scalability, performance, and low gas fees")
+### Scalability, performance, and low compute unit (gas) fees[​](#scalability-performance-and-low-compute-unit-gas-fees "Direct link to Scalability, performance, and low compute unit (gas) fees")
 
 For sustainable user adoption, apps require the network they build on to be secure, efficient, affordable, and fast. Gas fees are ultra-low cost on the network, but Flow goes a step further allowing for gasless experiences through sponsored transactions.
 
@@ -183,7 +183,7 @@ This means developers can:
 * **Compose complex operations**: Build sophisticated DeFi strategies by combining multiple Actions in one transaction
 * **Eliminate integration complexity**: Use standardized interfaces instead of custom contract integrations
 * **Ensure atomicity**: All operations succeed together or fail together, eliminating partial execution risks
-* **Reduce gas costs**: Execute multiple protocol interactions more efficiently than separate transactions
+* **Reduce compute unit (gas) costs**: Execute multiple protocol interactions more efficiently than separate transactions
 
 ### Scheduled Transaction: Autonomous onchain execution[​](#scheduled-transaction-autonomous-onchain-execution "Direct link to Scheduled Transaction: Autonomous onchain execution")
 
@@ -269,7 +269,7 @@ Are you interested in launching a project on Flow or partnering with us? Visit o
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/flow.md)
 
-Last updated on **Oct 17, 2025** by **Brian Doyle**
+Last updated on **Nov 18, 2025** by **Brian Doyle**
 
 [Next
 
@@ -282,7 +282,7 @@ Quickstart ↙](/build/cadence/quickstart)
 Copy as Markdown
 
 * [What makes Flow unique](#what-makes-flow-unique)
-  + [Dual language architecture](#dual-language-architecture)+ [Cadence development on Flow](#cadence-development-on-flow)+ [Solidity development on Flow EVM](#solidity-development-on-flow-evm)+ [Seamless integration for Ethereum developers](#seamless-integration-for-ethereum-developers)+ [Flow blockchain core features](#flow-blockchain-core-features)+ [MEV resilience](#mev-resilience)+ [Scalability, performance, and low gas fees](#scalability-performance-and-low-gas-fees)* [Getting started](#getting-started)
+  + [Dual language architecture](#dual-language-architecture)+ [Cadence development on Flow](#cadence-development-on-flow)+ [Solidity development on Flow EVM](#solidity-development-on-flow-evm)+ [Seamless integration for Ethereum developers](#seamless-integration-for-ethereum-developers)+ [Flow blockchain core features](#flow-blockchain-core-features)+ [MEV resilience](#mev-resilience)+ [Scalability, performance, and low compute unit (gas) fees](#scalability-performance-and-low-compute-unit-gas-fees)* [Getting started](#getting-started)
     + [Getting started with Cadence app development](#getting-started-with-cadence-app-development)+ [Learn Cadence](#learn-cadence)+ [Build with Solidity on Flow EVM](#build-with-solidity-on-flow-evm)* [FLOW token](#flow-token)* [Technical background](#technical-background)* [Flow Improvement Proposals (FLIPs)](#flow-improvement-proposals-flips)* [Forte Network Upgrade](#forte-network-upgrade)
             + [What makes Forte Interesting](#what-makes-forte-interesting)+ [Flow Actions: Protocol-native composability](#flow-actions-protocol-native-composability)+ [Scheduled Transaction: Autonomous onchain execution](#scheduled-transaction-autonomous-onchain-execution)+ [High-precision DeFi with 128-bit fixed-point types](#high-precision-defi-with-128-bit-fixed-point-types)+ [WebAuthn and passkey support](#webauthn-and-passkey-support)+ [AI-friendly Cadence errors](#ai-friendly-cadence-errors)+ [Boosting Efficiency and Scalability](#boosting-efficiency-and-scalability)+ [Protocol Autonomy](#protocol-autonomy)* [Build with Flow](#build-with-flow)* [Join the community](#join-the-community)
 

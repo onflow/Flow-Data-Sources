@@ -1579,7 +1579,7 @@ Congratulations! You've successfully created an NFT collection for the `test-acc
 
 ## Get an Account's NFTs[​](#get-an-accounts-nfts "Direct link to Get an Account's NFTs")
 
-To retrieve the NFTs associated with an account, you'll need a script. Scripts are read-only operations that allow you to query the blockchain. They don't modify the blockchain's state, and therefore, they don't require gas fees or signatures (read more about scripts here).
+To retrieve the NFTs associated with an account, you'll need a script. Scripts are read-only operations that allow you to query the blockchain. They don't modify the blockchain's state, and therefore, they don't require compute unit fees or signatures.
 
 To start, create a script file with the `generate` command again:
 
@@ -1990,7 +1990,7 @@ Congrats, you did it! You're now ready to launch the next fun NFT project on Flo
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/tokens/nft-cadence.md)
 
-Last updated on **Nov 18, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **Brian Doyle**
 
 [Previous
 

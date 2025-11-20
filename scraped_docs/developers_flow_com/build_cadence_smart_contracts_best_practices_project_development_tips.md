@@ -107,7 +107,7 @@ Here are some recommendations for how projects can organize the foundations of t
 Developing a dapp requires a clear vision for the role of the smart contract and how it's integrated.
 Security vulnerabilities may arise from bugs directly in smart contract code (and elsewhere in the system).
 Asynchronous interaction vectors may lead to forms of malicious abuse,
-DOS etc in a contract triggering explosive gas costs for the developer or other problems.
+DOS etc in a contract triggering explosive compute unit costs for the developer or other problems.
 
 We recommend that engineers leading a project and deploying to mainnet have an understanding
 of software and security engineering fundamentals and have been thorough
@@ -309,7 +309,7 @@ If you have any feedback about these guidelines, please create an issue in the o
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/cadence/smart-contracts/best-practices/project-development-tips.md)
 
-Last updated on **Aug 22, 2025** by **Brian Doyle**
+Last updated on **Nov 12, 2025** by **Brian Doyle**
 
 [Previous
 

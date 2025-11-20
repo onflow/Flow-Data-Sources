@@ -36,7 +36,7 @@ Block explorers are user-friendly online tools that visually present blockchain 
 * Transactions
 * Contracts
 * Network activity (transaction count)
-* Transaction cost (gas fee)
+* Transaction cost (compute unit/gas fee)
 * Validators information
 
 ### Supported networks:[​](#supported-networks "Direct link to Supported networks:")
@@ -85,7 +85,7 @@ Block explorers are user-friendly online tools that visually present blockchain 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/ecosystem/block-explorers.md)
 
-Last updated on **Feb 27, 2025** by **BT.Wood(Tang Bo Hao)**
+Last updated on **Nov 12, 2025** by **Brian Doyle**
 
 [Previous
 
