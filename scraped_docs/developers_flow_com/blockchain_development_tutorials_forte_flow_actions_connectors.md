@@ -190,7 +190,7 @@ _10
 
 ProtocolA.RewardsSource → SwapConnectors.SwapSource → ProtocolB.StakingSink`
 
-## Connector Library[​](#connector-library "Direct link to Connector Library")
+## Connector library[​](#connector-library "Direct link to Connector library")
 
 🔄 SOURCE Primitive Implementations
 
@@ -236,51 +236,51 @@ First, determine which Flow Actions primitive(s) your connector will implement:
 
 Study your target protocol to understand:
 
-* **Contract interfaces** and method signatures
-* **Required parameters** and data structures
-* **Error conditions** and failure modes
-* **Fee structures** and payment mechanisms
-* **Access controls** and permissions
+* **Contract interfaces** and method signatures.
+* **Required parameters** and data structures.
+* **Error conditions** and failure modes.
+* **Fee structures** and payment mechanisms.
+* **Access controls** and permissions.
 
 ### Design your connector[​](#design-your-connector "Direct link to Design your connector")
 
 Plan your connector implementation:
 
-* **Configuration parameters** needed for initialization
-* **Capability requirements** for protocol access
-* **Error handling strategy** for graceful failures
-* **Resource management** for token handling
-* **Event emission** for traceability
+* **Configuration parameters** needed for initialization.
+* **Capability requirements** for protocol access.
+* **Error handling strategy** for graceful failures.
+* **Resource management** for token handling.
+* **Event emission** for traceability.
 
 ### Implement the interface[​](#implement-the-interface "Direct link to Implement the interface")
 
-Create your connector struct implementing the chosen primitive interface(s).
+Create your connector struct to implement the chosen primitive interface(s).
 
 ### Add safety features[​](#add-safety-features "Direct link to Add safety features")
 
 Implement safety mechanisms:
 
-* **Capacity checking** before operations
-* **Balance validation** after operations
-* **Graceful error handling** with no-ops
-* **Resource cleanup** for empty vaults
+* **Capacity checking** before operations.
+* **Balance validation** after operations.
+* **Graceful error handling** with no-ops.
+* **Resource cleanup** for empty vaults.
 
 ### Support Flow Actions standards[​](#support-flow-actions-standards "Direct link to Support Flow Actions standards")
 
 Add required Flow Actions support:
 
-* **IdentifiableStruct** implementation
-* **UniqueIdentifier** management
-* **ComponentInfo** for introspection
-* **Event emission** integration
+* **IdentifiableStruct** implementation.
+* **UniqueIdentifier** management.
+* **ComponentInfo** for introspection.
+* **Event emission** integration.
 
 ## Best practices[​](#best-practices "Direct link to Best practices")
 
 ### **Error handling**[​](#error-handling "Direct link to error-handling")
 
-* **Graceful Failures**: Return empty results instead of panicking.
-* **Validation**: Check all inputs and preconditions.
-* **Resource Safety**: Properly handle vault resources in all paths.
+* **Graceful Failures**: return empty results instead of panicking.
+* **Validation**: check all inputs and preconditions.
+* **Resource Safety**: properly handle vault resources in all paths.
 
 `_13
 
@@ -332,11 +332,11 @@ _13
 
 }`
 
-### **Capacity and balance checking**[​](#capacity-and-balance-checking "Direct link to capacity-and-balance-checking")
+### **Capacity and balance checks**[​](#capacity-and-balance-checks "Direct link to capacity-and-balance-checks")
 
-* **Always Check First**: Validate capacity/availability before operations.
-* **Respect Limits**: Work within available constraints.
-* **Handle Edge Cases**: Zero amounts, maximum values, empty vaults.
+* **Always Check First**: validate capacity/availability before operations.
+* **Respect Limits**: work within available constraints.
+* **Handle Edge Cases**: zero amounts, maximum values, empty vaults.
 
 `_14
 
@@ -390,9 +390,9 @@ _14
 
 ### **Type safety**[​](#type-safety "Direct link to type-safety")
 
-* **Validate Types**: Ensure vault types match expected types.
-* **Early Returns**: Fail fast on type mismatches.
-* **Clear Error Messages**: Help developers understand issues.
+* **Validate Types**: ensure vault types match expected types.
+* **Early Returns**: fail fast on type mismatches.
+* **Clear Error Messages**: help developers understand issues.
 
 `_10
 
@@ -427,26 +427,26 @@ _10
 ### **Event integration**[​](#event-integration "Direct link to event-integration")
 
 * **Leverage Post-conditions**: Flow Actions interfaces emit events automatically.
-* **Provide Context**: Include relevant information in events.
-* **Support Traceability**: Use UniqueIdentifiers consistently.
+* **Provide Context**: include relevant information in events.
+* **Support Traceability**: use UniqueIdentifiers consistently.
 
 ### **Resource management**[​](#resource-management "Direct link to resource-management")
 
-* **Handle Empty Vaults**: Use `DeFiActionsUtils.getEmptyVault()` for consistent empty vault creation.
-* **Destroy Properly**: Clean up resources in all code paths.
-* **Avoid Resource Leaks**: Ensure all vaults are handled appropriately.
+* **Handle Empty Vaults**: use `DeFiActionsUtils.getEmptyVault()` for consistent empty vault creation.
+* **Destroy Properly**: clean up resources in all code paths.
+* **Avoid Resource Leaks**: ensure all vaults are handled appropriately.
 
-### **Capability Management**[​](#capability-management "Direct link to capability-management")
+### **Capability management**[​](#capability-management "Direct link to capability-management")
 
-* **Validate Capabilities**: Check capabilities before using them.
-* **Handle Revocation**: Gracefully handle revoked capabilities.
-* **Proper Entitlements**: Use correct entitlement levels (auth vs unauth).
+* **Validate Capabilities**: check capabilities before using them.
+* **Handle Revocation**: gracefully handle revoked capabilities.
+* **Proper Entitlements**: use correct entitlement levels (auth vs unauth).
 
 ### **Documentation**[​](#documentation "Direct link to documentation")
 
-* **Clear Comments**: Explain protocol-specific logic.
-* **Usage Examples**: Show how to use your connectors.
-* **Integration Patterns**: Demonstrate composition with other connectors.
+* **Clear Comments**: explain protocol-specific logic.
+* **Usage Examples**: show how to use your connectors.
+* **Integration Patterns**: demonstrate composition with other connectors.
 
 ## Integration into Flow Actions[​](#integration-into-flow-actions "Direct link to Integration into Flow Actions")
 
@@ -458,7 +458,7 @@ The `VaultSink` connector is already deployed and working in Flow Actions. Let's
 **Contract**: `FungibleTokenConnectors`
 **Connector**: `VaultSink` struct that defines the interaction with the connector.
 
-### Deploy Your Connector contract[​](#deploy-your-connector-contract "Direct link to Deploy Your Connector contract")
+### Deploy Your connector contract[​](#deploy-your-connector-contract "Direct link to Deploy Your connector contract")
 
 Deploy your connector contract with the following command:
 
@@ -518,7 +518,7 @@ _12
 
 ### Create usage transactions[​](#create-usage-transactions "Direct link to Create usage transactions")
 
-Create transaction templates for using your connectors:
+Create transaction templates for use with your connectors:
 
 `_23
 
@@ -910,7 +910,7 @@ _30
 
 }`
 
-### Add to existing workflows[​](#add-to-existing-workflows "Direct link to Add to existing workflows")
+### Add to current workflows[​](#add-to-current-workflows "Direct link to Add to current workflows")
 
 You can use VaultSink in advanced Flow Actions workflows:
 
@@ -1104,7 +1104,7 @@ _51
 
 }`
 
-### For Your own connectors[​](#for-your-own-connectors "Direct link to For Your own connectors")
+### For your own connectors[​](#for-your-own-connectors "Direct link to For your own connectors")
 
 When building your own connectors, follow the VaultSink pattern:
 
@@ -1120,16 +1120,16 @@ When building your own connectors, follow the VaultSink pattern:
 The Flow Actions framework provides a comprehensive set of connectors that successfully implement the five fundamental DeFi primitives across multiple protocols:
 
 * **20+ Connector Implementations** spanning basic vault operations to complex cross-VM swapping.
-* **4 Protocol Integrations**: Generic FungibleToken, IncrementFi, Band Oracle, Flow EVM.
-* **Composable Architecture**: Combine Connectors to create sophisticated financial workflows.
-* **Safety-First Design**: Graceful error handling and resource safety throughout.
-* **Event-Driven Traceability**: Full workflow tracking and debugging capabilities.
+* **4 Protocol Integrations**: generic FungibleToken, IncrementFi, Band Oracle, Flow EVM.
+* **Composable Architecture**: combine Connectors to create sophisticated financial workflows.
+* **Safety-First Design**: graceful error handling and resource safety throughout.
+* **Event-Driven Traceability**: full workflow tracking and debugging capabilities.
 
 This framework allows developers to build sophisticated DeFi strategies while maintaining the simplicity and reliability of standardized primitive interfaces. The modular design allows for easy extension to additional protocols while preserving composability and atomic execution guarantees.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/flow-actions/connectors.md)
 
-Last updated on **Nov 6, 2025** by **cshannon1218**
+Last updated on **Nov 18, 2025** by **cshannon1218**
 
 [Previous
 
@@ -1144,10 +1144,10 @@ Basic Combinations](/blockchain-development-tutorials/forte/flow-actions/basic-c
 Copy as Markdown
 
 * [How connectors work](#how-connectors-work)
-  + [Abstraction layer](#abstraction-layer)+ [Interface implementation](#interface-implementation)+ [Composition pattern](#composition-pattern)* [Connector Library](#connector-library)* [Guide to building connectors](#guide-to-building-connectors)
+  + [Abstraction layer](#abstraction-layer)+ [Interface implementation](#interface-implementation)+ [Composition pattern](#composition-pattern)* [Connector library](#connector-library)* [Guide to building connectors](#guide-to-building-connectors)
       + [Choose your primitive](#choose-your-primitive)+ [Analyze your protocol](#analyze-your-protocol)+ [Design your connector](#design-your-connector)+ [Implement the interface](#implement-the-interface)+ [Add safety features](#add-safety-features)+ [Support Flow Actions standards](#support-flow-actions-standards)* [Best practices](#best-practices)
-        + [**Error handling**](#error-handling)+ [**Capacity and balance checking**](#capacity-and-balance-checking)+ [**Type safety**](#type-safety)+ [**Event integration**](#event-integration)+ [**Resource management**](#resource-management)+ [**Capability Management**](#capability-management)+ [**Documentation**](#documentation)* [Integration into Flow Actions](#integration-into-flow-actions)
-          + [Deploy Your Connector contract](#deploy-your-connector-contract)+ [Create usage transactions](#create-usage-transactions)+ [Real usage transaction: VaultSink](#real-usage-transaction-vaultsink)+ [Create combinations examples](#create-combinations-examples)+ [Add to existing workflows](#add-to-existing-workflows)+ [For Your own connectors](#for-your-own-connectors)* [Conclusion](#conclusion)
+        + [**Error handling**](#error-handling)+ [**Capacity and balance checks**](#capacity-and-balance-checks)+ [**Type safety**](#type-safety)+ [**Event integration**](#event-integration)+ [**Resource management**](#resource-management)+ [**Capability management**](#capability-management)+ [**Documentation**](#documentation)* [Integration into Flow Actions](#integration-into-flow-actions)
+          + [Deploy Your connector contract](#deploy-your-connector-contract)+ [Create usage transactions](#create-usage-transactions)+ [Real usage transaction: VaultSink](#real-usage-transaction-vaultsink)+ [Create combinations examples](#create-combinations-examples)+ [Add to current workflows](#add-to-current-workflows)+ [For your own connectors](#for-your-own-connectors)* [Conclusion](#conclusion)
 
 Flow
 

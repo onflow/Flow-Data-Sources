@@ -143,75 +143,47 @@ Follow the prompts:
 
 Your `flow.json` now includes a testnet deployment section:
 
-`_18
+`_11
 
 {
 
-_18
+_11
 
 "deployments": {
 
-_18
+_11
 
 "emulator": {
 
-_18
+_11
 
-"default": [
+"default": ["Counter"],
 
-_18
+_11
 
-"Counter"
+"emulator-account": ["NumberFormatter"]
 
-_18
-
-],
-
-_18
-
-"emulator-account": [
-
-_18
-
-"NumberFormatter"
-
-_18
-
-]
-
-_18
+_11
 
 },
 
-_18
+_11
 
 "testnet": {
 
-_18
+_11
 
-"testnet-account": [
+"testnet-account": ["Counter", "NumberFormatter"]
 
-_18
-
-"Counter",
-
-_18
-
-"NumberFormatter"
-
-_18
-
-]
-
-_18
+_11
 
 }
 
-_18
+_11
 
 }
 
-_18
+_11
 
 }`
 
@@ -406,7 +378,7 @@ Visit `http://localhost:3000` and you will see:
 1. **Counter value**: Displays the current count from your testnet contract.
 2. **Connect Wallet**: You can now connect with various Flow wallets (not just Dev Wallet).
 3. **Increment functionality**: Transactions are sent to the live testnet.
-4. **Real transaction costs**: Small amounts of testnet Flow are used for gas.
+4. **Real transaction costs**: Small amounts of testnet Flow are used to pay for compute units, the Flow Cadence equivalence of gas.
 
 **Important**: When you connect your wallet, make sure to:
 
@@ -470,135 +442,95 @@ Follow the prompts:
 
 Your `flow.json` will now include mainnet configuration:
 
-`_33
+`_23
 
 {
 
-_33
+_23
 
 "dependencies": {
 
-_33
+_23
 
 "NumberFormatter": {
 
-_33
+_23
 
 "source": "testnet://8a4dce54554b225d.NumberFormatter",
 
-_33
+_23
 
 "aliases": {
 
-_33
+_23
 
 "mainnet": "1654653399040a61",
 
-_33
+_23
 
 "testnet": "8a4dce54554b225d"
 
-_33
+_23
 
 }
 
-_33
+_23
 
 }
 
-_33
+_23
 
 },
 
-_33
+_23
 
 "deployments": {
 
-_33
+_23
 
 "emulator": {
 
-_33
+_23
 
-"default": [
+"default": ["Counter"],
 
-_33
+_23
 
-"Counter"
+"emulator-account": ["NumberFormatter"]
 
-_33
-
-],
-
-_33
-
-"emulator-account": [
-
-_33
-
-"NumberFormatter"
-
-_33
-
-]
-
-_33
+_23
 
 },
 
-_33
+_23
 
 "testnet": {
 
-_33
+_23
 
-"testnet-account": [
+"testnet-account": ["Counter", "NumberFormatter"]
 
-_33
-
-"Counter",
-
-_33
-
-"NumberFormatter"
-
-_33
-
-]
-
-_33
+_23
 
 },
 
-_33
+_23
 
 "mainnet": {
 
-_33
+_23
 
-"mainnet-account": [
+"mainnet-account": ["Counter", "NumberFormatter"]
 
-_33
-
-"Counter",
-
-_33
-
-"NumberFormatter"
-
-_33
-
-]
-
-_33
+_23
 
 }
 
-_33
+_23
 
 }
 
-_33
+_23
 
 }`
 
@@ -752,7 +684,7 @@ npm run build`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/getting-started/production-deployment.md)
 
-Last updated on **Nov 14, 2025** by **0xLisanAlGaib**
+Last updated on **Nov 19, 2025** by **Brian Doyle**
 
 [Previous
 

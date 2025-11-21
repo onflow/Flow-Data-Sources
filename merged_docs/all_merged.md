@@ -57001,17 +57001,22 @@ access(all) contract ExampleToken: FungibleToken {
     }
 
     init() {
-        self.totalSupply = 1000.0
+        self.totalSupply = 0.0
 
         self.VaultStoragePath = /storage/exampleTokenVault
         self.VaultPublicPath = /public/exampleTokenVault
         self.ReceiverPublicPath = /public/exampleTokenReceiver
         self.AdminStoragePath = /storage/exampleTokenAdmin 
 
+        let admin <- create Minter()
+
         // Create the Vault with the total supply of tokens and save it in storage
         //
-        let vault <- create Vault(balance: self.totalSupply)
-        emit TokensMinted(amount: vault.balance, type: vault.getType().identifier)
+        let vault <- admin.mintTokens(amount: 1000.0)
+
+        self.account.storage.save(<-vault, to: self.VaultStoragePath)
+
+        self.account.storage.save(<-admin, to: self.AdminStoragePath)
 
         // Create a public capability to the stored Vault that exposes
         // the `deposit` method and getAcceptedTypes method through the `Receiver` interface
@@ -57021,11 +57026,6 @@ access(all) contract ExampleToken: FungibleToken {
         self.account.capabilities.publish(exampleTokenCap, at: self.VaultPublicPath)
         let receiverCap = self.account.capabilities.storage.issue<&ExampleToken.Vault>(self.VaultStoragePath)
         self.account.capabilities.publish(receiverCap, at: self.ReceiverPublicPath)
-
-        self.account.storage.save(<-vault, to: /storage/exampleTokenVault)
-
-        let admin <- create Minter()
-        self.account.storage.save(<-admin, to: self.AdminStoragePath)
     }
 }
 
@@ -97660,9 +97660,12 @@ Accidentally exposed fields can be a security hole.
 ### Solution[​](#solution-1 "Direct link to Solution")
 
 When writing your smart contract, look at every field and function and make sure
-that require access through an [entitlement](/docs/language/access-control#entitlements) (`access(E)`),
-or use a non-public [access modifier](/docs/language/access-control) like `access(self)`, `access(contract)`, or `access(account)`,
-unless otherwise needed.
+that any functions that you don't want every user to be able to access require access through an [entitlement](/docs/language/access-control#entitlements) (`access(E)`),
+or use a non-public [access modifier](/docs/language/access-control) like `access(self)`, `access(contract)`, or `access(account)`.
+Declaring a function as `access(all)` is a deliberate design decision to allow completely open and unrestricted access to read that field or call that function and should not be taken lightly.
+
+The only functions that should be `access(all)` are `view` functions and functions the everyone should be able to access and the only fields that should be `access(all)` are basic types like numbers or addresses.
+Complex fields like arrays, dictionaries, structs, resources, or capabilities should always be `access(self)`.
 
 ## Capability-Typed public fields are a security hole[​](#capability-typed-public-fields-are-a-security-hole "Direct link to Capability-Typed public fields are a security hole")
 
@@ -119772,11 +119775,341 @@ This is an opinionated list of best practices that Cadence developers should fol
 
 Some practices listed below might overlap with advice in the [Cadence Anti-Patterns](/docs/design-patterns) article, which is a recommended read as well.
 
+## Access Control[​](#access-control "Direct link to Access Control")
+
+Do not use the `access(all)` modifier on fields and functions unless absolutely necessary. Prefer `access(self)`, `access(contract)`, `access(account)`, or `access(SomeEntitlement)`. Unintentionally declaring fields or functions as `access(all)` can expose vulnerabilities in your code.
+
+When writing definitions for contracts, structs, or resources, start by declaring all your fields and functions as `access(self)`. If there is a function that needs to be accessible by external code, only declare it as `access(all)` if it is a `view` function or if you definitely want it to be accessible by anyone in the network.
+
+`_13
+
+/// Simplified Bank Account implementation
+
+_13
+
+access(all) resource BankAccount {
+
+_13
+
+_13
+
+/// Fields should default to access(self) to be safe
+
+_13
+
+/// and be readable through view functions
+
+_13
+
+access(self) var balance: UFix64
+
+_13
+
+_13
+
+/// It is okay to make this function access(all) because it is a view function
+
+_13
+
+/// and all blockchain data is public
+
+_13
+
+access(all) view fun getBalance(): UFix64 {
+
+_13
+
+return self.balance
+
+_13
+
+}
+
+_13
+
+}`
+
+If there are any functions that modify privileged state that also need to be callable from external code, use [entitlements](/docs/language/access-control) for the access modifiers for those functions:
+
+`` _31
+
+/// Simplified Vault implementation
+
+_31
+
+/// Simplified Bank Account implementation
+
+_31
+
+access(all) resource BankAccount {
+
+_31
+
+_31
+
+/// Declare Entitlements for state-modifying functions
+
+_31
+
+access(all) entitlement Owner
+
+_31
+
+_31
+
+/// Fields should default to access(self) just to be safe
+
+_31
+
+access(self) var balance: UFix64
+
+_31
+
+_31
+
+/// All non-view functions should be something other than access(all),
+
+_31
+
+_31
+
+/// This is only callable by other functions in the type, so it is `access(self)`
+
+_31
+
+access(self) fun updateBalance(_ new: UFix64) {
+
+_31
+
+self.balance = new
+
+_31
+
+}
+
+_31
+
+_31
+
+/// This function is external, but should only be called by the owner
+
+_31
+
+/// so we use the `Owner` entitlement
+
+_31
+
+access(Owner) fun withdrawFromAccount(_ amount: UFix64): @BankAccount {
+
+_31
+
+self.updateBalance(self.balance - amount)
+
+_31
+
+return <-create BankAccount(balance: amount)
+
+_31
+
+}
+
+_31
+
+_31
+
+/// This is also state-modifying, but we intend for it to be callable by anyone
+
+_31
+
+/// so we can make it access(all)
+
+_31
+
+access(all) fun depositToAccount(_ from: @BankAccount) {
+
+_31
+
+self.updateBalance(self.balance + from.getBalance())
+
+_31
+
+destroy from
+
+_31
+
+}
+
+_31
+
+} ``
+
+## Access Control for Composite-typed Fields[​](#access-control-for-composite-typed-fields "Direct link to Access Control for Composite-typed Fields")
+
+Declaring a field as [`access(all)`](/docs/language/access-control) only protects from replacing the field's value, but the value itself can still be mutated if it is mutable. Remember that containers, like dictionaries and arrays, are mutable and composite fields like structs and resources are still mutable through their own functions.
+
+danger
+
+This means that if you ever have a field that is a resource, struct, or capability, it should ALWAYS be `access(self)`! If it is `access(all)`, anyone could access it and call its functions, which could be a major vulnerability.
+
+You can still allow external code to access that field, but only through functions that you have defined with `access(SomeEntitlement)`. This way, you can explicitly define how external code can access these fields.
+
+# Capabilities
+
+## Issuing Capabilities[​](#issuing-capabilities "Direct link to Issuing Capabilities")
+
+Don't issue and publish capabilities unless absolutely necessary. Anyone can access capabilities that are published. If public access is needed, follow the [principle of least privilege/authority](https://en.wikipedia.org/wiki/Principle_of_least_privilege): make sure that the capability type only grants access to the fields and functions that should be exposed, and nothing else. Ideally, create a capability with a reference type that is unauthorized.
+
+When issuing a capability, a capability of the same type might already be present. It is a good practice to check if a capability already exists with `getControllers()` before creating it. If it already exists, you can reuse it instead of issuing a new one. This prevents you from overloading your account storage and overpaying because of redundant capabilities.
+
+`_20
+
+// Capability to find or issue
+
+_20
+
+var flowTokenVaultCap: Capability<auth(FungibleToken.Withdraw) &FlowToken.Vault>? = nil
+
+_20
+
+_20
+
+// Get all the capabilities that have already been issued for the desired storage path
+
+_20
+
+let flowTokenVaultCaps = account.capabilities.storage.getControllers(forPath: /storage/flowTokenVault)
+
+_20
+
+_20
+
+// Iterate through them to see if there is already one of the needed type
+
+_20
+
+for cap in flowTokenVaultCaps {
+
+_20
+
+if let cap = cap as? Capability<auth(FungibleToken.Withdraw) &FlowToken.Vault> {
+
+_20
+
+flowTokenVaultCap = cap
+
+_20
+
+break
+
+_20
+
+}
+
+_20
+
+}
+
+_20
+
+_20
+
+// If no capabilities of the needed type are already present,
+
+_20
+
+// issue a new one
+
+_20
+
+if flowTokenVaultCap == nil {
+
+_20
+
+// issue a new entitled capability to the flow token vault
+
+_20
+
+flowTokenVaultCap = account.capabilities.storage.issue<auth(FungibleToken.Withdraw) &FlowToken.Vault>(/storage/flowTokenVault)
+
+_20
+
+}`
+
+## Publishing Capabilities[​](#publishing-capabilities "Direct link to Publishing Capabilities")
+
+When publishing a capability, a published capability might already be present. It is a good practice to check if a capability already exists with `borrow` before creating it. This function will return `nil` if the capability does not exist.
+
+`_10
+
+// Check if the published capability already exists
+
+_10
+
+if account.capabilities.borrow<&FlowToken.Vault>(/public/flowTokenReceiver) == nil {
+
+_10
+
+// since it doesn't exist yet, we should publish a new one that we created earlier
+
+_10
+
+signer.capabilities.publish(
+
+_10
+
+receiverCapability,
+
+_10
+
+at: /public/flowTokenReceiver
+
+_10
+
+)
+
+_10
+
+}`
+
+## Checking Capabilities[​](#checking-capabilities "Direct link to Checking Capabilities")
+
+If it is necessary to handle the case where borrowing a capability might fail, the `account.check` function can be used to verify that the target exists and has a valid type:
+
+`_10
+
+// check if the capability is valid
+
+_10
+
+if capability.check() {
+
+_10
+
+let reference = capability.borrow()
+
+_10
+
+} else {
+
+_10
+
+// do something else if the capability isn't valid
+
+_10
+
+}`
+
+## Capability Access[​](#capability-access "Direct link to Capability Access")
+
+Ensure capabilities cannot be accessed by unauthorized parties. For example, capabilities should not be accessible through a public field, including public dictionaries or arrays. Exposing a capability in such a way allows anyone to borrow it and to perform all actions that the capability allows, including `access(all)` fields and functions that aren't even in the restricted type of the capability.
+
 ## References[​](#references "Direct link to References")
 
 [References](/docs/language/references) are ephemeral values and cannot be stored. If persistence is required, store a capability and borrow it when needed.
 
-When exposing functionality, provide the least access necessary. When creating an authorized reference, create it with only the minimal set of entitlements required to achieve the desired functionality.
+When exposing functionality in an account, struct, or resource, provide the least access necessary. When creating an authorized reference with [entitlements](/docs/language/access-control), create it with only the minimal set of [entitlements](/docs/language/access-control) required to achieve the desired functionality.
+
+# Accounts
 
 ## Account storage[​](#account-storage "Direct link to Account storage")
 
@@ -119791,18 +120124,6 @@ Access to an authorized account reference (`auth(...) &Account`) gives access to
 Therefore, avoid passing an entitled account reference to a function, and when defining a function, only specify an account reference parameter with the fine-grained entitlements required to perform the necessary operations.
 
 It is preferable to use capabilities over direct account storage access when exposing account data. Using capabilities allows the revocation of access and limits the access to a single value with a certain set of functionality.
-
-## Capabilities[​](#capabilities "Direct link to Capabilities")
-
-Don't issue and publish capabilities unless really necessary. Anyone can access capabilities that are published. If public access is needed, follow the [principle of least privilege/authority](https://en.wikipedia.org/wiki/Principle_of_least_privilege): make sure that the capability type only grants access to the fields and functions that should be exposed, and nothing else. Ideally, create a capability with a reference type that is unauthorized.
-
-If an entitlement is necessary to access the field or function, ensure it is only used for the particular field or function, and not also by other fields and functions. If needed, introduce a new, fine-grained entitlement.
-
-When publishing a capability, a capability might already be present. It is a good practice to check if a capability already exists with `get` before creating it. This function will return `nil` if the capability does not exist.
-
-If it is necessary to handle the case where borrowing a capability might fail, the `account.check` function can be used to verify that the target exists and has a valid type.
-
-Ensure capabilities cannot be accessed by unauthorized parties. For example, capabilities should not be accessible through a public field, including public dictionaries or arrays. Exposing a capability in such a way allows anyone to borrow it and to perform all actions that the capability allows.
 
 ## Transactions[​](#transactions "Direct link to Transactions")
 
@@ -119822,14 +120143,6 @@ Use [intersection types and interfaces](/docs/language/types-and-type-system/int
 
 If given a less-specific type, cast to the more specific type that is expected. For example, when implementing the fungible token standard, a user may deposit any fungible token, so the implementation should cast to the expected concrete fungible token type.
 
-## Access control[​](#access-control "Direct link to Access control")
-
-Declaring a field as [`access(all)`](/docs/language/access-control) only protects from replacing the field's value, but the value itself can still be mutated if it is mutable. Remember that containers, like dictionaries and arrays, are mutable.
-
-Prefer non-public access to a mutable state. That state may also be nested. For example, a child may still be mutated even if its parent exposes it through a field with non-settable access.
-
-Do not use the `access(all)` modifier on fields unless necessary. Prefer `access(self)`, or `access(contract)` and `access(account)`, when other types in the contract or account need to have access, and use entitlement-based access for other cases.
-
 [Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/security-best-practices.md)
 
 [Previous
@@ -119842,13 +120155,17 @@ JSON-Cadence Format](/docs/json-cadence-spec)
 
 😞😐😊
 
+* [Access Control](#access-control)
+* [Access Control for Composite-typed Fields](#access-control-for-composite-typed-fields)
+* [Issuing Capabilities](#issuing-capabilities)
+* [Publishing Capabilities](#publishing-capabilities)
+* [Checking Capabilities](#checking-capabilities)
+* [Capability Access](#capability-access)
 * [References](#references)
 * [Account storage](#account-storage)
 * [Authorized account references](#authorized-account-references)
-* [Capabilities](#capabilities)
 * [Transactions](#transactions)
 * [Types](#types)
-* [Access control](#access-control)
 
 
 
@@ -119989,14 +120306,15 @@ In Cadence, resources are a composite type like a `struct` or a class in other l
 After completing this tutorial, you'll be able to:
 
 * Interact with [resources](/docs/language/resources) created using transactions.
-* Write transactions to create [capabilities](/docs/language/capabilities) to extend resource access scope from the owner to anyone (`public`).
+* Use entitlements to secure the privileged functionality in your resources that would be vulnerable otherwise.
+* Write transactions to create [capabilities](/docs/language/capabilities) that extend resource access scope from the owner to anyone (`public`).
 * Write and execute a script that interacts with the resource through the capability.
 
 ## Use cases for capabilities and entitlements[​](#use-cases-for-capabilities-and-entitlements "Direct link to Use cases for capabilities and entitlements")
 
-Let's look at why you would want to use capabilities and entitlements to expand access to resources in a real-world context. A real user's account and stored objects will contain functions and fields that need varying levels of access scope and privacy.
+Let's look at why you would want to use capabilities and entitlements to expand and secure access to resources in a real-world context. A real user's account and stored objects will contain functions and fields that need varying levels of access scope and privacy.
 
-If you're working on an app that allows users to exchange tokens, you'll want different features available in different use cases. While you definitely want to make a feature like withdrawing tokens from an account only accessible by the owner of the tokens, your app should allow anybody to deposit tokens.
+If you're working on an app that allows users to exchange tokens, you'll want different features available in different use cases. While you definitely want anybody to be able to call the function to give you tokens (`access(all)`), you would of course want to ensure that any features or functions that access privileged functionality like withdrawing tokens from an account are only able to be called by the owner, (`access(Owner)`). The `Owner` specification in this case is an [entitlement], and it is vitally important that you use entitlements correctly in order to secure the digital property created and managed in your contracts and transactions.
 
 info
 
@@ -120006,17 +120324,21 @@ Capabilities and entitlements are what allows for this detailed control of acces
 
 ![Capabilities and Entitlements](/assets/images/capabilities-entitlements-2a2bf4efcdd1622a356000b31bef7311.jpg)
 
-For example, a user might want to allow a friend of theirs to use some of their money to spend. In this case, they could create an entitled capability that gives the friend access to only this part of their account, instead of having to hand over full control.
+For example, a user might want to allow a friend of theirs to use some of their money to spend. In this case, they could create an object that gives the friend access to only this part of their account, instead of having to hand over full control of their account.
 
-Another example is when a user authenticates a trading app for the first time, the trading app could ask the user for a capability object that allows the app to access the trading functionality of a user's account so that the app doesn't need to ask the user for a signature every time it wants to do a trade. The user can choose to empower the app, and that app alone, for this functionality and this functionality alone.
+info
+
+In the last tutorial, you wrote transactions to access an account with `&Account` object containing specifications about which functionality the transaction was allowed to access, such as `auth(BorrowValue, SaveValue)`. When you wrote that transaction, you were using entitlements. They can also apply to accounts, resources, and structs!
+
+Another example is when a user authenticates a trading app for the first time, the trading app could ask the user for an object that allows the app to access the trading functionality of a user's account so that the app doesn't need to ask the user for a signature every time it wants to do a trade. The user can choose to empower the app, and that app alone, for this functionality and this functionality alone.
 
 ## Access resources with capabilities[​](#access-resources-with-capabilities "Direct link to Access resources with capabilities")
 
-As a smart contract developer, you need explicit permission from the owner of an account to access its [storage](/docs/language/accounts/storage). Capabilities allow an account owner to grant access to specific fields and functions on objects stored in their account.
+As a smart contract developer, you need explicit permission from the owner of an account to access its [storage](/docs/language/accounts/storage). Capabilities allow an account owner to grant access to objects stored in their private account storage. Think of them as a pointer to the object that allows you to access all the `access(all)` fields and functions in that object.
 
 First, you'll write a transaction in which you'll issue a new capability using the `issue` function. This capability creates a link to the user's `HelloAsset` resource object. It then publishes that link to the account's public space, so others can access it.
 
-Next, you'll write a script that anyone can use that links to borrow a [reference](/docs/language/references) to the underlying object and call the `hello()` function.
+Next, you'll write a script that accesses that public capability and calls its `hello()` function.
 
 ## Creating capabilities and references to stored resources[​](#creating-capabilities-and-references-to-stored-resources "Direct link to Creating capabilities and references to stored resources")
 
@@ -120060,7 +120382,7 @@ To prepare:
    _10
 
    }`
-3. Pass an `&Account` reference into `prepare` with the capabilities needed to give the `transaction` the ability to create and publish a capability:
+3. Pass an `&Account` reference into `prepare` with the [entitlements](/docs/language/access-control#entitlements) needed to give the `transaction` the ability to create and publish a capability:
 
    create\_link.cdc
 
@@ -120102,7 +120424,7 @@ To prepare:
 
    }`
 
-The [`IssueStorageCapabilityController`](/docs/language/accounts/capabilities#accountstoragecapabilities-and-accountaccountcapabilities) allows the transaction to [issue](/docs/language/accounts/capabilities#issuing-capabilities) a new capability, which includes storing that capability to the user's account. [`PublishCapability`](/docs/language/accounts/capabilities#accountcapabilities) allows the transaction to [publish](/docs/language/accounts/capabilities#publishing-capabilities) a capability and make it available to other users — in this case, we'll make it public.
+The [`IssueStorageCapabilityController`](/docs/language/accounts/capabilities#accountstoragecapabilities-and-accountaccountcapabilities) entitlement allows the transaction to [issue](/docs/language/accounts/capabilities#issuing-capabilities) a new capability, which includes storing that capability to the user's account. [`PublishCapability`](/docs/language/accounts/capabilities#accountcapabilities) allows the transaction to [publish](/docs/language/accounts/capabilities#publishing-capabilities) a capability and make it available to other users — in this case, we'll make it public.
 
 ### Capability-based access control[​](#capability-based-access-control "Direct link to Capability-based access control")
 
@@ -120116,7 +120438,8 @@ We create capabilities to accomplish this, and the account owner must sign a tra
 
 Every capability has a `borrow` method, which creates a reference to the object that the capability is linked to. This reference is used to read fields or call methods on the object they reference, **as if the owner of the reference had the actual object**.
 
-It is important to remember that someone else who has access to a capability cannot move or destroy the object that the capability is linked to! They can only access fields that the owner has explicitly declared in the type specification and authorization level of the [issue](/docs/language/accounts/capabilities#issuing-capabilities) method.
+It is important to remember that someone else who has access to a capability cannot move or destroy the object that the capability is linked to! They can access **ALL `access(all)` fields and functions** though, which is why privileged functionality must be protected by [entitlements](/docs/language/access-control#entitlements).
+In addition to the `access(all)` fields, the holder of the capability can access entitled fields and functions but only if the owner has explicitly declared them in the type specification and authorization level of the [issue](/docs/language/accounts/capabilities#issuing-capabilities) method.
 
 ### Issuing the capability[​](#issuing-the-capability "Direct link to Issuing the capability")
 
@@ -120146,7 +120469,7 @@ In our capability example, we had the user sign a transaction that gave public a
 
 When you're writing real transactions, follow the principle of giving minimal access. While the capability cannot move or destroy an object, **it might be able to mutate data inside of it** in a way that the owner does not desire.
 
-For example, if you added a function to allow the owner of the resource to change the greeting message, this code would open that function up to anyone and everyone!
+For example, if you added a function to allow the owner of the resource to change the greeting message, this code would open that function up to anyone and everyone! This is why those functions need to be protected by [entitlements](/docs/language/access-control#entitlements)!
 
 `_10
 
@@ -120166,7 +120489,7 @@ _10
 
 The capability says that whoever borrows a reference from this capability has access to the fields and methods that are specified by the type and entitlements in `<>`. The specified type has to be a subtype of the object type being linked to, meaning that it cannot contain any fields or functions that the linked object doesn't have.
 
-A reference is referred to by the `&` symbol. Here, the capability references the `HelloAsset` object, so we specify `<&HelloResource.HelloAsset>` as the type, which gives access to **everything** in the `HelloAsset` object.
+A reference is referred to by the `&` symbol. Here, the capability references the `HelloAsset` object, so we specify `<&HelloResource.HelloAsset>` as the type, which gives access to **EVERY `access(all)` field and function** in the `HelloAsset` object.
 
 The argument to the `issue` function is the path to the object in storage that it is linked to. When a capability is issued, a [capability controller](/docs/language/accounts/capabilities#accountcapabilities) is created for it in `account.capabilities`. This controller allows the creator of the capability to have fine-grained control over the capability.
 
@@ -123697,15 +124020,16 @@ In Cadence, access control is used in two ways:
 
    Other accounts cannot read or write the objects in an account unless the owner of the account has granted them access by providing references to the objects.
 
-warning
-
-Remember that in this case, `private` refers to programmatic access to the data with a script or transaction. It is **not safe** to store secret or private information in a user's account. The raw data is still public and could be decoded.
-
-This kind of access control is covered in [capabilities](/docs/language/capabilities) and [capability management](/docs/language/accounts/capabilities).
-
-1. Access control within contracts and objects, using access modifiers (`access` keyword).
+   This kind of access control is covered in [capabilities](/docs/language/capabilities) and [capability management](/docs/language/accounts/capabilities).
+2. Access control within contracts and objects, using access modifiers (`access` keyword).
 
 This page covers the second part of access control, using access modifiers.
+
+warning
+
+Remember that in this case, `private` refers to programmatic access to the data with a script or transaction. It is **not safe** to store secret or private information in a user's account. The raw data is still public and could be decoded by reading the public blockchain data directly.
+
+## The `access` keyword[​](#the-access-keyword "Direct link to the-access-keyword")
 
 All declarations, such as [functions](/docs/language/functions), [composite types](/docs/language/types-and-type-system/composite-types), and fields, must be prefixed with an access modifier using the `access` keyword.
 
@@ -123721,6 +124045,12 @@ _10
 
 fun test() {}`
 
+danger
+
+If you prefix a function with `access(all)`, you are likely granting complete and open access for **anyone using any account to call that function.** It is critical that you properly use [entitlements](#entitlements) to restrict sensitive functions to the accounts that need access.
+
+For example, if you create a vault for your users and give the `withdraw` function `access(all)`, anyone can drain that vault if they know where to find it.
+
 ## Types of access control[​](#types-of-access-control "Direct link to Types of access control")
 
 There are five levels of access control:
@@ -123730,9 +124060,11 @@ There are five levels of access control:
   A declaration is made publicly accessible using the `access(all)` modifier.
 
   For example, a public field in a type can be accessed on an instance of the type in an outer scope.
-* **Entitled access** — the declaration is only accessible/visible to the owner of the object, or to [references](/docs/language/references) that are authorized to the required [entitlements](#entitlements).
+* **Entitled access** — the declaration is only accessible/visible to the owner/holder of the object, or to [references](/docs/language/references) that are authorized to the required [entitlements](#entitlements).
 
   A declaration is made accessible through entitlements by using the `access(E)` syntax, where `E` is a set of one or more entitlements, or a single [entitlement mapping](#entitlement-mappings).
+
+  An entitled field acts like an `access(all)` field ONLY if the caller actually holds the concrete resource object and not just a reference to it. In that case, an authorized reference is needed.
 
   A reference is considered authorized to an entitlement if that entitlement appears in the `auth` portion of the reference type.
 
@@ -125058,8 +125390,9 @@ Capabilities](/docs/language/capabilities)
 
 ###### Rate this page
 
-😞😐  😊
+😞😐😊
 
+* [The `access` keyword](#the-access-keyword)
 * [Types of access control](#types-of-access-control)
 * [Entitlements](#entitlements)
   + [Entitlement mappings](#entitlement-mappings)
@@ -125355,7 +125688,7 @@ We've already imported the `HelloResource` contract for you and stubbed out a `t
 
 To prepare:
 
-1. Create a `prepare` phase with the `SaveValue` authorization [entitlement](/docs/language/access-control#entitlements) to the user's account.
+1. Create a `prepare` phase with the `SaveValue` authorization [entitlement](/docs/language/access-control#entitlements) to the user's account. This authorizes the transaction to save values or objects anywhere in account storage. You'll learn more about entitlements in the next lesson.
 2. Use `create` to create a new instance of the `HelloAsset`.
 3. Save the new resource in the user's account.
 4. Inside the `transaction`, stub out the `prepare` phase with the authorization [entitlement](/docs/language/access-control#entitlements):
@@ -125405,7 +125738,7 @@ Paths in the storage domain have type `StoragePath`, and paths in the public dom
 
 Paths are **not** strings and do **not** have quotes around them.
 
-Use the account reference with the `SaveValue` authorization [entitlement](/docs/language/access-control#entitlements) to move the new resource into storage located in `/storage/HelloAssetTutorial`:
+Next, use the account reference with the `SaveValue` authorization [entitlement](/docs/language/access-control#entitlements) to move the new resource into storage located in `/storage/HelloAssetTutorial`:
 
 `_10
 
@@ -125762,6 +126095,8 @@ In real applications, you need to check the location path you are storing in to 
    _10
 
    }`
+
+   This [entitlement](/docs/language/access-control#entitlements) makes it so you can borrow a reference to a value in the account's storage in addition to being able to save a value.
 2. Add a `transaction`-level (similar to contract-level or class-level) variable to store a result `String`.
 
    * Similar to a class-level variable in other languages, these go at the top, inside the `transaction` scope, but not inside anything else. They are accessible in both the `prepare` and `execute` statements of a transaction:
@@ -127584,7 +127919,7 @@ We do not want everyone in the network to be able to call our `withdraw` functio
 
 In Cadence, any reference can be freely up-casted or down-casted to any subtype or supertype that the reference conforms to. This means that if you had a reference of the type `&ExampleNFT.Collection`, this would expose all the `access(all)` functions on the `Collection`.
 
-This is a powerful feature that is very useful, but it also means if there is any privileged functionality on a resource that has a public capability, then this functionality cannot be `access(all)`.
+This is a powerful feature that is very useful, but it also means if there is any privileged functionality on a resource that has any capabilities created for it, public, or private, then this functionality cannot be `access(all)`.
 
 It needs to use [entitlements](/docs/language/access-control#entitlements).
 
@@ -127603,7 +127938,7 @@ If you're used to Solidity, you can think of this as being similar to frameworks
    * You've now effectively created a type of lock that can only be opened by someone with the right key - or the owner of the property, who always has access natively.
 2. Implement a `withdraw` function inside the `Collection` resource. It should:
 
-   * Only allow `access` to addresses with the `Withdraw` [entitlement](/docs/language/access-control).
+   * Only allow `access` with the `Withdraw` [entitlement](/docs/language/access-control).
    * Accept the id of the NFT to be withdrawn as an argument.
    * Return an error if the NFT with that id is not present in the account's `ownedNFTs`.
    * Return the **actual token resource**.
@@ -127644,7 +127979,7 @@ If you're used to Solidity, you can think of this as being similar to frameworks
 
    }`
 
-Providing an access scope of `access(Withdraw)` locks this functionality to only the owner who has the [resource](/docs/language/resources) directly in their storage, **or** to any address possessing a reference to this resource that has the `Withdraw` entitlement.
+Providing an access scope of `access(Withdraw)` locks this functionality to only the owner who has the [resource](/docs/language/resources) directly in their storage, **or** to any code possessing a reference to this resource that has the `Withdraw` entitlement.
 
 As with other types defined in contracts, these are namespaced to the deployer and contract. The full name of `Withdraw` would be something like `0x06.IntermediateNFT.Withdraw`. More than one contract or account can declare separate and distinct entitlements with the same name.
 
@@ -127678,7 +128013,8 @@ _10
 
 self.account.capabilities.publish(cap, at: self.CollectionPublicPath)`
 
-Now, anyone could borrow that capability as the entitled version it was issued as:
+Now, anyone could borrow that capability as the entitled version it was issued as
+and steal your NFT! This is why it is always so important to use well-defined entitlements in all your important functions and be very careful how you create your capabilities and publish them:
 
 `_10
 
@@ -127730,31 +128066,7 @@ access(all) fun collectionNotConfiguredError(address: Address): String {
 
 _10
 
-return "Could not borrow a collection reference to recipient's IntermediateNFT.Collection"
-
-_10
-
-.concat(" from the path ")
-
-_10
-
-.concat(IntermediateNFT.CollectionPublicPath.toString())
-
-_10
-
-.concat(". Make sure account ")
-
-_10
-
-.concat(address.toString())
-
-_10
-
-.concat(" has set up its account ")
-
-_10
-
-.concat("with an IntermediateNFT Collection.")
+return "Could not borrow a collection reference to recipient's IntermediateNFT.Collection from the path \(IntermediateNFT.CollectionPublicPath.toString()). Make sure account \(address.toString()) has set up its account with an IntermediateNFT Collection."
 
 _10
 
@@ -128035,7 +128347,7 @@ This transaction is **not** bound by the `Withdraw` capability, because the call
    _13
 
    }`
-2. In `prepare`, get a reference to the sender's `Collection` and use it to `move (<-)` the token out of their collection and into `transferToken`:
+2. In `prepare`, get an entitled reference to the sender's `Collection` and use it to `move (<-)` the token out of their collection and into `transferToken`:
 
    `_10
 
@@ -128084,11 +128396,7 @@ This transaction is **not** bound by the `Withdraw` capability, because the call
 
    _10
 
-   log("NFT ID transferred to account "
-
-   _10
-
-   .concat(recipient.address.toString()))`
+   log("NFT ID transferred to account \(recipient.address.toString())")`
 4. Test your transaction by transferring several NFTs in several accounts. Try various combinations, and use the `PrintNFTs` script to make sure the NFTs move as expected.
 
 ## Reviewing intermediate NFTs[​](#reviewing-intermediate-nfts "Direct link to Reviewing intermediate NFTs")
@@ -134551,63 +134859,111 @@ _17
 
 }`
 
-## Check for existing capability before publishing new one[​](#check-for-existing-capability-before-publishing-new-one "Direct link to Check for existing capability before publishing new one")
+## Check for existing capabilities before issuing or publishing new ones[​](#check-for-existing-capabilities-before-issuing-or-publishing-new-ones "Direct link to Check for existing capabilities before issuing or publishing new ones")
 
 ### Problem[​](#problem-8 "Direct link to Problem")
 
-When publishing a capability, a capability might be already be published at the specified path.
+When issuing or publishing a capability, a capability might be already be issued or published at the specified path for the desired capability type.
 
 ### Solution[​](#solution-8 "Direct link to Solution")
 
-Check if a capability is already published at the given path.
+Check if a capability is already issued and/or published at the given paths.
 
 ### Example[​](#example-4 "Direct link to Example")
 
-`_13
+`_26
 
 transaction {
 
-_13
+_26
 
 prepare(signer: auth(Capabilities) &Account) {
 
-_13
+_26
 
-let capability = signer.capabilities.storage
+var capability: Capability<&ExampleToken.Vault>? = nil
 
-_13
+_26
 
-.issue<&ExampleToken.Vault>(/storage/exampleTokenVault)
+_26
 
-_13
+// get the capability to the vault at the given storage path if it exists
 
-_13
+_26
+
+let vaultCaps = account.capabilities.storage.getControllers(forPath: /storage/exampleTokenVault)
+
+_26
+
+for cap in vaultCaps {
+
+_26
+
+if let cap = cap as? Capability<&ExampleToken.Vault> {
+
+_26
+
+capability = cap
+
+_26
+
+break
+
+_26
+
+}
+
+_26
+
+}
+
+_26
+
+_26
+
+if capability == nil {
+
+_26
+
+// issue a new capability to the vault since it wasn't found
+
+_26
+
+capability = account.capabilities.storage.issue<&ExampleToken.Vault>(/storage/exampleTokenVault)
+
+_26
+
+}
+
+_26
+
+_26
 
 let publicPath = /public/exampleTokenReceiver
 
-_13
+_26
 
-_13
+_26
 
 if signer.capabilities.exits(publicPath) {
 
-_13
+_26
 
 signer.capabilities.unpublish(publicPath)
 
-_13
+_26
 
 }
 
-_13
+_26
 
 signer.capabilities.publish(capability, at: publicPath)
 
-_13
+_26
 
 }
 
-_13
+_26
 
 }`
 
@@ -134745,7 +135101,7 @@ Anti-Patterns](/docs/anti-patterns)
 * [Capability bootstrapping](#capability-bootstrapping)
   + [Problem](#problem-7)
   + [Solution](#solution-7)
-* [Check for existing capability before publishing new one](#check-for-existing-capability-before-publishing-new-one)
+* [Check for existing capabilities before issuing or publishing new ones](#check-for-existing-capabilities-before-issuing-or-publishing-new-ones)
   + [Problem](#problem-8)
   + [Solution](#solution-8)
   + [Example](#example-4)
@@ -149443,15 +149799,16 @@ In Cadence, access control is used in two ways:
 
    Other accounts cannot read or write the objects in an account unless the owner of the account has granted them access by providing references to the objects.
 
-warning
-
-Remember that in this case, `private` refers to programmatic access to the data with a script or transaction. It is **not safe** to store secret or private information in a user's account. The raw data is still public and could be decoded.
-
-This kind of access control is covered in [capabilities](/docs/language/capabilities) and [capability management](/docs/language/accounts/capabilities).
-
-1. Access control within contracts and objects, using access modifiers (`access` keyword).
+   This kind of access control is covered in [capabilities](/docs/language/capabilities) and [capability management](/docs/language/accounts/capabilities).
+2. Access control within contracts and objects, using access modifiers (`access` keyword).
 
 This page covers the second part of access control, using access modifiers.
+
+warning
+
+Remember that in this case, `private` refers to programmatic access to the data with a script or transaction. It is **not safe** to store secret or private information in a user's account. The raw data is still public and could be decoded by reading the public blockchain data directly.
+
+## The `access` keyword[​](#the-access-keyword "Direct link to the-access-keyword")
 
 All declarations, such as [functions](/docs/language/functions), [composite types](/docs/language/types-and-type-system/composite-types), and fields, must be prefixed with an access modifier using the `access` keyword.
 
@@ -149467,6 +149824,12 @@ _10
 
 fun test() {}`
 
+danger
+
+If you prefix a function with `access(all)`, you are likely granting complete and open access for **anyone using any account to call that function.** It is critical that you properly use [entitlements](#entitlements) to restrict sensitive functions to the accounts that need access.
+
+For example, if you create a vault for your users and give the `withdraw` function `access(all)`, anyone can drain that vault if they know where to find it.
+
 ## Types of access control[​](#types-of-access-control "Direct link to Types of access control")
 
 There are five levels of access control:
@@ -149476,9 +149839,11 @@ There are five levels of access control:
   A declaration is made publicly accessible using the `access(all)` modifier.
 
   For example, a public field in a type can be accessed on an instance of the type in an outer scope.
-* **Entitled access** — the declaration is only accessible/visible to the owner of the object, or to [references](/docs/language/references) that are authorized to the required [entitlements](#entitlements).
+* **Entitled access** — the declaration is only accessible/visible to the owner/holder of the object, or to [references](/docs/language/references) that are authorized to the required [entitlements](#entitlements).
 
   A declaration is made accessible through entitlements by using the `access(E)` syntax, where `E` is a set of one or more entitlements, or a single [entitlement mapping](#entitlement-mappings).
+
+  An entitled field acts like an `access(all)` field ONLY if the caller actually holds the concrete resource object and not just a reference to it. In that case, an authorized reference is needed.
 
   A reference is considered authorized to an entitlement if that entitlement appears in the `auth` portion of the reference type.
 
@@ -150804,8 +151169,9 @@ Capabilities](/docs/language/capabilities)
 
 ###### Rate this page
 
-😞😐  😊
+😞😐😊
 
+* [The `access` keyword](#the-access-keyword)
 * [Types of access control](#types-of-access-control)
 * [Entitlements](#entitlements)
   + [Entitlement mappings](#entitlement-mappings)
@@ -184133,7 +184499,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* signUp
 
@@ -194326,11 +194692,11 @@ Cadence JSON format contains `type` and `value` keys and is
 
 ### Gas Limit[​](#gas-limit "Direct link to Gas Limit")
 
-* Flag: `--gas-limit`
+* Flag: `--compute-limit`
 * Valid inputs: an integer greater than zero.
 * Default: `1000`
 
-Specify the gas limit for this transaction.
+Specify the compute unit (gas) limit for this transaction.
 
 ### Host[​](#host "Direct link to Host")
 
@@ -194416,7 +194782,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/transactions/build-transactions.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Nov 12, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -235254,7 +235620,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* limit
 
@@ -237819,7 +238185,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* block
 
@@ -246081,10 +246447,10 @@ With Flow EVM, EVM operations can now be called within Cadence transactions. EVM
 
 Transaction fee on EVM = surge x [inclusion fee + (execution effort * unit cost)]`
 
-* `Surge' factor` dynamically accounts for network pressure and market conditions. This is currently constant at 1.0 but subject to change with community approval.
+* `Surge' factor` dynamically accounts for network pressure and market conditions.
 * `Inclusion fee` accounts for the resources required to process a transaction due to its core properties (byte size, signatures). This is currently constant at 1E-6 FLOW, but subject to change with community approval.
 * `Execution fee` The fee that accounts for the operational cost of running the transaction script, processing the results, sending results for verification, generating verification receipts, etc. and is calculated as a product of `execution effort units` and the `cost per unit`.
-  + `Execution Effort (computation)` is based on transaction type and operations that are called during the execution of a transaction. The weights determine how “costly” (time consuming) each operation is.
+  + `Execution Effort (computation)` is based on transaction type and operations that are called during the execution of a transaction. The weights determine how costly (time consuming) each operation is.
   + `Execution Effort Unit Cost` = `2.49E-07 FLOW` (currently constant, but subject to change with community approval)
 
 ### Calculation of Execution Effort
@@ -246121,9 +246487,7 @@ where
 
 `` _10
 
-`EVMGasUsageCost` - The ratio that converts EVM gas into Flow computation units (execution effort) is currently set at `1/5000` but subject to revision by community approval ``
-
-**Note**: The weights and unit cost mentioned above have been updated recently to accommodate an increased computation limit on Flow, which now supports the deployment of larger EVM contracts. For detailed information, refer to the relevant [FLIP](https://github.com/onflow/flips/blob/main/governance/20240508-computation-limit-hike.md) and join the ongoing discussion on the community [forum post](https://forum.flow.com/t/proposing-transaction-fee-changes-and-flow-evm-gas-charges-for-flow-crescendo-launch/5817). These values may be adjusted in the future based on community feedback and evolving requirements.
+`EVMGasUsageCost` - The ratio that converts EVM gas into Flow compute units (execution effort) is currently set at `1/5000` but subject to revision by community approval ``
 
 
 
@@ -246140,13 +246504,13 @@ Assume a simple NFT transfer transaction that makes 31 cadence loop calls, reads
 
 `_10
 
-Execution Effort = 0.00478 * (31) + 0.00246 * (5668) + 0.00234 *(1668) + 8.65988 *(0) + EVMGasUsageCost * EVMGasUsage`
+Compute Units = 0.00478 * (31) + 0.00246 * (5668) + 0.00234 *(1668) + 8.65988 *(0) + EVMGasUsageCost * EVMGasUsage`
 
 But since `EVMGasUsage` is 0 for a Cadence transaction,
 
 `_10
 
-Execution Effort = 18.04378`
+Compute Units = 18.04378`
 
 Thus
 
@@ -246159,7 +246523,7 @@ If the EVMGasUsage can be assumed to be 21,000 gas (typical for a simple transfe
 
 `_10
 
-Execution Effort = 0.00478 * (31) + 0.00246 * (5668) + 0.00234 *(1668) + 8.65988 *(0) + 1/5000 * 21000 = 22.24378`
+Compute Units = 0.00478 * (31) + 0.00246 * (5668) + 0.00234 *(1668) + 8.65988 *(0) + 1/5000 * 21000 = 22.24378`
 
 Thus
 
@@ -246177,7 +246541,7 @@ To learn more about storage fee and transaction fee, visit [Flow Tokenomics page
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/evm/fees.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Nov 12, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -248735,6 +249099,90 @@ _10
 * To avoid redeploying dependencies
 * To use the official versions of common contracts
 
+#### Cadence Import Aliasing[​](#cadence-import-aliasing "Direct link to Cadence Import Aliasing")
+
+When deploying the same contract to multiple addresses with different names, use the `canonical` field to reference the original contract. This allows you to import multiple instances of the same contract with different identifiers.
+
+`_15
+
+"contracts": {
+
+_15
+
+"FUSD": {
+
+_15
+
+"source": "./contracts/FUSD.cdc",
+
+_15
+
+"aliases": {
+
+_15
+
+"testnet": "0x9a0766d93b6608b7"
+
+_15
+
+}
+
+_15
+
+},
+
+_15
+
+"FUSD1": {
+
+_15
+
+"source": "./contracts/FUSD.cdc",
+
+_15
+
+"aliases": {
+
+_15
+
+"testnet": "0xe223d8a629e49c68"
+
+_15
+
+},
+
+_15
+
+"canonical": "FUSD"
+
+_15
+
+}
+
+_15
+
+}`
+
+Flow CLI automatically transforms imports for aliased contracts:
+
+`_10
+
+import "FUSD"
+
+_10
+
+import "FUSD1"`
+
+Becomes:
+
+`_10
+
+import FUSD from 0x9a0766d93b6608b7
+
+_10
+
+import FUSD as FUSD1 from 0xe223d8a629e49c68`
+
 ### Deployments[​](#deployments "Direct link to Deployments")
 
 The `deployments` section defines which contracts get deployed to which accounts on which networks.
@@ -249021,7 +249469,7 @@ flow config remove account my-account`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/flow.json/configuration.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Nov 20, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -291204,7 +291652,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* cadence
 
@@ -314885,7 +315333,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* decode
 
@@ -334167,7 +334615,7 @@ _10
 
 ProtocolA.RewardsSource → SwapConnectors.SwapSource → ProtocolB.StakingSink`
 
-## Connector Library[​](#connector-library "Direct link to Connector Library")
+## Connector library[​](#connector-library "Direct link to Connector library")
 
 🔄 SOURCE Primitive Implementations
 
@@ -334213,51 +334661,51 @@ First, determine which Flow Actions primitive(s) your connector will implement:
 
 Study your target protocol to understand:
 
-* **Contract interfaces** and method signatures
-* **Required parameters** and data structures
-* **Error conditions** and failure modes
-* **Fee structures** and payment mechanisms
-* **Access controls** and permissions
+* **Contract interfaces** and method signatures.
+* **Required parameters** and data structures.
+* **Error conditions** and failure modes.
+* **Fee structures** and payment mechanisms.
+* **Access controls** and permissions.
 
 ### Design your connector[​](#design-your-connector "Direct link to Design your connector")
 
 Plan your connector implementation:
 
-* **Configuration parameters** needed for initialization
-* **Capability requirements** for protocol access
-* **Error handling strategy** for graceful failures
-* **Resource management** for token handling
-* **Event emission** for traceability
+* **Configuration parameters** needed for initialization.
+* **Capability requirements** for protocol access.
+* **Error handling strategy** for graceful failures.
+* **Resource management** for token handling.
+* **Event emission** for traceability.
 
 ### Implement the interface[​](#implement-the-interface "Direct link to Implement the interface")
 
-Create your connector struct implementing the chosen primitive interface(s).
+Create your connector struct to implement the chosen primitive interface(s).
 
 ### Add safety features[​](#add-safety-features "Direct link to Add safety features")
 
 Implement safety mechanisms:
 
-* **Capacity checking** before operations
-* **Balance validation** after operations
-* **Graceful error handling** with no-ops
-* **Resource cleanup** for empty vaults
+* **Capacity checking** before operations.
+* **Balance validation** after operations.
+* **Graceful error handling** with no-ops.
+* **Resource cleanup** for empty vaults.
 
 ### Support Flow Actions standards[​](#support-flow-actions-standards "Direct link to Support Flow Actions standards")
 
 Add required Flow Actions support:
 
-* **IdentifiableStruct** implementation
-* **UniqueIdentifier** management
-* **ComponentInfo** for introspection
-* **Event emission** integration
+* **IdentifiableStruct** implementation.
+* **UniqueIdentifier** management.
+* **ComponentInfo** for introspection.
+* **Event emission** integration.
 
 ## Best practices[​](#best-practices "Direct link to Best practices")
 
 ### **Error handling**[​](#error-handling "Direct link to error-handling")
 
-* **Graceful Failures**: Return empty results instead of panicking.
-* **Validation**: Check all inputs and preconditions.
-* **Resource Safety**: Properly handle vault resources in all paths.
+* **Graceful Failures**: return empty results instead of panicking.
+* **Validation**: check all inputs and preconditions.
+* **Resource Safety**: properly handle vault resources in all paths.
 
 `_13
 
@@ -334309,11 +334757,11 @@ _13
 
 }`
 
-### **Capacity and balance checking**[​](#capacity-and-balance-checking "Direct link to capacity-and-balance-checking")
+### **Capacity and balance checks**[​](#capacity-and-balance-checks "Direct link to capacity-and-balance-checks")
 
-* **Always Check First**: Validate capacity/availability before operations.
-* **Respect Limits**: Work within available constraints.
-* **Handle Edge Cases**: Zero amounts, maximum values, empty vaults.
+* **Always Check First**: validate capacity/availability before operations.
+* **Respect Limits**: work within available constraints.
+* **Handle Edge Cases**: zero amounts, maximum values, empty vaults.
 
 `_14
 
@@ -334367,9 +334815,9 @@ _14
 
 ### **Type safety**[​](#type-safety "Direct link to type-safety")
 
-* **Validate Types**: Ensure vault types match expected types.
-* **Early Returns**: Fail fast on type mismatches.
-* **Clear Error Messages**: Help developers understand issues.
+* **Validate Types**: ensure vault types match expected types.
+* **Early Returns**: fail fast on type mismatches.
+* **Clear Error Messages**: help developers understand issues.
 
 `_10
 
@@ -334404,26 +334852,26 @@ _10
 ### **Event integration**[​](#event-integration "Direct link to event-integration")
 
 * **Leverage Post-conditions**: Flow Actions interfaces emit events automatically.
-* **Provide Context**: Include relevant information in events.
-* **Support Traceability**: Use UniqueIdentifiers consistently.
+* **Provide Context**: include relevant information in events.
+* **Support Traceability**: use UniqueIdentifiers consistently.
 
 ### **Resource management**[​](#resource-management "Direct link to resource-management")
 
-* **Handle Empty Vaults**: Use `DeFiActionsUtils.getEmptyVault()` for consistent empty vault creation.
-* **Destroy Properly**: Clean up resources in all code paths.
-* **Avoid Resource Leaks**: Ensure all vaults are handled appropriately.
+* **Handle Empty Vaults**: use `DeFiActionsUtils.getEmptyVault()` for consistent empty vault creation.
+* **Destroy Properly**: clean up resources in all code paths.
+* **Avoid Resource Leaks**: ensure all vaults are handled appropriately.
 
-### **Capability Management**[​](#capability-management "Direct link to capability-management")
+### **Capability management**[​](#capability-management "Direct link to capability-management")
 
-* **Validate Capabilities**: Check capabilities before using them.
-* **Handle Revocation**: Gracefully handle revoked capabilities.
-* **Proper Entitlements**: Use correct entitlement levels (auth vs unauth).
+* **Validate Capabilities**: check capabilities before using them.
+* **Handle Revocation**: gracefully handle revoked capabilities.
+* **Proper Entitlements**: use correct entitlement levels (auth vs unauth).
 
 ### **Documentation**[​](#documentation "Direct link to documentation")
 
-* **Clear Comments**: Explain protocol-specific logic.
-* **Usage Examples**: Show how to use your connectors.
-* **Integration Patterns**: Demonstrate composition with other connectors.
+* **Clear Comments**: explain protocol-specific logic.
+* **Usage Examples**: show how to use your connectors.
+* **Integration Patterns**: demonstrate composition with other connectors.
 
 ## Integration into Flow Actions[​](#integration-into-flow-actions "Direct link to Integration into Flow Actions")
 
@@ -334435,7 +334883,7 @@ The `VaultSink` connector is already deployed and working in Flow Actions. Let's
 **Contract**: `FungibleTokenConnectors`
 **Connector**: `VaultSink` struct that defines the interaction with the connector.
 
-### Deploy Your Connector contract[​](#deploy-your-connector-contract "Direct link to Deploy Your Connector contract")
+### Deploy Your connector contract[​](#deploy-your-connector-contract "Direct link to Deploy Your connector contract")
 
 Deploy your connector contract with the following command:
 
@@ -334495,7 +334943,7 @@ _12
 
 ### Create usage transactions[​](#create-usage-transactions "Direct link to Create usage transactions")
 
-Create transaction templates for using your connectors:
+Create transaction templates for use with your connectors:
 
 `_23
 
@@ -334887,7 +335335,7 @@ _30
 
 }`
 
-### Add to existing workflows[​](#add-to-existing-workflows "Direct link to Add to existing workflows")
+### Add to current workflows[​](#add-to-current-workflows "Direct link to Add to current workflows")
 
 You can use VaultSink in advanced Flow Actions workflows:
 
@@ -335081,7 +335529,7 @@ _51
 
 }`
 
-### For Your own connectors[​](#for-your-own-connectors "Direct link to For Your own connectors")
+### For your own connectors[​](#for-your-own-connectors "Direct link to For your own connectors")
 
 When building your own connectors, follow the VaultSink pattern:
 
@@ -335097,16 +335545,16 @@ When building your own connectors, follow the VaultSink pattern:
 The Flow Actions framework provides a comprehensive set of connectors that successfully implement the five fundamental DeFi primitives across multiple protocols:
 
 * **20+ Connector Implementations** spanning basic vault operations to complex cross-VM swapping.
-* **4 Protocol Integrations**: Generic FungibleToken, IncrementFi, Band Oracle, Flow EVM.
-* **Composable Architecture**: Combine Connectors to create sophisticated financial workflows.
-* **Safety-First Design**: Graceful error handling and resource safety throughout.
-* **Event-Driven Traceability**: Full workflow tracking and debugging capabilities.
+* **4 Protocol Integrations**: generic FungibleToken, IncrementFi, Band Oracle, Flow EVM.
+* **Composable Architecture**: combine Connectors to create sophisticated financial workflows.
+* **Safety-First Design**: graceful error handling and resource safety throughout.
+* **Event-Driven Traceability**: full workflow tracking and debugging capabilities.
 
 This framework allows developers to build sophisticated DeFi strategies while maintaining the simplicity and reliability of standardized primitive interfaces. The modular design allows for easy extension to additional protocols while preserving composability and atomic execution guarantees.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/flow-actions/connectors.md)
 
-Last updated on **Nov 6, 2025** by **cshannon1218**
+Last updated on **Nov 18, 2025** by **cshannon1218**
 
 [Previous
 
@@ -335121,10 +335569,10 @@ Basic Combinations](/blockchain-development-tutorials/forte/flow-actions/basic-c
 Copy as Markdown
 
 * [How connectors work](#how-connectors-work)
-  + [Abstraction layer](#abstraction-layer)+ [Interface implementation](#interface-implementation)+ [Composition pattern](#composition-pattern)* [Connector Library](#connector-library)* [Guide to building connectors](#guide-to-building-connectors)
+  + [Abstraction layer](#abstraction-layer)+ [Interface implementation](#interface-implementation)+ [Composition pattern](#composition-pattern)* [Connector library](#connector-library)* [Guide to building connectors](#guide-to-building-connectors)
       + [Choose your primitive](#choose-your-primitive)+ [Analyze your protocol](#analyze-your-protocol)+ [Design your connector](#design-your-connector)+ [Implement the interface](#implement-the-interface)+ [Add safety features](#add-safety-features)+ [Support Flow Actions standards](#support-flow-actions-standards)* [Best practices](#best-practices)
-        + [**Error handling**](#error-handling)+ [**Capacity and balance checking**](#capacity-and-balance-checking)+ [**Type safety**](#type-safety)+ [**Event integration**](#event-integration)+ [**Resource management**](#resource-management)+ [**Capability Management**](#capability-management)+ [**Documentation**](#documentation)* [Integration into Flow Actions](#integration-into-flow-actions)
-          + [Deploy Your Connector contract](#deploy-your-connector-contract)+ [Create usage transactions](#create-usage-transactions)+ [Real usage transaction: VaultSink](#real-usage-transaction-vaultsink)+ [Create combinations examples](#create-combinations-examples)+ [Add to existing workflows](#add-to-existing-workflows)+ [For Your own connectors](#for-your-own-connectors)* [Conclusion](#conclusion)
+        + [**Error handling**](#error-handling)+ [**Capacity and balance checks**](#capacity-and-balance-checks)+ [**Type safety**](#type-safety)+ [**Event integration**](#event-integration)+ [**Resource management**](#resource-management)+ [**Capability management**](#capability-management)+ [**Documentation**](#documentation)* [Integration into Flow Actions](#integration-into-flow-actions)
+          + [Deploy Your connector contract](#deploy-your-connector-contract)+ [Create usage transactions](#create-usage-transactions)+ [Real usage transaction: VaultSink](#real-usage-transaction-vaultsink)+ [Create combinations examples](#create-combinations-examples)+ [Add to current workflows](#add-to-current-workflows)+ [For your own connectors](#for-your-own-connectors)* [Conclusion](#conclusion)
 
 Flow
 
@@ -353762,7 +354210,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* verifyUserSignatures
 
@@ -373018,75 +373466,47 @@ Follow the prompts:
 
 Your `flow.json` now includes a testnet deployment section:
 
-`_18
+`_11
 
 {
 
-_18
+_11
 
 "deployments": {
 
-_18
+_11
 
 "emulator": {
 
-_18
+_11
 
-"default": [
+"default": ["Counter"],
 
-_18
+_11
 
-"Counter"
+"emulator-account": ["NumberFormatter"]
 
-_18
-
-],
-
-_18
-
-"emulator-account": [
-
-_18
-
-"NumberFormatter"
-
-_18
-
-]
-
-_18
+_11
 
 },
 
-_18
+_11
 
 "testnet": {
 
-_18
+_11
 
-"testnet-account": [
+"testnet-account": ["Counter", "NumberFormatter"]
 
-_18
-
-"Counter",
-
-_18
-
-"NumberFormatter"
-
-_18
-
-]
-
-_18
+_11
 
 }
 
-_18
+_11
 
 }
 
-_18
+_11
 
 }`
 
@@ -373281,7 +373701,7 @@ Visit `http://localhost:3000` and you will see:
 1. **Counter value**: Displays the current count from your testnet contract.
 2. **Connect Wallet**: You can now connect with various Flow wallets (not just Dev Wallet).
 3. **Increment functionality**: Transactions are sent to the live testnet.
-4. **Real transaction costs**: Small amounts of testnet Flow are used for gas.
+4. **Real transaction costs**: Small amounts of testnet Flow are used to pay for compute units, the Flow Cadence equivalence of gas.
 
 **Important**: When you connect your wallet, make sure to:
 
@@ -373345,135 +373765,95 @@ Follow the prompts:
 
 Your `flow.json` will now include mainnet configuration:
 
-`_33
+`_23
 
 {
 
-_33
+_23
 
 "dependencies": {
 
-_33
+_23
 
 "NumberFormatter": {
 
-_33
+_23
 
 "source": "testnet://8a4dce54554b225d.NumberFormatter",
 
-_33
+_23
 
 "aliases": {
 
-_33
+_23
 
 "mainnet": "1654653399040a61",
 
-_33
+_23
 
 "testnet": "8a4dce54554b225d"
 
-_33
+_23
 
 }
 
-_33
+_23
 
 }
 
-_33
+_23
 
 },
 
-_33
+_23
 
 "deployments": {
 
-_33
+_23
 
 "emulator": {
 
-_33
+_23
 
-"default": [
+"default": ["Counter"],
 
-_33
+_23
 
-"Counter"
+"emulator-account": ["NumberFormatter"]
 
-_33
-
-],
-
-_33
-
-"emulator-account": [
-
-_33
-
-"NumberFormatter"
-
-_33
-
-]
-
-_33
+_23
 
 },
 
-_33
+_23
 
 "testnet": {
 
-_33
+_23
 
-"testnet-account": [
+"testnet-account": ["Counter", "NumberFormatter"]
 
-_33
-
-"Counter",
-
-_33
-
-"NumberFormatter"
-
-_33
-
-]
-
-_33
+_23
 
 },
 
-_33
+_23
 
 "mainnet": {
 
-_33
+_23
 
-"mainnet-account": [
+"mainnet-account": ["Counter", "NumberFormatter"]
 
-_33
-
-"Counter",
-
-_33
-
-"NumberFormatter"
-
-_33
-
-]
-
-_33
+_23
 
 }
 
-_33
+_23
 
 }
 
-_33
+_23
 
 }`
 
@@ -373627,7 +374007,7 @@ npm run build`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/getting-started/production-deployment.md)
 
-Last updated on **Nov 14, 2025** by **0xLisanAlGaib**
+Last updated on **Nov 19, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -376688,7 +377068,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* param
 
@@ -378168,7 +378548,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* Packages Docs
 
@@ -395703,13 +396083,13 @@ Arguments passed to the Cadence transaction in Cadence JSON format.
 Cadence JSON format contains `type` and `value` keys and is
 [documented here](https://cadencelang.dev/docs/1.0/json-cadence-spec).
 
-### Gas Limit[​](#gas-limit "Direct link to Gas Limit")
+### Compute Limit[​](#compute-limit "Direct link to Compute Limit")
 
-* Flag: `--gas-limit`
+* Flag: `--compute-limit`
 * Valid inputs: an integer greater than zero.
 * Default: `1000`
 
-Specify the gas limit for this transaction.
+Specify the compute unit (gas) limit for this transaction.
 
 ### Host[​](#host "Direct link to Host")
 
@@ -395791,7 +396171,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/transactions/send-transactions.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Nov 12, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -395807,7 +396187,7 @@ Copy as Markdown
 
 * [Example Usage](#example-usage)* [Arguments](#arguments)
     + [Code Filename](#code-filename)+ [Arguments](#arguments-1)* [Flags](#flags)
-      + [Include Fields](#include-fields)+ [Code](#code)+ [Results](#results)+ [Exclude Fields](#exclude-fields)+ [Signer](#signer)+ [Proposer](#proposer)+ [Payer](#payer)+ [Authorizer](#authorizer)+ [Arguments JSON](#arguments-json)+ [Gas Limit](#gas-limit)+ [Host](#host)+ [Network Key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version Check](#version-check)
+      + [Include Fields](#include-fields)+ [Code](#code)+ [Results](#results)+ [Exclude Fields](#exclude-fields)+ [Signer](#signer)+ [Proposer](#proposer)+ [Payer](#payer)+ [Authorizer](#authorizer)+ [Arguments JSON](#arguments-json)+ [Compute Limit](#compute-limit)+ [Host](#host)+ [Network Key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version Check](#version-check)
 
 Flow
 
@@ -427894,7 +428274,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* account
 
@@ -429615,7 +429995,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* sansPrefix
 
@@ -472811,7 +473191,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* voucherToTxId
 
@@ -494283,7 +494663,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* getNodeVersionInfo
 
@@ -508550,7 +508930,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* subscribe
 
@@ -511976,7 +512356,7 @@ Search
 
                         * [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              + [FCL Ethereum Provider](/build/tools/clients/fcl-js/cross-vm/ethereum-provider)+ [FCL Rainbowkit Adapter](/build/tools/clients/fcl-js/cross-vm/rainbowkit-adapter)+ [FCL Wagmi Adapter](/build/tools/clients/fcl-js/cross-vm/wagmi-adapter)* [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              + [FCL Ethereum Provider](/build/tools/clients/fcl-js/cross-vm/ethereum-provider)+ [FCL Rainbowkit Adapter](/build/tools/clients/fcl-js/cross-vm/rainbowkit-adapter)+ [FCL Wagmi Adapter](/build/tools/clients/fcl-js/cross-vm/wagmi-adapter)* [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* Cross VM Packages
 
@@ -516191,6 +516571,10 @@ import { useFlowCurrentUser } from "@onflow/react-sdk"`
 * `authenticate: () => Promise<CurrentUser>` – Triggers wallet authentication
 * `unauthenticate: () => void` – Logs the user out
 
+WalletConnect Support
+
+To enable WalletConnect as a wallet option, add your registered project ID to the `walletconnectProjectId` field in your `FlowProvider` config.
+
 `_16
 
 function AuthComponent() {
@@ -519580,7 +519964,7 @@ _34
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/react-sdk/hooks.md)
 
-Last updated on **Oct 23, 2025** by **Michael Fabozzi**
+Last updated on **Nov 19, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -565297,7 +565681,7 @@ warning
 
 This scenario may be a scam. A scammer could set up this situation as bait and cancel the buy order the instant someone purchases the NFT that is for sale. You'd have paid a vast amount of money for something worthless.
 
-The great thing about Cadence transactions, with or without Actions, is that you can set up an atomic transaction where everything either works, or is reverted. Either you make 100k, or nothing happens except a tiny expenditure of gas.
+The great thing about Cadence transactions, with or without Actions, is that you can set up an atomic transaction where everything either works, or is reverted. Either you make 100k, or nothing happens except a tiny expenditure of compute units.
 
 Flashers adhere to the `Flasher` interface:
 
@@ -565587,9 +565971,9 @@ _62
 
 ## Identification and traceability[​](#identification-and-traceability "Direct link to Identification and traceability")
 
-The `UniqueIdentifier` allows protocols to trace stack operations via Flow Actions interface-level events, identifying them by IDs. `IdentifiableResource` implementations should verify that access to the identifier is encapsulated by the structures they identify.
+The `UniqueIdentifier` allows protocols to trace stack operations via Flow Actions interface-level events, which identifies them by IDs. `IdentifiableResource` implementations should verify that access to the identifier is encapsulated by the structures they identify.
 
-While you can create Cadence struct types in any context (including being passed in as transaction parameters), the authorized `AuthenticationToken` [capability](https://cadence-lang.org/docs/language/capabilities) verifies that only those issued by the Flow Actions contract can be used in connectors, preventing forgery.
+While you can create Cadence struct types in any context (such as passed in as transaction parameters), the authorized `AuthenticationToken` [capability](https://cadence-lang.org/docs/language/capabilities) verifies that only those issued by the Flow Actions contract can be used in connectors, preventing forgery.
 
 For example, to use a `UniqueIdentifier` in a source->swap->sink:
 
@@ -565906,14 +566290,14 @@ By aligning the same ID across connectors (for example, Source → Swapper → S
 
 ### 2. Stack tracing[​](#2-stack-tracing "Direct link to 2. Stack tracing")
 
-* When using composite connectors (for example, `SwapSource`, `SwapSink`, `MultiSwapper`), IDs allow you to trace the complete path through the stack.
-* Helpful for debugging and understanding the flow of operations inside complex strategies.
+* When you use composite connectors (for example, `SwapSource`, `SwapSink`, `MultiSwapper`), IDs allow you to trace the complete path through the stack.
+* Helpful to heklp you debug and understand the flow of operations inside complex strategies.
 
 ### 3. Analytics and attribution[​](#3-analytics-and-attribution "Direct link to 3. Analytics and attribution")
 
 * Allows measuring usage of specific strategies or routes.
 * Lets you join data from multiple connectors into a single logical "transaction" for reporting.
-* Supports fee attribution and performance monitoring across multi-step workflows.
+* Supports fee attribution and performance monitorsacross multi-step workflows.
 
 ### Without a shared `UniqueIdentifier`[​](#without-a-shared-uniqueidentifier "Direct link to without-a-shared-uniqueidentifier")
 
@@ -565937,7 +566321,7 @@ Now that you have completed this tutorial, you can:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/flow-actions/intro-to-flow-actions.md)
 
-Last updated on **Nov 6, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -579965,7 +580349,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* transaction
 
@@ -580415,7 +580799,7 @@ template?: any, // Interaction Template object or URL for standardized transacti
 
 _10
 
-limit?: number, // Compute (gas) limit for the transaction execution
+limit?: number, // Compute units limit for the transaction execution
 
 _10
 
@@ -580443,139 +580827,131 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as fcl from "@onflow/fcl"
+import * as fcl from '@onflow/fcl';
 
 _10
 
 _10
 
-fcl.mutate(opts)`
+fcl.mutate(opts);`
 
 Or import directly the specific function:
 
 `_10
 
-import { mutate } from "@onflow/fcl"
+import { mutate } from '@onflow/fcl';
 
 _10
 
 _10
 
-mutate(opts)`
+mutate(opts);`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`` _30
+`` _28
 
 // Basic transaction submission
 
-_30
+_28
 
-import * as fcl from "@onflow/fcl"
+import * as fcl from '@onflow/fcl';
 
-_30
+_28
 
-_30
+_28
 
 // Configure FCL first
 
-_30
+_28
 
 fcl.config({
 
-_30
+_28
 
-"accessNode.api": "https://rest-testnet.onflow.org",
+'accessNode.api': 'https://rest-testnet.onflow.org',
 
-_30
+_28
 
-"discovery.wallet": "https://fcl-discovery.onflow.org/testnet/authn",
+'discovery.wallet': 'https://fcl-discovery.onflow.org/testnet/authn',
 
-_30
+_28
 
-"flow.network": "testnet"
+'flow.network': 'testnet',
 
-_30
+_28
 
-})
+});
 
-_30
+_28
 
-_30
+_28
 
 // Authenticate user
 
-_30
+_28
 
-await fcl.authenticate()
+await fcl.authenticate();
 
-_30
+_28
 
-_30
+_28
 
 // Submit a basic transaction
 
-_30
+_28
 
 const txId = await fcl.mutate({
 
-_30
+_28
 
 cadence: `
 
-_30
+_28
 
 transaction(message: String) {
 
-_30
+_28
 
 prepare(account: AuthAccount) {
 
-_30
+_28
 
 log("Transaction executed by: ".concat(account.address.toString()))
 
-_30
+_28
 
 log("Message: ".concat(message))
 
-_30
+_28
 
 }
 
-_30
+_28
 
 }
 
-_30
+_28
 
 `,
 
-_30
+_28
 
-args: (arg, t) => [
+args: (arg, t) => [arg('Hello Flow!', t.String)],
 
-_30
+_28
 
-arg("Hello Flow!", t.String)
+limit: 50,
 
-_30
+_28
 
-],
+});
 
-_30
+_28
 
-limit: 50
+_28
 
-_30
-
-})
-
-_30
-
-_30
-
-console.log("Transaction submitted:", txId) ``
+console.log('Transaction submitted:', txId); ``
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
@@ -580588,7 +580964,7 @@ console.log("Transaction submitted:", txId) ``
 
 `_10
 
-(opts?: MutateOptions) => Promise<string>`
+(opts?: MutateOptions) => Promise<string>;`
 
 Promise that resolves to the transaction ID (txId) when the transaction is submitted
 
@@ -580596,7 +580972,7 @@ Promise that resolves to the transaction ID (txId) when the transaction is submi
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/mutate.md)
 
-Last updated on **Oct 22, 2025** by **Michael Fabozzi**
+Last updated on **Nov 12, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -584065,7 +584441,7 @@ Search
 
                         * [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              + [FCL Ethereum Provider](/build/tools/clients/fcl-js/cross-vm/ethereum-provider)+ [FCL Rainbowkit Adapter](/build/tools/clients/fcl-js/cross-vm/rainbowkit-adapter)+ [FCL Wagmi Adapter](/build/tools/clients/fcl-js/cross-vm/wagmi-adapter)* [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              + [FCL Ethereum Provider](/build/tools/clients/fcl-js/cross-vm/ethereum-provider)+ [FCL Rainbowkit Adapter](/build/tools/clients/fcl-js/cross-vm/rainbowkit-adapter)+ [FCL Wagmi Adapter](/build/tools/clients/fcl-js/cross-vm/wagmi-adapter)* [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)* FCL Rainbowkit Adapter
 
@@ -586526,7 +586902,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* events
 
@@ -599225,7 +599601,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* unauthenticate
 
@@ -602583,7 +602959,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* getTransaction
 
@@ -607704,7 +608080,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* authorizations
 
@@ -615752,12 +616128,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **9a13c5bcdb41821b**
+Cloudflare Ray ID: **9a1c033888b3fb28**
 •
 
 Your IP:
 Click to reveal
-172.214.44.214
+52.159.227.203
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 

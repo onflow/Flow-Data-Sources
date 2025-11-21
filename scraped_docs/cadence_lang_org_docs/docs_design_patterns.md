@@ -1136,63 +1136,111 @@ _17
 
 }`
 
-## Check for existing capability before publishing new one[​](#check-for-existing-capability-before-publishing-new-one "Direct link to Check for existing capability before publishing new one")
+## Check for existing capabilities before issuing or publishing new ones[​](#check-for-existing-capabilities-before-issuing-or-publishing-new-ones "Direct link to Check for existing capabilities before issuing or publishing new ones")
 
 ### Problem[​](#problem-8 "Direct link to Problem")
 
-When publishing a capability, a capability might be already be published at the specified path.
+When issuing or publishing a capability, a capability might be already be issued or published at the specified path for the desired capability type.
 
 ### Solution[​](#solution-8 "Direct link to Solution")
 
-Check if a capability is already published at the given path.
+Check if a capability is already issued and/or published at the given paths.
 
 ### Example[​](#example-4 "Direct link to Example")
 
-`_13
+`_26
 
 transaction {
 
-_13
+_26
 
 prepare(signer: auth(Capabilities) &Account) {
 
-_13
+_26
 
-let capability = signer.capabilities.storage
+var capability: Capability<&ExampleToken.Vault>? = nil
 
-_13
+_26
 
-.issue<&ExampleToken.Vault>(/storage/exampleTokenVault)
+_26
 
-_13
+// get the capability to the vault at the given storage path if it exists
 
-_13
+_26
+
+let vaultCaps = account.capabilities.storage.getControllers(forPath: /storage/exampleTokenVault)
+
+_26
+
+for cap in vaultCaps {
+
+_26
+
+if let cap = cap as? Capability<&ExampleToken.Vault> {
+
+_26
+
+capability = cap
+
+_26
+
+break
+
+_26
+
+}
+
+_26
+
+}
+
+_26
+
+_26
+
+if capability == nil {
+
+_26
+
+// issue a new capability to the vault since it wasn't found
+
+_26
+
+capability = account.capabilities.storage.issue<&ExampleToken.Vault>(/storage/exampleTokenVault)
+
+_26
+
+}
+
+_26
+
+_26
 
 let publicPath = /public/exampleTokenReceiver
 
-_13
+_26
 
-_13
+_26
 
 if signer.capabilities.exits(publicPath) {
 
-_13
+_26
 
 signer.capabilities.unpublish(publicPath)
 
-_13
+_26
 
 }
 
-_13
+_26
 
 signer.capabilities.publish(capability, at: publicPath)
 
-_13
+_26
 
 }
 
-_13
+_26
 
 }`
 
@@ -1330,7 +1378,7 @@ Anti-Patterns](/docs/anti-patterns)
 * [Capability bootstrapping](#capability-bootstrapping)
   + [Problem](#problem-7)
   + [Solution](#solution-7)
-* [Check for existing capability before publishing new one](#check-for-existing-capability-before-publishing-new-one)
+* [Check for existing capabilities before issuing or publishing new ones](#check-for-existing-capabilities-before-issuing-or-publishing-new-ones)
   + [Problem](#problem-8)
   + [Solution](#solution-8)
   + [Example](#example-4)

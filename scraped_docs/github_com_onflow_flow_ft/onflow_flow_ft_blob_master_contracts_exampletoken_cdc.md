@@ -200,17 +200,22 @@ access(all) contract ExampleToken: FungibleToken {
     }
 
     init() {
-        self.totalSupply = 1000.0
+        self.totalSupply = 0.0
 
         self.VaultStoragePath = /storage/exampleTokenVault
         self.VaultPublicPath = /public/exampleTokenVault
         self.ReceiverPublicPath = /public/exampleTokenReceiver
         self.AdminStoragePath = /storage/exampleTokenAdmin 
 
+        let admin <- create Minter()
+
         // Create the Vault with the total supply of tokens and save it in storage
         //
-        let vault <- create Vault(balance: self.totalSupply)
-        emit TokensMinted(amount: vault.balance, type: vault.getType().identifier)
+        let vault <- admin.mintTokens(amount: 1000.0)
+
+        self.account.storage.save(<-vault, to: self.VaultStoragePath)
+
+        self.account.storage.save(<-admin, to: self.AdminStoragePath)
 
         // Create a public capability to the stored Vault that exposes
         // the `deposit` method and getAcceptedTypes method through the `Receiver` interface
@@ -220,11 +225,6 @@ access(all) contract ExampleToken: FungibleToken {
         self.account.capabilities.publish(exampleTokenCap, at: self.VaultPublicPath)
         let receiverCap = self.account.capabilities.storage.issue<&ExampleToken.Vault>(self.VaultStoragePath)
         self.account.capabilities.publish(receiverCap, at: self.ReceiverPublicPath)
-
-        self.account.storage.save(<-vault, to: /storage/exampleTokenVault)
-
-        let admin <- create Minter()
-        self.account.storage.save(<-admin, to: self.AdminStoragePath)
     }
 }
 

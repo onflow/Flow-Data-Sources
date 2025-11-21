@@ -284,13 +284,13 @@ Arguments passed to the Cadence transaction in Cadence JSON format.
 Cadence JSON format contains `type` and `value` keys and is
 [documented here](https://cadencelang.dev/docs/1.0/json-cadence-spec).
 
-### Gas Limit[​](#gas-limit "Direct link to Gas Limit")
+### Compute Limit[​](#compute-limit "Direct link to Compute Limit")
 
-* Flag: `--gas-limit`
+* Flag: `--compute-limit`
 * Valid inputs: an integer greater than zero.
 * Default: `1000`
 
-Specify the gas limit for this transaction.
+Specify the compute unit (gas) limit for this transaction.
 
 ### Host[​](#host "Direct link to Host")
 
@@ -372,7 +372,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/transactions/send-transactions.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Nov 12, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -388,7 +388,7 @@ Copy as Markdown
 
 * [Example Usage](#example-usage)* [Arguments](#arguments)
     + [Code Filename](#code-filename)+ [Arguments](#arguments-1)* [Flags](#flags)
-      + [Include Fields](#include-fields)+ [Code](#code)+ [Results](#results)+ [Exclude Fields](#exclude-fields)+ [Signer](#signer)+ [Proposer](#proposer)+ [Payer](#payer)+ [Authorizer](#authorizer)+ [Arguments JSON](#arguments-json)+ [Gas Limit](#gas-limit)+ [Host](#host)+ [Network Key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version Check](#version-check)
+      + [Include Fields](#include-fields)+ [Code](#code)+ [Results](#results)+ [Exclude Fields](#exclude-fields)+ [Signer](#signer)+ [Proposer](#proposer)+ [Payer](#payer)+ [Authorizer](#authorizer)+ [Arguments JSON](#arguments-json)+ [Compute Limit](#compute-limit)+ [Host](#host)+ [Network Key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version Check](#version-check)
 
 Flow
 

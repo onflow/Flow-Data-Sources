@@ -194,7 +194,7 @@ We do not want everyone in the network to be able to call our `withdraw` functio
 
 In Cadence, any reference can be freely up-casted or down-casted to any subtype or supertype that the reference conforms to. This means that if you had a reference of the type `&ExampleNFT.Collection`, this would expose all the `access(all)` functions on the `Collection`.
 
-This is a powerful feature that is very useful, but it also means if there is any privileged functionality on a resource that has a public capability, then this functionality cannot be `access(all)`.
+This is a powerful feature that is very useful, but it also means if there is any privileged functionality on a resource that has any capabilities created for it, public, or private, then this functionality cannot be `access(all)`.
 
 It needs to use [entitlements](/docs/language/access-control#entitlements).
 
@@ -213,7 +213,7 @@ If you're used to Solidity, you can think of this as being similar to frameworks
    * You've now effectively created a type of lock that can only be opened by someone with the right key - or the owner of the property, who always has access natively.
 2. Implement a `withdraw` function inside the `Collection` resource. It should:
 
-   * Only allow `access` to addresses with the `Withdraw` [entitlement](/docs/language/access-control).
+   * Only allow `access` with the `Withdraw` [entitlement](/docs/language/access-control).
    * Accept the id of the NFT to be withdrawn as an argument.
    * Return an error if the NFT with that id is not present in the account's `ownedNFTs`.
    * Return the **actual token resource**.
@@ -254,7 +254,7 @@ If you're used to Solidity, you can think of this as being similar to frameworks
 
    }`
 
-Providing an access scope of `access(Withdraw)` locks this functionality to only the owner who has the [resource](/docs/language/resources) directly in their storage, **or** to any address possessing a reference to this resource that has the `Withdraw` entitlement.
+Providing an access scope of `access(Withdraw)` locks this functionality to only the owner who has the [resource](/docs/language/resources) directly in their storage, **or** to any code possessing a reference to this resource that has the `Withdraw` entitlement.
 
 As with other types defined in contracts, these are namespaced to the deployer and contract. The full name of `Withdraw` would be something like `0x06.IntermediateNFT.Withdraw`. More than one contract or account can declare separate and distinct entitlements with the same name.
 
@@ -288,7 +288,8 @@ _10
 
 self.account.capabilities.publish(cap, at: self.CollectionPublicPath)`
 
-Now, anyone could borrow that capability as the entitled version it was issued as:
+Now, anyone could borrow that capability as the entitled version it was issued as
+and steal your NFT! This is why it is always so important to use well-defined entitlements in all your important functions and be very careful how you create your capabilities and publish them:
 
 `_10
 
@@ -340,31 +341,7 @@ access(all) fun collectionNotConfiguredError(address: Address): String {
 
 _10
 
-return "Could not borrow a collection reference to recipient's IntermediateNFT.Collection"
-
-_10
-
-.concat(" from the path ")
-
-_10
-
-.concat(IntermediateNFT.CollectionPublicPath.toString())
-
-_10
-
-.concat(". Make sure account ")
-
-_10
-
-.concat(address.toString())
-
-_10
-
-.concat(" has set up its account ")
-
-_10
-
-.concat("with an IntermediateNFT Collection.")
+return "Could not borrow a collection reference to recipient's IntermediateNFT.Collection from the path \(IntermediateNFT.CollectionPublicPath.toString()). Make sure account \(address.toString()) has set up its account with an IntermediateNFT Collection."
 
 _10
 
@@ -645,7 +622,7 @@ This transaction is **not** bound by the `Withdraw` capability, because the call
    _13
 
    }`
-2. In `prepare`, get a reference to the sender's `Collection` and use it to `move (<-)` the token out of their collection and into `transferToken`:
+2. In `prepare`, get an entitled reference to the sender's `Collection` and use it to `move (<-)` the token out of their collection and into `transferToken`:
 
    `_10
 
@@ -694,11 +671,7 @@ This transaction is **not** bound by the `Withdraw` capability, because the call
 
    _10
 
-   log("NFT ID transferred to account "
-
-   _10
-
-   .concat(recipient.address.toString()))`
+   log("NFT ID transferred to account \(recipient.address.toString())")`
 4. Test your transaction by transferring several NFTs in several accounts. Try various combinations, and use the `PrintNFTs` script to make sure the NFTs move as expected.
 
 ## Reviewing intermediate NFTs[​](#reviewing-intermediate-nfts "Direct link to Reviewing intermediate NFTs")

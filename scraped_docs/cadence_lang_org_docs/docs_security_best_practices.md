@@ -37,11 +37,341 @@ This is an opinionated list of best practices that Cadence developers should fol
 
 Some practices listed below might overlap with advice in the [Cadence Anti-Patterns](/docs/design-patterns) article, which is a recommended read as well.
 
+## Access Control[​](#access-control "Direct link to Access Control")
+
+Do not use the `access(all)` modifier on fields and functions unless absolutely necessary. Prefer `access(self)`, `access(contract)`, `access(account)`, or `access(SomeEntitlement)`. Unintentionally declaring fields or functions as `access(all)` can expose vulnerabilities in your code.
+
+When writing definitions for contracts, structs, or resources, start by declaring all your fields and functions as `access(self)`. If there is a function that needs to be accessible by external code, only declare it as `access(all)` if it is a `view` function or if you definitely want it to be accessible by anyone in the network.
+
+`_13
+
+/// Simplified Bank Account implementation
+
+_13
+
+access(all) resource BankAccount {
+
+_13
+
+_13
+
+/// Fields should default to access(self) to be safe
+
+_13
+
+/// and be readable through view functions
+
+_13
+
+access(self) var balance: UFix64
+
+_13
+
+_13
+
+/// It is okay to make this function access(all) because it is a view function
+
+_13
+
+/// and all blockchain data is public
+
+_13
+
+access(all) view fun getBalance(): UFix64 {
+
+_13
+
+return self.balance
+
+_13
+
+}
+
+_13
+
+}`
+
+If there are any functions that modify privileged state that also need to be callable from external code, use [entitlements](/docs/language/access-control) for the access modifiers for those functions:
+
+`` _31
+
+/// Simplified Vault implementation
+
+_31
+
+/// Simplified Bank Account implementation
+
+_31
+
+access(all) resource BankAccount {
+
+_31
+
+_31
+
+/// Declare Entitlements for state-modifying functions
+
+_31
+
+access(all) entitlement Owner
+
+_31
+
+_31
+
+/// Fields should default to access(self) just to be safe
+
+_31
+
+access(self) var balance: UFix64
+
+_31
+
+_31
+
+/// All non-view functions should be something other than access(all),
+
+_31
+
+_31
+
+/// This is only callable by other functions in the type, so it is `access(self)`
+
+_31
+
+access(self) fun updateBalance(_ new: UFix64) {
+
+_31
+
+self.balance = new
+
+_31
+
+}
+
+_31
+
+_31
+
+/// This function is external, but should only be called by the owner
+
+_31
+
+/// so we use the `Owner` entitlement
+
+_31
+
+access(Owner) fun withdrawFromAccount(_ amount: UFix64): @BankAccount {
+
+_31
+
+self.updateBalance(self.balance - amount)
+
+_31
+
+return <-create BankAccount(balance: amount)
+
+_31
+
+}
+
+_31
+
+_31
+
+/// This is also state-modifying, but we intend for it to be callable by anyone
+
+_31
+
+/// so we can make it access(all)
+
+_31
+
+access(all) fun depositToAccount(_ from: @BankAccount) {
+
+_31
+
+self.updateBalance(self.balance + from.getBalance())
+
+_31
+
+destroy from
+
+_31
+
+}
+
+_31
+
+} ``
+
+## Access Control for Composite-typed Fields[​](#access-control-for-composite-typed-fields "Direct link to Access Control for Composite-typed Fields")
+
+Declaring a field as [`access(all)`](/docs/language/access-control) only protects from replacing the field's value, but the value itself can still be mutated if it is mutable. Remember that containers, like dictionaries and arrays, are mutable and composite fields like structs and resources are still mutable through their own functions.
+
+danger
+
+This means that if you ever have a field that is a resource, struct, or capability, it should ALWAYS be `access(self)`! If it is `access(all)`, anyone could access it and call its functions, which could be a major vulnerability.
+
+You can still allow external code to access that field, but only through functions that you have defined with `access(SomeEntitlement)`. This way, you can explicitly define how external code can access these fields.
+
+# Capabilities
+
+## Issuing Capabilities[​](#issuing-capabilities "Direct link to Issuing Capabilities")
+
+Don't issue and publish capabilities unless absolutely necessary. Anyone can access capabilities that are published. If public access is needed, follow the [principle of least privilege/authority](https://en.wikipedia.org/wiki/Principle_of_least_privilege): make sure that the capability type only grants access to the fields and functions that should be exposed, and nothing else. Ideally, create a capability with a reference type that is unauthorized.
+
+When issuing a capability, a capability of the same type might already be present. It is a good practice to check if a capability already exists with `getControllers()` before creating it. If it already exists, you can reuse it instead of issuing a new one. This prevents you from overloading your account storage and overpaying because of redundant capabilities.
+
+`_20
+
+// Capability to find or issue
+
+_20
+
+var flowTokenVaultCap: Capability<auth(FungibleToken.Withdraw) &FlowToken.Vault>? = nil
+
+_20
+
+_20
+
+// Get all the capabilities that have already been issued for the desired storage path
+
+_20
+
+let flowTokenVaultCaps = account.capabilities.storage.getControllers(forPath: /storage/flowTokenVault)
+
+_20
+
+_20
+
+// Iterate through them to see if there is already one of the needed type
+
+_20
+
+for cap in flowTokenVaultCaps {
+
+_20
+
+if let cap = cap as? Capability<auth(FungibleToken.Withdraw) &FlowToken.Vault> {
+
+_20
+
+flowTokenVaultCap = cap
+
+_20
+
+break
+
+_20
+
+}
+
+_20
+
+}
+
+_20
+
+_20
+
+// If no capabilities of the needed type are already present,
+
+_20
+
+// issue a new one
+
+_20
+
+if flowTokenVaultCap == nil {
+
+_20
+
+// issue a new entitled capability to the flow token vault
+
+_20
+
+flowTokenVaultCap = account.capabilities.storage.issue<auth(FungibleToken.Withdraw) &FlowToken.Vault>(/storage/flowTokenVault)
+
+_20
+
+}`
+
+## Publishing Capabilities[​](#publishing-capabilities "Direct link to Publishing Capabilities")
+
+When publishing a capability, a published capability might already be present. It is a good practice to check if a capability already exists with `borrow` before creating it. This function will return `nil` if the capability does not exist.
+
+`_10
+
+// Check if the published capability already exists
+
+_10
+
+if account.capabilities.borrow<&FlowToken.Vault>(/public/flowTokenReceiver) == nil {
+
+_10
+
+// since it doesn't exist yet, we should publish a new one that we created earlier
+
+_10
+
+signer.capabilities.publish(
+
+_10
+
+receiverCapability,
+
+_10
+
+at: /public/flowTokenReceiver
+
+_10
+
+)
+
+_10
+
+}`
+
+## Checking Capabilities[​](#checking-capabilities "Direct link to Checking Capabilities")
+
+If it is necessary to handle the case where borrowing a capability might fail, the `account.check` function can be used to verify that the target exists and has a valid type:
+
+`_10
+
+// check if the capability is valid
+
+_10
+
+if capability.check() {
+
+_10
+
+let reference = capability.borrow()
+
+_10
+
+} else {
+
+_10
+
+// do something else if the capability isn't valid
+
+_10
+
+}`
+
+## Capability Access[​](#capability-access "Direct link to Capability Access")
+
+Ensure capabilities cannot be accessed by unauthorized parties. For example, capabilities should not be accessible through a public field, including public dictionaries or arrays. Exposing a capability in such a way allows anyone to borrow it and to perform all actions that the capability allows, including `access(all)` fields and functions that aren't even in the restricted type of the capability.
+
 ## References[​](#references "Direct link to References")
 
 [References](/docs/language/references) are ephemeral values and cannot be stored. If persistence is required, store a capability and borrow it when needed.
 
-When exposing functionality, provide the least access necessary. When creating an authorized reference, create it with only the minimal set of entitlements required to achieve the desired functionality.
+When exposing functionality in an account, struct, or resource, provide the least access necessary. When creating an authorized reference with [entitlements](/docs/language/access-control), create it with only the minimal set of [entitlements](/docs/language/access-control) required to achieve the desired functionality.
+
+# Accounts
 
 ## Account storage[​](#account-storage "Direct link to Account storage")
 
@@ -56,18 +386,6 @@ Access to an authorized account reference (`auth(...) &Account`) gives access to
 Therefore, avoid passing an entitled account reference to a function, and when defining a function, only specify an account reference parameter with the fine-grained entitlements required to perform the necessary operations.
 
 It is preferable to use capabilities over direct account storage access when exposing account data. Using capabilities allows the revocation of access and limits the access to a single value with a certain set of functionality.
-
-## Capabilities[​](#capabilities "Direct link to Capabilities")
-
-Don't issue and publish capabilities unless really necessary. Anyone can access capabilities that are published. If public access is needed, follow the [principle of least privilege/authority](https://en.wikipedia.org/wiki/Principle_of_least_privilege): make sure that the capability type only grants access to the fields and functions that should be exposed, and nothing else. Ideally, create a capability with a reference type that is unauthorized.
-
-If an entitlement is necessary to access the field or function, ensure it is only used for the particular field or function, and not also by other fields and functions. If needed, introduce a new, fine-grained entitlement.
-
-When publishing a capability, a capability might already be present. It is a good practice to check if a capability already exists with `get` before creating it. This function will return `nil` if the capability does not exist.
-
-If it is necessary to handle the case where borrowing a capability might fail, the `account.check` function can be used to verify that the target exists and has a valid type.
-
-Ensure capabilities cannot be accessed by unauthorized parties. For example, capabilities should not be accessible through a public field, including public dictionaries or arrays. Exposing a capability in such a way allows anyone to borrow it and to perform all actions that the capability allows.
 
 ## Transactions[​](#transactions "Direct link to Transactions")
 
@@ -87,14 +405,6 @@ Use [intersection types and interfaces](/docs/language/types-and-type-system/int
 
 If given a less-specific type, cast to the more specific type that is expected. For example, when implementing the fungible token standard, a user may deposit any fungible token, so the implementation should cast to the expected concrete fungible token type.
 
-## Access control[​](#access-control "Direct link to Access control")
-
-Declaring a field as [`access(all)`](/docs/language/access-control) only protects from replacing the field's value, but the value itself can still be mutated if it is mutable. Remember that containers, like dictionaries and arrays, are mutable.
-
-Prefer non-public access to a mutable state. That state may also be nested. For example, a child may still be mutated even if its parent exposes it through a field with non-settable access.
-
-Do not use the `access(all)` modifier on fields unless necessary. Prefer `access(self)`, or `access(contract)` and `access(account)`, when other types in the contract or account need to have access, and use entitlement-based access for other cases.
-
 [Edit this page](https://github.com/onflow/cadence-lang.org/tree/main/docs/security-best-practices.md)
 
 [Previous
@@ -107,10 +417,14 @@ JSON-Cadence Format](/docs/json-cadence-spec)
 
 😞😐😊
 
+* [Access Control](#access-control)
+* [Access Control for Composite-typed Fields](#access-control-for-composite-typed-fields)
+* [Issuing Capabilities](#issuing-capabilities)
+* [Publishing Capabilities](#publishing-capabilities)
+* [Checking Capabilities](#checking-capabilities)
+* [Capability Access](#capability-access)
 * [References](#references)
 * [Account storage](#account-storage)
 * [Authorized account references](#authorized-account-references)
-* [Capabilities](#capabilities)
 * [Transactions](#transactions)
 * [Types](#types)
-* [Access control](#access-control)

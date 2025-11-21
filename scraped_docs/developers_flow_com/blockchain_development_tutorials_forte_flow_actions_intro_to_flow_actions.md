@@ -772,7 +772,7 @@ warning
 
 This scenario may be a scam. A scammer could set up this situation as bait and cancel the buy order the instant someone purchases the NFT that is for sale. You'd have paid a vast amount of money for something worthless.
 
-The great thing about Cadence transactions, with or without Actions, is that you can set up an atomic transaction where everything either works, or is reverted. Either you make 100k, or nothing happens except a tiny expenditure of gas.
+The great thing about Cadence transactions, with or without Actions, is that you can set up an atomic transaction where everything either works, or is reverted. Either you make 100k, or nothing happens except a tiny expenditure of compute units.
 
 Flashers adhere to the `Flasher` interface:
 
@@ -1062,9 +1062,9 @@ _62
 
 ## Identification and traceability[​](#identification-and-traceability "Direct link to Identification and traceability")
 
-The `UniqueIdentifier` allows protocols to trace stack operations via Flow Actions interface-level events, identifying them by IDs. `IdentifiableResource` implementations should verify that access to the identifier is encapsulated by the structures they identify.
+The `UniqueIdentifier` allows protocols to trace stack operations via Flow Actions interface-level events, which identifies them by IDs. `IdentifiableResource` implementations should verify that access to the identifier is encapsulated by the structures they identify.
 
-While you can create Cadence struct types in any context (including being passed in as transaction parameters), the authorized `AuthenticationToken` [capability](https://cadence-lang.org/docs/language/capabilities) verifies that only those issued by the Flow Actions contract can be used in connectors, preventing forgery.
+While you can create Cadence struct types in any context (such as passed in as transaction parameters), the authorized `AuthenticationToken` [capability](https://cadence-lang.org/docs/language/capabilities) verifies that only those issued by the Flow Actions contract can be used in connectors, preventing forgery.
 
 For example, to use a `UniqueIdentifier` in a source->swap->sink:
 
@@ -1381,14 +1381,14 @@ By aligning the same ID across connectors (for example, Source → Swapper → S
 
 ### 2. Stack tracing[​](#2-stack-tracing "Direct link to 2. Stack tracing")
 
-* When using composite connectors (for example, `SwapSource`, `SwapSink`, `MultiSwapper`), IDs allow you to trace the complete path through the stack.
-* Helpful for debugging and understanding the flow of operations inside complex strategies.
+* When you use composite connectors (for example, `SwapSource`, `SwapSink`, `MultiSwapper`), IDs allow you to trace the complete path through the stack.
+* Helpful to heklp you debug and understand the flow of operations inside complex strategies.
 
 ### 3. Analytics and attribution[​](#3-analytics-and-attribution "Direct link to 3. Analytics and attribution")
 
 * Allows measuring usage of specific strategies or routes.
 * Lets you join data from multiple connectors into a single logical "transaction" for reporting.
-* Supports fee attribution and performance monitoring across multi-step workflows.
+* Supports fee attribution and performance monitorsacross multi-step workflows.
 
 ### Without a shared `UniqueIdentifier`[​](#without-a-shared-uniqueidentifier "Direct link to without-a-shared-uniqueidentifier")
 
@@ -1412,7 +1412,7 @@ Now that you have completed this tutorial, you can:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/flow-actions/intro-to-flow-actions.md)
 
-Last updated on **Nov 6, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **Brian Doyle**
 
 [Previous
 

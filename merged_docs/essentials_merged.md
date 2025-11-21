@@ -1460,7 +1460,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* signUp
 
@@ -11653,11 +11653,11 @@ Cadence JSON format contains `type` and `value` keys and is
 
 ### Gas Limit[​](#gas-limit "Direct link to Gas Limit")
 
-* Flag: `--gas-limit`
+* Flag: `--compute-limit`
 * Valid inputs: an integer greater than zero.
 * Default: `1000`
 
-Specify the gas limit for this transaction.
+Specify the compute unit (gas) limit for this transaction.
 
 ### Host[​](#host "Direct link to Host")
 
@@ -11743,7 +11743,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/transactions/build-transactions.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Nov 12, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -52581,7 +52581,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* limit
 
@@ -55146,7 +55146,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* block
 
@@ -63408,10 +63408,10 @@ With Flow EVM, EVM operations can now be called within Cadence transactions. EVM
 
 Transaction fee on EVM = surge x [inclusion fee + (execution effort * unit cost)]`
 
-* `Surge' factor` dynamically accounts for network pressure and market conditions. This is currently constant at 1.0 but subject to change with community approval.
+* `Surge' factor` dynamically accounts for network pressure and market conditions.
 * `Inclusion fee` accounts for the resources required to process a transaction due to its core properties (byte size, signatures). This is currently constant at 1E-6 FLOW, but subject to change with community approval.
 * `Execution fee` The fee that accounts for the operational cost of running the transaction script, processing the results, sending results for verification, generating verification receipts, etc. and is calculated as a product of `execution effort units` and the `cost per unit`.
-  + `Execution Effort (computation)` is based on transaction type and operations that are called during the execution of a transaction. The weights determine how “costly” (time consuming) each operation is.
+  + `Execution Effort (computation)` is based on transaction type and operations that are called during the execution of a transaction. The weights determine how costly (time consuming) each operation is.
   + `Execution Effort Unit Cost` = `2.49E-07 FLOW` (currently constant, but subject to change with community approval)
 
 ### Calculation of Execution Effort
@@ -63448,9 +63448,7 @@ where
 
 `` _10
 
-`EVMGasUsageCost` - The ratio that converts EVM gas into Flow computation units (execution effort) is currently set at `1/5000` but subject to revision by community approval ``
-
-**Note**: The weights and unit cost mentioned above have been updated recently to accommodate an increased computation limit on Flow, which now supports the deployment of larger EVM contracts. For detailed information, refer to the relevant [FLIP](https://github.com/onflow/flips/blob/main/governance/20240508-computation-limit-hike.md) and join the ongoing discussion on the community [forum post](https://forum.flow.com/t/proposing-transaction-fee-changes-and-flow-evm-gas-charges-for-flow-crescendo-launch/5817). These values may be adjusted in the future based on community feedback and evolving requirements.
+`EVMGasUsageCost` - The ratio that converts EVM gas into Flow compute units (execution effort) is currently set at `1/5000` but subject to revision by community approval ``
 
 
 
@@ -63467,13 +63465,13 @@ Assume a simple NFT transfer transaction that makes 31 cadence loop calls, reads
 
 `_10
 
-Execution Effort = 0.00478 * (31) + 0.00246 * (5668) + 0.00234 *(1668) + 8.65988 *(0) + EVMGasUsageCost * EVMGasUsage`
+Compute Units = 0.00478 * (31) + 0.00246 * (5668) + 0.00234 *(1668) + 8.65988 *(0) + EVMGasUsageCost * EVMGasUsage`
 
 But since `EVMGasUsage` is 0 for a Cadence transaction,
 
 `_10
 
-Execution Effort = 18.04378`
+Compute Units = 18.04378`
 
 Thus
 
@@ -63486,7 +63484,7 @@ If the EVMGasUsage can be assumed to be 21,000 gas (typical for a simple transfe
 
 `_10
 
-Execution Effort = 0.00478 * (31) + 0.00246 * (5668) + 0.00234 *(1668) + 8.65988 *(0) + 1/5000 * 21000 = 22.24378`
+Compute Units = 0.00478 * (31) + 0.00246 * (5668) + 0.00234 *(1668) + 8.65988 *(0) + 1/5000 * 21000 = 22.24378`
 
 Thus
 
@@ -63504,7 +63502,7 @@ To learn more about storage fee and transaction fee, visit [Flow Tokenomics page
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/evm/fees.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Nov 12, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -66062,6 +66060,90 @@ _10
 * To avoid redeploying dependencies
 * To use the official versions of common contracts
 
+#### Cadence Import Aliasing[​](#cadence-import-aliasing "Direct link to Cadence Import Aliasing")
+
+When deploying the same contract to multiple addresses with different names, use the `canonical` field to reference the original contract. This allows you to import multiple instances of the same contract with different identifiers.
+
+`_15
+
+"contracts": {
+
+_15
+
+"FUSD": {
+
+_15
+
+"source": "./contracts/FUSD.cdc",
+
+_15
+
+"aliases": {
+
+_15
+
+"testnet": "0x9a0766d93b6608b7"
+
+_15
+
+}
+
+_15
+
+},
+
+_15
+
+"FUSD1": {
+
+_15
+
+"source": "./contracts/FUSD.cdc",
+
+_15
+
+"aliases": {
+
+_15
+
+"testnet": "0xe223d8a629e49c68"
+
+_15
+
+},
+
+_15
+
+"canonical": "FUSD"
+
+_15
+
+}
+
+_15
+
+}`
+
+Flow CLI automatically transforms imports for aliased contracts:
+
+`_10
+
+import "FUSD"
+
+_10
+
+import "FUSD1"`
+
+Becomes:
+
+`_10
+
+import FUSD from 0x9a0766d93b6608b7
+
+_10
+
+import FUSD as FUSD1 from 0xe223d8a629e49c68`
+
 ### Deployments[​](#deployments "Direct link to Deployments")
 
 The `deployments` section defines which contracts get deployed to which accounts on which networks.
@@ -66348,7 +66430,7 @@ flow config remove account my-account`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/flow.json/configuration.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Nov 20, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -108531,7 +108613,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* cadence
 
@@ -132212,7 +132294,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* decode
 
@@ -151494,7 +151576,7 @@ _10
 
 ProtocolA.RewardsSource → SwapConnectors.SwapSource → ProtocolB.StakingSink`
 
-## Connector Library[​](#connector-library "Direct link to Connector Library")
+## Connector library[​](#connector-library "Direct link to Connector library")
 
 🔄 SOURCE Primitive Implementations
 
@@ -151540,51 +151622,51 @@ First, determine which Flow Actions primitive(s) your connector will implement:
 
 Study your target protocol to understand:
 
-* **Contract interfaces** and method signatures
-* **Required parameters** and data structures
-* **Error conditions** and failure modes
-* **Fee structures** and payment mechanisms
-* **Access controls** and permissions
+* **Contract interfaces** and method signatures.
+* **Required parameters** and data structures.
+* **Error conditions** and failure modes.
+* **Fee structures** and payment mechanisms.
+* **Access controls** and permissions.
 
 ### Design your connector[​](#design-your-connector "Direct link to Design your connector")
 
 Plan your connector implementation:
 
-* **Configuration parameters** needed for initialization
-* **Capability requirements** for protocol access
-* **Error handling strategy** for graceful failures
-* **Resource management** for token handling
-* **Event emission** for traceability
+* **Configuration parameters** needed for initialization.
+* **Capability requirements** for protocol access.
+* **Error handling strategy** for graceful failures.
+* **Resource management** for token handling.
+* **Event emission** for traceability.
 
 ### Implement the interface[​](#implement-the-interface "Direct link to Implement the interface")
 
-Create your connector struct implementing the chosen primitive interface(s).
+Create your connector struct to implement the chosen primitive interface(s).
 
 ### Add safety features[​](#add-safety-features "Direct link to Add safety features")
 
 Implement safety mechanisms:
 
-* **Capacity checking** before operations
-* **Balance validation** after operations
-* **Graceful error handling** with no-ops
-* **Resource cleanup** for empty vaults
+* **Capacity checking** before operations.
+* **Balance validation** after operations.
+* **Graceful error handling** with no-ops.
+* **Resource cleanup** for empty vaults.
 
 ### Support Flow Actions standards[​](#support-flow-actions-standards "Direct link to Support Flow Actions standards")
 
 Add required Flow Actions support:
 
-* **IdentifiableStruct** implementation
-* **UniqueIdentifier** management
-* **ComponentInfo** for introspection
-* **Event emission** integration
+* **IdentifiableStruct** implementation.
+* **UniqueIdentifier** management.
+* **ComponentInfo** for introspection.
+* **Event emission** integration.
 
 ## Best practices[​](#best-practices "Direct link to Best practices")
 
 ### **Error handling**[​](#error-handling "Direct link to error-handling")
 
-* **Graceful Failures**: Return empty results instead of panicking.
-* **Validation**: Check all inputs and preconditions.
-* **Resource Safety**: Properly handle vault resources in all paths.
+* **Graceful Failures**: return empty results instead of panicking.
+* **Validation**: check all inputs and preconditions.
+* **Resource Safety**: properly handle vault resources in all paths.
 
 `_13
 
@@ -151636,11 +151718,11 @@ _13
 
 }`
 
-### **Capacity and balance checking**[​](#capacity-and-balance-checking "Direct link to capacity-and-balance-checking")
+### **Capacity and balance checks**[​](#capacity-and-balance-checks "Direct link to capacity-and-balance-checks")
 
-* **Always Check First**: Validate capacity/availability before operations.
-* **Respect Limits**: Work within available constraints.
-* **Handle Edge Cases**: Zero amounts, maximum values, empty vaults.
+* **Always Check First**: validate capacity/availability before operations.
+* **Respect Limits**: work within available constraints.
+* **Handle Edge Cases**: zero amounts, maximum values, empty vaults.
 
 `_14
 
@@ -151694,9 +151776,9 @@ _14
 
 ### **Type safety**[​](#type-safety "Direct link to type-safety")
 
-* **Validate Types**: Ensure vault types match expected types.
-* **Early Returns**: Fail fast on type mismatches.
-* **Clear Error Messages**: Help developers understand issues.
+* **Validate Types**: ensure vault types match expected types.
+* **Early Returns**: fail fast on type mismatches.
+* **Clear Error Messages**: help developers understand issues.
 
 `_10
 
@@ -151731,26 +151813,26 @@ _10
 ### **Event integration**[​](#event-integration "Direct link to event-integration")
 
 * **Leverage Post-conditions**: Flow Actions interfaces emit events automatically.
-* **Provide Context**: Include relevant information in events.
-* **Support Traceability**: Use UniqueIdentifiers consistently.
+* **Provide Context**: include relevant information in events.
+* **Support Traceability**: use UniqueIdentifiers consistently.
 
 ### **Resource management**[​](#resource-management "Direct link to resource-management")
 
-* **Handle Empty Vaults**: Use `DeFiActionsUtils.getEmptyVault()` for consistent empty vault creation.
-* **Destroy Properly**: Clean up resources in all code paths.
-* **Avoid Resource Leaks**: Ensure all vaults are handled appropriately.
+* **Handle Empty Vaults**: use `DeFiActionsUtils.getEmptyVault()` for consistent empty vault creation.
+* **Destroy Properly**: clean up resources in all code paths.
+* **Avoid Resource Leaks**: ensure all vaults are handled appropriately.
 
-### **Capability Management**[​](#capability-management "Direct link to capability-management")
+### **Capability management**[​](#capability-management "Direct link to capability-management")
 
-* **Validate Capabilities**: Check capabilities before using them.
-* **Handle Revocation**: Gracefully handle revoked capabilities.
-* **Proper Entitlements**: Use correct entitlement levels (auth vs unauth).
+* **Validate Capabilities**: check capabilities before using them.
+* **Handle Revocation**: gracefully handle revoked capabilities.
+* **Proper Entitlements**: use correct entitlement levels (auth vs unauth).
 
 ### **Documentation**[​](#documentation "Direct link to documentation")
 
-* **Clear Comments**: Explain protocol-specific logic.
-* **Usage Examples**: Show how to use your connectors.
-* **Integration Patterns**: Demonstrate composition with other connectors.
+* **Clear Comments**: explain protocol-specific logic.
+* **Usage Examples**: show how to use your connectors.
+* **Integration Patterns**: demonstrate composition with other connectors.
 
 ## Integration into Flow Actions[​](#integration-into-flow-actions "Direct link to Integration into Flow Actions")
 
@@ -151762,7 +151844,7 @@ The `VaultSink` connector is already deployed and working in Flow Actions. Let's
 **Contract**: `FungibleTokenConnectors`
 **Connector**: `VaultSink` struct that defines the interaction with the connector.
 
-### Deploy Your Connector contract[​](#deploy-your-connector-contract "Direct link to Deploy Your Connector contract")
+### Deploy Your connector contract[​](#deploy-your-connector-contract "Direct link to Deploy Your connector contract")
 
 Deploy your connector contract with the following command:
 
@@ -151822,7 +151904,7 @@ _12
 
 ### Create usage transactions[​](#create-usage-transactions "Direct link to Create usage transactions")
 
-Create transaction templates for using your connectors:
+Create transaction templates for use with your connectors:
 
 `_23
 
@@ -152214,7 +152296,7 @@ _30
 
 }`
 
-### Add to existing workflows[​](#add-to-existing-workflows "Direct link to Add to existing workflows")
+### Add to current workflows[​](#add-to-current-workflows "Direct link to Add to current workflows")
 
 You can use VaultSink in advanced Flow Actions workflows:
 
@@ -152408,7 +152490,7 @@ _51
 
 }`
 
-### For Your own connectors[​](#for-your-own-connectors "Direct link to For Your own connectors")
+### For your own connectors[​](#for-your-own-connectors "Direct link to For your own connectors")
 
 When building your own connectors, follow the VaultSink pattern:
 
@@ -152424,16 +152506,16 @@ When building your own connectors, follow the VaultSink pattern:
 The Flow Actions framework provides a comprehensive set of connectors that successfully implement the five fundamental DeFi primitives across multiple protocols:
 
 * **20+ Connector Implementations** spanning basic vault operations to complex cross-VM swapping.
-* **4 Protocol Integrations**: Generic FungibleToken, IncrementFi, Band Oracle, Flow EVM.
-* **Composable Architecture**: Combine Connectors to create sophisticated financial workflows.
-* **Safety-First Design**: Graceful error handling and resource safety throughout.
-* **Event-Driven Traceability**: Full workflow tracking and debugging capabilities.
+* **4 Protocol Integrations**: generic FungibleToken, IncrementFi, Band Oracle, Flow EVM.
+* **Composable Architecture**: combine Connectors to create sophisticated financial workflows.
+* **Safety-First Design**: graceful error handling and resource safety throughout.
+* **Event-Driven Traceability**: full workflow tracking and debugging capabilities.
 
 This framework allows developers to build sophisticated DeFi strategies while maintaining the simplicity and reliability of standardized primitive interfaces. The modular design allows for easy extension to additional protocols while preserving composability and atomic execution guarantees.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/flow-actions/connectors.md)
 
-Last updated on **Nov 6, 2025** by **cshannon1218**
+Last updated on **Nov 18, 2025** by **cshannon1218**
 
 [Previous
 
@@ -152448,10 +152530,10 @@ Basic Combinations](/blockchain-development-tutorials/forte/flow-actions/basic-c
 Copy as Markdown
 
 * [How connectors work](#how-connectors-work)
-  + [Abstraction layer](#abstraction-layer)+ [Interface implementation](#interface-implementation)+ [Composition pattern](#composition-pattern)* [Connector Library](#connector-library)* [Guide to building connectors](#guide-to-building-connectors)
+  + [Abstraction layer](#abstraction-layer)+ [Interface implementation](#interface-implementation)+ [Composition pattern](#composition-pattern)* [Connector library](#connector-library)* [Guide to building connectors](#guide-to-building-connectors)
       + [Choose your primitive](#choose-your-primitive)+ [Analyze your protocol](#analyze-your-protocol)+ [Design your connector](#design-your-connector)+ [Implement the interface](#implement-the-interface)+ [Add safety features](#add-safety-features)+ [Support Flow Actions standards](#support-flow-actions-standards)* [Best practices](#best-practices)
-        + [**Error handling**](#error-handling)+ [**Capacity and balance checking**](#capacity-and-balance-checking)+ [**Type safety**](#type-safety)+ [**Event integration**](#event-integration)+ [**Resource management**](#resource-management)+ [**Capability Management**](#capability-management)+ [**Documentation**](#documentation)* [Integration into Flow Actions](#integration-into-flow-actions)
-          + [Deploy Your Connector contract](#deploy-your-connector-contract)+ [Create usage transactions](#create-usage-transactions)+ [Real usage transaction: VaultSink](#real-usage-transaction-vaultsink)+ [Create combinations examples](#create-combinations-examples)+ [Add to existing workflows](#add-to-existing-workflows)+ [For Your own connectors](#for-your-own-connectors)* [Conclusion](#conclusion)
+        + [**Error handling**](#error-handling)+ [**Capacity and balance checks**](#capacity-and-balance-checks)+ [**Type safety**](#type-safety)+ [**Event integration**](#event-integration)+ [**Resource management**](#resource-management)+ [**Capability management**](#capability-management)+ [**Documentation**](#documentation)* [Integration into Flow Actions](#integration-into-flow-actions)
+          + [Deploy Your connector contract](#deploy-your-connector-contract)+ [Create usage transactions](#create-usage-transactions)+ [Real usage transaction: VaultSink](#real-usage-transaction-vaultsink)+ [Create combinations examples](#create-combinations-examples)+ [Add to current workflows](#add-to-current-workflows)+ [For your own connectors](#for-your-own-connectors)* [Conclusion](#conclusion)
 
 Flow
 
@@ -171089,7 +171171,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* verifyUserSignatures
 
@@ -190345,75 +190427,47 @@ Follow the prompts:
 
 Your `flow.json` now includes a testnet deployment section:
 
-`_18
+`_11
 
 {
 
-_18
+_11
 
 "deployments": {
 
-_18
+_11
 
 "emulator": {
 
-_18
+_11
 
-"default": [
+"default": ["Counter"],
 
-_18
+_11
 
-"Counter"
+"emulator-account": ["NumberFormatter"]
 
-_18
-
-],
-
-_18
-
-"emulator-account": [
-
-_18
-
-"NumberFormatter"
-
-_18
-
-]
-
-_18
+_11
 
 },
 
-_18
+_11
 
 "testnet": {
 
-_18
+_11
 
-"testnet-account": [
+"testnet-account": ["Counter", "NumberFormatter"]
 
-_18
-
-"Counter",
-
-_18
-
-"NumberFormatter"
-
-_18
-
-]
-
-_18
+_11
 
 }
 
-_18
+_11
 
 }
 
-_18
+_11
 
 }`
 
@@ -190608,7 +190662,7 @@ Visit `http://localhost:3000` and you will see:
 1. **Counter value**: Displays the current count from your testnet contract.
 2. **Connect Wallet**: You can now connect with various Flow wallets (not just Dev Wallet).
 3. **Increment functionality**: Transactions are sent to the live testnet.
-4. **Real transaction costs**: Small amounts of testnet Flow are used for gas.
+4. **Real transaction costs**: Small amounts of testnet Flow are used to pay for compute units, the Flow Cadence equivalence of gas.
 
 **Important**: When you connect your wallet, make sure to:
 
@@ -190672,135 +190726,95 @@ Follow the prompts:
 
 Your `flow.json` will now include mainnet configuration:
 
-`_33
+`_23
 
 {
 
-_33
+_23
 
 "dependencies": {
 
-_33
+_23
 
 "NumberFormatter": {
 
-_33
+_23
 
 "source": "testnet://8a4dce54554b225d.NumberFormatter",
 
-_33
+_23
 
 "aliases": {
 
-_33
+_23
 
 "mainnet": "1654653399040a61",
 
-_33
+_23
 
 "testnet": "8a4dce54554b225d"
 
-_33
+_23
 
 }
 
-_33
+_23
 
 }
 
-_33
+_23
 
 },
 
-_33
+_23
 
 "deployments": {
 
-_33
+_23
 
 "emulator": {
 
-_33
+_23
 
-"default": [
+"default": ["Counter"],
 
-_33
+_23
 
-"Counter"
+"emulator-account": ["NumberFormatter"]
 
-_33
-
-],
-
-_33
-
-"emulator-account": [
-
-_33
-
-"NumberFormatter"
-
-_33
-
-]
-
-_33
+_23
 
 },
 
-_33
+_23
 
 "testnet": {
 
-_33
+_23
 
-"testnet-account": [
+"testnet-account": ["Counter", "NumberFormatter"]
 
-_33
-
-"Counter",
-
-_33
-
-"NumberFormatter"
-
-_33
-
-]
-
-_33
+_23
 
 },
 
-_33
+_23
 
 "mainnet": {
 
-_33
+_23
 
-"mainnet-account": [
+"mainnet-account": ["Counter", "NumberFormatter"]
 
-_33
-
-"Counter",
-
-_33
-
-"NumberFormatter"
-
-_33
-
-]
-
-_33
+_23
 
 }
 
-_33
+_23
 
 }
 
-_33
+_23
 
 }`
 
@@ -190954,7 +190968,7 @@ npm run build`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/getting-started/production-deployment.md)
 
-Last updated on **Nov 14, 2025** by **0xLisanAlGaib**
+Last updated on **Nov 19, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -194015,7 +194029,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* param
 
@@ -195495,7 +195509,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* Packages Docs
 
@@ -213030,13 +213044,13 @@ Arguments passed to the Cadence transaction in Cadence JSON format.
 Cadence JSON format contains `type` and `value` keys and is
 [documented here](https://cadencelang.dev/docs/1.0/json-cadence-spec).
 
-### Gas Limit[​](#gas-limit "Direct link to Gas Limit")
+### Compute Limit[​](#compute-limit "Direct link to Compute Limit")
 
-* Flag: `--gas-limit`
+* Flag: `--compute-limit`
 * Valid inputs: an integer greater than zero.
 * Default: `1000`
 
-Specify the gas limit for this transaction.
+Specify the compute unit (gas) limit for this transaction.
 
 ### Host[​](#host "Direct link to Host")
 
@@ -213118,7 +213132,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/transactions/send-transactions.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Nov 12, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -213134,7 +213148,7 @@ Copy as Markdown
 
 * [Example Usage](#example-usage)* [Arguments](#arguments)
     + [Code Filename](#code-filename)+ [Arguments](#arguments-1)* [Flags](#flags)
-      + [Include Fields](#include-fields)+ [Code](#code)+ [Results](#results)+ [Exclude Fields](#exclude-fields)+ [Signer](#signer)+ [Proposer](#proposer)+ [Payer](#payer)+ [Authorizer](#authorizer)+ [Arguments JSON](#arguments-json)+ [Gas Limit](#gas-limit)+ [Host](#host)+ [Network Key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version Check](#version-check)
+      + [Include Fields](#include-fields)+ [Code](#code)+ [Results](#results)+ [Exclude Fields](#exclude-fields)+ [Signer](#signer)+ [Proposer](#proposer)+ [Payer](#payer)+ [Authorizer](#authorizer)+ [Arguments JSON](#arguments-json)+ [Compute Limit](#compute-limit)+ [Host](#host)+ [Network Key](#network-key)+ [Network](#network)+ [Filter](#filter)+ [Output](#output)+ [Save](#save)+ [Log](#log)+ [Configuration](#configuration)+ [Version Check](#version-check)
 
 Flow
 
@@ -245221,7 +245235,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* account
 
@@ -246942,7 +246956,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* sansPrefix
 
@@ -290138,7 +290152,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* voucherToTxId
 
@@ -311610,7 +311624,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* getNodeVersionInfo
 
@@ -325877,7 +325891,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* subscribe
 
@@ -329303,7 +329317,7 @@ Search
 
                         * [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              + [FCL Ethereum Provider](/build/tools/clients/fcl-js/cross-vm/ethereum-provider)+ [FCL Rainbowkit Adapter](/build/tools/clients/fcl-js/cross-vm/rainbowkit-adapter)+ [FCL Wagmi Adapter](/build/tools/clients/fcl-js/cross-vm/wagmi-adapter)* [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              + [FCL Ethereum Provider](/build/tools/clients/fcl-js/cross-vm/ethereum-provider)+ [FCL Rainbowkit Adapter](/build/tools/clients/fcl-js/cross-vm/rainbowkit-adapter)+ [FCL Wagmi Adapter](/build/tools/clients/fcl-js/cross-vm/wagmi-adapter)* [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* Cross VM Packages
 
@@ -333518,6 +333532,10 @@ import { useFlowCurrentUser } from "@onflow/react-sdk"`
 * `authenticate: () => Promise<CurrentUser>` – Triggers wallet authentication
 * `unauthenticate: () => void` – Logs the user out
 
+WalletConnect Support
+
+To enable WalletConnect as a wallet option, add your registered project ID to the `walletconnectProjectId` field in your `FlowProvider` config.
+
 `_16
 
 function AuthComponent() {
@@ -336907,7 +336925,7 @@ _34
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/react-sdk/hooks.md)
 
-Last updated on **Oct 23, 2025** by **Michael Fabozzi**
+Last updated on **Nov 19, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -382624,7 +382642,7 @@ warning
 
 This scenario may be a scam. A scammer could set up this situation as bait and cancel the buy order the instant someone purchases the NFT that is for sale. You'd have paid a vast amount of money for something worthless.
 
-The great thing about Cadence transactions, with or without Actions, is that you can set up an atomic transaction where everything either works, or is reverted. Either you make 100k, or nothing happens except a tiny expenditure of gas.
+The great thing about Cadence transactions, with or without Actions, is that you can set up an atomic transaction where everything either works, or is reverted. Either you make 100k, or nothing happens except a tiny expenditure of compute units.
 
 Flashers adhere to the `Flasher` interface:
 
@@ -382914,9 +382932,9 @@ _62
 
 ## Identification and traceability[​](#identification-and-traceability "Direct link to Identification and traceability")
 
-The `UniqueIdentifier` allows protocols to trace stack operations via Flow Actions interface-level events, identifying them by IDs. `IdentifiableResource` implementations should verify that access to the identifier is encapsulated by the structures they identify.
+The `UniqueIdentifier` allows protocols to trace stack operations via Flow Actions interface-level events, which identifies them by IDs. `IdentifiableResource` implementations should verify that access to the identifier is encapsulated by the structures they identify.
 
-While you can create Cadence struct types in any context (including being passed in as transaction parameters), the authorized `AuthenticationToken` [capability](https://cadence-lang.org/docs/language/capabilities) verifies that only those issued by the Flow Actions contract can be used in connectors, preventing forgery.
+While you can create Cadence struct types in any context (such as passed in as transaction parameters), the authorized `AuthenticationToken` [capability](https://cadence-lang.org/docs/language/capabilities) verifies that only those issued by the Flow Actions contract can be used in connectors, preventing forgery.
 
 For example, to use a `UniqueIdentifier` in a source->swap->sink:
 
@@ -383233,14 +383251,14 @@ By aligning the same ID across connectors (for example, Source → Swapper → S
 
 ### 2. Stack tracing[​](#2-stack-tracing "Direct link to 2. Stack tracing")
 
-* When using composite connectors (for example, `SwapSource`, `SwapSink`, `MultiSwapper`), IDs allow you to trace the complete path through the stack.
-* Helpful for debugging and understanding the flow of operations inside complex strategies.
+* When you use composite connectors (for example, `SwapSource`, `SwapSink`, `MultiSwapper`), IDs allow you to trace the complete path through the stack.
+* Helpful to heklp you debug and understand the flow of operations inside complex strategies.
 
 ### 3. Analytics and attribution[​](#3-analytics-and-attribution "Direct link to 3. Analytics and attribution")
 
 * Allows measuring usage of specific strategies or routes.
 * Lets you join data from multiple connectors into a single logical "transaction" for reporting.
-* Supports fee attribution and performance monitoring across multi-step workflows.
+* Supports fee attribution and performance monitorsacross multi-step workflows.
 
 ### Without a shared `UniqueIdentifier`[​](#without-a-shared-uniqueidentifier "Direct link to without-a-shared-uniqueidentifier")
 
@@ -383264,7 +383282,7 @@ Now that you have completed this tutorial, you can:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/flow-actions/intro-to-flow-actions.md)
 
-Last updated on **Nov 6, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -397292,7 +397310,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* transaction
 
@@ -397742,7 +397760,7 @@ template?: any, // Interaction Template object or URL for standardized transacti
 
 _10
 
-limit?: number, // Compute (gas) limit for the transaction execution
+limit?: number, // Compute units limit for the transaction execution
 
 _10
 
@@ -397770,139 +397788,131 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as fcl from "@onflow/fcl"
+import * as fcl from '@onflow/fcl';
 
 _10
 
 _10
 
-fcl.mutate(opts)`
+fcl.mutate(opts);`
 
 Or import directly the specific function:
 
 `_10
 
-import { mutate } from "@onflow/fcl"
+import { mutate } from '@onflow/fcl';
 
 _10
 
 _10
 
-mutate(opts)`
+mutate(opts);`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`` _30
+`` _28
 
 // Basic transaction submission
 
-_30
+_28
 
-import * as fcl from "@onflow/fcl"
+import * as fcl from '@onflow/fcl';
 
-_30
+_28
 
-_30
+_28
 
 // Configure FCL first
 
-_30
+_28
 
 fcl.config({
 
-_30
+_28
 
-"accessNode.api": "https://rest-testnet.onflow.org",
+'accessNode.api': 'https://rest-testnet.onflow.org',
 
-_30
+_28
 
-"discovery.wallet": "https://fcl-discovery.onflow.org/testnet/authn",
+'discovery.wallet': 'https://fcl-discovery.onflow.org/testnet/authn',
 
-_30
+_28
 
-"flow.network": "testnet"
+'flow.network': 'testnet',
 
-_30
+_28
 
-})
+});
 
-_30
+_28
 
-_30
+_28
 
 // Authenticate user
 
-_30
+_28
 
-await fcl.authenticate()
+await fcl.authenticate();
 
-_30
+_28
 
-_30
+_28
 
 // Submit a basic transaction
 
-_30
+_28
 
 const txId = await fcl.mutate({
 
-_30
+_28
 
 cadence: `
 
-_30
+_28
 
 transaction(message: String) {
 
-_30
+_28
 
 prepare(account: AuthAccount) {
 
-_30
+_28
 
 log("Transaction executed by: ".concat(account.address.toString()))
 
-_30
+_28
 
 log("Message: ".concat(message))
 
-_30
+_28
 
 }
 
-_30
+_28
 
 }
 
-_30
+_28
 
 `,
 
-_30
+_28
 
-args: (arg, t) => [
+args: (arg, t) => [arg('Hello Flow!', t.String)],
 
-_30
+_28
 
-arg("Hello Flow!", t.String)
+limit: 50,
 
-_30
+_28
 
-],
+});
 
-_30
+_28
 
-limit: 50
+_28
 
-_30
-
-})
-
-_30
-
-_30
-
-console.log("Transaction submitted:", txId) ``
+console.log('Transaction submitted:', txId); ``
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
@@ -397915,7 +397925,7 @@ console.log("Transaction submitted:", txId) ``
 
 `_10
 
-(opts?: MutateOptions) => Promise<string>`
+(opts?: MutateOptions) => Promise<string>;`
 
 Promise that resolves to the transaction ID (txId) when the transaction is submitted
 
@@ -397923,7 +397933,7 @@ Promise that resolves to the transaction ID (txId) when the transaction is submi
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/mutate.md)
 
-Last updated on **Oct 22, 2025** by **Michael Fabozzi**
+Last updated on **Nov 12, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -401392,7 +401402,7 @@ Search
 
                         * [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              + [FCL Ethereum Provider](/build/tools/clients/fcl-js/cross-vm/ethereum-provider)+ [FCL Rainbowkit Adapter](/build/tools/clients/fcl-js/cross-vm/rainbowkit-adapter)+ [FCL Wagmi Adapter](/build/tools/clients/fcl-js/cross-vm/wagmi-adapter)* [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              + [FCL Ethereum Provider](/build/tools/clients/fcl-js/cross-vm/ethereum-provider)+ [FCL Rainbowkit Adapter](/build/tools/clients/fcl-js/cross-vm/rainbowkit-adapter)+ [FCL Wagmi Adapter](/build/tools/clients/fcl-js/cross-vm/wagmi-adapter)* [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)* FCL Rainbowkit Adapter
 
@@ -403853,7 +403863,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* events
 
@@ -416552,7 +416562,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* unauthenticate
 
@@ -419910,7 +419920,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* getTransaction
 
@@ -425031,7 +425041,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* authorizations
 
@@ -433036,12 +433046,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **9a13c5bcdb41821b**
+Cloudflare Ray ID: **9a1c033888b3fb28**
 •
 
 Your IP:
 Click to reveal
-172.214.44.214
+52.159.227.203
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 
@@ -474919,17 +474929,22 @@ access(all) contract ExampleToken: FungibleToken {
     }
 
     init() {
-        self.totalSupply = 1000.0
+        self.totalSupply = 0.0
 
         self.VaultStoragePath = /storage/exampleTokenVault
         self.VaultPublicPath = /public/exampleTokenVault
         self.ReceiverPublicPath = /public/exampleTokenReceiver
         self.AdminStoragePath = /storage/exampleTokenAdmin 
 
+        let admin <- create Minter()
+
         // Create the Vault with the total supply of tokens and save it in storage
         //
-        let vault <- create Vault(balance: self.totalSupply)
-        emit TokensMinted(amount: vault.balance, type: vault.getType().identifier)
+        let vault <- admin.mintTokens(amount: 1000.0)
+
+        self.account.storage.save(<-vault, to: self.VaultStoragePath)
+
+        self.account.storage.save(<-admin, to: self.AdminStoragePath)
 
         // Create a public capability to the stored Vault that exposes
         // the `deposit` method and getAcceptedTypes method through the `Receiver` interface
@@ -474939,11 +474954,6 @@ access(all) contract ExampleToken: FungibleToken {
         self.account.capabilities.publish(exampleTokenCap, at: self.VaultPublicPath)
         let receiverCap = self.account.capabilities.storage.issue<&ExampleToken.Vault>(self.VaultStoragePath)
         self.account.capabilities.publish(receiverCap, at: self.ReceiverPublicPath)
-
-        self.account.storage.save(<-vault, to: /storage/exampleTokenVault)
-
-        let admin <- create Minter()
-        self.account.storage.save(<-admin, to: self.AdminStoragePath)
     }
 }
 

@@ -208,9 +208,12 @@ Accidentally exposed fields can be a security hole.
 ### Solution[​](#solution-1 "Direct link to Solution")
 
 When writing your smart contract, look at every field and function and make sure
-that require access through an [entitlement](/docs/language/access-control#entitlements) (`access(E)`),
-or use a non-public [access modifier](/docs/language/access-control) like `access(self)`, `access(contract)`, or `access(account)`,
-unless otherwise needed.
+that any functions that you don't want every user to be able to access require access through an [entitlement](/docs/language/access-control#entitlements) (`access(E)`),
+or use a non-public [access modifier](/docs/language/access-control) like `access(self)`, `access(contract)`, or `access(account)`.
+Declaring a function as `access(all)` is a deliberate design decision to allow completely open and unrestricted access to read that field or call that function and should not be taken lightly.
+
+The only functions that should be `access(all)` are `view` functions and functions the everyone should be able to access and the only fields that should be `access(all)` are basic types like numbers or addresses.
+Complex fields like arrays, dictionaries, structs, resources, or capabilities should always be `access(self)`.
 
 ## Capability-Typed public fields are a security hole[​](#capability-typed-public-fields-are-a-security-hole "Direct link to Capability-Typed public fields are a security hole")
 

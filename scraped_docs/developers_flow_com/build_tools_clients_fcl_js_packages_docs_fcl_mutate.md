@@ -83,7 +83,7 @@ template?: any, // Interaction Template object or URL for standardized transacti
 
 _10
 
-limit?: number, // Compute (gas) limit for the transaction execution
+limit?: number, // Compute units limit for the transaction execution
 
 _10
 
@@ -111,139 +111,131 @@ You can import the entire package and access the function:
 
 `_10
 
-import * as fcl from "@onflow/fcl"
+import * as fcl from '@onflow/fcl';
 
 _10
 
 _10
 
-fcl.mutate(opts)`
+fcl.mutate(opts);`
 
 Or import directly the specific function:
 
 `_10
 
-import { mutate } from "@onflow/fcl"
+import { mutate } from '@onflow/fcl';
 
 _10
 
 _10
 
-mutate(opts)`
+mutate(opts);`
 
 ## Usage[​](#usage "Direct link to Usage")
 
-`` _30
+`` _28
 
 // Basic transaction submission
 
-_30
+_28
 
-import * as fcl from "@onflow/fcl"
+import * as fcl from '@onflow/fcl';
 
-_30
+_28
 
-_30
+_28
 
 // Configure FCL first
 
-_30
+_28
 
 fcl.config({
 
-_30
+_28
 
-"accessNode.api": "https://rest-testnet.onflow.org",
+'accessNode.api': 'https://rest-testnet.onflow.org',
 
-_30
+_28
 
-"discovery.wallet": "https://fcl-discovery.onflow.org/testnet/authn",
+'discovery.wallet': 'https://fcl-discovery.onflow.org/testnet/authn',
 
-_30
+_28
 
-"flow.network": "testnet"
+'flow.network': 'testnet',
 
-_30
+_28
 
-})
+});
 
-_30
+_28
 
-_30
+_28
 
 // Authenticate user
 
-_30
+_28
 
-await fcl.authenticate()
+await fcl.authenticate();
 
-_30
+_28
 
-_30
+_28
 
 // Submit a basic transaction
 
-_30
+_28
 
 const txId = await fcl.mutate({
 
-_30
+_28
 
 cadence: `
 
-_30
+_28
 
 transaction(message: String) {
 
-_30
+_28
 
 prepare(account: AuthAccount) {
 
-_30
+_28
 
 log("Transaction executed by: ".concat(account.address.toString()))
 
-_30
+_28
 
 log("Message: ".concat(message))
 
-_30
+_28
 
 }
 
-_30
+_28
 
 }
 
-_30
+_28
 
 `,
 
-_30
+_28
 
-args: (arg, t) => [
+args: (arg, t) => [arg('Hello Flow!', t.String)],
 
-_30
+_28
 
-arg("Hello Flow!", t.String)
+limit: 50,
 
-_30
+_28
 
-],
+});
 
-_30
+_28
 
-limit: 50
+_28
 
-_30
-
-})
-
-_30
-
-_30
-
-console.log("Transaction submitted:", txId) ``
+console.log('Transaction submitted:', txId); ``
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
@@ -256,7 +248,7 @@ console.log("Transaction submitted:", txId) ``
 
 `_10
 
-(opts?: MutateOptions) => Promise<string>`
+(opts?: MutateOptions) => Promise<string>;`
 
 Promise that resolves to the transaction ID (txId) when the transaction is submitted
 
@@ -264,7 +256,7 @@ Promise that resolves to the transaction ID (txId) when the transaction is submi
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/mutate.md)
 
-Last updated on **Oct 22, 2025** by **Michael Fabozzi**
+Last updated on **Nov 12, 2025** by **Brian Doyle**
 
 [Previous
 

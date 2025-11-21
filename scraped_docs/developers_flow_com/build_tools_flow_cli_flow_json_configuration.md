@@ -385,6 +385,90 @@ _10
 * To avoid redeploying dependencies
 * To use the official versions of common contracts
 
+#### Cadence Import Aliasing[​](#cadence-import-aliasing "Direct link to Cadence Import Aliasing")
+
+When deploying the same contract to multiple addresses with different names, use the `canonical` field to reference the original contract. This allows you to import multiple instances of the same contract with different identifiers.
+
+`_15
+
+"contracts": {
+
+_15
+
+"FUSD": {
+
+_15
+
+"source": "./contracts/FUSD.cdc",
+
+_15
+
+"aliases": {
+
+_15
+
+"testnet": "0x9a0766d93b6608b7"
+
+_15
+
+}
+
+_15
+
+},
+
+_15
+
+"FUSD1": {
+
+_15
+
+"source": "./contracts/FUSD.cdc",
+
+_15
+
+"aliases": {
+
+_15
+
+"testnet": "0xe223d8a629e49c68"
+
+_15
+
+},
+
+_15
+
+"canonical": "FUSD"
+
+_15
+
+}
+
+_15
+
+}`
+
+Flow CLI automatically transforms imports for aliased contracts:
+
+`_10
+
+import "FUSD"
+
+_10
+
+import "FUSD1"`
+
+Becomes:
+
+`_10
+
+import FUSD from 0x9a0766d93b6608b7
+
+_10
+
+import FUSD as FUSD1 from 0xe223d8a629e49c68`
+
 ### Deployments[​](#deployments "Direct link to Deployments")
 
 The `deployments` section defines which contracts get deployed to which accounts on which networks.
@@ -671,7 +755,7 @@ flow config remove account my-account`
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/flow.json/configuration.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Nov 20, 2025** by **Chase Fleming**
 
 [Previous
 

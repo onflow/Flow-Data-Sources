@@ -64,6 +64,10 @@ import { useFlowCurrentUser } from "@onflow/react-sdk"`
 * `authenticate: () => Promise<CurrentUser>` – Triggers wallet authentication
 * `unauthenticate: () => void` – Logs the user out
 
+WalletConnect Support
+
+To enable WalletConnect as a wallet option, add your registered project ID to the `walletconnectProjectId` field in your `FlowProvider` config.
+
 `_16
 
 function AuthComponent() {
@@ -3453,7 +3457,7 @@ _34
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/react-sdk/hooks.md)
 
-Last updated on **Oct 23, 2025** by **Michael Fabozzi**
+Last updated on **Nov 19, 2025** by **Chase Fleming**
 
 [Previous
 

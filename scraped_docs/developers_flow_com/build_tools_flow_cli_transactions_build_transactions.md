@@ -286,11 +286,11 @@ Cadence JSON format contains `type` and `value` keys and is
 
 ### Gas Limit[​](#gas-limit "Direct link to Gas Limit")
 
-* Flag: `--gas-limit`
+* Flag: `--compute-limit`
 * Valid inputs: an integer greater than zero.
 * Default: `1000`
 
-Specify the gas limit for this transaction.
+Specify the compute unit (gas) limit for this transaction.
 
 ### Host[​](#host "Direct link to Host")
 
@@ -376,7 +376,7 @@ Skip version check during start up to speed up process for slow connections.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/transactions/build-transactions.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Nov 12, 2025** by **Brian Doyle**
 
 [Previous
 
