@@ -46,7 +46,7 @@ On this page
 
 info
 
-The [FlowtoBooth](https://flowtobooth.vercel.app/) tutorial series teaches you how to build a **fun benchmark app** and provides inspiration for the greater scope of possibilities building on Flow thanks to gas being so much less expensive.
+The [FlowtoBooth](https://flowtobooth.vercel.app/) tutorial series teaches you how to build a **fun benchmark app** and provides inspiration for the greater scope of possibilities to build on Flow since gas is so much less expensive.
 
 It is **not a production best-practice**. While everything in these tutorials works, you'll run into the following problems at production scale:
 
@@ -56,13 +56,13 @@ It is **not a production best-practice**. While everything in these tutorials wo
 
 If you search for resources on how to store images of any significant size onchain, you'll be told it's either prohibitively expensive or even completely impossible. The reason for this is two-fold. First, the size limit for data on transactions is about 40kb. Second, to save 40kb takes almost all of the 30 million gas limit on most blockchains.
 
-The former constraint is immutable (though many chains are slowly increasing this limit), which limits the app to images about 256\*256 pixels in size. The latter heavily depends on which chain you choose.
+The former constraint is immutable (though many chains have started to slowly increase this limit), which limits the app to images about 256\*256 pixels in size. The latter heavily depends on which chain you choose.
 
-At current gas prices on most chains, to use all 30 million gas in a block costs **several dollars** - or potentially **thousands** on ETH mainnet. At current prices on Flow, spending 30 million gas costs **less than a penny**, usually one or two tenths of a cent.
+At current gas prices on most chains, to use all 30 million gas in a block costs **several dollars** - or potentially **thousands** on ETH mainnet. At current prices on Flow, to spend 30 million gas costs **less than a penny**, usually one or two tenths of a cent.
 
 Much more computation is available at prices you or your users will want to pay for regular interactions. This includes, but isn't limited to:
 
-* Airdropping hundreds of NFTs with one transaction, for pennies.
+* Airdrop hundreds of NFTs with one transaction, for pennies.
 * Generation of large mazes.
 * Generation of large amounts of random numbers (with free [native VRF](/blockchain-development-tutorials/native-vrf/vrf-in-solidity)).
 * Extensive string manipulation onchain.
@@ -524,7 +524,7 @@ _13
 
 Some app designs may need multiple galleries for each user. For example, you might want to give users the ability to collect images in separate galleries for separate topics, dates, or events, similar to how many photo apps work on smartphones.
 
-To facilitate this feature, update your contract to keep track of which galleries have been created by which users. You'll end up with:
+To facilitate this feature, update your contract to keep track of which users created which galleries . You'll end up with:
 
 `_23
 
@@ -696,7 +696,7 @@ Next, install [rainbowkit](https://www.rainbowkit.com/), [wagmi](https://wagmi.s
 
 npm install @rainbow-me/rainbowkit wagmi viem@2.x @tanstack/react-query`
 
-### Provider Setup[​](#provider-setup "Direct link to Provider Setup")
+### Provider setup[​](#provider-setup "Direct link to Provider setup")
 
 Add a file called `providers` inside the `app` folder. In it, add your config and providers for [wagmi](https://wagmi.sh/) and [rainbowkit](https://www.rainbowkit.com/). You'll need to [add the Flow Wallet](/blockchain-development-tutorials/evm/frameworks/rainbowkit) as a custom wallet. It's not included by default because it has special features that aren't compatible with other blockchains.
 
@@ -2425,7 +2425,7 @@ The last thing to do for this initial implementation is to add functionality so 
 
 For now, we'll just generate an error if the file is too big, but later on we can do that for the user as well.
 
-Add the `ImageUploader` component. This needs to handle uploading the image and displaying any errors. We'll keep the state for the image itself in `Content` so that it's accessible to other components:
+Add the `ImageUploader` component. This needs to be able to upload the image and display any errors. We'll keep the state for the image itself in `Content` so that it's accessible to other components:
 
 `_64
 
@@ -2873,7 +2873,7 @@ Now that you've completed this tutorial, you're ready to explore more complex on
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/image-gallery.md)
 
-Last updated on **Nov 6, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -2890,7 +2890,7 @@ Copy as Markdown
 * [Objectives](#objectives)* [Prerequisites](#prerequisites)
     + [Next.js and modern frontend development](#nextjs-and-modern-frontend-development)+ [Solidity](#solidity)* [Build an image gallery contract](#build-an-image-gallery-contract)
       + [Set up storage for images](#set-up-storage-for-images)+ [Construct functions to add and delete images](#construct-functions-to-add-and-delete-images)+ [Retrieval functions](#retrieval-functions)+ [Final contract](#final-contract)+ [Create a factory](#create-a-factory)+ [Track factories](#track-factories)+ [Test the factory](#test-the-factory)+ [Test the image gallery](#test-the-image-gallery)* [Build the frontend](#build-the-frontend)
-        + [Provider Setup](#provider-setup)+ [Add the connect button](#add-the-connect-button)+ [Import Your contracts](#import-your-contracts)+ [Add content](#add-content)+ [Gallery List](#gallery-list)+ [Display the images](#display-the-images)* [Image uploader](#image-uploader)* [Conclusion](#conclusion)
+        + [Provider setup](#provider-setup)+ [Add the connect button](#add-the-connect-button)+ [Import Your contracts](#import-your-contracts)+ [Add content](#add-content)+ [Gallery List](#gallery-list)+ [Display the images](#display-the-images)* [Image uploader](#image-uploader)* [Conclusion](#conclusion)
 
 Flow
 

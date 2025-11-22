@@ -87,9 +87,9 @@ _10
 
 $ npm run dev`
 
-The [RainbowKit](https://www.rainbowkit.com/) components will be available throughout your application via the provided wrapper components.
+The [RainbowKit](https://www.rainbowkit.com/) components are available throughout your application via the provided wrapper components.
 
-### Creating the Flow Wallet Connector[​](#creating-the-flow-wallet-connector "Direct link to Creating the Flow Wallet Connector")
+### Create the Flow Wallet connector[​](#create-the-flow-wallet-connector "Direct link to Create the Flow Wallet connector")
 
 The first major step is to define the Flow Wallet connector. Create a new file called `flowWallet.ts` in `src/flowWallet.ts` to house the wallet configuration:
 
@@ -489,17 +489,16 @@ info
 
 WalletConnect Project ID
 
-Every dApp that relies on WalletConnect now needs to obtain a projectId from [WalletConnect Cloud (now rebranded as reown)](https://cloud.reown.com/sign-in). This is absolutely free and only takes a few minutes.
+Every dApp that relies on WalletConnect now needs to obtain a projectId from [WalletConnect Cloud (now rebranded as reown)]. This is absolutely free and only takes a few minutes.
 
 To get a Project ID, sign up at WalletConnect Cloud, create a new project, and copy the generated ID into the `projectId` variable in the `wagmi.ts` file.
 
-## Testing Your Integration[​](#testing-your-integration "Direct link to Testing Your Integration")
+## Test Your Integration[​](#test-your-integration "Direct link to Test Your Integration")
 
 After you implement the Flow Wallet connector and configure Wagmi, follow these steps to verify that the integration works correctly in your dApp:
 
 1. **Click "Connect Wallet"** – Open your application and click "Connect Wallet."
-2. **Check for Flow Wallet** – Ensure Flow Wallet appears as an option in the RainbowKit wallet selection modal.
-   * If you haven't installed the browser extension and set up your wallet yet, you can find install it via the [Chrome Web Store](https://chromewebstore.google.com/detail/flow-wallet/hpclkefagolihohboafpheddmmgdffjm?hl=en).
+2. **Check for Flow Wallet** – Ensure Flow Wallet appears as an option in the RainbowKit wallet selection modal. If you haven't installed the browser extension and set up your wallet yet, you can find install it via the [Chrome Web Store](https://chromewebstore.google.com/detail/flow-wallet/hpclkefagolihohboafpheddmmgdffjm?hl=en).
 3. **Connect the Wallet** – Click on Flow Wallet in the selection modal. If you use the browser extension, open it and press "Connect."
 
 ![Rainbowkit dAPP UI](/assets/images/rainbowkit-1-5292f800884dbcbb3901551158aa95f6.png)
@@ -519,9 +518,11 @@ In this tutorial, you learned how to integrate Flow Wallet with [RainbowKit](htt
 
 Now that you've completed this tutorial, you're ready to enhance your dApp with additional Flow blockchain features such as token transfers, NFT minting, and smart contract interactions.
 
+[WalletConnect Cloud (now rebranded as reown)]: <https://cloud.reown.com/sign-in>)
+
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/frameworks/rainbowkit.md)
 
-Last updated on **Nov 6, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -537,7 +538,7 @@ Copy as Markdown
 
 * [Objectives](#objectives)* [Prerequisites](#prerequisites)
     + [Next.js and modern frontend development](#nextjs-and-modern-frontend-development)* [A Flow Wallet](#a-flow-wallet)* [Set up your environment](#set-up-your-environment)
-        + [Initial setup](#initial-setup)+ [Creating the Flow Wallet Connector](#creating-the-flow-wallet-connector)+ [Configure your Wagmi integration](#configure-your-wagmi-integration)* [Testing Your Integration](#testing-your-integration)* [Conclusion](#conclusion)
+        + [Initial setup](#initial-setup)+ [Create the Flow Wallet connector](#create-the-flow-wallet-connector)+ [Configure your Wagmi integration](#configure-your-wagmi-integration)* [Test Your Integration](#test-your-integration)* [Conclusion](#conclusion)
 
 Flow
 

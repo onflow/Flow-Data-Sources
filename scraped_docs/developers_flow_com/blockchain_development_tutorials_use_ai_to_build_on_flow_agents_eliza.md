@@ -46,11 +46,9 @@ On this page
 
 # Quickstart Guide to build AI Agent on Flow with Eliza
 
-## Overview[​](#overview "Direct link to Overview")
+Eliza is a powerful framework you can use to build AI agents that interact with users through natural language. This tutorial will guide you through how to set up and deploy an AI agent on the Flow blockchain with Eliza. You'll learn how to create intelligent agents that can understand and respond to user queries, and leverage Flow's secure and scalable infrastructure.
 
-Eliza is a powerful framework for building AI agents that can interact with users through natural language. This tutorial will guide you through how to set up and deploy an AI agent on the Flow blockchain with Eliza. You'll learn how to create intelligent agents that can understand and respond to user queries, while leveraging Flow's secure and scalable infrastructure.
-
-## Learning Objectives[​](#learning-objectives "Direct link to Learning Objectives")
+## Learning objectives[​](#learning-objectives "Direct link to Learning objectives")
 
 After you complete this tutorial, you will be able to:
 
@@ -65,13 +63,13 @@ After you complete this tutorial, you will be able to:
 
 Before you get started started with Eliza, make sure you have:
 
-* [Node.js 23+](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) (using [nvm](https://github.com/nvm-sh/nvm) is recommended)
+* [Node.js 23+](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) (we recommend that you use [nvm](https://github.com/nvm-sh/nvm))
 * [pnpm 9+](https://pnpm.io/installation)
 * Git for version control
-* A code editor ([VS Code](https://code.visualstudio.com/), [Cursor](https://cursor.com/) or [VSCodium](https://vscodium.com) recommended)
+* A code editor (we recommend [VS Code](https://code.visualstudio.com/), [Cursor](https://cursor.com/) or [VSCodium](https://vscodium.com))
 * [Flow-cli](https://developers.flow.com/tools/flow-cli) for Flow blockchain interaction.
 
-> **Note for Windows Users:** [WSL 2](https://learn.microsoft.com/en-us/windows/wsl/install-manual) is required.
+> **Note for Windows Uuers:** [WSL 2](https://learn.microsoft.com/en-us/windows/wsl/install-manual) is required.
 
 ## Installation[​](#installation "Direct link to Installation")
 
@@ -158,7 +156,7 @@ pnpm install --no-frozen-lockfile`
 
 warning
 
-Only use the `--no-frozen-lockfile` option when you're initially instantiating the repo or bump the version of a package or add a new package to your `package.json` file. This practice helps maintain consistency in your project's dependencies and prevents unintended changes to the lockfile.
+Only use the `--no-frozen-lockfile` option when you initially instantiate the repo or bump the version of a package or add a new package to your `package.json` file. This practice helps maintain consistency in your project's dependencies and prevents unintended changes to the lockfile.
 
 If you use ElizaOnFlow, you need to install Flow Cadence contracts dependencies to ensure that the Cadence extension correctly lints `*.cdc`.
 
@@ -174,7 +172,7 @@ Build all packages:
 
 pnpm build`
 
-## Configure Environment[​](#configure-environment "Direct link to Configure Environment")
+## Configure environment[​](#configure-environment "Direct link to Configure environment")
 
 Copy `.env.example` to `.env` and fill in the appropriate values.
 
@@ -188,10 +186,10 @@ In normal development, it's a best practice to use a `.env` to protect API keys 
 
 Edit `.env` and add your values. Do **NOT** add this file to version control.
 
-### Choose Your Model[​](#choose-your-model "Direct link to Choose Your Model")
+### Choose Your model[​](#choose-your-model "Direct link to Choose Your model")
 
 Eliza supports multiple AI models and you set which model to use inside the character JSON file.
-But remember, after you chosed a model, you need to set up the relevant configuration.
+But remember, after you choose a model, you need to set up the relevant configuration.
 
 Check the full list of supported LLMs in origin Eliza: [Models.ts](https://github.com/elizaOS/eliza/blob/main/packages/core/src/models.ts)
 
@@ -206,7 +204,7 @@ Suggested models:
 
 > To choose a model, you need to set in charactor configuration. For example: OPENAI, set `modelProvider: "openai"` in charactor JSON file or `modelProvider: ModelProviderName.OPENAI` in `charactor.ts`
 
-### Setup Agent's Flow Account[​](#setup-agents-flow-account "Direct link to Setup Agent's Flow Account")
+### Setup Agent's Flow account[​](#setup-agents-flow-account "Direct link to Setup Agent's Flow account")
 
 Create a new Flow account for the Agent. Learn more: [doc](https://developers.flow.com/tools/flow-cli/accounts/create-accounts)
 
@@ -236,9 +234,9 @@ FLOW_ENDPOINT_URL= # Default: <https://mainnet.onflow.org>`
 
 For testnet, check Flow's [Networks](https://developers.flow.com/protocol/flow-networks) for more information.
 
-## Create Your First Agent[​](#create-your-first-agent "Direct link to Create Your First Agent")
+## Create your first agent[​](#create-your-first-agent "Direct link to Create your first agent")
 
-### Create a Character File[​](#create-a-character-file "Direct link to Create a Character File")
+### Create a character file[​](#create-a-character-file "Direct link to Create a character file")
 
 View the `deps/eliza/characters/` directory for a number of character files to try out.
 Additionally, you can edit `charactor.ts` to override Eliza's `defaultCharacter` file, which is the default character file used if no character json files are provided.
@@ -271,7 +269,7 @@ You can load multiple characters with a comma-separated list:
 
 pnpm start --characters="characters/sample.character.json, characters/scooby.character.json"`
 
-### Add / Develop Plugins[​](#add--develop-plugins "Direct link to Add / Develop Plugins")
+### Add and develop plugins[​](#add-and-develop-plugins "Direct link to Add and develop plugins")
 
 Run `npx elizaos plugins list` to get a list of available plugins or visit [Eliza Plugins Registry](https://elizaos.github.io/registry)
 
@@ -279,15 +277,15 @@ Run `npx elizaos plugins add @elizaos-plugins/plugin-NAME` to install the plugin
 
 To create a new plugin **for your own business**, refer to the [plugin development guide](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/eliza/build-plugin).
 
-#### Additional Requirements[​](#additional-requirements "Direct link to Additional Requirements")
+#### Additional requirements[​](#additional-requirements "Direct link to Additional requirements")
 
-You may need to install Sharp. If you see an error when starting up, install it with the following command:
+You may need to install Sharp. If you see an error when you start it up, install it with the following command:
 
 `_10
 
 pnpm install --include=optional sharp`
 
-### **Interact with the Agent**[​](#interact-with-the-agent "Direct link to interact-with-the-agent")
+### **Interact with the agent**[​](#interact-with-the-agent "Direct link to interact-with-the-agent")
 
 Now you're ready to start a conversation with your agent.
 
@@ -305,7 +303,7 @@ After the client is running, you'll see a message like this:
 
 Click the link or open your browser to `http://localhost:5173/`. You'll see the chat interface connect to the system, and you can now interact with your character.
 
-## Common Issues & Solutions[​](#common-issues--solutions "Direct link to Common Issues & Solutions")
+## Common issues and solutions[​](#common-issues-and-solutions "Direct link to Common issues and solutions")
 
 Check the orgin Eliza's [Common Issues & Solutions](https://elizaos.github.io/eliza/docs/quickstart/#common-issues--solutions)
 
@@ -317,7 +315,7 @@ The Eliza framework provides a powerful way to create intelligent agents that ca
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/eliza/index.md)
 
-Last updated on **Oct 28, 2025** by **cshannon1218**
+Last updated on **Nov 20, 2025** by **cshannon1218**
 
 [Previous
 
@@ -331,9 +329,9 @@ Eliza Plugin Guide](/blockchain-development-tutorials/use-AI-to-build-on-flow/ag
 
 Copy as Markdown
 
-* [Overview](#overview)* [Learning Objectives](#learning-objectives)* [Prerequisites](#prerequisites)* [Installation](#installation)* [Configure Environment](#configure-environment)
-          + [Choose Your Model](#choose-your-model)+ [Setup Agent's Flow Account](#setup-agents-flow-account)* [Create Your First Agent](#create-your-first-agent)
-            + [Create a Character File](#create-a-character-file)+ [**Start the Agent**](#start-the-agent)+ [Add / Develop Plugins](#add--develop-plugins)+ [**Interact with the Agent**](#interact-with-the-agent)* [Common Issues & Solutions](#common-issues--solutions)* [Conclusion](#conclusion)
+* [Learning objectives](#learning-objectives)* [Prerequisites](#prerequisites)* [Installation](#installation)* [Configure environment](#configure-environment)
+        + [Choose Your model](#choose-your-model)+ [Setup Agent's Flow account](#setup-agents-flow-account)* [Create your first agent](#create-your-first-agent)
+          + [Create a character file](#create-a-character-file)+ [**Start the Agent**](#start-the-agent)+ [Add and develop plugins](#add-and-develop-plugins)+ [**Interact with the agent**](#interact-with-the-agent)* [Common issues and solutions](#common-issues-and-solutions)* [Conclusion](#conclusion)
 
 Flow
 

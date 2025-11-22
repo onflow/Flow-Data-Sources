@@ -50126,7 +50126,7 @@ _15
 
 console.log(gasPrice); // Gas price in attoFlow`
 
-For more information about other queries you can make `web3`, see the [official documentation](https://docs.web3js.org/).
+For more information about other queries you can make `web3`, see the [Web3.js](https://web3js.org/) official documentation.
 
 ## Interact with smart contracts[​](#interact-with-smart-contracts "Direct link to Interact with smart contracts")
 
@@ -50134,7 +50134,7 @@ The `web3` library allows developers to interact with smart contracts via the `w
 
 For this example we will use the following `Storage` contract.
 
-We recommend that you deploy your own contract, which you can do with [Hardhat](/blockchain-development-tutorials/evm/development-tools/hardhat) or [Remix](/blockchain-development-tutorials/evm/development-tools/remix).
+We recommend that you deploy your own contract, which you can do with [Hardhat] or [Remix].
 
 `_14
 
@@ -50186,7 +50186,7 @@ _14
 
 }`
 
-You can generate the ABI for this contract with the [`solc` compiler](https://docs.soliditylang.org/en/latest/installing-solidity.html), or another tool such as [Hardhat](/blockchain-development-tutorials/evm/development-tools/hardhat) or [Remix](/blockchain-development-tutorials/evm/development-tools/remix).
+You can generate the ABI for this contract with the [`solc` compiler](https://docs.soliditylang.org/en/latest/installing-solidity.html), or another tool such as [Hardhat]or [Remix].
 
 Now that we have both the ABI and address of the contract, we can create a new `Contract` object for use in our application.
 
@@ -50348,7 +50348,7 @@ const contract = new web3.eth.Contract(abi, contractAddress);`
 
 We can now interact with the contract on the network ith the `contract` object.
 
-### Reading state[​](#reading-state "Direct link to Reading state")
+### Read state[​](#read-state "Direct link to Read state")
 
 State can be read from the contract via the `call` function with one of the contract's methods. This will not change the state and will not send a transaction.
 
@@ -50466,7 +50466,7 @@ _18
 
 console.log(result); ``
 
-Now that the transaction has been sent, the contract's state will have been updated. To verify this, we can query the contract's state again:
+Now that the transaction was sent, the contract's state was updated. To verify this, we can query the contract's state again:
 
 `_10
 
@@ -50476,11 +50476,15 @@ _10
 
 console.log(result); // New value stored in the contract`
 
-For more information about using smart contracts in web3.js, see the [official documentation](https://docs.web3js.org/libdocs/Contract).
+For more information about how to use smart contracts in web3.js, see the [official documentation].
+
+[Hardhat]: ../development-tools/hardhat.md)
+[Remix]: ../development-tools/remix.md).
+[official documentation]: <https://docs.web3js.org/libdocs/Contract>
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/frameworks/web3-js.md)
 
-Last updated on **Nov 6, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -50495,7 +50499,7 @@ Viem & Wagmi](/blockchain-development-tutorials/evm/frameworks/wagmi)
 Copy as Markdown
 
 * [Prerequisites](#prerequisites)* [Initialize Web3 with Flow](#initialize-web3-with-flow)* [Query The blockchain](#query-the-blockchain)* [Interact with smart contracts](#interact-with-smart-contracts)
-        + [Reading state](#reading-state)+ [Change state](#change-state)
+        + [Read state](#read-state)+ [Change state](#change-state)
 
 Flow
 
@@ -56760,22 +56764,19 @@ On this page
 
 info
 
-This guide is an in-depth tutorial on launching a Fungible Token contract from scratch. To launch in 2 minutes using a tool check out [Toucans](https://toucans.ecdao.org/)
+This guide is an in-depth tutorial on launching a Fungible Token contract from scratch. To launch in two minutes with a tool, check out [Toucans](https://toucans.ecdao.org/)
 
-## What are Fungible Tokens?[​](#what-are-fungible-tokens "Direct link to What are Fungible Tokens?")
+## What are fungible tokens?[​](#what-are-fungible-tokens "Direct link to What are fungible tokens?")
 
-Fungible tokens are digital assets that are interchangeable and indistinguishable with other tokens of the same type. This means that each token is identical in specification to every other token in circulation. Think of them like traditional money; every dollar bill has the same value as every other dollar bill. Fungible tokens play a crucial role in web3 ecosystems, serving as both a means of payment and an incentive for network participation. They can take on various roles including currencies, structured financial instruments, shares of index funds, and even voting rights in decentralized autonomous organizations.
+Fungible tokens are digital assets that are interchangeable and indistinguishable with other tokens of the same type. This means that each token is identical in specification to every other token in circulation. Think of them like traditional money; every dollar bill has the same value as every other dollar bill.
+
+Fungible tokens play a crucial role in web3 ecosystems. They serve as both a means of payment and an incentive for network participation. They can take on various roles, such as currencies, structured financial instruments, shares of index funds, and even voting rights in decentralized autonomous organizations.
 
 ## Vaults on Flow[​](#vaults-on-flow "Direct link to Vaults on Flow")
 
-On the Flow blockchain and in the Cadence programming language,
-fungible tokens are stored in structures called resources.
-Resources are objects in Cadence that store data,
-but have special restrictions about how they can be stored and transferred,
-making them perfect for representing digital objects with real value.
+On the Flow blockchain and in the Cadence programming language, fungible tokens are stored in structures called resources. Resources are objects in Cadence that store data, but have special restrictions about how they can be stored and transferred, which makes them perfect to represent digital objects with real value.
 
-You can learn more about resources in the Cadence [documentation](https://cadence-lang.org/docs/language/resources)
-and [tutorials](https://cadence-lang.org/docs/tutorial/resources).
+You can learn more about resources in the [Cadence documentation](https://cadence-lang.org/docs/language/resources) and [Cadence tutorials](https://cadence-lang.org/docs/tutorial/resources).
 
 For fungible tokens specifically, tokens are represented by a resource type called a `Vault`:
 
@@ -56799,50 +56800,42 @@ _10
 
 }`
 
-Think of a `Vault` as a digital piggy bank.
-Users who own fungible tokens store vault objects that track their balances
-directly in their account storage. This is opposed to languages
-that track user balances in a central ledger smart contract.
+Think of a `Vault` as a digital piggy bank. Users who own fungible tokens store vault objects that track their balances directly in their account storage. This is opposed to languages that track user balances in a central ledger smart contract.
 
 When you transfer tokens from one vault to another:
 
-1. The transferor's vault creates a temporary vault holding the transfer amount.
+1. The transferor's vault creates a temporary vault that contains the transfer amount.
 2. The original vault's balance decreases by the transfer amount.
-3. The recipient's vault receives the tokens from the temporary vault
-   and adds the temporary vault's balance to the its own balance.
+3. The recipient's vault receives the tokens from the temporary vault and adds the temporary vault's balance to the its own balance.
 4. The temporary vault is then destroyed.
 
 This process ensures secure and accurate token transfers on the Flow blockchain.
 
-## Fungible Token Standard[​](#fungible-token-standard "Direct link to Fungible Token Standard")
+## Fungible token standard[​](#fungible-token-standard "Direct link to Fungible token standard")
 
-The [Fungible Token Standard](https://github.com/onflow/flow-ft) defines how a fungible token should behave on Flow.
-Wallets and other platforms need to recognize these tokens,
-so they adhere to a specific interface, which defines fields like balance,
-totalSupply, withdraw functionality, and more.
-This interface ensures that all fungible tokens on Flow have a consistent structure and behavior.
-Clink the link to the fungible token standard to see the full standard
-and learn about specific features and requirements.
+The [Fungible Token Standard] defines how a fungible token should behave on Flow. Wallets and other platforms need to recognize these tokens, so they adhere to a specific interface, which defines fields like balance, totalSupply, withdraw functionality, and more. This interface ensures that all fungible tokens on Flow have a consistent structure and behavior.
 
-[Learn more about interfaces here](https://developers.flow.com/cadence/language/interfaces).
+Clink the link to the fungible token standard to see the full standard and learn about specific features and requirements.
 
-## Setting Up a Project[​](#setting-up-a-project "Direct link to Setting Up a Project")
+[Learn more about interfaces here](https://cadence-lang.org/docs/language/interfaces).
 
-To start creating a Fungible Token on the Flow blockchain, you'll first need some tools and configurations in place.
+## Set up a project[​](#set-up-a-project "Direct link to Set up a project")
 
-### Installing Flow CLI[​](#installing-flow-cli "Direct link to Installing Flow CLI")
+To create a fungible token on the Flow blockchain, you'll first need some tools and configurations in place.
+
+### Install Flow CLI[​](#install-flow-cli "Direct link to Install Flow CLI")
 
 The **Flow CLI** (Command Line Interface) provides a suite of tools that allow developers to interact seamlessly with the Flow blockchain.
 
-If you haven't installed the Flow CLI yet and have [Homebrew](https://brew.sh/) installed,
-you can run `brew install flow-cli`. If you don't have Homebrew,
-please follow [the installation guide here](https://developers.flow.com/tools/flow-cli/install).
+If you haven't installed the Flow CLI yet and have [Homebrew](https://brew.sh/) installed, you can run `brew install flow-cli`. If you don't have Homebrew, follow the [Flow CLI installation guide](/build/tools/flow-cli/install).
 
-### Initializing a New Project[​](#initializing-a-new-project "Direct link to Initializing a New Project")
+### Initialize a new project[​](#initialize-a-new-project "Direct link to Initialize a new project")
 
-> 💡 Note: Here is [a link to the completed code](https://github.com/onflow/FooToken) if you want to skip ahead or reference as you follow along.
+info
 
-Once you have the Flow CLI installed, you can set up a new project using the `flow init` command. This command initializes the necessary directory structure and a `flow.json` configuration file (a way to configure your project for contract sources, deployments, accounts, and more):
+> 💡 Here is a link to the [completed code](https://github.com/onflow/FooToken) if you want to skip ahead or reference as you follow along.
+
+After you've installed the Flow CLI, you can set up a new project with the `flow init` command. This command initializes the necessary directory structure and a `flow.json` configuration file (a way to configure your project for contract sources, deployments, accounts, and more):
 
 `_10
 
@@ -56850,7 +56843,7 @@ flow init FooToken`
 
 Select `Basic Cadence project (no dependencies)`.
 
-Upon execution, the command will generate the following directory structure:
+When you execute the command, it generates the following directory structure:
 
 `_10
 
@@ -56882,19 +56875,9 @@ Now, navigate into the project directory:
 
 cd FooToken`
 
-In our configuration file, called `flow.json`, for the network we want to use,
-we are going to state the address the `FungibleToken` contract is deployed
-to via `aliases` in a new `contracts` section. Since it is a standard contract,
-it has already been deployed to the emulator, a tool that runs and emulates
-a local development version of the Flow Blockchain, for us.
-You can find addresses for other networks, like Testnet and Mainnet, on the [Fungible Token Standard repo](https://github.com/onflow/flow-ft).
+In our configuration file, called `flow.json`, for the network we want to use, we'll state the address the `FungibleToken` contract is deployed to via `aliases` in a new `contracts` section. Since it is a standard contract, it has already been deployed to the emulator, a tool that runs and emulates a local development version of the Flow Blockchain, for us. You can find addresses for other networks, like Testnet and Mainnet, on the [Fungible Token Standard] repo.
 
-We'll also need to add the addresses for `ViewResolver`, `MetadataViews`,
-and `FungibleTokenMetadataViews`, which are other important contracts to use.
-These contracts are deployed to the Flow emulator by default,
-so there is not need to copy their code into your repo.
-The addresses below are the addresses in the emulator that your contract
-will import them from.
+We'll also need to add the addresses for `ViewResolver`, `MetadataViews`, and `FungibleTokenMetadataViews`, which are other important contracts to use. These contracts are deployed to the Flow emulator by default, so there is not need to copy their code into your repo. The addresses below are the addresses in the emulator that your contract will import them from.
 
 `_22
 
@@ -56984,9 +56967,9 @@ _22
 
 }`
 
-## Writing Our Token Contract[​](#writing-our-token-contract "Direct link to Writing Our Token Contract")
+## Write Our token contract[​](#write-our-token-contract "Direct link to Write Our token contract")
 
-Next let's create a `FooToken` contract at `cadence/contract/FooToken.cdc` using the boilerplate `generate` command from the Flow CLI:
+Next let's create a `FooToken` contract at `cadence/contract/FooToken.cdc` with the boilerplate `generate` command from the Flow CLI:
 
 `_10
 
@@ -57000,10 +56983,9 @@ In this contract file, we want to import our `FungibleToken` contract that we've
 
 import "FungibleToken"`
 
-In this same file, let's create our contract which implements the `FungibleToken` contract interface (it does so by setting it following the `FooToken:`).
-We'll also include fields for standard storage and public paths
-for our resource definitions.
-In our `init` — which runs on the contract's first deployment and is used to set initial values — let's set an starting total supply of 1,000 tokens for this example.
+In this same file, let's create our contract which implements the `FungibleToken` contract interface (to do this, it sets it after the `FooToken:`). We'll also include fields for standard storage and public paths for our resource definitions.
+
+In our `init` — which runs on the contract's first deployment and is used to set initial values — let's set an initial total supply of 1,000 tokens for this example.
 
 `_16
 
@@ -57063,12 +57045,9 @@ _16
 
 }`
 
-### Creating a Vault[​](#creating-a-vault "Direct link to Creating a Vault")
+### Create a vault[​](#create-a-vault "Direct link to Create a vault")
 
-Inside of this contract, we'll need to create a resource for a `Vault`.
-The `FungibleToken` standard requires that your vault implements the `FungibleToken.Vault` interface.
-This interface inherits from [many other interfaces](https://github.com/onflow/flow-ft/blob/master/contracts/FungibleToken.cdc#L140)
-which enforce different functionality that you can learn about in the standard.
+Inside of this contract, we'll need to create a resource for a `Vault`. The `FungibleToken` standard requires that your vault implements the `FungibleToken.Vault` interface. This interface inherits from [many other interfaces](https://github.com/onflow/flow-ft/blob/master/contracts/FungibleToken.cdc#L140), which enforce different functionality that you can learn about in the standard.
 
 `_16
 
@@ -57124,16 +57103,9 @@ _16
 
 }`
 
-In order to give an account a vault, we need to create a function
-that creates a vault of our FooToken type and returns it to the account.
-This function takes a `vaultType: Type` argument that allows the caller
-to specify which type of `Vault` they want to create.
-Contracts that implement multiple `Vault` types can use this argument,
-but since your contract is only implementing one `Vault` type,
-it can ignore the argument.
+In order to give an account a vault, we need to create a function that creates a vault of our `FooToken` type and returns it to the account. This function takes a `vaultType: Type` argument that allows the caller to specify which type of `Vault` they want to create. Contracts that implement multiple `Vault` types can use this argument, but since your contract only implements one `Vault` type, it can ignore the argument.
 
-A simpler version of this function with no parameter
-should also be added to your `Vault` implementation.
+You should also add a simpler version of this function with no parameter to your `Vault` implementation.
 
 `_24
 
@@ -57215,9 +57187,7 @@ _24
 
 }`
 
-Inside our `Vault` resource, we also need a way to withdraw balances.
-To do that, we need to add a `withdraw()` function that returns a new vault
-with the transfer amount and decrements the existing balance.
+Inside our `Vault` resource, we also need a way to withdraw balances. To do that, we need to add a `withdraw()` function that returns a new vault with the transfer amount and decrements the current balance.
 
 `_20
 
@@ -57285,17 +57255,11 @@ _20
 
 }`
 
-As you can see, this function has an `access(FungibleToken.Withdraw)` access modifier.
-This is an example of entitlements in Cadence.
-[Entitlements](https://cadence-lang.org/docs/language/access-control#entitlements)
-are a way for developers to restrict access to privileged fields and functions
-in a composite type like a resource when a reference is created for it.
-In this example, the `withdraw()` function is always accessible to code that
-controls the full `Vault` object, but if a reference is created for it,
-the `withdraw()` function can only be called if the reference
-is authorized by the owner with `FungibleToken.Withdraw`,
-which is [a standard entitlement](https://github.com/onflow/flow-ft/blob/master/contracts/FungibleToken.cdc#L53)
-defined by the FungibleToken contract:
+As you can see, this function has an `access(FungibleToken.Withdraw)` access modifier. This is an example of entitlements in Cadence. [Entitlements](https://cadence-lang.org/docs/language/access-control#entitlements) are a way for developers to restrict access to privileged fields and functions in a composite type like a resource when a reference is created for it. They are what protects third-party access to the privileged functionality in your resource objects. We recommend that you read the [Entitlements](https://cadence-lang.org/docs/language/access-control#entitlements) documentation to understand how to use the feature properly.
+
+[References](https://cadence-lang.org/docs/language/references)can be freely up-casted and down-casted in Cadence, so it is important for privileged functionality to be protected by an entitlement so that it can only be accessed if it is authorized.
+
+In this example, the `withdraw()` function is always accessible to code that controls the full `Vault` object, but if a reference is created for it, the `withdraw()` function can only be called if the reference is authorized by the owner with `FungibleToken.Withdraw`, which is a [standard entitlement](https://github.com/onflow/flow-ft/blob/master/contracts/FungibleToken.cdc#L53) defined by the FungibleToken contract:
 
 `_10
 
@@ -57305,19 +57269,7 @@ _10
 
 <auth(FungibleToken.Withdraw) &{FungibleToken.Vault}>`
 
-Entitlements are important to understand because they are what protects
-privileged functionality in your resource objects from being accessed by third-parties.
-It is recommended to read the [entitlements documentation](https://cadence-lang.org/docs/language/access-control#entitlements)
-to understand how to use the feature properly.
-
-[References](https://cadence-lang.org/docs/language/references) can be freely up-casted and down-casted in Cadence, so it is important
-for privileged functionality to be protected by an entitlement so that it can
-only be accessed if it is authorized.
-
-In addition to withdrawing, the vault also needs a way to deposit.
-We'll [typecast](https://cadence-lang.org/docs/language/operators#casting-operators)
-to make sure we are dealing with the correct token, update the vault balance,
-and destroy the vault. Add this code to your resource:
+In addition to withdrawl, the vault also needs a way to deposit. We'll [typecast](https://cadence-lang.org/docs/language/operators/casting-operators) to make sure we are dealing with the correct token, update the vault balance, and destroy the vault. Add this code to your resource:
 
 `_22
 
@@ -57391,10 +57343,7 @@ _22
 
 }`
 
-Many projects rely on events the signal when withdrawals, deposits, or burns happen.
-Luckily, the `FungibleToken` standard handles the definition and emission
-of events for projects, so there is no need for you to add any events
-to your implementation for withdraw, deposit, and burn.
+Many projects rely on events the signal when withdrawals, deposits, or burns happen. Luckily, the `FungibleToken` standard handles the definition and emission of events for projects, so there is no need for you to add any events to your implementation for withdraw, deposit, and burn.
 
 Here are the `FungibleToken` event definitions:
 
@@ -57426,20 +57375,13 @@ _10
 
 access(all) event Burned(type: String, amount: UFix64, fromUUID: UInt64)`
 
-These events are [emitted by the `Vault` interface](https://github.com/onflow/flow-ft/blob/master/contracts/FungibleToken.cdc#L198)
-in the `FungibleToken` contract whenever the relevant function is called on any implementation.
+These events are emitted by the [`Vault` interface](https://github.com/onflow/flow-ft/blob/master/contracts/FungibleToken.cdc#L198) in the `FungibleToken` contract whenever the relevant function is called on any implementation.
 
-One important piece to understand about the `Burned` event in particular
-is that in order for it to be emitted when a `Vault` is burned, it needs to
-be burnt via [the `Burner` contract's `burn()` method](https://github.com/onflow/flow-ft/blob/master/contracts/utility/Burner.cdc#L23).
+One important piece to understand about the `Burned` event in particular is that for it to be emitted when a `Vault` is burned, it needs to be burnt via [the `Burner` contract's `burn()` method](https://github.com/onflow/flow-ft/blob/master/contracts/utility/Burner.cdc#L23).
 
-The [`Burner` contract](/build/cadence/core-contracts/burner) defines a standard
-that all projects should use for handling the destruction of any resource.
-It allows projects to define custom logic that can be executed when a resource is destroyed,
-like emitting events, or updating a field in the contract to show that the resource was destroyed.
+The [`Burner` contract](/build/cadence/core-contracts/burner) defines a standard that all projects should use to handle the destruction of any resource. It allows projects to define custom logic that can be executed when a resource is destroyed, like emitting events, or update a field in the contract to show that the resource was destroyed.
 
-This will call the resource's `burnCallback()` function, which emits the event.
-You'll need to also add this function to your token contract now:
+This will call the resource's `burnCallback()` function, which emits the event. You'll need to also add this function to your token contract now:
 
 `` _24
 
@@ -57521,11 +57463,9 @@ _24
 
 } ``
 
-If you ever need to destroy a `Vault` with a non-zero balance,
-you should destroy it via the `Burner.burn` method so this important function can be called.
+If you ever need to destroy a `Vault` with a non-zero balance, you should destroy it via the `Burner.burn` method so this important function can be called.
 
-There are three other utility methods that need to be added to your `Vault`
-to get various information:
+There are three other utility methods that need to be added to your `Vault` to get various information:
 
 `_33
 
@@ -57639,20 +57579,11 @@ _33
 
 }`
 
-### Adding Support for Metadata Views[​](#adding-support-for-metadata-views "Direct link to Adding Support for Metadata Views")
+### Add support for metadata views[​](#add-support-for-metadata-views "Direct link to Add support for metadata views")
 
-The Fungible Token standard also enforces that implementations
-provide functionality to return a set of standard views about the tokens
-via the [ViewResolver](https://github.com/onflow/flow-nft/blob/master/contracts/ViewResolver.cdc)
-and [FungibleTokenMetadataViews](https://github.com/onflow/flow-ft/blob/master/contracts/FungibleTokenMetadataViews.cdc) definitions.
-(You will need to add these imports to your contract now)
-These provide developers with standard ways of representing metadata
-about a given token such as supply, token symbols, website links, and standard
-account paths and types that third-parties can access in a standard way.
-You can see the [metadata views documentation](/build/cadence/advanced-concepts/metadata-views)
-for a more thorough guide using a NFT contract as an example.
+The Fungible Token standard also enforces that implementations provide functionality to return a set of standard views about the tokens via the [ViewResolver](https://github.com/onflow/flow-nft/blob/master/contracts/ViewResolver.cdc) and [FungibleTokenMetadataViews](https://github.com/onflow/flow-ft/blob/master/contracts/FungibleTokenMetadataViews.cdc) definitions. (You will need to add these imports to your contract now.) These provide developers with standard ways to represent metadata about a given token such as supply, token symbols, website links, and standard account paths and types that third-parties can access in a standard way.
 
-For now, you can add this code to your contract to support the important metadata views:
+You can see the [metadata views documentation](/build/cadence/advanced-concepts/metadata-views) for a more thorough guide that uses an NFT contract as an example. For now, you can add this code to your contract to support the important metadata views:
 
 `_83
 
@@ -57964,9 +57895,9 @@ _83
 
 }`
 
-### Creating a Minter[​](#creating-a-minter "Direct link to Creating a Minter")
+### Create a minter[​](#create-a-minter "Direct link to Create a minter")
 
-Let's create a minter resource which is used to mint vaults that have tokens in them. We can keep track of tokens we are minting with totalSupply
+Let's create a minter resource which is used to mint vaults that have tokens in them. We can keep track of tokens we mint with totalSupply.
 
 If we want the ability to create new tokens, we'll need a way to mint them. To do that, let's create another resource on the `FooToken` contract. This will have a `mintToken`function which can increase the total supply of the token.
 
@@ -58084,10 +58015,7 @@ _31
 
 }`
 
-We also want to decide which account/s we want to give this ability to.
-In our example, we'll give it to the account where the contract is deployed.
-We can set this in the contract init function below the setting of total supply
-so that when the contract is created the minter is stored on the same account.
+We also want to decide which accounts we want to give this ability to. In our example, we'll give it to the account where the contract is deployed. We can set this in the contract init function below the setting of total supply so that when the contract is created, the minter is stored on the same account.
 
 `_13
 
@@ -58135,7 +58063,7 @@ _13
 
 }`
 
-After each of these steps, your `FooToken.cdc` contract file should now look like this:
+After each of these steps, your `FooToken.cdc` contract file will now look like this:
 
 `` _172
 
@@ -58775,10 +58703,9 @@ _172
 
 } ``
 
-## Deploying the Contract[​](#deploying-the-contract "Direct link to Deploying the Contract")
+## Deploy the contract[​](#deploy-the-contract "Direct link to Deploy the contract")
 
-In order to use the contract, we need to deploy it to the network we want to use it on.
-In our case we are going to deploy it to emulator while developing.
+To use the contract, we need to deploy it to the network we want to use it on. In our case, we'll deploy it to emulator while we develop it.
 
 Back in our `flow.json`, let's add our `FooToken` to the `contracts` after `FungibleToken` with the path of the source code:
 
@@ -58786,9 +58713,7 @@ Back in our `flow.json`, let's add our `FooToken` to the `contracts` after `Fung
 
 "FooToken": "cadence/contracts/FooToken.cdc"`
 
-Let's also add a new `deployments` section to `flow.json` with the network
-we want to deploy it to, `emulator`, the account we want it deployed to `emulator-account`,
-and the list of contracts we want deployed in the array.
+Let's also add a new `deployments` section to `flow.json` with the network we want to deploy it to, `emulator`, the account we want it deployed to `emulator-account`, and the list of contracts we want deployed in the array.
 
 `_10
 
@@ -58810,8 +58735,7 @@ _10
 
 }`
 
-Next, using the Flow CLI, we will start the emulator. As mentioned,
-this will give us a local development environment for the Flow Blockchain.
+Next, via the Flow CLI, we will start the emulator. As mentioned, this will give us a local development environment for the Flow Blockchain.
 
 `_10
 
@@ -58823,13 +58747,11 @@ Open a new terminal and run the following to deploy your project:
 
 flow project deploy`
 
-Congrats, you've deployed your contract to the Flow Blockchain emulator.
-To read more about deploying your project to other environments,
-see the [CLI docs](https://developers.flow.com/tools/flow-cli/deployment/deploy-project-contracts).
+Congrats, you've deployed your contract to the Flow Blockchain emulator. To read more about how to deploy your project to other environments, see the [Deploy Project Contracts with CLI](/build/tools/flow-cli/deployment/deploy-project-contracts) docs.
 
-## Reading the Token's Total Supply[​](#reading-the-tokens-total-supply "Direct link to Reading the Token's Total Supply")
+## Read the token's total supply[​](#read-the-tokens-total-supply "Direct link to Read the token's total supply")
 
-Let's now check that our total supply was initialized with 1,000 FooTokens. Go ahead and create a script called `get_total_supply.cdc` using the `generate` command.
+Let's now check that our total supply was initialized with 1,000 FooTokens. Go ahead and create a script called `get_total_supply.cdc` with the `generate` command.
 
 `_10
 
@@ -58855,36 +58777,28 @@ _10
 
 }`
 
-To run this using the CLI, enter this in your terminal:
+To run this with the CLI, enter this in your terminal:
 
 `_10
 
 flow scripts execute cadence/scripts/get_total_supply.cdc`
 
-In the terminal where you started the emulator, you should see `Result: 1000.0`
+In the terminal where you started the emulator, you will see `Result: 1000.0`
 
-To learn more about running scripts using Flow CLI, [see the docs](https://developers.flow.com/tools/flow-cli/scripts/execute-scripts).
+To learn more about how to run scripts with Flow CLI, see the [Execute Scripts in Flow CLI](/build/tools/flow-cli/scripts/execute-scripts) docs.
 
-## Giving Accounts the Ability to Receive Tokens[​](#giving-accounts-the-ability-to-receive-tokens "Direct link to Giving Accounts the Ability to Receive Tokens")
+## Give accounts the ability to receive tokens[​](#give-accounts-the-ability-to-receive-tokens "Direct link to Give accounts the ability to receive tokens")
 
-On Flow, newly created accounts cannot receive arbitrary assets.
-They need to be initialized to receive resources.
-In our case, we want to give accounts tokens and we'll need to create
-a `Vault` (which acts as a receiver) on each account that we want
-to have the ability to receive tokens. To do this, we'll need to run a transaction
-which will create the vault and set it in their storage
-using the `createEmptyVault()` function we created earlier on the contract.
+On Flow, newly-created accounts cannot receive arbitrary assets. They need to be initialized to receive resources.
+In our case, we want to give accounts tokens and we'll need to create a `Vault` (which acts as a receiver) on each account that we want to have the ability to receive tokens. To do this, we'll need to run a transaction which will create the vault and set it in their storage with the `createEmptyVault()` function we created earlier on the contract.
 
-Let's first create the file at `cadence/transactions/setup_ft_account.cdc` using the `generate` command:
+Let's first create the file at `cadence/transactions/setup_ft_account.cdc` with the `generate` command:
 
 `_10
 
 flow generate transaction setup_ft_account`
 
-Then add this code to it.
-This will call the `createEmptyVault` function, save it in storage,
-and create a capability for the vault which will later allow us to read from it
-(To learn more about capabilities, see [the Cadence docs here](https://developers.flow.com/cadence/language/capabilities)).
+Then add this code to it. This will call the `createEmptyVault` function, save it in storage, and create a capability for the vault which will later allow us to read from it. To learn more about capabilities, see the [Cadence Capabilities](https://cadence-lang.org/docs/language/capabilities) docs
 
 `_24
 
@@ -58970,11 +58884,10 @@ _24
 
 }`
 
-There are also examples of [generic transactions](https://github.com/onflow/flow-ft/blob/master/transactions/metadata/setup_account_from_address.cdc)
-that you can use to setup an account for ANY fungible token using metadata views!
-You should check those out and try to use generic transactions whenever it is possible.
+There are also examples of [generic transactions](https://github.com/onflow/flow-ft/blob/master/transactions/metadata/setup_account_from_address.cdc) that you can use to setup an account for ANY fungible token with metadata views!
+Check those out and try to use generic transactions whenever it is possible.
 
-Next let's create a new emulator account using the CLI. We'll use this account to create a new vault and mint tokens into it. Run:
+Next let's create a new emulator account with the CLI. We'll use this account to create a new vault and mint tokens into it. Run:
 
 `_10
 
@@ -58994,11 +58907,11 @@ To call our setup account transaction from the CLI, we'll run the following:
 
 flow transactions send ./cadence/transactions/setup_ft_account.cdc --signer test-acct --network emulator`
 
-To learn more about running transactions using CLI, [see the docs](https://developers.flow.com/tools/flow-cli/transactions/send-transactions).
+To learn more about how to run transactions with Flow CLI, see the [Send a Transaction](/build/tools/flow-cli/transactions/send-transactions) docs.
 
-## Reading a Vault's Balance[​](#reading-a-vaults-balance "Direct link to Reading a Vault's Balance")
+## Read a vault's balance[​](#read-a-vaults-balance "Direct link to Read a vault's balance")
 
-Let's now read the balance of the newly created account (`test-acct`) to check it's zero.
+Let's now read the balance of the newly-created account (`test-acct`) to check that it's zero.
 
 Create this new script file `cadence/scripts/get_footoken_balance.cdc`:
 
@@ -59064,20 +58977,17 @@ _15
 
 }`
 
-To run this script using the CLI, enter the following in your terminal.
-Note: you'll need to replace `123` with the address created by CLI
-in your `flow.json` for the `test-acct` address.
+To run this script with the CLI, enter the following in your terminal. You'll need to replace `123` with the address created by Flow CLI in your `flow.json` for the `test-acct` address.
 
 `_10
 
 flow scripts execute cadence/scripts/get_footoken_balance.cdc 123 // change "123" to test-acct address`
 
-You should see a balance of zero logged.
+You will see a balance of zero logged.
 
-## Minting More Tokens[​](#minting-more-tokens "Direct link to Minting More Tokens")
+## Mint more tokens[​](#mint-more-tokens "Direct link to Mint more tokens")
 
-Now that we have an account with a vault, let's mint some tokens into it
-using the Minter we created on the contract account.
+Now that we have an account with a vault, let's mint some tokens into it with the Minter we created on the contract account.
 
 To do this, let's create a new transaction file `cadence/transactions/mint_footoken.cdc`:
 
@@ -59085,9 +58995,7 @@ To do this, let's create a new transaction file `cadence/transactions/mint_footo
 
 flow generate transaction mint_footoken`
 
-Next, let's add the following code to the `mint_footoken.cdc` file.
-This code will attempt to borrow the minting capability
-and mint 20 new tokens into the receivers account.
+Next, let's add the following code to the `mint_footoken.cdc` file. This code will attempt to borrow the minting capability and mint 20 new tokens into the receivers account.
 
 `_33
 
@@ -59203,9 +59111,7 @@ _33
 
 }`
 
-To run this transaction, enter this in your terminal.
-Note: `123` should be replaced with address of `test-acct` found in your `flow.json`.
-This command also states to sign with our `emulator-account` on the Emulator network.
+To run this transaction, enter this in your terminal. Replace `123` with the `test-acct` address found in your `flow.json`. This command also states to sign with our `emulator-account` on the Emulator network.
 
 `_10
 
@@ -59217,9 +59123,9 @@ Let's go ahead and read the vault again. Remember to replace `123` with the corr
 
 flow scripts execute cadence/scripts/get_footoken_balance.cdc 123`
 
-It should now say 20 tokens are in the vault.
+It will now say 20 tokens are in the vault.
 
-## Transferring Tokens Between Accounts[​](#transferring-tokens-between-accounts "Direct link to Transferring Tokens Between Accounts")
+## Transfer tokens between accounts[​](#transfer-tokens-between-accounts "Direct link to Transfer tokens between accounts")
 
 The final functionality we'll add is the ability to transfer tokens from one account to another.
 
@@ -59229,9 +59135,7 @@ To do that, create a new `cadence/transactions/transfer_footoken.cdc` transactio
 
 flow generate transaction transfer_footoken`
 
-Let's add the code which states that the signer of the transaction
-will withdraw from their vault and put it into the receiver's vault
-which will be passed as a transaction argument.
+Let's add the code which states that the signer of the transaction will withdraw from their vault and put it into the receiver's vault, which will be passed as a transaction argument.
 
 `_36
 
@@ -59379,7 +59283,7 @@ Don't forget the new account will need a vault added, so let's run the following
 
 flow transactions send ./cadence/transactions/setup_ft_account.cdc --signer test-acct-2 --network emulator`
 
-Now, let's send 1 token from our earlier account to the new account. Remember to replace `123` with account address of `test-acct-2`.
+Now, let's send one token from our earlier account to the new account. Remember to replace `123` with account address of `test-acct-2`.
 
 `_10
 
@@ -59391,20 +59295,20 @@ After that, read the balance of `test-acct-2` (replace the address `123`).
 
 flow scripts execute cadence/scripts/get_footoken_balance.cdc 123`
 
-You should now see 1 token in `test-acct-2` account!
+You will now see one token in `test-acct-2` account!
 
 The transfer transaction also has a [generic version](https://github.com/onflow/flow-ft/blob/master/transactions/generic_transfer_with_address.cdc) that developers are encouraged to use!
 
 ## More[​](#more "Direct link to More")
 
-* [View a repo of this example code](https://github.com/onflow/FooToken)
-* [Review an `ExampleToken` contract implementing all of the remaining FungibleToken interface](https://github.com/onflow/flow-ft/blob/master/contracts/ExampleToken.cdc)
-* [View the Flow Token Standard](https://github.com/onflow/flow-ft/blob/master/contracts/FungibleToken.cdc)
-* Learn about how you can [bridge your FTs to Flow-EVM](/blockchain-development-tutorials/cross-vm-apps/vm-bridge#cross-vm-bridge) and how you can build your FT project [to be compatible with the Flow VM bridge](/blockchain-development-tutorials/cross-vm-apps/vm-bridge#prep-your-assets-for-bridging).
+* View a repo of this [completed code](https://github.com/onflow/FooToken).
+* Review an [`ExampleToken`](https://github.com/onflow/flow-ft/blob/master/contracts/ExampleToken.cdc) contract that implements all of the remaining FungibleToken interface.
+* View the [Flow Token Standard](https://github.com/onflow/flow-ft)
+* Learn about how you can [bridge your FTs to Flow-EVM](/blockchain-development-tutorials/cross-vm-apps/vm-bridge#cross-vm-bridge) and how you can [build your FT project](/blockchain-development-tutorials/cross-vm-apps/vm-bridge#prep-your-assets-for-bridging) to be compatible with the Flow VM bridge.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/tokens/fungible-token-cadence.md)
 
-Last updated on **Oct 9, 2025** by **Brian Doyle**
+Last updated on **Nov 18, 2025** by **cshannon1218**
 
 [Previous
 
@@ -59418,9 +59322,9 @@ Creating an NFT Contract](/blockchain-development-tutorials/tokens/nft-cadence)
 
 Copy as Markdown
 
-* [What are Fungible Tokens?](#what-are-fungible-tokens)* [Vaults on Flow](#vaults-on-flow)* [Fungible Token Standard](#fungible-token-standard)* [Setting Up a Project](#setting-up-a-project)
-        + [Installing Flow CLI](#installing-flow-cli)+ [Initializing a New Project](#initializing-a-new-project)* [Writing Our Token Contract](#writing-our-token-contract)
-          + [Creating a Vault](#creating-a-vault)+ [Adding Support for Metadata Views](#adding-support-for-metadata-views)+ [Creating a Minter](#creating-a-minter)* [Deploying the Contract](#deploying-the-contract)* [Reading the Token's Total Supply](#reading-the-tokens-total-supply)* [Giving Accounts the Ability to Receive Tokens](#giving-accounts-the-ability-to-receive-tokens)* [Reading a Vault's Balance](#reading-a-vaults-balance)* [Minting More Tokens](#minting-more-tokens)* [Transferring Tokens Between Accounts](#transferring-tokens-between-accounts)* [More](#more)
+* [What are fungible tokens?](#what-are-fungible-tokens)* [Vaults on Flow](#vaults-on-flow)* [Fungible token standard](#fungible-token-standard)* [Set up a project](#set-up-a-project)
+        + [Install Flow CLI](#install-flow-cli)+ [Initialize a new project](#initialize-a-new-project)* [Write Our token contract](#write-our-token-contract)
+          + [Create a vault](#create-a-vault)+ [Add support for metadata views](#add-support-for-metadata-views)+ [Create a minter](#create-a-minter)* [Deploy the contract](#deploy-the-contract)* [Read the token's total supply](#read-the-tokens-total-supply)* [Give accounts the ability to receive tokens](#give-accounts-the-ability-to-receive-tokens)* [Read a vault's balance](#read-a-vaults-balance)* [Mint more tokens](#mint-more-tokens)* [Transfer tokens between accounts](#transfer-tokens-between-accounts)* [More](#more)
 
 Flow
 
@@ -65557,16 +65461,14 @@ Search
 
 On this page
 
-# Use Flow Knowledge Base in Cursor
+# Use Flow knowledge base in Cursor
 
-[Cursor](https://www.cursor.com/) is an AI code editor that makes it easy to write code while building Flow apps. This section provides comprehensive guidance on how to set up and use Cursor with Flow's extensive documentation ecosystem to enhance your development experience.
-
-## Overview[​](#overview "Direct link to Overview")
+[Cursor](https://www.cursor.com/) is an AI code editor that makes it easy to write code while you build Flow apps. This section provides comprehensive guidance on how to set up and use Cursor with Flow's extensive documentation ecosystem to enhance your development experience.
 
 To get the most out of Cursor for Flow development, you'll need to understand three key components:
 
 1. **Flow Data Sources** - The comprehensive knowledge base that powers AI assistance.
-2. **Documentation Indexing** - The process of making Flow documentation available within Cursor.
+2. **Documentation Indexing** - How to make Flow documentation available within Cursor.
 3. **Cadence Rules** - Persistent AI context that provides specialized Flow development guidance.
 
 ## [Flow Data Sources](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor/flow-data-sources)[​](#flow-data-sources "Direct link to flow-data-sources")
@@ -65578,19 +65480,19 @@ The Flow Data Sources guide covers:
 * What Flow Data Sources contains and how it's organized.
 * Different file formats available for various use cases.
 * Integration strategies with AI tools.
-* Best practices for leveraging this knowledge base.
+* Best practices to leverage this knowledge base.
 
 ## [Indexing Flow Documentation in Cursor](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor/indexing-docs)[​](#indexing-flow-documentation-in-cursor "Direct link to indexing-flow-documentation-in-cursor")
 
-Follow the step-by-step process for how to set up Flow documentation within Cursor's AI system. This detailed guide walks you through indexing multiple documentation sources to create a comprehensive Flow development environment.
+Follow the step-by-step process for how to set up Flow documentation within Cursor's AI system. This detailed guide walks you through how to index multiple documentation sources to create a comprehensive Flow development environment.
 
-The indexing documentation covers:
+The documentation covers how to:
 
-* Adding Flow developer documentation to Cursor.
-* Integrating Cadence language documentation.
-* Including Flow Data Sources for comprehensive coverage.
-* Troubleshooting common indexing issues.
-* Best practices for using indexed documentation.
+* Add Flow developer documentation to Cursor.
+* Integrate Cadence language documentation.
+* Include Flow Data Sources for comprehensive coverage.
+* Troubleshoot common indexing issues.
+* Apply best pratices for indexed documentation.
 
 ## [Cadence Rules](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor/cadence-rules)[​](#cadence-rules "Direct link to cadence-rules")
 
@@ -65598,32 +65500,32 @@ Learn how to use Cursor Rules to enhance AI assistance for Cadence and Flow deve
 
 The Cadence Rules guide covers:
 
-* Understanding Cursor Rules and how they provide persistent AI context.
+* Cursor Rule basics and how they provide persistent AI context.
 * Five specialized rules for Flow development: NFT standards, syntax patterns, development workflows, project configuration, and user preferences.
-* Creating custom rules for your specific Flow development needs.
+* How to create custom rules for your specific Flow development needs.
 * Best practices for rule organization and team collaboration.
 * Integration with current Flow development tools and documentation
 
-## Getting Started[​](#getting-started "Direct link to Getting Started")
+## Get started[​](#get-started "Direct link to Get started")
 
 1. **Start with Flow Data Sources**: Understand what documentation is available and how it can enhance your development workflow.
 2. **Follow the Indexing Guide**: Set up your Cursor environment with comprehensive Flow documentation.
 3. **Configure Cadence Rules**: Implement persistent AI context for consistent Flow development assistance.
 4. **Practice with Examples**: Use the indexed documentation and rules to build Flow applications with enhanced AI assistance.
 
-## Best Practices for Cursor + Flow[​](#best-practices-for-cursor--flow "Direct link to Best Practices for Cursor + Flow")
+## Best practices for cursor + flow[​](#best-practices-for-cursor--flow "Direct link to Best practices for cursor + flow")
 
 * **Use Specific References**: Target `@Flow`, `@Cadence`, or `@Flow Data Sources` based on your needs.
 * **Leverage Cursor Rules**: Apply `@cadence-nft-standards`, `@cadence-syntax-patterns`, or other specialized rules for consistent guidance.
 * **Combine Sources**: Leverage multiple documentation sources and rules for comprehensive assistance.
 * **Verify AI Output**: Cross-reference generated code with official documentation.
-* **Stay Updated**: Refresh your documentation indexes and rules periodically for current information
+* **Stay Updated**: Refresh your documentation indexes and rules periodically for current information.
 
-This integrated approach combining comprehensive documentation indexing with persistent AI context through Cursor Rules provides you with consistent, accurate, and specialized assistance throughout your Flow development process.
+This integrated approach combines comprehensive documentation indexing with persistent AI context through Cursor Rules. This provides you with consistent, accurate, and specialized assistance throughout your Flow development process.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor/index.md)
 
-Last updated on **Nov 3, 2025** by **cshannon1218**
+Last updated on **Nov 20, 2025** by **cshannon1218**
 
 [Previous
 
@@ -65637,7 +65539,7 @@ Flow Data Sources](/blockchain-development-tutorials/use-AI-to-build-on-flow/cur
 
 Copy as Markdown
 
-* [Overview](#overview)* [Flow Data Sources](#flow-data-sources)* [Indexing Flow Documentation in Cursor](#indexing-flow-documentation-in-cursor)* [Cadence Rules](#cadence-rules)* [Getting Started](#getting-started)* [Best Practices for Cursor + Flow](#best-practices-for-cursor--flow)
+* [Flow Data Sources](#flow-data-sources)* [Indexing Flow Documentation in Cursor](#indexing-flow-documentation-in-cursor)* [Cadence Rules](#cadence-rules)* [Get started](#get-started)* [Best practices for cursor + flow](#best-practices-for-cursor--flow)
 
 Flow
 
@@ -69039,11 +68941,11 @@ _25
 4. Make sure to select `Injected Provider - Metamask` in Environment dropdown.
 5. Deploy the `HelloWorld` smart contract.
 
-## Calling the Deployed Smart Contract[​](#calling-the-deployed-smart-contract "Direct link to Calling the Deployed Smart Contract")
+## Call the Deployed Smart Contract[​](#call-the-deployed-smart-contract "Direct link to Call the Deployed Smart Contract")
 
 ![Call Smart Contract](/assets/images/Remix-call-getGreeting-558cf56bb12d6b95cbd0e3e272d62499.gif)
 
-### Using Ethers.js to Call the HelloWorld Smart Contract[​](#using-ethersjs-to-call-the-helloworld-smart-contract "Direct link to Using Ethers.js to Call the HelloWorld Smart Contract")
+### Use Ethers.js to Call the HelloWorld Smart Contract[​](#use-ethersjs-to-call-the-helloworld-smart-contract "Direct link to Use Ethers.js to Call the HelloWorld Smart Contract")
 
 1. Create a new `get-greeting.js` file under `scripts`.
 2. Paste in the JavaScript code below.
@@ -69154,7 +69056,7 @@ Follow the steps below to change the greeting and retrieve the new greeting.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/development-tools/remix.md)
 
-Last updated on **Nov 12, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -69169,8 +69071,8 @@ Foundry](/blockchain-development-tutorials/evm/development-tools/foundry)
 Copy as Markdown
 
 * [Add the Flow network to MetaMask](#add-the-flow-network-to-metamask)* [Fund Your Flow Account](#fund-your-flow-account)* [Deploy a smart contract with Remix](#deploy-a-smart-contract-with-remix)
-      + [HelloWorld smart contract](#helloworld-smart-contract)+ [Steps to deploy the HelloWorld smart contract](#steps-to-deploy-the-helloworld-smart-contract)* [Calling the Deployed Smart Contract](#calling-the-deployed-smart-contract)
-        + [Using Ethers.js to Call the HelloWorld Smart Contract](#using-ethersjs-to-call-the-helloworld-smart-contract)* [Updating the deployed smart contract](#updating-the-deployed-smart-contract)
+      + [HelloWorld smart contract](#helloworld-smart-contract)+ [Steps to deploy the HelloWorld smart contract](#steps-to-deploy-the-helloworld-smart-contract)* [Call the Deployed Smart Contract](#call-the-deployed-smart-contract)
+        + [Use Ethers.js to Call the HelloWorld Smart Contract](#use-ethersjs-to-call-the-helloworld-smart-contract)* [Updating the deployed smart contract](#updating-the-deployed-smart-contract)
 
 Flow
 
@@ -104667,9 +104569,9 @@ _10
 
 $ npm run dev`
 
-The [RainbowKit](https://www.rainbowkit.com/) components will be available throughout your application via the provided wrapper components.
+The [RainbowKit](https://www.rainbowkit.com/) components are available throughout your application via the provided wrapper components.
 
-### Creating the Flow Wallet Connector[​](#creating-the-flow-wallet-connector "Direct link to Creating the Flow Wallet Connector")
+### Create the Flow Wallet connector[​](#create-the-flow-wallet-connector "Direct link to Create the Flow Wallet connector")
 
 The first major step is to define the Flow Wallet connector. Create a new file called `flowWallet.ts` in `src/flowWallet.ts` to house the wallet configuration:
 
@@ -105069,17 +104971,16 @@ info
 
 WalletConnect Project ID
 
-Every dApp that relies on WalletConnect now needs to obtain a projectId from [WalletConnect Cloud (now rebranded as reown)](https://cloud.reown.com/sign-in). This is absolutely free and only takes a few minutes.
+Every dApp that relies on WalletConnect now needs to obtain a projectId from [WalletConnect Cloud (now rebranded as reown)]. This is absolutely free and only takes a few minutes.
 
 To get a Project ID, sign up at WalletConnect Cloud, create a new project, and copy the generated ID into the `projectId` variable in the `wagmi.ts` file.
 
-## Testing Your Integration[​](#testing-your-integration "Direct link to Testing Your Integration")
+## Test Your Integration[​](#test-your-integration "Direct link to Test Your Integration")
 
 After you implement the Flow Wallet connector and configure Wagmi, follow these steps to verify that the integration works correctly in your dApp:
 
 1. **Click "Connect Wallet"** – Open your application and click "Connect Wallet."
-2. **Check for Flow Wallet** – Ensure Flow Wallet appears as an option in the RainbowKit wallet selection modal.
-   * If you haven't installed the browser extension and set up your wallet yet, you can find install it via the [Chrome Web Store](https://chromewebstore.google.com/detail/flow-wallet/hpclkefagolihohboafpheddmmgdffjm?hl=en).
+2. **Check for Flow Wallet** – Ensure Flow Wallet appears as an option in the RainbowKit wallet selection modal. If you haven't installed the browser extension and set up your wallet yet, you can find install it via the [Chrome Web Store](https://chromewebstore.google.com/detail/flow-wallet/hpclkefagolihohboafpheddmmgdffjm?hl=en).
 3. **Connect the Wallet** – Click on Flow Wallet in the selection modal. If you use the browser extension, open it and press "Connect."
 
 ![Rainbowkit dAPP UI](/assets/images/rainbowkit-1-5292f800884dbcbb3901551158aa95f6.png)
@@ -105099,9 +105000,11 @@ In this tutorial, you learned how to integrate Flow Wallet with [RainbowKit](htt
 
 Now that you've completed this tutorial, you're ready to enhance your dApp with additional Flow blockchain features such as token transfers, NFT minting, and smart contract interactions.
 
+[WalletConnect Cloud (now rebranded as reown)]: <https://cloud.reown.com/sign-in>)
+
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/frameworks/rainbowkit.md)
 
-Last updated on **Nov 6, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -105117,7 +105020,7 @@ Copy as Markdown
 
 * [Objectives](#objectives)* [Prerequisites](#prerequisites)
     + [Next.js and modern frontend development](#nextjs-and-modern-frontend-development)* [A Flow Wallet](#a-flow-wallet)* [Set up your environment](#set-up-your-environment)
-        + [Initial setup](#initial-setup)+ [Creating the Flow Wallet Connector](#creating-the-flow-wallet-connector)+ [Configure your Wagmi integration](#configure-your-wagmi-integration)* [Testing Your Integration](#testing-your-integration)* [Conclusion](#conclusion)
+        + [Initial setup](#initial-setup)+ [Create the Flow Wallet connector](#create-the-flow-wallet-connector)+ [Configure your Wagmi integration](#configure-your-wagmi-integration)* [Test Your Integration](#test-your-integration)* [Conclusion](#conclusion)
 
 Flow
 
@@ -114521,23 +114424,23 @@ On this page
 
 The Model Context Protocol (MCP) is an open standard that allows AI applications to interact seamlessly with external tools, systems, and data sources. Flow MCP extends this protocol to provide AI tools with direct access to Flow blockchain data, smart contracts, and onchain operations. This integration allows developers to enhance their AI-powered development workflows with real-time blockchain information and automated Flow interactions.
 
-Flow MCP transforms how developers work with the Flow blockchain by bringing blockchain capabilities directly into AI-powered code editors and development tools, which eliminates the need to switch between different interfaces and allows more efficient, context-aware development experiences.
+Flow MCP transforms how developers work with the Flow blockchain. It brings blockchain capabilities directly into AI-powered code editors and development tools, which eliminates the need to switch between different interfaces and allows more efficient, context-aware development experiences.
 
 ## [Use Flow MCP in Cursor](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp/use-mcp-in-cursor)[​](#use-flow-mcp-in-cursor "Direct link to use-flow-mcp-in-cursor")
 
-Learn how to integrate the Flow MCP server with Cursor to turn on AI-driven blockchain queries directly within your code editor. This tutorial guides you through how to set up Flow MCP in Cursor, which allows the AI to fetch onchain data such as account balances, contract information, and blockchain state without leaving your development environment. By the end of this tutorial, you'll be able to ask Cursor's AI to perform Flow blockchain operations, speed up development workflows, and access live blockchain data for enhanced debugging and prototyping.
+Learn how to integrate the Flow MCP server with Cursor to turn on AI-driven blockchain queries directly within your code editor. This tutorial guides you through how to set up Flow MCP in Cursor, which allows the AI to fetch onchain data such as account balances, contract information, and blockchain state without the need to leave your development environment. By the end of this tutorial, you'll be able to ask Cursor's AI to perform Flow blockchain operations, speed up development workflows, and access live blockchain data for enhanced debugging and prototyping.
 
 ## [Contribute to Flow MCP](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp/contribute-to-mcp)[​](#contribute-to-flow-mcp "Direct link to contribute-to-flow-mcp")
 
-Discover how to extend the Flow MCP server by creating custom Action Tools that add new blockchain interaction capabilities. This comprehensive guide walks you through the development process, from how to set up the development environment to how to submit pull requests for new features. Learn to create new tools with proper schemas, handlers, and tests, while following Flow MCP's contribution guidelines. This tutorial empowers developers to expand the Flow MCP ecosystem by adding specialized blockchain tools that benefit the entire Flow developer community.
+Discover how to create custom Action Tools that add new blockchain interaction capabilities and extend the Flow MCP server. This comprehensive guide walks you through the development process, from how to set up the development environment to how to submit pull requests for new features. Learn to create new tools with proper schemas, handlers, and tests, while you follow Flow MCP's contribution guidelines. This tutorial empowers developers to expand the Flow MCP ecosystem with specialized blockchain tools that benefit the entire Flow developer community.
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-Flow MCP bridges the gap between AI development tools and blockchain functionality, which allows developers to access Flow's comprehensive blockchain features directly through AI-powered interfaces. Whether you're using MCP tools in Cursor or contributing new capabilities to the Flow MCP server, these tutorials provide the foundation for integrating blockchain operations into your AI-enhanced development workflow.
+Flow MCP bridges the gap between AI development tools and blockchain functionality, which allows developers to access Flow's comprehensive blockchain features directly through AI-powered interfaces. Whether you use MCP tools in Cursor or want to contribute new capabilities to the Flow MCP server, these tutorials provide the foundation for you to integrate blockchain operations into your AI-enhanced development workflow.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp/index.md)
 
-Last updated on **Oct 30, 2025** by **cshannon1218**
+Last updated on **Nov 20, 2025** by **cshannon1218**
 
 [Previous
 
@@ -124277,7 +124180,7 @@ On this page
 
 info
 
-The [FlowtoBooth](https://flowtobooth.vercel.app/) tutorial series teaches you how to build a **fun benchmark app** and provides inspiration for the greater scope of possibilities building on Flow thanks to gas being so much less expensive.
+The [FlowtoBooth](https://flowtobooth.vercel.app/) tutorial series teaches you how to build a **fun benchmark app** and provides inspiration for the greater scope of possibilities to build on Flow since gas is so much less expensive.
 
 It is **not a production best-practice**. While everything in these tutorials works, you'll run into the following problems at production scale:
 
@@ -124287,13 +124190,13 @@ It is **not a production best-practice**. While everything in these tutorials wo
 
 If you search for resources on how to store images of any significant size onchain, you'll be told it's either prohibitively expensive or even completely impossible. The reason for this is two-fold. First, the size limit for data on transactions is about 40kb. Second, to save 40kb takes almost all of the 30 million gas limit on most blockchains.
 
-The former constraint is immutable (though many chains are slowly increasing this limit), which limits the app to images about 256\*256 pixels in size. The latter heavily depends on which chain you choose.
+The former constraint is immutable (though many chains have started to slowly increase this limit), which limits the app to images about 256\*256 pixels in size. The latter heavily depends on which chain you choose.
 
-At current gas prices on most chains, to use all 30 million gas in a block costs **several dollars** - or potentially **thousands** on ETH mainnet. At current prices on Flow, spending 30 million gas costs **less than a penny**, usually one or two tenths of a cent.
+At current gas prices on most chains, to use all 30 million gas in a block costs **several dollars** - or potentially **thousands** on ETH mainnet. At current prices on Flow, to spend 30 million gas costs **less than a penny**, usually one or two tenths of a cent.
 
 Much more computation is available at prices you or your users will want to pay for regular interactions. This includes, but isn't limited to:
 
-* Airdropping hundreds of NFTs with one transaction, for pennies.
+* Airdrop hundreds of NFTs with one transaction, for pennies.
 * Generation of large mazes.
 * Generation of large amounts of random numbers (with free [native VRF](/blockchain-development-tutorials/native-vrf/vrf-in-solidity)).
 * Extensive string manipulation onchain.
@@ -124755,7 +124658,7 @@ _13
 
 Some app designs may need multiple galleries for each user. For example, you might want to give users the ability to collect images in separate galleries for separate topics, dates, or events, similar to how many photo apps work on smartphones.
 
-To facilitate this feature, update your contract to keep track of which galleries have been created by which users. You'll end up with:
+To facilitate this feature, update your contract to keep track of which users created which galleries . You'll end up with:
 
 `_23
 
@@ -124927,7 +124830,7 @@ Next, install [rainbowkit](https://www.rainbowkit.com/), [wagmi](https://wagmi.s
 
 npm install @rainbow-me/rainbowkit wagmi viem@2.x @tanstack/react-query`
 
-### Provider Setup[​](#provider-setup "Direct link to Provider Setup")
+### Provider setup[​](#provider-setup "Direct link to Provider setup")
 
 Add a file called `providers` inside the `app` folder. In it, add your config and providers for [wagmi](https://wagmi.sh/) and [rainbowkit](https://www.rainbowkit.com/). You'll need to [add the Flow Wallet](/blockchain-development-tutorials/evm/frameworks/rainbowkit) as a custom wallet. It's not included by default because it has special features that aren't compatible with other blockchains.
 
@@ -126656,7 +126559,7 @@ The last thing to do for this initial implementation is to add functionality so 
 
 For now, we'll just generate an error if the file is too big, but later on we can do that for the user as well.
 
-Add the `ImageUploader` component. This needs to handle uploading the image and displaying any errors. We'll keep the state for the image itself in `Content` so that it's accessible to other components:
+Add the `ImageUploader` component. This needs to be able to upload the image and display any errors. We'll keep the state for the image itself in `Content` so that it's accessible to other components:
 
 `_64
 
@@ -127104,7 +127007,7 @@ Now that you've completed this tutorial, you're ready to explore more complex on
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/image-gallery.md)
 
-Last updated on **Nov 6, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -127121,7 +127024,7 @@ Copy as Markdown
 * [Objectives](#objectives)* [Prerequisites](#prerequisites)
     + [Next.js and modern frontend development](#nextjs-and-modern-frontend-development)+ [Solidity](#solidity)* [Build an image gallery contract](#build-an-image-gallery-contract)
       + [Set up storage for images](#set-up-storage-for-images)+ [Construct functions to add and delete images](#construct-functions-to-add-and-delete-images)+ [Retrieval functions](#retrieval-functions)+ [Final contract](#final-contract)+ [Create a factory](#create-a-factory)+ [Track factories](#track-factories)+ [Test the factory](#test-the-factory)+ [Test the image gallery](#test-the-image-gallery)* [Build the frontend](#build-the-frontend)
-        + [Provider Setup](#provider-setup)+ [Add the connect button](#add-the-connect-button)+ [Import Your contracts](#import-your-contracts)+ [Add content](#add-content)+ [Gallery List](#gallery-list)+ [Display the images](#display-the-images)* [Image uploader](#image-uploader)* [Conclusion](#conclusion)
+        + [Provider setup](#provider-setup)+ [Add the connect button](#add-the-connect-button)+ [Import Your contracts](#import-your-contracts)+ [Add content](#add-content)+ [Gallery List](#gallery-list)+ [Display the images](#display-the-images)* [Image uploader](#image-uploader)* [Conclusion](#conclusion)
 
 Flow
 
@@ -135927,7 +135830,7 @@ On this page
 
 Plugins are a powerful way to extend the functionality of your Eliza AI agents. This guide will walk you through the process of how to create custom plugins that can enhance your agent's capabilities, from simple utilities to complex integrations with external services. You'll learn how to leverage the plugin system to create modular and reusable components for your AI agents.
 
-## Learning Objectives[​](#learning-objectives "Direct link to Learning Objectives")
+## Learning objectives[​](#learning-objectives "Direct link to Learning objectives")
 
 After you complete this tutorial, you will be able to:
 
@@ -135942,21 +135845,21 @@ After you complete this tutorial, you will be able to:
 
 Before you get started with Eliza, make sure you have:
 
-* [Node.js 23+](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) (using [nvm](https://github.com/nvm-sh/nvm) is recommended)
+* [Node.js 23+](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) (we recommend that you use [nvm](https://github.com/nvm-sh/nvm))
 * [pnpm 9+](https://pnpm.io/installation)
 * Git for version control
-* A code editor ([VS Code](https://code.visualstudio.com/), [Cursor](https://cursor.com/) or [VSCodium](https://vscodium.com) recommended)
+* A code editor (we recommend [VS Code](https://code.visualstudio.com/), [Cursor](https://cursor.com/) or [VSCodium](https://vscodium.com))
 * [Flow-cli](https://developers.flow.com/tools/flow-cli) for Flow blockchain interaction.
 
-> **Note for Windows Users:** [WSL 2](https://learn.microsoft.com/en-us/windows/wsl/install-manual) is required.
+> **Note for Windows users:** [WSL 2](https://learn.microsoft.com/en-us/windows/wsl/install-manual) is required.
 
 ## Quickstart[​](#quickstart "Direct link to Quickstart")
 
 Follow the [Quickstart Guide](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/eliza) to set up your development environment.
 
-## Plugin Development[​](#plugin-development "Direct link to Plugin Development")
+## Plugin development[​](#plugin-development "Direct link to Plugin development")
 
-### Create a Plugin repository from Template[​](#create-a-plugin-repository-from-template "Direct link to Create a Plugin repository from Template")
+### Create a plugin repository from Template[​](#create-a-plugin-repository-from-template "Direct link to Create a plugin repository from Template")
 
 Visit [Eliza Plugin Template](https://github.com/onflow/eliza-plugin-template) and click "Use this template" to create a new repository.
 
@@ -135966,7 +135869,7 @@ note
 
 Flow's Eliza plugin template uses Dependency Injection(`@elizaos-plugins/plugin-di`). You can learn more about the Dependency Injection in the [plugin's README.md](https://github.com/fixes-world/plugin-di). It allows you can use `Class` instead of `Object` for your `Actions`, `Providers`, `Services`, and so on. **If you don't want to use it, you can follow the other examples in Eliza Plugins organiazation.**
 
-### Add the Plugin repository to your Eliza project[​](#add-the-plugin-repository-to-your-eliza-project "Direct link to Add the Plugin repository to your Eliza project")
+### Add the plugin repository to your Eliza project[​](#add-the-plugin-repository-to-your-eliza-project "Direct link to Add the plugin repository to your Eliza project")
 
 Let's say you created a repository named `username/plugin-foo`.
 
@@ -136018,7 +135921,7 @@ _10
 
 }`
 
-### Build the Plugin[​](#build-the-plugin "Direct link to Build the Plugin")
+### Build the plugin[​](#build-the-plugin "Direct link to Build the plugin")
 
 Build the plugin with the following command:
 
@@ -136036,9 +135939,9 @@ _10
 
 pnpm build`
 
-### Add Plugin to the `character.json` you want to use[​](#add-plugin-to-the-characterjson-you-want-to-use "Direct link to add-plugin-to-the-characterjson-you-want-to-use")
+### Add the plugin to the `character.json` you want to use[​](#add-the-plugin-to-the-characterjson-you-want-to-use "Direct link to add-the-plugin-to-the-characterjson-you-want-to-use")
 
-Let's say you want to add the plugin to the `sample` character which is `characters/sample.character.json`.
+Let's say you want to add the plugin to the `sample` character, which is `characters/sample.character.json`.
 
 `_10
 
@@ -136066,7 +135969,7 @@ _10
 
 warning
 
-If you use Dependency Injection(`@elizaos-plugins/plugin-di`) in your plugin, remember to add it to the `postProcessors` field. And **`clients` field is deprecated** in the latest version of Eliza, so if you want to add clients, you also need to use `plugins` field.
+If you use Dependency Injection(`@elizaos-plugins/plugin-di`) in your plugin, remember to add it to the `postProcessors` field. The **`clients` field is deprecated** in the latest version of Eliza, so if you want to add clients, you also need to use `plugins` field.
 
 `_10
 
@@ -136108,7 +136011,7 @@ _10
 
 }`
 
-### Run the Eliza Agent with your Plugin[​](#run-the-eliza-agent-with-your-plugin "Direct link to Run the Eliza Agent with your Plugin")
+### Run the Eliza agent with your plugin[​](#run-the-eliza-agent-with-your-plugin "Direct link to Run the Eliza agent with your plugin")
 
 Run the Eliza agent to test the plugin.
 
@@ -136126,7 +136029,7 @@ _10
 
 pnpm start:debug --character="characters/sample.character.json"`
 
-### Interact with the Agent[​](#interact-with-the-agent "Direct link to Interact with the Agent")
+### Interact with the agent[​](#interact-with-the-agent "Direct link to Interact with the agent")
 
 Now, you're ready to start a conversation with your agent.
 
@@ -136136,7 +136039,7 @@ Open a new terminal window and run the client's http server.
 
 pnpm start:client`
 
-## Plugin Registration[​](#plugin-registration "Direct link to Plugin Registration")
+## Plugin registration[​](#plugin-registration "Direct link to Plugin registration")
 
 You need to register your plugin in the [Eliza Plugin Registry](https://github.com/elizaos-plugins/registry) to make it available for other users.
 
@@ -136150,7 +136053,7 @@ Eliza's plugin system provides a powerful way to extend the functionality of you
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/eliza/build-plugin.md)
 
-Last updated on **Oct 28, 2025** by **cshannon1218**
+Last updated on **Nov 20, 2025** by **cshannon1218**
 
 [Previous
 
@@ -136164,8 +136067,8 @@ Using AgentKit on Flow](/blockchain-development-tutorials/use-AI-to-build-on-flo
 
 Copy as Markdown
 
-* [Overview](#overview)* [Learning Objectives](#learning-objectives)* [Prerequisites](#prerequisites)* [Quickstart](#quickstart)* [Plugin Development](#plugin-development)
-          + [Create a Plugin repository from Template](#create-a-plugin-repository-from-template)+ [Add the Plugin repository to your Eliza project](#add-the-plugin-repository-to-your-eliza-project)+ [Build the Plugin](#build-the-plugin)+ [Add Plugin to the `character.json` you want to use](#add-plugin-to-the-characterjson-you-want-to-use)+ [Run the Eliza Agent with your Plugin](#run-the-eliza-agent-with-your-plugin)+ [Interact with the Agent](#interact-with-the-agent)* [Plugin Registration](#plugin-registration)* [Conclusion](#conclusion)
+* [Overview](#overview)* [Learning objectives](#learning-objectives)* [Prerequisites](#prerequisites)* [Quickstart](#quickstart)* [Plugin development](#plugin-development)
+          + [Create a plugin repository from Template](#create-a-plugin-repository-from-template)+ [Add the plugin repository to your Eliza project](#add-the-plugin-repository-to-your-eliza-project)+ [Build the plugin](#build-the-plugin)+ [Add the plugin to the `character.json` you want to use](#add-the-plugin-to-the-characterjson-you-want-to-use)+ [Run the Eliza agent with your plugin](#run-the-eliza-agent-with-your-plugin)+ [Interact with the agent](#interact-with-the-agent)* [Plugin registration](#plugin-registration)* [Conclusion](#conclusion)
 
 Flow
 
@@ -141264,7 +141167,7 @@ On this page
 
 # Using Foundry with Flow
 
-Foundry is a suite of development tools that simplifies the process to develop and deploy Solidity contracts to EVM networks. This guide will walk you through thow to deploy a Solidity contract to Flow EVM with the Foundry development toolchain. You can check out the official Foundry docs [here](https://book.getfoundry.sh/).
+Foundry is a suite of development tools that simplifies the process to develop and deploy Solidity contracts to EVM networks. This guide will walk you through how to deploy a Solidity contract to Flow EVM with the Foundry development toolchain. You can check out the official [Foundry docs].
 
 In this guide, we'll deploy an ERC-20 token contract to Flow EVM using Foundry. We'll cover:
 
@@ -141282,13 +141185,13 @@ To use Flow across all Foundry tools you need to:
    `_10
 
    --rpc-url https://testnet.evm.nodes.onflow.org`
-2. Use the `--legacy` flag to turn off [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559) style transactions. Flow will support EIP-1559 soon and this flag won't be needed.
+2. Use the `--legacy` flag to turn off [EIP-1559] style transactions. Flow will support EIP-1559 soon and this flag won't be needed.
 
 As an example, we'll show you how to deploy a fungible token contract to Flow EVM with Foundry. You will see how the above flags are used in practice.
 
-## Example: Deploying an ERC-20 Token Contract to Flow EVM[​](#example-deploying-an-erc-20-token-contract-to-flow-evm "Direct link to Example: Deploying an ERC-20 Token Contract to Flow EVM")
+## Example: Deploy an ERC-20 Token Contract to Flow EVM[​](#example-deploy-an-erc-20-token-contract-to-flow-evm "Direct link to Example: Deploy an ERC-20 Token Contract to Flow EVM")
 
-ERC-20 tokens are the most common type of tokens on Ethereum. We'll use [OpenZeppelin](https://www.openzeppelin.com/) starter templates with Foundry on Flow Testnet to deploy our own token called `MyToken`.
+ERC-20 tokens are the most common type of tokens on Ethereum. We'll use [OpenZeppelin] starter templates with Foundry on Flow Testnet to deploy our own token called `MyToken`.
 
 ### Installation[​](#installation "Direct link to Installation")
 
@@ -141308,17 +141211,17 @@ This will install the Foundry tool suite: `forge`, `cast`, `anvil`, and `chisel`
 
 You may need to reload your shell after `foundryup` installation.
 
-Check out the official [Installation](https://book.getfoundry.sh/getting-started/installation) guide for more information about different platforms or installing specific versions.
+Check out the official [Installation Guide] for more information about different platforms or how to install specific versions.
 
 ### Wallet setup[​](#wallet-setup "Direct link to Wallet setup")
 
-We first need to generate a key pair for our EVM account. We can do this using the `cast` tool:
+We first need to generate a key pair for our EVM account. We can do this with the `cast` tool:
 
 `_10
 
 cast wallet new`
 
-`cast` will print the private key and address of the new account. We can then paste the account address into the [Faucet](https://faucet.flow.com/fund-account) to fund it with some Testnet FLOW tokens.
+`cast` will print the private key and address of the new account. We can then paste the account address into the [Faucet] to fund it with some Testnet FLOW tokens.
 
 You can verify the balance of the account after funding. Replace `$YOUR_ADDRESS` with the address of the account you funded:
 
@@ -141684,7 +141587,7 @@ The above will print the deployed contract address. We'll use it in the next sec
 
 ### Verify a smart contract[​](#verify-a-smart-contract "Direct link to Verify a smart contract")
 
-After you deploy the contract, you can verify it so that others can see the source code and interact with it from Flow's block explorer. You can use the [`forge verify-contract`](https://book.getfoundry.sh/reference/forge/forge-verify-contract) command:
+After you deploy the contract, you can verify it so that others can see the source code and interact with it from Flow's block explorer. You can use the [`forge verify-contract`] command:
 
 `_10
 
@@ -141708,7 +141611,7 @@ src/MyToken.sol:MyToken`
 
 info
 
-When you verify a Mainnet contract, be sure to use the Mainnet [RPC](/build/evm/networks) and block explorer URLs.
+When you verify a Mainnet contract, be sure to use the Mainnet [RPC] and block explorer URLs.
 
 ### Query Testnet state[​](#query-testnet-state "Direct link to Query Testnet state")
 
@@ -141762,7 +141665,7 @@ _10
 
 "symbol()(string)"`
 
-### Sending Transactions[​](#sending-transactions "Direct link to Sending Transactions")
+### Send Transactions[​](#send-transactions "Direct link to Send Transactions")
 
 Let's create a second account and move some tokens with a transaction. You can use `cast wallet new` to create a new test account. You don't need to fund it to receive tokens. Replace `$NEW_ADDRESS` with the address of the new account:
 
@@ -141826,9 +141729,17 @@ _10
 
 $DEPLOYER_ADDRESS`
 
+[Foundry docs]: <https://book.getfoundry.sh/>)
+[EIP-1559]: <https://eips.ethereum.org/EIPS/eip-1559>
+[OpenZeppelin]: <https://www.openzeppelin.com/>
+[Installation Guide]: <https://book.getfoundry.sh/getting-started/installation>
+[Faucet]: <https://faucet.flow.com/fund-account>
+[`forge verify-contract`]: <https://book.getfoundry.sh/reference/forge/forge-verify-contract>
+[RPC]: ../../../build/evm/networks.md
+
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/development-tools/foundry.md)
 
-Last updated on **Nov 12, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -141842,8 +141753,8 @@ Build a Fully-Onchain Image Gallery](/blockchain-development-tutorials/evm/image
 
 Copy as Markdown
 
-* [Overview](#overview)* [Example: Deploying an ERC-20 Token Contract to Flow EVM](#example-deploying-an-erc-20-token-contract-to-flow-evm)
-    + [Installation](#installation)+ [Wallet setup](#wallet-setup)+ [Project setup](#project-setup)+ [Write the ERC-20 token contract](#write-the-erc-20-token-contract)+ [Testing](#testing)+ [Deploy to Flow Testnet](#deploy-to-flow-testnet)+ [Verify a smart contract](#verify-a-smart-contract)+ [Query Testnet state](#query-testnet-state)+ [Sending Transactions](#sending-transactions)
+* [Overview](#overview)* [Example: Deploy an ERC-20 Token Contract to Flow EVM](#example-deploy-an-erc-20-token-contract-to-flow-evm)
+    + [Installation](#installation)+ [Wallet setup](#wallet-setup)+ [Project setup](#project-setup)+ [Write the ERC-20 token contract](#write-the-erc-20-token-contract)+ [Testing](#testing)+ [Deploy to Flow Testnet](#deploy-to-flow-testnet)+ [Verify a smart contract](#verify-a-smart-contract)+ [Query Testnet state](#query-testnet-state)+ [Send Transactions](#send-transactions)
 
 Flow
 
@@ -153900,7 +153811,7 @@ FCL Android is the Android native SDK for FCL.
 
 One of the easiest ways to connect to a wallet via a mobile native dApp is through Flow's new support for Wallet Connect 2.0. This is the pattern that Monster Maker uses to connect to the [Flow Wallet](https://wallet.flow.com/). For more information on FCL Wallet Connect 2.0, check out this page:
 
-[FCL Wallet Connect](/build/tools/clients/fcl-js/wallet-connect)
+[FCL Wallet Discovery](/build/tools/clients/fcl-js/discovery)
 
 **How to build a native iOS dapp**
 
@@ -153911,7 +153822,7 @@ The Agile Monkeys wrote a very comprehensive guide on how to build a native mobi
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/mobile/ios-quickstart.md)
 
-Last updated on **Nov 4, 2025** by **cshannon1218**
+Last updated on **Nov 18, 2025** by **Chase Fleming**
 
 [Previous
 
@@ -163521,11 +163432,9 @@ On this page
 
 # Quickstart Guide to build AI Agent on Flow with Eliza
 
-## Overview[​](#overview "Direct link to Overview")
+Eliza is a powerful framework you can use to build AI agents that interact with users through natural language. This tutorial will guide you through how to set up and deploy an AI agent on the Flow blockchain with Eliza. You'll learn how to create intelligent agents that can understand and respond to user queries, and leverage Flow's secure and scalable infrastructure.
 
-Eliza is a powerful framework for building AI agents that can interact with users through natural language. This tutorial will guide you through how to set up and deploy an AI agent on the Flow blockchain with Eliza. You'll learn how to create intelligent agents that can understand and respond to user queries, while leveraging Flow's secure and scalable infrastructure.
-
-## Learning Objectives[​](#learning-objectives "Direct link to Learning Objectives")
+## Learning objectives[​](#learning-objectives "Direct link to Learning objectives")
 
 After you complete this tutorial, you will be able to:
 
@@ -163540,13 +163449,13 @@ After you complete this tutorial, you will be able to:
 
 Before you get started started with Eliza, make sure you have:
 
-* [Node.js 23+](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) (using [nvm](https://github.com/nvm-sh/nvm) is recommended)
+* [Node.js 23+](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) (we recommend that you use [nvm](https://github.com/nvm-sh/nvm))
 * [pnpm 9+](https://pnpm.io/installation)
 * Git for version control
-* A code editor ([VS Code](https://code.visualstudio.com/), [Cursor](https://cursor.com/) or [VSCodium](https://vscodium.com) recommended)
+* A code editor (we recommend [VS Code](https://code.visualstudio.com/), [Cursor](https://cursor.com/) or [VSCodium](https://vscodium.com))
 * [Flow-cli](https://developers.flow.com/tools/flow-cli) for Flow blockchain interaction.
 
-> **Note for Windows Users:** [WSL 2](https://learn.microsoft.com/en-us/windows/wsl/install-manual) is required.
+> **Note for Windows Uuers:** [WSL 2](https://learn.microsoft.com/en-us/windows/wsl/install-manual) is required.
 
 ## Installation[​](#installation "Direct link to Installation")
 
@@ -163633,7 +163542,7 @@ pnpm install --no-frozen-lockfile`
 
 warning
 
-Only use the `--no-frozen-lockfile` option when you're initially instantiating the repo or bump the version of a package or add a new package to your `package.json` file. This practice helps maintain consistency in your project's dependencies and prevents unintended changes to the lockfile.
+Only use the `--no-frozen-lockfile` option when you initially instantiate the repo or bump the version of a package or add a new package to your `package.json` file. This practice helps maintain consistency in your project's dependencies and prevents unintended changes to the lockfile.
 
 If you use ElizaOnFlow, you need to install Flow Cadence contracts dependencies to ensure that the Cadence extension correctly lints `*.cdc`.
 
@@ -163649,7 +163558,7 @@ Build all packages:
 
 pnpm build`
 
-## Configure Environment[​](#configure-environment "Direct link to Configure Environment")
+## Configure environment[​](#configure-environment "Direct link to Configure environment")
 
 Copy `.env.example` to `.env` and fill in the appropriate values.
 
@@ -163663,10 +163572,10 @@ In normal development, it's a best practice to use a `.env` to protect API keys 
 
 Edit `.env` and add your values. Do **NOT** add this file to version control.
 
-### Choose Your Model[​](#choose-your-model "Direct link to Choose Your Model")
+### Choose Your model[​](#choose-your-model "Direct link to Choose Your model")
 
 Eliza supports multiple AI models and you set which model to use inside the character JSON file.
-But remember, after you chosed a model, you need to set up the relevant configuration.
+But remember, after you choose a model, you need to set up the relevant configuration.
 
 Check the full list of supported LLMs in origin Eliza: [Models.ts](https://github.com/elizaOS/eliza/blob/main/packages/core/src/models.ts)
 
@@ -163681,7 +163590,7 @@ Suggested models:
 
 > To choose a model, you need to set in charactor configuration. For example: OPENAI, set `modelProvider: "openai"` in charactor JSON file or `modelProvider: ModelProviderName.OPENAI` in `charactor.ts`
 
-### Setup Agent's Flow Account[​](#setup-agents-flow-account "Direct link to Setup Agent's Flow Account")
+### Setup Agent's Flow account[​](#setup-agents-flow-account "Direct link to Setup Agent's Flow account")
 
 Create a new Flow account for the Agent. Learn more: [doc](https://developers.flow.com/tools/flow-cli/accounts/create-accounts)
 
@@ -163711,9 +163620,9 @@ FLOW_ENDPOINT_URL= # Default: <https://mainnet.onflow.org>`
 
 For testnet, check Flow's [Networks](https://developers.flow.com/protocol/flow-networks) for more information.
 
-## Create Your First Agent[​](#create-your-first-agent "Direct link to Create Your First Agent")
+## Create your first agent[​](#create-your-first-agent "Direct link to Create your first agent")
 
-### Create a Character File[​](#create-a-character-file "Direct link to Create a Character File")
+### Create a character file[​](#create-a-character-file "Direct link to Create a character file")
 
 View the `deps/eliza/characters/` directory for a number of character files to try out.
 Additionally, you can edit `charactor.ts` to override Eliza's `defaultCharacter` file, which is the default character file used if no character json files are provided.
@@ -163746,7 +163655,7 @@ You can load multiple characters with a comma-separated list:
 
 pnpm start --characters="characters/sample.character.json, characters/scooby.character.json"`
 
-### Add / Develop Plugins[​](#add--develop-plugins "Direct link to Add / Develop Plugins")
+### Add and develop plugins[​](#add-and-develop-plugins "Direct link to Add and develop plugins")
 
 Run `npx elizaos plugins list` to get a list of available plugins or visit [Eliza Plugins Registry](https://elizaos.github.io/registry)
 
@@ -163754,15 +163663,15 @@ Run `npx elizaos plugins add @elizaos-plugins/plugin-NAME` to install the plugin
 
 To create a new plugin **for your own business**, refer to the [plugin development guide](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/eliza/build-plugin).
 
-#### Additional Requirements[​](#additional-requirements "Direct link to Additional Requirements")
+#### Additional requirements[​](#additional-requirements "Direct link to Additional requirements")
 
-You may need to install Sharp. If you see an error when starting up, install it with the following command:
+You may need to install Sharp. If you see an error when you start it up, install it with the following command:
 
 `_10
 
 pnpm install --include=optional sharp`
 
-### **Interact with the Agent**[​](#interact-with-the-agent "Direct link to interact-with-the-agent")
+### **Interact with the agent**[​](#interact-with-the-agent "Direct link to interact-with-the-agent")
 
 Now you're ready to start a conversation with your agent.
 
@@ -163780,7 +163689,7 @@ After the client is running, you'll see a message like this:
 
 Click the link or open your browser to `http://localhost:5173/`. You'll see the chat interface connect to the system, and you can now interact with your character.
 
-## Common Issues & Solutions[​](#common-issues--solutions "Direct link to Common Issues & Solutions")
+## Common issues and solutions[​](#common-issues-and-solutions "Direct link to Common issues and solutions")
 
 Check the orgin Eliza's [Common Issues & Solutions](https://elizaos.github.io/eliza/docs/quickstart/#common-issues--solutions)
 
@@ -163792,7 +163701,7 @@ The Eliza framework provides a powerful way to create intelligent agents that ca
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/eliza/index.md)
 
-Last updated on **Oct 28, 2025** by **cshannon1218**
+Last updated on **Nov 20, 2025** by **cshannon1218**
 
 [Previous
 
@@ -163806,9 +163715,9 @@ Eliza Plugin Guide](/blockchain-development-tutorials/use-AI-to-build-on-flow/ag
 
 Copy as Markdown
 
-* [Overview](#overview)* [Learning Objectives](#learning-objectives)* [Prerequisites](#prerequisites)* [Installation](#installation)* [Configure Environment](#configure-environment)
-          + [Choose Your Model](#choose-your-model)+ [Setup Agent's Flow Account](#setup-agents-flow-account)* [Create Your First Agent](#create-your-first-agent)
-            + [Create a Character File](#create-a-character-file)+ [**Start the Agent**](#start-the-agent)+ [Add / Develop Plugins](#add--develop-plugins)+ [**Interact with the Agent**](#interact-with-the-agent)* [Common Issues & Solutions](#common-issues--solutions)* [Conclusion](#conclusion)
+* [Learning objectives](#learning-objectives)* [Prerequisites](#prerequisites)* [Installation](#installation)* [Configure environment](#configure-environment)
+        + [Choose Your model](#choose-your-model)+ [Setup Agent's Flow account](#setup-agents-flow-account)* [Create your first agent](#create-your-first-agent)
+          + [Create a character file](#create-a-character-file)+ [**Start the Agent**](#start-the-agent)+ [Add and develop plugins](#add-and-develop-plugins)+ [**Interact with the agent**](#interact-with-the-agent)* [Common issues and solutions](#common-issues-and-solutions)* [Conclusion](#conclusion)
 
 Flow
 
@@ -170106,7 +170015,7 @@ This tutorial will guide you through how to create a simple web application, con
 
 ## Step 1: Set up the Next.js project[​](#step-1-set-up-the-nextjs-project "Direct link to Step 1: Set up the Next.js project")
 
-This tutorial will follow [Wagmi getting-started manual tutorial](https://wagmi.sh/react/getting-started).
+This tutorial will follow the [Wagmi getting-started manual tutorial](https://wagmi.sh/react/getting-started).
 
 First, let's create a Wagmi project named `flow-evm-wagmi`. We will use npm but you are welcome to use yarn or bun.
 
@@ -170136,7 +170045,8 @@ npm install`
 
 ## Step 2: Configure Wagmi and connect the Wallet[​](#step-2-configure-wagmi-and-connect-the-wallet "Direct link to Step 2: Configure Wagmi and connect the Wallet")
 
-Make sure you have Metamask installed and Flow network configured. [Metamask and Flow blockchain](/build/evm/using).
+Make sure you have Metamask installed and Flow network configured. For more information, see [Metamask and Flow blockchain](/build/evm/using).
+
 Wagmi needs to know what networks to be aware of. Let's configure to use Flow Testnet and update the `config.ts` file with the following:
 
 `_11
@@ -170546,7 +170456,7 @@ _47
 
 export default HelloWorld;`
 
-Reminder: Replace YOUR\_CONTRACT\_ADDRESS with the actual address of your deployed HelloWorld contract.
+Replace YOUR\_CONTRACT\_ADDRESS with the actual address of your deployed HelloWorld contract.
 
 Also notice you need the HelloWorld contract ABI, save this to a new file called `HelloWorld.json` in the app directory.
 
@@ -170742,7 +170652,7 @@ _48
 
 }`
 
-## Step 4: Integrate the HelloWorld Component[​](#step-4-integrate-the-helloworld-component "Direct link to Step 4: Integrate the HelloWorld Component")
+## Step 4: Integrate the HelloWorld component[​](#step-4-integrate-the-helloworld-component "Direct link to Step 4: Integrate the HelloWorld component")
 
 Finally, import and use the HelloWorld component in your `pages.tsx`, throw it at the bottom of the render section.
 
@@ -170838,7 +170748,7 @@ To test it, update the greeting, sign a transaction in your Metamask, wait a min
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/frameworks/wagmi.md)
 
-Last updated on **Nov 6, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -170852,7 +170762,7 @@ Rainbowkit](/blockchain-development-tutorials/evm/frameworks/rainbowkit)
 
 Copy as Markdown
 
-* [Viem Flow Config](#viem-flow-config)* [Prerequisites](#prerequisites)* [Step 1: Set up the Next.js project](#step-1-set-up-the-nextjs-project)* [Step 2: Configure Wagmi and connect the Wallet](#step-2-configure-wagmi-and-connect-the-wallet)* [Step 3: Create the interface for HelloWorld contract](#step-3-create-the-interface-for-helloworld-contract)* [Step 4: Integrate the HelloWorld Component](#step-4-integrate-the-helloworld-component)
+* [Viem Flow Config](#viem-flow-config)* [Prerequisites](#prerequisites)* [Step 1: Set up the Next.js project](#step-1-set-up-the-nextjs-project)* [Step 2: Configure Wagmi and connect the Wallet](#step-2-configure-wagmi-and-connect-the-wallet)* [Step 3: Create the interface for HelloWorld contract](#step-3-create-the-interface-for-helloworld-contract)* [Step 4: Integrate the HelloWorld component](#step-4-integrate-the-helloworld-component)
 
 Flow
 
@@ -170932,7 +170842,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* ref
 
@@ -185886,7 +185796,7 @@ On this page
 
 # Contribute to Flow MCP
 
-This tutorial will guide you through the process of contributing to the Flow MCP server. The [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) is an open standard developed by Anthropic that allows AI applications to interact seamlessly with external tools, systems, and data sources.
+This tutorial will guide you through how to contribute to the Flow MCP server. The [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) is an open standard developed by Anthropic that allows AI applications to interact seamlessly with external tools, systems, and data sources.
 
 ## Learning objectives[​](#learning-objectives "Direct link to Learning objectives")
 
@@ -185959,7 +185869,7 @@ After you complete this tutorial, you should be able to:
    If you want to add new Cadence files for your new tool, you can add them in the `src/cadence` directory. The `bun` will compile the Cadence files into `String`, so the dedicated Cadence files will help the project to be more organized.
 
    And we recommended that you add a test for your new tool in the `src/tools/your-tool-name/your-tool.test.ts` file.
-3. Add a prompt export in the `src/prompts` directory which is used to confirm that MCP clients can understand the new tool. You can refer to the existing tools for examples.
+3. Add a prompt export in the `src/prompts` directory which is used to confirm that MCP clients can understand the new tool. You can refer to the current tools for examples.
 4. Add your new tool to the `src/tools/index.ts` file.
 
    `_10
@@ -185996,7 +185906,7 @@ We will review your pull request and merge it if it's ready.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp/contribute-to-mcp.md)
 
-Last updated on **Oct 30, 2025** by **cshannon1218**
+Last updated on **Nov 20, 2025** by **cshannon1218**
 
 [Previous
 
@@ -186195,7 +186105,7 @@ On this page
 
 # Cross-VM Bridge
 
-Flow provides the [Cross-VM Bridge](https://www.github.com/onflow/flow-evm-bridge) which allows the movement of fungible and non-fungible tokens between Flow-Cadence & Flow-EVM. The Cross-VM Bridge is a contract-based protocol which allows the automated and atomic bridging of tokens from Cadence into EVM with their corresponding ERC-20 and ERC-721 token types.
+Flow provides the [Cross-VM Bridge] which allows the movement of fungible and non-fungible tokens between Flow-Cadence & Flow-EVM. The Cross-VM Bridge is a contract-based protocol which allows the automated and atomic bridging of tokens from Cadence into EVM with their corresponding ERC-20 and ERC-721 token types.
 
 In the opposite direction, it supports bridging of arbitrary ERC-20 and ERC-721 tokens from EVM to Cadence as their corresponding FT or NFT token types.
 
@@ -186205,11 +186115,9 @@ If a developer wants to define and connect the NFT contracts on both sides of th
 
 The Cross-VM Bridge internalizes the capabilities to deploy new token contracts in either VM state as needed, resolves access to and maintains links between associated contracts. It also automates account and contract calls to enforce source VM asset burn or lock, and target VM token mint or unlock.
 
-Developers who want to use the Cross-VM Bridge must use a Cadence transaction. Cross-VM bridging functionality is not currently available natively in Flow EVM. By extension, this means that the EVM account bridging
-from EVM to Cadence must be a [`CadenceOwnedAccount` (COA)](/blockchain-development-tutorials/cross-vm-apps/interacting-with-coa) as this is the only EVM account type that can be controlled from the Cadence runtime.
+Developers who want to use the Cross-VM Bridge must use a Cadence transaction. Cross-VM bridging functionality is not currently available natively in Flow EVM. By extension, this means that the EVM account bridging from EVM to Cadence must be a [`CadenceOwnedAccount` (COA)] as this is the only EVM account type that can be controlled from the Cadence runtime.
 
-This [FLIP-233](https://github.com/onflow/flips/pull/233) outlines the architecture and implementation of the VM bridge. An additional [FLIP-318](https://github.com/onflow/flips/blob/main/application/20250131-cross-vm-nft-support.md) describes how developers can create custom associations
-between NFTs they define and control in each VM.
+This [FLIP-233] outlines the architecture and implementation of the VM bridge. An additional [FLIP-318] describes how developers can create custom associations between NFTs they define and control in each VM.
 
 This document will focus on how to use the Cross-VM Bridge and considerations for fungible and non-fungible token projects that deploy to either Cadence or EVM.
 
@@ -186219,29 +186127,26 @@ You can find the core bridge contracts at the following addresses:
 
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Contracts Testnet Mainnet|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | All Cadence Bridge contracts [`0xdfc20aee650fcbdf`](https://contractbrowser.com/account/0xdfc20aee650fcbdf/contracts) [`0x1e4aa0b87d10b141`](https://contractbrowser.com/account/0x1e4aa0b87d10b141/contracts)| `FlowEVMBridgeFactory.sol` [`0xf8146b4aef631853f0eb98dbe28706d029e52c52`](https://evm-testnet.flowscan.io/address/0xF8146B4aEF631853F0eB98DBE28706d029e52c52) [`0x1c6dea788ee774cf15bcd3d7a07ede892ef0be40`](https://evm.flowscan.io/address/0x1C6dEa788Ee774CF15bCd3d7A07ede892ef0bE40)| `FlowEVMBridgeDeploymentRegistry.sol` [`0x8781d15904d7e161f421400571dea24cc0db6938`](https://evm-testnet.flowscan.io/address/0x8781d15904d7e161f421400571dea24cc0db6938) [`0x8fdec2058535a2cb25c2f8cec65e8e0d0691f7b0`](https://evm.flowscan.io/address/0x8FDEc2058535A2Cb25C2f8ceC65e8e0D0691f7B0)| `FlowEVMBridgedERC20Deployer.sol` [`0x4d45CaD104A71D19991DE3489ddC5C7B284cf263`](https://evm-testnet.flowscan.io/address/0x4d45CaD104A71D19991DE3489ddC5C7B284cf263) [`0x49631Eac7e67c417D036a4d114AD9359c93491e7`](https://evm.flowscan.io/address/0x49631Eac7e67c417D036a4d114AD9359c93491e7)| `FlowEVMBridgedERC721Deployer.sol` [`0x1B852d242F9c4C4E9Bb91115276f659D1D1f7c56`](https://evm-testnet.flowscan.io/address/0x1B852d242F9c4C4E9Bb91115276f659D1D1f7c56) [`0xe7c2B80a9de81340AE375B3a53940E9aeEAd79Df`](https://evm.flowscan.io/address/0xe7c2B80a9de81340AE375B3a53940E9aeEAd79Df) | | | | | | | | | | | | | | | | | |
+| Contracts Testnet Mainnet|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | All Cadence Bridge contracts [`0xdfc20aee650fcbdf`] [`0x1e4aa0b87d10b141`]| `FlowEVMBridgeFactory.sol` [`0xf8146b4aef631853f0eb98dbe28706d029e52c52`] [`0x1c6dea788ee774cf15bcd3d7a07ede892ef0be40`]| `FlowEVMBridgeDeploymentRegistry.sol` [`0x8781d15904d7e161f421400571dea24cc0db6938`] [`0x8fdec2058535a2cb25c2f8cec65e8e0d0691f7b0`]| `FlowEVMBridgedERC20Deployer.sol` [`0x4d45CaD104A71D19991DE3489ddC5C7B284cf263`] [`0x49631Eac7e67c417D036a4d114AD9359c93491e7`]| `FlowEVMBridgedERC721Deployer.sol` [`0x1B852d242F9c4C4E9Bb91115276f659D1D1f7c56`] [`0xe7c2B80a9de81340AE375B3a53940E9aeEAd79Df`] | | | | | | | | | | | | | | | | | |
 
 And below are the bridge escrow's EVM addresses. These addresses are COAs and are stored stored in the same Flow account
 as you'll find the Cadence contracts (see above).
 
 |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- |
-| Network Address|  |  |  |  | | --- | --- | --- | --- | | Testnet [`0x0000000000000000000000023f946ffbc8829bfd`](https://evm-testnet.flowscan.io/address/0x0000000000000000000000023f946FFbc8829BFD)| Mainnet [`0x00000000000000000000000249250a5c27ecab3b`](https://evm.flowscan.io/address/0x00000000000000000000000249250a5C27Ecab3B) | | | | | |
+| Network Address|  |  |  |  | | --- | --- | --- | --- | | Testnet [`0x0000000000000000000000023f946ffbc8829bfd`]| Mainnet [`0x00000000000000000000000249250a5c27ecab3b`] | | | | | |
 
-## Interacting With the Bridge[​](#interacting-with-the-bridge "Direct link to Interacting With the Bridge")
+## Interact With the Bridge[​](#interact-with-the-bridge "Direct link to Interact With the Bridge")
 
 info
 
-All bridging activity in either direction is orchestrated via Cadence on COA EVM accounts. This means that all bridging activity must be initiated via a Cadence transaction, not an EVM transaction regardless of the directionality of the bridge request. For more information on the interplay between Cadence and EVM, see [How Flow EVM
-Works](/build/evm/how-it-works).
+All bridging activity in either direction is orchestrated via Cadence on COA EVM accounts. This means that all bridging activity must be initiated via a Cadence transaction, not an EVM transaction, regardless of the directionality of the bridge request. For more information on the interplay between Cadence and EVM, see [How Flow EVM Works].
 
 ## Overview[​](#overview "Direct link to Overview")
 
-The Flow EVM bridge allows both fungible and non-fungible tokens to move atomically between Cadence and EVM. In EVM, fungible tokens are defined as ERC20 tokens, and non-fungible tokens as ERC721 tokens. In Cadence, fungible tokens are defined by contracts that implement [the `FungibleToken` interface](https://github.com/onflow/flow-ft/blob/master/contracts/FungibleToken.cdc)
-and non-fungible tokens implement [the `NonFungibleToken` interface](https://github.com/onflow/flow-nft/blob/master/contracts/NonFungibleToken.cdc).
-You can find full guides to create these projects [here](/blockchain-development-tutorials/tokens/nft-cadence).
+The Flow EVM bridge allows both fungible and non-fungible tokens to move atomically between Cadence and EVM. In EVM, fungible tokens are defined as ERC20 tokens, and non-fungible tokens as ERC721 tokens. In Cadence, fungible tokens are defined by contracts that implement [the `FungibleToken` interface] and non-fungible tokens implement [the `NonFungibleToken` interface]. You can find full guides to create these projects [here].
 
-Like all operations on Flow, there are native fees associated with both computation and storage. To prevent spam and sustain the bridge account's storage consumption, fees are charged for both onboarding assets and bridging assets. In the case where storage consumption is expected, fees are charged based on the storage consumed at the current network storage rate.
+Like all operations on Flow, there are native fees associated with both computation and storage. To prevent spam and sustain the bridge account's storage consumption, fees are charged to both onboard assets and bridge assets. In the case where storage consumption is expected, fees are charged based on the storage consumed at the current network storage rate.
 
 ## Onboard your token to the bridge[​](#onboard-your-token-to-the-bridge "Direct link to Onboard your token to the bridge")
 
@@ -186255,17 +186160,17 @@ To create this association, the asset must be "onboarded" to the bridge before b
 
 Any user registers the native token contract with the bridge and the bridge deploys a basic templated version of the contract in the target VM. This basic contract is automatically associated with the native contract and is used for bridging. The developer has no direct control over this bridge-deployed contract because the bridge controls it.
 
-This method is covered in the [Automatic Onboarding Section](#automatic-onboarding)
+This method is covered in the [Automatic Onboarding Section].
 
 ### Option 2: custom association onboarding[​](#option-2-custom-association-onboarding "Direct link to Option 2: custom association onboarding")
 
 With this option (available for only for NFTs), developers can deploy their own contract to the target VM and declare a custom association between it and the native contract. This allows them to have more control over both contracts, which lets them to include more sophisticated features and mechanisms in their bridged token contracts such as ERC-721C, unique metadata views, and more that aren't included in the default bridged template versions.
 
-This method is covered in the [Custom Association Section](#custom-association-onboarding)
+This method is covered in the [Custom Association Section].
 
 info
 
-Before you continue to onboard your token, review the [Prep Your Assets for Bridging](#prep-your-assets-for-bridging) section of this document. This describes some steps you should follow to make sure that your native asset or bridged asset are properly set up for you to register them with the bridge.
+Before you continue to onboard your token, review the [Prep Your Assets for Bridging] section of this document. This describes some steps you should follow to make sure that your native asset or bridged asset are properly set up for you to register them with the bridge.
 
 ## Automatic onboarding[​](#automatic-onboarding "Direct link to Automatic onboarding")
 
@@ -186699,15 +186604,13 @@ _55
 
 ## Custom association onboarding[​](#custom-association-onboarding "Direct link to Custom association onboarding")
 
-With [Custom Associations](https://github.com/onflow/flips/blob/main/application/20250131-cross-vm-nft-support.md),
-developers can deploy NFT contracts in both VMs and associate them with each other, which allows them to retain control of the contracts in both VMs as well as implement custom use-case specific functionality.
+With [Custom Associations], developers can deploy NFT contracts in both VMs and associate them with each other, which allows them to retain control of the contracts in both VMs as well as implement custom use-case specific functionality.
 
 To do this, each contract must implement a special interface that tells the bridge what the associated contract is in the other VM. The fact that both point to each other validates the intended association, which prevents spoofing. If the contracts do not point to each other this way, you can't register them as a custom association.
 
-Review the [Preparing Custom Associations](#preparing-custom-associations) section to learn how to set up each of your contracts for a custom association.
+Review the [Preparing Custom Associations] section to learn how to set up each of your contracts for a custom association.
 
-Below is the transaction for onboarding NFTs for a custom association. Remember that both the Cadence and the Solidity contract need to be deployed
-and include the special interface conformances to point to each other before registration!
+Below is the transaction for onboarding NFTs for a custom association. Remember that both the Cadence and the Solidity contract need to be deployed and include the special interface conformances to point to each other before registration!
 
 **Onboard an NFT Custom Association:**
 
@@ -187222,7 +187125,7 @@ _19
 
 #### NFTs[​](#nfts "Direct link to NFTs")
 
-Any Cadence NFTs taht bridge to EVM are escrowed in the bridge account and either minted in a bridge-deployed ERC721 contract or transferred from escrow to the calling COA in EVM. On the return trip, NFTs are escrowed in EVM - owned by the bridge's COA - and either unlocked from escrow if locked or minted from a bridge-owned NFT contract.
+Any Cadence NFTs that bridge to EVM are escrowed in the bridge account and either minted in a bridge-deployed ERC721 contract or transferred from escrow to the calling COA in EVM. On the return trip, NFTs are escrowed in EVM - owned by the bridge's COA - and either unlocked from escrow if locked or minted from a bridge-owned NFT contract.
 
 Below are transactions relevant to bridging NFTs:
 
@@ -188132,9 +188035,9 @@ _113
 
 #### Fungible tokens[​](#fungible-tokens "Direct link to Fungible tokens")
 
-Any Cadence fungible tokens bridging to EVM are escrowed in the bridge account only if they are Cadence-native. If the bridge defines the tokens, they are burned. On the return trip the pattern is similar, as the bridge burns bridge-defined tokens or escrows them if they are EVM-native. In all cases, if the bridge has authority to mint on one side, it must escrow on the other as the native VM contract is owned by an external party.
+Any Cadence fungible tokens that bridge to EVM are escrowed in the bridge account only if they are Cadence-native. If the bridge defines the tokens, they are burned. On the return trip the pattern is similar, as the bridge burns bridge-defined tokens or escrows them if they are EVM-native. In all cases, if the bridge has authority to mint on one side, it must escrow on the other as the native VM contract is owned by an external party.
 
-With fungible tokens in particular, there may be some cases where the Cadence contract is not deployed to the bridge account, but the bridge still follows a mint/burn pattern in Cadence. These cases are handled via [`TokenHandler`](https://github.com/onflow/flow-evm-bridge/blob/main/cadence/contracts/bridge/interfaces/FlowEVMBridgeHandlerInterfaces.cdc) implementations. Also know that moving $FLOW to EVM is built into the `EVMAddress` object so any requests to bridge $FLOW to EVM will simply leverage this interface; however, moving $FLOW from EVM to Cadence must be done through the COA resource.
+With fungible tokens in particular, there may be some cases where the Cadence contract is not deployed to the bridge account, but the bridge still follows a mint/burn pattern in Cadence. These cases are handled via [`TokenHandler`] implementations. Also know that moving $FLOW to EVM is built into the `EVMAddress` object so any requests to bridge $FLOW to EVM will simply leverage this interface; however, you must move $FLOW from EVM to Cadence through the COA resource.
 
 Below are transactions relevant to bridging fungible tokens:
 
@@ -189072,7 +188975,7 @@ To maximize utility to the ecosystem, this bridge is permissionless and open to 
 
 ### EVMBridgedMetadata[​](#evmbridgedmetadata "Direct link to EVMBridgedMetadata")
 
-Proposed in [@onflow/flow-nft/pull/203](https://github.com/onflow/flow-nft/pull/203), the `EVMBridgedMetadata` view presents a mechanism to both represent metadata from bridged EVM assets as well as allow Cadence-native projects to specify the representation of their assets in EVM. It isn'trequired to implement this view to bridge asets, but the bridge does default to it when available as a way to provide projects greater control over their EVM asset definitions within the scope of ERC20 and ERC721 standards.
+Proposed in [@onflow/flow-nft/pull/203], the `EVMBridgedMetadata` view presents a mechanism to both represent metadata from bridged EVM assets as well as allow Cadence-native projects to specify the representation of their assets in EVM. It isn't required to implement this view to bridge asets, but the bridge does default to it when available as a way to provide projects greater control over their EVM asset definitions within the scope of ERC20 and ERC721 standards.
 
 The interface for this view is as follows:
 
@@ -189154,10 +189057,9 @@ This uri value could be a pointer to some offchain metadata if you expect your m
 
 The key consideration with respect to metadata is the distinct metadata storage patterns between ecosystem. It's critical for NFT utility that the metadata be bridged in addition to the representation of the NFTs ownership. However, it's commonplace for Cadence NFTs to store metadata onchain while EVM NFTs often store an onchain pointer to metadata stored offchain.
 
-For Cadence NFTs to be properly represented in EVM platforms, the metadata must be bridged in
-a format expected by those platforms and be done in a manner that also preserves the atomicity of bridge requests. The path forward on this was decided to be a commitment of serialized Cadence NFT metadata into formats popular in the EVM ecosystem.
+For Cadence NFTs to be properly represented in EVM platforms, the metadata must be bridged in a format expected by those platforms and be done in a manner that also preserves the atomicity of bridge requests. The path forward on this was decided to be a commitment of serialized Cadence NFT metadata into formats popular in the EVM ecosystem.
 
-For assets that do not implement `EVMBridgedMetadata`, the bridge will attempt to serialize the metadata of the asset as a JSON data URL string. This is done via the [`SerializeMetadata` contract](https://github.com/onflow/flow-evm-bridge/blob/main/cadence/contracts/utils/SerializeMetadata.cdc) which serializes metadata values into a JSON blob compatible with the OpenSea metadata standard. The serialized metadata is then committed as the ERC721 `tokenURI` upon bridging Cadence-native NFTs to EVM. Since Cadence NFTs can easily update onchain metadata either by field or by the ownership of sub-NFTs, this serialization pattern enables token URI updates on subsequent bridge requests.
+For assets that do not implement `EVMBridgedMetadata`, the bridge will attempt to serialize the metadata of the asset as a JSON data URL string. This is done via the [`SerializeMetadata` contract] which serializes metadata values into a JSON blob compatible with the OpenSea metadata standard. The serialized metadata is then committed as the ERC721 `tokenURI` upon bridging Cadence-native NFTs to EVM. Since Cadence NFTs can easily update onchain metadata either by field or by the ownership of sub-NFTs, this serialization pattern allows token URI updates on subsequent bridge requests.
 
 ### Prepar custom associations[​](#prepar-custom-associations "Direct link to Prepar custom associations")
 
@@ -189173,7 +189075,7 @@ The bridge only supports a single custom association declaration. This means tha
 
 #### Cadence[​](#cadence "Direct link to Cadence")
 
-All Cadence NFT contracts implement [Metadata Views](/build/cadence/advanced-concepts/metadata-views) that return metadata about their NFTs in standard ways via the `{Contract}.resolveContractView()` and `{NFT}.resolveView()` methods.
+All Cadence NFT contracts implement [Metadata Views] that return metadata about their NFTs in standard ways via the `{Contract}.resolveContractView()` and `{NFT}.resolveView()` methods.
 
 The following new view (`CrossVMMetadataViews.EVMPointer`) **must** be resolved at the contract level (`ViewResolver.resolveContractView()`) for a given Type **and** at the NFT level (`ViewResolver.Resolver.resolveView()`)
 
@@ -189223,7 +189125,7 @@ _11
 
 This view allows a Cadence contract to specify which Solidity contract it is associated with.
 
-You can see an example of how this view is implemented in [the `ExampleNFT` contract](https://github.com/onflow/flow-nft/blob/master/contracts/ExampleNFT.cdc#L173-L195) in the Flow Non-Fungible Token repo.
+You can see an example of how this view is implemented in [the `ExampleNFT` contract] in the Flow Non-Fungible Token repo.
 
 If your EVM contract expects metadata to be passed from Cadence at the time of bridging, you must implement the `CrossVMMetadataViews.EVMBytesMetadata` view. You'll find this useful for Cadence-native NFTs with dynamic metadata. This view will be resolved by the bridge and passed to your EVM contract when the `fulfillToEVM` method is called.
 
@@ -189347,7 +189249,7 @@ _29
 
 }`
 
-You can see an example of an implementation of this interface in the [Flow EVM bridge repo ExampleNFT contract](https://github.com/onflow/flow-evm-bridge/blob/flip-318/cadence/contracts/example-assets/cross-vm-nfts/ExampleEVMNativeNFT.cdc#L352-L377).
+You can see an example of an implementation of this interface in the [Flow EVM bridge repo ExampleNFT contract].
 
 A Capability with the `FulfillFromEVM` entitlement is required at the time of registration so the bridge can fulfill NFTs bridged from EVM for the first time.
 
@@ -189397,13 +189299,13 @@ _10
 
 }`
 
-As an example, [`ICrossVM` is already implemented](https://github.com/onflow/flow-evm-bridge/blob/main/solidity/src/interfaces/ICrossVM.sol) and in use in the bridged [ERC721](https://github.com/onflow/flow-evm-bridge/blob/flip-318/solidity/src/templates/FlowEVMBridgedERC721.sol#L37-L43) and [ERC20](https://github.com/onflow/flow-evm-bridge/blob/flip-318/solidity/src/templates/FlowEVMBridgedERC20.sol#L13-L40) templates.
+As an example, [`ICrossVM` is already implemented] and in use in the bridged [ERC721] and [ERC20] templates.
 
 If you want to register a custom association for an NFT that is native to Cadence, which means that your project distributes NFTs to users on the Cadence side, then your ERC721 contract must implement the `CrossVMBridgeERC721Fulfillment` contract. This is a required conformance that does three primary things:
 
-1. Implements the mint/escrow pattern expected by the VM bridge
-2. Allows for the passing of arbitrary abi-encodable metadata from the Cadence NFT at the time of bridging
-3. Exposes two optional hooks enabling you to update the fulfilled token's URI with the provided metadata at the time of bridging
+1. Implements the mint/escrow pattern expected by the VM bridge.
+2. Allows for the passing of arbitrary abi-encodable metadata from the Cadence NFT at the time of bridging.
+3. Exposes two optional hooks, which allows you to update the fulfilled token's URI with the provided metadata at the time of bridging.
 
 Here is the Solidity contract to implement:
 
@@ -189799,16 +189701,15 @@ It's also recognized that the logic of some use cases may actually be compromise
 
 For instance, an ERC721 implementation may reclaim a user's assets after a month of inactivity. In such a case, bridging that ERC721 to Cadence would decouple the representation of ownership of the bridged NFT from the actual ownership in the defining ERC721 contract after the token had been reclaimed - there would be no NFT in escrow for the bridge to transfer on fulfillment of the NFT back to EVM. In such cases, projects may choose to opt-out of bridging, but **importantly must do so before the asset has been onboarded to the bridge**.
 
-For Solidity contracts, opting out is as simple as extending the [`BridgePermissions.sol` abstract contract](https://github.com/onflow/flow-evm-bridge/blob/main/solidity/src/interfaces/BridgePermissions.sol) which defaults `allowsBridging()` to `false`. The bridge explicitly checks for the implementation of `IBridgePermissions` and the value of `allowsBridging()` to validate that the contract has not opted out of bridging.
+For Solidity contracts, opting out is as simple as extending the [`BridgePermissions.sol` abstract contract] which defaults `allowsBridging()` to `false`. The bridge explicitly checks for the implementation of `IBridgePermissions` and the value of `allowsBridging()` to validate that the contract has not opted out of bridging.
 
-Similarly, Cadence contracts can implement the [`IBridgePermissions.cdc` contract interface](https://github.com/onflow/flow-evm-bridge/blob/main/cadence/contracts/bridge/interfaces/IBridgePermissions.cdc). This contract has a single method `allowsBridging()` with a default implementation returning `false`. Again, the bridge explicitly checks for the implementation of `IBridgePermissions` and the value of `allowsBridging()` to validate that the contract has not opted out of bridging. Should you later choose to turn on bridging, you can simply override the default implementation and return `true`.
+Similarly, Cadence contracts can implement the [`IBridgePermissions.cdc` contract interface]. This contract has a single method `allowsBridging()` with a default implementation returning `false`. Again, the bridge explicitly checks for the implementation of `IBridgePermissions` and the value of `allowsBridging()` to validate that the contract has not opted out of bridging. Should you later choose to turn on bridging, you can simply override the default implementation and return `true`.
 
 In both cases, `allowsBridging()` gates onboarding to the bridge. After the onboard occurs - **a permissionless operation anyone can execute** - the value of `allowsBridging()` is irrelevant and assets can move between VMs permissionlessly.
 
 ## Under the hood[​](#under-the-hood "Direct link to Under the hood")
 
-For an in-depth look at the high-level architecture of the bridge, see [FLIP
-#237](https://github.com/onflow/flips/blob/main/application/20231222-evm-vm-bridge.md)
+For an in-depth look at the high-level architecture of the bridge, see [FLIP #237]
 
 ### Additional resources[​](#additional-resources "Direct link to Additional resources")
 
@@ -189816,11 +189717,50 @@ For the current state of Flow EVM across various task paths, see the following r
 
 * [Flow EVM Equivalence forum post](https://forum.flow.com/t/evm-equivalence-on-flow-proposal-and-path-forward/5478)
 * [EVM Integration FLIP #223](https://github.com/onflow/flips/pull/225/files)
-* [Gateway & JSON RPC FLIP #235](https://github.com/onflow/flips/pull/235)
+* [Gateway & JSON RPC FLIP #235]
+
+[Gateway & JSON RPC FLIP #235]: <https://github.com/onflow/flips/pull/235>)
+[FLIP #237]: <https://github.com/onflow/flips/blob/main/application/20231222-evm-vm-bridge.md>
+[`IBridgePermissions.cdc` contract interface]: <https://github.com/onflow/flow-evm-bridge/blob/main/cadence/contracts/bridge/interfaces/IBridgePermissions.cdc>
+[`BridgePermissions.sol` abstract contract]: <https://github.com/onflow/flow-evm-bridge/blob/main/solidity/src/interfaces/BridgePermissions.sol>
+[`ICrossVM` is already implemented]: <https://github.com/onflow/flow-evm-bridge/blob/main/solidity/src/interfaces/ICrossVM.sol>
+[ERC721]: <https://github.com/onflow/flow-evm-bridge/blob/flip-318/solidity/src/templates/FlowEVMBridgedERC721.sol#L37-L43>
+[ERC20]: <https://github.com/onflow/flow-evm-bridge/blob/flip-318/solidity/src/templates/FlowEVMBridgedERC20.sol#L13-L40>
+[Flow EVM bridge repo ExampleNFT contract]: <https://github.com/onflow/flow-evm-bridge/blob/flip-318/cadence/contracts/example-assets/cross-vm-nfts/ExampleEVMNativeNFT.cdc#L352-L377>
+[the `ExampleNFT` contract]: <https://github.com/onflow/flow-nft/blob/master/contracts/ExampleNFT.cdc#L173-L195>
+[Metadata Views]: ../../build/cadence/advanced-concepts/metadata-views.md
+[`SerializeMetadata` contract]: <https://github.com/onflow/flow-evm-bridge/blob/main/cadence/contracts/utils/SerializeMetadata.cdc>
+[@onflow/flow-nft/pull/203]: <https://github.com/onflow/flow-nft/pull/203>
+[`TokenHandler`]: <https://github.com/onflow/flow-evm-bridge/blob/main/cadence/contracts/bridge/interfaces/FlowEVMBridgeHandlerInterfaces.cdc>
+[Preparing Custom Associations]: #preparing-custom-associations
+[Custom Associations]: <https://github.com/onflow/flips/blob/main/application/20250131-cross-vm-nft-support.md>
+[Automatic Onboarding Section]: #automatic-onboarding
+[Custom Association Section]: #custom-association-onboarding
+[Prep Your Assets for Bridging]: #prep-your-assets-for-bridging
+[How Flow EVM Works]: ../../build/evm/how-it-works.md
+[the `FungibleToken` interface]: <https://github.com/onflow/flow-ft/blob/master/contracts/FungibleToken.cdc>
+[the `NonFungibleToken` interface]: <https://github.com/onflow/flow-nft/blob/master/contracts/NonFungibleToken.cdc>)
+[here]: ../tokens/nft-cadence.md)
+[`0xdfc20aee650fcbdf`]: <https://contractbrowser.com/account/0xdfc20aee650fcbdf/contracts>  
+[`0x1e4aa0b87d10b141`]: <https://contractbrowser.com/account/0x1e4aa0b87d10b141/contracts>)
+[`0xf8146b4aef631853f0eb98dbe28706d029e52c52`]: <https://evm-testnet.flowscan.io/address/0xF8146B4aEF631853F0eB98DBE28706d029e52c52>)
+[`0x1c6dea788ee774cf15bcd3d7a07ede892ef0be40`]: <https://evm.flowscan.io/address/0x1C6dEa788Ee774CF15bCd3d7A07ede892ef0bE40>)
+[`0x8781d15904d7e161f421400571dea24cc0db6938`]: <https://evm-testnet.flowscan.io/address0x8781d15904d7e161f421400571dea24cc0db6938>
+[`0x8fdec2058535a2cb25c2f8cec65e8e0d0691f7b0`]: <https://evm.flowscan.io/address/0x8FDEc2058535A2Cb25C2f8ceC65e8e0D0691f7B0>)
+[`0x4d45CaD104A71D19991DE3489ddC5C7B284cf263`]: <https://evm-testnet.flowscan.io/address/0x4d45CaD104A71D19991DE3489ddC5C7B284cf263>
+[`0x49631Eac7e67c417D036a4d114AD9359c93491e7`]: <https://evm.flowscan.io/address/0x49631Eac7e67c417D036a4d114AD9359c93491e7>
+[`0x1B852d242F9c4C4E9Bb91115276f659D1D1f7c56`]: <https://evm-testnet.flowscan.io/address/0x1B852d242F9c4C4E9Bb91115276f659D1D1f7c56>
+[`0xe7c2B80a9de81340AE375B3a53940E9aeEAd79Df`]: <https://evm.flowscan.io/address/0xe7c2B80a9de81340AE375B3a53940E9aeEAd79Df>
+[`0x0000000000000000000000023f946ffbc8829bfd`]: <https://evm-testnet.flowscan.io/address/0x0000000000000000000000023f946FFbc8829BFD>
+[`0x00000000000000000000000249250a5c27ecab3b`]: <https://evm.flowscan.io/address/0x00000000000000000000000249250a5C27Ecab3B>
+[`CadenceOwnedAccount` (COA)]: interacting-with-coa.md
+[FLIP-233]: <https://github.com/onflow/flips/pull/233>
+[FLIP-318]: <https://github.com/onflow/flips/blob/main/application/20250131-cross-vm-nft-support.md>
+[Cross-VM Bridge]: <https://www.github.com/onflow/flow-evm-bridge>
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cross-vm-apps/vm-bridge.md)
 
-Last updated on **Nov 12, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -189834,7 +189774,7 @@ Native VRF (Built-in Randomness) Tutorials](/blockchain-development-tutorials/na
 
 Copy as Markdown
 
-* [Deployments](#deployments)* [Interacting With the Bridge](#interacting-with-the-bridge)* [Overview](#overview)* [Onboard your token to the bridge](#onboard-your-token-to-the-bridge)
+* [Deployments](#deployments)* [Interact With the Bridge](#interact-with-the-bridge)* [Overview](#overview)* [Onboard your token to the bridge](#onboard-your-token-to-the-bridge)
         + [Option 1: automatic onboarding](#option-1-automatic-onboarding)+ [Option 2: custom association onboarding](#option-2-custom-association-onboarding)* [Automatic onboarding](#automatic-onboarding)* [Custom association onboarding](#custom-association-onboarding)* [Bridging](#bridging)* [Prep your assets for bridging](#prep-your-assets-for-bridging)
                 + [Context](#context)+ [EVMBridgedMetadata](#evmbridgedmetadata)+ [SerializeMetadata](#serializemetadata)+ [Prepar custom associations](#prepar-custom-associations)+ [Opt Out](#opt-out)* [Under the hood](#under-the-hood)
                   + [Additional resources](#additional-resources)
@@ -197627,7 +197567,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* getEventsAtBlockHeightRange
 
@@ -233718,15 +233658,13 @@ On this page
 
 # AI Agents
 
-## Overview[​](#overview "Direct link to Overview")
-
-AI agents represent the next evolution in blockchain interaction. They combine artificial intelligence with blockchain capabilities to create autonomous systems that can execute complex tasks, interact with smart contracts, and automate workflows. This section explores how to build intelligent agents that leverage Flow's unique features to create powerful, self-directing blockchain applications.
+AI agents represent the next evolution in blockchain interaction. They combine artificial intelligence with blockchain capabilities to create autonomous systems that can execute complex tasks, interact with smart contracts, and automate workflows. This section explores how to build intelligent agents that leverage Flow's unique features to create powerful, self-directed blockchain applications.
 
 Unlike traditional chatbots or simple AI assistants, blockchain AI agents can autonomously execute transactions, manage digital assets, interact with DeFi protocols, and coordinate complex multi-step operations across the Flow ecosystem. These agents bridge the gap between AI decision-making and blockchain execution, which allows new forms of automated financial services, gaming mechanics, and decentralized applications.
 
 ## [Eliza on Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/eliza)[​](#eliza-on-flow "Direct link to eliza-on-flow")
 
-Learn how to build conversational AI agents on Flow using [Eliza](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/eliza), a framework for creating intelligent agents that interact through natural language. Set up agents with customizable personalities, integrate multiple AI models, and connect to Flow's blockchain infrastructure.
+Learn how to build conversational AI agents on Flow with [Eliza on Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/eliza), a framework for that you can use to create intelligent agents that interact through natural language. Set up agents with customizable personalities, integrate multiple AI models, and connect to Flow's blockchain infrastructure.
 
 ### [Eliza Plugin Development Guide](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/eliza/build-plugin)[​](#eliza-plugin-development-guide "Direct link to eliza-plugin-development-guide")
 
@@ -233734,9 +233672,9 @@ Extend your Eliza agents with custom plugins for specialized functionality. Crea
 
 ## [Build Custom AI Agents on Flow with AgentKit](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/agentkit-flow-guide)[​](#build-custom-ai-agents-on-flow-with-agentkit "Direct link to build-custom-ai-agents-on-flow-with-agentkit")
 
-Create autonomous AI agents that interact with Flow's blockchain using AgentKit. Set up agents on Flow's EVM-compatible environment, integrate AI models like Claude and GPT-4, and deploy systems that execute blockchain transactions automatically.
+Create autonomous AI agents that interact with Flow's blockchain with AgentKit. Set up agents on Flow's EVM-compatible environment, integrate AI models like Claude and GPT-4, and deploy systems that execute blockchain transactions automatically.
 
-## Key Benefits of AI Agents on Flow[​](#key-benefits-of-ai-agents-on-flow "Direct link to Key Benefits of AI Agents on Flow")
+## Key benefits of AI agents on Flow[​](#key-benefits-of-ai-agents-on-flow "Direct link to Key benefits of AI agents on Flow")
 
 **Autonomous Execution**: Agents can independently execute complex blockchain operations without human intervention, from simple token transfers to sophisticated decentralized finance (DeFi) strategies.
 
@@ -233748,9 +233686,9 @@ Create autonomous AI agents that interact with Flow's blockchain using AgentKit.
 
 **Scalable Automation**: Create agents that can manage multiple wallets, coordinate complex workflows, and scale operations across the Flow ecosystem.
 
-## Use Cases for AI Agents[​](#use-cases-for-ai-agents "Direct link to Use Cases for AI Agents")
+## Use cases for AI agents[​](#use-cases-for-ai-agents "Direct link to Use cases for AI agents")
 
-**Conversational Interfaces**: Build Eliza-powered agents that can provide natural language interfaces to Flow applications, helping users navigate complex DeFi protocols or gaming mechanics through conversation.
+**Conversational Interfaces**: Build Eliza-powered agents that can provide natural language interfaces to Flow applications, which helps users navigate complex DeFi protocols or gaming mechanics through conversation.
 
 **Automated Trading**: Build agents that can analyze market conditions, execute trades, manage portfolios across Flow's DeFi ecosystem, and communicate decisions to users.
 
@@ -233768,7 +233706,7 @@ AI agents combine artificial intelligence with blockchain capabilities to create
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/index.md)
 
-Last updated on **Oct 28, 2025** by **cshannon1218**
+Last updated on **Nov 20, 2025** by **cshannon1218**
 
 [Previous
 
@@ -233782,8 +233720,8 @@ Eliza on Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/
 
 Copy as Markdown
 
-* [Overview](#overview)* [Eliza on Flow](#eliza-on-flow)
-    + [Eliza Plugin Development Guide](#eliza-plugin-development-guide)* [Build Custom AI Agents on Flow with AgentKit](#build-custom-ai-agents-on-flow-with-agentkit)* [Key Benefits of AI Agents on Flow](#key-benefits-of-ai-agents-on-flow)* [Use Cases for AI Agents](#use-cases-for-ai-agents)* [Conclusion](#conclusion)
+* [Eliza on Flow](#eliza-on-flow)
+  + [Eliza Plugin Development Guide](#eliza-plugin-development-guide)* [Build Custom AI Agents on Flow with AgentKit](#build-custom-ai-agents-on-flow-with-agentkit)* [Key benefits of AI agents on Flow](#key-benefits-of-ai-agents-on-flow)* [Use cases for AI agents](#use-cases-for-ai-agents)* [Conclusion](#conclusion)
 
 Flow
 
@@ -258136,7 +258074,7 @@ On this page
 
 # Use AI To Build On Flow
 
-Artificial Intelligence (AI) tools can significantly enhance your Flow development experience by providing intelligent assistance, code generation, and documentation access. This tutorial series will guide you through integrating various AI tools with Flow development to boost your productivity and code quality.
+Artificial Intelligence (AI) tools can significantly enhance your Flow development experience with intelligent assistance, code generation, and documentation access. This tutorial series will guide you through how to integrate various AI tools with Flow development to boost your productivity and code quality.
 
 ## What You'll Learn[​](#what-youll-learn "Direct link to What You'll Learn")
 
@@ -258149,70 +258087,70 @@ In this tutorial series, you'll discover how to:
 * Leverage AI for testing and optimization.
 * Build AI agents that interact with Flow using AgentKit.
 
-# AI Tutorials for Flow
+# AI tutorials for Flow
 
-## Using Claude Code with Flow[​](#using-claude-code-with-flow "Direct link to Using Claude Code with Flow")
+## Use Claude Code with Flow[​](#use-claude-code-with-flow "Direct link to Use Claude Code with Flow")
 
-Master systematic AI-powered Flow development with Claude Code, a terminal-integrated coding assistant designed for iterative blockchain development. This comprehensive guide teaches you to implement a four-stage development methodology (Idea → Visualization → Planning → Build) while leveraging unlimited context windows, subagent capabilities, and persistent project memory. Learn to configure `CLAUDE.md` files for Flow-specific instructions, integrate MCP servers for blockchain interactions, and implement checkpoint-based workflows that ensure reliable smart contract development from emulator to mainnet deployment.
+Master systematic AI-powered Flow development with Claude Code, a terminal-integrated coding assistant designed for iterative blockchain development. This comprehensive guide teaches you to implement a four-stage development methodology (Idea → Visualization → Planning → Build) while you leverage unlimited context windows, subagent capabilities, and persistent project memory. Learn to configure `CLAUDE.md` files for Flow-specific instructions, integrate MCP servers for blockchain interactions, and implement checkpoint-based workflows that ensure reliable smart contract development from emulator to mainnet deployment.
 
 Tutorial: [Claude Code for Flow Development](/blockchain-development-tutorials/use-AI-to-build-on-flow/llms/claude-code)
 
-## Using Cursor with Flow[​](#using-cursor-with-flow "Direct link to Using Cursor with Flow")
+## Use Cursor with Flow[​](#use-cursor-with-flow "Direct link to Use Cursor with Flow")
 
-This guide details how you can set up the Cursor AI code editor with custom Flow knowledge bases, transforming it into a specialized assistant for building powerful applications on the Flow network. By providing the AI with direct access to the official Flow documentation, Cadence language references, and best-practice examples, you unlock a new tier of intelligent assistance that goes far beyond simple autocompletion
+This guide details how you can set up the Cursor AI code editor with custom Flow knowledge bases, which transforms it into a specialized assistant to build powerful applications on the Flow network. When you provide the AI with direct access to the official Flow documentation, Cadence language references, and best-practice examples, you unlock a new tier of intelligent assistance that goes far beyond simple autocompletion
 
 Tutorial: [Use Flow Knowledge Base in Cursor](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor)
 
-## Using Chat GPT with Flow[​](#using-chat-gpt-with-flow "Direct link to Using Chat GPT with Flow")
+## Use ChatGPT with Flow[​](#use-chatgpt-with-flow "Direct link to Use ChatGPT with Flow")
 
-Build your own expert AI assistant by creating a custom GPT specifically engineered to master the Flow blockchain and its Cadence smart contract language. This specialized tool will act as your personal pair programmer, providing highly accurate and context-aware answers to your most challenging development questions. By doing this, you're not just using a generic AI, you're creating a specialist trained on the exact documentation, code patterns, and best practices relevant to your work.
+Build your own expert AI assistant and create a custom GPT specifically engineered to master the Flow blockchain and its Cadence smart contract language. This specialized tool will act as your personal pair programmer and provide highly accurate and context-aware answers to your most challenging development questions. By doing this, you don't just use a generic AI, you create a specialist trained on the exact documentation, code patterns, and best practices relevant to your work.
 
 Tutorial: [Use Flow Knowledge Base in ChatGPT](/blockchain-development-tutorials/use-AI-to-build-on-flow/llms/chatgpt)
 
-## Data Sources[​](#data-sources "Direct link to Data Sources")
+## Flow Data Sources[​](#flow-data-sources "Direct link to Flow Data Sources")
 
-Learn about Flow Data Sources, a meticulously curated library designed to autonomously gather and structure information from the entire Flow ecosystem. This project systematically transforms a wide array of content into clean, AI-ready Markdown files, establishing a unified source of truth. The resulting collection acts as a foundational knowledge base, perfectly suited for powering advanced applications such as custom chatbots and sophisticated Retrieval-Augmented Generation (RAG) systems.
+Learn about Flow Data Sources, a meticulously curated library designed to autonomously gather and structure information from the entire Flow ecosystem. This project systematically transforms a wide array of content into clean, AI-ready Markdown files, which establishes a unified source of truth. This collection acts as a foundational knowledge base, perfectly suited to power advanced applications such as custom chatbots and sophisticated Retrieval-Augmented Generation (RAG) systems.
 
 Tutorial: [Data Sources](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor/flow-data-sources)
 
-## Eliza Integration[​](#eliza-integration "Direct link to Eliza Integration")
+## Eliza integration[​](#eliza-integration "Direct link to Eliza integration")
 
-Learn about how to use Eliza on Flow, a versatile framework for constructing sophisticated AI agents that communicate with users through natural language. This guide walks you through the entire process of configuring and launching an AI agent built with Eliza directly onto the Flow blockchain. You'll discover how to engineer intelligent agents capable of comprehending and addressing user prompts, all while harnessing the power of Flow's inherently secure and scalable onchain infrastructure.
+Learn about how to use Eliza on Flow, a versatile framework you can use to construct sophisticated AI agents that communicate with users through natural language. This guide walks you through how to configure and launch an AI agent built with Eliza directly onto the Flow blockchain. You'll discover how to engineer intelligent agents that can comprehend and address user prompts, all while you harness the power of Flow's inherently secure and scalable onchain infrastructure.
 
 Tutorial: [Eliza on Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/eliza)
 
-## Build AI Agents with AgentKit[​](#build-ai-agents-with-agentkit "Direct link to Build AI Agents with AgentKit")
+## Build AI agents with AgentKit[​](#build-ai-agents-with-agentkit "Direct link to Build AI agents with AgentKit")
 
-Learn how to build AI agents on Flow with AgentKit, a versatile and modular developer toolkit that is not tied to any single platform. It's engineered to dramatically accelerate the process of building, deploying, and refining AI agents by supplying pre-configured environments and a library of ready-to-use templates. This guide walks you through the steps to launch your own custom agent on Flow's EVM-compatible testnet, leveraging the powerful combination of the Langchain framework and Anthropic's Claude large language model.
+Learn how to build AI agents on Flow with AgentKit, a versatile and modular developer toolkit that is not tied to any single platform. It's engineered to dramatically accelerate the process of building, deploying, and refining AI agents by supplying pre-configured environments and a library of ready-to-use templates. This guide walks you through how to launch your own custom agent on Flow's EVM-compatible testnet, which lets you leverage the powerful combination of the Langchain framework and Anthropic's Claude large language model.
 
 Tutorial: [Build AI Agents with AgentKit](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/agentkit-flow-guide)
 
-## MCP Guides[​](#mcp-guides "Direct link to MCP Guides")
+## MCP guides[​](#mcp-guides "Direct link to MCP guides")
 
-Learn how to construct a custom Flow MCP (Model Context Protocol) server or use an existing one to empower your AI tools. These tutorials guide you through how to equip your AI applications with the unique capability to directly interact with the Flow blockchain, which allows them to perform onchain operations and access real-time data.
+Learn how to construct a custom Flow MCP (Model Context Protocol) server or use a current one to empower your AI tools. These tutorials guide you through how to equip your AI applications with the unique capability to directly interact with the Flow blockchain, which allows them to perform onchain operations and access real-time data.
 
 Tutorial: [Flow MCP](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp)
 
-## Cadence Rules[​](#cadence-rules "Direct link to Cadence Rules")
+## Cadence rules[​](#cadence-rules "Direct link to Cadence rules")
 
-Learn how to establish and utilize Cursor Rules to transform your AI assistant into a dedicated Flow development expert. This process embeds your AI with persistent, foundational knowledge of essential topics, including proper Cadence syntax, official NFT standards, project-specific configurations, and established development methodologies.
+Learn how to establish and use Cursor Rules to transform your AI assistant into a dedicated Flow development expert. This process embeds your AI with persistent, foundational knowledge of essential topics, such as proper Cadence syntax, official NFT standards, project-specific configurations, and established development methodologies.
 
 Tutorial: [Cadence Rules](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor/cadence-rules)
 
-## Best Practices[​](#best-practices "Direct link to Best Practices")
+## Best practices[​](#best-practices "Direct link to Best practices")
 
 When you use AI tools with Flow development:
 
 * Always verify AI-generated code against Flow documentation.
 * Use specific prompts that reference Flow concepts and terminology.
-* Combine AI assistance with your own understanding of Flow architecture.
+* Combine AI assistance with your own knowledge of Flow architecture.
 * Keep your AI tools updated with the latest Flow documentation.
-* Test AI-generated code thoroughly before deploying to production.
-* Consider the security implications of AI agents interacting with your contracts.
+* Test AI-generated code thoroughly before you deploy to production.
+* Consider the security implications of AI agents that interact with your contracts.
 
-## Next Steps[​](#next-steps "Direct link to Next Steps")
+## Next steps[​](#next-steps "Direct link to Next steps")
 
-After compleyou completeting these tutorials, you'll be equipped to leverage AI tools effectively in your Flow development workflow. Consider exploring our other tutorial series to deepen your understanding of Flow development:
+After you complete these tutorials, you'll be equipped to leverage AI tools effectively in your Flow development workflow. We recommend that you explore our other tutorial series to deepen your knowledge of Flow development:
 
 * [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps/introduction) - Build applications that integrate Flow EVM and Cadence.
 * [Native VRF](/blockchain-development-tutorials/native-vrf) - Implement verifiable random functions in your applications.
@@ -258224,7 +258162,7 @@ Flow is the ideal platform for AI-enhanced blockchain development. The combinati
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/index.md)
 
-Last updated on **Oct 27, 2025** by **cshannon1218**
+Last updated on **Nov 20, 2025** by **cshannon1218**
 
 [Previous
 
@@ -258238,7 +258176,7 @@ Large Language Models (LLMs)](/blockchain-development-tutorials/use-AI-to-build-
 
 Copy as Markdown
 
-* [What You'll Learn](#what-youll-learn)* [Using Claude Code with Flow](#using-claude-code-with-flow)* [Using Cursor with Flow](#using-cursor-with-flow)* [Using Chat GPT with Flow](#using-chat-gpt-with-flow)* [Data Sources](#data-sources)* [Eliza Integration](#eliza-integration)* [Build AI Agents with AgentKit](#build-ai-agents-with-agentkit)* [MCP Guides](#mcp-guides)* [Cadence Rules](#cadence-rules)* [Best Practices](#best-practices)* [Next Steps](#next-steps)* [Conclusion](#conclusion)
+* [What You'll Learn](#what-youll-learn)* [Use Claude Code with Flow](#use-claude-code-with-flow)* [Use Cursor with Flow](#use-cursor-with-flow)* [Use ChatGPT with Flow](#use-chatgpt-with-flow)* [Flow Data Sources](#flow-data-sources)* [Eliza integration](#eliza-integration)* [Build AI agents with AgentKit](#build-ai-agents-with-agentkit)* [MCP guides](#mcp-guides)* [Cadence rules](#cadence-rules)* [Best practices](#best-practices)* [Next steps](#next-steps)* [Conclusion](#conclusion)
 
 Flow
 
@@ -263960,7 +263898,7 @@ We assume you're familiar with [wagmi](https://wagmi.sh/), [viem](https://viem.s
 
 ## Get started[​](#get-started "Direct link to Get started")
 
-For this tutorial, we'll start from a fork of the [FCL + RainbowKit + Wagmi Integration Demo](https://github.com/jribbink/cross-vm-app) built by the team.
+For this tutorial, we'll start from a fork of the [FCL + RainbowKit + Wagmi Integration Demo](https://github.com/jribbink/cross-vm-app) that the team built.
 
 Fork the repo so you can push your work freely to your own copy, then follow the setup instructions.
 
@@ -263996,13 +263934,13 @@ Click `Send Batch Transaction Example` and approve the transaction. You'll see t
 
 tip
 
-Currently, the Flow wallet sponsors all gas for all transactions signed with the wallet on both testnet **and mainnet!**
+Currently, the Flow wallet sponsors the fees for the compute units (equivalent of gas) for all transactions signed with the wallet on both testnet **and mainnet!**
 
 ### Cadence parent transaction[​](#cadence-parent-transaction "Direct link to Cadence parent transaction")
 
 The first line is the transaction ID of the Flow Cadence transaction that calls **both** of the EVM transactions. Search for it in [Testnet Cadence Flowscan](https://testnet.flowscan.io).
 
-Cadence transactions are more complicated than those in Solidity contracts. Rather than being restricted to run functions present on the contract, they can run arbitrary code as long as the caller has access to all of the resources required by the transaction.
+Cadence transactions are more complicated than those in Solidity contracts. Rather than being restricted to run functions present on the contract, they can run arbitrary code as long as the caller has access to all of the resources the transaction requires.
 
 You can see the code of the transaction in the `Script` tab, but we've included it here for convenience:
 
@@ -264342,7 +264280,7 @@ return block.height;`
 
 Returns the current Cadence VM block number.
 
-## Calling Your own contract[​](#calling-your-own-contract "Direct link to Calling Your own contract")
+## Call your own contract[​](#call-your-own-contract "Direct link to Call your own contract")
 
 Next, we'll update the starter to connect to and call functions in our own contract. For this, we'll use a simple [Button Clicker Contract](https://github.com/briandoyle81/button-clicker-contract/blob/main/contracts/ClickToken.sol). You can deploy your own copy, or use the one deployed at [`0xA7Cf2260e501952c71189D04FAd17c704DFB36e6`](https://evm-testnet.flowscan.io/address/0xA7Cf2260e501952c71189D04FAd17c704DFB36e6?tab=contract).
 
@@ -265320,7 +265258,7 @@ _10
 
 ];`
 
-Click the `Send Batch Transaction Example` button again. You'll have to **manually refresh** the page when the EVM transaction hash appears to see the score update. We haven't wired in the query invalidation yet.
+Click `Send Batch Transaction Example` again. You'll have to **manually refresh** the page when the EVM transaction hash appears to see the score update. We haven't wired in the query invalidation yet.
 
 Next, use some JavaScript to put 10 copies of the transaction call into the array:
 
@@ -265360,7 +265298,7 @@ While the batched transactions feature works, we've got a few flaws in the user 
 
 warning
 
-We initially tried getting an AI friend to install this for us and it got very confused. `Next.js` and Tailwind have both had a lot of change recently. As a result, the LLMs don't seem to have caught up just yet.
+We initially tried to get an AI friend to install this for us and it got very confused. `Next.js` and Tailwind have both had a lot of change recently. As a result, the LLMs don't seem to have caught up just yet.
 
 Do this part the old-fashioned way.
 
@@ -265954,7 +265892,7 @@ _35
 
 );`
 
-### Testing[​](#testing "Direct link to Testing")
+### Tests[​](#tests "Direct link to Tests")
 
 Run the app and make sure it works as expected, even if in a rather ugly fashion.
 
@@ -265988,13 +265926,13 @@ _10
 
 </button>`
 
-### Styling[​](#styling "Direct link to Styling")
+### Style[​](#style "Direct link to Style")
 
 It's up to you to make the app pretty. If you need inspiration, you can always check the [reference repo](https://github.com/briandoyle81/cross-vm-app-1/tree/main).
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-In this tutorial, you reviewed the demo starter for building hybrid applications that use a common EVM stack and integrate with Flow Cadence. You then added functionality to interface with another contract that mints ERC-20 tokens. Finally, you supercharged your app by using the power of Cadence for EVM multi-call contract writes.
+In this tutorial, you reviewed the demo starter to build hybrid applications that use a common EVM stack and integrate with Flow Cadence. You then added functionality to interface with another contract that mints ERC-20 tokens. Finally, you supercharged your app with the power of Cadence for EVM multi-call contract writes.
 
 Now that you have completed the tutorial, you will be able to:
 
@@ -266004,7 +265942,7 @@ Now that you have completed the tutorial, you will be able to:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cross-vm-apps/introduction.md)
 
-Last updated on **Nov 5, 2025** by **cshannon1218**
+Last updated on **Nov 21, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -266020,8 +265958,8 @@ Copy as Markdown
 
 * [Objectives](#objectives)* [Prerequisites](#prerequisites)
     + [Next.js and modern frontend development](#nextjs-and-modern-frontend-development)+ [Solidity and Cadence smart contract development](#solidity-and-cadence-smart-contract-development)+ [Onchain app frontends](#onchain-app-frontends)* [Get started](#get-started)* [Project overview](#project-overview)* [Send batch transactions](#send-batch-transactions)
-          + [Cadence parent transaction](#cadence-parent-transaction)+ [EVM child transactions](#evm-child-transactions)* [Code evaluator](#code-evaluator)* [Calling Your own contract](#calling-your-own-contract)* [Set Up contract imports](#set-up-contract-imports)* [Build traditional functionality](#build-traditional-functionality)* [Supercharge your EVM app With Cadence](#supercharge-your-evm-app-with-cadence)* [Improve the UI/UX](#improve-the-uiux)
-                      + [Install Tailwind](#install-tailwind)+ [Update state display](#update-state-display)+ [Testing](#testing)+ [Add UI hints](#add-ui-hints)+ [Styling](#styling)* [Conclusion](#conclusion)
+          + [Cadence parent transaction](#cadence-parent-transaction)+ [EVM child transactions](#evm-child-transactions)* [Code evaluator](#code-evaluator)* [Call your own contract](#call-your-own-contract)* [Set Up contract imports](#set-up-contract-imports)* [Build traditional functionality](#build-traditional-functionality)* [Supercharge your EVM app With Cadence](#supercharge-your-evm-app-with-cadence)* [Improve the UI/UX](#improve-the-uiux)
+                      + [Install Tailwind](#install-tailwind)+ [Update state display](#update-state-display)+ [Tests](#tests)+ [Add UI hints](#add-ui-hints)+ [Style](#style)* [Conclusion](#conclusion)
 
 Flow
 
@@ -266641,14 +266579,14 @@ On this page
 
 # Use Flow MCP in Cursor
 
-Adding Flow MCP to Cursor gives you powerful AI-driven tools directly inside your code editor. It allows Cursor's AI to understand, query, and interact with Flow blockchain data and smart contracts through a standard protocol called the Model Context Protocol (MCP).
+When you add Flow MCP to Cursor, it gives you powerful AI-driven tools directly inside your code editor. It allows Cursor's AI to understand, query, and interact with Flow blockchain data and smart contracts through a standard protocol called the Model Context Protocol (MCP).
 
 Specifically, it lets you:
 
-* Ask the AI in Cursor to fetch onchain data such as account balances, account information, or contract source code without leaving your editor.
-* Speed up development by letting AI perform blockchain queries that would normally require manual steps.
-* Improve context for AI assistance by allowing Cursor to pull real blockchain data when needed.
-* Automate routine Flow tasks using tools exposed by the MCP server.
+* Ask the AI in Cursor to fetch onchain data such as account balances, account information, or contract source code without the need to leave your editor.
+* Speed up development when you have AI perform blockchain queries that would normally require manual steps.
+* Improve context for AI assistance if you let Cursor to pull real blockchain data when needed.
+* Automate routine Flow tasks with tools exposed by the MCP server.
 * Prototype and debug faster with direct access to live blockchain information.
 
 This tutorial will guide you through setting up and using Flow MCP in [Cursor](https://www.cursor.com/) to enhance your Flow blockchain development experience with AI assistance.
@@ -266657,7 +266595,7 @@ This tutorial will guide you through setting up and using Flow MCP in [Cursor](h
 
 After you complete this tutorial, you should be able to:
 
-* Configure Cursor to connect with the Flow MCP server using the MCP protocol.
+* Configure Cursor to connect with the Flow MCP server with the MCP protocol.
 * Install and launch the Flow MCP server locally through Cursor.
 * Identify when Flow MCP tools successfully load and are ready inside Cursor.
 * Use Flow MCP tools to retrieve blockchain data such as account balances, account details, and contract source code.
@@ -266675,7 +266613,7 @@ After you complete this tutorial, you should be able to:
    ![Cursor Settings](/assets/images/mcp-settings-in-curosr-992c67311acc63125a862081ae6dcdd2.png)
 2. Configure the MCP configuration file in Cursor:
 
-   The MCP configuration file is located at the following location based on your operating system:
+   The MCP configuration file resides at this location based on your operating system:
 
    * macOS: `~/Library/Application Support/Claude/mcp.json`
    * Windows: `%APPDATA%/Claude/mcp.json`
@@ -266734,14 +266672,14 @@ After you complete this tutorial, you should be able to:
 
 ![Sample Image 3](/assets/images/sample-3-3a0d098a17c974fff8e5ab528fb41eef.png)
 
-## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
+## Troubleshoot[​](#troubleshoot "Direct link to Troubleshoot")
 
 If you encounter any issues:
 
 1. Ensure the MCP server is properly installed.
 2. Verify the configuration file is in the correct location.
 3. Check that the paths in the configuration are correct.
-4. Try restarting Cursor.
+4. Try to restart Cursor.
 5. Check the console for any error messages.
 
 ## Additional resources[​](#additional-resources "Direct link to Additional resources")
@@ -266759,7 +266697,7 @@ For issues or questions:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp/use-mcp-in-cursor.md)
 
-Last updated on **Nov 5, 2025** by **Brian Doyle**
+Last updated on **Nov 20, 2025** by **cshannon1218**
 
 [Previous
 
@@ -266774,7 +266712,7 @@ Contribute to Flow MCP](/blockchain-development-tutorials/use-AI-to-build-on-flo
 Copy as Markdown
 
 * [Learning objectives](#learning-objectives)* [Prerequisites](#prerequisites)* [Installation](#installation)* [How to use Flow MCP in Cursor](#how-to-use-flow-mcp-in-cursor)
-        + [Check Flow balance](#check-flow-balance)+ [View account information](#view-account-information)+ [Get contract source code](#get-contract-source-code)* [Troubleshooting](#troubleshooting)* [Additional resources](#additional-resources)* [Support](#support)
+        + [Check Flow balance](#check-flow-balance)+ [View account information](#view-account-information)+ [Get contract source code](#get-contract-source-code)* [Troubleshoot](#troubleshoot)* [Additional resources](#additional-resources)* [Support](#support)
 
 Flow
 
@@ -292120,7 +292058,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* atBlockHeight
 
@@ -317369,13 +317307,13 @@ On this page
 
 Randomness is a critical component in blockchain applications. It allows fair and unpredictable outcomes for use cases like gaming, lotteries, and cryptographic protocols.
 
-The most basic approach that you can use to generate a random number on EVM chains is to use block hashes, which combines the block hash with a user-provided seed and hashes them together. You can use the has that results as a pseudo-random generator seed. However, this approach has limitations. A validator that influences the random source used to compute transactions can manipulate the block hash. The block proposer can decide what to include into a block and can iterate through different combinations until they find a favorable random source.
+The most basic approach that you can use to generate a random number on EVM chains is to use block hashes, which combines the block hash with a user-provided seed and hashes them together. You can use the hash that results as a pseudo-random generator seed. However, this approach has limitations. A validator that influences the random source used to compute transactions can manipulate the block hash. The block proposer can decide what to include into a block and can iterate through different combinations until they find a favorable random source.
 
 [Chainlink VRF](https://docs.chain.link/vrf) is a popular tool that improves on this. It provides another approach you can use to generate provably random values on Ethereum and other blockchains. It relies on a decentralized oracle network to deliver cryptographically secure randomness from off-chain sources. However, this dependence on external oracles introduces several weaknesses, such as cost, latency, and scalability concerns.
 
-In contrast, Flow offers a simpler and more integrated approach with its native onchain Randomness Beacon at the protocol level, which eliminates reliance on external oracles and sidestepping their associated risks.
+In contrast, Flow offers a simpler and more integrated approach with its native onchain Randomness Beacon at the protocol level, which eliminates reliance on external oracles and the need to sidestep their associated risks.
 
-In addition to instant randomness that is available to any transaction (via `revertibleRandom` function), Flow provides a solution to the problem of a user reverting a transaction with an unfavorable outcome. Commit-Reveal schemes on Flow also rely on protocol-native secure randomness and they fix the issue of post-selection by trustless users. Commit-Reveal tools on Flow can be used within both Cadence and Consumer Decentralized Finance (DeFi) contracts. This tutorial focuses on Cadence.
+In addition to instant randomness that is available to any transaction (via `revertibleRandom` function), Flow provides a solution to the problem of a user who reverts a transaction with an unfavorable outcome. Commit-Reveal schemes on Flow also rely on protocol-native secure randomness and they fix the issue of post-selection by trustless users. Commit-Reveal tools on Flow can be used within both Cadence and Consumer Decentralized Finance (DeFi) contracts. This tutorial focuses on Cadence.
 
 ## Objectives[​](#objectives "Direct link to Objectives")
 
@@ -317403,7 +317341,7 @@ To illustrate this concept, we will build a Coin Toss game on Flow, which demons
 
 ### What is the Coin Toss Game?[​](#what-is-the-coin-toss-game "Direct link to What is the Coin Toss Game?")
 
-The Coin Toss Game is a decentralized betting game that showcases the commit-reveal pattern. Players place bets without knowing the random outcome, which ensures fairness and resistance to manipulation.
+The Coin Toss Game is a decentralized betting game that showcases the commit-reveal pattern. Players place bets and don't know the random outcome, which ensures fairness and resistance to manipulation.
 
 The game consists of two distinct phases:
 
@@ -317426,11 +317364,11 @@ In addition, commit-reveal patterns solve the issue of revertible randoms:
 
 info
 
-One of the powers of Cadence transactions is that a developer can set post-conditions that must be true, or the transaction will revert. This is very useful for scenarios such as guaranteeing a user receives their purchase in a complex and multi-step transaction, but it also means that they can set conditions to reject the transaction. In an instant-win lottery, this would allow users to test large numbers of tickets for a win without paying the purchase price.
+One of the powers of Cadence transactions is that a developer can set post-conditions that must be true, or the transaction will revert. This is very useful for scenarios such as to guarantee a user receives their purchase in a complex and multi-step transaction, but it also means that they can set conditions to reject the transaction. In an instant-win lottery, this would allow users to test large numbers of tickets for a win without purchase price payment.
 
 ## Build the Coin Toss contract[​](#build-the-coin-toss-contract "Direct link to Build the Coin Toss contract")
 
-In this section, we'll walk through how to construct the `CoinToss.cdc` contract, which contains the core logic for the Coin Toss game. To function properly, the contract relies on supporting contracts and a proper deployment setup.
+In this section, we'll walk through how to construct the `CoinToss.cdc` contract, which contains the core logic for the Coin Toss game. To function properly, the contract relies on support contracts and a proper deployment setup.
 
 This tutorial will focus specifically on how to write and understand the `CoinToss.cdc` contract, while you can find additional setup details in the [original GitHub repo](https://github.com/onflow/random-coin-toss).
 
@@ -317554,7 +317492,7 @@ _12
 
 ### Step 3: Implement the reveal phase With `revealCoin`[​](#step-3-implement-the-reveal-phase-with-revealcoin "Direct link to step-3-implement-the-reveal-phase-with-revealcoin")
 
-Now we implement the reveal phase with the `revealCoin` function. Here, the caller provides the Receipt they recieve at commitment. The contract then "flips a coin" with `_randomCoin()` providing the Receipt's contained Request. The reveal step is possible only when the protocol random source at the committed block height becomes available.
+Now we implement the reveal phase with the `revealCoin` function. Here, the caller provides the Receipt they recieve at commitment. The contract then "flips a coin" and `_randomCoin()` provides the Receipt's contained Request. The reveal step is possible only when the protocol random source at the committed block height becomes available.
 
 If result is 1, the user loses, but if it's 0, the user doubles their bet. Note that the caller could condition the revealed transaction, but they've already provided their bet amount, so there's no loss for the contract if they do.
 
@@ -317752,14 +317690,14 @@ _26
 
 ![remix5-sc](/assets/images/remix5-cd6636b214a1b17fc4a012322777d3a5.png)
 
-5. Track it: You can take the transaction id to [FlowDiver](https://testnet.flowdiver.io/)[.io](https://testnet.flowdiver.io/tx/9c4f5436535d36a82d4ae35467b37fea8971fa0ab2409dd0d5f861f61e463d98) to have a full view of everything that's going on with this `FlipCoin` transaction.
+5. Track it: You can take the transaction id to [FlowDiver](https://testnet.flowdiver.io/)[.io](https://testnet.flowdiver.io/tx/9c4f5436535d36a82d4ae35467b37fea8971fa0ab2409dd0d5f861f61e463d98) to have a full view of everything about this `FlipCoin` transaction.
 
 ### Reveal the coin toss result[​](#reveal-the-coin-toss-result "Direct link to Reveal the coin toss result")
 
 Let's reveal the outcome of your coin toss to see if you've won. This step uses the receipt from your bet, so ensure you use the same account that placed the bet. Here's how to do it:
 
 1. Return to your Dev Environment: Open [run.dnz](https://run.dnz.dev/) again.
-2. Enter the Reveal Code: Paste the following Cadence transaction into the editor:
+2. Enter the Reveal Code. Paste the following Cadence transaction into the editor:
 
 `_24
 
@@ -317849,7 +317787,7 @@ _24
 
 }`
 
-After we run this transaction, we reveal the result of the coin flip and it's 1! It means we haven't won anything this time, but keep trying!
+After we run this transaction, we reveal the result of the coin flip and it's 1! It means we haven't won anything this time, but we'll try again!
 
 You can find the full transaction used for this example, with its result and events, at [FlowDiver.io/tx/](https://testnet.flowdiver.io/tx/a79fb2f947e7803eefe54e48398f6983db4e0d4d5e217d2ba94f8ebdec132957).
 
@@ -317873,7 +317811,7 @@ When you harness the built-in randomness capabilities on Flow, you can create en
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/native-vrf/commit-reveal-cadence.md)
 
-Last updated on **Nov 12, 2025** by **Brian Doyle**
+Last updated on **Nov 20, 2025** by **cshannon1218**
 
 [Previous
 
@@ -345996,7 +345934,7 @@ On this page
 
 # Flow Data Sources
 
-Flow Data Sources is a comprehensive repository that automatically aggregates and formats Flow ecosystem content into Markdown files optimized for AI ingestion. This resource serves as a centralized knowledge base for AI tools, chatbots, and RAG (Retrieval-Augmented Generation) pipelines, containing the most current documentation, examples, and best practices for Flow blockchain development.
+Flow Data Sources is a comprehensive repository that automatically aggregates and formats Flow ecosystem content into Markdown files optimized for AI ingestion. This resource serves as a centralized knowledge base for AI tools, chatbots, and RAG (Retrieval-Augmented Generation) pipelines. It contains the most current documentation, examples, and best practices for Flow blockchain development.
 
 ## Overview[​](#overview "Direct link to Overview")
 
@@ -346018,60 +345956,63 @@ Flow Data Sources automatically pulls content from:
 * Best practices and development patterns
 * Community discussions and Q&A content
 
-## Key Features[​](#key-features "Direct link to Key Features")
+## Key features[​](#key-features "Direct link to Key features")
 
 * **Daily Updates**: Content is automatically refreshed to ensure the latest information.
 * **Structured Format**: All content is converted to Markdown for consistent processing.
 * **Comprehensive Coverage**: Includes official documentation, code examples, and community discussions.
 * **Optimized for AI**: Designed specifically for AI tools, chatbots, and RAG pipelines.
 
-## Available Files[​](#available-files "Direct link to Available Files")
+## Available files[​](#available-files "Direct link to Available files")
 
 The repository provides several merged documentation files optimized for different use cases:
 
-**Output Options:**
+**Output options:**
 
 * [All Merged Content](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/all_merged.md): Complete content
-* [Essentials Only](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/essentials_merged.md): Streamlined version only including official documentation and sample codes
-* [Cadence Only](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/cadence_docs_merged.md): Streamlined version only including Cadence related documentation and sample codes
+* [Essentials Only](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/essentials_merged.md): Streamlined version that only include official documentation and sample codes
+* [Cadence Only](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/cadence_docs_merged.md): Streamlined version that only includex Cadence related documentation and sample codes
 
-### All Merged Documentation[​](#all-merged-documentation "Direct link to All Merged Documentation")
+### All merged documentation[​](#all-merged-documentation "Direct link to All merged documentation")
 
-* **File**: [all\_merged.md](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/all_merged.md).
-* **Content**: Complete comprehensive documentation covering all aspects of Flow development.
+* **File**: `all_merged.md`
+* **Content**: Complete comprehensive documentation that covers all aspects of Flow development.
 * **Use Case**: Most comprehensive knowledge base for AI tools and complex development questions.
-* **Size**: Very large file - may require powerful systems for processing.
+* **Size**: Very large file - may require powerful systems to process.
+* **Documentation**: [All Merged Content](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/all_merged.md)
 
-### Essentials Merged Documentation[​](#essentials-merged-documentation "Direct link to Essentials Merged Documentation")
+### Essentials merged documentation[​](#essentials-merged-documentation "Direct link to Essentials merged documentation")
 
-* **File**: [essentials\_merged.md](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/essentials_merged.md)
+* **File**: `essentials_merged.md`
 * **Content**: Core Flow and Cadence development essentials.
 * **Use Case**: Lighter alternative for systems with resource constraints.
 * **Size**: Smaller, more focused content for essential development needs.
+* **Documentation**: [Essentials Only](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/essentials_merged.md)
 
-### Cadence Only Documentation[​](#cadence-only-documentation "Direct link to Cadence Only Documentation")
+### Cadence only documentation[​](#cadence-only-documentation "Direct link to Cadence only documentation")
 
-* **File**: [cadence\_docs\_merged.md](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/cadence_docs_merged.md)
-* **Content**: Streamlined version only including Cadence related documentation and sample codes.
+* **File**: `cadence_docs_merged.md`
+* **Content**: Streamlined version that only includes Cadence related documentation and sample codes.
 * **Use Case**: Focused on Cadence language development and smart contracts.
 * **Size**: Cadence-specific content for specialized development needs.
+* **Documentation**: [Cadence Only](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/cadence_docs_merged.md)
 
-## How to Use[​](#how-to-use "Direct link to How to Use")
+## How to use[​](#how-to-use "Direct link to How to use")
 
 You can integrate Flow Data Sources with:
 
 * **ChatGPT Plugins**: Enhance Q&A capabilities with Flow-specific knowledge.
-* **Custom Chatbots**: Power Discord/Telegram bots with accurate Flow information.
+* **Custom Chatbots**: Power Discord and Telegram bots with accurate Flow information.
 * **RAG Systems**: Index content in vector databases for semantic search.
 * **Development Tools**: Provide context-aware assistance in IDEs like Cursor.
 
-## Integration with AI Tools[​](#integration-with-ai-tools "Direct link to Integration with AI Tools")
+## Integration with AI tools[​](#integration-with-ai-tools "Direct link to Integration with AI tools")
 
 Flow Data Sources is specifically designed to work seamlessly with various AI development tools:
 
 ### [Cursor Integration](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor/indexing-docs)[​](#cursor-integration "Direct link to cursor-integration")
 
-Add Flow Data Sources to your Cursor documentation by referencing the GitHub URL directly. This provides your AI assistant with up-to-date Flow knowledge.
+To add Flow Data Sources to your Cursor documentation, reference the GitHub URL directly. This provides your AI assistant with up-to-date Flow knowledge.
 
 ### [ChatGPT Custom GPTs](/blockchain-development-tutorials/use-AI-to-build-on-flow/llms/chatgpt)[​](#chatgpt-custom-gpts "Direct link to chatgpt-custom-gpts")
 
@@ -346113,7 +346054,7 @@ The merged documentation files are available at:
 
 For integration with AI tools like Cursor or ChatGPT, use the appropriate URL as described in the respective tutorials.
 
-## Getting Started[​](#getting-started "Direct link to Getting Started")
+## Get Started[​](#get-started "Direct link to Get Started")
 
 1. **Identify Your Use Case**: Determine whether you need comprehensive or essential documentation coverage
 2. **Choose Your AI Tool**: Select the AI platform you want to integrate with Flow Data Sources
@@ -346124,7 +346065,7 @@ The Flow Data Sources repository represents a powerful resource to enhance AI-as
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor/flow-data-sources.md)
 
-Last updated on **Nov 3, 2025** by **cshannon1218**
+Last updated on **Nov 20, 2025** by **cshannon1218**
 
 [Previous
 
@@ -346138,9 +346079,9 @@ Indexing Documentation](/blockchain-development-tutorials/use-AI-to-build-on-flo
 
 Copy as Markdown
 
-* [Overview](#overview)* [Key Features](#key-features)* [Available Files](#available-files)
-      + [All Merged Documentation](#all-merged-documentation)+ [Essentials Merged Documentation](#essentials-merged-documentation)+ [Cadence Only Documentation](#cadence-only-documentation)* [How to Use](#how-to-use)* [Integration with AI Tools](#integration-with-ai-tools)
-          + [Cursor Integration](#cursor-integration)+ [ChatGPT Custom GPTs](#chatgpt-custom-gpts)+ [Claude Code Integration](#claude-code-integration)* [Key Benefits](#key-benefits)* [Best Practices](#best-practices)* [Accessing the Content](#accessing-the-content)* [Getting Started](#getting-started)
+* [Overview](#overview)* [Key features](#key-features)* [Available files](#available-files)
+      + [All merged documentation](#all-merged-documentation)+ [Essentials merged documentation](#essentials-merged-documentation)+ [Cadence only documentation](#cadence-only-documentation)* [How to use](#how-to-use)* [Integration with AI tools](#integration-with-ai-tools)
+          + [Cursor Integration](#cursor-integration)+ [ChatGPT Custom GPTs](#chatgpt-custom-gpts)+ [Claude Code Integration](#claude-code-integration)* [Key Benefits](#key-benefits)* [Best Practices](#best-practices)* [Accessing the Content](#accessing-the-content)* [Get Started](#get-started)
 
 Flow
 
@@ -347249,70 +347190,68 @@ On this page
 
 # Claude Code for Flow Development
 
-## Introduction[​](#introduction "Direct link to Introduction")
+[Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview) (Claude) provides an AI-powered coding assistant specifically designed for iterative, systematic development, which transforms the development experience. Unlike general-purpose AI tools, Claude breaks down tasks into manageable, incremental steps while it maintains context across your entire development lifecycle.
 
-[Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview) (CC) transforms the development experience by providing an AI-powered coding assistant specifically designed for iterative, systematic development. Unlike general-purpose AI tools, Claude Code excels at breaking down tasks into manageable, incremental steps while maintaining context across your entire development lifecycle.
+What makes Claude exceptionally powerful is it can maintain unlimited context windows, which allows it to understand entire codebases without the compression limitations that plague other AI coding tools. This comprehensive knowledge allows Claude to deploy multiple subagent instances that work in parallel on complex tasks, iterate continuously until optimal solutions are achieved, and maintain persistent memory of your project's architecture and coding standards across all development sessions.
 
-What makes Claude Code exceptionally powerful is its ability to maintain unlimited context windows, allowing it to understand entire codebases without the compression limitations that plague other AI coding tools. This comprehensive understanding enables Claude Code to deploy multiple subagent instances that work in parallel on complex tasks, iterate continuously until optimal solutions are achieved, and maintain persistent memory of your project's architecture and coding standards across all development sessions.
+## Learning objectives[​](#learning-objectives "Direct link to Learning objectives")
 
-## Learning Objectives[​](#learning-objectives "Direct link to Learning Objectives")
+After you complete this guide, you'll be able to:
 
-After completing this guide, you'll be able to:
-
-* Set up and configure Claude Code for optimal Flow blockchain development workflows
-* Implement the four-stage development methodology (Idea → Visualization → Planning → Build) for Cadence projects
-* Configure persistent project context using CLAUDE.md files with Flow-specific instructions and MCP tools
-* Apply iterative development practices with git-based checkpoint systems for safe blockchain development
-* Utilize advanced Claude Code features including subagents, auto-verification, and specialized debugging workflows
-* Integrate Claude Code with Flow CLI, FCL, and other Flow development tools for comprehensive project management
-* Create and manage team-wide development standards through shared CLAUDE.md configurations
+* Set up and configure Claude for optimal Flow blockchain development workflows.
+* Implement the four-stage development methodology (Idea → Visualization → Planning → Build) for Cadence projects.
+* Configure persistent project context with `CLAUDE.md` files with Flow-specific instructions and MCP tools.
+* Apply iterative development practices with git-based checkpoint systems for safe blockchain development.
+* Use advanced Claude features such subagents, auto-verification, and specialized debugging workflows.
+* Integrate Claude with Flow CLI, FCL, and other Flow development tools for comprehensive project management.
+* Create and manage team-wide development standards through shared `CLAUDE.md` configurations.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-Before proceeding with this guide, you should have:
+Before you proceed with this guide, you should have:
 
-### Technical Requirements[​](#technical-requirements "Direct link to Technical Requirements")
+### Technical requirements[​](#technical-requirements "Direct link to Technical requirements")
 
-* [Claude Code Subscription](https://claude.ai/upgrade): $200/month plan recommended for comprehensive Flow development features
-* [Flow CLI](https://developers.flow.com/tools/flow-cli): Installed and configured for emulator, testnet, and mainnet interactions
-* [Git](https://git-scm.com/downloads): Version control system for checkpoint-based development workflow
-* [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm): For Claude Code, FCL integration, and frontend development components
+* [Claude Code Subscription](https://claude.ai/upgrade): $200/month plan recommended for comprehensive Flow development features.
+* [Flow CLI](https://developers.flow.com/tools/flow-cli): Installed and configured for emulator, testnet, and mainnet interactions.
+* [Git](https://git-scm.com/downloads): Version control system for checkpoint-based development workflow.
+* [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm): For Claude, FCL integration, and frontend development components.
 
-## Claude Code Setup and Configuration[​](#claude-code-setup-and-configuration "Direct link to Claude Code Setup and Configuration")
+## Claude setup and configuration[​](#claude-setup-and-configuration "Direct link to Claude setup and configuration")
 
-### What is Claude Code?[​](#what-is-claude-code "Direct link to What is Claude Code?")
+### What is Claude?[​](#what-is-claude "Direct link to What is Claude?")
 
-Claude Code is an AI-powered coding assitant that integrated directly into your terminal. This allows you to use it in any IDE or simply from your terminal. The power of Claude Code comes from its ability to explain complex and large codebases, manage Git workflows, and iterate for long periods of time in order to accomplish a task.
+Claude is an AI-powered code assitant that integrated directly into your terminal. This allows you to use it in any integrated development environment (IDE) or simply from your terminal. The power of Claude comes from its ability to explain complex and large codebases, manage Git workflows, and iterate for long periods of time to accomplish a task.
 
-Most IDEs like Cursor rely on their ability to compress the context window that is fed to agents so that their business model justifies charging $20 while using expensive LLM models. This naturally decreases the ability of the agents to have a comprehensive understanding of the working codebase when managing with large or complex codebases.
+Most IDEs like Cursor rely on their ability to compress the context window that is fed to agents so that their business model justifies a $20 charge while they use expensive LLM models. This naturally decreases the ability of the agents to have a comprehensive understanding of the working codebase when they manage with large or complex codebases.
 
-This is why Claude Code can be so powerful, it is able to include entire codebases in its context, deploy other instances of Claude Code in order to work on multiple actions in parallel, and iterate on its results in order to achieve better results.
+This is why Claude can be so powerful, because it can include entire codebases in its context, deploy other instances of Claude to work on multiple actions in parallel, and iterate on its results in order to achieve better results.
 
-### Installation and Subscription[​](#installation-and-subscription "Direct link to Installation and Subscription")
+### Installation and subscription[​](#installation-and-subscription "Direct link to Installation and subscription")
 
-Claude Code requires a [subscription](https://claude.ai/upgrade) to access its full development capabilities. There are 3 subscription levels: Pro, Max 5x, and Max 20x.
+Claude requires a [subscription](https://claude.ai/upgrade) to access its full development capabilities. There are three subscription levels: Pro, Max 5x, and Max 20x.
 
 The Pro plan is very limited, so expect it to only be sufficient for testing and experimentation.
 
-The $200/month Max 20x plan is recommended for developers with a lot of projects or if you need to build something quickly where time is of the essence. This plan will grant you access to:
+The $200/month Max 20x plan is recommended for developers with a lot of projects or if you need to build something quickly where time is crucial. This plan grants you access to:
 
-* Unlimited context windows for complex smart contract projects
-* Advanced subagent capabilities for parallel development tasks
-* Persistent memory across development sessions
-* Integration with MCP (Model Context Protocol) servers
-* Team collaboration features through shared configurations
+* Unlimited context windows for complex smart contract projects.
+* Advanced subagent capabilities for parallel development tasks.
+* Persistent memory across development sessions.
+* Integration with MCP (Model Context Protocol) servers.
+* Team collaboration features through shared configurations.
 
-You can also use the API pricing, but this is not recommended since any meaningful implementation of CC will most likely require more than $100 in API credits.
+You can also use the API pricing, but we don't recommend it, since any meaningful implementation of Claude most likely requires more than $100 in API credits.
 
-### Initial Configuration[​](#initial-configuration "Direct link to Initial Configuration")
+### Initial configuration[​](#initial-configuration "Direct link to Initial configuration")
 
-To install Claude Code, run the following command:
+To install Claude, run the following command:
 
 `_10
 
 npm install -g @anthropic-ai/claude-code`
 
-After the installation process completes, navigate to your project and start Claude Code:
+After the installation process completes, navigate to your project and start Claude:
 
 `_10
 
@@ -347322,15 +347261,15 @@ _10
 
 claude`
 
-This will automatically install the extension. You can run the `/ide` command in the CC terminal to make sure your IDE is connected to CC. With the extension installed, you can click on the orange Anthropic logo on the upper right hand of the screen in order to launch Claude Code in a separate window.
+This automatically installs the extension. Run the `/ide` command in the Claude terminal to make sure your IDE is connected to Claude. With the extension installed, click on the orange Anthropic logo on the upper right hand of the screen in order to launch Claude in a separate window.
 
 ![Claude Code Extension](/assets/images/CC_logo-bd70eeecc96271a5b8d108354cec98d7.png)
 
-### CLAUDE.md Files[​](#claudemd-files "Direct link to CLAUDE.md Files")
+### CLAUDE.md files[​](#claudemd-files "Direct link to CLAUDE.md files")
 
-CLAUDE.md files are configuration files that contain project-specific instructions and context for Claude Code. They allow you to define development standards, frequently used commands, and project architecture that the AI remembers across all coding sessions. They are similar to Cursor Rules, but they differ in that CLAUDE.md only specifies the configuration of Claude Code.
+`CLAUDE.md` files are configuration files that contain project-specific instructions and context for Claude. They allow you to define development standards, frequently used commands, and project architecture that the AI remembers across all coding sessions. They are similar to Cursor Rules, but they differ in that `CLAUDE.md` only specifies the configuration of Claude.
 
-If you are now sure of what type of information to place in your CLAUDE.md file, then you can simply create your primary CLAUDE.md file in the project root. Use the `/init` command in Claude Code to generate the initial structure, then customize for Flow development:
+If you know what type of information to place in your `CLAUDE.md` file, create your primary `CLAUDE.md` file in the project root. Use the `/init` command in Claude to generate the initial structure, then customize for Flow development:
 
 Create your Flow project with the standard directory structure:
 
@@ -347394,157 +347333,159 @@ _15
 
 └── package.json`
 
-#### 3. Root CLAUDE.md Configuration[​](#3-root-claudemd-configuration "Direct link to 3. Root CLAUDE.md Configuration")
+#### 3. Root CLAUDE.md configuration[​](#3-root-claudemd-configuration "Direct link to 3. Root CLAUDE.md configuration")
 
-Placing CLAUDE.md in the root file sets the instructions you want Claude to do very frequently, such as:
+Place `CLAUDE.md` in the root file sets the instructions you want Claude to do frequently, such as:
 
-* Bash commands you want to run frequently
-* Files it should really know about when making changes or big architectural decisions
-* MCP servers
+* Bash commands you want to run frequently.
+* Files it should really know about when it makes changes or big architectural decisions.
+* MCP servers.
 
-This file is great for sharing across your team so you set it once and everyone has the same extended functionality.
+This file is great to share across your team so you set it once and everyone has the same extended functionality.
 
 **Team Configuration Setup**:
 
-`` _37
+`` _38
 
-# Flow Project AI Assistant Configuration
+_38
 
-_37
+# Flow Project AI assistant configuration
 
-_37
+_38
 
-## Project Overview
+_38
 
-_37
+## Project overview
 
-_37
+_38
+
+_38
 
 This is a Flow blockchain application with Cadence smart contracts and FCL frontend integration.
 
-_37
+_38
 
-_37
+_38
 
-## Team-wide Development Standards
+## Team-wide development standards
 
-_37
+_38
 
-_37
+_38
 
-- MCP servers standardized across development environments
+- MCP servers standardized across development environments.
 
-_37
+_38
 
-- Git workflow and commit message standards enforced
+- Git workflow and commit message standards enforced.
 
-_37
+_38
 
-- Follow official Flow documentation patterns
+- Follow official Flow documentation patterns.
 
-_37
+_38
 
-- Use incremental, checkpoint-based development
+- Use incremental, checkpoint-based development.
 
-_37
+_38
 
-- Test on emulator before testnet deployment
+- Test on emulator before testnet deployment.
 
-_37
+_38
 
 - Implement proper resource handling with @ and & syntax
 
-_37
+_38
 
-- Follow MetadataViews standards for NFT projects
+- Follow MetadataViews standards for NFT projects.
 
-_37
+_38
 
-_37
+_38
 
-## Frequently Used Commands
+## Frequently used commands
 
-_37
+_38
 
-_37
+_38
 
-- `flow emulator start` - Start local development environment
+- `flow emulator start` - Start local development environment.
 
-_37
+_38
 
-- `flow project deploy --network emulator` - Deploy contracts locally
+- `flow project deploy --network emulator` - Deploy contracts locally.
 
-_37
+_38
 
-- `flow transactions send ./cadence/transactions/example.cdc --network emulator` - Execute transactions locally
+- `flow transactions send ./cadence/transactions/example.cdc --network emulator` - Execute transactions locally.
 
-_37
+_38
 
-- `npm run dev` - Start frontend development server
+- `npm run dev` - Start frontend development server.
 
-_37
+_38
 
-_37
+_38
 
-## Key Files to Reference
+## Key files to reference
 
-_37
+_38
 
-_37
+_38
 
-- flow.json - Project configuration and contract deployments
+- `flow.json` - Project configuration and contract deployments.
 
-_37
+_38
 
-- cadence/contracts/ - Smart contract implementations
+- `cadence/contracts/` - Smart contract implementations.
 
-_37
+_38
 
-- frontend/src/config.js - FCL configuration and contract addresses
+- `frontend/src/config.js` - FCL configuration and contract addresses.
 
-_37
+_38
 
-_37
+_38
 
-## MCP Servers
+## MCP servers
 
-_37
+_38
 
-_37
+_38
 
-- Use flow-mcp for reading blockchain data, managing accounts, checking balances, and interacting with native contracts.
+- Use flow-mcp to read blockchain data, manage accounts, check balances, and interact with native contracts.
 
-_37
+_38
 
-- Use flow-defi-mcp fro checking token prices, swapping tokens on decentralized exchanges, and interacting with ERC20 tokens.
+- Use flow-defi-mcp to check token prices, swap tokens on decentralized exchanges, and interact with ERC20 tokens.
 
-_37
+_38
 
-_37
+_38
 
-## Architecture Notes
+## Architecture notes
 
-_37
+_38
 
-_37
+_38
 
-[Document your specific project architecture, contract relationships, and deployment strategies] ``
+Document your specific project architecture, contract relationships, and deployment strategies ``
 
-#### 3. Nested CLAUDE.md Files[​](#3-nested-claudemd-files "Direct link to 3. Nested CLAUDE.md Files")
+#### 3. Nested CLAUDE.md files[​](#3-nested-claudemd-files "Direct link to 3. Nested CLAUDE.md files")
 
-You can have a more granular control of the capabilities of Claude Code when working with different ares of your repo by creating specialized instructions for different project areas. This is acheived by placing a nested CLAUDE.md file in subdirectories in your repo(cadence, frontend, backend, etc.). Claude Code will automatically read these files when working on these subdirectories. Here is an example:
+To maintain a more granular control of the capabilities of Claude when you work with different areas of your repo, you can create specialized instructions for different project areas. To do this, place a nested `CLAUDE.md` file in subdirectories in your repo(cadence, frontend, backend, and so on). Claude will automatically read these files when working on these subdirectories. Here is an example:
 
 **cadence/.claude/CLAUDE.md:**
 
 `_25
 
-# Cadence Development Instructions
+# Cadence development instructions
 
 _25
 
 _25
 
-## Syntax Requirements
+## Syntax requirements
 
 _25
 
@@ -347554,49 +347495,49 @@ _25
 
 _25
 
-- Implement required interfaces: NonFungibleToken, MetadataViews
+- Implement required interfaces: NonFungibleToken, MetadataViews.
 
 _25
 
-- Use view functions for read-only operations
+- Use view functions for read-only operations.
 
 _25
 
-- Follow auth capability patterns for transactions
-
-_25
-
-_25
-
-## Testing Protocol
+- Follow auth capability patterns for transactions.
 
 _25
 
 _25
 
-- Write unit tests for all contract functions
-
-_25
-
-- Test resource creation and destruction
-
-_25
-
-- Verify proper event emission
-
-_25
-
-- Validate access controls and permissions
-
-_25
-
-- Test for breaking changes and edge cases
+## Testing protocol
 
 _25
 
 _25
 
-## Standard Patterns
+- Write unit tests for all contract functions.
+
+_25
+
+- Test resource creation and destruction.
+
+_25
+
+- Verify proper event emission.
+
+_25
+
+- Validate access controls and permissions.
+
+_25
+
+- Test for breaking changes and edge cases.
+
+_25
+
+_25
+
+## Standard patterns
 
 _25
 
@@ -347608,92 +347549,92 @@ _25
 
 _25
 
-- Contract deployment and initialization
+- Contract deployment and initialization.
 
 _25
 
-- Resource collection patterns
+- Resource collection patterns.
 
 _25
 
-- Proper error handling and panics
+- Proper error handling and panics.
 
 _25
 
-- Gas optimization techniques`
+- Gas optimization techniques.`
 
 **frontend/.claude/CLAUDE.md:**
 
 `_14
 
-# Frontend FCL Integration Instructions
+# Frontend FCL integration instructions
 
 _14
 
 _14
 
-## Configuration Management
+## Configuration management
 
 _14
 
 _14
 
-- Keep contract addresses in environment variables
+- Keep contract addresses in environment variables.
 
 _14
 
-- Use proper network switching logic
+- Use proper network switching logic.
 
 _14
 
-- Implement user authentication flows
+- Implement user authentication flows.
 
 _14
 
-- Handle transaction status updates
-
-_14
-
-_14
-
-## Best Practices
+- Handle transaction status updates.
 
 _14
 
 _14
 
-- Show loading states for blockchain interactions
+## Best practices
 
 _14
 
-- Provide clear error messages for failed transactions
+_14
+
+- Show loading states for blockchain interactions.
 
 _14
 
-- Cache contract data when appropriate`
+- Provide clear error messages for failed transactions.
+
+_14
+
+- Cache contract data when appropriate.`
 
 #### Local Claude.md[​](#local-claudemd "Direct link to Local Claude.md")
 
 You can also create a `CLAUDE.local.md` file that is used just for you and not shared with your team.
 
-## Workflow Strategies[​](#workflow-strategies "Direct link to Workflow Strategies")
+## Workflow strategies[​](#workflow-strategies "Direct link to Workflow strategies")
 
-Claude Code excels when following a structured development approach. We recommend you implement this four-stage methodology:
+Claude excels when it follows a structured development approach. We recommend you implement this four-stage methodology:
 
-### Stage 1: Idea Development[​](#stage-1-idea-development "Direct link to Stage 1: Idea Development")
+### Stage 1: Idea development[​](#stage-1-idea-development "Direct link to Stage 1: Idea development")
 
-**Objective**: Bounce ideas with CC in order to have a better understanding of what can be built and why it would work.
+**Objective**: Bounce ideas with Claude to better understand of what you can build and why it would work.
 
 **Process**:
 
-1. Click `Shift` + `Tab` in order to cycle through the different response forms that CC has to offer until you reach the Plan Mode.
+1. Click `Shift` + `Tab` to cycle through the different response forms that Claude offers until you reach the Plan Mode.
 
 ![Plan Mode](/assets/images/plan_mode-9f5209f2cfeffd4f5b0061e58377046b.png)
 
-2. Describe your Flow project concept to Claude Code
-3. Ask for requirement analysis and technical feasibility assessment
+2. Describe your Flow project concept to Claude.
+3. Ask for requirement analysis and technical feasibility assessment.
 
-**Example Conversation**:
+**Example conversation**:
 
 `_10
 
@@ -347703,27 +347644,27 @@ _10
 
 _10
 
-Claude Code Response: [Analyzes requirements, suggests NFT architecture, identifies game mechanics, proposes contract structure]`
+Claude Response: [Analyzes requirements, suggests NFT architecture, identifies game mechanics, proposes contract structure]`
 
 **Outputs**:
 
-* Detailed project requirements document
-* Technical architecture overview
-* Flow-specific implementation considerations
-* Resource and timeline estimates
+* Detailed project requirements document.
+* Technical architecture overview.
+* Flow-specific implementation considerations.
+* Resource and timeline estimates.
 
 ### Stage 2: Visualization[​](#stage-2-visualization "Direct link to Stage 2: Visualization")
 
-**Objective**: Create visual representations and demos to validate project concepts before development. You can use Claude Code during this process, but it is best to combine LLM models like Gemini 2.5 in order to create the visual representations.
+**Objective**: Create visual representations and demos to validate project concepts before development. You can use Claude with this process, but it is best to combine LLM models like Gemini 2.5 in order to create the visual representations.
 
-**Tools and Techniques**:
+**Tools and techniques**:
 
-* **Mermaid Diagrams**: Generate contract relationship diagrams, user flow charts, and system architecture visuals
-* **UI Mockups**: Create interface mockups for frontend applications
-* **Contract Schemas**: Visualize data structures and resource relationships
-* **Transaction Flow Maps**: Diagram user interactions and blockchain state changes
+* **Mermaid Diagrams**: Generate contract relationship diagrams, user flow charts, and system architecture visuals.
+* **UI Mockups**: Create interface mockups for frontend applications.
+* **Contract Schemas**: Visualize data structures and resource relationships.
+* **Transaction Flow Maps**: Diagram user interactions and blockchain state changes.
 
-**Example Workflow**:
+**Example workflow**:
 
 `_10
 
@@ -347733,28 +347674,28 @@ _10
 
 _10
 
-[Claude Code generates Mermaid diagram showing contract interactions, resource transformations, and event emissions]`
+[Claude generates Mermaid diagram showing contract interactions, resource transformations, and event emissions]`
 
-**Claude Code Commands**:
+**Claude code commands**:
 
-* Use image upload to share visual concepts
-* Request Mermaid diagrams for complex systems
-* Ask for UI mockups based on Flow wallet integration patterns
+* Use image upload to share visual concepts.
+* Request Mermaid diagrams for complex systems.
+* Ask for UI mockups based on Flow wallet integration patterns.
 
-### Stage 3: Planning with Claude Code[​](#stage-3-planning-with-claude-code "Direct link to Stage 3: Planning with Claude Code")
+### Stage 3: Planning with Claude code[​](#stage-3-planning-with-claude-code "Direct link to Stage 3: Planning with Claude code")
 
-**Objective**: Break down the project into manageable, incremental development tasks using Claude Code's planning capabilities.
+**Objective**: Break down the project into manageable, incremental development tasks with Claude's planning capabilities.
 
-**Planning Process**:
+**Planning process**:
 
-1. **Enable Planning Mode**: Explicitly tell Claude Code you're in planning phase or cycle through the different modes (with `Shift` + `Tab`) until you reach Plan Mode
-2. **Confirm Knowledge Comprehension**: Ask Claude to read important files first and then confirm the knowledge with you. Immediately ask it questions about the codebase to verify its knowledge
-3. **Plan Generation**: Tell CC to generate an action plan that is incremental and has specific goals and checkpoints (this file can be called T0-DO.md and placed in a `/tasks` folder that will contain relevant information regarding the completion of specific tasks or steps)
-4. **Task Breakdown**: Request comprehensive task decomposition for incremental changes
-5. **Dependency Mapping**: Identify task dependencies and critical path
-6. **Checkpoint Strategy**: Define git commit points and testing milestones
+1. **Turn On Planning Mode**: Explicitly tell Claude you're in planning phase or cycle through the different modes (with `Shift` + `Tab`) until you reach Plan Mode.
+2. **Confirm Knowledge Comprehension**: Ask Claude to read important files first and then confirm the knowledge with you. Immediately ask it questions about the codebase to verify its knowledge.
+3. **Plan Generation**: Tell Claude to generate an action plan that is incremental and has specific goals and checkpoints (this file can be called `T0-DO.md` and placed in a `/tasks` folder that contains relevant information about the completion of specific tasks or steps).
+4. **Task Breakdown**: Request comprehensive task decomposition for incremental changes.
+5. **Dependency Mapping**: Identify task dependencies and critical path.
+6. **Checkpoint Strategy**: Define git commit points and testing milestones.
 
-**Example Planning Session**:
+**Example planning session**:
 
 `_18
 
@@ -347764,7 +347705,7 @@ _18
 
 _18
 
-Claude Code Response:
+Claude Response:
 
 _18
 
@@ -347822,30 +347763,30 @@ _18
 
 [Continues with detailed breakdown]`
 
-**Planning Outputs**:
+**Plan outputs**:
 
-* Generate a detailed to-do list that is thoroughly divided between goals, objectives, checkpoints and tasks that need to be achieved in an incremental manner
-* Dependency graph showing task relationships
-* Testing strategy for each development phase
-* Deployment sequence and validation protocols
+* Generate a detailed to-do list that is thoroughly divided between goals, objectives, checkpoints and tasks that need to be achieved in an incremental manner.
+* Dependency graph showing task relationships.
+* Test strategies for each development phase.
+* Deployment sequence and validation protocols.
 
-A downside of using CC is that it does not have a checkpoint control like the agent chat does in Cursor. So making frequent git commits and working on separate branches can help you mitigate this. Never attempt to give Claude Code a big task as it will most liekly not have enough knowledge about the task at hand to be able to complete it successfully.
+A downside of Claude is that it doesn't have a checkpoint control like the agent chat does in Cursor. If you make frequent git commits and work on separate branches, it can help mitigate this. Never attempt to give Claude a big task as it most likely doesn't have enough knowledge about the task at hand to complete it successfully.
 
-### Stage 4: Build Execution[​](#stage-4-build-execution "Direct link to Stage 4: Build Execution")
+### Stage 4: Build execution[​](#stage-4-build-execution "Direct link to Stage 4: Build execution")
 
-**Objective**: Implement planned tasks systematically using Claude Code's development capabilities.
+**Objective**: Implement planned tasks systematically with Claude's development capabilities.
 
-**Build Process**:
+**Build process**:
 
-1. **Task Assignment**: Work on one incremental task at a time
-2. **Implementation**: Use Claude Code to generate code, debug issues, and optimize solutions.
-3. **Reporting**: After completing a task, CC should generate a report of what it did and why it has done it in a md file in the `/tasks` folder so that you can have a better understanding of the changes made
-4. **Validation**: Test each component thoroughly before proceeding
-5. **Documentation**: Generate inline documentation and update project docs
-6. **Checkpoint**: Commit working code with descriptive messages
-7. **Updating**: Ask Claude Code to update the TO-DO.md with the completed steps and changes once the commit has been approved.
+1. **Task Assignment**: Work on one incremental task at a time.
+2. **Implementation**: Use Claude to generate code, debug issues, and optimize solutions.
+3. **Reporting**: After it completes a task, Claude generates a report of what it did and why it did it in a `.md` file in the `/tasks` folder so that you can have better understand the changes made.
+4. **Validation**: Test each component thoroughly before you proceed.
+5. **Documentation**: Generate inline documentation and update project docs.
+6. **Checkpoint**: Commit working code with descriptive messages.
+7. **Updating**: Ask Claude to update the `TO-DO.md` with the completed steps and changes after the commit is approved.
 
-**Development Workflow**:
+**Development workflow**:
 
 `_11
 
@@ -347855,7 +347796,7 @@ _11
 
 _11
 
-[Claude Code generates contract code, deployment scripts, and tests]
+[Claude generates contract code, deployment scripts, and tests]
 
 _11
 
@@ -347867,7 +347808,7 @@ _11
 
 _11
 
-[Claude Code provides testing commands and validation scripts]
+[Claude provides testing commands and validation scripts]
 
 _11
 
@@ -347879,23 +347820,23 @@ _11
 
 _11
 
-[Claude Code suggests commit message and validates completion]`
+[Claude suggests commit message and validates completion]`
 
-## Advanced Claude Code Features[​](#advanced-claude-code-features "Direct link to Advanced Claude Code Features")
+## Advanced Claude features[​](#advanced-claude-features "Direct link to Advanced Claude features")
 
-### Subagent Utilization[​](#subagent-utilization "Direct link to Subagent Utilization")
+### Subagent utilization[​](#subagent-utilization "Direct link to Subagent utilization")
 
-For complex Flow projects, leverage Claude Code's subagent capabilities to handle parallel development tasks:
+For complex Flow projects, leverage Claude's subagent capabilities to handle parallel development tasks:
 
-**When to Use Subagents**:
+**When to use subagents**:
 
-* Developing multiple contracts simultaneously
-* Frontend and backend development in parallel
-* Testing different implementation approaches
-* Documentation generation while coding
-* Dealing with a big task so that CC can deploy subagents to break down the task into smaller components that are running in parallel
+* To develop multiple contracts simultaneously.
+* Frontend and backend development in parallel.
+* To test different implementation approaches.
+* Documentation generation while coding.
+* To deal with a big task so that Claude can deploy subagents to break down the task into smaller components that are running in parallel.
 
-**Example Subagent Usage**:
+**Example subagent usage**:
 
 `_10
 
@@ -347905,43 +347846,43 @@ _10
 
 _10
 
-[Claude Code spawns separate conversation threads for each contract, maintaining coordination between them]`
+[Claude spawns separate conversation threads for each contract, which maintains coordination between them.]`
 
-### Auto-Verification and Iteration[​](#auto-verification-and-iteration "Direct link to Auto-Verification and Iteration")
+### Auto-verification and iteration[​](#auto-verification-and-iteration "Direct link to Auto-verification and iteration")
 
-Configure Claude Code to automatically verify its work and iterate for improvements:
+Configure Claude to automatically verify its work and iterate for improvements:
 
-**Verification Patterns**:
+**Verification patterns**:
 
-* **Compilation Checks**: Automatically test Cadence syntax after code generation
-* **Test Execution**: Run unit tests and integration tests after implementation
-* **Deployment Validation**: Verify contract deployment on emulator before suggesting testnet deployment
+* **Compilation Checks**: Automatically test Cadence syntax after code generation.
+* **Test Execution**: Run unit tests and integration tests after implementation.
+* **Deployment Validation**: Verify contract deployment on emulator before you suggest testnet deployment.
 
-### Memory and Context Management[​](#memory-and-context-management "Direct link to Memory and Context Management")
+### Memory and context management[​](#memory-and-context-management "Direct link to Memory and context management")
 
-**Using the # Memory Mode**:
-Press `#` to enter memory mode and specify important information for Claude Code to remember:
+**Use the # memory mode**:
+Press `#` to enter memory mode and specify important information for Claude to remember:
 
 `_10
 
-# Remember that this project uses a modular NFT architecture with separate traits contracts
+# Remember that this project uses a modular NFT architecture with separate traits contracts.
 
 _10
 
-# Remember that we need to use a DS Proxy system for upgrading contracts`
+# Remember that we need to use a DS Proxy system for contract upgrades.`
 
-**Context Optimization**:
+**Context optimization**:
 
-* Use `Ctrl+R` for verbose output when debugging complex issues
-* Compact conversations at natural breakpoints (around 20% context usage)
-* Constantly refactor CLAUDE.md to take into account changes made throughout the development process
-* Maintain focused conversations for specific development tasks
+* Use `Ctrl+R` for verbose output when you debug complex issues.
+* Compact conversations at natural breakpoints (around 20% context usage).
+* Constantly refactor `CLAUDE.md` to take into accounts changes made throughout the development process.
+* Maintain focused conversations for specific development tasks.
 
-## Development Workflows and Best Practices[​](#development-workflows-and-best-practices "Direct link to Development Workflows and Best Practices")
+## Development workflows and best practices[​](#development-workflows-and-best-practices "Direct link to Development workflows and best practices")
 
-Give Claude Code some sort of tool it can use for feedback (MCP or tool) to check its work and it will iterate by itself to get better results. Claude Code has the ability to iterate for hours if needed, but it needs to be able to analyze its work. These alternative workflows can be very useful as well, depending on your ability to close the feedback loop so that CC can analyze and comprehend the results of its code generation:
+Give Claude some sort of tool it can use for feedback (MCP or tool) to check its work and it will iterate by itself to get better results. Claude can iterate for hours if needed, but it needs to be able to analyze its work. These alternative workflows can be very useful as well, but they depend on your ability to close the feedback loop so that Claude can analyze and comprehend the results of its code generation:
 
-### Test-Driven Development with Claude Code[​](#test-driven-development-with-claude-code "Direct link to Test-Driven Development with Claude Code")
+### Test-driven development with Claude[​](#test-driven-development-with-claude "Direct link to Test-driven development with Claude")
 
 **Workflow**: Write Tests → Commit → Code → Iterate → Commit
 
@@ -347953,7 +347894,7 @@ _10
 
 _10
 
-[Claude Code generates comprehensive test suite]
+[Claude generates comprehensive test suite]
 
 _10
 
@@ -347965,9 +347906,9 @@ _10
 
 _10
 
-[Claude Code implements feature with test-driven approach]`
+[Claude implements feature with test-driven approach]`
 
-### Screenshot-Driven Development[​](#screenshot-driven-development "Direct link to Screenshot-Driven Development")
+### Screenshot-driven development[​](#screenshot-driven-development "Direct link to Screenshot-driven development")
 
 **Workflow**: Write Code → Screenshot Result → Iterate
 
@@ -347981,7 +347922,7 @@ _10
 
 _10
 
-[Claude Code generates React component]
+[Claude generates React component]
 
 _10
 
@@ -347993,18 +347934,18 @@ _10
 
 _10
 
-Claude Code: "I see the card layout needs improvement. Let me adjust the CSS..."`
+Claude: "I see the card layout needs improvement. Let me adjust the CSS..."`
 
-### Checkpoint-Based Development[​](#checkpoint-based-development "Direct link to Checkpoint-Based Development")
+### Checkpoint-based development[​](#checkpoint-based-development "Direct link to Checkpoint-based development")
 
-**Best Practices**:
+**Best practices**:
 
-* Commit after each completed task
-* Use descriptive commit messages generated by Claude Code
-* Create branches for experimental features
-* Tag stable releases for easy rollback
+* Commit after each completed task.
+* Use descriptive commit messages that Claude generates.
+* Create branches for experimental features.
+* Tag stable releases for easy rollback.
 
-**Example Checkpoint Strategy**:
+**Example checkpoint strategy**:
 
 `_10
 
@@ -348038,17 +347979,17 @@ _10
 
 Checkpoint: Basic NFT functionality complete"`
 
-### Error Resolution and Debugging[​](#error-resolution-and-debugging "Direct link to Error Resolution and Debugging")
+### Error resolution and debugging[​](#error-resolution-and-debugging "Direct link to Error resolution and debugging")
 
-**Systematic Debugging Approach**:
+**Systematic debugging approach**:
 
-1. **Error Analysis**: Provide Claude Code with complete error messages and context
-2. **Root Cause Investigation**: Let Claude Code analyze potential causes
-3. **Solution Implementation**: Apply suggested fixes incrementally
-4. **Verification**: Test fixes thoroughly before proceeding
-5. **Documentation**: Update project documentation with lessons learned
+1. **Error Analysis**: Provide Claude with complete error messages and context.
+2. **Root Cause Investigation**: Let Claude analyze potential causes.
+3. **Solution Implementation**: Apply suggested fixes incrementally.
+4. **Verification**: Test fixes thoroughly before you proceed.
+5. **Documentation**: Update project documentation with lessons learned.
 
-**Example Debugging Session**:
+**Example debugging session**:
 
 `_10
 
@@ -348058,7 +347999,7 @@ _10
 
 _10
 
-Claude Code: "Let me analyze the auth capability requirements. I see the issue is with the granular auth pattern. Here's the fix..."
+Claude: "Let me analyze the auth capability requirements. I see the issue is with the granular auth pattern. Here's the fix..."
 
 _10
 
@@ -348066,21 +348007,21 @@ _10
 
 [Provides corrected transaction with proper auth syntax]`
 
-### Multi-Network Deployment[​](#multi-network-deployment "Direct link to Multi-Network Deployment")
+### Multi-network deployment[​](#multi-network-deployment "Direct link to Multi-network deployment")
 
-**Deployment Workflow with Claude Code**:
+**Deployment workflow with Claude**:
 
-1. **Emulator Testing**: Comprehensive local testing and validation
-2. **Configuration Update**: Update flow.json and FCL config for testnet
-3. **Testnet Deployment**: Deploy and validate on testnet
-4. **Frontend Integration**: Update frontend configuration and test user flows
-5. **Mainnet Preparation**: Final validation and deployment to mainnet
+1. **Emulator Testing**: Comprehensive local testing and validation.
+2. **Configuration Update**: Update flow.json and FCL config for testnet.
+3. **Testnet Deployment**: Deploy and validate on testnet.
+4. **Frontend Integration**: Update frontend configuration and test user flows.
+5. **Mainnet Preparation**: Final validation and deployment to mainnet.
 
-### MCP Server Sharing[​](#mcp-server-sharing "Direct link to MCP Server Sharing")
+### MCP server share[​](#mcp-server-share "Direct link to MCP server share")
 
-You can set up [MCPs](https://docs.anthropic.com/en/docs/claude-code/mcp) for Claude Code to use as tools. These can also be set up in the CLAUDE.md file so that the same MCPs are used consistently by every team member. Share the `/Claude/mcp.json` files so that the team can use the same MCP servers.
+You can set up [MCPs](https://docs.anthropic.com/en/docs/claude-code/mcp) for Claude to use as tools. These can also be set up in the `CLAUDE.md` file so that every team member consistently uses the same MCPs. Share the `/Claude/mcp.json` files so that the team can use the same MCP servers.
 
-**Team MCP Configuration**:
+**Team MCP configuration**:
 
 To grant Claude Code [access to use an MCP server](https://docs.anthropic.com/en/docs/claude-code/mcp), run the following commands:
 
@@ -348116,40 +348057,40 @@ _10
 
 claude mcp add flow-defi-mcp`
 
-### Version Control for AI Configuration[​](#version-control-for-ai-configuration "Direct link to Version Control for AI Configuration")
+### Version control for AI configuration[​](#version-control-for-ai-configuration "Direct link to Version control for AI configuration")
 
-**Best Practices**:
+**Best practices**:
 
-* Include CLAUDE.md files in version control
-* Document MCP server configurations in README
-* Share CLAUDE.local.md patterns (without committing personal configs)
-* Maintain team coding standards through shared AI instructions
+* Include `CLAUDE.md` files in version control.
+* Document MCP server configurations in README.
+* Share `CLAUDE.local.md` patterns (and don't commit personal configs).
+* Maintain team coding standards through shared AI instructions.
 
-## Key Bindings and Shortcuts[​](#key-bindings-and-shortcuts "Direct link to Key Bindings and Shortcuts")
+## Key bindings and shortcuts[​](#key-bindings-and-shortcuts "Direct link to Key bindings and shortcuts")
 
-### Essential Claude Code Shortcuts[​](#essential-claude-code-shortcuts "Direct link to Essential Claude Code Shortcuts")
+### Essential Claude shortcuts[​](#essential-claude-shortcuts "Direct link to Essential Claude shortcuts")
 
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Shortcut Function Flow Development Usage|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `#` Memory mode Store project architecture decisions|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `Shift+Tab` Auto-accept edits Quickly accept generated Cadence code|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `!` Bash mode Execute Flow CLI commands directly|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `@` Add file/folder Reference contracts, transactions, configs|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | `Esc` Cancel operation Stop incorrect generation/execution|  |  |  | | --- | --- | --- | | `Ctrl+R` Verbose output Detailed debugging for complex issues | | | | | | | | | | | | | | | | | | | | |
+| Shortcut Function Flow Development Usage|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `#` Memory mode Store project architecture decisions|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `Shift+Tab` Auto-accept edits Quickly accept generated Cadence code|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `!` Bash mode Execute Flow CLI commands directly|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | `@` Add file/folder Reference contracts, transactions, configs|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | `Esc` Cancel operation Stop incorrect generation and execution|  |  |  | | --- | --- | --- | | `Ctrl+R` Verbose output Detailed debugging for complex issues | | | | | | | | | | | | | | | | | | | | |
 
-### Flow-Specific Usage Patterns[​](#flow-specific-usage-patterns "Direct link to Flow-Specific Usage Patterns")
+### Flow-specific usage patterns[​](#flow-specific-usage-patterns "Direct link to Flow-specific usage patterns")
 
-**Memory Mode Examples**:
+**Memory mode examples**:
 
 `_10
 
-# This project follows the composite NFT pattern with separate trait contracts
+# This project follows the composite NFT pattern with separate trait contracts.
 
 _10
 
-# Gas optimization is critical - avoid loops in public functions
+# Gas optimization is critical - avoid loops in public functions.
 
 _10
 
-# All contracts must support MetadataViews for marketplace compatibility`
+# All contracts must support MetadataViews for marketplace compatibility.`
 
-**File Reference Patterns**:
+**File reference patterns**:
 
 `_10
 
@@ -348159,69 +348100,69 @@ _10
 
 @cadence/contracts/MyNFT.cdc - Main NFT contract`
 
-## Troubleshooting and Optimization[​](#troubleshooting-and-optimization "Direct link to Troubleshooting and Optimization")
+## Troubleshooting and optimization[​](#troubleshooting-and-optimization "Direct link to Troubleshooting and optimization")
 
-### Common Issues and Solutions[​](#common-issues-and-solutions "Direct link to Common Issues and Solutions")
+### Common issues and solutions[​](#common-issues-and-solutions "Direct link to Common issues and solutions")
 
-**Context Window Management**:
+**Context window management**:
 
-* Compact conversations at natural breakpoints or manually at around 20% of context usage remaining
-* Use focused sub-conversations for specific tasks
-* Reference key files rather than copying entire contents
+* Compact conversations at natural breakpoints or manually when around 20% of context usage remains.
+* Use focused sub-conversations for specific tasks.
+* Reference key files rather than copying entire contents.
 
-**Performance Optimization**:
+**Performance optimization**:
 
-* Use the $200/month plan for complex Flow projects
-* Enable auto-compact to prevent context overflow
-* Break large tasks into smaller, focused conversations
-* Hit `Esc` often if you see the agent is going on the wrong path and ask it to undo its recent action
+* Use the $200/month plan for complex Flow projects.
+* Turn on auto-compact to prevent context overflow.
+* Break large tasks into smaller, focused conversations.
+* Hit `Esc` often if you see the agent on the wrong path and ask it to undo its recent action.
 
-**Integration Problems**:
+**Integration problems**:
 
-* Verify MCP server configurations
-* Check Flow CLI integration and permissions
-* Validate CLAUDE.md file syntax and structure
+* Verify MCP server configurations.
+* Check Flow CLI integration and permissions.
+* Validate `CLAUDE.md` file syntax and structure.
 
-### Best Practices for Flow Development[​](#best-practices-for-flow-development "Direct link to Best Practices for Flow Development")
+### Best practices for Flow development[​](#best-practices-for-flow-development "Direct link to Best practices for Flow development")
 
-**Project Management**:
+**Project management**:
 
-* Maintain clear separation between contracts, transactions, and frontend code
-* Use nested CLAUDE.md files for different development areas
-* Keep project documentation synchronized with implementation
+* Maintain clear separation between contracts, transactions, and frontend code.
+* Use nested `CLAUDE.md` files for different development areas.
+* Keep project documentation synchronized with implementation.
 
-**Code Quality**:
+**Code quality**:
 
-* Always compile Cadence code before deployment
-* Use Claude Code for security review suggestions
-* Implement comprehensive testing at each development stage
+* Always compile Cadence code before deployment.
+* Use Claude for security review suggestions.
+* Implement comprehensive testing at each development stage.
 
-**Deployment Management**:
+**Deployment management**:
 
-* Test thoroughly on emulator before testnet deployment
-* Validate FCL configuration changes across networks
-* Use systematic deployment checklists generated by Claude Code
+* Test thoroughly on emulator before testnet deployment.
+* Validate FCL configuration changes across networks.
+* Use systematic deployment checklists that Claude generates.
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-In this guide, you explored how to leverage Claude Code for efficient Flow blockchain and Cadence development. You learned to implement a systematic four-stage development methodology that transforms ideas into production-ready applications through AI-assisted visualization, planning, and execution.
+In this guide, you explored how to leverage Claude for efficient Flow blockchain and Cadence development. You learned to implement a systematic four-stage development methodology that transforms ideas into production-ready applications through AI-assisted visualization, planning, and execution.
 
-You discovered how to configure persistent project context through CLAUDE.md files, enabling your AI assistant to maintain comprehensive understanding of Flow-specific patterns, project architecture, and team standards across all development sessions. The integration of specialized tools like Flow CLI, FCL configuration management, and MCP servers creates a comprehensive development environment optimized for blockchain application building.
+You discovered how to configure persistent project context through `CLAUDE.md` files, allowing your AI assistant to maintain comprehensive understanding of Flow-specific patterns, project architecture, and team standards across all development sessions. The integration of specialized tools like Flow CLI, FCL configuration management, and MCP servers creates a comprehensive development environment optimized for blockchain application building.
 
 The systematic approaches covered - from test-driven development and checkpoint-based workflows to subagent utilization and auto-verification - provide a foundation for building complex Flow applications with confidence and efficiency. The emphasis on incremental development, comprehensive testing, and systematic deployment ensures your projects meet the reliability requirements essential for blockchain applications.
 
 Now that you have completed this guide, you should be able to:
 
-* Set up and configure Claude Code for optimal Flow blockchain development workflows with persistent context and specialized tooling
-* Implement the four-stage development methodology (Idea → Visualization → Planning → Build) for systematic Cadence project development
-* Apply advanced Claude Code features including subagents, auto-verification, and team collaboration patterns for complex Flow applications
-* Integrate Claude Code seamlessly with Flow CLI, FCL, and other Flow development tools for comprehensive project management across emulator, testnet, and mainnet environments
+* Set up and configure Claude for optimal Flow blockchain development workflows with persistent context and specialized tooling.
+* Implement the four-stage development methodology (Idea → Visualization → Planning → Build) for systematic Cadence project development.
+* Apply advanced Claude features including subagents, auto-verification, and team collaboration patterns for complex Flow applications.
+* Integrate Claude seamlessly with Flow CLI, FCL, and other Flow development tools for comprehensive project management across emulator, testnet, and mainnet environments.
 
-The combination of AI-powered development assistance with Flow's comprehensive toolchain creates an unprecedented opportunity for building sophisticated blockchain applications efficiently and reliably. As you continue developing on Flow, these systematic approaches will help you maintain high code quality while accelerating your development velocity.
+The combination of AI-powered development assistance with Flow's comprehensive toolchain creates an unprecedented opportunity for building sophisticated blockchain applications efficiently and reliably. As you continue developing on Flow, these systematic approaches will help you maintain high code quality while aClaudeelerating your development velocity.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/llms/claude-code.md)
 
-Last updated on **Oct 7, 2025** by **0xLisanAlGaib**
+Last updated on **Nov 20, 2025** by **cshannon1218**
 
 [Previous
 
@@ -348235,14 +348176,14 @@ Use Cursor AI](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor)
 
 Copy as Markdown
 
-* [Introduction](#introduction)* [Learning Objectives](#learning-objectives)* [Prerequisites](#prerequisites)
-      + [Technical Requirements](#technical-requirements)* [Claude Code Setup and Configuration](#claude-code-setup-and-configuration)
-        + [What is Claude Code?](#what-is-claude-code)+ [Installation and Subscription](#installation-and-subscription)+ [Initial Configuration](#initial-configuration)+ [CLAUDE.md Files](#claudemd-files)* [Workflow Strategies](#workflow-strategies)
-          + [Stage 1: Idea Development](#stage-1-idea-development)+ [Stage 2: Visualization](#stage-2-visualization)+ [Stage 3: Planning with Claude Code](#stage-3-planning-with-claude-code)+ [Stage 4: Build Execution](#stage-4-build-execution)* [Advanced Claude Code Features](#advanced-claude-code-features)
-            + [Subagent Utilization](#subagent-utilization)+ [Auto-Verification and Iteration](#auto-verification-and-iteration)+ [Memory and Context Management](#memory-and-context-management)* [Development Workflows and Best Practices](#development-workflows-and-best-practices)
-              + [Test-Driven Development with Claude Code](#test-driven-development-with-claude-code)+ [Screenshot-Driven Development](#screenshot-driven-development)+ [Checkpoint-Based Development](#checkpoint-based-development)+ [Error Resolution and Debugging](#error-resolution-and-debugging)+ [Multi-Network Deployment](#multi-network-deployment)+ [MCP Server Sharing](#mcp-server-sharing)+ [Version Control for AI Configuration](#version-control-for-ai-configuration)* [Key Bindings and Shortcuts](#key-bindings-and-shortcuts)
-                + [Essential Claude Code Shortcuts](#essential-claude-code-shortcuts)+ [Flow-Specific Usage Patterns](#flow-specific-usage-patterns)* [Troubleshooting and Optimization](#troubleshooting-and-optimization)
-                  + [Common Issues and Solutions](#common-issues-and-solutions)+ [Best Practices for Flow Development](#best-practices-for-flow-development)* [Conclusion](#conclusion)
+* [Learning objectives](#learning-objectives)* [Prerequisites](#prerequisites)
+    + [Technical requirements](#technical-requirements)* [Claude setup and configuration](#claude-setup-and-configuration)
+      + [What is Claude?](#what-is-claude)+ [Installation and subscription](#installation-and-subscription)+ [Initial configuration](#initial-configuration)+ [CLAUDE.md files](#claudemd-files)* [Workflow strategies](#workflow-strategies)
+        + [Stage 1: Idea development](#stage-1-idea-development)+ [Stage 2: Visualization](#stage-2-visualization)+ [Stage 3: Planning with Claude code](#stage-3-planning-with-claude-code)+ [Stage 4: Build execution](#stage-4-build-execution)* [Advanced Claude features](#advanced-claude-features)
+          + [Subagent utilization](#subagent-utilization)+ [Auto-verification and iteration](#auto-verification-and-iteration)+ [Memory and context management](#memory-and-context-management)* [Development workflows and best practices](#development-workflows-and-best-practices)
+            + [Test-driven development with Claude](#test-driven-development-with-claude)+ [Screenshot-driven development](#screenshot-driven-development)+ [Checkpoint-based development](#checkpoint-based-development)+ [Error resolution and debugging](#error-resolution-and-debugging)+ [Multi-network deployment](#multi-network-deployment)+ [MCP server share](#mcp-server-share)+ [Version control for AI configuration](#version-control-for-ai-configuration)* [Key bindings and shortcuts](#key-bindings-and-shortcuts)
+              + [Essential Claude shortcuts](#essential-claude-shortcuts)+ [Flow-specific usage patterns](#flow-specific-usage-patterns)* [Troubleshooting and optimization](#troubleshooting-and-optimization)
+                + [Common issues and solutions](#common-issues-and-solutions)+ [Best practices for Flow development](#best-practices-for-flow-development)* [Conclusion](#conclusion)
 
 Flow
 
@@ -351131,7 +351072,7 @@ In this guide, we'll walk you through how to use `ethers.js` to interact with sm
 
 ## Installation[​](#installation "Direct link to Installation")
 
-To begin using `ethers.js` in your project, you'll need to install the package. To do this, run the following command:
+To use `ethers.js` in your project, you'll first need to install the package. To do this, run the following command:
 
 `_10
 
@@ -351287,7 +351228,7 @@ _10
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/frameworks/ethers.md)
 
-Last updated on **Nov 6, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -361169,30 +361110,39 @@ Wallet Provider Spec | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [@onflow/react-sdk](/tools/react-sdk)
-* [Flow Emulator](/tools/emulator)
-* [Flow CLI](/tools/flow-cli)
-* [Cadence VS Code Extension](/tools/vscode-extension)
-* [Flow Dev Wallet](/tools/flow-dev-wallet)
-* [Client Tools](/tools/clients)
-* [Error Codes](/tools/error-codes)
-* [Wallet Provider Spec](/tools/wallet-provider-spec)
+* [Why Flow](/build/flow)* [Cadence](/build/cadence/quickstart)
 
-  + [Authorization Function](/tools/wallet-provider-spec/authorization-function)
-  + [Introduction](/tools/wallet-provider-spec/custodial)
-  + [Provable Authn](/tools/wallet-provider-spec/provable-authn)
-  + [User Signature](/tools/wallet-provider-spec/user-signature)
-* [Tools](/tools)
+    + [Quickstart ↙](/build/cadence/quickstart)+ [Differences vs. EVM](/build/cadence/differences-vs-evm)+ [Basics](/build/cadence/basics/network-architecture)
 
-* Wallet Provider Spec
+          + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
+
+            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+
+              + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
+
+      + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
+
+        + [Flow React SDK](/build/tools/react-sdk)
+
+          + [Flow Emulator](/build/tools/emulator)+ [Flow CLI](/build/tools/flow-cli)
+
+              + [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+
+                    + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+
+                        - [Authorization Function](/build/tools/wallet-provider-spec/authorization-function)- [Introduction](/build/tools/wallet-provider-spec/custodial)- [Provable Authn](/build/tools/wallet-provider-spec/provable-authn)- [User Signature](/build/tools/wallet-provider-spec/user-signature)
+
+* * [Tools & SDKs](/build/tools)* Wallet Provider Spec
 
 On this page
 
@@ -361238,13 +361188,9 @@ Where possible, you should aim to provide a back-channel support for services, a
 
 Back-channel communications use `method: "HTTP/POST"`, while front-channel communications use `method: "IFRAME/RPC"`, `method: "POP/RPC"`, `method: "TAB/RPC` and `method: "EXT/RPC"`.
 
-| Service Method | Front | Back |
-| --- | --- | --- |
-| HTTP/POST | ⛔ | ✅ |
-| IFRAME/RPC | ✅ | ⛔ |
-| POP/RPC | ✅ | ⛔ |
-| TAB/RPC | ✅ | ⛔ |
-| EXT/RPC | ✅ | ⛔ |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Service Method Front Back|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | HTTP/POST ⛔ ✅|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | IFRAME/RPC ✅ ⛔|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | POP/RPC ✅ ⛔|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | TAB/RPC ✅ ⛔|  |  |  | | --- | --- | --- | | EXT/RPC ✅ ⛔ | | | | | | | | | | | | | | | | | |
 
 It's important to note that regardless of the method of communication, the data that is sent back and forth between the parties involved is the same.
 
@@ -363637,15 +363583,15 @@ _34
 
 }`
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/index.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/wallet-provider-spec/index.md)
 
-Last updated on **Apr 18, 2025** by **Brian Doyle**
+Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-Error Codes](/tools/error-codes)[Next
+Error Codes](/build/tools/error-codes)[Next
 
-Authorization Function](/tools/wallet-provider-spec/authorization-function)
+Authorization Function](/build/tools/wallet-provider-spec/authorization-function)
 
 ###### Rate this page
 
@@ -363653,81 +363599,32 @@ Authorization Function](/tools/wallet-provider-spec/authorization-function)
 
 Copy as Markdown
 
-* [Status](#status)
-* [Definitions](#definitions)
-* [Common definitions](#common-definitions)
-* [FCL objects](#fcl-objects)
-  + [`PollingResponse`](#pollingresponse)
-  + [`Service`](#service)
-  + [`Identity`](#identity)
-  + [`ServiceProvider`](#serviceprovider)
-  + [`AuthnResponse`](#authnresponse)
-  + [`Signable`](#signable)
-  + [`CompositeSignature`](#compositesignature)
-  + [`OpenID`](#openid)
-* [Miscellaneous objects](#miscellaneous-objects)
-  + [`Message`](#message)
-  + [`ExtensionServiceInitiationMessage`](#extensionserviceinitiationmessage)
-* [See also](#see-also)
-* [IFRAME/RPC (Front Channel)](#iframerpc-front-channel)
-* [POP/RPC | TAB/RPC (Front Channel)](#poprpc--tabrpc-front-channel)
-* [HTTP/POST (Back Channel)](#httppost-back-channel)
-* [EXT/RPC (Front Channel)](#extrpc-front-channel)
-* [`data` and `params`](#data-and-params)
-  + [Authenticate your User](#authenticate-your-user)
-  + [Once you know who your User is](#once-you-know-who-your-user-is)
-  + [Stopping an Authentication Process](#stopping-an-authentication-process)
+* [Status](#status)* [Definitions](#definitions)* [Common definitions](#common-definitions)* [FCL objects](#fcl-objects)
+        + [`PollingResponse`](#pollingresponse)+ [`Service`](#service)+ [`Identity`](#identity)+ [`ServiceProvider`](#serviceprovider)+ [`AuthnResponse`](#authnresponse)+ [`Signable`](#signable)+ [`CompositeSignature`](#compositesignature)+ [`OpenID`](#openid)* [Miscellaneous objects](#miscellaneous-objects)
+          + [`Message`](#message)+ [`ExtensionServiceInitiationMessage`](#extensionserviceinitiationmessage)* [See also](#see-also)* [IFRAME/RPC (Front Channel)](#iframerpc-front-channel)* [POP/RPC | TAB/RPC (Front Channel)](#poprpc--tabrpc-front-channel)* [HTTP/POST (Back Channel)](#httppost-back-channel)* [EXT/RPC (Front Channel)](#extrpc-front-channel)* [`data` and `params`](#data-and-params)
+                      + [Authenticate your User](#authenticate-your-user)+ [Once you know who your User is](#once-you-know-who-your-user-is)+ [Stopping an Authentication Process](#stopping-an-authentication-process)
 
-Documentation
+Flow
 
-* [Getting Started](/build/getting-started/contract-interaction)
-* [SDK's & Tools](/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/guides/mobile/overview)
-* [FCL](/tools/clients/fcl-js)
-* [Testing](/build/smart-contracts/testing)
-* [CLI](/tools/flow-cli)
-* [Emulator](/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/tools/vscode-extension)
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
 
-Community
+Cadence
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
 
-Start Building
+Solidity (EVM)
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/core-contracts)
-* [EVM](/evm/about)
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
 
-Network
+Community & Support
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
-* [Node Operation](/networks/node-ops)
-* [Spork Information](/networks/node-ops/node-operation/spork)
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
 
-More
+Network & Resources
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
+Copyright © 2025 Flow Foundation. All Rights Reserved.
 
 
 
@@ -389538,7 +389435,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* script
 
@@ -399063,18 +398960,18 @@ On this page
 
 # Gasless Transactions on Flow
 
-Flow is one of the easiest platforms for developers to onboard new users. Currently, the Flow Wallet automatically sponsors transactions on **both testnet and mainnet**. This allows developers to build seamless Web3 applications without requiring users to manage gas tokens or pay transaction fees.
+Flow is one of the easiest platforms for developers to onboard new users. Currently, the Flow Wallet automatically sponsors transactions on **both testnet and mainnet**. This allows developers to build seamless Web3 applications without the need for users to manage gas tokens or pay transaction fees.
 
 In addition to native sponsorship, Flow also supports multiple methods for gas sponsorship that you can tailor to your application’s needs. You can learn about these approaches in more detail [here](https://developers.flow.com/build/cadence/advanced-concepts/account-abstraction#sponsored-transactions).
 
 The [Flow Wallet](https://wallet.flow.com/) currently sponsors all transactions - on testnet and mainnet! This is possible because [sponsored transactions](/build/cadence/advanced-concepts/account-abstraction#sponsored-transactions) are a native feature of the Flow Protocol. Additional methods for gas sponsorship are available and are described here.
 
-## What You'll Learn[​](#what-youll-learn "Direct link to What You'll Learn")
+## What you'll learn[​](#what-youll-learn "Direct link to What you'll learn")
 
 In this tutorial series, you’ll discover how to:
 
 * Configure and deploy a **gas free EVM endpoint** for your backend.
-* Allow **gasless transactions** so that users can interact with your app without ever paying gas fees.
+* Allow **gasless transactions** so that users can interact with your app and never gas fees.
 * Use Flow’s EVM Gateway service account to automatically cover gas fees for transactions, which ensures a smooth experience for your users.
 
 ## Tutorial for how to build on an EVM blockchain without Gas fees[​](#tutorial-for-how-to-build-on-an-evm-blockchain-without-gas-fees "Direct link to Tutorial for how to build on an EVM blockchain without Gas fees")
@@ -399085,7 +398982,7 @@ Tutorial: [Gas Free EVM Endpoint](/blockchain-development-tutorials/gasless-tran
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/gasless-transactions/index.md)
 
-Last updated on **Nov 12, 2025** by **Brian Doyle**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -399099,7 +398996,7 @@ Sponsored Transactions EVM Endpoint](/blockchain-development-tutorials/gasless-t
 
 Copy as Markdown
 
-* [What You'll Learn](#what-youll-learn)* [Tutorial for how to build on an EVM blockchain without Gas fees](#tutorial-for-how-to-build-on-an-evm-blockchain-without-gas-fees)
+* [What you'll learn](#what-youll-learn)* [Tutorial for how to build on an EVM blockchain without Gas fees](#tutorial-for-how-to-build-on-an-evm-blockchain-without-gas-fees)
 
 Flow
 
@@ -420386,7 +420283,7 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
-# Source: https://developers.flow.com/
+# Source: https://developers.flow.com
 
 Flow Developer Portal
 
@@ -426648,7 +426545,7 @@ Search
 
 On this page
 
-# Getting Started with AgentKit on Flow
+# Build Custom AI Agents on Flow with AgentKit
 
 AgentKit is an ecosystem-agnostic modular developer toolkit that lets you rapidly build, deploy, and iterate on AI agents using pre-configured environments and ready-to-use templates.
 
@@ -426656,7 +426553,7 @@ In this guide, you'll set up your own custom agent that runs on **Flow's EVM-com
 
 ---
 
-## Quickstart - Starting From Scratch[​](#quickstart---starting-from-scratch "Direct link to Quickstart - Starting From Scratch")
+## Quickstart - start from scratch[​](#quickstart---start-from-scratch "Direct link to Quickstart - start from scratch")
 
 Open your terminal and run:
 
@@ -426680,7 +426577,7 @@ Follow the interactive setup:
 
 ---
 
-## Project Setup[​](#project-setup "Direct link to Project Setup")
+## Project setup[​](#project-setup "Direct link to Project setup")
 
 When your scaffold is ready:
 
@@ -426712,7 +426609,7 @@ Now open the project in your preferred integrated development environment (IDE) 
 
 ANTHROPIC_API_KEY=your_api_key_here`
 
-### Wallet Setup with MetaMask[​](#wallet-setup-with-metamask "Direct link to Wallet Setup with MetaMask")
+### Wallet setup with MetaMask[​](#wallet-setup-with-metamask "Direct link to Wallet setup with MetaMask")
 
 1. Add [Flow Testnet](https://developers.flow.com/evm/using) to MetaMask.
 2. Use the [Faucet](https://faucet.flow.com/fund-account) to fund your wallet.
@@ -426757,7 +426654,7 @@ http://localhost:3000`
 
 If your agent doesn't respond yet, no worries! You still need to configure your **LLM and client libraries**.
 
-### Choose a Model[​](#choose-a-model "Direct link to Choose a Model")
+### Choose a model[​](#choose-a-model "Direct link to Choose a model")
 
 Langchain supports many LLMs ([full list here](https://python.langchain.com/docs/integrations/llms/)).
 
@@ -426791,9 +426688,9 @@ npm install @langchain/anthropic`
 
 ---
 
-## Configure Flow and Viem Wallet[​](#configure-flow-and-viem-wallet "Direct link to Configure Flow and Viem Wallet")
+## Configure Flow and Viem wallet[​](#configure-flow-and-viem-wallet "Direct link to Configure Flow and Viem wallet")
 
-### Update the Faucet Provider Logic[​](#update-the-faucet-provider-logic "Direct link to Update the Faucet Provider Logic")
+### Update the Faucet provider logic[​](#update-the-faucet-provider-logic "Direct link to Update the Faucet provider logic")
 
 Change this:
 
@@ -426807,7 +426704,7 @@ To:
 
 const canUseFaucet = walletProvider.getNetwork().networkId == 'flow-testnet';`
 
-### Add Flow Context Message to Agent[​](#add-flow-context-message-to-agent "Direct link to Add Flow Context Message to Agent")
+### Add Flow context message to Agent[​](#add-flow-context-message-to-agent "Direct link to Add Flow context message to Agent")
 
 This gives your agent context about the Flow testnet:
 
@@ -426935,11 +426832,11 @@ _16
 
 ---
 
-## You're Done![​](#youre-done "Direct link to You're Done!")
+## You're done![​](#youre-done "Direct link to You're done!")
 
-You now have a working AI agent connected to Flow testnet using AgentKit!
+You now have a working AI agent connected to Flow testnet with AgentKit!
 
-You can send faucet tokens to your wallet and start testing smart contract interactions or onchain workflows.
+You can send faucet tokens to your wallet and start to test smart contract interactions or onchain workflows.
 
 ---
 
@@ -426953,11 +426850,11 @@ This starter includes all of the necessary configurations to start building imme
 
 ---
 
-## Adding AgentKit to an Existing Project[​](#adding-agentkit-to-an-existing-project "Direct link to Adding AgentKit to an Existing Project")
+## Add AgentKit to a current project[​](#add-agentkit-to-a-current-project "Direct link to Add AgentKit to a current project")
 
 Already have a project and want to add AgentKit? Follow these steps to integrate it into your codebase:
 
-### Install the Package[​](#install-the-package "Direct link to Install the Package")
+### Install the package[​](#install-the-package "Direct link to Install the package")
 
 Run this command in your project's root directory:
 
@@ -426967,11 +426864,11 @@ npm install onchain-agent@latest`
 
 This will:
 
-* Download and install the latest version of the `onchain-agent` package
-* Add it to the dependencies section of your `package.json`
-* Update your `node_modules` folder accordingly
+* Download and install the latest version of the `onchain-agent` package.
+* Add it to the dependencies section of your `package.json`.
+* Update your `node_modules` folder accordingly.
 
-### Configure Environment[​](#configure-environment "Direct link to Configure Environment")
+### Configure environment[​](#configure-environment "Direct link to Configure environment")
 
 1. Create or update your `.env` file with the necessary API keys:
 
@@ -426997,7 +426894,7 @@ _10
 
 FLOW_MAINNET_RPC_URL=https://mainnet.evm.nodes.onflow.org`
 
-### Integrate AgentKit in Your Code[​](#integrate-agentkit-in-your-code "Direct link to Integrate AgentKit in Your Code")
+### Integrate AgentKit in your code[​](#integrate-agentkit-in-your-code "Direct link to Integrate AgentKit in your code")
 
 Import and configure AgentKit in your application:
 
@@ -427105,7 +427002,7 @@ _28
 
 // ...`
 
-### Add Specialized Tools (Optional)[​](#add-specialized-tools-optional "Direct link to Add Specialized Tools (Optional)")
+### Add Specialized tools (optional)[​](#add-specialized-tools-optional "Direct link to Add Specialized tools (optional)")
 
 To add specialized blockchain tools to your agent:
 
@@ -427196,7 +427093,7 @@ Happy hacking on Flow!
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/agentkit-flow-guide.md)
 
-Last updated on **Oct 28, 2025** by **cshannon1218**
+Last updated on **Nov 20, 2025** by **cshannon1218**
 
 [Previous
 
@@ -427210,11 +427107,11 @@ Flow MCP](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp)
 
 Copy as Markdown
 
-* [Quickstart - Starting From Scratch](#quickstart---starting-from-scratch)* [Project Setup](#project-setup)
-    + [Environment Configuration](#environment-configuration)+ [Get Your Anthropic API Key](#get-your-anthropic-api-key)+ [Wallet Setup with MetaMask](#wallet-setup-with-metamask)* [Configure Your LLM](#configure-your-llm)
-      + [Choose a Model](#choose-a-model)+ [Update `create-agent.ts`](#update-create-agentts)* [Configure Flow and Viem Wallet](#configure-flow-and-viem-wallet)
-        + [Update the Faucet Provider Logic](#update-the-faucet-provider-logic)+ [Add Flow Context Message to Agent](#add-flow-context-message-to-agent)* [You're Done!](#youre-done)* [Starter Project](#starter-project)* [Adding AgentKit to an Existing Project](#adding-agentkit-to-an-existing-project)
-              + [Install the Package](#install-the-package)+ [Configure Environment](#configure-environment)+ [Integrate AgentKit in Your Code](#integrate-agentkit-in-your-code)+ [Add Specialized Tools (Optional)](#add-specialized-tools-optional)* [Resources](#resources)
+* [Quickstart - start from scratch](#quickstart---start-from-scratch)* [Project setup](#project-setup)
+    + [Environment Configuration](#environment-configuration)+ [Get Your Anthropic API Key](#get-your-anthropic-api-key)+ [Wallet setup with MetaMask](#wallet-setup-with-metamask)* [Configure Your LLM](#configure-your-llm)
+      + [Choose a model](#choose-a-model)+ [Update `create-agent.ts`](#update-create-agentts)* [Configure Flow and Viem wallet](#configure-flow-and-viem-wallet)
+        + [Update the Faucet provider logic](#update-the-faucet-provider-logic)+ [Add Flow context message to Agent](#add-flow-context-message-to-agent)* [You're done!](#youre-done)* [Starter Project](#starter-project)* [Add AgentKit to a current project](#add-agentkit-to-a-current-project)
+              + [Install the package](#install-the-package)+ [Configure environment](#configure-environment)+ [Integrate AgentKit in your code](#integrate-agentkit-in-your-code)+ [Add Specialized tools (optional)](#add-specialized-tools-optional)* [Resources](#resources)
 
 Flow
 
@@ -433046,12 +432943,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **9a1c033888b3fb28**
+Cloudflare Ray ID: **9a243f70e9f91598**
 •
 
 Your IP:
 Click to reveal
-52.159.227.203
+13.83.161.17
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 

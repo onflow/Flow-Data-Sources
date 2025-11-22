@@ -134,7 +134,7 @@ _15
 
 console.log(gasPrice); // Gas price in attoFlow`
 
-For more information about other queries you can make `web3`, see the [official documentation](https://docs.web3js.org/).
+For more information about other queries you can make `web3`, see the [Web3.js](https://web3js.org/) official documentation.
 
 ## Interact with smart contracts[​](#interact-with-smart-contracts "Direct link to Interact with smart contracts")
 
@@ -142,7 +142,7 @@ The `web3` library allows developers to interact with smart contracts via the `w
 
 For this example we will use the following `Storage` contract.
 
-We recommend that you deploy your own contract, which you can do with [Hardhat](/blockchain-development-tutorials/evm/development-tools/hardhat) or [Remix](/blockchain-development-tutorials/evm/development-tools/remix).
+We recommend that you deploy your own contract, which you can do with [Hardhat] or [Remix].
 
 `_14
 
@@ -194,7 +194,7 @@ _14
 
 }`
 
-You can generate the ABI for this contract with the [`solc` compiler](https://docs.soliditylang.org/en/latest/installing-solidity.html), or another tool such as [Hardhat](/blockchain-development-tutorials/evm/development-tools/hardhat) or [Remix](/blockchain-development-tutorials/evm/development-tools/remix).
+You can generate the ABI for this contract with the [`solc` compiler](https://docs.soliditylang.org/en/latest/installing-solidity.html), or another tool such as [Hardhat]or [Remix].
 
 Now that we have both the ABI and address of the contract, we can create a new `Contract` object for use in our application.
 
@@ -356,7 +356,7 @@ const contract = new web3.eth.Contract(abi, contractAddress);`
 
 We can now interact with the contract on the network ith the `contract` object.
 
-### Reading state[​](#reading-state "Direct link to Reading state")
+### Read state[​](#read-state "Direct link to Read state")
 
 State can be read from the contract via the `call` function with one of the contract's methods. This will not change the state and will not send a transaction.
 
@@ -474,7 +474,7 @@ _18
 
 console.log(result); ``
 
-Now that the transaction has been sent, the contract's state will have been updated. To verify this, we can query the contract's state again:
+Now that the transaction was sent, the contract's state was updated. To verify this, we can query the contract's state again:
 
 `_10
 
@@ -484,11 +484,15 @@ _10
 
 console.log(result); // New value stored in the contract`
 
-For more information about using smart contracts in web3.js, see the [official documentation](https://docs.web3js.org/libdocs/Contract).
+For more information about how to use smart contracts in web3.js, see the [official documentation].
+
+[Hardhat]: ../development-tools/hardhat.md)
+[Remix]: ../development-tools/remix.md).
+[official documentation]: <https://docs.web3js.org/libdocs/Contract>
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/frameworks/web3-js.md)
 
-Last updated on **Nov 6, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -503,7 +507,7 @@ Viem & Wagmi](/blockchain-development-tutorials/evm/frameworks/wagmi)
 Copy as Markdown
 
 * [Prerequisites](#prerequisites)* [Initialize Web3 with Flow](#initialize-web3-with-flow)* [Query The blockchain](#query-the-blockchain)* [Interact with smart contracts](#interact-with-smart-contracts)
-        + [Reading state](#reading-state)+ [Change state](#change-state)
+        + [Read state](#read-state)+ [Change state](#change-state)
 
 Flow
 

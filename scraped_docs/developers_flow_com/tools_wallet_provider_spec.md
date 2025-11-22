@@ -4,30 +4,39 @@ Wallet Provider Spec | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Cadence](/build/flow)[EVM](/evm/about)[Tools](/tools/react-sdk)[Networks](/networks/flow-networks)[Ecosystem](/ecosystem)[Growth](/growth)[Tutorials](/blockchain-development-tutorials)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-* [@onflow/react-sdk](/tools/react-sdk)
-* [Flow Emulator](/tools/emulator)
-* [Flow CLI](/tools/flow-cli)
-* [Cadence VS Code Extension](/tools/vscode-extension)
-* [Flow Dev Wallet](/tools/flow-dev-wallet)
-* [Client Tools](/tools/clients)
-* [Error Codes](/tools/error-codes)
-* [Wallet Provider Spec](/tools/wallet-provider-spec)
+* [Why Flow](/build/flow)* [Cadence](/build/cadence/quickstart)
 
-  + [Authorization Function](/tools/wallet-provider-spec/authorization-function)
-  + [Introduction](/tools/wallet-provider-spec/custodial)
-  + [Provable Authn](/tools/wallet-provider-spec/provable-authn)
-  + [User Signature](/tools/wallet-provider-spec/user-signature)
-* [Tools](/tools)
+    + [Quickstart ↙](/build/cadence/quickstart)+ [Differences vs. EVM](/build/cadence/differences-vs-evm)+ [Basics](/build/cadence/basics/network-architecture)
 
-* Wallet Provider Spec
+          + [Writing and Deploying Smart Contracts](/build/cadence/learn-cadence)
+
+            + [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)
+
+              + [Core Smart Contracts](/build/cadence/core-contracts)* [Solidity (EVM)](/build/evm/quickstart)
+
+      + [EVM Quickstart](/build/evm/quickstart)+ [How it Works](/build/evm/how-it-works)+ [EVM Wallet Setup](/build/evm/using)+ [Network Information](/build/evm/networks)+ [Fees](/build/evm/fees)+ [Accounts](/build/evm/accounts)* [Tools & SDKs](/build/tools)
+
+        + [Flow React SDK](/build/tools/react-sdk)
+
+          + [Flow Emulator](/build/tools/emulator)+ [Flow CLI](/build/tools/flow-cli)
+
+              + [Cadence VS Code Extension](/build/tools/vscode-extension)+ [Flow Dev Wallet](/build/tools/flow-dev-wallet)+ [Client Tools](/build/tools/clients)
+
+                    + [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+
+                        - [Authorization Function](/build/tools/wallet-provider-spec/authorization-function)- [Introduction](/build/tools/wallet-provider-spec/custodial)- [Provable Authn](/build/tools/wallet-provider-spec/provable-authn)- [User Signature](/build/tools/wallet-provider-spec/user-signature)
+
+* * [Tools & SDKs](/build/tools)* Wallet Provider Spec
 
 On this page
 
@@ -73,13 +82,9 @@ Where possible, you should aim to provide a back-channel support for services, a
 
 Back-channel communications use `method: "HTTP/POST"`, while front-channel communications use `method: "IFRAME/RPC"`, `method: "POP/RPC"`, `method: "TAB/RPC` and `method: "EXT/RPC"`.
 
-| Service Method | Front | Back |
-| --- | --- | --- |
-| HTTP/POST | ⛔ | ✅ |
-| IFRAME/RPC | ✅ | ⛔ |
-| POP/RPC | ✅ | ⛔ |
-| TAB/RPC | ✅ | ⛔ |
-| EXT/RPC | ✅ | ⛔ |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Service Method Front Back|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | HTTP/POST ⛔ ✅|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | IFRAME/RPC ✅ ⛔|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | POP/RPC ✅ ⛔|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | TAB/RPC ✅ ⛔|  |  |  | | --- | --- | --- | | EXT/RPC ✅ ⛔ | | | | | | | | | | | | | | | | | |
 
 It's important to note that regardless of the method of communication, the data that is sent back and forth between the parties involved is the same.
 
@@ -2472,15 +2477,15 @@ _34
 
 }`
 
-[Edit this page](https://github.com/onflow/docs/tree/main/docs/tools/wallet-provider-spec/index.md)
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/wallet-provider-spec/index.md)
 
-Last updated on **Apr 18, 2025** by **Brian Doyle**
+Last updated on **Aug 21, 2025** by **Brian Doyle**
 
 [Previous
 
-Error Codes](/tools/error-codes)[Next
+Error Codes](/build/tools/error-codes)[Next
 
-Authorization Function](/tools/wallet-provider-spec/authorization-function)
+Authorization Function](/build/tools/wallet-provider-spec/authorization-function)
 
 ###### Rate this page
 
@@ -2488,78 +2493,29 @@ Authorization Function](/tools/wallet-provider-spec/authorization-function)
 
 Copy as Markdown
 
-* [Status](#status)
-* [Definitions](#definitions)
-* [Common definitions](#common-definitions)
-* [FCL objects](#fcl-objects)
-  + [`PollingResponse`](#pollingresponse)
-  + [`Service`](#service)
-  + [`Identity`](#identity)
-  + [`ServiceProvider`](#serviceprovider)
-  + [`AuthnResponse`](#authnresponse)
-  + [`Signable`](#signable)
-  + [`CompositeSignature`](#compositesignature)
-  + [`OpenID`](#openid)
-* [Miscellaneous objects](#miscellaneous-objects)
-  + [`Message`](#message)
-  + [`ExtensionServiceInitiationMessage`](#extensionserviceinitiationmessage)
-* [See also](#see-also)
-* [IFRAME/RPC (Front Channel)](#iframerpc-front-channel)
-* [POP/RPC | TAB/RPC (Front Channel)](#poprpc--tabrpc-front-channel)
-* [HTTP/POST (Back Channel)](#httppost-back-channel)
-* [EXT/RPC (Front Channel)](#extrpc-front-channel)
-* [`data` and `params`](#data-and-params)
-  + [Authenticate your User](#authenticate-your-user)
-  + [Once you know who your User is](#once-you-know-who-your-user-is)
-  + [Stopping an Authentication Process](#stopping-an-authentication-process)
+* [Status](#status)* [Definitions](#definitions)* [Common definitions](#common-definitions)* [FCL objects](#fcl-objects)
+        + [`PollingResponse`](#pollingresponse)+ [`Service`](#service)+ [`Identity`](#identity)+ [`ServiceProvider`](#serviceprovider)+ [`AuthnResponse`](#authnresponse)+ [`Signable`](#signable)+ [`CompositeSignature`](#compositesignature)+ [`OpenID`](#openid)* [Miscellaneous objects](#miscellaneous-objects)
+          + [`Message`](#message)+ [`ExtensionServiceInitiationMessage`](#extensionserviceinitiationmessage)* [See also](#see-also)* [IFRAME/RPC (Front Channel)](#iframerpc-front-channel)* [POP/RPC | TAB/RPC (Front Channel)](#poprpc--tabrpc-front-channel)* [HTTP/POST (Back Channel)](#httppost-back-channel)* [EXT/RPC (Front Channel)](#extrpc-front-channel)* [`data` and `params`](#data-and-params)
+                      + [Authenticate your User](#authenticate-your-user)+ [Once you know who your User is](#once-you-know-who-your-user-is)+ [Stopping an Authentication Process](#stopping-an-authentication-process)
 
-Documentation
+Flow
 
-* [Getting Started](/build/getting-started/contract-interaction)
-* [SDK's & Tools](/tools)
-* [Cadence](https://cadence-lang.org/docs/)
-* [Mobile](/build/guides/mobile/overview)
-* [FCL](/tools/clients/fcl-js)
-* [Testing](/build/smart-contracts/testing)
-* [CLI](/tools/flow-cli)
-* [Emulator](/tools/emulator)
-* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)
-* [VS Code Extension](/tools/vscode-extension)
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
 
-Community
+Cadence
 
-* [Ecosystem](/ecosystem)
-* [Flow Port](https://port.flow.com/)
-* [Developer Grants](https://github.com/onflow/developer-grants)
-* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)
-* [Flowverse](https://www.flowverse.co/)
-* [Emerald Academy](https://academy.ecdao.org/)
-* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
 
-Start Building
+Solidity (EVM)
 
-* [Flow Playground](https://play.flow.com/)
-* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)
-* [Cadence Cookbook](https://cookbook.flow.com)
-* [Core Contracts & Standards](/build/core-contracts)
-* [EVM](/evm/about)
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
 
-Network
+Community & Support
 
-* [Network Status](https://status.flow.com/)
-* [Flowscan Mainnet](https://flowscan.io/)
-* [Flowscan Testnet](https://testnet.flowscan.io/)
-* [Past Sporks](/networks/node-ops/node-operation/past-upgrades)
-* [Upcoming Sporks](/networks/node-ops/node-operation/upcoming-sporks)
-* [Node Operation](/networks/node-ops)
-* [Spork Information](/networks/node-ops/node-operation/spork)
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
 
-More
+Network & Resources
 
-* [GitHub](https://github.com/onflow)
-* [Discord](https://discord.gg/flow)
-* [Forum](https://forum.flow.com/)
-* [Flow](https://flow.com/)
-* [Blog](https://flow.com/blog)
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
+Copyright © 2025 Flow Foundation. All Rights Reserved.

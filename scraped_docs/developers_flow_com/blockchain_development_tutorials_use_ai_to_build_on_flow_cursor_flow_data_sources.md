@@ -44,7 +44,7 @@ On this page
 
 # Flow Data Sources
 
-Flow Data Sources is a comprehensive repository that automatically aggregates and formats Flow ecosystem content into Markdown files optimized for AI ingestion. This resource serves as a centralized knowledge base for AI tools, chatbots, and RAG (Retrieval-Augmented Generation) pipelines, containing the most current documentation, examples, and best practices for Flow blockchain development.
+Flow Data Sources is a comprehensive repository that automatically aggregates and formats Flow ecosystem content into Markdown files optimized for AI ingestion. This resource serves as a centralized knowledge base for AI tools, chatbots, and RAG (Retrieval-Augmented Generation) pipelines. It contains the most current documentation, examples, and best practices for Flow blockchain development.
 
 ## Overview[​](#overview "Direct link to Overview")
 
@@ -66,60 +66,63 @@ Flow Data Sources automatically pulls content from:
 * Best practices and development patterns
 * Community discussions and Q&A content
 
-## Key Features[​](#key-features "Direct link to Key Features")
+## Key features[​](#key-features "Direct link to Key features")
 
 * **Daily Updates**: Content is automatically refreshed to ensure the latest information.
 * **Structured Format**: All content is converted to Markdown for consistent processing.
 * **Comprehensive Coverage**: Includes official documentation, code examples, and community discussions.
 * **Optimized for AI**: Designed specifically for AI tools, chatbots, and RAG pipelines.
 
-## Available Files[​](#available-files "Direct link to Available Files")
+## Available files[​](#available-files "Direct link to Available files")
 
 The repository provides several merged documentation files optimized for different use cases:
 
-**Output Options:**
+**Output options:**
 
 * [All Merged Content](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/all_merged.md): Complete content
-* [Essentials Only](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/essentials_merged.md): Streamlined version only including official documentation and sample codes
-* [Cadence Only](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/cadence_docs_merged.md): Streamlined version only including Cadence related documentation and sample codes
+* [Essentials Only](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/essentials_merged.md): Streamlined version that only include official documentation and sample codes
+* [Cadence Only](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/cadence_docs_merged.md): Streamlined version that only includex Cadence related documentation and sample codes
 
-### All Merged Documentation[​](#all-merged-documentation "Direct link to All Merged Documentation")
+### All merged documentation[​](#all-merged-documentation "Direct link to All merged documentation")
 
-* **File**: [all\_merged.md](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/all_merged.md).
-* **Content**: Complete comprehensive documentation covering all aspects of Flow development.
+* **File**: `all_merged.md`
+* **Content**: Complete comprehensive documentation that covers all aspects of Flow development.
 * **Use Case**: Most comprehensive knowledge base for AI tools and complex development questions.
-* **Size**: Very large file - may require powerful systems for processing.
+* **Size**: Very large file - may require powerful systems to process.
+* **Documentation**: [All Merged Content](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/all_merged.md)
 
-### Essentials Merged Documentation[​](#essentials-merged-documentation "Direct link to Essentials Merged Documentation")
+### Essentials merged documentation[​](#essentials-merged-documentation "Direct link to Essentials merged documentation")
 
-* **File**: [essentials\_merged.md](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/essentials_merged.md)
+* **File**: `essentials_merged.md`
 * **Content**: Core Flow and Cadence development essentials.
 * **Use Case**: Lighter alternative for systems with resource constraints.
 * **Size**: Smaller, more focused content for essential development needs.
+* **Documentation**: [Essentials Only](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/essentials_merged.md)
 
-### Cadence Only Documentation[​](#cadence-only-documentation "Direct link to Cadence Only Documentation")
+### Cadence only documentation[​](#cadence-only-documentation "Direct link to Cadence only documentation")
 
-* **File**: [cadence\_docs\_merged.md](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/cadence_docs_merged.md)
-* **Content**: Streamlined version only including Cadence related documentation and sample codes.
+* **File**: `cadence_docs_merged.md`
+* **Content**: Streamlined version that only includes Cadence related documentation and sample codes.
 * **Use Case**: Focused on Cadence language development and smart contracts.
 * **Size**: Cadence-specific content for specialized development needs.
+* **Documentation**: [Cadence Only](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/cadence_docs_merged.md)
 
-## How to Use[​](#how-to-use "Direct link to How to Use")
+## How to use[​](#how-to-use "Direct link to How to use")
 
 You can integrate Flow Data Sources with:
 
 * **ChatGPT Plugins**: Enhance Q&A capabilities with Flow-specific knowledge.
-* **Custom Chatbots**: Power Discord/Telegram bots with accurate Flow information.
+* **Custom Chatbots**: Power Discord and Telegram bots with accurate Flow information.
 * **RAG Systems**: Index content in vector databases for semantic search.
 * **Development Tools**: Provide context-aware assistance in IDEs like Cursor.
 
-## Integration with AI Tools[​](#integration-with-ai-tools "Direct link to Integration with AI Tools")
+## Integration with AI tools[​](#integration-with-ai-tools "Direct link to Integration with AI tools")
 
 Flow Data Sources is specifically designed to work seamlessly with various AI development tools:
 
 ### [Cursor Integration](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor/indexing-docs)[​](#cursor-integration "Direct link to cursor-integration")
 
-Add Flow Data Sources to your Cursor documentation by referencing the GitHub URL directly. This provides your AI assistant with up-to-date Flow knowledge.
+To add Flow Data Sources to your Cursor documentation, reference the GitHub URL directly. This provides your AI assistant with up-to-date Flow knowledge.
 
 ### [ChatGPT Custom GPTs](/blockchain-development-tutorials/use-AI-to-build-on-flow/llms/chatgpt)[​](#chatgpt-custom-gpts "Direct link to chatgpt-custom-gpts")
 
@@ -161,7 +164,7 @@ The merged documentation files are available at:
 
 For integration with AI tools like Cursor or ChatGPT, use the appropriate URL as described in the respective tutorials.
 
-## Getting Started[​](#getting-started "Direct link to Getting Started")
+## Get Started[​](#get-started "Direct link to Get Started")
 
 1. **Identify Your Use Case**: Determine whether you need comprehensive or essential documentation coverage
 2. **Choose Your AI Tool**: Select the AI platform you want to integrate with Flow Data Sources
@@ -172,7 +175,7 @@ The Flow Data Sources repository represents a powerful resource to enhance AI-as
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor/flow-data-sources.md)
 
-Last updated on **Nov 3, 2025** by **cshannon1218**
+Last updated on **Nov 20, 2025** by **cshannon1218**
 
 [Previous
 
@@ -186,9 +189,9 @@ Indexing Documentation](/blockchain-development-tutorials/use-AI-to-build-on-flo
 
 Copy as Markdown
 
-* [Overview](#overview)* [Key Features](#key-features)* [Available Files](#available-files)
-      + [All Merged Documentation](#all-merged-documentation)+ [Essentials Merged Documentation](#essentials-merged-documentation)+ [Cadence Only Documentation](#cadence-only-documentation)* [How to Use](#how-to-use)* [Integration with AI Tools](#integration-with-ai-tools)
-          + [Cursor Integration](#cursor-integration)+ [ChatGPT Custom GPTs](#chatgpt-custom-gpts)+ [Claude Code Integration](#claude-code-integration)* [Key Benefits](#key-benefits)* [Best Practices](#best-practices)* [Accessing the Content](#accessing-the-content)* [Getting Started](#getting-started)
+* [Overview](#overview)* [Key features](#key-features)* [Available files](#available-files)
+      + [All merged documentation](#all-merged-documentation)+ [Essentials merged documentation](#essentials-merged-documentation)+ [Cadence only documentation](#cadence-only-documentation)* [How to use](#how-to-use)* [Integration with AI tools](#integration-with-ai-tools)
+          + [Cursor Integration](#cursor-integration)+ [ChatGPT Custom GPTs](#chatgpt-custom-gpts)+ [Claude Code Integration](#claude-code-integration)* [Key Benefits](#key-benefits)* [Best Practices](#best-practices)* [Accessing the Content](#accessing-the-content)* [Get Started](#get-started)
 
 Flow
 

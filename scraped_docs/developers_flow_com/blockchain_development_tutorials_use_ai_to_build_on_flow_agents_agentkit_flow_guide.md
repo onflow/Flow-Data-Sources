@@ -44,7 +44,7 @@ Search
 
 On this page
 
-# Getting Started with AgentKit on Flow
+# Build Custom AI Agents on Flow with AgentKit
 
 AgentKit is an ecosystem-agnostic modular developer toolkit that lets you rapidly build, deploy, and iterate on AI agents using pre-configured environments and ready-to-use templates.
 
@@ -52,7 +52,7 @@ In this guide, you'll set up your own custom agent that runs on **Flow's EVM-com
 
 ---
 
-## Quickstart - Starting From Scratch[​](#quickstart---starting-from-scratch "Direct link to Quickstart - Starting From Scratch")
+## Quickstart - start from scratch[​](#quickstart---start-from-scratch "Direct link to Quickstart - start from scratch")
 
 Open your terminal and run:
 
@@ -76,7 +76,7 @@ Follow the interactive setup:
 
 ---
 
-## Project Setup[​](#project-setup "Direct link to Project Setup")
+## Project setup[​](#project-setup "Direct link to Project setup")
 
 When your scaffold is ready:
 
@@ -108,7 +108,7 @@ Now open the project in your preferred integrated development environment (IDE) 
 
 ANTHROPIC_API_KEY=your_api_key_here`
 
-### Wallet Setup with MetaMask[​](#wallet-setup-with-metamask "Direct link to Wallet Setup with MetaMask")
+### Wallet setup with MetaMask[​](#wallet-setup-with-metamask "Direct link to Wallet setup with MetaMask")
 
 1. Add [Flow Testnet](https://developers.flow.com/evm/using) to MetaMask.
 2. Use the [Faucet](https://faucet.flow.com/fund-account) to fund your wallet.
@@ -153,7 +153,7 @@ http://localhost:3000`
 
 If your agent doesn't respond yet, no worries! You still need to configure your **LLM and client libraries**.
 
-### Choose a Model[​](#choose-a-model "Direct link to Choose a Model")
+### Choose a model[​](#choose-a-model "Direct link to Choose a model")
 
 Langchain supports many LLMs ([full list here](https://python.langchain.com/docs/integrations/llms/)).
 
@@ -187,9 +187,9 @@ npm install @langchain/anthropic`
 
 ---
 
-## Configure Flow and Viem Wallet[​](#configure-flow-and-viem-wallet "Direct link to Configure Flow and Viem Wallet")
+## Configure Flow and Viem wallet[​](#configure-flow-and-viem-wallet "Direct link to Configure Flow and Viem wallet")
 
-### Update the Faucet Provider Logic[​](#update-the-faucet-provider-logic "Direct link to Update the Faucet Provider Logic")
+### Update the Faucet provider logic[​](#update-the-faucet-provider-logic "Direct link to Update the Faucet provider logic")
 
 Change this:
 
@@ -203,7 +203,7 @@ To:
 
 const canUseFaucet = walletProvider.getNetwork().networkId == 'flow-testnet';`
 
-### Add Flow Context Message to Agent[​](#add-flow-context-message-to-agent "Direct link to Add Flow Context Message to Agent")
+### Add Flow context message to Agent[​](#add-flow-context-message-to-agent "Direct link to Add Flow context message to Agent")
 
 This gives your agent context about the Flow testnet:
 
@@ -331,11 +331,11 @@ _16
 
 ---
 
-## You're Done![​](#youre-done "Direct link to You're Done!")
+## You're done![​](#youre-done "Direct link to You're done!")
 
-You now have a working AI agent connected to Flow testnet using AgentKit!
+You now have a working AI agent connected to Flow testnet with AgentKit!
 
-You can send faucet tokens to your wallet and start testing smart contract interactions or onchain workflows.
+You can send faucet tokens to your wallet and start to test smart contract interactions or onchain workflows.
 
 ---
 
@@ -349,11 +349,11 @@ This starter includes all of the necessary configurations to start building imme
 
 ---
 
-## Adding AgentKit to an Existing Project[​](#adding-agentkit-to-an-existing-project "Direct link to Adding AgentKit to an Existing Project")
+## Add AgentKit to a current project[​](#add-agentkit-to-a-current-project "Direct link to Add AgentKit to a current project")
 
 Already have a project and want to add AgentKit? Follow these steps to integrate it into your codebase:
 
-### Install the Package[​](#install-the-package "Direct link to Install the Package")
+### Install the package[​](#install-the-package "Direct link to Install the package")
 
 Run this command in your project's root directory:
 
@@ -363,11 +363,11 @@ npm install onchain-agent@latest`
 
 This will:
 
-* Download and install the latest version of the `onchain-agent` package
-* Add it to the dependencies section of your `package.json`
-* Update your `node_modules` folder accordingly
+* Download and install the latest version of the `onchain-agent` package.
+* Add it to the dependencies section of your `package.json`.
+* Update your `node_modules` folder accordingly.
 
-### Configure Environment[​](#configure-environment "Direct link to Configure Environment")
+### Configure environment[​](#configure-environment "Direct link to Configure environment")
 
 1. Create or update your `.env` file with the necessary API keys:
 
@@ -393,7 +393,7 @@ _10
 
 FLOW_MAINNET_RPC_URL=https://mainnet.evm.nodes.onflow.org`
 
-### Integrate AgentKit in Your Code[​](#integrate-agentkit-in-your-code "Direct link to Integrate AgentKit in Your Code")
+### Integrate AgentKit in your code[​](#integrate-agentkit-in-your-code "Direct link to Integrate AgentKit in your code")
 
 Import and configure AgentKit in your application:
 
@@ -501,7 +501,7 @@ _28
 
 // ...`
 
-### Add Specialized Tools (Optional)[​](#add-specialized-tools-optional "Direct link to Add Specialized Tools (Optional)")
+### Add Specialized tools (optional)[​](#add-specialized-tools-optional "Direct link to Add Specialized tools (optional)")
 
 To add specialized blockchain tools to your agent:
 
@@ -592,7 +592,7 @@ Happy hacking on Flow!
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/agentkit-flow-guide.md)
 
-Last updated on **Oct 28, 2025** by **cshannon1218**
+Last updated on **Nov 20, 2025** by **cshannon1218**
 
 [Previous
 
@@ -606,11 +606,11 @@ Flow MCP](/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp)
 
 Copy as Markdown
 
-* [Quickstart - Starting From Scratch](#quickstart---starting-from-scratch)* [Project Setup](#project-setup)
-    + [Environment Configuration](#environment-configuration)+ [Get Your Anthropic API Key](#get-your-anthropic-api-key)+ [Wallet Setup with MetaMask](#wallet-setup-with-metamask)* [Configure Your LLM](#configure-your-llm)
-      + [Choose a Model](#choose-a-model)+ [Update `create-agent.ts`](#update-create-agentts)* [Configure Flow and Viem Wallet](#configure-flow-and-viem-wallet)
-        + [Update the Faucet Provider Logic](#update-the-faucet-provider-logic)+ [Add Flow Context Message to Agent](#add-flow-context-message-to-agent)* [You're Done!](#youre-done)* [Starter Project](#starter-project)* [Adding AgentKit to an Existing Project](#adding-agentkit-to-an-existing-project)
-              + [Install the Package](#install-the-package)+ [Configure Environment](#configure-environment)+ [Integrate AgentKit in Your Code](#integrate-agentkit-in-your-code)+ [Add Specialized Tools (Optional)](#add-specialized-tools-optional)* [Resources](#resources)
+* [Quickstart - start from scratch](#quickstart---start-from-scratch)* [Project setup](#project-setup)
+    + [Environment Configuration](#environment-configuration)+ [Get Your Anthropic API Key](#get-your-anthropic-api-key)+ [Wallet setup with MetaMask](#wallet-setup-with-metamask)* [Configure Your LLM](#configure-your-llm)
+      + [Choose a model](#choose-a-model)+ [Update `create-agent.ts`](#update-create-agentts)* [Configure Flow and Viem wallet](#configure-flow-and-viem-wallet)
+        + [Update the Faucet provider logic](#update-the-faucet-provider-logic)+ [Add Flow context message to Agent](#add-flow-context-message-to-agent)* [You're done!](#youre-done)* [Starter Project](#starter-project)* [Add AgentKit to a current project](#add-agentkit-to-a-current-project)
+              + [Install the package](#install-the-package)+ [Configure environment](#configure-environment)+ [Integrate AgentKit in your code](#integrate-agentkit-in-your-code)+ [Add Specialized tools (optional)](#add-specialized-tools-optional)* [Resources](#resources)
 
 Flow
 

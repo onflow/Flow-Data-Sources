@@ -52,7 +52,7 @@ In this guide, we'll walk you through how to use `ethers.js` to interact with sm
 
 ## Installation[​](#installation "Direct link to Installation")
 
-To begin using `ethers.js` in your project, you'll need to install the package. To do this, run the following command:
+To use `ethers.js` in your project, you'll first need to install the package. To do this, run the following command:
 
 `_10
 
@@ -208,7 +208,7 @@ _10
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/frameworks/ethers.md)
 
-Last updated on **Nov 6, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 

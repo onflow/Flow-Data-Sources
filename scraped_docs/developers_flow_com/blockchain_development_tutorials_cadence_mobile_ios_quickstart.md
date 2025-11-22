@@ -660,7 +660,7 @@ FCL Android is the Android native SDK for FCL.
 
 One of the easiest ways to connect to a wallet via a mobile native dApp is through Flow's new support for Wallet Connect 2.0. This is the pattern that Monster Maker uses to connect to the [Flow Wallet](https://wallet.flow.com/). For more information on FCL Wallet Connect 2.0, check out this page:
 
-[FCL Wallet Connect](/build/tools/clients/fcl-js/wallet-connect)
+[FCL Wallet Discovery](/build/tools/clients/fcl-js/discovery)
 
 **How to build a native iOS dapp**
 
@@ -671,7 +671,7 @@ The Agile Monkeys wrote a very comprehensive guide on how to build a native mobi
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/mobile/ios-quickstart.md)
 
-Last updated on **Nov 4, 2025** by **cshannon1218**
+Last updated on **Nov 18, 2025** by **Chase Fleming**
 
 [Previous
 

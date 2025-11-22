@@ -50,7 +50,7 @@ On this page
 
 Plugins are a powerful way to extend the functionality of your Eliza AI agents. This guide will walk you through the process of how to create custom plugins that can enhance your agent's capabilities, from simple utilities to complex integrations with external services. You'll learn how to leverage the plugin system to create modular and reusable components for your AI agents.
 
-## Learning Objectives[​](#learning-objectives "Direct link to Learning Objectives")
+## Learning objectives[​](#learning-objectives "Direct link to Learning objectives")
 
 After you complete this tutorial, you will be able to:
 
@@ -65,21 +65,21 @@ After you complete this tutorial, you will be able to:
 
 Before you get started with Eliza, make sure you have:
 
-* [Node.js 23+](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) (using [nvm](https://github.com/nvm-sh/nvm) is recommended)
+* [Node.js 23+](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) (we recommend that you use [nvm](https://github.com/nvm-sh/nvm))
 * [pnpm 9+](https://pnpm.io/installation)
 * Git for version control
-* A code editor ([VS Code](https://code.visualstudio.com/), [Cursor](https://cursor.com/) or [VSCodium](https://vscodium.com) recommended)
+* A code editor (we recommend [VS Code](https://code.visualstudio.com/), [Cursor](https://cursor.com/) or [VSCodium](https://vscodium.com))
 * [Flow-cli](https://developers.flow.com/tools/flow-cli) for Flow blockchain interaction.
 
-> **Note for Windows Users:** [WSL 2](https://learn.microsoft.com/en-us/windows/wsl/install-manual) is required.
+> **Note for Windows users:** [WSL 2](https://learn.microsoft.com/en-us/windows/wsl/install-manual) is required.
 
 ## Quickstart[​](#quickstart "Direct link to Quickstart")
 
 Follow the [Quickstart Guide](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/eliza) to set up your development environment.
 
-## Plugin Development[​](#plugin-development "Direct link to Plugin Development")
+## Plugin development[​](#plugin-development "Direct link to Plugin development")
 
-### Create a Plugin repository from Template[​](#create-a-plugin-repository-from-template "Direct link to Create a Plugin repository from Template")
+### Create a plugin repository from Template[​](#create-a-plugin-repository-from-template "Direct link to Create a plugin repository from Template")
 
 Visit [Eliza Plugin Template](https://github.com/onflow/eliza-plugin-template) and click "Use this template" to create a new repository.
 
@@ -89,7 +89,7 @@ note
 
 Flow's Eliza plugin template uses Dependency Injection(`@elizaos-plugins/plugin-di`). You can learn more about the Dependency Injection in the [plugin's README.md](https://github.com/fixes-world/plugin-di). It allows you can use `Class` instead of `Object` for your `Actions`, `Providers`, `Services`, and so on. **If you don't want to use it, you can follow the other examples in Eliza Plugins organiazation.**
 
-### Add the Plugin repository to your Eliza project[​](#add-the-plugin-repository-to-your-eliza-project "Direct link to Add the Plugin repository to your Eliza project")
+### Add the plugin repository to your Eliza project[​](#add-the-plugin-repository-to-your-eliza-project "Direct link to Add the plugin repository to your Eliza project")
 
 Let's say you created a repository named `username/plugin-foo`.
 
@@ -141,7 +141,7 @@ _10
 
 }`
 
-### Build the Plugin[​](#build-the-plugin "Direct link to Build the Plugin")
+### Build the plugin[​](#build-the-plugin "Direct link to Build the plugin")
 
 Build the plugin with the following command:
 
@@ -159,9 +159,9 @@ _10
 
 pnpm build`
 
-### Add Plugin to the `character.json` you want to use[​](#add-plugin-to-the-characterjson-you-want-to-use "Direct link to add-plugin-to-the-characterjson-you-want-to-use")
+### Add the plugin to the `character.json` you want to use[​](#add-the-plugin-to-the-characterjson-you-want-to-use "Direct link to add-the-plugin-to-the-characterjson-you-want-to-use")
 
-Let's say you want to add the plugin to the `sample` character which is `characters/sample.character.json`.
+Let's say you want to add the plugin to the `sample` character, which is `characters/sample.character.json`.
 
 `_10
 
@@ -189,7 +189,7 @@ _10
 
 warning
 
-If you use Dependency Injection(`@elizaos-plugins/plugin-di`) in your plugin, remember to add it to the `postProcessors` field. And **`clients` field is deprecated** in the latest version of Eliza, so if you want to add clients, you also need to use `plugins` field.
+If you use Dependency Injection(`@elizaos-plugins/plugin-di`) in your plugin, remember to add it to the `postProcessors` field. The **`clients` field is deprecated** in the latest version of Eliza, so if you want to add clients, you also need to use `plugins` field.
 
 `_10
 
@@ -231,7 +231,7 @@ _10
 
 }`
 
-### Run the Eliza Agent with your Plugin[​](#run-the-eliza-agent-with-your-plugin "Direct link to Run the Eliza Agent with your Plugin")
+### Run the Eliza agent with your plugin[​](#run-the-eliza-agent-with-your-plugin "Direct link to Run the Eliza agent with your plugin")
 
 Run the Eliza agent to test the plugin.
 
@@ -249,7 +249,7 @@ _10
 
 pnpm start:debug --character="characters/sample.character.json"`
 
-### Interact with the Agent[​](#interact-with-the-agent "Direct link to Interact with the Agent")
+### Interact with the agent[​](#interact-with-the-agent "Direct link to Interact with the agent")
 
 Now, you're ready to start a conversation with your agent.
 
@@ -259,7 +259,7 @@ Open a new terminal window and run the client's http server.
 
 pnpm start:client`
 
-## Plugin Registration[​](#plugin-registration "Direct link to Plugin Registration")
+## Plugin registration[​](#plugin-registration "Direct link to Plugin registration")
 
 You need to register your plugin in the [Eliza Plugin Registry](https://github.com/elizaos-plugins/registry) to make it available for other users.
 
@@ -273,7 +273,7 @@ Eliza's plugin system provides a powerful way to extend the functionality of you
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/agents/eliza/build-plugin.md)
 
-Last updated on **Oct 28, 2025** by **cshannon1218**
+Last updated on **Nov 20, 2025** by **cshannon1218**
 
 [Previous
 
@@ -287,8 +287,8 @@ Using AgentKit on Flow](/blockchain-development-tutorials/use-AI-to-build-on-flo
 
 Copy as Markdown
 
-* [Overview](#overview)* [Learning Objectives](#learning-objectives)* [Prerequisites](#prerequisites)* [Quickstart](#quickstart)* [Plugin Development](#plugin-development)
-          + [Create a Plugin repository from Template](#create-a-plugin-repository-from-template)+ [Add the Plugin repository to your Eliza project](#add-the-plugin-repository-to-your-eliza-project)+ [Build the Plugin](#build-the-plugin)+ [Add Plugin to the `character.json` you want to use](#add-plugin-to-the-characterjson-you-want-to-use)+ [Run the Eliza Agent with your Plugin](#run-the-eliza-agent-with-your-plugin)+ [Interact with the Agent](#interact-with-the-agent)* [Plugin Registration](#plugin-registration)* [Conclusion](#conclusion)
+* [Overview](#overview)* [Learning objectives](#learning-objectives)* [Prerequisites](#prerequisites)* [Quickstart](#quickstart)* [Plugin development](#plugin-development)
+          + [Create a plugin repository from Template](#create-a-plugin-repository-from-template)+ [Add the plugin repository to your Eliza project](#add-the-plugin-repository-to-your-eliza-project)+ [Build the plugin](#build-the-plugin)+ [Add the plugin to the `character.json` you want to use](#add-the-plugin-to-the-characterjson-you-want-to-use)+ [Run the Eliza agent with your plugin](#run-the-eliza-agent-with-your-plugin)+ [Interact with the agent](#interact-with-the-agent)* [Plugin registration](#plugin-registration)* [Conclusion](#conclusion)
 
 Flow
 

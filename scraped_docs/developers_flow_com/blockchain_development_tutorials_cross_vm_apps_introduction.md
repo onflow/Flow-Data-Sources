@@ -76,7 +76,7 @@ We assume you're familiar with [wagmi](https://wagmi.sh/), [viem](https://viem.s
 
 ## Get started[​](#get-started "Direct link to Get started")
 
-For this tutorial, we'll start from a fork of the [FCL + RainbowKit + Wagmi Integration Demo](https://github.com/jribbink/cross-vm-app) built by the team.
+For this tutorial, we'll start from a fork of the [FCL + RainbowKit + Wagmi Integration Demo](https://github.com/jribbink/cross-vm-app) that the team built.
 
 Fork the repo so you can push your work freely to your own copy, then follow the setup instructions.
 
@@ -112,13 +112,13 @@ Click `Send Batch Transaction Example` and approve the transaction. You'll see t
 
 tip
 
-Currently, the Flow wallet sponsors all gas for all transactions signed with the wallet on both testnet **and mainnet!**
+Currently, the Flow wallet sponsors the fees for the compute units (equivalent of gas) for all transactions signed with the wallet on both testnet **and mainnet!**
 
 ### Cadence parent transaction[​](#cadence-parent-transaction "Direct link to Cadence parent transaction")
 
 The first line is the transaction ID of the Flow Cadence transaction that calls **both** of the EVM transactions. Search for it in [Testnet Cadence Flowscan](https://testnet.flowscan.io).
 
-Cadence transactions are more complicated than those in Solidity contracts. Rather than being restricted to run functions present on the contract, they can run arbitrary code as long as the caller has access to all of the resources required by the transaction.
+Cadence transactions are more complicated than those in Solidity contracts. Rather than being restricted to run functions present on the contract, they can run arbitrary code as long as the caller has access to all of the resources the transaction requires.
 
 You can see the code of the transaction in the `Script` tab, but we've included it here for convenience:
 
@@ -458,7 +458,7 @@ return block.height;`
 
 Returns the current Cadence VM block number.
 
-## Calling Your own contract[​](#calling-your-own-contract "Direct link to Calling Your own contract")
+## Call your own contract[​](#call-your-own-contract "Direct link to Call your own contract")
 
 Next, we'll update the starter to connect to and call functions in our own contract. For this, we'll use a simple [Button Clicker Contract](https://github.com/briandoyle81/button-clicker-contract/blob/main/contracts/ClickToken.sol). You can deploy your own copy, or use the one deployed at [`0xA7Cf2260e501952c71189D04FAd17c704DFB36e6`](https://evm-testnet.flowscan.io/address/0xA7Cf2260e501952c71189D04FAd17c704DFB36e6?tab=contract).
 
@@ -1436,7 +1436,7 @@ _10
 
 ];`
 
-Click the `Send Batch Transaction Example` button again. You'll have to **manually refresh** the page when the EVM transaction hash appears to see the score update. We haven't wired in the query invalidation yet.
+Click `Send Batch Transaction Example` again. You'll have to **manually refresh** the page when the EVM transaction hash appears to see the score update. We haven't wired in the query invalidation yet.
 
 Next, use some JavaScript to put 10 copies of the transaction call into the array:
 
@@ -1476,7 +1476,7 @@ While the batched transactions feature works, we've got a few flaws in the user 
 
 warning
 
-We initially tried getting an AI friend to install this for us and it got very confused. `Next.js` and Tailwind have both had a lot of change recently. As a result, the LLMs don't seem to have caught up just yet.
+We initially tried to get an AI friend to install this for us and it got very confused. `Next.js` and Tailwind have both had a lot of change recently. As a result, the LLMs don't seem to have caught up just yet.
 
 Do this part the old-fashioned way.
 
@@ -2070,7 +2070,7 @@ _35
 
 );`
 
-### Testing[​](#testing "Direct link to Testing")
+### Tests[​](#tests "Direct link to Tests")
 
 Run the app and make sure it works as expected, even if in a rather ugly fashion.
 
@@ -2104,13 +2104,13 @@ _10
 
 </button>`
 
-### Styling[​](#styling "Direct link to Styling")
+### Style[​](#style "Direct link to Style")
 
 It's up to you to make the app pretty. If you need inspiration, you can always check the [reference repo](https://github.com/briandoyle81/cross-vm-app-1/tree/main).
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-In this tutorial, you reviewed the demo starter for building hybrid applications that use a common EVM stack and integrate with Flow Cadence. You then added functionality to interface with another contract that mints ERC-20 tokens. Finally, you supercharged your app by using the power of Cadence for EVM multi-call contract writes.
+In this tutorial, you reviewed the demo starter to build hybrid applications that use a common EVM stack and integrate with Flow Cadence. You then added functionality to interface with another contract that mints ERC-20 tokens. Finally, you supercharged your app with the power of Cadence for EVM multi-call contract writes.
 
 Now that you have completed the tutorial, you will be able to:
 
@@ -2120,7 +2120,7 @@ Now that you have completed the tutorial, you will be able to:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cross-vm-apps/introduction.md)
 
-Last updated on **Nov 5, 2025** by **cshannon1218**
+Last updated on **Nov 21, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -2136,8 +2136,8 @@ Copy as Markdown
 
 * [Objectives](#objectives)* [Prerequisites](#prerequisites)
     + [Next.js and modern frontend development](#nextjs-and-modern-frontend-development)+ [Solidity and Cadence smart contract development](#solidity-and-cadence-smart-contract-development)+ [Onchain app frontends](#onchain-app-frontends)* [Get started](#get-started)* [Project overview](#project-overview)* [Send batch transactions](#send-batch-transactions)
-          + [Cadence parent transaction](#cadence-parent-transaction)+ [EVM child transactions](#evm-child-transactions)* [Code evaluator](#code-evaluator)* [Calling Your own contract](#calling-your-own-contract)* [Set Up contract imports](#set-up-contract-imports)* [Build traditional functionality](#build-traditional-functionality)* [Supercharge your EVM app With Cadence](#supercharge-your-evm-app-with-cadence)* [Improve the UI/UX](#improve-the-uiux)
-                      + [Install Tailwind](#install-tailwind)+ [Update state display](#update-state-display)+ [Testing](#testing)+ [Add UI hints](#add-ui-hints)+ [Styling](#styling)* [Conclusion](#conclusion)
+          + [Cadence parent transaction](#cadence-parent-transaction)+ [EVM child transactions](#evm-child-transactions)* [Code evaluator](#code-evaluator)* [Call your own contract](#call-your-own-contract)* [Set Up contract imports](#set-up-contract-imports)* [Build traditional functionality](#build-traditional-functionality)* [Supercharge your EVM app With Cadence](#supercharge-your-evm-app-with-cadence)* [Improve the UI/UX](#improve-the-uiux)
+                      + [Install Tailwind](#install-tailwind)+ [Update state display](#update-state-display)+ [Tests](#tests)+ [Add UI hints](#add-ui-hints)+ [Style](#style)* [Conclusion](#conclusion)
 
 Flow
 

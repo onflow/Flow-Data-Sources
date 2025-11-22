@@ -46,7 +46,7 @@ On this page
 
 # Contribute to Flow MCP
 
-This tutorial will guide you through the process of contributing to the Flow MCP server. The [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) is an open standard developed by Anthropic that allows AI applications to interact seamlessly with external tools, systems, and data sources.
+This tutorial will guide you through how to contribute to the Flow MCP server. The [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) is an open standard developed by Anthropic that allows AI applications to interact seamlessly with external tools, systems, and data sources.
 
 ## Learning objectives[​](#learning-objectives "Direct link to Learning objectives")
 
@@ -119,7 +119,7 @@ After you complete this tutorial, you should be able to:
    If you want to add new Cadence files for your new tool, you can add them in the `src/cadence` directory. The `bun` will compile the Cadence files into `String`, so the dedicated Cadence files will help the project to be more organized.
 
    And we recommended that you add a test for your new tool in the `src/tools/your-tool-name/your-tool.test.ts` file.
-3. Add a prompt export in the `src/prompts` directory which is used to confirm that MCP clients can understand the new tool. You can refer to the existing tools for examples.
+3. Add a prompt export in the `src/prompts` directory which is used to confirm that MCP clients can understand the new tool. You can refer to the current tools for examples.
 4. Add your new tool to the `src/tools/index.ts` file.
 
    `_10
@@ -156,7 +156,7 @@ We will review your pull request and merge it if it's ready.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp/contribute-to-mcp.md)
 
-Last updated on **Oct 30, 2025** by **cshannon1218**
+Last updated on **Nov 20, 2025** by **cshannon1218**
 
 [Previous
 

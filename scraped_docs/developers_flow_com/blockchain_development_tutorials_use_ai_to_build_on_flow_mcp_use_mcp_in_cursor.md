@@ -46,14 +46,14 @@ On this page
 
 # Use Flow MCP in Cursor
 
-Adding Flow MCP to Cursor gives you powerful AI-driven tools directly inside your code editor. It allows Cursor's AI to understand, query, and interact with Flow blockchain data and smart contracts through a standard protocol called the Model Context Protocol (MCP).
+When you add Flow MCP to Cursor, it gives you powerful AI-driven tools directly inside your code editor. It allows Cursor's AI to understand, query, and interact with Flow blockchain data and smart contracts through a standard protocol called the Model Context Protocol (MCP).
 
 Specifically, it lets you:
 
-* Ask the AI in Cursor to fetch onchain data such as account balances, account information, or contract source code without leaving your editor.
-* Speed up development by letting AI perform blockchain queries that would normally require manual steps.
-* Improve context for AI assistance by allowing Cursor to pull real blockchain data when needed.
-* Automate routine Flow tasks using tools exposed by the MCP server.
+* Ask the AI in Cursor to fetch onchain data such as account balances, account information, or contract source code without the need to leave your editor.
+* Speed up development when you have AI perform blockchain queries that would normally require manual steps.
+* Improve context for AI assistance if you let Cursor to pull real blockchain data when needed.
+* Automate routine Flow tasks with tools exposed by the MCP server.
 * Prototype and debug faster with direct access to live blockchain information.
 
 This tutorial will guide you through setting up and using Flow MCP in [Cursor](https://www.cursor.com/) to enhance your Flow blockchain development experience with AI assistance.
@@ -62,7 +62,7 @@ This tutorial will guide you through setting up and using Flow MCP in [Cursor](h
 
 After you complete this tutorial, you should be able to:
 
-* Configure Cursor to connect with the Flow MCP server using the MCP protocol.
+* Configure Cursor to connect with the Flow MCP server with the MCP protocol.
 * Install and launch the Flow MCP server locally through Cursor.
 * Identify when Flow MCP tools successfully load and are ready inside Cursor.
 * Use Flow MCP tools to retrieve blockchain data such as account balances, account details, and contract source code.
@@ -80,7 +80,7 @@ After you complete this tutorial, you should be able to:
    ![Cursor Settings](/assets/images/mcp-settings-in-curosr-992c67311acc63125a862081ae6dcdd2.png)
 2. Configure the MCP configuration file in Cursor:
 
-   The MCP configuration file is located at the following location based on your operating system:
+   The MCP configuration file resides at this location based on your operating system:
 
    * macOS: `~/Library/Application Support/Claude/mcp.json`
    * Windows: `%APPDATA%/Claude/mcp.json`
@@ -139,14 +139,14 @@ After you complete this tutorial, you should be able to:
 
 ![Sample Image 3](/assets/images/sample-3-3a0d098a17c974fff8e5ab528fb41eef.png)
 
-## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
+## Troubleshoot[​](#troubleshoot "Direct link to Troubleshoot")
 
 If you encounter any issues:
 
 1. Ensure the MCP server is properly installed.
 2. Verify the configuration file is in the correct location.
 3. Check that the paths in the configuration are correct.
-4. Try restarting Cursor.
+4. Try to restart Cursor.
 5. Check the console for any error messages.
 
 ## Additional resources[​](#additional-resources "Direct link to Additional resources")
@@ -164,7 +164,7 @@ For issues or questions:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/mcp/use-mcp-in-cursor.md)
 
-Last updated on **Nov 5, 2025** by **Brian Doyle**
+Last updated on **Nov 20, 2025** by **cshannon1218**
 
 [Previous
 
@@ -179,7 +179,7 @@ Contribute to Flow MCP](/blockchain-development-tutorials/use-AI-to-build-on-flo
 Copy as Markdown
 
 * [Learning objectives](#learning-objectives)* [Prerequisites](#prerequisites)* [Installation](#installation)* [How to use Flow MCP in Cursor](#how-to-use-flow-mcp-in-cursor)
-        + [Check Flow balance](#check-flow-balance)+ [View account information](#view-account-information)+ [Get contract source code](#get-contract-source-code)* [Troubleshooting](#troubleshooting)* [Additional resources](#additional-resources)* [Support](#support)
+        + [Check Flow balance](#check-flow-balance)+ [View account information](#view-account-information)+ [Get contract source code](#get-contract-source-code)* [Troubleshoot](#troubleshoot)* [Additional resources](#additional-resources)* [Support](#support)
 
 Flow
 

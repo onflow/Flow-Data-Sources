@@ -162,11 +162,11 @@ _25
 4. Make sure to select `Injected Provider - Metamask` in Environment dropdown.
 5. Deploy the `HelloWorld` smart contract.
 
-## Calling the Deployed Smart Contract[​](#calling-the-deployed-smart-contract "Direct link to Calling the Deployed Smart Contract")
+## Call the Deployed Smart Contract[​](#call-the-deployed-smart-contract "Direct link to Call the Deployed Smart Contract")
 
 ![Call Smart Contract](/assets/images/Remix-call-getGreeting-558cf56bb12d6b95cbd0e3e272d62499.gif)
 
-### Using Ethers.js to Call the HelloWorld Smart Contract[​](#using-ethersjs-to-call-the-helloworld-smart-contract "Direct link to Using Ethers.js to Call the HelloWorld Smart Contract")
+### Use Ethers.js to Call the HelloWorld Smart Contract[​](#use-ethersjs-to-call-the-helloworld-smart-contract "Direct link to Use Ethers.js to Call the HelloWorld Smart Contract")
 
 1. Create a new `get-greeting.js` file under `scripts`.
 2. Paste in the JavaScript code below.
@@ -277,7 +277,7 @@ Follow the steps below to change the greeting and retrieve the new greeting.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/development-tools/remix.md)
 
-Last updated on **Nov 12, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -292,8 +292,8 @@ Foundry](/blockchain-development-tutorials/evm/development-tools/foundry)
 Copy as Markdown
 
 * [Add the Flow network to MetaMask](#add-the-flow-network-to-metamask)* [Fund Your Flow Account](#fund-your-flow-account)* [Deploy a smart contract with Remix](#deploy-a-smart-contract-with-remix)
-      + [HelloWorld smart contract](#helloworld-smart-contract)+ [Steps to deploy the HelloWorld smart contract](#steps-to-deploy-the-helloworld-smart-contract)* [Calling the Deployed Smart Contract](#calling-the-deployed-smart-contract)
-        + [Using Ethers.js to Call the HelloWorld Smart Contract](#using-ethersjs-to-call-the-helloworld-smart-contract)* [Updating the deployed smart contract](#updating-the-deployed-smart-contract)
+      + [HelloWorld smart contract](#helloworld-smart-contract)+ [Steps to deploy the HelloWorld smart contract](#steps-to-deploy-the-helloworld-smart-contract)* [Call the Deployed Smart Contract](#call-the-deployed-smart-contract)
+        + [Use Ethers.js to Call the HelloWorld Smart Contract](#use-ethersjs-to-call-the-helloworld-smart-contract)* [Updating the deployed smart contract](#updating-the-deployed-smart-contract)
 
 Flow
 
