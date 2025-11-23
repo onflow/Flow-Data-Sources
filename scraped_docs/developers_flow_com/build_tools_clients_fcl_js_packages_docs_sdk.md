@@ -78,13 +78,13 @@ You can import the entire package:
 
 `_10
 
-import * as sdk from "@onflow/sdk"`
+import * as sdk from '@onflow/sdk';`
 
 Or import specific functions:
 
 `_10
 
-import { functionName } from "@onflow/sdk"`
+import { functionName } from '@onflow/sdk';`
 
 ## Connect[​](#connect "Direct link to Connect")
 
@@ -94,7 +94,7 @@ Example:
 
 `_10
 
-import { config } from "@onflow/fcl"
+import { config } from '@onflow/fcl';
 
 _10
 
@@ -104,11 +104,11 @@ config({
 
 _10
 
-"accessNode.api": "https://rest-testnet.onflow.org"
+'accessNode.api': 'https://rest-testnet.onflow.org',
 
 _10
 
-})`
+});`
 
 ## Querying the Flow Network[​](#querying-the-flow-network "Direct link to Querying the Flow Network")
 
@@ -160,7 +160,7 @@ A proposal key contains three fields:
 
 A transaction is only valid if its declared sequence number matches the current on-chain sequence number for that key. The sequence number increments by one after the transaction is executed.
 
-**Payer** is the account that pays the fees for the transaction. A transaction must specify exactly one payer. The payer is only responsible for paying the network and gas fees; the transaction is not authorized to access resources or code stored in the payer account.
+**Payer** is the account that pays the fees for the transaction. A transaction must specify exactly one payer. The payer is only responsible for paying the network and compute unit (gas) fees; the transaction is not authorized to access resources or code stored in the payer account.
 
 **Authorizers** are accounts that authorize a transaction to read and mutate their resources. A transaction can specify zero or more authorizers, depending on how many accounts the transaction needs to access.
 
@@ -180,14 +180,17 @@ _10
 
 }`
 
-**Gas limit** is the limit on the amount of computation a transaction requires, and it will abort if it exceeds its gas limit.
-Cadence uses metering to measure the number of operations per transaction. You can read more about it in the [Cadence documentation](https://cadence-lang.org/docs).
+**Compute Limit** is the limit on the amount of computation a transaction requires, and it will abort if it exceeds its compute unit limit. Cadence uses metering to measure the number of operations per transaction. You can read more about it in the [Cadence documentation](https://cadence-lang.org/docs).
 
-The gas limit depends on the complexity of the transaction script. Until dedicated gas estimation tooling exists, it's best to use the emulator to test complex transactions and determine a safe limit.
+The compute limit depends on the complexity of the transaction script. Until dedicated estimation tooling exists, it's best to use the emulator to test complex transactions and determine a safe limit.
 
-**Reference block** specifies an expiration window (measured in blocks) during which a transaction is considered valid by the network.
-A transaction will be rejected if it is submitted past its expiry block. Flow calculates transaction expiry using the *reference block* field on a transaction.
-A transaction expires after `600` blocks are committed on top of the reference block, which takes about 10 minutes at average Mainnet block rates.
+Keep in mind that Flow is **very** efficient, so transaction fees are generally low. A limit resulting in max charges of `.001` Flow is sufficient to cover even complex transactions.
+
+* Flow token transfer: 19 CU.
+  + Single NFT Transfer: 26 CU.
+  + EVM Token transfer 28 CU.
+
+**Reference block** specifies an expiration window (measured in blocks) during which a transaction is considered valid by the network. A transaction will be rejected if it is submitted past its expiry block. Flow calculates transaction expiry using the *reference block* field on a transaction. A transaction expires after `600` blocks are committed on top of the reference block, which takes about 8 minutes at average Mainnet block rates.
 
 ## API Reference[​](#api-reference "Direct link to API Reference")
 
@@ -275,7 +278,7 @@ This section contains documentation for all of the functions and namespaces in t
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/index.md)
 
-Last updated on **Oct 22, 2025** by **Michael Fabozzi**
+Last updated on **Nov 18, 2025** by **Brian Doyle**
 
 [Previous
 

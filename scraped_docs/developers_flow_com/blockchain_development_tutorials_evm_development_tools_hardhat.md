@@ -52,7 +52,7 @@ Hardhat is an Ethereum development tool designed to facilitate the deployment, t
 
 Node v18 or higher, available for [download here](https://nodejs.org/en/download).
 
-For those new to Hardhat, we recommend that you exploare the [official documentation](https://hardhat.org/tutorial/creating-a-new-hardhat-project) to get acquainted. The following instructions use `npm` to initialize a project and install dependencies:
+For those new to Hardhat, we recommend that you exploare the [official Hardhat documentation](https://hardhat.org/tutorial/creating-a-new-hardhat-project) to get acquainted. The following instructions use `npm` to initialize a project and install dependencies:
 
 ### Wallet[​](#wallet "Direct link to Wallet")
 
@@ -324,7 +324,7 @@ _18
 5. Run `npx hardhat run scripts/deploy.ts --network testnet` in the project root.
 6. Copy the deployed `HelloWorld` address. This address will be used in other scripts.
 
-Output should look like this (with the exception that your address will be different):
+Output will look like this (with the exception that your address will be different):
 
 `_10
 
@@ -338,7 +338,7 @@ _10
 
 HelloWorld address: 0x3Fe94f43Fb5CdB8268A801f274521a07F7b99dfb`
 
-You can now search for your deployed contract on the [Flowscan block explorer](https://evm-testnet.flowscan.io/)!
+You can now search for your deployed contract on the [Flowscan](https://evm-testnet.flowscan.io/) block explorer!
 
 ### Get HelloWorld contract greeting[​](#get-helloworld-contract-greeting "Direct link to Get HelloWorld contract greeting")
 
@@ -768,7 +768,7 @@ npx hardhat verify --network testnet DEPLOYED_CONTRACT_ADDRESS "Constructor argu
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/development-tools/hardhat.md)
 
-Last updated on **Nov 12, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 

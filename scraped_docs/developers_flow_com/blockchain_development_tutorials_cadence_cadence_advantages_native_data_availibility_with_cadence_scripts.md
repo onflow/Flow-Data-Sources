@@ -52,7 +52,7 @@ In Cadence, **scripts** are general-purpose read programs. They can traverse pub
 
 info
 
-In Cadence, a *script* is a read-only program that can access public data across accounts and contracts in a strongly typed way. It does not require gas or user signatures.
+In Cadence, a *script* is a read-only program that can access public data across accounts and contracts in a strongly typed way. It does not require a user signatures not does it incur any fees.
 
 ## Objectives[​](#objectives "Direct link to Objectives")
 
@@ -948,7 +948,7 @@ This approach gives you the freedom to build applications that can access any on
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/cadence-advantages/native-data-availibility-with-cadence-scripts.md)
 
-Last updated on **Oct 30, 2025** by **cshannon1218**
+Last updated on **Nov 18, 2025** by **Brian Doyle**
 
 [Previous
 

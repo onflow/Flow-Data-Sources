@@ -11293,9 +11293,9 @@ On this page
 
 # Flow EVM Development Tools
 
-Professional smart contract development requires robust tooling to write, test, deploy, and manage Solidity contracts. This section covers the most popular and powerful development tools in the Ethereum ecosystem, adapted for Flow EVM development. From command-line frameworks to browser-based IDEs, these tools provide everything you need for comprehensive smart contract development workflows.
+Professional smart contract development requires robust tools to write, test, deploy, and manage Solidity contracts. This section covers the most popular and powerful development tools in the Ethereum ecosystem, adapted for Flow EVM development. From command-line frameworks to browser-based IDEs, these tools provide everything you need for comprehensive smart contract development workflows.
 
-Each tool offers unique strengths: Foundry excels at testing and gas optimization, Hardhat provides extensive plugin ecosystems and TypeScript support, while Remix allows rapid prototyping without local setup. These tutorials demonstrate how to configure and use each tool effectively with Flow EVM, which allows you to choose the right development environment for your project needs.
+Each tool offers unique strengths: Foundry excels at testing and gas optimization, Hardhat provides extensive plugin ecosystems and TypeScript support, while Remix allows you to rapidly prototype without local setup. These tutorials demonstrate how to configure and use each tool effectively with Flow EVM, which allows you to choose the right development environment for your project needs.
 
 ## [Foundry](/blockchain-development-tutorials/evm/development-tools/foundry)[​](#foundry "Direct link to foundry")
 
@@ -11315,7 +11315,7 @@ These development tool guides provide comprehensive coverage of the most popular
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/development-tools/index.md)
 
-Last updated on **Nov 12, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -16159,7 +16159,7 @@ Search
 
                         * [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              + [FCL Ethereum Provider](/build/tools/clients/fcl-js/cross-vm/ethereum-provider)+ [FCL Rainbowkit Adapter](/build/tools/clients/fcl-js/cross-vm/rainbowkit-adapter)+ [FCL Wagmi Adapter](/build/tools/clients/fcl-js/cross-vm/wagmi-adapter)* [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              + [FCL Ethereum Provider](/build/tools/clients/fcl-js/cross-vm/ethereum-provider)+ [FCL Rainbowkit Adapter](/build/tools/clients/fcl-js/cross-vm/rainbowkit-adapter)+ [FCL Wagmi Adapter](/build/tools/clients/fcl-js/cross-vm/wagmi-adapter)* [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)* FCL Wagmi Adapter
 
@@ -116305,7 +116305,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* withPrefix
 
@@ -226797,7 +226797,7 @@ On this page
 
 # Add Flow Cadence to your wagmi app
 
-This tutorial demonstrates how to enhance your existing wagmi/RainbowKit application with Flow Cadence capabilities. When you integrate the Flow Client Library (FCL) with your EVM stack, you can unlock powerful features like batch transactions with a single signature.
+This tutorial demonstrates how to enhance your current wagmi/RainbowKit application with Flow Cadence capabilities. When you integrate the Flow Client Library (FCL) with your EVM stack, you can unlock powerful features like batch transactions with a single signature.
 
 ## Video overview[​](#video-overview "Direct link to Video overview")
 
@@ -226805,7 +226805,7 @@ This tutorial demonstrates how to enhance your existing wagmi/RainbowKit applica
 
 After you complete this guide, you'll be able to:
 
-* Add FCL to your existing wagmi/RainbowKit application.
+* Add FCL to your current wagmi/RainbowKit application.
 * Configure FCL to work alongside your EVM wallet connections.
 * Implement batch transactions that execute multiple EVM calls in a single Cadence transaction.
 * Display both Cadence and EVM addresses in your application.
@@ -228201,15 +228201,15 @@ This approach gives you several advantages:
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-You've successfully integrated Flow Cadence with your wagmi/rainbowkit application! This integration allows you to leverage the power of Cadence while maintaining the familiar EVM development experience.
+You've successfully integrated Flow Cadence with your wagmi/rainbowkit application! This integration allows you to leverage the power of Cadence and maintain the familiar EVM development experience.
 
-## Reference Implementation[​](#reference-implementation "Direct link to Reference Implementation")
+## Reference implementation[​](#reference-implementation "Direct link to Reference implementation")
 
 For a complete reference implementation, check out the [FCL + RainbowKit + wagmi Integration Demo](https://github.com/jribbink/cross-vm-app) repository.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cross-vm-apps/add-to-wagmi.md)
 
-Last updated on **Nov 5, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -228224,7 +228224,7 @@ Batched EVM Transactions](/blockchain-development-tutorials/cross-vm-apps/batche
 Copy as Markdown
 
 * [Video overview](#video-overview)* [Objectives](#objectives)* [Prerequisites](#prerequisites)
-      + [Next.js and modern frontend development](#nextjs-and-modern-frontend-development)+ [Solidity and Cadence smart contract development](#solidity-and-cadence-smart-contract-development)+ [Onchain app frontends](#onchain-app-frontends)* [Create an app](#create-an-app)* [Install Required Dependencies](#install-required-dependencies)* [Step 2: Configure FCL in your wagmi setup](#step-2-configure-fcl-in-your-wagmi-setup)* [Step 3: Add the batch transaction utility](#step-3-add-the-batch-transaction-utility)* [Step 4: Implement the UI](#step-4-implement-the-ui)* [Step 5: Test Your application](#step-5-test-your-application)* [How It Works](#how-it-works)* [Conclusion](#conclusion)* [Reference Implementation](#reference-implementation)
+      + [Next.js and modern frontend development](#nextjs-and-modern-frontend-development)+ [Solidity and Cadence smart contract development](#solidity-and-cadence-smart-contract-development)+ [Onchain app frontends](#onchain-app-frontends)* [Create an app](#create-an-app)* [Install Required Dependencies](#install-required-dependencies)* [Step 2: Configure FCL in your wagmi setup](#step-2-configure-fcl-in-your-wagmi-setup)* [Step 3: Add the batch transaction utility](#step-3-add-the-batch-transaction-utility)* [Step 4: Implement the UI](#step-4-implement-the-ui)* [Step 5: Test Your application](#step-5-test-your-application)* [How It Works](#how-it-works)* [Conclusion](#conclusion)* [Reference implementation](#reference-implementation)
 
 Flow
 
@@ -229327,13 +229327,13 @@ You can import the entire package:
 
 `_10
 
-import * as sdk from "@onflow/sdk"`
+import * as sdk from '@onflow/sdk';`
 
 Or import specific functions:
 
 `_10
 
-import { functionName } from "@onflow/sdk"`
+import { functionName } from '@onflow/sdk';`
 
 ## Connect[​](#connect "Direct link to Connect")
 
@@ -229343,7 +229343,7 @@ Example:
 
 `_10
 
-import { config } from "@onflow/fcl"
+import { config } from '@onflow/fcl';
 
 _10
 
@@ -229353,11 +229353,11 @@ config({
 
 _10
 
-"accessNode.api": "https://rest-testnet.onflow.org"
+'accessNode.api': 'https://rest-testnet.onflow.org',
 
 _10
 
-})`
+});`
 
 ## Querying the Flow Network[​](#querying-the-flow-network "Direct link to Querying the Flow Network")
 
@@ -229409,7 +229409,7 @@ A proposal key contains three fields:
 
 A transaction is only valid if its declared sequence number matches the current on-chain sequence number for that key. The sequence number increments by one after the transaction is executed.
 
-**Payer** is the account that pays the fees for the transaction. A transaction must specify exactly one payer. The payer is only responsible for paying the network and gas fees; the transaction is not authorized to access resources or code stored in the payer account.
+**Payer** is the account that pays the fees for the transaction. A transaction must specify exactly one payer. The payer is only responsible for paying the network and compute unit (gas) fees; the transaction is not authorized to access resources or code stored in the payer account.
 
 **Authorizers** are accounts that authorize a transaction to read and mutate their resources. A transaction can specify zero or more authorizers, depending on how many accounts the transaction needs to access.
 
@@ -229429,14 +229429,17 @@ _10
 
 }`
 
-**Gas limit** is the limit on the amount of computation a transaction requires, and it will abort if it exceeds its gas limit.
-Cadence uses metering to measure the number of operations per transaction. You can read more about it in the [Cadence documentation](https://cadence-lang.org/docs).
+**Compute Limit** is the limit on the amount of computation a transaction requires, and it will abort if it exceeds its compute unit limit. Cadence uses metering to measure the number of operations per transaction. You can read more about it in the [Cadence documentation](https://cadence-lang.org/docs).
 
-The gas limit depends on the complexity of the transaction script. Until dedicated gas estimation tooling exists, it's best to use the emulator to test complex transactions and determine a safe limit.
+The compute limit depends on the complexity of the transaction script. Until dedicated estimation tooling exists, it's best to use the emulator to test complex transactions and determine a safe limit.
 
-**Reference block** specifies an expiration window (measured in blocks) during which a transaction is considered valid by the network.
-A transaction will be rejected if it is submitted past its expiry block. Flow calculates transaction expiry using the *reference block* field on a transaction.
-A transaction expires after `600` blocks are committed on top of the reference block, which takes about 10 minutes at average Mainnet block rates.
+Keep in mind that Flow is **very** efficient, so transaction fees are generally low. A limit resulting in max charges of `.001` Flow is sufficient to cover even complex transactions.
+
+* Flow token transfer: 19 CU.
+  + Single NFT Transfer: 26 CU.
+  + EVM Token transfer 28 CU.
+
+**Reference block** specifies an expiration window (measured in blocks) during which a transaction is considered valid by the network. A transaction will be rejected if it is submitted past its expiry block. Flow calculates transaction expiry using the *reference block* field on a transaction. A transaction expires after `600` blocks are committed on top of the reference block, which takes about 8 minutes at average Mainnet block rates.
 
 ## API Reference[​](#api-reference "Direct link to API Reference")
 
@@ -229524,7 +229527,7 @@ This section contains documentation for all of the functions and namespaces in t
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/sdk/index.md)
 
-Last updated on **Oct 22, 2025** by **Michael Fabozzi**
+Last updated on **Nov 18, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -280476,7 +280479,7 @@ Hardhat is an Ethereum development tool designed to facilitate the deployment, t
 
 Node v18 or higher, available for [download here](https://nodejs.org/en/download).
 
-For those new to Hardhat, we recommend that you exploare the [official documentation](https://hardhat.org/tutorial/creating-a-new-hardhat-project) to get acquainted. The following instructions use `npm` to initialize a project and install dependencies:
+For those new to Hardhat, we recommend that you exploare the [official Hardhat documentation](https://hardhat.org/tutorial/creating-a-new-hardhat-project) to get acquainted. The following instructions use `npm` to initialize a project and install dependencies:
 
 ### Wallet[​](#wallet "Direct link to Wallet")
 
@@ -280748,7 +280751,7 @@ _18
 5. Run `npx hardhat run scripts/deploy.ts --network testnet` in the project root.
 6. Copy the deployed `HelloWorld` address. This address will be used in other scripts.
 
-Output should look like this (with the exception that your address will be different):
+Output will look like this (with the exception that your address will be different):
 
 `_10
 
@@ -280762,7 +280765,7 @@ _10
 
 HelloWorld address: 0x3Fe94f43Fb5CdB8268A801f274521a07F7b99dfb`
 
-You can now search for your deployed contract on the [Flowscan block explorer](https://evm-testnet.flowscan.io/)!
+You can now search for your deployed contract on the [Flowscan](https://evm-testnet.flowscan.io/) block explorer!
 
 ### Get HelloWorld contract greeting[​](#get-helloworld-contract-greeting "Direct link to Get HelloWorld contract greeting")
 
@@ -281192,7 +281195,7 @@ npx hardhat verify --network testnet DEPLOYED_CONTRACT_ADDRESS "Constructor argu
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/development-tools/hardhat.md)
 
-Last updated on **Nov 12, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -385330,7 +385333,7 @@ Search
 
                         * [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* Flow Client Library (FCL)
 
@@ -410515,7 +410518,7 @@ On this page
 
 Before you dive into Flow EVM development, you'll need to configure your development environment and connect the necessary tools. This section covers the essential setup steps required to build on Flow EVM, from wallet configuration to network integration. These foundational setup guides ensure you have the proper connections and configurations needed for seamless Flow EVM development.
 
-Whether you're setting up MetaMask for the first time or integrating Flow network support into your current app, these tutorials provide step-by-step instructions to establish a robust development environment on Flow's EVM-compatible blockchain.
+Whether you want to set up MetaMask for the first time or integrate Flow network support into your current app, these tutorials provide step-by-step instructions to establish a robust development environment on Flow's EVM-compatible blockchain.
 
 ## [Integrating MetaMask](/blockchain-development-tutorials/evm/setup/integrating-metamask)[​](#integrating-metamask "Direct link to integrating-metamask")
 
@@ -410527,7 +410530,7 @@ These setup guides provide the foundational knowledge needed to configure develo
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/setup/index.md)
 
-Last updated on **Nov 12, 2025** by **Brian Doyle**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -420283,7 +420286,7 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
-# Source: https://developers.flow.com
+# Source: https://developers.flow.com/
 
 Flow Developer Portal
 
@@ -421747,7 +421750,7 @@ In Cadence, **scripts** are general-purpose read programs. They can traverse pub
 
 info
 
-In Cadence, a *script* is a read-only program that can access public data across accounts and contracts in a strongly typed way. It does not require gas or user signatures.
+In Cadence, a *script* is a read-only program that can access public data across accounts and contracts in a strongly typed way. It does not require a user signatures not does it incur any fees.
 
 ## Objectives[​](#objectives "Direct link to Objectives")
 
@@ -422643,7 +422646,7 @@ This approach gives you the freedom to build applications that can access any on
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cadence/cadence-advantages/native-data-availibility-with-cadence-scripts.md)
 
-Last updated on **Oct 30, 2025** by **cshannon1218**
+Last updated on **Nov 18, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -432943,12 +432946,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **9a243f70e9f91598**
+Cloudflare Ray ID: **9a2c82d0ddff69cc**
 •
 
 Your IP:
 Click to reveal
-13.83.161.17
+52.161.82.116
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 

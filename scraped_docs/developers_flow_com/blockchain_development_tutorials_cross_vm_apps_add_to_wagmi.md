@@ -38,7 +38,7 @@ On this page
 
 # Add Flow Cadence to your wagmi app
 
-This tutorial demonstrates how to enhance your existing wagmi/RainbowKit application with Flow Cadence capabilities. When you integrate the Flow Client Library (FCL) with your EVM stack, you can unlock powerful features like batch transactions with a single signature.
+This tutorial demonstrates how to enhance your current wagmi/RainbowKit application with Flow Cadence capabilities. When you integrate the Flow Client Library (FCL) with your EVM stack, you can unlock powerful features like batch transactions with a single signature.
 
 ## Video overview[​](#video-overview "Direct link to Video overview")
 
@@ -46,7 +46,7 @@ This tutorial demonstrates how to enhance your existing wagmi/RainbowKit applica
 
 After you complete this guide, you'll be able to:
 
-* Add FCL to your existing wagmi/RainbowKit application.
+* Add FCL to your current wagmi/RainbowKit application.
 * Configure FCL to work alongside your EVM wallet connections.
 * Implement batch transactions that execute multiple EVM calls in a single Cadence transaction.
 * Display both Cadence and EVM addresses in your application.
@@ -1442,15 +1442,15 @@ This approach gives you several advantages:
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-You've successfully integrated Flow Cadence with your wagmi/rainbowkit application! This integration allows you to leverage the power of Cadence while maintaining the familiar EVM development experience.
+You've successfully integrated Flow Cadence with your wagmi/rainbowkit application! This integration allows you to leverage the power of Cadence and maintain the familiar EVM development experience.
 
-## Reference Implementation[​](#reference-implementation "Direct link to Reference Implementation")
+## Reference implementation[​](#reference-implementation "Direct link to Reference implementation")
 
 For a complete reference implementation, check out the [FCL + RainbowKit + wagmi Integration Demo](https://github.com/jribbink/cross-vm-app) repository.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cross-vm-apps/add-to-wagmi.md)
 
-Last updated on **Nov 5, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -1465,7 +1465,7 @@ Batched EVM Transactions](/blockchain-development-tutorials/cross-vm-apps/batche
 Copy as Markdown
 
 * [Video overview](#video-overview)* [Objectives](#objectives)* [Prerequisites](#prerequisites)
-      + [Next.js and modern frontend development](#nextjs-and-modern-frontend-development)+ [Solidity and Cadence smart contract development](#solidity-and-cadence-smart-contract-development)+ [Onchain app frontends](#onchain-app-frontends)* [Create an app](#create-an-app)* [Install Required Dependencies](#install-required-dependencies)* [Step 2: Configure FCL in your wagmi setup](#step-2-configure-fcl-in-your-wagmi-setup)* [Step 3: Add the batch transaction utility](#step-3-add-the-batch-transaction-utility)* [Step 4: Implement the UI](#step-4-implement-the-ui)* [Step 5: Test Your application](#step-5-test-your-application)* [How It Works](#how-it-works)* [Conclusion](#conclusion)* [Reference Implementation](#reference-implementation)
+      + [Next.js and modern frontend development](#nextjs-and-modern-frontend-development)+ [Solidity and Cadence smart contract development](#solidity-and-cadence-smart-contract-development)+ [Onchain app frontends](#onchain-app-frontends)* [Create an app](#create-an-app)* [Install Required Dependencies](#install-required-dependencies)* [Step 2: Configure FCL in your wagmi setup](#step-2-configure-fcl-in-your-wagmi-setup)* [Step 3: Add the batch transaction utility](#step-3-add-the-batch-transaction-utility)* [Step 4: Implement the UI](#step-4-implement-the-ui)* [Step 5: Test Your application](#step-5-test-your-application)* [How It Works](#how-it-works)* [Conclusion](#conclusion)* [Reference implementation](#reference-implementation)
 
 Flow
 
