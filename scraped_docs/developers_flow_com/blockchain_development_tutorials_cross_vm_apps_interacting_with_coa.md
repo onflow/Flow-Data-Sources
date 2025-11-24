@@ -48,7 +48,7 @@ In this guide, we will walk through some basic examples that create and and inte
 
 To begin, we can take a look at a simplified version of the `EVM` contract, and highlight parts specific to COAs.
 
-You can learn more about the `EVM` contract [here](/build/cadence/core-contracts/evm) and find the full contract code on [GitHub](https://github.com/onflow/flow-go/tree/master/fvm/evm/stdlib/contract.cdc).
+You can learn more about the `EVM` contract [here](https://fw-internal-doc.gitbook.io/evm) and find the full contract code on [GitHub](https://github.com/onflow/flow-go/tree/master/fvm/evm/stdlib/contract.cdc).
 
 EVM.cdc
 
@@ -266,7 +266,7 @@ _56
 
 The `CadenceOwnedAccount` resource is a part of the `EVM` system contract, so to use any of these functions, you will need to import the `EVM` contract into your Cadence code.
 
-To import the `EVM` contract into your Cadence code using the simple import syntax, you can use the following format (learn more about configuring contracts in `flow.json` [here](/build/tools/flow-cli/flow.json/configuration#contracts)):
+To import the `EVM` contract into your Cadence code with the simple import syntax, you can use the following format (learn more about how to configure contracts in `flow.json` [here](https://fw-internal-doc.gitbook.io/evm)):
 
 `` _10
 
@@ -451,7 +451,7 @@ _18
 
 ## Retrieve the EVM Address of a COA[​](#retrieve-the-evm-address-of-a-coa "Direct link to Retrieve the EVM Address of a COA")
 
-To get the EVM address of a COA, you can use the `address` function from the `EVM` contract. This function returns the EVM address of the COA as an `EVM.Address` struct. This struct is used to represent addresses within Flow EVM and you cna also use it to query the balance, code, nonce, and so on of an account.
+To get the EVM address of a COA, you can use the `address` function from the `EVM` contract. This function returns the EVM address of the COA as an `EVM.Address` struct. This struct is used to represent addresses within Flow EVM and you can also use it to query the balance, code, nonce, and so on of an account.
 
 For our example, we could query the address of the COA we just created with the following script:
 
@@ -865,18 +865,18 @@ _32
 
 info
 
-This is a basic example which only transfers tokens between a single user's COA & Flow account. It can be easily
+This is a basic example which only transfers tokens between a single user's COA and Flow account. It can be easily
 modified to transfer these tokens between any arbitrary accounts.
 
 ## Direct Calls to Flow EVM[​](#direct-calls-to-flow-evm "Direct link to Direct Calls to Flow EVM")
 
-To interact with smart contracts on the EVM, you can use the `call` function provided by the COA resource. This function
+To interact with smart contracts on the EVM, you can use the `call` function the COA resource provides. This function
 takes the EVM address of the contract you want to call, the data you want to send, the gas limit, and the value you want
 to send. It will return a `EVM.Result` struct with the result of the call - you will need to handle this result in your
 Cadence code.
 
 This transaction will use the signer's COA to call a contract method with the defined signature and args at a given EVM
-address, executing with the provided gas limit and value:
+address, and executes with the provided gas limit and value:
 
 call.cdc
 
@@ -1063,7 +1063,7 @@ _47
 info
 
 Notice that the calldata is encoded in the scope of the transaction. While developers can encode the calldata
-outside the scope of the transaction and pass the encoded data as an argument, doing so compromises the
+outside the scope of the transaction and pass the encoded data as an argument, this compromises the
 human-readability of Cadence transactions.
 
 It's encouraged to either define transactions for each COA call and encoded the hardcoded EVM signature and arguments,
@@ -1234,7 +1234,7 @@ _42
 
 ### Transfer ERC20[​](#transfer-erc20 "Direct link to Transfer ERC20")
 
-Below is an example transaction demonstrating the common ERC20 transfer. You can use a similar pattern for other arbitrary EVM calls.
+Below is an example transaction that demonstrates the common ERC20 transfer. You can use a similar pattern for other arbitrary EVM calls.
 
 erc20\_transfer\_from.cdc
 
@@ -1400,7 +1400,7 @@ _42
 
 ### Transfer ERC721[​](#transfer-erc721 "Direct link to Transfer ERC721")
 
-Following on from above, the example transaction below demonstrates a common ERC721 transfer.
+The example transaction below demonstrates a common ERC721 transfer.
 
 erc721\_transfer.cdc
 
@@ -1850,7 +1850,7 @@ Check out the [Batched EVM Transactions walkthrough](/blockchain-development-tut
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/cross-vm-apps/interacting-with-coa.md)
 
-Last updated on **Nov 5, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
