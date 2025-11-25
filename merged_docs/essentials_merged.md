@@ -1646,13 +1646,11 @@ On this page
 
 # Cadence Rules
 
-## Overview[​](#overview "Direct link to Overview")
-
-When building with AI, it's hard to make the agent consistently understand what standards it should use when building or generating responses. To migitate this issue, Cursor Rules sets up global rules, project wide rules or documents specific rules that it inserts in the agent's context before reading the prompt. With Cursor Rules, you can create an assistant that can consistently understand the intended development process, desired formatted responses, and avoid common mistakes. Consider it your tool to make guard rails for agents that can reduce hallucination and incorrect development flows.
+When you build with AI, it's hard to make the agent consistently understand what standards it should use when it builds or generates responses. To migitate this issue, Cursor Rules sets up global rules, project wide rules or documents specific rules that it inserts in the agent's context before it reads the prompt. With Cursor Rules, you can create an assistant that can consistently understand the intended development process, desired formatted responses, and avoid common mistakes. Consider it your tool to make guard rails for agents that can reduce hallucination and incorrect development flows.
 
 In this guide, you'll learn how to configure and use Cursor Rules that transform your AI assistant into a Flow development expert with persistent knowledge of Cadence syntax patterns, NFT standards, project configuration, and development workflows.
 
-## Learning Objectives[​](#learning-objectives "Direct link to Learning Objectives")
+## Learning objectives[​](#learning-objectives "Direct link to Learning objectives")
 
 After you complete this guide, you'll be able to:
 
@@ -1661,9 +1659,10 @@ After you complete this guide, you'll be able to:
 * Use workflow-based rules to guide project setup, deployment, and debugging processes across the Flow development lifecycle.
 * Create your own Cadence Rules in order to supercharge your development on Flow.
 
-## What Are Cursor Rules?[​](#what-are-cursor-rules "Direct link to What Are Cursor Rules?")
+## What are Cursor rules?[​](#what-are-cursor-rules "Direct link to What are Cursor rules?")
 
-Cursor rules shape AI behavior with persistent, reusable instructions that guide how Cursor's Agent and Inline Edit assist you. Rules act as continuous context - embedding your preferences, coding standards, and workflows directly into the AI's decision-making process. Since AI models start fresh with each interaction, rules bridge this gap by automatically injecting your preferences and context into every conversation.
+Cursor rules shape AI behavior with persistent, reusable instructions that guide how Cursor's Agent and Inline Edit assist you. Rules act as continuous context - they embed your preferences, code standards, and workflows directly into the AI's decision-making process. Since AI models start fresh with each interaction, rules automatically inject your preferences and context into every conversation, which bridfges this gap.
+
 When active, rules are included at the beginning of the AI's context and provide consistent guidance for code generation, edit suggestions, and workflow assistance.
 
 Cursor offers two rule types:
@@ -1725,9 +1724,9 @@ _12
 
 Referenced files like `@nft-template.cdc` are included as additional context when the rule triggers.
 
-## User Rules[​](#user-rules "Direct link to User Rules")
+## User rules[​](#user-rules "Direct link to User rules")
 
-User rules are global preferences defined in Cursor Settings → Rules that apply across all projects. They’re plain text and perfect for setting preferred communication style or coding conventions:
+User rules are global preferences defined in Cursor Settings → Rules that apply across all projects. They’re plain text and perfect for setting preferred communication style or code conventions:
 
 `_10
 
@@ -1735,15 +1734,15 @@ Please reply in a concise style. Avoid unnecessary repetition or filler language
 
 ## Project rules[​](#project-rules "Direct link to Project rules")
 
-Project rules are stored as individual files in `.cursor/rules` and get version-controlled alongside your code. Each rule can target specific file types using glob patterns, be manually invoked when needed, or automatically activate based on context. You can also create nested rule directories - any folder can have its own `.cursor/rules` directory with rules that apply specifically to that area of your project.
+Project rules are stored as individual files in `.cursor/rules` and get version-controlled alongside your code. Each rule can target specific file types with glob patterns, be manually invoked when needed, or automatically activate based on context. You can also create nested rule directories - any folder can have its own `.cursor/rules` directory with rules that apply specifically to that area of your project.
 
-Project rules excel at:
+Project rules help:
 
-* Capturing specialized knowledge about your codebase and domain.
-* Establishing consistent workflows and development patterns.
-* Enforcing coding standards and architectural decisions across your team.
+* Capture specialized knowledge about your codebase and domain.
+* Establish consistent workflows and development patterns.
+* Enforce coding standards and architectural decisions across your team.
 
-### Nested Rules[​](#nested-rules "Direct link to Nested Rules")
+### Nested rules[​](#nested-rules "Direct link to Nested rules")
 
 To organize rules, place them in `.cursor/rules` directories throughout your project. Nested rules automatically attach when files in their directory are referenced.
 
@@ -1771,15 +1770,15 @@ _10
 
 .cursor/rules/ # Frontend-specific rules`
 
-## Creating a rule[​](#creating-a-rule "Direct link to Creating a rule")
+## Create rules[​](#create-rules "Direct link to Create rules")
 
-Create rules with the Cursor Rule command or going to Cursor Settings > Rules. This creates a new rule file in `.cursor/rules`. From settings you can see all rules and their status.
+Create rules with the Cursor Rule command or go to Cursor Settings > Rules. This creates a new rule file in `.cursor/rules`. From settings you can see all rules and their status.
 
-Click the cog icon on the upper right section of the window. Then, click "Rules and Memories" on the left side bar. Finally click "+ Add Rule" in the User Rules or Project Rules section (depending on your objective).
+Click the cog icon on the upper right section of the window. Then, click "Rules and Memories" on the left side bar. Finally click "+ Add Rule" in the User Rules or Project Rules section (this depends on your objective).
 
 ![Creating a Cursor Rule](/assets/images/cursor_rules1-fe26f5ea8e3918056539c887c2a5fce4.png)
 
-### Generating rules[​](#generating-rules "Direct link to Generating rules")
+### Generate rules[​](#generate-rules "Direct link to Generate rules")
 
 Generate rules directly in conversations with the `/Generate Cursor Rules` command. This is useful when you’ve made decisions about agent behavior and want to reuse them.
 
@@ -1795,13 +1794,13 @@ Good rules are focused, actionable, and scoped.
 * Avoid vague guidance. Write rules like clear internal docs.
 * Reuse rules when repeating prompts in chat.
 
-## Cadence Rules[​](#cadence-rules-1 "Direct link to Cadence Rules")
+## Cadence rules[​](#cadence-rules-1 "Direct link to Cadence rules")
 
 Here are a couple of Cursor Rules made by [claucondor](https://gist.github.com/claucondor/453cb30c56597b53071bb5bbf18d2c9c) for Flow development and NFTs.
 
-### Cadence NFT Standards[​](#cadence-nft-standards "Direct link to Cadence NFT Standards")
+### Cadence NFT standards[​](#cadence-nft-standards "Direct link to Cadence NFT standards")
 
-The [cadence-nft-standards.mdc](https://github.com/onflow/cadence-rules/blob/main/cadence-nft-standards.mdc) rule provides comprehensive guidelines for developing NFTs using Cadence on Flow blockchain. It ensures proper implementation of:
+The [cadence-nft-standards.mdc](https://github.com/onflow/cadence-rules/blob/main/cadence-nft-standards.mdc) rule provides comprehensive guidelines for NFT development with Cadence on Flow blockchain. It ensures proper implementation of:
 
 * **Core Interface Conformance**: `NonFungibleToken`, `NFT`, and `Collection` interfaces.
 * **MetadataViews Integration**: Marketplace-compatible metadata standards.
@@ -1819,7 +1818,7 @@ The [cadence-nft-standards.mdc](https://github.com/onflow/cadence-rules/blob/mai
 
 **Applies to:** `.cdc` files, NFT transactions, collection setup, metadata implementation.
 
-#### Rule Configuration[​](#rule-configuration "Direct link to Rule Configuration")
+#### Rule configuration[​](#rule-configuration "Direct link to Rule configuration")
 
 `_10
 
@@ -1843,13 +1842,13 @@ _10
 
 Recommended Apply config: `Apply Intelligently`
 
-#### Manual Reference[​](#manual-reference "Direct link to Manual Reference")
+#### Manual reference[​](#manual-reference "Direct link to Manual reference")
 
 `_10
 
 @cadence-nft-standards help me implement a new NFT contract`
 
-#### Key Benefits[​](#key-benefits "Direct link to Key Benefits")
+#### Key benefits[​](#key-benefits "Direct link to Key benefits")
 
 * **Ecosystem Compatibility**: Guaranteed marketplace and wallet integration.
 * **Security**: Proper resource handling and capability management.
@@ -1857,18 +1856,18 @@ Recommended Apply config: `Apply Intelligently`
 * **Performance**: Gas-efficient implementations with lazy initialization.
 * **Standards Compliance**: Follows official Flow NFT patterns.
 
-#### Usage Examples[​](#usage-examples "Direct link to Usage Examples")
+#### Usage examples[​](#usage-examples "Direct link to Usage examples")
 
 * `"Create an NFT contract for collectible cards"` → Guides complete interface implementation.
 * `"Make my NFT marketplace compatible"` → Provides MetadataViews patterns.
 * `"Build evolving NFTs with traits"` → Suggests modular architecture patterns.
 * `"Review my NFT contract"` → Validates against all documented standards.
 
-### Cadence Syntax Patterns[​](#cadence-syntax-patterns "Direct link to Cadence Syntax Patterns")
+### Cadence syntax patterns[​](#cadence-syntax-patterns "Direct link to Cadence syntax patterns")
 
-#### What This Rule Does[​](#what-this-rule-does "Direct link to What This Rule Does")
+#### What this rule does[​](#what-this-rule-does "Direct link to What this rule does")
 
-The [cadence-syntax-patterns.mdc](https://github.com/onflow/cadence-rules/blob/main/cadence-syntax-patterns.mdc) rule provides comprehensive syntax guidance and error prevention for Cadence development. It covers essential language patterns including:
+The [cadence-syntax-patterns.mdc](https://github.com/onflow/cadence-rules/blob/main/cadence-syntax-patterns.mdc) rule provides comprehensive syntax guidance and error prevention for Cadence development. It covers essential language patterns such as:
 
 * **Resource Type Syntax**: Proper use of `@` and `&` symbols for resources and references.
 * **Interface Restrictions**: Correct `{}` syntax for interface constraints.
@@ -1890,9 +1889,9 @@ The [cadence-syntax-patterns.mdc](https://github.com/onflow/cadence-rules/blob/m
 
 **Applies to:** `.cdc` files, transaction scripts, contract development, Flow CLI usage, error debugging.
 
-#### How to Use This Rule[​](#how-to-use-this-rule "Direct link to How to Use This Rule")
+#### How to use this rule[​](#how-to-use-this-rule "Direct link to How to use this rule")
 
-#### Auto Attached Configuration[​](#auto-attached-configuration "Direct link to Auto Attached Configuration")
+#### Auto attached configuration[​](#auto-attached-configuration "Direct link to Auto attached configuration")
 
 `_10
 
@@ -1916,7 +1915,7 @@ _10
 
 Recommended Apply config: `Apply Intelligently`
 
-#### Manual Reference[​](#manual-reference-1 "Direct link to Manual Reference")
+#### Manual reference[​](#manual-reference-1 "Direct link to Manual reference")
 
 `_10
 
@@ -1929,9 +1928,9 @@ Recommended Apply config: `Apply Intelligently`
 * **Best Practices**: Language-specific patterns that follow Cadence conventions.
 * **Authorization Mastery**: Proper transaction permission handling.
 * **Type Safety**: Correct resource handling and type conversions.
-* **Performance**: Optimized patterns for gas efficiency.
+* **Performance**: Optimized patterns for compute unit (gas) efficiency.
 
-#### Usage Examples[​](#usage-examples-1 "Direct link to Usage Examples")
+#### Usage examples[​](#usage-examples-1 "Direct link to Usage examples")
 
 * `"Fix this resource handling error"` → Provides `@` and `&` syntax corrections
 * `"My transaction authorization is failing"` → Suggests proper `auth` capabilities
@@ -1940,7 +1939,7 @@ Recommended Apply config: `Apply Intelligently`
 * `"Interface restriction syntax error"` → Corrects to `{}` interface syntax
 * `"Access control for resource fields"` → Guides `access(self)` vs `access(all)` patterns
 
-#### Key Syntax Patterns Covered[​](#key-syntax-patterns-covered "Direct link to Key Syntax Patterns Covered")
+#### Key syntax patterns covered[​](#key-syntax-patterns-covered "Direct link to Key syntax patterns covered")
 
 * **Resources**: `@{NonFungibleToken.NFT}` not `@NonFungibleToken.NFT`
 * **Authorization**: `auth(Storage) &Account` or granular capabilities.
@@ -1951,11 +1950,11 @@ Recommended Apply config: `Apply Intelligently`
 * **String Operations**: Use `.split()` and `.contains()` (no `.indexOf()`)
 * **Loops**: `while` loops only (no range-based `for` loops)
 
-### Flow Development Workflow[​](#flow-development-workflow "Direct link to Flow Development Workflow")
+### Flow development workflow[​](#flow-development-workflow "Direct link to Flow development workflow")
 
-#### What This Rule Does[​](#what-this-rule-does-1 "Direct link to What This Rule Does")
+#### What this rule does[​](#what-this-rule-does-1 "Direct link to What this rule does")
 
-The [flow-development-workflow.mdc](https://github.com/onflow/cadence-rules/blob/main/flow-development-workflow.mdc) rule provides comprehensive workflow methodology for Flow blockchain development covering the complete development lifecycle. It includes:
+The [flow-development-workflow.mdc](https://github.com/onflow/cadence-rules/blob/main/flow-development-workflow.mdc) rule provides comprehensive workflow methodology for Flow blockchain development that covers the complete development lifecycle. It includes:
 
 * **Documentation-First Approach**: Always reference official Flow documentation and standard examples.
 * **Development Sequence**: Emulator → Testnet → Mainnet progression with proper validation.
@@ -1963,7 +1962,7 @@ The [flow-development-workflow.mdc](https://github.com/onflow/cadence-rules/blob
 * **Deployment Verification**: Post-deployment validation protocols and testing strategies.
 * **FCL Integration**: Frontend configuration, network management, and user experience patterns.
 * **Error Resolution**: Systematic debugging approaches and common error prevention.
-* **Optimization Techniques**: Computation limit handling and gas efficiency strategies.
+* **Optimization Techniques**: Computation limit handling and compute unit (gas) efficiency strategies.
 * **Testnet Validation**: Comprehensive validation protocols before mainnet deployment.
 
 **Perfect for:**
@@ -1972,7 +1971,7 @@ The [flow-development-workflow.mdc](https://github.com/onflow/cadence-rules/blob
 * Moving between development stages (emulator → testnet → mainnet).
 * Debugging deployment or transaction authorization issues.
 * Integrating frontend applications with FCL.
-* Handling computation limits and gas optimization.
+* Handling computation limits and compute unit (gas) optimization.
 * Learning Flow development best practices and official patterns.
 * Comprehensive project validation strategies.
 
@@ -1984,7 +1983,7 @@ The [flow-development-workflow.mdc](https://github.com/onflow/cadence-rules/blob
 
 @flow-development-workflow help me deploy to testnet properly`
 
-#### Auto Attached Configuration[​](#auto-attached-configuration-1 "Direct link to Auto Attached Configuration")
+#### Auto attached configuration[​](#auto-attached-configuration-1 "Direct link to Auto attached configuration")
 
 `_10
 
@@ -2008,7 +2007,7 @@ _10
 
 Recommended Apply config: `Apply Intelligently`
 
-#### Key Benefits[​](#key-benefits-2 "Direct link to Key Benefits")
+#### Key benefits[​](#key-benefits-2 "Direct link to Key benefits")
 
 * **Systematic Approach**: Step-by-step methodology prevents common mistakes.
 * **Official Patterns**: Emphasizes Flow documentation and standard examples.
@@ -2017,7 +2016,7 @@ Recommended Apply config: `Apply Intelligently`
 * **Optimization Focus**: Gas efficiency and computation limit management.
 * **Validation Protocols**: Comprehensive testing before production deployment.
 
-#### Usage Examples[​](#usage-examples-2 "Direct link to Usage Examples")
+#### Usage examples[​](#usage-examples-2 "Direct link to Usage examples")
 
 * `"How do I set up a new Flow project?"` → Guides project setup and configuration.
 * `"My transaction authorization is failing"` → Provides auth capability debugging.
@@ -2026,18 +2025,18 @@ Recommended Apply config: `Apply Intelligently`
 * `"Computation limit exceeded"` → Recommends optimization strategies.
 * `"Prepare for mainnet deployment"` → Provides comprehensive validation checklist.
 
-#### Key Workflow Areas Covered[​](#key-workflow-areas-covered "Direct link to Key Workflow Areas Covered")
+#### Key workflow areas covered[​](#key-workflow-areas-covered "Direct link to Key workflow areas covered")
 
 * **Project Setup**: `flow.json` configuration, FCL setup, environment management.
 * **Authorization**: `auth(Storage)`, `auth(BorrowValue, SaveValue)`, granular capabilities.
 * **Development Sequence**: Emulator testing → Frontend integration → Testnet → Validation.
 * **Error Resolution**: Syntax errors, deployment errors, FCL errors, computation limits.
 * **FCL Best Practices**: Network configuration, contract address management, user authentication.
-* **Optimization**: Accumulative processing, loop optimization, gas efficiency.
+* **Optimization**: Accumulative processing, loop optimization, compute unit (gas) efficiency.
 * **Deployment**: Verification protocols, update strategies, multi-network consistency.
 * **Documentation Usage**: When and how to reference official Flow resources.
 
-#### Development Philosophy Emphasized[​](#development-philosophy-emphasized "Direct link to Development Philosophy Emphasized")
+#### Development philosophy emphasized[​](#development-philosophy-emphasized "Direct link to Development philosophy emphasized")
 
 * **Documentation-Driven**: Reference official sources before creating custom solutions.
 * **Iterative Approach**: Fix issues one at a time, test frequently at each stage.
@@ -2045,7 +2044,7 @@ Recommended Apply config: `Apply Intelligently`
 * **Full-Stack Awareness**: Consider entire stack from contracts to frontend UI.
 * **Error-Driven Learning**: Use errors as opportunities to refine understanding.
 
-### Flow Project Configuration[​](#flow-project-configuration "Direct link to Flow Project Configuration")
+### Flow project configuration[​](#flow-project-configuration "Direct link to Flow project configuration")
 
 #### What This Rule Does[​](#what-this-rule-does-2 "Direct link to What This Rule Does")
 
@@ -2072,7 +2071,7 @@ The [flow-project-config.mdc](https://github.com/onflow/cadence-rules/blob/main/
 
 **Applies to:** `flow.json`, FCL config files, deployment scripts, network switching, contract imports.
 
-#### Auto Attached Configuration[​](#auto-attached-configuration-2 "Direct link to Auto Attached Configuration")
+#### Auto attached configuration[​](#auto-attached-configuration-2 "Direct link to Auto attached configuration")
 
 `_10
 
@@ -2096,13 +2095,13 @@ _10
 
 Recommended Apply config: `Apply Intelligently`
 
-#### Manual Reference[​](#manual-reference-3 "Direct link to Manual Reference")
+#### Manual reference[​](#manual-reference-3 "Direct link to Manual reference")
 
 `_10
 
 @flow-project-config help me configure my flow.json for testnet deployment`
 
-#### Key Benefits[​](#key-benefits-3 "Direct link to Key Benefits")
+#### Key benefits[​](#key-benefits-3 "Direct link to Key benefits")
 
 * **Configuration Accuracy**: Prevents common setup and deployment errors.
 * **Multi-Network Support**: Seamless switching between emulator, testnet, and mainnet.
@@ -2111,7 +2110,7 @@ Recommended Apply config: `Apply Intelligently`
 * **Deployment Success**: Proper account setup and contract registration workflows.
 * **Address Management**: Centralized contract address handling across environments.
 
-#### Usage Examples[​](#usage-examples-3 "Direct link to Usage Examples")
+#### Usage examples[​](#usage-examples-3 "Direct link to Usage examples")
 
 * `"Configure flow.json for new project"` → Provides complete structure and setup guidance.
 * `"Failed to resolve contract import"` → Suggests address mapping and alias fixes.
@@ -2120,7 +2119,7 @@ Recommended Apply config: `Apply Intelligently`
 * `"Deploy contract to testnet"` → Provides deployment configuration and verification.
 * `"Switch from emulator to testnet"` → Guides network transition and address updates.
 
-#### Key Configuration Areas Covered[​](#key-configuration-areas-covered "Direct link to Key Configuration Areas Covered")
+#### Key configuration areas covered[​](#key-configuration-areas-covered "Direct link to Key configuration areas covered")
 
 * **Account Setup**: Address accuracy, key file paths, network-specific accounts.
 * **Contract Registration**: Source paths, aliases, pre-deployment requirements.
@@ -2131,7 +2130,7 @@ Recommended Apply config: `Apply Intelligently`
 * **Multi-Network Patterns**: Network-specific aliases and deployment strategies.
 * **CLI Usage**: Correct `--signer`, `--network`, and `--update` flag usage.
 
-#### Common Issues Addressed[​](#common-issues-addressed "Direct link to Common Issues Addressed")
+#### Common issues addressed[​](#common-issues-addressed "Direct link to Common issues addressed")
 
 * **"failed to get contract"**: Missing or incorrect aliases in `flow.json`.
 * **"failed to resolve import"**: Address mapping issues in FCL configuration.
@@ -2140,7 +2139,7 @@ Recommended Apply config: `Apply Intelligently`
 * **Signer/Network Mismatches**: Using emulator accounts on testnet and vice-versa.
 * **Address Inconsistencies**: Misaligned addresses between `flow.json` and FCL config.
 
-#### Best Practices Emphasized[​](#best-practices-emphasized "Direct link to Best Practices Emphasized")
+#### Best practices emphasized[​](#best-practices-emphasized "Direct link to Best practices emphasized")
 
 * **Pre-deployment Registration**: Always add contracts to `flow.json` before you deploy it.
 * **Address Consistency**: Ensure addresses match across `flow.json`, FCL config, and imports.
@@ -2148,9 +2147,9 @@ Recommended Apply config: `Apply Intelligently`
 * **Network Separation**: Maintain distinct configurations for each network environment.
 * **Key Security**: Proper `.gitignore` setup for private key files.
 
-### User Preferences[​](#user-preferences "Direct link to User Preferences")
+### User preferences[​](#user-preferences "Direct link to User preferences")
 
-#### What This Rule Does[​](#what-this-rule-does-3 "Direct link to What This Rule Does")
+#### What this rule does[​](#what-this-rule-does-3 "Direct link to What this rule does")
 
 The [user-preferences.mdc](https://github.com/onflow/cadence-rules/blob/main/user-preferences.mdc) rule personalizes AI assistance behavior for Flow blockchain development. It defines preferred communication style and development methodology including:
 
@@ -2174,7 +2173,7 @@ The [user-preferences.mdc](https://github.com/onflow/cadence-rules/blob/main/use
 
 **Applies to:** All AI assistance, communication style, problem-solving approach, solution methodology
 
-#### Synergy with Technical Rules[​](#synergy-with-technical-rules "Direct link to Synergy with Technical Rules")
+#### Synergy with technical rules[​](#synergy-with-technical-rules "Direct link to Synergy with technical rules")
 
 This rule works as the **behavioral foundation** for your technical Flow rules:
 
@@ -2182,7 +2181,7 @@ This rule works as the **behavioral foundation** for your technical Flow rules:
 * **User Preferences** defines **HOW** to deliver that information.
 * **Result**: Consistent, personalized assistance across all Flow development scenarios.
 
-#### Always Applied Configuration[​](#always-applied-configuration "Direct link to Always Applied Configuration")
+#### Always applied configuration[​](#always-applied-configuration "Direct link to Always applied configuration")
 
 `_10
 
@@ -2190,7 +2189,7 @@ This rule works as the **behavioral foundation** for your technical Flow rules:
 
 _10
 
-description: Defines personalized development preferences and communication style for Flow blockchain development including concise response formatting, documentation-driven problem solving, iterative workflow methodology, full-stack awareness, and systematic error resolution. Guides AI behavior to match user's preferred development philosophy with emphasis on official Flow patterns, practical solutions, and proactive error prevention across the entire development stack.
+description: Defines personalized development preferences and communication style for Flow blockchain development, whcih includes concise response formatting, documentation-driven problem solving, iterative workflow methodology, full-stack awareness, and systematic error resolution. Guides AI behavior to match user's preferred development philosophy with emphasis on official Flow patterns, practical solutions, and proactive error prevention across the entire development stack.
 
 _10
 
@@ -2202,7 +2201,7 @@ _10
 
 Recommended Apply config: `Always Apply`
 
-#### Key Benefits[​](#key-benefits-4 "Direct link to Key Benefits")
+#### Key benefits[​](#key-benefits-4 "Direct link to Key benefits")
 
 * **Consistent Communication**: AI responses match your preferred style and level of detail.
 * **Methodology Alignment**: Solutions follow your preferred development philosophy.
@@ -2211,16 +2210,16 @@ Recommended Apply config: `Always Apply`
 * **Standards Compliance**: Emphasis on official Flow patterns and best practices.
 * **Full-Stack Perspective**: Solutions consider entire development stack implications.
 
-#### How This Rule Affects AI Responses[​](#how-this-rule-affects-ai-responses "Direct link to How This Rule Affects AI Responses")
+#### How this rule affects AI responses[​](#how-this-rule-affects-ai-responses "Direct link to How this rule affects AI responses")
 
 * **Response Style**: `"Configure flow.json for testnet"` → Provides direct steps + brief prevention tips.
 * **Problem-Solving**: `"Authorization error"` → Root cause analysis + pattern to prevent recurrence.
 * **Code Solutions**: Always includes reference to official documentation when available.
 * **Error Debugging**: Systematic, one-issue-at-a-time approach with testing checkpoints.
 * **Architecture Decisions**: Prefer established Flow patterns over custom implementations.
-* **Learning Approach**: Uses errors as learning opportunities with rule/pattern references.
+* **Learning Approach**: Uses errors as learning opportunities with rule and pattern references.
 
-#### Behavioral Patterns Defined[​](#behavioral-patterns-defined "Direct link to Behavioral Patterns Defined")
+#### Behavioral patterns defined[​](#behavioral-patterns-defined "Direct link to Behavioral patterns defined")
 
 * **Conciseness**: Clear, actionable solutions without excessive explanation.
 * **Practical Focus**: Working code examples prioritized over theoretical explanations.
@@ -2231,7 +2230,7 @@ Recommended Apply config: `Always Apply`
 * **Prevention-Oriented**: Include brief explanations of why errors occurred.
 * **Full-Stack Consideration**: Account for contracts, transactions, FCL, and UI implications.
 
-#### Configuration Recommendation[​](#configuration-recommendation "Direct link to Configuration Recommendation")
+#### Configuration recommendation[​](#configuration-recommendation "Direct link to Configuration recommendation")
 
 **Best Setup**: Configure as **"Always"** rule or add to **User Rules** in Cursor Settings for global application across all your Flow development work.
 
@@ -2251,7 +2250,7 @@ Now that you have completed this guide, you should be able to:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor/cadence-rules.md)
 
-Last updated on **Nov 3, 2025** by **cshannon1218**
+Last updated on **Nov 20, 2025** by **cshannon1218**
 
 [Previous
 
@@ -2265,11 +2264,11 @@ AI Agents](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents)
 
 Copy as Markdown
 
-* [Overview](#overview)* [Learning Objectives](#learning-objectives)* [What Are Cursor Rules?](#what-are-cursor-rules)
-      + [Rule anatomy](#rule-anatomy)* [User Rules](#user-rules)* [Project rules](#project-rules)
-          + [Nested Rules](#nested-rules)* [Creating a rule](#creating-a-rule)
-            + [Generating rules](#generating-rules)* [Best practices](#best-practices)* [Cadence Rules](#cadence-rules-1)
-                + [Cadence NFT Standards](#cadence-nft-standards)+ [Cadence Syntax Patterns](#cadence-syntax-patterns)+ [Flow Development Workflow](#flow-development-workflow)+ [Flow Project Configuration](#flow-project-configuration)+ [User Preferences](#user-preferences)* [Conclusion](#conclusion)
+* [Learning objectives](#learning-objectives)* [What are Cursor rules?](#what-are-cursor-rules)
+    + [Rule anatomy](#rule-anatomy)* [User rules](#user-rules)* [Project rules](#project-rules)
+        + [Nested rules](#nested-rules)* [Create rules](#create-rules)
+          + [Generate rules](#generate-rules)* [Best practices](#best-practices)* [Cadence rules](#cadence-rules-1)
+              + [Cadence NFT standards](#cadence-nft-standards)+ [Cadence syntax patterns](#cadence-syntax-patterns)+ [Flow development workflow](#flow-development-workflow)+ [Flow project configuration](#flow-project-configuration)+ [User preferences](#user-preferences)* [Conclusion](#conclusion)
 
 Flow
 
@@ -261125,7 +261124,7 @@ On this page
 * Active internet connection for documentation indexing.
 * Cursor Pro subscription (recommended for full documentation access).
 
-## Documentation Sources[​](#documentation-sources "Direct link to Documentation Sources")
+## Documentation sources[​](#documentation-sources "Direct link to Documentation sources")
 
 For optimal Flow development assistance, you'll want to index three key documentation sources:
 
@@ -261133,17 +261132,17 @@ For optimal Flow development assistance, you'll want to index three key document
 2. **Cadence Language Documentation** - Complete Cadence programming language reference.
 3. **Flow Data Sources** - Comprehensive, auto-generated knowledge base with current practices.
 
-## Installation Steps[​](#installation-steps "Direct link to Installation Steps")
+## Installation steps[​](#installation-steps "Direct link to Installation steps")
 
-### Step 1: Access Documentation Settings[​](#step-1-access-documentation-settings "Direct link to Step 1: Access Documentation Settings")
+### Step 1: Access documentation settings[​](#step-1-access-documentation-settings "Direct link to Step 1: Access documentation settings")
 
 1. Open Cursor and navigate to **Settings** (or press `Cmd/Ctrl + ,`).
 2. Go to **Features > Docs**.
-3. Click **"+ Add new doc"** to begin adding documentation sources.
+3. Click **"+ Add new doc"** to add documentation sources.
 
 ![Cursor Settings](/assets/images/use-cursor-1-4c5b9bc11a4106f1ca259b60faa6e871.png)
 
-### Step 2: Add Flow Developer Documentation[​](#step-2-add-flow-developer-documentation "Direct link to Step 2: Add Flow Developer Documentation")
+### Step 2: Add Flow developer documentation[​](#step-2-add-flow-developer-documentation "Direct link to Step 2: Add Flow developer documentation")
 
 1. In the URL field, enter: `https://developers.flow.com/tools`
    * **Note**: Use the `/tools` endpoint as it properly indexes all Flow documentation.
@@ -261154,7 +261153,7 @@ For optimal Flow development assistance, you'll want to index three key document
 
 ![Cursor Settings](/assets/images/use-cursor-2-40225d578bab288f66abe1221315b89d.png)
 
-### Step 3: Add Cadence Language Documentation[​](#step-3-add-cadence-language-documentation "Direct link to Step 3: Add Cadence Language Documentation")
+### Step 3: Add Cadence language documentation[​](#step-3-add-cadence-language-documentation "Direct link to Step 3: Add Cadence language documentation")
 
 1. Click **"+ Add new doc"** again.
 2. Enter the Cadence documentation URL: `https://cadence-lang.org/docs/`
@@ -261162,29 +261161,31 @@ For optimal Flow development assistance, you'll want to index three key document
 4. Click **"Confirm"** to add the documentation.
 5. Allow time for indexing to complete.
 
-### Step 4: Add Flow Data Sources[​](#step-4-add-flow-data-sources "Direct link to Step 4: Add Flow Data Sources")
+### Step 4: Add Flow data sources[​](#step-4-add-flow-data-sources "Direct link to Step 4: Add Flow data sources")
 
 1. Click **"+ Add new doc"** again.
 2. Enter the Flow Data Sources URL: `https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/all_merged.md`
 3. Set the name as **"Flow Data Sources"**.
 4. Click **"Confirm"** to add the documentation.
 
+caution
+
 Resource Requirements
 
-The Flow Data Sources file is very large and comprehensive. For older development machines or those with limited resources, consider using the [essentials merged file](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/essentials_merged.md) instead:
+The Flow Data Sources file is very large and comprehensive. For older development machines or those with limited resources, we recommend you use the [essentials merged file](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/essentials_merged.md) instead:
 `https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/essentials_merged.md`
 
-### Step 5: Verify Indexing[​](#step-5-verify-indexing "Direct link to Step 5: Verify Indexing")
+### Step 5: Verify indexing[​](#step-5-verify-indexing "Direct link to Step 5: Verify indexing")
 
 1. Monitor the indexing progress in the **Docs** section of Cursor settings.
 2. Wait for all three documentation sources to show as "Indexed" or "Ready."
-3. Indexing time varies depending on your internet connection and system performance.
+3. Indexing time varies, and depends on your internet connection and system performance.
 
-## Using Indexed Documentation[​](#using-indexed-documentation "Direct link to Using Indexed Documentation")
+## Use indexed documentation[​](#use-indexed-documentation "Direct link to Use indexed documentation")
 
 After indexing finishes, you can reference the documentation in your Cursor prompts:
 
-### Reference Syntax[​](#reference-syntax "Direct link to Reference Syntax")
+### Reference syntax[​](#reference-syntax "Direct link to Reference syntax")
 
 * `@Flow` - Reference Flow developer documentation.
 * `@Cadence` - Reference Cadence language documentation.
@@ -261192,7 +261193,7 @@ After indexing finishes, you can reference the documentation in your Cursor prom
 
 ![Cursor Settings](/assets/images/use-cursor-3-ee338cc36953ea4ae1fe236ba9c1a9a5.png)
 
-### Example Usage[​](#example-usage "Direct link to Example Usage")
+### Example usage[​](#example-usage "Direct link to Example usage")
 
 `_10
 
@@ -261210,22 +261211,22 @@ _10
 
 @Flow Data Sources How do I implement a marketplace for NFTs with royalties?`
 
-## Best Practices[​](#best-practices "Direct link to Best Practices")
+## Best practices[​](#best-practices "Direct link to Best practices")
 
-### When to Use Each Source[​](#when-to-use-each-source "Direct link to When to Use Each Source")
+### When to use each source[​](#when-to-use-each-source "Direct link to When to use each source")
 
-* **@Flow**: Use for Flow-specific concepts, tools, CLI commands, network information, and ecosystem questions
-* **@Cadence**: Use for Cadence programming language syntax, features, patterns, and code examples
-* **@Flow Data Sources**: Use for complex questions, advanced patterns, comprehensive tutorials, or when other sources don't provide satisfactory results
+* **@Flow**: Use for Flow-specific concepts, tools, CLI commands, network information, and ecosystem questions.
+* **@Cadence**: Use for Cadence programming language syntax, features, patterns, and code examples.
+* **@Flow Data Sources**: Use for complex questions, advanced patterns, comprehensive tutorials, or when other sources don't provide satisfactory results.
 
-### Prompt Optimization[​](#prompt-optimization "Direct link to Prompt Optimization")
+### Prompt optimization[​](#prompt-optimization "Direct link to Prompt optimization")
 
-* **Be Specific**: Detailed prompts yield more accurate and relevant responses
-* **Combine Sources**: Use multiple references for cross-VM applications (`@Flow` and `@Cadence`)
-* **Context Matters**: Include relevant project context in your prompts
-* **Verify Results**: Use documentation to validate AI-generated code and ensure best practices
+* **Be Specific**: Detailed prompts yield more accurate and relevant responses.
+* **Combine Sources**: Use multiple references for cross-VM applications (`@Flow` and `@Cadence`).
+* **Context Matters**: Include relevant project context in your prompts.
+* **Verify Results**: Use documentation to validate AI-generated code and ensure best practices.
 
-### Example Combined Usage[​](#example-combined-usage "Direct link to Example Combined Usage")
+### Example combined usage[​](#example-combined-usage "Direct link to Example combined usage")
 
 `_10
 
@@ -261233,7 +261234,7 @@ Using @Flow and @Cadence, help me create a transaction that deploys an NFT contr
 
 ## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
 
-### Common Issues and Solutions[​](#common-issues-and-solutions "Direct link to Common Issues and Solutions")
+### Common issues and solutions[​](#common-issues-and-solutions "Direct link to Common issues and solutions")
 
 **Documentation Not Indexed**:
 
@@ -261259,24 +261260,24 @@ Using @Flow and @Cadence, help me create a transaction that deploys an NFT contr
 * Try more specific prompts with clear context.
 * Cross-reference responses with official documentation.
 
-### Getting Help[​](#getting-help "Direct link to Getting Help")
+### Get Help[​](#get-help "Direct link to Get Help")
 
 If you continue to experience issues:
 
 1. Check the [Cursor documentation](https://docs.cursor.com/) for additional troubleshooting steps.
 2. Verify that all documentation URLs are accessible in your browser.
 3. Contact Cursor support through their official channels.
-4. Consider using alternative documentation sources if specific URLs are problematic.
+4. Consider an alternative documentation sources if specific URLs are problematic.
 
-## Maintaining Your Setup[​](#maintaining-your-setup "Direct link to Maintaining Your Setup")
+## Maintain your setup[​](#maintain-your-setup "Direct link to Maintain your setup")
 
-### Regular Maintenance[​](#regular-maintenance "Direct link to Regular Maintenance")
+### Regular maintenance[​](#regular-maintenance "Direct link to Regular maintenance")
 
 * **Refresh Periodically**: Re-index documentation monthly to ensure current information.
 * **Monitor Updates**: Stay aware of major Flow or Cadence documentation updates.
 * **Clean Up**: Remove unused documentation sources to improve performance.
 
-### Team Collaboration[​](#team-collaboration "Direct link to Team Collaboration")
+### Team collaboration[​](#team-collaboration "Direct link to Team collaboration")
 
 For development teams:
 
@@ -261284,11 +261285,11 @@ For development teams:
 * Document your specific setup in your project README.
 * Consider creating team-specific documentation sources for internal patterns and practices.
 
-By following this setup guide, you'll have comprehensive Flow and Cadence documentation available directly within Cursor, enabling more accurate AI assistance and faster development workflows.
+If you follow this setup guide, you'll have comprehensive Flow and Cadence documentation available directly within Cursor, which allows more accurate AI assistance and faster development workflows.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor/indexing-docs.md)
 
-Last updated on **Nov 3, 2025** by **cshannon1218**
+Last updated on **Nov 20, 2025** by **cshannon1218**
 
 [Previous
 
@@ -261302,12 +261303,12 @@ Cadence Rules](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor/
 
 Copy as Markdown
 
-* [Prerequisites](#prerequisites)* [Documentation Sources](#documentation-sources)* [Installation Steps](#installation-steps)
-      + [Step 1: Access Documentation Settings](#step-1-access-documentation-settings)+ [Step 2: Add Flow Developer Documentation](#step-2-add-flow-developer-documentation)+ [Step 3: Add Cadence Language Documentation](#step-3-add-cadence-language-documentation)+ [Step 4: Add Flow Data Sources](#step-4-add-flow-data-sources)+ [Step 5: Verify Indexing](#step-5-verify-indexing)* [Using Indexed Documentation](#using-indexed-documentation)
-        + [Reference Syntax](#reference-syntax)+ [Example Usage](#example-usage)* [Best Practices](#best-practices)
-          + [When to Use Each Source](#when-to-use-each-source)+ [Prompt Optimization](#prompt-optimization)+ [Example Combined Usage](#example-combined-usage)* [Troubleshooting](#troubleshooting)
-            + [Common Issues and Solutions](#common-issues-and-solutions)+ [Getting Help](#getting-help)* [Maintaining Your Setup](#maintaining-your-setup)
-              + [Regular Maintenance](#regular-maintenance)+ [Team Collaboration](#team-collaboration)
+* [Prerequisites](#prerequisites)* [Documentation sources](#documentation-sources)* [Installation steps](#installation-steps)
+      + [Step 1: Access documentation settings](#step-1-access-documentation-settings)+ [Step 2: Add Flow developer documentation](#step-2-add-flow-developer-documentation)+ [Step 3: Add Cadence language documentation](#step-3-add-cadence-language-documentation)+ [Step 4: Add Flow data sources](#step-4-add-flow-data-sources)+ [Step 5: Verify indexing](#step-5-verify-indexing)* [Use indexed documentation](#use-indexed-documentation)
+        + [Reference syntax](#reference-syntax)+ [Example usage](#example-usage)* [Best practices](#best-practices)
+          + [When to use each source](#when-to-use-each-source)+ [Prompt optimization](#prompt-optimization)+ [Example combined usage](#example-combined-usage)* [Troubleshooting](#troubleshooting)
+            + [Common issues and solutions](#common-issues-and-solutions)+ [Get Help](#get-help)* [Maintain your setup](#maintain-your-setup)
+              + [Regular maintenance](#regular-maintenance)+ [Team collaboration](#team-collaboration)
 
 Flow
 
@@ -364943,7 +364944,7 @@ On this page
 
 # Payment checkout integration guide
 
-Enable seamless fiat and cryptocurrency payments for your Flow assets. Crossmint's checkout solution supports credit cards, Apple Pay, Google Pay, and cross-chain crypto payments, allowing users to buy Flow NFTs and tokens without holding FLOW tokens.
+Enable seamless fiat and cryptocurrency payments for your Flow assets. Crossmint's checkout solution supports credit cards, Apple Pay, Google Pay, and cross-chain crypto payments, which allows users to buy Flow NFTs and tokens without FLOW tokens.
 
 ## Overview[​](#overview "Direct link to Overview")
 
@@ -365834,7 +365835,7 @@ _73
 
 ---
 
-## Step 4: Headless Checkout Integration[​](#step-4-headless-checkout-integration "Direct link to Step 4: Headless Checkout Integration")
+## Step 4: Headless checkout integration[​](#step-4-headless-checkout-integration "Direct link to Step 4: Headless checkout integration")
 
 For maximum customization, use the headless API to build completely custom checkout flows.
 
@@ -367529,7 +367530,7 @@ _112
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/integrations/crossmint/payment-checkout.md)
 
-Last updated on **Nov 12, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -367546,7 +367547,7 @@ Copy as Markdown
 * [Overview](#overview)* [What you'll build](#what-youll-build)* [Prerequisites](#prerequisites)* [Step 1: Collection setup](#step-1-collection-setup)
         + [Create or import collection](#create-or-import-collection)+ [Configure payment settings](#configure-payment-settings)* [Step 2: Hosted Checkout Integration](#step-2-hosted-checkout-integration)
           + [Basic hosted checkout](#basic-hosted-checkout)+ [Advanced hosted checkout](#advanced-hosted-checkout)* [Step 3: embedded checkout integration](#step-3-embedded-checkout-integration)
-            + [Basic embedded checkout](#basic-embedded-checkout)+ [Custom styled embedded checkout](#custom-styled-embedded-checkout)* [Step 4: Headless Checkout Integration](#step-4-headless-checkout-integration)
+            + [Basic embedded checkout](#basic-embedded-checkout)+ [Custom styled embedded checkout](#custom-styled-embedded-checkout)* [Step 4: Headless checkout integration](#step-4-headless-checkout-integration)
               + [Order creation service](#order-creation-service)+ [Custom checkout component](#custom-checkout-component)* [Step 5: webhook integration](#step-5-webhook-integration)
                 + [Webhook handler](#webhook-handler)* [Step 6: multi-payment method component](#step-6-multi-payment-method-component)* [Key takeaways](#key-takeaways)
 
@@ -377527,6 +377528,8 @@ Build a Fully-Onchain Image Gallery | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -377563,31 +377566,31 @@ Search
 
 On this page
 
-# Build a Fully-Onchain Image Gallery
+# Build a fully-onchain image gallery
 
 info
 
-The [FlowtoBooth](https://flowtobooth.vercel.app/) tutorial series teaches you how to build a **fun benchmark app** and provides inspiration for the greater scope of possibilities building on Flow thanks to gas being so much less expensive.
+The [FlowtoBooth](https://flowtobooth.vercel.app/) tutorial series teaches you how to build a **fun benchmark app** and provides inspiration for the greater scope of possibilities to build on Flow since gas is so much less expensive.
 
 It is **not a production best-practice**. While everything in these tutorials works, you'll run into the following problems at production scale:
 
-* RPC Providers will likely rate-limit you for reading this much data at once
-* NFT marketplaces may not display the images, likely due to the above
-* 256\*256 images are huge by blockchain data standards, but too small for modern devices
+* RPC Providers will likely rate-limit you for reading this much data at once.
+* NFT marketplaces may not display the images, likely due to the above.
+* 256\*256 images are huge by blockchain data standards, but too small for modern devices.
 
-If you search for resources on how to store images of any significant size onchain, you'll be told it's either prohibitively expensive or even completely impossible. The reason for this is two-fold - first the size limit for data on transactions is about 40kb. Second, saving 40kb takes almost all of the 30 million gas limit on most blockchains.
+If you search for resources on how to store images of any significant size onchain, you'll be told it's either prohibitively expensive or even completely impossible. The reason for this is two-fold. First, the size limit for data on transactions is about 40kb. Second, to save 40kb takes almost all of the 30 million gas limit on most blockchains.
 
-The former constraint is immutable (though many chains are slowly increasing this limit), which limits the app to images about 256\*256 pixels in size. The latter is heavily dependent on which chain you choose.
+The former constraint is immutable (though many chains have started to slowly increase this limit), which limits the app to images about 256\*256 pixels in size. The latter heavily depends on which chain you choose.
 
-At current gas prices on most chains, using all 30 million gas in a block costs **several dollars** - or potentially **thousands** on ETH mainnet. At current prices on Flow, spending 30 million gas costs **less than a penny**, usually 1 or 2 tenths of a cent.
+At current gas prices on most chains, to use all 30 million gas in a block costs **several dollars** - or potentially **thousands** on ETH mainnet. At current prices on Flow, to spend 30 million gas costs **less than a penny**, usually one or two tenths of a cent.
 
-Much more computation is available at prices you or your users will be willing to pay for regular interactions. Including, but not limited to:
+Much more computation is available at prices you or your users will want to pay for regular interactions. This includes, but isn't limited to:
 
-* Airdropping hundreds of NFTs with one transaction, for pennies
-* Generation of large mazes
-* Generating large amounts of random numbers (with free [native VRF](/blockchain-development-tutorials/native-vrf/vrf-in-solidity))
-* Extensive string manipulation onchain
-* Simple game AI logic
+* Airdrop hundreds of NFTs with one transaction, for pennies.
+* Generation of large mazes.
+* Generation of large amounts of random numbers (with free [native VRF](/blockchain-development-tutorials/native-vrf/vrf-in-solidity)).
+* Extensive string manipulation onchain.
+* Simple game AI logic.
 
 In this tutorial, we'll build a smart contract that can store and retrieve images onchain. We'll also build a simple frontend to interact with the contract on Flow and another chain.
 
@@ -377595,23 +377598,23 @@ In this tutorial, we'll build a smart contract that can store and retrieve image
 
 ## Objectives[​](#objectives "Direct link to Objectives")
 
-After completing this guide, you'll be able to:
+After you complete this guide, you'll be able to:
 
-* Construct a composable onchain image gallery that can be used permissionlessly by onchain apps and other contracts to store and retrieve images
-* Build an onchain app that can interact with this contract to save and display images
-* Compare the price of spending 30 million gas on Flow with the price on other chains
+* Construct a composable onchain image gallery that can be used permissionlessly by onchain apps and other contracts to store and retrieve images.
+* Build an onchain app that can interact with this contract to save and display images.
+* Compare the price of when you spend 30 million gas on Flow with the price on other chains.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-### Next.js and Modern Frontend Development[​](#nextjs-and-modern-frontend-development "Direct link to Next.js and Modern Frontend Development")
+### Next.js and modern frontend development[​](#nextjs-and-modern-frontend-development "Direct link to Next.js and modern frontend development")
 
-This tutorial uses [Next.js](https://nextjs.org/docs/app/getting-started/installation). You don't need to be an expert, but it's helpful to be comfortable with development using a current React framework. You'll be on your own to select and use a package manager, manage Node versions, and other frontend environment tasks.
+This tutorial uses [Next.js](https://nextjs.org/docs/app/getting-started/installation). You don't need to be an expert, but it's helpful to be comfortable with development in a current React framework. You'll be on your own to select and use a package manager, manage Node versions, and other frontend environment tasks.
 
 ### Solidity[​](#solidity "Direct link to Solidity")
 
-You don't need to be an expert, but you should be comfortable writing code in [Solidity](https://soliditylang.org/). You can use [Hardhat](/blockchain-development-tutorials/evm/development-tools/hardhat), [Foundry](/blockchain-development-tutorials/evm/development-tools/foundry), or even [Remix](/blockchain-development-tutorials/evm/development-tools/remix).
+You don't need to be an expert, but you should be comfortable enough to write code in [Solidity](https://soliditylang.org/). You can use [Hardhat](/blockchain-development-tutorials/evm/development-tools/hardhat), [Foundry](/blockchain-development-tutorials/evm/development-tools/foundry), or even [Remix](/blockchain-development-tutorials/evm/development-tools/remix).
 
-## Build an Image Gallery Contract[​](#build-an-image-gallery-contract "Direct link to Build an Image Gallery Contract")
+## Build an image gallery contract[​](#build-an-image-gallery-contract "Direct link to Build an image gallery contract")
 
 Start a new smart contract project in the toolchain of your choice and install the [OpenZeppelin](https://www.openzeppelin.com/) contracts.
 
@@ -377651,11 +377654,11 @@ _10
 
 }`
 
-We're passing the original owner of the contract as an argument in the constructor to give greater flexibility for ownership when this contract is deployed.
+We pass the original owner of the contract as an argument in the constructor to give greater flexibility for ownership when this contract is deployed.
 
-### Set Up Storage for Images[​](#set-up-storage-for-images "Direct link to Set Up Storage for Images")
+### Set up storage for images[​](#set-up-storage-for-images "Direct link to Set up storage for images")
 
-We'll store the images in a simple `struct` that holds the image as a `base64` encoded `string`and also contains a `string` for the description. Doing so allows the image to be directly used in html and makes it easier to test the contract directly with a block explorer, but has the downside of making the images 33% bigger. Another format would be more efficient.
+We'll store the images in a simple `struct` that holds the image as a `base64` encoded `string`and also contains a `string` for the description. Doing so allows the image to be directly used in HTML and makes it easier to test the contract directly with a block explorer, but it also makes the images 33% bigger. Another format is more efficient.
 
 These will be held in array:
 
@@ -377681,7 +377684,7 @@ _10
 
 Image[] public images;`
 
-### Construct Functions to Add and Delete Images[​](#construct-functions-to-add-and-delete-images "Direct link to Construct Functions to Add and Delete Images")
+### Construct functions to add and delete images[​](#construct-functions-to-add-and-delete-images "Direct link to Construct functions to add and delete images")
 
 Next, add a function that accepts a `_description` and `_base64EncodedImage` and adds them to the array.
 
@@ -377749,11 +377752,11 @@ _10
 
 warning
 
-If the array gets big enough that calling `deleteImage` takes more than 30 million gas, it will brick this function. A safer and more gas-efficient method is to use a `mapping` with a counter as the index, and handling for the case where an index is empty.
+If the array gets big enough that for you to call `deleteImage` takes more than 30 million gas, it will brick this function. A safer and more gas-efficient method is to use a `mapping` with a counter as the index, and handling for the case where an index is empty.
 
-We're doing it this way to provide a way to delete accidentally uploaded images without making things too complex.
+We do it this way to provide a way to delete accidentally uploaded images without making things too complex.
 
-### Retrieval Functions[​](#retrieval-functions "Direct link to Retrieval Functions")
+### Retrieval functions[​](#retrieval-functions "Direct link to Retrieval functions")
 
 Finally, add functions to get one image, get all of the images, and get the number of images in the collection.
 
@@ -377809,9 +377812,9 @@ _14
 
 }`
 
-### Final Contract[​](#final-contract "Direct link to Final Contract")
+### Final contract[​](#final-contract "Direct link to Final contract")
 
-After completing the above, you'll end up with a contract similar to:
+After you complete the above, you'll end up with a contract similar to:
 
 `_49
 
@@ -377989,7 +377992,7 @@ _49
 
 }`
 
-### Create a Factory[​](#create-a-factory "Direct link to Create a Factory")
+### Create a factory[​](#create-a-factory "Direct link to Create a factory")
 
 The image gallery contract you've just constructed is intended to be a utility for other contracts and apps to use freely. You don't want just one gallery for everyone, you need to give the ability for any app or contract to create and deploy private galleries freely.
 
@@ -378041,11 +378044,11 @@ _13
 
 }`
 
-### Tracking Factories[​](#tracking-factories "Direct link to Tracking Factories")
+### Track factories[​](#track-factories "Direct link to Track factories")
 
-Some app designs may need multiple galleries for each user. For example, you might want to be able to give users the ability to collect images in separate galleries for separate topics, dates, or events, similar to how many photo apps work on smartphones.
+Some app designs may need multiple galleries for each user. For example, you might want to give users the ability to collect images in separate galleries for separate topics, dates, or events, similar to how many photo apps work on smartphones.
 
-To facilitate this feature, update your contract to keep track of which galleries have been created by which users. You'll end up with:
+To facilitate this feature, update your contract to keep track of which users created which galleries . You'll end up with:
 
 `_23
 
@@ -378129,7 +378132,7 @@ _23
 
 }`
 
-### Testing the Factory[​](#testing-the-factory "Direct link to Testing the Factory")
+### Test the factory[​](#test-the-factory "Direct link to Test the factory")
 
 Write appropriate unit tests, then deploy and verify the factory on Flow Testnet.
 
@@ -378145,15 +378148,15 @@ Navigate to [evm-testnet.flowscan.io](https://evm-testnet.flowscan.io/), search 
 
 `Connect` your wallet. Use the [Flow Wallet](https://wallet.flow.com/) if you want automatically sponsored gas on both mainnet and testnet, or use the [Flow Faucet](https://faucet.flow.com/fund-account) to grab some testnet funds if you prefer to use another wallet.
 
-Expand the `createImageGallery` function, click the `self` button, and then `Write` the function.
+Expand the `createImageGallery` function, click `self`, and then `Write` the function.
 
 ![createImageGallery](/assets/images/create-image-gallery-7ef57e4a43d78a5a2a3acec0a3483272.png)
 
 Approve the transaction and wait for it to complete. Then, call `getGalleries` for your address to find the address of the gallery you've created.
 
-### Testing the Image Gallery[​](#testing-the-image-gallery "Direct link to Testing the Image Gallery")
+### Test the image gallery[​](#test-the-image-gallery "Direct link to Test the image gallery")
 
-Search for the address of your image gallery contract. It `won't` be verified, but if you're using our exact contract, you will see a message from Flowscan that a verified contract with the same bytecode was found in the Blockscout DB. Click the provided link to complete the verification process.
+Search for the address of your image gallery contract. It `won't` be verified, but if you use our exact contract, you will see a message from Flowscan that a verified contract with the same bytecode was found in the Blockscout DB. Click the provided link to complete the verification process.
 
 info
 
@@ -378175,9 +378178,9 @@ Use the tool to convert an image that is ~30kb or smaller. Copy the string and p
 
 Click `Write` and approve the transaction. Take note of the cost! You've saved an image onchain forever for just a little bit of gas!
 
-Once the transaction goes through, call `getImage` with `0` as the index to retrieve your description and base64-encoded image.
+After the transaction goes through, call `getImage` with `0` as the index to retrieve your description and base64-encoded image.
 
-Paste your image string as the `src` for an `img` tag in an html snippet to confirm it worked.
+Paste your image string as the `src` for an `img` tag in an HTML snippet to confirm it worked.
 
 `_10
 
@@ -378199,9 +378202,9 @@ _10
 
 </div>`
 
-## Building the Frontend[​](#building-the-frontend "Direct link to Building the Frontend")
+## Build the frontend[​](#build-the-frontend "Direct link to Build the frontend")
 
-Now that your contracts are sorted and working, it's time to build an app to interact with it. We'll use [Next.js](https://nextjs.org/docs/app/getting-started/installation) for this, but the components we provide will be adaptable to other React frameworks.
+Now that your contracts are sorted and work, it's time to build an app to interact with it. We'll use [Next.js](https://nextjs.org/docs/app/getting-started/installation) for this, but the components we provide will be adaptable to other React frameworks.
 
 Run:
 
@@ -378209,7 +378212,7 @@ Run:
 
 npx create-next-app`
 
-We're using the default options.
+We'll use' the default options.
 
 Next, install [rainbowkit](https://www.rainbowkit.com/), [wagmi](https://wagmi.sh/), and their related dependencies:
 
@@ -378217,7 +378220,7 @@ Next, install [rainbowkit](https://www.rainbowkit.com/), [wagmi](https://wagmi.s
 
 npm install @rainbow-me/rainbowkit wagmi viem@2.x @tanstack/react-query`
 
-### Provider Setup[​](#provider-setup "Direct link to Provider Setup")
+### Provider setup[​](#provider-setup "Direct link to Provider setup")
 
 Add a file called `providers` inside the `app` folder. In it, add your config and providers for [wagmi](https://wagmi.sh/) and [rainbowkit](https://www.rainbowkit.com/). You'll need to [add the Flow Wallet](/blockchain-development-tutorials/evm/frameworks/rainbowkit) as a custom wallet. It's not included by default because it has special features that aren't compatible with other blockchains.
 
@@ -378665,9 +378668,9 @@ _115
 
 } ``
 
-### Add the Connect Button[​](#add-the-connect-button "Direct link to Add the Connect Button")
+### Add the connect button[​](#add-the-connect-button "Direct link to Add the connect button")
 
-Open `page.tsx` and clear out the default content. Replace it with a message about what your app does and add the [rainbowkit](https://www.rainbowkit.com/) `Connect` button. Don't forget to import rainbowkit's css file and the `ConnectButton` component:
+Open `page.tsx` and clear out the default content. Replace it with a message about what your app does and add the [rainbowkit](https://www.rainbowkit.com/) `Connect` button. Don't forget to import rainbowkit's `.css` file and the `ConnectButton` component:
 
 `_25
 
@@ -378767,13 +378770,13 @@ _25
 
 Test the app and make sure you can connect your wallet.
 
-### Import Your Contracts[​](#import-your-contracts "Direct link to Import Your Contracts")
+### Import Your contracts[​](#import-your-contracts "Direct link to Import Your contracts")
 
-Next, you'll need to get your contract ABI and address into your frontend. If you're using Hardhat, you can use the artifacts produced by the Ignition deployment process. If you're using Foundry or Remix, you can adapt this process to the format of artifacts produced by those toolchains.
+Next, you'll need to get your contract ABI and address into your frontend. If you use Hardhat, you can use the artifacts produced by the Ignition deployment process. If you use Foundry or Remix, you can adapt this process to the format of artifacts produced by those toolchains.
 
 tip
 
-If you didn't deploy the Image Gallery contract, do so now to generate an artifact containing the ABI.
+If you didn't deploy the Image Gallery contract, do so now to generate an artifact that contains the ABI.
 
 Add a folder in `app` called `contracts`. Copy the following files from your smart contract project, located in the `ignition` and `ignition/deployments/chain-545` folders:
 
@@ -378869,11 +378872,11 @@ _22
 
 info
 
-Note that we're **not** including an `address` for the `imageGallery` itself. We'll need to set this dynamically as users might have more than one gallery.
+Note that we **won't** include an `address` for the `imageGallery` itself. We'll need to set this dynamically as users might have more than one gallery.
 
-### Add Content[​](#add-content "Direct link to Add Content")
+### Add content[​](#add-content "Direct link to Add content")
 
-You can use a few strategies to organize the components that interact with the blockchain. One is to create a centralized component that stores all of the state related to smart contracts and uses a single instance of `useWriteContract`. Doing so makes it easier to convey the transaction lifecycle to your users, at the cost of re-fetching all the data from your RPC provider after every transaction. This becomes sub-optimal if your app interacts with many contracts, or even different read functions within the same contract.
+You can use a few strategies to organize the components that interact with the blockchain. One is to create a centralized component that stores all of the state related to smart contracts and uses a single instance of `useWriteContract`. This makes it easier to convey the transaction lifecycle to your users, at the cost of re-fetching all the data from your RPC provider after every transaction. This becomes sub-optimal if your app interacts with many contracts, or even different read functions within the same contract.
 
 Add a folder in `app` called `components`, and create a file called `Content.tsx`. In it, add the following:
 
@@ -379290,7 +379293,7 @@ Test the app and make sure you can complete the transaction to create a gallery.
 
 ### Gallery List[​](#gallery-list "Direct link to Gallery List")
 
-Next, you'll need to display the list of a user's galleries and enable them to select which one they want to interact with. A dropdown list will serve this function well. Add a component called `AddressList.tsx`, and in it add:
+Next, you'll need to display the list of a user's galleries and allow them to select which one they want to interact with. A dropdown list will serve this function well. Add a component called `AddressList.tsx`, and in it add:
 
 `_42
 
@@ -379496,13 +379499,13 @@ _10
 
 Test again, and confirm that the address of the gallery you created is in the dropdown and is selectable. The provided code contains a console log as well, to make it easier to copy the address in case you need to check it on Flowscan.
 
-### Display the Images[​](#display-the-images "Direct link to Display the Images")
+### Display the images[​](#display-the-images "Direct link to Display the images")
 
 Next, you need to pull the images for the selected gallery from the contract.
 
 warning
 
-Make sure you're using the same gallery you added an image too earlier. Otherwise, there won't be an image to pull and display!
+Make sure you use the same gallery that you added an image to earlier. Otherwise, there won't be an image to pull and display!
 
 Create a component called `ImageGallery`. All this needs to do is accept a list of images and descriptions and display them. You can style this nicely if you'd like, or use the basic implementation here:
 
@@ -379716,11 +379719,11 @@ _55
 
 export default ImageGallery; ``
 
-Implementing the gallery display will take more additions to `Content.tsx`. You'll need to:
+To implement the gallery display requires more additions to `Content.tsx`. You'll need to:
 
-* Add a state variable for the list of images
-* Implement a second `useContractRead` hook to pull the images from the currently selected gallery address
-* Hook the gallery into the refresh logic
+* Add a state variable for the list of images.
+* Implement a second `useContractRead` hook to pull the images from the currently-selected gallery address.
+* Hook the gallery into the refresh logic.
 
 First, add the state variable to store the gallery array:
 
@@ -379788,7 +379791,7 @@ _10
 
 }, [reload]); ``
 
-Then, add a `useEffect` to update the `images` in state when `galleryData` is received. Users expect the newest images to be shown first, so `reverse` the array before setting it to state.
+Then, add a `useEffect` to update the `images` in state when `galleryData` is received. Users expect the newest images to be shown first, so `reverse` the array before you set it to state.
 
 `_10
 
@@ -379936,17 +379939,17 @@ _28
 
 ); ``
 
-Run the app, log in with your wallet **that has the gallery you created for testing** and select the gallery.
+Run the app, log in with your wallet **that has the gallery you created for testing**, and select the gallery.
 
-You're now displaying an image that is stored onchain **forever**!
+You'll now see an image that is stored onchain **forever**!
 
-## Image Uploader[​](#image-uploader "Direct link to Image Uploader")
+## Image uploader[​](#image-uploader "Direct link to Image uploader")
 
-The last thing to do for this initial implementation is to add functionality so that users can upload their own images through the app and save them onchain without needing to do the base64 conversion on their own.
+The last thing to do for this initial implementation is to add functionality so that users can upload their own images through the app and save them onchain without the need to do the base64 conversion on their own.
 
 For now, we'll just generate an error if the file is too big, but later on we can do that for the user as well.
 
-Add the `ImageUploader` component. This needs to handle uploading the image and displaying any errors. We'll keep the state for the image itself in `Content` so that it's accessible to other components:
+Add the `ImageUploader` component. This needs to be able to upload the image and display any errors. We'll keep the state for the image itself in `Content` so that it's accessible to other components:
 
 `_64
 
@@ -380200,7 +380203,7 @@ Then add the `ImageUploader` to the `return`:
 
 <ImageUploader setUploadedBase64Image={setUploadedBase64Image} />`
 
-Later on, you'll probably want to make a component for displaying the uploaded image, but for now just add it below the uploader button component:
+Later on, you'll probably want to make a component that displays the uploaded image, but for now just add it below the uploader button component:
 
 `_11
 
@@ -380382,19 +380385,19 @@ Test the app to save your new image, and make sure the error displays if you try
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-In this tutorial, you built a fully functional onchain image gallery using Flow EVM. You created smart contracts that can store images directly on the blockchain and a modern React frontend that allows users to interact with these contracts. The implementation demonstrates how Flow's efficient gas pricing makes operations that would be prohibitively expensive on other chains not just possible, but practical.
+In this tutorial, you built a fully functional onchain image gallery with Flow EVM. You created smart contracts that can store images directly on the blockchain and a modern React frontend that allows users to interact with these contracts. The implementation demonstrates how Flow's efficient gas pricing makes operations that would be prohibitively expensive on other chains not just possible, but practical.
 
 Now that you have completed the tutorial, you should be able to:
 
-* Construct a composable onchain image gallery that can be used permissionlessly by onchain apps and other contracts to store and retrieve images
-* Build an onchain app that can interact with this contract to save and display images
-* Compare the price of spending 30 million gas on Flow with the price on other chains
+* Construct a composable onchain image gallery that can be used permissionlessly by onchain apps and other contracts to store and retrieve images.
+* Build an onchain app that can interact with this contract to save and display images.
+* Compare the price of spending 30 million gas on Flow with the price on other chains.
 
-Now that you've completed this tutorial, you're ready to explore more complex onchain storage patterns and build applications that take advantage of Flow's unique capabilities for storing and processing larger amounts of data than traditionally possible on other chains.
+Now that you've completed this tutorial, you're ready to explore more complex onchain storage patterns and build applications that take advantage of Flow's unique capabilities to store and process larger amounts of data than traditionally possible on other chains.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/evm/image-gallery.md)
 
-Last updated on **Aug 26, 2025** by **Felipe Cevallos**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -380409,31 +380412,31 @@ Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)
 Copy as Markdown
 
 * [Objectives](#objectives)* [Prerequisites](#prerequisites)
-    + [Next.js and Modern Frontend Development](#nextjs-and-modern-frontend-development)+ [Solidity](#solidity)* [Build an Image Gallery Contract](#build-an-image-gallery-contract)
-      + [Set Up Storage for Images](#set-up-storage-for-images)+ [Construct Functions to Add and Delete Images](#construct-functions-to-add-and-delete-images)+ [Retrieval Functions](#retrieval-functions)+ [Final Contract](#final-contract)+ [Create a Factory](#create-a-factory)+ [Tracking Factories](#tracking-factories)+ [Testing the Factory](#testing-the-factory)+ [Testing the Image Gallery](#testing-the-image-gallery)* [Building the Frontend](#building-the-frontend)
-        + [Provider Setup](#provider-setup)+ [Add the Connect Button](#add-the-connect-button)+ [Import Your Contracts](#import-your-contracts)+ [Add Content](#add-content)+ [Gallery List](#gallery-list)+ [Display the Images](#display-the-images)* [Image Uploader](#image-uploader)* [Conclusion](#conclusion)
+    + [Next.js and modern frontend development](#nextjs-and-modern-frontend-development)+ [Solidity](#solidity)* [Build an image gallery contract](#build-an-image-gallery-contract)
+      + [Set up storage for images](#set-up-storage-for-images)+ [Construct functions to add and delete images](#construct-functions-to-add-and-delete-images)+ [Retrieval functions](#retrieval-functions)+ [Final contract](#final-contract)+ [Create a factory](#create-a-factory)+ [Track factories](#track-factories)+ [Test the factory](#test-the-factory)+ [Test the image gallery](#test-the-image-gallery)* [Build the frontend](#build-the-frontend)
+        + [Provider setup](#provider-setup)+ [Add the connect button](#add-the-connect-button)+ [Import Your contracts](#import-your-contracts)+ [Add content](#add-content)+ [Gallery List](#gallery-list)+ [Display the images](#display-the-images)* [Image uploader](#image-uploader)* [Conclusion](#conclusion)
 
-Documentation
+Flow
 
-* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Tools & SDKs](/build/tools)* [Cadence](https://cadence-lang.org/docs/)* [Mobile](/blockchain-development-tutorials/cadence/mobile)* [FCL](/build/tools/clients/fcl-js)* [Testing](/build/cadence/smart-contracts/testing)* [CLI](/build/tools/flow-cli)* [Emulator](/build/tools/emulator)* [Dev Wallet](https://github.com/onflow/fcl-dev-wallet)* [VS Code Extension](/build/tools/vscode-extension)
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
 
-Community
+Cadence
 
-* [Ecosystem](/ecosystem)* [Flow Port](https://port.flow.com/)* [Developer Grants](https://github.com/onflow/developer-grants)* [Responsible Disclosure](https://flow.com/flow-responsible-disclosure)* [Flowverse](https://www.flowverse.co/)* [Emerald Academy](https://academy.ecdao.org/)* [FLOATs (Attendance NFTs)](https://floats.city/)
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
 
-Start Building
+Solidity (EVM)
 
-* [Flow Playground](https://play.flow.com/)* [Cadence Tutorials](https://cadence-lang.org/docs/tutorial/first-steps)* [Cadence Cookbook](https://cookbook.flow.com)* [Core Contracts & Standards](/build/cadence/core-contracts)* [EVM](/build/evm/quickstart)
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
 
-Network
+Community & Support
 
-* [Network Status](https://status.flow.com/)* [Flowscan Mainnet](https://flowscan.io/)* [Flowscan Testnet](https://testnet.flowscan.io/)* [Past Sporks](/protocol/node-ops/node-operation/past-upgrades)* [Node Operation](/protocol/node-ops)* [Spork Information](/protocol/node-ops/node-operation/network-upgrade)
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
 
-More
+Network & Resources
 
-* [GitHub](https://github.com/onflow)* [Discord](https://discord.gg/flow)* [Forum](https://forum.flow.com/)* [Flow](https://flow.com/)* [Blog](https://flow.com/blog)
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
 
-Copyright © 2025 Flow, Inc. Built with Docusaurus.
+Copyright © 2025 Flow Foundation. All Rights Reserved.
 
 
 
@@ -420281,7 +420284,7 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
-# Source: https://developers.flow.com/
+# Source: https://developers.flow.com
 
 Flow Developer Portal
 
@@ -432941,12 +432944,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **9a34bd7d1a0f9cd0**
+Cloudflare Ray ID: **9a3cf718d8beed3d**
 •
 
 Your IP:
 Click to reveal
-52.234.45.176
+52.159.229.150
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 

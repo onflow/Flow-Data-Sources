@@ -42,7 +42,7 @@ On this page
 
 # Payment checkout integration guide
 
-Enable seamless fiat and cryptocurrency payments for your Flow assets. Crossmint's checkout solution supports credit cards, Apple Pay, Google Pay, and cross-chain crypto payments, allowing users to buy Flow NFTs and tokens without holding FLOW tokens.
+Enable seamless fiat and cryptocurrency payments for your Flow assets. Crossmint's checkout solution supports credit cards, Apple Pay, Google Pay, and cross-chain crypto payments, which allows users to buy Flow NFTs and tokens without FLOW tokens.
 
 ## Overview[​](#overview "Direct link to Overview")
 
@@ -933,7 +933,7 @@ _73
 
 ---
 
-## Step 4: Headless Checkout Integration[​](#step-4-headless-checkout-integration "Direct link to Step 4: Headless Checkout Integration")
+## Step 4: Headless checkout integration[​](#step-4-headless-checkout-integration "Direct link to Step 4: Headless checkout integration")
 
 For maximum customization, use the headless API to build completely custom checkout flows.
 
@@ -2628,7 +2628,7 @@ _112
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/integrations/crossmint/payment-checkout.md)
 
-Last updated on **Nov 12, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -2645,7 +2645,7 @@ Copy as Markdown
 * [Overview](#overview)* [What you'll build](#what-youll-build)* [Prerequisites](#prerequisites)* [Step 1: Collection setup](#step-1-collection-setup)
         + [Create or import collection](#create-or-import-collection)+ [Configure payment settings](#configure-payment-settings)* [Step 2: Hosted Checkout Integration](#step-2-hosted-checkout-integration)
           + [Basic hosted checkout](#basic-hosted-checkout)+ [Advanced hosted checkout](#advanced-hosted-checkout)* [Step 3: embedded checkout integration](#step-3-embedded-checkout-integration)
-            + [Basic embedded checkout](#basic-embedded-checkout)+ [Custom styled embedded checkout](#custom-styled-embedded-checkout)* [Step 4: Headless Checkout Integration](#step-4-headless-checkout-integration)
+            + [Basic embedded checkout](#basic-embedded-checkout)+ [Custom styled embedded checkout](#custom-styled-embedded-checkout)* [Step 4: Headless checkout integration](#step-4-headless-checkout-integration)
               + [Order creation service](#order-creation-service)+ [Custom checkout component](#custom-checkout-component)* [Step 5: webhook integration](#step-5-webhook-integration)
                 + [Webhook handler](#webhook-handler)* [Step 6: multi-payment method component](#step-6-multi-payment-method-component)* [Key takeaways](#key-takeaways)
 

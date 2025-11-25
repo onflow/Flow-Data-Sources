@@ -44,13 +44,11 @@ On this page
 
 # Cadence Rules
 
-## Overview[​](#overview "Direct link to Overview")
-
-When building with AI, it's hard to make the agent consistently understand what standards it should use when building or generating responses. To migitate this issue, Cursor Rules sets up global rules, project wide rules or documents specific rules that it inserts in the agent's context before reading the prompt. With Cursor Rules, you can create an assistant that can consistently understand the intended development process, desired formatted responses, and avoid common mistakes. Consider it your tool to make guard rails for agents that can reduce hallucination and incorrect development flows.
+When you build with AI, it's hard to make the agent consistently understand what standards it should use when it builds or generates responses. To migitate this issue, Cursor Rules sets up global rules, project wide rules or documents specific rules that it inserts in the agent's context before it reads the prompt. With Cursor Rules, you can create an assistant that can consistently understand the intended development process, desired formatted responses, and avoid common mistakes. Consider it your tool to make guard rails for agents that can reduce hallucination and incorrect development flows.
 
 In this guide, you'll learn how to configure and use Cursor Rules that transform your AI assistant into a Flow development expert with persistent knowledge of Cadence syntax patterns, NFT standards, project configuration, and development workflows.
 
-## Learning Objectives[​](#learning-objectives "Direct link to Learning Objectives")
+## Learning objectives[​](#learning-objectives "Direct link to Learning objectives")
 
 After you complete this guide, you'll be able to:
 
@@ -59,9 +57,10 @@ After you complete this guide, you'll be able to:
 * Use workflow-based rules to guide project setup, deployment, and debugging processes across the Flow development lifecycle.
 * Create your own Cadence Rules in order to supercharge your development on Flow.
 
-## What Are Cursor Rules?[​](#what-are-cursor-rules "Direct link to What Are Cursor Rules?")
+## What are Cursor rules?[​](#what-are-cursor-rules "Direct link to What are Cursor rules?")
 
-Cursor rules shape AI behavior with persistent, reusable instructions that guide how Cursor's Agent and Inline Edit assist you. Rules act as continuous context - embedding your preferences, coding standards, and workflows directly into the AI's decision-making process. Since AI models start fresh with each interaction, rules bridge this gap by automatically injecting your preferences and context into every conversation.
+Cursor rules shape AI behavior with persistent, reusable instructions that guide how Cursor's Agent and Inline Edit assist you. Rules act as continuous context - they embed your preferences, code standards, and workflows directly into the AI's decision-making process. Since AI models start fresh with each interaction, rules automatically inject your preferences and context into every conversation, which bridfges this gap.
+
 When active, rules are included at the beginning of the AI's context and provide consistent guidance for code generation, edit suggestions, and workflow assistance.
 
 Cursor offers two rule types:
@@ -123,9 +122,9 @@ _12
 
 Referenced files like `@nft-template.cdc` are included as additional context when the rule triggers.
 
-## User Rules[​](#user-rules "Direct link to User Rules")
+## User rules[​](#user-rules "Direct link to User rules")
 
-User rules are global preferences defined in Cursor Settings → Rules that apply across all projects. They’re plain text and perfect for setting preferred communication style or coding conventions:
+User rules are global preferences defined in Cursor Settings → Rules that apply across all projects. They’re plain text and perfect for setting preferred communication style or code conventions:
 
 `_10
 
@@ -133,15 +132,15 @@ Please reply in a concise style. Avoid unnecessary repetition or filler language
 
 ## Project rules[​](#project-rules "Direct link to Project rules")
 
-Project rules are stored as individual files in `.cursor/rules` and get version-controlled alongside your code. Each rule can target specific file types using glob patterns, be manually invoked when needed, or automatically activate based on context. You can also create nested rule directories - any folder can have its own `.cursor/rules` directory with rules that apply specifically to that area of your project.
+Project rules are stored as individual files in `.cursor/rules` and get version-controlled alongside your code. Each rule can target specific file types with glob patterns, be manually invoked when needed, or automatically activate based on context. You can also create nested rule directories - any folder can have its own `.cursor/rules` directory with rules that apply specifically to that area of your project.
 
-Project rules excel at:
+Project rules help:
 
-* Capturing specialized knowledge about your codebase and domain.
-* Establishing consistent workflows and development patterns.
-* Enforcing coding standards and architectural decisions across your team.
+* Capture specialized knowledge about your codebase and domain.
+* Establish consistent workflows and development patterns.
+* Enforce coding standards and architectural decisions across your team.
 
-### Nested Rules[​](#nested-rules "Direct link to Nested Rules")
+### Nested rules[​](#nested-rules "Direct link to Nested rules")
 
 To organize rules, place them in `.cursor/rules` directories throughout your project. Nested rules automatically attach when files in their directory are referenced.
 
@@ -169,15 +168,15 @@ _10
 
 .cursor/rules/ # Frontend-specific rules`
 
-## Creating a rule[​](#creating-a-rule "Direct link to Creating a rule")
+## Create rules[​](#create-rules "Direct link to Create rules")
 
-Create rules with the Cursor Rule command or going to Cursor Settings > Rules. This creates a new rule file in `.cursor/rules`. From settings you can see all rules and their status.
+Create rules with the Cursor Rule command or go to Cursor Settings > Rules. This creates a new rule file in `.cursor/rules`. From settings you can see all rules and their status.
 
-Click the cog icon on the upper right section of the window. Then, click "Rules and Memories" on the left side bar. Finally click "+ Add Rule" in the User Rules or Project Rules section (depending on your objective).
+Click the cog icon on the upper right section of the window. Then, click "Rules and Memories" on the left side bar. Finally click "+ Add Rule" in the User Rules or Project Rules section (this depends on your objective).
 
 ![Creating a Cursor Rule](/assets/images/cursor_rules1-fe26f5ea8e3918056539c887c2a5fce4.png)
 
-### Generating rules[​](#generating-rules "Direct link to Generating rules")
+### Generate rules[​](#generate-rules "Direct link to Generate rules")
 
 Generate rules directly in conversations with the `/Generate Cursor Rules` command. This is useful when you’ve made decisions about agent behavior and want to reuse them.
 
@@ -193,13 +192,13 @@ Good rules are focused, actionable, and scoped.
 * Avoid vague guidance. Write rules like clear internal docs.
 * Reuse rules when repeating prompts in chat.
 
-## Cadence Rules[​](#cadence-rules-1 "Direct link to Cadence Rules")
+## Cadence rules[​](#cadence-rules-1 "Direct link to Cadence rules")
 
 Here are a couple of Cursor Rules made by [claucondor](https://gist.github.com/claucondor/453cb30c56597b53071bb5bbf18d2c9c) for Flow development and NFTs.
 
-### Cadence NFT Standards[​](#cadence-nft-standards "Direct link to Cadence NFT Standards")
+### Cadence NFT standards[​](#cadence-nft-standards "Direct link to Cadence NFT standards")
 
-The [cadence-nft-standards.mdc](https://github.com/onflow/cadence-rules/blob/main/cadence-nft-standards.mdc) rule provides comprehensive guidelines for developing NFTs using Cadence on Flow blockchain. It ensures proper implementation of:
+The [cadence-nft-standards.mdc](https://github.com/onflow/cadence-rules/blob/main/cadence-nft-standards.mdc) rule provides comprehensive guidelines for NFT development with Cadence on Flow blockchain. It ensures proper implementation of:
 
 * **Core Interface Conformance**: `NonFungibleToken`, `NFT`, and `Collection` interfaces.
 * **MetadataViews Integration**: Marketplace-compatible metadata standards.
@@ -217,7 +216,7 @@ The [cadence-nft-standards.mdc](https://github.com/onflow/cadence-rules/blob/mai
 
 **Applies to:** `.cdc` files, NFT transactions, collection setup, metadata implementation.
 
-#### Rule Configuration[​](#rule-configuration "Direct link to Rule Configuration")
+#### Rule configuration[​](#rule-configuration "Direct link to Rule configuration")
 
 `_10
 
@@ -241,13 +240,13 @@ _10
 
 Recommended Apply config: `Apply Intelligently`
 
-#### Manual Reference[​](#manual-reference "Direct link to Manual Reference")
+#### Manual reference[​](#manual-reference "Direct link to Manual reference")
 
 `_10
 
 @cadence-nft-standards help me implement a new NFT contract`
 
-#### Key Benefits[​](#key-benefits "Direct link to Key Benefits")
+#### Key benefits[​](#key-benefits "Direct link to Key benefits")
 
 * **Ecosystem Compatibility**: Guaranteed marketplace and wallet integration.
 * **Security**: Proper resource handling and capability management.
@@ -255,18 +254,18 @@ Recommended Apply config: `Apply Intelligently`
 * **Performance**: Gas-efficient implementations with lazy initialization.
 * **Standards Compliance**: Follows official Flow NFT patterns.
 
-#### Usage Examples[​](#usage-examples "Direct link to Usage Examples")
+#### Usage examples[​](#usage-examples "Direct link to Usage examples")
 
 * `"Create an NFT contract for collectible cards"` → Guides complete interface implementation.
 * `"Make my NFT marketplace compatible"` → Provides MetadataViews patterns.
 * `"Build evolving NFTs with traits"` → Suggests modular architecture patterns.
 * `"Review my NFT contract"` → Validates against all documented standards.
 
-### Cadence Syntax Patterns[​](#cadence-syntax-patterns "Direct link to Cadence Syntax Patterns")
+### Cadence syntax patterns[​](#cadence-syntax-patterns "Direct link to Cadence syntax patterns")
 
-#### What This Rule Does[​](#what-this-rule-does "Direct link to What This Rule Does")
+#### What this rule does[​](#what-this-rule-does "Direct link to What this rule does")
 
-The [cadence-syntax-patterns.mdc](https://github.com/onflow/cadence-rules/blob/main/cadence-syntax-patterns.mdc) rule provides comprehensive syntax guidance and error prevention for Cadence development. It covers essential language patterns including:
+The [cadence-syntax-patterns.mdc](https://github.com/onflow/cadence-rules/blob/main/cadence-syntax-patterns.mdc) rule provides comprehensive syntax guidance and error prevention for Cadence development. It covers essential language patterns such as:
 
 * **Resource Type Syntax**: Proper use of `@` and `&` symbols for resources and references.
 * **Interface Restrictions**: Correct `{}` syntax for interface constraints.
@@ -288,9 +287,9 @@ The [cadence-syntax-patterns.mdc](https://github.com/onflow/cadence-rules/blob/m
 
 **Applies to:** `.cdc` files, transaction scripts, contract development, Flow CLI usage, error debugging.
 
-#### How to Use This Rule[​](#how-to-use-this-rule "Direct link to How to Use This Rule")
+#### How to use this rule[​](#how-to-use-this-rule "Direct link to How to use this rule")
 
-#### Auto Attached Configuration[​](#auto-attached-configuration "Direct link to Auto Attached Configuration")
+#### Auto attached configuration[​](#auto-attached-configuration "Direct link to Auto attached configuration")
 
 `_10
 
@@ -314,7 +313,7 @@ _10
 
 Recommended Apply config: `Apply Intelligently`
 
-#### Manual Reference[​](#manual-reference-1 "Direct link to Manual Reference")
+#### Manual reference[​](#manual-reference-1 "Direct link to Manual reference")
 
 `_10
 
@@ -327,9 +326,9 @@ Recommended Apply config: `Apply Intelligently`
 * **Best Practices**: Language-specific patterns that follow Cadence conventions.
 * **Authorization Mastery**: Proper transaction permission handling.
 * **Type Safety**: Correct resource handling and type conversions.
-* **Performance**: Optimized patterns for gas efficiency.
+* **Performance**: Optimized patterns for compute unit (gas) efficiency.
 
-#### Usage Examples[​](#usage-examples-1 "Direct link to Usage Examples")
+#### Usage examples[​](#usage-examples-1 "Direct link to Usage examples")
 
 * `"Fix this resource handling error"` → Provides `@` and `&` syntax corrections
 * `"My transaction authorization is failing"` → Suggests proper `auth` capabilities
@@ -338,7 +337,7 @@ Recommended Apply config: `Apply Intelligently`
 * `"Interface restriction syntax error"` → Corrects to `{}` interface syntax
 * `"Access control for resource fields"` → Guides `access(self)` vs `access(all)` patterns
 
-#### Key Syntax Patterns Covered[​](#key-syntax-patterns-covered "Direct link to Key Syntax Patterns Covered")
+#### Key syntax patterns covered[​](#key-syntax-patterns-covered "Direct link to Key syntax patterns covered")
 
 * **Resources**: `@{NonFungibleToken.NFT}` not `@NonFungibleToken.NFT`
 * **Authorization**: `auth(Storage) &Account` or granular capabilities.
@@ -349,11 +348,11 @@ Recommended Apply config: `Apply Intelligently`
 * **String Operations**: Use `.split()` and `.contains()` (no `.indexOf()`)
 * **Loops**: `while` loops only (no range-based `for` loops)
 
-### Flow Development Workflow[​](#flow-development-workflow "Direct link to Flow Development Workflow")
+### Flow development workflow[​](#flow-development-workflow "Direct link to Flow development workflow")
 
-#### What This Rule Does[​](#what-this-rule-does-1 "Direct link to What This Rule Does")
+#### What this rule does[​](#what-this-rule-does-1 "Direct link to What this rule does")
 
-The [flow-development-workflow.mdc](https://github.com/onflow/cadence-rules/blob/main/flow-development-workflow.mdc) rule provides comprehensive workflow methodology for Flow blockchain development covering the complete development lifecycle. It includes:
+The [flow-development-workflow.mdc](https://github.com/onflow/cadence-rules/blob/main/flow-development-workflow.mdc) rule provides comprehensive workflow methodology for Flow blockchain development that covers the complete development lifecycle. It includes:
 
 * **Documentation-First Approach**: Always reference official Flow documentation and standard examples.
 * **Development Sequence**: Emulator → Testnet → Mainnet progression with proper validation.
@@ -361,7 +360,7 @@ The [flow-development-workflow.mdc](https://github.com/onflow/cadence-rules/blob
 * **Deployment Verification**: Post-deployment validation protocols and testing strategies.
 * **FCL Integration**: Frontend configuration, network management, and user experience patterns.
 * **Error Resolution**: Systematic debugging approaches and common error prevention.
-* **Optimization Techniques**: Computation limit handling and gas efficiency strategies.
+* **Optimization Techniques**: Computation limit handling and compute unit (gas) efficiency strategies.
 * **Testnet Validation**: Comprehensive validation protocols before mainnet deployment.
 
 **Perfect for:**
@@ -370,7 +369,7 @@ The [flow-development-workflow.mdc](https://github.com/onflow/cadence-rules/blob
 * Moving between development stages (emulator → testnet → mainnet).
 * Debugging deployment or transaction authorization issues.
 * Integrating frontend applications with FCL.
-* Handling computation limits and gas optimization.
+* Handling computation limits and compute unit (gas) optimization.
 * Learning Flow development best practices and official patterns.
 * Comprehensive project validation strategies.
 
@@ -382,7 +381,7 @@ The [flow-development-workflow.mdc](https://github.com/onflow/cadence-rules/blob
 
 @flow-development-workflow help me deploy to testnet properly`
 
-#### Auto Attached Configuration[​](#auto-attached-configuration-1 "Direct link to Auto Attached Configuration")
+#### Auto attached configuration[​](#auto-attached-configuration-1 "Direct link to Auto attached configuration")
 
 `_10
 
@@ -406,7 +405,7 @@ _10
 
 Recommended Apply config: `Apply Intelligently`
 
-#### Key Benefits[​](#key-benefits-2 "Direct link to Key Benefits")
+#### Key benefits[​](#key-benefits-2 "Direct link to Key benefits")
 
 * **Systematic Approach**: Step-by-step methodology prevents common mistakes.
 * **Official Patterns**: Emphasizes Flow documentation and standard examples.
@@ -415,7 +414,7 @@ Recommended Apply config: `Apply Intelligently`
 * **Optimization Focus**: Gas efficiency and computation limit management.
 * **Validation Protocols**: Comprehensive testing before production deployment.
 
-#### Usage Examples[​](#usage-examples-2 "Direct link to Usage Examples")
+#### Usage examples[​](#usage-examples-2 "Direct link to Usage examples")
 
 * `"How do I set up a new Flow project?"` → Guides project setup and configuration.
 * `"My transaction authorization is failing"` → Provides auth capability debugging.
@@ -424,18 +423,18 @@ Recommended Apply config: `Apply Intelligently`
 * `"Computation limit exceeded"` → Recommends optimization strategies.
 * `"Prepare for mainnet deployment"` → Provides comprehensive validation checklist.
 
-#### Key Workflow Areas Covered[​](#key-workflow-areas-covered "Direct link to Key Workflow Areas Covered")
+#### Key workflow areas covered[​](#key-workflow-areas-covered "Direct link to Key workflow areas covered")
 
 * **Project Setup**: `flow.json` configuration, FCL setup, environment management.
 * **Authorization**: `auth(Storage)`, `auth(BorrowValue, SaveValue)`, granular capabilities.
 * **Development Sequence**: Emulator testing → Frontend integration → Testnet → Validation.
 * **Error Resolution**: Syntax errors, deployment errors, FCL errors, computation limits.
 * **FCL Best Practices**: Network configuration, contract address management, user authentication.
-* **Optimization**: Accumulative processing, loop optimization, gas efficiency.
+* **Optimization**: Accumulative processing, loop optimization, compute unit (gas) efficiency.
 * **Deployment**: Verification protocols, update strategies, multi-network consistency.
 * **Documentation Usage**: When and how to reference official Flow resources.
 
-#### Development Philosophy Emphasized[​](#development-philosophy-emphasized "Direct link to Development Philosophy Emphasized")
+#### Development philosophy emphasized[​](#development-philosophy-emphasized "Direct link to Development philosophy emphasized")
 
 * **Documentation-Driven**: Reference official sources before creating custom solutions.
 * **Iterative Approach**: Fix issues one at a time, test frequently at each stage.
@@ -443,7 +442,7 @@ Recommended Apply config: `Apply Intelligently`
 * **Full-Stack Awareness**: Consider entire stack from contracts to frontend UI.
 * **Error-Driven Learning**: Use errors as opportunities to refine understanding.
 
-### Flow Project Configuration[​](#flow-project-configuration "Direct link to Flow Project Configuration")
+### Flow project configuration[​](#flow-project-configuration "Direct link to Flow project configuration")
 
 #### What This Rule Does[​](#what-this-rule-does-2 "Direct link to What This Rule Does")
 
@@ -470,7 +469,7 @@ The [flow-project-config.mdc](https://github.com/onflow/cadence-rules/blob/main/
 
 **Applies to:** `flow.json`, FCL config files, deployment scripts, network switching, contract imports.
 
-#### Auto Attached Configuration[​](#auto-attached-configuration-2 "Direct link to Auto Attached Configuration")
+#### Auto attached configuration[​](#auto-attached-configuration-2 "Direct link to Auto attached configuration")
 
 `_10
 
@@ -494,13 +493,13 @@ _10
 
 Recommended Apply config: `Apply Intelligently`
 
-#### Manual Reference[​](#manual-reference-3 "Direct link to Manual Reference")
+#### Manual reference[​](#manual-reference-3 "Direct link to Manual reference")
 
 `_10
 
 @flow-project-config help me configure my flow.json for testnet deployment`
 
-#### Key Benefits[​](#key-benefits-3 "Direct link to Key Benefits")
+#### Key benefits[​](#key-benefits-3 "Direct link to Key benefits")
 
 * **Configuration Accuracy**: Prevents common setup and deployment errors.
 * **Multi-Network Support**: Seamless switching between emulator, testnet, and mainnet.
@@ -509,7 +508,7 @@ Recommended Apply config: `Apply Intelligently`
 * **Deployment Success**: Proper account setup and contract registration workflows.
 * **Address Management**: Centralized contract address handling across environments.
 
-#### Usage Examples[​](#usage-examples-3 "Direct link to Usage Examples")
+#### Usage examples[​](#usage-examples-3 "Direct link to Usage examples")
 
 * `"Configure flow.json for new project"` → Provides complete structure and setup guidance.
 * `"Failed to resolve contract import"` → Suggests address mapping and alias fixes.
@@ -518,7 +517,7 @@ Recommended Apply config: `Apply Intelligently`
 * `"Deploy contract to testnet"` → Provides deployment configuration and verification.
 * `"Switch from emulator to testnet"` → Guides network transition and address updates.
 
-#### Key Configuration Areas Covered[​](#key-configuration-areas-covered "Direct link to Key Configuration Areas Covered")
+#### Key configuration areas covered[​](#key-configuration-areas-covered "Direct link to Key configuration areas covered")
 
 * **Account Setup**: Address accuracy, key file paths, network-specific accounts.
 * **Contract Registration**: Source paths, aliases, pre-deployment requirements.
@@ -529,7 +528,7 @@ Recommended Apply config: `Apply Intelligently`
 * **Multi-Network Patterns**: Network-specific aliases and deployment strategies.
 * **CLI Usage**: Correct `--signer`, `--network`, and `--update` flag usage.
 
-#### Common Issues Addressed[​](#common-issues-addressed "Direct link to Common Issues Addressed")
+#### Common issues addressed[​](#common-issues-addressed "Direct link to Common issues addressed")
 
 * **"failed to get contract"**: Missing or incorrect aliases in `flow.json`.
 * **"failed to resolve import"**: Address mapping issues in FCL configuration.
@@ -538,7 +537,7 @@ Recommended Apply config: `Apply Intelligently`
 * **Signer/Network Mismatches**: Using emulator accounts on testnet and vice-versa.
 * **Address Inconsistencies**: Misaligned addresses between `flow.json` and FCL config.
 
-#### Best Practices Emphasized[​](#best-practices-emphasized "Direct link to Best Practices Emphasized")
+#### Best practices emphasized[​](#best-practices-emphasized "Direct link to Best practices emphasized")
 
 * **Pre-deployment Registration**: Always add contracts to `flow.json` before you deploy it.
 * **Address Consistency**: Ensure addresses match across `flow.json`, FCL config, and imports.
@@ -546,9 +545,9 @@ Recommended Apply config: `Apply Intelligently`
 * **Network Separation**: Maintain distinct configurations for each network environment.
 * **Key Security**: Proper `.gitignore` setup for private key files.
 
-### User Preferences[​](#user-preferences "Direct link to User Preferences")
+### User preferences[​](#user-preferences "Direct link to User preferences")
 
-#### What This Rule Does[​](#what-this-rule-does-3 "Direct link to What This Rule Does")
+#### What this rule does[​](#what-this-rule-does-3 "Direct link to What this rule does")
 
 The [user-preferences.mdc](https://github.com/onflow/cadence-rules/blob/main/user-preferences.mdc) rule personalizes AI assistance behavior for Flow blockchain development. It defines preferred communication style and development methodology including:
 
@@ -572,7 +571,7 @@ The [user-preferences.mdc](https://github.com/onflow/cadence-rules/blob/main/use
 
 **Applies to:** All AI assistance, communication style, problem-solving approach, solution methodology
 
-#### Synergy with Technical Rules[​](#synergy-with-technical-rules "Direct link to Synergy with Technical Rules")
+#### Synergy with technical rules[​](#synergy-with-technical-rules "Direct link to Synergy with technical rules")
 
 This rule works as the **behavioral foundation** for your technical Flow rules:
 
@@ -580,7 +579,7 @@ This rule works as the **behavioral foundation** for your technical Flow rules:
 * **User Preferences** defines **HOW** to deliver that information.
 * **Result**: Consistent, personalized assistance across all Flow development scenarios.
 
-#### Always Applied Configuration[​](#always-applied-configuration "Direct link to Always Applied Configuration")
+#### Always applied configuration[​](#always-applied-configuration "Direct link to Always applied configuration")
 
 `_10
 
@@ -588,7 +587,7 @@ This rule works as the **behavioral foundation** for your technical Flow rules:
 
 _10
 
-description: Defines personalized development preferences and communication style for Flow blockchain development including concise response formatting, documentation-driven problem solving, iterative workflow methodology, full-stack awareness, and systematic error resolution. Guides AI behavior to match user's preferred development philosophy with emphasis on official Flow patterns, practical solutions, and proactive error prevention across the entire development stack.
+description: Defines personalized development preferences and communication style for Flow blockchain development, whcih includes concise response formatting, documentation-driven problem solving, iterative workflow methodology, full-stack awareness, and systematic error resolution. Guides AI behavior to match user's preferred development philosophy with emphasis on official Flow patterns, practical solutions, and proactive error prevention across the entire development stack.
 
 _10
 
@@ -600,7 +599,7 @@ _10
 
 Recommended Apply config: `Always Apply`
 
-#### Key Benefits[​](#key-benefits-4 "Direct link to Key Benefits")
+#### Key benefits[​](#key-benefits-4 "Direct link to Key benefits")
 
 * **Consistent Communication**: AI responses match your preferred style and level of detail.
 * **Methodology Alignment**: Solutions follow your preferred development philosophy.
@@ -609,16 +608,16 @@ Recommended Apply config: `Always Apply`
 * **Standards Compliance**: Emphasis on official Flow patterns and best practices.
 * **Full-Stack Perspective**: Solutions consider entire development stack implications.
 
-#### How This Rule Affects AI Responses[​](#how-this-rule-affects-ai-responses "Direct link to How This Rule Affects AI Responses")
+#### How this rule affects AI responses[​](#how-this-rule-affects-ai-responses "Direct link to How this rule affects AI responses")
 
 * **Response Style**: `"Configure flow.json for testnet"` → Provides direct steps + brief prevention tips.
 * **Problem-Solving**: `"Authorization error"` → Root cause analysis + pattern to prevent recurrence.
 * **Code Solutions**: Always includes reference to official documentation when available.
 * **Error Debugging**: Systematic, one-issue-at-a-time approach with testing checkpoints.
 * **Architecture Decisions**: Prefer established Flow patterns over custom implementations.
-* **Learning Approach**: Uses errors as learning opportunities with rule/pattern references.
+* **Learning Approach**: Uses errors as learning opportunities with rule and pattern references.
 
-#### Behavioral Patterns Defined[​](#behavioral-patterns-defined "Direct link to Behavioral Patterns Defined")
+#### Behavioral patterns defined[​](#behavioral-patterns-defined "Direct link to Behavioral patterns defined")
 
 * **Conciseness**: Clear, actionable solutions without excessive explanation.
 * **Practical Focus**: Working code examples prioritized over theoretical explanations.
@@ -629,7 +628,7 @@ Recommended Apply config: `Always Apply`
 * **Prevention-Oriented**: Include brief explanations of why errors occurred.
 * **Full-Stack Consideration**: Account for contracts, transactions, FCL, and UI implications.
 
-#### Configuration Recommendation[​](#configuration-recommendation "Direct link to Configuration Recommendation")
+#### Configuration recommendation[​](#configuration-recommendation "Direct link to Configuration recommendation")
 
 **Best Setup**: Configure as **"Always"** rule or add to **User Rules** in Cursor Settings for global application across all your Flow development work.
 
@@ -649,7 +648,7 @@ Now that you have completed this guide, you should be able to:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor/cadence-rules.md)
 
-Last updated on **Nov 3, 2025** by **cshannon1218**
+Last updated on **Nov 20, 2025** by **cshannon1218**
 
 [Previous
 
@@ -663,11 +662,11 @@ AI Agents](/blockchain-development-tutorials/use-AI-to-build-on-flow/agents)
 
 Copy as Markdown
 
-* [Overview](#overview)* [Learning Objectives](#learning-objectives)* [What Are Cursor Rules?](#what-are-cursor-rules)
-      + [Rule anatomy](#rule-anatomy)* [User Rules](#user-rules)* [Project rules](#project-rules)
-          + [Nested Rules](#nested-rules)* [Creating a rule](#creating-a-rule)
-            + [Generating rules](#generating-rules)* [Best practices](#best-practices)* [Cadence Rules](#cadence-rules-1)
-                + [Cadence NFT Standards](#cadence-nft-standards)+ [Cadence Syntax Patterns](#cadence-syntax-patterns)+ [Flow Development Workflow](#flow-development-workflow)+ [Flow Project Configuration](#flow-project-configuration)+ [User Preferences](#user-preferences)* [Conclusion](#conclusion)
+* [Learning objectives](#learning-objectives)* [What are Cursor rules?](#what-are-cursor-rules)
+    + [Rule anatomy](#rule-anatomy)* [User rules](#user-rules)* [Project rules](#project-rules)
+        + [Nested rules](#nested-rules)* [Create rules](#create-rules)
+          + [Generate rules](#generate-rules)* [Best practices](#best-practices)* [Cadence rules](#cadence-rules-1)
+              + [Cadence NFT standards](#cadence-nft-standards)+ [Cadence syntax patterns](#cadence-syntax-patterns)+ [Flow development workflow](#flow-development-workflow)+ [Flow project configuration](#flow-project-configuration)+ [User preferences](#user-preferences)* [Conclusion](#conclusion)
 
 Flow
 
