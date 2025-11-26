@@ -81,13 +81,13 @@ I want to make a GPT called FlowGPT that uses the linked file as it's primary so
 
 ---
 
-## 📍 Step 4: Configure the GPT's Nnme and instructions[​](#-step-4-configure-the-gpts-nnme-and-instructions "Direct link to 📍 Step 4: Configure the GPT's Nnme and instructions")
+## 📍 Step 4: Configure the GPT's name and instructions[​](#-step-4-configure-the-gpts-name-and-instructions "Direct link to 📍 Step 4: Configure the GPT's name and instructions")
 
 ChatGPT may ask you to customize or verify:
 
-* **Name and description** of your GPT
-* **Instructions**: Tell it how to behave and what to prioritize (for example, always reference the uploaded document)
-* **Capabilities**: Allow file browsing, code interpreter, or DALL·E if needed
+* **Name and description** of your GPT.
+* **Instructions**: Tell it how to behave and what to prioritize (for example, always reference the uploaded document).
+* **Capabilities**: Allow file browsing, code interpreter, or DALL·E if needed.
 
 We've found it helpful to suggest:
 
@@ -120,7 +120,7 @@ You've now created a custom GPT that references your uploaded file as a primary 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/llms/chatgpt.md)
 
-Last updated on **Oct 30, 2025** by **cshannon1218**
+Last updated on **Nov 20, 2025** by **cshannon1218**
 
 [Previous
 
@@ -135,7 +135,7 @@ Use Gemini AI](/blockchain-development-tutorials/use-AI-to-build-on-flow/llms/ge
 Copy as Markdown
 
 * [📍 Step 1: Open the "Explore GPTs" section](#-step-1-open-the-explore-gpts-section)* [📍 Step 2: Click "Create a GPT"](#-step-2-click-create-a-gpt)* [📍 Step 3: Walk through the GPT builder](#-step-3-walk-through-the-gpt-builder)
-      + [Suggested prompt](#suggested-prompt)* [📍 Step 4: Configure the GPT's Nnme and instructions](#-step-4-configure-the-gpts-nnme-and-instructions)* [📍 Step 5: Test your GPT](#-step-5-test-your-gpt)* [📍 Step 6: Save and publish (optional)](#-step-6-save-and-publish-optional)* [✅ That's it!](#-thats-it)
+      + [Suggested prompt](#suggested-prompt)* [📍 Step 4: Configure the GPT's name and instructions](#-step-4-configure-the-gpts-name-and-instructions)* [📍 Step 5: Test your GPT](#-step-5-test-your-gpt)* [📍 Step 6: Save and publish (optional)](#-step-6-save-and-publish-optional)* [✅ That's it!](#-thats-it)
 
 Flow
 

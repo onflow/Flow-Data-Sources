@@ -34,7 +34,7 @@ Search
 
                       + [Gelato Smart Wallet](/blockchain-development-tutorials/integrations/gelato-sw)+ [Crossmint Integration Guide](/blockchain-development-tutorials/integrations/crossmint)
 
-                          - [Authentication Integration Guide](/blockchain-development-tutorials/integrations/crossmint/authentication)- [Payment Checkout Integration](/blockchain-development-tutorials/integrations/crossmint/payment-checkout)- [Minting Platform Integration](/blockchain-development-tutorials/integrations/crossmint/minting-platform)
+                          - [Authentication Integration Guide](/blockchain-development-tutorials/integrations/crossmint/authentication)- [Payment Checkout Integration](/blockchain-development-tutorials/integrations/crossmint/payment-checkout)- [Minting Platform Integration](/blockchain-development-tutorials/integrations/crossmint/minting-platform)- [Crossmint Smart Wallets](/blockchain-development-tutorials/integrations/crossmint/smart-wallets)
 
 * * [Third-Party Integrations](/blockchain-development-tutorials/integrations)* [Crossmint Integration Guide](/blockchain-development-tutorials/integrations/crossmint)* Authentication Integration Guide
 
@@ -42,26 +42,26 @@ On this page
 
 # Authentication Integration Guide
 
-Crossmint provides a comprehensive user management solution tightly integrated with all other Crossmint products. Authenticate users using Web3 or traditional sign-in methods, with seamless wallet creation and unified identity management.
+Crossmint provides a comprehensive user management solution tightly integrated with all other Crossmint products. Authenticate users with Web3 or traditional sign-in methods, with seamless wallet creation and unified identity management.
 
 **Why this matters:**
 
-* **Unified identity system**: Single user account across your backend and Web3 app
-* **Multiple auth methods**: Email OTP, social logins, wallet connections, and Farcaster
-* **Automatic wallet creation**: Optionally create or link wallets with user accounts
-* **Drag and drop integration**: Setup in under 5 minutes
+* **Unified identity system**: Single user account across your backend and Web3 app.
+* **Multiple auth methods**: Email OTP, social logins, wallet connections, and Farcaster.
+* **Automatic wallet creation**: Optionally create or link wallets with user accounts.
+* **Drag and drop integration**: Setup in under five minutes.
 
-## 🎯 Available Authentication Methods[​](#-available-authentication-methods "Direct link to 🎯 Available Authentication Methods")
+## 🎯 Available authentication methods[​](#-available-authentication-methods "Direct link to 🎯 Available authentication methods")
 
-### 1. Email OTP Authentication[​](#1-email-otp-authentication "Direct link to 1. Email OTP Authentication")
+### 1. Email OTP authentication[​](#1-email-otp-authentication "Direct link to 1. Email OTP authentication")
 
-Passwordless sign-in using one-time codes delivered to the user's email.
+Passwordless sign-in with one-time codes delivered to the user's email.
 
 * No passwords required
 * Secure and user-friendly
 * Automatic account creation
 
-### 2. Social Account Authentication[​](#2-social-account-authentication "Direct link to 2. Social Account Authentication")
+### 2. Social account authentication[​](#2-social-account-authentication "Direct link to 2. Social account authentication")
 
 Sign in with popular social platforms:
 
@@ -70,14 +70,14 @@ Sign in with popular social platforms:
 * X (Twitter)
 * And more
 
-### 3. Farcaster Integration[​](#3-farcaster-integration "Direct link to 3. Farcaster Integration")
+### 3. Farcaster integration[​](#3-farcaster-integration "Direct link to 3. Farcaster integration")
 
-Using the [Sign In With Farcaster (SIWF) standard](https://github.com/farcasterxyz/protocol/discussions/110)
+Use the [Sign In With Farcaster (SIWF) standard](https://github.com/farcasterxyz/protocol/discussions/110)
 
 * Web3-native authentication
 * Decentralized identity support
 
-### 4. External Wallet Authentication[​](#4-external-wallet-authentication "Direct link to 4. External Wallet Authentication")
+### 4. External wallet authentication[​](#4-external-wallet-authentication "Direct link to 4. External wallet authentication")
 
 Connect with crypto wallets for Web3 authentication:
 
@@ -105,15 +105,15 @@ Make sure you have:
 * Basic React hooks and state management
 * Understanding of authentication flows
 
-## Quick Start (5 minutes)[​](#quick-start-5-minutes "Direct link to Quick Start (5 minutes)")
+## Quick start[​](#quick-start "Direct link to Quick start")
 
-### Step 1: Install the SDK[​](#step-1-install-the-sdk "Direct link to Step 1: Install the SDK")
+### Step 1: install the SDK[​](#step-1-install-the-sdk "Direct link to Step 1: install the SDK")
 
 `_10
 
 npm i @crossmint/client-sdk-react-ui`
 
-### Step 2: Add Crossmint Providers[​](#step-2-add-crossmint-providers "Direct link to Step 2: Add Crossmint Providers")
+### Step 2: add crossmint providers[​](#step-2-add-crossmint-providers "Direct link to Step 2: add crossmint providers")
 
 `_17
 
@@ -179,7 +179,7 @@ _17
 
 }`
 
-### Step 3: Create Authentication Component[​](#step-3-create-authentication-component "Direct link to Step 3: Create Authentication Component")
+### Step 3: create authentication component[​](#step-3-create-authentication-component "Direct link to Step 3: create authentication component")
 
 `_39
 
@@ -329,7 +329,7 @@ _39
 
 }`
 
-### Environment Configuration[​](#environment-configuration "Direct link to Environment Configuration")
+### Environment configuration[​](#environment-configuration "Direct link to Environment configuration")
 
 `_10
 
@@ -359,29 +359,29 @@ _10
 
 };`
 
-## Production Deployment[​](#production-deployment "Direct link to Production Deployment")
+## Production deployment[​](#production-deployment "Direct link to Production deployment")
 
-### 1. Create Production Account[​](#1-create-production-account "Direct link to 1. Create Production Account")
+### 1. Create production account[​](#1-create-production-account "Direct link to 1. Create production account")
 
-1. Create a developer account on the [Production Console](https://www.crossmint.com/signin?callbackUrl=/console)
+1. Create a developer account on the [Production Console](https://www.crossmint.com/signin?callbackUrl=/console).
    ![Production Console Login](/assets/images/staging-6ab5f042d30972f081aeaa1ff5142981.png)
-2. Complete account verification and KYB process
+2. Complete account verification and KYB process.
 
-### 2. Configure Production API Keys[​](#2-configure-production-api-keys "Direct link to 2. Configure Production API Keys")
+### 2. Configure production API keys[​](#2-configure-production-api-keys "Direct link to 2. Configure production API keys")
 
-1. Create a production client API key
+1. Create a production client API key.
 
 Navigate to **Integrate > API Keys**
 
 ![API Keys](/assets/images/api_keys-77de82bff170cc37fc434ab3df62d7c1.png)
 
-2. Enable required scopes:
+2. Activate required scopes:
    * `users.create`
    * `users.read`
    * `wallets.read`
    * `wallets.create`
 
-### 3. Update Environment Variables[​](#3-update-environment-variables "Direct link to 3. Update Environment Variables")
+### 3. Update environment variables[​](#3-update-environment-variables "Direct link to 3. Update environment variables")
 
 `_10
 
@@ -409,7 +409,7 @@ _10
 
 CROSSMINT_ENVIRONMENT=staging`
 
-### 4. Test Authentication Flow[​](#4-test-authentication-flow "Direct link to 4. Test Authentication Flow")
+### 4. Test authentication flow[​](#4-test-authentication-flow "Direct link to 4. Test authentication flow")
 
 `_12
 
@@ -457,28 +457,28 @@ _12
 
 ## 🔧 Troubleshooting[​](#-troubleshooting "Direct link to 🔧 Troubleshooting")
 
-### Common Issues[​](#common-issues "Direct link to Common Issues")
+### Common issues[​](#common-issues "Direct link to Common issues")
 
 **Authentication fails:**
 
-* Verify API key is correct
-* Check authentication scopes are enabled
-* Ensure you're using the right environment (staging vs production)
+* Verify API key is correct.
+* Check authentication scopes are activated.
+* Make sure you're using the right environment (staging vs. production)
 
 **Wallet creation fails:**
 
-* Verify user is authenticated
-* Check wallet creation scopes
-* Ensure proper wallet configuration for Flow
+* Verify user is authenticated.
+* Check wallet creation scopes.
+* Ensure proper wallet configuration for Flow.
 
-### Getting Help[​](#getting-help "Direct link to Getting Help")
+### Get Help[​](#get-help "Direct link to Get Help")
 
 * **[Crossmint Authentication Docs](https://docs.crossmint.com/authentication/introduction)**
 * **[Flow Developer Portal](https://developers.flow.com/)**
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/integrations/crossmint/authentication.md)
 
-Last updated on **Aug 17, 2025** by **0xLisanAlGaib**
+Last updated on **Nov 14, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -492,11 +492,11 @@ Payment Checkout Integration](/blockchain-development-tutorials/integrations/cro
 
 Copy as Markdown
 
-* [🎯 Available Authentication Methods](#-available-authentication-methods)
-  + [1. Email OTP Authentication](#1-email-otp-authentication)+ [2. Social Account Authentication](#2-social-account-authentication)+ [3. Farcaster Integration](#3-farcaster-integration)+ [4. External Wallet Authentication](#4-external-wallet-authentication)* [Prerequisites](#prerequisites)* [Quick Start (5 minutes)](#quick-start-5-minutes)
-      + [Step 1: Install the SDK](#step-1-install-the-sdk)+ [Step 2: Add Crossmint Providers](#step-2-add-crossmint-providers)+ [Step 3: Create Authentication Component](#step-3-create-authentication-component)+ [Environment Configuration](#environment-configuration)* [Production Deployment](#production-deployment)
-        + [1. Create Production Account](#1-create-production-account)+ [2. Configure Production API Keys](#2-configure-production-api-keys)+ [3. Update Environment Variables](#3-update-environment-variables)+ [4. Test Authentication Flow](#4-test-authentication-flow)* [🔧 Troubleshooting](#-troubleshooting)
-          + [Common Issues](#common-issues)+ [Getting Help](#getting-help)
+* [🎯 Available authentication methods](#-available-authentication-methods)
+  + [1. Email OTP authentication](#1-email-otp-authentication)+ [2. Social account authentication](#2-social-account-authentication)+ [3. Farcaster integration](#3-farcaster-integration)+ [4. External wallet authentication](#4-external-wallet-authentication)* [Prerequisites](#prerequisites)* [Quick start](#quick-start)
+      + [Step 1: install the SDK](#step-1-install-the-sdk)+ [Step 2: add crossmint providers](#step-2-add-crossmint-providers)+ [Step 3: create authentication component](#step-3-create-authentication-component)+ [Environment configuration](#environment-configuration)* [Production deployment](#production-deployment)
+        + [1. Create production account](#1-create-production-account)+ [2. Configure production API keys](#2-configure-production-api-keys)+ [3. Update environment variables](#3-update-environment-variables)+ [4. Test authentication flow](#4-test-authentication-flow)* [🔧 Troubleshooting](#-troubleshooting)
+          + [Common issues](#common-issues)+ [Get Help](#get-help)
 
 Flow
 

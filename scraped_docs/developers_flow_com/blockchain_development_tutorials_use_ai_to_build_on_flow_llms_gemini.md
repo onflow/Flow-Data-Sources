@@ -46,7 +46,7 @@ On this page
 
 [Gemini AI](https://gemini.google.com/) is Google's AI assistant that can help with tasks such as writing, coding, and answering questions. It adapts to context and user input to provide relevant, conversational responses. You can integrate Gemini AI into developer workflows to assist with documentation, debugging, and productivity.
 
-This guide walks you through creating a **Custom GEM** with Gemini AI that can reference the [Flow Data Sources](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor/flow-data-sources) file to answer questions.
+This guide walks you through how to create a **Custom GEM** with Gemini AI that can reference the [Flow Data Sources](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor/flow-data-sources) file to answer questions.
 
 warning
 
@@ -67,7 +67,7 @@ You'll need a [Gemini Advanced subscription](https://gemini.google.com/advanced)
 
 ## Step 3: Configure your Gem[​](#step-3-configure-your-gem "Direct link to Step 3: Configure your Gem")
 
-Gemini AI will now guide you through setting up your custom Gem. Configure the name, description and instructions for your GEM to follow.
+Gemini AI will now guide you through how to set up up your custom Gem. Configure the name, description and instructions for your Gem to follow.
 
 ### Suggested configuration[​](#suggested-configuration "Direct link to Suggested configuration")
 
@@ -115,11 +115,11 @@ _11
 
 When users ask about Flow, Cadence, or related topics, prioritize information from your knowledge base and provide step-by-step guidance when appropriate.`
 
-You can further customize your personalized agent by providing more files and determining the actions it can do.
+To further customize your personalized agent, you can provide more files and determine the actions it can do.
 
 ---
 
-## Step 4: Upload Knowledge Base[​](#step-4-upload-knowledge-base "Direct link to Step 4: Upload Knowledge Base")
+## Step 4: Upload knowledge base[​](#step-4-upload-knowledge-base "Direct link to Step 4: Upload knowledge base")
 
 1. In the **Knowledge** section, upload the [Flow Data Sources All Merged](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/all_merged.md) file.
 2. Configure the Gem to reference this file as its primary knowledge source.
@@ -151,7 +151,7 @@ You've now created a custom Gem that uses Flow's comprehensive documentation as 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/llms/gemini.md)
 
-Last updated on **Oct 30, 2025** by **cshannon1218**
+Last updated on **Nov 20, 2025** by **cshannon1218**
 
 [Previous
 
@@ -166,7 +166,7 @@ Claude Code Flow Guide](/blockchain-development-tutorials/use-AI-to-build-on-flo
 Copy as Markdown
 
 * [Step 1: Access Gem Manager](#step-1-access-gem-manager)* [Step 2: Create a new Gem](#step-2-create-a-new-gem)* [Step 3: Configure your Gem](#step-3-configure-your-gem)
-      + [Suggested configuration](#suggested-configuration)* [Step 4: Upload Knowledge Base](#step-4-upload-knowledge-base)* [Step 5: Test your Gem](#step-5-test-your-gem)* [Step 6: Save and deploy](#step-6-save-and-deploy)* [Conclusion](#conclusion)
+      + [Suggested configuration](#suggested-configuration)* [Step 4: Upload knowledge base](#step-4-upload-knowledge-base)* [Step 5: Test your Gem](#step-5-test-your-gem)* [Step 6: Save and deploy](#step-6-save-and-deploy)* [Conclusion](#conclusion)
 
 Flow
 

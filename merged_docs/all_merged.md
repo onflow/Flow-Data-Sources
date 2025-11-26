@@ -214308,11 +214308,11 @@ On this page
 
 # Large Language Models (LLMs)
 
-Large Language Models (LLMs) have revolutionized software development by providing intelligent assistance, code generation, and comprehensive knowledge access. You will learn how to enhance your Flow development experience by using these LLMs. Each tutorial demonstrates how to configure specialized AI assistants that understand Flow's unique features, Cadence smart contract development, and the broader Flow ecosystem.
+Large Language Models (LLMs) have revolutionized software development by providing intelligent assistance, code generation, and comprehensive knowledge access. You will learn how to enhance your Flow development experience with these LLMs. Each tutorial demonstrates how to configure specialized AI assistants that understand Flow's unique features, Cadence smart contract development, and the broader Flow ecosystem.
 
 ## [Use Flow Knowledge Base in ChatGPT](/blockchain-development-tutorials/use-AI-to-build-on-flow/llms/chatgpt)[​](#use-flow-knowledge-base-in-chatgpt "Direct link to use-flow-knowledge-base-in-chatgpt")
 
-Learn how to create a Custom GPT using ChatGPT that can reference Flow's comprehensive documentation to answer development questions. This guide walks you through setting up FlowGPT with OpenAI's platform, configuring it with Flow Data Sources, and optimizing it for Cadence smart contract development. The tutorial covers the complete GPT creation process, from initial setup through testing and deployment, allowing you to have an AI assistant that understands Flow's architecture, tools, and best practices.
+Learn how to create a Custom GPT with ChatGPT that can reference Flow's comprehensive documentation to answer development questions. This guide walks you through how to set up FlowGPT with OpenAI's platform, configure it with Flow Data Sources, and optimize it for Cadence smart contract development. The tutorial covers the complete GPT creation process, from initial setup through testing and deployment, which allows you to have an AI assistant that understands Flow's architecture, tools, and best practices.
 
 ## [Use Flow Knowledge Base in Gemini AI](/blockchain-development-tutorials/use-AI-to-build-on-flow/llms/gemini)[​](#use-flow-knowledge-base-in-gemini-ai "Direct link to use-flow-knowledge-base-in-gemini-ai")
 
@@ -214320,17 +214320,17 @@ Discover how to build a Custom GEM using Google's Gemini AI platform that specia
 
 ## [Claude Code for Flow Development](/blockchain-development-tutorials/use-AI-to-build-on-flow/llms/claude-code)[​](#claude-code-for-flow-development "Direct link to claude-code-for-flow-development")
 
-Master the comprehensive development approach using Claude Code (Claude) for Flow blockchain applications. This extensive guide covers the four-stage development methodology (Idea → Visualization → Planning → Build), advanced features like subagents and auto-verification, and systematic deployment strategies. Learn how to configure persistent project context through `CLAUDE.md` files, implement checkpoint-based development workflows, and leverage Claude's unlimited context windows for complex Cadence smart contract projects and cross-VM applications.
+Master the comprehensive development approach with Claude Code (Claude) for Flow blockchain applications. This extensive guide covers the four-stage development methodology (Idea → Visualization → Planning → Build), advanced features like subagents and auto-verification, and systematic deployment strategies. Learn how to configure persistent project context through `CLAUDE.md` files, implement checkpoint-based development workflows, and leverage Claude's unlimited context windows for complex Cadence smart contract projects and cross-VM applications.
 
 ---
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-These tutorials provide a comprehensive foundation for integrating AI assistance into your Flow development workflow. By leveraging ChatGPT's Custom GPTs, Gemini AI's Custom GEMs, and CC's advanced development capabilities, you can significantly enhance your productivity while building on Flow. Each platform offers unique strengths that complement different aspects of blockchain development, from quick documentation queries to comprehensive project management and systematic code generation.
+These tutorials provide a comprehensive foundation for how to integrate AI assistance into your Flow development workflow. When you leverage ChatGPT's Custom GPTs, Gemini AI's Custom GEMs, and CC's advanced development capabilities, you can significantly enhance your productivity and build on Flow. Each platform offers unique strengths that complement different aspects of blockchain development, from quick documentation queries to comprehensive project management and systematic code generation.
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/llms/index.md)
 
-Last updated on **Oct 30, 2025** by **cshannon1218**
+Last updated on **Nov 20, 2025** by **cshannon1218**
 
 [Previous
 
@@ -227208,7 +227208,7 @@ If you have trouble during the integrations process, refer to these documentatio
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/integrations/crossmint/index.md)
 
-Last updated on **Nov 12, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -248143,7 +248143,7 @@ On this page
 
 [Gemini AI](https://gemini.google.com/) is Google's AI assistant that can help with tasks such as writing, coding, and answering questions. It adapts to context and user input to provide relevant, conversational responses. You can integrate Gemini AI into developer workflows to assist with documentation, debugging, and productivity.
 
-This guide walks you through creating a **Custom GEM** with Gemini AI that can reference the [Flow Data Sources](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor/flow-data-sources) file to answer questions.
+This guide walks you through how to create a **Custom GEM** with Gemini AI that can reference the [Flow Data Sources](/blockchain-development-tutorials/use-AI-to-build-on-flow/cursor/flow-data-sources) file to answer questions.
 
 warning
 
@@ -248164,7 +248164,7 @@ You'll need a [Gemini Advanced subscription](https://gemini.google.com/advanced)
 
 ## Step 3: Configure your Gem[​](#step-3-configure-your-gem "Direct link to Step 3: Configure your Gem")
 
-Gemini AI will now guide you through setting up your custom Gem. Configure the name, description and instructions for your GEM to follow.
+Gemini AI will now guide you through how to set up up your custom Gem. Configure the name, description and instructions for your Gem to follow.
 
 ### Suggested configuration[​](#suggested-configuration "Direct link to Suggested configuration")
 
@@ -248212,11 +248212,11 @@ _11
 
 When users ask about Flow, Cadence, or related topics, prioritize information from your knowledge base and provide step-by-step guidance when appropriate.`
 
-You can further customize your personalized agent by providing more files and determining the actions it can do.
+To further customize your personalized agent, you can provide more files and determine the actions it can do.
 
 ---
 
-## Step 4: Upload Knowledge Base[​](#step-4-upload-knowledge-base "Direct link to Step 4: Upload Knowledge Base")
+## Step 4: Upload knowledge base[​](#step-4-upload-knowledge-base "Direct link to Step 4: Upload knowledge base")
 
 1. In the **Knowledge** section, upload the [Flow Data Sources All Merged](https://github.com/onflow/Flow-Data-Sources/blob/main/merged_docs/all_merged.md) file.
 2. Configure the Gem to reference this file as its primary knowledge source.
@@ -248248,7 +248248,7 @@ You've now created a custom Gem that uses Flow's comprehensive documentation as 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/llms/gemini.md)
 
-Last updated on **Oct 30, 2025** by **cshannon1218**
+Last updated on **Nov 20, 2025** by **cshannon1218**
 
 [Previous
 
@@ -248263,7 +248263,7 @@ Claude Code Flow Guide](/blockchain-development-tutorials/use-AI-to-build-on-flo
 Copy as Markdown
 
 * [Step 1: Access Gem Manager](#step-1-access-gem-manager)* [Step 2: Create a new Gem](#step-2-create-a-new-gem)* [Step 3: Configure your Gem](#step-3-configure-your-gem)
-      + [Suggested configuration](#suggested-configuration)* [Step 4: Upload Knowledge Base](#step-4-upload-knowledge-base)* [Step 5: Test your Gem](#step-5-test-your-gem)* [Step 6: Save and deploy](#step-6-save-and-deploy)* [Conclusion](#conclusion)
+      + [Suggested configuration](#suggested-configuration)* [Step 4: Upload knowledge base](#step-4-upload-knowledge-base)* [Step 5: Test your Gem](#step-5-test-your-gem)* [Step 6: Save and deploy](#step-6-save-and-deploy)* [Conclusion](#conclusion)
 
 Flow
 
@@ -286043,7 +286043,7 @@ Search
 
                       + [Gelato Smart Wallet](/blockchain-development-tutorials/integrations/gelato-sw)+ [Crossmint Integration Guide](/blockchain-development-tutorials/integrations/crossmint)
 
-                          - [Authentication Integration Guide](/blockchain-development-tutorials/integrations/crossmint/authentication)- [Payment Checkout Integration](/blockchain-development-tutorials/integrations/crossmint/payment-checkout)- [Minting Platform Integration](/blockchain-development-tutorials/integrations/crossmint/minting-platform)
+                          - [Authentication Integration Guide](/blockchain-development-tutorials/integrations/crossmint/authentication)- [Payment Checkout Integration](/blockchain-development-tutorials/integrations/crossmint/payment-checkout)- [Minting Platform Integration](/blockchain-development-tutorials/integrations/crossmint/minting-platform)- [Crossmint Smart Wallets](/blockchain-development-tutorials/integrations/crossmint/smart-wallets)
 
 * * [Third-Party Integrations](/blockchain-development-tutorials/integrations)* [Crossmint Integration Guide](/blockchain-development-tutorials/integrations/crossmint)* Authentication Integration Guide
 
@@ -286051,26 +286051,26 @@ On this page
 
 # Authentication Integration Guide
 
-Crossmint provides a comprehensive user management solution tightly integrated with all other Crossmint products. Authenticate users using Web3 or traditional sign-in methods, with seamless wallet creation and unified identity management.
+Crossmint provides a comprehensive user management solution tightly integrated with all other Crossmint products. Authenticate users with Web3 or traditional sign-in methods, with seamless wallet creation and unified identity management.
 
 **Why this matters:**
 
-* **Unified identity system**: Single user account across your backend and Web3 app
-* **Multiple auth methods**: Email OTP, social logins, wallet connections, and Farcaster
-* **Automatic wallet creation**: Optionally create or link wallets with user accounts
-* **Drag and drop integration**: Setup in under 5 minutes
+* **Unified identity system**: Single user account across your backend and Web3 app.
+* **Multiple auth methods**: Email OTP, social logins, wallet connections, and Farcaster.
+* **Automatic wallet creation**: Optionally create or link wallets with user accounts.
+* **Drag and drop integration**: Setup in under five minutes.
 
-## 🎯 Available Authentication Methods[​](#-available-authentication-methods "Direct link to 🎯 Available Authentication Methods")
+## 🎯 Available authentication methods[​](#-available-authentication-methods "Direct link to 🎯 Available authentication methods")
 
-### 1. Email OTP Authentication[​](#1-email-otp-authentication "Direct link to 1. Email OTP Authentication")
+### 1. Email OTP authentication[​](#1-email-otp-authentication "Direct link to 1. Email OTP authentication")
 
-Passwordless sign-in using one-time codes delivered to the user's email.
+Passwordless sign-in with one-time codes delivered to the user's email.
 
 * No passwords required
 * Secure and user-friendly
 * Automatic account creation
 
-### 2. Social Account Authentication[​](#2-social-account-authentication "Direct link to 2. Social Account Authentication")
+### 2. Social account authentication[​](#2-social-account-authentication "Direct link to 2. Social account authentication")
 
 Sign in with popular social platforms:
 
@@ -286079,14 +286079,14 @@ Sign in with popular social platforms:
 * X (Twitter)
 * And more
 
-### 3. Farcaster Integration[​](#3-farcaster-integration "Direct link to 3. Farcaster Integration")
+### 3. Farcaster integration[​](#3-farcaster-integration "Direct link to 3. Farcaster integration")
 
-Using the [Sign In With Farcaster (SIWF) standard](https://github.com/farcasterxyz/protocol/discussions/110)
+Use the [Sign In With Farcaster (SIWF) standard](https://github.com/farcasterxyz/protocol/discussions/110)
 
 * Web3-native authentication
 * Decentralized identity support
 
-### 4. External Wallet Authentication[​](#4-external-wallet-authentication "Direct link to 4. External Wallet Authentication")
+### 4. External wallet authentication[​](#4-external-wallet-authentication "Direct link to 4. External wallet authentication")
 
 Connect with crypto wallets for Web3 authentication:
 
@@ -286114,15 +286114,15 @@ Make sure you have:
 * Basic React hooks and state management
 * Understanding of authentication flows
 
-## Quick Start (5 minutes)[​](#quick-start-5-minutes "Direct link to Quick Start (5 minutes)")
+## Quick start[​](#quick-start "Direct link to Quick start")
 
-### Step 1: Install the SDK[​](#step-1-install-the-sdk "Direct link to Step 1: Install the SDK")
+### Step 1: install the SDK[​](#step-1-install-the-sdk "Direct link to Step 1: install the SDK")
 
 `_10
 
 npm i @crossmint/client-sdk-react-ui`
 
-### Step 2: Add Crossmint Providers[​](#step-2-add-crossmint-providers "Direct link to Step 2: Add Crossmint Providers")
+### Step 2: add crossmint providers[​](#step-2-add-crossmint-providers "Direct link to Step 2: add crossmint providers")
 
 `_17
 
@@ -286188,7 +286188,7 @@ _17
 
 }`
 
-### Step 3: Create Authentication Component[​](#step-3-create-authentication-component "Direct link to Step 3: Create Authentication Component")
+### Step 3: create authentication component[​](#step-3-create-authentication-component "Direct link to Step 3: create authentication component")
 
 `_39
 
@@ -286338,7 +286338,7 @@ _39
 
 }`
 
-### Environment Configuration[​](#environment-configuration "Direct link to Environment Configuration")
+### Environment configuration[​](#environment-configuration "Direct link to Environment configuration")
 
 `_10
 
@@ -286368,29 +286368,29 @@ _10
 
 };`
 
-## Production Deployment[​](#production-deployment "Direct link to Production Deployment")
+## Production deployment[​](#production-deployment "Direct link to Production deployment")
 
-### 1. Create Production Account[​](#1-create-production-account "Direct link to 1. Create Production Account")
+### 1. Create production account[​](#1-create-production-account "Direct link to 1. Create production account")
 
-1. Create a developer account on the [Production Console](https://www.crossmint.com/signin?callbackUrl=/console)
+1. Create a developer account on the [Production Console](https://www.crossmint.com/signin?callbackUrl=/console).
    ![Production Console Login](/assets/images/staging-6ab5f042d30972f081aeaa1ff5142981.png)
-2. Complete account verification and KYB process
+2. Complete account verification and KYB process.
 
-### 2. Configure Production API Keys[​](#2-configure-production-api-keys "Direct link to 2. Configure Production API Keys")
+### 2. Configure production API keys[​](#2-configure-production-api-keys "Direct link to 2. Configure production API keys")
 
-1. Create a production client API key
+1. Create a production client API key.
 
 Navigate to **Integrate > API Keys**
 
 ![API Keys](/assets/images/api_keys-77de82bff170cc37fc434ab3df62d7c1.png)
 
-2. Enable required scopes:
+2. Activate required scopes:
    * `users.create`
    * `users.read`
    * `wallets.read`
    * `wallets.create`
 
-### 3. Update Environment Variables[​](#3-update-environment-variables "Direct link to 3. Update Environment Variables")
+### 3. Update environment variables[​](#3-update-environment-variables "Direct link to 3. Update environment variables")
 
 `_10
 
@@ -286418,7 +286418,7 @@ _10
 
 CROSSMINT_ENVIRONMENT=staging`
 
-### 4. Test Authentication Flow[​](#4-test-authentication-flow "Direct link to 4. Test Authentication Flow")
+### 4. Test authentication flow[​](#4-test-authentication-flow "Direct link to 4. Test authentication flow")
 
 `_12
 
@@ -286466,28 +286466,28 @@ _12
 
 ## 🔧 Troubleshooting[​](#-troubleshooting "Direct link to 🔧 Troubleshooting")
 
-### Common Issues[​](#common-issues "Direct link to Common Issues")
+### Common issues[​](#common-issues "Direct link to Common issues")
 
 **Authentication fails:**
 
-* Verify API key is correct
-* Check authentication scopes are enabled
-* Ensure you're using the right environment (staging vs production)
+* Verify API key is correct.
+* Check authentication scopes are activated.
+* Make sure you're using the right environment (staging vs. production)
 
 **Wallet creation fails:**
 
-* Verify user is authenticated
-* Check wallet creation scopes
-* Ensure proper wallet configuration for Flow
+* Verify user is authenticated.
+* Check wallet creation scopes.
+* Ensure proper wallet configuration for Flow.
 
-### Getting Help[​](#getting-help "Direct link to Getting Help")
+### Get Help[​](#get-help "Direct link to Get Help")
 
 * **[Crossmint Authentication Docs](https://docs.crossmint.com/authentication/introduction)**
 * **[Flow Developer Portal](https://developers.flow.com/)**
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/integrations/crossmint/authentication.md)
 
-Last updated on **Aug 17, 2025** by **0xLisanAlGaib**
+Last updated on **Nov 14, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -286501,11 +286501,11 @@ Payment Checkout Integration](/blockchain-development-tutorials/integrations/cro
 
 Copy as Markdown
 
-* [🎯 Available Authentication Methods](#-available-authentication-methods)
-  + [1. Email OTP Authentication](#1-email-otp-authentication)+ [2. Social Account Authentication](#2-social-account-authentication)+ [3. Farcaster Integration](#3-farcaster-integration)+ [4. External Wallet Authentication](#4-external-wallet-authentication)* [Prerequisites](#prerequisites)* [Quick Start (5 minutes)](#quick-start-5-minutes)
-      + [Step 1: Install the SDK](#step-1-install-the-sdk)+ [Step 2: Add Crossmint Providers](#step-2-add-crossmint-providers)+ [Step 3: Create Authentication Component](#step-3-create-authentication-component)+ [Environment Configuration](#environment-configuration)* [Production Deployment](#production-deployment)
-        + [1. Create Production Account](#1-create-production-account)+ [2. Configure Production API Keys](#2-configure-production-api-keys)+ [3. Update Environment Variables](#3-update-environment-variables)+ [4. Test Authentication Flow](#4-test-authentication-flow)* [🔧 Troubleshooting](#-troubleshooting)
-          + [Common Issues](#common-issues)+ [Getting Help](#getting-help)
+* [🎯 Available authentication methods](#-available-authentication-methods)
+  + [1. Email OTP authentication](#1-email-otp-authentication)+ [2. Social account authentication](#2-social-account-authentication)+ [3. Farcaster integration](#3-farcaster-integration)+ [4. External wallet authentication](#4-external-wallet-authentication)* [Prerequisites](#prerequisites)* [Quick start](#quick-start)
+      + [Step 1: install the SDK](#step-1-install-the-sdk)+ [Step 2: add crossmint providers](#step-2-add-crossmint-providers)+ [Step 3: create authentication component](#step-3-create-authentication-component)+ [Environment configuration](#environment-configuration)* [Production deployment](#production-deployment)
+        + [1. Create production account](#1-create-production-account)+ [2. Configure production API keys](#2-configure-production-api-keys)+ [3. Update environment variables](#3-update-environment-variables)+ [4. Test authentication flow](#4-test-authentication-flow)* [🔧 Troubleshooting](#-troubleshooting)
+          + [Common issues](#common-issues)+ [Get Help](#get-help)
 
 Flow
 
@@ -375520,7 +375520,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* currentUser
 
@@ -395056,7 +395056,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* authenticate
 
@@ -408291,7 +408291,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* isBad
 
@@ -532720,13 +532720,13 @@ I want to make a GPT called FlowGPT that uses the linked file as it's primary so
 
 ---
 
-## 📍 Step 4: Configure the GPT's Nnme and instructions[​](#-step-4-configure-the-gpts-nnme-and-instructions "Direct link to 📍 Step 4: Configure the GPT's Nnme and instructions")
+## 📍 Step 4: Configure the GPT's name and instructions[​](#-step-4-configure-the-gpts-name-and-instructions "Direct link to 📍 Step 4: Configure the GPT's name and instructions")
 
 ChatGPT may ask you to customize or verify:
 
-* **Name and description** of your GPT
-* **Instructions**: Tell it how to behave and what to prioritize (for example, always reference the uploaded document)
-* **Capabilities**: Allow file browsing, code interpreter, or DALL·E if needed
+* **Name and description** of your GPT.
+* **Instructions**: Tell it how to behave and what to prioritize (for example, always reference the uploaded document).
+* **Capabilities**: Allow file browsing, code interpreter, or DALL·E if needed.
 
 We've found it helpful to suggest:
 
@@ -532759,7 +532759,7 @@ You've now created a custom GPT that references your uploaded file as a primary 
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/use-AI-to-build-on-flow/llms/chatgpt.md)
 
-Last updated on **Oct 30, 2025** by **cshannon1218**
+Last updated on **Nov 20, 2025** by **cshannon1218**
 
 [Previous
 
@@ -532774,7 +532774,7 @@ Use Gemini AI](/blockchain-development-tutorials/use-AI-to-build-on-flow/llms/ge
 Copy as Markdown
 
 * [📍 Step 1: Open the "Explore GPTs" section](#-step-1-open-the-explore-gpts-section)* [📍 Step 2: Click "Create a GPT"](#-step-2-click-create-a-gpt)* [📍 Step 3: Walk through the GPT builder](#-step-3-walk-through-the-gpt-builder)
-      + [Suggested prompt](#suggested-prompt)* [📍 Step 4: Configure the GPT's Nnme and instructions](#-step-4-configure-the-gpts-nnme-and-instructions)* [📍 Step 5: Test your GPT](#-step-5-test-your-gpt)* [📍 Step 6: Save and publish (optional)](#-step-6-save-and-publish-optional)* [✅ That's it!](#-thats-it)
+      + [Suggested prompt](#suggested-prompt)* [📍 Step 4: Configure the GPT's name and instructions](#-step-4-configure-the-gpts-name-and-instructions)* [📍 Step 5: Test your GPT](#-step-5-test-your-gpt)* [📍 Step 6: Save and publish (optional)](#-step-6-save-and-publish-optional)* [✅ That's it!](#-thats-it)
 
 Flow
 
@@ -603323,7 +603323,7 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
-# Source: https://developers.flow.com
+# Source: https://developers.flow.com/
 
 Flow Developer Portal
 
@@ -613153,7 +613153,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* arg
 
@@ -616026,12 +616026,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **9a3cf718d8beed3d**
+Cloudflare Ray ID: **9a45378139287cdd**
 •
 
 Your IP:
 Click to reveal
-52.159.229.150
+172.215.209.70
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 

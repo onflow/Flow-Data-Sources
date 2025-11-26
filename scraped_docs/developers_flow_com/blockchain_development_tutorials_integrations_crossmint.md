@@ -127,7 +127,7 @@ If you have trouble during the integrations process, refer to these documentatio
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/integrations/crossmint/index.md)
 
-Last updated on **Nov 12, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
