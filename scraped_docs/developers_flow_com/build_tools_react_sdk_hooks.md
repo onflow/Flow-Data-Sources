@@ -974,7 +974,7 @@ Fetches a Flow transaction by ID and returns the decoded transaction object.
 
 #### Parameters:[​](#parameters-10 "Direct link to Parameters:")
 
-* `txId?: string` – The Flow transaction ID to fetch.
+* `txId?: string` – The Flow transaction ID or scheduled transaction ID to fetch.
 * `query?: Omit<UseQueryOptions<Transaction | null, Error>, "queryKey" | "queryFn">` – Optional TanStack Query options like `staleTime`, `enabled`, etc.
 * `flowClient?: FlowClient` - Optional `FlowClient` instance
 
@@ -1064,7 +1064,7 @@ import { useFlowTransactionStatus } from "@onflow/react-sdk"`
 
 #### Parameters:[​](#parameters-11 "Direct link to Parameters:")
 
-* `id: string` – Transaction ID to subscribe to
+* `id: string` – Transaction ID or scheduled transaction ID to subscribe to
 * `flowClient?: FlowClient` - Optional `FlowClient` instance
 
 #### Returns:[​](#returns-1 "Direct link to Returns:")
@@ -3457,7 +3457,7 @@ _34
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/react-sdk/hooks.md)
 
-Last updated on **Nov 19, 2025** by **Chase Fleming**
+Last updated on **Nov 26, 2025** by **Jordan Ribbink**
 
 [Previous
 

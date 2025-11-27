@@ -266,7 +266,7 @@ Dialog component for real-time transaction status updates.
 
 * `open: boolean` – Whether the dialog is open
 * `onOpenChange: (open: boolean) => void` – Callback to open/close dialog
-* `txId?: string` – Optional Flow transaction ID to track
+* `txId?: string` – Optional Flow transaction ID or scheduled transaction ID to track
 * `onSuccess?: () => void` – Optional callback when transaction is successful
 * `pendingTitle?: string` – Optional custom pending state title
 * `pendingDescription?: string` – Optional custom pending state description
@@ -322,13 +322,13 @@ _11
 
 ### `TransactionLink`[​](#transactionlink "Direct link to transactionlink")
 
-Link to the block explorer with the appropriate network scoped to transaction ID.
+Link to the block explorer with the appropriate network scoped to transaction ID or scheduled transaction ID.
 
 [Open in Playground →](https://react.flow.com/#transactionlink)
 
 **Props:**
 
-* `txId: string` – The transaction ID to link to
+* `txId: string` – The transaction ID or scheduled transaction ID to link to
 * `variant?: ButtonProps["variant"]` – Optional button variant (defaults to `"link"`)
 
 `_10
@@ -677,7 +677,7 @@ _10
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/react-sdk/components.md)
 
-Last updated on **Nov 19, 2025** by **Chase Fleming**
+Last updated on **Nov 26, 2025** by **Jordan Ribbink**
 
 [Previous
 

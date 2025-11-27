@@ -222,6 +222,17 @@ console.log(transaction); // The transactions status and events after being exec
 
 To learn more about `mutate`, check out the [API documentation](/build/tools/clients/fcl-js/packages-docs/fcl/mutate).
 
+## Querying Transaction Results[​](#querying-transaction-results "Direct link to Querying Transaction Results")
+
+When querying transaction results (e.g., via HTTP/REST endpoints like `GET /v1/transaction_results/{id}`), you can provide either:
+
+* A **transaction ID** (256-bit hash as hex string)
+* A **scheduled transaction ID** (UInt64 as decimal string)
+
+The returned result always includes `transaction_id` as the underlying native transaction ID. For scheduled transactions, this will be the system transaction ID that executed the scheduled callback.
+
+Learn more about [Scheduled Transactions](/build/cadence/advanced-concepts/scheduled-transactions).
+
 ## Transaction Finality[​](#transaction-finality "Direct link to Transaction Finality")
 
 As of **FCL v1.15.0**, it is now recommended to use use `onceExecuted` in most cases, leading to a 2.5x reduction in latency when waiting for a transaction result. For example, the following code snippet should be updated from:
@@ -324,7 +335,7 @@ See the following video for demonstration of how to update your code to wait for
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/transactions.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Nov 26, 2025** by **Jordan Ribbink**
 
 [Previous
 
@@ -338,7 +349,7 @@ Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signature
 
 Copy as Markdown
 
-* [Sending Your First Transaction](#sending-your-first-transaction)* [Authorizing a Transaction](#authorizing-a-transaction)* [Transaction Finality](#transaction-finality)
+* [Sending Your First Transaction](#sending-your-first-transaction)* [Authorizing a Transaction](#authorizing-a-transaction)* [Querying Transaction Results](#querying-transaction-results)* [Transaction Finality](#transaction-finality)
 
 Flow
 

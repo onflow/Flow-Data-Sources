@@ -54,7 +54,7 @@ This tutorial will guide you through how to set up Gelato Smart Wallet to activa
 
 info
 
-This tutorial focuses on **EIP-7702** implementation with Gelato Smart Wallet on Flow EVM. EIP-7702 provides a streamlined experience for users. It maintains the same address as their EOA and adds smart wallet capabilities, which activates enhanced features like gasless transactions and improved user experience.
+This tutorial focuses on **EIP-7702** implementation with Gelato Smart Wallet on Flow EVM. EIP-7702 provides a streamlined experience for users. It maintains the same address as their EOA and adds Smart Wallet capabilities, which activates enhanced features like gasless transactions and improved user experience.
 
 ## Objectives[​](#objectives "Direct link to Objectives")
 
@@ -70,11 +70,11 @@ After you complete this guide, you'll be able to:
 
 You need to set up the following in the Gelato App to create a Gelato Sponsor API Key:
 
-### Step 1. create your Gelato account[​](#step-1-create-your-gelato-account "Direct link to Step 1. create your Gelato account")
+### Step 1. Create your Gelato account[​](#step-1-create-your-gelato-account "Direct link to Step 1. Create your Gelato account")
 
 Sign up on the [Gelato App](https://app.gelato.cloud/) to establish an account. This account is the foundation to set up relay tasks and manage gas sponsorships.
 
-### Step 2. deposit funds into 1Balance[​](#step-2-deposit-funds-into-1balance "Direct link to Step 2. deposit funds into 1Balance")
+### Step 2. Deposit funds into 1Balance[​](#step-2-deposit-funds-into-1balance "Direct link to Step 2. Deposit funds into 1Balance")
 
 To use Gelato for sponsored transactions, you need to deposit funds into 1Balance as your target environment requires:
 
@@ -96,7 +96,7 @@ If you need to fund your account, you can use one of the following third-party f
 * [Chainlink Sepolia Faucet](https://faucets.chain.link/sepolia)
 * [Metamask Sepolia Faucet](https://docs.metamask.io/developer-tools/faucet/)
 
-### Step 3. create a relay app[​](#step-3-create-a-relay-app "Direct link to Step 3. create a relay app")
+### Step 3. Create a relay app[​](#step-3-create-a-relay-app "Direct link to Step 3. Create a relay app")
 
 Select the `Relay` tab in the Gelato App and switch to the `Testnet` environment.
 
@@ -151,7 +151,7 @@ yarn add @gelatonetwork/smartwallet viem`
 
 npm install @gelatonetwork/smartwallet viem`
 
-### Step 2. set up a Smart Wallet account[​](#step-2-set-up-a-smart-wallet-account "Direct link to Step 2. set up a Smart Wallet account")
+### Step 2. Set up a Smart Wallet account[​](#step-2-set-up-a-smart-wallet-account "Direct link to Step 2. Set up a Smart Wallet account")
 
 Import required dependencies:
 
@@ -197,8 +197,7 @@ _11
 
 });`
 
-You can set up a Smart Account as per your needs.  
-After you create the `gelato` account, the Gelato Smart Account address will be the same as your EOA, which activates EIP-7702 features.
+You can set up a Smart Account as per your needs. After you create the `gelato` account, the Gelato Smart Account address will be the same as your EOA, which activates EIP-7702 features.
 
 `_10
 
@@ -288,7 +287,7 @@ _10
 
 });`
 
-### Step 3. estimate or send a gasless transaction[​](#step-3-estimate-or-send-a-gasless-transaction "Direct link to Step 3. estimate or send a gasless transaction")
+### Step 3. Estimate or send a gasless transaction[​](#step-3-estimate-or-send-a-gasless-transaction "Direct link to Step 3. Estimate or send a gasless transaction")
 
 Now you can estimate or send a gasless transaction with the Gelato Smart Wallet client.
 
@@ -522,7 +521,7 @@ The combination of Flow's efficient gas prices and Gelato's sponsored transactio
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/integrations/gelato-sw.md)
 
-Last updated on **Nov 12, 2025** by **cshannon1218**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
@@ -537,8 +536,8 @@ Crossmint Integration Guide](/blockchain-development-tutorials/integrations/cros
 Copy as Markdown
 
 * [Objectives](#objectives)* [Prerequisites to use Gelato Smart Wallet](#prerequisites-to-use-gelato-smart-wallet)
-    + [Step 1. create your Gelato account](#step-1-create-your-gelato-account)+ [Step 2. deposit funds into 1Balance](#step-2-deposit-funds-into-1balance)+ [Step 3. create a relay app](#step-3-create-a-relay-app)+ [Step 4. Create or obtain an API key](#step-4-create-or-obtain-an-api-key)* [Send gasless transactions for your users](#send-gasless-transactions-for-your-users)
-      + [Step 1. Install all relevant dependencies](#step-1-install-all-relevant-dependencies)+ [Step 2. set up a Smart Wallet account](#step-2-set-up-a-smart-wallet-account)+ [Step 3. estimate or send a gasless transaction](#step-3-estimate-or-send-a-gasless-transaction)* [Conclusion](#conclusion)
+    + [Step 1. Create your Gelato account](#step-1-create-your-gelato-account)+ [Step 2. Deposit funds into 1Balance](#step-2-deposit-funds-into-1balance)+ [Step 3. Create a relay app](#step-3-create-a-relay-app)+ [Step 4. Create or obtain an API key](#step-4-create-or-obtain-an-api-key)* [Send gasless transactions for your users](#send-gasless-transactions-for-your-users)
+      + [Step 1. Install all relevant dependencies](#step-1-install-all-relevant-dependencies)+ [Step 2. Set up a Smart Wallet account](#step-2-set-up-a-smart-wallet-account)+ [Step 3. Estimate or send a gasless transaction](#step-3-estimate-or-send-a-gasless-transaction)* [Conclusion](#conclusion)
 
 Flow
 
