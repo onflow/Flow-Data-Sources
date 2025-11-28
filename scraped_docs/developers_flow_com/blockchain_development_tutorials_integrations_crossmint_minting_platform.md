@@ -34,7 +34,7 @@ Search
 
                       + [Gelato Smart Wallet](/blockchain-development-tutorials/integrations/gelato-sw)+ [Crossmint Integration Guide](/blockchain-development-tutorials/integrations/crossmint)
 
-                          - [Authentication Integration Guide](/blockchain-development-tutorials/integrations/crossmint/authentication)- [Payment Checkout Integration](/blockchain-development-tutorials/integrations/crossmint/payment-checkout)- [Minting Platform Integration](/blockchain-development-tutorials/integrations/crossmint/minting-platform)
+                          - [Authentication Integration Guide](/blockchain-development-tutorials/integrations/crossmint/authentication)- [Payment Checkout Integration](/blockchain-development-tutorials/integrations/crossmint/payment-checkout)- [Minting Platform Integration](/blockchain-development-tutorials/integrations/crossmint/minting-platform)- [Crossmint Smart Wallets](/blockchain-development-tutorials/integrations/crossmint/smart-wallets)
 
 * * [Third-Party Integrations](/blockchain-development-tutorials/integrations)* [Crossmint Integration Guide](/blockchain-development-tutorials/integrations/crossmint)* Minting Platform Integration
 
@@ -42,30 +42,30 @@ On this page
 
 # Minting Platform Integration Guide
 
-Deploy secure smart contracts and mint tokens at scale on Flow using Crossmint's comprehensive minting platform.
+Deploy secure smart contracts and mint tokens at scale on Flow with Crossmint's comprehensive minting platform.
 
 ## Overview[​](#overview "Direct link to Overview")
 
 Crossmint's minting platform provides no-code tools and powerful APIs to create, mint, update, burn, and airdrop tokens on Flow.
 
-> **Key Benefits:**
->
-> * Deploy secure smart contracts without coding
-> * Mint, update, burn, and airdrop tokens at scale
-> * Manage metadata and collections
-> * Flow EVM and Cadence support
+> **Key benefits:**
+
+> * Deploy secure smart contracts without coding.
+> * Mint, update, burn, and airdrop tokens at scale.
+> * Manage metadata and collections.
+> * Flow EVM and Cadence support.
 
 ---
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-* Crossmint account with minting enabled
-* Flow development environment
-* Basic understanding of NFT standards
+* Crossmint account with minting activated.
+* Flow development environment.
+* Basic knowledge of NFT standards.
 
-## Step 1: Deploy Smart Contract[​](#step-1-deploy-smart-contract "Direct link to Step 1: Deploy Smart Contract")
+## Step 1: Deploy smart contract[​](#step-1-deploy-smart-contract "Direct link to Step 1: Deploy smart contract")
 
-### No-Code Contract Deployment[​](#no-code-contract-deployment "Direct link to No-Code Contract Deployment")
+### No-code contract deployment[​](#no-code-contract-deployment "Direct link to No-code contract deployment")
 
 1. Go to Crossmint Console > **Collections**
 2. Click **Create Collection**
@@ -75,7 +75,7 @@ Crossmint's minting platform provides no-code tools and powerful APIs to create,
    * Royalty settings
    * Access controls
 
-### API Contract Deployment[​](#api-contract-deployment "Direct link to API Contract Deployment")
+### API contract deployment[​](#api-contract-deployment "Direct link to API contract deployment")
 
 `_15
 
@@ -137,9 +137,9 @@ _15
 
 });`
 
-## Step 2: Mint NFTs[​](#step-2-mint-nfts "Direct link to Step 2: Mint NFTs")
+## Step 2: mint NFTs[​](#step-2-mint-nfts "Direct link to Step 2: mint NFTs")
 
-### Single NFT Minting[​](#single-nft-minting "Direct link to Single NFT Minting")
+### Single NFT minting[​](#single-nft-minting "Direct link to Single NFT minting")
 
 `_13
 
@@ -193,7 +193,7 @@ _13
 
 });`
 
-### Batch Minting[​](#batch-minting "Direct link to Batch Minting")
+### Batch minting[​](#batch-minting "Direct link to Batch minting")
 
 `_10
 
@@ -223,7 +223,7 @@ _10
 
 });`
 
-## Step 3: Airdrops[​](#step-3-airdrops "Direct link to Step 3: Airdrops")
+## Step 3: airdrops[​](#step-3-airdrops "Direct link to Step 3: airdrops")
 
 `_10
 
@@ -259,11 +259,13 @@ _10
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/integrations/crossmint/minting-platform.md)
 
-Last updated on **Aug 17, 2025** by **0xLisanAlGaib**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
-Payment Checkout Integration](/blockchain-development-tutorials/integrations/crossmint/payment-checkout)
+Payment Checkout Integration](/blockchain-development-tutorials/integrations/crossmint/payment-checkout)[Next
+
+Crossmint Smart Wallets](/blockchain-development-tutorials/integrations/crossmint/smart-wallets)
 
 ###### Rate this page
 
@@ -271,9 +273,9 @@ Payment Checkout Integration](/blockchain-development-tutorials/integrations/cro
 
 Copy as Markdown
 
-* [Overview](#overview)* [Prerequisites](#prerequisites)* [Step 1: Deploy Smart Contract](#step-1-deploy-smart-contract)
-      + [No-Code Contract Deployment](#no-code-contract-deployment)+ [API Contract Deployment](#api-contract-deployment)* [Step 2: Mint NFTs](#step-2-mint-nfts)
-        + [Single NFT Minting](#single-nft-minting)+ [Batch Minting](#batch-minting)* [Step 3: Airdrops](#step-3-airdrops)
+* [Overview](#overview)* [Prerequisites](#prerequisites)* [Step 1: Deploy smart contract](#step-1-deploy-smart-contract)
+      + [No-code contract deployment](#no-code-contract-deployment)+ [API contract deployment](#api-contract-deployment)* [Step 2: mint NFTs](#step-2-mint-nfts)
+        + [Single NFT minting](#single-nft-minting)+ [Batch minting](#batch-minting)* [Step 3: airdrops](#step-3-airdrops)
 
 Flow
 

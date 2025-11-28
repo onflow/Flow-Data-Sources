@@ -359,11 +359,13 @@ _13
 
 Opt-in wallets are those that don't have support for authentication, authorization, and user signature services. Or, support only a limited set of transactions.
 
-To include opt-in wallets from FCL:
+You can include opt-in wallets using either **wallet UIDs** (recommended) or service account addresses:
+
+**Using Wallet UIDs (Recommended):**
 
 `_10
 
-import * as fcl from "@onflow/fcl"
+import * as fcl from '@onflow/fcl';
 
 _10
 
@@ -373,35 +375,107 @@ fcl.config({
 
 _10
 
-"discovery.wallet": "https://fcl-discovery.onflow.org/testnet/authn",
+'discovery.wallet': 'https://fcl-discovery.onflow.org/testnet/authn',
 
 _10
 
-"discovery.authn.endpoint": "https://fcl-discovery.onflow.org/api/testnet/authn",
+'discovery.authn.endpoint':
 
 _10
 
-"discovery.authn.include": ["0x123"] // Service account address
+'https://fcl-discovery.onflow.org/api/testnet/authn',
 
 _10
 
-})`
+'discovery.authn.include': ['dapper-wallet', 'ledger'], // Wallet UIDs
 
-**Opt-In Wallet Addresses on Testnet and Mainnet**
+_10
 
-|  |  |  |  |  |  |  |  |  |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Service Testnet Mainnet|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | `Dapper Wallet` 0x82ec283f88a62e65 0xead892083b3e2c6c|  |  |  | | --- | --- | --- | | `Ledger` 0x9d2e44203cb13051 0xe5cd26afebe62781 | | | | | | | | |
+});`
+
+**Using Service Account Addresses:**
+
+`_10
+
+import * as fcl from '@onflow/fcl';
+
+_10
+
+_10
+
+fcl.config({
+
+_10
+
+'discovery.wallet': 'https://fcl-discovery.onflow.org/testnet/authn',
+
+_10
+
+'discovery.authn.endpoint':
+
+_10
+
+'https://fcl-discovery.onflow.org/api/testnet/authn',
+
+_10
+
+'discovery.authn.include': ['0x82ec283f88a62e65', '0x9d2e44203cb13051'], // Testnet addresses
+
+_10
+
+});`
+
+**Opt-In Wallet Identifiers**
+
+|  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Wallet Wallet UID Mainnet Address Testnet Address|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | Dapper Wallet `dapper-wallet` 0xead892083b3e2c6c 0x82ec283f88a62e65|  |  |  |  | | --- | --- | --- | --- | | Ledger `ledger` 0xe5cd26afebe62781 0x9d2e44203cb13051 | | | | | | | | | | | |
 
 To learn more about other possible configurations, check out the [Discovery Github Repo](https://github.com/onflow/fcl-discovery).
 
 ### Exclude Wallets[​](#exclude-wallets "Direct link to Exclude Wallets")
 
-To exclude wallets from FCL Discovery, you can use the `discovery.authn.exclude` configuration option. This allows you to specify a list of service account addresses that you want to hide from the Discovery UI or API.
+To exclude wallets from FCL Discovery, you can use the `discovery.authn.exclude` configuration option. You can specify wallets using either **wallet UIDs** (recommended) or service account addresses:
+
+**Using Wallet UIDs (Recommended):**
 
 `_10
 
 import * as fcl from '@onflow/fcl';
+
+_10
+
+_10
+
+fcl.config({
+
+_10
+
+'discovery.wallet': 'https://fcl-discovery.onflow.org/testnet/authn',
+
+_10
+
+'discovery.authn.endpoint':
+
+_10
+
+'https://fcl-discovery.onflow.org/api/testnet/authn',
+
+_10
+
+'discovery.authn.exclude': ['nufi'], // Wallet UIDs to exclude
+
+_10
+
+});`
+
+**Using Service Account Addresses:**
+
+`_10
+
+import * as fcl from '@onflow/fcl';
+
+_10
 
 _10
 
@@ -427,6 +501,18 @@ _10
 
 });`
 
+**Available Wallet UIDs**
+
+You can use any of the following wallet identifiers with `discovery.authn.include` or `discovery.authn.exclude`:
+
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Wallet UID Mainnet Address Testnet Address Type|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Flow Wallet `flow-wallet` 0x33f75ff0b830dcec 0x33f75ff0b830dcec Default|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | NuFi `nufi` 0x95b85a9ef4daabb1 - Default|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Blocto `blocto` 0x55ad22f01ef568a1 0x55ad22f01ef568a1 Default|  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Dapper Wallet `dapper-wallet` 0xead892083b3e2c6c 0x82ec283f88a62e65 Opt-in|  |  |  |  |  | | --- | --- | --- | --- | --- | | Ledger `ledger` 0xe5cd26afebe62781 0x9d2e44203cb13051 Opt-in | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+
+> **Note**: Default wallets appear in Discovery by default. Opt-in wallets must be explicitly included using `discovery.authn.include`. You can use either the wallet UID or the service account address for filtering.
+>
+> For the most up-to-date list of available wallets, see the [fcl-discovery wallet data](https://github.com/onflow/fcl-discovery/tree/master/data/wallets) in the official repository.
+
 ### WalletConnect Configuration[​](#walletconnect-configuration "Direct link to WalletConnect Configuration")
 
 To configure WalletConnect, add a WalletConnect project ID to the FCL config:
@@ -451,7 +537,7 @@ _10
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/discovery.md)
 
-Last updated on **Nov 18, 2025** by **Chase Fleming**
+Last updated on **Nov 26, 2025** by **Jordan Ribbink**
 
 [Previous
 

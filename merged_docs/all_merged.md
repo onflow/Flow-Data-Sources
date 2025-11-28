@@ -187961,6 +187961,8 @@ authorization | Flow Developer Portal
 
 
 
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
 [![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
@@ -187997,7 +187999,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* authorization
 
@@ -197769,7 +197771,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* getEvents
 
@@ -210153,7 +210155,7 @@ Search
 
                       + [Gelato Smart Wallet](/blockchain-development-tutorials/integrations/gelato-sw)+ [Crossmint Integration Guide](/blockchain-development-tutorials/integrations/crossmint)
 
-                          - [Authentication Integration Guide](/blockchain-development-tutorials/integrations/crossmint/authentication)- [Payment Checkout Integration](/blockchain-development-tutorials/integrations/crossmint/payment-checkout)- [Minting Platform Integration](/blockchain-development-tutorials/integrations/crossmint/minting-platform)
+                          - [Authentication Integration Guide](/blockchain-development-tutorials/integrations/crossmint/authentication)- [Payment Checkout Integration](/blockchain-development-tutorials/integrations/crossmint/payment-checkout)- [Minting Platform Integration](/blockchain-development-tutorials/integrations/crossmint/minting-platform)- [Crossmint Smart Wallets](/blockchain-development-tutorials/integrations/crossmint/smart-wallets)
 
 * * [Third-Party Integrations](/blockchain-development-tutorials/integrations)* [Crossmint Integration Guide](/blockchain-development-tutorials/integrations/crossmint)* Minting Platform Integration
 
@@ -210161,30 +210163,30 @@ On this page
 
 # Minting Platform Integration Guide
 
-Deploy secure smart contracts and mint tokens at scale on Flow using Crossmint's comprehensive minting platform.
+Deploy secure smart contracts and mint tokens at scale on Flow with Crossmint's comprehensive minting platform.
 
 ## Overview[​](#overview "Direct link to Overview")
 
 Crossmint's minting platform provides no-code tools and powerful APIs to create, mint, update, burn, and airdrop tokens on Flow.
 
-> **Key Benefits:**
->
-> * Deploy secure smart contracts without coding
-> * Mint, update, burn, and airdrop tokens at scale
-> * Manage metadata and collections
-> * Flow EVM and Cadence support
+> **Key benefits:**
+
+> * Deploy secure smart contracts without coding.
+> * Mint, update, burn, and airdrop tokens at scale.
+> * Manage metadata and collections.
+> * Flow EVM and Cadence support.
 
 ---
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-* Crossmint account with minting enabled
-* Flow development environment
-* Basic understanding of NFT standards
+* Crossmint account with minting activated.
+* Flow development environment.
+* Basic knowledge of NFT standards.
 
-## Step 1: Deploy Smart Contract[​](#step-1-deploy-smart-contract "Direct link to Step 1: Deploy Smart Contract")
+## Step 1: Deploy smart contract[​](#step-1-deploy-smart-contract "Direct link to Step 1: Deploy smart contract")
 
-### No-Code Contract Deployment[​](#no-code-contract-deployment "Direct link to No-Code Contract Deployment")
+### No-code contract deployment[​](#no-code-contract-deployment "Direct link to No-code contract deployment")
 
 1. Go to Crossmint Console > **Collections**
 2. Click **Create Collection**
@@ -210194,7 +210196,7 @@ Crossmint's minting platform provides no-code tools and powerful APIs to create,
    * Royalty settings
    * Access controls
 
-### API Contract Deployment[​](#api-contract-deployment "Direct link to API Contract Deployment")
+### API contract deployment[​](#api-contract-deployment "Direct link to API contract deployment")
 
 `_15
 
@@ -210256,9 +210258,9 @@ _15
 
 });`
 
-## Step 2: Mint NFTs[​](#step-2-mint-nfts "Direct link to Step 2: Mint NFTs")
+## Step 2: mint NFTs[​](#step-2-mint-nfts "Direct link to Step 2: mint NFTs")
 
-### Single NFT Minting[​](#single-nft-minting "Direct link to Single NFT Minting")
+### Single NFT minting[​](#single-nft-minting "Direct link to Single NFT minting")
 
 `_13
 
@@ -210312,7 +210314,7 @@ _13
 
 });`
 
-### Batch Minting[​](#batch-minting "Direct link to Batch Minting")
+### Batch minting[​](#batch-minting "Direct link to Batch minting")
 
 `_10
 
@@ -210342,7 +210344,7 @@ _10
 
 });`
 
-## Step 3: Airdrops[​](#step-3-airdrops "Direct link to Step 3: Airdrops")
+## Step 3: airdrops[​](#step-3-airdrops "Direct link to Step 3: airdrops")
 
 `_10
 
@@ -210378,11 +210380,13 @@ _10
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/integrations/crossmint/minting-platform.md)
 
-Last updated on **Aug 17, 2025** by **0xLisanAlGaib**
+Last updated on **Nov 19, 2025** by **cshannon1218**
 
 [Previous
 
-Payment Checkout Integration](/blockchain-development-tutorials/integrations/crossmint/payment-checkout)
+Payment Checkout Integration](/blockchain-development-tutorials/integrations/crossmint/payment-checkout)[Next
+
+Crossmint Smart Wallets](/blockchain-development-tutorials/integrations/crossmint/smart-wallets)
 
 ###### Rate this page
 
@@ -210390,9 +210394,9 @@ Payment Checkout Integration](/blockchain-development-tutorials/integrations/cro
 
 Copy as Markdown
 
-* [Overview](#overview)* [Prerequisites](#prerequisites)* [Step 1: Deploy Smart Contract](#step-1-deploy-smart-contract)
-      + [No-Code Contract Deployment](#no-code-contract-deployment)+ [API Contract Deployment](#api-contract-deployment)* [Step 2: Mint NFTs](#step-2-mint-nfts)
-        + [Single NFT Minting](#single-nft-minting)+ [Batch Minting](#batch-minting)* [Step 3: Airdrops](#step-3-airdrops)
+* [Overview](#overview)* [Prerequisites](#prerequisites)* [Step 1: Deploy smart contract](#step-1-deploy-smart-contract)
+      + [No-code contract deployment](#no-code-contract-deployment)+ [API contract deployment](#api-contract-deployment)* [Step 2: mint NFTs](#step-2-mint-nfts)
+        + [Single NFT minting](#single-nft-minting)+ [Batch minting](#batch-minting)* [Step 3: airdrops](#step-3-airdrops)
 
 Flow
 
@@ -226607,8 +226611,8 @@ This starts a local Flow network with:
   + `--computation-reporting`: Enable computation reporting
   + `--legacy-upgrade`: Enable legacy contract upgrade behavior
   + `--scheduled-transactions`: Enable scheduled transactions (default true)
-  + `--script-gas-limit <int>`: Gas limit for scripts (default `100000`)
-  + `--transaction-max-gas-limit <int>`: Max transaction gas limit (default `9999`)
+  + `--script-compute-limit <int>`: Compute unit limit for scripts (default `100000`)
+  + `--transaction-max-compute-limit <int>`: Max transaction compute unit limit (default `9999`)
   + `--transaction-expiry <int>`: Transaction expiry in blocks (default `10`)
   + `--skip-tx-validation`: Skip tx signature and sequence number checks
   + `--simple-addresses`: Use sequential addresses starting with `0x01`
@@ -226828,7 +226832,7 @@ To learn more about using the Emulator, please have a look at the [public GitHub
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/emulator/index.md)
 
-Last updated on **Oct 29, 2025** by **Jordan Ribbink**
+Last updated on **Nov 12, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -269477,7 +269481,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* getAccount
 
@@ -532398,11 +532402,13 @@ _13
 
 Opt-in wallets are those that don't have support for authentication, authorization, and user signature services. Or, support only a limited set of transactions.
 
-To include opt-in wallets from FCL:
+You can include opt-in wallets using either **wallet UIDs** (recommended) or service account addresses:
+
+**Using Wallet UIDs (Recommended):**
 
 `_10
 
-import * as fcl from "@onflow/fcl"
+import * as fcl from '@onflow/fcl';
 
 _10
 
@@ -532412,35 +532418,107 @@ fcl.config({
 
 _10
 
-"discovery.wallet": "https://fcl-discovery.onflow.org/testnet/authn",
+'discovery.wallet': 'https://fcl-discovery.onflow.org/testnet/authn',
 
 _10
 
-"discovery.authn.endpoint": "https://fcl-discovery.onflow.org/api/testnet/authn",
+'discovery.authn.endpoint':
 
 _10
 
-"discovery.authn.include": ["0x123"] // Service account address
+'https://fcl-discovery.onflow.org/api/testnet/authn',
 
 _10
 
-})`
+'discovery.authn.include': ['dapper-wallet', 'ledger'], // Wallet UIDs
 
-**Opt-In Wallet Addresses on Testnet and Mainnet**
+_10
 
-|  |  |  |  |  |  |  |  |  |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Service Testnet Mainnet|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | `Dapper Wallet` 0x82ec283f88a62e65 0xead892083b3e2c6c|  |  |  | | --- | --- | --- | | `Ledger` 0x9d2e44203cb13051 0xe5cd26afebe62781 | | | | | | | | |
+});`
+
+**Using Service Account Addresses:**
+
+`_10
+
+import * as fcl from '@onflow/fcl';
+
+_10
+
+_10
+
+fcl.config({
+
+_10
+
+'discovery.wallet': 'https://fcl-discovery.onflow.org/testnet/authn',
+
+_10
+
+'discovery.authn.endpoint':
+
+_10
+
+'https://fcl-discovery.onflow.org/api/testnet/authn',
+
+_10
+
+'discovery.authn.include': ['0x82ec283f88a62e65', '0x9d2e44203cb13051'], // Testnet addresses
+
+_10
+
+});`
+
+**Opt-In Wallet Identifiers**
+
+|  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Wallet Wallet UID Mainnet Address Testnet Address|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | Dapper Wallet `dapper-wallet` 0xead892083b3e2c6c 0x82ec283f88a62e65|  |  |  |  | | --- | --- | --- | --- | | Ledger `ledger` 0xe5cd26afebe62781 0x9d2e44203cb13051 | | | | | | | | | | | |
 
 To learn more about other possible configurations, check out the [Discovery Github Repo](https://github.com/onflow/fcl-discovery).
 
 ### Exclude Wallets[​](#exclude-wallets "Direct link to Exclude Wallets")
 
-To exclude wallets from FCL Discovery, you can use the `discovery.authn.exclude` configuration option. This allows you to specify a list of service account addresses that you want to hide from the Discovery UI or API.
+To exclude wallets from FCL Discovery, you can use the `discovery.authn.exclude` configuration option. You can specify wallets using either **wallet UIDs** (recommended) or service account addresses:
+
+**Using Wallet UIDs (Recommended):**
 
 `_10
 
 import * as fcl from '@onflow/fcl';
+
+_10
+
+_10
+
+fcl.config({
+
+_10
+
+'discovery.wallet': 'https://fcl-discovery.onflow.org/testnet/authn',
+
+_10
+
+'discovery.authn.endpoint':
+
+_10
+
+'https://fcl-discovery.onflow.org/api/testnet/authn',
+
+_10
+
+'discovery.authn.exclude': ['nufi'], // Wallet UIDs to exclude
+
+_10
+
+});`
+
+**Using Service Account Addresses:**
+
+`_10
+
+import * as fcl from '@onflow/fcl';
+
+_10
 
 _10
 
@@ -532466,6 +532544,18 @@ _10
 
 });`
 
+**Available Wallet UIDs**
+
+You can use any of the following wallet identifiers with `discovery.authn.include` or `discovery.authn.exclude`:
+
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Wallet UID Mainnet Address Testnet Address Type|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Flow Wallet `flow-wallet` 0x33f75ff0b830dcec 0x33f75ff0b830dcec Default|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | NuFi `nufi` 0x95b85a9ef4daabb1 - Default|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Blocto `blocto` 0x55ad22f01ef568a1 0x55ad22f01ef568a1 Default|  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Dapper Wallet `dapper-wallet` 0xead892083b3e2c6c 0x82ec283f88a62e65 Opt-in|  |  |  |  |  | | --- | --- | --- | --- | --- | | Ledger `ledger` 0xe5cd26afebe62781 0x9d2e44203cb13051 Opt-in | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+
+> **Note**: Default wallets appear in Discovery by default. Opt-in wallets must be explicitly included using `discovery.authn.include`. You can use either the wallet UID or the service account address for filtering.
+>
+> For the most up-to-date list of available wallets, see the [fcl-discovery wallet data](https://github.com/onflow/fcl-discovery/tree/master/data/wallets) in the official repository.
+
 ### WalletConnect Configuration[​](#walletconnect-configuration "Direct link to WalletConnect Configuration")
 
 To configure WalletConnect, add a WalletConnect project ID to the FCL config:
@@ -532490,7 +532580,7 @@ _10
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/discovery.md)
 
-Last updated on **Nov 18, 2025** by **Chase Fleming**
+Last updated on **Nov 26, 2025** by **Jordan Ribbink**
 
 [Previous
 
@@ -547018,7 +547108,7 @@ Search
 
                             + [Type Definitions](/build/tools/clients/fcl-js/packages-docs/types)* [Authentication](/build/tools/clients/fcl-js/authentication)* [How to Configure FCL](/build/tools/clients/fcl-js/configure-fcl)* [Cross VM Packages](/build/tools/clients/fcl-js/cross-vm)
 
-                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)* [WalletConnect 2.0 Manual Configuration](/build/tools/clients/fcl-js/wallet-connect)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
+                              * [Wallet Discovery](/build/tools/clients/fcl-js/discovery)* [Installation](/build/tools/clients/fcl-js/installation)* [Interaction Templates](/build/tools/clients/fcl-js/interaction-templates)* [Proving Ownership of a Flow Account](/build/tools/clients/fcl-js/proving-authentication)* [Scripts](/build/tools/clients/fcl-js/scripts)* [Transactions](/build/tools/clients/fcl-js/transactions)* [Signing and Verifying Arbitrary Data](/build/tools/clients/fcl-js/user-signatures)- [Flow Go SDK](/build/tools/clients/flow-go-sdk)+ [Error Codes](/build/tools/error-codes)+ [Wallet Provider Spec](/build/tools/wallet-provider-spec)
 
 * * [Tools & SDKs](/build/tools)* [Client Tools](/build/tools/clients)* [Flow Client Library (FCL)](/build/tools/clients/fcl-js)* [Packages Docs](/build/tools/clients/fcl-js/packages-docs)* [@onflow/fcl](/build/tools/clients/fcl-js/packages-docs/fcl)* getNetworkParameters
 
@@ -547377,87 +547467,91 @@ _24
 
 * Type:
 
-`_21
+`_22
 
 export interface FlowClientConfig {
 
-_21
+_22
 
 accessNodeUrl: string
 
-_21
+_22
 
 flowNetwork?: string
 
-_21
+_22
 
 flowJson?: any
 
-_21
+_22
 
 discoveryWallet?: string
 
-_21
+_22
 
 discoveryWalletMethod?: string
 
-_21
+_22
 
 discoveryAuthnEndpoint?: string
 
-_21
+_22
 
 discoveryAuthnInclude?: string[]
 
-_21
+_22
+
+discoveryAuthnExclude?: string[]
+
+_22
 
 walletconnectProjectId?: string
 
-_21
+_22
 
 walletconnectDisableNotifications?: boolean
 
-_21
+_22
 
 storage?: StorageProvider
 
-_21
+_22
 
 appDetailTitle?: string
 
-_21
+_22
 
 appDetailIcon?: string
 
-_21
+_22
 
 appDetailDescription?: string
 
-_21
+_22
 
 appDetailUrl?: string
 
-_21
+_22
 
 serviceOpenIdScopes?: string[]
 
-_21
+_22
 
 transport?: SdkTransport
 
-_21
+_22
 
 computeLimit?: number
 
-_21
+_22
 
 customResolver?: any
 
-_21
+_22
 
 customDecoders?: any
 
-_21
+_22
 
 }`
 
@@ -547695,7 +547789,7 @@ A Flow client object with methods for interacting with the Flow blockchain
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/createFlowClient.md)
 
-Last updated on **Nov 10, 2025** by **Michael Fabozzi**
+Last updated on **Nov 26, 2025** by **Jordan Ribbink**
 
 [Previous
 
@@ -603342,7 +603436,7 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
-# Source: https://developers.flow.com/
+# Source: https://developers.flow.com
 
 Flow Developer Portal
 
@@ -616045,12 +616139,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **9a4d742f28703ab5**
+Cloudflare Ray ID: **9a55b04e59a2dd56**
 •
 
 Your IP:
 Click to reveal
-172.215.208.194
+64.236.141.208
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 

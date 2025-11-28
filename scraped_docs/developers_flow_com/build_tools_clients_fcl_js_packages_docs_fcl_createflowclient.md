@@ -187,87 +187,91 @@ _24
 
 * Type:
 
-`_21
+`_22
 
 export interface FlowClientConfig {
 
-_21
+_22
 
 accessNodeUrl: string
 
-_21
+_22
 
 flowNetwork?: string
 
-_21
+_22
 
 flowJson?: any
 
-_21
+_22
 
 discoveryWallet?: string
 
-_21
+_22
 
 discoveryWalletMethod?: string
 
-_21
+_22
 
 discoveryAuthnEndpoint?: string
 
-_21
+_22
 
 discoveryAuthnInclude?: string[]
 
-_21
+_22
+
+discoveryAuthnExclude?: string[]
+
+_22
 
 walletconnectProjectId?: string
 
-_21
+_22
 
 walletconnectDisableNotifications?: boolean
 
-_21
+_22
 
 storage?: StorageProvider
 
-_21
+_22
 
 appDetailTitle?: string
 
-_21
+_22
 
 appDetailIcon?: string
 
-_21
+_22
 
 appDetailDescription?: string
 
-_21
+_22
 
 appDetailUrl?: string
 
-_21
+_22
 
 serviceOpenIdScopes?: string[]
 
-_21
+_22
 
 transport?: SdkTransport
 
-_21
+_22
 
 computeLimit?: number
 
-_21
+_22
 
 customResolver?: any
 
-_21
+_22
 
 customDecoders?: any
 
-_21
+_22
 
 }`
 
@@ -505,7 +509,7 @@ A Flow client object with methods for interacting with the Flow blockchain
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/clients/fcl-js/packages-docs/fcl/createFlowClient.md)
 
-Last updated on **Nov 10, 2025** by **Michael Fabozzi**
+Last updated on **Nov 26, 2025** by **Jordan Ribbink**
 
 [Previous
 
