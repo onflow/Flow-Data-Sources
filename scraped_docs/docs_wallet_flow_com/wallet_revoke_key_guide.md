@@ -88,4 +88,4 @@ After revoking, the key will be marked as **Revoked**, and access using that key
 
 [PreviousMobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 
-Last updated 4 months ago
+Last updated 5 months ago

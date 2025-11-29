@@ -520229,7 +520229,7 @@ Comprehensive tutorials for building on Flow EVM using Solidity smart contracts 
   + [Wagmi Integration](/blockchain-development-tutorials/evm/frameworks/wagmi) - Integrate wagmi React hooks with Flow EVM for type-safe Ethereum interactions, wallet management, and smart contract integration in React applications.
   + [Ethers.js Integration](/blockchain-development-tutorials/evm/frameworks/ethers) - Connect to Flow EVM using Ethers.js library for blockchain interactions, smart contract deployment, and transaction management in JavaScript applications.
   + [Web3.js Integration](/blockchain-development-tutorials/evm/frameworks/web3-js) - Use Web3.js library to interact with Flow EVM, covering wallet connections, smart contract interactions, and transaction handling in JavaScript applications.
-* [Build a Fully-Onchain Image Gallery](/blockchain-development-tutorials/evm/image-gallery) - Learn how to store images up to approximately 32kb onchain on Flow EVM using Solidity smart contracts and Next.js frontend with gas-efficient blockchain storage.
+* [Build a Fully-Onchain Image Gallery](/blockchain-development-tutorials/evm/image-gallery) - Learn how to store images up to approximately 32kb onchain on Flow EVM using Solidity smart contracts and Next.js frontend. Spend millions of gas for less than a tenth of a cent.
 
 ## [Token Development](/blockchain-development-tutorials/tokens)[​](#token-development "Direct link to token-development")
 
@@ -520247,7 +520247,7 @@ Build applications that span both Flow EVM and Cadence virtual machines, enablin
 * [Cross-VM Application Introduction](/blockchain-development-tutorials/cross-vm-apps/introduction) - Introduction to building applications that leverage both Flow EVM and Cadence environments for enhanced functionality and cross-VM asset management.
 * [Add Flow Cadence to Your wagmi App](/blockchain-development-tutorials/cross-vm-apps/add-to-wagmi) - Integrate cross-VM functionality with wagmi React hooks to enable seamless interactions between Flow EVM and Cadence environments in frontend applications.
 * [Interacting with COAs](/blockchain-development-tutorials/cross-vm-apps/interacting-with-coa) - Interact with Cadence-Owned Accounts (COA) to bridge assets and functionality between Cadence and EVM environments on Flow blockchain.
-* [Batched EVM Transactions](/blockchain-development-tutorials/cross-vm-apps/batched-evm-transactions) - Execute batched transactions on Flow EVM to improve efficiency and enable atomic multi-operation workflows with reduced gas costs.
+* [Batched EVM Transactions](/blockchain-development-tutorials/cross-vm-apps/batched-evm-transactions) - Execute batched transactions on Flow EVM to improve efficiency and enable atomic multi-operation workflows.
 * [Direct Calls](/blockchain-development-tutorials/cross-vm-apps/direct-calls) - Make direct calls between Cadence and EVM environments on Flow for seamless cross-VM smart contract interactions and data exchange.
 * [Cross-VM Bridge](/blockchain-development-tutorials/cross-vm-apps/vm-bridge) - Use the VM Bridge to transfer assets and data between Flow's Cadence and EVM environments for cross-VM application development.
 
@@ -520262,7 +520262,7 @@ Tutorials for using Flow's native Verifiable Random Function (VRF) to generate c
 
 Implement gasless transaction patterns on Flow to improve user experience by removing the need for users to hold native tokens for gas fees.
 
-* [Gas-Free EVM Endpoint](/blockchain-development-tutorials/gasless-transactions/sponsored-transactions-evm-endpoint) - Use Flow's gas-free EVM endpoint to enable sponsored transactions that remove gas fee barriers for users interacting with EVM smart contracts.
+* [Gas-Free EVM Endpoint](/blockchain-development-tutorials/gasless-transactions/sponsored-transactions-evm-endpoint) - Build a sponsored transaction EVM endpoint to enable sponsored transactions that remove gas fee barriers for users interacting with EVM smart contracts.
 
 ## [Use AI to Build on the Flow Blockchain](/blockchain-development-tutorials/use-AI-to-build-on-flow)[​](#use-ai-to-build-on-the-flow-blockchain "Direct link to use-ai-to-build-on-the-flow-blockchain")
 
@@ -520300,7 +520300,7 @@ Flow will continue to provide quality walkthroughs and tutorials to provide deve
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/index.md)
 
-Last updated on **Oct 30, 2025** by **Jordan Ribbink**
+Last updated on **Nov 12, 2025** by **Brian Doyle**
 
 [Next
 
@@ -615051,7 +615051,7 @@ After revoking, the key will be marked as **Revoked**, and access using that key
 
 [PreviousMobile Wallet Export Log Guide](/tutorial/mobile-wallet-export-log-guide)
 
-Last updated 4 months ago
+Last updated 5 months ago
 
 
 
@@ -616139,12 +616139,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **9a55b04e59a2dd56**
+Cloudflare Ray ID: **9a5dedaeea456f64**
 •
 
 Your IP:
 Click to reveal
-64.236.141.208
+132.196.80.134
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 
