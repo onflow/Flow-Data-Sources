@@ -8,7 +8,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -2457,7 +2457,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -5216,7 +5216,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -5657,7 +5657,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -6410,7 +6410,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -6986,7 +6986,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -11260,7 +11260,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -11378,7 +11378,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -12873,7 +12873,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -14204,7 +14204,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -14917,7 +14917,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -15045,7 +15045,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -15217,7 +15217,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -16378,7 +16378,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -16386,9 +16386,7 @@ Search
 
 * [Ecosystem Index](/ecosystem)* [Developer Support Hub](/ecosystem/developer-support-hub)
 
-    * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
-
-                * [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
+    * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
 
 * * Auditors
 
@@ -29319,7 +29317,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -30346,7 +30344,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -31239,7 +31237,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -31678,7 +31676,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -32468,7 +32466,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -35751,7 +35749,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -36556,7 +36554,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -37201,7 +37199,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -40541,7 +40539,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -40549,9 +40547,7 @@ Search
 
 * [Ecosystem Index](/ecosystem)* [Developer Support Hub](/ecosystem/developer-support-hub)
 
-    * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
-
-                * [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
+    * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
 
 * * Bridges
 
@@ -42906,7 +42902,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -44236,7 +44232,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -46151,7 +46147,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -47596,7 +47592,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -47604,9 +47600,7 @@ Search
 
 * [Ecosystem Index](/ecosystem)* [Developer Support Hub](/ecosystem/developer-support-hub)
 
-    * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
-
-                * [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
+    * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
 
 * * Developer Profile
 
@@ -47741,7 +47735,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -50007,7 +50001,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -54080,7 +54074,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -56739,7 +56733,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -63605,7 +63599,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -63683,7 +63677,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -63945,7 +63939,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -64930,7 +64924,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -65276,7 +65270,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -65592,7 +65586,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -66400,7 +66394,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -67127,7 +67121,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -68664,7 +68658,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -73204,7 +73198,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -74398,7 +74392,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -75427,7 +75421,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -83207,7 +83201,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -84624,7 +84618,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -85695,7 +85689,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -85703,9 +85697,7 @@ Search
 
 * [Ecosystem Index](/ecosystem)* [Developer Support Hub](/ecosystem/developer-support-hub)
 
-    * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
-
-                * [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
+    * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
 
 * * Hackathons and Events
 
@@ -85800,7 +85792,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -90625,7 +90617,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -97731,7 +97723,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -98482,7 +98474,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -99913,7 +99905,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -104497,7 +104489,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -105968,7 +105960,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -107898,7 +107890,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -112194,7 +112186,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -115371,7 +115363,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -116426,7 +116418,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -117085,7 +117077,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -117227,7 +117219,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -118268,7 +118260,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -119122,7 +119114,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -119154,7 +119146,7 @@ Search
 
 [## Why Flow
 
-Flow is the best blockchain for onchain consumer apps and Web3 apps. It's scalable, EVM-equivalent, with native account abstraction and a unique multi-role architecture supporting both Cadence and Solidity development.](/build/flow)
+Flow is a purpose-built L1 blockchain designed for large-scale consumer finance applications and automated DeFi. It's the leading consumer layer-one network with Flow Actions, Scheduled Transactions, and support for both Cadence and Solidity development.](/build/flow)
 
 [## 🗃️ Cadence
 
@@ -121131,7 +121123,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -124149,7 +124141,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -134791,7 +134783,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -141138,7 +141130,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -141881,7 +141873,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -142665,7 +142657,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -147815,7 +147807,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -149708,7 +149700,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -151323,7 +151315,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -152758,7 +152750,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -157598,7 +157590,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -160067,7 +160059,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -162359,7 +162351,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -163172,7 +163164,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -163781,7 +163773,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -166102,7 +166094,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -166365,7 +166357,7 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 
 # Source: https://developers.flow.com/build/flow
 
-Why Flow - The Best Blockchain for Consumer Apps and Web3 Development | Flow Developer Portal
+Why Flow - The Consumer DeFi Layer-One Network | Flow Developer Portal
 
 
 
@@ -166373,7 +166365,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -166395,17 +166387,151 @@ Search
 
 On this page
 
-# Why Flow is the best for consumer apps and Web3 development
+# Why Flow: The Consumer DeFi Layer-One Network
 
-Flow is the blockchain designed to be the [best platform for consumer apps](https://flow.com/) and Web3 as a whole. Built by consumer-facing, onchain app developers to solve the problem of building consumer-facing, onchain apps, Flow supports two powerful programming languages: **Cadence** and **Solidity**.
+Flow is powering the future of Consumer DeFi. Flow is the home of Consumer DeFi.
+
+Flow is a purpose-built L1 blockchain designed for large-scale consumer finance applications. It is the leading consumer layer-one network, boasting over 1 million monthly active users across ecosystem applications built in collaboration with top global brands like NBA, Disney, PayPal, NFL, and Ticketmaster.
+
+## The Consumer DeFi Movement[​](#the-consumer-defi-movement "Direct link to The Consumer DeFi Movement")
+
+Today's fintech is a digital facade on analog rails, subject to the same outdated limitations of your brick-and-mortar bank. These platforms gave us the appearance of digital money without the benefits of digital-native assets. Your accounts there are mere pointers to the underlying legacy system. But that is about to change with the Consumer DeFi movement: turning decentralized finance into personal finance.
+
+The new chapter for Flow in leading Consumer DeFi is not a sudden shift, but rather the culmination of many years of focused dedication in providing the best consumer experience. Within the past 12 months, Flow network achieved remarkable feats: nearly 10x throughput increase for consumer-scale ambitions, 600% year-over-year increase in total value locked (TVL) to over $100M, and the pivotal Forte upgrade that drastically reduced the development time for consumer finance applications from months to mere days.
+
+The next generation of consumer finance is not just facilitated by the internet; assets themselves are of the internet. Fintech apps serve as opinionated frontends to a new financial layer that is:
+
+* **Global**: Accessible everywhere, by everyone.
+* **Always-On**: Operating 24/7/365, unbound by business hours.
+* **Real-Time**: Settling transactions in seconds, not days.
+* **Open**: Programmable and composable across apps.
+
+The foundation for the future of consumer finance is already being laid. After years of development, DeFi technology is ready to transition from a niche market to the mainstream. However, a significant hurdle remains: current DeFi platforms are designed for crypto-savvy users, demanding steep learning curves and willingness to take on unlimited risk. We must move beyond this crypto native phase to the new consumer DeFi era with better-than-fintech user experiences, safer and sustainable yields, and most importantly delivering a tangible impact on users' daily lives.
+
+**What is Consumer DeFi?** Consumer DeFi is any app or experience that provides the benefits powered by DeFi rails to audiences with zero crypto knowledge. Apps powered by Flow win consumer mindshare because they offer features and benefits that are extremely hard to replicate with just web2 rails while ensuring users do not require crypto-specific knowledge to understand and use them.
+
+Flow has demonstrated its capability to attract global brands and institutions, offering an innovative and safe platform for their millions of users. With the DeFi sector now ready to transition from a niche market to the mainstream, Flow is uniquely positioned to lead the Consumer DeFi charge.
 
 Dieter Shirley, Chief Architect of Flow and co-author of the [ERC-721 NFT standard](https://github.com/ethereum/eips/issues/721), calls Flow:
 
 > ***A computer that anyone can use, everyone can trust, and no one can shut down***
 
+## Flow: Automated DeFi and Consumer Applications[​](#flow-automated-defi-and-consumer-applications "Direct link to Flow: Automated DeFi and Consumer Applications")
+
+Flow is a high-performance layer-one blockchain designed for automated DeFi and large-scale consumer applications. Its multi-role architecture isolates heavy computation to Execution Nodes while keeping validation lightweight, so developers gain incredible performance and users benefit from low-cost transactions, even at scale.
+
+The Forte upgrade expands the core protocol with Flow Actions for atomic multi-step DeFi operations and Scheduled Transactions for fully onchain automation. Developers can compose swaps, staking, or yield workflows that self-execute without off-chain keepers, scripts, or relayers required.
+
+Flow delivers a unified environment for automation-heavy, composable applications that demand reliability and precision at scale. It's where DeFi, fintech, and consumer-grade performance converge in a single L1.
+
+## Forte Network Upgrade: Autonomous DeFi Execution[​](#forte-network-upgrade-autonomous-defi-execution "Direct link to Forte Network Upgrade: Autonomous DeFi Execution")
+
+The Forte network upgrade marks a turning point for builders creating DeFi systems on Flow. Until now, blockchains have largely been reactive, responding only when a user or off-chain keeper sends a transaction. Forte changes that model by giving developers a native framework for composable, autonomous execution.
+
+> ***ERC-20 and ERC-721 unlocked nouns. Actions and scheduled transactions unlock verbs.***
+
+Forte transforms Flow from a reactive blockchain into an autonomous, intelligent network capable of executing complex workflows without external dependencies. The upgrade introduces native time scheduling, protocol-level composability, and AI-optimized development tools that enable entirely new categories of applications.
+
+Together, these systems turn Flow into a self-governing financial runtime that is precise with 128-bit fixed-point math for lossless calculations, secure through resource-based execution, and fully composable across protocols. In this environment, DeFi logic can schedule itself, chain together across protocols, and operate autonomously—a blockchain that finally does more than react.
+
+### Flow Actions: Protocol-native composability[​](#flow-actions-protocol-native-composability "Direct link to Flow Actions: Protocol-native composability")
+
+[**Flow Actions**](/blockchain-development-tutorials/forte/flow-actions) are protocol-native, composable operations that enable developers to create multi-step workflows across protocols in a single atomic transaction. With Flow Actions, builders can link together standardized DeFi primitives such as sources, sinks, swappers, price oracles, and flashers into atomic, protocol-agnostic workflows.
+
+A single transaction can claim rewards, swap assets, add liquidity, and restake LP tokens without any off-chain orchestration. These building blocks eliminate custom integrations and ensure every operation either fully succeeds or safely reverts, unlocking complex strategies like automated yield farming, arbitrage, and rebalancing through simple, auditable Cadence code.
+
+This means developers can:
+
+* **Compose complex operations**: Build sophisticated DeFi strategies by combining multiple Actions in one transaction
+* **Eliminate integration complexity**: Use standardized interfaces instead of custom contract integrations
+* **Ensure atomicity**: All operations succeed together or fail together, eliminating partial execution risks
+* **Reduce gas costs**: Execute multiple protocol interactions more efficiently than separate transactions
+
+### Scheduled Transactions: Autonomous onchain execution[​](#scheduled-transactions-autonomous-onchain-execution "Direct link to Scheduled Transactions: Autonomous onchain execution")
+
+[**Scheduled Transactions**](/blockchain-development-tutorials/forte/scheduled-transactions/scheduled-transactions-introduction) introduce the first truly onchain time scheduler. Developers can schedule or trigger transactions directly within Flow accounts, enabling recurring actions, deferred settlements, and autonomous portfolio management without external cron jobs or trusted servers.
+
+Scheduled Transactions are onchain resources that run entirely within a Flow account, enabling fully autonomous, secure transaction execution. They can self-trigger based on conditions and operate without external keepers.
+
+Key capabilities:
+
+* **Autonomous operation**: Execute transactions automatically based on programmed logic
+* **Self-contained**: Run entirely onchain without external dependencies
+* **Trigger-based**: React to onchain events, time schedules, or custom conditions
+
+Combined, Actions and Scheduling allow DeFi protocols to become self-maintaining: positions can compound automatically, vaults can adjust exposure based on time or events, and protocols can enforce predictable behavior entirely onchain.
+
+Scheduled Transactions are the first native time scheduler that lets onchain apps run tasks automatically, like cron jobs for blockchains. Applications are no longer restricted to being reactive only to user transactions. They can be used for:
+
+* **DeFi protocols** that automatically rebalance portfolios on schedule
+* **AI-driven agents** that proactively settle, sweep, or optimize positions
+* **Subscription services** with automatic recurring payments
+* **Gaming mechanics** with time-based events and rewards
+
+Scheduled Transactions run natively on the network, simplifying operations, reducing off-chain dependencies, and making behavior auditable and predictable in code. This implements [FLIP 330: Scheduled Transaction](https://github.com/onflow/flips/blob/main/protocol/20250609-scheduled-callbacks.md).
+
+### High-precision DeFi with 128-bit fixed-point types[​](#high-precision-defi-with-128-bit-fixed-point-types "Direct link to High-precision DeFi with 128-bit fixed-point types")
+
+Cadence now supports **Fix128** and **UFix128** - 128-bit fixed-point types enabling precision up to **24 decimal places** for advanced DeFi, risk engines, and interest accrual workloads.
+
+The native precision in Forte with built-in 128-bit fixed-point support eliminates the need for bespoke arithmetic scaffolding while minimizing rounding-related errors common in integer-based math. This ensures lossless conversion where all existing Fix64 and UFix64 values convert seamlessly, providing financial-grade accuracy that supports sophisticated financial calculations requiring extreme precision.
+
+This implements [FLIP 341: Add 128-bit Fixed-point Types to Cadence](https://github.com/onflow/flips/blob/main/cadence/20250815-128-bit-fixed-point-types.md).
+
+### WebAuthn and passkey support[​](#webauthn-and-passkey-support "Direct link to WebAuthn and passkey support")
+
+Forte adds **native WebAuthn support** including passkeys, enabling wallets to use device-backed credentials on iOS, Android, and popular password managers to sign transactions.
+
+Native WebAuthn support on Flow eliminates seed phrases by enabling biometric authentication while preserving self-custody, with cross-device portability that securely syncs credentials across devices. The native integration requires no additional smart contract layers like ERC-4337, providing a seamless UX where users can sign transactions with Touch ID, Face ID, or hardware keys.
+
+Combined with native account abstraction on Flow, developers can build [smart wallets without relying on complex contract architectures](https://flow.com/post/transforming-smartphones-into-hardware-wallets-how-secure-enclave-support-on-flow-is-ushering-in-the-next-wave-of-web3-applications). This implements [FLIP 264: WebAuthn Credential Support](https://github.com/onflow/flips/blob/cfaaf5f6b7c752e8db770e61ec9c180dc0eb6543/protocol/20250203-webauthn-credential-support.md).
+
+### AI-friendly Cadence errors[​](#ai-friendly-cadence-errors "Direct link to AI-friendly Cadence errors")
+
+Cadence compiler and linter errors are now **designed for AI assistance**, making it easier for agents and IDE copilots to fix issues automatically. Error messages:
+
+* **Explain the cause** with context-aware descriptions
+* **Suggest concrete fixes** with actionable recommendations
+* **Link directly** to reference docs and migration notes
+* **Surface through language server** for AI-powered editors like Cursor
+
+This enables faster feedback, fewer documentation round trips, and smoother AI agent workflows for code refactoring and migration.
+
+### Boosting Efficiency and Scalability[​](#boosting-efficiency-and-scalability "Direct link to Boosting Efficiency and Scalability")
+
+#### Enhanced node performance with PebbleDB[​](#enhanced-node-performance-with-pebbledb "Direct link to Enhanced node performance with PebbleDB")
+
+Forte upgrades node storage from BadgerDB to **PebbleDB**, delivering up to 80% memory usage reduction depending on node type and up to 60% CPU usage improvement for typical operations. The upgrade provides up to 30% annual disk usage reduction through effective pruning, higher stability under load by eliminating memory spikes, and improved ROI for operators through better resource efficiency.
+
+#### Optimized state storage with account key de-duplication[​](#optimized-state-storage-with-account-key-de-duplication "Direct link to Optimized state storage with account key de-duplication")
+
+Public key de-duplication eliminates redundancy while preserving multi-key account flexibility, consolidating 53% of all keys that were duplicates. This optimization delivers a 6% reduction in the Flow execution state (saving 21 GB from 349 GB), removes 0.29 billion entries from the storage trie, and provides a 6-18% reduction in Execution Node memory usage, resulting in faster state access through leaner data structures.
+
+#### Adaptive collection rate limiting for overload resilience[​](#adaptive-collection-rate-limiting-for-overload-resilience "Direct link to Adaptive collection rate limiting for overload resilience")
+
+The [assembly line architecture](https://flow.com/multi-node) on Flow gains intelligent rate limiting to prevent pipeline bottlenecks through automatic throttling when execution or sealing lags behind collection. The system maintains steady pipeline flow even at several hundred TPS while providing priority handling for governance and protocol transactions, creating a self-regulating system that disengages once the backlog clears.
+
+#### Near real-time transaction results[​](#near-real-time-transaction-results "Direct link to Near real-time transaction results")
+
+Building on the [data availability vision](https://flow.com/protocol-autonomy-roadmap) for Flow, Access Nodes ingest account data and transaction results **before finalization**, enabling soft finality access for high-frequency DeFi applications with early state reads that include graceful rollback handling. This approach provides reduced latency for real-time applications and direct data serving without third-party dependencies.
+
+### Protocol Autonomy[​](#protocol-autonomy "Direct link to Protocol Autonomy")
+
+#### Hardened data integrity across the network[​](#hardened-data-integrity-across-the-network "Direct link to Hardened data integrity across the network")
+
+A major milestone on the [protocol autonomy roadmap](https://flow.com/protocol-autonomy-roadmap) ensures every data structure has a **canonical, verifiable identity** through collision-resistant hashing for all inter-node communications and immediate tampering detection by message recipients. The system provides protected data structures with custom linter validation and immutable message semantics for simplified development.
+
+This provides developers and AI agents with a simpler mental model where network messages are treated as immutable objects with stable identities.
+
+## What makes Flow unique[​](#what-makes-flow-unique "Direct link to What makes Flow unique")
+
+Flow is a fast, decentralized, and developer-friendly blockchain designed to be the foundation for a new generation of games, apps, and the [digital assets](https://www.flow.com/post/flow-blockchain-cadence-programming-language-resources-assets) that power them. It is based on a unique [multi-role architecture](https://flow.com/post/flow-blockchain-multi-node-architecture-advantages) and designed to [scale without sharding](https://www.flow.com/post/flow-blockchain-multi-node-architecture-advantages), allowing for massive improvements in speed and throughput while preserving a developer-friendly, ACID-compliant environment.
+
 Much of the protocol design is based on lessons learned from building Web3 applications while working at [Dapper Labs](https://www.dapperlabs.com/), particularly [CryptoKitties](https://www.cryptokitties.co/) — the first onchain game to reach [widespread popularity](https://www.cnn.com/style/article/cryptokitty-blockchain/index.html). The game went viral, then [struggled under its own success](https://spectrum.ieee.org/cryptokitties) when it caused so much traffic that the Ethereum network itself was overwhelmed by the load.
 
-The design of Flow was guided by the need to alleviate this burden while creating the best experience possible for both developers and users. The blockchain network of the future must be able to handle millions of users while upholding the key pillars of decentralization:
+The design of Flow was guided by the need to alleviate this burden while creating the best experience possible for both developers and users. Flow Foundation (the core team) and Dapper Labs (the leading ecosystem builder) work together as two integral parts of a unified effort, combining their strengths to position Flow as the leader in Consumer DeFi. This synergy brings together deep protocol and infrastructure expertise hardened by over 10 years of production experience with the highest security standards, alongside deep consumer audience expertise honed by operating multiple production apps that generated over $1 billion in revenue combined.
+
+The blockchain network of the future must be able to handle millions of users while upholding the key pillars of decentralization:
 
 1. Verifiability
 2. Predictability/Reliability
@@ -166416,10 +166542,6 @@ The design of Flow was guided by the need to alleviate this burden while creatin
 
 Flow solves the [blockchain trilemma](https://coinmarketcap.com/academy/glossary/blockchain-trilemma) and represents the next generation of blockchain technology. It's built to enable seamless consumer-scale apps without compromising decentralization or user experience, and is the chosen blockchain network for [NBA Top Shot](https://nbatopshot.com/), [NFL All Day](https://nflallday.com/), [Mattel Creations](https://creations.mattel.com/pages/virtual), and [Disney Pinnacle](https://disneypinnacle.com/).
 
-## What makes Flow unique[​](#what-makes-flow-unique "Direct link to What makes Flow unique")
-
-Flow is a fast, decentralized, and developer-friendly blockchain designed to be the foundation for a new generation of games, apps, and the [digital assets](https://www.flow.com/post/flow-blockchain-cadence-programming-language-resources-assets) that power them. It is based on a unique [multi-role architecture](https://flow.com/post/flow-blockchain-multi-node-architecture-advantages) and designed to [scale without sharding](https://www.flow.com/post/flow-blockchain-multi-node-architecture-advantages), allowing for massive improvements in speed and throughput while preserving a developer-friendly, ACID-compliant environment.
-
 ### Dual language architecture[​](#dual-language-architecture "Direct link to Dual language architecture")
 
 Flow is unique in supporting two powerful programming languages for smart contract development:
@@ -166427,23 +166549,29 @@ Flow is unique in supporting two powerful programming languages for smart contra
 * **Cadence**: A modern programming language developed by smart contract application builders.
 * **Solidity**: The industry-standard language for EVM development, fully supported on Flow with full EVM equivalence.
 
-EVM and Cadence environments both use FLOW for transactions fees (gas on the EVM side and compute unit of the Cadence side) and are connected by a native bridge that allows seamless and cheap communication between them. Fungible and non-fungible tokens can also be seamlessly transferred between environments using the native VM token bridge, taking place instantly in a single atomic transaction.
+EVM and Cadence environments both use FLOW as gas for transactions and are connected by a native bridge that allows seamless and cheap communication between them. Fungible and non-fungible tokens can also be seamlessly transferred between environments using the native VM token bridge, taking place instantly in a single atomic transaction.
 
 This means developers can choose the language that best fits their needs while maintaining full interoperability between both environments.
 
 ### Cadence development on Flow[​](#cadence-development-on-flow "Direct link to Cadence development on Flow")
 
-[Cadence](https://cadence-lang.org/) is a modern programming language developed by smart contract application builders for smart contract developers:
+Flow supports two smart contract languages:
+
+[Cadence](https://cadence-lang.org/) provides native resource safety, 128-bit fixed-point arithmetic for financial precision, built-in WebAuthn authentication for secure, seedless user onboarding, and vastly increased contract size, storage, and computation limits. It also grants native data availability, and Cadence transactions are written in the language itself, which allows for multiple calls to multiple functions on multiple smart contracts all with a single user signature.
+
+Key Cadence features:
 
 * **Advanced Transactions**: [Transactions](https://cadence-lang.org/docs/language/transactions) in Cadence smart contracts are not simply calls to existing functions on already deploy contracts. Instead, transactions are code written in Cadence that can **call any function (with appropriate access) on any smart contract by any author**, all in a single, atomic transaction with a single user signature.
-* **AI Ready**: Cadence transactions have [pre- and post-conditions](https://cadence-lang.org/docs/language/pre-and-post-conditions) that clearly define the inputs to a transactions, such as the tokens that may be withdrawn, and outcomes, such as collectibles that must be purchased. With these definitions, Cadence transactions of immense complexity can be written safely. Regardless of code in the actual execution, the user can be sure that they will get what they expected and only pay the price they authorized.
+* **AI Ready**: Cadence transactions have [pre- and post-conditions](https://cadence-lang.org/docs/language/pre-and-post-conditions) that clearly define the inputs to a transactions, such as the tokens that may be withdrawn, and outcomes, such as collectibles that must be purchased. With these definitions, Cadence transactions of immense complexity can be written safely. Regardless of code in the actual execution, the user can be sure that they get what they expected and only pay the price they authorized.
 * **Data Availability**: Similarly, any author can construct a **view** function to access any public data on any smart contract without needing the author of that smart contract to have anticipated the need to view that data or reliance a provider to cache it and make it available.
 * **Native account abstraction**: Cadence transactions have protocol-native [account abstraction](https://flow.com/account-abstraction). All accounts are smart accounts, supporting scripting, multiple keys, multi-signature transactions, and walletless onboarding with social logins.
 * **Gasless transactions**: Cadence transactions have multiple [signing roles](/build/cadence/basics/transactions#signer-roles) for each transaction. Most notably, the payer can be set independently of the authorizer. In other words, having one account sign a transaction and another pay for that transaction is a built-in feature.
-* **Security**: Smart contracts on Flow are natively written in , an easier, safer, and more secure programming language for crypto assets and apps. It's the first high-level, [resource-oriented](https://flow.com/post/resources-programming-ownership) programming language.
+* **Security**: Smart contracts on Flow are natively written in Cadence, an easier, safer, and more secure programming language for crypto assets and apps. It's the first high-level, [resource-oriented](https://flow.com/post/resources-programming-ownership) programming language.
 * **Developer ergonomics**: The Flow network is designed to maximize developer productivity. Examples range from upgradeable smart contracts to built-in logging support to the Flow Emulator.
 
 ### Solidity development on Flow EVM[​](#solidity-development-on-flow-evm "Direct link to Solidity development on Flow EVM")
+
+[Solidity](https://soliditylang.org/) allows developers to deploy existing contracts on a fast and efficient, fully EVM-equivalent network while benefitting from access to native VRF, batched transactions, and all the benefits of the Flow protocol. A native bridge allows seamless transfers of assets between these two networks.
 
 Flow EVM provides the best EVM experience available anywhere:
 
@@ -166451,7 +166579,7 @@ Flow EVM provides the best EVM experience available anywhere:
 * **Bridge from Other EVM networks**: You can [bridge](/ecosystem/bridges) hundreds of assets from dozens of chains to Flow.
 * **VM token bridge**: Assets can be bridged between Flow Cadence and Flow EVM easily and atomically with the VM token bridge. Assets can even be bridged **and used** in a **single** transaction, allowing full composability between the EVM and Cadence environments.
 * **Access to Cadence features**: Access Cadence features and contracts from Flow EVM to take advantage of native [VRF](/blockchain-development-tutorials/native-vrf/vrf-in-solidity), higher computation for lower cost, and any asset on Cadence Flow. You can also build [cross-vm apps](/blockchain-development-tutorials/cross-vm-apps) on top of the *wagmi/viem/RainbowKit* stack, enabling batched transactions and more.
-* **EVM equivalence:** Flow EVM is truly *EVM Equivalent*, not just *EVM Compatible*. It runs exactly the same as EVM mainnet, which means builders won't run into *minor* variances or endless 'quirks' when they try to integrate. If it works on Ethereum Mainnet, it will work with Flow EVM.
+* **EVM equivalence:** Flow EVM is truly *EVM Equivalent*, not just *EVM Compatible*. It runs exactly the same as EVM mainnet, which means builders do not run into *minor* variances or endless 'quirks' when they try to integrate. If it works on Ethereum Mainnet, it works with Flow EVM.
 
 ### Seamless integration for Ethereum developers[​](#seamless-integration-for-ethereum-developers "Direct link to Seamless integration for Ethereum developers")
 
@@ -166466,21 +166594,41 @@ EVM-equivalency on Flow works behind-the-scenes by implementing a minimal transa
 * **Scalable and Secure Architecture**: The [multi-role architecture](https://flow.com/post/flow-blockchain-multi-node-architecture-advantages) of Flow allows the network to [scale without sharding](https://www.flow.com/post/flow-blockchain-multi-node-architecture-advantages) to serve billions of users without reducing the decentralization of consensus and verification.
 * **True, fast finality**: For most other networks, it takes minutes, [a day](https://docs.zksync.io/zk-stack/concepts/finality#finality-on-zksync-era), or even [a week](https://docs.optimism.io/stack/rollup/overview#fault-proofs) to reach hard finality — the point at which a transaction cannot be reversed. On Flow, the median time for finality is [under 10 seconds](/build/cadence/basics/transactions#flow), without compromising security.
 * **Consumer onboarding**: Flow was designed for mainstream consumers, with payment onramps catalyzing a safe and low-friction path from fiat to crypto.
-* **Efficient compute unit and gas costs**: The Flow blockchain is extremely efficient both on the Cadence side and the EVM side, allowing apps to do more computation at lower costs.
+* **Efficient gas costs**: The Flow blockchain is extremely efficient, allowing apps to do more computation at lower costs.
 
 ### MEV resilience[​](#mev-resilience "Direct link to MEV resilience")
 
 The [MEV Resilient](/build/cadence/basics/mev-resistance) design on Flow offers DeFi builders improved market efficiency, fairness, trust, and long-term viability for their apps. Since Flow EVM transactions are composed and executed within a Cadence transaction, block production is handled by the [multi-role architecture](https://flow.com/post/flow-blockchain-multi-node-architecture-advantages) on Flow.
 
-This robust MEV resilience is a significant difference from other EVM-compatible networks and results in reasonably priced and predictable compute unit (gas) fees. The impracticality of frontrunning or other attacks improves the user experience by eliminating failed transactions and invisible fees.
+This robust MEV resilience is a significant difference from other EVM-compatible networks and results in reasonably priced and predictable gas fees. The impracticality of frontrunning or other attacks improves the user experience by eliminating failed transactions and invisible fees.
 
-### Scalability, performance, and low compute unit (gas) fees[​](#scalability-performance-and-low-compute-unit-gas-fees "Direct link to Scalability, performance, and low compute unit (gas) fees")
+### Flow track record in Consumer DeFi[​](#flow-track-record-in-consumer-defi "Direct link to Flow track record in Consumer DeFi")
+
+Flow leadership in Consumer DeFi is built on a foundation of proven expertise and real-world validation:
+
+**Consumer expertise:**
+
+* The leading consumer chain that onboarded millions of net new users onchain and still boasts over 1 million monthly active users
+* Deep consumer audience expertise honed by operating multiple production apps that generated over $1 billion in revenue combined
+* Vast network of global consumer brands and platforms like NBA, Disney, PayPal, Ticketmaster
+
+**DeFi and fintech expertise:**
+
+* Deep protocol and infrastructure expertise hardened by over 10 years of production experience with the highest security standards (since CryptoKitties days)
+* Built the first smart contract wallet (Dapper Wallet plugin) on Ethereum back in 2018, ahead of the account abstraction movement
+* Managed the end-to-end infrastructure for on/off-ramp, KYC, and risk monitoring platform that handles hundreds of millions of dollars in volume (Dapper Wallet)
+* Flow ALP provides the best risk-adjusted yield opportunities in DeFi for consumers and institutional capital
+* The best infrastructure layer that offers the fastest time to market for consumer DeFi apps
+
+Flow is where consumers deposit their funds and access the best risk-adjusted yields, making it the ideal platform for Consumer DeFi applications that prioritize safety and sustainable returns.
+
+### Scalability, performance, and low gas fees[​](#scalability-performance-and-low-gas-fees "Direct link to Scalability, performance, and low gas fees")
 
 For sustainable user adoption, apps require the network they build on to be secure, efficient, affordable, and fast. Gas fees are ultra-low cost on the network, but Flow goes a step further allowing for gasless experiences through sponsored transactions.
 
 The state space on Flow is extensible to the petabyte scale, making it easy to store application data onchain. This means contracts can maintain a full working dataset — including metadata — together with contract logic.
 
-Transaction throughput on the Flow network has reaches as many as 2 million daily transactions, a similar average transaction volume as Ethereum. Unlike Ethereum, Flow has always operated well under its maximum throughput ceiling, and that ceiling is scalable to even greater performance when it becomes necessary.
+Transaction throughput on the Flow network has reached as many as 2 million daily transactions, a similar average transaction volume as Ethereum. Unlike Ethereum, Flow has always operated well under its maximum throughput ceiling, and that ceiling is scalable to even greater performance when it becomes necessary.
 
 ## Getting started[​](#getting-started "Direct link to Getting started")
 
@@ -166529,104 +166677,9 @@ Those wishing to understand the technical specifics of how Flow EVM works, we re
 * Insights into the [Flow EVM Gateway](https://github.com/onflow/flips/pull/235/files)
 * Integration of the [Cadence Interface](https://github.com/onflow/flips/blob/f646491ec895442dcccdb24d80080bab1c56188e/protocol/20231116-evm-support.md)
 
-## Forte Network Upgrade[​](#forte-network-upgrade "Direct link to Forte Network Upgrade")
-
-**Forte** is the most significant network upgrade on Flow that enhances developers and AI agents building on Flow, unlocking protocol composability and native automation directly on the network.
-
-> ***ERC-20 and ERC-721 unlocked nouns. Actions and scheduled transactions unlock verbs.***
-
-### What makes Forte Interesting[​](#what-makes-forte-interesting "Direct link to What makes Forte Interesting")
-
-Forte transforms Flow from a reactive blockchain into an autonomous, intelligent network capable of executing complex workflows without external dependencies. The upgrade introduces native time scheduling, protocol-level composability, and AI-optimized development tools that enable entirely new categories of applications.
-
-### Flow Actions: Protocol-native composability[​](#flow-actions-protocol-native-composability "Direct link to Flow Actions: Protocol-native composability")
-
-[**Flow Actions**](/blockchain-development-tutorials/forte/flow-actions) are protocol-native, composable operations that enable developers to create multi-step workflows across protocols in a single atomic transaction. Actions include [fundamental DeFi primitives](/blockchain-development-tutorials/forte/flow-actions) like swap, source, sink, flasher, and price oracle operations.
-
-This means developers can:
-
-* **Compose complex operations**: Build sophisticated DeFi strategies by combining multiple Actions in one transaction
-* **Eliminate integration complexity**: Use standardized interfaces instead of custom contract integrations
-* **Ensure atomicity**: All operations succeed together or fail together, eliminating partial execution risks
-* **Reduce compute unit (gas) costs**: Execute multiple protocol interactions more efficiently than separate transactions
-
-### Scheduled Transaction: Autonomous onchain execution[​](#scheduled-transaction-autonomous-onchain-execution "Direct link to Scheduled Transaction: Autonomous onchain execution")
-
-[**Scheduled Transactions**](/blockchain-development-tutorials/forte/scheduled-transactions/scheduled-transactions-introduction) are onchain resources that run entirely within a Flow account, enabling fully autonomous, secure transaction execution. They can self-trigger based on conditions and operate without external keepers.
-
-Key capabilities:
-
-* **Autonomous operation**: Execute transactions automatically based on programmed logic
-* **Self-contained**: Run entirely onchain without external dependencies
-* **Trigger-based**: React to onchain events, time schedules, or custom conditions
-
-[**Scheduled Transactions**](/blockchain-development-tutorials/forte/scheduled-transactions/scheduled-transactions-introduction) are the first native time scheduler that lets onchain apps run tasks automatically, like *cron jobs for blockchains*. Applications are no longer restricted to being reactive only to user transactions. They can be used for:
-
-* **DeFi protocols** that automatically rebalance portfolios on schedule
-* **AI-driven agents** that proactively settle, sweep, or optimize positions
-* **Subscription services** with automatic recurring payments
-* **Gaming mechanics** with time-based events and rewards
-
-Scheduled Transactions run natively on the network, simplifying operations, reducing off-chain dependencies, and making behavior auditable and predictable in code. This implements [FLIP 330: Scheduled Transaction](https://github.com/onflow/flips/blob/main/protocol/20250609-scheduled-callbacks.md).
-
-### High-precision DeFi with 128-bit fixed-point types[​](#high-precision-defi-with-128-bit-fixed-point-types "Direct link to High-precision DeFi with 128-bit fixed-point types")
-
-Cadence now supports **Fix128** and **UFix128** - 128-bit fixed-point types enabling precision up to **24 decimal places** for advanced DeFi, risk engines, and interest accrual workloads.
-
-**Advantages over traditional approaches:**
-
-Forte's native precision with built-in 128-bit fixed-point support eliminates the need for bespoke arithmetic scaffolding while minimizing rounding-related errors common in integer-based math. This ensures lossless conversion where all existing Fix64 and UFix64 values convert seamlessly, providing financial-grade accuracy that supports sophisticated financial calculations requiring extreme precision.
-
-This implements [FLIP 341: Add 128-bit Fixed-point Types to Cadence](https://github.com/onflow/flips/blob/main/cadence/20250815-128-bit-fixed-point-types.md).
-
-### WebAuthn and passkey support[​](#webauthn-and-passkey-support "Direct link to WebAuthn and passkey support")
-
-Flow adds **native WebAuthn support** including passkeys, enabling wallets to use device-backed credentials on iOS, Android, and popular password managers to sign transactions.
-
-Flow's native WebAuthn support eliminates seed phrases by enabling biometric authentication while preserving self-custody, with cross-device portability that securely syncs credentials across devices. The native integration requires no additional smart contract layers like ERC-4337, providing a seamless UX where users can sign transactions with Touch ID, Face ID, or hardware keys.
-
-Combined with Flow's native account abstraction, developers can build [smart wallets without relying on complex contract architectures](https://flow.com/post/transforming-smartphones-into-hardware-wallets-how-secure-enclave-support-on-flow-is-ushering-in-the-next-wave-of-web3-applications). This implements [FLIP 264: WebAuthn Credential Support](https://github.com/onflow/flips/blob/cfaaf5f6b7c752e8db770e61ec9c180dc0eb6543/protocol/20250203-webauthn-credential-support.md).
-
-### AI-friendly Cadence errors[​](#ai-friendly-cadence-errors "Direct link to AI-friendly Cadence errors")
-
-Cadence compiler and linter errors are now **designed for AI assistance**, making it easier for agents and IDE copilots to fix issues automatically. Error messages:
-
-* **Explain the cause** with context-aware descriptions
-* **Suggest concrete fixes** with actionable recommendations
-* **Link directly** to reference docs and migration notes
-* **Surface through language server** for AI-powered editors like Cursor
-
-This enables faster feedback, fewer documentation round trips, and smoother AI agent workflows for code refactoring and migration.
-
-### Boosting Efficiency and Scalability[​](#boosting-efficiency-and-scalability "Direct link to Boosting Efficiency and Scalability")
-
-#### Enhanced node performance with PebbleDB[​](#enhanced-node-performance-with-pebbledb "Direct link to Enhanced node performance with PebbleDB")
-
-Forte upgrades node storage from BadgerDB to **PebbleDB**, delivering up to 80% memory usage reduction depending on node type and up to 60% CPU usage improvement for typical operations. The upgrade provides up to 30% annual disk usage reduction through effective pruning, higher stability under load by eliminating memory spikes, and improved ROI for operators through better resource efficiency.
-
-#### Optimized state storage with account key de-duplication[​](#optimized-state-storage-with-account-key-de-duplication "Direct link to Optimized state storage with account key de-duplication")
-
-Public key de-duplication eliminates redundancy while preserving multi-key account flexibility, consolidating 53% of all keys that were duplicates. This optimization delivers a 6% reduction in Flow's execution state (saving 21 GB from 349 GB), removes 0.29 billion entries from the storage trie, and provides a 6-18% reduction in Execution Node memory usage, resulting in faster state access through leaner data structures.
-
-#### Adaptive collection rate limiting for overload resilience[​](#adaptive-collection-rate-limiting-for-overload-resilience "Direct link to Adaptive collection rate limiting for overload resilience")
-
-Flow's [assembly line architecture](https://flow.com/multi-node) gains intelligent rate limiting to prevent pipeline bottlenecks through automatic throttling when execution or sealing lags behind collection. The system maintains steady pipeline flow even at several hundred TPS while providing priority handling for governance and protocol transactions, creating a self-regulating system that disengages once the backlog clears.
-
-#### Near real-time transaction results[​](#near-real-time-transaction-results "Direct link to Near real-time transaction results")
-
-Building on Flow's [data availability vision](https://flow.com/protocol-autonomy-roadmap), Access Nodes will soon ingest account data and transaction results **before finalization**, enabling soft finality access for high-frequency DeFi applications with early state reads that include graceful rollback handling. This approach provides reduced latency for real-time applications and direct data serving without third-party dependencies.
-
-### Protocol Autonomy[​](#protocol-autonomy "Direct link to Protocol Autonomy")
-
-#### Hardened data integrity across the network[​](#hardened-data-integrity-across-the-network "Direct link to Hardened data integrity across the network")
-
-A major milestone on the [protocol autonomy roadmap](https://flow.com/protocol-autonomy-roadmap) ensures every data structure has a **canonical, verifiable identity** through collision-resistant hashing for all inter-node communications and immediate tampering detection by message recipients. The system provides protected data structures with custom linter validation and immutable message semantics for simplified development.
-
-This provides developers and AI agents with a simpler mental model where network messages are treated as immutable objects with stable identities.
-
 ## Build with Flow[​](#build-with-flow "Direct link to Build with Flow")
 
-Whether you're building with Cadence or Solidity, porting an existing Solidity dApp or building from scratch, Flow offers a **fast, scalable blockchain with low fees** and the tooling you already know. As a **scalable platform for apps**, Flow combines familiar development workflows with performance and UX enhancements you can't get elsewhere.
+Whether you're building with Cadence or Solidity, porting an existing Solidity dApp or building from scratch, Flow offers a **fast, scalable blockchain with low fees** and the tooling you already know. As a **purpose-built L1 for consumer finance applications**, Flow combines familiar development workflows with performance and UX enhancements you can't get elsewhere. Build the next generation of Consumer DeFi applications that deliver better-than-fintech user experiences, safer and sustainable yields, and tangible impact on users' daily lives.
 
 ## Join the community[​](#join-the-community "Direct link to Join the community")
 
@@ -166634,7 +166687,7 @@ Are you interested in launching a project on Flow or partnering with us? Visit o
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/flow.md)
 
-Last updated on **Nov 18, 2025** by **Brian Doyle**
+Last updated on **Dec 1, 2025** by **Brian Doyle**
 
 [Next
 
@@ -166646,10 +166699,10 @@ Quickstart ↙](/build/cadence/quickstart)
 
 Copy as Markdown
 
-* [What makes Flow unique](#what-makes-flow-unique)
-  + [Dual language architecture](#dual-language-architecture)+ [Cadence development on Flow](#cadence-development-on-flow)+ [Solidity development on Flow EVM](#solidity-development-on-flow-evm)+ [Seamless integration for Ethereum developers](#seamless-integration-for-ethereum-developers)+ [Flow blockchain core features](#flow-blockchain-core-features)+ [MEV resilience](#mev-resilience)+ [Scalability, performance, and low compute unit (gas) fees](#scalability-performance-and-low-compute-unit-gas-fees)* [Getting started](#getting-started)
-    + [Getting started with Cadence app development](#getting-started-with-cadence-app-development)+ [Learn Cadence](#learn-cadence)+ [Build with Solidity on Flow EVM](#build-with-solidity-on-flow-evm)* [FLOW token](#flow-token)* [Technical background](#technical-background)* [Flow Improvement Proposals (FLIPs)](#flow-improvement-proposals-flips)* [Forte Network Upgrade](#forte-network-upgrade)
-            + [What makes Forte Interesting](#what-makes-forte-interesting)+ [Flow Actions: Protocol-native composability](#flow-actions-protocol-native-composability)+ [Scheduled Transaction: Autonomous onchain execution](#scheduled-transaction-autonomous-onchain-execution)+ [High-precision DeFi with 128-bit fixed-point types](#high-precision-defi-with-128-bit-fixed-point-types)+ [WebAuthn and passkey support](#webauthn-and-passkey-support)+ [AI-friendly Cadence errors](#ai-friendly-cadence-errors)+ [Boosting Efficiency and Scalability](#boosting-efficiency-and-scalability)+ [Protocol Autonomy](#protocol-autonomy)* [Build with Flow](#build-with-flow)* [Join the community](#join-the-community)
+* [The Consumer DeFi Movement](#the-consumer-defi-movement)* [Flow: Automated DeFi and Consumer Applications](#flow-automated-defi-and-consumer-applications)* [Forte Network Upgrade: Autonomous DeFi Execution](#forte-network-upgrade-autonomous-defi-execution)
+      + [Flow Actions: Protocol-native composability](#flow-actions-protocol-native-composability)+ [Scheduled Transactions: Autonomous onchain execution](#scheduled-transactions-autonomous-onchain-execution)+ [High-precision DeFi with 128-bit fixed-point types](#high-precision-defi-with-128-bit-fixed-point-types)+ [WebAuthn and passkey support](#webauthn-and-passkey-support)+ [AI-friendly Cadence errors](#ai-friendly-cadence-errors)+ [Boosting Efficiency and Scalability](#boosting-efficiency-and-scalability)+ [Protocol Autonomy](#protocol-autonomy)* [What makes Flow unique](#what-makes-flow-unique)
+        + [Dual language architecture](#dual-language-architecture)+ [Cadence development on Flow](#cadence-development-on-flow)+ [Solidity development on Flow EVM](#solidity-development-on-flow-evm)+ [Seamless integration for Ethereum developers](#seamless-integration-for-ethereum-developers)+ [Flow blockchain core features](#flow-blockchain-core-features)+ [MEV resilience](#mev-resilience)+ [Flow track record in Consumer DeFi](#flow-track-record-in-consumer-defi)+ [Scalability, performance, and low gas fees](#scalability-performance-and-low-gas-fees)* [Getting started](#getting-started)
+          + [Getting started with Cadence app development](#getting-started-with-cadence-app-development)+ [Learn Cadence](#learn-cadence)+ [Build with Solidity on Flow EVM](#build-with-solidity-on-flow-evm)* [FLOW token](#flow-token)* [Technical background](#technical-background)* [Flow Improvement Proposals (FLIPs)](#flow-improvement-proposals-flips)* [Build with Flow](#build-with-flow)* [Join the community](#join-the-community)
 
 Flow
 
@@ -169933,7 +169986,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -172568,7 +172621,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -173003,7 +173056,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -175400,7 +175453,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -178665,7 +178718,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -179217,7 +179270,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -179225,9 +179278,7 @@ Search
 
 * [Ecosystem Index](/ecosystem)* [Developer Support Hub](/ecosystem/developer-support-hub)
 
-    * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
-
-                * [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
+    * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
 
 * * Flow Block Explorers
 
@@ -179357,7 +179408,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -179958,7 +180009,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -181743,7 +181794,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -184224,7 +184275,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -190250,7 +190301,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -190988,7 +191039,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -191310,7 +191361,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -191539,7 +191590,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -192275,7 +192326,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -192323,15 +192374,45 @@ On this page
 
 # Add Project Contracts
 
-## Add a Contract[​](#add-a-contract "Direct link to Add a Contract")
+## Generate a Contract[​](#generate-a-contract "Direct link to Generate a Contract")
 
-To add a contract to your project, update the `"contracts"` section of your `flow.json` file.
+Create a new contract file using the Flow CLI:
 
-Contracts are specified as key-value pairs, where the key is the contract name,
-and the value is the location of the Cadence source code.
+`_10
 
-For example, the configuration below will register the
-contract `Foo` from the `FooContract.cdc` file.
+flow generate contract Foo`
+
+This command creates `cadence/contracts/Foo.cdc` with a basic contract template and automatically adds it to your `flow.json` configuration.
+
+## Add a Contract to Configuration[​](#add-a-contract-to-configuration "Direct link to Add a Contract to Configuration")
+
+If you have an existing contract file, add it to your project configuration using the CLI:
+
+`_10
+
+flow config add contract`
+
+Follow the interactive prompts:
+
+1. **Contract name**: Enter the contract name (e.g., `Foo`)
+2. **Contract filename**: Enter the path to your contract file (e.g., `./cadence/contracts/Foo.cdc`)
+3. **Add aliases**: Optionally add network aliases for dependencies
+
+You can also use flags to specify all details at once:
+
+`_10
+
+flow config add contract \
+
+_10
+
+--name Foo \
+
+_10
+
+--filename ./cadence/contracts/Foo.cdc`
+
+**What gets added to `flow.json`:**
 
 `_10
 
@@ -192343,7 +192424,7 @@ _10
 
 _10
 
-"Foo": "./cadence/contracts/FooContract.cdc"
+"Foo": "./cadence/contracts/Foo.cdc"
 
 _10
 
@@ -192353,67 +192434,141 @@ _10
 
 }`
 
-## Define Contract Deployment Targets[​](#define-contract-deployment-targets "Direct link to Define Contract Deployment Targets")
+## Configure Contract Deployment Targets[​](#configure-contract-deployment-targets "Direct link to Configure Contract Deployment Targets")
 
-Once a contract is added, it can then be assigned to one or more deployment targets.
+Once a contract is added to your configuration, configure deployment targets using the CLI:
 
-A deployment target is an account to which the contract will be deployed.
-In a typical project, a contract has one deployment target per network (e.g. Emulator, Testnet, Mainnet).
+`_10
 
-Deployment targets are defined in the `"deployments"` section of your `flow.json` file.
+flow config add deployment`
 
-Targets are grouped by their network, where each network is a mapping from target account to contract list.
-Multiple contracts can be deployed to the same target account.
+Follow the interactive prompts:
 
-For example, here's how we'd deploy contracts `Foo` and `Bar` to the account `my-testnet-account`:
+1. **Network**: Select the network (e.g., `testnet`, `mainnet`, `emulator`)
+2. **Account**: Select the account to deploy to (e.g., `my-testnet-account`)
+3. **Contract**: Select the contract to deploy (e.g., `Foo`)
+4. **Deploy more contracts**: Choose `yes` to add additional contracts to the same deployment
 
-`_11
+You can also use flags to specify all details:
+
+`_10
+
+flow config add deployment \
+
+_10
+
+--network testnet \
+
+_10
+
+--account my-testnet-account \
+
+_10
+
+--contract Foo`
+
+**What gets added to `flow.json`:**
+
+`_10
 
 {
 
-_11
-
-"contracts": {
-
-_11
-
-"Foo": "./cadence/contracts/FooContract.cdc",
-
-_11
-
-"Bar": "./cadence/contracts/BarContract.cdc"
-
-_11
-
-},
-
-_11
+_10
 
 "deployments": {
 
-_11
+_10
 
 "testnet": {
 
-_11
+_10
 
-"my-testnet-account": ["Foo", "Bar"]
+"my-testnet-account": ["Foo"]
 
-_11
-
-}
-
-_11
+_10
 
 }
 
-_11
+_10
+
+}
+
+_10
 
 }`
 
+## Add Multiple Contracts to a Deployment[​](#add-multiple-contracts-to-a-deployment "Direct link to Add Multiple Contracts to a Deployment")
+
+To deploy multiple contracts to the same account, run the deployment configuration command multiple times or use the interactive prompt to add more contracts:
+
+`_10
+
+flow config add deployment --network testnet --account my-testnet-account --contract Bar`
+
+This adds `Bar` to the existing deployment:
+
+`_10
+
+{
+
+_10
+
+"deployments": {
+
+_10
+
+"testnet": {
+
+_10
+
+"my-testnet-account": ["Foo", "Bar"]
+
+_10
+
+}
+
+_10
+
+}
+
+_10
+
+}`
+
+## Remove Contracts and Deployments[​](#remove-contracts-and-deployments "Direct link to Remove Contracts and Deployments")
+
+Remove contracts or deployments using the CLI:
+
+`_10
+
+# Remove a contract from configuration
+
+_10
+
+flow config remove contract Foo
+
+_10
+
+_10
+
+# Remove a contract from a specific deployment
+
+_10
+
+flow config remove deployment testnet my-testnet-account Foo`
+
+## Best Practices[​](#best-practices "Direct link to Best Practices")
+
+* **Use CLI commands**: Always use `flow config add` and `flow config remove` instead of manually editing `flow.json`
+* **Generate contracts**: Use `flow generate contract` to create new contracts with proper structure
+* **Verify configuration**: Use `flow accounts list` and check your `flow.json` to verify your configuration
+* **Network-specific deployments**: Configure separate deployments for each network (emulator, testnet, mainnet)
+
+For more information, see [Manage Configuration](/build/tools/flow-cli/flow.json/manage-configuration) and [Production Deployment](/blockchain-development-tutorials/cadence/getting-started/production-deployment).
+
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/build/tools/flow-cli/deployment/project-contracts.md)
 
-Last updated on **Aug 21, 2025** by **Brian Doyle**
+Last updated on **Nov 21, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -192427,7 +192582,7 @@ Deploy a Project](/build/tools/flow-cli/deployment/deploy-project-contracts)
 
 Copy as Markdown
 
-* [Add a Contract](#add-a-contract)* [Define Contract Deployment Targets](#define-contract-deployment-targets)
+* [Generate a Contract](#generate-a-contract)* [Add a Contract to Configuration](#add-a-contract-to-configuration)* [Configure Contract Deployment Targets](#configure-contract-deployment-targets)* [Add Multiple Contracts to a Deployment](#add-multiple-contracts-to-a-deployment)* [Remove Contracts and Deployments](#remove-contracts-and-deployments)* [Best Practices](#best-practices)
 
 Flow
 
@@ -197786,7 +197941,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -199652,7 +199807,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -207590,7 +207745,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -209037,7 +209192,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -212735,7 +212890,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -213161,7 +213316,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -213599,7 +213754,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -215070,7 +215225,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -215078,9 +215233,7 @@ Search
 
 * [Ecosystem Index](/ecosystem)* [Developer Support Hub](/ecosystem/developer-support-hub)
 
-    * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
-
-                * [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
+    * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
 
 * * Faucets
 
@@ -215100,7 +215253,7 @@ Last updated on **Sep 25, 2025** by **Brian Doyle**
 
 [Previous
 
-Band Oracle](/ecosystem/defi-liquidity/band-oracle)[Next
+Wallets](/ecosystem/wallets)[Next
 
 Bridges](/ecosystem/bridges)
 
@@ -215156,7 +215309,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -216619,7 +216772,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -217242,7 +217395,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -218993,7 +219146,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -224305,7 +224458,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -225959,7 +226112,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -226305,7 +226458,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -226313,9 +226466,7 @@ Search
 
 * [Ecosystem Index](/ecosystem)* [Developer Support Hub](/ecosystem/developer-support-hub)
 
-    * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
-
-                * [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
+    * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
 
 * * Data Indexers
 
@@ -226641,7 +226792,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -228930,7 +229081,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -229846,7 +229997,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -230940,7 +231091,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -238239,7 +238390,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -238465,7 +238616,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -238720,7 +238871,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -244511,7 +244662,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -244618,6 +244769,258 @@ Copyright © 2025 Flow Foundation. All Rights Reserved.
 
 
 
+# Source: https://developers.flow.com/defi/faq
+
+Stablecoins & Bridges on Flow FAQ | Flow Developer Portal
+
+
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Defi](/defi)* [Build with Forte ↙](/defi/forte)* [DeFi Contracts Mainnet](/defi/defi-contracts-mainnet)* [DeFi Contracts Testnet](/defi/defi-contracts-testnet)* [Cross-chain swaps on Flow EVM](/defi/cross-chain-swaps)* [Add Token To MetaMask](/defi/add-token-to-metamask)* [Band Oracle](/defi/band-oracle)* [Stablecoins & Bridges FAQ](/defi/faq)
+
+* * Stablecoins & Bridges FAQ
+
+On this page
+
+# Defi FAQ
+
+Below are common questions regarding stablecoins, liquidity, and bridging on Flow. Click on each question to expand and view the answer.
+
+## Bridging and Gas[​](#bridging-and-gas "Direct link to Bridging and Gas")
+
+Does Flow use ETH for gas?
+
+No, Flow uses $FLOW as the gas token. [WETH](/defi/defi-contracts-mainnet#stablecoins--wrapped-assets) is supported on Flow EVM when [bridging](/ecosystem/bridges) from another chain. $WFLOW is used as an ERC20 in DeFi apps and not used for gas.
+
+How do I pay for gas when bridging into Flow?
+
+When using Flow EVM for the first time, your EOA will automatically be credited 0.05 FLOW to cover gas costs when bridging into Flow.
+If further top-ups are required you can use [Gas.zip](https://www.gas.zip/). See [Fees](/build/evm/fees) for information on gas pricing.
+
+Flow Wallet users do not pay for gas since the wallet subsidizes all transaction fees.
+
+## Stablecoins on Flow[​](#stablecoins-on-flow "Direct link to Stablecoins on Flow")
+
+What stablecoins are available on Flow?
+
+USDC (USD Coin) - Issued by Circle
+
+USDT (Tether USD) - Issued by Tether
+
+USDF (USD Flow) - Backed by PYUSD (PayPal USD) issued by PayPal
+
+What are the smart contract addresses for the stablecoins and bridges on Flow?
+
+You can find all the contract addresses for the stablecoins and bridges on Flow here:  
+[DeFi Contracts on Flow](/defi/defi-contracts-mainnet)
+
+Where can I trade stablecoins on Flow?
+
+Stablecoins can be traded on major Flow-based decentralized exchanges (DEXs) like:
+
+* KittyPunch, PunchSwap - <https://swap.kittypunch.xyz/>
+* IncrementFi, IncrementSwap - [https://app.increment.fi/swap](https://app.increment.fi/swap?in=A.1654653399040a61.FlowToken&out=)
+
+How can I earn yield on stablecoins on Flow?
+
+You can earn yield through:
+
+* Lending Platforms - Supply stablecoins on [IncrementFi](https://app.increment.fi/dashboard), [Sturdy Finance](https://v2.sturdy.finance/overview) & [MoreMarkets](https://app.more.markets/) to earn interest.
+* Liquidity Pools - Provide liquidity on [IncrementFi](https://app.increment.fi/liquidity) or [KittyPunch](https://www.kittypunch.xyz/) to earn trading fees and farm LP tokens.
+
+Is it safe to use stablecoins on Flow?
+
+Stablecoins on Flow are designed to be secure and efficient but as with any blockchain asset, there are risks to be aware of:
+
+* Depegging - While rare, some stablecoins have lost their peg in the past due to liquidity issues or market crashes. Flow stablecoins like USDC and USDF are backed by trusted issuers to maintain stability.
+* Smart Contract Risks - Bugs or exploits in DeFi platforms can lead to losses.
+* Centralization Risks - USDC and USDT are controlled by centralized issuers who can freeze assets.
+* Bridging Risks - Flow stablecoins (USDC, USDT, USDF) use LayerZero for bridging, a secure and widely adopted cross-chain solution. While all bridges carry some risk, LayerZero is built with advanced security measures to reduce vulnerabilities.
+
+How can I bridge stablecoins to and from Flow?
+
+You can bridge USDC, USDT, and USDF via <https://bridge.flow.com/> or <https://stargate.finance/bridge>
+
+### Step-by-step example USDC to Flow[​](#step-by-step-example-usdc-to-flow "Direct link to Step-by-step example USDC to Flow")
+
+1. Go to any of the bridges (e.g. <https://stargate.finance/bridge>)
+2. Connect your wallet that holds USDC
+3. Select the source chain (e.g. Ethereum, BNB Chain, Base)
+4. Choose Flow as the destination chain
+5. Enter the amount of USDC you want to bridge
+6. Approve and confirm the transaction
+7. Wait for the transfer to complete - It usually takes a few minutes
+
+What are the fees for using stablecoins on Flow?
+
+Flow’s transaction fees are extremely low (typically less than $0.000179 per transaction), making stablecoin transfers and trading much cheaper than on any other chain.
+
+In many cases, Flow Wallet or Flow-based apps sponsor the gas fees, meaning users can transact stablecoins without paying any gas. This makes Flow an ideal chain for cost-efficient DeFi transactions.
+
+Can I use stablecoins for payments on Flow?
+
+Stablecoins can be used for payments on Flow with services like:
+
+[Beezie](https://beezie.io/), [Flowty](https://www.flowty.io/), [Flowverse](https://nft.flowverse.co/) and many other platforms.
+
+What are some upcoming innovations in stablecoins on Flow?
+
+* DeFi integrations with RWAs (Real World Assets).
+* Stay tuned on [Flow X account](https://x.com/flow_blockchain) or via the community [Flowverse](https://x.com/flowverse_)
+
+## Stargate and LayerZero on Flow[​](#stargate-and-layerzero-on-flow "Direct link to Stargate and LayerZero on Flow")
+
+What is LayerZero?
+
+LayerZero is an omnichain interoperability protocol that enables seamless cross-chain communication between different blockchains. It allows assets, messages, and data to move securely between chains without relying on traditional bridges.
+
+What is Stargate?
+
+Stargate is a liquidity transfer protocol built on LayerZero that allows users to bridge assets across multiple blockchains with minimal slippage and deep liquidity.
+
+How does Stargate support Flow?
+
+With Stargate now supporting Flow, users can bridge assets to and from Flow blockchain via [Stargate Finance](https://stargate.finance/bridge). This enables Flow to interact with other major chains like Ethereum, Base, Arbitrum One, and BNB Chain, unlocking global onchain liquidity for Flow-based apps and DeFi protocols.
+
+What assets can be bridged to Flow via Stargate?
+
+Currently, Stargate supports bridging USDC, USDT, and ETH between Flow and other chains. Additional assets may be added in the future.
+
+What are the fees for bridging USDC/USDT/ETH with Stargate?
+
+* Total fees: You pay gas fees + relayer fees, typically less than $1.5 per bridge transaction.
+* Gas fees vary depending on network congestion and gas prices.
+* Bridging from Ethereum costs around 0.0003868 ETH (~$1.04) in gas fees, plus LayerZero relayer fees of 0.00003536 ETH ($0.095).
+* Flow’s transaction fees are extremely low (typically less than $0.000179 per transaction), making stablecoin transfers and trading significantly cheaper than other chains.
+* In many cases, Flow Wallet or Flow-based apps sponsor gas fees, allowing users to bridge and transact stablecoins with zero cost on Flow.
+
+How fast is bridging between Flow and other chains?
+
+* Most transactions settle within a few minutes (~3 mins).
+* Congestion on the source chain can cause delays.
+
+Is bridging via Stargate safe?
+
+Stargate is built on LayerZero, a well-audited and widely used interoperability protocol.
+
+* Secure & Trusted – Used by top DeFi ecosystems with rigorous security audits.
+* Efficient & Cost-Effective – Fast transactions with low fees, especially on Flow.
+* Reliable Bridged Assets – USDC, USDT, and ETH bridged via Stargate are fully supported in Flow’s DeFi ecosystem.
+
+Tip: Always verify official links to ensure a safe bridging experience.
+
+What are the benefits of LayerZero on Flow?
+
+* Direct USDC transfers between Flow and other blockchains.
+* Unlocks cross-chain DeFi use cases (e.g., lending, trading, staking).
+* Low fees and high-speed transactions on Flow.
+
+Can I use Stargate to bridge NFTs or other tokens to Flow?
+
+Currently, Stargate only supports stablecoins like USDC and USDT, but NFT and asset bridging may be possible in the future via LayerZero-based messaging.
+
+What are some use cases for LayerZero on Flow?
+
+* **DeFi**: Seamless liquidity transfer between Flow and other ecosystems.
+* **Gaming**: Cross-chain in-game assets & currency settlements.
+* **Payments**: Fast and low-cost USDC/USDT/USDF transactions.
+* **NFTs**: Future potential for cross-chain NFT bridging.
+
+What wallets support LayerZero bridging on Flow?
+
+You can use any EVM wallet such as Metamask, Coinbase Wallet, and Flow Wallet.
+
+What stablecoins are currently live on Flow EVM?
+
+You can see a full list of stablecoins here:  
+[DeFi Contracts on Flow](/defi/defi-contracts-mainnet)
+
+Trading pools for USDF and USDC (USDC via Stargate) are already live and available for immediate use on Flow EVM and can be seamlessly transferred to any Flow Cadence address.
+
+Should Cadence applications switch to USDF or USDC?
+
+Cadence applications can use USDC.e as the default, but they now also have the option to support USDF or USDC based on their needs.
+
+If you have questions you can join [Flow Discord](https://discord.gg/flow) to get free technical support.
+
+## Support and Additional Resources[​](#support-and-additional-resources "Direct link to Support and Additional Resources")
+
+Where can I check the status of my bridge transaction?
+
+* Use [Stargate’s Explorer](https://stargate.finance/bridge) to track your transfer.
+* You can also check Flow transactions on [evm.flowscan.io](https://evm.flowscan.io)
+* You can also visit <https://bridge.flow.com/> and connect your wallet to view activity.
+
+Where can I get support if I have issues with the bridge?
+
+* **Stargate Discord**: <https://discord.com/invite/9sFqx9U>
+* **Flow Discord**: <https://discord.gg/flow>
+
+Where can I get updates or ask questions?
+
+* **Flow Twitter/X:** <https://x.com/flow_blockchain>
+* **Flow Discord**: <https://discord.gg/flow>
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/defi/faq.md)
+
+Last updated on **Dec 1, 2025** by **Brian Doyle**
+
+[Previous
+
+Band Oracle](/defi/band-oracle)
+
+###### Rate this page
+
+😞😐😊
+
+Copy as Markdown
+
+* [Bridging and Gas](#bridging-and-gas)* [Stablecoins on Flow](#stablecoins-on-flow)
+    + [Step-by-step example USDC to Flow](#step-by-step-example-usdc-to-flow)* [Stargate and LayerZero on Flow](#stargate-and-layerzero-on-flow)* [Support and Additional Resources](#support-and-additional-resources)
+
+Flow
+
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
+
+Cadence
+
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
+
+Solidity (EVM)
+
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
+
+Community & Support
+
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
+
+Network & Resources
+
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow Foundation. All Rights Reserved.
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
 # Source: https://developers.flow.com/protocol/staking/staking-scripts-events
 
 Query Staking Info with Scripts or Events | Flow Developer Portal
@@ -244628,7 +245031,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -246536,7 +246939,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -247038,7 +247441,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -252051,7 +252454,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -252716,7 +253119,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -254789,7 +255192,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -257961,7 +258364,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -258061,7 +258464,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -260986,7 +261389,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -260994,9 +261397,7 @@ Search
 
 * [Ecosystem Index](/ecosystem)* [Developer Support Hub](/ecosystem/developer-support-hub)
 
-    * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
-
-                * [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
+    * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
 
 * * Wallets
 
@@ -261052,7 +261453,7 @@ Last updated on **Nov 12, 2025** by **Brian Doyle**
 
 Developer Profile](/ecosystem/developer-profile)[Next
 
-DeFi & Liquidity](/ecosystem/defi-liquidity)
+Faucets](/ecosystem/faucets)
 
 ###### Rate this page
 
@@ -261380,7 +261781,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -263123,7 +263524,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -263637,7 +264038,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -266399,7 +266800,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -266407,9 +266808,7 @@ Search
 
 * [Ecosystem Index](/ecosystem)* [Developer Support Hub](/ecosystem/developer-support-hub)
 
-    * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
-
-                * [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
+    * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
 
 * * Collectibles & NFTs
 
@@ -268100,7 +268499,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -274481,7 +274880,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -279422,7 +279821,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -285300,7 +285699,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -286533,7 +286932,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -287228,7 +287627,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -287928,7 +288327,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -289001,7 +289400,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -289283,6 +289682,111 @@ More
 * [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://developers.flow.com/defi/cross-chain-swaps
+
+Cross-chain swaps on Flow EVM | Flow Developer Portal
+
+
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Defi](/defi)* [Build with Forte ↙](/defi/forte)* [DeFi Contracts Mainnet](/defi/defi-contracts-mainnet)* [DeFi Contracts Testnet](/defi/defi-contracts-testnet)* [Cross-chain swaps on Flow EVM](/defi/cross-chain-swaps)* [Add Token To MetaMask](/defi/add-token-to-metamask)* [Band Oracle](/defi/band-oracle)* [Stablecoins & Bridges FAQ](/defi/faq)
+
+* * Cross-chain swaps on Flow EVM
+
+On this page
+
+# Cross-chain swaps on Flow EVM
+
+The following bridges offer cross-chain swaps (token bridging including swap) to or from Flow EVM.
+
+## Liquidity Pool Based Cross-chain Swaps[​](#liquidity-pool-based-cross-chain-swaps "Direct link to Liquidity Pool Based Cross-chain Swaps")
+
+### Stargate[​](#stargate "Direct link to Stargate")
+
+[Stargate](https://stargate.finance) employs unified liquidity pools shared across multiple chains to enable native asset transfers and cross-chain swaps
+without wrapped tokens. It is built on LayerZero's cross-chain messaging protocol.
+
+### Celer[​](#celer "Direct link to Celer")
+
+[Celer](https://cbridge.celer.network) is a hybrid liquidity network bridge that combines multiple bridging models and is based on the Celer
+Inter-Chain Messaging Framework.
+
+## Intent Based Cross-chain Swaps[​](#intent-based-cross-chain-swaps "Direct link to Intent Based Cross-chain Swaps")
+
+Intent based bridges do not depend on pre-funded liquidity pools which can improve user experience, transaction speed and capital efficiency.
+
+### Relay[​](#relay "Direct link to Relay")
+
+[Relay.link](https://relay.link/bridge/base) allows users to specify desired cross-chain swap outcomes for orders.
+
+### DeBridge[​](#debridge "Direct link to DeBridge")
+
+[DeBridge](https://app.debridge.finance/) achieves efficient cross-chain swaps with minimal slippage in a decentralized environment
+through a peer-to-peer transaction mechanism.
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/defi/cross-chain-swaps.md)
+
+Last updated on **Dec 1, 2025** by **Brian Doyle**
+
+[Previous
+
+DeFi Contracts Testnet](/defi/defi-contracts-testnet)[Next
+
+Add Token To MetaMask](/defi/add-token-to-metamask)
+
+###### Rate this page
+
+😞😐😊
+
+Copy as Markdown
+
+* [Liquidity Pool Based Cross-chain Swaps](#liquidity-pool-based-cross-chain-swaps)
+  + [Stargate](#stargate)+ [Celer](#celer)* [Intent Based Cross-chain Swaps](#intent-based-cross-chain-swaps)
+    + [Relay](#relay)+ [DeBridge](#debridge)
+
+Flow
+
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
+
+Cadence
+
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
+
+Solidity (EVM)
+
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
+
+Community & Support
+
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
+
+Network & Resources
+
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow Foundation. All Rights Reserved.
 
 
 
@@ -293972,7 +294476,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -293980,9 +294484,7 @@ Search
 
 * [Ecosystem Index](/ecosystem)* [Developer Support Hub](/ecosystem/developer-support-hub)
 
-    * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
-
-                * [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
+    * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
 
 * * Ecosystem Index
 
@@ -294011,10 +294513,6 @@ Learn about Developer Profile - Flow's upcoming developer recognition and learni
 [## 🔑 Wallets
 
 Store, manage, and interact securely with tokens and digital assets on Flow. Discover a range of wallets that offer convenient ways to handle and safeguard your cryptocurrency holdings, ensuring easy access and enhanced security for your transactions and assets.](/ecosystem/wallets)
-
-[## 💧 DeFi & Liquidity
-
-7 items](/ecosystem/defi-liquidity)
 
 [## 💧 Faucets
 
@@ -296819,7 +297317,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -298763,7 +299261,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -300740,7 +301238,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -304917,7 +305415,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -304925,9 +305423,7 @@ Search
 
 * [Ecosystem Index](/ecosystem)* [Developer Support Hub](/ecosystem/developer-support-hub)
 
-    + [Builder Perks](/ecosystem/developer-support-hub/builder-perks)+ [Grants](/ecosystem/developer-support-hub/grants)+ [VCs & Funds](/ecosystem/developer-support-hub/vcs-and-funds)* [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
-
-                * [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
+    + [Builder Perks](/ecosystem/developer-support-hub/builder-perks)+ [Grants](/ecosystem/developer-support-hub/grants)+ [VCs & Funds](/ecosystem/developer-support-hub/vcs-and-funds)* [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
 
 * * [Developer Support Hub](/ecosystem/developer-support-hub)* Grants
 
@@ -313262,7 +313758,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -313392,7 +313888,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -313528,7 +314024,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -317300,7 +317796,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -319404,7 +319900,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -319866,7 +320362,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -320478,7 +320974,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -322946,7 +323442,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -322954,9 +323450,7 @@ Search
 
 * [Ecosystem Index](/ecosystem)* [Developer Support Hub](/ecosystem/developer-support-hub)
 
-    * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
-
-                * [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
+    * [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
 
 * * Community Projects
 
@@ -323054,7 +323548,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -323594,6 +324088,170 @@ More
 * [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://developers.flow.com/defi/defi-contracts-mainnet
+
+DeFi Contracts on Flow Mainnet | Flow Developer Portal
+
+
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Defi](/defi)* [Build with Forte ↙](/defi/forte)* [DeFi Contracts Mainnet](/defi/defi-contracts-mainnet)* [DeFi Contracts Testnet](/defi/defi-contracts-testnet)* [Cross-chain swaps on Flow EVM](/defi/cross-chain-swaps)* [Add Token To MetaMask](/defi/add-token-to-metamask)* [Band Oracle](/defi/band-oracle)* [Stablecoins & Bridges FAQ](/defi/faq)
+
+* * DeFi Contracts Mainnet
+
+On this page
+
+# DeFi Contracts on Flow Mainnet
+
+Flow is a Layer 1 blockchain that supports EVM equivalency, offering two environments Flow EVM and Flow Cadence. Fungible and non-fungible tokens can seamlessly transfer between these environments via the native VM token bridge. As a result, many tokens have both a Flow EVM mainnet contract address and a Flow Cadence mainnet contract address, allowing developers to choose their preferred environment.
+
+Below is a list of commonly used DeFi contracts on Flow Mainnet:
+
+[Switch to DeFi Contracts on Testnet](/defi/defi-contracts-testnet)
+
+## Stablecoins & Wrapped Assets[​](#stablecoins--wrapped-assets "Direct link to Stablecoins & Wrapped Assets")
+
+#### Flow EVM Mainnet[​](#flow-evm-mainnet "Direct link to Flow EVM Mainnet")
+
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Token Name Flow EVM Mainnet Address|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [WFLOW](https://evm.flowscan.io/token/0xd3bF53DAC106A0290B0483EcBC89d40FcC961f3e) `0xd3bF53DAC106A0290B0483EcBC89d40FcC961f3e`| [USDC (stgUSDC)](https://evm.flowscan.io/token/0xF1815bd50389c46847f0Bda824eC8da914045D14) `0xF1815bd50389c46847f0Bda824eC8da914045D14`| [USDT (stgUSDT)](https://evm.flowscan.io/token/0x674843C06FF83502ddb4D37c2E09C01cdA38cbc8) `0x674843C06FF83502ddb4D37c2E09C01cdA38cbc8`| [USDF (USD Flow)](https://evm.flowscan.io/token/0x2aaBea2058b5aC2D339b163C6Ab6f2b6d53aabED) `0x2aaBea2058b5aC2D339b163C6Ab6f2b6d53aabED`| [USDC.e (Celer)](https://evm.flowscan.io/token/0x7f27352D5F83Db87a5A3E00f4B07Cc2138D8ee52) `0x7f27352D5F83Db87a5A3E00f4B07Cc2138D8ee52`| [stFlow (Increment Staked FLOW)](https://evm.flowscan.io/token/0x5598c0652B899EB40f169Dd5949BdBE0BF36ffDe) `0x5598c0652B899EB40f169Dd5949BdBE0BF36ffDe`| [ankrFLOWEVM (Ankr Staked FLOW)](https://evm.flowscan.io/token/0x1b97100eA1D7126C4d60027e231EA4CB25314bdb) `0x1b97100eA1D7126C4d60027e231EA4CB25314bdb`| [WETH](https://evm.flowscan.io/token/0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590) `0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590`| [cbBTC](https://evm.flowscan.io/token/0xA0197b2044D28b08Be34d98b23c9312158Ea9A18) `0xA0197b2044D28b08Be34d98b23c9312158Ea9A18` | | | | | | | | | | | | | | | | | | | |
+
+#### Flow Cadence Mainnet[​](#flow-cadence-mainnet "Direct link to Flow Cadence Mainnet")
+
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Token Name Flow Cadence Mainnet Address Flow Cadence Contract Name|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [FLOW](https://www.flowscan.io/ft/token/A.1654653399040a61.FlowToken.Vault) `0x1654653399040a61` FlowToken|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [USDC (stgUSDC)](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_f1815bd50389c46847f0bda824ec8da914045d14.Vault) `0x1e4aa0b87d10b141` EVMVMBridgedToken\_f1815bd50389c46847f0bda824ec8da914045d14|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [USDT (stgUSDT)](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_674843c06ff83502ddb4d37c2e09c01cda38cbc8.Vault) `0x1e4aa0b87d10b141` EVMVMBridgedToken\_674843c06ff83502ddb4d37c2e09c01cda38cbc8|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [USDF (USD Flow)](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_2aabea2058b5ac2d339b163c6ab6f2b6d53aabed.Vault) `0x1e4aa0b87d10b141` EVMVMBridgedToken\_2aabea2058b5ac2d339b163c6ab6f2b6d53aabed|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [USDC.e (Celer)](https://flowscan.io/ft/token/A.f1ab99c82dee3526.USDCFlow.Vault) `0xf1ab99c82dee3526` USDCFlow|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [stFlow (Increment Staked FLOW)](https://flowscan.io/ft/token/A.d6f80565193ad727.stFlowToken.Vault) `0xd6f80565193ad727` stFlowToken|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [ankrFLOWEVM (Ankr Staked FLOW)](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_1b97100ea1d7126c4d60027e231ea4cb25314bdb.Vault) `0x1e4aa0b87d10b141` EVMVMBridgedToken\_1b97100ea1d7126c4d60027e231ea4cb25314bdb|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | [WETH](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_2f6f07cdcf3588944bf4c42ac74ff24bf56e7590.Vault) `0x1e4aa0b87d10b141` EVMVMBridgedToken\_2f6f07cdcf3588944bf4c42ac74ff24bf56e7590|  |  |  | | --- | --- | --- | | [cbBTC](https://flowscan.io/ft/token/A.1e4aa0b87d10b141.EVMVMBridgedToken_a0197b2044d28b08be34d98b23c9312158ea9a18.Vault) `0x1e4aa0b87d10b141` EVMVMBridgedToken\_a0197b2044d28b08be34d98b23c9312158ea9a18 | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+
+#### Flow Cadence Testnet[​](#flow-cadence-testnet "Direct link to Flow Cadence Testnet")
+
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Token Name Flow Cadence Testnet Address Flow Cadence Contract Name|  |  |  | | --- | --- | --- | | [USDF (Mock)](https://testnet.flowscan.io/ft/token/A.b7ace0a920d2c37d.EVMVMBridgedToken_2aabea2058b5ac2d339b163c6ab6f2b6d53aabed.Vault) `0xb7ace0a920d2c37d` EVMVMBridgedToken\_2aabea2058b5ac2d339b163c6ab6f2b6d53aabed | | | | | |
+
+## AMMs & DEXs[​](#amms--dexs "Direct link to AMMs & DEXs")
+
+#### Flow EVM Mainnet FlowSwap[​](#flow-evm-mainnet-flowswap "Direct link to Flow EVM Mainnet FlowSwap")
+
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Contract EVM Mainnet Address|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [UniswapV2Factory (FlowSwap)](https://www.flowscan.io/evm/contract/0x681D1bFE03522e0727730Ba02a05CD3C0a08fa30) `0x681D1bFE03522e0727730Ba02a05CD3C0a08fa30`| [UniswapV2Router02 (FlowSwap)](https://www.flowscan.io/evm/contract/0x2B30D97457d44dE9fb0329D9a2C1DF6B7ae1401d) `0x2B30D97457d44dE9fb0329D9a2C1DF6B7ae1401d`| [UniswapV2Pair (FlowSwap)](https://www.flowscan.io/evm/contract/0x48d63C4E4481fd0A01Fb82A3B191C6685c361f02) `0x48d63C4E4481fd0A01Fb82A3B191C6685c361f02`| [UniswapV3Factory (FlowSwap)](https://www.flowscan.io/evm/contract/0xca6d7Bb03334bBf135902e1d919a5feccb461632) `0xca6d7Bb03334bBf135902e1d919a5feccb461632`| [NonfungiblePositionManager (FlowSwap)](https://www.flowscan.io/evm/contract/0xf7F20a346E3097C7d38afDDA65c7C802950195C7) `0xf7F20a346E3097C7d38afDDA65c7C802950195C7`| [SwapRouter02 (FlowSwap)](https://www.flowscan.io/evm/contract/0xeEDC6Ff75e1b10B903D9013c358e446a73d35341) `0xeEDC6Ff75e1b10B903D9013c358e446a73d35341`| [QuoterV2 (FlowSwap)](https://www.flowscan.io/evm/contract/0x370A8DF17742867a44e56223EC20D82092242C85) `0x370A8DF17742867a44e56223EC20D82092242C85`| [V3Migrator (FlowSwap)](https://www.flowscan.io/evm/contract/0x5C65D5C7E0154f519B7dC4558915A7016F41aa50) `0x5C65D5C7E0154f519B7dC4558915A7016F41aa50`| [UniswapV3Staker (FlowSwap)](https://www.flowscan.io/evm/contract/0x990A0564B7d90656494Ba7A7E1e874038cc35f5d) `0x990A0564B7d90656494Ba7A7E1e874038cc35f5d`| [TickLens (FlowSwap)](https://www.flowscan.io/evm/contract/0x513A58591c8E502543D629748076857a71C6079D) `0x513A58591c8E502543D629748076857a71C6079D`| [NFTDescriptor (FlowSwap)](https://www.flowscan.io/evm/contract/0x99187C0a0AF166b40C393FAE5FDaC688ed5b6989) `0x99187C0a0AF166b40C393FAE5FDaC688ed5b6989`| [v3\_nft\_position\_descriptor (FlowSwap)](https://www.flowscan.io/evm/contract/0x36D8296B9B73dE9d5Ec09ACc6a7c02cC40Ad9780) `0x36D8296B9B73dE9d5Ec09ACc6a7c02cC40Ad9780`| [TransparentUpgradeableProxy (FlowSwap)](https://www.flowscan.io/evm/contract/0xB231Aa6F8636373f5233eeaD13FFEB199659d484) `0xB231Aa6F8636373f5233eeaD13FFEB199659d484`| [UniswapV3Pool (FlowSwap)](https://www.flowscan.io/evm/contract/0xd21C58aDaf1d1119FE40413b45A5f43d23d58DF3) `0xd21C58aDaf1d1119FE40413b45A5f43d23d58DF3`| [UniversalRouter (FlowSwap)](https://www.flowscan.io/evm/contract/0x5fE87847fe20a6C30921620F52B06a4A3740aa61) `0x5fE87847fe20a6C30921620F52B06a4A3740aa61`| [Permit2 (FlowSwap)](https://www.flowscan.io/evm/contract/0x000000000022D473030F116dDEE9F6B43aC78BA3) `0x000000000022D473030F116dDEE9F6B43aC78BA3`| [FusionXInterfaceMulticall (FlowSwap)](https://www.flowscan.io/evm/contract/0x8B5eB800B8d9cF702ff3DD0047ac31bBD411B82a) `0x8B5eB800B8d9cF702ff3DD0047ac31bBD411B82a`| [proxy\_admin (FlowSwap)](https://www.flowscan.io/evm/contract/0x026932f97995201527B4c9Bc2ea6854C02BB0AdC) `0x026932f97995201527B4c9Bc2ea6854C02BB0AdC` | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+
+#### Flow EVM Mainnet KittyPunch[​](#flow-evm-mainnet-kittypunch "Direct link to Flow EVM Mainnet KittyPunch")
+
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Contract Name Flow EVM Mainnet Address Docs|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [StableKittyFactoryNG (KittyPunch)](https://evm.flowscan.io/address/0x4412140D52C1F5834469a061927811Abb6026dB7?tab=contract) `0x4412140D52C1F5834469a061927811Abb6026dB7` [Docs](https://kittypunch.gitbook.io/kittypunch-docs)| [TwoKittyFactory (KittyPunch)](https://evm.flowscan.io/address/0xf0E48dC92f66E246244dd9F33b02f57b0E69fBa9?tab=contract) `0xf0E48dC92f66E246244dd9F33b02f57b0E69fBa9` [Docs](https://kittypunch.gitbook.io/kittypunch-docs)| [TriKittyFactory (KittyPunch)](https://evm.flowscan.io/address/0xebd098c60b1089f362AC9cfAd9134CBD29408226?tab=contract) `0xebd098c60b1089f362AC9cfAd9134CBD29408226` [Docs](https://kittypunch.gitbook.io/kittypunch-docs)| [KittyRouterNgPoolsOnly (KittyPunch)](https://evm.flowscan.io/address/0x87048a97526c4B66b71004927D24F61DEFcD6375?tab=contract) `0x87048a97526c4B66b71004927D24F61DEFcD6375` [Docs](https://kittypunch.gitbook.io/kittypunch-docs)| [PunchSwapV2Router02 (KittyPunch)](https://evm.flowscan.io/address/0xf45AFe28fd5519d5f8C1d4787a4D5f724C0eFa4d?tab=contract) `0xf45AFe28fd5519d5f8C1d4787a4D5f724C0eFa4d` [Docs](https://kittypunch.gitbook.io/kittypunch-docs)| [PunchSwapV2Factory (KittyPunch)](https://evm.flowscan.io/address/0x29372c22459a4e373851798bFd6808e71EA34A71?tab=contract) `0x29372c22459a4e373851798bFd6808e71EA34A71` [Docs](https://kittypunch.gitbook.io/kittypunch-docs)| [TrenchesTokensBuyer (KittyPunch)](https://evm.flowscan.io/address/0x6D0e081Acc28eA9ee6b7fD293eC03F97147b026d?tab=contract) `0x6D0e081Acc28eA9ee6b7fD293eC03F97147b026d` [Docs](https://kittypunch.gitbook.io/kittypunch-docs) | | | | | | | | | | | | | | | | | | | | | | | |
+
+#### Flow Cadence Mainnet[​](#flow-cadence-mainnet-1 "Direct link to Flow Cadence Mainnet")
+
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Contract Name Flow Cadence Mainnet Address [CLI](https://developers.flow.com/build/tools/flow-cli/dependency-manager) Docs|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [SwapFactory (IncrementFi)](https://flowscan.io/contract/A.b063c16cac85dbd1.SwapFactory) `0xb063c16cac85dbd1` [Docs](https://docs.increment.fi/)| [SwapPair (IncrementFi)](https://flowscan.io/contract/A.ecbda466e7f191c7.SwapPair) `0xecbda466e7f191c7` [Docs](https://docs.increment.fi/)| [SwapError (IncrementFi)](https://flowscan.io/contract/A.b78ef7afa52ff906.SwapError) `0xb78ef7afa52ff906` [Docs](https://docs.increment.fi/)| [SwapInterfaces (IncrementFi)](https://flowscan.io/contract/A.b78ef7afa52ff906.SwapInterfaces) `0xb78ef7afa52ff906` [Docs](https://docs.increment.fi/)| [SwapConfig (IncrementFi)](https://flowscan.io/contract/A.b78ef7afa52ff906.SwapConfig) `0xb78ef7afa52ff906` [Docs](https://docs.increment.fi/)| [SwapRouter (IncrementFi)](https://flowscan.io/contract/A.a6850776a94e6551.SwapRouter) `0xa6850776a94e6551` [Docs](https://docs.increment.fi/) | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+
+## Bridges & Cross-Chain Messaging[​](#bridges--cross-chain-messaging "Direct link to Bridges & Cross-Chain Messaging")
+
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Bridge / Protocol Reference Docs|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | Stargate Bridge ([stargate.finance](https://stargate.finance/bridge?srcChain=ethereum&srcToken=0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48&dstChain=flow&dstToken=0xF1815bd50389c46847f0Bda824eC8da914045D14)) [Mainnet Contracts](https://stargateprotocol.gitbook.io/stargate/v2-developer-docs/technical-reference/mainnet-contracts#flow)| Hyperlane Bridge ([trump.hyperlane.xyz](https://trump.hyperlane.xyz/)) [Mainnet Contracts](https://docs.hyperlane.xyz/docs/reference/addresses/mailbox-addresses)| Flow Bridge ([bridge.flow.com](https://bridge.flow.com/)) [Superbridge Docs](https://docs.superbridge.app/)| Celer cBridge ([cbridge.celer.network](https://cbridge.celer.network/1/747/USDC-intermediary)) [Celer cBridge Docs](https://cbridge-docs.celer.network/tutorial/flow-cadence-bridging-guide)| DeBridge ([app.debridge.finance](https://app.debridge.finance/)) [DeBridge Contracts](https://docs.debridge.finance/dln-the-debridge-liquidity-network-protocol/deployed-contracts)| Relay ([relay.link](https://relay.link/bridge)) [Relay Contracts](https://docs.relay.link/resources/contract-addresses)| LayerZero [Mainnet Contracts](https://docs.layerzero.network/v1/developers/evm/technical-reference/deployed-contracts?chains=flow)| Axelar [Axelar Docs](https://docs.axelar.dev/validator/external-chains/flow/) | | | | | | | | | | | | | | | | | |
+
+## Omni Fungible Tokens (PYUSD → USDF)[​](#omni-fungible-tokens-pyusd--usdf "Direct link to Omni Fungible Tokens (PYUSD → USDF)")
+
+#### Solana Mainnet[​](#solana-mainnet "Direct link to Solana Mainnet")
+
+|  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Contract Name Contract Address|  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | PYUSD Program ID `28EyPNAi9BMTvGuCaQrptMXjpWUi7wx8SxAFVoSZxSXe`| PYUSD Mint `2b1kV6DkPAnxd5ixfnxCpjxmKwqjjaYmCZfHsFu24GXo`| PYUSD Mint Authority `22mKJkKjGEQ3rampp5YKaSsaYZ52BUkcnUN6evXGsXzz`| PYUSD Escrow `6z3QyVS36nQ9fk2YvToxqJqXqtAFsSijqgHxpzKyG5xn`| PYUSD OFT Store `2KUb8dcZR9LyrSg4RdkQx91xX6mPQLpS1MEo6gwfvLZk` | | | | | | | | | | | |
+
+#### Ethereum Mainnet[​](#ethereum-mainnet "Direct link to Ethereum Mainnet")
+
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Contract Name Contract Address|  |  |  |  | | --- | --- | --- | --- | | PYUSD Token `0x6c3ea9036406852006290770BEdFcAbA0e23A0e8`| PYUSD Locker `0xFA0e06B54986ad96DE87a8c56Fea76FBD8d493F8` | | | | | |
+
+## Oracles[​](#oracles "Direct link to Oracles")
+
+#### Flow EVM Mainnet[​](#flow-evm-mainnet-1 "Direct link to Flow EVM Mainnet")
+
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Contract Name Flow EVM Mainnet Address|  |  |  |  | | --- | --- | --- | --- | | [ERC1967Proxy (Pyth)](https://evm.flowscan.io/address/0x2880aB155794e7179c9eE2e38200202908C17B43?tab=contract) `0x2880aB155794e7179c9eE2e38200202908C17B43`| [ERC1967Proxy (Stork)](https://evm.flowscan.io/address/0xacC0a0cF13571d30B4b8637996F5D6D774d4fd62?tab=contract) `0xacC0a0cF13571d30B4b8637996F5D6D774d4fd62` | | | | | |
+
+#### Flow Cadence Mainnet[​](#flow-cadence-mainnet-2 "Direct link to Flow Cadence Mainnet")
+
+|  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Contract Name Flow Cadence Mainnet Address [CLI](https://developers.flow.com/build/tools/flow-cli/dependency-manager) Docs|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | [PublicPriceOracle (IncrementFi)](https://flowscan.io/contract/A.ec67451f8a58216a.PublicPriceOracle) `0xec67451f8a58216a` [Docs](https://docs.increment.fi/)| [BandOracle (Band) Protocol](https://flowscan.io/contract/A.6801a6222ebf784a.BandOracle) `0x6801a6222ebf784a` [Docs](/defi/band-oracle) | | | | | | | | | | | |
+
+## Ethereum Attestation Service[​](#ethereum-attestation-service "Direct link to Ethereum Attestation Service")
+
+More information can be found on the Credora docs site for [EAS on Flow](https://credora.gitbook.io/eas-for-flow).
+
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Contract Name Flow EVM Mainnet Address|  |  |  |  | | --- | --- | --- | --- | | [SchemaRegistry (Ethereum Attestation Service)](https://evm.flowscan.io/address/0xB0cF748a05AEA8D59e15834446CFC95bcFF510F0?tab=contract) `0xB0cF748a05AEA8D59e15834446CFC95bcFF510F0`| [EAS (Ethereum Attestation Service)](https://evm.flowscan.io/address/0xc6376222F6E009A705a34dbF1dF72fEf8efB3964?tab=contract) `0xc6376222F6E009A705a34dbF1dF72fEf8efB3964` | | | | | |
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/defi/defi-contracts-mainnet.md)
+
+Last updated on **Dec 1, 2025** by **Brian Doyle**
+
+[Previous
+
+Build with Forte ↙](/defi/forte)[Next
+
+DeFi Contracts Testnet](/defi/defi-contracts-testnet)
+
+###### Rate this page
+
+😞😐😊
+
+Copy as Markdown
+
+* [Stablecoins & Wrapped Assets](#stablecoins--wrapped-assets)* [AMMs & DEXs](#amms--dexs)* [Bridges & Cross-Chain Messaging](#bridges--cross-chain-messaging)* [Omni Fungible Tokens (PYUSD → USDF)](#omni-fungible-tokens-pyusd--usdf)* [Oracles](#oracles)* [Ethereum Attestation Service](#ethereum-attestation-service)
+
+Flow
+
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
+
+Cadence
+
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
+
+Solidity (EVM)
+
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
+
+Community & Support
+
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
+
+Network & Resources
+
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow Foundation. All Rights Reserved.
 
 
 
@@ -327460,7 +328118,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -327970,7 +328628,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -330148,7 +330806,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -330466,7 +331124,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -332111,7 +332769,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -333439,7 +334097,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -339415,6 +340073,194 @@ More
 * [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://developers.flow.com/defi
+
+Defi | Flow Developer Portal
+
+
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Defi](/defi)* [Build with Forte ↙](/defi/forte)* [DeFi Contracts Mainnet](/defi/defi-contracts-mainnet)* [DeFi Contracts Testnet](/defi/defi-contracts-testnet)* [Cross-chain swaps on Flow EVM](/defi/cross-chain-swaps)* [Add Token To MetaMask](/defi/add-token-to-metamask)* [Band Oracle](/defi/band-oracle)* [Stablecoins & Bridges FAQ](/defi/faq)
+
+* * Defi
+
+On this page
+
+# Defi on Flow
+
+**Fast, scalable, and capital-efficient DeFi.** Flow delivers a seamless DeFi experience without congestion, unlocking new possibilities for developers and users alike.
+
+Flow is a purpose-built L1 blockchain designed for large-scale consumer finance applications and automated DeFi. It enables developers to build high-performance **DEXs, lending platforms, stablecoin protocols, and liquidity solutions**—all without the friction of high fees or complex scaling layers.
+
+## Why DeFi on Flow?[​](#why-defi-on-flow "Direct link to Why DeFi on Flow?")
+
+**Ultra-low fees** - Cost-efficient swaps, lending, and staking  
+**Fast finality** - Transactions confirmed in seconds with guaranteed execution  
+**MEV resistance** - Equitable access without frontrunning or hidden fees  
+**Capital-efficient execution** - No congestion, seamless scaling  
+**Composable DeFi** - Built-in interoperability between assets and protocols  
+**Automated execution** - Native scheduling and autonomous workflows with Forte
+
+**Start integrating DeFi on Flow today.**
+
+**[DeFi Contracts](/defi/defi-contracts-mainnet)**  
+**[Cross-chain swaps](/defi/cross-chain-swaps)**  
+**[Read the FAQ](/defi/faq)**
+
+Explore the [FlowVerse DeFi ecosystem](https://www.flowverse.co/?categories=defi) page for more information.
+
+## Build with Forte[​](#build-with-forte "Direct link to Build with Forte")
+
+The **Forte network upgrade** transforms Flow into an autonomous, intelligent network capable of executing complex DeFi workflows without external dependencies. Forte introduces native time scheduling, protocol-level composability, and precision financial calculations that enable entirely new categories of applications.
+
+**Flow Actions** enable protocol-native, composable operations that link together standardized DeFi primitives—sources, sinks, swappers, price oracles, and more—into atomic, protocol-agnostic workflows. A single transaction can claim rewards, swap assets, add liquidity, and restake LP tokens without any off-chain orchestration.
+
+**Scheduled Transactions** introduce the first truly onchain time scheduler, enabling recurring actions, deferred settlements, and autonomous portfolio management without external cron jobs or trusted servers. DeFi protocols can become self-maintaining: positions compound automatically, vaults adjust exposure based on time or events, and protocols enforce predictable behavior entirely onchain.
+
+Combined with **128-bit fixed-point arithmetic** for lossless financial calculations and **native WebAuthn support** for seedless user onboarding, Forte reduces development time for consumer finance applications from months to mere days.
+
+Learn more about building automated DeFi with [Flow Actions](/blockchain-development-tutorials/forte/flow-actions) and [Scheduled Transactions](/blockchain-development-tutorials/forte/scheduled-transactions/scheduled-transactions-introduction).
+
+## DeFi Partners[​](#defi-partners "Direct link to DeFi Partners")
+
+## Kittypunch[​](#kittypunch "Direct link to Kittypunch")
+
+[Kittypunch](https://www.kittypunch.xyz/) is a next-generation decentralized exchange on Flow offering high-speed, low-cost token swaps and an intuitive trading experience. With a focus on community engagement and gamified finance, Kittypunch brings fresh energy to DeFi on Flow. Learn more [here](https://kittypunch.gitbook.io/kittypunch-docs).
+
+## Trado.one[​](#tradoone "Direct link to Trado.one")
+
+[Trado.one](https://www.trado.one/) is a permissionless decentralized exchange that enables seamless token swaps on Flow. It offers an efficient, user-friendly interface and liquidity tools aimed at developers and retail users alike. Learn more [here](https://docs-perp.trado.one/).
+
+## Increment.fi[​](#incrementfi "Direct link to Increment.fi")
+
+[Increment.fi](https://app.increment.fi/) is a composable DeFi platform on Flow offering lending, borrowing, staking, and exchange functionalities. It enables developers to integrate financial primitives into their apps through modular smart contracts. Learn more [here](https://docs.increment.fi/).
+
+## More.Markets[​](#moremarkets "Direct link to More.Markets")
+
+[More.Markets](https://www.more.markets/) provides decentralized lending and borrowing on Flow. Users can supply assets to earn yield or borrow assets against collateral with dynamic interest rates, offering capital efficiency and transparency. Learn more [here](https://docs.more.markets/).
+
+## Sturdy.Finance[​](#sturdyfinance "Direct link to Sturdy.Finance")
+
+[Sturdy.Finance](https://sturdy.finance/) is a DeFi protocol that facilitates interest-free borrowing using yield-bearing assets. Built for Flow, it empowers users with efficient leverage while maintaining security and composability. Learn more [here](https://docs.sturdy.finance/).
+
+## Ankr[​](#ankr "Direct link to Ankr")
+
+**Tags:** Liquid Staking  
+[Ankr](https://www.ankr.com/) brings liquid staking to Flow, allowing users to stake FLOW tokens and receive liquid derivatives that can be used in other DeFi protocols. This increases capital efficiency while securing the network. Learn more [here](https://www.ankr.com/docs/).
+
+## Sudocat[​](#sudocat "Direct link to Sudocat")
+
+[Sudocat](https://www.sudocat.ai/) offers a decentralized trading dashboard built for Flow. With tools for analytics, portfolio tracking, and execution, it enhances the trading experience for onchain users and DeFi enthusiasts. Learn more [here](https://docs.sudocat.ai/).
+
+## Hitdex[​](#hitdex "Direct link to Hitdex")
+
+[Hitdex](https://www.hitdex.com/#/welcome) is a trading app native to Flow that combines a user-friendly interface with advanced execution logic. It supports seamless token swaps and is optimized for both speed and low fees. Learn more [here](https://www.hitdex.com/#/welcome).
+
+## Rally[​](#rally "Direct link to Rally")
+
+[Rally](https://rally.xyz/) is your wallet, made social. Welcome to the new internet built for us to rally together, offering innovative social trading features and community-driven financial experiences on Flow.
+
+## Hype.meme[​](#hypememe "Direct link to Hype.meme")
+
+[Hype.meme](https://hype.meme/) is a platform to trade memes, now live on the App Store. It brings meme trading to the Flow blockchain with a focus on community-driven content and viral assets.
+
+## Vaultopolis[​](#vaultopolis "Direct link to Vaultopolis")
+
+[Vaultopolis](https://vaultopolis.com/) tokenizes Top Shot Moments into TSHOT, providing trading opportunities, yield generation, and liquidity solutions for NBA Top Shot collectors on Flow.
+
+## Izumi.finance[​](#izumifinance "Direct link to Izumi.finance")
+
+[Izumi.finance](https://izumi.finance/) is a multi-chain DeFi protocol providing one-stop DEX-as-a-Service (DaaS) solutions, enabling seamless cross-chain liquidity and trading infrastructure on Flow.
+
+## Bridged USDC[​](#bridged-usdc "Direct link to Bridged USDC")
+
+[Bridged USDC](https://bridge.flow.com/) represents [USDC](https://www.circle.com/usdc) tokens bridged across blockchains for cross-chain use, providing stable liquidity and payment solutions within the Flow ecosystem.
+
+## USDF[​](#usdf "Direct link to USDF")
+
+USDF is a blockchain-backed bank token enhancing payments and providing stable value transfer capabilities within the Flow DeFi ecosystem.
+
+## Pumpflow[​](#pumpflow "Direct link to Pumpflow")
+
+[Pumpflow](https://www.pumpflow.meme/) enables users to launch and verify meme tokens in seconds on the Flow blockchain, providing a streamlined token creation and distribution platform.
+
+## Fixes.world[​](#fixesworld "Direct link to Fixes.world")
+
+[Fixes.world](https://fixes.world/) is an autonomous programmable token universe that allows users to launch, distribute, and trade tokens with advanced automation and governance features.
+
+## Tally[​](#tally "Direct link to Tally")
+
+[Credit card debt](https://www.tally.xyz/) has met its match. Save thousands with our advanced credit line system.
+
+## Securing DeFi on Flow EVM[​](#securing-defi-on-flow-evm "Direct link to Securing DeFi on Flow EVM")
+
+Flow EVM supports secure multi-sig from Safe.Global (formerly Gnosis Safe) or Fireblocks. Both offer robust solutions for
+developers seeking to enhance the security and management of tokenized assets with a focus on institutional-grade practices and scalability.
+
+* [Safe.Global](https://safe.flow.com/)
+* [Fireblocks](https://www.fireblocks.com/)
+
+---
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/defi/index.md)
+
+Last updated on **Dec 1, 2025** by **Brian Doyle**
+
+[Next
+
+Build with Forte ↙](/defi/forte)
+
+###### Rate this page
+
+😞😐😊
+
+Copy as Markdown
+
+* [Why DeFi on Flow?](#why-defi-on-flow)* [Build with Forte](#build-with-forte)* [DeFi Partners](#defi-partners)* [Kittypunch](#kittypunch)* [Trado.one](#tradoone)* [Increment.fi](#incrementfi)* [More.Markets](#moremarkets)* [Sturdy.Finance](#sturdyfinance)* [Ankr](#ankr)* [Sudocat](#sudocat)* [Hitdex](#hitdex)* [Rally](#rally)* [Hype.meme](#hypememe)* [Vaultopolis](#vaultopolis)* [Izumi.finance](#izumifinance)* [Bridged USDC](#bridged-usdc)* [USDF](#usdf)* [Pumpflow](#pumpflow)* [Fixes.world](#fixesworld)* [Tally](#tally)* [Securing DeFi on Flow EVM](#securing-defi-on-flow-evm)
+
+Flow
+
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
+
+Cadence
+
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
+
+Solidity (EVM)
+
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
+
+Community & Support
+
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
+
+Network & Resources
+
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow Foundation. All Rights Reserved.
 
 
 
@@ -346601,7 +347447,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -349014,7 +349860,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -349606,7 +350452,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -349848,6 +350694,76 @@ Copy as Markdown
 
 * [📍 Step 1: Open the "Explore GPTs" section](#-step-1-open-the-explore-gpts-section)* [📍 Step 2: Click "Create a GPT"](#-step-2-click-create-a-gpt)* [📍 Step 3: Walk through the GPT builder](#-step-3-walk-through-the-gpt-builder)
       + [Suggested prompt](#suggested-prompt)* [📍 Step 4: Configure the GPT's name and instructions](#-step-4-configure-the-gpts-name-and-instructions)* [📍 Step 5: Test your GPT](#-step-5-test-your-gpt)* [📍 Step 6: Save and publish (optional)](#-step-6-save-and-publish-optional)* [✅ That's it!](#-thats-it)
+
+Flow
+
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
+
+Cadence
+
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
+
+Solidity (EVM)
+
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
+
+Community & Support
+
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
+
+Network & Resources
+
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow Foundation. All Rights Reserved.
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://developers.flow.com/defi/forte
+
+Build with Forte ↙ | Flow Developer Portal
+
+
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Defi](/defi)* [Build with Forte ↙](/defi/forte)* [DeFi Contracts Mainnet](/defi/defi-contracts-mainnet)* [DeFi Contracts Testnet](/defi/defi-contracts-testnet)* [Cross-chain swaps on Flow EVM](/defi/cross-chain-swaps)* [Add Token To MetaMask](/defi/add-token-to-metamask)* [Band Oracle](/defi/band-oracle)* [Stablecoins & Bridges FAQ](/defi/faq)
+
+* * Build with Forte ↙
+
+# Quickstart
+
+Go to [Forte](/blockchain-development-tutorials/forte)
+
+;
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/defi/forte.md)
+
+Last updated on **Dec 1, 2025** by **Brian Doyle**
+
+[Previous
+
+Defi](/defi)[Next
+
+DeFi Contracts Mainnet](/defi/defi-contracts-mainnet)
 
 Flow
 
@@ -351139,7 +352055,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -354347,7 +355263,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -355209,7 +356125,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -355217,9 +356133,7 @@ Search
 
 * [Ecosystem Index](/ecosystem)* [Developer Support Hub](/ecosystem/developer-support-hub)
 
-    + [Builder Perks](/ecosystem/developer-support-hub/builder-perks)+ [Grants](/ecosystem/developer-support-hub/grants)+ [VCs & Funds](/ecosystem/developer-support-hub/vcs-and-funds)* [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [DeFi & Liquidity](/ecosystem/defi-liquidity)
-
-                * [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
+    + [Builder Perks](/ecosystem/developer-support-hub/builder-perks)+ [Grants](/ecosystem/developer-support-hub/grants)+ [VCs & Funds](/ecosystem/developer-support-hub/vcs-and-funds)* [Flow Block Explorers](/ecosystem/block-explorers)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Wallets](/ecosystem/wallets)* [Faucets](/ecosystem/faucets)* [Bridges](/ecosystem/bridges)* [Collectibles & NFTs](/ecosystem/collectibles)* [Community Projects](/ecosystem/projects)* [Auditors](/ecosystem/auditors)
 
 * * Developer Support Hub
 
@@ -355348,7 +356262,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -358952,7 +359866,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -359277,7 +360191,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -359593,7 +360507,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -370103,7 +371017,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -373988,7 +374902,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -381329,7 +382243,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -381892,7 +382806,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -382479,7 +383393,7 @@ _33
 
 ### Price oracle[​](#price-oracle "Direct link to Price oracle")
 
-A price [oracle](https://developers.flow.com/ecosystem/defi-liquidity/defi-contracts-mainnet#oracles) provides price data for assets with a consistent denomination. All prices are returned in the same unit and will return `nil` rather than reverting in the event that a price is unavailable. Prices are indexed by [Cadence type](https://cadence-lang.org/docs/language/types-and-type-system/type-safety), requiring a specific Cadence-based token type for which to serve prices, as opposed to looking up an asset by a generic address.
+A price [oracle](https://developers.flow.com/defi/defi-contracts-mainnet#oracles) provides price data for assets with a consistent denomination. All prices are returned in the same unit and will return `nil` rather than reverting in the event that a price is unavailable. Prices are indexed by [Cadence type](https://cadence-lang.org/docs/language/types-and-type-system/type-safety), requiring a specific Cadence-based token type for which to serve prices, as opposed to looking up an asset by a generic address.
 
 ![price oracle](/assets/images/price-oracle-a63a48489d0e323d944097248db5f567.png)
 
@@ -383296,7 +384210,7 @@ Now that you have completed this tutorial, you can:
 
 [Edit this page](https://github.com/onflow/docs/tree/main/docs/blockchain-development-tutorials/forte/flow-actions/intro-to-flow-actions.md)
 
-Last updated on **Nov 19, 2025** by **Brian Doyle**
+Last updated on **Dec 1, 2025** by **Brian Doyle**
 
 [Previous
 
@@ -383358,7 +384272,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -385861,7 +386775,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -388901,7 +389815,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -389438,7 +390352,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -393044,7 +393958,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -394228,7 +395142,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -395720,7 +396634,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -396339,7 +397253,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -398008,7 +398922,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -398923,7 +399837,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -399047,7 +399961,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -399635,7 +400549,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -401164,7 +402078,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -404694,7 +405608,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -408146,7 +409060,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -408333,7 +409247,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -409255,7 +410169,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -410593,7 +411507,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -416713,7 +417627,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -420399,7 +421313,7 @@ Copyright © 2025 Flow, Inc. Built with Docusaurus.
 
 
 
-# Source: https://developers.flow.com
+# Source: https://developers.flow.com/
 
 Flow Developer Portal
 
@@ -420409,135 +421323,51 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
 Search
 
-# Better apps deserve better blockchains
+# Turn decentralized finance into personal finance.
 
-**Cadence** for whats next. **Solidity** for what you've got. On Flow, both run natively with no tricks and no rewrites. **Build the next killer app**.
+**Flow** is the leading consumer layer-one network, trusted by 1 million monthly active users. Chosen by top global brands like NBA, Disney, PayPal, NFL, and Ticketmaster, it is the foundation for the next generation of consumer finance: **global, always-on, and in real-time.**
 
-[Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)Start with Cadence
+[Automate DeFi](/blockchain-development-tutorials/forte)Quickstart
 
-### Cadence
+[![builder-credits](/images/icons/builder-credits.svg)
 
-Building something new? Start with Cadence — built for apps, automation, and secure upgrades from day one.
+Create revolutionary consumer DeFi experiences](/defi)[![flow-cadence](/images/icons/flow-cadence.svg)
 
-[![why-flow](/images/icons/why-flow.svg)
+Create apps that evolve without a proxy contract](/blockchain-development-tutorials/cadence/cadence-advantages)[![flow-client-library](/images/icons/flow-client-library.svg)
 
-Automate DeFi with actions and scheduled transactions](/blockchain-development-tutorials/forte)[![flow-cadence](/images/icons/flow-cadence.svg)
+Build faster with React components and hooks](/build/tools/react-sdk)[![evm-on-flow](/images/icons/evm-on-flow.svg)
 
-Create apps that evolve without a proxy contract](/blockchain-development-tutorials/cadence/cadence-advantages)[![flow-cadence](/images/icons/flow-cadence.svg)
-
-Build faster with React components and hooks](/build/tools/react-sdk)
-
-### Solidity
-
-Already writing Solidity? Bring it over unchanged — then level it up with Flow's MEV-resistance, VRF, and cross-VM composability.
-
-[![evm-on-flow](/images/icons/evm-on-flow.svg)
-
-Deploy Solidity apps on Flow without code changes](/build/evm/quickstart)[![random](/images/icons/random.svg)
-
-Add secure randomness with native VRF in 3 lines](../blockchain-development-tutorials/native-vrf/vrf-in-solidity)[![batched-evm-transactions](/images/icons/batched-evm-transactions.svg)
-
-Simplify user experience with batched transactions](../blockchain-development-tutorials/cross-vm-apps)
+Deploy Solidity apps on Flow without code changes](/build/evm/quickstart)
 
 [## Why Flow?
 
-Flow supports both **Cadence** and **Solidity**, scales to millions of users without sharding, and provides MEV resistance with ultra-low fees. Built for consumer apps.
+With **600% YoY TVL growth** to $100M+ and the **safest risk-adjusted yields** for consumers in DeFi, Flow is uniquely positioned to power the future of Consumer DeFi.
 
 Learn more](/build/flow)
-
-## Try Cadence Live
-
-Flow token account balanceAccount storage limit and usageOnchain counter current countBalance of custom tokenNBA Top Shot and NFL All Day
-
-![Flow](/images/logos/flow-runner-flow-icon.svg)
-
-Open
-
-Run
-
-Share
-
-Download
-
-Settings
-
-Flow token account balance
-
-1
-
-2
-
-3
-
-4
-
-5
-
-6
-
-7
-
-8
-
-9
-
-10
-
-11
-
-12
-
-13
-
-import FungibleToken from 0xf233dcee88fe0abe
-
-// Returns the balance of the stored Vault at
-
-// the given address if exists, otherwise nil
-
-// Run this with this address: 0xfeb88a0fcc175a3d
-
-access(all) fun main(address: Address): UFix64? {
-
-let path = StoragePath(identifier: "flowTokenVault")
-
-return getAuthAccount<auth(BorrowValue) &Account>(address).storage.borrow<{FungibleToken.Vault}>(
-
-from: path!
-
-)?.balance ?? nil
-
-}
-
-Hover to load interactive examples
-
-0 Errors
-
-Environment: Flow Mainnet
 
 ![tools](/images/icons/flow-tools.svg)
 
 ## Tools
 
-[![faucet](/images/icons/Faucet.svg)
+[![flow-client-library](/images/icons/flow-client-library.svg)
+
+### React SDK
+
+Build a modern frontend for your Flow Cadence app using React hooks and components with `@onflow/react-sdk`. Easily access user accounts, sign transactions, and more.](/blockchain-development-tutorials/integrations)[![faucet](/images/icons/Faucet.svg)
 
 ### Get 100k testnet $FLOW
 
-Other chains drip testnet tokens, Flow gives you 100k $FLOW to play with.](https://faucet.flow.com/fund-account)[![tools](/images/icons/flow-tools.svg)
+Other chains drip testnet tokens, the Flow faucet gives you 100k $FLOW to play with.](https://faucet.flow.com/fund-account)[![tools](/images/icons/flow-tools.svg)
 
 ### Build and ship with Flow CLI
 
-Stop wrestling with setup and boilerplate. Flow CLI lets you initialize projects, manage accounts and contracts, send transactions, and query chain state from one simple tool. Test locally, deploy to testnet or mainnet, and keep dependencies in sync.](/build/tools/flow-cli)[![flow-client-library](/images/icons/flow-client-library.svg)
-
-### Use your favorite platform and tools
-
-Connect with Thirdweb, Crossmint, Dynamic, Privy, and other popular blockchain infrastructure platforms to enhance user experience and reduce development complexity.](/blockchain-development-tutorials/integrations)
+Stop wrestling with setup and boilerplate. Flow CLI lets you initialize projects, manage accounts and contracts, send transactions, and query chain state from one simple tool. Test locally, deploy to testnet or mainnet, and keep dependencies in sync.](/build/tools/flow-cli)
 
 ![grow](/images/icons/flow-grow.svg)
 
@@ -420551,37 +421381,41 @@ Access builder perks, grants, and VCs and funds. Get comprehensive support inclu
 
 ### Dev Office Hours
 
-Join our weekly developer office hours to get direct support from the Flow team and connect with other builders.](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)[![access-incredible-ip](/images/icons/access-incredible-ip.svg)
+Join our weekly developer office hours to get direct support from the Flow team and connect with other builders.](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)[![flow-client-library](/images/icons/flow-client-library.svg)
 
-### Hackathons and Events
+### Use your favorite platforms
 
-Start building at a hackathon or meet us at an event. Join Flow community events and competitions.](/ecosystem/hackathons-and-events)
+Connect with Thirdweb, Crossmint, Dynamic, Privy, and other popular blockchain infrastructure platforms to enhance user experience and reduce development complexity.](/blockchain-development-tutorials/integrations)
 
-## Browse by Category
+## Browse by category
 
-### Cadence
+[Defi](/defi)
 
-* [Why Flow](/build/flow)* [Differences vs. EVM](/build/cadence/differences-vs-evm)* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Basics](/build/cadence/basics/blocks)* [Writing and Deploying Smart Contracts](/build/cadence/smart-contracts/overview)* [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)* [Guides](/build/cadence/advanced-concepts/account-abstraction)* [Core Smart Contracts](/build/cadence/core-contracts)* [Explore More](/build/cadence/explore-more)
+* [DeFi Contracts Mainnet](/defi/defi-contracts-mainnet)* [DeFi Contracts Testnet](/defi/defi-contracts-testnet)* [Cross-chain Swaps](/defi/cross-chain-swaps)* [Add Token to MetaMask](/defi/add-token-to-metamask)* [Band Oracle](/defi/band-oracle)* [FAQ](/defi/faq)
 
-### EVM
+[Tutorials](/tutorials)
 
-* [EVM Quickstart](/evm/quickstart)* [How it Works](/evm/how-it-works)* [Using Flow EVM](/evm/using)* [Network Information](/evm/networks)* [Fees](/evm/fees)* [Accounts](/evm/accounts)* [Cross-chain Bridges](/ecosystem/bridges)* [Faucets](/ecosystem/faucets)* [Block Explorers](/ecosystem/block-explorers)* [Guides](/evm/guides)
+* [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)* [Token Launch](/blockchain-development-tutorials/token-launch)* [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)* [FlowtoBooth](/blockchain-development-tutorials/flowtobooth)* [Native VRF](/blockchain-development-tutorials/native-vrf)
 
-### Tools
+[Cadence](/build/flow)
 
-* [@onflow/react-sdk](/tools/react-sdk)* [Flow Emulator](/tools/emulator)* [Flow CLI](/tools/flow-cli)* [Cadence VS Code Extension](/tools/vscode-extension)* [Flow Dev Wallet](/tools/flow-dev-wallet)* [Client Tools](/tools/clients)* [Error Codes](/tools/error-codes)* [Wallet Provider Spec](/tools/wallet-provider-spec)* [Tools](/tools)
+* [Differences vs. EVM](/build/cadence/differences-vs-evm)* [Getting Started](/blockchain-development-tutorials/cadence/getting-started/smart-contract-interaction)* [Basics](/build/cadence/basics/blocks)* [Writing and Deploying Smart Contracts](/build/cadence/smart-contracts/overview)* [Advanced Concepts](/build/cadence/advanced-concepts/account-abstraction)* [Guides](/build/cadence/advanced-concepts/account-abstraction)* [Core Smart Contracts](/build/cadence/core-contracts)* [Explore More](/build/cadence/explore-more)
 
-### Networks
+[EVM](/evm/quickstart)
 
-* [Flow Networks](/protocol/flow-networks)* [Mainnet](/protocol/flow-networks/accessing-mainnet)* [Testnet](/protocol/flow-networks/accessing-testnet)* [Network Architecture](/protocol/network-architecture)* [Staking and Epochs](/protocol/staking)* [Node Ops](/protocol/node-ops)* [Accessing Data](/protocol/access-onchain-data)* [Governance](/protocol/governance)* [Flow Port](/protocol/flow-port)
+* [How it Works](/evm/how-it-works)* [Using Flow EVM](/evm/using)* [Network Information](/evm/networks)* [Fees](/evm/fees)* [Accounts](/evm/accounts)* [Cross-chain Bridges](/ecosystem/bridges)* [Faucets](/ecosystem/faucets)* [Block Explorers](/ecosystem/block-explorers)* [Guides](/evm/guides)
 
-### Ecosystem
+[Tools](/tools/react-sdk)
 
-* [Ecosystem](/ecosystem)* [Wallets](/ecosystem/wallets)* [Flow Block Explorers](/ecosystem/block-explorers)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [DeFi & Liquidity](/ecosystem/defi-liquidity)* [Bridges](/ecosystem/bridges)* [Community Projects](/ecosystem/projects)* [Builder Perks](/ecosystem/builder-perks)* [VCs & Funds](/ecosystem/vcs-and-funds)* [Faucets](/ecosystem/faucets)* [Grants](/ecosystem/grants)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Auditors](/ecosystem/auditors)
+* [Flow Emulator](/tools/emulator)* [Flow CLI](/tools/flow-cli)* [Cadence VS Code Extension](/tools/vscode-extension)* [Flow Dev Wallet](/tools/flow-dev-wallet)* [Client Tools](/tools/clients)* [Error Codes](/tools/error-codes)* [Wallet Provider Spec](/tools/wallet-provider-spec)* [Tools](/tools)
 
-### Tutorials
+[Networks](/protocol/flow-networks)
 
-* [Tutorials](/tutorials)* [Use AI To Build On Flow](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Gasless Transactions](/blockchain-development-tutorials/gasless-transactions)* [Token Launch](/blockchain-development-tutorials/token-launch)* [Cross-VM Apps](/blockchain-development-tutorials/cross-vm-apps)* [FlowtoBooth](/blockchain-development-tutorials/flowtobooth)* [Native VRF](/blockchain-development-tutorials/native-vrf)
+* [Mainnet](/protocol/flow-networks/accessing-mainnet)* [Testnet](/protocol/flow-networks/accessing-testnet)* [Network Architecture](/protocol/network-architecture)* [Staking and Epochs](/protocol/staking)* [Node Ops](/protocol/node-ops)* [Accessing Data](/protocol/access-onchain-data)* [Governance](/protocol/governance)* [Flow Port](/protocol/flow-port)
+
+[Ecosystem](/ecosystem)
+
+* [Wallets](/ecosystem/wallets)* [Flow Block Explorers](/ecosystem/block-explorers)* [Data Indexers](/ecosystem/data-indexers)* [Developer Profile](/ecosystem/developer-profile)* [Bridges](/ecosystem/bridges)* [Community Projects](/ecosystem/projects)* [Builder Perks](/ecosystem/builder-perks)* [VCs & Funds](/ecosystem/vcs-and-funds)* [Faucets](/ecosystem/faucets)* [Grants](/ecosystem/grants)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Auditors](/ecosystem/auditors)
 
 Flow
 
@@ -420734,7 +421568,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -421211,6 +422045,174 @@ More
 * [Blog](https://flow.com/blog)
 
 Copyright © 2025 Flow, Inc. Built with Docusaurus.
+
+
+
+
+---
+
+------------ FILE_DIVIDER ------------
+
+---
+
+
+
+
+# Source: https://developers.flow.com/defi/defi-contracts-testnet
+
+DeFi Contracts on Flow Testnet | Flow Developer Portal
+
+
+
+LLM Notice: This documentation site supports content negotiation for AI agents. Request any page with Accept: text/markdown or Accept: text/plain header to receive Markdown instead of HTML. Alternatively, append ?format=md to any URL. All markdown files are available at /md/ prefix paths. For all content in one file, visit /llms-full.txt
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+
+Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
+
+Search
+
+* [Defi](/defi)* [Build with Forte ↙](/defi/forte)* [DeFi Contracts Mainnet](/defi/defi-contracts-mainnet)* [DeFi Contracts Testnet](/defi/defi-contracts-testnet)* [Cross-chain swaps on Flow EVM](/defi/cross-chain-swaps)* [Add Token To MetaMask](/defi/add-token-to-metamask)* [Band Oracle](/defi/band-oracle)* [Stablecoins & Bridges FAQ](/defi/faq)
+
+* * DeFi Contracts Testnet
+
+On this page
+
+# DeFi Contracts on Flow Testnet
+
+Flow is a Layer 1 blockchain that supports EVM equivalency, offering two environments Flow EVM and Flow Cadence. Fungible and non-fungible tokens can seamlessly transfer between these environments via the native VM token bridge. As a result, many tokens have both a Flow EVM mainnet contract address and a Flow Cadence mainnet contract address, allowing developers to choose their preferred environment.
+
+Below is a list of commonly used DeFi contracts on Flow Testnet:
+
+[Switch to DeFi Contracts on Mainnet](/defi/defi-contracts-mainnet)
+
+## Stablecoins & Wrapped Assets[​](#stablecoins--wrapped-assets "Direct link to Stablecoins & Wrapped Assets")
+
+#### Flow EVM Testnet[​](#flow-evm-testnet "Direct link to Flow EVM Testnet")
+
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Token EVM Testnet Address How to Get|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | FLOW (native, non-erc20) — [Faucet](https://faucet.flow.com/fund-account)| [WFLOW](https://evm-testnet.flowscan.io/address/0xd3bF53DAC106A0290B0483EcBC89d40FcC961f3e) `0xd3bF53DAC106A0290B0483EcBC89d40FcC961f3e` [Swap](https://flowswap.io/swap?chain=flow-testnet&inputCurrency=NATIVE&outputCurrency=0xd3bF53DAC106A0290B0483EcBC89d40FcC961f3e)| [MOET](https://evm-testnet.flowscan.io/address/0x51f5cc5f50afb81e8f23c926080fa38c3024b238) `0x51f5cc5f50afb81e8f23c926080fa38c3024b238` [Swap](https://flowswap.io/swap?chain=flow-testnet&inputCurrency=NATIVE&outputCurrency=0x51F5cC5f50afB81e8F23C926080FA38C3024b238)| [MockUSDC](https://evm-testnet.flowscan.io/address/0xd431955D55a99EF69BEb96BA34718d0f9fBc91b1) `0xd431955D55a99EF69BEb96BA34718d0f9fBc91b1` [Swap](https://flowswap.io/swap?chain=flow-testnet&inputCurrency=NATIVE&outputCurrency=0xd431955D55a99EF69BEb96BA34718d0f9fBc91b1)| [mUSDC](https://evm-testnet.flowscan.io/address/0x4154d5B0E2931a0A1E5b733f19161aa7D2fc4b95) `0x4154d5B0E2931a0A1E5b733f19161aa7D2fc4b95` [Swap](https://flowswap.io/swap?chain=flow-testnet&inputCurrency=NATIVE&outputCurrency=0x4154d5B0E2931a0A1E5b733f19161aa7D2fc4b95)| [USDf](https://evm-testnet.flowscan.io/address/0xd7d43ab7b365f0d0789aE83F4385fA710FfdC98F) `0xd7d43ab7b365f0d0789aE83F4385fA710FfdC98F` [Swap](https://flowswap.io/swap?chain=flow-testnet&inputCurrency=NATIVE&outputCurrency=0xd7d43ab7b365f0d0789aE83F4385fA710FfdC98F)| [USD Flow](https://evm-testnet.flowscan.io/address/0xf2E5A325f7D678DA511E66B1c0Ad7D5ba4dF93D3) `0xf2E5A325f7D678DA511E66B1c0Ad7D5ba4dF93D3` —|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [USDC.e](https://evm-testnet.flowscan.io/address/0x9B7550D337bB449b89C6f9C926C3b976b6f4095b) `0x9B7550D337bB449b89C6f9C926C3b976b6f4095b` —|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [ankrFLOW](https://evm-testnet.flowscan.io/address/0xe132751AB5A14ac0bD3Cb40571a9248Ee7a2a9EA) `0xe132751AB5A14ac0bD3Cb40571a9248Ee7a2a9EA` —|  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [ankrFLOWEVM](https://evm-testnet.flowscan.io/address/0x8E3DC6E937B560ce6a1Aaa78AfC775228969D16c) `0x8E3DC6E937B560ce6a1Aaa78AfC775228969D16c` —|  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [ETHf](https://evm-testnet.flowscan.io/address/0x059A77239daFa770977DD9f1E98632C3E4559848) `0x059A77239daFa770977DD9f1E98632C3E4559848` [Mint](https://evm-testnet.flowscan.io/address/0x059A77239daFa770977DD9f1E98632C3E4559848?tab=read_write_contract#0x40c10f19)| [BTCf](https://evm-testnet.flowscan.io/address/0x208d09d2a6Dd176e3e95b3F0DE172A7471C5B2d6) `0x208d09d2a6Dd176e3e95b3F0DE172A7471C5B2d6` [Mint](https://evm-testnet.flowscan.io/address/0x208d09d2a6Dd176e3e95b3F0DE172A7471C5B2d6?tab=read_write_contract#0x40c10f19)| [cbBTC](https://evm-testnet.flowscan.io/address/0x30F44C64725727F2001E6C1eF6e6CE9c7aB91dC3) `0x30F44C64725727F2001E6C1eF6e6CE9c7aB91dC3` [Mint](https://evm-testnet.flowscan.io/address/0x30F44C64725727F2001E6C1eF6e6CE9c7aB91dC3?tab=read_write_contract#0x40c10f19) | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+
+#### Flow Cadence Testnet[​](#flow-cadence-testnet "Direct link to Flow Cadence Testnet")
+
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Token Cadence Testnet Address Cadence Contract Name|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [FLOW](https://testnet.flowscan.io/contract/A.7e60df042a9c0868.FlowToken?tab=deployments) `0x7e60df042a9c0868` `FlowToken`| [MOET](https://testnet.flowscan.io/contract/A.d27920b6384e2a78.MOET?tab=deployments) `0xd27920b6384e2a78` `MOET`| [USDC](https://testnet.flowscan.io/contract/A.dfc20aee650fcbdf.EVMVMBridgedToken_d431955d55a99ef69beb96ba34718d0f9fbc91b1?tab=deployments) `0xdfc20aee650fcbdf` `EVMVMBridgedToken_d431955d55a99ef69beb96ba34718d0f9fbc91b1`| [mUSDC](https://testnet.flowscan.io/contract/A.dfc20aee650fcbdf.EVMVMBridgedToken_4154d5b0e2931a0a1e5b733f19161aa7d2fc4b95?tab=deployments) `0xdfc20aee650fcbdf` `EVMVMBridgedToken_4154d5b0e2931a0a1e5b733f19161aa7d2fc4b95`| [USDF (Mock)](https://testnet.flowscan.io/contract/A.dfc20aee650fcbdf.EVMVMBridgedToken_d7d43ab7b365f0d0789ae83f4385fa710ffdc98f?tab=deployments) `0xdfc20aee650fcbdf` `EVMVMBridgedToken_d7d43ab7b365f0d0789ae83f4385fa710ffdc98f`| [USDF (PYUSD)](https://testnet.flowscan.io/contract/A.dfc20aee650fcbdf.EVMVMBridgedToken_f2e5a325f7d678da511e66b1c0ad7d5ba4df93d3?tab=deployments) `0xdfc20aee650fcbdf` `EVMVMBridgedToken_f2e5a325f7d678da511e66b1c0ad7d5ba4df93d3`| [USDC.e (Celer)](https://testnet.flowscan.io/contract/A.dfc20aee650fcbdf.EVMVMBridgedToken_9b7550d337bb449b89c6f9c926c3b976b6f4095b?tab=deployments) `0xdfc20aee650fcbdf` `EVMVMBridgedToken_9b7550d337bb449b89c6f9c926c3b976b6f4095b`| [ankrFLOWEVM](https://testnet.flowscan.io/contract/A.dfc20aee650fcbdf.EVMVMBridgedToken_8e3dc6e937b560ce6a1aaa78afc775228969d16c?tab=deployments) `0xdfc20aee650fcbdf` `EVMVMBridgedToken_8e3dc6e937b560ce6a1aaa78afc775228969d16c`| [WETH](https://testnet.flowscan.io/contract/A.dfc20aee650fcbdf.EVMVMBridgedToken_059a77239dafa770977dd9f1e98632c3e4559848?tab=deployments) `0xdfc20aee650fcbdf` `EVMVMBridgedToken_059a77239dafa770977dd9f1e98632c3e4559848`| [WBTC](https://testnet.flowscan.io/contract/A.dfc20aee650fcbdf.EVMVMBridgedToken_208d09d2a6dd176e3e95b3f0de172a7471c5b2d6?tab=deployments) `0xdfc20aee650fcbdf` `EVMVMBridgedToken_208d09d2a6dd176e3e95b3f0de172a7471c5b2d6`| [cbBTC](https://testnet.flowscan.io/contract/A.dfc20aee650fcbdf.EVMVMBridgedToken_30f44c64725727f2001e6c1ef6e6ce9c7ab91dc3?tab=deployments) `0xdfc20aee650fcbdf` `EVMVMBridgedToken_30f44c64725727f2001e6c1ef6e6ce9c7ab91dc3` | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+
+## Vaults[​](#vaults "Direct link to Vaults")
+
+#### Flow EVM Testnet[​](#flow-evm-testnet-1 "Direct link to Flow EVM Testnet")
+
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Contract Address|  |  |  |  | | --- | --- | --- | --- | | [MockTauVault](https://evm-testnet.flowscan.io/address/0x72104434BEc686B47a72bCa9b998624238BD2Ffb) `0x72104434BEc686B47a72bCa9b998624238BD2Ffb`| [MockYieldVault](https://evm-testnet.flowscan.io/address/0x217aAC9594EcB6d3f6667A214CF579dd29ce78dd) `0x217aAC9594EcB6d3f6667A214CF579dd29ce78dd` | | | | | |
+
+## AMMs & DEXs[​](#amms--dexs "Direct link to AMMs & DEXs")
+
+#### Flow EVM Testnet[​](#flow-evm-testnet-2 "Direct link to Flow EVM Testnet")
+
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Contract EVM Testnet Address|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [UniswapV2Factory (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x7d726261FB76B264fc20eA1f19D900D760136566) `0x7d726261FB76B264fc20eA1f19D900D760136566`| [UniswapV2Router02 (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x524E1291c109BE27FDE48De97cAf0B3c0F02A68f) `0x524E1291c109BE27FDE48De97cAf0B3c0F02A68f`| [UniswapV2Pair (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x21E3aa01561d7D869785aAedB14130C5807C5A12) `0x21E3aa01561d7D869785aAedB14130C5807C5A12`| [UniswapV3Factory (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x92657b195e22b69E4779BBD09Fa3CD46F0CF8e39) `0x92657b195e22b69E4779BBD09Fa3CD46F0CF8e39`| [NonfungiblePositionManager (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x8b9F96390EC35d5859937c7c5D68Ff6D5CFC312f) `0x8b9F96390EC35d5859937c7c5D68Ff6D5CFC312f`| [SwapRouter02 (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x2Db6468229F6fB1a77d248Dbb1c386760C257804) `0x2Db6468229F6fB1a77d248Dbb1c386760C257804`| [QuoterV2 (FlowSwap)](https://testnet.flowscan.io/evm/contract/0xA1e0E4CCACA34a738f03cFB1EAbAb16331FA3E2c) `0xA1e0E4CCACA34a738f03cFB1EAbAb16331FA3E2c`| [V3Migrator (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x00a101726ff770cd8ed53E8376b9440Bad40CAd9) `0x00a101726ff770cd8ed53E8376b9440Bad40CAd9`| [UniswapV3Staker (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x04400857ad69EaA7dd6fEF1C329E80E50BD30b76) `0x04400857ad69EaA7dd6fEF1C329E80E50BD30b76`| [TickLens (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x36D9bDCbA840F5bcb95EE7bD54a86808aef6581F) `0x36D9bDCbA840F5bcb95EE7bD54a86808aef6581F`| [NFTDescriptor (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x6982D5Cb80Cd7E2cb7C0d0B8452841471Bc84Bc2) `0x6982D5Cb80Cd7E2cb7C0d0B8452841471Bc84Bc2`| [v3\_nft\_position\_descriptor (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x61f4e983A72d9BD8429154982A3d9fCF3A1D98d0) `0x61f4e983A72d9BD8429154982A3d9fCF3A1D98d0`| [TransparentUpgradeableProxy (FlowSwap)](https://testnet.flowscan.io/evm/contract/0xE0895150a7c84e8fB9fecCE72F4C80c130C80fDa) `0xE0895150a7c84e8fB9fecCE72F4C80c130C80fDa`| [UniswapV3Pool (FlowSwap)](https://testnet.flowscan.io/evm/contract/0xa4Db57e3d3c6674FA02a2f3a667d3C22Fe17efF4) `0xa4Db57e3d3c6674FA02a2f3a667d3C22Fe17efF4`| [UniversalRouter (FlowSwap)](https://testnet.flowscan.io/evm/contract/0xB685ab04Dfef74c135A2ed4003441fF124AFF9a0) `0xB685ab04Dfef74c135A2ed4003441fF124AFF9a0`| [Permit2 (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x000000000022D473030F116dDEE9F6B43aC78BA3) `0x000000000022D473030F116dDEE9F6B43aC78BA3`| [FusionXInterfaceMulticall (FlowSwap)](https://testnet.flowscan.io/evm/contract/0x02b9B840CDCEe84510a02cc85f351CAaD41f46CE) `0x02b9B840CDCEe84510a02cc85f351CAaD41f46CE`| [proxy\_admin (FlowSwap)](https://testnet.flowscan.io/evm/contract/0xf4011F45A666dC7eC54445a710c3aae735F7E890) `0xf4011F45A666dC7eC54445a710c3aae735F7E890`| [StableKittyFactoryNG (KittyPunch)](https://evm-testnet.flowscan.io/address/0x0699C35C0104e478f510531F5Dfc3F9313ae49D1) `0x0699C35C0104e478f510531F5Dfc3F9313ae49D1`| [TwoKittyFactory (KittyPunch)](https://evm-testnet.flowscan.io/address/0xeaa5949471C7B31ae97D3a52483028aE595E8e83) `0xeaa5949471C7B31ae97D3a52483028aE595E8e83`| [TriKittyFactory (KittyPunch)](https://evm-testnet.flowscan.io/address/0x62aC6e05Bac04702bF744106499F72f200297121) `0x62aC6e05Bac04702bF744106499F72f200297121`| [KittyRouterNgPoolsOnly (KittyPunch)](https://evm-testnet.flowscan.io/address/0x70e8C797f698De61787A7275628713077723694) `0x70e8C797f698De61787A7275628713077723694`| [PunchSwapV2Router02 (KittyPunch)](https://evm-testnet.flowscan.io/address/0xeD53235cC3E9d2d464E9c408B95948836648870B) `0xeD53235cC3E9d2d464E9c408B95948836648870B`| [PunchSwapV2Factory (KittyPunch)](https://evm-testnet.flowscan.io/address/0x0f6C2EF40FA42B2F0E0a9f5987b2f3F8Af3C173f) `0x0f6C2EF40FA42B2F0E0a9f5987b2f3F8Af3C173f` | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+
+#### Flow Cadence Testnet[​](#flow-cadence-testnet-1 "Direct link to Flow Cadence Testnet")
+
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Contract Cadence Testnet Address [CLI](https://developers.flow.com/build/tools/flow-cli/dependency-manager)|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | [StableSwapFactory (IncrementFi)](https://testnet.flowscan.io/contract/A.6ca93d49c45a249f.StableSwapFactory?tab=deployments) `0x6ca93d49c45a249f` | [SwapFactory (IncrementFi)](https://testnet.flowscan.io/contract/A.6ca93d49c45a249f.SwapFactory?tab=deployments) `0x6ca93d49c45a249f` | [SwapPair (IncrementFi)](https://testnet.flowscan.io/contract/A.7afd587a5d5e2efe.SwapPair?tab=deployments) `0x7afd587a5d5e2efe` | [SwapConfig (IncrementFi)](https://testnet.flowscan.io/contract/A.8d5b9dd833e176da.SwapConfig?tab=deployments) `0x8d5b9dd833e176da` | [SwapError (IncrementFi)](https://testnet.flowscan.io/contract/A.8d5b9dd833e176da.SwapError?tab=deployments) `0x8d5b9dd833e176da` | [SwapInterfaces (IncrementFi)](https://testnet.flowscan.io/contract/A.8d5b9dd833e176da.SwapInterfaces?tab=deployments) `0x8d5b9dd833e176da`  | | | | | | | | | | | | | | | | | | | | |
+
+## Bridges & Cross-Chain Messaging[​](#bridges--cross-chain-messaging "Direct link to Bridges & Cross-Chain Messaging")
+
+|  |  |  |  |
+| --- | --- | --- | --- |
+| Bridge / Protocol Reference Docs|  |  | | --- | --- | | PYUSD -> USDF (LayerZero OFT) [GitHub Repo](https://github.com/onflow/flow-bridge-app?tab=readme-ov-file#evm-testnets) | | | |
+
+## Omni Fungible Tokens (PYUSD → USDF)[​](#omni-fungible-tokens-pyusd--usdf "Direct link to Omni Fungible Tokens (PYUSD → USDF)")
+
+#### Solana Devnet/Testnet[​](#solana-devnettestnet "Direct link to Solana Devnet/Testnet")
+
+|  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Contract Name Contract Address|  |  |  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | | PYUSD Program ID `D6RHLYN7x69Cb5Y7dFj9T9uJrJCVT9Bt1LT71xHf7QqK`| PYUSD Mint `CXk2AMBfi3TwaEL2468s6zP8xq9NxTXjp9gjMgzeUynM`| PYUSD Mint Authority `A6v157j6XFJXwtT5VWXX7uLYTUrxcYGXB8R6rxrgr9hQ`| PYUSD Escrow `FKt7QuGTkFWHVt7RVgtEsh3rVRZMaeCdQBseyQ9Vf1PN`| PYUSD OFT Store `CFVgSccTEXbs3hN7gnCHx3FAa1L5j5StsKABTPuMaAYo` | | | | | | | | | | | |
+
+#### Sepolia Testnet[​](#sepolia-testnet "Direct link to Sepolia Testnet")
+
+|  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Contract Name Contract Address|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | MyOFTAdapter `0x9D6e122780974a917952D70646dD50D2C4f906ae`| PYUSDLocker `0xb077Ef2833Fd7b426146839a86100708c37bfa65`| MyFungi `0x39dBc26413e6eEe40265E4a7ddc5abDC64849781` | | | | | | | |
+
+#### Arbitrum Sepolia Testnet[​](#arbitrum-sepolia-testnet "Direct link to Arbitrum Sepolia Testnet")
+
+|  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Contract Name Contract Address|  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | | MyOFTAdapter `0xDD3BFfb358eF34C2964CB9ce29013D071d59094C`| PYUSDLocker `0x4e2dCCAfe86719B7BFfAc3b1041031dDd07aF5fF`| MyFungi `0x1605B1067Ce0D294786A09368f38063Df50C0e92` | | | | | | | |
+
+## Oracles[​](#oracles "Direct link to Oracles")
+
+#### Flow EVM Testnet[​](#flow-evm-testnet-3 "Direct link to Flow EVM Testnet")
+
+|  |  |  |  |
+| --- | --- | --- | --- |
+| Contract EVM Testnet Address|  |  | | --- | --- | | [Pyth (ERC1967Proxy)](https://evm-testnet.flowscan.io/address/0x2880aB155794e7179c9eE2e38200202908C17B43) `0x2880aB155794e7179c9eE2e38200202908C17B43` | | | |
+
+#### Flow Cadence Testnet[​](#flow-cadence-testnet-2 "Direct link to Flow Cadence Testnet")
+
+|  |  |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Contract Name Flow Cadence Testnet Address [CLI](https://developers.flow.com/build/tools/flow-cli/dependency-manager) Docs|  |  |  |  |  |  |  |  | | --- | --- | --- | --- | --- | --- | --- | --- | | [PublicPriceOracle.cdc (IncrementFi)](https://flowscan.io/contract/A.ec67451f8a58216a.PublicPriceOracle) `0x8232ce4a3aff4e94` [Docs](https://docs.increment.fi/)| [BandOracle.cdc (Band)](https://testnet.flowscan.io/contract/A.9fb6606c300b5051.BandOracle) `0x9fb6606c300b5051` [Docs](/defi/band-oracle) | | | | | | | | | | | |
+
+## Ethereum Attestation Service[​](#ethereum-attestation-service "Direct link to Ethereum Attestation Service")
+
+More information can be found on the Credora docs site for [EAS on Flow](https://credora.gitbook.io/eas-for-flow).
+
+Testnet EAS Explorer: <https://flow-testnet.easscan.credora.io>
+
+|  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Contract Name Flow EVM Testnet Address|  |  |  |  | | --- | --- | --- | --- | | [SchemaRegistry.sol (Ethereum Attestation Service)](https://evm-testnet.flowscan.io/address/0x97900F59828Da4187607Cb8F84f49e3944199d18?tab=contract) `0x97900F59828Da4187607Cb8F84f49e3944199d18`| [EAS.sol (Ethereum Attestation Service)](https://evm-testnet.flowscan.io/address/0xBCF2dA8f82fb032A2474c92Ec5b70C95A83fc0cc?tab=contract) `0xBCF2dA8f82fb032A2474c92Ec5b70C95A83fc0cc` | | | | | |
+
+[Edit this page](https://github.com/onflow/docs/tree/main/docs/defi/defi-contracts-testnet.md)
+
+Last updated on **Dec 1, 2025** by **Brian Doyle**
+
+[Previous
+
+DeFi Contracts Mainnet](/defi/defi-contracts-mainnet)[Next
+
+Cross-chain swaps on Flow EVM](/defi/cross-chain-swaps)
+
+###### Rate this page
+
+😞😐😊
+
+Copy as Markdown
+
+* [Stablecoins & Wrapped Assets](#stablecoins--wrapped-assets)* [Vaults](#vaults)* [AMMs & DEXs](#amms--dexs)* [Bridges & Cross-Chain Messaging](#bridges--cross-chain-messaging)* [Omni Fungible Tokens (PYUSD → USDF)](#omni-fungible-tokens-pyusd--usdf)* [Oracles](#oracles)* [Ethereum Attestation Service](#ethereum-attestation-service)
+
+Flow
+
+* [Build with AI](/blockchain-development-tutorials/use-AI-to-build-on-flow)* [Why Flow](/blockchain-development-tutorials/flow-101)* [Tools](/build/tools)* [Faucet](/ecosystem/faucets)* [Builder Toolkit](/ecosystem/developer-support-hub)
+
+Cadence
+
+* [Quickstart](/blockchain-development-tutorials/cadence/getting-started)* [Build with Forte](/blockchain-development-tutorials/forte)* [Cadence Advantages](/blockchain-development-tutorials/cadence/cadence-advantages)* [React SDK](/build/tools/react-sdk)* [Language Reference](https://cadence-lang.org/)
+
+Solidity (EVM)
+
+* [Quickstart](/build/evm/quickstart)* [Native VRF](/blockchain-development-tutorials/native-vrf)* [Batched Transactions](/blockchain-development-tutorials/cross-vm-apps)* [Network Information](/build/evm/networks)
+
+Community & Support
+
+* [Dev Office Hours](https://calendar.google.com/calendar/u/0/embed?src=c_47978f5cd9da636cadc6b8473102b5092c1a865dd010558393ecb7f9fd0c9ad0@group.calendar.google.com)* [Hackathons and Events](/ecosystem/hackathons-and-events)* [Discord](https://discord.gg/flow)* [GitHub](https://github.com/onflow)* [Careers](https://flow.com/careers)
+
+Network & Resources
+
+* [Network Status](https://status.flow.com/)* [Block Explorer](https://flowscan.io/)* [Flow Port](https://port.flow.com/)* [Flow Website](https://flow.com/)* [Flow Blog](https://flow.com/blog)
+
+Copyright © 2025 Flow Foundation. All Rights Reserved.
 
 
 
@@ -421819,7 +422821,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -427273,7 +428275,7 @@ LLM Notice: This documentation site supports content negotiation for AI agents. 
 
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[Build](/build/flow)[Tutorials](/blockchain-development-tutorials)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
+[![Flow Developer Portal Logo](/img/flow-docs-logo-dark.png)![Flow Developer Portal Logo](/img/flow-docs-logo-light.png)](/)[DeFi](/defi)[Tutorials](/blockchain-development-tutorials)[Build](/build/flow)[Protocol](/protocol/flow-networks)[Ecosystem](/ecosystem)
 
 Sign In[![GitHub]()Github](https://github.com/onflow)[![Discord]()Discord](https://discord.gg/flow)
 
@@ -433059,12 +434061,12 @@ If you have a website and are interested in protecting it in a similar way, you 
 * [How does Cloudflare protect email addresses on website from spammers?](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
 * [Can I sign up for Cloudflare?](https://developers.cloudflare.com/fundamentals/setup/account/create-account/)
 
-Cloudflare Ray ID: **9a6e6f5d899f33ed**
+Cloudflare Ray ID: **9a76a6d7a99aef61**
 •
 
 Your IP:
 Click to reveal
-52.238.24.38
+4.236.158.49
 •
 Performance & security by [Cloudflare](https://www.cloudflare.com/5xx-error-landing)
 
